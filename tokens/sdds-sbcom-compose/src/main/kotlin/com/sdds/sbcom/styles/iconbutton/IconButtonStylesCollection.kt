@@ -49,13 +49,46 @@ public enum class IconButtonStyles(
     IconButtonSize24BgNoModeAccentFilled("IconButton.Size24.BgNo.ModeAccentFilled"),
     IconButtonSize24BgNoModeAccentGrey("IconButton.Size24.BgNo.ModeAccentGrey"),
     IconButtonSize24BgNoModeDangerTint("IconButton.Size24.BgNo.ModeDangerTint"),
+    ;
+
+    /**
+     * Typed API для подбора стиля icon-button
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для icon-button
+ */
+public enum class IconButtonSize {
+    Size48,
+    Size40,
+    Size32,
+    Size24,
+}
+
+/**
+ * Возможные значения свойства bg для icon-button
+ */
+public enum class IconButtonBg {
+    Yes,
+    No,
+}
+
+/**
+ * Возможные значения свойства mode для icon-button
+ */
+public enum class IconButtonMode {
+    AccentFilled,
+    AccentGrey,
+    DangerTint,
 }
 
 /**
  * Возвращает [ButtonStyle] для [IconButtonStyles]
  */
 @Composable
-public fun IconButtonStyles.style(modifyAction: @Composable IconButtonStyleBuilder.() -> Unit = {}): ButtonStyle {
+public fun IconButtonStyles.style(modify: @Composable IconButtonStyleBuilder.() -> Unit = {}): ButtonStyle {
     val builder = when (this) {
         IconButtonStyles.IconButtonSize48ModeAccentFilled -> IconButton.Size48.ModeAccentFilled
         IconButtonStyles.IconButtonSize48ModeAccentGrey -> IconButton.Size48.ModeAccentGrey
@@ -86,5 +119,75 @@ public fun IconButtonStyles.style(modifyAction: @Composable IconButtonStyleBuild
         IconButtonStyles.IconButtonSize24BgNoModeAccentGrey -> IconButton.Size24.BgNo.ModeAccentGrey
         IconButtonStyles.IconButtonSize24BgNoModeDangerTint -> IconButton.Size24.BgNo.ModeDangerTint
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [IconButtonStyles] для icon-button
+ */
+public fun IconButtonStyles.Companion.resolve(
+    size: IconButtonSize = IconButtonSize.Size48,
+    bg: IconButtonBg = IconButtonBg.Yes,
+    mode: IconButtonMode = IconButtonMode.AccentFilled,
+): IconButtonStyles = when {
+    size == IconButtonSize.Size48 && bg == IconButtonBg.Yes && mode ==
+        IconButtonMode.AccentFilled -> IconButtonStyles.IconButtonSize48ModeAccentFilled
+    size == IconButtonSize.Size48 && bg == IconButtonBg.Yes && mode == IconButtonMode.AccentGrey ->
+        IconButtonStyles.IconButtonSize48ModeAccentGrey
+    size == IconButtonSize.Size48 && bg == IconButtonBg.Yes && mode == IconButtonMode.DangerTint ->
+        IconButtonStyles.IconButtonSize48ModeDangerTint
+    size == IconButtonSize.Size48 && bg == IconButtonBg.No && mode == IconButtonMode.AccentFilled ->
+        IconButtonStyles.IconButtonSize48BgNoModeAccentFilled
+    size == IconButtonSize.Size48 && bg == IconButtonBg.No && mode == IconButtonMode.AccentGrey ->
+        IconButtonStyles.IconButtonSize48BgNoModeAccentGrey
+    size == IconButtonSize.Size48 && bg == IconButtonBg.No && mode == IconButtonMode.DangerTint ->
+        IconButtonStyles.IconButtonSize48BgNoModeDangerTint
+    size == IconButtonSize.Size40 && bg == IconButtonBg.Yes && mode ==
+        IconButtonMode.AccentFilled -> IconButtonStyles.IconButtonSize40ModeAccentFilled
+    size == IconButtonSize.Size40 && bg == IconButtonBg.Yes && mode == IconButtonMode.AccentGrey ->
+        IconButtonStyles.IconButtonSize40ModeAccentGrey
+    size == IconButtonSize.Size40 && bg == IconButtonBg.Yes && mode == IconButtonMode.DangerTint ->
+        IconButtonStyles.IconButtonSize40ModeDangerTint
+    size == IconButtonSize.Size40 && bg == IconButtonBg.No && mode == IconButtonMode.AccentFilled ->
+        IconButtonStyles.IconButtonSize40BgNoModeAccentFilled
+    size == IconButtonSize.Size40 && bg == IconButtonBg.No && mode == IconButtonMode.AccentGrey ->
+        IconButtonStyles.IconButtonSize40BgNoModeAccentGrey
+    size == IconButtonSize.Size40 && bg == IconButtonBg.No && mode == IconButtonMode.DangerTint ->
+        IconButtonStyles.IconButtonSize40BgNoModeDangerTint
+    size == IconButtonSize.Size32 && bg == IconButtonBg.Yes && mode ==
+        IconButtonMode.AccentFilled -> IconButtonStyles.IconButtonSize32ModeAccentFilled
+    size == IconButtonSize.Size32 && bg == IconButtonBg.Yes && mode == IconButtonMode.AccentGrey ->
+        IconButtonStyles.IconButtonSize32ModeAccentGrey
+    size == IconButtonSize.Size32 && bg == IconButtonBg.Yes && mode == IconButtonMode.DangerTint ->
+        IconButtonStyles.IconButtonSize32ModeDangerTint
+    size == IconButtonSize.Size32 && bg == IconButtonBg.No && mode == IconButtonMode.AccentFilled ->
+        IconButtonStyles.IconButtonSize32BgNoModeAccentFilled
+    size == IconButtonSize.Size32 && bg == IconButtonBg.No && mode == IconButtonMode.AccentGrey ->
+        IconButtonStyles.IconButtonSize32BgNoModeAccentGrey
+    size == IconButtonSize.Size32 && bg == IconButtonBg.No && mode == IconButtonMode.DangerTint ->
+        IconButtonStyles.IconButtonSize32BgNoModeDangerTint
+    size == IconButtonSize.Size24 && bg == IconButtonBg.Yes && mode ==
+        IconButtonMode.AccentFilled -> IconButtonStyles.IconButtonSize24ModeAccentFilled
+    size == IconButtonSize.Size24 && bg == IconButtonBg.Yes && mode == IconButtonMode.AccentGrey ->
+        IconButtonStyles.IconButtonSize24ModeAccentGrey
+    size == IconButtonSize.Size24 && bg == IconButtonBg.Yes && mode == IconButtonMode.DangerTint ->
+        IconButtonStyles.IconButtonSize24ModeDangerTint
+    size == IconButtonSize.Size24 && bg == IconButtonBg.No && mode == IconButtonMode.AccentFilled ->
+        IconButtonStyles.IconButtonSize24BgNoModeAccentFilled
+    size == IconButtonSize.Size24 && bg == IconButtonBg.No && mode == IconButtonMode.AccentGrey ->
+        IconButtonStyles.IconButtonSize24BgNoModeAccentGrey
+    size == IconButtonSize.Size24 && bg == IconButtonBg.No && mode == IconButtonMode.DangerTint ->
+        IconButtonStyles.IconButtonSize24BgNoModeDangerTint
+    else -> error("Unsupported icon-button style combination")
+}
+
+/**
+ * Возвращает [ButtonStyle] для icon-button
+ */
+@Composable
+public fun IconButtonStyles.Companion.style(
+    size: IconButtonSize = IconButtonSize.Size48,
+    bg: IconButtonBg = IconButtonBg.Yes,
+    mode: IconButtonMode = IconButtonMode.AccentFilled,
+    modify: @Composable IconButtonStyleBuilder.() -> Unit = {},
+): ButtonStyle = resolve(size, bg, mode).style(modify)

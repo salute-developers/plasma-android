@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.tabs.Default
 import com.sdds.sbcom.styles.tabs.TabsFolder
 
 internal object SddsSbcomTabsFolderVariationsCompose : ComposeStyleProvider<TabsStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<TabsStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { TabsFolder.Default.style() },
+            "TabsFolder.Default" to ComposeStyleReference { TabsFolder.Default.style() },
         )
 }

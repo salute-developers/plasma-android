@@ -6,42 +6,175 @@
          "key": "avatar",
          "coreName": "Avatar",
          "styleName": "Avatar",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-72",
+                  "size-64",
+                  "size-56",
+                  "size-44",
+                  "size-40",
+                  "size-36",
+                  "size-32",
+                  "size-26",
+                  "size-24"
+               ],
+               "defaultValue": "size-72"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.avatar",
+            "stylesClassName": "AvatarStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.avatar.AvatarStyles",
+            "receiverClassName": "AvatarStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.avatar.AvatarStyles.Companion",
+            "returnTypeName": "AvatarStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.AvatarStyle",
+            "modifyReceiverTypeName": "AvatarStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.AvatarStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AvatarSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.avatar.AvatarSize",
+                  "defaultValue": {
+                     "value": "size-72",
+                     "codeName": "Size72"
+                  },
+                  "values": [
+                     {
+                        "value": "size-72",
+                        "codeName": "Size72"
+                     },
+                     {
+                        "value": "size-64",
+                        "codeName": "Size64"
+                     },
+                     {
+                        "value": "size-56",
+                        "codeName": "Size56"
+                     },
+                     {
+                        "value": "size-44",
+                        "codeName": "Size44"
+                     },
+                     {
+                        "value": "size-40",
+                        "codeName": "Size40"
+                     },
+                     {
+                        "value": "size-36",
+                        "codeName": "Size36"
+                     },
+                     {
+                        "value": "size-32",
+                        "codeName": "Size32"
+                     },
+                     {
+                        "value": "size-26",
+                        "codeName": "Size26"
+                     },
+                     {
+                        "value": "size-24",
+                        "codeName": "Size24"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "size-72",
-               "composeReference": "Avatar.Size72"
+               "composeReference": "Avatar.Size72",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-72"
+                  }
+               ]
             },
             {
                "name": "size-64",
-               "composeReference": "Avatar.Size64"
+               "composeReference": "Avatar.Size64",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-64"
+                  }
+               ]
             },
             {
                "name": "size-56",
-               "composeReference": "Avatar.Size56"
+               "composeReference": "Avatar.Size56",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-56"
+                  }
+               ]
             },
             {
                "name": "size-44",
-               "composeReference": "Avatar.Size44"
+               "composeReference": "Avatar.Size44",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-44"
+                  }
+               ]
             },
             {
                "name": "size-40",
-               "composeReference": "Avatar.Size40"
+               "composeReference": "Avatar.Size40",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  }
+               ]
             },
             {
                "name": "size-36",
-               "composeReference": "Avatar.Size36"
+               "composeReference": "Avatar.Size36",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-36"
+                  }
+               ]
             },
             {
                "name": "size-32",
-               "composeReference": "Avatar.Size32"
+               "composeReference": "Avatar.Size32",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  }
+               ]
             },
             {
                "name": "size-26",
-               "composeReference": "Avatar.Size26"
+               "composeReference": "Avatar.Size26",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-26"
+                  }
+               ]
             },
             {
                "name": "size-24",
-               "composeReference": "Avatar.Size24"
+               "composeReference": "Avatar.Size24",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  }
+               ]
             }
          ]
       },
@@ -49,26 +182,233 @@
          "key": "indicator",
          "coreName": "Indicator",
          "styleName": "AvatarIndicator",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-14",
+                  "size-12",
+                  "size-10",
+                  "size-8",
+                  "size-6"
+               ],
+               "defaultValue": "size-14"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.AvatarIndicator",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorStyles.AvatarIndicator",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "AvatarIndicator",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IndicatorAvatarIndicatorSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorAvatarIndicatorSize",
+                  "defaultValue": {
+                     "value": "size-14",
+                     "codeName": "Size14"
+                  },
+                  "values": [
+                     {
+                        "value": "size-14",
+                        "codeName": "Size14"
+                     },
+                     {
+                        "value": "size-12",
+                        "codeName": "Size12"
+                     },
+                     {
+                        "value": "size-10",
+                        "codeName": "Size10"
+                     },
+                     {
+                        "value": "size-8",
+                        "codeName": "Size8"
+                     },
+                     {
+                        "value": "size-6",
+                        "codeName": "Size6"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "size-14",
-               "composeReference": "AvatarIndicator.Size14"
+               "composeReference": "AvatarIndicator.Size14",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-14"
+                  }
+               ]
             },
             {
                "name": "size-12",
-               "composeReference": "AvatarIndicator.Size12"
+               "composeReference": "AvatarIndicator.Size12",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-12"
+                  }
+               ]
             },
             {
                "name": "size-10",
-               "composeReference": "AvatarIndicator.Size10"
+               "composeReference": "AvatarIndicator.Size10",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-10"
+                  }
+               ]
             },
             {
                "name": "size-8",
-               "composeReference": "AvatarIndicator.Size8"
+               "composeReference": "AvatarIndicator.Size8",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-8"
+                  }
+               ]
             },
             {
                "name": "size-6",
-               "composeReference": "AvatarIndicator.Size6"
+               "composeReference": "AvatarIndicator.Size6",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-6"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "Indicator",
+         "props": [
+            {
+               "name": "state",
+               "values": [
+                  "success",
+                  "global-white",
+                  "mute",
+                  "danger",
+                  "warning"
+               ],
+               "defaultValue": "success"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorStyles.Default",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "Default",
+            "params": [
+               {
+                  "name": "state",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IndicatorDefaultState",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorDefaultState",
+                  "defaultValue": {
+                     "value": "success",
+                     "codeName": "Success"
+                  },
+                  "values": [
+                     {
+                        "value": "success",
+                        "codeName": "Success"
+                     },
+                     {
+                        "value": "global-white",
+                        "codeName": "GlobalWhite"
+                     },
+                     {
+                        "value": "mute",
+                        "codeName": "Mute"
+                     },
+                     {
+                        "value": "danger",
+                        "codeName": "Danger"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "state-success",
+               "composeReference": "Indicator.StateSuccess",
+               "props": [
+                  {
+                     "name": "state",
+                     "value": "success"
+                  }
+               ]
+            },
+            {
+               "name": "state-global-white",
+               "composeReference": "Indicator.StateGlobalWhite",
+               "props": [
+                  {
+                     "name": "state",
+                     "value": "global-white"
+                  }
+               ]
+            },
+            {
+               "name": "state-mute",
+               "composeReference": "Indicator.StateMute",
+               "props": [
+                  {
+                     "name": "state",
+                     "value": "mute"
+                  }
+               ]
+            },
+            {
+               "name": "state-danger",
+               "composeReference": "Indicator.StateDanger",
+               "props": [
+                  {
+                     "name": "state",
+                     "value": "danger"
+                  }
+               ]
+            },
+            {
+               "name": "state-warning",
+               "composeReference": "Indicator.StateWarning",
+               "props": [
+                  {
+                     "name": "state",
+                     "value": "warning"
+                  }
+               ]
             }
          ]
       },
@@ -76,10 +416,55 @@
          "key": "avatar-group",
          "coreName": "AvatarGroup",
          "styleName": "AvatarGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-24"
+               ],
+               "defaultValue": "size-24"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.avatargroup",
+            "stylesClassName": "AvatarGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.avatargroup.AvatarGroupStyles",
+            "receiverClassName": "AvatarGroupStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.avatargroup.AvatarGroupStyles.Companion",
+            "returnTypeName": "AvatarGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.AvatarGroupStyle",
+            "modifyReceiverTypeName": "AvatarGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.AvatarGroupStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AvatarGroupSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.avatargroup.AvatarGroupSize",
+                  "defaultValue": {
+                     "value": "size-24",
+                     "codeName": "Size24"
+                  },
+                  "values": [
+                     {
+                        "value": "size-24",
+                        "codeName": "Size24"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "size-24",
-               "composeReference": "AvatarGroup.Size24"
+               "composeReference": "AvatarGroup.Size24",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  }
+               ]
             }
          ]
       },
@@ -87,166 +472,853 @@
          "key": "basic-button",
          "coreName": "BasicButton",
          "styleName": "BasicButton",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-48",
+                  "size-40",
+                  "size-32",
+                  "size-24"
+               ],
+               "defaultValue": "size-48"
+            },
+            {
+               "name": "bg",
+               "values": [
+                  "yes",
+                  "no"
+               ],
+               "defaultValue": "yes"
+            },
+            {
+               "name": "mode",
+               "values": [
+                  "primary",
+                  "accent-filled",
+                  "accent-white",
+                  "accent-grey",
+                  "danger-tint"
+               ],
+               "defaultValue": "primary"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.basicbutton",
+            "stylesClassName": "BasicButtonStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.basicbutton.BasicButtonStyles",
+            "receiverClassName": "BasicButtonStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.basicbutton.BasicButtonStyles.Companion",
+            "returnTypeName": "ButtonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+            "modifyReceiverTypeName": "BasicButtonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.BasicButtonStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "BasicButtonSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.basicbutton.BasicButtonSize",
+                  "defaultValue": {
+                     "value": "size-48",
+                     "codeName": "Size48"
+                  },
+                  "values": [
+                     {
+                        "value": "size-48",
+                        "codeName": "Size48"
+                     },
+                     {
+                        "value": "size-40",
+                        "codeName": "Size40"
+                     },
+                     {
+                        "value": "size-32",
+                        "codeName": "Size32"
+                     },
+                     {
+                        "value": "size-24",
+                        "codeName": "Size24"
+                     }
+                  ]
+               },
+               {
+                  "name": "bg",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "BasicButtonBg",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.basicbutton.BasicButtonBg",
+                  "defaultValue": {
+                     "value": "yes",
+                     "codeName": "Yes"
+                  },
+                  "values": [
+                     {
+                        "value": "yes",
+                        "codeName": "Yes"
+                     },
+                     {
+                        "value": "no",
+                        "codeName": "No"
+                     }
+                  ]
+               },
+               {
+                  "name": "mode",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "BasicButtonMode",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.basicbutton.BasicButtonMode",
+                  "defaultValue": {
+                     "value": "primary",
+                     "codeName": "Primary"
+                  },
+                  "values": [
+                     {
+                        "value": "primary",
+                        "codeName": "Primary"
+                     },
+                     {
+                        "value": "accent-filled",
+                        "codeName": "AccentFilled"
+                     },
+                     {
+                        "value": "accent-white",
+                        "codeName": "AccentWhite"
+                     },
+                     {
+                        "value": "accent-grey",
+                        "codeName": "AccentGrey"
+                     },
+                     {
+                        "value": "danger-tint",
+                        "codeName": "DangerTint"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "size-48.mode-primary",
-               "composeReference": "BasicButton.Size48.ModePrimary"
+               "composeReference": "BasicButton.Size48.ModePrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-48.mode-accent-filled",
-               "composeReference": "BasicButton.Size48.ModeAccentFilled"
+               "composeReference": "BasicButton.Size48.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-48.mode-accent-white",
-               "composeReference": "BasicButton.Size48.ModeAccentWhite"
+               "composeReference": "BasicButton.Size48.ModeAccentWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-white"
+                  }
+               ]
             },
             {
                "name": "size-48.mode-accent-grey",
-               "composeReference": "BasicButton.Size48.ModeAccentGrey"
+               "composeReference": "BasicButton.Size48.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-48.mode-danger-tint",
-               "composeReference": "BasicButton.Size48.ModeDangerTint"
+               "composeReference": "BasicButton.Size48.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-48.bg-no.mode-primary",
-               "composeReference": "BasicButton.Size48.BgNo.ModePrimary"
+               "composeReference": "BasicButton.Size48.BgNo.ModePrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-48.bg-no.mode-accent-filled",
-               "composeReference": "BasicButton.Size48.BgNo.ModeAccentFilled"
+               "composeReference": "BasicButton.Size48.BgNo.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-48.bg-no.mode-accent-white",
-               "composeReference": "BasicButton.Size48.BgNo.ModeAccentWhite"
+               "composeReference": "BasicButton.Size48.BgNo.ModeAccentWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-white"
+                  }
+               ]
             },
             {
                "name": "size-48.bg-no.mode-accent-grey",
-               "composeReference": "BasicButton.Size48.BgNo.ModeAccentGrey"
+               "composeReference": "BasicButton.Size48.BgNo.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-48.bg-no.mode-danger-tint",
-               "composeReference": "BasicButton.Size48.BgNo.ModeDangerTint"
+               "composeReference": "BasicButton.Size48.BgNo.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-primary",
-               "composeReference": "BasicButton.Size40.ModePrimary"
+               "composeReference": "BasicButton.Size40.ModePrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-accent-filled",
-               "composeReference": "BasicButton.Size40.ModeAccentFilled"
+               "composeReference": "BasicButton.Size40.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-accent-white",
-               "composeReference": "BasicButton.Size40.ModeAccentWhite"
+               "composeReference": "BasicButton.Size40.ModeAccentWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-white"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-accent-grey",
-               "composeReference": "BasicButton.Size40.ModeAccentGrey"
+               "composeReference": "BasicButton.Size40.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-danger-tint",
-               "composeReference": "BasicButton.Size40.ModeDangerTint"
+               "composeReference": "BasicButton.Size40.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-40.bg-no.mode-primary",
-               "composeReference": "BasicButton.Size40.BgNo.ModePrimary"
+               "composeReference": "BasicButton.Size40.BgNo.ModePrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-40.bg-no.mode-accent-filled",
-               "composeReference": "BasicButton.Size40.BgNo.ModeAccentFilled"
+               "composeReference": "BasicButton.Size40.BgNo.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-40.bg-no.mode-accent-white",
-               "composeReference": "BasicButton.Size40.BgNo.ModeAccentWhite"
+               "composeReference": "BasicButton.Size40.BgNo.ModeAccentWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-white"
+                  }
+               ]
             },
             {
                "name": "size-40.bg-no.mode-accent-grey",
-               "composeReference": "BasicButton.Size40.BgNo.ModeAccentGrey"
+               "composeReference": "BasicButton.Size40.BgNo.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-40.bg-no.mode-danger-tint",
-               "composeReference": "BasicButton.Size40.BgNo.ModeDangerTint"
+               "composeReference": "BasicButton.Size40.BgNo.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-primary",
-               "composeReference": "BasicButton.Size32.ModePrimary"
+               "composeReference": "BasicButton.Size32.ModePrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-accent-filled",
-               "composeReference": "BasicButton.Size32.ModeAccentFilled"
+               "composeReference": "BasicButton.Size32.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-accent-white",
-               "composeReference": "BasicButton.Size32.ModeAccentWhite"
+               "composeReference": "BasicButton.Size32.ModeAccentWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-white"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-accent-grey",
-               "composeReference": "BasicButton.Size32.ModeAccentGrey"
+               "composeReference": "BasicButton.Size32.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-danger-tint",
-               "composeReference": "BasicButton.Size32.ModeDangerTint"
+               "composeReference": "BasicButton.Size32.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-32.bg-no.mode-primary",
-               "composeReference": "BasicButton.Size32.BgNo.ModePrimary"
+               "composeReference": "BasicButton.Size32.BgNo.ModePrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-32.bg-no.mode-accent-filled",
-               "composeReference": "BasicButton.Size32.BgNo.ModeAccentFilled"
+               "composeReference": "BasicButton.Size32.BgNo.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-32.bg-no.mode-accent-white",
-               "composeReference": "BasicButton.Size32.BgNo.ModeAccentWhite"
+               "composeReference": "BasicButton.Size32.BgNo.ModeAccentWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-white"
+                  }
+               ]
             },
             {
                "name": "size-32.bg-no.mode-accent-grey",
-               "composeReference": "BasicButton.Size32.BgNo.ModeAccentGrey"
+               "composeReference": "BasicButton.Size32.BgNo.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-32.bg-no.mode-danger-tint",
-               "composeReference": "BasicButton.Size32.BgNo.ModeDangerTint"
+               "composeReference": "BasicButton.Size32.BgNo.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-primary",
-               "composeReference": "BasicButton.Size24.ModePrimary"
+               "composeReference": "BasicButton.Size24.ModePrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-accent-filled",
-               "composeReference": "BasicButton.Size24.ModeAccentFilled"
+               "composeReference": "BasicButton.Size24.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-accent-white",
-               "composeReference": "BasicButton.Size24.ModeAccentWhite"
+               "composeReference": "BasicButton.Size24.ModeAccentWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-white"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-accent-grey",
-               "composeReference": "BasicButton.Size24.ModeAccentGrey"
+               "composeReference": "BasicButton.Size24.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-danger-tint",
-               "composeReference": "BasicButton.Size24.ModeDangerTint"
+               "composeReference": "BasicButton.Size24.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-24.bg-no.mode-primary",
-               "composeReference": "BasicButton.Size24.BgNo.ModePrimary"
+               "composeReference": "BasicButton.Size24.BgNo.ModePrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-24.bg-no.mode-accent-filled",
-               "composeReference": "BasicButton.Size24.BgNo.ModeAccentFilled"
+               "composeReference": "BasicButton.Size24.BgNo.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-24.bg-no.mode-accent-white",
-               "composeReference": "BasicButton.Size24.BgNo.ModeAccentWhite"
+               "composeReference": "BasicButton.Size24.BgNo.ModeAccentWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-white"
+                  }
+               ]
             },
             {
                "name": "size-24.bg-no.mode-accent-grey",
-               "composeReference": "BasicButton.Size24.BgNo.ModeAccentGrey"
+               "composeReference": "BasicButton.Size24.BgNo.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-24.bg-no.mode-danger-tint",
-               "composeReference": "BasicButton.Size24.BgNo.ModeDangerTint"
+               "composeReference": "BasicButton.Size24.BgNo.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             }
          ]
       },
@@ -254,102 +1326,555 @@
          "key": "icon-button",
          "coreName": "IconButton",
          "styleName": "IconButton",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-48",
+                  "size-40",
+                  "size-32",
+                  "size-24"
+               ],
+               "defaultValue": "size-48"
+            },
+            {
+               "name": "bg",
+               "values": [
+                  "yes",
+                  "no"
+               ],
+               "defaultValue": "yes"
+            },
+            {
+               "name": "mode",
+               "values": [
+                  "accent-filled",
+                  "accent-grey",
+                  "danger-tint"
+               ],
+               "defaultValue": "accent-filled"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.iconbutton",
+            "stylesClassName": "IconButtonStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.iconbutton.IconButtonStyles",
+            "receiverClassName": "IconButtonStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.iconbutton.IconButtonStyles.Companion",
+            "returnTypeName": "ButtonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+            "modifyReceiverTypeName": "IconButtonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconButtonStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IconButtonSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.iconbutton.IconButtonSize",
+                  "defaultValue": {
+                     "value": "size-48",
+                     "codeName": "Size48"
+                  },
+                  "values": [
+                     {
+                        "value": "size-48",
+                        "codeName": "Size48"
+                     },
+                     {
+                        "value": "size-40",
+                        "codeName": "Size40"
+                     },
+                     {
+                        "value": "size-32",
+                        "codeName": "Size32"
+                     },
+                     {
+                        "value": "size-24",
+                        "codeName": "Size24"
+                     }
+                  ]
+               },
+               {
+                  "name": "bg",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IconButtonBg",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.iconbutton.IconButtonBg",
+                  "defaultValue": {
+                     "value": "yes",
+                     "codeName": "Yes"
+                  },
+                  "values": [
+                     {
+                        "value": "yes",
+                        "codeName": "Yes"
+                     },
+                     {
+                        "value": "no",
+                        "codeName": "No"
+                     }
+                  ]
+               },
+               {
+                  "name": "mode",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IconButtonMode",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.iconbutton.IconButtonMode",
+                  "defaultValue": {
+                     "value": "accent-filled",
+                     "codeName": "AccentFilled"
+                  },
+                  "values": [
+                     {
+                        "value": "accent-filled",
+                        "codeName": "AccentFilled"
+                     },
+                     {
+                        "value": "accent-grey",
+                        "codeName": "AccentGrey"
+                     },
+                     {
+                        "value": "danger-tint",
+                        "codeName": "DangerTint"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "size-48.mode-accent-filled",
-               "composeReference": "IconButton.Size48.ModeAccentFilled"
+               "composeReference": "IconButton.Size48.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-48.mode-accent-grey",
-               "composeReference": "IconButton.Size48.ModeAccentGrey"
+               "composeReference": "IconButton.Size48.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-48.mode-danger-tint",
-               "composeReference": "IconButton.Size48.ModeDangerTint"
+               "composeReference": "IconButton.Size48.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-48.bg-no.mode-accent-filled",
-               "composeReference": "IconButton.Size48.BgNo.ModeAccentFilled"
+               "composeReference": "IconButton.Size48.BgNo.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-48.bg-no.mode-accent-grey",
-               "composeReference": "IconButton.Size48.BgNo.ModeAccentGrey"
+               "composeReference": "IconButton.Size48.BgNo.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-48.bg-no.mode-danger-tint",
-               "composeReference": "IconButton.Size48.BgNo.ModeDangerTint"
+               "composeReference": "IconButton.Size48.BgNo.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-48"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-accent-filled",
-               "composeReference": "IconButton.Size40.ModeAccentFilled"
+               "composeReference": "IconButton.Size40.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-accent-grey",
-               "composeReference": "IconButton.Size40.ModeAccentGrey"
+               "composeReference": "IconButton.Size40.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-danger-tint",
-               "composeReference": "IconButton.Size40.ModeDangerTint"
+               "composeReference": "IconButton.Size40.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-40.bg-no.mode-accent-filled",
-               "composeReference": "IconButton.Size40.BgNo.ModeAccentFilled"
+               "composeReference": "IconButton.Size40.BgNo.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-40.bg-no.mode-accent-grey",
-               "composeReference": "IconButton.Size40.BgNo.ModeAccentGrey"
+               "composeReference": "IconButton.Size40.BgNo.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-40.bg-no.mode-danger-tint",
-               "composeReference": "IconButton.Size40.BgNo.ModeDangerTint"
+               "composeReference": "IconButton.Size40.BgNo.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-accent-filled",
-               "composeReference": "IconButton.Size32.ModeAccentFilled"
+               "composeReference": "IconButton.Size32.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-accent-grey",
-               "composeReference": "IconButton.Size32.ModeAccentGrey"
+               "composeReference": "IconButton.Size32.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-danger-tint",
-               "composeReference": "IconButton.Size32.ModeDangerTint"
+               "composeReference": "IconButton.Size32.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-32.bg-no.mode-accent-filled",
-               "composeReference": "IconButton.Size32.BgNo.ModeAccentFilled"
+               "composeReference": "IconButton.Size32.BgNo.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-32.bg-no.mode-accent-grey",
-               "composeReference": "IconButton.Size32.BgNo.ModeAccentGrey"
+               "composeReference": "IconButton.Size32.BgNo.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-32.bg-no.mode-danger-tint",
-               "composeReference": "IconButton.Size32.BgNo.ModeDangerTint"
+               "composeReference": "IconButton.Size32.BgNo.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-accent-filled",
-               "composeReference": "IconButton.Size24.ModeAccentFilled"
+               "composeReference": "IconButton.Size24.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-accent-grey",
-               "composeReference": "IconButton.Size24.ModeAccentGrey"
+               "composeReference": "IconButton.Size24.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-danger-tint",
-               "composeReference": "IconButton.Size24.ModeDangerTint"
+               "composeReference": "IconButton.Size24.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "yes"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             },
             {
                "name": "size-24.bg-no.mode-accent-filled",
-               "composeReference": "IconButton.Size24.BgNo.ModeAccentFilled"
+               "composeReference": "IconButton.Size24.BgNo.ModeAccentFilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-filled"
+                  }
+               ]
             },
             {
                "name": "size-24.bg-no.mode-accent-grey",
-               "composeReference": "IconButton.Size24.BgNo.ModeAccentGrey"
+               "composeReference": "IconButton.Size24.BgNo.ModeAccentGrey",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "accent-grey"
+                  }
+               ]
             },
             {
                "name": "size-24.bg-no.mode-danger-tint",
-               "composeReference": "IconButton.Size24.BgNo.ModeDangerTint"
+               "composeReference": "IconButton.Size24.BgNo.ModeDangerTint",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "bg",
+                     "value": "no"
+                  },
+                  {
+                     "name": "mode",
+                     "value": "danger-tint"
+                  }
+               ]
             }
          ]
       },
@@ -357,6 +1882,17 @@
          "key": "bottom-sheet",
          "coreName": "BottomSheet",
          "styleName": "ModalBottomSheet",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.bottomsheet",
+            "stylesClassName": "BottomSheetStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.bottomsheet.BottomSheetStyles",
+            "receiverClassName": "BottomSheetStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.bottomsheet.BottomSheetStyles.Companion",
+            "returnTypeName": "ModalBottomSheetStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ModalBottomSheetStyle",
+            "modifyReceiverTypeName": "ModalBottomSheetStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ModalBottomSheetStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -368,6 +1904,17 @@
          "key": "check-box",
          "coreName": "CheckBox",
          "styleName": "CheckBox",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.checkbox",
+            "stylesClassName": "CheckBoxStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.checkbox.CheckBoxStyles",
+            "receiverClassName": "CheckBoxStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.checkbox.CheckBoxStyles.Companion",
+            "returnTypeName": "CheckBoxStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CheckBoxStyle",
+            "modifyReceiverTypeName": "CheckBoxStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CheckBoxStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -379,14 +1926,70 @@
          "key": "chip",
          "coreName": "Chip",
          "styleName": "Chip",
+         "props": [
+            {
+               "name": "chip-slot",
+               "values": [
+                  "padding",
+                  "avatar"
+               ],
+               "defaultValue": "padding"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.chip",
+            "stylesClassName": "ChipStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.chip.ChipStyles",
+            "receiverClassName": "ChipStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.chip.ChipStyles.Companion",
+            "returnTypeName": "ChipStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ChipStyle",
+            "modifyReceiverTypeName": "ChipStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ChipStyleBuilder",
+            "params": [
+               {
+                  "name": "chipSlot",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ChipChipSlot",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.chip.ChipChipSlot",
+                  "defaultValue": {
+                     "value": "padding",
+                     "codeName": "Padding"
+                  },
+                  "values": [
+                     {
+                        "value": "padding",
+                        "codeName": "Padding"
+                     },
+                     {
+                        "value": "avatar",
+                        "codeName": "Avatar"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "chip-slot-padding",
-               "composeReference": "Chip.ChipSlotPadding"
+               "composeReference": "Chip.ChipSlotPadding",
+               "props": [
+                  {
+                     "name": "chip-slot",
+                     "value": "padding"
+                  }
+               ]
             },
             {
                "name": "chip-slot-avatar",
-               "composeReference": "Chip.ChipSlotAvatar"
+               "composeReference": "Chip.ChipSlotAvatar",
+               "props": [
+                  {
+                     "name": "chip-slot",
+                     "value": "avatar"
+                  }
+               ]
             }
          ]
       },
@@ -394,14 +1997,70 @@
          "key": "chip-group",
          "coreName": "ChipGroup",
          "styleName": "ChipGroup",
+         "props": [
+            {
+               "name": "chip-slot",
+               "values": [
+                  "padding",
+                  "avatar"
+               ],
+               "defaultValue": "padding"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.chipgroup",
+            "stylesClassName": "ChipGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.chipgroup.ChipGroupStyles",
+            "receiverClassName": "ChipGroupStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.chipgroup.ChipGroupStyles.Companion",
+            "returnTypeName": "ChipGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ChipGroupStyle",
+            "modifyReceiverTypeName": "ChipGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ChipGroupStyleBuilder",
+            "params": [
+               {
+                  "name": "chipSlot",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ChipGroupChipSlot",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.chipgroup.ChipGroupChipSlot",
+                  "defaultValue": {
+                     "value": "padding",
+                     "codeName": "Padding"
+                  },
+                  "values": [
+                     {
+                        "value": "padding",
+                        "codeName": "Padding"
+                     },
+                     {
+                        "value": "avatar",
+                        "codeName": "Avatar"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "chip-slot-padding",
-               "composeReference": "ChipGroup.ChipSlotPadding"
+               "composeReference": "ChipGroup.ChipSlotPadding",
+               "props": [
+                  {
+                     "name": "chip-slot",
+                     "value": "padding"
+                  }
+               ]
             },
             {
                "name": "chip-slot-avatar",
-               "composeReference": "ChipGroup.ChipSlotAvatar"
+               "composeReference": "ChipGroup.ChipSlotAvatar",
+               "props": [
+                  {
+                     "name": "chip-slot",
+                     "value": "avatar"
+                  }
+               ]
             }
          ]
       },
@@ -409,14 +2068,71 @@
          "key": "counter",
          "coreName": "Counter",
          "styleName": "Counter",
+         "props": [
+            {
+               "name": "mute",
+               "values": [
+                  "no",
+                  "yes"
+               ],
+               "defaultValue": "no"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.counter",
+            "stylesClassName": "CounterStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.counter.CounterStyles",
+            "receiverClassName": "CounterStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.counter.CounterStyles.Default",
+            "returnTypeName": "CounterStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CounterStyle",
+            "modifyReceiverTypeName": "CounterStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CounterStyleBuilder",
+            "holderName": "Default",
+            "params": [
+               {
+                  "name": "mute",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CounterDefaultMute",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.counter.CounterDefaultMute",
+                  "defaultValue": {
+                     "value": "no",
+                     "codeName": "No"
+                  },
+                  "values": [
+                     {
+                        "value": "no",
+                        "codeName": "No"
+                     },
+                     {
+                        "value": "yes",
+                        "codeName": "Yes"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "mute-no",
-               "composeReference": "Counter.MuteNo"
+               "composeReference": "Counter.MuteNo",
+               "props": [
+                  {
+                     "name": "mute",
+                     "value": "no"
+                  }
+               ]
             },
             {
                "name": "mute-yes",
-               "composeReference": "Counter.MuteYes"
+               "composeReference": "Counter.MuteYes",
+               "props": [
+                  {
+                     "name": "mute",
+                     "value": "yes"
+                  }
+               ]
             }
          ]
       },
@@ -424,6 +2140,18 @@
          "key": "counter",
          "coreName": "Counter",
          "styleName": "TabBarCounter",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.counter",
+            "stylesClassName": "CounterStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.counter.CounterStyles",
+            "receiverClassName": "CounterStyles.TabBarCounter",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.counter.CounterStyles.TabBarCounter",
+            "returnTypeName": "CounterStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CounterStyle",
+            "modifyReceiverTypeName": "CounterStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CounterStyleBuilder",
+            "holderName": "TabBarCounter"
+         },
          "variations": [
             {
                "name": "Default",
@@ -435,6 +2163,18 @@
          "key": "counter",
          "coreName": "Counter",
          "styleName": "TabItemFolderCounter",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.counter",
+            "stylesClassName": "CounterStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.counter.CounterStyles",
+            "receiverClassName": "CounterStyles.TabItemFolderCounter",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.counter.CounterStyles.TabItemFolderCounter",
+            "returnTypeName": "CounterStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CounterStyle",
+            "modifyReceiverTypeName": "CounterStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CounterStyleBuilder",
+            "holderName": "TabItemFolderCounter"
+         },
          "variations": [
             {
                "name": "Default",
@@ -446,6 +2186,17 @@
          "key": "divider",
          "coreName": "Divider",
          "styleName": "Divider",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.divider",
+            "stylesClassName": "DividerStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.divider.DividerStyles",
+            "receiverClassName": "DividerStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.divider.DividerStyles.Companion",
+            "returnTypeName": "DividerStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.DividerStyle",
+            "modifyReceiverTypeName": "DividerStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.DividerStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -454,116 +2205,387 @@
          ]
       },
       {
-         "key": "indicator",
-         "coreName": "Indicator",
-         "styleName": "Indicator",
-         "variations": [
-            {
-               "name": "state-success",
-               "composeReference": "Indicator.StateSuccess"
-            },
-            {
-               "name": "state-global-white",
-               "composeReference": "Indicator.StateGlobalWhite"
-            },
-            {
-               "name": "state-mute",
-               "composeReference": "Indicator.StateMute"
-            },
-            {
-               "name": "state-danger",
-               "composeReference": "Indicator.StateDanger"
-            },
-            {
-               "name": "state-warning",
-               "composeReference": "Indicator.StateWarning"
-            }
-         ]
-      },
-      {
          "key": "loader",
          "coreName": "Loader",
          "styleName": "Loader",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-40",
+                  "size-32",
+                  "size-24",
+                  "size-16"
+               ],
+               "defaultValue": "size-40"
+            },
+            {
+               "name": "mode-color",
+               "values": [
+                  "primary",
+                  "secondary",
+                  "global-white",
+                  "accent",
+                  "danger"
+               ],
+               "defaultValue": "primary"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.loader",
+            "stylesClassName": "LoaderStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.loader.LoaderStyles",
+            "receiverClassName": "LoaderStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.loader.LoaderStyles.Companion",
+            "returnTypeName": "LoaderStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.LoaderStyle",
+            "modifyReceiverTypeName": "LoaderStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.LoaderStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "LoaderSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.loader.LoaderSize",
+                  "defaultValue": {
+                     "value": "size-40",
+                     "codeName": "Size40"
+                  },
+                  "values": [
+                     {
+                        "value": "size-40",
+                        "codeName": "Size40"
+                     },
+                     {
+                        "value": "size-32",
+                        "codeName": "Size32"
+                     },
+                     {
+                        "value": "size-24",
+                        "codeName": "Size24"
+                     },
+                     {
+                        "value": "size-16",
+                        "codeName": "Size16"
+                     }
+                  ]
+               },
+               {
+                  "name": "modeColor",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "LoaderModeColor",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.loader.LoaderModeColor",
+                  "defaultValue": {
+                     "value": "primary",
+                     "codeName": "Primary"
+                  },
+                  "values": [
+                     {
+                        "value": "primary",
+                        "codeName": "Primary"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "global-white",
+                        "codeName": "GlobalWhite"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "danger",
+                        "codeName": "Danger"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "size-40.mode-color-primary",
-               "composeReference": "Loader.Size40.ModeColorPrimary"
+               "composeReference": "Loader.Size40.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-secondary",
-               "composeReference": "Loader.Size40.ModeColorSecondary"
+               "composeReference": "Loader.Size40.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-global-white",
-               "composeReference": "Loader.Size40.ModeColorGlobalWhite"
+               "composeReference": "Loader.Size40.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-accent",
-               "composeReference": "Loader.Size40.ModeColorAccent"
+               "composeReference": "Loader.Size40.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-danger",
-               "composeReference": "Loader.Size40.ModeColorDanger"
+               "composeReference": "Loader.Size40.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-primary",
-               "composeReference": "Loader.Size32.ModeColorPrimary"
+               "composeReference": "Loader.Size32.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-secondary",
-               "composeReference": "Loader.Size32.ModeColorSecondary"
+               "composeReference": "Loader.Size32.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-global-white",
-               "composeReference": "Loader.Size32.ModeColorGlobalWhite"
+               "composeReference": "Loader.Size32.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-accent",
-               "composeReference": "Loader.Size32.ModeColorAccent"
+               "composeReference": "Loader.Size32.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-danger",
-               "composeReference": "Loader.Size32.ModeColorDanger"
+               "composeReference": "Loader.Size32.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-primary",
-               "composeReference": "Loader.Size24.ModeColorPrimary"
+               "composeReference": "Loader.Size24.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-secondary",
-               "composeReference": "Loader.Size24.ModeColorSecondary"
+               "composeReference": "Loader.Size24.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-global-white",
-               "composeReference": "Loader.Size24.ModeColorGlobalWhite"
+               "composeReference": "Loader.Size24.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-accent",
-               "composeReference": "Loader.Size24.ModeColorAccent"
+               "composeReference": "Loader.Size24.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-danger",
-               "composeReference": "Loader.Size24.ModeColorDanger"
+               "composeReference": "Loader.Size24.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-primary",
-               "composeReference": "Loader.Size16.ModeColorPrimary"
+               "composeReference": "Loader.Size16.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-secondary",
-               "composeReference": "Loader.Size16.ModeColorSecondary"
+               "composeReference": "Loader.Size16.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-global-white",
-               "composeReference": "Loader.Size16.ModeColorGlobalWhite"
+               "composeReference": "Loader.Size16.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-accent",
-               "composeReference": "Loader.Size16.ModeColorAccent"
+               "composeReference": "Loader.Size16.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-danger",
-               "composeReference": "Loader.Size16.ModeColorDanger"
+               "composeReference": "Loader.Size16.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             }
          ]
       },
@@ -571,6 +2593,17 @@
          "key": "overlay",
          "coreName": "Overlay",
          "styleName": "Overlay",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.overlay",
+            "stylesClassName": "OverlayStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.overlay.OverlayStyles",
+            "receiverClassName": "OverlayStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.overlay.OverlayStyles.Companion",
+            "returnTypeName": "OverlayStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.OverlayStyle",
+            "modifyReceiverTypeName": "OverlayStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.OverlayStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -582,86 +2615,384 @@
          "key": "circular-progress-bar",
          "coreName": "CircularProgressBar",
          "styleName": "CircularProgressBar",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-40",
+                  "size-32",
+                  "size-24",
+                  "size-16"
+               ],
+               "defaultValue": "size-40"
+            },
+            {
+               "name": "mode-color",
+               "values": [
+                  "primary",
+                  "secondary",
+                  "global-white",
+                  "accent",
+                  "danger"
+               ],
+               "defaultValue": "primary"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.circularprogressbar",
+            "stylesClassName": "CircularProgressBarStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.circularprogressbar.CircularProgressBarStyles",
+            "receiverClassName": "CircularProgressBarStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.circularprogressbar.CircularProgressBarStyles.Companion",
+            "returnTypeName": "CircularProgressBarStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CircularProgressBarStyle",
+            "modifyReceiverTypeName": "CircularProgressBarStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CircularProgressBarStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CircularProgressBarSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.circularprogressbar.CircularProgressBarSize",
+                  "defaultValue": {
+                     "value": "size-40",
+                     "codeName": "Size40"
+                  },
+                  "values": [
+                     {
+                        "value": "size-40",
+                        "codeName": "Size40"
+                     },
+                     {
+                        "value": "size-32",
+                        "codeName": "Size32"
+                     },
+                     {
+                        "value": "size-24",
+                        "codeName": "Size24"
+                     },
+                     {
+                        "value": "size-16",
+                        "codeName": "Size16"
+                     }
+                  ]
+               },
+               {
+                  "name": "modeColor",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CircularProgressBarModeColor",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.circularprogressbar.CircularProgressBarModeColor",
+                  "defaultValue": {
+                     "value": "primary",
+                     "codeName": "Primary"
+                  },
+                  "values": [
+                     {
+                        "value": "primary",
+                        "codeName": "Primary"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "global-white",
+                        "codeName": "GlobalWhite"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "danger",
+                        "codeName": "Danger"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "size-40.mode-color-primary",
-               "composeReference": "CircularProgressBar.Size40.ModeColorPrimary"
+               "composeReference": "CircularProgressBar.Size40.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-secondary",
-               "composeReference": "CircularProgressBar.Size40.ModeColorSecondary"
+               "composeReference": "CircularProgressBar.Size40.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-global-white",
-               "composeReference": "CircularProgressBar.Size40.ModeColorGlobalWhite"
+               "composeReference": "CircularProgressBar.Size40.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-accent",
-               "composeReference": "CircularProgressBar.Size40.ModeColorAccent"
+               "composeReference": "CircularProgressBar.Size40.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-danger",
-               "composeReference": "CircularProgressBar.Size40.ModeColorDanger"
+               "composeReference": "CircularProgressBar.Size40.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-primary",
-               "composeReference": "CircularProgressBar.Size32.ModeColorPrimary"
+               "composeReference": "CircularProgressBar.Size32.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-secondary",
-               "composeReference": "CircularProgressBar.Size32.ModeColorSecondary"
+               "composeReference": "CircularProgressBar.Size32.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-global-white",
-               "composeReference": "CircularProgressBar.Size32.ModeColorGlobalWhite"
+               "composeReference": "CircularProgressBar.Size32.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-accent",
-               "composeReference": "CircularProgressBar.Size32.ModeColorAccent"
+               "composeReference": "CircularProgressBar.Size32.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-danger",
-               "composeReference": "CircularProgressBar.Size32.ModeColorDanger"
+               "composeReference": "CircularProgressBar.Size32.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-primary",
-               "composeReference": "CircularProgressBar.Size24.ModeColorPrimary"
+               "composeReference": "CircularProgressBar.Size24.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-secondary",
-               "composeReference": "CircularProgressBar.Size24.ModeColorSecondary"
+               "composeReference": "CircularProgressBar.Size24.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-global-white",
-               "composeReference": "CircularProgressBar.Size24.ModeColorGlobalWhite"
+               "composeReference": "CircularProgressBar.Size24.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-accent",
-               "composeReference": "CircularProgressBar.Size24.ModeColorAccent"
+               "composeReference": "CircularProgressBar.Size24.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-danger",
-               "composeReference": "CircularProgressBar.Size24.ModeColorDanger"
+               "composeReference": "CircularProgressBar.Size24.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-primary",
-               "composeReference": "CircularProgressBar.Size16.ModeColorPrimary"
+               "composeReference": "CircularProgressBar.Size16.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-secondary",
-               "composeReference": "CircularProgressBar.Size16.ModeColorSecondary"
+               "composeReference": "CircularProgressBar.Size16.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-global-white",
-               "composeReference": "CircularProgressBar.Size16.ModeColorGlobalWhite"
+               "composeReference": "CircularProgressBar.Size16.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-accent",
-               "composeReference": "CircularProgressBar.Size16.ModeColorAccent"
+               "composeReference": "CircularProgressBar.Size16.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-danger",
-               "composeReference": "CircularProgressBar.Size16.ModeColorDanger"
+               "composeReference": "CircularProgressBar.Size16.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             }
          ]
       },
@@ -669,6 +3000,17 @@
          "key": "popover",
          "coreName": "Popover",
          "styleName": "Popover",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.popover",
+            "stylesClassName": "PopoverStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.popover.PopoverStyles",
+            "receiverClassName": "PopoverStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.popover.PopoverStyles.Companion",
+            "returnTypeName": "PopoverStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.PopoverStyle",
+            "modifyReceiverTypeName": "PopoverStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.PopoverStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -680,6 +3022,17 @@
          "key": "radio-box",
          "coreName": "RadioBox",
          "styleName": "RadioBox",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.radiobox",
+            "stylesClassName": "RadioBoxStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.radiobox.RadioBoxStyles",
+            "receiverClassName": "RadioBoxStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.radiobox.RadioBoxStyles.Companion",
+            "returnTypeName": "RadioBoxStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.RadioBoxStyle",
+            "modifyReceiverTypeName": "RadioBoxStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.RadioBoxStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -691,6 +3044,17 @@
          "key": "switch",
          "coreName": "Switch",
          "styleName": "Switch",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.switcher",
+            "stylesClassName": "SwitchStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.switcher.SwitchStyles",
+            "receiverClassName": "SwitchStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.switcher.SwitchStyles.Companion",
+            "returnTypeName": "SwitchStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.SwitchStyle",
+            "modifyReceiverTypeName": "SwitchStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.SwitchStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -702,6 +3066,18 @@
          "key": "text-field",
          "coreName": "TextField",
          "styleName": "TextField",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.textfield",
+            "stylesClassName": "TextFieldStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.textfield.TextFieldStyles",
+            "receiverClassName": "TextFieldStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.textfield.TextFieldStyles.Default",
+            "returnTypeName": "TextFieldStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.TextFieldStyle",
+            "modifyReceiverTypeName": "TextFieldStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.TextFieldStyleBuilder",
+            "holderName": "Default"
+         },
          "variations": [
             {
                "name": "Default",
@@ -710,9 +3086,43 @@
          ]
       },
       {
+         "key": "text-field",
+         "coreName": "TextField",
+         "styleName": "SearchBar",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.textfield",
+            "stylesClassName": "TextFieldStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.textfield.TextFieldStyles",
+            "receiverClassName": "TextFieldStyles.SearchBar",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.textfield.TextFieldStyles.SearchBar",
+            "returnTypeName": "TextFieldStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.TextFieldStyle",
+            "modifyReceiverTypeName": "TextFieldStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.TextFieldStyleBuilder",
+            "holderName": "SearchBar"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "SearchBar.Default"
+            }
+         ]
+      },
+      {
          "key": "tooltip",
          "coreName": "Tooltip",
          "styleName": "Tooltip",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.tooltip",
+            "stylesClassName": "TooltipStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.tooltip.TooltipStyles",
+            "receiverClassName": "TooltipStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.tooltip.TooltipStyles.Companion",
+            "returnTypeName": "TooltipStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.TooltipStyle",
+            "modifyReceiverTypeName": "TooltipStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.TooltipStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -724,6 +3134,17 @@
          "key": "modal",
          "coreName": "Modal",
          "styleName": "Modal",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.modal",
+            "stylesClassName": "ModalStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.modal.ModalStyles",
+            "receiverClassName": "ModalStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.modal.ModalStyles.Companion",
+            "returnTypeName": "ModalStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ModalStyle",
+            "modifyReceiverTypeName": "ModalStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ModalStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -735,14 +3156,70 @@
          "key": "rect-skeleton",
          "coreName": "RectSkeleton",
          "styleName": "RectSkeleton",
+         "props": [
+            {
+               "name": "type",
+               "values": [
+                  "default",
+                  "pulse"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.rectskeleton",
+            "stylesClassName": "RectSkeletonStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.rectskeleton.RectSkeletonStyles",
+            "receiverClassName": "RectSkeletonStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.rectskeleton.RectSkeletonStyles.Companion",
+            "returnTypeName": "RectSkeletonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.RectSkeletonStyle",
+            "modifyReceiverTypeName": "RectSkeletonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.RectSkeletonStyleBuilder",
+            "params": [
+               {
+                  "name": "type",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "RectSkeletonType",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.rectskeleton.RectSkeletonType",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "pulse",
+                        "codeName": "Pulse"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "default",
-               "composeReference": "RectSkeleton.Default"
+               "composeReference": "RectSkeleton.Default",
+               "props": [
+                  {
+                     "name": "type",
+                     "value": "default"
+                  }
+               ]
             },
             {
                "name": "pulse",
-               "composeReference": "RectSkeleton.Pulse"
+               "composeReference": "RectSkeleton.Pulse",
+               "props": [
+                  {
+                     "name": "type",
+                     "value": "pulse"
+                  }
+               ]
             }
          ]
       },
@@ -750,86 +3227,384 @@
          "key": "spinner",
          "coreName": "Spinner",
          "styleName": "Spinner",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-40",
+                  "size-32",
+                  "size-24",
+                  "size-16"
+               ],
+               "defaultValue": "size-40"
+            },
+            {
+               "name": "mode-color",
+               "values": [
+                  "primary",
+                  "secondary",
+                  "global-white",
+                  "accent",
+                  "danger"
+               ],
+               "defaultValue": "primary"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.spinner",
+            "stylesClassName": "SpinnerStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.spinner.SpinnerStyles",
+            "receiverClassName": "SpinnerStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.spinner.SpinnerStyles.Companion",
+            "returnTypeName": "SpinnerStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.SpinnerStyle",
+            "modifyReceiverTypeName": "SpinnerStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.SpinnerStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "SpinnerSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.spinner.SpinnerSize",
+                  "defaultValue": {
+                     "value": "size-40",
+                     "codeName": "Size40"
+                  },
+                  "values": [
+                     {
+                        "value": "size-40",
+                        "codeName": "Size40"
+                     },
+                     {
+                        "value": "size-32",
+                        "codeName": "Size32"
+                     },
+                     {
+                        "value": "size-24",
+                        "codeName": "Size24"
+                     },
+                     {
+                        "value": "size-16",
+                        "codeName": "Size16"
+                     }
+                  ]
+               },
+               {
+                  "name": "modeColor",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "SpinnerModeColor",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.spinner.SpinnerModeColor",
+                  "defaultValue": {
+                     "value": "primary",
+                     "codeName": "Primary"
+                  },
+                  "values": [
+                     {
+                        "value": "primary",
+                        "codeName": "Primary"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "global-white",
+                        "codeName": "GlobalWhite"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "danger",
+                        "codeName": "Danger"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "size-40.mode-color-primary",
-               "composeReference": "Spinner.Size40.ModeColorPrimary"
+               "composeReference": "Spinner.Size40.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-secondary",
-               "composeReference": "Spinner.Size40.ModeColorSecondary"
+               "composeReference": "Spinner.Size40.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-global-white",
-               "composeReference": "Spinner.Size40.ModeColorGlobalWhite"
+               "composeReference": "Spinner.Size40.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-accent",
-               "composeReference": "Spinner.Size40.ModeColorAccent"
+               "composeReference": "Spinner.Size40.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-40.mode-color-danger",
-               "composeReference": "Spinner.Size40.ModeColorDanger"
+               "composeReference": "Spinner.Size40.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-40"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-primary",
-               "composeReference": "Spinner.Size32.ModeColorPrimary"
+               "composeReference": "Spinner.Size32.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-secondary",
-               "composeReference": "Spinner.Size32.ModeColorSecondary"
+               "composeReference": "Spinner.Size32.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-global-white",
-               "composeReference": "Spinner.Size32.ModeColorGlobalWhite"
+               "composeReference": "Spinner.Size32.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-accent",
-               "composeReference": "Spinner.Size32.ModeColorAccent"
+               "composeReference": "Spinner.Size32.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-32.mode-color-danger",
-               "composeReference": "Spinner.Size32.ModeColorDanger"
+               "composeReference": "Spinner.Size32.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-32"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-primary",
-               "composeReference": "Spinner.Size24.ModeColorPrimary"
+               "composeReference": "Spinner.Size24.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-secondary",
-               "composeReference": "Spinner.Size24.ModeColorSecondary"
+               "composeReference": "Spinner.Size24.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-global-white",
-               "composeReference": "Spinner.Size24.ModeColorGlobalWhite"
+               "composeReference": "Spinner.Size24.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-accent",
-               "composeReference": "Spinner.Size24.ModeColorAccent"
+               "composeReference": "Spinner.Size24.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-24.mode-color-danger",
-               "composeReference": "Spinner.Size24.ModeColorDanger"
+               "composeReference": "Spinner.Size24.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-24"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-primary",
-               "composeReference": "Spinner.Size16.ModeColorPrimary"
+               "composeReference": "Spinner.Size16.ModeColorPrimary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "primary"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-secondary",
-               "composeReference": "Spinner.Size16.ModeColorSecondary"
+               "composeReference": "Spinner.Size16.ModeColorSecondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "secondary"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-global-white",
-               "composeReference": "Spinner.Size16.ModeColorGlobalWhite"
+               "composeReference": "Spinner.Size16.ModeColorGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "global-white"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-accent",
-               "composeReference": "Spinner.Size16.ModeColorAccent"
+               "composeReference": "Spinner.Size16.ModeColorAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "accent"
+                  }
+               ]
             },
             {
                "name": "size-16.mode-color-danger",
-               "composeReference": "Spinner.Size16.ModeColorDanger"
+               "composeReference": "Spinner.Size16.ModeColorDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  },
+                  {
+                     "name": "mode-color",
+                     "value": "danger"
+                  }
+               ]
             }
          ]
       },
@@ -837,6 +3612,18 @@
          "key": "list",
          "coreName": "List",
          "styleName": "DropdownMenuList",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.list",
+            "stylesClassName": "ListStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.list.ListStyles",
+            "receiverClassName": "ListStyles.DropdownMenuList",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.list.ListStyles.DropdownMenuList",
+            "returnTypeName": "ListStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListStyle",
+            "modifyReceiverTypeName": "ListStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListStyleBuilder",
+            "holderName": "DropdownMenuList"
+         },
          "variations": [
             {
                "name": "Default",
@@ -845,20 +3632,21 @@
          ]
       },
       {
-         "key": "list-item",
-         "coreName": "ListItem",
-         "styleName": "DropdownMenuItem",
-         "variations": [
-            {
-               "name": "Default",
-               "composeReference": "DropdownMenuItem.Default"
-            }
-         ]
-      },
-      {
          "key": "list",
          "coreName": "List",
          "styleName": "List",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.list",
+            "stylesClassName": "ListStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.list.ListStyles",
+            "receiverClassName": "ListStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.list.ListStyles.Default",
+            "returnTypeName": "ListStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListStyle",
+            "modifyReceiverTypeName": "ListStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListStyleBuilder",
+            "holderName": "Default"
+         },
          "variations": [
             {
                "name": "Default",
@@ -869,7 +3657,42 @@
       {
          "key": "list-item",
          "coreName": "ListItem",
+         "styleName": "DropdownMenuItem",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.listitem",
+            "stylesClassName": "ListItemStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.listitem.ListItemStyles",
+            "receiverClassName": "ListItemStyles.DropdownMenuItem",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.listitem.ListItemStyles.DropdownMenuItem",
+            "returnTypeName": "ListItemStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyle",
+            "modifyReceiverTypeName": "ListItemStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyleBuilder",
+            "holderName": "DropdownMenuItem"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "DropdownMenuItem.Default"
+            }
+         ]
+      },
+      {
+         "key": "list-item",
+         "coreName": "ListItem",
          "styleName": "ListItem",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.listitem",
+            "stylesClassName": "ListItemStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.listitem.ListItemStyles",
+            "receiverClassName": "ListItemStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.listitem.ListItemStyles.Default",
+            "returnTypeName": "ListItemStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyle",
+            "modifyReceiverTypeName": "ListItemStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyleBuilder",
+            "holderName": "Default"
+         },
          "variations": [
             {
                "name": "Default",
@@ -881,6 +3704,17 @@
          "key": "dropdown-menu",
          "coreName": "DropdownMenu",
          "styleName": "DropdownMenu",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.dropdownmenu",
+            "stylesClassName": "DropdownMenuStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.dropdownmenu.DropdownMenuStyles",
+            "receiverClassName": "DropdownMenuStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.dropdownmenu.DropdownMenuStyles.Companion",
+            "returnTypeName": "DropdownMenuStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.DropdownMenuStyle",
+            "modifyReceiverTypeName": "DropdownMenuStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.DropdownMenuStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -892,6 +3726,17 @@
          "key": "scroll-bar",
          "coreName": "ScrollBar",
          "styleName": "ScrollBar",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.scrollbar",
+            "stylesClassName": "ScrollBarStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.scrollbar.ScrollBarStyles",
+            "receiverClassName": "ScrollBarStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.scrollbar.ScrollBarStyles.Companion",
+            "returnTypeName": "ScrollBarStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ScrollBarStyle",
+            "modifyReceiverTypeName": "ScrollBarStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ScrollBarStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -903,6 +3748,18 @@
          "key": "button-group",
          "coreName": "ButtonGroup",
          "styleName": "BasicButtonGroup",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.BasicButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.buttongroup.ButtonGroupStyles.BasicButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "BasicButtonGroup"
+         },
          "variations": [
             {
                "name": "Default",
@@ -914,6 +3771,18 @@
          "key": "button-group",
          "coreName": "ButtonGroup",
          "styleName": "IconButtonGroup",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.IconButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.buttongroup.ButtonGroupStyles.IconButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "IconButtonGroup"
+         },
          "variations": [
             {
                "name": "Default",
@@ -925,6 +3794,17 @@
          "key": "tab-bar",
          "coreName": "TabBar",
          "styleName": "TabBar",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.tabbar",
+            "stylesClassName": "TabBarStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.tabbar.TabBarStyles",
+            "receiverClassName": "TabBarStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.tabbar.TabBarStyles.Companion",
+            "returnTypeName": "TabBarStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.TabBarStyle",
+            "modifyReceiverTypeName": "TabBarStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.TabBarStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -936,6 +3816,17 @@
          "key": "tab-bar-item",
          "coreName": "TabBarItem",
          "styleName": "TabBarItem",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.tabbaritem",
+            "stylesClassName": "TabBarItemStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.tabbaritem.TabBarItemStyles",
+            "receiverClassName": "TabBarItemStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.tabbaritem.TabBarItemStyles.Companion",
+            "returnTypeName": "TabBarItemStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.TabBarItemStyle",
+            "modifyReceiverTypeName": "TabBarItemStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.TabBarItemStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -947,6 +3838,17 @@
          "key": "tabs",
          "coreName": "Tabs",
          "styleName": "TabsFolder",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.tabs",
+            "stylesClassName": "TabsStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.tabs.TabsStyles",
+            "receiverClassName": "TabsStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.tabs.TabsStyles.Companion",
+            "returnTypeName": "TabsStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.TabsStyle",
+            "modifyReceiverTypeName": "TabsStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.TabsStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -958,6 +3860,17 @@
          "key": "tab-item",
          "coreName": "TabItem",
          "styleName": "TabItemFolder",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.tabitem",
+            "stylesClassName": "TabItemStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.tabitem.TabItemStyles",
+            "receiverClassName": "TabItemStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.tabitem.TabItemStyles.Companion",
+            "returnTypeName": "TabItemStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.TabItemStyle",
+            "modifyReceiverTypeName": "TabItemStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.TabItemStyleBuilder"
+         },
          "variations": [
             {
                "name": "Default",
@@ -969,6 +3882,18 @@
          "key": "collapsing-navigation-bar",
          "coreName": "CollapsingNavigationBar",
          "styleName": "CollapsingNavigationBarMainPage",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.collapsingnavigationbar",
+            "stylesClassName": "CollapsingNavigationBarStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.collapsingnavigationbar.CollapsingNavigationBarStyles",
+            "receiverClassName": "CollapsingNavigationBarStyles.MainPage",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.collapsingnavigationbar.CollapsingNavigationBarStyles.MainPage",
+            "returnTypeName": "CollapsingNavigationBarStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CollapsingNavigationBarStyle",
+            "modifyReceiverTypeName": "CollapsingNavigationBarStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CollapsingNavigationBarStyleBuilder",
+            "holderName": "MainPage"
+         },
          "variations": [
             {
                "name": "Default",
@@ -980,6 +3905,18 @@
          "key": "collapsing-navigation-bar",
          "coreName": "CollapsingNavigationBar",
          "styleName": "CollapsingNavigationBarInternalPage",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.collapsingnavigationbar",
+            "stylesClassName": "CollapsingNavigationBarStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.collapsingnavigationbar.CollapsingNavigationBarStyles",
+            "receiverClassName": "CollapsingNavigationBarStyles.InternalPage",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.collapsingnavigationbar.CollapsingNavigationBarStyles.InternalPage",
+            "returnTypeName": "CollapsingNavigationBarStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CollapsingNavigationBarStyle",
+            "modifyReceiverTypeName": "CollapsingNavigationBarStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CollapsingNavigationBarStyleBuilder",
+            "holderName": "InternalPage"
+         },
          "variations": [
             {
                "name": "Default",
@@ -988,28 +3925,74 @@
          ]
       },
       {
-         "key": "text-field",
-         "coreName": "TextField",
-         "styleName": "SearchBar",
-         "variations": [
-            {
-               "name": "Default",
-               "composeReference": "SearchBar.Default"
-            }
-         ]
-      },
-      {
          "key": "icon-badge",
          "coreName": "IconBadge",
          "styleName": "Mention",
+         "props": [
+            {
+               "name": "mute",
+               "values": [
+                  "no",
+                  "yes"
+               ],
+               "defaultValue": "no"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.iconbadge",
+            "stylesClassName": "IconBadgeStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.iconbadge.IconBadgeStyles",
+            "receiverClassName": "IconBadgeStyles.Mention",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.iconbadge.IconBadgeStyles.Mention",
+            "returnTypeName": "BadgeStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.BadgeStyle",
+            "modifyReceiverTypeName": "IconBadgeStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconBadgeStyleBuilder",
+            "holderName": "Mention",
+            "params": [
+               {
+                  "name": "mute",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IconBadgeMentionMute",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.iconbadge.IconBadgeMentionMute",
+                  "defaultValue": {
+                     "value": "no",
+                     "codeName": "No"
+                  },
+                  "values": [
+                     {
+                        "value": "no",
+                        "codeName": "No"
+                     },
+                     {
+                        "value": "yes",
+                        "codeName": "Yes"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "mute-no",
-               "composeReference": "Mention.MuteNo"
+               "composeReference": "Mention.MuteNo",
+               "props": [
+                  {
+                     "name": "mute",
+                     "value": "no"
+                  }
+               ]
             },
             {
                "name": "mute-yes",
-               "composeReference": "Mention.MuteYes"
+               "composeReference": "Mention.MuteYes",
+               "props": [
+                  {
+                     "name": "mute",
+                     "value": "yes"
+                  }
+               ]
             }
          ]
       },
@@ -1017,22 +4000,101 @@
          "key": "icon-badge",
          "coreName": "IconBadge",
          "styleName": "VoiceChatBadge",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-20",
+                  "size-18",
+                  "size-16",
+                  "size-14"
+               ],
+               "defaultValue": "size-20"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.iconbadge",
+            "stylesClassName": "IconBadgeStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.iconbadge.IconBadgeStyles",
+            "receiverClassName": "IconBadgeStyles.VoiceChatBadge",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.iconbadge.IconBadgeStyles.VoiceChatBadge",
+            "returnTypeName": "BadgeStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.BadgeStyle",
+            "modifyReceiverTypeName": "IconBadgeStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconBadgeStyleBuilder",
+            "holderName": "VoiceChatBadge",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IconBadgeVoiceChatBadgeSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.iconbadge.IconBadgeVoiceChatBadgeSize",
+                  "defaultValue": {
+                     "value": "size-20",
+                     "codeName": "Size20"
+                  },
+                  "values": [
+                     {
+                        "value": "size-20",
+                        "codeName": "Size20"
+                     },
+                     {
+                        "value": "size-18",
+                        "codeName": "Size18"
+                     },
+                     {
+                        "value": "size-16",
+                        "codeName": "Size16"
+                     },
+                     {
+                        "value": "size-14",
+                        "codeName": "Size14"
+                     }
+                  ]
+               }
+            ]
+         },
          "variations": [
             {
                "name": "size-20",
-               "composeReference": "VoiceChatBadge.Size20"
+               "composeReference": "VoiceChatBadge.Size20",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-20"
+                  }
+               ]
             },
             {
                "name": "size-18",
-               "composeReference": "VoiceChatBadge.Size18"
+               "composeReference": "VoiceChatBadge.Size18",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-18"
+                  }
+               ]
             },
             {
                "name": "size-16",
-               "composeReference": "VoiceChatBadge.Size16"
+               "composeReference": "VoiceChatBadge.Size16",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  }
+               ]
             },
             {
                "name": "size-14",
-               "composeReference": "VoiceChatBadge.Size14"
+               "composeReference": "VoiceChatBadge.Size14",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-14"
+                  }
+               ]
             }
          ]
       }

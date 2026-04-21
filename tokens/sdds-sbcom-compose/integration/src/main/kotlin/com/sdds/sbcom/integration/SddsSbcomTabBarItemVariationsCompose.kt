@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.tabbaritem.Default
 import com.sdds.sbcom.styles.tabbaritem.TabBarItem
 
 internal object SddsSbcomTabBarItemVariationsCompose : ComposeStyleProvider<TabBarItemStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<TabBarItemStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { TabBarItem.Default.style() },
+            "TabBarItem.Default" to ComposeStyleReference { TabBarItem.Default.style() },
         )
 }

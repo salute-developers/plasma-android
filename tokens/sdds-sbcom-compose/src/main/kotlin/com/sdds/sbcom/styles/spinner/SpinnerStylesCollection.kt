@@ -45,13 +45,40 @@ public enum class SpinnerStyles(
     SpinnerSize16ModeColorGlobalWhite("Spinner.Size16.ModeColorGlobalWhite"),
     SpinnerSize16ModeColorAccent("Spinner.Size16.ModeColorAccent"),
     SpinnerSize16ModeColorDanger("Spinner.Size16.ModeColorDanger"),
+    ;
+
+    /**
+     * Typed API для подбора стиля spinner
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для spinner
+ */
+public enum class SpinnerSize {
+    Size40,
+    Size32,
+    Size24,
+    Size16,
+}
+
+/**
+ * Возможные значения свойства mode-color для spinner
+ */
+public enum class SpinnerModeColor {
+    Primary,
+    Secondary,
+    GlobalWhite,
+    Accent,
+    Danger,
 }
 
 /**
  * Возвращает [SpinnerStyle] для [SpinnerStyles]
  */
 @Composable
-public fun SpinnerStyles.style(modifyAction: @Composable SpinnerStyleBuilder.() -> Unit = {}): SpinnerStyle {
+public fun SpinnerStyles.style(modify: @Composable SpinnerStyleBuilder.() -> Unit = {}): SpinnerStyle {
     val builder = when (this) {
         SpinnerStyles.SpinnerSize40ModeColorPrimary -> Spinner.Size40.ModeColorPrimary
         SpinnerStyles.SpinnerSize40ModeColorSecondary -> Spinner.Size40.ModeColorSecondary
@@ -74,5 +101,65 @@ public fun SpinnerStyles.style(modifyAction: @Composable SpinnerStyleBuilder.() 
         SpinnerStyles.SpinnerSize16ModeColorAccent -> Spinner.Size16.ModeColorAccent
         SpinnerStyles.SpinnerSize16ModeColorDanger -> Spinner.Size16.ModeColorDanger
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [SpinnerStyles] для spinner
+ */
+public fun SpinnerStyles.Companion.resolve(
+    size: SpinnerSize = SpinnerSize.Size40,
+    modeColor: SpinnerModeColor = SpinnerModeColor.Primary,
+): SpinnerStyles = when {
+    size == SpinnerSize.Size40 && modeColor == SpinnerModeColor.Primary ->
+        SpinnerStyles.SpinnerSize40ModeColorPrimary
+    size == SpinnerSize.Size40 && modeColor == SpinnerModeColor.Secondary ->
+        SpinnerStyles.SpinnerSize40ModeColorSecondary
+    size == SpinnerSize.Size40 && modeColor == SpinnerModeColor.GlobalWhite ->
+        SpinnerStyles.SpinnerSize40ModeColorGlobalWhite
+    size == SpinnerSize.Size40 && modeColor == SpinnerModeColor.Accent ->
+        SpinnerStyles.SpinnerSize40ModeColorAccent
+    size == SpinnerSize.Size40 && modeColor == SpinnerModeColor.Danger ->
+        SpinnerStyles.SpinnerSize40ModeColorDanger
+    size == SpinnerSize.Size32 && modeColor == SpinnerModeColor.Primary ->
+        SpinnerStyles.SpinnerSize32ModeColorPrimary
+    size == SpinnerSize.Size32 && modeColor == SpinnerModeColor.Secondary ->
+        SpinnerStyles.SpinnerSize32ModeColorSecondary
+    size == SpinnerSize.Size32 && modeColor == SpinnerModeColor.GlobalWhite ->
+        SpinnerStyles.SpinnerSize32ModeColorGlobalWhite
+    size == SpinnerSize.Size32 && modeColor == SpinnerModeColor.Accent ->
+        SpinnerStyles.SpinnerSize32ModeColorAccent
+    size == SpinnerSize.Size32 && modeColor == SpinnerModeColor.Danger ->
+        SpinnerStyles.SpinnerSize32ModeColorDanger
+    size == SpinnerSize.Size24 && modeColor == SpinnerModeColor.Primary ->
+        SpinnerStyles.SpinnerSize24ModeColorPrimary
+    size == SpinnerSize.Size24 && modeColor == SpinnerModeColor.Secondary ->
+        SpinnerStyles.SpinnerSize24ModeColorSecondary
+    size == SpinnerSize.Size24 && modeColor == SpinnerModeColor.GlobalWhite ->
+        SpinnerStyles.SpinnerSize24ModeColorGlobalWhite
+    size == SpinnerSize.Size24 && modeColor == SpinnerModeColor.Accent ->
+        SpinnerStyles.SpinnerSize24ModeColorAccent
+    size == SpinnerSize.Size24 && modeColor == SpinnerModeColor.Danger ->
+        SpinnerStyles.SpinnerSize24ModeColorDanger
+    size == SpinnerSize.Size16 && modeColor == SpinnerModeColor.Primary ->
+        SpinnerStyles.SpinnerSize16ModeColorPrimary
+    size == SpinnerSize.Size16 && modeColor == SpinnerModeColor.Secondary ->
+        SpinnerStyles.SpinnerSize16ModeColorSecondary
+    size == SpinnerSize.Size16 && modeColor == SpinnerModeColor.GlobalWhite ->
+        SpinnerStyles.SpinnerSize16ModeColorGlobalWhite
+    size == SpinnerSize.Size16 && modeColor == SpinnerModeColor.Accent ->
+        SpinnerStyles.SpinnerSize16ModeColorAccent
+    size == SpinnerSize.Size16 && modeColor == SpinnerModeColor.Danger ->
+        SpinnerStyles.SpinnerSize16ModeColorDanger
+    else -> error("Unsupported spinner style combination")
+}
+
+/**
+ * Возвращает [SpinnerStyle] для spinner
+ */
+@Composable
+public fun SpinnerStyles.Companion.style(
+    size: SpinnerSize = SpinnerSize.Size40,
+    modeColor: SpinnerModeColor = SpinnerModeColor.Primary,
+    modify: @Composable SpinnerStyleBuilder.() -> Unit = {},
+): SpinnerStyle = resolve(size, modeColor).style(modify)

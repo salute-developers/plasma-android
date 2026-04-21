@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.popover.Default
 import com.sdds.sbcom.styles.popover.Popover
 
 internal object SddsSbcomPopoverVariationsCompose : ComposeStyleProvider<PopoverStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<PopoverStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Popover.Default.style() },
+            "Popover.Default" to ComposeStyleReference { Popover.Default.style() },
         )
 }

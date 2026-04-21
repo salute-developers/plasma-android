@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.modal.Default
 import com.sdds.sbcom.styles.modal.Modal
 
 internal object SddsSbcomModalVariationsCompose : ComposeStyleProvider<ModalStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ModalStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Modal.Default.style() },
+            "Modal.Default" to ComposeStyleReference { Modal.Default.style() },
         )
 }
