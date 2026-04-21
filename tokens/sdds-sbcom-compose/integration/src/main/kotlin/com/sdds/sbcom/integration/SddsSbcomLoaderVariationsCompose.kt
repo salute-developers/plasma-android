@@ -32,8 +32,16 @@ import com.sdds.sbcom.styles.loader.resolve
 internal object SddsSbcomLoaderVariationsCompose : ComposeStyleProvider<LoaderStyle>() {
     override val bindings: Set<Property<*>> =
         setOf(
-            Property.SingleChoiceProperty(name = "size", value = "Size40", variants = listOf("Size40", "Size32", "Size24", "Size16")),
-            Property.SingleChoiceProperty(name = "modeColor", value = "Primary", variants = listOf("Primary", "Secondary", "GlobalWhite", "Accent", "Danger")),
+            Property.SingleChoiceProperty(
+                name = "size",
+                value = "Size40",
+                variants = listOf("Size40", "Size32", "Size24", "Size16"),
+            ),
+            Property.SingleChoiceProperty(
+                name = "modeColor",
+                value = "Primary",
+                variants = listOf("Primary", "Secondary", "GlobalWhite", "Accent", "Danger"),
+            ),
         )
 
     override val variations: Map<String, ComposeStyleReference<LoaderStyle>> =

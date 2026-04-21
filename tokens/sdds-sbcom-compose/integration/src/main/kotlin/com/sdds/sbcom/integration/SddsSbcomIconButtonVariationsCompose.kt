@@ -32,9 +32,17 @@ import com.sdds.sbcom.styles.iconbutton.resolve
 internal object SddsSbcomIconButtonVariationsCompose : ComposeStyleProvider<ButtonStyle>() {
     override val bindings: Set<Property<*>> =
         setOf(
-            Property.SingleChoiceProperty(name = "size", value = "Size48", variants = listOf("Size48", "Size40", "Size32", "Size24")),
+            Property.SingleChoiceProperty(
+                name = "size",
+                value = "Size48",
+                variants = listOf("Size48", "Size40", "Size32", "Size24"),
+            ),
             Property.SingleChoiceProperty(name = "bg", value = "Yes", variants = listOf("Yes", "No")),
-            Property.SingleChoiceProperty(name = "mode", value = "AccentFilled", variants = listOf("AccentFilled", "AccentGrey", "DangerTint")),
+            Property.SingleChoiceProperty(
+                name = "mode",
+                value = "AccentFilled",
+                variants = listOf("AccentFilled", "AccentGrey", "DangerTint"),
+            ),
         )
 
     override val variations: Map<String, ComposeStyleReference<ButtonStyle>> =
