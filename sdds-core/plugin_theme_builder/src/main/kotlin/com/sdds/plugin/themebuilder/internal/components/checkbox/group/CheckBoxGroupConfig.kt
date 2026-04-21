@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.checkbox.group
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -38,6 +40,7 @@ internal data class CheckBoxGroupView(override val props: CheckBoxGroupPropertie
 internal data class CheckBoxGroupVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CheckBoxGroupView> = emptyMap(),
     override val props: CheckBoxGroupProperties,
 ) : ChildVariation<CheckBoxGroupProperties>
@@ -47,4 +50,5 @@ internal data class CheckBoxGroupConfig(
     override val view: Map<String, CheckBoxGroupView> = emptyMap(),
     override val props: CheckBoxGroupProperties,
     override val variations: List<CheckBoxGroupVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CheckBoxGroupProperties>, ComponentConfig

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.collapsingnavigationbar
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -69,18 +71,25 @@ internal data class CollapsingNavigationBarProperties(
 }
 
 @Serializable
-internal data class CollapsingNavigationBarView(override val props: CollapsingNavigationBarProperties) :
+internal data class CollapsingNavigationBarView(
+    override val props: CollapsingNavigationBarProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<CollapsingNavigationBarProperties> {
     override fun merge(
         parent: ViewVariation<CollapsingNavigationBarProperties>,
     ): ViewVariation<CollapsingNavigationBarProperties> =
-        copy(props = props.merge(parent.props) as CollapsingNavigationBarProperties)
+        copy(
+            props = props.merge(parent.props) as CollapsingNavigationBarProperties,
+            binding = binding ?: parent.binding,
+        )
 }
 
 @Serializable
 internal data class CollapsingNavigationBarVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CollapsingNavigationBarView> = emptyMap(),
     override val props: CollapsingNavigationBarProperties,
 ) : ChildVariation<CollapsingNavigationBarProperties>
@@ -90,4 +99,5 @@ internal data class CollapsingNavigationBarConfig(
     override val view: Map<String, CollapsingNavigationBarView> = emptyMap(),
     override val props: CollapsingNavigationBarProperties,
     override val variations: List<CollapsingNavigationBarVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CollapsingNavigationBarProperties>, ComponentConfig

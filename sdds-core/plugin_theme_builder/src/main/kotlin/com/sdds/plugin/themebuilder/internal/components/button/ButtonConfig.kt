@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.button
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -68,15 +70,17 @@ internal data class ButtonProperties(
 @Serializable
 internal data class ButtonView(
     override val props: ButtonProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<ButtonProperties> {
     override fun merge(parent: ViewVariation<ButtonProperties>): ViewVariation<ButtonProperties> =
-        copy(props = props.merge(parent.props) as ButtonProperties)
+        copy(props = props.merge(parent.props) as ButtonProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ButtonVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ButtonView> = emptyMap(),
     override val props: ButtonProperties,
 ) : ChildVariation<ButtonProperties>
@@ -86,4 +90,5 @@ internal data class ButtonConfig(
     override val view: Map<String, ButtonView> = emptyMap(),
     override val props: ButtonProperties = ButtonProperties(),
     override val variations: List<ButtonVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ButtonProperties>, ComponentConfig

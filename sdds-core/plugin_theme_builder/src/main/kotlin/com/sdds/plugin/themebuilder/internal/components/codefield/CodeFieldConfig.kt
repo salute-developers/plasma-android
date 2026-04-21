@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.codefield
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -56,15 +58,17 @@ internal data class CodeFieldProperties(
 @Serializable
 internal data class CodeFieldView(
     override val props: CodeFieldProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<CodeFieldProperties> {
     override fun merge(parent: ViewVariation<CodeFieldProperties>): ViewVariation<CodeFieldProperties> =
-        copy(props = props.merge(parent.props) as CodeFieldProperties)
+        copy(props = props.merge(parent.props) as CodeFieldProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class CodeFieldVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CodeFieldView> = emptyMap(),
     override val props: CodeFieldProperties,
 ) : ChildVariation<CodeFieldProperties>
@@ -74,4 +78,5 @@ internal data class CodeFieldConfig(
     override val view: Map<String, CodeFieldView> = emptyMap(),
     override val props: CodeFieldProperties,
     override val variations: List<CodeFieldVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CodeFieldProperties>, ComponentConfig

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.switcher
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -79,15 +81,17 @@ internal data class SwitchProperties(
 @Serializable
 internal data class SwitchView(
     override val props: SwitchProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<SwitchProperties> {
     override fun merge(parent: ViewVariation<SwitchProperties>): ViewVariation<SwitchProperties> =
-        copy(props = props.merge(parent.props) as SwitchProperties)
+        copy(props = props.merge(parent.props) as SwitchProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class SwitchVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, SwitchView> = emptyMap(),
     override val props: SwitchProperties,
 ) : ChildVariation<SwitchProperties>
@@ -97,4 +101,5 @@ internal data class SwitchConfig(
     override val view: Map<String, SwitchView> = emptyMap(),
     override val props: SwitchProperties,
     override val variations: List<SwitchVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<SwitchProperties>, ComponentConfig

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.image
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
@@ -24,16 +26,20 @@ internal data class ImageProperties(
 }
 
 @Serializable
-internal data class ImageView(override val props: ImageProperties) :
+internal data class ImageView(
+    override val props: ImageProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<ImageProperties> {
     override fun merge(parent: ViewVariation<ImageProperties>): ViewVariation<ImageProperties> =
-        copy(props = props.merge(parent.props) as ImageProperties)
+        copy(props = props.merge(parent.props) as ImageProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ImageVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ImageView> = emptyMap(),
     override val props: ImageProperties,
 ) : ChildVariation<ImageProperties>
@@ -43,4 +49,5 @@ internal data class ImageConfig(
     override val view: Map<String, ImageView> = emptyMap(),
     override val props: ImageProperties,
     override val variations: List<ImageVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ImageProperties>, ComponentConfig

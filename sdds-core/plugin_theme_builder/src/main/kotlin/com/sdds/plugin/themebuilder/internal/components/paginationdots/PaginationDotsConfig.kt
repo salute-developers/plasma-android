@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.paginationdots
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -39,15 +41,17 @@ internal data class PaginationDotsProperties(
 @Serializable
 internal data class PaginationDotsView(
     override val props: PaginationDotsProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<PaginationDotsProperties> {
     override fun merge(parent: ViewVariation<PaginationDotsProperties>): ViewVariation<PaginationDotsProperties> =
-        copy(props = props.merge(parent.props) as PaginationDotsProperties)
+        copy(props = props.merge(parent.props) as PaginationDotsProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class PaginationDotsVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, PaginationDotsView> = emptyMap(),
     override val props: PaginationDotsProperties,
 ) : ChildVariation<PaginationDotsProperties>
@@ -57,4 +61,5 @@ internal data class PaginationDotsConfig(
     override val view: Map<String, PaginationDotsView> = emptyMap(),
     override val props: PaginationDotsProperties,
     override val variations: List<PaginationDotsVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<PaginationDotsProperties>, ComponentConfig

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.rectskeleton
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -28,16 +30,20 @@ internal data class RectSkeletonProperties(
 }
 
 @Serializable
-internal data class RectSkeletonView(override val props: RectSkeletonProperties) :
+internal data class RectSkeletonView(
+    override val props: RectSkeletonProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<RectSkeletonProperties> {
     override fun merge(parent: ViewVariation<RectSkeletonProperties>): ViewVariation<RectSkeletonProperties> =
-        copy(props = props.merge(parent.props) as RectSkeletonProperties)
+        copy(props = props.merge(parent.props) as RectSkeletonProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class RectSkeletonVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, RectSkeletonView> = emptyMap(),
     override val props: RectSkeletonProperties,
 ) : ChildVariation<RectSkeletonProperties>
@@ -47,4 +53,5 @@ internal data class RectSkeletonConfig(
     override val view: Map<String, RectSkeletonView> = emptyMap(),
     override val props: RectSkeletonProperties,
     override val variations: List<RectSkeletonVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<RectSkeletonProperties>, ComponentConfig

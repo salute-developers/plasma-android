@@ -2,6 +2,8 @@ package com.sdds.plugin.themebuilder.internal.components.avatar.group
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarProperties
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -40,6 +42,7 @@ internal data class AvatarGroupView(
 internal data class AvatarGroupVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, AvatarGroupView> = emptyMap(),
     override val props: AvatarGroupProperties,
 ) : ChildVariation<AvatarGroupProperties>
@@ -49,4 +52,5 @@ internal data class AvatarGroupConfig(
     override val view: Map<String, AvatarGroupView> = emptyMap(),
     override val props: AvatarGroupProperties,
     override val variations: List<AvatarGroupVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<AvatarGroupProperties>, ComponentConfig

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.toolbar
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -47,16 +49,20 @@ internal data class ToolBarProperties(
 }
 
 @Serializable
-internal data class ToolBarView(override val props: ToolBarProperties) :
+internal data class ToolBarView(
+    override val props: ToolBarProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<ToolBarProperties> {
     override fun merge(parent: ViewVariation<ToolBarProperties>): ViewVariation<ToolBarProperties> =
-        copy(props = props.merge(parent.props) as ToolBarProperties)
+        copy(props = props.merge(parent.props) as ToolBarProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ToolBarVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ToolBarView> = emptyMap(),
     override val props: ToolBarProperties,
 ) : ChildVariation<ToolBarProperties>
@@ -66,4 +72,5 @@ internal data class ToolBarConfig(
     override val view: Map<String, ToolBarView> = emptyMap(),
     override val props: ToolBarProperties,
     override val variations: List<ToolBarVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ToolBarProperties>, ComponentConfig

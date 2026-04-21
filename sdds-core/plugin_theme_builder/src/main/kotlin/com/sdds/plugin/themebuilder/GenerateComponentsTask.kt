@@ -10,9 +10,11 @@ import com.sdds.plugin.themebuilder.internal.components.ConfigInfo
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
 import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.components.base.Components
+import com.sdds.plugin.themebuilder.internal.components.base.compose.AppearanceInfo
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeMetaClassGenerator
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeMetaClassInfo
 import com.sdds.plugin.themebuilder.internal.components.base.compose.MetaClassAppearance
+import com.sdds.plugin.themebuilder.internal.components.base.compose.buildComposeStyleApiInfos
 import com.sdds.plugin.themebuilder.internal.components.componentDelegates
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -156,11 +158,39 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         val configInfo = ConfigInfo(
             name = name,
             packageName = packageName.get(),
-            components = components,
+            components = enrichComposeComponentsWithStyleApi(components),
         )
         outputFileForCompose.outputStream().use {
             Serializer.configInfo.encodeToStream(configInfo, it)
         }
+    }
+
+    private fun enrichComposeComponentsWithStyleApi(components: List<ComponentInfo>): List<ComponentInfo> {
+        return components
+            .groupBy { it.key }
+            .values
+            .flatMap { componentInfos ->
+                val commonInfo = componentInfos.first()
+                val styleApis = buildComposeStyleApiInfos(
+                    info = ComposeMetaClassInfo(
+                        coreComponentName = commonInfo.key,
+                        styleClassName = commonInfo.styleClassName,
+                        styleBuilderClassName = commonInfo.styleBuilderClassName,
+                        appearances = componentInfos.associate {
+                            MetaClassAppearance(it.appearance) to AppearanceInfo(
+                                props = it.props,
+                                variations = it.variations,
+                            )
+                        },
+                    ),
+                    componentPackage = commonInfo.componentPackage,
+                )
+                componentInfos.map { componentInfo ->
+                    componentInfo.copy(
+                        styleApi = styleApis[MetaClassAppearance(componentInfo.appearance)],
+                    )
+                }
+            }
     }
 
     private fun generateComposeMetaClass(
@@ -182,7 +212,12 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
                     coreComponentName = component.componentName,
                     styleClassName = commonInfo.styleClassName,
                     styleBuilderClassName = commonInfo.styleBuilderClassName,
-                    appearances = componentInfos.associate { MetaClassAppearance(it.appearance) to it.variations },
+                    appearances = componentInfos.associate {
+                        MetaClassAppearance(it.appearance) to AppearanceInfo(
+                            props = it.props,
+                            variations = it.variations,
+                        )
+                    },
                 ),
             )
         }

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.radiobox
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -73,16 +75,20 @@ internal data class RadioBoxProperties(
 }
 
 @Serializable
-internal data class RadioBoxView(override val props: RadioBoxProperties) :
+internal data class RadioBoxView(
+    override val props: RadioBoxProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<RadioBoxProperties> {
     override fun merge(parent: ViewVariation<RadioBoxProperties>): ViewVariation<RadioBoxProperties> =
-        copy(props = props.merge(parent.props) as RadioBoxProperties)
+        copy(props = props.merge(parent.props) as RadioBoxProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class RadioBoxVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, RadioBoxView> = emptyMap(),
     override val props: RadioBoxProperties,
 ) : ChildVariation<RadioBoxProperties>
@@ -92,4 +98,5 @@ internal data class RadioBoxConfig(
     override val view: Map<String, RadioBoxView> = emptyMap(),
     override val props: RadioBoxProperties,
     override val variations: List<RadioBoxVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<RadioBoxProperties>, ComponentConfig

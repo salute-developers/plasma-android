@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.textskeleton
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -31,16 +33,20 @@ internal data class TextSkeletonProperties(
 }
 
 @Serializable
-internal data class TextSkeletonView(override val props: TextSkeletonProperties) :
+internal data class TextSkeletonView(
+    override val props: TextSkeletonProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<TextSkeletonProperties> {
     override fun merge(parent: ViewVariation<TextSkeletonProperties>): ViewVariation<TextSkeletonProperties> =
-        copy(props = props.merge(parent.props) as TextSkeletonProperties)
+        copy(props = props.merge(parent.props) as TextSkeletonProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class TextSkeletonVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, TextSkeletonView> = emptyMap(),
     override val props: TextSkeletonProperties,
 ) : ChildVariation<TextSkeletonProperties>
@@ -50,4 +56,5 @@ internal data class TextSkeletonConfig(
     override val view: Map<String, TextSkeletonView> = emptyMap(),
     override val props: TextSkeletonProperties,
     override val variations: List<TextSkeletonVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<TextSkeletonProperties>, ComponentConfig

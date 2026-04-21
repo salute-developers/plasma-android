@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.scrollbar
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -36,15 +38,17 @@ internal data class ScrollBarProperties(
 @Serializable
 internal data class ScrollBarView(
     override val props: ScrollBarProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<ScrollBarProperties> {
     override fun merge(parent: ViewVariation<ScrollBarProperties>): ViewVariation<ScrollBarProperties> =
-        copy(props = props.merge(parent.props) as ScrollBarProperties)
+        copy(props = props.merge(parent.props) as ScrollBarProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ScrollBarVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ScrollBarView> = emptyMap(),
     override val props: ScrollBarProperties,
 ) : ChildVariation<ScrollBarProperties>
@@ -54,4 +58,5 @@ internal data class ScrollBarConfig(
     override val view: Map<String, ScrollBarView> = emptyMap(),
     override val props: ScrollBarProperties,
     override val variations: List<ScrollBarVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ScrollBarProperties>, ComponentConfig

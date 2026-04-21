@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.wheel
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
@@ -88,15 +90,17 @@ internal data class WheelProperties(
 @Serializable
 internal data class WheelView(
     override val props: WheelProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<WheelProperties> {
     override fun merge(parent: ViewVariation<WheelProperties>): ViewVariation<WheelProperties> =
-        copy(props = props.merge(parent.props) as WheelProperties)
+        copy(props = props.merge(parent.props) as WheelProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class WheelVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, WheelView> = emptyMap(),
     override val props: WheelProperties,
 ) : ChildVariation<WheelProperties>
@@ -106,4 +110,5 @@ internal data class WheelConfig(
     override val view: Map<String, WheelView> = emptyMap(),
     override val props: WheelProperties,
     override val variations: List<WheelVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<WheelProperties>, ComponentConfig

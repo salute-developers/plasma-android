@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.spinner
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -38,16 +40,20 @@ internal data class SpinnerProperties(
 }
 
 @Serializable
-internal data class SpinnerView(override val props: SpinnerProperties) :
+internal data class SpinnerView(
+    override val props: SpinnerProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<SpinnerProperties> {
     override fun merge(parent: ViewVariation<SpinnerProperties>): ViewVariation<SpinnerProperties> =
-        copy(props = props.merge(parent.props) as SpinnerProperties)
+        copy(props = props.merge(parent.props) as SpinnerProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class SpinnerVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, SpinnerView> = emptyMap(),
     override val props: SpinnerProperties,
 ) : ChildVariation<SpinnerProperties>
@@ -57,4 +63,5 @@ internal data class SpinnerConfig(
     override val view: Map<String, SpinnerView> = emptyMap(),
     override val props: SpinnerProperties,
     override val variations: List<SpinnerVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<SpinnerProperties>, ComponentConfig
