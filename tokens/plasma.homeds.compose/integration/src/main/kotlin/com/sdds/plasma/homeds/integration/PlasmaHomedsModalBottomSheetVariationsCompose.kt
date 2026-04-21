@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.plasma.homeds.styles.bottomsheet.Default
 import com.sdds.plasma.homeds.styles.bottomsheet.ModalBottomSheet
 
 internal object PlasmaHomedsModalBottomSheetVariationsCompose : ComposeStyleProvider<ModalBottomSheetStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ModalBottomSheetStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { ModalBottomSheet.Default.style() },
+            "ModalBottomSheet.Default" to ComposeStyleReference { ModalBottomSheet.Default.style() },
         )
 }

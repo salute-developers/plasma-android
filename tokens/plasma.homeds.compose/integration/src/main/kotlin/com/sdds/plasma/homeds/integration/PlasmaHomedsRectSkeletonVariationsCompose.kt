@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.plasma.homeds.styles.rectskeleton.Default
 import com.sdds.plasma.homeds.styles.rectskeleton.RectSkeleton
 
 internal object PlasmaHomedsRectSkeletonVariationsCompose : ComposeStyleProvider<RectSkeletonStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<RectSkeletonStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { RectSkeleton.Default.style() },
+            "RectSkeleton.Default" to ComposeStyleReference { RectSkeleton.Default.style() },
         )
 }

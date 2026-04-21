@@ -61,13 +61,53 @@ public enum class TextFieldStyles(
     TextFieldLInnerLabelRequiredStartError("TextField.L.InnerLabel.RequiredStart.Error"),
     TextFieldLInnerLabelRequiredEndDefault("TextField.L.InnerLabel.RequiredEnd.Default"),
     TextFieldLInnerLabelRequiredEndError("TextField.L.InnerLabel.RequiredEnd.Error"),
+    ;
+
+    /**
+     * Typed API для подбора стиля text-field
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для text-field
+ */
+public enum class TextFieldSize {
+    S,
+    M,
+    L,
+}
+
+/**
+ * Возможные значения свойства required-placement для text-field
+ */
+public enum class TextFieldRequiredPlacement {
+    None,
+    Start,
+    End,
+}
+
+/**
+ * Возможные значения свойства label-placement для text-field
+ */
+public enum class TextFieldLabelPlacement {
+    Inner,
+    None,
+}
+
+/**
+ * Возможные значения свойства view для text-field
+ */
+public enum class TextFieldView {
+    Default,
+    Error,
 }
 
 /**
  * Возвращает [TextFieldStyle] для [TextFieldStyles]
  */
 @Composable
-public fun TextFieldStyles.style(modifyAction: @Composable TextFieldStyleBuilder.() -> Unit = {}): TextFieldStyle {
+public fun TextFieldStyles.style(modify: @Composable TextFieldStyleBuilder.() -> Unit = {}): TextFieldStyle {
     val builder = when (this) {
         TextFieldStyles.TextFieldSDefault -> TextField.S.Default
         TextFieldStyles.TextFieldSError -> TextField.S.Error
@@ -118,5 +158,137 @@ public fun TextFieldStyles.style(modifyAction: @Composable TextFieldStyleBuilder
         TextFieldStyles.TextFieldLInnerLabelRequiredEndError ->
             TextField.L.InnerLabel.RequiredEnd.Error
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [TextFieldStyles] для text-field
+ */
+public fun TextFieldStyles.Companion.resolve(
+    size: TextFieldSize = TextFieldSize.S,
+    requiredPlacement: TextFieldRequiredPlacement = TextFieldRequiredPlacement.None,
+    labelPlacement: TextFieldLabelPlacement = TextFieldLabelPlacement.Inner,
+    view: TextFieldView = TextFieldView.Default,
+): TextFieldStyles = when {
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldSDefault
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldSError
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldSRequiredStartDefault
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldSRequiredStartError
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.None && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldSRequiredEndDefault
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.None && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldSRequiredEndError
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldSInnerLabelDefault
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldSInnerLabelError
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldSInnerLabelRequiredStartDefault
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldSInnerLabelRequiredStartError
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.Inner && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldSInnerLabelRequiredEndDefault
+    size == TextFieldSize.S && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.Inner && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldSInnerLabelRequiredEndError
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldMDefault
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldMError
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldMRequiredStartDefault
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldMRequiredStartError
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.None && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldMRequiredEndDefault
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.None && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldMRequiredEndError
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldMInnerLabelDefault
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldMInnerLabelError
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldMInnerLabelRequiredStartDefault
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldMInnerLabelRequiredStartError
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.Inner && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldMInnerLabelRequiredEndDefault
+    size == TextFieldSize.M && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.Inner && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldMInnerLabelRequiredEndError
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldLDefault
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldLError
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldLRequiredStartDefault
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.None && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldLRequiredStartError
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.None && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldLRequiredEndDefault
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.None && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldLRequiredEndError
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldLInnerLabelDefault
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.None &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldLInnerLabelError
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldLInnerLabelRequiredStartDefault
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.Start &&
+        labelPlacement == TextFieldLabelPlacement.Inner && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldLInnerLabelRequiredStartError
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.Inner && view == TextFieldView.Default ->
+        TextFieldStyles.TextFieldLInnerLabelRequiredEndDefault
+    size == TextFieldSize.L && requiredPlacement == TextFieldRequiredPlacement.End && labelPlacement
+        == TextFieldLabelPlacement.Inner && view == TextFieldView.Error ->
+        TextFieldStyles.TextFieldLInnerLabelRequiredEndError
+    else -> error("Unsupported text-field style combination")
+}
+
+/**
+ * Возвращает [TextFieldStyle] для text-field
+ */
+@Composable
+public fun TextFieldStyles.Companion.style(
+    size: TextFieldSize = TextFieldSize.S,
+    requiredPlacement: TextFieldRequiredPlacement = TextFieldRequiredPlacement.None,
+    labelPlacement: TextFieldLabelPlacement = TextFieldLabelPlacement.Inner,
+    view: TextFieldView = TextFieldView.Default,
+    modify: @Composable TextFieldStyleBuilder.() -> Unit = {},
+): TextFieldStyle = resolve(size, requiredPlacement, labelPlacement, view).style(modify)

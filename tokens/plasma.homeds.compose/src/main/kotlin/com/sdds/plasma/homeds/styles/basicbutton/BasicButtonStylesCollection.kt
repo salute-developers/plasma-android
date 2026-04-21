@@ -46,16 +46,41 @@ public enum class BasicButtonStyles(
     BasicButtonXsWarning("BasicButton.Xs.Warning"),
     BasicButtonXsAccent("BasicButton.Xs.Accent"),
     BasicButtonXsClear("BasicButton.Xs.Clear"),
+    ;
+
+    /**
+     * Typed API для подбора стиля basic-button
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для basic-button
+ */
+public enum class BasicButtonSize {
+    M,
+    S,
+    Xs,
+}
+
+/**
+ * Возможные значения свойства view для basic-button
+ */
+public enum class BasicButtonView {
+    Default,
+    Secondary,
+    Dark,
+    Negative,
+    Warning,
+    Accent,
+    Clear,
 }
 
 /**
  * Возвращает [ButtonStyle] для [BasicButtonStyles]
  */
 @Composable
-public fun BasicButtonStyles.style(
-    modifyAction: @Composable BasicButtonStyleBuilder.() -> Unit =
-        {},
-): ButtonStyle {
+public fun BasicButtonStyles.style(modify: @Composable BasicButtonStyleBuilder.() -> Unit = {}): ButtonStyle {
     val builder = when (this) {
         BasicButtonStyles.BasicButtonMDefault -> BasicButton.M.Default
         BasicButtonStyles.BasicButtonMSecondary -> BasicButton.M.Secondary
@@ -79,5 +104,62 @@ public fun BasicButtonStyles.style(
         BasicButtonStyles.BasicButtonXsAccent -> BasicButton.Xs.Accent
         BasicButtonStyles.BasicButtonXsClear -> BasicButton.Xs.Clear
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [BasicButtonStyles] для basic-button
+ */
+public fun BasicButtonStyles.Companion.resolve(size: BasicButtonSize, view: BasicButtonView): BasicButtonStyles = when {
+    size == BasicButtonSize.M && view == BasicButtonView.Default ->
+        BasicButtonStyles.BasicButtonMDefault
+    size == BasicButtonSize.M && view == BasicButtonView.Secondary ->
+        BasicButtonStyles.BasicButtonMSecondary
+    size == BasicButtonSize.M && view == BasicButtonView.Dark -> BasicButtonStyles.BasicButtonMDark
+    size == BasicButtonSize.M && view == BasicButtonView.Negative ->
+        BasicButtonStyles.BasicButtonMNegative
+    size == BasicButtonSize.M && view == BasicButtonView.Warning ->
+        BasicButtonStyles.BasicButtonMWarning
+    size == BasicButtonSize.M && view == BasicButtonView.Accent ->
+        BasicButtonStyles.BasicButtonMAccent
+    size == BasicButtonSize.M && view == BasicButtonView.Clear ->
+        BasicButtonStyles.BasicButtonMClear
+    size == BasicButtonSize.S && view == BasicButtonView.Default ->
+        BasicButtonStyles.BasicButtonSDefault
+    size == BasicButtonSize.S && view == BasicButtonView.Secondary ->
+        BasicButtonStyles.BasicButtonSSecondary
+    size == BasicButtonSize.S && view == BasicButtonView.Dark -> BasicButtonStyles.BasicButtonSDark
+    size == BasicButtonSize.S && view == BasicButtonView.Negative ->
+        BasicButtonStyles.BasicButtonSNegative
+    size == BasicButtonSize.S && view == BasicButtonView.Warning ->
+        BasicButtonStyles.BasicButtonSWarning
+    size == BasicButtonSize.S && view == BasicButtonView.Accent ->
+        BasicButtonStyles.BasicButtonSAccent
+    size == BasicButtonSize.S && view == BasicButtonView.Clear ->
+        BasicButtonStyles.BasicButtonSClear
+    size == BasicButtonSize.Xs && view == BasicButtonView.Default ->
+        BasicButtonStyles.BasicButtonXsDefault
+    size == BasicButtonSize.Xs && view == BasicButtonView.Secondary ->
+        BasicButtonStyles.BasicButtonXsSecondary
+    size == BasicButtonSize.Xs && view == BasicButtonView.Dark ->
+        BasicButtonStyles.BasicButtonXsDark
+    size == BasicButtonSize.Xs && view == BasicButtonView.Negative ->
+        BasicButtonStyles.BasicButtonXsNegative
+    size == BasicButtonSize.Xs && view == BasicButtonView.Warning ->
+        BasicButtonStyles.BasicButtonXsWarning
+    size == BasicButtonSize.Xs && view == BasicButtonView.Accent ->
+        BasicButtonStyles.BasicButtonXsAccent
+    size == BasicButtonSize.Xs && view == BasicButtonView.Clear ->
+        BasicButtonStyles.BasicButtonXsClear
+    else -> error("Unsupported basic-button style combination")
+}
+
+/**
+ * Возвращает [ButtonStyle] для basic-button
+ */
+@Composable
+public fun BasicButtonStyles.Companion.style(
+    size: BasicButtonSize,
+    view: BasicButtonView,
+    modify: @Composable BasicButtonStyleBuilder.() -> Unit = {},
+): ButtonStyle = resolve(size, view).style(modify)

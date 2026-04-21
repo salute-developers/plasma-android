@@ -28,20 +28,54 @@ public enum class CheckBoxGroupStyles(
     CheckBoxGroupL("CheckBoxGroup.L"),
     CheckBoxGroupM("CheckBoxGroup.M"),
     CheckBoxGroupS("CheckBoxGroup.S"),
+    ;
+
+    /**
+     * Typed API для подбора стиля check-box-group
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для check-box-group
+ */
+public enum class CheckBoxGroupSize {
+    L,
+    M,
+    S,
 }
 
 /**
  * Возвращает [CheckBoxGroupStyle] для [CheckBoxGroupStyles]
  */
 @Composable
-public fun CheckBoxGroupStyles.style(
-    modifyAction: @Composable CheckBoxGroupStyleBuilder.() -> Unit =
-        {},
-): CheckBoxGroupStyle {
+public fun CheckBoxGroupStyles.style(modify: @Composable CheckBoxGroupStyleBuilder.() -> Unit = {}):
+    CheckBoxGroupStyle {
     val builder = when (this) {
         CheckBoxGroupStyles.CheckBoxGroupL -> CheckBoxGroup.L
         CheckBoxGroupStyles.CheckBoxGroupM -> CheckBoxGroup.M
         CheckBoxGroupStyles.CheckBoxGroupS -> CheckBoxGroup.S
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [CheckBoxGroupStyles] для check-box-group
+ */
+public fun CheckBoxGroupStyles.Companion.resolve(size: CheckBoxGroupSize = CheckBoxGroupSize.L):
+    CheckBoxGroupStyles = when {
+    size == CheckBoxGroupSize.L -> CheckBoxGroupStyles.CheckBoxGroupL
+    size == CheckBoxGroupSize.M -> CheckBoxGroupStyles.CheckBoxGroupM
+    size == CheckBoxGroupSize.S -> CheckBoxGroupStyles.CheckBoxGroupS
+    else -> error("Unsupported check-box-group style combination")
+}
+
+/**
+ * Возвращает [CheckBoxGroupStyle] для check-box-group
+ */
+@Composable
+public fun CheckBoxGroupStyles.Companion.style(
+    size: CheckBoxGroupSize = CheckBoxGroupSize.L,
+    modify: @Composable CheckBoxGroupStyleBuilder.() -> Unit = {},
+): CheckBoxGroupStyle =
+    resolve(size).style(modify)

@@ -28,17 +28,53 @@ public enum class OverlayStyles(
     OverlayDefault("Overlay.Default"),
     OverlayDirectionTop("Overlay.DirectionTop"),
     OverlayDirectionBottom("Overlay.DirectionBottom"),
+    ;
+
+    /**
+     * Typed API для подбора стиля overlay
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства kind для overlay
+ */
+public enum class OverlayKind {
+    Default,
+    DirectionTop,
+    DirectionBottom,
 }
 
 /**
  * Возвращает [OverlayStyle] для [OverlayStyles]
  */
 @Composable
-public fun OverlayStyles.style(modifyAction: @Composable OverlayStyleBuilder.() -> Unit = {}): OverlayStyle {
+public fun OverlayStyles.style(modify: @Composable OverlayStyleBuilder.() -> Unit = {}): OverlayStyle {
     val builder = when (this) {
         OverlayStyles.OverlayDefault -> Overlay.Default
         OverlayStyles.OverlayDirectionTop -> Overlay.DirectionTop
         OverlayStyles.OverlayDirectionBottom -> Overlay.DirectionBottom
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [OverlayStyles] для overlay
+ */
+public fun OverlayStyles.Companion.resolve(kind: OverlayKind = OverlayKind.Default): OverlayStyles =
+    when {
+        kind == OverlayKind.Default -> OverlayStyles.OverlayDefault
+        kind == OverlayKind.DirectionTop -> OverlayStyles.OverlayDirectionTop
+        kind == OverlayKind.DirectionBottom -> OverlayStyles.OverlayDirectionBottom
+        else -> error("Unsupported overlay style combination")
+    }
+
+/**
+ * Возвращает [OverlayStyle] для overlay
+ */
+@Composable
+public fun OverlayStyles.Companion.style(
+    kind: OverlayKind = OverlayKind.Default,
+    modify: @Composable OverlayStyleBuilder.() -> Unit = {},
+): OverlayStyle =
+    resolve(kind).style(modify)
