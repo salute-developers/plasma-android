@@ -53,6 +53,12 @@ abstract class ComposeStyleProvider<S : Style> : StyleProvider<ComposeStyleRefer
     open val bindings: Set<Property<*>> = emptySet()
 
     /**
+     * @see StyleProvider.defaultVariant
+     */
+    override val defaultVariant: String
+        get() = resolveStyleKey(getDefaultBindings())
+
+    /**
      * Получает экземпляр стиля по его ключу и немедленно создает его.
      *
      * Композируемая функция, которая:
@@ -93,7 +99,7 @@ abstract class ComposeStyleProvider<S : Style> : StyleProvider<ComposeStyleRefer
      * @return экземпляр стиля указанного типа
      */
     open fun resolveStyleKey(bindings: Map<String, Any?>): String {
-        return defaultVariant
+        return super.defaultVariant
     }
 
     protected fun booleanBindingValue(
@@ -106,5 +112,9 @@ abstract class ComposeStyleProvider<S : Style> : StyleProvider<ComposeStyleRefer
             is String -> value.toBooleanStrictOrNull() ?: defaultValue
             else -> defaultValue
         }
+    }
+
+    private fun getDefaultBindings(): Map<String, Any?> {
+        return bindings.associate { it.name to it.value }
     }
 }

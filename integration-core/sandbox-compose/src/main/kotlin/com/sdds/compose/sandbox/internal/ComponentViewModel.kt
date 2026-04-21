@@ -52,13 +52,22 @@ internal class ComponentViewModel<State : UiState, S : Style>(
      */
     val subtheme: StateFlow<SubTheme?> = _subtheme.asStateFlow()
 
-    override val properties: StateFlow<List<Property<*>>> =
+    /**
+     * Параметры стиля
+     */
+    val styleProperties: StateFlow<List<Property<*>>> =
         combine(internalUiState, theme, selectedBindings) { state, themeState, bindings ->
             if (themeState.components.components.isEmpty()) return@combine emptyList()
             updateUiStateWithDefaultVariant(state, themeState)
             appearanceProperties(state, themeState) +
-                styleProperties(state, themeState, bindings) +
-                state.toProps()
+                styleProperties(state, themeState, bindings)
+        }
+            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+
+    override val properties: StateFlow<List<Property<*>>> =
+        combine(internalUiState, theme, selectedBindings) { state, themeState, bindings ->
+            if (themeState.components.components.isEmpty()) return@combine emptyList()
+            state.toProps()
         }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 

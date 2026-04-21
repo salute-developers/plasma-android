@@ -63,7 +63,7 @@ abstract class StyleProvider<SR : StyleReference<*>> {
      *
      * @throws NoSuchElementException если [variations] пуст
      */
-    val defaultVariant: String
+    open val defaultVariant: String
         get() = variations.entries.first().key
 
     /**
