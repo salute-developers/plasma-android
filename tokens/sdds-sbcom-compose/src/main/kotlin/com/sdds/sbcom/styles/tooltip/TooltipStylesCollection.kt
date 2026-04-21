@@ -26,15 +26,33 @@ public enum class TooltipStyles(
     public val key: String,
 ) {
     TooltipDefault("Tooltip.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля tooltip
+     */
+    public companion object
 }
 
 /**
  * Возвращает [TooltipStyle] для [TooltipStyles]
  */
 @Composable
-public fun TooltipStyles.style(modifyAction: @Composable TooltipStyleBuilder.() -> Unit = {}): TooltipStyle {
+public fun TooltipStyles.style(modify: @Composable TooltipStyleBuilder.() -> Unit = {}): TooltipStyle {
     val builder = when (this) {
         TooltipStyles.TooltipDefault -> Tooltip.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [TooltipStyles] для tooltip
+ */
+public fun TooltipStyles.Companion.resolve(): TooltipStyles = TooltipStyles.TooltipDefault
+
+/**
+ * Возвращает [TooltipStyle] для tooltip
+ */
+@Composable
+public fun TooltipStyles.Companion.style(modify: @Composable TooltipStyleBuilder.() -> Unit = {}):
+    TooltipStyle = resolve().style(modify)

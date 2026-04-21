@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.collapsingnavigationbar.CollapsingNavigationBarMain
 import com.sdds.sbcom.styles.collapsingnavigationbar.Default
 
 internal object SddsSbcomCollapsingNavigationBarMainPageVariationsCompose : ComposeStyleProvider<CollapsingNavigationBarStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<CollapsingNavigationBarStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { CollapsingNavigationBarMainPage.Default.style() },
+            "CollapsingNavigationBarMainPage.Default" to ComposeStyleReference { CollapsingNavigationBarMainPage.Default.style() },
         )
 }

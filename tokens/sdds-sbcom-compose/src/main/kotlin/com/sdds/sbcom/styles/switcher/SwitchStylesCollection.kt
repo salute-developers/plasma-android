@@ -26,15 +26,33 @@ public enum class SwitchStyles(
     public val key: String,
 ) {
     SwitchDefault("Switch.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля switch
+     */
+    public companion object
 }
 
 /**
  * Возвращает [SwitchStyle] для [SwitchStyles]
  */
 @Composable
-public fun SwitchStyles.style(modifyAction: @Composable SwitchStyleBuilder.() -> Unit = {}): SwitchStyle {
+public fun SwitchStyles.style(modify: @Composable SwitchStyleBuilder.() -> Unit = {}): SwitchStyle {
     val builder = when (this) {
         SwitchStyles.SwitchDefault -> Switch.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [SwitchStyles] для switch
+ */
+public fun SwitchStyles.Companion.resolve(): SwitchStyles = SwitchStyles.SwitchDefault
+
+/**
+ * Возвращает [SwitchStyle] для switch
+ */
+@Composable
+public fun SwitchStyles.Companion.style(modify: @Composable SwitchStyleBuilder.() -> Unit = {}):
+    SwitchStyle = resolve().style(modify)

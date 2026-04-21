@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.listitem.Default
 import com.sdds.sbcom.styles.listitem.ListItem
 
 internal object SddsSbcomListItemVariationsCompose : ComposeStyleProvider<ListItemStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ListItemStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { ListItem.Default.style() },
+            "ListItem.Default" to ComposeStyleReference { ListItem.Default.style() },
         )
 }

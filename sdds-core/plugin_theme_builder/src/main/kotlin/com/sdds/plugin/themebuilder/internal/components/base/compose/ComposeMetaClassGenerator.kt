@@ -270,6 +270,7 @@ internal class ComposeMetaClassGenerator(
                 name = "resolve",
                 receiver = receiverType,
                 returnType = ClassName(componentPackage, enumClassName),
+                description = "Возвращает экземпляр [$enumClassName] для ${appearance.appearance.name}",
                 body = listOf(
                     "return $enumClassName.${fallbackStyle.reference.toStyleEnumName()}",
                 ),

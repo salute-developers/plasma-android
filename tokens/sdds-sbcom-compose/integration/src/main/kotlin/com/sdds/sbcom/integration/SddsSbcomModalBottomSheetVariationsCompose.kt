@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.bottomsheet.Default
 import com.sdds.sbcom.styles.bottomsheet.ModalBottomSheet
 
 internal object SddsSbcomModalBottomSheetVariationsCompose : ComposeStyleProvider<ModalBottomSheetStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ModalBottomSheetStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { ModalBottomSheet.Default.style() },
+            "ModalBottomSheet.Default" to ComposeStyleReference { ModalBottomSheet.Default.style() },
         )
 }

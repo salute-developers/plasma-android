@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.checkbox.CheckBox
 import com.sdds.sbcom.styles.checkbox.Default
 
 internal object SddsSbcomCheckBoxVariationsCompose : ComposeStyleProvider<CheckBoxStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<CheckBoxStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { CheckBox.Default.style() },
+            "CheckBox.Default" to ComposeStyleReference { CheckBox.Default.style() },
         )
 }

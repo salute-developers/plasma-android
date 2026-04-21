@@ -26,15 +26,33 @@ public enum class OverlayStyles(
     public val key: String,
 ) {
     OverlayDefault("Overlay.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля overlay
+     */
+    public companion object
 }
 
 /**
  * Возвращает [OverlayStyle] для [OverlayStyles]
  */
 @Composable
-public fun OverlayStyles.style(modifyAction: @Composable OverlayStyleBuilder.() -> Unit = {}): OverlayStyle {
+public fun OverlayStyles.style(modify: @Composable OverlayStyleBuilder.() -> Unit = {}): OverlayStyle {
     val builder = when (this) {
         OverlayStyles.OverlayDefault -> Overlay.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [OverlayStyles] для overlay
+ */
+public fun OverlayStyles.Companion.resolve(): OverlayStyles = OverlayStyles.OverlayDefault
+
+/**
+ * Возвращает [OverlayStyle] для overlay
+ */
+@Composable
+public fun OverlayStyles.Companion.style(modify: @Composable OverlayStyleBuilder.() -> Unit = {}):
+    OverlayStyle = resolve().style(modify)

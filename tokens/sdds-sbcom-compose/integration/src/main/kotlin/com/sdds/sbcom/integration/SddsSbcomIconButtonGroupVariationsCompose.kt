@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.buttongroup.Default
 import com.sdds.sbcom.styles.buttongroup.IconButtonGroup
 
 internal object SddsSbcomIconButtonGroupVariationsCompose : ComposeStyleProvider<ButtonGroupStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ButtonGroupStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { IconButtonGroup.Default.style() },
+            "IconButtonGroup.Default" to ComposeStyleReference { IconButtonGroup.Default.style() },
         )
 }

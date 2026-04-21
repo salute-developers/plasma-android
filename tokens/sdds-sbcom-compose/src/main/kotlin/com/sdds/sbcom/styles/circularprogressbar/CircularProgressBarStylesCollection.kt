@@ -45,6 +45,33 @@ public enum class CircularProgressBarStyles(
     CircularProgressBarSize16ModeColorGlobalWhite("CircularProgressBar.Size16.ModeColorGlobalWhite"),
     CircularProgressBarSize16ModeColorAccent("CircularProgressBar.Size16.ModeColorAccent"),
     CircularProgressBarSize16ModeColorDanger("CircularProgressBar.Size16.ModeColorDanger"),
+    ;
+
+    /**
+     * Typed API для подбора стиля circular-progress-bar
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для circular-progress-bar
+ */
+public enum class CircularProgressBarSize {
+    Size40,
+    Size32,
+    Size24,
+    Size16,
+}
+
+/**
+ * Возможные значения свойства mode-color для circular-progress-bar
+ */
+public enum class CircularProgressBarModeColor {
+    Primary,
+    Secondary,
+    GlobalWhite,
+    Accent,
+    Danger,
 }
 
 /**
@@ -52,7 +79,7 @@ public enum class CircularProgressBarStyles(
  */
 @Composable
 public fun CircularProgressBarStyles.style(
-    modifyAction: @Composable
+    modify: @Composable
     CircularProgressBarStyleBuilder.() -> Unit = {},
 ): CircularProgressBarStyle {
     val builder = when (this) {
@@ -97,5 +124,71 @@ public fun CircularProgressBarStyles.style(
         CircularProgressBarStyles.CircularProgressBarSize16ModeColorDanger ->
             CircularProgressBar.Size16.ModeColorDanger
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [CircularProgressBarStyles] для circular-progress-bar
+ */
+public fun CircularProgressBarStyles.Companion.resolve(
+    size: CircularProgressBarSize =
+        CircularProgressBarSize.Size40,
+    modeColor: CircularProgressBarModeColor =
+        CircularProgressBarModeColor.Primary,
+): CircularProgressBarStyles = when {
+    size == CircularProgressBarSize.Size40 && modeColor == CircularProgressBarModeColor.Primary ->
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorPrimary
+    size == CircularProgressBarSize.Size40 && modeColor == CircularProgressBarModeColor.Secondary ->
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorSecondary
+    size == CircularProgressBarSize.Size40 && modeColor ==
+        CircularProgressBarModeColor.GlobalWhite ->
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorGlobalWhite
+    size == CircularProgressBarSize.Size40 && modeColor == CircularProgressBarModeColor.Accent ->
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorAccent
+    size == CircularProgressBarSize.Size40 && modeColor == CircularProgressBarModeColor.Danger ->
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorDanger
+    size == CircularProgressBarSize.Size32 && modeColor == CircularProgressBarModeColor.Primary ->
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorPrimary
+    size == CircularProgressBarSize.Size32 && modeColor == CircularProgressBarModeColor.Secondary ->
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorSecondary
+    size == CircularProgressBarSize.Size32 && modeColor ==
+        CircularProgressBarModeColor.GlobalWhite ->
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorGlobalWhite
+    size == CircularProgressBarSize.Size32 && modeColor == CircularProgressBarModeColor.Accent ->
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorAccent
+    size == CircularProgressBarSize.Size32 && modeColor == CircularProgressBarModeColor.Danger ->
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorDanger
+    size == CircularProgressBarSize.Size24 && modeColor == CircularProgressBarModeColor.Primary ->
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorPrimary
+    size == CircularProgressBarSize.Size24 && modeColor == CircularProgressBarModeColor.Secondary ->
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorSecondary
+    size == CircularProgressBarSize.Size24 && modeColor ==
+        CircularProgressBarModeColor.GlobalWhite ->
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorGlobalWhite
+    size == CircularProgressBarSize.Size24 && modeColor == CircularProgressBarModeColor.Accent ->
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorAccent
+    size == CircularProgressBarSize.Size24 && modeColor == CircularProgressBarModeColor.Danger ->
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorDanger
+    size == CircularProgressBarSize.Size16 && modeColor == CircularProgressBarModeColor.Primary ->
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorPrimary
+    size == CircularProgressBarSize.Size16 && modeColor == CircularProgressBarModeColor.Secondary ->
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorSecondary
+    size == CircularProgressBarSize.Size16 && modeColor ==
+        CircularProgressBarModeColor.GlobalWhite ->
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorGlobalWhite
+    size == CircularProgressBarSize.Size16 && modeColor == CircularProgressBarModeColor.Accent ->
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorAccent
+    size == CircularProgressBarSize.Size16 && modeColor == CircularProgressBarModeColor.Danger ->
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorDanger
+    else -> error("Unsupported circular-progress-bar style combination")
+}
+
+/**
+ * Возвращает [CircularProgressBarStyle] для circular-progress-bar
+ */
+@Composable
+public fun CircularProgressBarStyles.Companion.style(
+    size: CircularProgressBarSize = CircularProgressBarSize.Size40,
+    modeColor: CircularProgressBarModeColor = CircularProgressBarModeColor.Primary,
+    modify: @Composable CircularProgressBarStyleBuilder.() -> Unit = {},
+): CircularProgressBarStyle = resolve(size, modeColor).style(modify)

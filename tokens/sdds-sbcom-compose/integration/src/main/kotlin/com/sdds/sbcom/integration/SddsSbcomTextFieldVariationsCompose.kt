@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.textfield.Default
 import com.sdds.sbcom.styles.textfield.TextField
 
 internal object SddsSbcomTextFieldVariationsCompose : ComposeStyleProvider<TextFieldStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<TextFieldStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { TextField.Default.style() },
+            "TextField.Default" to ComposeStyleReference { TextField.Default.style() },
         )
 }

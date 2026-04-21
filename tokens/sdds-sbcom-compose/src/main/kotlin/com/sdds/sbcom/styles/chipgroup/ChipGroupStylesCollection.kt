@@ -27,16 +27,52 @@ public enum class ChipGroupStyles(
 ) {
     ChipGroupChipSlotPadding("ChipGroup.ChipSlotPadding"),
     ChipGroupChipSlotAvatar("ChipGroup.ChipSlotAvatar"),
+    ;
+
+    /**
+     * Typed API для подбора стиля chip-group
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства chip-slot для chip-group
+ */
+public enum class ChipGroupChipSlot {
+    Padding,
+    Avatar,
 }
 
 /**
  * Возвращает [ChipGroupStyle] для [ChipGroupStyles]
  */
 @Composable
-public fun ChipGroupStyles.style(modifyAction: @Composable ChipGroupStyleBuilder.() -> Unit = {}): ChipGroupStyle {
+public fun ChipGroupStyles.style(modify: @Composable ChipGroupStyleBuilder.() -> Unit = {}): ChipGroupStyle {
     val builder = when (this) {
         ChipGroupStyles.ChipGroupChipSlotPadding -> ChipGroup.ChipSlotPadding
         ChipGroupStyles.ChipGroupChipSlotAvatar -> ChipGroup.ChipSlotAvatar
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [ChipGroupStyles] для chip-group
+ */
+public fun ChipGroupStyles.Companion.resolve(
+    chipSlot: ChipGroupChipSlot =
+        ChipGroupChipSlot.Padding,
+): ChipGroupStyles = when {
+    chipSlot == ChipGroupChipSlot.Padding -> ChipGroupStyles.ChipGroupChipSlotPadding
+    chipSlot == ChipGroupChipSlot.Avatar -> ChipGroupStyles.ChipGroupChipSlotAvatar
+    else -> error("Unsupported chip-group style combination")
+}
+
+/**
+ * Возвращает [ChipGroupStyle] для chip-group
+ */
+@Composable
+public fun ChipGroupStyles.Companion.style(
+    chipSlot: ChipGroupChipSlot = ChipGroupChipSlot.Padding,
+    modify: @Composable ChipGroupStyleBuilder.() -> Unit = {},
+): ChipGroupStyle =
+    resolve(chipSlot).style(modify)

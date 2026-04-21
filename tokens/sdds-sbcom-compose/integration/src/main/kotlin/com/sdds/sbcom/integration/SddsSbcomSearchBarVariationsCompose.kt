@@ -15,8 +15,9 @@ import com.sdds.sbcom.styles.textfield.Default
 import com.sdds.sbcom.styles.textfield.SearchBar
 
 internal object SddsSbcomSearchBarVariationsCompose : ComposeStyleProvider<TextFieldStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<TextFieldStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { SearchBar.Default.style() },
+            "SearchBar.Default" to ComposeStyleReference { SearchBar.Default.style() },
         )
 }
