@@ -27,7 +27,11 @@ import com.sdds.sbcom.styles.indicator.resolve
 internal object SddsSbcomIndicatorVariationsCompose : ComposeStyleProvider<IndicatorStyle>() {
     override val bindings: Set<Property<*>> =
         setOf(
-            Property.SingleChoiceProperty(name = "state", value = "Success", variants = listOf("Success", "GlobalWhite", "Mute", "Danger", "Warning")),
+            Property.SingleChoiceProperty(
+                name = "state",
+                value = "Success",
+                variants = listOf("Success", "GlobalWhite", "Mute", "Danger", "Warning"),
+            ),
         )
 
     override val variations: Map<String, ComposeStyleReference<IndicatorStyle>> =

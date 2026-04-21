@@ -27,7 +27,11 @@ import com.sdds.sbcom.styles.indicator.resolve
 internal object SddsSbcomAvatarIndicatorVariationsCompose : ComposeStyleProvider<IndicatorStyle>() {
     override val bindings: Set<Property<*>> =
         setOf(
-            Property.SingleChoiceProperty(name = "size", value = "Size14", variants = listOf("Size14", "Size12", "Size10", "Size8", "Size6")),
+            Property.SingleChoiceProperty(
+                name = "size",
+                value = "Size14",
+                variants = listOf("Size14", "Size12", "Size10", "Size8", "Size6"),
+            ),
         )
 
     override val variations: Map<String, ComposeStyleReference<IndicatorStyle>> =
