@@ -33,19 +33,14 @@ public object LightColorTokens {
     public val OutlineOnLightDefaultHover: Color = Color(0xFFCCCCCC)
 
     /**
-     * Primary Active Inverse
+     * Default Hover On Dark
      */
-    public val OutlineInversePrimaryActive: Color = Color(0xFF2B2827)
+    public val OutlineOnDarkDefaultHover: Color = Color(0xFF666666)
 
     /**
      * Default Active On Dark
      */
     public val OutlineOnDarkDefaultActive: Color = Color(0xFF292929)
-
-    /**
-     * Default Hover On Dark
-     */
-    public val OutlineOnDarkDefaultHover: Color = Color(0xFF666666)
 
     /**
      * Green Text Accent Hover Default
@@ -61,11 +56,6 @@ public object LightColorTokens {
      * Accent Secondary Hover Inverse
      */
     public val SurfaceInverseAccentSecondaryHover: Color = Color(0xFF70CDB7)
-
-    /**
-     * Accent Secondary Active On Light
-     */
-    public val SurfaceOnLightAccentSecondaryActive: Color = Color(0xFF3CAF94)
 
     /**
      * Transparent Navi Active Default
@@ -118,11 +108,6 @@ public object LightColorTokens {
     public val SurfaceOnDarkAccentSecondaryHover: Color = Color(0xFF70CDB7)
 
     /**
-     * Green Text Accent Hover Inverse
-     */
-    public val PersonasInverseGreenTextAccentHover: Color = Color(0xFF04C396)
-
-    /**
      * Pink Text Accent Hover On Light
      */
     public val PersonasOnLightPinkTextAccentHover: Color = Color(0xFFE47777)
@@ -163,11 +148,6 @@ public object LightColorTokens {
     public val PersonasOnLightIndigoTextAccentHover: Color = Color(0xFF000000)
 
     /**
-     * Indigo Text Accent Active On Light
-     */
-    public val PersonasOnLightIndigoTextAccentActive: Color = Color(0xFF5B2999)
-
-    /**
      * Sea Blue Text Accent Hover On Light
      */
     public val PersonasOnLightSeaBlueTextAccentHover: Color = Color(0xFF00D9E0)
@@ -181,11 +161,6 @@ public object LightColorTokens {
      * Inverse Background Hardline
      */
     public val BackgroundInverseHardline: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Transparent Accent Minor Active On Dark
-     */
-    public val SurfaceOnDarkTransparentAccentMinorActive: Color = Color(0x380BA888)
 
     /**
      * Sea Blue Text Accent Hover On Dark
@@ -218,11 +193,6 @@ public object LightColorTokens {
     public val TextDefaultPrimaryBrightnessActive: Color = Color(0xC4171717)
 
     /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
      * Прозрачный фон для карточек
      */
     public val SurfaceDefaultTransparentCardBrightnessHover: Color = Color(0xFFFFFFFF)
@@ -243,9 +213,9 @@ public object LightColorTokens {
     public val SurfaceDefaultTransparentCardBrightnessActive: Color = Color(0xFFFFFFFF)
 
     /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     * Основной фон для карточек
      */
-    public val SurfaceOnDarkSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
+    public val SurfaceDefaultSolidCardBrightnessHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Прозрачный фон для карточек на темном фоне
@@ -448,11 +418,6 @@ public object LightColorTokens {
     public val PersonasOnLightVioletTextAccent: Color = Color(0xFF9E32AF)
 
     /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentMinor: Color = Color(0xFF04473B)
-
-    /**
      * Инвертированный основной фон для карточек
      */
     public val SurfaceInverseSolidCardBrightnessActive: Color = Color(0xFF212121)
@@ -468,14 +433,9 @@ public object LightColorTokens {
     public val SurfaceOnLightAccentMinorHover: Color = Color(0xFFC7F0E5)
 
     /**
-     * On Dark Personas Blue Text Accent
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val PersonasOnDarkBlueTextAccent: Color = Color(0xFF79B3F2)
-
-    /**
-     * On Light Personas Indigo Text Accent
-     */
-    public val PersonasOnLightIndigoTextAccent: Color = Color(0xFF7133BE)
+    public val SurfaceInverseAccentMinor: Color = Color(0xFF04473B)
 
     /**
      * On Light Personas Sea Blue Text Accent
@@ -503,9 +463,9 @@ public object LightColorTokens {
     public val SurfaceOnLightTransparentNavi: Color = Color(0x99FFFFFF)
 
     /**
-     * Green Text Accent Hover On Dark
+     * On Dark Personas Blue Text Accent
      */
-    public val PersonasOnDarkGreenTextAccentHover: Color = Color(0xFF84DCC6)
+    public val PersonasOnDarkBlueTextAccent: Color = Color(0xFF79B3F2)
 
     /**
      * Green Text Accent Active Default
@@ -638,6 +598,11 @@ public object LightColorTokens {
     public val TextDefaultPrimaryBrightnessHover: Color = Color(0x93171717)
 
     /**
+     * Green Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkGreenTextAccentHover: Color = Color(0xFF84DCC6)
+
+    /**
      * Основной цвет текста на темном фоне
      */
     public val TextOnDarkPrimaryBrightnessHover: Color = Color(0x93FAFAFA)
@@ -663,29 +628,9 @@ public object LightColorTokens {
     public val TextOnLightWarningActive: Color = Color(0xFF6F2D06)
 
     /**
-     * Transparent Navi Hover Default
-     */
-    public val SurfaceDefaultTransparentNaviHover: Color = Color(0xA8FFFFFF)
-
-    /**
-     * Transparent Accent Minor Hover On Light
-     */
-    public val SurfaceOnLightTransparentAccentMinorHover: Color = Color(0x4D0BA888)
-
-    /**
      * Green Text Accent Hover On Light
      */
     public val PersonasOnLightGreenTextAccentHover: Color = Color(0xFF04D7A6)
-
-    /**
-     * Default Hover Default
-     */
-    public val OutlineDefaultDefaultHover: Color = Color(0xFFB3B3B3)
-
-    /**
-     * Primary Hover On Dark
-     */
-    public val OutlineOnDarkPrimaryHover: Color = Color(0xFF6B6461)
 
     /**
      * Pink Text Accent Hover On Dark
@@ -813,44 +758,24 @@ public object LightColorTokens {
     public val SurfaceOnLightAccentSecondaryHover: Color = Color(0xFF50C3A8)
 
     /**
-     * Personas Blue Text Accent
+     * Transparent Navi Hover Default
      */
-    public val PersonasDefaultBlueTextAccent: Color = Color(0xFF1063BA)
+    public val SurfaceDefaultTransparentNaviHover: Color = Color(0xA8FFFFFF)
 
     /**
-     * Personas Sea Blue Text Accent
+     * Transparent Accent Minor Hover On Light
      */
-    public val PersonasDefaultSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
+    public val SurfaceOnLightTransparentAccentMinorHover: Color = Color(0x4D0BA888)
 
     /**
-     * Violet Text Accent Hover Default
+     * Default Hover Default
      */
-    public val PersonasDefaultVioletTextAccentHover: Color = Color(0xFFEBBEF3)
+    public val OutlineDefaultDefaultHover: Color = Color(0xFFB3B3B3)
 
     /**
-     * Background Hardline
+     * Primary Hover On Dark
      */
-    public val BackgroundDefaultHardline: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryBrightnessHover: Color = Color(0x93171717)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryBrightnessHover: Color = Color(0x93FAFAFA)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
+    public val OutlineOnDarkPrimaryHover: Color = Color(0xFF6B6461)
 
     /**
      * Инвертированный основной фон для карточек
@@ -893,21 +818,6 @@ public object LightColorTokens {
     public val PersonasDefaultPinkTextAccent: Color = Color(0xFFF7A4A4)
 
     /**
-     * Inverse Personas Violet Text Accent
-     */
-    public val PersonasInverseVioletTextAccent: Color = Color(0xFFE19DED)
-
-    /**
-     * Inverse Surface Transparent Accent Minor
-     */
-    public val SurfaceInverseTransparentAccentMinor: Color = Color(0x3D0BA686)
-
-    /**
-     * On Light Personas Blue Text Accent
-     */
-    public val PersonasOnLightBlueTextAccent: Color = Color(0xFF1063BA)
-
-    /**
      * On Dark Surface Transparent Navi
      */
     public val SurfaceOnDarkTransparentNavi: Color = Color(0x99232323)
@@ -941,6 +851,61 @@ public object LightColorTokens {
      * On Dark Outline Primary
      */
     public val OutlineOnDarkPrimary: Color = Color(0xFF3B3735)
+
+    /**
+     * Personas Blue Text Accent
+     */
+    public val PersonasDefaultBlueTextAccent: Color = Color(0xFF1063BA)
+
+    /**
+     * Personas Sea Blue Text Accent
+     */
+    public val PersonasDefaultSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
+
+    /**
+     * Violet Text Accent Hover Default
+     */
+    public val PersonasDefaultVioletTextAccentHover: Color = Color(0xFFEBBEF3)
+
+    /**
+     * Background Hardline
+     */
+    public val BackgroundDefaultHardline: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimaryBrightnessHover: Color = Color(0x93171717)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryBrightnessHover: Color = Color(0x93FAFAFA)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryBrightnessActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
+
+    /**
+     * Inverse Personas Violet Text Accent
+     */
+    public val PersonasInverseVioletTextAccent: Color = Color(0xFFE19DED)
+
+    /**
+     * Inverse Surface Transparent Accent Minor
+     */
+    public val SurfaceInverseTransparentAccentMinor: Color = Color(0x3D0BA686)
+
+    /**
+     * On Light Personas Blue Text Accent
+     */
+    public val PersonasOnLightBlueTextAccent: Color = Color(0xFF1063BA)
 
     /**
      * Основной цвет текста на темном фоне
@@ -1048,9 +1013,39 @@ public object LightColorTokens {
     public val PersonasInverseOliveTextAccent: Color = Color(0xFF93CB92)
 
     /**
-     * Сплошной наборный текст
+     * Primary Active Inverse
      */
-    public val TextDefaultParagraphActive: Color = Color(0x7A15110F)
+    public val OutlineInversePrimaryActive: Color = Color(0xFF2B2827)
+
+    /**
+     * Accent Secondary Active On Light
+     */
+    public val SurfaceOnLightAccentSecondaryActive: Color = Color(0xFF3CAF94)
+
+    /**
+     * Transparent Accent Minor Active On Dark
+     */
+    public val SurfaceOnDarkTransparentAccentMinorActive: Color = Color(0x380BA888)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
+
+    /**
+     * On Light Personas Indigo Text Accent
+     */
+    public val PersonasOnLightIndigoTextAccent: Color = Color(0xFF7133BE)
+
+    /**
+     * Green Text Accent Hover Inverse
+     */
+    public val PersonasInverseGreenTextAccentHover: Color = Color(0xFF04C396)
+
+    /**
+     * Indigo Text Accent Active On Light
+     */
+    public val PersonasOnLightIndigoTextAccentActive: Color = Color(0xFF5B2999)
 
     /**
      * Акцентный цвет
@@ -1193,9 +1188,9 @@ public object LightColorTokens {
     public val TextDefaultParagraphHover: Color = Color(0xFF15110F)
 
     /**
-     * Сплошной наборный текст на темном фоне
+     * Сплошной наборный текст
      */
-    public val TextOnDarkParagraphActive: Color = Color(0x93F5F1EF)
+    public val TextDefaultParagraphActive: Color = Color(0x7A15110F)
 
     /**
      * Акцентный цвет на темном фоне
@@ -1343,9 +1338,9 @@ public object LightColorTokens {
     public val TextOnDarkParagraphHover: Color = Color(0xFFF5F1EF)
 
     /**
-     * Основной цвет текста на светлом фоне
+     * Сплошной наборный текст на темном фоне
      */
-    public val TextOnLightPrimaryBrightness: Color = Color(0xF5171717)
+    public val TextOnDarkParagraphActive: Color = Color(0x93F5F1EF)
 
     /**
      * Вторичный цвет текста на светлом фоне
@@ -1461,6 +1456,11 @@ public object LightColorTokens {
      * Основной цвет текста на светлом фоне
      */
     public val TextOnLightPrimaryActive: Color = Color(0xCA15110F)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimaryBrightness: Color = Color(0xF5171717)
 
     /**
      * Инвертированный основной цвет текста
@@ -1588,11 +1588,6 @@ public object LightColorTokens {
     public val TextOnLightNegativeHover: Color = Color(0xFFE3353B)
 
     /**
-     * Инвертированный цвет ошибки
-     */
-    public val TextInverseNegativeActive: Color = Color(0xFFF3626A)
-
-    /**
      * Инвертированный цвет информации
      */
     public val TextInverseInfo: Color = Color(0xFF70B2F5)
@@ -1693,9 +1688,9 @@ public object LightColorTokens {
     public val TextInverseNegativeHover: Color = Color(0xFFF89BA0)
 
     /**
-     * Вторичный прозрачный фон поверхности/контрола
+     * Инвертированный цвет ошибки
      */
-    public val SurfaceDefaultTransparentSecondaryActive: Color = Color(0x1F15110F)
+    public val TextInverseNegativeActive: Color = Color(0xFFF3626A)
 
     /**
      * Третичный прозрачный фон поверхности/контрола
@@ -1863,9 +1858,9 @@ public object LightColorTokens {
     public val SurfaceDefaultTransparentSecondaryHover: Color = Color(0x1A15110F)
 
     /**
-     * Цвет фона поверхности/контрола предупреждение
+     * Вторичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultWarningActive: Color = Color(0xFFAD460B)
+    public val SurfaceDefaultTransparentSecondaryActive: Color = Color(0x1F15110F)
 
     /**
      * Цвет фона поверхности/контрола ошибка
@@ -1923,9 +1918,9 @@ public object LightColorTokens {
     public val SurfaceDefaultWarningHover: Color = Color(0xFFD3560D)
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
+     * Цвет фона поверхности/контрола предупреждение
      */
-    public val SurfaceDefaultTransparentNegative: Color = Color(0x29E83439)
+    public val SurfaceDefaultWarningActive: Color = Color(0xFFAD460B)
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение
@@ -1998,9 +1993,9 @@ public object LightColorTokens {
     public val SurfaceDefaultTransparentNegativeActive: Color = Color(0x3DE9353B)
 
     /**
-     * Вторичный прозрачный фон поверхности/контрола на темном фоне
+     * Прозрачный цвет фона поверхности/контрола предупреждение
      */
-    public val SurfaceOnDarkTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
+    public val SurfaceDefaultTransparentNegative: Color = Color(0x29E83439)
 
     /**
      * Третичный прозрачный фон поверхности/контрола на темном фоне
@@ -2143,9 +2138,9 @@ public object LightColorTokens {
     public val SurfaceOnDarkTransparentSecondaryHover: Color = Color(0x47FFFFFF)
 
     /**
-     * Цвет фона поверхности/контрола успех на темном фоне
+     * Вторичный прозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkPositive: Color = Color(0xFFA6D2A2)
+    public val SurfaceOnDarkTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
 
     /**
      * Цвет фона поверхности/контрола успех на темном фоне
@@ -2216,6 +2211,11 @@ public object LightColorTokens {
      * Прозрачный акцентный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkTransparentAccentHover: Color = Color(0x520BA888)
+
+    /**
+     * Цвет фона поверхности/контрола успех на темном фоне
+     */
+    public val SurfaceOnDarkPositive: Color = Color(0xFFA6D2A2)
 
     /**
      * Цвет для readOnly
@@ -2291,11 +2291,6 @@ public object LightColorTokens {
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
      */
     public val SurfaceOnDarkTransparentNegativeHover: Color = Color(0x9EF8A5A8)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentSecondaryActive: Color = Color(0x1F15110F)
 
     /**
      * Третичный прозрачный фон поверхности/контрола на светлом фоне
@@ -2438,6 +2433,11 @@ public object LightColorTokens {
     public val SurfaceOnLightTransparentSecondaryHover: Color = Color(0x1A15110F)
 
     /**
+     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentSecondaryActive: Color = Color(0x1F15110F)
+
+    /**
      * Цвет фона поверхности/контрола успех на светлом фоне
      */
     public val SurfaceOnLightPositive: Color = Color(0xFF239322)
@@ -2515,11 +2515,6 @@ public object LightColorTokens {
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
      */
-    public val SurfaceOnLightTransparentNegative: Color = Color(0x29E83439)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
     public val SurfaceOnLightTransparentNegativeHover: Color = Color(0x38E9353B)
 
     /**
@@ -2578,9 +2573,9 @@ public object LightColorTokens {
     public val SurfaceOnLightTransparentNegativeActive: Color = Color(0x3DE9353B)
 
     /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
      */
-    public val SurfaceInverseTransparentSecondaryHover: Color = Color(0x47FFFFFF)
+    public val SurfaceOnLightTransparentNegative: Color = Color(0x29E83439)
 
     /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
@@ -2721,6 +2716,11 @@ public object LightColorTokens {
      * Инвертированный вторичный прозрачный фон поверхности/контрола
      */
     public val SurfaceInverseTransparentSecondary: Color = Color(0x28FFFFFF)
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentSecondaryHover: Color = Color(0x47FFFFFF)
 
     /**
      * Инвертированный цвет фона поверхности/контрола успех
@@ -3228,11 +3228,6 @@ public object LightColorTokens {
     public val OutlineInverseClearActive: Color = Color(0x00FFFFFF)
 
     /**
-     * Инвертированный цвет обводки предупреждение
-     */
-    public val OutlineInverseWarningActive: Color = Color(0xFFF79C64)
-
-    /**
      * Инвертированный цвет обводки ошибка
      */
     public val OutlineInverseNegative: Color = Color(0xFFF8A6A9)
@@ -3288,6 +3283,11 @@ public object LightColorTokens {
     public val OutlineInverseWarningHover: Color = Color(0xFFFCE0CF)
 
     /**
+     * Инвертированный цвет обводки предупреждение
+     */
+    public val OutlineInverseWarningActive: Color = Color(0xFFF79C64)
+
+    /**
      * Основной цвет текста
      */
     public val TextDefaultPrimaryHover: Color = Color(0x9715110F)
@@ -3338,19 +3338,14 @@ public object DarkColorTokens {
     public val OutlineOnLightDefaultHover: Color = Color(0xFFCCCCCC)
 
     /**
-     * Primary Active Inverse
+     * Default Hover On Dark
      */
-    public val OutlineInversePrimaryActive: Color = Color(0xFFC4BEBA)
+    public val OutlineOnDarkDefaultHover: Color = Color(0xFF666666)
 
     /**
      * Default Active On Dark
      */
     public val OutlineOnDarkDefaultActive: Color = Color(0xFF292929)
-
-    /**
-     * Default Hover On Dark
-     */
-    public val OutlineOnDarkDefaultHover: Color = Color(0xFF666666)
 
     /**
      * Green Text Accent Hover Default
@@ -3366,11 +3361,6 @@ public object DarkColorTokens {
      * Accent Secondary Hover Inverse
      */
     public val SurfaceInverseAccentSecondaryHover: Color = Color(0xFF50C3A8)
-
-    /**
-     * Accent Secondary Active On Light
-     */
-    public val SurfaceOnLightAccentSecondaryActive: Color = Color(0xFF3CAF94)
 
     /**
      * Transparent Navi Active Default
@@ -3423,11 +3413,6 @@ public object DarkColorTokens {
     public val SurfaceOnDarkAccentSecondaryHover: Color = Color(0xFF70CDB7)
 
     /**
-     * Green Text Accent Hover Inverse
-     */
-    public val PersonasInverseGreenTextAccentHover: Color = Color(0xFF8CDECA)
-
-    /**
      * Pink Text Accent Hover On Light
      */
     public val PersonasOnLightPinkTextAccentHover: Color = Color(0xFFE47777)
@@ -3468,11 +3453,6 @@ public object DarkColorTokens {
     public val PersonasOnLightIndigoTextAccentHover: Color = Color(0xFF000000)
 
     /**
-     * Indigo Text Accent Active On Light
-     */
-    public val PersonasOnLightIndigoTextAccentActive: Color = Color(0xFF5B2999)
-
-    /**
      * Sea Blue Text Accent Hover On Light
      */
     public val PersonasOnLightSeaBlueTextAccentHover: Color = Color(0xFF00D9E0)
@@ -3486,11 +3466,6 @@ public object DarkColorTokens {
      * Inverse Background Hardline
      */
     public val BackgroundInverseHardline: Color = Color(0xFF000000)
-
-    /**
-     * Transparent Accent Minor Active On Dark
-     */
-    public val SurfaceOnDarkTransparentAccentMinorActive: Color = Color(0x380BA888)
 
     /**
      * Sea Blue Text Accent Hover On Dark
@@ -3523,11 +3498,6 @@ public object DarkColorTokens {
     public val TextDefaultPrimaryBrightnessActive: Color = Color(0xC4FAFAFA)
 
     /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardBrightnessHover: Color = Color(0xFF303030)
-
-    /**
      * Прозрачный фон для карточек
      */
     public val SurfaceDefaultTransparentCardBrightnessHover: Color = Color(0x1FFAFAFA)
@@ -3548,9 +3518,9 @@ public object DarkColorTokens {
     public val SurfaceDefaultTransparentCardBrightnessActive: Color = Color(0x0AFAFAFA)
 
     /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     * Основной фон для карточек
      */
-    public val SurfaceOnDarkSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
+    public val SurfaceDefaultSolidCardBrightnessHover: Color = Color(0xFF303030)
 
     /**
      * Прозрачный фон для карточек на темном фоне
@@ -3753,11 +3723,6 @@ public object DarkColorTokens {
     public val PersonasOnLightVioletTextAccent: Color = Color(0xFF9E32AF)
 
     /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentMinor: Color = Color(0xFFD0F2E9)
-
-    /**
      * Инвертированный основной фон для карточек
      */
     public val SurfaceInverseSolidCardBrightnessActive: Color = Color(0xFFFFFFFF)
@@ -3773,14 +3738,9 @@ public object DarkColorTokens {
     public val SurfaceOnLightAccentMinorHover: Color = Color(0xFFC7F0E5)
 
     /**
-     * On Dark Personas Blue Text Accent
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val PersonasOnDarkBlueTextAccent: Color = Color(0xFF79B3F2)
-
-    /**
-     * On Light Personas Indigo Text Accent
-     */
-    public val PersonasOnLightIndigoTextAccent: Color = Color(0xFF7133BE)
+    public val SurfaceInverseAccentMinor: Color = Color(0xFFD0F2E9)
 
     /**
      * On Light Personas Sea Blue Text Accent
@@ -3808,9 +3768,9 @@ public object DarkColorTokens {
     public val SurfaceOnLightTransparentNavi: Color = Color(0x99FFFFFF)
 
     /**
-     * Green Text Accent Hover On Dark
+     * On Dark Personas Blue Text Accent
      */
-    public val PersonasOnDarkGreenTextAccentHover: Color = Color(0xFF84DCC6)
+    public val PersonasOnDarkBlueTextAccent: Color = Color(0xFF79B3F2)
 
     /**
      * Green Text Accent Active Default
@@ -3943,6 +3903,11 @@ public object DarkColorTokens {
     public val TextDefaultPrimaryBrightnessHover: Color = Color(0x93FAFAFA)
 
     /**
+     * Green Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkGreenTextAccentHover: Color = Color(0xFF84DCC6)
+
+    /**
      * Основной цвет текста на темном фоне
      */
     public val TextOnDarkPrimaryBrightnessHover: Color = Color(0x93FAFAFA)
@@ -3968,29 +3933,9 @@ public object DarkColorTokens {
     public val TextOnLightWarningActive: Color = Color(0xFF6F2D06)
 
     /**
-     * Transparent Navi Hover Default
-     */
-    public val SurfaceDefaultTransparentNaviHover: Color = Color(0xB8242424)
-
-    /**
-     * Transparent Accent Minor Hover On Light
-     */
-    public val SurfaceOnLightTransparentAccentMinorHover: Color = Color(0x4D0BA888)
-
-    /**
      * Green Text Accent Hover On Light
      */
     public val PersonasOnLightGreenTextAccentHover: Color = Color(0xFF04D7A6)
-
-    /**
-     * Default Hover Default
-     */
-    public val OutlineDefaultDefaultHover: Color = Color(0xFF858585)
-
-    /**
-     * Primary Hover On Dark
-     */
-    public val OutlineOnDarkPrimaryHover: Color = Color(0xFF6B6461)
 
     /**
      * Pink Text Accent Hover On Dark
@@ -4118,44 +4063,24 @@ public object DarkColorTokens {
     public val SurfaceOnLightAccentSecondaryHover: Color = Color(0xFF50C3A8)
 
     /**
-     * Personas Blue Text Accent
+     * Transparent Navi Hover Default
      */
-    public val PersonasDefaultBlueTextAccent: Color = Color(0xFF79B3F2)
+    public val SurfaceDefaultTransparentNaviHover: Color = Color(0xB8242424)
 
     /**
-     * Personas Sea Blue Text Accent
+     * Transparent Accent Minor Hover On Light
      */
-    public val PersonasDefaultSeaBlueTextAccent: Color = Color(0xFF00898D)
+    public val SurfaceOnLightTransparentAccentMinorHover: Color = Color(0x4D0BA888)
 
     /**
-     * Violet Text Accent Hover Default
+     * Default Hover Default
      */
-    public val PersonasDefaultVioletTextAccentHover: Color = Color(0xFFB438C7)
+    public val OutlineDefaultDefaultHover: Color = Color(0xFF858585)
 
     /**
-     * Background Hardline
+     * Primary Hover On Dark
      */
-    public val BackgroundDefaultHardline: Color = Color(0xFF000000)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryBrightnessHover: Color = Color(0x93171717)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryBrightnessHover: Color = Color(0x93171717)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
+    public val OutlineOnDarkPrimaryHover: Color = Color(0xFF6B6461)
 
     /**
      * Инвертированный основной фон для карточек
@@ -4198,21 +4123,6 @@ public object DarkColorTokens {
     public val PersonasDefaultPinkTextAccent: Color = Color(0xFFDE5555)
 
     /**
-     * Inverse Personas Violet Text Accent
-     */
-    public val PersonasInverseVioletTextAccent: Color = Color(0xFF9E32AF)
-
-    /**
-     * Inverse Surface Transparent Accent Minor
-     */
-    public val SurfaceInverseTransparentAccentMinor: Color = Color(0x470BA686)
-
-    /**
-     * On Light Personas Blue Text Accent
-     */
-    public val PersonasOnLightBlueTextAccent: Color = Color(0xFF1063BA)
-
-    /**
      * On Dark Surface Transparent Navi
      */
     public val SurfaceOnDarkTransparentNavi: Color = Color(0x99232323)
@@ -4246,6 +4156,61 @@ public object DarkColorTokens {
      * On Dark Outline Primary
      */
     public val OutlineOnDarkPrimary: Color = Color(0xFF3B3735)
+
+    /**
+     * Personas Blue Text Accent
+     */
+    public val PersonasDefaultBlueTextAccent: Color = Color(0xFF79B3F2)
+
+    /**
+     * Personas Sea Blue Text Accent
+     */
+    public val PersonasDefaultSeaBlueTextAccent: Color = Color(0xFF00898D)
+
+    /**
+     * Violet Text Accent Hover Default
+     */
+    public val PersonasDefaultVioletTextAccentHover: Color = Color(0xFFB438C7)
+
+    /**
+     * Background Hardline
+     */
+    public val BackgroundDefaultHardline: Color = Color(0xFF000000)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimaryBrightnessHover: Color = Color(0x93171717)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryBrightnessHover: Color = Color(0x93171717)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
+
+    /**
+     * Inverse Personas Violet Text Accent
+     */
+    public val PersonasInverseVioletTextAccent: Color = Color(0xFF9E32AF)
+
+    /**
+     * Inverse Surface Transparent Accent Minor
+     */
+    public val SurfaceInverseTransparentAccentMinor: Color = Color(0x470BA686)
+
+    /**
+     * On Light Personas Blue Text Accent
+     */
+    public val PersonasOnLightBlueTextAccent: Color = Color(0xFF1063BA)
 
     /**
      * Основной цвет текста на темном фоне
@@ -4353,9 +4318,39 @@ public object DarkColorTokens {
     public val PersonasInverseOliveTextAccent: Color = Color(0xFF127210)
 
     /**
-     * Сплошной наборный текст
+     * Primary Active Inverse
      */
-    public val TextDefaultParagraphActive: Color = Color(0x93F5F1EF)
+    public val OutlineInversePrimaryActive: Color = Color(0xFFC4BEBA)
+
+    /**
+     * Accent Secondary Active On Light
+     */
+    public val SurfaceOnLightAccentSecondaryActive: Color = Color(0xFF3CAF94)
+
+    /**
+     * Transparent Accent Minor Active On Dark
+     */
+    public val SurfaceOnDarkTransparentAccentMinorActive: Color = Color(0x380BA888)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
+
+    /**
+     * On Light Personas Indigo Text Accent
+     */
+    public val PersonasOnLightIndigoTextAccent: Color = Color(0xFF7133BE)
+
+    /**
+     * Green Text Accent Hover Inverse
+     */
+    public val PersonasInverseGreenTextAccentHover: Color = Color(0xFF8CDECA)
+
+    /**
+     * Indigo Text Accent Active On Light
+     */
+    public val PersonasOnLightIndigoTextAccentActive: Color = Color(0xFF5B2999)
 
     /**
      * Акцентный цвет
@@ -4498,9 +4493,9 @@ public object DarkColorTokens {
     public val TextDefaultParagraphHover: Color = Color(0xFFF5F1EF)
 
     /**
-     * Сплошной наборный текст на темном фоне
+     * Сплошной наборный текст
      */
-    public val TextOnDarkParagraphActive: Color = Color(0x93F5F1EF)
+    public val TextDefaultParagraphActive: Color = Color(0x93F5F1EF)
 
     /**
      * Акцентный цвет на темном фоне
@@ -4648,9 +4643,9 @@ public object DarkColorTokens {
     public val TextOnDarkParagraphHover: Color = Color(0xFFF5F1EF)
 
     /**
-     * Основной цвет текста на светлом фоне
+     * Сплошной наборный текст на темном фоне
      */
-    public val TextOnLightPrimaryBrightness: Color = Color(0xF5171717)
+    public val TextOnDarkParagraphActive: Color = Color(0x93F5F1EF)
 
     /**
      * Вторичный цвет текста на светлом фоне
@@ -4766,6 +4761,11 @@ public object DarkColorTokens {
      * Основной цвет текста на светлом фоне
      */
     public val TextOnLightPrimaryActive: Color = Color(0xCA15110F)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimaryBrightness: Color = Color(0xF5171717)
 
     /**
      * Инвертированный основной цвет текста
@@ -4893,11 +4893,6 @@ public object DarkColorTokens {
     public val TextOnLightNegativeHover: Color = Color(0xFFE3353B)
 
     /**
-     * Инвертированный цвет ошибки
-     */
-    public val TextInverseNegativeActive: Color = Color(0xFFAF181D)
-
-    /**
      * Инвертированный цвет информации
      */
     public val TextInverseInfo: Color = Color(0xFF205EA5)
@@ -4998,9 +4993,9 @@ public object DarkColorTokens {
     public val TextInverseNegativeHover: Color = Color(0xFFE3353B)
 
     /**
-     * Вторичный прозрачный фон поверхности/контрола
+     * Инвертированный цвет ошибки
      */
-    public val SurfaceDefaultTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
+    public val TextInverseNegativeActive: Color = Color(0xFFAF181D)
 
     /**
      * Третичный прозрачный фон поверхности/контрола
@@ -5168,9 +5163,9 @@ public object DarkColorTokens {
     public val SurfaceDefaultTransparentSecondaryHover: Color = Color(0x47FFFFFF)
 
     /**
-     * Цвет фона поверхности/контрола предупреждение
+     * Вторичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultWarningActive: Color = Color(0xFFF8A977)
+    public val SurfaceDefaultTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
 
     /**
      * Цвет фона поверхности/контрола ошибка
@@ -5228,9 +5223,9 @@ public object DarkColorTokens {
     public val SurfaceDefaultWarningHover: Color = Color(0xFFF9BB94)
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
+     * Цвет фона поверхности/контрола предупреждение
      */
-    public val SurfaceDefaultTransparentNegative: Color = Color(0x80F8A6A9)
+    public val SurfaceDefaultWarningActive: Color = Color(0xFFF8A977)
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение
@@ -5303,9 +5298,9 @@ public object DarkColorTokens {
     public val SurfaceDefaultTransparentNegativeActive: Color = Color(0x70F8A5A8)
 
     /**
-     * Вторичный прозрачный фон поверхности/контрола на темном фоне
+     * Прозрачный цвет фона поверхности/контрола предупреждение
      */
-    public val SurfaceOnDarkTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
+    public val SurfaceDefaultTransparentNegative: Color = Color(0x80F8A6A9)
 
     /**
      * Третичный прозрачный фон поверхности/контрола на темном фоне
@@ -5448,9 +5443,9 @@ public object DarkColorTokens {
     public val SurfaceOnDarkTransparentSecondaryHover: Color = Color(0x47FFFFFF)
 
     /**
-     * Цвет фона поверхности/контрола успех на темном фоне
+     * Вторичный прозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkPositive: Color = Color(0xFFA6D2A2)
+    public val SurfaceOnDarkTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
 
     /**
      * Цвет фона поверхности/контрола успех на темном фоне
@@ -5521,6 +5516,11 @@ public object DarkColorTokens {
      * Прозрачный акцентный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkTransparentAccentHover: Color = Color(0x520BA888)
+
+    /**
+     * Цвет фона поверхности/контрола успех на темном фоне
+     */
+    public val SurfaceOnDarkPositive: Color = Color(0xFFA6D2A2)
 
     /**
      * Цвет для readOnly
@@ -5596,11 +5596,6 @@ public object DarkColorTokens {
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
      */
     public val SurfaceOnDarkTransparentNegativeHover: Color = Color(0x9EF8A5A8)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentSecondaryActive: Color = Color(0x1F15110F)
 
     /**
      * Третичный прозрачный фон поверхности/контрола на светлом фоне
@@ -5743,6 +5738,11 @@ public object DarkColorTokens {
     public val SurfaceOnLightTransparentSecondaryHover: Color = Color(0x1A15110F)
 
     /**
+     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentSecondaryActive: Color = Color(0x1F15110F)
+
+    /**
      * Цвет фона поверхности/контрола успех на светлом фоне
      */
     public val SurfaceOnLightPositive: Color = Color(0xFF239322)
@@ -5820,11 +5820,6 @@ public object DarkColorTokens {
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
      */
-    public val SurfaceOnLightTransparentNegative: Color = Color(0x29E83439)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
     public val SurfaceOnLightTransparentNegativeHover: Color = Color(0x38E9353B)
 
     /**
@@ -5883,9 +5878,9 @@ public object DarkColorTokens {
     public val SurfaceOnLightTransparentNegativeActive: Color = Color(0x3DE9353B)
 
     /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
      */
-    public val SurfaceInverseTransparentSecondaryHover: Color = Color(0x1A15110F)
+    public val SurfaceOnLightTransparentNegative: Color = Color(0x29E83439)
 
     /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
@@ -6026,6 +6021,11 @@ public object DarkColorTokens {
      * Инвертированный вторичный прозрачный фон поверхности/контрола
      */
     public val SurfaceInverseTransparentSecondary: Color = Color(0x1415110F)
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentSecondaryHover: Color = Color(0x1A15110F)
 
     /**
      * Инвертированный цвет фона поверхности/контрола успех
@@ -6533,11 +6533,6 @@ public object DarkColorTokens {
     public val OutlineInverseClearActive: Color = Color(0x00FFFFFF)
 
     /**
-     * Инвертированный цвет обводки предупреждение
-     */
-    public val OutlineInverseWarningActive: Color = Color(0xFFA3420A)
-
-    /**
      * Инвертированный цвет обводки ошибка
      */
     public val OutlineInverseNegative: Color = Color(0xFFE83439)
@@ -6591,6 +6586,11 @@ public object DarkColorTokens {
      * Инвертированный цвет обводки предупреждение
      */
     public val OutlineInverseWarningHover: Color = Color(0xFFF3813F)
+
+    /**
+     * Инвертированный цвет обводки предупреждение
+     */
+    public val OutlineInverseWarningActive: Color = Color(0xFFA3420A)
 
     /**
      * Основной цвет текста

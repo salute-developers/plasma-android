@@ -17,17 +17,12 @@ public object RoundShapeTokens {
     /**
      * New description
      */
-    public val Round5xl: RoundedCornerShape = RoundedCornerShape(CornerSize(40.0.dp))
+    public val Round3xl: RoundedCornerShape = RoundedCornerShape(CornerSize(28.0.dp))
 
     /**
      * New description
      */
-    public val Round3xl: RoundedCornerShape = RoundedCornerShape(CornerSize(28.0.dp))
-
-    /**
-     * borderRadius xxs
-     */
-    public val RoundXxs: RoundedCornerShape = RoundedCornerShape(CornerSize(4.0.dp))
+    public val Round5xl: RoundedCornerShape = RoundedCornerShape(CornerSize(40.0.dp))
 
     /**
      * borderRadius xs
@@ -63,4 +58,9 @@ public object RoundShapeTokens {
      * borderRadius l
      */
     public val RoundL: RoundedCornerShape = RoundedCornerShape(CornerSize(16.0.dp))
+
+    /**
+     * borderRadius xxs
+     */
+    public val RoundXxs: RoundedCornerShape = RoundedCornerShape(CornerSize(4.0.dp))
 }

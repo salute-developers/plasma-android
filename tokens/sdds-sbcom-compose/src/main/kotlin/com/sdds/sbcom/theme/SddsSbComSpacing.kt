@@ -18,10 +18,6 @@ public data class SddsSbComSpacing(
      */
     public val spacing16x: Dp = 0.dp,
     /**
-     * spacing 10x
-     */
-    public val spacing10x: Dp = 0.dp,
-    /**
      * spacing 12x
      */
     public val spacing12x: Dp = 0.dp,
@@ -73,6 +69,10 @@ public data class SddsSbComSpacing(
      * spacing 8x
      */
     public val spacing8x: Dp = 0.dp,
+    /**
+     * spacing 10x
+     */
+    public val spacing10x: Dp = 0.dp,
 )
 
 internal val LocalSddsSbComSpacing: ProvidableCompositionLocal<SddsSbComSpacing> =
@@ -85,7 +85,6 @@ internal val LocalSddsSbComSpacing: ProvidableCompositionLocal<SddsSbComSpacing>
  */
 public fun defaultSddsSbComSpacing(): SddsSbComSpacing = SddsSbComSpacing(
     spacing16x = SpacingTokens.spacing16x,
-    spacing10x = SpacingTokens.spacing10x,
     spacing12x = SpacingTokens.spacing12x,
     spacing20x = SpacingTokens.spacing20x,
     spacing24x = SpacingTokens.spacing24x,
@@ -99,4 +98,5 @@ public fun defaultSddsSbComSpacing(): SddsSbComSpacing = SddsSbComSpacing(
     spacing3x = SpacingTokens.spacing3x,
     spacing6x = SpacingTokens.spacing6x,
     spacing8x = SpacingTokens.spacing8x,
+    spacing10x = SpacingTokens.spacing10x,
 )

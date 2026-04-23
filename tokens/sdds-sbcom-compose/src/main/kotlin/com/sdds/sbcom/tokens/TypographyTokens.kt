@@ -41,19 +41,6 @@ public object TypographySmallTokens {
     )
 
     /**
-     * typography s display-s
-     */
-    public val DisplaySNormal: TextStyle = TextStyle(
-        fontWeight = FontWeight(400),
-        fontSize = 34.0.sp,
-        lineHeight = 41.0.sp,
-        letterSpacing = 0.0.sp,
-        fontFamily = FontTokens.display,
-        lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        platformStyle = TextStyleDefault.platformStyle,
-    )
-
-    /**
      * typography s display-s-bold
      */
     public val DisplaySBold: TextStyle = TextStyle(
@@ -190,6 +177,19 @@ public object TypographySmallTokens {
         fontWeight = FontWeight(400),
         fontSize = 16.0.sp,
         lineHeight = 20.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.display,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography s display-s
+     */
+    public val DisplaySNormal: TextStyle = TextStyle(
+        fontWeight = FontWeight(400),
+        fontSize = 34.0.sp,
+        lineHeight = 41.0.sp,
         letterSpacing = 0.0.sp,
         fontFamily = FontTokens.display,
         lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -956,6 +956,45 @@ public object TypographyMediumTokens {
     )
 
     /**
+     * typography m text-l
+     */
+    public val TextLNormal: TextStyle = TextStyle(
+        fontWeight = FontWeight(400),
+        fontSize = 20.0.sp,
+        lineHeight = 28.0.sp,
+        letterSpacing = (-0.02).sp,
+        fontFamily = FontTokens.text,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography m text-l-bold
+     */
+    public val TextLBold: TextStyle = TextStyle(
+        fontWeight = FontWeight(600),
+        fontSize = 20.0.sp,
+        lineHeight = 28.0.sp,
+        letterSpacing = (-0.02).sp,
+        fontFamily = FontTokens.text,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography m text-l-medium
+     */
+    public val TextLMedium: TextStyle = TextStyle(
+        fontWeight = FontWeight(500),
+        fontSize = 20.0.sp,
+        lineHeight = 28.0.sp,
+        letterSpacing = (-0.02).sp,
+        fontFamily = FontTokens.text,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
      * typography m text-m-bold
      */
     public val TextMBold: TextStyle = TextStyle(
@@ -1071,45 +1110,6 @@ public object TypographyMediumTokens {
         lineHeightStyle = TextStyleDefault.lineHeightStyle,
         platformStyle = TextStyleDefault.platformStyle,
     )
-
-    /**
-     * typography m text-l
-     */
-    public val TextLNormal: TextStyle = TextStyle(
-        fontWeight = FontWeight(400),
-        fontSize = 20.0.sp,
-        lineHeight = 28.0.sp,
-        letterSpacing = (-0.02).sp,
-        fontFamily = FontTokens.text,
-        lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        platformStyle = TextStyleDefault.platformStyle,
-    )
-
-    /**
-     * typography m text-l-bold
-     */
-    public val TextLBold: TextStyle = TextStyle(
-        fontWeight = FontWeight(600),
-        fontSize = 20.0.sp,
-        lineHeight = 28.0.sp,
-        letterSpacing = (-0.02).sp,
-        fontFamily = FontTokens.text,
-        lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        platformStyle = TextStyleDefault.platformStyle,
-    )
-
-    /**
-     * typography m text-l-medium
-     */
-    public val TextLMedium: TextStyle = TextStyle(
-        fontWeight = FontWeight(500),
-        fontSize = 20.0.sp,
-        lineHeight = 28.0.sp,
-        letterSpacing = (-0.02).sp,
-        fontFamily = FontTokens.text,
-        lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        platformStyle = TextStyleDefault.platformStyle,
-    )
 }
 
 /**
@@ -1149,6 +1149,45 @@ public object TypographyLargeTokens {
         fontWeight = FontWeight(500),
         fontSize = 34.0.sp,
         lineHeight = 41.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.display,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography l header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle = TextStyle(
+        fontWeight = FontWeight(700),
+        fontSize = 20.0.sp,
+        lineHeight = 23.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.display,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography l header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle = TextStyle(
+        fontWeight = FontWeight(500),
+        fontSize = 20.0.sp,
+        lineHeight = 23.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.display,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography l header-h4
+     */
+    public val HeaderH4Normal: TextStyle = TextStyle(
+        fontWeight = FontWeight(400),
+        fontSize = 20.0.sp,
+        lineHeight = 26.0.sp,
         letterSpacing = 0.0.sp,
         fontFamily = FontTokens.display,
         lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -1377,71 +1416,6 @@ public object TypographyLargeTokens {
     )
 
     /**
-     * typography l header-h3-bold
-     */
-    public val HeaderH3Bold: TextStyle = TextStyle(
-        fontWeight = FontWeight(700),
-        fontSize = 20.0.sp,
-        lineHeight = 23.0.sp,
-        letterSpacing = 0.0.sp,
-        fontFamily = FontTokens.display,
-        lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        platformStyle = TextStyleDefault.platformStyle,
-    )
-
-    /**
-     * typography l header-h3-medium
-     */
-    public val HeaderH3Medium: TextStyle = TextStyle(
-        fontWeight = FontWeight(500),
-        fontSize = 20.0.sp,
-        lineHeight = 23.0.sp,
-        letterSpacing = 0.0.sp,
-        fontFamily = FontTokens.display,
-        lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        platformStyle = TextStyleDefault.platformStyle,
-    )
-
-    /**
-     * typography l header-h4
-     */
-    public val HeaderH4Normal: TextStyle = TextStyle(
-        fontWeight = FontWeight(400),
-        fontSize = 20.0.sp,
-        lineHeight = 26.0.sp,
-        letterSpacing = 0.0.sp,
-        fontFamily = FontTokens.display,
-        lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        platformStyle = TextStyleDefault.platformStyle,
-    )
-
-    /**
-     * typography l text-l
-     */
-    public val TextLNormal: TextStyle = TextStyle(
-        fontWeight = FontWeight(400),
-        fontSize = 24.0.sp,
-        lineHeight = 32.0.sp,
-        letterSpacing = (-0.02).sp,
-        fontFamily = FontTokens.text,
-        lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        platformStyle = TextStyleDefault.platformStyle,
-    )
-
-    /**
-     * typography l text-l-bold
-     */
-    public val TextLBold: TextStyle = TextStyle(
-        fontWeight = FontWeight(600),
-        fontSize = 24.0.sp,
-        lineHeight = 32.0.sp,
-        letterSpacing = (-0.02).sp,
-        fontFamily = FontTokens.text,
-        lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        platformStyle = TextStyleDefault.platformStyle,
-    )
-
-    /**
      * typography l text-xs
      */
     public val TextXsNormal: TextStyle = TextStyle(
@@ -1656,6 +1630,32 @@ public object TypographyLargeTokens {
         fontWeight = FontWeight(500),
         fontSize = 10.0.sp,
         lineHeight = 12.0.sp,
+        letterSpacing = (-0.02).sp,
+        fontFamily = FontTokens.text,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography l text-l
+     */
+    public val TextLNormal: TextStyle = TextStyle(
+        fontWeight = FontWeight(400),
+        fontSize = 24.0.sp,
+        lineHeight = 32.0.sp,
+        letterSpacing = (-0.02).sp,
+        fontFamily = FontTokens.text,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography l text-l-bold
+     */
+    public val TextLBold: TextStyle = TextStyle(
+        fontWeight = FontWeight(600),
+        fontSize = 24.0.sp,
+        lineHeight = 32.0.sp,
         letterSpacing = (-0.02).sp,
         fontFamily = FontTokens.text,
         lineHeightStyle = TextStyleDefault.lineHeightStyle,

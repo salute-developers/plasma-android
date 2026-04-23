@@ -26,10 +26,6 @@ public data class SddsSbComTypography internal constructor(
      */
     public val headerH2Medium: TextStyle = TextStyle.Default,
     /**
-     * typography l display-s
-     */
-    public val displaySNormal: TextStyle = TextStyle.Default,
-    /**
      * typography l display-s-bold
      */
     public val displaySBold: TextStyle = TextStyle.Default,
@@ -73,6 +69,10 @@ public data class SddsSbComTypography internal constructor(
      * typography l header-h4
      */
     public val headerH4Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-s
+     */
+    public val displaySNormal: TextStyle = TextStyle.Default,
     /**
      * typography l header-h4-bold
      */
@@ -198,7 +198,6 @@ internal val LocalSddsSbComTypography: ProvidableCompositionLocal<SddsSbComTypog
 public fun smallSddsSbComTypography(): SddsSbComTypography = SddsSbComTypography(
     bodyXxsBold = TypographySmallTokens.BodyXxsBold,
     headerH2Medium = TypographySmallTokens.HeaderH2Medium,
-    displaySNormal = TypographySmallTokens.DisplaySNormal,
     displaySBold = TypographySmallTokens.DisplaySBold,
     displaySMedium = TypographySmallTokens.DisplaySMedium,
     headerH1Normal = TypographySmallTokens.HeaderH1Normal,
@@ -210,6 +209,7 @@ public fun smallSddsSbComTypography(): SddsSbComTypography = SddsSbComTypography
     headerH3Bold = TypographySmallTokens.HeaderH3Bold,
     headerH3Medium = TypographySmallTokens.HeaderH3Medium,
     headerH4Normal = TypographySmallTokens.HeaderH4Normal,
+    displaySNormal = TypographySmallTokens.DisplaySNormal,
     headerH4Bold = TypographySmallTokens.HeaderH4Bold,
     headerH4Medium = TypographySmallTokens.HeaderH4Medium,
     bodyLNormal = TypographySmallTokens.BodyLNormal,
@@ -246,7 +246,6 @@ public fun smallSddsSbComTypography(): SddsSbComTypography = SddsSbComTypography
 public fun mediumSddsSbComTypography(): SddsSbComTypography = SddsSbComTypography(
     bodyXxsBold = TypographyMediumTokens.BodyXxsBold,
     headerH2Medium = TypographyMediumTokens.HeaderH2Medium,
-    displaySNormal = TypographyMediumTokens.DisplaySNormal,
     displaySBold = TypographyMediumTokens.DisplaySBold,
     displaySMedium = TypographyMediumTokens.DisplaySMedium,
     headerH1Normal = TypographyMediumTokens.HeaderH1Normal,
@@ -258,6 +257,7 @@ public fun mediumSddsSbComTypography(): SddsSbComTypography = SddsSbComTypograph
     headerH3Bold = TypographyMediumTokens.HeaderH3Bold,
     headerH3Medium = TypographyMediumTokens.HeaderH3Medium,
     headerH4Normal = TypographyMediumTokens.HeaderH4Normal,
+    displaySNormal = TypographyMediumTokens.DisplaySNormal,
     headerH4Bold = TypographyMediumTokens.HeaderH4Bold,
     headerH4Medium = TypographyMediumTokens.HeaderH4Medium,
     bodyLNormal = TypographyMediumTokens.BodyLNormal,
@@ -294,7 +294,6 @@ public fun mediumSddsSbComTypography(): SddsSbComTypography = SddsSbComTypograph
 public fun largeSddsSbComTypography(): SddsSbComTypography = SddsSbComTypography(
     bodyXxsBold = TypographyLargeTokens.BodyXxsBold,
     headerH2Medium = TypographyLargeTokens.HeaderH2Medium,
-    displaySNormal = TypographyLargeTokens.DisplaySNormal,
     displaySBold = TypographyLargeTokens.DisplaySBold,
     displaySMedium = TypographyLargeTokens.DisplaySMedium,
     headerH1Normal = TypographyLargeTokens.HeaderH1Normal,
@@ -306,6 +305,7 @@ public fun largeSddsSbComTypography(): SddsSbComTypography = SddsSbComTypography
     headerH3Bold = TypographyLargeTokens.HeaderH3Bold,
     headerH3Medium = TypographyLargeTokens.HeaderH3Medium,
     headerH4Normal = TypographyLargeTokens.HeaderH4Normal,
+    displaySNormal = TypographyLargeTokens.DisplaySNormal,
     headerH4Bold = TypographyLargeTokens.HeaderH4Bold,
     headerH4Medium = TypographyLargeTokens.HeaderH4Medium,
     bodyLNormal = TypographyLargeTokens.BodyLNormal,

@@ -53,19 +53,14 @@ public class SddsSbComColors(
     public var outlineOnLightDefaultHover: Color by colors.obtain("outlineOnLightDefaultHover")
 
     /**
-     * Primary Active Inverse
+     * Default Hover On Dark
      */
-    public var outlineInversePrimaryActive: Color by colors.obtain("outlineInversePrimaryActive")
+    public var outlineOnDarkDefaultHover: Color by colors.obtain("outlineOnDarkDefaultHover")
 
     /**
      * Default Active On Dark
      */
     public var outlineOnDarkDefaultActive: Color by colors.obtain("outlineOnDarkDefaultActive")
-
-    /**
-     * Default Hover On Dark
-     */
-    public var outlineOnDarkDefaultHover: Color by colors.obtain("outlineOnDarkDefaultHover")
 
     /**
      * Green Text Accent Hover Default
@@ -84,12 +79,6 @@ public class SddsSbComColors(
      */
     public var surfaceInverseAccentSecondaryHover: Color by
         colors.obtain("surfaceInverseAccentSecondaryHover")
-
-    /**
-     * Accent Secondary Active On Light
-     */
-    public var surfaceOnLightAccentSecondaryActive: Color by
-        colors.obtain("surfaceOnLightAccentSecondaryActive")
 
     /**
      * Transparent Navi Active Default
@@ -150,12 +139,6 @@ public class SddsSbComColors(
         colors.obtain("surfaceOnDarkAccentSecondaryHover")
 
     /**
-     * Green Text Accent Hover Inverse
-     */
-    public var personasInverseGreenTextAccentHover: Color by
-        colors.obtain("personasInverseGreenTextAccentHover")
-
-    /**
      * Pink Text Accent Hover On Light
      */
     public var personasOnLightPinkTextAccentHover: Color by
@@ -202,12 +185,6 @@ public class SddsSbComColors(
         colors.obtain("personasOnLightIndigoTextAccentHover")
 
     /**
-     * Indigo Text Accent Active On Light
-     */
-    public var personasOnLightIndigoTextAccentActive: Color by
-        colors.obtain("personasOnLightIndigoTextAccentActive")
-
-    /**
      * Sea Blue Text Accent Hover On Light
      */
     public var personasOnLightSeaBlueTextAccentHover: Color by
@@ -223,12 +200,6 @@ public class SddsSbComColors(
      * Inverse Background Hardline
      */
     public var backgroundInverseHardline: Color by colors.obtain("backgroundInverseHardline")
-
-    /**
-     * Transparent Accent Minor Active On Dark
-     */
-    public var surfaceOnDarkTransparentAccentMinorActive: Color by
-        colors.obtain("surfaceOnDarkTransparentAccentMinorActive")
 
     /**
      * Sea Blue Text Accent Hover On Dark
@@ -266,12 +237,6 @@ public class SddsSbComColors(
         colors.obtain("textDefaultPrimaryBrightnessActive")
 
     /**
-     * Основной фон для карточек
-     */
-    public var surfaceDefaultSolidCardBrightnessHover: Color by
-        colors.obtain("surfaceDefaultSolidCardBrightnessHover")
-
-    /**
      * Прозрачный фон для карточек
      */
     public var surfaceDefaultTransparentCardBrightnessHover: Color by
@@ -296,10 +261,10 @@ public class SddsSbComColors(
         colors.obtain("surfaceDefaultTransparentCardBrightnessActive")
 
     /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     * Основной фон для карточек
      */
-    public var surfaceOnDarkSolidPrimaryBrightnessActive: Color by
-        colors.obtain("surfaceOnDarkSolidPrimaryBrightnessActive")
+    public var surfaceDefaultSolidCardBrightnessHover: Color by
+        colors.obtain("surfaceDefaultSolidCardBrightnessHover")
 
     /**
      * Прозрачный фон для карточек на темном фоне
@@ -532,11 +497,6 @@ public class SddsSbComColors(
         colors.obtain("personasOnLightVioletTextAccent")
 
     /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public var surfaceInverseAccentMinor: Color by colors.obtain("surfaceInverseAccentMinor")
-
-    /**
      * Инвертированный основной фон для карточек
      */
     public var surfaceInverseSolidCardBrightnessActive: Color by
@@ -555,15 +515,9 @@ public class SddsSbComColors(
         colors.obtain("surfaceOnLightAccentMinorHover")
 
     /**
-     * On Dark Personas Blue Text Accent
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public var personasOnDarkBlueTextAccent: Color by colors.obtain("personasOnDarkBlueTextAccent")
-
-    /**
-     * On Light Personas Indigo Text Accent
-     */
-    public var personasOnLightIndigoTextAccent: Color by
-        colors.obtain("personasOnLightIndigoTextAccent")
+    public var surfaceInverseAccentMinor: Color by colors.obtain("surfaceInverseAccentMinor")
 
     /**
      * On Light Personas Sea Blue Text Accent
@@ -596,10 +550,9 @@ public class SddsSbComColors(
         colors.obtain("surfaceOnLightTransparentNavi")
 
     /**
-     * Green Text Accent Hover On Dark
+     * On Dark Personas Blue Text Accent
      */
-    public var personasOnDarkGreenTextAccentHover: Color by
-        colors.obtain("personasOnDarkGreenTextAccentHover")
+    public var personasOnDarkBlueTextAccent: Color by colors.obtain("personasOnDarkBlueTextAccent")
 
     /**
      * Green Text Accent Active Default
@@ -755,6 +708,12 @@ public class SddsSbComColors(
         colors.obtain("textDefaultPrimaryBrightnessHover")
 
     /**
+     * Green Text Accent Hover On Dark
+     */
+    public var personasOnDarkGreenTextAccentHover: Color by
+        colors.obtain("personasOnDarkGreenTextAccentHover")
+
+    /**
      * Основной цвет текста на темном фоне
      */
     public var textOnDarkPrimaryBrightnessHover: Color by
@@ -783,32 +742,10 @@ public class SddsSbComColors(
     public var textOnLightWarningActive: Color by colors.obtain("textOnLightWarningActive")
 
     /**
-     * Transparent Navi Hover Default
-     */
-    public var surfaceDefaultTransparentNaviHover: Color by
-        colors.obtain("surfaceDefaultTransparentNaviHover")
-
-    /**
-     * Transparent Accent Minor Hover On Light
-     */
-    public var surfaceOnLightTransparentAccentMinorHover: Color by
-        colors.obtain("surfaceOnLightTransparentAccentMinorHover")
-
-    /**
      * Green Text Accent Hover On Light
      */
     public var personasOnLightGreenTextAccentHover: Color by
         colors.obtain("personasOnLightGreenTextAccentHover")
-
-    /**
-     * Default Hover Default
-     */
-    public var outlineDefaultDefaultHover: Color by colors.obtain("outlineDefaultDefaultHover")
-
-    /**
-     * Primary Hover On Dark
-     */
-    public var outlineOnDarkPrimaryHover: Color by colors.obtain("outlineOnDarkPrimaryHover")
 
     /**
      * Pink Text Accent Hover On Dark
@@ -958,51 +895,26 @@ public class SddsSbComColors(
         colors.obtain("surfaceOnLightAccentSecondaryHover")
 
     /**
-     * Personas Blue Text Accent
+     * Transparent Navi Hover Default
      */
-    public var personasDefaultBlueTextAccent: Color by
-        colors.obtain("personasDefaultBlueTextAccent")
+    public var surfaceDefaultTransparentNaviHover: Color by
+        colors.obtain("surfaceDefaultTransparentNaviHover")
 
     /**
-     * Personas Sea Blue Text Accent
+     * Transparent Accent Minor Hover On Light
      */
-    public var personasDefaultSeaBlueTextAccent: Color by
-        colors.obtain("personasDefaultSeaBlueTextAccent")
+    public var surfaceOnLightTransparentAccentMinorHover: Color by
+        colors.obtain("surfaceOnLightTransparentAccentMinorHover")
 
     /**
-     * Violet Text Accent Hover Default
+     * Default Hover Default
      */
-    public var personasDefaultVioletTextAccentHover: Color by
-        colors.obtain("personasDefaultVioletTextAccentHover")
+    public var outlineDefaultDefaultHover: Color by colors.obtain("outlineDefaultDefaultHover")
 
     /**
-     * Background Hardline
+     * Primary Hover On Dark
      */
-    public var backgroundDefaultHardline: Color by colors.obtain("backgroundDefaultHardline")
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public var textOnLightPrimaryBrightnessHover: Color by
-        colors.obtain("textOnLightPrimaryBrightnessHover")
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public var textInversePrimaryBrightnessHover: Color by
-        colors.obtain("textInversePrimaryBrightnessHover")
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public var surfaceDefaultSolidPrimaryBrightnessActive: Color by
-        colors.obtain("surfaceDefaultSolidPrimaryBrightnessActive")
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkSolidPrimaryBrightnessHover: Color by
-        colors.obtain("surfaceOnDarkSolidPrimaryBrightnessHover")
+    public var outlineOnDarkPrimaryHover: Color by colors.obtain("outlineOnDarkPrimaryHover")
 
     /**
      * Инвертированный основной фон для карточек
@@ -1052,24 +964,6 @@ public class SddsSbComColors(
         colors.obtain("personasDefaultPinkTextAccent")
 
     /**
-     * Inverse Personas Violet Text Accent
-     */
-    public var personasInverseVioletTextAccent: Color by
-        colors.obtain("personasInverseVioletTextAccent")
-
-    /**
-     * Inverse Surface Transparent Accent Minor
-     */
-    public var surfaceInverseTransparentAccentMinor: Color by
-        colors.obtain("surfaceInverseTransparentAccentMinor")
-
-    /**
-     * On Light Personas Blue Text Accent
-     */
-    public var personasOnLightBlueTextAccent: Color by
-        colors.obtain("personasOnLightBlueTextAccent")
-
-    /**
      * On Dark Surface Transparent Navi
      */
     public var surfaceOnDarkTransparentNavi: Color by colors.obtain("surfaceOnDarkTransparentNavi")
@@ -1105,6 +999,71 @@ public class SddsSbComColors(
      * On Dark Outline Primary
      */
     public var outlineOnDarkPrimary: Color by colors.obtain("outlineOnDarkPrimary")
+
+    /**
+     * Personas Blue Text Accent
+     */
+    public var personasDefaultBlueTextAccent: Color by
+        colors.obtain("personasDefaultBlueTextAccent")
+
+    /**
+     * Personas Sea Blue Text Accent
+     */
+    public var personasDefaultSeaBlueTextAccent: Color by
+        colors.obtain("personasDefaultSeaBlueTextAccent")
+
+    /**
+     * Violet Text Accent Hover Default
+     */
+    public var personasDefaultVioletTextAccentHover: Color by
+        colors.obtain("personasDefaultVioletTextAccentHover")
+
+    /**
+     * Background Hardline
+     */
+    public var backgroundDefaultHardline: Color by colors.obtain("backgroundDefaultHardline")
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public var textOnLightPrimaryBrightnessHover: Color by
+        colors.obtain("textOnLightPrimaryBrightnessHover")
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public var textInversePrimaryBrightnessHover: Color by
+        colors.obtain("textInversePrimaryBrightnessHover")
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public var surfaceDefaultSolidPrimaryBrightnessActive: Color by
+        colors.obtain("surfaceDefaultSolidPrimaryBrightnessActive")
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public var surfaceOnDarkSolidPrimaryBrightnessHover: Color by
+        colors.obtain("surfaceOnDarkSolidPrimaryBrightnessHover")
+
+    /**
+     * Inverse Personas Violet Text Accent
+     */
+    public var personasInverseVioletTextAccent: Color by
+        colors.obtain("personasInverseVioletTextAccent")
+
+    /**
+     * Inverse Surface Transparent Accent Minor
+     */
+    public var surfaceInverseTransparentAccentMinor: Color by
+        colors.obtain("surfaceInverseTransparentAccentMinor")
+
+    /**
+     * On Light Personas Blue Text Accent
+     */
+    public var personasOnLightBlueTextAccent: Color by
+        colors.obtain("personasOnLightBlueTextAccent")
 
     /**
      * Основной цвет текста на темном фоне
@@ -1232,9 +1191,45 @@ public class SddsSbComColors(
         colors.obtain("personasInverseOliveTextAccent")
 
     /**
-     * Сплошной наборный текст
+     * Primary Active Inverse
      */
-    public var textDefaultParagraphActive: Color by colors.obtain("textDefaultParagraphActive")
+    public var outlineInversePrimaryActive: Color by colors.obtain("outlineInversePrimaryActive")
+
+    /**
+     * Accent Secondary Active On Light
+     */
+    public var surfaceOnLightAccentSecondaryActive: Color by
+        colors.obtain("surfaceOnLightAccentSecondaryActive")
+
+    /**
+     * Transparent Accent Minor Active On Dark
+     */
+    public var surfaceOnDarkTransparentAccentMinorActive: Color by
+        colors.obtain("surfaceOnDarkTransparentAccentMinorActive")
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public var surfaceOnDarkSolidPrimaryBrightnessActive: Color by
+        colors.obtain("surfaceOnDarkSolidPrimaryBrightnessActive")
+
+    /**
+     * On Light Personas Indigo Text Accent
+     */
+    public var personasOnLightIndigoTextAccent: Color by
+        colors.obtain("personasOnLightIndigoTextAccent")
+
+    /**
+     * Green Text Accent Hover Inverse
+     */
+    public var personasInverseGreenTextAccentHover: Color by
+        colors.obtain("personasInverseGreenTextAccentHover")
+
+    /**
+     * Indigo Text Accent Active On Light
+     */
+    public var personasOnLightIndigoTextAccentActive: Color by
+        colors.obtain("personasOnLightIndigoTextAccentActive")
 
     /**
      * Акцентный цвет
@@ -1377,9 +1372,9 @@ public class SddsSbComColors(
     public var textDefaultParagraphHover: Color by colors.obtain("textDefaultParagraphHover")
 
     /**
-     * Сплошной наборный текст на темном фоне
+     * Сплошной наборный текст
      */
-    public var textOnDarkParagraphActive: Color by colors.obtain("textOnDarkParagraphActive")
+    public var textDefaultParagraphActive: Color by colors.obtain("textDefaultParagraphActive")
 
     /**
      * Акцентный цвет на темном фоне
@@ -1527,9 +1522,9 @@ public class SddsSbComColors(
     public var textOnDarkParagraphHover: Color by colors.obtain("textOnDarkParagraphHover")
 
     /**
-     * Основной цвет текста на светлом фоне
+     * Сплошной наборный текст на темном фоне
      */
-    public var textOnLightPrimaryBrightness: Color by colors.obtain("textOnLightPrimaryBrightness")
+    public var textOnDarkParagraphActive: Color by colors.obtain("textOnDarkParagraphActive")
 
     /**
      * Вторичный цвет текста на светлом фоне
@@ -1645,6 +1640,11 @@ public class SddsSbComColors(
      * Основной цвет текста на светлом фоне
      */
     public var textOnLightPrimaryActive: Color by colors.obtain("textOnLightPrimaryActive")
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public var textOnLightPrimaryBrightness: Color by colors.obtain("textOnLightPrimaryBrightness")
 
     /**
      * Инвертированный основной цвет текста
@@ -1772,11 +1772,6 @@ public class SddsSbComColors(
     public var textOnLightNegativeHover: Color by colors.obtain("textOnLightNegativeHover")
 
     /**
-     * Инвертированный цвет ошибки
-     */
-    public var textInverseNegativeActive: Color by colors.obtain("textInverseNegativeActive")
-
-    /**
      * Инвертированный цвет информации
      */
     public var textInverseInfo: Color by colors.obtain("textInverseInfo")
@@ -1883,10 +1878,9 @@ public class SddsSbComColors(
     public var textInverseNegativeHover: Color by colors.obtain("textInverseNegativeHover")
 
     /**
-     * Вторичный прозрачный фон поверхности/контрола
+     * Инвертированный цвет ошибки
      */
-    public var surfaceDefaultTransparentSecondaryActive: Color by
-        colors.obtain("surfaceDefaultTransparentSecondaryActive")
+    public var textInverseNegativeActive: Color by colors.obtain("textInverseNegativeActive")
 
     /**
      * Третичный прозрачный фон поверхности/контрола
@@ -2078,9 +2072,10 @@ public class SddsSbComColors(
         colors.obtain("surfaceDefaultTransparentSecondaryHover")
 
     /**
-     * Цвет фона поверхности/контрола предупреждение
+     * Вторичный прозрачный фон поверхности/контрола
      */
-    public var surfaceDefaultWarningActive: Color by colors.obtain("surfaceDefaultWarningActive")
+    public var surfaceDefaultTransparentSecondaryActive: Color by
+        colors.obtain("surfaceDefaultTransparentSecondaryActive")
 
     /**
      * Цвет фона поверхности/контрола ошибка
@@ -2138,10 +2133,9 @@ public class SddsSbComColors(
     public var surfaceDefaultWarningHover: Color by colors.obtain("surfaceDefaultWarningHover")
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
+     * Цвет фона поверхности/контрола предупреждение
      */
-    public var surfaceDefaultTransparentNegative: Color by
-        colors.obtain("surfaceDefaultTransparentNegative")
+    public var surfaceDefaultWarningActive: Color by colors.obtain("surfaceDefaultWarningActive")
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение
@@ -2222,10 +2216,10 @@ public class SddsSbComColors(
         colors.obtain("surfaceDefaultTransparentNegativeActive")
 
     /**
-     * Вторичный прозрачный фон поверхности/контрола на темном фоне
+     * Прозрачный цвет фона поверхности/контрола предупреждение
      */
-    public var surfaceOnDarkTransparentSecondaryActive: Color by
-        colors.obtain("surfaceOnDarkTransparentSecondaryActive")
+    public var surfaceDefaultTransparentNegative: Color by
+        colors.obtain("surfaceDefaultTransparentNegative")
 
     /**
      * Третичный прозрачный фон поверхности/контрола на темном фоне
@@ -2384,9 +2378,10 @@ public class SddsSbComColors(
         colors.obtain("surfaceOnDarkTransparentSecondaryHover")
 
     /**
-     * Цвет фона поверхности/контрола успех на темном фоне
+     * Вторичный прозрачный фон поверхности/контрола на темном фоне
      */
-    public var surfaceOnDarkPositive: Color by colors.obtain("surfaceOnDarkPositive")
+    public var surfaceOnDarkTransparentSecondaryActive: Color by
+        colors.obtain("surfaceOnDarkTransparentSecondaryActive")
 
     /**
      * Цвет фона поверхности/контрола успех на темном фоне
@@ -2460,6 +2455,11 @@ public class SddsSbComColors(
      */
     public var surfaceOnDarkTransparentAccentHover: Color by
         colors.obtain("surfaceOnDarkTransparentAccentHover")
+
+    /**
+     * Цвет фона поверхности/контрола успех на темном фоне
+     */
+    public var surfaceOnDarkPositive: Color by colors.obtain("surfaceOnDarkPositive")
 
     /**
      * Цвет для readOnly
@@ -2544,12 +2544,6 @@ public class SddsSbComColors(
      */
     public var surfaceOnDarkTransparentNegativeHover: Color by
         colors.obtain("surfaceOnDarkTransparentNegativeHover")
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightTransparentSecondaryActive: Color by
-        colors.obtain("surfaceOnLightTransparentSecondaryActive")
 
     /**
      * Третичный прозрачный фон поверхности/контрола на светлом фоне
@@ -2711,6 +2705,12 @@ public class SddsSbComColors(
         colors.obtain("surfaceOnLightTransparentSecondaryHover")
 
     /**
+     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public var surfaceOnLightTransparentSecondaryActive: Color by
+        colors.obtain("surfaceOnLightTransparentSecondaryActive")
+
+    /**
      * Цвет фона поверхности/контрола успех на светлом фоне
      */
     public var surfaceOnLightPositive: Color by colors.obtain("surfaceOnLightPositive")
@@ -2791,12 +2791,6 @@ public class SddsSbComColors(
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
      */
-    public var surfaceOnLightTransparentNegative: Color by
-        colors.obtain("surfaceOnLightTransparentNegative")
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
     public var surfaceOnLightTransparentNegativeHover: Color by
         colors.obtain("surfaceOnLightTransparentNegativeHover")
 
@@ -2862,10 +2856,10 @@ public class SddsSbComColors(
         colors.obtain("surfaceOnLightTransparentNegativeActive")
 
     /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
      */
-    public var surfaceInverseTransparentSecondaryHover: Color by
-        colors.obtain("surfaceInverseTransparentSecondaryHover")
+    public var surfaceOnLightTransparentNegative: Color by
+        colors.obtain("surfaceOnLightTransparentNegative")
 
     /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
@@ -3027,6 +3021,12 @@ public class SddsSbComColors(
      */
     public var surfaceInverseTransparentSecondary: Color by
         colors.obtain("surfaceInverseTransparentSecondary")
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public var surfaceInverseTransparentSecondaryHover: Color by
+        colors.obtain("surfaceInverseTransparentSecondaryHover")
 
     /**
      * Инвертированный цвет фона поверхности/контрола успех
@@ -3553,11 +3553,6 @@ public class SddsSbComColors(
     public var outlineInverseClearActive: Color by colors.obtain("outlineInverseClearActive")
 
     /**
-     * Инвертированный цвет обводки предупреждение
-     */
-    public var outlineInverseWarningActive: Color by colors.obtain("outlineInverseWarningActive")
-
-    /**
      * Инвертированный цвет обводки ошибка
      */
     public var outlineInverseNegative: Color by colors.obtain("outlineInverseNegative")
@@ -3611,6 +3606,11 @@ public class SddsSbComColors(
      * Инвертированный цвет обводки предупреждение
      */
     public var outlineInverseWarningHover: Color by colors.obtain("outlineInverseWarningHover")
+
+    /**
+     * Инвертированный цвет обводки предупреждение
+     */
+    public var outlineInverseWarningActive: Color by colors.obtain("outlineInverseWarningActive")
 
     /**
      * Основной цвет текста
@@ -3682,19 +3682,14 @@ public class ColorOverrideScope {
     public val outlineOnLightDefaultHover: String = "outlineOnLightDefaultHover"
 
     /**
-     * Primary Active Inverse
+     * Default Hover On Dark
      */
-    public val outlineInversePrimaryActive: String = "outlineInversePrimaryActive"
+    public val outlineOnDarkDefaultHover: String = "outlineOnDarkDefaultHover"
 
     /**
      * Default Active On Dark
      */
     public val outlineOnDarkDefaultActive: String = "outlineOnDarkDefaultActive"
-
-    /**
-     * Default Hover On Dark
-     */
-    public val outlineOnDarkDefaultHover: String = "outlineOnDarkDefaultHover"
 
     /**
      * Green Text Accent Hover Default
@@ -3711,11 +3706,6 @@ public class ColorOverrideScope {
      * Accent Secondary Hover Inverse
      */
     public val surfaceInverseAccentSecondaryHover: String = "surfaceInverseAccentSecondaryHover"
-
-    /**
-     * Accent Secondary Active On Light
-     */
-    public val surfaceOnLightAccentSecondaryActive: String = "surfaceOnLightAccentSecondaryActive"
 
     /**
      * Transparent Navi Active Default
@@ -3770,11 +3760,6 @@ public class ColorOverrideScope {
     public val surfaceOnDarkAccentSecondaryHover: String = "surfaceOnDarkAccentSecondaryHover"
 
     /**
-     * Green Text Accent Hover Inverse
-     */
-    public val personasInverseGreenTextAccentHover: String = "personasInverseGreenTextAccentHover"
-
-    /**
      * Pink Text Accent Hover On Light
      */
     public val personasOnLightPinkTextAccentHover: String = "personasOnLightPinkTextAccentHover"
@@ -3815,12 +3800,6 @@ public class ColorOverrideScope {
     public val personasOnLightIndigoTextAccentHover: String = "personasOnLightIndigoTextAccentHover"
 
     /**
-     * Indigo Text Accent Active On Light
-     */
-    public val personasOnLightIndigoTextAccentActive: String =
-        "personasOnLightIndigoTextAccentActive"
-
-    /**
      * Sea Blue Text Accent Hover On Light
      */
     public val personasOnLightSeaBlueTextAccentHover: String =
@@ -3835,12 +3814,6 @@ public class ColorOverrideScope {
      * Inverse Background Hardline
      */
     public val backgroundInverseHardline: String = "backgroundInverseHardline"
-
-    /**
-     * Transparent Accent Minor Active On Dark
-     */
-    public val surfaceOnDarkTransparentAccentMinorActive: String =
-        "surfaceOnDarkTransparentAccentMinorActive"
 
     /**
      * Sea Blue Text Accent Hover On Dark
@@ -3874,12 +3847,6 @@ public class ColorOverrideScope {
     public val textDefaultPrimaryBrightnessActive: String = "textDefaultPrimaryBrightnessActive"
 
     /**
-     * Основной фон для карточек
-     */
-    public val surfaceDefaultSolidCardBrightnessHover: String =
-        "surfaceDefaultSolidCardBrightnessHover"
-
-    /**
      * Прозрачный фон для карточек
      */
     public val surfaceDefaultTransparentCardBrightnessHover: String =
@@ -3904,10 +3871,10 @@ public class ColorOverrideScope {
         "surfaceDefaultTransparentCardBrightnessActive"
 
     /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     * Основной фон для карточек
      */
-    public val surfaceOnDarkSolidPrimaryBrightnessActive: String =
-        "surfaceOnDarkSolidPrimaryBrightnessActive"
+    public val surfaceDefaultSolidCardBrightnessHover: String =
+        "surfaceDefaultSolidCardBrightnessHover"
 
     /**
      * Прозрачный фон для карточек на темном фоне
@@ -4124,11 +4091,6 @@ public class ColorOverrideScope {
     public val personasOnLightVioletTextAccent: String = "personasOnLightVioletTextAccent"
 
     /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val surfaceInverseAccentMinor: String = "surfaceInverseAccentMinor"
-
-    /**
      * Инвертированный основной фон для карточек
      */
     public val surfaceInverseSolidCardBrightnessActive: String =
@@ -4145,14 +4107,9 @@ public class ColorOverrideScope {
     public val surfaceOnLightAccentMinorHover: String = "surfaceOnLightAccentMinorHover"
 
     /**
-     * On Dark Personas Blue Text Accent
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val personasOnDarkBlueTextAccent: String = "personasOnDarkBlueTextAccent"
-
-    /**
-     * On Light Personas Indigo Text Accent
-     */
-    public val personasOnLightIndigoTextAccent: String = "personasOnLightIndigoTextAccent"
+    public val surfaceInverseAccentMinor: String = "surfaceInverseAccentMinor"
 
     /**
      * On Light Personas Sea Blue Text Accent
@@ -4180,9 +4137,9 @@ public class ColorOverrideScope {
     public val surfaceOnLightTransparentNavi: String = "surfaceOnLightTransparentNavi"
 
     /**
-     * Green Text Accent Hover On Dark
+     * On Dark Personas Blue Text Accent
      */
-    public val personasOnDarkGreenTextAccentHover: String = "personasOnDarkGreenTextAccentHover"
+    public val personasOnDarkBlueTextAccent: String = "personasOnDarkBlueTextAccent"
 
     /**
      * Green Text Accent Active Default
@@ -4320,6 +4277,11 @@ public class ColorOverrideScope {
     public val textDefaultPrimaryBrightnessHover: String = "textDefaultPrimaryBrightnessHover"
 
     /**
+     * Green Text Accent Hover On Dark
+     */
+    public val personasOnDarkGreenTextAccentHover: String = "personasOnDarkGreenTextAccentHover"
+
+    /**
      * Основной цвет текста на темном фоне
      */
     public val textOnDarkPrimaryBrightnessHover: String = "textOnDarkPrimaryBrightnessHover"
@@ -4345,30 +4307,9 @@ public class ColorOverrideScope {
     public val textOnLightWarningActive: String = "textOnLightWarningActive"
 
     /**
-     * Transparent Navi Hover Default
-     */
-    public val surfaceDefaultTransparentNaviHover: String = "surfaceDefaultTransparentNaviHover"
-
-    /**
-     * Transparent Accent Minor Hover On Light
-     */
-    public val surfaceOnLightTransparentAccentMinorHover: String =
-        "surfaceOnLightTransparentAccentMinorHover"
-
-    /**
      * Green Text Accent Hover On Light
      */
     public val personasOnLightGreenTextAccentHover: String = "personasOnLightGreenTextAccentHover"
-
-    /**
-     * Default Hover Default
-     */
-    public val outlineDefaultDefaultHover: String = "outlineDefaultDefaultHover"
-
-    /**
-     * Primary Hover On Dark
-     */
-    public val outlineOnDarkPrimaryHover: String = "outlineOnDarkPrimaryHover"
 
     /**
      * Pink Text Accent Hover On Dark
@@ -4499,46 +4440,25 @@ public class ColorOverrideScope {
     public val surfaceOnLightAccentSecondaryHover: String = "surfaceOnLightAccentSecondaryHover"
 
     /**
-     * Personas Blue Text Accent
+     * Transparent Navi Hover Default
      */
-    public val personasDefaultBlueTextAccent: String = "personasDefaultBlueTextAccent"
+    public val surfaceDefaultTransparentNaviHover: String = "surfaceDefaultTransparentNaviHover"
 
     /**
-     * Personas Sea Blue Text Accent
+     * Transparent Accent Minor Hover On Light
      */
-    public val personasDefaultSeaBlueTextAccent: String = "personasDefaultSeaBlueTextAccent"
+    public val surfaceOnLightTransparentAccentMinorHover: String =
+        "surfaceOnLightTransparentAccentMinorHover"
 
     /**
-     * Violet Text Accent Hover Default
+     * Default Hover Default
      */
-    public val personasDefaultVioletTextAccentHover: String = "personasDefaultVioletTextAccentHover"
+    public val outlineDefaultDefaultHover: String = "outlineDefaultDefaultHover"
 
     /**
-     * Background Hardline
+     * Primary Hover On Dark
      */
-    public val backgroundDefaultHardline: String = "backgroundDefaultHardline"
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val textOnLightPrimaryBrightnessHover: String = "textOnLightPrimaryBrightnessHover"
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val textInversePrimaryBrightnessHover: String = "textInversePrimaryBrightnessHover"
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val surfaceDefaultSolidPrimaryBrightnessActive: String =
-        "surfaceDefaultSolidPrimaryBrightnessActive"
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkSolidPrimaryBrightnessHover: String =
-        "surfaceOnDarkSolidPrimaryBrightnessHover"
+    public val outlineOnDarkPrimaryHover: String = "outlineOnDarkPrimaryHover"
 
     /**
      * Инвертированный основной фон для карточек
@@ -4582,21 +4502,6 @@ public class ColorOverrideScope {
     public val personasDefaultPinkTextAccent: String = "personasDefaultPinkTextAccent"
 
     /**
-     * Inverse Personas Violet Text Accent
-     */
-    public val personasInverseVioletTextAccent: String = "personasInverseVioletTextAccent"
-
-    /**
-     * Inverse Surface Transparent Accent Minor
-     */
-    public val surfaceInverseTransparentAccentMinor: String = "surfaceInverseTransparentAccentMinor"
-
-    /**
-     * On Light Personas Blue Text Accent
-     */
-    public val personasOnLightBlueTextAccent: String = "personasOnLightBlueTextAccent"
-
-    /**
      * On Dark Surface Transparent Navi
      */
     public val surfaceOnDarkTransparentNavi: String = "surfaceOnDarkTransparentNavi"
@@ -4630,6 +4535,63 @@ public class ColorOverrideScope {
      * On Dark Outline Primary
      */
     public val outlineOnDarkPrimary: String = "outlineOnDarkPrimary"
+
+    /**
+     * Personas Blue Text Accent
+     */
+    public val personasDefaultBlueTextAccent: String = "personasDefaultBlueTextAccent"
+
+    /**
+     * Personas Sea Blue Text Accent
+     */
+    public val personasDefaultSeaBlueTextAccent: String = "personasDefaultSeaBlueTextAccent"
+
+    /**
+     * Violet Text Accent Hover Default
+     */
+    public val personasDefaultVioletTextAccentHover: String = "personasDefaultVioletTextAccentHover"
+
+    /**
+     * Background Hardline
+     */
+    public val backgroundDefaultHardline: String = "backgroundDefaultHardline"
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val textOnLightPrimaryBrightnessHover: String = "textOnLightPrimaryBrightnessHover"
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val textInversePrimaryBrightnessHover: String = "textInversePrimaryBrightnessHover"
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidPrimaryBrightnessActive: String =
+        "surfaceDefaultSolidPrimaryBrightnessActive"
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidPrimaryBrightnessHover: String =
+        "surfaceOnDarkSolidPrimaryBrightnessHover"
+
+    /**
+     * Inverse Personas Violet Text Accent
+     */
+    public val personasInverseVioletTextAccent: String = "personasInverseVioletTextAccent"
+
+    /**
+     * Inverse Surface Transparent Accent Minor
+     */
+    public val surfaceInverseTransparentAccentMinor: String = "surfaceInverseTransparentAccentMinor"
+
+    /**
+     * On Light Personas Blue Text Accent
+     */
+    public val personasOnLightBlueTextAccent: String = "personasOnLightBlueTextAccent"
 
     /**
      * Основной цвет текста на темном фоне
@@ -4740,9 +4702,42 @@ public class ColorOverrideScope {
     public val personasInverseOliveTextAccent: String = "personasInverseOliveTextAccent"
 
     /**
-     * Сплошной наборный текст
+     * Primary Active Inverse
      */
-    public val textDefaultParagraphActive: String = "textDefaultParagraphActive"
+    public val outlineInversePrimaryActive: String = "outlineInversePrimaryActive"
+
+    /**
+     * Accent Secondary Active On Light
+     */
+    public val surfaceOnLightAccentSecondaryActive: String = "surfaceOnLightAccentSecondaryActive"
+
+    /**
+     * Transparent Accent Minor Active On Dark
+     */
+    public val surfaceOnDarkTransparentAccentMinorActive: String =
+        "surfaceOnDarkTransparentAccentMinorActive"
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidPrimaryBrightnessActive: String =
+        "surfaceOnDarkSolidPrimaryBrightnessActive"
+
+    /**
+     * On Light Personas Indigo Text Accent
+     */
+    public val personasOnLightIndigoTextAccent: String = "personasOnLightIndigoTextAccent"
+
+    /**
+     * Green Text Accent Hover Inverse
+     */
+    public val personasInverseGreenTextAccentHover: String = "personasInverseGreenTextAccentHover"
+
+    /**
+     * Indigo Text Accent Active On Light
+     */
+    public val personasOnLightIndigoTextAccentActive: String =
+        "personasOnLightIndigoTextAccentActive"
 
     /**
      * Акцентный цвет
@@ -4885,9 +4880,9 @@ public class ColorOverrideScope {
     public val textDefaultParagraphHover: String = "textDefaultParagraphHover"
 
     /**
-     * Сплошной наборный текст на темном фоне
+     * Сплошной наборный текст
      */
-    public val textOnDarkParagraphActive: String = "textOnDarkParagraphActive"
+    public val textDefaultParagraphActive: String = "textDefaultParagraphActive"
 
     /**
      * Акцентный цвет на темном фоне
@@ -5035,9 +5030,9 @@ public class ColorOverrideScope {
     public val textOnDarkParagraphHover: String = "textOnDarkParagraphHover"
 
     /**
-     * Основной цвет текста на светлом фоне
+     * Сплошной наборный текст на темном фоне
      */
-    public val textOnLightPrimaryBrightness: String = "textOnLightPrimaryBrightness"
+    public val textOnDarkParagraphActive: String = "textOnDarkParagraphActive"
 
     /**
      * Вторичный цвет текста на светлом фоне
@@ -5153,6 +5148,11 @@ public class ColorOverrideScope {
      * Основной цвет текста на светлом фоне
      */
     public val textOnLightPrimaryActive: String = "textOnLightPrimaryActive"
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val textOnLightPrimaryBrightness: String = "textOnLightPrimaryBrightness"
 
     /**
      * Инвертированный основной цвет текста
@@ -5280,11 +5280,6 @@ public class ColorOverrideScope {
     public val textOnLightNegativeHover: String = "textOnLightNegativeHover"
 
     /**
-     * Инвертированный цвет ошибки
-     */
-    public val textInverseNegativeActive: String = "textInverseNegativeActive"
-
-    /**
      * Инвертированный цвет информации
      */
     public val textInverseInfo: String = "textInverseInfo"
@@ -5385,10 +5380,9 @@ public class ColorOverrideScope {
     public val textInverseNegativeHover: String = "textInverseNegativeHover"
 
     /**
-     * Вторичный прозрачный фон поверхности/контрола
+     * Инвертированный цвет ошибки
      */
-    public val surfaceDefaultTransparentSecondaryActive: String =
-        "surfaceDefaultTransparentSecondaryActive"
+    public val textInverseNegativeActive: String = "textInverseNegativeActive"
 
     /**
      * Третичный прозрачный фон поверхности/контрола
@@ -5563,9 +5557,10 @@ public class ColorOverrideScope {
         "surfaceDefaultTransparentSecondaryHover"
 
     /**
-     * Цвет фона поверхности/контрола предупреждение
+     * Вторичный прозрачный фон поверхности/контрола
      */
-    public val surfaceDefaultWarningActive: String = "surfaceDefaultWarningActive"
+    public val surfaceDefaultTransparentSecondaryActive: String =
+        "surfaceDefaultTransparentSecondaryActive"
 
     /**
      * Цвет фона поверхности/контрола ошибка
@@ -5623,9 +5618,9 @@ public class ColorOverrideScope {
     public val surfaceDefaultWarningHover: String = "surfaceDefaultWarningHover"
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
+     * Цвет фона поверхности/контрола предупреждение
      */
-    public val surfaceDefaultTransparentNegative: String = "surfaceDefaultTransparentNegative"
+    public val surfaceDefaultWarningActive: String = "surfaceDefaultWarningActive"
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение
@@ -5700,10 +5695,9 @@ public class ColorOverrideScope {
         "surfaceDefaultTransparentNegativeActive"
 
     /**
-     * Вторичный прозрачный фон поверхности/контрола на темном фоне
+     * Прозрачный цвет фона поверхности/контрола предупреждение
      */
-    public val surfaceOnDarkTransparentSecondaryActive: String =
-        "surfaceOnDarkTransparentSecondaryActive"
+    public val surfaceDefaultTransparentNegative: String = "surfaceDefaultTransparentNegative"
 
     /**
      * Третичный прозрачный фон поверхности/контрола на темном фоне
@@ -5851,9 +5845,10 @@ public class ColorOverrideScope {
         "surfaceOnDarkTransparentSecondaryHover"
 
     /**
-     * Цвет фона поверхности/контрола успех на темном фоне
+     * Вторичный прозрачный фон поверхности/контрола на темном фоне
      */
-    public val surfaceOnDarkPositive: String = "surfaceOnDarkPositive"
+    public val surfaceOnDarkTransparentSecondaryActive: String =
+        "surfaceOnDarkTransparentSecondaryActive"
 
     /**
      * Цвет фона поверхности/контрола успех на темном фоне
@@ -5924,6 +5919,11 @@ public class ColorOverrideScope {
      * Прозрачный акцентный фон поверхности/контрола на темном фоне
      */
     public val surfaceOnDarkTransparentAccentHover: String = "surfaceOnDarkTransparentAccentHover"
+
+    /**
+     * Цвет фона поверхности/контрола успех на темном фоне
+     */
+    public val surfaceOnDarkPositive: String = "surfaceOnDarkPositive"
 
     /**
      * Цвет для readOnly
@@ -6001,12 +6001,6 @@ public class ColorOverrideScope {
      */
     public val surfaceOnDarkTransparentNegativeHover: String =
         "surfaceOnDarkTransparentNegativeHover"
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightTransparentSecondaryActive: String =
-        "surfaceOnLightTransparentSecondaryActive"
 
     /**
      * Третичный прозрачный фон поверхности/контрола на светлом фоне
@@ -6155,6 +6149,12 @@ public class ColorOverrideScope {
         "surfaceOnLightTransparentSecondaryHover"
 
     /**
+     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentSecondaryActive: String =
+        "surfaceOnLightTransparentSecondaryActive"
+
+    /**
      * Цвет фона поверхности/контрола успех на светлом фоне
      */
     public val surfaceOnLightPositive: String = "surfaceOnLightPositive"
@@ -6233,11 +6233,6 @@ public class ColorOverrideScope {
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
      */
-    public val surfaceOnLightTransparentNegative: String = "surfaceOnLightTransparentNegative"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
     public val surfaceOnLightTransparentNegativeHover: String =
         "surfaceOnLightTransparentNegativeHover"
 
@@ -6298,10 +6293,9 @@ public class ColorOverrideScope {
         "surfaceOnLightTransparentNegativeActive"
 
     /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
      */
-    public val surfaceInverseTransparentSecondaryHover: String =
-        "surfaceInverseTransparentSecondaryHover"
+    public val surfaceOnLightTransparentNegative: String = "surfaceOnLightTransparentNegative"
 
     /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
@@ -6448,6 +6442,12 @@ public class ColorOverrideScope {
      * Инвертированный вторичный прозрачный фон поверхности/контрола
      */
     public val surfaceInverseTransparentSecondary: String = "surfaceInverseTransparentSecondary"
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentSecondaryHover: String =
+        "surfaceInverseTransparentSecondaryHover"
 
     /**
      * Инвертированный цвет фона поверхности/контрола успех
@@ -6965,11 +6965,6 @@ public class ColorOverrideScope {
     public val outlineInverseClearActive: String = "outlineInverseClearActive"
 
     /**
-     * Инвертированный цвет обводки предупреждение
-     */
-    public val outlineInverseWarningActive: String = "outlineInverseWarningActive"
-
-    /**
      * Инвертированный цвет обводки ошибка
      */
     public val outlineInverseNegative: String = "outlineInverseNegative"
@@ -7025,6 +7020,11 @@ public class ColorOverrideScope {
     public val outlineInverseWarningHover: String = "outlineInverseWarningHover"
 
     /**
+     * Инвертированный цвет обводки предупреждение
+     */
+    public val outlineInverseWarningActive: String = "outlineInverseWarningActive"
+
+    /**
      * Основной цвет текста
      */
     public val textDefaultPrimaryHover: String = "textDefaultPrimaryHover"
@@ -7064,13 +7064,11 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     personasInverseSeaBlueTextAccentActive = other.personasInverseSeaBlueTextAccentActive
     personasInverseVioletTextAccentActive = other.personasInverseVioletTextAccentActive
     outlineOnLightDefaultHover = other.outlineOnLightDefaultHover
-    outlineInversePrimaryActive = other.outlineInversePrimaryActive
-    outlineOnDarkDefaultActive = other.outlineOnDarkDefaultActive
     outlineOnDarkDefaultHover = other.outlineOnDarkDefaultHover
+    outlineOnDarkDefaultActive = other.outlineOnDarkDefaultActive
     personasDefaultGreenTextAccentHover = other.personasDefaultGreenTextAccentHover
     personasDefaultSeaBlueTextAccentHover = other.personasDefaultSeaBlueTextAccentHover
     surfaceInverseAccentSecondaryHover = other.surfaceInverseAccentSecondaryHover
-    surfaceOnLightAccentSecondaryActive = other.surfaceOnLightAccentSecondaryActive
     surfaceDefaultTransparentNaviActive = other.surfaceDefaultTransparentNaviActive
     surfaceOnLightTransparentAccentMinorActive = other.surfaceOnLightTransparentAccentMinorActive
     personasOnLightGreenTextAccentActive = other.personasOnLightGreenTextAccentActive
@@ -7081,7 +7079,6 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     personasOnLightVioletTextAccentActive = other.personasOnLightVioletTextAccentActive
     personasOnLightOchreTextAccentActive = other.personasOnLightOchreTextAccentActive
     surfaceOnDarkAccentSecondaryHover = other.surfaceOnDarkAccentSecondaryHover
-    personasInverseGreenTextAccentHover = other.personasInverseGreenTextAccentHover
     personasOnLightPinkTextAccentHover = other.personasOnLightPinkTextAccentHover
     surfaceDefaultAccentSecondaryHover = other.surfaceDefaultAccentSecondaryHover
     personasDefaultIndigoTextAccentHover = other.personasDefaultIndigoTextAccentHover
@@ -7090,25 +7087,22 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     outlineInverseDefault = other.outlineInverseDefault
     personasOnDarkBlueTextAccentHover = other.personasOnDarkBlueTextAccentHover
     personasOnLightIndigoTextAccentHover = other.personasOnLightIndigoTextAccentHover
-    personasOnLightIndigoTextAccentActive = other.personasOnLightIndigoTextAccentActive
     personasOnLightSeaBlueTextAccentHover = other.personasOnLightSeaBlueTextAccentHover
     personasDefaultOchreTextAccentActive = other.personasDefaultOchreTextAccentActive
     backgroundInverseHardline = other.backgroundInverseHardline
-    surfaceOnDarkTransparentAccentMinorActive = other.surfaceOnDarkTransparentAccentMinorActive
     personasOnDarkSeaBlueTextAccentHover = other.personasOnDarkSeaBlueTextAccentHover
     surfaceDefaultTransparentNavi = other.surfaceDefaultTransparentNavi
     personasDefaultVioletTextAccentActive = other.personasDefaultVioletTextAccentActive
     personasDefaultBlueTextAccentHover = other.personasDefaultBlueTextAccentHover
     outlineDefaultDefault = other.outlineDefaultDefault
     textDefaultPrimaryBrightnessActive = other.textDefaultPrimaryBrightnessActive
-    surfaceDefaultSolidCardBrightnessHover = other.surfaceDefaultSolidCardBrightnessHover
     surfaceDefaultTransparentCardBrightnessHover =
         other.surfaceDefaultTransparentCardBrightnessHover
     surfaceDefaultSolidCardBrightnessActive = other.surfaceDefaultSolidCardBrightnessActive
     surfaceDefaultSolidPrimaryBrightnessHover = other.surfaceDefaultSolidPrimaryBrightnessHover
     surfaceDefaultTransparentCardBrightnessActive =
         other.surfaceDefaultTransparentCardBrightnessActive
-    surfaceOnDarkSolidPrimaryBrightnessActive = other.surfaceOnDarkSolidPrimaryBrightnessActive
+    surfaceDefaultSolidCardBrightnessHover = other.surfaceDefaultSolidCardBrightnessHover
     surfaceOnDarkTransparentCardBrightnessHover = other.surfaceOnDarkTransparentCardBrightnessHover
     surfaceOnDarkTransparentCardBrightnessActive =
         other.surfaceOnDarkTransparentCardBrightnessActive
@@ -7154,18 +7148,16 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
         other.surfaceInverseTransparentCardBrightnessActive
     outlineOnLightWarningActive = other.outlineOnLightWarningActive
     personasOnLightVioletTextAccent = other.personasOnLightVioletTextAccent
-    surfaceInverseAccentMinor = other.surfaceInverseAccentMinor
     surfaceInverseSolidCardBrightnessActive = other.surfaceInverseSolidCardBrightnessActive
     surfaceOnDarkAccentMinorHover = other.surfaceOnDarkAccentMinorHover
     surfaceOnLightAccentMinorHover = other.surfaceOnLightAccentMinorHover
-    personasOnDarkBlueTextAccent = other.personasOnDarkBlueTextAccent
-    personasOnLightIndigoTextAccent = other.personasOnLightIndigoTextAccent
+    surfaceInverseAccentMinor = other.surfaceInverseAccentMinor
     personasOnLightSeaBlueTextAccent = other.personasOnLightSeaBlueTextAccent
     personasDefaultOchreTextAccent = other.personasDefaultOchreTextAccent
     surfaceOnDarkTransparentAccentMinor = other.surfaceOnDarkTransparentAccentMinor
     personasOnDarkVioletTextAccent = other.personasOnDarkVioletTextAccent
     surfaceOnLightTransparentNavi = other.surfaceOnLightTransparentNavi
-    personasOnDarkGreenTextAccentHover = other.personasOnDarkGreenTextAccentHover
+    personasOnDarkBlueTextAccent = other.personasOnDarkBlueTextAccent
     personasDefaultGreenTextAccentActive = other.personasDefaultGreenTextAccentActive
     personasDefaultSeaBlueTextAccentActive = other.personasDefaultSeaBlueTextAccentActive
     surfaceInverseAccentSecondaryActive = other.surfaceInverseAccentSecondaryActive
@@ -7192,16 +7184,13 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     personasInverseBlueTextAccentActive = other.personasInverseBlueTextAccentActive
     surfaceInverseTransparentAccentMinorActive = other.surfaceInverseTransparentAccentMinorActive
     textDefaultPrimaryBrightnessHover = other.textDefaultPrimaryBrightnessHover
+    personasOnDarkGreenTextAccentHover = other.personasOnDarkGreenTextAccentHover
     textOnDarkPrimaryBrightnessHover = other.textOnDarkPrimaryBrightnessHover
     personasOnDarkSeaBlueTextAccent = other.personasOnDarkSeaBlueTextAccent
     personasOnLightBlueTextAccentActive = other.personasOnLightBlueTextAccentActive
     outlineOnLightDefaultActive = other.outlineOnLightDefaultActive
     textOnLightWarningActive = other.textOnLightWarningActive
-    surfaceDefaultTransparentNaviHover = other.surfaceDefaultTransparentNaviHover
-    surfaceOnLightTransparentAccentMinorHover = other.surfaceOnLightTransparentAccentMinorHover
     personasOnLightGreenTextAccentHover = other.personasOnLightGreenTextAccentHover
-    outlineDefaultDefaultHover = other.outlineDefaultDefaultHover
-    outlineOnDarkPrimaryHover = other.outlineOnDarkPrimaryHover
     personasOnDarkPinkTextAccentHover = other.personasOnDarkPinkTextAccentHover
     outlineDefaultPrimaryHover = other.outlineDefaultPrimaryHover
     personasInverseIndigoTextAccentHover = other.personasInverseIndigoTextAccentHover
@@ -7227,14 +7216,10 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     personasOnLightBlueTextAccentHover = other.personasOnLightBlueTextAccentHover
     surfaceOnDarkTransparentNaviHover = other.surfaceOnDarkTransparentNaviHover
     surfaceOnLightAccentSecondaryHover = other.surfaceOnLightAccentSecondaryHover
-    personasDefaultBlueTextAccent = other.personasDefaultBlueTextAccent
-    personasDefaultSeaBlueTextAccent = other.personasDefaultSeaBlueTextAccent
-    personasDefaultVioletTextAccentHover = other.personasDefaultVioletTextAccentHover
-    backgroundDefaultHardline = other.backgroundDefaultHardline
-    textOnLightPrimaryBrightnessHover = other.textOnLightPrimaryBrightnessHover
-    textInversePrimaryBrightnessHover = other.textInversePrimaryBrightnessHover
-    surfaceDefaultSolidPrimaryBrightnessActive = other.surfaceDefaultSolidPrimaryBrightnessActive
-    surfaceOnDarkSolidPrimaryBrightnessHover = other.surfaceOnDarkSolidPrimaryBrightnessHover
+    surfaceDefaultTransparentNaviHover = other.surfaceDefaultTransparentNaviHover
+    surfaceOnLightTransparentAccentMinorHover = other.surfaceOnLightTransparentAccentMinorHover
+    outlineDefaultDefaultHover = other.outlineDefaultDefaultHover
+    outlineOnDarkPrimaryHover = other.outlineOnDarkPrimaryHover
     surfaceInverseSolidCardBrightnessHover = other.surfaceInverseSolidCardBrightnessHover
     personasInverseBlueTextAccent = other.personasInverseBlueTextAccent
     personasDefaultBlueTextAccentActive = other.personasDefaultBlueTextAccentActive
@@ -7243,9 +7228,6 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     personasInverseSeaBlueTextAccent = other.personasInverseSeaBlueTextAccent
     personasOnDarkPinkTextAccent = other.personasOnDarkPinkTextAccent
     personasDefaultPinkTextAccent = other.personasDefaultPinkTextAccent
-    personasInverseVioletTextAccent = other.personasInverseVioletTextAccent
-    surfaceInverseTransparentAccentMinor = other.surfaceInverseTransparentAccentMinor
-    personasOnLightBlueTextAccent = other.personasOnLightBlueTextAccent
     surfaceOnDarkTransparentNavi = other.surfaceOnDarkTransparentNavi
     outlineInversePrimary = other.outlineInversePrimary
     personasInverseOliveTextAccentActive = other.personasInverseOliveTextAccentActive
@@ -7253,6 +7235,17 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     personasDefaultGreenTextAccent = other.personasDefaultGreenTextAccent
     backgroundDarkHardline = other.backgroundDarkHardline
     outlineOnDarkPrimary = other.outlineOnDarkPrimary
+    personasDefaultBlueTextAccent = other.personasDefaultBlueTextAccent
+    personasDefaultSeaBlueTextAccent = other.personasDefaultSeaBlueTextAccent
+    personasDefaultVioletTextAccentHover = other.personasDefaultVioletTextAccentHover
+    backgroundDefaultHardline = other.backgroundDefaultHardline
+    textOnLightPrimaryBrightnessHover = other.textOnLightPrimaryBrightnessHover
+    textInversePrimaryBrightnessHover = other.textInversePrimaryBrightnessHover
+    surfaceDefaultSolidPrimaryBrightnessActive = other.surfaceDefaultSolidPrimaryBrightnessActive
+    surfaceOnDarkSolidPrimaryBrightnessHover = other.surfaceOnDarkSolidPrimaryBrightnessHover
+    personasInverseVioletTextAccent = other.personasInverseVioletTextAccent
+    surfaceInverseTransparentAccentMinor = other.surfaceInverseTransparentAccentMinor
+    personasOnLightBlueTextAccent = other.personasOnLightBlueTextAccent
     textOnDarkPrimaryBrightnessActive = other.textOnDarkPrimaryBrightnessActive
     textOnLightPrimaryBrightnessActive = other.textOnLightPrimaryBrightnessActive
     textInversePrimaryBrightnessActive = other.textInversePrimaryBrightnessActive
@@ -7274,7 +7267,13 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceOnLightAccentSecondary = other.surfaceOnLightAccentSecondary
     personasOnLightPinkTextAccent = other.personasOnLightPinkTextAccent
     personasInverseOliveTextAccent = other.personasInverseOliveTextAccent
-    textDefaultParagraphActive = other.textDefaultParagraphActive
+    outlineInversePrimaryActive = other.outlineInversePrimaryActive
+    surfaceOnLightAccentSecondaryActive = other.surfaceOnLightAccentSecondaryActive
+    surfaceOnDarkTransparentAccentMinorActive = other.surfaceOnDarkTransparentAccentMinorActive
+    surfaceOnDarkSolidPrimaryBrightnessActive = other.surfaceOnDarkSolidPrimaryBrightnessActive
+    personasOnLightIndigoTextAccent = other.personasOnLightIndigoTextAccent
+    personasInverseGreenTextAccentHover = other.personasInverseGreenTextAccentHover
+    personasOnLightIndigoTextAccentActive = other.personasOnLightIndigoTextAccentActive
     textDefaultAccent = other.textDefaultAccent
     textDefaultAccentHover = other.textDefaultAccentHover
     textDefaultAccentActive = other.textDefaultAccentActive
@@ -7303,7 +7302,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     textDefaultPrimaryBrightness = other.textDefaultPrimaryBrightness
     textDefaultParagraph = other.textDefaultParagraph
     textDefaultParagraphHover = other.textDefaultParagraphHover
-    textOnDarkParagraphActive = other.textOnDarkParagraphActive
+    textDefaultParagraphActive = other.textDefaultParagraphActive
     textOnDarkAccent = other.textOnDarkAccent
     textOnDarkAccentHover = other.textOnDarkAccentHover
     textOnDarkAccentActive = other.textOnDarkAccentActive
@@ -7333,7 +7332,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     textOnDarkPrimaryHover = other.textOnDarkPrimaryHover
     textOnDarkParagraph = other.textOnDarkParagraph
     textOnDarkParagraphHover = other.textOnDarkParagraphHover
-    textOnLightPrimaryBrightness = other.textOnLightPrimaryBrightness
+    textOnDarkParagraphActive = other.textOnDarkParagraphActive
     textOnLightSecondary = other.textOnLightSecondary
     textOnLightSecondaryHover = other.textOnLightSecondaryHover
     textOnLightSecondaryActive = other.textOnLightSecondaryActive
@@ -7357,6 +7356,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     textOnLightPrimary = other.textOnLightPrimary
     textOnLightPrimaryHover = other.textOnLightPrimaryHover
     textOnLightPrimaryActive = other.textOnLightPrimaryActive
+    textOnLightPrimaryBrightness = other.textOnLightPrimaryBrightness
     textInversePrimary = other.textInversePrimary
     textInversePrimaryHover = other.textInversePrimaryHover
     textInversePrimaryActive = other.textInversePrimaryActive
@@ -7382,7 +7382,6 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     textOnLightInfoHover = other.textOnLightInfoHover
     textOnLightInfoActive = other.textOnLightInfoActive
     textOnLightNegativeHover = other.textOnLightNegativeHover
-    textInverseNegativeActive = other.textInverseNegativeActive
     textInverseInfo = other.textInverseInfo
     textInverseInfoHover = other.textInverseInfoHover
     textInverseInfoActive = other.textInverseInfoActive
@@ -7403,7 +7402,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     textInversePositiveActive = other.textInversePositiveActive
     textInverseNegative = other.textInverseNegative
     textInverseNegativeHover = other.textInverseNegativeHover
-    surfaceDefaultTransparentSecondaryActive = other.surfaceDefaultTransparentSecondaryActive
+    textInverseNegativeActive = other.textInverseNegativeActive
     surfaceDefaultTransparentTertiary = other.surfaceDefaultTransparentTertiary
     surfaceDefaultTransparentTertiaryHover = other.surfaceDefaultTransparentTertiaryHover
     surfaceDefaultTransparentTertiaryActive = other.surfaceDefaultTransparentTertiaryActive
@@ -7437,7 +7436,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceDefaultTransparentPrimaryActive = other.surfaceDefaultTransparentPrimaryActive
     surfaceDefaultTransparentSecondary = other.surfaceDefaultTransparentSecondary
     surfaceDefaultTransparentSecondaryHover = other.surfaceDefaultTransparentSecondaryHover
-    surfaceDefaultWarningActive = other.surfaceDefaultWarningActive
+    surfaceDefaultTransparentSecondaryActive = other.surfaceDefaultTransparentSecondaryActive
     surfaceDefaultNegative = other.surfaceDefaultNegative
     surfaceDefaultNegativeHover = other.surfaceDefaultNegativeHover
     surfaceDefaultNegativeActive = other.surfaceDefaultNegativeActive
@@ -7449,7 +7448,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceDefaultPositiveHover = other.surfaceDefaultPositiveHover
     surfaceDefaultWarning = other.surfaceDefaultWarning
     surfaceDefaultWarningHover = other.surfaceDefaultWarningHover
-    surfaceDefaultTransparentNegative = other.surfaceDefaultTransparentNegative
+    surfaceDefaultWarningActive = other.surfaceDefaultWarningActive
     surfaceDefaultTransparentNegativeHover = other.surfaceDefaultTransparentNegativeHover
     surfaceDefaultReadOnly = other.surfaceDefaultReadOnly
     surfaceDefaultReadOnlyHover = other.surfaceDefaultReadOnlyHover
@@ -7464,7 +7463,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceOnDarkSolidTertiary = other.surfaceOnDarkSolidTertiary
     surfaceOnDarkSolidTertiaryHover = other.surfaceOnDarkSolidTertiaryHover
     surfaceDefaultTransparentNegativeActive = other.surfaceDefaultTransparentNegativeActive
-    surfaceOnDarkTransparentSecondaryActive = other.surfaceOnDarkTransparentSecondaryActive
+    surfaceDefaultTransparentNegative = other.surfaceDefaultTransparentNegative
     surfaceOnDarkTransparentTertiary = other.surfaceOnDarkTransparentTertiary
     surfaceOnDarkTransparentTertiaryHover = other.surfaceOnDarkTransparentTertiaryHover
     surfaceOnDarkTransparentTertiaryActive = other.surfaceOnDarkTransparentTertiaryActive
@@ -7493,7 +7492,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceOnDarkTransparentPrimaryActive = other.surfaceOnDarkTransparentPrimaryActive
     surfaceOnDarkTransparentSecondary = other.surfaceOnDarkTransparentSecondary
     surfaceOnDarkTransparentSecondaryHover = other.surfaceOnDarkTransparentSecondaryHover
-    surfaceOnDarkPositive = other.surfaceOnDarkPositive
+    surfaceOnDarkTransparentSecondaryActive = other.surfaceOnDarkTransparentSecondaryActive
     surfaceOnDarkPositiveHover = other.surfaceOnDarkPositiveHover
     surfaceOnDarkPositiveActive = other.surfaceOnDarkPositiveActive
     surfaceOnDarkWarning = other.surfaceOnDarkWarning
@@ -7508,6 +7507,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceOnDarkTransparentAccentActive = other.surfaceOnDarkTransparentAccentActive
     surfaceOnDarkTransparentAccent = other.surfaceOnDarkTransparentAccent
     surfaceOnDarkTransparentAccentHover = other.surfaceOnDarkTransparentAccentHover
+    surfaceOnDarkPositive = other.surfaceOnDarkPositive
     surfaceOnDarkReadOnly = other.surfaceOnDarkReadOnly
     surfaceOnDarkReadOnlyHover = other.surfaceOnDarkReadOnlyHover
     surfaceOnDarkReadOnlyActive = other.surfaceOnDarkReadOnlyActive
@@ -7523,7 +7523,6 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceOnDarkTransparentNegativeActive = other.surfaceOnDarkTransparentNegativeActive
     surfaceOnDarkTransparentNegative = other.surfaceOnDarkTransparentNegative
     surfaceOnDarkTransparentNegativeHover = other.surfaceOnDarkTransparentNegativeHover
-    surfaceOnLightTransparentSecondaryActive = other.surfaceOnLightTransparentSecondaryActive
     surfaceOnLightTransparentTertiary = other.surfaceOnLightTransparentTertiary
     surfaceOnLightTransparentTertiaryHover = other.surfaceOnLightTransparentTertiaryHover
     surfaceOnLightTransparentTertiaryActive = other.surfaceOnLightTransparentTertiaryActive
@@ -7552,6 +7551,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceOnLightTransparentPrimaryActive = other.surfaceOnLightTransparentPrimaryActive
     surfaceOnLightTransparentSecondary = other.surfaceOnLightTransparentSecondary
     surfaceOnLightTransparentSecondaryHover = other.surfaceOnLightTransparentSecondaryHover
+    surfaceOnLightTransparentSecondaryActive = other.surfaceOnLightTransparentSecondaryActive
     surfaceOnLightPositive = other.surfaceOnLightPositive
     surfaceOnLightPositiveHover = other.surfaceOnLightPositiveHover
     surfaceOnLightPositiveActive = other.surfaceOnLightPositiveActive
@@ -7567,7 +7567,6 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceOnLightTransparentAccentActive = other.surfaceOnLightTransparentAccentActive
     surfaceOnLightTransparentAccent = other.surfaceOnLightTransparentAccent
     surfaceOnLightTransparentAccentHover = other.surfaceOnLightTransparentAccentHover
-    surfaceOnLightTransparentNegative = other.surfaceOnLightTransparentNegative
     surfaceOnLightTransparentNegativeHover = other.surfaceOnLightTransparentNegativeHover
     surfaceOnLightReadOnly = other.surfaceOnLightReadOnly
     surfaceOnLightReadOnlyHover = other.surfaceOnLightReadOnlyHover
@@ -7580,7 +7579,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceInverseSolidSecondaryHover = other.surfaceInverseSolidSecondaryHover
     surfaceInverseSolidSecondaryActive = other.surfaceInverseSolidSecondaryActive
     surfaceOnLightTransparentNegativeActive = other.surfaceOnLightTransparentNegativeActive
-    surfaceInverseTransparentSecondaryHover = other.surfaceInverseTransparentSecondaryHover
+    surfaceOnLightTransparentNegative = other.surfaceOnLightTransparentNegative
     surfaceInverseTransparentSecondaryActive = other.surfaceInverseTransparentSecondaryActive
     surfaceInverseTransparentTertiary = other.surfaceInverseTransparentTertiary
     surfaceInverseTransparentTertiaryHover = other.surfaceInverseTransparentTertiaryHover
@@ -7609,6 +7608,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     surfaceInverseTransparentPrimaryHover = other.surfaceInverseTransparentPrimaryHover
     surfaceInverseTransparentPrimaryActive = other.surfaceInverseTransparentPrimaryActive
     surfaceInverseTransparentSecondary = other.surfaceInverseTransparentSecondary
+    surfaceInverseTransparentSecondaryHover = other.surfaceInverseTransparentSecondaryHover
     surfaceInversePositive = other.surfaceInversePositive
     surfaceInversePositiveHover = other.surfaceInversePositiveHover
     surfaceInversePositiveActive = other.surfaceInversePositiveActive
@@ -7710,7 +7710,6 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     outlineInverseClear = other.outlineInverseClear
     outlineInverseClearHover = other.outlineInverseClearHover
     outlineInverseClearActive = other.outlineInverseClearActive
-    outlineInverseWarningActive = other.outlineInverseWarningActive
     outlineInverseNegative = other.outlineInverseNegative
     outlineInverseNegativeHover = other.outlineInverseNegativeHover
     outlineInverseNegativeActive = other.outlineInverseNegativeActive
@@ -7722,6 +7721,7 @@ internal fun SddsSbComColors.updateColorsFrom(other: SddsSbComColors) {
     outlineInversePositiveHover = other.outlineInversePositiveHover
     outlineInverseWarning = other.outlineInverseWarning
     outlineInverseWarningHover = other.outlineInverseWarningHover
+    outlineInverseWarningActive = other.outlineInverseWarningActive
     textDefaultPrimaryHover = other.textDefaultPrimaryHover
     surfaceOnDarkSolidDefault = other.surfaceOnDarkSolidDefault
     surfaceOnLightAccentMinorActive = other.surfaceOnLightAccentMinorActive
@@ -7770,17 +7770,12 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.OutlineOnLightDefaultHover,
         overwrite,
     )
-    initial.add(
-        "outlineInversePrimaryActive",
-        LightColorTokens.OutlineInversePrimaryActive,
-        overwrite,
-    )
+    initial.add("outlineOnDarkDefaultHover", LightColorTokens.OutlineOnDarkDefaultHover, overwrite)
     initial.add(
         "outlineOnDarkDefaultActive",
         LightColorTokens.OutlineOnDarkDefaultActive,
         overwrite,
     )
-    initial.add("outlineOnDarkDefaultHover", LightColorTokens.OutlineOnDarkDefaultHover, overwrite)
     initial.add(
         "personasDefaultGreenTextAccentHover",
         LightColorTokens.PersonasDefaultGreenTextAccentHover,
@@ -7794,11 +7789,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add(
         "surfaceInverseAccentSecondaryHover",
         LightColorTokens.SurfaceInverseAccentSecondaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentSecondaryActive",
-        LightColorTokens.SurfaceOnLightAccentSecondaryActive,
         overwrite,
     )
     initial.add(
@@ -7852,11 +7842,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "personasInverseGreenTextAccentHover",
-        LightColorTokens.PersonasInverseGreenTextAccentHover,
-        overwrite,
-    )
-    initial.add(
         "personasOnLightPinkTextAccentHover",
         LightColorTokens.PersonasOnLightPinkTextAccentHover,
         overwrite,
@@ -7889,11 +7874,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "personasOnLightIndigoTextAccentActive",
-        LightColorTokens.PersonasOnLightIndigoTextAccentActive,
-        overwrite,
-    )
-    initial.add(
         "personasOnLightSeaBlueTextAccentHover",
         LightColorTokens.PersonasOnLightSeaBlueTextAccentHover,
         overwrite,
@@ -7904,11 +7884,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add("backgroundInverseHardline", LightColorTokens.BackgroundInverseHardline, overwrite)
-    initial.add(
-        "surfaceOnDarkTransparentAccentMinorActive",
-        LightColorTokens.SurfaceOnDarkTransparentAccentMinorActive,
-        overwrite,
-    )
     initial.add(
         "personasOnDarkSeaBlueTextAccentHover",
         LightColorTokens.PersonasOnDarkSeaBlueTextAccentHover,
@@ -7936,11 +7911,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSolidCardBrightnessHover",
-        LightColorTokens.SurfaceDefaultSolidCardBrightnessHover,
-        overwrite,
-    )
-    initial.add(
         "surfaceDefaultTransparentCardBrightnessHover",
         LightColorTokens.SurfaceDefaultTransparentCardBrightnessHover,
         overwrite,
@@ -7961,8 +7931,8 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSolidPrimaryBrightnessActive",
-        LightColorTokens.SurfaceOnDarkSolidPrimaryBrightnessActive,
+        "surfaceDefaultSolidCardBrightnessHover",
+        LightColorTokens.SurfaceDefaultSolidCardBrightnessHover,
         overwrite,
     )
     initial.add(
@@ -8145,7 +8115,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.PersonasOnLightVioletTextAccent,
         overwrite,
     )
-    initial.add("surfaceInverseAccentMinor", LightColorTokens.SurfaceInverseAccentMinor, overwrite)
     initial.add(
         "surfaceInverseSolidCardBrightnessActive",
         LightColorTokens.SurfaceInverseSolidCardBrightnessActive,
@@ -8161,16 +8130,7 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.SurfaceOnLightAccentMinorHover,
         overwrite,
     )
-    initial.add(
-        "personasOnDarkBlueTextAccent",
-        LightColorTokens.PersonasOnDarkBlueTextAccent,
-        overwrite,
-    )
-    initial.add(
-        "personasOnLightIndigoTextAccent",
-        LightColorTokens.PersonasOnLightIndigoTextAccent,
-        overwrite,
-    )
+    initial.add("surfaceInverseAccentMinor", LightColorTokens.SurfaceInverseAccentMinor, overwrite)
     initial.add(
         "personasOnLightSeaBlueTextAccent",
         LightColorTokens.PersonasOnLightSeaBlueTextAccent,
@@ -8197,8 +8157,8 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "personasOnDarkGreenTextAccentHover",
-        LightColorTokens.PersonasOnDarkGreenTextAccentHover,
+        "personasOnDarkBlueTextAccent",
+        LightColorTokens.PersonasOnDarkBlueTextAccent,
         overwrite,
     )
     initial.add(
@@ -8328,6 +8288,11 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
+        "personasOnDarkGreenTextAccentHover",
+        LightColorTokens.PersonasOnDarkGreenTextAccentHover,
+        overwrite,
+    )
+    initial.add(
         "textOnDarkPrimaryBrightnessHover",
         LightColorTokens.TextOnDarkPrimaryBrightnessHover,
         overwrite,
@@ -8349,26 +8314,10 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     )
     initial.add("textOnLightWarningActive", LightColorTokens.TextOnLightWarningActive, overwrite)
     initial.add(
-        "surfaceDefaultTransparentNaviHover",
-        LightColorTokens.SurfaceDefaultTransparentNaviHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentAccentMinorHover",
-        LightColorTokens.SurfaceOnLightTransparentAccentMinorHover,
-        overwrite,
-    )
-    initial.add(
         "personasOnLightGreenTextAccentHover",
         LightColorTokens.PersonasOnLightGreenTextAccentHover,
         overwrite,
     )
-    initial.add(
-        "outlineDefaultDefaultHover",
-        LightColorTokens.OutlineDefaultDefaultHover,
-        overwrite,
-    )
-    initial.add("outlineOnDarkPrimaryHover", LightColorTokens.OutlineOnDarkPrimaryHover, overwrite)
     initial.add(
         "personasOnDarkPinkTextAccentHover",
         LightColorTokens.PersonasOnDarkPinkTextAccentHover,
@@ -8495,41 +8444,21 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "personasDefaultBlueTextAccent",
-        LightColorTokens.PersonasDefaultBlueTextAccent,
+        "surfaceDefaultTransparentNaviHover",
+        LightColorTokens.SurfaceDefaultTransparentNaviHover,
         overwrite,
     )
     initial.add(
-        "personasDefaultSeaBlueTextAccent",
-        LightColorTokens.PersonasDefaultSeaBlueTextAccent,
+        "surfaceOnLightTransparentAccentMinorHover",
+        LightColorTokens.SurfaceOnLightTransparentAccentMinorHover,
         overwrite,
     )
     initial.add(
-        "personasDefaultVioletTextAccentHover",
-        LightColorTokens.PersonasDefaultVioletTextAccentHover,
+        "outlineDefaultDefaultHover",
+        LightColorTokens.OutlineDefaultDefaultHover,
         overwrite,
     )
-    initial.add("backgroundDefaultHardline", LightColorTokens.BackgroundDefaultHardline, overwrite)
-    initial.add(
-        "textOnLightPrimaryBrightnessHover",
-        LightColorTokens.TextOnLightPrimaryBrightnessHover,
-        overwrite,
-    )
-    initial.add(
-        "textInversePrimaryBrightnessHover",
-        LightColorTokens.TextInversePrimaryBrightnessHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSolidPrimaryBrightnessActive",
-        LightColorTokens.SurfaceDefaultSolidPrimaryBrightnessActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSolidPrimaryBrightnessHover",
-        LightColorTokens.SurfaceOnDarkSolidPrimaryBrightnessHover,
-        overwrite,
-    )
+    initial.add("outlineOnDarkPrimaryHover", LightColorTokens.OutlineOnDarkPrimaryHover, overwrite)
     initial.add(
         "surfaceInverseSolidCardBrightnessHover",
         LightColorTokens.SurfaceInverseSolidCardBrightnessHover,
@@ -8571,21 +8500,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "personasInverseVioletTextAccent",
-        LightColorTokens.PersonasInverseVioletTextAccent,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentAccentMinor",
-        LightColorTokens.SurfaceInverseTransparentAccentMinor,
-        overwrite,
-    )
-    initial.add(
-        "personasOnLightBlueTextAccent",
-        LightColorTokens.PersonasOnLightBlueTextAccent,
-        overwrite,
-    )
-    initial.add(
         "surfaceOnDarkTransparentNavi",
         LightColorTokens.SurfaceOnDarkTransparentNavi,
         overwrite,
@@ -8604,6 +8518,57 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     )
     initial.add("backgroundDarkHardline", LightColorTokens.BackgroundDarkHardline, overwrite)
     initial.add("outlineOnDarkPrimary", LightColorTokens.OutlineOnDarkPrimary, overwrite)
+    initial.add(
+        "personasDefaultBlueTextAccent",
+        LightColorTokens.PersonasDefaultBlueTextAccent,
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultSeaBlueTextAccent",
+        LightColorTokens.PersonasDefaultSeaBlueTextAccent,
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultVioletTextAccentHover",
+        LightColorTokens.PersonasDefaultVioletTextAccentHover,
+        overwrite,
+    )
+    initial.add("backgroundDefaultHardline", LightColorTokens.BackgroundDefaultHardline, overwrite)
+    initial.add(
+        "textOnLightPrimaryBrightnessHover",
+        LightColorTokens.TextOnLightPrimaryBrightnessHover,
+        overwrite,
+    )
+    initial.add(
+        "textInversePrimaryBrightnessHover",
+        LightColorTokens.TextInversePrimaryBrightnessHover,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultSolidPrimaryBrightnessActive",
+        LightColorTokens.SurfaceDefaultSolidPrimaryBrightnessActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSolidPrimaryBrightnessHover",
+        LightColorTokens.SurfaceOnDarkSolidPrimaryBrightnessHover,
+        overwrite,
+    )
+    initial.add(
+        "personasInverseVioletTextAccent",
+        LightColorTokens.PersonasInverseVioletTextAccent,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentAccentMinor",
+        LightColorTokens.SurfaceInverseTransparentAccentMinor,
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightBlueTextAccent",
+        LightColorTokens.PersonasOnLightBlueTextAccent,
+        overwrite,
+    )
     initial.add(
         "textOnDarkPrimaryBrightnessActive",
         LightColorTokens.TextOnDarkPrimaryBrightnessActive,
@@ -8706,8 +8671,38 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "textDefaultParagraphActive",
-        LightColorTokens.TextDefaultParagraphActive,
+        "outlineInversePrimaryActive",
+        LightColorTokens.OutlineInversePrimaryActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightAccentSecondaryActive",
+        LightColorTokens.SurfaceOnLightAccentSecondaryActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentAccentMinorActive",
+        LightColorTokens.SurfaceOnDarkTransparentAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSolidPrimaryBrightnessActive",
+        LightColorTokens.SurfaceOnDarkSolidPrimaryBrightnessActive,
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightIndigoTextAccent",
+        LightColorTokens.PersonasOnLightIndigoTextAccent,
+        overwrite,
+    )
+    initial.add(
+        "personasInverseGreenTextAccentHover",
+        LightColorTokens.PersonasInverseGreenTextAccentHover,
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightIndigoTextAccentActive",
+        LightColorTokens.PersonasOnLightIndigoTextAccentActive,
         overwrite,
     )
     initial.add("textDefaultAccent", LightColorTokens.TextDefaultAccent, overwrite)
@@ -8754,7 +8749,11 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     )
     initial.add("textDefaultParagraph", LightColorTokens.TextDefaultParagraph, overwrite)
     initial.add("textDefaultParagraphHover", LightColorTokens.TextDefaultParagraphHover, overwrite)
-    initial.add("textOnDarkParagraphActive", LightColorTokens.TextOnDarkParagraphActive, overwrite)
+    initial.add(
+        "textDefaultParagraphActive",
+        LightColorTokens.TextDefaultParagraphActive,
+        overwrite,
+    )
     initial.add("textOnDarkAccent", LightColorTokens.TextOnDarkAccent, overwrite)
     initial.add("textOnDarkAccentHover", LightColorTokens.TextOnDarkAccentHover, overwrite)
     initial.add("textOnDarkAccentActive", LightColorTokens.TextOnDarkAccentActive, overwrite)
@@ -8792,11 +8791,7 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add("textOnDarkPrimaryHover", LightColorTokens.TextOnDarkPrimaryHover, overwrite)
     initial.add("textOnDarkParagraph", LightColorTokens.TextOnDarkParagraph, overwrite)
     initial.add("textOnDarkParagraphHover", LightColorTokens.TextOnDarkParagraphHover, overwrite)
-    initial.add(
-        "textOnLightPrimaryBrightness",
-        LightColorTokens.TextOnLightPrimaryBrightness,
-        overwrite,
-    )
+    initial.add("textOnDarkParagraphActive", LightColorTokens.TextOnDarkParagraphActive, overwrite)
     initial.add("textOnLightSecondary", LightColorTokens.TextOnLightSecondary, overwrite)
     initial.add("textOnLightSecondaryHover", LightColorTokens.TextOnLightSecondaryHover, overwrite)
     initial.add(
@@ -8836,6 +8831,11 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add("textOnLightPrimary", LightColorTokens.TextOnLightPrimary, overwrite)
     initial.add("textOnLightPrimaryHover", LightColorTokens.TextOnLightPrimaryHover, overwrite)
     initial.add("textOnLightPrimaryActive", LightColorTokens.TextOnLightPrimaryActive, overwrite)
+    initial.add(
+        "textOnLightPrimaryBrightness",
+        LightColorTokens.TextOnLightPrimaryBrightness,
+        overwrite,
+    )
     initial.add("textInversePrimary", LightColorTokens.TextInversePrimary, overwrite)
     initial.add("textInversePrimaryHover", LightColorTokens.TextInversePrimaryHover, overwrite)
     initial.add("textInversePrimaryActive", LightColorTokens.TextInversePrimaryActive, overwrite)
@@ -8881,7 +8881,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add("textOnLightInfoHover", LightColorTokens.TextOnLightInfoHover, overwrite)
     initial.add("textOnLightInfoActive", LightColorTokens.TextOnLightInfoActive, overwrite)
     initial.add("textOnLightNegativeHover", LightColorTokens.TextOnLightNegativeHover, overwrite)
-    initial.add("textInverseNegativeActive", LightColorTokens.TextInverseNegativeActive, overwrite)
     initial.add("textInverseInfo", LightColorTokens.TextInverseInfo, overwrite)
     initial.add("textInverseInfoHover", LightColorTokens.TextInverseInfoHover, overwrite)
     initial.add("textInverseInfoActive", LightColorTokens.TextInverseInfoActive, overwrite)
@@ -8938,11 +8937,7 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add("textInversePositiveActive", LightColorTokens.TextInversePositiveActive, overwrite)
     initial.add("textInverseNegative", LightColorTokens.TextInverseNegative, overwrite)
     initial.add("textInverseNegativeHover", LightColorTokens.TextInverseNegativeHover, overwrite)
-    initial.add(
-        "surfaceDefaultTransparentSecondaryActive",
-        LightColorTokens.SurfaceDefaultTransparentSecondaryActive,
-        overwrite,
-    )
+    initial.add("textInverseNegativeActive", LightColorTokens.TextInverseNegativeActive, overwrite)
     initial.add(
         "surfaceDefaultTransparentTertiary",
         LightColorTokens.SurfaceDefaultTransparentTertiary,
@@ -9085,8 +9080,8 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "surfaceDefaultWarningActive",
-        LightColorTokens.SurfaceDefaultWarningActive,
+        "surfaceDefaultTransparentSecondaryActive",
+        LightColorTokens.SurfaceDefaultTransparentSecondaryActive,
         overwrite,
     )
     initial.add("surfaceDefaultNegative", LightColorTokens.SurfaceDefaultNegative, overwrite)
@@ -9121,8 +9116,8 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentNegative",
-        LightColorTokens.SurfaceDefaultTransparentNegative,
+        "surfaceDefaultWarningActive",
+        LightColorTokens.SurfaceDefaultWarningActive,
         overwrite,
     )
     initial.add(
@@ -9188,8 +9183,8 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentSecondaryActive",
-        LightColorTokens.SurfaceOnDarkTransparentSecondaryActive,
+        "surfaceDefaultTransparentNegative",
+        LightColorTokens.SurfaceDefaultTransparentNegative,
         overwrite,
     )
     initial.add(
@@ -9300,7 +9295,11 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.SurfaceOnDarkTransparentSecondaryHover,
         overwrite,
     )
-    initial.add("surfaceOnDarkPositive", LightColorTokens.SurfaceOnDarkPositive, overwrite)
+    initial.add(
+        "surfaceOnDarkTransparentSecondaryActive",
+        LightColorTokens.SurfaceOnDarkTransparentSecondaryActive,
+        overwrite,
+    )
     initial.add(
         "surfaceOnDarkPositiveHover",
         LightColorTokens.SurfaceOnDarkPositiveHover,
@@ -9347,6 +9346,7 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.SurfaceOnDarkTransparentAccentHover,
         overwrite,
     )
+    initial.add("surfaceOnDarkPositive", LightColorTokens.SurfaceOnDarkPositive, overwrite)
     initial.add("surfaceOnDarkReadOnly", LightColorTokens.SurfaceOnDarkReadOnly, overwrite)
     initial.add(
         "surfaceOnDarkReadOnlyHover",
@@ -9416,11 +9416,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add(
         "surfaceOnDarkTransparentNegativeHover",
         LightColorTokens.SurfaceOnDarkTransparentNegativeHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentSecondaryActive",
-        LightColorTokens.SurfaceOnLightTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
@@ -9539,6 +9534,11 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.SurfaceOnLightTransparentSecondaryHover,
         overwrite,
     )
+    initial.add(
+        "surfaceOnLightTransparentSecondaryActive",
+        LightColorTokens.SurfaceOnLightTransparentSecondaryActive,
+        overwrite,
+    )
     initial.add("surfaceOnLightPositive", LightColorTokens.SurfaceOnLightPositive, overwrite)
     initial.add(
         "surfaceOnLightPositiveHover",
@@ -9588,11 +9588,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add(
         "surfaceOnLightTransparentAccentHover",
         LightColorTokens.SurfaceOnLightTransparentAccentHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentNegative",
-        LightColorTokens.SurfaceOnLightTransparentNegative,
         overwrite,
     )
     initial.add(
@@ -9652,8 +9647,8 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentSecondaryHover",
-        LightColorTokens.SurfaceInverseTransparentSecondaryHover,
+        "surfaceOnLightTransparentNegative",
+        LightColorTokens.SurfaceOnLightTransparentNegative,
         overwrite,
     )
     initial.add(
@@ -9774,6 +9769,11 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add(
         "surfaceInverseTransparentSecondary",
         LightColorTokens.SurfaceInverseTransparentSecondary,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentSecondaryHover",
+        LightColorTokens.SurfaceInverseTransparentSecondaryHover,
         overwrite,
     )
     initial.add("surfaceInversePositive", LightColorTokens.SurfaceInversePositive, overwrite)
@@ -10057,11 +10057,6 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add("outlineInverseClear", LightColorTokens.OutlineInverseClear, overwrite)
     initial.add("outlineInverseClearHover", LightColorTokens.OutlineInverseClearHover, overwrite)
     initial.add("outlineInverseClearActive", LightColorTokens.OutlineInverseClearActive, overwrite)
-    initial.add(
-        "outlineInverseWarningActive",
-        LightColorTokens.OutlineInverseWarningActive,
-        overwrite,
-    )
     initial.add("outlineInverseNegative", LightColorTokens.OutlineInverseNegative, overwrite)
     initial.add(
         "outlineInverseNegativeHover",
@@ -10091,6 +10086,11 @@ public fun lightSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add(
         "outlineInverseWarningHover",
         LightColorTokens.OutlineInverseWarningHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseWarningActive",
+        LightColorTokens.OutlineInverseWarningActive,
         overwrite,
     )
     initial.add("textDefaultPrimaryHover", LightColorTokens.TextDefaultPrimaryHover, overwrite)
@@ -10134,13 +10134,8 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add("outlineOnLightDefaultHover", DarkColorTokens.OutlineOnLightDefaultHover, overwrite)
-    initial.add(
-        "outlineInversePrimaryActive",
-        DarkColorTokens.OutlineInversePrimaryActive,
-        overwrite,
-    )
-    initial.add("outlineOnDarkDefaultActive", DarkColorTokens.OutlineOnDarkDefaultActive, overwrite)
     initial.add("outlineOnDarkDefaultHover", DarkColorTokens.OutlineOnDarkDefaultHover, overwrite)
+    initial.add("outlineOnDarkDefaultActive", DarkColorTokens.OutlineOnDarkDefaultActive, overwrite)
     initial.add(
         "personasDefaultGreenTextAccentHover",
         DarkColorTokens.PersonasDefaultGreenTextAccentHover,
@@ -10154,11 +10149,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add(
         "surfaceInverseAccentSecondaryHover",
         DarkColorTokens.SurfaceInverseAccentSecondaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentSecondaryActive",
-        DarkColorTokens.SurfaceOnLightAccentSecondaryActive,
         overwrite,
     )
     initial.add(
@@ -10208,11 +10198,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "personasInverseGreenTextAccentHover",
-        DarkColorTokens.PersonasInverseGreenTextAccentHover,
-        overwrite,
-    )
-    initial.add(
         "personasOnLightPinkTextAccentHover",
         DarkColorTokens.PersonasOnLightPinkTextAccentHover,
         overwrite,
@@ -10245,11 +10230,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "personasOnLightIndigoTextAccentActive",
-        DarkColorTokens.PersonasOnLightIndigoTextAccentActive,
-        overwrite,
-    )
-    initial.add(
         "personasOnLightSeaBlueTextAccentHover",
         DarkColorTokens.PersonasOnLightSeaBlueTextAccentHover,
         overwrite,
@@ -10260,11 +10240,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add("backgroundInverseHardline", DarkColorTokens.BackgroundInverseHardline, overwrite)
-    initial.add(
-        "surfaceOnDarkTransparentAccentMinorActive",
-        DarkColorTokens.SurfaceOnDarkTransparentAccentMinorActive,
-        overwrite,
-    )
     initial.add(
         "personasOnDarkSeaBlueTextAccentHover",
         DarkColorTokens.PersonasOnDarkSeaBlueTextAccentHover,
@@ -10292,11 +10267,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSolidCardBrightnessHover",
-        DarkColorTokens.SurfaceDefaultSolidCardBrightnessHover,
-        overwrite,
-    )
-    initial.add(
         "surfaceDefaultTransparentCardBrightnessHover",
         DarkColorTokens.SurfaceDefaultTransparentCardBrightnessHover,
         overwrite,
@@ -10317,8 +10287,8 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSolidPrimaryBrightnessActive",
-        DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightnessActive,
+        "surfaceDefaultSolidCardBrightnessHover",
+        DarkColorTokens.SurfaceDefaultSolidCardBrightnessHover,
         overwrite,
     )
     initial.add(
@@ -10497,7 +10467,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         DarkColorTokens.PersonasOnLightVioletTextAccent,
         overwrite,
     )
-    initial.add("surfaceInverseAccentMinor", DarkColorTokens.SurfaceInverseAccentMinor, overwrite)
     initial.add(
         "surfaceInverseSolidCardBrightnessActive",
         DarkColorTokens.SurfaceInverseSolidCardBrightnessActive,
@@ -10513,16 +10482,7 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         DarkColorTokens.SurfaceOnLightAccentMinorHover,
         overwrite,
     )
-    initial.add(
-        "personasOnDarkBlueTextAccent",
-        DarkColorTokens.PersonasOnDarkBlueTextAccent,
-        overwrite,
-    )
-    initial.add(
-        "personasOnLightIndigoTextAccent",
-        DarkColorTokens.PersonasOnLightIndigoTextAccent,
-        overwrite,
-    )
+    initial.add("surfaceInverseAccentMinor", DarkColorTokens.SurfaceInverseAccentMinor, overwrite)
     initial.add(
         "personasOnLightSeaBlueTextAccent",
         DarkColorTokens.PersonasOnLightSeaBlueTextAccent,
@@ -10549,8 +10509,8 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "personasOnDarkGreenTextAccentHover",
-        DarkColorTokens.PersonasOnDarkGreenTextAccentHover,
+        "personasOnDarkBlueTextAccent",
+        DarkColorTokens.PersonasOnDarkBlueTextAccent,
         overwrite,
     )
     initial.add(
@@ -10680,6 +10640,11 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
+        "personasOnDarkGreenTextAccentHover",
+        DarkColorTokens.PersonasOnDarkGreenTextAccentHover,
+        overwrite,
+    )
+    initial.add(
         "textOnDarkPrimaryBrightnessHover",
         DarkColorTokens.TextOnDarkPrimaryBrightnessHover,
         overwrite,
@@ -10701,22 +10666,10 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     )
     initial.add("textOnLightWarningActive", DarkColorTokens.TextOnLightWarningActive, overwrite)
     initial.add(
-        "surfaceDefaultTransparentNaviHover",
-        DarkColorTokens.SurfaceDefaultTransparentNaviHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentAccentMinorHover",
-        DarkColorTokens.SurfaceOnLightTransparentAccentMinorHover,
-        overwrite,
-    )
-    initial.add(
         "personasOnLightGreenTextAccentHover",
         DarkColorTokens.PersonasOnLightGreenTextAccentHover,
         overwrite,
     )
-    initial.add("outlineDefaultDefaultHover", DarkColorTokens.OutlineDefaultDefaultHover, overwrite)
-    initial.add("outlineOnDarkPrimaryHover", DarkColorTokens.OutlineOnDarkPrimaryHover, overwrite)
     initial.add(
         "personasOnDarkPinkTextAccentHover",
         DarkColorTokens.PersonasOnDarkPinkTextAccentHover,
@@ -10831,41 +10784,17 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "personasDefaultBlueTextAccent",
-        DarkColorTokens.PersonasDefaultBlueTextAccent,
+        "surfaceDefaultTransparentNaviHover",
+        DarkColorTokens.SurfaceDefaultTransparentNaviHover,
         overwrite,
     )
     initial.add(
-        "personasDefaultSeaBlueTextAccent",
-        DarkColorTokens.PersonasDefaultSeaBlueTextAccent,
+        "surfaceOnLightTransparentAccentMinorHover",
+        DarkColorTokens.SurfaceOnLightTransparentAccentMinorHover,
         overwrite,
     )
-    initial.add(
-        "personasDefaultVioletTextAccentHover",
-        DarkColorTokens.PersonasDefaultVioletTextAccentHover,
-        overwrite,
-    )
-    initial.add("backgroundDefaultHardline", DarkColorTokens.BackgroundDefaultHardline, overwrite)
-    initial.add(
-        "textOnLightPrimaryBrightnessHover",
-        DarkColorTokens.TextOnLightPrimaryBrightnessHover,
-        overwrite,
-    )
-    initial.add(
-        "textInversePrimaryBrightnessHover",
-        DarkColorTokens.TextInversePrimaryBrightnessHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSolidPrimaryBrightnessActive",
-        DarkColorTokens.SurfaceDefaultSolidPrimaryBrightnessActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSolidPrimaryBrightnessHover",
-        DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightnessHover,
-        overwrite,
-    )
+    initial.add("outlineDefaultDefaultHover", DarkColorTokens.OutlineDefaultDefaultHover, overwrite)
+    initial.add("outlineOnDarkPrimaryHover", DarkColorTokens.OutlineOnDarkPrimaryHover, overwrite)
     initial.add(
         "surfaceInverseSolidCardBrightnessHover",
         DarkColorTokens.SurfaceInverseSolidCardBrightnessHover,
@@ -10907,21 +10836,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "personasInverseVioletTextAccent",
-        DarkColorTokens.PersonasInverseVioletTextAccent,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentAccentMinor",
-        DarkColorTokens.SurfaceInverseTransparentAccentMinor,
-        overwrite,
-    )
-    initial.add(
-        "personasOnLightBlueTextAccent",
-        DarkColorTokens.PersonasOnLightBlueTextAccent,
-        overwrite,
-    )
-    initial.add(
         "surfaceOnDarkTransparentNavi",
         DarkColorTokens.SurfaceOnDarkTransparentNavi,
         overwrite,
@@ -10940,6 +10854,57 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     )
     initial.add("backgroundDarkHardline", DarkColorTokens.BackgroundDarkHardline, overwrite)
     initial.add("outlineOnDarkPrimary", DarkColorTokens.OutlineOnDarkPrimary, overwrite)
+    initial.add(
+        "personasDefaultBlueTextAccent",
+        DarkColorTokens.PersonasDefaultBlueTextAccent,
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultSeaBlueTextAccent",
+        DarkColorTokens.PersonasDefaultSeaBlueTextAccent,
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultVioletTextAccentHover",
+        DarkColorTokens.PersonasDefaultVioletTextAccentHover,
+        overwrite,
+    )
+    initial.add("backgroundDefaultHardline", DarkColorTokens.BackgroundDefaultHardline, overwrite)
+    initial.add(
+        "textOnLightPrimaryBrightnessHover",
+        DarkColorTokens.TextOnLightPrimaryBrightnessHover,
+        overwrite,
+    )
+    initial.add(
+        "textInversePrimaryBrightnessHover",
+        DarkColorTokens.TextInversePrimaryBrightnessHover,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultSolidPrimaryBrightnessActive",
+        DarkColorTokens.SurfaceDefaultSolidPrimaryBrightnessActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSolidPrimaryBrightnessHover",
+        DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightnessHover,
+        overwrite,
+    )
+    initial.add(
+        "personasInverseVioletTextAccent",
+        DarkColorTokens.PersonasInverseVioletTextAccent,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentAccentMinor",
+        DarkColorTokens.SurfaceInverseTransparentAccentMinor,
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightBlueTextAccent",
+        DarkColorTokens.PersonasOnLightBlueTextAccent,
+        overwrite,
+    )
     initial.add(
         "textOnDarkPrimaryBrightnessActive",
         DarkColorTokens.TextOnDarkPrimaryBrightnessActive,
@@ -11041,7 +11006,41 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         DarkColorTokens.PersonasInverseOliveTextAccent,
         overwrite,
     )
-    initial.add("textDefaultParagraphActive", DarkColorTokens.TextDefaultParagraphActive, overwrite)
+    initial.add(
+        "outlineInversePrimaryActive",
+        DarkColorTokens.OutlineInversePrimaryActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightAccentSecondaryActive",
+        DarkColorTokens.SurfaceOnLightAccentSecondaryActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentAccentMinorActive",
+        DarkColorTokens.SurfaceOnDarkTransparentAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSolidPrimaryBrightnessActive",
+        DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightnessActive,
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightIndigoTextAccent",
+        DarkColorTokens.PersonasOnLightIndigoTextAccent,
+        overwrite,
+    )
+    initial.add(
+        "personasInverseGreenTextAccentHover",
+        DarkColorTokens.PersonasInverseGreenTextAccentHover,
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightIndigoTextAccentActive",
+        DarkColorTokens.PersonasOnLightIndigoTextAccentActive,
+        overwrite,
+    )
     initial.add("textDefaultAccent", DarkColorTokens.TextDefaultAccent, overwrite)
     initial.add("textDefaultAccentHover", DarkColorTokens.TextDefaultAccentHover, overwrite)
     initial.add("textDefaultAccentActive", DarkColorTokens.TextDefaultAccentActive, overwrite)
@@ -11082,7 +11081,7 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     )
     initial.add("textDefaultParagraph", DarkColorTokens.TextDefaultParagraph, overwrite)
     initial.add("textDefaultParagraphHover", DarkColorTokens.TextDefaultParagraphHover, overwrite)
-    initial.add("textOnDarkParagraphActive", DarkColorTokens.TextOnDarkParagraphActive, overwrite)
+    initial.add("textDefaultParagraphActive", DarkColorTokens.TextDefaultParagraphActive, overwrite)
     initial.add("textOnDarkAccent", DarkColorTokens.TextOnDarkAccent, overwrite)
     initial.add("textOnDarkAccentHover", DarkColorTokens.TextOnDarkAccentHover, overwrite)
     initial.add("textOnDarkAccentActive", DarkColorTokens.TextOnDarkAccentActive, overwrite)
@@ -11120,11 +11119,7 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add("textOnDarkPrimaryHover", DarkColorTokens.TextOnDarkPrimaryHover, overwrite)
     initial.add("textOnDarkParagraph", DarkColorTokens.TextOnDarkParagraph, overwrite)
     initial.add("textOnDarkParagraphHover", DarkColorTokens.TextOnDarkParagraphHover, overwrite)
-    initial.add(
-        "textOnLightPrimaryBrightness",
-        DarkColorTokens.TextOnLightPrimaryBrightness,
-        overwrite,
-    )
+    initial.add("textOnDarkParagraphActive", DarkColorTokens.TextOnDarkParagraphActive, overwrite)
     initial.add("textOnLightSecondary", DarkColorTokens.TextOnLightSecondary, overwrite)
     initial.add("textOnLightSecondaryHover", DarkColorTokens.TextOnLightSecondaryHover, overwrite)
     initial.add("textOnLightSecondaryActive", DarkColorTokens.TextOnLightSecondaryActive, overwrite)
@@ -11156,6 +11151,11 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add("textOnLightPrimary", DarkColorTokens.TextOnLightPrimary, overwrite)
     initial.add("textOnLightPrimaryHover", DarkColorTokens.TextOnLightPrimaryHover, overwrite)
     initial.add("textOnLightPrimaryActive", DarkColorTokens.TextOnLightPrimaryActive, overwrite)
+    initial.add(
+        "textOnLightPrimaryBrightness",
+        DarkColorTokens.TextOnLightPrimaryBrightness,
+        overwrite,
+    )
     initial.add("textInversePrimary", DarkColorTokens.TextInversePrimary, overwrite)
     initial.add("textInversePrimaryHover", DarkColorTokens.TextInversePrimaryHover, overwrite)
     initial.add("textInversePrimaryActive", DarkColorTokens.TextInversePrimaryActive, overwrite)
@@ -11193,7 +11193,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add("textOnLightInfoHover", DarkColorTokens.TextOnLightInfoHover, overwrite)
     initial.add("textOnLightInfoActive", DarkColorTokens.TextOnLightInfoActive, overwrite)
     initial.add("textOnLightNegativeHover", DarkColorTokens.TextOnLightNegativeHover, overwrite)
-    initial.add("textInverseNegativeActive", DarkColorTokens.TextInverseNegativeActive, overwrite)
     initial.add("textInverseInfo", DarkColorTokens.TextInverseInfo, overwrite)
     initial.add("textInverseInfoHover", DarkColorTokens.TextInverseInfoHover, overwrite)
     initial.add("textInverseInfoActive", DarkColorTokens.TextInverseInfoActive, overwrite)
@@ -11246,11 +11245,7 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add("textInversePositiveActive", DarkColorTokens.TextInversePositiveActive, overwrite)
     initial.add("textInverseNegative", DarkColorTokens.TextInverseNegative, overwrite)
     initial.add("textInverseNegativeHover", DarkColorTokens.TextInverseNegativeHover, overwrite)
-    initial.add(
-        "surfaceDefaultTransparentSecondaryActive",
-        DarkColorTokens.SurfaceDefaultTransparentSecondaryActive,
-        overwrite,
-    )
+    initial.add("textInverseNegativeActive", DarkColorTokens.TextInverseNegativeActive, overwrite)
     initial.add(
         "surfaceDefaultTransparentTertiary",
         DarkColorTokens.SurfaceDefaultTransparentTertiary,
@@ -11385,8 +11380,8 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "surfaceDefaultWarningActive",
-        DarkColorTokens.SurfaceDefaultWarningActive,
+        "surfaceDefaultTransparentSecondaryActive",
+        DarkColorTokens.SurfaceDefaultTransparentSecondaryActive,
         overwrite,
     )
     initial.add("surfaceDefaultNegative", DarkColorTokens.SurfaceDefaultNegative, overwrite)
@@ -11417,8 +11412,8 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add("surfaceDefaultWarning", DarkColorTokens.SurfaceDefaultWarning, overwrite)
     initial.add("surfaceDefaultWarningHover", DarkColorTokens.SurfaceDefaultWarningHover, overwrite)
     initial.add(
-        "surfaceDefaultTransparentNegative",
-        DarkColorTokens.SurfaceDefaultTransparentNegative,
+        "surfaceDefaultWarningActive",
+        DarkColorTokens.SurfaceDefaultWarningActive,
         overwrite,
     )
     initial.add(
@@ -11480,8 +11475,8 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentSecondaryActive",
-        DarkColorTokens.SurfaceOnDarkTransparentSecondaryActive,
+        "surfaceDefaultTransparentNegative",
+        DarkColorTokens.SurfaceDefaultTransparentNegative,
         overwrite,
     )
     initial.add(
@@ -11592,7 +11587,11 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         DarkColorTokens.SurfaceOnDarkTransparentSecondaryHover,
         overwrite,
     )
-    initial.add("surfaceOnDarkPositive", DarkColorTokens.SurfaceOnDarkPositive, overwrite)
+    initial.add(
+        "surfaceOnDarkTransparentSecondaryActive",
+        DarkColorTokens.SurfaceOnDarkTransparentSecondaryActive,
+        overwrite,
+    )
     initial.add("surfaceOnDarkPositiveHover", DarkColorTokens.SurfaceOnDarkPositiveHover, overwrite)
     initial.add(
         "surfaceOnDarkPositiveActive",
@@ -11627,6 +11626,7 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         DarkColorTokens.SurfaceOnDarkTransparentAccentHover,
         overwrite,
     )
+    initial.add("surfaceOnDarkPositive", DarkColorTokens.SurfaceOnDarkPositive, overwrite)
     initial.add("surfaceOnDarkReadOnly", DarkColorTokens.SurfaceOnDarkReadOnly, overwrite)
     initial.add("surfaceOnDarkReadOnlyHover", DarkColorTokens.SurfaceOnDarkReadOnlyHover, overwrite)
     initial.add(
@@ -11688,11 +11688,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add(
         "surfaceOnDarkTransparentNegativeHover",
         DarkColorTokens.SurfaceOnDarkTransparentNegativeHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentSecondaryActive",
-        DarkColorTokens.SurfaceOnLightTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
@@ -11803,6 +11798,11 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         DarkColorTokens.SurfaceOnLightTransparentSecondaryHover,
         overwrite,
     )
+    initial.add(
+        "surfaceOnLightTransparentSecondaryActive",
+        DarkColorTokens.SurfaceOnLightTransparentSecondaryActive,
+        overwrite,
+    )
     initial.add("surfaceOnLightPositive", DarkColorTokens.SurfaceOnLightPositive, overwrite)
     initial.add(
         "surfaceOnLightPositiveHover",
@@ -11848,11 +11848,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add(
         "surfaceOnLightTransparentAccentHover",
         DarkColorTokens.SurfaceOnLightTransparentAccentHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentNegative",
-        DarkColorTokens.SurfaceOnLightTransparentNegative,
         overwrite,
     )
     initial.add(
@@ -11908,8 +11903,8 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentSecondaryHover",
-        DarkColorTokens.SurfaceInverseTransparentSecondaryHover,
+        "surfaceOnLightTransparentNegative",
+        DarkColorTokens.SurfaceOnLightTransparentNegative,
         overwrite,
     )
     initial.add(
@@ -12026,6 +12021,11 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add(
         "surfaceInverseTransparentSecondary",
         DarkColorTokens.SurfaceInverseTransparentSecondary,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentSecondaryHover",
+        DarkColorTokens.SurfaceInverseTransparentSecondaryHover,
         overwrite,
     )
     initial.add("surfaceInversePositive", DarkColorTokens.SurfaceInversePositive, overwrite)
@@ -12273,11 +12273,6 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add("outlineInverseClear", DarkColorTokens.OutlineInverseClear, overwrite)
     initial.add("outlineInverseClearHover", DarkColorTokens.OutlineInverseClearHover, overwrite)
     initial.add("outlineInverseClearActive", DarkColorTokens.OutlineInverseClearActive, overwrite)
-    initial.add(
-        "outlineInverseWarningActive",
-        DarkColorTokens.OutlineInverseWarningActive,
-        overwrite,
-    )
     initial.add("outlineInverseNegative", DarkColorTokens.OutlineInverseNegative, overwrite)
     initial.add(
         "outlineInverseNegativeHover",
@@ -12305,6 +12300,11 @@ public fun darkSddsSbComColors(overrideColors: ColorOverrideScope.() -> Unit = {
     )
     initial.add("outlineInverseWarning", DarkColorTokens.OutlineInverseWarning, overwrite)
     initial.add("outlineInverseWarningHover", DarkColorTokens.OutlineInverseWarningHover, overwrite)
+    initial.add(
+        "outlineInverseWarningActive",
+        DarkColorTokens.OutlineInverseWarningActive,
+        overwrite,
+    )
     initial.add("textDefaultPrimaryHover", DarkColorTokens.TextDefaultPrimaryHover, overwrite)
     initial.add("surfaceOnDarkSolidDefault", DarkColorTokens.SurfaceOnDarkSolidDefault, overwrite)
     initial.add(

@@ -14,11 +14,6 @@ public object SpacingTokens {
     public val spacing16x: Dp = 32.0.dp
 
     /**
-     * spacing 10x
-     */
-    public val spacing10x: Dp = 20.0.dp
-
-    /**
      * spacing 12x
      */
     public val spacing12x: Dp = 24.0.dp
@@ -82,4 +77,9 @@ public object SpacingTokens {
      * spacing 8x
      */
     public val spacing8x: Dp = 16.0.dp
+
+    /**
+     * spacing 10x
+     */
+    public val spacing10x: Dp = 20.0.dp
 }
