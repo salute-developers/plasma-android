@@ -51,13 +51,13 @@ public val Switch.Default: WrapperSwitchDefault
             toggleTrackColor(
                 SddsSbComTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
                     setOf(SwitchStates.Checked)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                        to SddsSbComTheme.colors.surfaceDefaultAccent,
                 ),
             )
             toggleTrackBorderColor(
                 SddsSbComTheme.colors.outlineDefaultTransparentPrimary.asInteractive(
                     setOf(SwitchStates.Checked)
-                        to SddsSbComTheme.colors.outlineDefaultTransparentClear,
+                        to SddsSbComTheme.colors.outlineDefaultClear,
                 ),
             )
             toggleThumbColor(

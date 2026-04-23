@@ -63,9 +63,9 @@ public val CheckBox.Default: WrapperCheckBoxDefault
             toggleColor(
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(CheckBoxStates.Checked)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                        to SddsSbComTheme.colors.surfaceDefaultAccent,
                     setOf(CheckBoxStates.Indeterminate)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                        to SddsSbComTheme.colors.surfaceDefaultAccent,
                 ),
             )
             toggleIconColor(

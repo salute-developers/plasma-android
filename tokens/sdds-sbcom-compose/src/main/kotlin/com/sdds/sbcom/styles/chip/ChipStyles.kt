@@ -52,18 +52,18 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
                     setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                        to SddsSbComTheme.colors.surfaceDefaultAccent,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                        to SddsSbComTheme.colors.surfaceDefaultAccent,
                     setOf(InteractiveState.Pressed)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryHover,
                     setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                        to SddsSbComTheme.colors.surfaceDefaultAccent,
                 ),
             )
             contentStartColor(

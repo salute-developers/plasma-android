@@ -44,7 +44,7 @@ public val TabItemFolderCounter.Default: WrapperTabItemFolderCounterDefault
             backgroundColor(
                 SddsSbComTheme.colors.textDefaultParagraph.asInteractive(
                     setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                        to SddsSbComTheme.colors.surfaceDefaultAccent,
                 ),
             )
             textColor(

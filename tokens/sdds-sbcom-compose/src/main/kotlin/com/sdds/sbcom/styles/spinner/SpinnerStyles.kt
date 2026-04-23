@@ -78,7 +78,7 @@ public val WrapperSpinnerView.ModeColorPrimary: WrapperSpinnerTerminate
     get() = builder
         .colors {
             startColor(
-                SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(),
+                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(),
             )
             endColor(
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
@@ -104,7 +104,7 @@ public val WrapperSpinnerView.ModeColorGlobalWhite: WrapperSpinnerTerminate
     get() = builder
         .colors {
             startColor(
-                SddsSbComTheme.colors.surfaceOnDarkSolidPrimary.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(),
             )
             endColor(
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
@@ -117,7 +117,7 @@ public val WrapperSpinnerView.ModeColorAccent: WrapperSpinnerTerminate
     get() = builder
         .colors {
             startColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
             )
             endColor(
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),

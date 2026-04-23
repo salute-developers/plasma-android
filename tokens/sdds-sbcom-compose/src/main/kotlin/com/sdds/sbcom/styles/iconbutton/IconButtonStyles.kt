@@ -15,7 +15,6 @@ import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -161,11 +160,11 @@ public val WrapperIconButtonView.ModeAccentFilled: WrapperIconButtonTerminate
                 ),
             )
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryActive,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryHover,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
         }
@@ -225,11 +224,11 @@ public val WrapperIconButtonView.ModeDangerTint: WrapperIconButtonTerminate
                 ),
             )
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultNegative.multiplyAlpha(0.16f).asInteractive(
+                SddsSbComTheme.colors.surfaceDefaultTransparentNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultNegativeActive.multiplyAlpha(0.16f),
+                        to SddsSbComTheme.colors.surfaceDefaultTransparentNegativeActive,
                     setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultNegativeHover.multiplyAlpha(0.16f),
+                        to SddsSbComTheme.colors.surfaceDefaultTransparentNegativeHover,
                 ),
             )
         }
@@ -336,11 +335,11 @@ public val WrapperIconButtonSize48BgNoView.ModeAccentFilled: WrapperIconButtonTe
                 ),
             )
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryActive,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryHover,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
         }
@@ -447,11 +446,11 @@ public val WrapperIconButtonSize40BgNoView.ModeAccentFilled: WrapperIconButtonTe
                 ),
             )
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryActive,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryHover,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
         }
@@ -558,11 +557,11 @@ public val WrapperIconButtonSize32BgNoView.ModeAccentFilled: WrapperIconButtonTe
                 ),
             )
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryActive,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryHover,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
         }
@@ -669,11 +668,11 @@ public val WrapperIconButtonSize24BgNoView.ModeAccentFilled: WrapperIconButtonTe
                 ),
             )
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryActive,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimaryHover,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
         }

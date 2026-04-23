@@ -38,7 +38,7 @@ public val Counter.MuteNo: WrapperCounterTerminate
         .invariantProps
         .colors {
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
             )
             textColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),

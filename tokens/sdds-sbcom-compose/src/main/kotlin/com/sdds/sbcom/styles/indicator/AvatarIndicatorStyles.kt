@@ -71,7 +71,7 @@ private val IndicatorStyleBuilder.invariantProps: IndicatorStyleBuilder
         .shape(CircleShape)
         .color {
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
             )
         }
 

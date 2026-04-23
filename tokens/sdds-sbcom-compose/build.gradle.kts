@@ -24,8 +24,16 @@ android {
 }
 
 themeBuilder {
-    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
+//    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
+    themeSource {
+        url("file:///Users/alex/Projects/theme-converter/themes/sdds_sbcom/0.9.0-alpha.zip")
+        name(themeAlias)
+    }
     componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
+    componentSource {
+        url("file:///Users/alex/Projects/theme-converter/components/sdds_sbcom/0.2.1.zip")
+        name(themeAlias)
+    }
     compose {
         componentsMetaStyleClass(true)
     }

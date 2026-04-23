@@ -16,6 +16,11 @@ public object FontTokens {
     public val display: FontFamily = FontFamily.Default
 
     /**
+     * fontFamily text
+     */
+    public val text: FontFamily = FontFamily.Default
+
+    /**
      * fontFamily header
      */
     public val `header`: FontFamily = FontFamily.Default

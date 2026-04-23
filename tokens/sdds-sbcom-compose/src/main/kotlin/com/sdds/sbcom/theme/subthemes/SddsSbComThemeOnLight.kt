@@ -20,748 +20,772 @@ import kotlin.Unit
 
 private val darkOnLightColors: SddsSbComColors by lazy {
     darkSddsSbComColors {
-        personaInverseIndigoTextAccentActive.overrideBy(DarkColorTokens.PersonaOnDarkIndigoTextAccentActive)
-        outlineInverseDefaultBrightness.overrideBy(DarkColorTokens.OutlineOnDarkDefaultBrightness)
-        textInverseParagraph.overrideBy(DarkColorTokens.TextOnDarkParagraph)
-        textInverseSecondary.overrideBy(DarkColorTokens.TextOnDarkSecondary)
-        textInverseAccentHover.overrideBy(DarkColorTokens.TextOnDarkAccentHover)
-        textInverseAccentMinorHover.overrideBy(DarkColorTokens.TextOnDarkAccentMinorHover)
-        textInverseAccentMinorActive.overrideBy(DarkColorTokens.TextOnDarkAccentMinorActive)
-        surfaceInverseSolidPrimaryBrightness.overrideBy(DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightness)
-        surfaceInverseSolidSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidSecondaryHover)
-        surfaceInverseSolidSecondary.overrideBy(DarkColorTokens.SurfaceOnDarkSolidSecondary)
-        surfaceInverseSolidTertiaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidTertiaryHover)
-        surfaceInverseSolidTertiaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidTertiaryActive)
-        surfaceInverseSolidTertiary.overrideBy(DarkColorTokens.SurfaceOnDarkSolidTertiary)
-        surfaceInverseSolidCardHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCardHover)
-        surfaceInverseSolidCardActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCardActive)
-        surfaceInverseSolidCard.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCard)
-        surfaceInverseSolidCardBrightness.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCardBrightness)
-        surfaceInverseSolidDefaultHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidDefaultHover)
-        surfaceInverseTransparentSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentSecondaryHover)
-        surfaceInverseTransparentSecondaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentSecondaryActive)
-        surfaceInverseTransparentSecondary.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentSecondary)
-        surfaceInverseTransparentTertiaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentTertiaryHover)
-        surfaceInverseTransparentTertiary.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentTertiary)
-        surfaceInverseTransparentDeepHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentDeepHover)
-        surfaceInverseSolidPrimaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidPrimaryActive)
-        surfaceInverseSolidPrimary.overrideBy(DarkColorTokens.SurfaceOnDarkSolidPrimary)
-        surfaceInverseAccentMinorActive.overrideBy(DarkColorTokens.SurfaceOnDarkAccentMinorActive)
-        surfaceInverseTransparentAccentHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentAccentHover)
-        surfaceInverseTransparentAccentActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentAccentActive)
-        surfaceInverseTransparentPrimaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentPrimaryHover)
-        surfaceInverseTransparentPrimaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentPrimaryActive)
-        surfaceInverseWarning.overrideBy(DarkColorTokens.SurfaceOnDarkWarning)
-        surfaceInverseNegativeHover.overrideBy(DarkColorTokens.SurfaceOnDarkNegativeHover)
-        surfaceInverseNegativeActive.overrideBy(DarkColorTokens.SurfaceOnDarkNegativeActive)
-        surfaceInverseNegative.overrideBy(DarkColorTokens.SurfaceOnDarkNegative)
-        surfaceInverseInfoHover.overrideBy(DarkColorTokens.SurfaceOnDarkInfoHover)
-        surfaceInverseInfoActive.overrideBy(DarkColorTokens.SurfaceOnDarkInfoActive)
-        surfaceInverseTransparentCardHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentCardHover)
-        surfaceInverseTransparentCardActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentCardActive)
-        surfaceInverseTransparentCardBrightness.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentCardBrightness)
-        overlayInverseSoft.overrideBy(DarkColorTokens.OverlayOnDarkSoft)
-        overlayInverseHard.overrideBy(DarkColorTokens.OverlayOnDarkHard)
-        surfaceInversePositiveActive.overrideBy(DarkColorTokens.SurfaceOnDarkPositiveActive)
-        surfaceInverseWarningHover.overrideBy(DarkColorTokens.SurfaceOnDarkWarningHover)
-        surfaceInverseWarningActive.overrideBy(DarkColorTokens.SurfaceOnDarkWarningActive)
-        surfaceInverseTransparentPrimary.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentPrimary)
-        outlineInverseWarningHover.overrideBy(DarkColorTokens.OutlineOnDarkWarningHover)
-        outlineInverseWarningActive.overrideBy(DarkColorTokens.OutlineOnDarkWarningActive)
-        outlineInverseTransparentPrimaryHover.overrideBy(DarkColorTokens.OutlineOnDarkTransparentPrimaryHover)
-        outlineInverseTransparentPrimaryActive.overrideBy(DarkColorTokens.OutlineOnDarkTransparentPrimaryActive)
-        outlineInversePositiveHover.overrideBy(DarkColorTokens.OutlineOnDarkPositiveHover)
-        outlineInversePositiveActive.overrideBy(DarkColorTokens.OutlineOnDarkPositiveActive)
-        outlineInverseNegativeHover.overrideBy(DarkColorTokens.OutlineOnDarkNegativeHover)
-        outlineInverseNegativeActive.overrideBy(DarkColorTokens.OutlineOnDarkNegativeActive)
-        outlineInverseTextInfoHover.overrideBy(DarkColorTokens.OutlineOnDarkTextInfoHover)
-        outlineInverseTextInfoActive.overrideBy(DarkColorTokens.OutlineOnDarkTextInfoActive)
-        outlineInverseNegative.overrideBy(DarkColorTokens.OutlineOnDarkNegative)
-        outlineInverseWarning.overrideBy(DarkColorTokens.OutlineOnDarkWarning)
-        outlineInverseTextInfo.overrideBy(DarkColorTokens.OutlineOnDarkTextInfo)
-        outlineInverseTransparentPrimary.overrideBy(DarkColorTokens.OutlineOnDarkTransparentPrimary)
-        outlineInversePositive.overrideBy(DarkColorTokens.OutlineOnDarkPositive)
-        dataInverseYellow.overrideBy(DarkColorTokens.DataOnDarkYellow)
-        dataInverseYellowHover.overrideBy(DarkColorTokens.DataOnDarkYellowHover)
-        dataInverseYellowActive.overrideBy(DarkColorTokens.DataOnDarkYellowActive)
-        dataInverseYellowMinor.overrideBy(DarkColorTokens.DataOnDarkYellowMinor)
-        dataInverseYellowMinorHover.overrideBy(DarkColorTokens.DataOnDarkYellowMinorHover)
-        dataInverseYellowMinorActive.overrideBy(DarkColorTokens.DataOnDarkYellowMinorActive)
-        dataInverseYellowTransparent.overrideBy(DarkColorTokens.DataOnDarkYellowTransparent)
-        dataInverseYellowTransparentHover.overrideBy(DarkColorTokens.DataOnDarkYellowTransparentHover)
-        dataInverseYellowTransparentActive.overrideBy(DarkColorTokens.DataOnDarkYellowTransparentActive)
-        surfaceInversePositive.overrideBy(DarkColorTokens.SurfaceOnDarkPositive)
-        outlineInverseDefault.overrideBy(DarkColorTokens.OutlineOnDarkDefault)
-        outlineInverseDefaultHover.overrideBy(DarkColorTokens.OutlineOnDarkDefaultHover)
         outlineInverseDefaultActive.overrideBy(DarkColorTokens.OutlineOnDarkDefaultActive)
-        personaInverseBlueTextAccent.overrideBy(DarkColorTokens.PersonaOnDarkBlueTextAccent)
-        personaInverseBlueTextAccentHover.overrideBy(DarkColorTokens.PersonaOnDarkBlueTextAccentHover)
-        personaInverseBlueTextAccentActive.overrideBy(DarkColorTokens.PersonaOnDarkBlueTextAccentActive)
-        personaInverseGreenTextAccent.overrideBy(DarkColorTokens.PersonaOnDarkGreenTextAccent)
-        personaInverseGreenTextAccentHover.overrideBy(DarkColorTokens.PersonaOnDarkGreenTextAccentHover)
-        personaInverseGreenTextAccentActive.overrideBy(DarkColorTokens.PersonaOnDarkGreenTextAccentActive)
-        personaInverseIndigoTextAccent.overrideBy(DarkColorTokens.PersonaOnDarkIndigoTextAccent)
-        personaInverseIndigoTextAccentHover.overrideBy(DarkColorTokens.PersonaOnDarkIndigoTextAccentHover)
-        personaInverseOliveTextAccent.overrideBy(DarkColorTokens.PersonaOnDarkOliveTextAccent)
-        personaInverseOliveTextAccentActive.overrideBy(DarkColorTokens.PersonaOnDarkOliveTextAccentActive)
-        personaInversePinkTextAccent.overrideBy(DarkColorTokens.PersonaOnDarkPinkTextAccent)
-        personaInversePinkTextAccentHover.overrideBy(DarkColorTokens.PersonaOnDarkPinkTextAccentHover)
-        personaInversePinkTextAccentActive.overrideBy(DarkColorTokens.PersonaOnDarkPinkTextAccentActive)
-        personaInverseSeaBlueTextAccent.overrideBy(DarkColorTokens.PersonaOnDarkSeaBlueTextAccent)
-        personaInverseSeaBlueTextAccentHover.overrideBy(DarkColorTokens.PersonaOnDarkSeaBlueTextAccentHover)
-        personaInverseSeaBlueTextAccentActive.overrideBy(DarkColorTokens.PersonaOnDarkSeaBlueTextAccentActive)
-        personaInverseVioletTextAccent.overrideBy(DarkColorTokens.PersonaOnDarkVioletTextAccent)
-        personaInverseVioletTextAccentHover.overrideBy(DarkColorTokens.PersonaOnDarkVioletTextAccentHover)
-        personaInverseVioletTextAccentActive.overrideBy(DarkColorTokens.PersonaOnDarkVioletTextAccentActive)
-        personaInverseOchreTextAccent.overrideBy(DarkColorTokens.PersonaOnDarkOchreTextAccent)
-        personaInverseOchreTextAccentHover.overrideBy(DarkColorTokens.PersonaOnDarkOchreTextAccentHover)
-        personaInverseOliveTextAccentHover.overrideBy(DarkColorTokens.PersonaOnDarkOliveTextAccentHover)
-        personaInverseOchreTextAccentActive.overrideBy(DarkColorTokens.PersonaOnDarkOchreTextAccentActive)
-        surfaceInverseSolidSecondaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidSecondaryActive)
-        surfaceInverseTransparentDeepActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentDeepActive)
+        personasInverseSeaBlueTextAccentActive.overrideBy(DarkColorTokens.PersonasOnDarkSeaBlueTextAccentActive)
+        personasInverseVioletTextAccentActive.overrideBy(DarkColorTokens.PersonasOnDarkVioletTextAccentActive)
+        surfaceInverseAccentSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkAccentSecondaryHover)
+        outlineInverseDefault.overrideBy(DarkColorTokens.OutlineOnDarkDefault)
+        personasInverseIndigoTextAccent.overrideBy(DarkColorTokens.PersonasOnDarkIndigoTextAccent)
+        personasInversePinkTextAccent.overrideBy(DarkColorTokens.PersonasOnDarkPinkTextAccent)
+        personasInverseOchreTextAccent.overrideBy(DarkColorTokens.PersonasOnDarkOchreTextAccent)
+        surfaceInverseTransparentNavi.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentNavi)
+        surfaceInverseSolidPrimaryBrightnessHover.overrideBy(
+            DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightnessHover,
+        )
+        surfaceInverseSolidPrimaryBrightnessActive.overrideBy(
+            DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightnessActive,
+        )
+        surfaceInverseTransparentCardBrightnessHover.overrideBy(
+            DarkColorTokens.SurfaceOnDarkTransparentCardBrightnessHover,
+        )
+        personasInverseGreenTextAccent.overrideBy(DarkColorTokens.PersonasOnDarkGreenTextAccent)
+        surfaceInverseSolidTertiary.overrideBy(DarkColorTokens.SurfaceOnDarkSolidTertiary)
+        surfaceInverseTransparentCardBrightnessActive.overrideBy(
+            DarkColorTokens.SurfaceOnDarkTransparentCardBrightnessActive,
+        )
+        surfaceInverseSolidCardBrightnessActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCardBrightnessActive)
         surfaceInverseAccentMinor.overrideBy(DarkColorTokens.SurfaceOnDarkAccentMinor)
-        textInverseAccentActive.overrideBy(DarkColorTokens.TextOnDarkAccentActive)
         surfaceInverseAccentSecondaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkAccentSecondaryActive)
+        personasInverseIndigoTextAccentActive.overrideBy(DarkColorTokens.PersonasOnDarkIndigoTextAccentActive)
+        personasInversePinkTextAccentActive.overrideBy(DarkColorTokens.PersonasOnDarkPinkTextAccentActive)
+        personasInverseGreenTextAccentActive.overrideBy(DarkColorTokens.PersonasOnDarkGreenTextAccentActive)
+        personasInverseOliveTextAccentHover.overrideBy(DarkColorTokens.PersonasOnDarkOliveTextAccentHover)
+        surfaceInverseAccentSecondary.overrideBy(DarkColorTokens.SurfaceOnDarkAccentSecondary)
+        personasInverseBlueTextAccentActive.overrideBy(DarkColorTokens.PersonasOnDarkBlueTextAccentActive)
         surfaceInverseTransparentAccentMinorActive.overrideBy(
             DarkColorTokens.SurfaceOnDarkTransparentAccentMinorActive,
         )
-        surfaceInverseAccentSecondary.overrideBy(DarkColorTokens.SurfaceOnDarkAccentSecondary)
-        surfaceInverseTransparentAccentMinor.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentAccentMinor)
-        textInverseWarningHover.overrideBy(DarkColorTokens.TextOnDarkWarningHover)
-        surfaceInverseInfo.overrideBy(DarkColorTokens.SurfaceOnDarkInfo)
+        personasInverseIndigoTextAccentHover.overrideBy(DarkColorTokens.PersonasOnDarkIndigoTextAccentHover)
+        personasInversePinkTextAccentHover.overrideBy(DarkColorTokens.PersonasOnDarkPinkTextAccentHover)
+        personasInverseOchreTextAccentHover.overrideBy(DarkColorTokens.PersonasOnDarkOchreTextAccentHover)
+        surfaceInverseTransparentNaviHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentNaviHover)
+        outlineInverseDefaultHover.overrideBy(DarkColorTokens.OutlineOnDarkDefaultHover)
+        outlineInversePrimaryHover.overrideBy(DarkColorTokens.OutlineOnDarkPrimaryHover)
+        personasInverseSeaBlueTextAccentHover.overrideBy(DarkColorTokens.PersonasOnDarkSeaBlueTextAccentHover)
+        personasInverseBlueTextAccentHover.overrideBy(DarkColorTokens.PersonasOnDarkBlueTextAccentHover)
+        personasInverseVioletTextAccentHover.overrideBy(DarkColorTokens.PersonasOnDarkVioletTextAccentHover)
         surfaceInverseTransparentAccentMinorHover.overrideBy(
             DarkColorTokens.SurfaceOnDarkTransparentAccentMinorHover,
         )
-        surfaceInverseAccentSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkAccentSecondaryHover)
-        surfaceInverseSolidPrimaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidPrimaryHover)
-        surfaceInverseTransparentCard.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentCard)
-        surfaceInverseSolidDefaultActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidDefaultActive)
-        surfaceInversePositiveHover.overrideBy(DarkColorTokens.SurfaceOnDarkPositiveHover)
-        surfaceInverseAccentMinorHover.overrideBy(DarkColorTokens.SurfaceOnDarkAccentMinorHover)
-        personaInverseOchreTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnDarkOchreTextAccentBrightness)
-        surfaceInverseTransparentAccent.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentAccent)
-        personaInversePinkTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnDarkPinkTextAccentBrightness)
-        personaInverseVioletTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnDarkVioletTextAccentBrightness)
-        surfaceInverseAccentSecondaryBrightness.overrideBy(DarkColorTokens.SurfaceOnDarkAccentSecondaryBrightness)
-        personaInverseGreenTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnDarkGreenTextAccentBrightness)
-        textInverseAccentMinor.overrideBy(DarkColorTokens.TextOnDarkAccentMinor)
-        surfaceInverseTransparentTertiaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentTertiaryActive)
-        surfaceInverseTransparentAccentMinorBrightness.overrideBy(
-            DarkColorTokens.SurfaceOnDarkTransparentAccentMinorBrightness,
-        )
-        personaInverseOliveTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnDarkOliveTextAccentBrightness)
-        personaInverseSeaBlueTextAccentBrightness.overrideBy(
-            DarkColorTokens.PersonaOnDarkSeaBlueTextAccentBrightness,
-        )
-        personaInverseBlueTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnDarkBlueTextAccentBrightness)
-        personaInverseIndigoTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnDarkIndigoTextAccentBrightness)
+        surfaceInverseSolidCardBrightnessHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCardBrightnessHover)
+        personasInverseBlueTextAccent.overrideBy(DarkColorTokens.PersonasOnDarkBlueTextAccent)
+        personasInverseSeaBlueTextAccent.overrideBy(DarkColorTokens.PersonasOnDarkSeaBlueTextAccent)
+        outlineInversePrimary.overrideBy(DarkColorTokens.OutlineOnDarkPrimary)
+        personasInverseOliveTextAccentActive.overrideBy(DarkColorTokens.PersonasOnDarkOliveTextAccentActive)
+        textInversePrimaryBrightnessHover.overrideBy(DarkColorTokens.TextOnDarkPrimaryBrightnessHover)
+        personasInverseVioletTextAccent.overrideBy(DarkColorTokens.PersonasOnDarkVioletTextAccent)
+        surfaceInverseTransparentAccentMinor.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentAccentMinor)
+        textInversePrimaryBrightnessActive.overrideBy(DarkColorTokens.TextOnDarkPrimaryBrightnessActive)
+        personasInverseOchreTextAccentActive.overrideBy(DarkColorTokens.PersonasOnDarkOchreTextAccentActive)
+        surfaceInverseTransparentNaviActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentNaviActive)
+        personasInverseOliveTextAccent.overrideBy(DarkColorTokens.PersonasOnDarkOliveTextAccent)
+        outlineInversePrimaryActive.overrideBy(DarkColorTokens.OutlineOnDarkPrimaryActive)
+        personasInverseGreenTextAccentHover.overrideBy(DarkColorTokens.PersonasOnDarkGreenTextAccentHover)
+        textInversePrimary.overrideBy(DarkColorTokens.TextOnDarkPrimary)
+        textInversePrimaryHover.overrideBy(DarkColorTokens.TextOnDarkPrimaryHover)
         textInversePrimaryActive.overrideBy(DarkColorTokens.TextOnDarkPrimaryActive)
         textInversePrimaryBrightness.overrideBy(DarkColorTokens.TextOnDarkPrimaryBrightness)
-        textInverseTertiaryActive.overrideBy(DarkColorTokens.TextOnDarkTertiaryActive)
-        textInversePrimaryHover.overrideBy(DarkColorTokens.TextOnDarkPrimaryHover)
-        textInversePrimary.overrideBy(DarkColorTokens.TextOnDarkPrimary)
+        textInverseSecondary.overrideBy(DarkColorTokens.TextOnDarkSecondary)
         textInverseSecondaryHover.overrideBy(DarkColorTokens.TextOnDarkSecondaryHover)
-        textInverseTertiaryHover.overrideBy(DarkColorTokens.TextOnDarkTertiaryHover)
-        textInverseNegative.overrideBy(DarkColorTokens.TextOnDarkNegative)
-        textInverseAccent.overrideBy(DarkColorTokens.TextOnDarkAccent)
-        textInverseTertiary.overrideBy(DarkColorTokens.TextOnDarkTertiary)
-        textInverseParagraphActive.overrideBy(DarkColorTokens.TextOnDarkParagraphActive)
-        textInversePositiveHover.overrideBy(DarkColorTokens.TextOnDarkPositiveHover)
-        textInverseWarningActive.overrideBy(DarkColorTokens.TextOnDarkWarningActive)
-        textInverseNegativeHover.overrideBy(DarkColorTokens.TextOnDarkNegativeHover)
-        surfaceInverseTransparentDeep.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentDeep)
-        textInverseParagraphHover.overrideBy(DarkColorTokens.TextOnDarkParagraphHover)
-        textInversePositiveActive.overrideBy(DarkColorTokens.TextOnDarkPositiveActive)
-        textInverseWarning.overrideBy(DarkColorTokens.TextOnDarkWarning)
-        textInverseNegativeActive.overrideBy(DarkColorTokens.TextOnDarkNegativeActive)
-        textInverseInfo.overrideBy(DarkColorTokens.TextOnDarkInfo)
-        textInversePositive.overrideBy(DarkColorTokens.TextOnDarkPositive)
         textInverseSecondaryActive.overrideBy(DarkColorTokens.TextOnDarkSecondaryActive)
+        textInverseTertiary.overrideBy(DarkColorTokens.TextOnDarkTertiary)
+        textInverseTertiaryHover.overrideBy(DarkColorTokens.TextOnDarkTertiaryHover)
+        textInverseTertiaryActive.overrideBy(DarkColorTokens.TextOnDarkTertiaryActive)
+        textInverseParagraph.overrideBy(DarkColorTokens.TextOnDarkParagraph)
+        textInverseParagraphHover.overrideBy(DarkColorTokens.TextOnDarkParagraphHover)
+        textInverseParagraphActive.overrideBy(DarkColorTokens.TextOnDarkParagraphActive)
+        textInverseAccent.overrideBy(DarkColorTokens.TextOnDarkAccent)
+        textInverseAccentHover.overrideBy(DarkColorTokens.TextOnDarkAccentHover)
+        textInverseAccentActive.overrideBy(DarkColorTokens.TextOnDarkAccentActive)
+        textInverseAccentMinor.overrideBy(DarkColorTokens.TextOnDarkAccentMinor)
+        textInverseAccentMinorHover.overrideBy(DarkColorTokens.TextOnDarkAccentMinorHover)
+        textInverseAccentMinorActive.overrideBy(DarkColorTokens.TextOnDarkAccentMinorActive)
+        textInverseInfo.overrideBy(DarkColorTokens.TextOnDarkInfo)
+        textInverseInfoHover.overrideBy(DarkColorTokens.TextOnDarkInfoHover)
+        textInverseInfoActive.overrideBy(DarkColorTokens.TextOnDarkInfoActive)
+        textInverseWarningActive.overrideBy(DarkColorTokens.TextOnDarkWarningActive)
+        textInversePositive.overrideBy(DarkColorTokens.TextOnDarkPositive)
+        textInversePositiveHover.overrideBy(DarkColorTokens.TextOnDarkPositiveHover)
+        textInverseWarning.overrideBy(DarkColorTokens.TextOnDarkWarning)
+        textInverseWarningHover.overrideBy(DarkColorTokens.TextOnDarkWarningHover)
+        textInversePositiveActive.overrideBy(DarkColorTokens.TextOnDarkPositiveActive)
+        textInverseNegative.overrideBy(DarkColorTokens.TextOnDarkNegative)
+        textInverseNegativeHover.overrideBy(DarkColorTokens.TextOnDarkNegativeHover)
+        textInverseNegativeActive.overrideBy(DarkColorTokens.TextOnDarkNegativeActive)
+        surfaceInverseSolidPrimary.overrideBy(DarkColorTokens.SurfaceOnDarkSolidPrimary)
+        surfaceInverseSolidPrimaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidPrimaryHover)
+        surfaceInverseSolidPrimaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidPrimaryActive)
+        surfaceInverseSolidPrimaryBrightness.overrideBy(DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightness)
+        surfaceInverseSolidSecondary.overrideBy(DarkColorTokens.SurfaceOnDarkSolidSecondary)
+        surfaceInverseSolidSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidSecondaryHover)
+        surfaceInverseSolidSecondaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidSecondaryActive)
+        surfaceInverseTransparentSecondaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentSecondaryActive)
+        surfaceInverseTransparentTertiary.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentTertiary)
+        surfaceInverseTransparentTertiaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentTertiaryHover)
+        surfaceInverseTransparentTertiaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentTertiaryActive)
+        surfaceInverseTransparentDeep.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentDeep)
+        surfaceInverseTransparentDeepHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentDeepHover)
+        surfaceInverseTransparentDeepActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentDeepActive)
+        surfaceInverseTransparentCard.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentCard)
+        surfaceInverseTransparentCardHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentCardHover)
+        surfaceInverseTransparentCardActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentCardActive)
+        surfaceInverseTransparentCardBrightness.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentCardBrightness)
+        surfaceInverseClear.overrideBy(DarkColorTokens.SurfaceOnDarkClear)
+        surfaceInverseClearHover.overrideBy(DarkColorTokens.SurfaceOnDarkClearHover)
+        surfaceInverseClearActive.overrideBy(DarkColorTokens.SurfaceOnDarkClearActive)
+        surfaceInverseAccent.overrideBy(DarkColorTokens.SurfaceOnDarkAccent)
+        surfaceInverseSolidTertiaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidTertiaryActive)
+        surfaceInverseSolidTertiaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidTertiaryHover)
+        surfaceInverseSolidCard.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCard)
+        surfaceInverseSolidCardActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCardActive)
+        surfaceInverseSolidCardHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCardHover)
+        surfaceInverseSolidDefaultHover.overrideBy(DarkColorTokens.SurfaceOnDarkSolidDefaultHover)
+        surfaceInverseSolidDefaultActive.overrideBy(DarkColorTokens.SurfaceOnDarkSolidDefaultActive)
+        surfaceInverseSolidCardBrightness.overrideBy(DarkColorTokens.SurfaceOnDarkSolidCardBrightness)
         surfaceInverseSolidDefault.overrideBy(DarkColorTokens.SurfaceOnDarkSolidDefault)
-        textDefaultTertiaryHover.overrideBy(DarkColorTokens.TextOnLightTertiaryHover)
-        personaDefaultIndigoTextAccent.overrideBy(DarkColorTokens.PersonaOnLightIndigoTextAccent)
-        personaDefaultSeaBlueTextAccentActive.overrideBy(DarkColorTokens.PersonaOnLightSeaBlueTextAccentActive)
-        outlineDefaultMinorBrightness.overrideBy(DarkColorTokens.OutlineOnLightMinorBrightness)
-        outlineDefaultDefaultBrightness.overrideBy(DarkColorTokens.OutlineOnLightDefaultBrightness)
-        personaDefaultSeaBlueTextAccentBrightness.overrideBy(
-            DarkColorTokens.PersonaOnLightSeaBlueTextAccentBrightness,
-        )
-        personaDefaultVioletTextAccentBrightness.overrideBy(
-            DarkColorTokens.PersonaOnLightVioletTextAccentBrightness,
-        )
-        textDefaultTertiaryActive.overrideBy(DarkColorTokens.TextOnLightTertiaryActive)
-        textDefaultTertiary.overrideBy(DarkColorTokens.TextOnLightTertiary)
-        surfaceDefaultSolidDefaultHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidDefaultHover)
-        textDefaultPositiveHover.overrideBy(DarkColorTokens.TextOnLightPositiveHover)
-        outlineDefaultPositiveActive.overrideBy(DarkColorTokens.OutlineOnLightPositiveActive)
-        surfaceDefaultSolidSecondaryActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidSecondaryActive)
-        surfaceDefaultSolidSecondary.overrideBy(DarkColorTokens.SurfaceOnLightSolidSecondary)
-        surfaceDefaultSolidTertiaryHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidTertiaryHover)
-        surfaceDefaultSolidTertiaryActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidTertiaryActive)
-        surfaceDefaultSolidTertiary.overrideBy(DarkColorTokens.SurfaceOnLightSolidTertiary)
-        surfaceDefaultSolidCardHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidCardHover)
-        surfaceDefaultSolidCardActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidCardActive)
-        surfaceDefaultSolidCard.overrideBy(DarkColorTokens.SurfaceOnLightSolidCard)
-        surfaceDefaultSolidCardBrightness.overrideBy(DarkColorTokens.SurfaceOnLightSolidCardBrightness)
-        surfaceDefaultSolidPrimaryActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidPrimaryActive)
-        surfaceDefaultSolidPrimaryBrightness.overrideBy(DarkColorTokens.SurfaceOnLightSolidPrimaryBrightness)
-        surfaceDefaultSolidPrimary.overrideBy(DarkColorTokens.SurfaceOnLightSolidPrimary)
-        surfaceDefaultSolidSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidSecondaryHover)
-        surfaceDefaultTransparentTertiaryHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentTertiaryHover)
-        surfaceDefaultTransparentTertiaryActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentTertiaryActive)
-        surfaceDefaultTransparentTertiary.overrideBy(DarkColorTokens.SurfaceOnLightTransparentTertiary)
-        surfaceDefaultTransparentDeepHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentDeepHover)
-        surfaceDefaultTransparentDeepActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentDeepActive)
-        surfaceDefaultTransparentDeep.overrideBy(DarkColorTokens.SurfaceOnLightTransparentDeep)
-        surfaceDefaultTransparentCardHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentCardHover)
-        surfaceDefaultTransparentCardActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentCardActive)
-        surfaceDefaultTransparentCard.overrideBy(DarkColorTokens.SurfaceOnLightTransparentCard)
-        surfaceDefaultTransparentCardBrightness.overrideBy(DarkColorTokens.SurfaceOnLightTransparentCardBrightness)
-        surfaceDefaultAccentMinorActive.overrideBy(DarkColorTokens.SurfaceOnLightAccentMinorActive)
-        surfaceDefaultTransparentAccentHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentAccentHover)
-        surfaceDefaultTransparentAccentActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentAccentActive)
-        surfaceDefaultPositiveHover.overrideBy(DarkColorTokens.SurfaceOnLightPositiveHover)
-        surfaceDefaultPositiveActive.overrideBy(DarkColorTokens.SurfaceOnLightPositiveActive)
-        surfaceDefaultWarningHover.overrideBy(DarkColorTokens.SurfaceOnLightWarningHover)
-        surfaceDefaultTransparentPrimaryHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentPrimaryHover)
-        surfaceDefaultTransparentPrimaryActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentPrimaryActive)
-        surfaceDefaultInfo.overrideBy(DarkColorTokens.SurfaceOnLightInfo)
-        surfaceDefaultPositive.overrideBy(DarkColorTokens.SurfaceOnLightPositive)
-        surfaceDefaultAccentMinor.overrideBy(DarkColorTokens.SurfaceOnLightAccentMinor)
-        surfaceDefaultWarning.overrideBy(DarkColorTokens.SurfaceOnLightWarning)
-        surfaceDefaultNegativeHover.overrideBy(DarkColorTokens.SurfaceOnLightNegativeHover)
-        surfaceDefaultNegativeActive.overrideBy(DarkColorTokens.SurfaceOnLightNegativeActive)
-        surfaceDefaultInfoHover.overrideBy(DarkColorTokens.SurfaceOnLightInfoHover)
-        surfaceDefaultInfoActive.overrideBy(DarkColorTokens.SurfaceOnLightInfoActive)
-        surfaceDefaultTransparentSecondary.overrideBy(DarkColorTokens.SurfaceOnLightTransparentSecondary)
-        surfaceDefaultTransparentAccent.overrideBy(DarkColorTokens.SurfaceOnLightTransparentAccent)
-        textDefaultPrimaryHover.overrideBy(DarkColorTokens.TextOnLightPrimaryHover)
-        overlayDefaultSoft.overrideBy(DarkColorTokens.OverlayOnLightSoft)
-        overlayDefaultHard.overrideBy(DarkColorTokens.OverlayOnLightHard)
-        outlineDefaultTransparentPrimaryHover.overrideBy(DarkColorTokens.OutlineOnLightTransparentPrimaryHover)
-        outlineDefaultTransparentPrimaryActive.overrideBy(DarkColorTokens.OutlineOnLightTransparentPrimaryActive)
-        outlineDefaultNegativeHover.overrideBy(DarkColorTokens.OutlineOnLightNegativeHover)
-        outlineDefaultNegativeActive.overrideBy(DarkColorTokens.OutlineOnLightNegativeActive)
-        outlineDefaultTextInfoHover.overrideBy(DarkColorTokens.OutlineOnLightTextInfoHover)
-        outlineDefaultTextInfoActive.overrideBy(DarkColorTokens.OutlineOnLightTextInfoActive)
-        outlineDefaultWarning.overrideBy(DarkColorTokens.OutlineOnLightWarning)
-        outlineDefaultWarningHover.overrideBy(DarkColorTokens.OutlineOnLightWarningHover)
-        outlineDefaultWarningActive.overrideBy(DarkColorTokens.OutlineOnLightWarningActive)
-        dataDefaultYellow.overrideBy(DarkColorTokens.DataOnLightYellow)
-        dataDefaultYellowHover.overrideBy(DarkColorTokens.DataOnLightYellowHover)
-        dataDefaultYellowActive.overrideBy(DarkColorTokens.DataOnLightYellowActive)
-        dataDefaultYellowMinor.overrideBy(DarkColorTokens.DataOnLightYellowMinor)
-        dataDefaultYellowMinorHover.overrideBy(DarkColorTokens.DataOnLightYellowMinorHover)
-        dataDefaultYellowMinorActive.overrideBy(DarkColorTokens.DataOnLightYellowMinorActive)
-        dataDefaultYellowTransparent.overrideBy(DarkColorTokens.DataOnLightYellowTransparent)
-        outlineDefaultTextInfo.overrideBy(DarkColorTokens.OutlineOnLightTextInfo)
-        outlineDefaultTransparentPrimary.overrideBy(DarkColorTokens.OutlineOnLightTransparentPrimary)
-        dataDefaultYellowTransparentActive.overrideBy(DarkColorTokens.DataOnLightYellowTransparentActive)
-        outlineDefaultPositive.overrideBy(DarkColorTokens.OutlineOnLightPositive)
-        personaDefaultBlueTextAccent.overrideBy(DarkColorTokens.PersonaOnLightBlueTextAccent)
-        personaDefaultBlueTextAccentHover.overrideBy(DarkColorTokens.PersonaOnLightBlueTextAccentHover)
-        personaDefaultBlueTextAccentActive.overrideBy(DarkColorTokens.PersonaOnLightBlueTextAccentActive)
-        personaDefaultGreenTextAccent.overrideBy(DarkColorTokens.PersonaOnLightGreenTextAccent)
-        personaDefaultGreenTextAccentHover.overrideBy(DarkColorTokens.PersonaOnLightGreenTextAccentHover)
-        personaDefaultGreenTextAccentActive.overrideBy(DarkColorTokens.PersonaOnLightGreenTextAccentActive)
-        outlineDefaultDefaultHover.overrideBy(DarkColorTokens.OutlineOnLightDefaultHover)
+        surfaceInverseTransparentPrimary.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentPrimary)
+        surfaceInverseTransparentPrimaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentPrimaryHover)
+        surfaceInverseTransparentPrimaryActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentPrimaryActive)
+        surfaceInverseTransparentSecondary.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentSecondary)
+        surfaceInverseTransparentSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentSecondaryHover)
+        surfaceInversePositive.overrideBy(DarkColorTokens.SurfaceOnDarkPositive)
+        surfaceInversePositiveHover.overrideBy(DarkColorTokens.SurfaceOnDarkPositiveHover)
+        surfaceInversePositiveActive.overrideBy(DarkColorTokens.SurfaceOnDarkPositiveActive)
+        surfaceInverseWarning.overrideBy(DarkColorTokens.SurfaceOnDarkWarning)
+        surfaceInverseWarningHover.overrideBy(DarkColorTokens.SurfaceOnDarkWarningHover)
+        surfaceInverseWarningActive.overrideBy(DarkColorTokens.SurfaceOnDarkWarningActive)
+        surfaceInverseNegative.overrideBy(DarkColorTokens.SurfaceOnDarkNegative)
+        surfaceInverseNegativeHover.overrideBy(DarkColorTokens.SurfaceOnDarkNegativeHover)
+        surfaceInverseNegativeActive.overrideBy(DarkColorTokens.SurfaceOnDarkNegativeActive)
+        surfaceInverseInfo.overrideBy(DarkColorTokens.SurfaceOnDarkInfo)
+        surfaceInverseInfoHover.overrideBy(DarkColorTokens.SurfaceOnDarkInfoHover)
+        surfaceInverseInfoActive.overrideBy(DarkColorTokens.SurfaceOnDarkInfoActive)
+        surfaceInverseAccentMinorActive.overrideBy(DarkColorTokens.SurfaceOnDarkAccentMinorActive)
+        surfaceInverseAccentHover.overrideBy(DarkColorTokens.SurfaceOnDarkAccentHover)
+        surfaceInverseTransparentAccent.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentAccent)
+        surfaceInverseTransparentAccentHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentAccentHover)
+        surfaceInverseTransparentAccentActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentAccentActive)
+        surfaceInverseAccentActive.overrideBy(DarkColorTokens.SurfaceOnDarkAccentActive)
+        surfaceInverseTransparentNegativeActive.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentNegativeActive)
+        surfaceInverseTransparentNegative.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentNegative)
+        surfaceInverseReadOnly.overrideBy(DarkColorTokens.SurfaceOnDarkReadOnly)
+        surfaceInverseReadOnlyHover.overrideBy(DarkColorTokens.SurfaceOnDarkReadOnlyHover)
+        surfaceInverseReadOnlyActive.overrideBy(DarkColorTokens.SurfaceOnDarkReadOnlyActive)
+        surfaceInverseTransparentNegativeHover.overrideBy(DarkColorTokens.SurfaceOnDarkTransparentNegativeHover)
+        overlayInverseSoft.overrideBy(DarkColorTokens.OverlayOnDarkSoft)
+        overlayInverseHard.overrideBy(DarkColorTokens.OverlayOnDarkHard)
+        outlineInverseTransparentPrimary.overrideBy(DarkColorTokens.OutlineOnDarkTransparentPrimary)
+        outlineInverseTransparentPrimaryHover.overrideBy(DarkColorTokens.OutlineOnDarkTransparentPrimaryHover)
+        outlineInverseTransparentPrimaryActive.overrideBy(DarkColorTokens.OutlineOnDarkTransparentPrimaryActive)
+        outlineInverseClear.overrideBy(DarkColorTokens.OutlineOnDarkClear)
+        outlineInverseClearHover.overrideBy(DarkColorTokens.OutlineOnDarkClearHover)
+        outlineInverseClearActive.overrideBy(DarkColorTokens.OutlineOnDarkClearActive)
+        outlineInverseNegative.overrideBy(DarkColorTokens.OutlineOnDarkNegative)
+        outlineInverseNegativeHover.overrideBy(DarkColorTokens.OutlineOnDarkNegativeHover)
+        outlineInverseNegativeActive.overrideBy(DarkColorTokens.OutlineOnDarkNegativeActive)
+        outlineInverseInfo.overrideBy(DarkColorTokens.OutlineOnDarkInfo)
+        outlineInverseInfoHover.overrideBy(DarkColorTokens.OutlineOnDarkInfoHover)
+        outlineInverseInfoActive.overrideBy(DarkColorTokens.OutlineOnDarkInfoActive)
+        outlineInversePositiveActive.overrideBy(DarkColorTokens.OutlineOnDarkPositiveActive)
+        outlineInversePositive.overrideBy(DarkColorTokens.OutlineOnDarkPositive)
+        outlineInversePositiveHover.overrideBy(DarkColorTokens.OutlineOnDarkPositiveHover)
+        outlineInverseWarning.overrideBy(DarkColorTokens.OutlineOnDarkWarning)
+        outlineInverseWarningHover.overrideBy(DarkColorTokens.OutlineOnDarkWarningHover)
+        outlineInverseWarningActive.overrideBy(DarkColorTokens.OutlineOnDarkWarningActive)
+        surfaceInverseAccentMinorHover.overrideBy(DarkColorTokens.SurfaceOnDarkAccentMinorHover)
+        personasDefaultGreenTextAccentHover.overrideBy(DarkColorTokens.PersonasOnLightGreenTextAccentHover)
+        personasDefaultSeaBlueTextAccentHover.overrideBy(DarkColorTokens.PersonasOnLightSeaBlueTextAccentHover)
+        surfaceDefaultTransparentNaviActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentNaviActive)
         outlineDefaultDefaultActive.overrideBy(DarkColorTokens.OutlineOnLightDefaultActive)
-        outlineDefaultMinor.overrideBy(DarkColorTokens.OutlineOnLightMinor)
-        outlineDefaultMinorHover.overrideBy(DarkColorTokens.OutlineOnLightMinorHover)
-        outlineDefaultMinorActive.overrideBy(DarkColorTokens.OutlineOnLightMinorActive)
-        personaDefaultOchreTextAccent.overrideBy(DarkColorTokens.PersonaOnLightOchreTextAccent)
-        personaDefaultOchreTextAccentHover.overrideBy(DarkColorTokens.PersonaOnLightOchreTextAccentHover)
-        personaDefaultOchreTextAccentActive.overrideBy(DarkColorTokens.PersonaOnLightOchreTextAccentActive)
-        personaDefaultOliveTextAccent.overrideBy(DarkColorTokens.PersonaOnLightOliveTextAccent)
-        personaDefaultOliveTextAccentHover.overrideBy(DarkColorTokens.PersonaOnLightOliveTextAccentHover)
-        personaDefaultOliveTextAccentActive.overrideBy(DarkColorTokens.PersonaOnLightOliveTextAccentActive)
-        personaDefaultSeaBlueTextAccent.overrideBy(DarkColorTokens.PersonaOnLightSeaBlueTextAccent)
-        personaDefaultSeaBlueTextAccentHover.overrideBy(DarkColorTokens.PersonaOnLightSeaBlueTextAccentHover)
-        personaDefaultVioletTextAccent.overrideBy(DarkColorTokens.PersonaOnLightVioletTextAccent)
-        personaDefaultVioletTextAccentHover.overrideBy(DarkColorTokens.PersonaOnLightVioletTextAccentHover)
-        personaDefaultVioletTextAccentActive.overrideBy(DarkColorTokens.PersonaOnLightVioletTextAccentActive)
-        personaDefaultIndigoTextAccentHover.overrideBy(DarkColorTokens.PersonaOnLightIndigoTextAccentHover)
-        personaDefaultIndigoTextAccentActive.overrideBy(DarkColorTokens.PersonaOnLightIndigoTextAccentActive)
-        personaDefaultPinkTextAccentActive.overrideBy(DarkColorTokens.PersonaOnLightPinkTextAccentActive)
-        personaDefaultPinkTextAccent.overrideBy(DarkColorTokens.PersonaOnLightPinkTextAccent)
-        personaDefaultPinkTextAccentHover.overrideBy(DarkColorTokens.PersonaOnLightPinkTextAccentHover)
-        surfaceDefaultAccentPrimary.overrideBy(DarkColorTokens.SurfaceOnLightAccentPrimary)
-        surfaceDefaultAccentPrimaryHover.overrideBy(DarkColorTokens.SurfaceOnLightAccentPrimaryHover)
-        surfaceDefaultAccentPrimaryActive.overrideBy(DarkColorTokens.SurfaceOnLightAccentPrimaryActive)
-        surfaceDefaultWarningActive.overrideBy(DarkColorTokens.SurfaceOnLightWarningActive)
-        surfaceDefaultAccentSecondaryActive.overrideBy(DarkColorTokens.SurfaceOnLightAccentSecondaryActive)
+        personasDefaultOliveTextAccentActive.overrideBy(DarkColorTokens.PersonasOnLightOliveTextAccentActive)
+        surfaceDefaultAccentSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnLightAccentSecondaryHover)
+        personasDefaultIndigoTextAccentHover.overrideBy(DarkColorTokens.PersonasOnLightIndigoTextAccentHover)
+        personasDefaultOchreTextAccentActive.overrideBy(DarkColorTokens.PersonasOnLightOchreTextAccentActive)
+        surfaceDefaultTransparentNavi.overrideBy(DarkColorTokens.SurfaceOnLightTransparentNavi)
+        personasDefaultVioletTextAccentActive.overrideBy(DarkColorTokens.PersonasOnLightVioletTextAccentActive)
+        personasDefaultBlueTextAccentHover.overrideBy(DarkColorTokens.PersonasOnLightBlueTextAccentHover)
+        textDefaultPrimaryBrightnessActive.overrideBy(DarkColorTokens.TextOnLightPrimaryBrightnessActive)
+        surfaceDefaultTransparentCardBrightnessHover.overrideBy(
+            DarkColorTokens.SurfaceOnLightTransparentCardBrightnessHover,
+        )
+        surfaceDefaultSolidCardBrightnessActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidCardBrightnessActive)
+        surfaceDefaultSolidPrimaryBrightnessHover.overrideBy(
+            DarkColorTokens.SurfaceOnLightSolidPrimaryBrightnessHover,
+        )
+        surfaceDefaultTransparentCardBrightnessActive.overrideBy(
+            DarkColorTokens.SurfaceOnLightTransparentCardBrightnessActive,
+        )
+        surfaceDefaultSolidCardBrightnessHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidCardBrightnessHover)
+        personasDefaultOliveTextAccent.overrideBy(DarkColorTokens.PersonasOnLightOliveTextAccent)
+        surfaceDefaultSolidTertiaryActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidTertiaryActive)
+        textDefaultPrimary.overrideBy(DarkColorTokens.TextOnLightPrimary)
+        outlineDefaultPrimary.overrideBy(DarkColorTokens.OutlineOnLightPrimary)
+        surfaceDefaultAccentSecondary.overrideBy(DarkColorTokens.SurfaceOnLightAccentSecondary)
+        surfaceDefaultAccentMinor.overrideBy(DarkColorTokens.SurfaceOnLightAccentMinor)
+        personasDefaultOchreTextAccent.overrideBy(DarkColorTokens.PersonasOnLightOchreTextAccent)
+        personasDefaultGreenTextAccentActive.overrideBy(DarkColorTokens.PersonasOnLightGreenTextAccentActive)
+        personasDefaultSeaBlueTextAccentActive.overrideBy(DarkColorTokens.PersonasOnLightSeaBlueTextAccentActive)
+        outlineDefaultPrimaryActive.overrideBy(DarkColorTokens.OutlineOnLightPrimaryActive)
+        personasDefaultIndigoTextAccentActive.overrideBy(DarkColorTokens.PersonasOnLightIndigoTextAccentActive)
+        personasDefaultOchreTextAccentHover.overrideBy(DarkColorTokens.PersonasOnLightOchreTextAccentHover)
+        textDefaultPrimaryBrightnessHover.overrideBy(DarkColorTokens.TextOnLightPrimaryBrightnessHover)
+        outlineDefaultPrimaryHover.overrideBy(DarkColorTokens.OutlineOnLightPrimaryHover)
+        personasDefaultOliveTextAccentHover.overrideBy(DarkColorTokens.PersonasOnLightOliveTextAccentHover)
         surfaceDefaultTransparentAccentMinorActive.overrideBy(
             DarkColorTokens.SurfaceOnLightTransparentAccentMinorActive,
         )
-        textDefaultAccentMinorHover.overrideBy(DarkColorTokens.TextOnLightAccentMinorHover)
-        surfaceDefaultAccentSecondary.overrideBy(DarkColorTokens.SurfaceOnLightAccentSecondary)
+        personasDefaultVioletTextAccent.overrideBy(DarkColorTokens.PersonasOnLightVioletTextAccent)
+        surfaceDefaultTransparentNaviHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentNaviHover)
+        outlineDefaultDefaultHover.overrideBy(DarkColorTokens.OutlineOnLightDefaultHover)
+        personasDefaultBlueTextAccentActive.overrideBy(DarkColorTokens.PersonasOnLightBlueTextAccentActive)
+        surfaceDefaultAccentSecondaryActive.overrideBy(DarkColorTokens.SurfaceOnLightAccentSecondaryActive)
         surfaceDefaultTransparentAccentMinor.overrideBy(DarkColorTokens.SurfaceOnLightTransparentAccentMinor)
-        dataDefaultYellowTransparentHover.overrideBy(DarkColorTokens.DataOnLightYellowTransparentHover)
-        outlineDefaultNegative.overrideBy(DarkColorTokens.OutlineOnLightNegative)
+        personasDefaultPinkTextAccent.overrideBy(DarkColorTokens.PersonasOnLightPinkTextAccent)
+        personasDefaultGreenTextAccent.overrideBy(DarkColorTokens.PersonasOnLightGreenTextAccent)
+        personasDefaultBlueTextAccent.overrideBy(DarkColorTokens.PersonasOnLightBlueTextAccent)
+        personasDefaultSeaBlueTextAccent.overrideBy(DarkColorTokens.PersonasOnLightSeaBlueTextAccent)
+        personasDefaultVioletTextAccentHover.overrideBy(DarkColorTokens.PersonasOnLightVioletTextAccentHover)
+        surfaceDefaultSolidPrimaryBrightnessActive.overrideBy(
+            DarkColorTokens.SurfaceOnLightSolidPrimaryBrightnessActive,
+        )
+        personasDefaultIndigoTextAccent.overrideBy(DarkColorTokens.PersonasOnLightIndigoTextAccent)
+        personasDefaultPinkTextAccentHover.overrideBy(DarkColorTokens.PersonasOnLightPinkTextAccentHover)
         surfaceDefaultTransparentAccentMinorHover.overrideBy(
             DarkColorTokens.SurfaceOnLightTransparentAccentMinorHover,
         )
-        surfaceDefaultAccentSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnLightAccentSecondaryHover)
-        surfaceDefaultTransparentSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentSecondaryHover)
-        surfaceDefaultNegative.overrideBy(DarkColorTokens.SurfaceOnLightNegative)
-        surfaceDefaultSolidDefault.overrideBy(DarkColorTokens.SurfaceOnLightSolidDefault)
-        surfaceDefaultTransparentPrimary.overrideBy(DarkColorTokens.SurfaceOnLightTransparentPrimary)
-        personaDefaultGreenTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnLightGreenTextAccentBrightness)
-        personaDefaultOchreTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnLightOchreTextAccentBrightness)
-        surfaceDefaultAccentPrimaryBrightness.overrideBy(DarkColorTokens.SurfaceOnLightAccentPrimaryBrightness)
-        personaDefaultPinkTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnLightPinkTextAccentBrightness)
-        textDefaultParagraphActive.overrideBy(DarkColorTokens.TextOnLightParagraphActive)
-        textDefaultAccentHover.overrideBy(DarkColorTokens.TextOnLightAccentHover)
-        surfaceDefaultAccentMinorHover.overrideBy(DarkColorTokens.SurfaceOnLightAccentMinorHover)
-        outlineDefaultPositiveHover.overrideBy(DarkColorTokens.OutlineOnLightPositiveHover)
-        textDefaultSecondaryHover.overrideBy(DarkColorTokens.TextOnLightSecondaryHover)
-        personaDefaultBlueTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnLightBlueTextAccentBrightness)
-        personaDefaultIndigoTextAccentBrightness.overrideBy(
-            DarkColorTokens.PersonaOnLightIndigoTextAccentBrightness,
-        )
-        personaDefaultOliveTextAccentBrightness.overrideBy(DarkColorTokens.PersonaOnLightOliveTextAccentBrightness)
-        surfaceDefaultTransparentAccentMinorBrightness.overrideBy(
-            DarkColorTokens.SurfaceOnLightTransparentAccentMinorBrightness,
-        )
-        surfaceDefaultAccentSecondaryBrightness.overrideBy(DarkColorTokens.SurfaceOnLightAccentSecondaryBrightness)
-        textDefaultParagraphHover.overrideBy(DarkColorTokens.TextOnLightParagraphHover)
-        textDefaultParagraph.overrideBy(DarkColorTokens.TextOnLightParagraph)
-        textDefaultAccentActive.overrideBy(DarkColorTokens.TextOnLightAccentActive)
-        surfaceDefaultSolidPrimaryHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidPrimaryHover)
-        textDefaultPositiveActive.overrideBy(DarkColorTokens.TextOnLightPositiveActive)
-        textDefaultWarningActive.overrideBy(DarkColorTokens.TextOnLightWarningActive)
-        textDefaultNegativeHover.overrideBy(DarkColorTokens.TextOnLightNegativeHover)
-        textDefaultNegative.overrideBy(DarkColorTokens.TextOnLightNegative)
-        textDefaultInfoActive.overrideBy(DarkColorTokens.TextOnLightInfoActive)
+        personasDefaultPinkTextAccentActive.overrideBy(DarkColorTokens.PersonasOnLightPinkTextAccentActive)
         textDefaultAccent.overrideBy(DarkColorTokens.TextOnLightAccent)
+        textDefaultAccentHover.overrideBy(DarkColorTokens.TextOnLightAccentHover)
+        textDefaultAccentActive.overrideBy(DarkColorTokens.TextOnLightAccentActive)
         textDefaultAccentMinor.overrideBy(DarkColorTokens.TextOnLightAccentMinor)
-        textDefaultPrimaryActive.overrideBy(DarkColorTokens.TextOnLightPrimaryActive)
-        textDefaultPrimaryBrightness.overrideBy(DarkColorTokens.TextOnLightPrimaryBrightness)
-        textDefaultSecondary.overrideBy(DarkColorTokens.TextOnLightSecondary)
-        textDefaultWarning.overrideBy(DarkColorTokens.TextOnLightWarning)
-        textDefaultNegativeActive.overrideBy(DarkColorTokens.TextOnLightNegativeActive)
-        textDefaultInfoHover.overrideBy(DarkColorTokens.TextOnLightInfoHover)
-        textDefaultInfo.overrideBy(DarkColorTokens.TextOnLightInfo)
-        textDefaultPositive.overrideBy(DarkColorTokens.TextOnLightPositive)
-        textDefaultPrimary.overrideBy(DarkColorTokens.TextOnLightPrimary)
-        textDefaultSecondaryActive.overrideBy(DarkColorTokens.TextOnLightSecondaryActive)
-        textDefaultWarningHover.overrideBy(DarkColorTokens.TextOnLightWarningHover)
-        surfaceDefaultSolidDefaultActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidDefaultActive)
+        textDefaultAccentMinorHover.overrideBy(DarkColorTokens.TextOnLightAccentMinorHover)
         textDefaultAccentMinorActive.overrideBy(DarkColorTokens.TextOnLightAccentMinorActive)
+        textDefaultPositive.overrideBy(DarkColorTokens.TextOnLightPositive)
+        textDefaultPositiveHover.overrideBy(DarkColorTokens.TextOnLightPositiveHover)
+        textDefaultPositiveActive.overrideBy(DarkColorTokens.TextOnLightPositiveActive)
+        textDefaultWarning.overrideBy(DarkColorTokens.TextOnLightWarning)
+        textDefaultWarningHover.overrideBy(DarkColorTokens.TextOnLightWarningHover)
+        textDefaultWarningActive.overrideBy(DarkColorTokens.TextOnLightWarningActive)
+        textDefaultNegative.overrideBy(DarkColorTokens.TextOnLightNegative)
+        textDefaultNegativeHover.overrideBy(DarkColorTokens.TextOnLightNegativeHover)
+        textDefaultNegativeActive.overrideBy(DarkColorTokens.TextOnLightNegativeActive)
+        textDefaultInfo.overrideBy(DarkColorTokens.TextOnLightInfo)
+        textDefaultInfoHover.overrideBy(DarkColorTokens.TextOnLightInfoHover)
+        textDefaultInfoActive.overrideBy(DarkColorTokens.TextOnLightInfoActive)
+        textDefaultSecondaryHover.overrideBy(DarkColorTokens.TextOnLightSecondaryHover)
+        textDefaultSecondary.overrideBy(DarkColorTokens.TextOnLightSecondary)
+        textDefaultPrimaryActive.overrideBy(DarkColorTokens.TextOnLightPrimaryActive)
+        textDefaultSecondaryActive.overrideBy(DarkColorTokens.TextOnLightSecondaryActive)
+        textDefaultTertiary.overrideBy(DarkColorTokens.TextOnLightTertiary)
+        textDefaultTertiaryHover.overrideBy(DarkColorTokens.TextOnLightTertiaryHover)
+        textDefaultTertiaryActive.overrideBy(DarkColorTokens.TextOnLightTertiaryActive)
+        textDefaultPrimaryBrightness.overrideBy(DarkColorTokens.TextOnLightPrimaryBrightness)
+        textDefaultParagraph.overrideBy(DarkColorTokens.TextOnLightParagraph)
+        textDefaultParagraphHover.overrideBy(DarkColorTokens.TextOnLightParagraphHover)
+        textDefaultParagraphActive.overrideBy(DarkColorTokens.TextOnLightParagraphActive)
+        surfaceDefaultSolidPrimary.overrideBy(DarkColorTokens.SurfaceOnLightSolidPrimary)
+        surfaceDefaultSolidPrimaryHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidPrimaryHover)
+        surfaceDefaultSolidPrimaryActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidPrimaryActive)
+        surfaceDefaultSolidPrimaryBrightness.overrideBy(DarkColorTokens.SurfaceOnLightSolidPrimaryBrightness)
+        surfaceDefaultSolidSecondary.overrideBy(DarkColorTokens.SurfaceOnLightSolidSecondary)
+        surfaceDefaultSolidSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidSecondaryHover)
+        surfaceDefaultSolidSecondaryActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidSecondaryActive)
+        surfaceDefaultSolidTertiary.overrideBy(DarkColorTokens.SurfaceOnLightSolidTertiary)
+        surfaceDefaultSolidTertiaryHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidTertiaryHover)
+        surfaceDefaultTransparentTertiary.overrideBy(DarkColorTokens.SurfaceOnLightTransparentTertiary)
+        surfaceDefaultTransparentTertiaryHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentTertiaryHover)
+        surfaceDefaultTransparentTertiaryActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentTertiaryActive)
+        surfaceDefaultTransparentDeep.overrideBy(DarkColorTokens.SurfaceOnLightTransparentDeep)
+        surfaceDefaultTransparentDeepHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentDeepHover)
+        surfaceDefaultTransparentDeepActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentDeepActive)
+        surfaceDefaultTransparentCard.overrideBy(DarkColorTokens.SurfaceOnLightTransparentCard)
+        surfaceDefaultTransparentCardHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentCardHover)
+        surfaceDefaultTransparentCardActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentCardActive)
+        surfaceDefaultTransparentCardBrightness.overrideBy(DarkColorTokens.SurfaceOnLightTransparentCardBrightness)
+        surfaceDefaultClear.overrideBy(DarkColorTokens.SurfaceOnLightClear)
+        surfaceDefaultClearHover.overrideBy(DarkColorTokens.SurfaceOnLightClearHover)
+        surfaceDefaultClearActive.overrideBy(DarkColorTokens.SurfaceOnLightClearActive)
+        surfaceDefaultAccent.overrideBy(DarkColorTokens.SurfaceOnLightAccent)
+        surfaceDefaultAccentHover.overrideBy(DarkColorTokens.SurfaceOnLightAccentHover)
+        surfaceDefaultAccentActive.overrideBy(DarkColorTokens.SurfaceOnLightAccentActive)
+        surfaceDefaultAccentMinorHover.overrideBy(DarkColorTokens.SurfaceOnLightAccentMinorHover)
+        surfaceDefaultAccentMinorActive.overrideBy(DarkColorTokens.SurfaceOnLightAccentMinorActive)
+        surfaceDefaultTransparentAccent.overrideBy(DarkColorTokens.SurfaceOnLightTransparentAccent)
+        surfaceDefaultTransparentAccentHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentAccentHover)
+        surfaceDefaultTransparentAccentActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentAccentActive)
+        surfaceDefaultSolidCardActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidCardActive)
+        surfaceDefaultSolidCard.overrideBy(DarkColorTokens.SurfaceOnLightSolidCard)
+        surfaceDefaultSolidCardBrightness.overrideBy(DarkColorTokens.SurfaceOnLightSolidCardBrightness)
+        surfaceDefaultSolidDefault.overrideBy(DarkColorTokens.SurfaceOnLightSolidDefault)
+        surfaceDefaultSolidDefaultHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidDefaultHover)
+        surfaceDefaultTransparentPrimary.overrideBy(DarkColorTokens.SurfaceOnLightTransparentPrimary)
+        surfaceDefaultTransparentPrimaryHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentPrimaryHover)
+        surfaceDefaultSolidDefaultActive.overrideBy(DarkColorTokens.SurfaceOnLightSolidDefaultActive)
+        surfaceDefaultSolidCardHover.overrideBy(DarkColorTokens.SurfaceOnLightSolidCardHover)
+        surfaceDefaultTransparentPrimaryActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentPrimaryActive)
+        surfaceDefaultTransparentSecondary.overrideBy(DarkColorTokens.SurfaceOnLightTransparentSecondary)
+        surfaceDefaultTransparentSecondaryHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentSecondaryHover)
         surfaceDefaultTransparentSecondaryActive.overrideBy(
             DarkColorTokens.SurfaceOnLightTransparentSecondaryActive,
         )
+        surfaceDefaultNegative.overrideBy(DarkColorTokens.SurfaceOnLightNegative)
+        surfaceDefaultNegativeHover.overrideBy(DarkColorTokens.SurfaceOnLightNegativeHover)
+        surfaceDefaultNegativeActive.overrideBy(DarkColorTokens.SurfaceOnLightNegativeActive)
+        surfaceDefaultInfo.overrideBy(DarkColorTokens.SurfaceOnLightInfo)
+        surfaceDefaultInfoHover.overrideBy(DarkColorTokens.SurfaceOnLightInfoHover)
+        surfaceDefaultInfoActive.overrideBy(DarkColorTokens.SurfaceOnLightInfoActive)
+        surfaceDefaultPositiveActive.overrideBy(DarkColorTokens.SurfaceOnLightPositiveActive)
+        surfaceDefaultPositive.overrideBy(DarkColorTokens.SurfaceOnLightPositive)
+        surfaceDefaultPositiveHover.overrideBy(DarkColorTokens.SurfaceOnLightPositiveHover)
+        surfaceDefaultWarning.overrideBy(DarkColorTokens.SurfaceOnLightWarning)
+        surfaceDefaultWarningHover.overrideBy(DarkColorTokens.SurfaceOnLightWarningHover)
+        surfaceDefaultWarningActive.overrideBy(DarkColorTokens.SurfaceOnLightWarningActive)
+        surfaceDefaultTransparentNegativeHover.overrideBy(DarkColorTokens.SurfaceOnLightTransparentNegativeHover)
+        surfaceDefaultReadOnly.overrideBy(DarkColorTokens.SurfaceOnLightReadOnly)
+        surfaceDefaultReadOnlyHover.overrideBy(DarkColorTokens.SurfaceOnLightReadOnlyHover)
+        surfaceDefaultReadOnlyActive.overrideBy(DarkColorTokens.SurfaceOnLightReadOnlyActive)
+        surfaceDefaultTransparentNegativeActive.overrideBy(DarkColorTokens.SurfaceOnLightTransparentNegativeActive)
+        surfaceDefaultTransparentNegative.overrideBy(DarkColorTokens.SurfaceOnLightTransparentNegative)
+        outlineDefaultTransparentPrimary.overrideBy(DarkColorTokens.OutlineOnLightTransparentPrimary)
+        outlineDefaultTransparentPrimaryHover.overrideBy(DarkColorTokens.OutlineOnLightTransparentPrimaryHover)
+        outlineDefaultTransparentPrimaryActive.overrideBy(DarkColorTokens.OutlineOnLightTransparentPrimaryActive)
+        outlineDefaultClear.overrideBy(DarkColorTokens.OutlineOnLightClear)
+        overlayDefaultSoft.overrideBy(DarkColorTokens.OverlayOnLightSoft)
+        overlayDefaultHard.overrideBy(DarkColorTokens.OverlayOnLightHard)
+        outlineDefaultPositive.overrideBy(DarkColorTokens.OutlineOnLightPositive)
+        outlineDefaultPositiveHover.overrideBy(DarkColorTokens.OutlineOnLightPositiveHover)
+        outlineDefaultPositiveActive.overrideBy(DarkColorTokens.OutlineOnLightPositiveActive)
+        outlineDefaultWarning.overrideBy(DarkColorTokens.OutlineOnLightWarning)
+        outlineDefaultWarningHover.overrideBy(DarkColorTokens.OutlineOnLightWarningHover)
+        outlineDefaultWarningActive.overrideBy(DarkColorTokens.OutlineOnLightWarningActive)
+        outlineDefaultNegative.overrideBy(DarkColorTokens.OutlineOnLightNegative)
+        outlineDefaultNegativeHover.overrideBy(DarkColorTokens.OutlineOnLightNegativeHover)
+        outlineDefaultNegativeActive.overrideBy(DarkColorTokens.OutlineOnLightNegativeActive)
+        outlineDefaultInfo.overrideBy(DarkColorTokens.OutlineOnLightInfo)
+        outlineDefaultInfoHover.overrideBy(DarkColorTokens.OutlineOnLightInfoHover)
+        outlineDefaultInfoActive.overrideBy(DarkColorTokens.OutlineOnLightInfoActive)
+        outlineDefaultClearActive.overrideBy(DarkColorTokens.OutlineOnLightClearActive)
+        outlineDefaultClearHover.overrideBy(DarkColorTokens.OutlineOnLightClearHover)
+        textDefaultPrimaryHover.overrideBy(DarkColorTokens.TextOnLightPrimaryHover)
     }
 }
 
 private val lightOnLightColors: SddsSbComColors by lazy {
     lightSddsSbComColors {
-        personaInverseIndigoTextAccentActive.overrideBy(LightColorTokens.PersonaOnDarkIndigoTextAccentActive)
-        outlineInverseDefaultBrightness.overrideBy(LightColorTokens.OutlineOnDarkDefaultBrightness)
-        textInverseParagraph.overrideBy(LightColorTokens.TextOnDarkParagraph)
-        textInverseSecondary.overrideBy(LightColorTokens.TextOnDarkSecondary)
-        textInverseAccentHover.overrideBy(LightColorTokens.TextOnDarkAccentHover)
-        textInverseAccentMinorHover.overrideBy(LightColorTokens.TextOnDarkAccentMinorHover)
-        textInverseAccentMinorActive.overrideBy(LightColorTokens.TextOnDarkAccentMinorActive)
-        surfaceInverseSolidPrimaryBrightness.overrideBy(LightColorTokens.SurfaceOnDarkSolidPrimaryBrightness)
-        surfaceInverseSolidSecondaryHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidSecondaryHover)
-        surfaceInverseSolidSecondary.overrideBy(LightColorTokens.SurfaceOnDarkSolidSecondary)
-        surfaceInverseSolidTertiaryHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidTertiaryHover)
-        surfaceInverseSolidTertiaryActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidTertiaryActive)
-        surfaceInverseSolidTertiary.overrideBy(LightColorTokens.SurfaceOnDarkSolidTertiary)
-        surfaceInverseSolidCardHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidCardHover)
-        surfaceInverseSolidCardActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidCardActive)
-        surfaceInverseSolidCard.overrideBy(LightColorTokens.SurfaceOnDarkSolidCard)
-        surfaceInverseSolidCardBrightness.overrideBy(LightColorTokens.SurfaceOnDarkSolidCardBrightness)
-        surfaceInverseSolidDefaultHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidDefaultHover)
-        surfaceInverseTransparentSecondaryHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentSecondaryHover)
-        surfaceInverseTransparentSecondaryActive.overrideBy(
-            LightColorTokens.SurfaceOnDarkTransparentSecondaryActive,
-        )
-        surfaceInverseTransparentSecondary.overrideBy(LightColorTokens.SurfaceOnDarkTransparentSecondary)
-        surfaceInverseTransparentTertiaryHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentTertiaryHover)
-        surfaceInverseTransparentTertiary.overrideBy(LightColorTokens.SurfaceOnDarkTransparentTertiary)
-        surfaceInverseTransparentDeepHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentDeepHover)
-        surfaceInverseSolidPrimaryActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidPrimaryActive)
-        surfaceInverseSolidPrimary.overrideBy(LightColorTokens.SurfaceOnDarkSolidPrimary)
-        surfaceInverseAccentMinorActive.overrideBy(LightColorTokens.SurfaceOnDarkAccentMinorActive)
-        surfaceInverseTransparentAccentHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentAccentHover)
-        surfaceInverseTransparentAccentActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentAccentActive)
-        surfaceInverseTransparentPrimaryHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentPrimaryHover)
-        surfaceInverseTransparentPrimaryActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentPrimaryActive)
-        surfaceInverseWarning.overrideBy(LightColorTokens.SurfaceOnDarkWarning)
-        surfaceInverseNegativeHover.overrideBy(LightColorTokens.SurfaceOnDarkNegativeHover)
-        surfaceInverseNegativeActive.overrideBy(LightColorTokens.SurfaceOnDarkNegativeActive)
-        surfaceInverseNegative.overrideBy(LightColorTokens.SurfaceOnDarkNegative)
-        surfaceInverseInfoHover.overrideBy(LightColorTokens.SurfaceOnDarkInfoHover)
-        surfaceInverseInfoActive.overrideBy(LightColorTokens.SurfaceOnDarkInfoActive)
-        surfaceInverseTransparentCardHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentCardHover)
-        surfaceInverseTransparentCardActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentCardActive)
-        surfaceInverseTransparentCardBrightness.overrideBy(LightColorTokens.SurfaceOnDarkTransparentCardBrightness)
-        overlayInverseSoft.overrideBy(LightColorTokens.OverlayOnDarkSoft)
-        overlayInverseHard.overrideBy(LightColorTokens.OverlayOnDarkHard)
-        surfaceInversePositiveActive.overrideBy(LightColorTokens.SurfaceOnDarkPositiveActive)
-        surfaceInverseWarningHover.overrideBy(LightColorTokens.SurfaceOnDarkWarningHover)
-        surfaceInverseWarningActive.overrideBy(LightColorTokens.SurfaceOnDarkWarningActive)
-        surfaceInverseTransparentPrimary.overrideBy(LightColorTokens.SurfaceOnDarkTransparentPrimary)
-        outlineInverseWarningHover.overrideBy(LightColorTokens.OutlineOnDarkWarningHover)
-        outlineInverseWarningActive.overrideBy(LightColorTokens.OutlineOnDarkWarningActive)
-        outlineInverseTransparentPrimaryHover.overrideBy(LightColorTokens.OutlineOnDarkTransparentPrimaryHover)
-        outlineInverseTransparentPrimaryActive.overrideBy(LightColorTokens.OutlineOnDarkTransparentPrimaryActive)
-        outlineInversePositiveHover.overrideBy(LightColorTokens.OutlineOnDarkPositiveHover)
-        outlineInversePositiveActive.overrideBy(LightColorTokens.OutlineOnDarkPositiveActive)
-        outlineInverseNegativeHover.overrideBy(LightColorTokens.OutlineOnDarkNegativeHover)
-        outlineInverseNegativeActive.overrideBy(LightColorTokens.OutlineOnDarkNegativeActive)
-        outlineInverseTextInfoHover.overrideBy(LightColorTokens.OutlineOnDarkTextInfoHover)
-        outlineInverseTextInfoActive.overrideBy(LightColorTokens.OutlineOnDarkTextInfoActive)
-        outlineInverseNegative.overrideBy(LightColorTokens.OutlineOnDarkNegative)
-        outlineInverseWarning.overrideBy(LightColorTokens.OutlineOnDarkWarning)
-        outlineInverseTextInfo.overrideBy(LightColorTokens.OutlineOnDarkTextInfo)
-        outlineInverseTransparentPrimary.overrideBy(LightColorTokens.OutlineOnDarkTransparentPrimary)
-        outlineInversePositive.overrideBy(LightColorTokens.OutlineOnDarkPositive)
-        dataInverseYellow.overrideBy(LightColorTokens.DataOnDarkYellow)
-        dataInverseYellowHover.overrideBy(LightColorTokens.DataOnDarkYellowHover)
-        dataInverseYellowActive.overrideBy(LightColorTokens.DataOnDarkYellowActive)
-        dataInverseYellowMinor.overrideBy(LightColorTokens.DataOnDarkYellowMinor)
-        dataInverseYellowMinorHover.overrideBy(LightColorTokens.DataOnDarkYellowMinorHover)
-        dataInverseYellowMinorActive.overrideBy(LightColorTokens.DataOnDarkYellowMinorActive)
-        dataInverseYellowTransparent.overrideBy(LightColorTokens.DataOnDarkYellowTransparent)
-        dataInverseYellowTransparentHover.overrideBy(LightColorTokens.DataOnDarkYellowTransparentHover)
-        dataInverseYellowTransparentActive.overrideBy(LightColorTokens.DataOnDarkYellowTransparentActive)
-        surfaceInversePositive.overrideBy(LightColorTokens.SurfaceOnDarkPositive)
-        outlineInverseDefault.overrideBy(LightColorTokens.OutlineOnDarkDefault)
-        outlineInverseDefaultHover.overrideBy(LightColorTokens.OutlineOnDarkDefaultHover)
         outlineInverseDefaultActive.overrideBy(LightColorTokens.OutlineOnDarkDefaultActive)
-        personaInverseBlueTextAccent.overrideBy(LightColorTokens.PersonaOnDarkBlueTextAccent)
-        personaInverseBlueTextAccentHover.overrideBy(LightColorTokens.PersonaOnDarkBlueTextAccentHover)
-        personaInverseBlueTextAccentActive.overrideBy(LightColorTokens.PersonaOnDarkBlueTextAccentActive)
-        personaInverseGreenTextAccent.overrideBy(LightColorTokens.PersonaOnDarkGreenTextAccent)
-        personaInverseGreenTextAccentHover.overrideBy(LightColorTokens.PersonaOnDarkGreenTextAccentHover)
-        personaInverseGreenTextAccentActive.overrideBy(LightColorTokens.PersonaOnDarkGreenTextAccentActive)
-        personaInverseIndigoTextAccent.overrideBy(LightColorTokens.PersonaOnDarkIndigoTextAccent)
-        personaInverseIndigoTextAccentHover.overrideBy(LightColorTokens.PersonaOnDarkIndigoTextAccentHover)
-        personaInverseOliveTextAccent.overrideBy(LightColorTokens.PersonaOnDarkOliveTextAccent)
-        personaInverseOliveTextAccentActive.overrideBy(LightColorTokens.PersonaOnDarkOliveTextAccentActive)
-        personaInversePinkTextAccent.overrideBy(LightColorTokens.PersonaOnDarkPinkTextAccent)
-        personaInversePinkTextAccentHover.overrideBy(LightColorTokens.PersonaOnDarkPinkTextAccentHover)
-        personaInversePinkTextAccentActive.overrideBy(LightColorTokens.PersonaOnDarkPinkTextAccentActive)
-        personaInverseSeaBlueTextAccent.overrideBy(LightColorTokens.PersonaOnDarkSeaBlueTextAccent)
-        personaInverseSeaBlueTextAccentHover.overrideBy(LightColorTokens.PersonaOnDarkSeaBlueTextAccentHover)
-        personaInverseSeaBlueTextAccentActive.overrideBy(LightColorTokens.PersonaOnDarkSeaBlueTextAccentActive)
-        personaInverseVioletTextAccent.overrideBy(LightColorTokens.PersonaOnDarkVioletTextAccent)
-        personaInverseVioletTextAccentHover.overrideBy(LightColorTokens.PersonaOnDarkVioletTextAccentHover)
-        personaInverseVioletTextAccentActive.overrideBy(LightColorTokens.PersonaOnDarkVioletTextAccentActive)
-        personaInverseOchreTextAccent.overrideBy(LightColorTokens.PersonaOnDarkOchreTextAccent)
-        personaInverseOchreTextAccentHover.overrideBy(LightColorTokens.PersonaOnDarkOchreTextAccentHover)
-        personaInverseOliveTextAccentHover.overrideBy(LightColorTokens.PersonaOnDarkOliveTextAccentHover)
-        personaInverseOchreTextAccentActive.overrideBy(LightColorTokens.PersonaOnDarkOchreTextAccentActive)
-        surfaceInverseSolidSecondaryActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidSecondaryActive)
-        surfaceInverseTransparentDeepActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentDeepActive)
+        personasInverseSeaBlueTextAccentActive.overrideBy(LightColorTokens.PersonasOnDarkSeaBlueTextAccentActive)
+        personasInverseVioletTextAccentActive.overrideBy(LightColorTokens.PersonasOnDarkVioletTextAccentActive)
+        surfaceInverseAccentSecondaryHover.overrideBy(LightColorTokens.SurfaceOnDarkAccentSecondaryHover)
+        outlineInverseDefault.overrideBy(LightColorTokens.OutlineOnDarkDefault)
+        personasInverseIndigoTextAccent.overrideBy(LightColorTokens.PersonasOnDarkIndigoTextAccent)
+        personasInversePinkTextAccent.overrideBy(LightColorTokens.PersonasOnDarkPinkTextAccent)
+        personasInverseOchreTextAccent.overrideBy(LightColorTokens.PersonasOnDarkOchreTextAccent)
+        surfaceInverseTransparentNavi.overrideBy(LightColorTokens.SurfaceOnDarkTransparentNavi)
+        surfaceInverseSolidPrimaryBrightnessHover.overrideBy(
+            LightColorTokens.SurfaceOnDarkSolidPrimaryBrightnessHover,
+        )
+        surfaceInverseSolidPrimaryBrightnessActive.overrideBy(
+            LightColorTokens.SurfaceOnDarkSolidPrimaryBrightnessActive,
+        )
+        surfaceInverseTransparentCardBrightnessHover.overrideBy(
+            LightColorTokens.SurfaceOnDarkTransparentCardBrightnessHover,
+        )
+        personasInverseGreenTextAccent.overrideBy(LightColorTokens.PersonasOnDarkGreenTextAccent)
+        surfaceInverseSolidTertiary.overrideBy(LightColorTokens.SurfaceOnDarkSolidTertiary)
+        surfaceInverseTransparentCardBrightnessActive.overrideBy(
+            LightColorTokens.SurfaceOnDarkTransparentCardBrightnessActive,
+        )
+        surfaceInverseSolidCardBrightnessActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidCardBrightnessActive)
         surfaceInverseAccentMinor.overrideBy(LightColorTokens.SurfaceOnDarkAccentMinor)
-        textInverseAccentActive.overrideBy(LightColorTokens.TextOnDarkAccentActive)
         surfaceInverseAccentSecondaryActive.overrideBy(LightColorTokens.SurfaceOnDarkAccentSecondaryActive)
+        personasInverseIndigoTextAccentActive.overrideBy(LightColorTokens.PersonasOnDarkIndigoTextAccentActive)
+        personasInversePinkTextAccentActive.overrideBy(LightColorTokens.PersonasOnDarkPinkTextAccentActive)
+        personasInverseGreenTextAccentActive.overrideBy(LightColorTokens.PersonasOnDarkGreenTextAccentActive)
+        personasInverseOliveTextAccentHover.overrideBy(LightColorTokens.PersonasOnDarkOliveTextAccentHover)
+        surfaceInverseAccentSecondary.overrideBy(LightColorTokens.SurfaceOnDarkAccentSecondary)
+        personasInverseBlueTextAccentActive.overrideBy(LightColorTokens.PersonasOnDarkBlueTextAccentActive)
         surfaceInverseTransparentAccentMinorActive.overrideBy(
             LightColorTokens.SurfaceOnDarkTransparentAccentMinorActive,
         )
-        surfaceInverseAccentSecondary.overrideBy(LightColorTokens.SurfaceOnDarkAccentSecondary)
-        surfaceInverseTransparentAccentMinor.overrideBy(LightColorTokens.SurfaceOnDarkTransparentAccentMinor)
-        outlineInverseMinor.overrideBy(LightColorTokens.OutlineOnDarkMinor)
-        textInverseWarningHover.overrideBy(LightColorTokens.TextOnDarkWarningHover)
-        surfaceInverseInfo.overrideBy(LightColorTokens.SurfaceOnDarkInfo)
+        personasInverseIndigoTextAccentHover.overrideBy(LightColorTokens.PersonasOnDarkIndigoTextAccentHover)
+        personasInversePinkTextAccentHover.overrideBy(LightColorTokens.PersonasOnDarkPinkTextAccentHover)
+        personasInverseOchreTextAccentHover.overrideBy(LightColorTokens.PersonasOnDarkOchreTextAccentHover)
+        surfaceInverseTransparentNaviHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentNaviHover)
+        outlineInverseDefaultHover.overrideBy(LightColorTokens.OutlineOnDarkDefaultHover)
+        outlineInversePrimaryHover.overrideBy(LightColorTokens.OutlineOnDarkPrimaryHover)
+        personasInverseSeaBlueTextAccentHover.overrideBy(LightColorTokens.PersonasOnDarkSeaBlueTextAccentHover)
+        personasInverseBlueTextAccentHover.overrideBy(LightColorTokens.PersonasOnDarkBlueTextAccentHover)
+        personasInverseVioletTextAccentHover.overrideBy(LightColorTokens.PersonasOnDarkVioletTextAccentHover)
         surfaceInverseTransparentAccentMinorHover.overrideBy(
             LightColorTokens.SurfaceOnDarkTransparentAccentMinorHover,
         )
-        surfaceInverseAccentSecondaryHover.overrideBy(LightColorTokens.SurfaceOnDarkAccentSecondaryHover)
-        surfaceInverseSolidPrimaryHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidPrimaryHover)
-        surfaceInverseTransparentCard.overrideBy(LightColorTokens.SurfaceOnDarkTransparentCard)
-        outlineInverseMinorHover.overrideBy(LightColorTokens.OutlineOnDarkMinorHover)
-        surfaceInverseSolidDefaultActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidDefaultActive)
-        surfaceInversePositiveHover.overrideBy(LightColorTokens.SurfaceOnDarkPositiveHover)
-        surfaceInverseAccentMinorHover.overrideBy(LightColorTokens.SurfaceOnDarkAccentMinorHover)
-        personaInverseOchreTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnDarkOchreTextAccentBrightness)
-        surfaceInverseTransparentAccent.overrideBy(LightColorTokens.SurfaceOnDarkTransparentAccent)
-        personaInversePinkTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnDarkPinkTextAccentBrightness)
-        personaInverseVioletTextAccentBrightness.overrideBy(
-            LightColorTokens.PersonaOnDarkVioletTextAccentBrightness,
-        )
-        surfaceInverseAccentSecondaryBrightness.overrideBy(LightColorTokens.SurfaceOnDarkAccentSecondaryBrightness)
-        personaInverseGreenTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnDarkGreenTextAccentBrightness)
-        textInverseAccentMinor.overrideBy(LightColorTokens.TextOnDarkAccentMinor)
-        surfaceInverseTransparentTertiaryActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentTertiaryActive)
-        outlineInverseMinorBrightness.overrideBy(LightColorTokens.OutlineOnDarkMinorBrightness)
-        surfaceInverseTransparentAccentMinorBrightness.overrideBy(
-            LightColorTokens.SurfaceOnDarkTransparentAccentMinorBrightness,
-        )
-        personaInverseOliveTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnDarkOliveTextAccentBrightness)
-        personaInverseSeaBlueTextAccentBrightness.overrideBy(
-            LightColorTokens.PersonaOnDarkSeaBlueTextAccentBrightness,
-        )
-        outlineInverseMinorActive.overrideBy(LightColorTokens.OutlineOnDarkMinorActive)
-        personaInverseBlueTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnDarkBlueTextAccentBrightness)
-        personaInverseIndigoTextAccentBrightness.overrideBy(
-            LightColorTokens.PersonaOnDarkIndigoTextAccentBrightness,
-        )
+        surfaceInverseSolidCardBrightnessHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidCardBrightnessHover)
+        personasInverseBlueTextAccent.overrideBy(LightColorTokens.PersonasOnDarkBlueTextAccent)
+        personasInverseSeaBlueTextAccent.overrideBy(LightColorTokens.PersonasOnDarkSeaBlueTextAccent)
+        outlineInversePrimary.overrideBy(LightColorTokens.OutlineOnDarkPrimary)
+        personasInverseOliveTextAccentActive.overrideBy(LightColorTokens.PersonasOnDarkOliveTextAccentActive)
+        textInversePrimaryBrightnessHover.overrideBy(LightColorTokens.TextOnDarkPrimaryBrightnessHover)
+        personasInverseVioletTextAccent.overrideBy(LightColorTokens.PersonasOnDarkVioletTextAccent)
+        surfaceInverseTransparentAccentMinor.overrideBy(LightColorTokens.SurfaceOnDarkTransparentAccentMinor)
+        textInversePrimaryBrightnessActive.overrideBy(LightColorTokens.TextOnDarkPrimaryBrightnessActive)
+        personasInverseOchreTextAccentActive.overrideBy(LightColorTokens.PersonasOnDarkOchreTextAccentActive)
+        surfaceInverseTransparentNaviActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentNaviActive)
+        personasInverseOliveTextAccent.overrideBy(LightColorTokens.PersonasOnDarkOliveTextAccent)
+        outlineInversePrimaryActive.overrideBy(LightColorTokens.OutlineOnDarkPrimaryActive)
+        personasInverseGreenTextAccentHover.overrideBy(LightColorTokens.PersonasOnDarkGreenTextAccentHover)
+        textInversePrimary.overrideBy(LightColorTokens.TextOnDarkPrimary)
+        textInversePrimaryHover.overrideBy(LightColorTokens.TextOnDarkPrimaryHover)
         textInversePrimaryActive.overrideBy(LightColorTokens.TextOnDarkPrimaryActive)
         textInversePrimaryBrightness.overrideBy(LightColorTokens.TextOnDarkPrimaryBrightness)
-        textInverseTertiaryActive.overrideBy(LightColorTokens.TextOnDarkTertiaryActive)
-        textInversePrimaryHover.overrideBy(LightColorTokens.TextOnDarkPrimaryHover)
-        textInversePrimary.overrideBy(LightColorTokens.TextOnDarkPrimary)
+        textInverseSecondary.overrideBy(LightColorTokens.TextOnDarkSecondary)
         textInverseSecondaryHover.overrideBy(LightColorTokens.TextOnDarkSecondaryHover)
-        textInverseTertiaryHover.overrideBy(LightColorTokens.TextOnDarkTertiaryHover)
-        textInverseNegative.overrideBy(LightColorTokens.TextOnDarkNegative)
-        textInverseAccent.overrideBy(LightColorTokens.TextOnDarkAccent)
-        textInverseTertiary.overrideBy(LightColorTokens.TextOnDarkTertiary)
-        textInverseParagraphActive.overrideBy(LightColorTokens.TextOnDarkParagraphActive)
-        textInversePositiveHover.overrideBy(LightColorTokens.TextOnDarkPositiveHover)
-        textInverseWarningActive.overrideBy(LightColorTokens.TextOnDarkWarningActive)
-        textInverseNegativeHover.overrideBy(LightColorTokens.TextOnDarkNegativeHover)
-        surfaceInverseTransparentDeep.overrideBy(LightColorTokens.SurfaceOnDarkTransparentDeep)
-        textInverseParagraphHover.overrideBy(LightColorTokens.TextOnDarkParagraphHover)
-        textInversePositiveActive.overrideBy(LightColorTokens.TextOnDarkPositiveActive)
-        textInverseWarning.overrideBy(LightColorTokens.TextOnDarkWarning)
-        textInverseNegativeActive.overrideBy(LightColorTokens.TextOnDarkNegativeActive)
-        textInverseInfo.overrideBy(LightColorTokens.TextOnDarkInfo)
-        textInversePositive.overrideBy(LightColorTokens.TextOnDarkPositive)
         textInverseSecondaryActive.overrideBy(LightColorTokens.TextOnDarkSecondaryActive)
+        textInverseTertiary.overrideBy(LightColorTokens.TextOnDarkTertiary)
+        textInverseTertiaryHover.overrideBy(LightColorTokens.TextOnDarkTertiaryHover)
+        textInverseTertiaryActive.overrideBy(LightColorTokens.TextOnDarkTertiaryActive)
+        textInverseParagraph.overrideBy(LightColorTokens.TextOnDarkParagraph)
+        textInverseParagraphHover.overrideBy(LightColorTokens.TextOnDarkParagraphHover)
+        textInverseParagraphActive.overrideBy(LightColorTokens.TextOnDarkParagraphActive)
+        textInverseAccent.overrideBy(LightColorTokens.TextOnDarkAccent)
+        textInverseAccentHover.overrideBy(LightColorTokens.TextOnDarkAccentHover)
+        textInverseAccentActive.overrideBy(LightColorTokens.TextOnDarkAccentActive)
+        textInverseAccentMinor.overrideBy(LightColorTokens.TextOnDarkAccentMinor)
+        textInverseAccentMinorHover.overrideBy(LightColorTokens.TextOnDarkAccentMinorHover)
+        textInverseAccentMinorActive.overrideBy(LightColorTokens.TextOnDarkAccentMinorActive)
+        textInverseInfo.overrideBy(LightColorTokens.TextOnDarkInfo)
+        textInverseInfoHover.overrideBy(LightColorTokens.TextOnDarkInfoHover)
+        textInverseInfoActive.overrideBy(LightColorTokens.TextOnDarkInfoActive)
+        textInverseWarningActive.overrideBy(LightColorTokens.TextOnDarkWarningActive)
+        textInversePositive.overrideBy(LightColorTokens.TextOnDarkPositive)
+        textInversePositiveHover.overrideBy(LightColorTokens.TextOnDarkPositiveHover)
+        textInverseWarning.overrideBy(LightColorTokens.TextOnDarkWarning)
+        textInverseWarningHover.overrideBy(LightColorTokens.TextOnDarkWarningHover)
+        textInversePositiveActive.overrideBy(LightColorTokens.TextOnDarkPositiveActive)
+        textInverseNegative.overrideBy(LightColorTokens.TextOnDarkNegative)
+        textInverseNegativeHover.overrideBy(LightColorTokens.TextOnDarkNegativeHover)
+        textInverseNegativeActive.overrideBy(LightColorTokens.TextOnDarkNegativeActive)
+        surfaceInverseSolidPrimary.overrideBy(LightColorTokens.SurfaceOnDarkSolidPrimary)
+        surfaceInverseSolidPrimaryHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidPrimaryHover)
+        surfaceInverseSolidPrimaryActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidPrimaryActive)
+        surfaceInverseSolidPrimaryBrightness.overrideBy(LightColorTokens.SurfaceOnDarkSolidPrimaryBrightness)
+        surfaceInverseSolidSecondary.overrideBy(LightColorTokens.SurfaceOnDarkSolidSecondary)
+        surfaceInverseSolidSecondaryHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidSecondaryHover)
+        surfaceInverseSolidSecondaryActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidSecondaryActive)
+        surfaceInverseTransparentSecondaryActive.overrideBy(
+            LightColorTokens.SurfaceOnDarkTransparentSecondaryActive,
+        )
+        surfaceInverseTransparentTertiary.overrideBy(LightColorTokens.SurfaceOnDarkTransparentTertiary)
+        surfaceInverseTransparentTertiaryHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentTertiaryHover)
+        surfaceInverseTransparentTertiaryActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentTertiaryActive)
+        surfaceInverseTransparentDeep.overrideBy(LightColorTokens.SurfaceOnDarkTransparentDeep)
+        surfaceInverseTransparentDeepHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentDeepHover)
+        surfaceInverseTransparentDeepActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentDeepActive)
+        surfaceInverseTransparentCard.overrideBy(LightColorTokens.SurfaceOnDarkTransparentCard)
+        surfaceInverseTransparentCardHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentCardHover)
+        surfaceInverseTransparentCardActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentCardActive)
+        surfaceInverseTransparentCardBrightness.overrideBy(LightColorTokens.SurfaceOnDarkTransparentCardBrightness)
+        surfaceInverseClear.overrideBy(LightColorTokens.SurfaceOnDarkClear)
+        surfaceInverseClearHover.overrideBy(LightColorTokens.SurfaceOnDarkClearHover)
+        surfaceInverseClearActive.overrideBy(LightColorTokens.SurfaceOnDarkClearActive)
+        surfaceInverseAccent.overrideBy(LightColorTokens.SurfaceOnDarkAccent)
+        surfaceInverseSolidTertiaryActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidTertiaryActive)
+        surfaceInverseSolidTertiaryHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidTertiaryHover)
+        surfaceInverseSolidCard.overrideBy(LightColorTokens.SurfaceOnDarkSolidCard)
+        surfaceInverseSolidCardActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidCardActive)
+        surfaceInverseSolidCardHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidCardHover)
+        surfaceInverseSolidDefaultHover.overrideBy(LightColorTokens.SurfaceOnDarkSolidDefaultHover)
+        surfaceInverseSolidDefaultActive.overrideBy(LightColorTokens.SurfaceOnDarkSolidDefaultActive)
+        surfaceInverseSolidCardBrightness.overrideBy(LightColorTokens.SurfaceOnDarkSolidCardBrightness)
         surfaceInverseSolidDefault.overrideBy(LightColorTokens.SurfaceOnDarkSolidDefault)
-        textDefaultTertiaryHover.overrideBy(LightColorTokens.TextOnLightTertiaryHover)
-        personaDefaultIndigoTextAccent.overrideBy(LightColorTokens.PersonaOnLightIndigoTextAccent)
-        personaDefaultSeaBlueTextAccentActive.overrideBy(LightColorTokens.PersonaOnLightSeaBlueTextAccentActive)
-        outlineDefaultMinorBrightness.overrideBy(LightColorTokens.OutlineOnLightMinorBrightness)
-        outlineDefaultDefaultBrightness.overrideBy(LightColorTokens.OutlineOnLightDefaultBrightness)
-        personaDefaultSeaBlueTextAccentBrightness.overrideBy(
-            LightColorTokens.PersonaOnLightSeaBlueTextAccentBrightness,
-        )
-        personaDefaultVioletTextAccentBrightness.overrideBy(
-            LightColorTokens.PersonaOnLightVioletTextAccentBrightness,
-        )
-        textDefaultTertiaryActive.overrideBy(LightColorTokens.TextOnLightTertiaryActive)
-        textDefaultTertiary.overrideBy(LightColorTokens.TextOnLightTertiary)
-        surfaceDefaultSolidDefaultHover.overrideBy(LightColorTokens.SurfaceOnLightSolidDefaultHover)
-        textDefaultPositiveHover.overrideBy(LightColorTokens.TextOnLightPositiveHover)
-        outlineDefaultPositiveActive.overrideBy(LightColorTokens.OutlineOnLightPositiveActive)
-        surfaceDefaultSolidSecondaryActive.overrideBy(LightColorTokens.SurfaceOnLightSolidSecondaryActive)
-        surfaceDefaultSolidSecondary.overrideBy(LightColorTokens.SurfaceOnLightSolidSecondary)
-        surfaceDefaultSolidTertiaryHover.overrideBy(LightColorTokens.SurfaceOnLightSolidTertiaryHover)
-        surfaceDefaultSolidTertiaryActive.overrideBy(LightColorTokens.SurfaceOnLightSolidTertiaryActive)
-        surfaceDefaultSolidTertiary.overrideBy(LightColorTokens.SurfaceOnLightSolidTertiary)
-        surfaceDefaultSolidCardHover.overrideBy(LightColorTokens.SurfaceOnLightSolidCardHover)
-        surfaceDefaultSolidCardActive.overrideBy(LightColorTokens.SurfaceOnLightSolidCardActive)
-        surfaceDefaultSolidCard.overrideBy(LightColorTokens.SurfaceOnLightSolidCard)
-        surfaceDefaultSolidCardBrightness.overrideBy(LightColorTokens.SurfaceOnLightSolidCardBrightness)
-        surfaceDefaultSolidPrimaryActive.overrideBy(LightColorTokens.SurfaceOnLightSolidPrimaryActive)
-        surfaceDefaultSolidPrimaryBrightness.overrideBy(LightColorTokens.SurfaceOnLightSolidPrimaryBrightness)
-        surfaceDefaultSolidPrimary.overrideBy(LightColorTokens.SurfaceOnLightSolidPrimary)
-        surfaceDefaultSolidSecondaryHover.overrideBy(LightColorTokens.SurfaceOnLightSolidSecondaryHover)
-        surfaceDefaultTransparentTertiaryHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentTertiaryHover)
-        surfaceDefaultTransparentTertiaryActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentTertiaryActive)
-        surfaceDefaultTransparentTertiary.overrideBy(LightColorTokens.SurfaceOnLightTransparentTertiary)
-        surfaceDefaultTransparentDeepHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentDeepHover)
-        surfaceDefaultTransparentDeepActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentDeepActive)
-        surfaceDefaultTransparentDeep.overrideBy(LightColorTokens.SurfaceOnLightTransparentDeep)
-        surfaceDefaultTransparentCardHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentCardHover)
-        surfaceDefaultTransparentCardActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentCardActive)
-        surfaceDefaultTransparentCard.overrideBy(LightColorTokens.SurfaceOnLightTransparentCard)
-        surfaceDefaultTransparentCardBrightness.overrideBy(LightColorTokens.SurfaceOnLightTransparentCardBrightness)
-        surfaceDefaultAccentMinorActive.overrideBy(LightColorTokens.SurfaceOnLightAccentMinorActive)
-        surfaceDefaultTransparentAccentHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentAccentHover)
-        surfaceDefaultTransparentAccentActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentAccentActive)
-        surfaceDefaultPositiveHover.overrideBy(LightColorTokens.SurfaceOnLightPositiveHover)
-        surfaceDefaultPositiveActive.overrideBy(LightColorTokens.SurfaceOnLightPositiveActive)
-        surfaceDefaultWarningHover.overrideBy(LightColorTokens.SurfaceOnLightWarningHover)
-        surfaceDefaultTransparentPrimaryHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentPrimaryHover)
-        surfaceDefaultTransparentPrimaryActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentPrimaryActive)
-        surfaceDefaultInfo.overrideBy(LightColorTokens.SurfaceOnLightInfo)
-        surfaceDefaultPositive.overrideBy(LightColorTokens.SurfaceOnLightPositive)
-        surfaceDefaultAccentMinor.overrideBy(LightColorTokens.SurfaceOnLightAccentMinor)
-        surfaceDefaultWarning.overrideBy(LightColorTokens.SurfaceOnLightWarning)
-        surfaceDefaultNegativeHover.overrideBy(LightColorTokens.SurfaceOnLightNegativeHover)
-        surfaceDefaultNegativeActive.overrideBy(LightColorTokens.SurfaceOnLightNegativeActive)
-        surfaceDefaultInfoHover.overrideBy(LightColorTokens.SurfaceOnLightInfoHover)
-        surfaceDefaultInfoActive.overrideBy(LightColorTokens.SurfaceOnLightInfoActive)
-        surfaceDefaultTransparentSecondary.overrideBy(LightColorTokens.SurfaceOnLightTransparentSecondary)
-        surfaceDefaultTransparentAccent.overrideBy(LightColorTokens.SurfaceOnLightTransparentAccent)
-        textDefaultPrimaryHover.overrideBy(LightColorTokens.TextOnLightPrimaryHover)
-        overlayDefaultSoft.overrideBy(LightColorTokens.OverlayOnLightSoft)
-        overlayDefaultHard.overrideBy(LightColorTokens.OverlayOnLightHard)
-        outlineDefaultTransparentPrimaryHover.overrideBy(LightColorTokens.OutlineOnLightTransparentPrimaryHover)
-        outlineDefaultTransparentPrimaryActive.overrideBy(LightColorTokens.OutlineOnLightTransparentPrimaryActive)
-        outlineDefaultNegativeHover.overrideBy(LightColorTokens.OutlineOnLightNegativeHover)
-        outlineDefaultNegativeActive.overrideBy(LightColorTokens.OutlineOnLightNegativeActive)
-        outlineDefaultTextInfoHover.overrideBy(LightColorTokens.OutlineOnLightTextInfoHover)
-        outlineDefaultTextInfoActive.overrideBy(LightColorTokens.OutlineOnLightTextInfoActive)
-        outlineDefaultWarning.overrideBy(LightColorTokens.OutlineOnLightWarning)
-        outlineDefaultWarningHover.overrideBy(LightColorTokens.OutlineOnLightWarningHover)
-        outlineDefaultWarningActive.overrideBy(LightColorTokens.OutlineOnLightWarningActive)
-        dataDefaultYellow.overrideBy(LightColorTokens.DataOnLightYellow)
-        dataDefaultYellowHover.overrideBy(LightColorTokens.DataOnLightYellowHover)
-        dataDefaultYellowActive.overrideBy(LightColorTokens.DataOnLightYellowActive)
-        dataDefaultYellowMinor.overrideBy(LightColorTokens.DataOnLightYellowMinor)
-        dataDefaultYellowMinorHover.overrideBy(LightColorTokens.DataOnLightYellowMinorHover)
-        dataDefaultYellowMinorActive.overrideBy(LightColorTokens.DataOnLightYellowMinorActive)
-        dataDefaultYellowTransparent.overrideBy(LightColorTokens.DataOnLightYellowTransparent)
-        outlineDefaultTextInfo.overrideBy(LightColorTokens.OutlineOnLightTextInfo)
-        outlineDefaultTransparentPrimary.overrideBy(LightColorTokens.OutlineOnLightTransparentPrimary)
-        dataDefaultYellowTransparentActive.overrideBy(LightColorTokens.DataOnLightYellowTransparentActive)
-        outlineDefaultPositive.overrideBy(LightColorTokens.OutlineOnLightPositive)
-        personaDefaultBlueTextAccent.overrideBy(LightColorTokens.PersonaOnLightBlueTextAccent)
-        personaDefaultBlueTextAccentHover.overrideBy(LightColorTokens.PersonaOnLightBlueTextAccentHover)
-        personaDefaultBlueTextAccentActive.overrideBy(LightColorTokens.PersonaOnLightBlueTextAccentActive)
-        personaDefaultGreenTextAccent.overrideBy(LightColorTokens.PersonaOnLightGreenTextAccent)
-        personaDefaultGreenTextAccentHover.overrideBy(LightColorTokens.PersonaOnLightGreenTextAccentHover)
-        personaDefaultGreenTextAccentActive.overrideBy(LightColorTokens.PersonaOnLightGreenTextAccentActive)
-        outlineDefaultDefaultHover.overrideBy(LightColorTokens.OutlineOnLightDefaultHover)
+        surfaceInverseTransparentPrimary.overrideBy(LightColorTokens.SurfaceOnDarkTransparentPrimary)
+        surfaceInverseTransparentPrimaryHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentPrimaryHover)
+        surfaceInverseTransparentPrimaryActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentPrimaryActive)
+        surfaceInverseTransparentSecondary.overrideBy(LightColorTokens.SurfaceOnDarkTransparentSecondary)
+        surfaceInverseTransparentSecondaryHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentSecondaryHover)
+        surfaceInversePositive.overrideBy(LightColorTokens.SurfaceOnDarkPositive)
+        surfaceInversePositiveHover.overrideBy(LightColorTokens.SurfaceOnDarkPositiveHover)
+        surfaceInversePositiveActive.overrideBy(LightColorTokens.SurfaceOnDarkPositiveActive)
+        surfaceInverseWarning.overrideBy(LightColorTokens.SurfaceOnDarkWarning)
+        surfaceInverseWarningHover.overrideBy(LightColorTokens.SurfaceOnDarkWarningHover)
+        surfaceInverseWarningActive.overrideBy(LightColorTokens.SurfaceOnDarkWarningActive)
+        surfaceInverseNegative.overrideBy(LightColorTokens.SurfaceOnDarkNegative)
+        surfaceInverseNegativeHover.overrideBy(LightColorTokens.SurfaceOnDarkNegativeHover)
+        surfaceInverseNegativeActive.overrideBy(LightColorTokens.SurfaceOnDarkNegativeActive)
+        surfaceInverseInfo.overrideBy(LightColorTokens.SurfaceOnDarkInfo)
+        surfaceInverseInfoHover.overrideBy(LightColorTokens.SurfaceOnDarkInfoHover)
+        surfaceInverseInfoActive.overrideBy(LightColorTokens.SurfaceOnDarkInfoActive)
+        surfaceInverseAccentMinorActive.overrideBy(LightColorTokens.SurfaceOnDarkAccentMinorActive)
+        surfaceInverseAccentHover.overrideBy(LightColorTokens.SurfaceOnDarkAccentHover)
+        surfaceInverseTransparentAccent.overrideBy(LightColorTokens.SurfaceOnDarkTransparentAccent)
+        surfaceInverseTransparentAccentHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentAccentHover)
+        surfaceInverseTransparentAccentActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentAccentActive)
+        surfaceInverseAccentActive.overrideBy(LightColorTokens.SurfaceOnDarkAccentActive)
+        surfaceInverseTransparentNegativeActive.overrideBy(LightColorTokens.SurfaceOnDarkTransparentNegativeActive)
+        surfaceInverseTransparentNegative.overrideBy(LightColorTokens.SurfaceOnDarkTransparentNegative)
+        surfaceInverseReadOnly.overrideBy(LightColorTokens.SurfaceOnDarkReadOnly)
+        surfaceInverseReadOnlyHover.overrideBy(LightColorTokens.SurfaceOnDarkReadOnlyHover)
+        surfaceInverseReadOnlyActive.overrideBy(LightColorTokens.SurfaceOnDarkReadOnlyActive)
+        surfaceInverseTransparentNegativeHover.overrideBy(LightColorTokens.SurfaceOnDarkTransparentNegativeHover)
+        overlayInverseSoft.overrideBy(LightColorTokens.OverlayOnDarkSoft)
+        overlayInverseHard.overrideBy(LightColorTokens.OverlayOnDarkHard)
+        outlineInverseTransparentPrimary.overrideBy(LightColorTokens.OutlineOnDarkTransparentPrimary)
+        outlineInverseTransparentPrimaryHover.overrideBy(LightColorTokens.OutlineOnDarkTransparentPrimaryHover)
+        outlineInverseTransparentPrimaryActive.overrideBy(LightColorTokens.OutlineOnDarkTransparentPrimaryActive)
+        outlineInverseClear.overrideBy(LightColorTokens.OutlineOnDarkClear)
+        outlineInverseClearHover.overrideBy(LightColorTokens.OutlineOnDarkClearHover)
+        outlineInverseClearActive.overrideBy(LightColorTokens.OutlineOnDarkClearActive)
+        outlineInverseNegative.overrideBy(LightColorTokens.OutlineOnDarkNegative)
+        outlineInverseNegativeHover.overrideBy(LightColorTokens.OutlineOnDarkNegativeHover)
+        outlineInverseNegativeActive.overrideBy(LightColorTokens.OutlineOnDarkNegativeActive)
+        outlineInverseInfo.overrideBy(LightColorTokens.OutlineOnDarkInfo)
+        outlineInverseInfoHover.overrideBy(LightColorTokens.OutlineOnDarkInfoHover)
+        outlineInverseInfoActive.overrideBy(LightColorTokens.OutlineOnDarkInfoActive)
+        outlineInversePositiveActive.overrideBy(LightColorTokens.OutlineOnDarkPositiveActive)
+        outlineInversePositive.overrideBy(LightColorTokens.OutlineOnDarkPositive)
+        outlineInversePositiveHover.overrideBy(LightColorTokens.OutlineOnDarkPositiveHover)
+        outlineInverseWarning.overrideBy(LightColorTokens.OutlineOnDarkWarning)
+        outlineInverseWarningHover.overrideBy(LightColorTokens.OutlineOnDarkWarningHover)
+        outlineInverseWarningActive.overrideBy(LightColorTokens.OutlineOnDarkWarningActive)
+        surfaceInverseAccentMinorHover.overrideBy(LightColorTokens.SurfaceOnDarkAccentMinorHover)
+        personasDefaultGreenTextAccentHover.overrideBy(LightColorTokens.PersonasOnLightGreenTextAccentHover)
+        personasDefaultSeaBlueTextAccentHover.overrideBy(LightColorTokens.PersonasOnLightSeaBlueTextAccentHover)
+        surfaceDefaultTransparentNaviActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentNaviActive)
         outlineDefaultDefaultActive.overrideBy(LightColorTokens.OutlineOnLightDefaultActive)
-        outlineDefaultMinor.overrideBy(LightColorTokens.OutlineOnLightMinor)
-        outlineDefaultMinorHover.overrideBy(LightColorTokens.OutlineOnLightMinorHover)
-        outlineDefaultMinorActive.overrideBy(LightColorTokens.OutlineOnLightMinorActive)
-        personaDefaultOchreTextAccent.overrideBy(LightColorTokens.PersonaOnLightOchreTextAccent)
-        personaDefaultOchreTextAccentHover.overrideBy(LightColorTokens.PersonaOnLightOchreTextAccentHover)
-        personaDefaultOchreTextAccentActive.overrideBy(LightColorTokens.PersonaOnLightOchreTextAccentActive)
-        personaDefaultOliveTextAccent.overrideBy(LightColorTokens.PersonaOnLightOliveTextAccent)
-        personaDefaultOliveTextAccentHover.overrideBy(LightColorTokens.PersonaOnLightOliveTextAccentHover)
-        personaDefaultOliveTextAccentActive.overrideBy(LightColorTokens.PersonaOnLightOliveTextAccentActive)
-        personaDefaultSeaBlueTextAccent.overrideBy(LightColorTokens.PersonaOnLightSeaBlueTextAccent)
-        personaDefaultSeaBlueTextAccentHover.overrideBy(LightColorTokens.PersonaOnLightSeaBlueTextAccentHover)
-        personaDefaultVioletTextAccent.overrideBy(LightColorTokens.PersonaOnLightVioletTextAccent)
-        personaDefaultVioletTextAccentHover.overrideBy(LightColorTokens.PersonaOnLightVioletTextAccentHover)
-        personaDefaultVioletTextAccentActive.overrideBy(LightColorTokens.PersonaOnLightVioletTextAccentActive)
-        personaDefaultIndigoTextAccentHover.overrideBy(LightColorTokens.PersonaOnLightIndigoTextAccentHover)
-        personaDefaultIndigoTextAccentActive.overrideBy(LightColorTokens.PersonaOnLightIndigoTextAccentActive)
-        personaDefaultPinkTextAccentActive.overrideBy(LightColorTokens.PersonaOnLightPinkTextAccentActive)
-        personaDefaultPinkTextAccent.overrideBy(LightColorTokens.PersonaOnLightPinkTextAccent)
-        personaDefaultPinkTextAccentHover.overrideBy(LightColorTokens.PersonaOnLightPinkTextAccentHover)
-        surfaceDefaultAccentPrimary.overrideBy(LightColorTokens.SurfaceOnLightAccentPrimary)
-        surfaceDefaultAccentPrimaryHover.overrideBy(LightColorTokens.SurfaceOnLightAccentPrimaryHover)
-        surfaceDefaultAccentPrimaryActive.overrideBy(LightColorTokens.SurfaceOnLightAccentPrimaryActive)
-        surfaceDefaultWarningActive.overrideBy(LightColorTokens.SurfaceOnLightWarningActive)
-        surfaceDefaultAccentSecondaryActive.overrideBy(LightColorTokens.SurfaceOnLightAccentSecondaryActive)
+        personasDefaultOliveTextAccentActive.overrideBy(LightColorTokens.PersonasOnLightOliveTextAccentActive)
+        surfaceDefaultAccentSecondaryHover.overrideBy(LightColorTokens.SurfaceOnLightAccentSecondaryHover)
+        personasDefaultIndigoTextAccentHover.overrideBy(LightColorTokens.PersonasOnLightIndigoTextAccentHover)
+        personasDefaultOchreTextAccentActive.overrideBy(LightColorTokens.PersonasOnLightOchreTextAccentActive)
+        surfaceDefaultTransparentNavi.overrideBy(LightColorTokens.SurfaceOnLightTransparentNavi)
+        personasDefaultVioletTextAccentActive.overrideBy(LightColorTokens.PersonasOnLightVioletTextAccentActive)
+        personasDefaultBlueTextAccentHover.overrideBy(LightColorTokens.PersonasOnLightBlueTextAccentHover)
+        textDefaultPrimaryBrightnessActive.overrideBy(LightColorTokens.TextOnLightPrimaryBrightnessActive)
+        surfaceDefaultTransparentCardBrightnessHover.overrideBy(
+            LightColorTokens.SurfaceOnLightTransparentCardBrightnessHover,
+        )
+        surfaceDefaultSolidCardBrightnessActive.overrideBy(LightColorTokens.SurfaceOnLightSolidCardBrightnessActive)
+        surfaceDefaultSolidPrimaryBrightnessHover.overrideBy(
+            LightColorTokens.SurfaceOnLightSolidPrimaryBrightnessHover,
+        )
+        surfaceDefaultTransparentCardBrightnessActive.overrideBy(
+            LightColorTokens.SurfaceOnLightTransparentCardBrightnessActive,
+        )
+        surfaceDefaultSolidCardBrightnessHover.overrideBy(LightColorTokens.SurfaceOnLightSolidCardBrightnessHover)
+        personasDefaultOliveTextAccent.overrideBy(LightColorTokens.PersonasOnLightOliveTextAccent)
+        surfaceDefaultSolidTertiaryActive.overrideBy(LightColorTokens.SurfaceOnLightSolidTertiaryActive)
+        textDefaultPrimary.overrideBy(LightColorTokens.TextOnLightPrimary)
+        outlineDefaultPrimary.overrideBy(LightColorTokens.OutlineOnLightPrimary)
+        surfaceDefaultAccentSecondary.overrideBy(LightColorTokens.SurfaceOnLightAccentSecondary)
+        surfaceDefaultAccentMinor.overrideBy(LightColorTokens.SurfaceOnLightAccentMinor)
+        personasDefaultOchreTextAccent.overrideBy(LightColorTokens.PersonasOnLightOchreTextAccent)
+        personasDefaultGreenTextAccentActive.overrideBy(LightColorTokens.PersonasOnLightGreenTextAccentActive)
+        personasDefaultSeaBlueTextAccentActive.overrideBy(LightColorTokens.PersonasOnLightSeaBlueTextAccentActive)
+        outlineDefaultPrimaryActive.overrideBy(LightColorTokens.OutlineOnLightPrimaryActive)
+        personasDefaultIndigoTextAccentActive.overrideBy(LightColorTokens.PersonasOnLightIndigoTextAccentActive)
+        personasDefaultOchreTextAccentHover.overrideBy(LightColorTokens.PersonasOnLightOchreTextAccentHover)
+        textDefaultPrimaryBrightnessHover.overrideBy(LightColorTokens.TextOnLightPrimaryBrightnessHover)
+        outlineDefaultPrimaryHover.overrideBy(LightColorTokens.OutlineOnLightPrimaryHover)
+        personasDefaultOliveTextAccentHover.overrideBy(LightColorTokens.PersonasOnLightOliveTextAccentHover)
         surfaceDefaultTransparentAccentMinorActive.overrideBy(
             LightColorTokens.SurfaceOnLightTransparentAccentMinorActive,
         )
-        textDefaultAccentMinorHover.overrideBy(LightColorTokens.TextOnLightAccentMinorHover)
-        surfaceDefaultAccentSecondary.overrideBy(LightColorTokens.SurfaceOnLightAccentSecondary)
+        personasDefaultVioletTextAccent.overrideBy(LightColorTokens.PersonasOnLightVioletTextAccent)
+        surfaceDefaultTransparentNaviHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentNaviHover)
+        outlineDefaultDefaultHover.overrideBy(LightColorTokens.OutlineOnLightDefaultHover)
+        personasDefaultBlueTextAccentActive.overrideBy(LightColorTokens.PersonasOnLightBlueTextAccentActive)
+        surfaceDefaultAccentSecondaryActive.overrideBy(LightColorTokens.SurfaceOnLightAccentSecondaryActive)
         surfaceDefaultTransparentAccentMinor.overrideBy(LightColorTokens.SurfaceOnLightTransparentAccentMinor)
-        dataDefaultYellowTransparentHover.overrideBy(LightColorTokens.DataOnLightYellowTransparentHover)
-        outlineDefaultNegative.overrideBy(LightColorTokens.OutlineOnLightNegative)
+        personasDefaultPinkTextAccent.overrideBy(LightColorTokens.PersonasOnLightPinkTextAccent)
+        personasDefaultGreenTextAccent.overrideBy(LightColorTokens.PersonasOnLightGreenTextAccent)
+        personasDefaultBlueTextAccent.overrideBy(LightColorTokens.PersonasOnLightBlueTextAccent)
+        personasDefaultSeaBlueTextAccent.overrideBy(LightColorTokens.PersonasOnLightSeaBlueTextAccent)
+        personasDefaultVioletTextAccentHover.overrideBy(LightColorTokens.PersonasOnLightVioletTextAccentHover)
+        surfaceDefaultSolidPrimaryBrightnessActive.overrideBy(
+            LightColorTokens.SurfaceOnLightSolidPrimaryBrightnessActive,
+        )
+        personasDefaultIndigoTextAccent.overrideBy(LightColorTokens.PersonasOnLightIndigoTextAccent)
+        personasDefaultPinkTextAccentHover.overrideBy(LightColorTokens.PersonasOnLightPinkTextAccentHover)
         surfaceDefaultTransparentAccentMinorHover.overrideBy(
             LightColorTokens.SurfaceOnLightTransparentAccentMinorHover,
         )
-        surfaceDefaultAccentSecondaryHover.overrideBy(LightColorTokens.SurfaceOnLightAccentSecondaryHover)
-        surfaceDefaultTransparentSecondaryHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentSecondaryHover)
-        surfaceDefaultNegative.overrideBy(LightColorTokens.SurfaceOnLightNegative)
-        surfaceDefaultSolidDefault.overrideBy(LightColorTokens.SurfaceOnLightSolidDefault)
-        surfaceDefaultTransparentPrimary.overrideBy(LightColorTokens.SurfaceOnLightTransparentPrimary)
-        personaDefaultGreenTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnLightGreenTextAccentBrightness)
-        personaDefaultOchreTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnLightOchreTextAccentBrightness)
-        surfaceDefaultAccentPrimaryBrightness.overrideBy(LightColorTokens.SurfaceOnLightAccentPrimaryBrightness)
-        personaDefaultPinkTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnLightPinkTextAccentBrightness)
-        textDefaultParagraphActive.overrideBy(LightColorTokens.TextOnLightParagraphActive)
-        textDefaultAccentHover.overrideBy(LightColorTokens.TextOnLightAccentHover)
-        surfaceDefaultAccentMinorHover.overrideBy(LightColorTokens.SurfaceOnLightAccentMinorHover)
-        outlineDefaultPositiveHover.overrideBy(LightColorTokens.OutlineOnLightPositiveHover)
-        textDefaultSecondaryHover.overrideBy(LightColorTokens.TextOnLightSecondaryHover)
-        personaDefaultBlueTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnLightBlueTextAccentBrightness)
-        personaDefaultIndigoTextAccentBrightness.overrideBy(
-            LightColorTokens.PersonaOnLightIndigoTextAccentBrightness,
-        )
-        personaDefaultOliveTextAccentBrightness.overrideBy(LightColorTokens.PersonaOnLightOliveTextAccentBrightness)
-        surfaceDefaultTransparentAccentMinorBrightness.overrideBy(
-            LightColorTokens.SurfaceOnLightTransparentAccentMinorBrightness,
-        )
-        surfaceDefaultAccentSecondaryBrightness.overrideBy(LightColorTokens.SurfaceOnLightAccentSecondaryBrightness)
-        textDefaultParagraphHover.overrideBy(LightColorTokens.TextOnLightParagraphHover)
-        textDefaultParagraph.overrideBy(LightColorTokens.TextOnLightParagraph)
-        textDefaultAccentActive.overrideBy(LightColorTokens.TextOnLightAccentActive)
-        surfaceDefaultSolidPrimaryHover.overrideBy(LightColorTokens.SurfaceOnLightSolidPrimaryHover)
-        textDefaultPositiveActive.overrideBy(LightColorTokens.TextOnLightPositiveActive)
-        textDefaultWarningActive.overrideBy(LightColorTokens.TextOnLightWarningActive)
-        textDefaultNegativeHover.overrideBy(LightColorTokens.TextOnLightNegativeHover)
-        textDefaultNegative.overrideBy(LightColorTokens.TextOnLightNegative)
-        textDefaultInfoActive.overrideBy(LightColorTokens.TextOnLightInfoActive)
+        personasDefaultPinkTextAccentActive.overrideBy(LightColorTokens.PersonasOnLightPinkTextAccentActive)
         textDefaultAccent.overrideBy(LightColorTokens.TextOnLightAccent)
+        textDefaultAccentHover.overrideBy(LightColorTokens.TextOnLightAccentHover)
+        textDefaultAccentActive.overrideBy(LightColorTokens.TextOnLightAccentActive)
         textDefaultAccentMinor.overrideBy(LightColorTokens.TextOnLightAccentMinor)
-        textDefaultPrimaryActive.overrideBy(LightColorTokens.TextOnLightPrimaryActive)
-        textDefaultPrimaryBrightness.overrideBy(LightColorTokens.TextOnLightPrimaryBrightness)
-        textDefaultSecondary.overrideBy(LightColorTokens.TextOnLightSecondary)
-        textDefaultWarning.overrideBy(LightColorTokens.TextOnLightWarning)
-        textDefaultNegativeActive.overrideBy(LightColorTokens.TextOnLightNegativeActive)
-        textDefaultInfoHover.overrideBy(LightColorTokens.TextOnLightInfoHover)
-        textDefaultInfo.overrideBy(LightColorTokens.TextOnLightInfo)
-        textDefaultPositive.overrideBy(LightColorTokens.TextOnLightPositive)
-        textDefaultPrimary.overrideBy(LightColorTokens.TextOnLightPrimary)
-        textDefaultSecondaryActive.overrideBy(LightColorTokens.TextOnLightSecondaryActive)
-        textDefaultWarningHover.overrideBy(LightColorTokens.TextOnLightWarningHover)
-        surfaceDefaultSolidDefaultActive.overrideBy(LightColorTokens.SurfaceOnLightSolidDefaultActive)
+        textDefaultAccentMinorHover.overrideBy(LightColorTokens.TextOnLightAccentMinorHover)
         textDefaultAccentMinorActive.overrideBy(LightColorTokens.TextOnLightAccentMinorActive)
+        textDefaultPositive.overrideBy(LightColorTokens.TextOnLightPositive)
+        textDefaultPositiveHover.overrideBy(LightColorTokens.TextOnLightPositiveHover)
+        textDefaultPositiveActive.overrideBy(LightColorTokens.TextOnLightPositiveActive)
+        textDefaultWarning.overrideBy(LightColorTokens.TextOnLightWarning)
+        textDefaultWarningHover.overrideBy(LightColorTokens.TextOnLightWarningHover)
+        textDefaultWarningActive.overrideBy(LightColorTokens.TextOnLightWarningActive)
+        textDefaultNegative.overrideBy(LightColorTokens.TextOnLightNegative)
+        textDefaultNegativeHover.overrideBy(LightColorTokens.TextOnLightNegativeHover)
+        textDefaultNegativeActive.overrideBy(LightColorTokens.TextOnLightNegativeActive)
+        textDefaultInfo.overrideBy(LightColorTokens.TextOnLightInfo)
+        textDefaultInfoHover.overrideBy(LightColorTokens.TextOnLightInfoHover)
+        textDefaultInfoActive.overrideBy(LightColorTokens.TextOnLightInfoActive)
+        textDefaultSecondaryHover.overrideBy(LightColorTokens.TextOnLightSecondaryHover)
+        textDefaultSecondary.overrideBy(LightColorTokens.TextOnLightSecondary)
+        textDefaultPrimaryActive.overrideBy(LightColorTokens.TextOnLightPrimaryActive)
+        textDefaultSecondaryActive.overrideBy(LightColorTokens.TextOnLightSecondaryActive)
+        textDefaultTertiary.overrideBy(LightColorTokens.TextOnLightTertiary)
+        textDefaultTertiaryHover.overrideBy(LightColorTokens.TextOnLightTertiaryHover)
+        textDefaultTertiaryActive.overrideBy(LightColorTokens.TextOnLightTertiaryActive)
+        textDefaultPrimaryBrightness.overrideBy(LightColorTokens.TextOnLightPrimaryBrightness)
+        textDefaultParagraph.overrideBy(LightColorTokens.TextOnLightParagraph)
+        textDefaultParagraphHover.overrideBy(LightColorTokens.TextOnLightParagraphHover)
+        textDefaultParagraphActive.overrideBy(LightColorTokens.TextOnLightParagraphActive)
+        surfaceDefaultSolidPrimary.overrideBy(LightColorTokens.SurfaceOnLightSolidPrimary)
+        surfaceDefaultSolidPrimaryHover.overrideBy(LightColorTokens.SurfaceOnLightSolidPrimaryHover)
+        surfaceDefaultSolidPrimaryActive.overrideBy(LightColorTokens.SurfaceOnLightSolidPrimaryActive)
+        surfaceDefaultSolidPrimaryBrightness.overrideBy(LightColorTokens.SurfaceOnLightSolidPrimaryBrightness)
+        surfaceDefaultSolidSecondary.overrideBy(LightColorTokens.SurfaceOnLightSolidSecondary)
+        surfaceDefaultSolidSecondaryHover.overrideBy(LightColorTokens.SurfaceOnLightSolidSecondaryHover)
+        surfaceDefaultSolidSecondaryActive.overrideBy(LightColorTokens.SurfaceOnLightSolidSecondaryActive)
+        surfaceDefaultSolidTertiary.overrideBy(LightColorTokens.SurfaceOnLightSolidTertiary)
+        surfaceDefaultSolidTertiaryHover.overrideBy(LightColorTokens.SurfaceOnLightSolidTertiaryHover)
+        surfaceDefaultTransparentTertiary.overrideBy(LightColorTokens.SurfaceOnLightTransparentTertiary)
+        surfaceDefaultTransparentTertiaryHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentTertiaryHover)
+        surfaceDefaultTransparentTertiaryActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentTertiaryActive)
+        surfaceDefaultTransparentDeep.overrideBy(LightColorTokens.SurfaceOnLightTransparentDeep)
+        surfaceDefaultTransparentDeepHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentDeepHover)
+        surfaceDefaultTransparentDeepActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentDeepActive)
+        surfaceDefaultTransparentCard.overrideBy(LightColorTokens.SurfaceOnLightTransparentCard)
+        surfaceDefaultTransparentCardHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentCardHover)
+        surfaceDefaultTransparentCardActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentCardActive)
+        surfaceDefaultTransparentCardBrightness.overrideBy(LightColorTokens.SurfaceOnLightTransparentCardBrightness)
+        surfaceDefaultClear.overrideBy(LightColorTokens.SurfaceOnLightClear)
+        surfaceDefaultClearHover.overrideBy(LightColorTokens.SurfaceOnLightClearHover)
+        surfaceDefaultClearActive.overrideBy(LightColorTokens.SurfaceOnLightClearActive)
+        surfaceDefaultAccent.overrideBy(LightColorTokens.SurfaceOnLightAccent)
+        surfaceDefaultAccentHover.overrideBy(LightColorTokens.SurfaceOnLightAccentHover)
+        surfaceDefaultAccentActive.overrideBy(LightColorTokens.SurfaceOnLightAccentActive)
+        surfaceDefaultAccentMinorHover.overrideBy(LightColorTokens.SurfaceOnLightAccentMinorHover)
+        surfaceDefaultAccentMinorActive.overrideBy(LightColorTokens.SurfaceOnLightAccentMinorActive)
+        surfaceDefaultTransparentAccent.overrideBy(LightColorTokens.SurfaceOnLightTransparentAccent)
+        surfaceDefaultTransparentAccentHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentAccentHover)
+        surfaceDefaultTransparentAccentActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentAccentActive)
+        surfaceDefaultSolidCardActive.overrideBy(LightColorTokens.SurfaceOnLightSolidCardActive)
+        surfaceDefaultSolidCard.overrideBy(LightColorTokens.SurfaceOnLightSolidCard)
+        surfaceDefaultSolidCardBrightness.overrideBy(LightColorTokens.SurfaceOnLightSolidCardBrightness)
+        surfaceDefaultSolidDefault.overrideBy(LightColorTokens.SurfaceOnLightSolidDefault)
+        surfaceDefaultSolidDefaultHover.overrideBy(LightColorTokens.SurfaceOnLightSolidDefaultHover)
+        surfaceDefaultTransparentPrimary.overrideBy(LightColorTokens.SurfaceOnLightTransparentPrimary)
+        surfaceDefaultTransparentPrimaryHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentPrimaryHover)
+        surfaceDefaultSolidDefaultActive.overrideBy(LightColorTokens.SurfaceOnLightSolidDefaultActive)
+        surfaceDefaultSolidCardHover.overrideBy(LightColorTokens.SurfaceOnLightSolidCardHover)
+        surfaceDefaultTransparentPrimaryActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentPrimaryActive)
+        surfaceDefaultTransparentSecondary.overrideBy(LightColorTokens.SurfaceOnLightTransparentSecondary)
+        surfaceDefaultTransparentSecondaryHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentSecondaryHover)
         surfaceDefaultTransparentSecondaryActive.overrideBy(
             LightColorTokens.SurfaceOnLightTransparentSecondaryActive,
         )
+        surfaceDefaultNegative.overrideBy(LightColorTokens.SurfaceOnLightNegative)
+        surfaceDefaultNegativeHover.overrideBy(LightColorTokens.SurfaceOnLightNegativeHover)
+        surfaceDefaultNegativeActive.overrideBy(LightColorTokens.SurfaceOnLightNegativeActive)
+        surfaceDefaultInfo.overrideBy(LightColorTokens.SurfaceOnLightInfo)
+        surfaceDefaultInfoHover.overrideBy(LightColorTokens.SurfaceOnLightInfoHover)
+        surfaceDefaultInfoActive.overrideBy(LightColorTokens.SurfaceOnLightInfoActive)
+        surfaceDefaultPositiveActive.overrideBy(LightColorTokens.SurfaceOnLightPositiveActive)
+        surfaceDefaultPositive.overrideBy(LightColorTokens.SurfaceOnLightPositive)
+        surfaceDefaultPositiveHover.overrideBy(LightColorTokens.SurfaceOnLightPositiveHover)
+        surfaceDefaultWarning.overrideBy(LightColorTokens.SurfaceOnLightWarning)
+        surfaceDefaultWarningHover.overrideBy(LightColorTokens.SurfaceOnLightWarningHover)
+        surfaceDefaultWarningActive.overrideBy(LightColorTokens.SurfaceOnLightWarningActive)
+        surfaceDefaultTransparentNegativeHover.overrideBy(LightColorTokens.SurfaceOnLightTransparentNegativeHover)
+        surfaceDefaultReadOnly.overrideBy(LightColorTokens.SurfaceOnLightReadOnly)
+        surfaceDefaultReadOnlyHover.overrideBy(LightColorTokens.SurfaceOnLightReadOnlyHover)
+        surfaceDefaultReadOnlyActive.overrideBy(LightColorTokens.SurfaceOnLightReadOnlyActive)
+        surfaceDefaultTransparentNegativeActive.overrideBy(LightColorTokens.SurfaceOnLightTransparentNegativeActive)
+        surfaceDefaultTransparentNegative.overrideBy(LightColorTokens.SurfaceOnLightTransparentNegative)
+        outlineDefaultTransparentPrimary.overrideBy(LightColorTokens.OutlineOnLightTransparentPrimary)
+        outlineDefaultTransparentPrimaryHover.overrideBy(LightColorTokens.OutlineOnLightTransparentPrimaryHover)
+        outlineDefaultTransparentPrimaryActive.overrideBy(LightColorTokens.OutlineOnLightTransparentPrimaryActive)
+        outlineDefaultClear.overrideBy(LightColorTokens.OutlineOnLightClear)
+        overlayDefaultSoft.overrideBy(LightColorTokens.OverlayOnLightSoft)
+        overlayDefaultHard.overrideBy(LightColorTokens.OverlayOnLightHard)
+        outlineDefaultPositive.overrideBy(LightColorTokens.OutlineOnLightPositive)
+        outlineDefaultPositiveHover.overrideBy(LightColorTokens.OutlineOnLightPositiveHover)
+        outlineDefaultPositiveActive.overrideBy(LightColorTokens.OutlineOnLightPositiveActive)
+        outlineDefaultWarning.overrideBy(LightColorTokens.OutlineOnLightWarning)
+        outlineDefaultWarningHover.overrideBy(LightColorTokens.OutlineOnLightWarningHover)
+        outlineDefaultWarningActive.overrideBy(LightColorTokens.OutlineOnLightWarningActive)
+        outlineDefaultNegative.overrideBy(LightColorTokens.OutlineOnLightNegative)
+        outlineDefaultNegativeHover.overrideBy(LightColorTokens.OutlineOnLightNegativeHover)
+        outlineDefaultNegativeActive.overrideBy(LightColorTokens.OutlineOnLightNegativeActive)
+        outlineDefaultInfo.overrideBy(LightColorTokens.OutlineOnLightInfo)
+        outlineDefaultInfoHover.overrideBy(LightColorTokens.OutlineOnLightInfoHover)
+        outlineDefaultInfoActive.overrideBy(LightColorTokens.OutlineOnLightInfoActive)
+        outlineDefaultClearActive.overrideBy(LightColorTokens.OutlineOnLightClearActive)
+        outlineDefaultClearHover.overrideBy(LightColorTokens.OutlineOnLightClearHover)
+        textDefaultPrimaryHover.overrideBy(LightColorTokens.TextOnLightPrimaryHover)
     }
 }
 
 private val darkOnLightGradients: SddsSbComGradients by lazy {
     darkSddsSbComGradients {
-        personaInversePinkSurfaceAccentGradientActive.overrideBy(
+        personasInverseIndigoSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.angle,
+                    DarkGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        outlineInverseTransparentSurfaceBrightness.overrideBy(
+        personasInverseSeaBlueSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.OutlineOnDarkTransparentSurfaceBrightness.colors,
-                    DarkGradientTokens.OutlineOnDarkTransparentSurfaceBrightness.positions,
-                    DarkGradientTokens.OutlineOnDarkTransparentSurfaceBrightness.angle,
+                    DarkGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceInverseAccentGradientBrightness.overrideBy(
+        textInverseAccentGradientAI.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnDarkAccentGradientBrightness.colors,
-                    DarkGradientTokens.SurfaceOnDarkAccentGradientBrightness.positions,
-                    DarkGradientTokens.SurfaceOnDarkAccentGradientBrightness.angle,
+                    DarkGradientTokens.TextOnDarkAccentGradientAI.colors,
+                    DarkGradientTokens.TextOnDarkAccentGradientAI.positions,
+                    DarkGradientTokens.TextOnDarkAccentGradientAI.angle,
                 ),
             ),
         )
-        textInverseAccentGradientAiBrightness.overrideBy(
+        personasInversePinkSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.TextOnDarkAccentGradientAiBrightness.colors,
-                    DarkGradientTokens.TextOnDarkAccentGradientAiBrightness.positions,
-                    DarkGradientTokens.TextOnDarkAccentGradientAiBrightness.angle,
+                    DarkGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceInverseAccentGradientHover.overrideBy(
+        personasInverseOchreSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnDarkAccentGradientHover.colors,
-                    DarkGradientTokens.SurfaceOnDarkAccentGradientHover.positions,
-                    DarkGradientTokens.SurfaceOnDarkAccentGradientHover.angle,
+                    DarkGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceInverseAccentGradientActive.overrideBy(
+        overlayInverseGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnDarkAccentGradientActive.colors,
-                    DarkGradientTokens.SurfaceOnDarkAccentGradientActive.positions,
-                    DarkGradientTokens.SurfaceOnDarkAccentGradientActive.angle,
+                    DarkGradientTokens.OverlayOnDarkGradient.colors,
+                    DarkGradientTokens.OverlayOnDarkGradient.positions,
+                    DarkGradientTokens.OverlayOnDarkGradient.angle,
                 ),
             ),
         )
-        surfaceInverseAccentGradient.overrideBy(
+        surfaceInverseAccentGradientSecondary.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnDarkAccentGradient.colors,
-                    DarkGradientTokens.SurfaceOnDarkAccentGradient.positions,
-                    DarkGradientTokens.SurfaceOnDarkAccentGradient.angle,
+                    DarkGradientTokens.SurfaceOnDarkAccentGradientSecondary.colors,
+                    DarkGradientTokens.SurfaceOnDarkAccentGradientSecondary.positions,
+                    DarkGradientTokens.SurfaceOnDarkAccentGradientSecondary.angle,
                 ),
             ),
         )
@@ -774,372 +798,102 @@ private val darkOnLightGradients: SddsSbComGradients by lazy {
                 ),
             ),
         )
-        surfaceInverseSkeletonGradientHover.overrideBy(
+        personasInverseGreenSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.colors,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.positions,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.angle,
+                    DarkGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceInverseSkeletonGradientActive.overrideBy(
+        outlineInverseWhiteGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.colors,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.positions,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.angle,
+                    DarkGradientTokens.OutlineOnDarkWhiteGradient.colors,
+                    DarkGradientTokens.OutlineOnDarkWhiteGradient.positions,
+                    DarkGradientTokens.OutlineOnDarkWhiteGradient.angle,
                 ),
             ),
         )
-        surfaceInverseSkeletonDeepGradient.overrideBy(
+        personasInverseBlueSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.colors,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.positions,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.angle,
+                    DarkGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceInverseSkeletonDeepGradientActive.overrideBy(
+        personasInverseOliveSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.colors,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.positions,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.angle,
+                    DarkGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        outlineInverseAccentGradientHover.overrideBy(
+        personasInverseVioletSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.OutlineOnDarkAccentGradientHover.colors,
-                    DarkGradientTokens.OutlineOnDarkAccentGradientHover.positions,
-                    DarkGradientTokens.OutlineOnDarkAccentGradientHover.angle,
+                    DarkGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        outlineInverseAccentGradientActive.overrideBy(
+        surfaceInverseAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.OutlineOnDarkAccentGradientActive.colors,
-                    DarkGradientTokens.OutlineOnDarkAccentGradientActive.positions,
-                    DarkGradientTokens.OutlineOnDarkAccentGradientActive.angle,
+                    DarkGradientTokens.SurfaceOnDarkAccentGradient.colors,
+                    DarkGradientTokens.SurfaceOnDarkAccentGradient.positions,
+                    DarkGradientTokens.SurfaceOnDarkAccentGradient.angle,
                 ),
             ),
         )
-        personaInverseBlueSurfaceAccentGradient.overrideBy(
+        surfaceInverseAccentMinorGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.angle,
+                    DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.colors,
+                    DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.positions,
+                    DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.angle,
                 ),
             ),
         )
-        personaInverseBlueSurfaceAccentGradientHover.overrideBy(
+        outlineDefaultWhiteGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.angle,
+                    DarkGradientTokens.OutlineOnLightWhiteGradient.colors,
+                    DarkGradientTokens.OutlineOnLightWhiteGradient.positions,
+                    DarkGradientTokens.OutlineOnLightWhiteGradient.angle,
                 ),
             ),
         )
-        personaInverseBlueSurfaceAccentGradientActive.overrideBy(
+        personasDefaultGreenSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.angle,
+                    DarkGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        personaInverseGreenSurfaceAccentGradient.overrideBy(
+        personasDefaultSeaBlueSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.angle,
+                    DarkGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        personaInverseGreenSurfaceAccentGradientHover.overrideBy(
+        personasDefaultPinkSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseGreenSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseIndigoSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseIndigoSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseOchreSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseOchreSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseOliveSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInversePinkSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInversePinkSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseSeaBlueSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseSeaBlueSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseSeaBlueSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseVioletSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseVioletSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseVioletSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseOliveSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseOliveSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseOchreSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        textInverseAccentGradientAi.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.TextOnDarkAccentGradientAi.colors,
-                    DarkGradientTokens.TextOnDarkAccentGradientAi.positions,
-                    DarkGradientTokens.TextOnDarkAccentGradientAi.angle,
-                ),
-            ),
-        )
-        textInverseAccentGradientAiHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.TextOnDarkAccentGradientAiHover.colors,
-                    DarkGradientTokens.TextOnDarkAccentGradientAiHover.positions,
-                    DarkGradientTokens.TextOnDarkAccentGradientAiHover.angle,
-                ),
-            ),
-        )
-        textInverseAccentGradientAiActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.TextOnDarkAccentGradientAiActive.colors,
-                    DarkGradientTokens.TextOnDarkAccentGradientAiActive.positions,
-                    DarkGradientTokens.TextOnDarkAccentGradientAiActive.angle,
-                ),
-            ),
-        )
-        outlineInverseTransparentSurface.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.OutlineOnDarkTransparentSurface.colors,
-                    DarkGradientTokens.OutlineOnDarkTransparentSurface.positions,
-                    DarkGradientTokens.OutlineOnDarkTransparentSurface.angle,
-                ),
-            ),
-        )
-        outlineInverseTransparentSurfaceHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.OutlineOnDarkTransparentSurfaceHover.colors,
-                    DarkGradientTokens.OutlineOnDarkTransparentSurfaceHover.positions,
-                    DarkGradientTokens.OutlineOnDarkTransparentSurfaceHover.angle,
-                ),
-            ),
-        )
-        outlineInverseTransparentSurfaceActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.OutlineOnDarkTransparentSurfaceActive.colors,
-                    DarkGradientTokens.OutlineOnDarkTransparentSurfaceActive.positions,
-                    DarkGradientTokens.OutlineOnDarkTransparentSurfaceActive.angle,
-                ),
-            ),
-        )
-        surfaceInverseSkeletonDeepGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.colors,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.positions,
-                    DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.angle,
-                ),
-            ),
-        )
-        outlineInverseAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.OutlineOnDarkAccentGradient.colors,
-                    DarkGradientTokens.OutlineOnDarkAccentGradient.positions,
-                    DarkGradientTokens.OutlineOnDarkAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseIndigoSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        surfaceDefaultAccentGradientBrightness.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.SurfaceOnLightAccentGradientBrightness.colors,
-                    DarkGradientTokens.SurfaceOnLightAccentGradientBrightness.positions,
-                    DarkGradientTokens.SurfaceOnLightAccentGradientBrightness.angle,
-                ),
-            ),
-        )
-        textDefaultAccentGradientAiBrightness.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.TextOnLightAccentGradientAiBrightness.colors,
-                    DarkGradientTokens.TextOnLightAccentGradientAiBrightness.positions,
-                    DarkGradientTokens.TextOnLightAccentGradientAiBrightness.angle,
-                ),
-            ),
-        )
-        personaDefaultGreenSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        surfaceDefaultAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
-                    DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
-                    DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
+                    DarkGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.angle,
                 ),
             ),
         )
@@ -1152,327 +906,93 @@ private val darkOnLightGradients: SddsSbComGradients by lazy {
                 ),
             ),
         )
-        surfaceDefaultSkeletonGradientHover.overrideBy(
+        overlayDefaultGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.colors,
-                    DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.positions,
-                    DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.angle,
+                    DarkGradientTokens.OverlayOnLightGradient.colors,
+                    DarkGradientTokens.OverlayOnLightGradient.positions,
+                    DarkGradientTokens.OverlayOnLightGradient.angle,
                 ),
             ),
         )
-        surfaceDefaultSkeletonGradientActive.overrideBy(
+        surfaceDefaultAccentGradientSecondary.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.colors,
-                    DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.positions,
-                    DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.angle,
+                    DarkGradientTokens.SurfaceOnLightAccentGradientSecondary.colors,
+                    DarkGradientTokens.SurfaceOnLightAccentGradientSecondary.positions,
+                    DarkGradientTokens.SurfaceOnLightAccentGradientSecondary.angle,
                 ),
             ),
         )
-        surfaceDefaultSkeletonDeepGradient.overrideBy(
+        personasDefaultOchreSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.colors,
-                    DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.positions,
-                    DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.angle,
+                    DarkGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceDefaultSkeletonDeepGradientHover.overrideBy(
+        personasDefaultVioletSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.colors,
-                    DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.positions,
-                    DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.angle,
+                    DarkGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceDefaultSkeletonDeepGradientActive.overrideBy(
+        personasDefaultOliveSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.colors,
-                    DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.positions,
-                    DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.angle,
+                    DarkGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        outlineDefaultAccentGradient.overrideBy(
+        personasDefaultIndigoSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.OutlineOnLightAccentGradient.colors,
-                    DarkGradientTokens.OutlineOnLightAccentGradient.positions,
-                    DarkGradientTokens.OutlineOnLightAccentGradient.angle,
+                    DarkGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        outlineDefaultAccentGradientHover.overrideBy(
+        textDefaultAccentGradientAI.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.OutlineOnLightAccentGradientHover.colors,
-                    DarkGradientTokens.OutlineOnLightAccentGradientHover.positions,
-                    DarkGradientTokens.OutlineOnLightAccentGradientHover.angle,
+                    DarkGradientTokens.TextOnLightAccentGradientAI.colors,
+                    DarkGradientTokens.TextOnLightAccentGradientAI.positions,
+                    DarkGradientTokens.TextOnLightAccentGradientAI.angle,
                 ),
             ),
         )
-        personaDefaultBlueSurfaceAccentGradientActive.overrideBy(
+        personasDefaultBlueSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.angle,
+                    DarkGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.colors,
+                    DarkGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.positions,
+                    DarkGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        personaDefaultGreenSurfaceAccentGradient.overrideBy(
+        surfaceDefaultAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.angle,
+                    DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
+                    DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
+                    DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
                 ),
             ),
         )
-        personaDefaultGreenSurfaceAccentGradientActive.overrideBy(
+        surfaceDefaultAccentMinorGradient.overrideBy(
             listOf(
                 linearGradient(
-                    DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultIndigoSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultIndigoSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultOchreSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultOchreSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultOliveSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultOliveSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaDefaultOliveSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultPinkSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultPinkSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaDefaultPinkSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultBlueSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultSeaBlueSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultVioletSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultVioletSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaDefaultVioletSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.colors,
-                    DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.positions,
-                    DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultSeaBlueSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.colors,
-                    DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.positions,
-                    DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultSeaBlueSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        textDefaultAccentGradientAi.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.TextOnLightAccentGradientAi.colors,
-                    DarkGradientTokens.TextOnLightAccentGradientAi.positions,
-                    DarkGradientTokens.TextOnLightAccentGradientAi.angle,
-                ),
-            ),
-        )
-        textDefaultAccentGradientAiHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.TextOnLightAccentGradientAiHover.colors,
-                    DarkGradientTokens.TextOnLightAccentGradientAiHover.positions,
-                    DarkGradientTokens.TextOnLightAccentGradientAiHover.angle,
-                ),
-            ),
-        )
-        textDefaultAccentGradientAiActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.TextOnLightAccentGradientAiActive.colors,
-                    DarkGradientTokens.TextOnLightAccentGradientAiActive.positions,
-                    DarkGradientTokens.TextOnLightAccentGradientAiActive.angle,
-                ),
-            ),
-        )
-        outlineDefaultAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.OutlineOnLightAccentGradientActive.colors,
-                    DarkGradientTokens.OutlineOnLightAccentGradientActive.positions,
-                    DarkGradientTokens.OutlineOnLightAccentGradientActive.angle,
-                ),
-            ),
-        )
-        surfaceDefaultAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.SurfaceOnLightAccentGradientHover.colors,
-                    DarkGradientTokens.SurfaceOnLightAccentGradientHover.positions,
-                    DarkGradientTokens.SurfaceOnLightAccentGradientHover.angle,
-                ),
-            ),
-        )
-        surfaceDefaultAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.SurfaceOnLightAccentGradientActive.colors,
-                    DarkGradientTokens.SurfaceOnLightAccentGradientActive.positions,
-                    DarkGradientTokens.SurfaceOnLightAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultOchreSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaDefaultIndigoSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaDefaultBlueSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.colors,
-                    DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.positions,
-                    DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.angle,
+                    DarkGradientTokens.SurfaceOnLightAccentMinorGradient.colors,
+                    DarkGradientTokens.SurfaceOnLightAccentMinorGradient.positions,
+                    DarkGradientTokens.SurfaceOnLightAccentMinorGradient.angle,
                 ),
             ),
         )
@@ -1481,327 +1001,48 @@ private val darkOnLightGradients: SddsSbComGradients by lazy {
 
 private val lightOnLightGradients: SddsSbComGradients by lazy {
     lightSddsSbComGradients {
-        personaInversePinkSurfaceAccentGradientActive.overrideBy(
+        personasInverseIndigoSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.angle,
+                    LightGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceInverseAccentGradientBrightness.overrideBy(
+        personasInverseSeaBlueSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.SurfaceOnDarkAccentGradientBrightness.colors,
-                    LightGradientTokens.SurfaceOnDarkAccentGradientBrightness.positions,
-                    LightGradientTokens.SurfaceOnDarkAccentGradientBrightness.angle,
+                    LightGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        textInverseAccentGradientAiBrightness.overrideBy(
+        textInverseAccentGradientAI.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.TextOnDarkAccentGradientAiBrightness.colors,
-                    LightGradientTokens.TextOnDarkAccentGradientAiBrightness.positions,
-                    LightGradientTokens.TextOnDarkAccentGradientAiBrightness.angle,
+                    LightGradientTokens.TextOnDarkAccentGradientAI.colors,
+                    LightGradientTokens.TextOnDarkAccentGradientAI.positions,
+                    LightGradientTokens.TextOnDarkAccentGradientAI.angle,
                 ),
             ),
         )
-        overlayInverseGradientBrightness.overrideBy(
+        personasInversePinkSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.OverlayOnDarkGradientBrightness.colors,
-                    LightGradientTokens.OverlayOnDarkGradientBrightness.positions,
-                    LightGradientTokens.OverlayOnDarkGradientBrightness.angle,
+                    LightGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceInverseAccentGradientHover.overrideBy(
+        personasInverseOchreSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.SurfaceOnDarkAccentGradientHover.colors,
-                    LightGradientTokens.SurfaceOnDarkAccentGradientHover.positions,
-                    LightGradientTokens.SurfaceOnDarkAccentGradientHover.angle,
-                ),
-            ),
-        )
-        surfaceInverseAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnDarkAccentGradientActive.colors,
-                    LightGradientTokens.SurfaceOnDarkAccentGradientActive.positions,
-                    LightGradientTokens.SurfaceOnDarkAccentGradientActive.angle,
-                ),
-            ),
-        )
-        surfaceInverseAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnDarkAccentGradient.colors,
-                    LightGradientTokens.SurfaceOnDarkAccentGradient.positions,
-                    LightGradientTokens.SurfaceOnDarkAccentGradient.angle,
-                ),
-            ),
-        )
-        surfaceInverseSkeletonGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
-                    LightGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
-                    LightGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
-                ),
-            ),
-        )
-        surfaceInverseSkeletonGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.colors,
-                    LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.positions,
-                    LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.angle,
-                ),
-            ),
-        )
-        surfaceInverseSkeletonGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.colors,
-                    LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.positions,
-                    LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.angle,
-                ),
-            ),
-        )
-        surfaceInverseSkeletonDeepGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.colors,
-                    LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.positions,
-                    LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.angle,
-                ),
-            ),
-        )
-        surfaceInverseSkeletonDeepGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.colors,
-                    LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.positions,
-                    LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.angle,
-                ),
-            ),
-        )
-        outlineInverseAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.OutlineOnDarkAccentGradientHover.colors,
-                    LightGradientTokens.OutlineOnDarkAccentGradientHover.positions,
-                    LightGradientTokens.OutlineOnDarkAccentGradientHover.angle,
-                ),
-            ),
-        )
-        outlineInverseAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.OutlineOnDarkAccentGradientActive.colors,
-                    LightGradientTokens.OutlineOnDarkAccentGradientActive.positions,
-                    LightGradientTokens.OutlineOnDarkAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseBlueSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseBlueSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseBlueSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseGreenSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseGreenSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseGreenSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseIndigoSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseIndigoSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseOchreSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseOchreSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseOliveSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInversePinkSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInversePinkSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseSeaBlueSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseSeaBlueSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseSeaBlueSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseVioletSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseVioletSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseVioletSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaInverseOliveSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaInverseOliveSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaInverseOchreSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.angle,
+                    LightGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.angle,
                 ),
             ),
         )
@@ -1814,129 +1055,120 @@ private val lightOnLightGradients: SddsSbComGradients by lazy {
                 ),
             ),
         )
-        textInverseAccentGradientAi.overrideBy(
+        surfaceInverseAccentGradientSecondary.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.TextOnDarkAccentGradientAi.colors,
-                    LightGradientTokens.TextOnDarkAccentGradientAi.positions,
-                    LightGradientTokens.TextOnDarkAccentGradientAi.angle,
+                    LightGradientTokens.SurfaceOnDarkAccentGradientSecondary.colors,
+                    LightGradientTokens.SurfaceOnDarkAccentGradientSecondary.positions,
+                    LightGradientTokens.SurfaceOnDarkAccentGradientSecondary.angle,
                 ),
             ),
         )
-        textInverseAccentGradientAiHover.overrideBy(
+        surfaceInverseSkeletonGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.TextOnDarkAccentGradientAiHover.colors,
-                    LightGradientTokens.TextOnDarkAccentGradientAiHover.positions,
-                    LightGradientTokens.TextOnDarkAccentGradientAiHover.angle,
+                    LightGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
+                    LightGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
+                    LightGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
                 ),
             ),
         )
-        textInverseAccentGradientAiActive.overrideBy(
+        personasInverseGreenSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.TextOnDarkAccentGradientAiActive.colors,
-                    LightGradientTokens.TextOnDarkAccentGradientAiActive.positions,
-                    LightGradientTokens.TextOnDarkAccentGradientAiActive.angle,
+                    LightGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        overlayInverseGradientActive.overrideBy(
+        outlineInverseWhiteGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.OverlayOnDarkGradientActive.colors,
-                    LightGradientTokens.OverlayOnDarkGradientActive.positions,
-                    LightGradientTokens.OverlayOnDarkGradientActive.angle,
+                    LightGradientTokens.OutlineOnDarkWhiteGradient.colors,
+                    LightGradientTokens.OutlineOnDarkWhiteGradient.positions,
+                    LightGradientTokens.OutlineOnDarkWhiteGradient.angle,
                 ),
             ),
         )
-        overlayInverseGradientHover.overrideBy(
+        personasInverseBlueSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.OverlayOnDarkGradientHover.colors,
-                    LightGradientTokens.OverlayOnDarkGradientHover.positions,
-                    LightGradientTokens.OverlayOnDarkGradientHover.angle,
+                    LightGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceInverseSkeletonDeepGradientHover.overrideBy(
+        personasInverseOliveSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.colors,
-                    LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.positions,
-                    LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.angle,
+                    LightGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        outlineInverseAccentGradient.overrideBy(
+        personasInverseVioletSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.OutlineOnDarkAccentGradient.colors,
-                    LightGradientTokens.OutlineOnDarkAccentGradient.positions,
-                    LightGradientTokens.OutlineOnDarkAccentGradient.angle,
+                    LightGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        personaInverseIndigoSurfaceAccentGradientHover.overrideBy(
+        surfaceInverseAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.angle,
+                    LightGradientTokens.SurfaceOnDarkAccentGradient.colors,
+                    LightGradientTokens.SurfaceOnDarkAccentGradient.positions,
+                    LightGradientTokens.SurfaceOnDarkAccentGradient.angle,
                 ),
             ),
         )
-        surfaceDefaultAccentGradientBrightness.overrideBy(
+        surfaceInverseAccentMinorGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.SurfaceOnLightAccentGradientBrightness.colors,
-                    LightGradientTokens.SurfaceOnLightAccentGradientBrightness.positions,
-                    LightGradientTokens.SurfaceOnLightAccentGradientBrightness.angle,
+                    LightGradientTokens.SurfaceOnDarkAccentMinorGradient.colors,
+                    LightGradientTokens.SurfaceOnDarkAccentMinorGradient.positions,
+                    LightGradientTokens.SurfaceOnDarkAccentMinorGradient.angle,
                 ),
             ),
         )
-        textDefaultAccentGradientAiBrightness.overrideBy(
+        outlineDefaultWhiteGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.TextOnLightAccentGradientAiBrightness.colors,
-                    LightGradientTokens.TextOnLightAccentGradientAiBrightness.positions,
-                    LightGradientTokens.TextOnLightAccentGradientAiBrightness.angle,
+                    LightGradientTokens.OutlineOnLightWhiteGradient.colors,
+                    LightGradientTokens.OutlineOnLightWhiteGradient.positions,
+                    LightGradientTokens.OutlineOnLightWhiteGradient.angle,
                 ),
             ),
         )
-        personaDefaultGreenSurfaceAccentGradientHover.overrideBy(
+        personasDefaultGreenSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.angle,
+                    LightGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        outlineDefaultTransparentSurfaceBrightness.overrideBy(
+        personasDefaultSeaBlueSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.OutlineOnLightTransparentSurfaceBrightness.colors,
-                    LightGradientTokens.OutlineOnLightTransparentSurfaceBrightness.positions,
-                    LightGradientTokens.OutlineOnLightTransparentSurfaceBrightness.angle,
+                    LightGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        overlayDefaultGradientBrightness.overrideBy(
+        personasDefaultPinkSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.OverlayOnLightGradientBrightness.colors,
-                    LightGradientTokens.OverlayOnLightGradientBrightness.positions,
-                    LightGradientTokens.OverlayOnLightGradientBrightness.angle,
-                ),
-            ),
-        )
-        surfaceDefaultAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnLightAccentGradient.colors,
-                    LightGradientTokens.SurfaceOnLightAccentGradient.positions,
-                    LightGradientTokens.SurfaceOnLightAccentGradient.angle,
+                    LightGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.angle,
                 ),
             ),
         )
@@ -1949,303 +1181,6 @@ private val lightOnLightGradients: SddsSbComGradients by lazy {
                 ),
             ),
         )
-        surfaceDefaultSkeletonGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnLightSkeletonGradientHover.colors,
-                    LightGradientTokens.SurfaceOnLightSkeletonGradientHover.positions,
-                    LightGradientTokens.SurfaceOnLightSkeletonGradientHover.angle,
-                ),
-            ),
-        )
-        surfaceDefaultSkeletonGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnLightSkeletonGradientActive.colors,
-                    LightGradientTokens.SurfaceOnLightSkeletonGradientActive.positions,
-                    LightGradientTokens.SurfaceOnLightSkeletonGradientActive.angle,
-                ),
-            ),
-        )
-        surfaceDefaultSkeletonDeepGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.colors,
-                    LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.positions,
-                    LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.angle,
-                ),
-            ),
-        )
-        surfaceDefaultSkeletonDeepGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.colors,
-                    LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.positions,
-                    LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.angle,
-                ),
-            ),
-        )
-        surfaceDefaultSkeletonDeepGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.colors,
-                    LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.positions,
-                    LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.angle,
-                ),
-            ),
-        )
-        outlineDefaultAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.OutlineOnLightAccentGradient.colors,
-                    LightGradientTokens.OutlineOnLightAccentGradient.positions,
-                    LightGradientTokens.OutlineOnLightAccentGradient.angle,
-                ),
-            ),
-        )
-        outlineDefaultAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.OutlineOnLightAccentGradientHover.colors,
-                    LightGradientTokens.OutlineOnLightAccentGradientHover.positions,
-                    LightGradientTokens.OutlineOnLightAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaDefaultBlueSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultGreenSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultGreenSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultIndigoSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultIndigoSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultOchreSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultOchreSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultOliveSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultOliveSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaDefaultOliveSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultPinkSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultPinkSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaDefaultPinkSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultBlueSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultSeaBlueSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultVioletSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultVioletSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        personaDefaultVioletSurfaceAccentGradientActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.colors,
-                    LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.positions,
-                    LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.angle,
-                ),
-            ),
-        )
-        personaDefaultSeaBlueSurfaceAccentGradient.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.colors,
-                    LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.positions,
-                    LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.angle,
-                ),
-            ),
-        )
-        personaDefaultSeaBlueSurfaceAccentGradientHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.angle,
-                ),
-            ),
-        )
-        textDefaultAccentGradientAi.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.TextOnLightAccentGradientAi.colors,
-                    LightGradientTokens.TextOnLightAccentGradientAi.positions,
-                    LightGradientTokens.TextOnLightAccentGradientAi.angle,
-                ),
-            ),
-        )
-        textDefaultAccentGradientAiHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.TextOnLightAccentGradientAiHover.colors,
-                    LightGradientTokens.TextOnLightAccentGradientAiHover.positions,
-                    LightGradientTokens.TextOnLightAccentGradientAiHover.angle,
-                ),
-            ),
-        )
-        textDefaultAccentGradientAiActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.TextOnLightAccentGradientAiActive.colors,
-                    LightGradientTokens.TextOnLightAccentGradientAiActive.positions,
-                    LightGradientTokens.TextOnLightAccentGradientAiActive.angle,
-                ),
-            ),
-        )
-        outlineDefaultTransparentSurface.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.OutlineOnLightTransparentSurface.colors,
-                    LightGradientTokens.OutlineOnLightTransparentSurface.positions,
-                    LightGradientTokens.OutlineOnLightTransparentSurface.angle,
-                ),
-            ),
-        )
-        outlineDefaultTransparentSurfaceHover.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.OutlineOnLightTransparentSurfaceHover.colors,
-                    LightGradientTokens.OutlineOnLightTransparentSurfaceHover.positions,
-                    LightGradientTokens.OutlineOnLightTransparentSurfaceHover.angle,
-                ),
-            ),
-        )
-        outlineDefaultTransparentSurfaceActive.overrideBy(
-            listOf(
-                linearGradient(
-                    LightGradientTokens.OutlineOnLightTransparentSurfaceActive.colors,
-                    LightGradientTokens.OutlineOnLightTransparentSurfaceActive.positions,
-                    LightGradientTokens.OutlineOnLightTransparentSurfaceActive.angle,
-                ),
-            ),
-        )
         overlayDefaultGradient.overrideBy(
             listOf(
                 linearGradient(
@@ -2255,75 +1190,84 @@ private val lightOnLightGradients: SddsSbComGradients by lazy {
                 ),
             ),
         )
-        overlayDefaultGradientHover.overrideBy(
+        surfaceDefaultAccentGradientSecondary.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.OverlayOnLightGradientHover.colors,
-                    LightGradientTokens.OverlayOnLightGradientHover.positions,
-                    LightGradientTokens.OverlayOnLightGradientHover.angle,
+                    LightGradientTokens.SurfaceOnLightAccentGradientSecondary.colors,
+                    LightGradientTokens.SurfaceOnLightAccentGradientSecondary.positions,
+                    LightGradientTokens.SurfaceOnLightAccentGradientSecondary.angle,
                 ),
             ),
         )
-        overlayDefaultGradientActive.overrideBy(
+        personasDefaultOchreSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.OverlayOnLightGradientActive.colors,
-                    LightGradientTokens.OverlayOnLightGradientActive.positions,
-                    LightGradientTokens.OverlayOnLightGradientActive.angle,
+                    LightGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        outlineDefaultAccentGradientActive.overrideBy(
+        personasDefaultVioletSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.OutlineOnLightAccentGradientActive.colors,
-                    LightGradientTokens.OutlineOnLightAccentGradientActive.positions,
-                    LightGradientTokens.OutlineOnLightAccentGradientActive.angle,
+                    LightGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceDefaultAccentGradientHover.overrideBy(
+        personasDefaultOliveSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.SurfaceOnLightAccentGradientHover.colors,
-                    LightGradientTokens.SurfaceOnLightAccentGradientHover.positions,
-                    LightGradientTokens.SurfaceOnLightAccentGradientHover.angle,
+                    LightGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        surfaceDefaultAccentGradientActive.overrideBy(
+        personasDefaultIndigoSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.SurfaceOnLightAccentGradientActive.colors,
-                    LightGradientTokens.SurfaceOnLightAccentGradientActive.positions,
-                    LightGradientTokens.SurfaceOnLightAccentGradientActive.angle,
+                    LightGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        personaDefaultOchreSurfaceAccentGradientHover.overrideBy(
+        textDefaultAccentGradientAI.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.angle,
+                    LightGradientTokens.TextOnLightAccentGradientAI.colors,
+                    LightGradientTokens.TextOnLightAccentGradientAI.positions,
+                    LightGradientTokens.TextOnLightAccentGradientAI.angle,
                 ),
             ),
         )
-        personaDefaultIndigoSurfaceAccentGradientHover.overrideBy(
+        personasDefaultBlueSurfaceAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.angle,
+                    LightGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.colors,
+                    LightGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.positions,
+                    LightGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.angle,
                 ),
             ),
         )
-        personaDefaultBlueSurfaceAccentGradientHover.overrideBy(
+        surfaceDefaultAccentGradient.overrideBy(
             listOf(
                 linearGradient(
-                    LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.colors,
-                    LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.positions,
-                    LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.angle,
+                    LightGradientTokens.SurfaceOnLightAccentGradient.colors,
+                    LightGradientTokens.SurfaceOnLightAccentGradient.positions,
+                    LightGradientTokens.SurfaceOnLightAccentGradient.angle,
+                ),
+            ),
+        )
+        surfaceDefaultAccentMinorGradient.overrideBy(
+            listOf(
+                linearGradient(
+                    LightGradientTokens.SurfaceOnLightAccentMinorGradient.colors,
+                    LightGradientTokens.SurfaceOnLightAccentMinorGradient.positions,
+                    LightGradientTokens.SurfaceOnLightAccentMinorGradient.angle,
                 ),
             ),
         )
