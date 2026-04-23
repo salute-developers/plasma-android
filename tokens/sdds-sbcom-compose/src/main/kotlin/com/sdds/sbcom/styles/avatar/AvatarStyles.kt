@@ -123,7 +123,7 @@ private val AvatarStyleBuilder.invariantProps: AvatarStyleBuilder
         .colors {
             backgroundColor(
 
-                SddsSbComTheme.gradients.personaDefaultBlueSurfaceAccentGradient.asLayered().asStatefulValue(),
+                SddsSbComTheme.gradients.personasDefaultBlueSurfaceAccentGradient.asLayered().asStatefulValue(),
             )
             textColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
@@ -150,7 +150,7 @@ public val Avatar.Size72: WrapperAvatarSize72
                     backgroundColor(
                         SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                                to SddsSbComTheme.colors.surfaceDefaultAccent,
                         ),
                     )
                 }
@@ -178,7 +178,7 @@ public val Avatar.Size64: WrapperAvatarSize64
                     backgroundColor(
                         SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                                to SddsSbComTheme.colors.surfaceDefaultAccent,
                         ),
                     )
                 }
@@ -206,7 +206,7 @@ public val Avatar.Size56: WrapperAvatarSize56
                     backgroundColor(
                         SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                                to SddsSbComTheme.colors.surfaceDefaultAccent,
                         ),
                     )
                 }
@@ -234,7 +234,7 @@ public val Avatar.Size44: WrapperAvatarSize44
                     backgroundColor(
                         SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                                to SddsSbComTheme.colors.surfaceDefaultAccent,
                         ),
                     )
                 }
@@ -262,7 +262,7 @@ public val Avatar.Size40: WrapperAvatarSize40
                     backgroundColor(
                         SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                                to SddsSbComTheme.colors.surfaceDefaultAccent,
                         ),
                     )
                 }
@@ -290,7 +290,7 @@ public val Avatar.Size36: WrapperAvatarSize36
                     backgroundColor(
                         SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                                to SddsSbComTheme.colors.surfaceDefaultAccent,
                         ),
                     )
                 }
@@ -318,7 +318,7 @@ public val Avatar.Size32: WrapperAvatarSize32
                     backgroundColor(
                         SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
+                                to SddsSbComTheme.colors.surfaceDefaultAccent,
                         ),
                     )
                 }

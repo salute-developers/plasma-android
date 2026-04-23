@@ -109,7 +109,7 @@ public val WrapperCircularProgressBarView.ModeColorAccent: WrapperCircularProgre
     get() = builder
         .colors {
             indicatorColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccentPrimary).asStatefulValue(),
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue(),
             )
         }
         .wrap(::WrapperCircularProgressBarTerminate)

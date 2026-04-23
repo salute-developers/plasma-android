@@ -30,41 +30,285 @@ import kotlin.collections.MutableMap
 public class SddsSbComGradients(
     private val gradients: Map<String, List<ShaderBrush>>,
 ) {
-    public val surfaceOnDarkAccentGradientBrightness: List<ShaderBrush> by gradients
+    /**
+     * On Dark Personas Indigo Surface Accent Gradient
+     */
+    public val personasOnDarkIndigoSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val outlineOnDarkTransparentSurfaceBrightness: List<ShaderBrush> by gradients
+    /**
+     * On Light Outline White Gradient
+     */
+    public val outlineOnLightWhiteGradient: List<ShaderBrush> by gradients
 
-    public val surfaceDefaultAccentGradientBrightness: List<ShaderBrush> by gradients
+    /**
+     * On Dark Personas Blue Surface Accent Gradient
+     */
+    public val personasOnDarkBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val personaInversePinkSurfaceAccentGradientActive: List<ShaderBrush> by gradients
+    /**
+     * Inverse Personas Indigo Surface Accent Gradient
+     */
+    public val personasInverseIndigoSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val textDefaultAccentGradientAiBrightness: List<ShaderBrush> by gradients
+    /**
+     * Outline White Gradient
+     */
+    public val outlineDefaultWhiteGradient: List<ShaderBrush> by gradients
 
-    public val surfaceOnLightAccentGradientBrightness: List<ShaderBrush> by gradients
+    /**
+     * Personas Green Surface Accent Gradient
+     */
+    public val personasDefaultGreenSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val personaDefaultGreenSurfaceAccentGradientHover: List<ShaderBrush> by gradients
+    /**
+     * Inverse Personas Sea Blue Surface Accent Gradient
+     */
+    public val personasInverseSeaBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val textOnDarkAccentGradientAiBrightness: List<ShaderBrush> by gradients
+    /**
+     * On Light Personas Pink Surface Accent Gradient
+     */
+    public val personasOnLightPinkSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val textOnLightAccentGradientAiBrightness: List<ShaderBrush> by gradients
+    /**
+     * Inverse Text Accent Gradient AI
+     */
+    public val textInverseAccentGradientAI: List<ShaderBrush> by gradients
 
-    public val surfaceInverseAccentGradientBrightness: List<ShaderBrush> by gradients
+    /**
+     * On Dark Personas Ochre Surface Accent Gradient
+     */
+    public val personasOnDarkOchreSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val textInverseAccentGradientAiBrightness: List<ShaderBrush> by gradients
+    /**
+     * Personas Sea Blue Surface Accent Gradient
+     */
+    public val personasDefaultSeaBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val overlayOnLightGradientBrightness: List<ShaderBrush> by gradients
+    /**
+     * Inverse Personas Pink Surface Accent Gradient
+     */
+    public val personasInversePinkSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val outlineDefaultTransparentSurfaceBrightness: List<ShaderBrush> by gradients
+    /**
+     * On Light Surface Skeleton Gradient
+     */
+    public val surfaceOnLightSkeletonGradient: List<ShaderBrush> by gradients
 
-    public val overlayDefaultGradientBrightness: List<ShaderBrush> by gradients
+    /**
+     * Inverse Personas Ochre Surface Accent Gradient
+     */
+    public val personasInverseOchreSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val overlayOnDarkGradientBrightness: List<ShaderBrush> by gradients
+    /**
+     * Dark Background Gradient
+     */
+    public val backgroundDarkGradient: List<ShaderBrush> by gradients
 
-    public val overlayInverseGradientBrightness: List<ShaderBrush> by gradients
+    /**
+     * On Dark Personas Sea Blue Surface Accent Gradient
+     */
+    public val personasOnDarkSeaBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
 
-    public val outlineOnLightTransparentSurfaceBrightness: List<ShaderBrush> by gradients
+    /**
+     * On Dark Surface Skeleton Gradient
+     */
+    public val surfaceOnDarkSkeletonGradient: List<ShaderBrush> by gradients
 
-    public val personaOnLightBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
+    /**
+     * Inverse Background Gradient
+     */
+    public val backgroundInverseGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Inverse Overlay Gradient
+     */
+    public val overlayInverseGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Personas Pink Surface Accent Gradient
+     */
+    public val personasDefaultPinkSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Personas Olive Surface Accent Gradient
+     */
+    public val personasOnLightOliveSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Inverse Surface Accent Gradient Secondary
+     */
+    public val surfaceInverseAccentGradientSecondary: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Text Accent Gradient AI
+     */
+    public val textOnLightAccentGradientAI: List<ShaderBrush> by gradients
+
+    /**
+     * Light Background Gradient
+     */
+    public val backgroundLightGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Surface Skeleton Gradient
+     */
+    public val surfaceDefaultSkeletonGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Overlay Gradient
+     */
+    public val overlayDefaultGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Dark Overlay Gradient
+     */
+    public val overlayOnDarkGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Background Gradient
+     */
+    public val backgroundDefaultGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Dark Personas Violet Surface Accent Gradient
+     */
+    public val personasOnDarkVioletSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Inverse Surface Skeleton Gradient
+     */
+    public val surfaceInverseSkeletonGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Personas Ochre Surface Accent Gradient
+     */
+    public val personasOnLightOchreSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Surface Accent Gradient Secondary
+     */
+    public val surfaceDefaultAccentGradientSecondary: List<ShaderBrush> by gradients
+
+    /**
+     * Inverse Personas Green Surface Accent Gradient
+     */
+    public val personasInverseGreenSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Personas Ochre Surface Accent Gradient
+     */
+    public val personasDefaultOchreSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Inverse Outline White Gradient
+     */
+    public val outlineInverseWhiteGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Personas Violet Surface Accent Gradient
+     */
+    public val personasOnLightVioletSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Personas Violet Surface Accent Gradient
+     */
+    public val personasDefaultVioletSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Dark Outline White Gradient
+     */
+    public val outlineOnDarkWhiteGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Inverse Personas Blue Surface Accent Gradient
+     */
+    public val personasInverseBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Personas Sea Blue Surface Accent Gradient
+     */
+    public val personasOnLightSeaBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Inverse Personas Olive Surface Accent Gradient
+     */
+    public val personasInverseOliveSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Overlay Gradient
+     */
+    public val overlayOnLightGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Personas Indigo Surface Accent Gradient
+     */
+    public val personasOnLightIndigoSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Personas Blue Surface Accent Gradient
+     */
+    public val personasOnLightBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Dark Personas Pink Surface Accent Gradient
+     */
+    public val personasOnDarkPinkSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Dark Text Accent Gradient AI
+     */
+    public val textOnDarkAccentGradientAI: List<ShaderBrush> by gradients
+
+    /**
+     * On Dark Personas Green Surface Accent Gradient
+     */
+    public val personasOnDarkGreenSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Personas Olive Surface Accent Gradient
+     */
+    public val personasDefaultOliveSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Personas Indigo Surface Accent Gradient
+     */
+    public val personasDefaultIndigoSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Text Accent Gradient AI
+     */
+    public val textDefaultAccentGradientAI: List<ShaderBrush> by gradients
+
+    /**
+     * On Dark Surface Accent Gradient Secondary
+     */
+    public val surfaceOnDarkAccentGradientSecondary: List<ShaderBrush> by gradients
+
+    /**
+     * Personas Blue Surface Accent Gradient
+     */
+    public val personasDefaultBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Inverse Personas Violet Surface Accent Gradient
+     */
+    public val personasInverseVioletSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Surface Accent Gradient Secondary
+     */
+    public val surfaceOnLightAccentGradientSecondary: List<ShaderBrush> by gradients
+
+    /**
+     * On Light Personas Green Surface Accent Gradient
+     */
+    public val personasOnLightGreenSurfaceAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * On Dark Personas Olive Surface Accent Gradient
+     */
+    public val personasOnDarkOliveSurfaceAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
@@ -72,458 +316,9 @@ public class SddsSbComGradients(
     public val surfaceDefaultAccentGradient: List<ShaderBrush> by gradients
 
     /**
-     * Фон для скелетона
+     * Акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultSkeletonGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceDefaultSkeletonGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceDefaultSkeletonGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceDefaultSkeletonDeepGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceDefaultSkeletonDeepGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceDefaultSkeletonDeepGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultBlueSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultGreenSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaDefaultGreenSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultIndigoSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaDefaultIndigoSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultOchreSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaDefaultOchreSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultOliveSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaDefaultOliveSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaDefaultOliveSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultPinkSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaDefaultPinkSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaDefaultPinkSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaDefaultSeaBlueSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultVioletSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaDefaultVioletSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaDefaultVioletSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaInverseBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaInverseBlueSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaInverseBlueSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaInverseGreenSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaInverseGreenSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaInverseGreenSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaInverseIndigoSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaInverseIndigoSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaInverseOchreSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaInverseOchreSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultSeaBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaDefaultSeaBlueSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaInverseOliveSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaInversePinkSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaInversePinkSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaInverseSeaBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaInverseSeaBlueSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaInverseSeaBlueSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaInverseVioletSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaInverseVioletSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaInverseVioletSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnDarkBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnDarkBlueSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnDarkBlueSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnDarkGreenSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnDarkGreenSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnDarkGreenSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaInverseOliveSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaInverseOliveSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnDarkIndigoSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaInverseOchreSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnDarkOchreSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnDarkOchreSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnDarkOliveSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnDarkOliveSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnDarkOliveSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnDarkPinkSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnDarkPinkSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnDarkPinkSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnDarkSeaBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnDarkSeaBlueSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnDarkSeaBlueSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnDarkVioletSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnDarkVioletSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnDarkVioletSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnDarkIndigoSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnDarkIndigoSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnLightGreenSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnLightGreenSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnLightGreenSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnLightIndigoSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnLightIndigoSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnLightIndigoSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnLightOchreSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnLightOchreSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnLightOchreSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnDarkOchreSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnLightOliveSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnLightPinkSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnLightPinkSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnLightBlueSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnLightVioletSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    public val personaOnLightVioletSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val outlineOnDarkTransparentSurfaceActive: List<ShaderBrush> by gradients
-
-    public val outlineOnLightTransparentSurface: List<ShaderBrush> by gradients
-
-    public val outlineOnLightTransparentSurfaceHover: List<ShaderBrush> by gradients
-
-    public val outlineOnLightTransparentSurfaceActive: List<ShaderBrush> by gradients
-
-    public val overlayInverseGradient: List<ShaderBrush> by gradients
-
-    public val textDefaultAccentGradientAi: List<ShaderBrush> by gradients
-
-    public val textDefaultAccentGradientAiHover: List<ShaderBrush> by gradients
-
-    public val textInverseAccentGradientAi: List<ShaderBrush> by gradients
-
-    public val textInverseAccentGradientAiHover: List<ShaderBrush> by gradients
-
-    public val textInverseAccentGradientAiActive: List<ShaderBrush> by gradients
-
-    public val textOnDarkAccentGradientAi: List<ShaderBrush> by gradients
-
-    public val textOnDarkAccentGradientAiHover: List<ShaderBrush> by gradients
-
-    public val textOnDarkAccentGradientAiActive: List<ShaderBrush> by gradients
-
-    public val textOnLightAccentGradientAi: List<ShaderBrush> by gradients
-
-    public val textOnLightAccentGradientAiHover: List<ShaderBrush> by gradients
-
-    public val textOnLightAccentGradientAiActive: List<ShaderBrush> by gradients
-
-    public val textDefaultAccentGradientAiActive: List<ShaderBrush> by gradients
-
-    public val outlineOnDarkTransparentSurface: List<ShaderBrush> by gradients
-
-    public val outlineOnDarkTransparentSurfaceHover: List<ShaderBrush> by gradients
-
-    public val personaOnLightOliveSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val overlayOnLightGradientActive: List<ShaderBrush> by gradients
-
-    public val outlineDefaultTransparentSurface: List<ShaderBrush> by gradients
-
-    public val outlineDefaultTransparentSurfaceHover: List<ShaderBrush> by gradients
-
-    public val outlineDefaultTransparentSurfaceActive: List<ShaderBrush> by gradients
-
-    public val overlayDefaultGradient: List<ShaderBrush> by gradients
-
-    public val overlayDefaultGradientHover: List<ShaderBrush> by gradients
-
-    public val overlayDefaultGradientActive: List<ShaderBrush> by gradients
-
-    public val overlayOnDarkGradient: List<ShaderBrush> by gradients
-
-    public val overlayOnDarkGradientHover: List<ShaderBrush> by gradients
-
-    public val overlayOnDarkGradientActive: List<ShaderBrush> by gradients
-
-    public val overlayInverseGradientActive: List<ShaderBrush> by gradients
-
-    public val overlayInverseGradientHover: List<ShaderBrush> by gradients
-
-    public val overlayOnLightGradient: List<ShaderBrush> by gradients
-
-    public val personaOnLightPinkSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnLightSeaBlueSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val overlayOnLightGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnLightOliveSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnLightSeaBlueSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaInverseIndigoSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    public val personaOnLightSeaBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnLightVioletSurfaceAccentGradientHover: List<ShaderBrush> by gradients
+    public val surfaceDefaultAccentMinorGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
@@ -531,40 +326,29 @@ public class SddsSbComGradients(
     public val surfaceOnDarkAccentGradient: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом
+     * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceDefaultAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaOnLightBlueSurfaceAccentGradientActive: List<ShaderBrush> by gradients
-
-    public val personaDefaultOchreSurfaceAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnDarkAccentMinorGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightAccentGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnLightAccentGradient: List<ShaderBrush> by gradients
 
-    public val personaDefaultIndigoSurfaceAccentGradientHover: List<ShaderBrush> by gradients
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentMinorGradient: List<ShaderBrush> by gradients
 
-    public val personaDefaultBlueSurfaceAccentGradientHover: List<ShaderBrush> by gradients
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradient: List<ShaderBrush> by gradients
 
-    public val outlineInverseTransparentSurfaceBrightness: List<ShaderBrush> by gradients
-
-    public val outlineInverseTransparentSurface: List<ShaderBrush> by gradients
-
-    public val outlineInverseTransparentSurfaceHover: List<ShaderBrush> by gradients
-
-    public val outlineInverseTransparentSurfaceActive: List<ShaderBrush> by gradients
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradient: List<ShaderBrush> by gradients
 
     /**
      * Возвращает копию [SddsSbComGradients]. Предоставляет возможность переопределять градиенты.
@@ -586,54 +370,320 @@ public class GradientOverrideScope {
     internal val overrideMap: Map<String, List<ShaderBrush>>
         get() = _overrideMap.toMap()
 
-    public val surfaceOnDarkAccentGradientBrightness: String =
-        "surfaceOnDarkAccentGradientBrightness"
+    /**
+     * On Dark Personas Indigo Surface Accent Gradient
+     */
+    public val personasOnDarkIndigoSurfaceAccentGradient: String =
+        "personasOnDarkIndigoSurfaceAccentGradient"
 
-    public val outlineOnDarkTransparentSurfaceBrightness: String =
-        "outlineOnDarkTransparentSurfaceBrightness"
+    /**
+     * On Light Outline White Gradient
+     */
+    public val outlineOnLightWhiteGradient: String = "outlineOnLightWhiteGradient"
 
-    public val surfaceDefaultAccentGradientBrightness: String =
-        "surfaceDefaultAccentGradientBrightness"
+    /**
+     * On Dark Personas Blue Surface Accent Gradient
+     */
+    public val personasOnDarkBlueSurfaceAccentGradient: String =
+        "personasOnDarkBlueSurfaceAccentGradient"
 
-    public val personaInversePinkSurfaceAccentGradientActive: String =
-        "personaInversePinkSurfaceAccentGradientActive"
+    /**
+     * Inverse Personas Indigo Surface Accent Gradient
+     */
+    public val personasInverseIndigoSurfaceAccentGradient: String =
+        "personasInverseIndigoSurfaceAccentGradient"
 
-    public val textDefaultAccentGradientAiBrightness: String =
-        "textDefaultAccentGradientAiBrightness"
+    /**
+     * Outline White Gradient
+     */
+    public val outlineDefaultWhiteGradient: String = "outlineDefaultWhiteGradient"
 
-    public val surfaceOnLightAccentGradientBrightness: String =
-        "surfaceOnLightAccentGradientBrightness"
+    /**
+     * Personas Green Surface Accent Gradient
+     */
+    public val personasDefaultGreenSurfaceAccentGradient: String =
+        "personasDefaultGreenSurfaceAccentGradient"
 
-    public val personaDefaultGreenSurfaceAccentGradientHover: String =
-        "personaDefaultGreenSurfaceAccentGradientHover"
+    /**
+     * Inverse Personas Sea Blue Surface Accent Gradient
+     */
+    public val personasInverseSeaBlueSurfaceAccentGradient: String =
+        "personasInverseSeaBlueSurfaceAccentGradient"
 
-    public val textOnDarkAccentGradientAiBrightness: String = "textOnDarkAccentGradientAiBrightness"
+    /**
+     * On Light Personas Pink Surface Accent Gradient
+     */
+    public val personasOnLightPinkSurfaceAccentGradient: String =
+        "personasOnLightPinkSurfaceAccentGradient"
 
-    public val textOnLightAccentGradientAiBrightness: String =
-        "textOnLightAccentGradientAiBrightness"
+    /**
+     * Inverse Text Accent Gradient AI
+     */
+    public val textInverseAccentGradientAI: String = "textInverseAccentGradientAI"
 
-    public val surfaceInverseAccentGradientBrightness: String =
-        "surfaceInverseAccentGradientBrightness"
+    /**
+     * On Dark Personas Ochre Surface Accent Gradient
+     */
+    public val personasOnDarkOchreSurfaceAccentGradient: String =
+        "personasOnDarkOchreSurfaceAccentGradient"
 
-    public val textInverseAccentGradientAiBrightness: String =
-        "textInverseAccentGradientAiBrightness"
+    /**
+     * Personas Sea Blue Surface Accent Gradient
+     */
+    public val personasDefaultSeaBlueSurfaceAccentGradient: String =
+        "personasDefaultSeaBlueSurfaceAccentGradient"
 
-    public val overlayOnLightGradientBrightness: String = "overlayOnLightGradientBrightness"
+    /**
+     * Inverse Personas Pink Surface Accent Gradient
+     */
+    public val personasInversePinkSurfaceAccentGradient: String =
+        "personasInversePinkSurfaceAccentGradient"
 
-    public val outlineDefaultTransparentSurfaceBrightness: String =
-        "outlineDefaultTransparentSurfaceBrightness"
+    /**
+     * On Light Surface Skeleton Gradient
+     */
+    public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
 
-    public val overlayDefaultGradientBrightness: String = "overlayDefaultGradientBrightness"
+    /**
+     * Inverse Personas Ochre Surface Accent Gradient
+     */
+    public val personasInverseOchreSurfaceAccentGradient: String =
+        "personasInverseOchreSurfaceAccentGradient"
 
-    public val overlayOnDarkGradientBrightness: String = "overlayOnDarkGradientBrightness"
+    /**
+     * Dark Background Gradient
+     */
+    public val backgroundDarkGradient: String = "backgroundDarkGradient"
 
-    public val overlayInverseGradientBrightness: String = "overlayInverseGradientBrightness"
+    /**
+     * On Dark Personas Sea Blue Surface Accent Gradient
+     */
+    public val personasOnDarkSeaBlueSurfaceAccentGradient: String =
+        "personasOnDarkSeaBlueSurfaceAccentGradient"
 
-    public val outlineOnLightTransparentSurfaceBrightness: String =
-        "outlineOnLightTransparentSurfaceBrightness"
+    /**
+     * On Dark Surface Skeleton Gradient
+     */
+    public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
 
-    public val personaOnLightBlueSurfaceAccentGradient: String =
-        "personaOnLightBlueSurfaceAccentGradient"
+    /**
+     * Inverse Background Gradient
+     */
+    public val backgroundInverseGradient: String = "backgroundInverseGradient"
+
+    /**
+     * Inverse Overlay Gradient
+     */
+    public val overlayInverseGradient: String = "overlayInverseGradient"
+
+    /**
+     * Personas Pink Surface Accent Gradient
+     */
+    public val personasDefaultPinkSurfaceAccentGradient: String =
+        "personasDefaultPinkSurfaceAccentGradient"
+
+    /**
+     * On Light Personas Olive Surface Accent Gradient
+     */
+    public val personasOnLightOliveSurfaceAccentGradient: String =
+        "personasOnLightOliveSurfaceAccentGradient"
+
+    /**
+     * Inverse Surface Accent Gradient Secondary
+     */
+    public val surfaceInverseAccentGradientSecondary: String =
+        "surfaceInverseAccentGradientSecondary"
+
+    /**
+     * On Light Text Accent Gradient AI
+     */
+    public val textOnLightAccentGradientAI: String = "textOnLightAccentGradientAI"
+
+    /**
+     * Light Background Gradient
+     */
+    public val backgroundLightGradient: String = "backgroundLightGradient"
+
+    /**
+     * Surface Skeleton Gradient
+     */
+    public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
+
+    /**
+     * Overlay Gradient
+     */
+    public val overlayDefaultGradient: String = "overlayDefaultGradient"
+
+    /**
+     * On Dark Overlay Gradient
+     */
+    public val overlayOnDarkGradient: String = "overlayOnDarkGradient"
+
+    /**
+     * Background Gradient
+     */
+    public val backgroundDefaultGradient: String = "backgroundDefaultGradient"
+
+    /**
+     * On Dark Personas Violet Surface Accent Gradient
+     */
+    public val personasOnDarkVioletSurfaceAccentGradient: String =
+        "personasOnDarkVioletSurfaceAccentGradient"
+
+    /**
+     * Inverse Surface Skeleton Gradient
+     */
+    public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
+
+    /**
+     * On Light Personas Ochre Surface Accent Gradient
+     */
+    public val personasOnLightOchreSurfaceAccentGradient: String =
+        "personasOnLightOchreSurfaceAccentGradient"
+
+    /**
+     * Surface Accent Gradient Secondary
+     */
+    public val surfaceDefaultAccentGradientSecondary: String =
+        "surfaceDefaultAccentGradientSecondary"
+
+    /**
+     * Inverse Personas Green Surface Accent Gradient
+     */
+    public val personasInverseGreenSurfaceAccentGradient: String =
+        "personasInverseGreenSurfaceAccentGradient"
+
+    /**
+     * Personas Ochre Surface Accent Gradient
+     */
+    public val personasDefaultOchreSurfaceAccentGradient: String =
+        "personasDefaultOchreSurfaceAccentGradient"
+
+    /**
+     * Inverse Outline White Gradient
+     */
+    public val outlineInverseWhiteGradient: String = "outlineInverseWhiteGradient"
+
+    /**
+     * On Light Personas Violet Surface Accent Gradient
+     */
+    public val personasOnLightVioletSurfaceAccentGradient: String =
+        "personasOnLightVioletSurfaceAccentGradient"
+
+    /**
+     * Personas Violet Surface Accent Gradient
+     */
+    public val personasDefaultVioletSurfaceAccentGradient: String =
+        "personasDefaultVioletSurfaceAccentGradient"
+
+    /**
+     * On Dark Outline White Gradient
+     */
+    public val outlineOnDarkWhiteGradient: String = "outlineOnDarkWhiteGradient"
+
+    /**
+     * Inverse Personas Blue Surface Accent Gradient
+     */
+    public val personasInverseBlueSurfaceAccentGradient: String =
+        "personasInverseBlueSurfaceAccentGradient"
+
+    /**
+     * On Light Personas Sea Blue Surface Accent Gradient
+     */
+    public val personasOnLightSeaBlueSurfaceAccentGradient: String =
+        "personasOnLightSeaBlueSurfaceAccentGradient"
+
+    /**
+     * Inverse Personas Olive Surface Accent Gradient
+     */
+    public val personasInverseOliveSurfaceAccentGradient: String =
+        "personasInverseOliveSurfaceAccentGradient"
+
+    /**
+     * On Light Overlay Gradient
+     */
+    public val overlayOnLightGradient: String = "overlayOnLightGradient"
+
+    /**
+     * On Light Personas Indigo Surface Accent Gradient
+     */
+    public val personasOnLightIndigoSurfaceAccentGradient: String =
+        "personasOnLightIndigoSurfaceAccentGradient"
+
+    /**
+     * On Light Personas Blue Surface Accent Gradient
+     */
+    public val personasOnLightBlueSurfaceAccentGradient: String =
+        "personasOnLightBlueSurfaceAccentGradient"
+
+    /**
+     * On Dark Personas Pink Surface Accent Gradient
+     */
+    public val personasOnDarkPinkSurfaceAccentGradient: String =
+        "personasOnDarkPinkSurfaceAccentGradient"
+
+    /**
+     * On Dark Text Accent Gradient AI
+     */
+    public val textOnDarkAccentGradientAI: String = "textOnDarkAccentGradientAI"
+
+    /**
+     * On Dark Personas Green Surface Accent Gradient
+     */
+    public val personasOnDarkGreenSurfaceAccentGradient: String =
+        "personasOnDarkGreenSurfaceAccentGradient"
+
+    /**
+     * Personas Olive Surface Accent Gradient
+     */
+    public val personasDefaultOliveSurfaceAccentGradient: String =
+        "personasDefaultOliveSurfaceAccentGradient"
+
+    /**
+     * Personas Indigo Surface Accent Gradient
+     */
+    public val personasDefaultIndigoSurfaceAccentGradient: String =
+        "personasDefaultIndigoSurfaceAccentGradient"
+
+    /**
+     * Text Accent Gradient AI
+     */
+    public val textDefaultAccentGradientAI: String = "textDefaultAccentGradientAI"
+
+    /**
+     * On Dark Surface Accent Gradient Secondary
+     */
+    public val surfaceOnDarkAccentGradientSecondary: String = "surfaceOnDarkAccentGradientSecondary"
+
+    /**
+     * Personas Blue Surface Accent Gradient
+     */
+    public val personasDefaultBlueSurfaceAccentGradient: String =
+        "personasDefaultBlueSurfaceAccentGradient"
+
+    /**
+     * Inverse Personas Violet Surface Accent Gradient
+     */
+    public val personasInverseVioletSurfaceAccentGradient: String =
+        "personasInverseVioletSurfaceAccentGradient"
+
+    /**
+     * On Light Surface Accent Gradient Secondary
+     */
+    public val surfaceOnLightAccentGradientSecondary: String =
+        "surfaceOnLightAccentGradientSecondary"
+
+    /**
+     * On Light Personas Green Surface Accent Gradient
+     */
+    public val personasOnLightGreenSurfaceAccentGradient: String =
+        "personasOnLightGreenSurfaceAccentGradient"
+
+    /**
+     * On Dark Personas Olive Surface Accent Gradient
+     */
+    public val personasOnDarkOliveSurfaceAccentGradient: String =
+        "personasOnDarkOliveSurfaceAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
@@ -641,560 +691,9 @@ public class GradientOverrideScope {
     public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
 
     /**
-     * Фон для скелетона
+     * Акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceDefaultSkeletonGradientHover: String = "surfaceDefaultSkeletonGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceDefaultSkeletonGradientActive: String = "surfaceDefaultSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceDefaultSkeletonDeepGradient: String = "surfaceDefaultSkeletonDeepGradient"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceDefaultSkeletonDeepGradientHover: String =
-        "surfaceDefaultSkeletonDeepGradientHover"
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkAccentGradientHover: String = "surfaceOnDarkAccentGradientHover"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceDefaultSkeletonDeepGradientActive: String =
-        "surfaceDefaultSkeletonDeepGradientActive"
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkAccentGradientActive: String = "surfaceOnDarkAccentGradientActive"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientHover: String = "surfaceOnDarkSkeletonGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientActive: String = "surfaceOnDarkSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradient: String = "surfaceOnDarkSkeletonDeepGradient"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradientHover: String =
-        "surfaceOnDarkSkeletonDeepGradientHover"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradientActive: String =
-        "surfaceOnDarkSkeletonDeepGradientActive"
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradientActive: String = "surfaceOnLightAccentGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradientActive: String =
-        "surfaceOnLightSkeletonDeepGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradientHover: String =
-        "surfaceOnLightSkeletonDeepGradientHover"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradientHover: String = "surfaceInverseAccentGradientHover"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradientActive: String = "surfaceInverseAccentGradientActive"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradientHover: String = "surfaceInverseSkeletonGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradientActive: String = "surfaceInverseSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradient: String = "surfaceInverseSkeletonDeepGradient"
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientActive: String = "surfaceOnLightSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradient: String = "surfaceOnLightSkeletonDeepGradient"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientHover: String = "outlineOnDarkAccentGradientHover"
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientActive: String = "outlineOnDarkAccentGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradientActive: String =
-        "surfaceInverseSkeletonDeepGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientHover: String = "outlineDefaultAccentGradientHover"
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientHover: String = "outlineInverseAccentGradientHover"
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientActive: String = "outlineInverseAccentGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientActive: String = "outlineOnLightAccentGradientActive"
-
-    public val personaDefaultBlueSurfaceAccentGradientActive: String =
-        "personaDefaultBlueSurfaceAccentGradientActive"
-
-    public val personaDefaultGreenSurfaceAccentGradient: String =
-        "personaDefaultGreenSurfaceAccentGradient"
-
-    public val personaDefaultGreenSurfaceAccentGradientActive: String =
-        "personaDefaultGreenSurfaceAccentGradientActive"
-
-    public val personaDefaultIndigoSurfaceAccentGradient: String =
-        "personaDefaultIndigoSurfaceAccentGradient"
-
-    public val personaDefaultIndigoSurfaceAccentGradientActive: String =
-        "personaDefaultIndigoSurfaceAccentGradientActive"
-
-    public val personaDefaultOchreSurfaceAccentGradient: String =
-        "personaDefaultOchreSurfaceAccentGradient"
-
-    public val personaDefaultOchreSurfaceAccentGradientActive: String =
-        "personaDefaultOchreSurfaceAccentGradientActive"
-
-    public val personaDefaultOliveSurfaceAccentGradient: String =
-        "personaDefaultOliveSurfaceAccentGradient"
-
-    public val personaDefaultOliveSurfaceAccentGradientHover: String =
-        "personaDefaultOliveSurfaceAccentGradientHover"
-
-    public val personaDefaultOliveSurfaceAccentGradientActive: String =
-        "personaDefaultOliveSurfaceAccentGradientActive"
-
-    public val personaDefaultPinkSurfaceAccentGradient: String =
-        "personaDefaultPinkSurfaceAccentGradient"
-
-    public val personaDefaultPinkSurfaceAccentGradientHover: String =
-        "personaDefaultPinkSurfaceAccentGradientHover"
-
-    public val personaDefaultPinkSurfaceAccentGradientActive: String =
-        "personaDefaultPinkSurfaceAccentGradientActive"
-
-    public val personaDefaultBlueSurfaceAccentGradient: String =
-        "personaDefaultBlueSurfaceAccentGradient"
-
-    public val personaDefaultSeaBlueSurfaceAccentGradientActive: String =
-        "personaDefaultSeaBlueSurfaceAccentGradientActive"
-
-    public val personaDefaultVioletSurfaceAccentGradient: String =
-        "personaDefaultVioletSurfaceAccentGradient"
-
-    public val personaDefaultVioletSurfaceAccentGradientHover: String =
-        "personaDefaultVioletSurfaceAccentGradientHover"
-
-    public val personaDefaultVioletSurfaceAccentGradientActive: String =
-        "personaDefaultVioletSurfaceAccentGradientActive"
-
-    public val personaInverseBlueSurfaceAccentGradient: String =
-        "personaInverseBlueSurfaceAccentGradient"
-
-    public val personaInverseBlueSurfaceAccentGradientHover: String =
-        "personaInverseBlueSurfaceAccentGradientHover"
-
-    public val personaInverseBlueSurfaceAccentGradientActive: String =
-        "personaInverseBlueSurfaceAccentGradientActive"
-
-    public val personaInverseGreenSurfaceAccentGradient: String =
-        "personaInverseGreenSurfaceAccentGradient"
-
-    public val personaInverseGreenSurfaceAccentGradientHover: String =
-        "personaInverseGreenSurfaceAccentGradientHover"
-
-    public val personaInverseGreenSurfaceAccentGradientActive: String =
-        "personaInverseGreenSurfaceAccentGradientActive"
-
-    public val personaInverseIndigoSurfaceAccentGradient: String =
-        "personaInverseIndigoSurfaceAccentGradient"
-
-    public val personaInverseIndigoSurfaceAccentGradientActive: String =
-        "personaInverseIndigoSurfaceAccentGradientActive"
-
-    public val personaInverseOchreSurfaceAccentGradientHover: String =
-        "personaInverseOchreSurfaceAccentGradientHover"
-
-    public val personaInverseOchreSurfaceAccentGradientActive: String =
-        "personaInverseOchreSurfaceAccentGradientActive"
-
-    public val personaDefaultSeaBlueSurfaceAccentGradient: String =
-        "personaDefaultSeaBlueSurfaceAccentGradient"
-
-    public val personaDefaultSeaBlueSurfaceAccentGradientHover: String =
-        "personaDefaultSeaBlueSurfaceAccentGradientHover"
-
-    public val personaInverseOliveSurfaceAccentGradientActive: String =
-        "personaInverseOliveSurfaceAccentGradientActive"
-
-    public val personaInversePinkSurfaceAccentGradient: String =
-        "personaInversePinkSurfaceAccentGradient"
-
-    public val personaInversePinkSurfaceAccentGradientHover: String =
-        "personaInversePinkSurfaceAccentGradientHover"
-
-    public val personaInverseSeaBlueSurfaceAccentGradient: String =
-        "personaInverseSeaBlueSurfaceAccentGradient"
-
-    public val personaInverseSeaBlueSurfaceAccentGradientHover: String =
-        "personaInverseSeaBlueSurfaceAccentGradientHover"
-
-    public val personaInverseSeaBlueSurfaceAccentGradientActive: String =
-        "personaInverseSeaBlueSurfaceAccentGradientActive"
-
-    public val personaInverseVioletSurfaceAccentGradient: String =
-        "personaInverseVioletSurfaceAccentGradient"
-
-    public val personaInverseVioletSurfaceAccentGradientHover: String =
-        "personaInverseVioletSurfaceAccentGradientHover"
-
-    public val personaInverseVioletSurfaceAccentGradientActive: String =
-        "personaInverseVioletSurfaceAccentGradientActive"
-
-    public val personaOnDarkBlueSurfaceAccentGradient: String =
-        "personaOnDarkBlueSurfaceAccentGradient"
-
-    public val personaOnDarkBlueSurfaceAccentGradientHover: String =
-        "personaOnDarkBlueSurfaceAccentGradientHover"
-
-    public val personaOnDarkBlueSurfaceAccentGradientActive: String =
-        "personaOnDarkBlueSurfaceAccentGradientActive"
-
-    public val personaOnDarkGreenSurfaceAccentGradient: String =
-        "personaOnDarkGreenSurfaceAccentGradient"
-
-    public val personaOnDarkGreenSurfaceAccentGradientHover: String =
-        "personaOnDarkGreenSurfaceAccentGradientHover"
-
-    public val personaOnDarkGreenSurfaceAccentGradientActive: String =
-        "personaOnDarkGreenSurfaceAccentGradientActive"
-
-    public val personaInverseOliveSurfaceAccentGradient: String =
-        "personaInverseOliveSurfaceAccentGradient"
-
-    public val personaInverseOliveSurfaceAccentGradientHover: String =
-        "personaInverseOliveSurfaceAccentGradientHover"
-
-    public val personaOnDarkIndigoSurfaceAccentGradientActive: String =
-        "personaOnDarkIndigoSurfaceAccentGradientActive"
-
-    public val personaInverseOchreSurfaceAccentGradient: String =
-        "personaInverseOchreSurfaceAccentGradient"
-
-    public val personaOnDarkOchreSurfaceAccentGradientHover: String =
-        "personaOnDarkOchreSurfaceAccentGradientHover"
-
-    public val personaOnDarkOchreSurfaceAccentGradientActive: String =
-        "personaOnDarkOchreSurfaceAccentGradientActive"
-
-    public val personaOnDarkOliveSurfaceAccentGradient: String =
-        "personaOnDarkOliveSurfaceAccentGradient"
-
-    public val personaOnDarkOliveSurfaceAccentGradientHover: String =
-        "personaOnDarkOliveSurfaceAccentGradientHover"
-
-    public val personaOnDarkOliveSurfaceAccentGradientActive: String =
-        "personaOnDarkOliveSurfaceAccentGradientActive"
-
-    public val personaOnDarkPinkSurfaceAccentGradient: String =
-        "personaOnDarkPinkSurfaceAccentGradient"
-
-    public val personaOnDarkPinkSurfaceAccentGradientHover: String =
-        "personaOnDarkPinkSurfaceAccentGradientHover"
-
-    public val personaOnDarkPinkSurfaceAccentGradientActive: String =
-        "personaOnDarkPinkSurfaceAccentGradientActive"
-
-    public val personaOnDarkSeaBlueSurfaceAccentGradient: String =
-        "personaOnDarkSeaBlueSurfaceAccentGradient"
-
-    public val personaOnDarkSeaBlueSurfaceAccentGradientHover: String =
-        "personaOnDarkSeaBlueSurfaceAccentGradientHover"
-
-    public val personaOnDarkSeaBlueSurfaceAccentGradientActive: String =
-        "personaOnDarkSeaBlueSurfaceAccentGradientActive"
-
-    public val personaOnDarkVioletSurfaceAccentGradient: String =
-        "personaOnDarkVioletSurfaceAccentGradient"
-
-    public val personaOnDarkVioletSurfaceAccentGradientHover: String =
-        "personaOnDarkVioletSurfaceAccentGradientHover"
-
-    public val personaOnDarkVioletSurfaceAccentGradientActive: String =
-        "personaOnDarkVioletSurfaceAccentGradientActive"
-
-    public val personaOnDarkIndigoSurfaceAccentGradient: String =
-        "personaOnDarkIndigoSurfaceAccentGradient"
-
-    public val personaOnDarkIndigoSurfaceAccentGradientHover: String =
-        "personaOnDarkIndigoSurfaceAccentGradientHover"
-
-    public val personaOnLightGreenSurfaceAccentGradient: String =
-        "personaOnLightGreenSurfaceAccentGradient"
-
-    public val personaOnLightGreenSurfaceAccentGradientHover: String =
-        "personaOnLightGreenSurfaceAccentGradientHover"
-
-    public val personaOnLightGreenSurfaceAccentGradientActive: String =
-        "personaOnLightGreenSurfaceAccentGradientActive"
-
-    public val personaOnLightIndigoSurfaceAccentGradient: String =
-        "personaOnLightIndigoSurfaceAccentGradient"
-
-    public val personaOnLightIndigoSurfaceAccentGradientHover: String =
-        "personaOnLightIndigoSurfaceAccentGradientHover"
-
-    public val personaOnLightIndigoSurfaceAccentGradientActive: String =
-        "personaOnLightIndigoSurfaceAccentGradientActive"
-
-    public val personaOnLightOchreSurfaceAccentGradient: String =
-        "personaOnLightOchreSurfaceAccentGradient"
-
-    public val personaOnLightOchreSurfaceAccentGradientHover: String =
-        "personaOnLightOchreSurfaceAccentGradientHover"
-
-    public val personaOnLightOchreSurfaceAccentGradientActive: String =
-        "personaOnLightOchreSurfaceAccentGradientActive"
-
-    public val personaOnDarkOchreSurfaceAccentGradient: String =
-        "personaOnDarkOchreSurfaceAccentGradient"
-
-    public val personaOnLightOliveSurfaceAccentGradient: String =
-        "personaOnLightOliveSurfaceAccentGradient"
-
-    public val personaOnLightPinkSurfaceAccentGradient: String =
-        "personaOnLightPinkSurfaceAccentGradient"
-
-    public val personaOnLightPinkSurfaceAccentGradientHover: String =
-        "personaOnLightPinkSurfaceAccentGradientHover"
-
-    public val personaOnLightBlueSurfaceAccentGradientHover: String =
-        "personaOnLightBlueSurfaceAccentGradientHover"
-
-    public val personaOnLightVioletSurfaceAccentGradient: String =
-        "personaOnLightVioletSurfaceAccentGradient"
-
-    public val personaOnLightVioletSurfaceAccentGradientActive: String =
-        "personaOnLightVioletSurfaceAccentGradientActive"
-
-    public val outlineOnDarkTransparentSurfaceActive: String =
-        "outlineOnDarkTransparentSurfaceActive"
-
-    public val outlineOnLightTransparentSurface: String = "outlineOnLightTransparentSurface"
-
-    public val outlineOnLightTransparentSurfaceHover: String =
-        "outlineOnLightTransparentSurfaceHover"
-
-    public val outlineOnLightTransparentSurfaceActive: String =
-        "outlineOnLightTransparentSurfaceActive"
-
-    public val overlayInverseGradient: String = "overlayInverseGradient"
-
-    public val textDefaultAccentGradientAi: String = "textDefaultAccentGradientAi"
-
-    public val textDefaultAccentGradientAiHover: String = "textDefaultAccentGradientAiHover"
-
-    public val textInverseAccentGradientAi: String = "textInverseAccentGradientAi"
-
-    public val textInverseAccentGradientAiHover: String = "textInverseAccentGradientAiHover"
-
-    public val textInverseAccentGradientAiActive: String = "textInverseAccentGradientAiActive"
-
-    public val textOnDarkAccentGradientAi: String = "textOnDarkAccentGradientAi"
-
-    public val textOnDarkAccentGradientAiHover: String = "textOnDarkAccentGradientAiHover"
-
-    public val textOnDarkAccentGradientAiActive: String = "textOnDarkAccentGradientAiActive"
-
-    public val textOnLightAccentGradientAi: String = "textOnLightAccentGradientAi"
-
-    public val textOnLightAccentGradientAiHover: String = "textOnLightAccentGradientAiHover"
-
-    public val textOnLightAccentGradientAiActive: String = "textOnLightAccentGradientAiActive"
-
-    public val textDefaultAccentGradientAiActive: String = "textDefaultAccentGradientAiActive"
-
-    public val outlineOnDarkTransparentSurface: String = "outlineOnDarkTransparentSurface"
-
-    public val outlineOnDarkTransparentSurfaceHover: String = "outlineOnDarkTransparentSurfaceHover"
-
-    public val personaOnLightOliveSurfaceAccentGradientHover: String =
-        "personaOnLightOliveSurfaceAccentGradientHover"
-
-    public val overlayOnLightGradientActive: String = "overlayOnLightGradientActive"
-
-    public val outlineDefaultTransparentSurface: String = "outlineDefaultTransparentSurface"
-
-    public val outlineDefaultTransparentSurfaceHover: String =
-        "outlineDefaultTransparentSurfaceHover"
-
-    public val outlineDefaultTransparentSurfaceActive: String =
-        "outlineDefaultTransparentSurfaceActive"
-
-    public val overlayDefaultGradient: String = "overlayDefaultGradient"
-
-    public val overlayDefaultGradientHover: String = "overlayDefaultGradientHover"
-
-    public val overlayDefaultGradientActive: String = "overlayDefaultGradientActive"
-
-    public val overlayOnDarkGradient: String = "overlayOnDarkGradient"
-
-    public val overlayOnDarkGradientHover: String = "overlayOnDarkGradientHover"
-
-    public val overlayOnDarkGradientActive: String = "overlayOnDarkGradientActive"
-
-    public val overlayInverseGradientActive: String = "overlayInverseGradientActive"
-
-    public val overlayInverseGradientHover: String = "overlayInverseGradientHover"
-
-    public val overlayOnLightGradient: String = "overlayOnLightGradient"
-
-    public val personaOnLightPinkSurfaceAccentGradientActive: String =
-        "personaOnLightPinkSurfaceAccentGradientActive"
-
-    public val personaOnLightSeaBlueSurfaceAccentGradientHover: String =
-        "personaOnLightSeaBlueSurfaceAccentGradientHover"
-
-    public val overlayOnLightGradientHover: String = "overlayOnLightGradientHover"
-
-    public val personaOnLightOliveSurfaceAccentGradientActive: String =
-        "personaOnLightOliveSurfaceAccentGradientActive"
-
-    public val personaOnLightSeaBlueSurfaceAccentGradientActive: String =
-        "personaOnLightSeaBlueSurfaceAccentGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradientHover: String =
-        "surfaceInverseSkeletonDeepGradientHover"
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientHover: String = "outlineOnLightAccentGradientHover"
-
-    public val personaInverseIndigoSurfaceAccentGradientHover: String =
-        "personaInverseIndigoSurfaceAccentGradientHover"
-
-    public val personaOnLightSeaBlueSurfaceAccentGradient: String =
-        "personaOnLightSeaBlueSurfaceAccentGradient"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientActive: String = "outlineDefaultAccentGradientActive"
-
-    public val personaOnLightVioletSurfaceAccentGradientHover: String =
-        "personaOnLightVioletSurfaceAccentGradientHover"
+    public val surfaceDefaultAccentMinorGradient: String = "surfaceDefaultAccentMinorGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
@@ -1202,47 +701,29 @@ public class GradientOverrideScope {
     public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом
+     * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceDefaultAccentGradientHover: String = "surfaceDefaultAccentGradientHover"
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultAccentGradientActive: String = "surfaceDefaultAccentGradientActive"
-
-    public val personaOnLightBlueSurfaceAccentGradientActive: String =
-        "personaOnLightBlueSurfaceAccentGradientActive"
-
-    public val personaDefaultOchreSurfaceAccentGradientHover: String =
-        "personaDefaultOchreSurfaceAccentGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientHover: String = "surfaceOnLightSkeletonGradientHover"
+    public val surfaceOnDarkAccentMinorGradient: String = "surfaceOnDarkAccentMinorGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightAccentGradientHover: String = "surfaceOnLightAccentGradientHover"
+    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
 
-    public val personaDefaultIndigoSurfaceAccentGradientHover: String =
-        "personaDefaultIndigoSurfaceAccentGradientHover"
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentMinorGradient: String = "surfaceOnLightAccentMinorGradient"
 
-    public val personaDefaultBlueSurfaceAccentGradientHover: String =
-        "personaDefaultBlueSurfaceAccentGradientHover"
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
 
-    public val outlineInverseTransparentSurfaceBrightness: String =
-        "outlineInverseTransparentSurfaceBrightness"
-
-    public val outlineInverseTransparentSurface: String = "outlineInverseTransparentSurface"
-
-    public val outlineInverseTransparentSurfaceHover: String =
-        "outlineInverseTransparentSurfaceHover"
-
-    public val outlineInverseTransparentSurfaceActive: String =
-        "outlineInverseTransparentSurfaceActive"
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradient: String = "surfaceInverseAccentMinorGradient"
 
     /**
      * Переопределяет аттрибут градиента.
@@ -1275,485 +756,133 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
     val overwrite = gradientOverrideScope.overrideMap
     val initial = mutableMapOf<String, List<ShaderBrush>>()
     initial.add(
-        "surfaceOnDarkAccentGradientBrightness",
+        "personasOnDarkIndigoSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkAccentGradientBrightness.colors,
-                LightGradientTokens.SurfaceOnDarkAccentGradientBrightness.positions,
-                LightGradientTokens.SurfaceOnDarkAccentGradientBrightness.angle,
+                LightGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkTransparentSurfaceBrightness",
+        "outlineOnLightWhiteGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkTransparentSurfaceBrightness.colors,
-                LightGradientTokens.OutlineOnDarkTransparentSurfaceBrightness.positions,
-                LightGradientTokens.OutlineOnDarkTransparentSurfaceBrightness.angle,
+                LightGradientTokens.OutlineOnLightWhiteGradient.colors,
+                LightGradientTokens.OutlineOnLightWhiteGradient.positions,
+                LightGradientTokens.OutlineOnLightWhiteGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientBrightness",
+        "personasOnDarkBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentGradientBrightness.colors,
-                LightGradientTokens.SurfaceDefaultAccentGradientBrightness.positions,
-                LightGradientTokens.SurfaceDefaultAccentGradientBrightness.angle,
+                LightGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaInversePinkSurfaceAccentGradientActive",
+        "personasInverseIndigoSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaInversePinkSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaInversePinkSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaInversePinkSurfaceAccentGradientActive.angle,
+                LightGradientTokens.PersonasInverseIndigoSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasInverseIndigoSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasInverseIndigoSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradientAiBrightness",
+        "outlineDefaultWhiteGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultAccentGradientAiBrightness.colors,
-                LightGradientTokens.TextDefaultAccentGradientAiBrightness.positions,
-                LightGradientTokens.TextDefaultAccentGradientAiBrightness.angle,
+                LightGradientTokens.OutlineDefaultWhiteGradient.colors,
+                LightGradientTokens.OutlineDefaultWhiteGradient.positions,
+                LightGradientTokens.OutlineDefaultWhiteGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentGradientBrightness",
+        "personasDefaultGreenSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnLightAccentGradientBrightness.colors,
-                LightGradientTokens.SurfaceOnLightAccentGradientBrightness.positions,
-                LightGradientTokens.SurfaceOnLightAccentGradientBrightness.angle,
+                LightGradientTokens.PersonasDefaultGreenSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasDefaultGreenSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasDefaultGreenSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaDefaultGreenSurfaceAccentGradientHover",
+        "personasInverseSeaBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaDefaultGreenSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaDefaultGreenSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaDefaultGreenSurfaceAccentGradientHover.angle,
+                LightGradientTokens.PersonasInverseSeaBlueSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasInverseSeaBlueSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasInverseSeaBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradientAiBrightness",
+        "personasOnLightPinkSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkAccentGradientAiBrightness.colors,
-                LightGradientTokens.TextOnDarkAccentGradientAiBrightness.positions,
-                LightGradientTokens.TextOnDarkAccentGradientAiBrightness.angle,
+                LightGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradientAiBrightness",
+        "textInverseAccentGradientAI",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightAccentGradientAiBrightness.colors,
-                LightGradientTokens.TextOnLightAccentGradientAiBrightness.positions,
-                LightGradientTokens.TextOnLightAccentGradientAiBrightness.angle,
+                LightGradientTokens.TextInverseAccentGradientAI.colors,
+                LightGradientTokens.TextInverseAccentGradientAI.positions,
+                LightGradientTokens.TextInverseAccentGradientAI.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentGradientBrightness",
+        "personasOnDarkOchreSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseAccentGradientBrightness.colors,
-                LightGradientTokens.SurfaceInverseAccentGradientBrightness.positions,
-                LightGradientTokens.SurfaceInverseAccentGradientBrightness.angle,
+                LightGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientAiBrightness",
+        "personasDefaultSeaBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentGradientAiBrightness.colors,
-                LightGradientTokens.TextInverseAccentGradientAiBrightness.positions,
-                LightGradientTokens.TextInverseAccentGradientAiBrightness.angle,
+                LightGradientTokens.PersonasDefaultSeaBlueSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasDefaultSeaBlueSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasDefaultSeaBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradientBrightness",
+        "personasInversePinkSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnLightGradientBrightness.colors,
-                LightGradientTokens.OverlayOnLightGradientBrightness.positions,
-                LightGradientTokens.OverlayOnLightGradientBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSurfaceBrightness",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentSurfaceBrightness.colors,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceBrightness.positions,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayDefaultGradientBrightness",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayDefaultGradientBrightness.colors,
-                LightGradientTokens.OverlayDefaultGradientBrightness.positions,
-                LightGradientTokens.OverlayDefaultGradientBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayOnDarkGradientBrightness",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayOnDarkGradientBrightness.colors,
-                LightGradientTokens.OverlayOnDarkGradientBrightness.positions,
-                LightGradientTokens.OverlayOnDarkGradientBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayInverseGradientBrightness",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayInverseGradientBrightness.colors,
-                LightGradientTokens.OverlayInverseGradientBrightness.positions,
-                LightGradientTokens.OverlayInverseGradientBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentSurfaceBrightness",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightTransparentSurfaceBrightness.colors,
-                LightGradientTokens.OutlineOnLightTransparentSurfaceBrightness.positions,
-                LightGradientTokens.OutlineOnLightTransparentSurfaceBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentGradient.colors,
-                LightGradientTokens.SurfaceDefaultAccentGradient.positions,
-                LightGradientTokens.SurfaceDefaultAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonGradient.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonGradient.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonDeepGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradient.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradient.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkAccentGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkAccentGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonDeepGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkAccentGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkAccentGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonDeepGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonDeepGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightAccentGradientActive.colors,
-                LightGradientTokens.SurfaceOnLightAccentGradientActive.positions,
-                LightGradientTokens.SurfaceOnLightAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonDeepGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.colors,
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.positions,
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceInverseAccentGradientHover.colors,
-                LightGradientTokens.SurfaceInverseAccentGradientHover.positions,
-                LightGradientTokens.SurfaceInverseAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceInverseAccentGradientActive.colors,
-                LightGradientTokens.SurfaceInverseAccentGradientActive.positions,
-                LightGradientTokens.SurfaceInverseAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceInverseAccentGradient.colors,
-                LightGradientTokens.SurfaceInverseAccentGradient.positions,
-                LightGradientTokens.SurfaceInverseAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonGradient.colors,
-                LightGradientTokens.SurfaceInverseSkeletonGradient.positions,
-                LightGradientTokens.SurfaceInverseSkeletonGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonGradientHover.colors,
-                LightGradientTokens.SurfaceInverseSkeletonGradientHover.positions,
-                LightGradientTokens.SurfaceInverseSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonGradientActive.colors,
-                LightGradientTokens.SurfaceInverseSkeletonGradientActive.positions,
-                LightGradientTokens.SurfaceInverseSkeletonGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonDeepGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.colors,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.positions,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightAccentGradient.colors,
-                LightGradientTokens.SurfaceOnLightAccentGradient.positions,
-                LightGradientTokens.SurfaceOnLightAccentGradient.angle,
+                LightGradientTokens.PersonasInversePinkSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasInversePinkSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasInversePinkSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -1770,1068 +899,56 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSkeletonGradientActive",
+        "personasInverseOchreSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnLightSkeletonGradientActive.colors,
-                LightGradientTokens.SurfaceOnLightSkeletonGradientActive.positions,
-                LightGradientTokens.SurfaceOnLightSkeletonGradientActive.angle,
+                LightGradientTokens.PersonasInverseOchreSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasInverseOchreSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasInverseOchreSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSkeletonDeepGradient",
+        "backgroundDarkGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.colors,
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.positions,
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.angle,
+                LightGradientTokens.BackgroundDarkGradient.colors,
+                LightGradientTokens.BackgroundDarkGradient.positions,
+                LightGradientTokens.BackgroundDarkGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradient",
+        "personasOnDarkSeaBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultAccentGradient.colors,
-                LightGradientTokens.OutlineDefaultAccentGradient.positions,
-                LightGradientTokens.OutlineDefaultAccentGradient.angle,
+                LightGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradientHover",
+        "surfaceOnDarkSkeletonGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentGradientHover.colors,
-                LightGradientTokens.OutlineOnDarkAccentGradientHover.positions,
-                LightGradientTokens.OutlineOnDarkAccentGradientHover.angle,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradientActive",
+        "backgroundInverseGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentGradientActive.colors,
-                LightGradientTokens.OutlineOnDarkAccentGradientActive.positions,
-                LightGradientTokens.OutlineOnDarkAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentGradient.colors,
-                LightGradientTokens.OutlineOnDarkAccentGradient.positions,
-                LightGradientTokens.OutlineOnDarkAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonDeepGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultAccentGradientHover.colors,
-                LightGradientTokens.OutlineDefaultAccentGradientHover.positions,
-                LightGradientTokens.OutlineDefaultAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightAccentGradient.colors,
-                LightGradientTokens.OutlineOnLightAccentGradient.positions,
-                LightGradientTokens.OutlineOnLightAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineInverseAccentGradientHover.colors,
-                LightGradientTokens.OutlineInverseAccentGradientHover.positions,
-                LightGradientTokens.OutlineInverseAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineInverseAccentGradientActive.colors,
-                LightGradientTokens.OutlineInverseAccentGradientActive.positions,
-                LightGradientTokens.OutlineInverseAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightAccentGradientActive.colors,
-                LightGradientTokens.OutlineOnLightAccentGradientActive.positions,
-                LightGradientTokens.OutlineOnLightAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultBlueSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaDefaultBlueSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaDefaultBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultGreenSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultGreenSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaDefaultGreenSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaDefaultGreenSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultGreenSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultGreenSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaDefaultGreenSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaDefaultGreenSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultIndigoSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultIndigoSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaDefaultIndigoSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaDefaultIndigoSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultIndigoSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOchreSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultOchreSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaDefaultOchreSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaDefaultOchreSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOchreSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultOchreSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaDefaultOchreSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaDefaultOchreSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOliveSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultOliveSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaDefaultOliveSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaDefaultOliveSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOliveSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultOliveSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaDefaultOliveSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaDefaultOliveSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOliveSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultOliveSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaDefaultOliveSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaDefaultOliveSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultPinkSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultPinkSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaDefaultPinkSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaDefaultPinkSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultPinkSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultPinkSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaDefaultPinkSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaDefaultPinkSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultPinkSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultPinkSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaDefaultPinkSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaDefaultPinkSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultBlueSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaDefaultBlueSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaDefaultBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultSeaBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultVioletSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultVioletSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaDefaultVioletSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaDefaultVioletSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultVioletSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultVioletSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaDefaultVioletSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaDefaultVioletSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultVioletSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultVioletSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaDefaultVioletSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaDefaultVioletSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseBlueSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaInverseBlueSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaInverseBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseBlueSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaInverseBlueSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaInverseBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseBlueSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaInverseBlueSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaInverseBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseGreenSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseGreenSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaInverseGreenSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaInverseGreenSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseGreenSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseGreenSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaInverseGreenSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaInverseGreenSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseGreenSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseGreenSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaInverseGreenSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaInverseGreenSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseIndigoSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseIndigoSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaInverseIndigoSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaInverseIndigoSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseIndigoSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseIndigoSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaInverseIndigoSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaInverseIndigoSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOchreSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseOchreSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaInverseOchreSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaInverseOchreSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOchreSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseOchreSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaInverseOchreSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaInverseOchreSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultSeaBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultSeaBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOliveSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseOliveSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaInverseOliveSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaInverseOliveSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInversePinkSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInversePinkSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaInversePinkSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaInversePinkSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInversePinkSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInversePinkSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaInversePinkSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaInversePinkSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseSeaBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseSeaBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseSeaBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseVioletSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseVioletSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaInverseVioletSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaInverseVioletSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseVioletSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseVioletSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaInverseVioletSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaInverseVioletSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseVioletSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseVioletSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaInverseVioletSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaInverseVioletSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkGreenSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkGreenSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkGreenSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOliveSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseOliveSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaInverseOliveSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaInverseOliveSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOliveSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseOliveSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaInverseOliveSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaInverseOliveSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkIndigoSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOchreSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaInverseOchreSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaInverseOchreSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaInverseOchreSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOchreSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOchreSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOliveSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOliveSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOliveSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkPinkSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkPinkSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkPinkSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkSeaBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkSeaBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkSeaBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkVioletSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkVioletSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkVioletSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkIndigoSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkIndigoSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightGreenSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightGreenSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightGreenSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightIndigoSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightIndigoSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightIndigoSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOchreSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOchreSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOchreSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOchreSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOliveSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightPinkSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightPinkSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightVioletSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightVioletSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentSurfaceActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnDarkTransparentSurfaceActive.colors,
-                LightGradientTokens.OutlineOnDarkTransparentSurfaceActive.positions,
-                LightGradientTokens.OutlineOnDarkTransparentSurfaceActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentSurface",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightTransparentSurface.colors,
-                LightGradientTokens.OutlineOnLightTransparentSurface.positions,
-                LightGradientTokens.OutlineOnLightTransparentSurface.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentSurfaceHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightTransparentSurfaceHover.colors,
-                LightGradientTokens.OutlineOnLightTransparentSurfaceHover.positions,
-                LightGradientTokens.OutlineOnLightTransparentSurfaceHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentSurfaceActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightTransparentSurfaceActive.colors,
-                LightGradientTokens.OutlineOnLightTransparentSurfaceActive.positions,
-                LightGradientTokens.OutlineOnLightTransparentSurfaceActive.angle,
+                LightGradientTokens.BackgroundInverseGradient.colors,
+                LightGradientTokens.BackgroundInverseGradient.positions,
+                LightGradientTokens.BackgroundInverseGradient.angle,
             ),
         ),
         overwrite,
@@ -2848,210 +965,67 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradientAi",
+        "personasDefaultPinkSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultAccentGradientAi.colors,
-                LightGradientTokens.TextDefaultAccentGradientAi.positions,
-                LightGradientTokens.TextDefaultAccentGradientAi.angle,
+                LightGradientTokens.PersonasDefaultPinkSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasDefaultPinkSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasDefaultPinkSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradientAiHover",
+        "personasOnLightOliveSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultAccentGradientAiHover.colors,
-                LightGradientTokens.TextDefaultAccentGradientAiHover.positions,
-                LightGradientTokens.TextDefaultAccentGradientAiHover.angle,
+                LightGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientAi",
+        "surfaceInverseAccentGradientSecondary",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentGradientAi.colors,
-                LightGradientTokens.TextInverseAccentGradientAi.positions,
-                LightGradientTokens.TextInverseAccentGradientAi.angle,
+                LightGradientTokens.SurfaceInverseAccentGradientSecondary.colors,
+                LightGradientTokens.SurfaceInverseAccentGradientSecondary.positions,
+                LightGradientTokens.SurfaceInverseAccentGradientSecondary.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientAiHover",
+        "textOnLightAccentGradientAI",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentGradientAiHover.colors,
-                LightGradientTokens.TextInverseAccentGradientAiHover.positions,
-                LightGradientTokens.TextInverseAccentGradientAiHover.angle,
+                LightGradientTokens.TextOnLightAccentGradientAI.colors,
+                LightGradientTokens.TextOnLightAccentGradientAI.positions,
+                LightGradientTokens.TextOnLightAccentGradientAI.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientAiActive",
+        "backgroundLightGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentGradientAiActive.colors,
-                LightGradientTokens.TextInverseAccentGradientAiActive.positions,
-                LightGradientTokens.TextInverseAccentGradientAiActive.angle,
+                LightGradientTokens.BackgroundLightGradient.colors,
+                LightGradientTokens.BackgroundLightGradient.positions,
+                LightGradientTokens.BackgroundLightGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradientAi",
+        "surfaceDefaultSkeletonGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkAccentGradientAi.colors,
-                LightGradientTokens.TextOnDarkAccentGradientAi.positions,
-                LightGradientTokens.TextOnDarkAccentGradientAi.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnDarkAccentGradientAiHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.TextOnDarkAccentGradientAiHover.colors,
-                LightGradientTokens.TextOnDarkAccentGradientAiHover.positions,
-                LightGradientTokens.TextOnDarkAccentGradientAiHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnDarkAccentGradientAiActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.TextOnDarkAccentGradientAiActive.colors,
-                LightGradientTokens.TextOnDarkAccentGradientAiActive.positions,
-                LightGradientTokens.TextOnDarkAccentGradientAiActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnLightAccentGradientAi",
-        listOf(
-            linearGradient(
-                LightGradientTokens.TextOnLightAccentGradientAi.colors,
-                LightGradientTokens.TextOnLightAccentGradientAi.positions,
-                LightGradientTokens.TextOnLightAccentGradientAi.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnLightAccentGradientAiHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.TextOnLightAccentGradientAiHover.colors,
-                LightGradientTokens.TextOnLightAccentGradientAiHover.positions,
-                LightGradientTokens.TextOnLightAccentGradientAiHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnLightAccentGradientAiActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.TextOnLightAccentGradientAiActive.colors,
-                LightGradientTokens.TextOnLightAccentGradientAiActive.positions,
-                LightGradientTokens.TextOnLightAccentGradientAiActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textDefaultAccentGradientAiActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.TextDefaultAccentGradientAiActive.colors,
-                LightGradientTokens.TextDefaultAccentGradientAiActive.positions,
-                LightGradientTokens.TextDefaultAccentGradientAiActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentSurface",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnDarkTransparentSurface.colors,
-                LightGradientTokens.OutlineOnDarkTransparentSurface.positions,
-                LightGradientTokens.OutlineOnDarkTransparentSurface.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentSurfaceHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnDarkTransparentSurfaceHover.colors,
-                LightGradientTokens.OutlineOnDarkTransparentSurfaceHover.positions,
-                LightGradientTokens.OutlineOnDarkTransparentSurfaceHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOliveSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayOnLightGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayOnLightGradientActive.colors,
-                LightGradientTokens.OverlayOnLightGradientActive.positions,
-                LightGradientTokens.OverlayOnLightGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSurface",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentSurface.colors,
-                LightGradientTokens.OutlineDefaultTransparentSurface.positions,
-                LightGradientTokens.OutlineDefaultTransparentSurface.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSurfaceHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentSurfaceHover.colors,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceHover.positions,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSurfaceActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentSurfaceActive.colors,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceActive.positions,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceActive.angle,
+                LightGradientTokens.SurfaceDefaultSkeletonGradient.colors,
+                LightGradientTokens.SurfaceDefaultSkeletonGradient.positions,
+                LightGradientTokens.SurfaceDefaultSkeletonGradient.angle,
             ),
         ),
         overwrite,
@@ -3068,28 +1042,6 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "overlayDefaultGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayDefaultGradientHover.colors,
-                LightGradientTokens.OverlayDefaultGradientHover.positions,
-                LightGradientTokens.OverlayDefaultGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayDefaultGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayDefaultGradientActive.colors,
-                LightGradientTokens.OverlayDefaultGradientActive.positions,
-                LightGradientTokens.OverlayDefaultGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "overlayOnDarkGradient",
         listOf(
             linearGradient(
@@ -3101,45 +1053,155 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "overlayOnDarkGradientHover",
+        "backgroundDefaultGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnDarkGradientHover.colors,
-                LightGradientTokens.OverlayOnDarkGradientHover.positions,
-                LightGradientTokens.OverlayOnDarkGradientHover.angle,
+                LightGradientTokens.BackgroundDefaultGradient.colors,
+                LightGradientTokens.BackgroundDefaultGradient.positions,
+                LightGradientTokens.BackgroundDefaultGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnDarkGradientActive",
+        "personasOnDarkVioletSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnDarkGradientActive.colors,
-                LightGradientTokens.OverlayOnDarkGradientActive.positions,
-                LightGradientTokens.OverlayOnDarkGradientActive.angle,
+                LightGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayInverseGradientActive",
+        "surfaceInverseSkeletonGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayInverseGradientActive.colors,
-                LightGradientTokens.OverlayInverseGradientActive.positions,
-                LightGradientTokens.OverlayInverseGradientActive.angle,
+                LightGradientTokens.SurfaceInverseSkeletonGradient.colors,
+                LightGradientTokens.SurfaceInverseSkeletonGradient.positions,
+                LightGradientTokens.SurfaceInverseSkeletonGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayInverseGradientHover",
+        "personasOnLightOchreSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayInverseGradientHover.colors,
-                LightGradientTokens.OverlayInverseGradientHover.positions,
-                LightGradientTokens.OverlayInverseGradientHover.angle,
+                LightGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultAccentGradientSecondary",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultAccentGradientSecondary.colors,
+                LightGradientTokens.SurfaceDefaultAccentGradientSecondary.positions,
+                LightGradientTokens.SurfaceDefaultAccentGradientSecondary.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasInverseGreenSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasInverseGreenSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasInverseGreenSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasInverseGreenSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultOchreSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasDefaultOchreSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasDefaultOchreSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasDefaultOchreSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseWhiteGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OutlineInverseWhiteGradient.colors,
+                LightGradientTokens.OutlineInverseWhiteGradient.positions,
+                LightGradientTokens.OutlineInverseWhiteGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightVioletSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultVioletSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasDefaultVioletSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasDefaultVioletSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasDefaultVioletSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "outlineOnDarkWhiteGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OutlineOnDarkWhiteGradient.colors,
+                LightGradientTokens.OutlineOnDarkWhiteGradient.positions,
+                LightGradientTokens.OutlineOnDarkWhiteGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasInverseBlueSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasInverseBlueSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasInverseBlueSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasInverseBlueSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightSeaBlueSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasInverseOliveSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasInverseOliveSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasInverseOliveSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasInverseOliveSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -3156,133 +1218,177 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "personaOnLightPinkSurfaceAccentGradientActive",
+        "personasOnLightIndigoSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.angle,
+                LightGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightSeaBlueSurfaceAccentGradientHover",
+        "personasOnLightBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.angle,
+                LightGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradientHover",
+        "personasOnDarkPinkSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnLightGradientHover.colors,
-                LightGradientTokens.OverlayOnLightGradientHover.positions,
-                LightGradientTokens.OverlayOnLightGradientHover.angle,
+                LightGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightOliveSurfaceAccentGradientActive",
+        "textOnDarkAccentGradientAI",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.angle,
+                LightGradientTokens.TextOnDarkAccentGradientAI.colors,
+                LightGradientTokens.TextOnDarkAccentGradientAI.positions,
+                LightGradientTokens.TextOnDarkAccentGradientAI.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightSeaBlueSurfaceAccentGradientActive",
+        "personasOnDarkGreenSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.angle,
+                LightGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonDeepGradientHover",
+        "personasDefaultOliveSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientHover.colors,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientHover.positions,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientHover.angle,
+                LightGradientTokens.PersonasDefaultOliveSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasDefaultOliveSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasDefaultOliveSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentGradient",
+        "personasDefaultIndigoSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineInverseAccentGradient.colors,
-                LightGradientTokens.OutlineInverseAccentGradient.positions,
-                LightGradientTokens.OutlineInverseAccentGradient.angle,
+                LightGradientTokens.PersonasDefaultIndigoSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasDefaultIndigoSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasDefaultIndigoSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnLightAccentGradientHover",
+        "textDefaultAccentGradientAI",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnLightAccentGradientHover.colors,
-                LightGradientTokens.OutlineOnLightAccentGradientHover.positions,
-                LightGradientTokens.OutlineOnLightAccentGradientHover.angle,
+                LightGradientTokens.TextDefaultAccentGradientAI.colors,
+                LightGradientTokens.TextDefaultAccentGradientAI.positions,
+                LightGradientTokens.TextDefaultAccentGradientAI.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaInverseIndigoSurfaceAccentGradientHover",
+        "surfaceOnDarkAccentGradientSecondary",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaInverseIndigoSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaInverseIndigoSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaInverseIndigoSurfaceAccentGradientHover.angle,
+                LightGradientTokens.SurfaceOnDarkAccentGradientSecondary.colors,
+                LightGradientTokens.SurfaceOnDarkAccentGradientSecondary.positions,
+                LightGradientTokens.SurfaceOnDarkAccentGradientSecondary.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightSeaBlueSurfaceAccentGradient",
+        "personasDefaultBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.angle,
+                LightGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradientActive",
+        "personasInverseVioletSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultAccentGradientActive.colors,
-                LightGradientTokens.OutlineDefaultAccentGradientActive.positions,
-                LightGradientTokens.OutlineDefaultAccentGradientActive.angle,
+                LightGradientTokens.PersonasInverseVioletSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasInverseVioletSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasInverseVioletSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightVioletSurfaceAccentGradientHover",
+        "surfaceOnLightAccentGradientSecondary",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.angle,
+                LightGradientTokens.SurfaceOnLightAccentGradientSecondary.colors,
+                LightGradientTokens.SurfaceOnLightAccentGradientSecondary.positions,
+                LightGradientTokens.SurfaceOnLightAccentGradientSecondary.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightGreenSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasOnDarkOliveSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultAccentGradient.colors,
+                LightGradientTokens.SurfaceDefaultAccentGradient.positions,
+                LightGradientTokens.SurfaceDefaultAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultAccentMinorGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultAccentMinorGradient.colors,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradient.positions,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
@@ -3299,133 +1405,56 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientHover",
+        "surfaceOnDarkAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultAccentGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultAccentGradientHover.angle,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradient.colors,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradient.positions,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientActive",
+        "surfaceOnLightAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultAccentGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultAccentGradientActive.angle,
+                LightGradientTokens.SurfaceOnLightAccentGradient.colors,
+                LightGradientTokens.SurfaceOnLightAccentGradient.positions,
+                LightGradientTokens.SurfaceOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightBlueSurfaceAccentGradientActive",
+        "surfaceOnLightAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.colors,
-                LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.positions,
-                LightGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.angle,
+                LightGradientTokens.SurfaceOnLightAccentMinorGradient.colors,
+                LightGradientTokens.SurfaceOnLightAccentMinorGradient.positions,
+                LightGradientTokens.SurfaceOnLightAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaDefaultOchreSurfaceAccentGradientHover",
+        "surfaceInverseAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.PersonaDefaultOchreSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaDefaultOchreSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaDefaultOchreSurfaceAccentGradientHover.angle,
+                LightGradientTokens.SurfaceInverseAccentGradient.colors,
+                LightGradientTokens.SurfaceInverseAccentGradient.positions,
+                LightGradientTokens.SurfaceInverseAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSkeletonGradientHover",
+        "surfaceInverseAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnLightSkeletonGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightSkeletonGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightAccentGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightAccentGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultIndigoSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonaDefaultBlueSurfaceAccentGradientHover.colors,
-                LightGradientTokens.PersonaDefaultBlueSurfaceAccentGradientHover.positions,
-                LightGradientTokens.PersonaDefaultBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentSurfaceBrightness",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentSurfaceBrightness.colors,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceBrightness.positions,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentSurface",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentSurface.colors,
-                DarkGradientTokens.OutlineInverseTransparentSurface.positions,
-                DarkGradientTokens.OutlineInverseTransparentSurface.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentSurfaceHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentSurfaceHover.colors,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceHover.positions,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentSurfaceActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentSurfaceActive.colors,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceActive.positions,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceActive.angle,
+                LightGradientTokens.SurfaceInverseAccentMinorGradient.colors,
+                LightGradientTokens.SurfaceInverseAccentMinorGradient.positions,
+                LightGradientTokens.SurfaceInverseAccentMinorGradient.angle,
             ),
         ),
         overwrite,
@@ -3443,485 +1472,133 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
     val overwrite = gradientOverrideScope.overrideMap
     val initial = mutableMapOf<String, List<ShaderBrush>>()
     initial.add(
-        "surfaceOnDarkAccentGradientBrightness",
+        "personasOnDarkIndigoSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkAccentGradientBrightness.colors,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientBrightness.positions,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientBrightness.angle,
+                DarkGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnDarkIndigoSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkTransparentSurfaceBrightness",
+        "outlineOnLightWhiteGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkTransparentSurfaceBrightness.colors,
-                DarkGradientTokens.OutlineOnDarkTransparentSurfaceBrightness.positions,
-                DarkGradientTokens.OutlineOnDarkTransparentSurfaceBrightness.angle,
+                DarkGradientTokens.OutlineOnLightWhiteGradient.colors,
+                DarkGradientTokens.OutlineOnLightWhiteGradient.positions,
+                DarkGradientTokens.OutlineOnLightWhiteGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientBrightness",
+        "personasOnDarkBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentGradientBrightness.colors,
-                DarkGradientTokens.SurfaceDefaultAccentGradientBrightness.positions,
-                DarkGradientTokens.SurfaceDefaultAccentGradientBrightness.angle,
+                DarkGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnDarkBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaInversePinkSurfaceAccentGradientActive",
+        "personasInverseIndigoSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaInversePinkSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaInversePinkSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaInversePinkSurfaceAccentGradientActive.angle,
+                DarkGradientTokens.PersonasInverseIndigoSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasInverseIndigoSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasInverseIndigoSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradientAiBrightness",
+        "outlineDefaultWhiteGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultAccentGradientAiBrightness.colors,
-                DarkGradientTokens.TextDefaultAccentGradientAiBrightness.positions,
-                DarkGradientTokens.TextDefaultAccentGradientAiBrightness.angle,
+                DarkGradientTokens.OutlineDefaultWhiteGradient.colors,
+                DarkGradientTokens.OutlineDefaultWhiteGradient.positions,
+                DarkGradientTokens.OutlineDefaultWhiteGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentGradientBrightness",
+        "personasDefaultGreenSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnLightAccentGradientBrightness.colors,
-                DarkGradientTokens.SurfaceOnLightAccentGradientBrightness.positions,
-                DarkGradientTokens.SurfaceOnLightAccentGradientBrightness.angle,
+                DarkGradientTokens.PersonasDefaultGreenSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasDefaultGreenSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasDefaultGreenSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaDefaultGreenSurfaceAccentGradientHover",
+        "personasInverseSeaBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaDefaultGreenSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaDefaultGreenSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaDefaultGreenSurfaceAccentGradientHover.angle,
+                DarkGradientTokens.PersonasInverseSeaBlueSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasInverseSeaBlueSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasInverseSeaBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradientAiBrightness",
+        "personasOnLightPinkSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkAccentGradientAiBrightness.colors,
-                DarkGradientTokens.TextOnDarkAccentGradientAiBrightness.positions,
-                DarkGradientTokens.TextOnDarkAccentGradientAiBrightness.angle,
+                DarkGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnLightPinkSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradientAiBrightness",
+        "textInverseAccentGradientAI",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightAccentGradientAiBrightness.colors,
-                DarkGradientTokens.TextOnLightAccentGradientAiBrightness.positions,
-                DarkGradientTokens.TextOnLightAccentGradientAiBrightness.angle,
+                DarkGradientTokens.TextInverseAccentGradientAI.colors,
+                DarkGradientTokens.TextInverseAccentGradientAI.positions,
+                DarkGradientTokens.TextInverseAccentGradientAI.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentGradientBrightness",
+        "personasOnDarkOchreSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentGradientBrightness.colors,
-                DarkGradientTokens.SurfaceInverseAccentGradientBrightness.positions,
-                DarkGradientTokens.SurfaceInverseAccentGradientBrightness.angle,
+                DarkGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnDarkOchreSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientAiBrightness",
+        "personasDefaultSeaBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentGradientAiBrightness.colors,
-                DarkGradientTokens.TextInverseAccentGradientAiBrightness.positions,
-                DarkGradientTokens.TextInverseAccentGradientAiBrightness.angle,
+                DarkGradientTokens.PersonasDefaultSeaBlueSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasDefaultSeaBlueSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasDefaultSeaBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradientBrightness",
+        "personasInversePinkSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayOnLightGradientBrightness.colors,
-                DarkGradientTokens.OverlayOnLightGradientBrightness.positions,
-                DarkGradientTokens.OverlayOnLightGradientBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSurfaceBrightness",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentSurfaceBrightness.colors,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceBrightness.positions,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayDefaultGradientBrightness",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayDefaultGradientBrightness.colors,
-                LightGradientTokens.OverlayDefaultGradientBrightness.positions,
-                LightGradientTokens.OverlayDefaultGradientBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayOnDarkGradientBrightness",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayOnDarkGradientBrightness.colors,
-                LightGradientTokens.OverlayOnDarkGradientBrightness.positions,
-                LightGradientTokens.OverlayOnDarkGradientBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayInverseGradientBrightness",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OverlayInverseGradientBrightness.colors,
-                DarkGradientTokens.OverlayInverseGradientBrightness.positions,
-                DarkGradientTokens.OverlayInverseGradientBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentSurfaceBrightness",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightTransparentSurfaceBrightness.colors,
-                DarkGradientTokens.OutlineOnLightTransparentSurfaceBrightness.positions,
-                DarkGradientTokens.OutlineOnLightTransparentSurfaceBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentGradient.colors,
-                DarkGradientTokens.SurfaceDefaultAccentGradient.positions,
-                DarkGradientTokens.SurfaceDefaultAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonGradient.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradient.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonDeepGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradient.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradient.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultSkeletonDeepGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonDeepGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSkeletonDeepGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceOnLightAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceOnLightAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonDeepGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.colors,
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.positions,
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceInverseAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceInverseAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceInverseAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceInverseAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentGradient.colors,
-                DarkGradientTokens.SurfaceInverseAccentGradient.positions,
-                DarkGradientTokens.SurfaceInverseAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonGradient.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonGradient.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonGradientHover.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonGradientHover.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonGradientActive.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonGradientActive.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonDeepGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
-                DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
-                DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
+                DarkGradientTokens.PersonasInversePinkSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasInversePinkSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasInversePinkSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -3938,1068 +1615,56 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSkeletonGradientActive",
+        "personasInverseOchreSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.colors,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.positions,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.angle,
+                DarkGradientTokens.PersonasInverseOchreSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasInverseOchreSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasInverseOchreSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSkeletonDeepGradient",
+        "backgroundDarkGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.colors,
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.positions,
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.angle,
+                DarkGradientTokens.BackgroundDarkGradient.colors,
+                DarkGradientTokens.BackgroundDarkGradient.positions,
+                DarkGradientTokens.BackgroundDarkGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradient",
+        "personasOnDarkSeaBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentGradient.colors,
-                DarkGradientTokens.OutlineDefaultAccentGradient.positions,
-                DarkGradientTokens.OutlineDefaultAccentGradient.angle,
+                DarkGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnDarkSeaBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradientHover",
+        "surfaceOnDarkSkeletonGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentGradientHover.colors,
-                DarkGradientTokens.OutlineOnDarkAccentGradientHover.positions,
-                DarkGradientTokens.OutlineOnDarkAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradientActive",
+        "backgroundInverseGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentGradientActive.colors,
-                DarkGradientTokens.OutlineOnDarkAccentGradientActive.positions,
-                DarkGradientTokens.OutlineOnDarkAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentGradient.colors,
-                DarkGradientTokens.OutlineOnDarkAccentGradient.positions,
-                DarkGradientTokens.OutlineOnDarkAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSkeletonDeepGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentGradientHover.colors,
-                DarkGradientTokens.OutlineDefaultAccentGradientHover.positions,
-                DarkGradientTokens.OutlineDefaultAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentGradient.colors,
-                DarkGradientTokens.OutlineOnLightAccentGradient.positions,
-                DarkGradientTokens.OutlineOnLightAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseAccentGradientHover.colors,
-                DarkGradientTokens.OutlineInverseAccentGradientHover.positions,
-                DarkGradientTokens.OutlineInverseAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseAccentGradientActive.colors,
-                DarkGradientTokens.OutlineInverseAccentGradientActive.positions,
-                DarkGradientTokens.OutlineInverseAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentGradientActive.colors,
-                DarkGradientTokens.OutlineOnLightAccentGradientActive.positions,
-                DarkGradientTokens.OutlineOnLightAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultBlueSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaDefaultBlueSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaDefaultBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultGreenSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultGreenSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaDefaultGreenSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaDefaultGreenSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultGreenSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultGreenSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaDefaultGreenSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaDefaultGreenSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultIndigoSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultIndigoSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaDefaultIndigoSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaDefaultIndigoSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultIndigoSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOchreSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultOchreSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaDefaultOchreSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaDefaultOchreSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOchreSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultOchreSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaDefaultOchreSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaDefaultOchreSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOliveSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultOliveSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaDefaultOliveSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaDefaultOliveSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOliveSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultOliveSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaDefaultOliveSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaDefaultOliveSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultOliveSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultOliveSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaDefaultOliveSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaDefaultOliveSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultPinkSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultPinkSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaDefaultPinkSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaDefaultPinkSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultPinkSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultPinkSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaDefaultPinkSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaDefaultPinkSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultPinkSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultPinkSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaDefaultPinkSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaDefaultPinkSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultBlueSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaDefaultBlueSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaDefaultBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultSeaBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultVioletSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultVioletSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaDefaultVioletSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaDefaultVioletSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultVioletSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultVioletSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaDefaultVioletSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaDefaultVioletSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultVioletSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultVioletSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaDefaultVioletSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaDefaultVioletSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseBlueSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaInverseBlueSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaInverseBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseBlueSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaInverseBlueSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaInverseBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseBlueSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaInverseBlueSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaInverseBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseGreenSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseGreenSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaInverseGreenSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaInverseGreenSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseGreenSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseGreenSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaInverseGreenSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaInverseGreenSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseGreenSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseGreenSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaInverseGreenSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaInverseGreenSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseIndigoSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseIndigoSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaInverseIndigoSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaInverseIndigoSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseIndigoSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseIndigoSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaInverseIndigoSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaInverseIndigoSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOchreSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseOchreSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaInverseOchreSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaInverseOchreSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOchreSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseOchreSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaInverseOchreSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaInverseOchreSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultSeaBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultSeaBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaDefaultSeaBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOliveSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseOliveSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaInverseOliveSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaInverseOliveSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInversePinkSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInversePinkSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaInversePinkSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaInversePinkSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInversePinkSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInversePinkSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaInversePinkSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaInversePinkSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseSeaBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseSeaBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseSeaBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaInverseSeaBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseVioletSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseVioletSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaInverseVioletSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaInverseVioletSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseVioletSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseVioletSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaInverseVioletSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaInverseVioletSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseVioletSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseVioletSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaInverseVioletSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaInverseVioletSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnDarkBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkGreenSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkGreenSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkGreenSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnDarkGreenSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOliveSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseOliveSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaInverseOliveSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaInverseOliveSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOliveSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseOliveSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaInverseOliveSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaInverseOliveSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkIndigoSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaInverseOchreSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaInverseOchreSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaInverseOchreSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaInverseOchreSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOchreSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOchreSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOliveSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOliveSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOliveSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnDarkOliveSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkPinkSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkPinkSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkPinkSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnDarkPinkSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkSeaBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkSeaBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkSeaBlueSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnDarkSeaBlueSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkVioletSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkVioletSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkVioletSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnDarkVioletSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkIndigoSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkIndigoSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnDarkIndigoSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightGreenSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightGreenSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightGreenSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnLightGreenSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightIndigoSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightIndigoSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightIndigoSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnLightIndigoSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOchreSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOchreSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOchreSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnLightOchreSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnDarkOchreSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnDarkOchreSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOliveSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightPinkSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightPinkSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightVioletSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightVioletSurfaceAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentSurfaceActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnDarkTransparentSurfaceActive.colors,
-                DarkGradientTokens.OutlineOnDarkTransparentSurfaceActive.positions,
-                DarkGradientTokens.OutlineOnDarkTransparentSurfaceActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentSurface",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightTransparentSurface.colors,
-                DarkGradientTokens.OutlineOnLightTransparentSurface.positions,
-                DarkGradientTokens.OutlineOnLightTransparentSurface.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentSurfaceHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightTransparentSurfaceHover.colors,
-                DarkGradientTokens.OutlineOnLightTransparentSurfaceHover.positions,
-                DarkGradientTokens.OutlineOnLightTransparentSurfaceHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentSurfaceActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightTransparentSurfaceActive.colors,
-                DarkGradientTokens.OutlineOnLightTransparentSurfaceActive.positions,
-                DarkGradientTokens.OutlineOnLightTransparentSurfaceActive.angle,
+                DarkGradientTokens.BackgroundInverseGradient.colors,
+                DarkGradientTokens.BackgroundInverseGradient.positions,
+                DarkGradientTokens.BackgroundInverseGradient.angle,
             ),
         ),
         overwrite,
@@ -5016,210 +1681,67 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradientAi",
+        "personasDefaultPinkSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultAccentGradientAi.colors,
-                DarkGradientTokens.TextDefaultAccentGradientAi.positions,
-                DarkGradientTokens.TextDefaultAccentGradientAi.angle,
+                DarkGradientTokens.PersonasDefaultPinkSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasDefaultPinkSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasDefaultPinkSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradientAiHover",
+        "personasOnLightOliveSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultAccentGradientAiHover.colors,
-                DarkGradientTokens.TextDefaultAccentGradientAiHover.positions,
-                DarkGradientTokens.TextDefaultAccentGradientAiHover.angle,
+                DarkGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnLightOliveSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientAi",
+        "surfaceInverseAccentGradientSecondary",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentGradientAi.colors,
-                DarkGradientTokens.TextInverseAccentGradientAi.positions,
-                DarkGradientTokens.TextInverseAccentGradientAi.angle,
+                DarkGradientTokens.SurfaceInverseAccentGradientSecondary.colors,
+                DarkGradientTokens.SurfaceInverseAccentGradientSecondary.positions,
+                DarkGradientTokens.SurfaceInverseAccentGradientSecondary.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientAiHover",
+        "textOnLightAccentGradientAI",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentGradientAiHover.colors,
-                DarkGradientTokens.TextInverseAccentGradientAiHover.positions,
-                DarkGradientTokens.TextInverseAccentGradientAiHover.angle,
+                DarkGradientTokens.TextOnLightAccentGradientAI.colors,
+                DarkGradientTokens.TextOnLightAccentGradientAI.positions,
+                DarkGradientTokens.TextOnLightAccentGradientAI.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientAiActive",
+        "backgroundLightGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentGradientAiActive.colors,
-                DarkGradientTokens.TextInverseAccentGradientAiActive.positions,
-                DarkGradientTokens.TextInverseAccentGradientAiActive.angle,
+                DarkGradientTokens.BackgroundLightGradient.colors,
+                DarkGradientTokens.BackgroundLightGradient.positions,
+                DarkGradientTokens.BackgroundLightGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradientAi",
+        "surfaceDefaultSkeletonGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkAccentGradientAi.colors,
-                DarkGradientTokens.TextOnDarkAccentGradientAi.positions,
-                DarkGradientTokens.TextOnDarkAccentGradientAi.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnDarkAccentGradientAiHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.TextOnDarkAccentGradientAiHover.colors,
-                DarkGradientTokens.TextOnDarkAccentGradientAiHover.positions,
-                DarkGradientTokens.TextOnDarkAccentGradientAiHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnDarkAccentGradientAiActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.TextOnDarkAccentGradientAiActive.colors,
-                DarkGradientTokens.TextOnDarkAccentGradientAiActive.positions,
-                DarkGradientTokens.TextOnDarkAccentGradientAiActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnLightAccentGradientAi",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.TextOnLightAccentGradientAi.colors,
-                DarkGradientTokens.TextOnLightAccentGradientAi.positions,
-                DarkGradientTokens.TextOnLightAccentGradientAi.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnLightAccentGradientAiHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.TextOnLightAccentGradientAiHover.colors,
-                DarkGradientTokens.TextOnLightAccentGradientAiHover.positions,
-                DarkGradientTokens.TextOnLightAccentGradientAiHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textOnLightAccentGradientAiActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.TextOnLightAccentGradientAiActive.colors,
-                DarkGradientTokens.TextOnLightAccentGradientAiActive.positions,
-                DarkGradientTokens.TextOnLightAccentGradientAiActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "textDefaultAccentGradientAiActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.TextDefaultAccentGradientAiActive.colors,
-                DarkGradientTokens.TextDefaultAccentGradientAiActive.positions,
-                DarkGradientTokens.TextDefaultAccentGradientAiActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentSurface",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnDarkTransparentSurface.colors,
-                DarkGradientTokens.OutlineOnDarkTransparentSurface.positions,
-                DarkGradientTokens.OutlineOnDarkTransparentSurface.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentSurfaceHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnDarkTransparentSurfaceHover.colors,
-                DarkGradientTokens.OutlineOnDarkTransparentSurfaceHover.positions,
-                DarkGradientTokens.OutlineOnDarkTransparentSurfaceHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaOnLightOliveSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayOnLightGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OverlayOnLightGradientActive.colors,
-                DarkGradientTokens.OverlayOnLightGradientActive.positions,
-                DarkGradientTokens.OverlayOnLightGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSurface",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentSurface.colors,
-                LightGradientTokens.OutlineDefaultTransparentSurface.positions,
-                LightGradientTokens.OutlineDefaultTransparentSurface.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSurfaceHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentSurfaceHover.colors,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceHover.positions,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSurfaceActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentSurfaceActive.colors,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceActive.positions,
-                LightGradientTokens.OutlineDefaultTransparentSurfaceActive.angle,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradient.colors,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradient.positions,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradient.angle,
             ),
         ),
         overwrite,
@@ -5228,31 +1750,9 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         "overlayDefaultGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayDefaultGradient.colors,
-                LightGradientTokens.OverlayDefaultGradient.positions,
-                LightGradientTokens.OverlayDefaultGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayDefaultGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayDefaultGradientHover.colors,
-                LightGradientTokens.OverlayDefaultGradientHover.positions,
-                LightGradientTokens.OverlayDefaultGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "overlayDefaultGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OverlayDefaultGradientActive.colors,
-                LightGradientTokens.OverlayDefaultGradientActive.positions,
-                LightGradientTokens.OverlayDefaultGradientActive.angle,
+                DarkGradientTokens.OverlayDefaultGradient.colors,
+                DarkGradientTokens.OverlayDefaultGradient.positions,
+                DarkGradientTokens.OverlayDefaultGradient.angle,
             ),
         ),
         overwrite,
@@ -5261,53 +1761,163 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         "overlayOnDarkGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnDarkGradient.colors,
-                LightGradientTokens.OverlayOnDarkGradient.positions,
-                LightGradientTokens.OverlayOnDarkGradient.angle,
+                DarkGradientTokens.OverlayOnDarkGradient.colors,
+                DarkGradientTokens.OverlayOnDarkGradient.positions,
+                DarkGradientTokens.OverlayOnDarkGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnDarkGradientHover",
+        "backgroundDefaultGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnDarkGradientHover.colors,
-                LightGradientTokens.OverlayOnDarkGradientHover.positions,
-                LightGradientTokens.OverlayOnDarkGradientHover.angle,
+                DarkGradientTokens.BackgroundDefaultGradient.colors,
+                DarkGradientTokens.BackgroundDefaultGradient.positions,
+                DarkGradientTokens.BackgroundDefaultGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnDarkGradientActive",
+        "personasOnDarkVioletSurfaceAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnDarkGradientActive.colors,
-                LightGradientTokens.OverlayOnDarkGradientActive.positions,
-                LightGradientTokens.OverlayOnDarkGradientActive.angle,
+                DarkGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnDarkVioletSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayInverseGradientActive",
+        "surfaceInverseSkeletonGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayInverseGradientActive.colors,
-                DarkGradientTokens.OverlayInverseGradientActive.positions,
-                DarkGradientTokens.OverlayInverseGradientActive.angle,
+                DarkGradientTokens.SurfaceInverseSkeletonGradient.colors,
+                DarkGradientTokens.SurfaceInverseSkeletonGradient.positions,
+                DarkGradientTokens.SurfaceInverseSkeletonGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayInverseGradientHover",
+        "personasOnLightOchreSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayInverseGradientHover.colors,
-                DarkGradientTokens.OverlayInverseGradientHover.positions,
-                DarkGradientTokens.OverlayInverseGradientHover.angle,
+                DarkGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnLightOchreSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultAccentGradientSecondary",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultAccentGradientSecondary.colors,
+                DarkGradientTokens.SurfaceDefaultAccentGradientSecondary.positions,
+                DarkGradientTokens.SurfaceDefaultAccentGradientSecondary.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasInverseGreenSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasInverseGreenSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasInverseGreenSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasInverseGreenSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultOchreSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasDefaultOchreSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasDefaultOchreSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasDefaultOchreSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseWhiteGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OutlineInverseWhiteGradient.colors,
+                DarkGradientTokens.OutlineInverseWhiteGradient.positions,
+                DarkGradientTokens.OutlineInverseWhiteGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightVioletSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnLightVioletSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultVioletSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasDefaultVioletSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasDefaultVioletSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasDefaultVioletSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "outlineOnDarkWhiteGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OutlineOnDarkWhiteGradient.colors,
+                DarkGradientTokens.OutlineOnDarkWhiteGradient.positions,
+                DarkGradientTokens.OutlineOnDarkWhiteGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasInverseBlueSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasInverseBlueSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasInverseBlueSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasInverseBlueSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightSeaBlueSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnLightSeaBlueSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasInverseOliveSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasInverseOliveSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasInverseOliveSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasInverseOliveSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -5324,133 +1934,177 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "personaOnLightPinkSurfaceAccentGradientActive",
+        "personasOnLightIndigoSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnLightPinkSurfaceAccentGradientActive.angle,
+                DarkGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnLightIndigoSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightSeaBlueSurfaceAccentGradientHover",
+        "personasOnLightBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientHover.angle,
+                DarkGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnLightBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradientHover",
+        "personasOnDarkPinkSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayOnLightGradientHover.colors,
-                DarkGradientTokens.OverlayOnLightGradientHover.positions,
-                DarkGradientTokens.OverlayOnLightGradientHover.angle,
+                DarkGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnDarkPinkSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightOliveSurfaceAccentGradientActive",
+        "textOnDarkAccentGradientAI",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnLightOliveSurfaceAccentGradientActive.angle,
+                DarkGradientTokens.TextOnDarkAccentGradientAI.colors,
+                DarkGradientTokens.TextOnDarkAccentGradientAI.positions,
+                DarkGradientTokens.TextOnDarkAccentGradientAI.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightSeaBlueSurfaceAccentGradientActive",
+        "personasOnDarkGreenSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradientActive.angle,
+                DarkGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnDarkGreenSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonDeepGradientHover",
+        "personasDefaultOliveSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientHover.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientHover.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientHover.angle,
+                DarkGradientTokens.PersonasDefaultOliveSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasDefaultOliveSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasDefaultOliveSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentGradient",
+        "personasDefaultIndigoSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineInverseAccentGradient.colors,
-                DarkGradientTokens.OutlineInverseAccentGradient.positions,
-                DarkGradientTokens.OutlineInverseAccentGradient.angle,
+                DarkGradientTokens.PersonasDefaultIndigoSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasDefaultIndigoSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasDefaultIndigoSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnLightAccentGradientHover",
+        "textDefaultAccentGradientAI",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentGradientHover.colors,
-                DarkGradientTokens.OutlineOnLightAccentGradientHover.positions,
-                DarkGradientTokens.OutlineOnLightAccentGradientHover.angle,
+                DarkGradientTokens.TextDefaultAccentGradientAI.colors,
+                DarkGradientTokens.TextDefaultAccentGradientAI.positions,
+                DarkGradientTokens.TextDefaultAccentGradientAI.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaInverseIndigoSurfaceAccentGradientHover",
+        "surfaceOnDarkAccentGradientSecondary",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaInverseIndigoSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaInverseIndigoSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaInverseIndigoSurfaceAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceOnDarkAccentGradientSecondary.colors,
+                DarkGradientTokens.SurfaceOnDarkAccentGradientSecondary.positions,
+                DarkGradientTokens.SurfaceOnDarkAccentGradientSecondary.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightSeaBlueSurfaceAccentGradient",
+        "personasDefaultBlueSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonaOnLightSeaBlueSurfaceAccentGradient.angle,
+                DarkGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradientActive",
+        "personasInverseVioletSurfaceAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentGradientActive.colors,
-                DarkGradientTokens.OutlineDefaultAccentGradientActive.positions,
-                DarkGradientTokens.OutlineDefaultAccentGradientActive.angle,
+                DarkGradientTokens.PersonasInverseVioletSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasInverseVioletSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasInverseVioletSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightVioletSurfaceAccentGradientHover",
+        "surfaceOnLightAccentGradientSecondary",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaOnLightVioletSurfaceAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceOnLightAccentGradientSecondary.colors,
+                DarkGradientTokens.SurfaceOnLightAccentGradientSecondary.positions,
+                DarkGradientTokens.SurfaceOnLightAccentGradientSecondary.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasOnLightGreenSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnLightGreenSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasOnDarkOliveSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasOnDarkOliveSurfaceAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultAccentGradient.colors,
+                DarkGradientTokens.SurfaceDefaultAccentGradient.positions,
+                DarkGradientTokens.SurfaceDefaultAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultAccentMinorGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradient.colors,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradient.positions,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
@@ -5467,133 +2121,56 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientHover",
+        "surfaceOnDarkAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.colors,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.positions,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientActive",
+        "surfaceOnLightAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultAccentGradientActive.angle,
+                DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
+                DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
+                DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaOnLightBlueSurfaceAccentGradientActive",
+        "surfaceOnLightAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.colors,
-                DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.positions,
-                DarkGradientTokens.PersonaOnLightBlueSurfaceAccentGradientActive.angle,
+                DarkGradientTokens.SurfaceOnLightAccentMinorGradient.colors,
+                DarkGradientTokens.SurfaceOnLightAccentMinorGradient.positions,
+                DarkGradientTokens.SurfaceOnLightAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "personaDefaultOchreSurfaceAccentGradientHover",
+        "surfaceInverseAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.PersonaDefaultOchreSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaDefaultOchreSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaDefaultOchreSurfaceAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceInverseAccentGradient.colors,
+                DarkGradientTokens.SurfaceInverseAccentGradient.positions,
+                DarkGradientTokens.SurfaceInverseAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSkeletonGradientHover",
+        "surfaceInverseAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultIndigoSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaDefaultIndigoSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personaDefaultBlueSurfaceAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonaDefaultBlueSurfaceAccentGradientHover.colors,
-                DarkGradientTokens.PersonaDefaultBlueSurfaceAccentGradientHover.positions,
-                DarkGradientTokens.PersonaDefaultBlueSurfaceAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentSurfaceBrightness",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentSurfaceBrightness.colors,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceBrightness.positions,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceBrightness.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentSurface",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentSurface.colors,
-                DarkGradientTokens.OutlineInverseTransparentSurface.positions,
-                DarkGradientTokens.OutlineInverseTransparentSurface.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentSurfaceHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentSurfaceHover.colors,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceHover.positions,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentSurfaceActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentSurfaceActive.colors,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceActive.positions,
-                DarkGradientTokens.OutlineInverseTransparentSurfaceActive.angle,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradient.colors,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradient.positions,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradient.angle,
             ),
         ),
         overwrite,

@@ -39,7 +39,7 @@ public val Mention.MuteNo: WrapperMentionTerminate
         .invariantProps
         .colors {
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
             )
             startContentColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),

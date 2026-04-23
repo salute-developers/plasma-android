@@ -117,7 +117,7 @@ public val WrapperSpinnerView.ModeColorAccent: WrapperSpinnerTerminate
     get() = builder
         .colors {
             startColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
             )
             endColor(
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),

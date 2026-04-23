@@ -58,10 +58,10 @@ public val RadioBox.Default: WrapperRadioBoxDefault
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
             )
             toggleIconColor(
-                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
             )
             toggleBorderColor(
-                SddsSbComTheme.colors.textDefaultAccent.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
             )
         }
         .dimensionValues {
