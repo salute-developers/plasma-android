@@ -282,6 +282,7 @@ private fun CacheDrawScope.createTailPath(
     tailWidthPx: Float,
     tailHeightPx: Float,
     tailPaddingPx: Float,
+    shape: CornerBasedShape,
 ): Path {
     val tailPath = Path().apply {
         addArc(
@@ -303,11 +304,11 @@ private fun CacheDrawScope.createTailPath(
         )
         close()
     }
-
+    val trueSideWidthPx = sideWidthWithoutCorners(placement, shape)
     val tailTranslationY =
-        getTailTranslationY(placement, tailAlignment, tailWidthPx, tailPaddingPx)
+        getTailTranslationY(placement, tailAlignment, tailWidthPx, tailPaddingPx, trueSideWidthPx)
     val tailTranslationX =
-        getTailTranslationX(placement, tailAlignment, tailWidthPx, tailPaddingPx)
+        getTailTranslationX(placement, tailAlignment, tailWidthPx, tailPaddingPx, trueSideWidthPx)
     val rotation = getTailRotationAngle(placement)
     val tailMatrix = Matrix().apply {
         translate(x = tailTranslationX, y = tailTranslationY)
@@ -321,12 +322,18 @@ private fun CacheDrawScope.getTailTranslationX(
     tailAlignment: PopoverAlignment,
     tailWidthPx: Float,
     tailPaddingPx: Float,
+    trueSideWidthPx: Float,
 ): Float {
-    val horizontalAlignment = when (tailAlignment) {
-        PopoverAlignment.Start -> tailPaddingPx + tailWidthPx / 2
-        PopoverAlignment.End -> size.width - tailPaddingPx - tailWidthPx / 2
-        PopoverAlignment.Center -> size.width / 2
-    }
+    val horizontalAlignment =
+        if (canApplyAlignToTail(tailPaddingPx, tailWidthPx, trueSideWidthPx)) {
+            when (tailAlignment) {
+                PopoverAlignment.Start -> tailPaddingPx + tailWidthPx / 2
+                PopoverAlignment.End -> size.width - tailPaddingPx - tailWidthPx / 2
+                PopoverAlignment.Center -> size.width / 2
+            }
+        } else {
+            size.width / 2
+        }
     return when (placement) {
         PopoverPlacement.Start -> size.width
         PopoverPlacement.End -> 0f
@@ -341,11 +348,16 @@ private fun CacheDrawScope.getTailTranslationY(
     tailAlignment: PopoverAlignment,
     tailWidthPx: Float,
     tailPaddingPx: Float,
+    trueSideWidthPx: Float,
 ): Float {
-    val verticalAlignment = when (tailAlignment) {
-        PopoverAlignment.Start -> tailPaddingPx + tailWidthPx / 2
-        PopoverAlignment.End -> size.height - tailPaddingPx - tailWidthPx / 2
-        PopoverAlignment.Center -> size.height / 2
+    val verticalAlignment = if (canApplyAlignToTail(tailPaddingPx, tailWidthPx, trueSideWidthPx)) {
+        when (tailAlignment) {
+            PopoverAlignment.Start -> tailPaddingPx + tailWidthPx / 2
+            PopoverAlignment.End -> size.height - tailPaddingPx - tailWidthPx / 2
+            PopoverAlignment.Center -> size.height / 2
+        }
+    } else {
+        size.height / 2
     }
     return when (placement) {
         PopoverPlacement.Top -> size.height
@@ -355,6 +367,28 @@ private fun CacheDrawScope.getTailTranslationY(
         -> verticalAlignment
     }
 }
+
+private fun CacheDrawScope.sideWidthWithoutCorners(
+    placement: PopoverPlacement,
+    shape: CornerBasedShape,
+): Float {
+    val topStart = shape.topStart.toPx(size, this)
+    val topEnd = shape.topEnd.toPx(size, this)
+    val bottomStart = shape.bottomStart.toPx(size, this)
+    val bottomEnd = shape.bottomEnd.toPx(size, this)
+    return when (placement) {
+        PopoverPlacement.Start -> size.height - topEnd - bottomEnd
+        PopoverPlacement.Top -> size.width - bottomStart - bottomEnd
+        PopoverPlacement.End -> size.height - topStart - bottomStart
+        PopoverPlacement.Bottom -> size.width - topStart - topEnd
+    }
+}
+
+private fun canApplyAlignToTail(
+    tailOffset: Float,
+    tailWidth: Float,
+    total: Float,
+) = if (tailOffset + tailWidth >= total) false else true
 
 private fun Modifier.drawPopover(
     shape: CornerBasedShape,
@@ -382,6 +416,7 @@ private fun Modifier.drawPopover(
                 tailWidthPx = tailWidthPx,
                 tailHeightPx = tailHeightPx,
                 tailPaddingPx = tailPaddingPx,
+                shape = shape,
             )
             Path().apply { op(backgroundPath, tailPath, PathOperation.Union) }
         }
