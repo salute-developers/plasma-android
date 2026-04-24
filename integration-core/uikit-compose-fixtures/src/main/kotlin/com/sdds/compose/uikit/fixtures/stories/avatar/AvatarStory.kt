@@ -9,9 +9,6 @@ import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Avatar
-import com.sdds.compose.uikit.AvatarCounter
-import com.sdds.compose.uikit.AvatarGroup
-import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
@@ -172,85 +169,6 @@ object AvatarStory : ComposeBaseStory<AvatarUiState, AvatarStyle>(
             actionEnabled = false,
             placeholder = AvatarPlaceholder.Name("Michael Scott"),
         )
-    }
-}
-
-@Story
-object AvatarGroupStory : ComposeBaseStory<AvatarUiState, AvatarGroupStyle>(
-    ComponentKey.AvatarGroup,
-    AvatarUiState(),
-    AvatarUiStatePropertiesProducer,
-    AvatarUiStateTransformer,
-) {
-    @Composable
-    override fun BoxScope.Content(
-        style: AvatarGroupStyle,
-        state: AvatarUiState,
-    ) {
-        AvatarGroup(
-            style = style,
-            threshold = state.threshold,
-        ) {
-            avatars(3) { index ->
-                if (index % 2 == 0) {
-                    Avatar(placeholder = state.placeholder)
-                } else {
-                    Avatar {
-                        AsyncImage(
-                            modifier = Modifier.matchParentSize(),
-                            contentScale = ContentScale.Crop,
-                            model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",
-                            contentDescription = "AsyncAvatar",
-                        )
-                    }
-                }
-            }
-
-            avatar {
-                Avatar {
-                    Image(
-                        modifier = Modifier.matchParentSize(),
-                        contentScale = ContentScale.Crop,
-                        painter = painterResource(id = R.drawable.il_avatar_test),
-                        contentDescription = "Avatar",
-                    )
-                }
-            }
-            counter {
-                AvatarCounter(displayCount = it)
-            }
-        }
-    }
-
-    @Composable
-    override fun Preview(
-        style: AvatarGroupStyle,
-        key: ComponentKey,
-    ) {
-        AvatarGroup(
-            style = style,
-            threshold = 1,
-        ) {
-            avatar {
-                Avatar(
-                    status = AvatarStatus.Active,
-                    actionEnabled = false,
-                    placeholder = AvatarPlaceholder.Name("Michael Scott"),
-                    painter = painterResource(id = R.drawable.il_avatar_test),
-                    contentScale = ContentScale.Fit,
-                )
-            }
-            avatar {
-                Avatar(
-                    status = AvatarStatus.Active,
-                    actionEnabled = false,
-                    placeholder = AvatarPlaceholder.Name("Michael Scott"),
-                )
-            }
-            counter {
-                AvatarCounter(3)
-            }
-        }
     }
 }
 

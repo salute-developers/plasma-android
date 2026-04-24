@@ -13,10 +13,9 @@
                   "xxl",
                   "l",
                   "m",
-                  "s",
-                  "xs"
+                  "s"
                ],
-               "defaultValue": "xxl"
+               "defaultValue": "m"
             },
             {
                "name": "shape",
@@ -45,8 +44,8 @@
                   "typeName": "AvatarSize",
                   "typeQualifiedName": "com.sdds.plasma.homeds.styles.avatar.AvatarSize",
                   "defaultValue": {
-                     "value": "xxl",
-                     "codeName": "Xxl"
+                     "value": "m",
+                     "codeName": "M"
                   },
                   "values": [
                      {
@@ -64,10 +63,6 @@
                      {
                         "value": "s",
                         "codeName": "S"
-                     },
-                     {
-                        "value": "xs",
-                        "codeName": "Xs"
                      }
                   ]
                },

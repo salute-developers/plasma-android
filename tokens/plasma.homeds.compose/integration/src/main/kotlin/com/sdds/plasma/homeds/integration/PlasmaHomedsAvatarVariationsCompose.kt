@@ -28,7 +28,7 @@ import com.sdds.sandbox.Property
 internal object PlasmaHomedsAvatarVariationsCompose : ComposeStyleProvider<AvatarStyle>() {
     override val bindings: Set<Property<*>> =
         setOf(
-            Property.SingleChoiceProperty(name = "size", value = "Xxl", variants = listOf("Xxl", "L", "M", "S", "Xs")),
+            Property.SingleChoiceProperty(name = "size", value = "M", variants = listOf("Xxl", "L", "M", "S")),
             Property.SingleChoiceProperty(name = "shape", value = "Default", variants = listOf("Default", "Pilled")),
         )
 
@@ -51,7 +51,6 @@ internal object PlasmaHomedsAvatarVariationsCompose : ComposeStyleProvider<Avata
                 "L" -> AvatarSize.L
                 "M" -> AvatarSize.M
                 "S" -> AvatarSize.S
-                "Xs" -> AvatarSize.Xs
                 else -> AvatarSize.Xxl
             },
             shape = when (bindings["shape"]?.toString()) {

@@ -49,7 +49,6 @@ public enum class AvatarSize {
     L,
     M,
     S,
-    Xs,
 }
 
 /**
@@ -82,7 +81,7 @@ public fun AvatarStyles.style(modify: @Composable AvatarStyleBuilder.() -> Unit 
  * Возвращает экземпляр [AvatarStyles] для avatar
  */
 public fun AvatarStyles.Companion.resolve(
-    size: AvatarSize = AvatarSize.Xxl,
+    size: AvatarSize = AvatarSize.M,
     shape: AvatarShape =
         AvatarShape.Default,
 ): AvatarStyles = when {
@@ -102,7 +101,7 @@ public fun AvatarStyles.Companion.resolve(
  */
 @Composable
 public fun AvatarStyles.Companion.style(
-    size: AvatarSize = AvatarSize.Xxl,
+    size: AvatarSize = AvatarSize.M,
     shape: AvatarShape = AvatarShape.Default,
     modify: @Composable AvatarStyleBuilder.() -> Unit = {},
 ): AvatarStyle = resolve(size, shape).style(modify)
