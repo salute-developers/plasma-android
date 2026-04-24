@@ -896,7 +896,10 @@ fun TextFieldXlDefault(style: TextFieldStyle) {
  * TextField иконка справа
  */
 @Composable
-fun TextFieldIconRight(style: TextFieldStyle) {
+fun TextFieldIconRight(
+    style: TextFieldStyle,
+    enabled: Boolean = true,
+) {
     var value by remember { mutableStateOf(TextFieldValue("")) }
     TextField(
         value = value,
@@ -907,7 +910,7 @@ fun TextFieldIconRight(style: TextFieldStyle) {
         placeholderText = "Placeholder",
         optionalText = "",
         onValueChange = { value = it },
-        enabled = true,
+        enabled = enabled,
         readOnly = false,
         focusSelectorSettings = FocusSelectorSettings.None,
         endContent = {
@@ -916,5 +919,16 @@ fun TextFieldIconRight(style: TextFieldStyle) {
                 contentDescription = "",
             )
         },
+    )
+}
+
+/**
+ * TextField icon right disabled
+ */
+@Composable
+fun TextFieldIconRightDisabled(style: TextFieldStyle) {
+    TextFieldIconRight(
+        style = style,
+        enabled = false,
     )
 }

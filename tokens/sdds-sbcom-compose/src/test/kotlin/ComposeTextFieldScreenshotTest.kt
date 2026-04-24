@@ -7,7 +7,7 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.testcases.TextFieldIconRight
-import com.sdds.compose.uikit.fixtures.testcases.TextFieldSReadOnly
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldIconRightDisabled
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.textfield.Default
 import com.sdds.sbcom.styles.textfield.TextField
@@ -77,14 +77,7 @@ class ComposeTextFieldScreenshotTest(
     @Test
     fun testTextFieldLDisabled() {
         composeTestRule.content {
-            TextFieldIconRight(style = TextField.Default.style())
-        }
-    }
-
-    @Test
-    fun testTextFieldReadOnly() {
-        composeTestRule.content {
-            TextFieldSReadOnly(style = TextField.Default.style())
+            TextFieldIconRightDisabled(style = TextField.Default.style())
         }
     }
 }
