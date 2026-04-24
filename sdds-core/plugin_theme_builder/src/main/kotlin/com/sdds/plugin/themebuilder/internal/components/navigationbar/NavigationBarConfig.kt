@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.navigationbar
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -71,16 +73,20 @@ internal data class NavigationBarProperties(
 }
 
 @Serializable
-internal data class NavigationBarView(override val props: NavigationBarProperties) :
+internal data class NavigationBarView(
+    override val props: NavigationBarProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<NavigationBarProperties> {
     override fun merge(parent: ViewVariation<NavigationBarProperties>): ViewVariation<NavigationBarProperties> =
-        copy(props = props.merge(parent.props) as NavigationBarProperties)
+        copy(props = props.merge(parent.props) as NavigationBarProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class NavigationBarVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, NavigationBarView> = emptyMap(),
     override val props: NavigationBarProperties,
 ) : ChildVariation<NavigationBarProperties>
@@ -90,4 +96,5 @@ internal data class NavigationBarConfig(
     override val view: Map<String, NavigationBarView> = emptyMap(),
     override val props: NavigationBarProperties,
     override val variations: List<NavigationBarVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<NavigationBarProperties>, ComponentConfig

@@ -36,13 +36,36 @@ public enum class EditableStyles(
     EditableBodyS("Editable.BodyS"),
     EditableBodyXs("Editable.BodyXs"),
     EditableBodyXxs("Editable.BodyXxs"),
+    ;
+
+    /**
+     * Typed API для подбора стиля editable
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для editable
+ */
+public enum class EditableSize {
+    H1,
+    H2,
+    H3,
+    H4,
+    H5,
+    H6,
+    BodyL,
+    BodyM,
+    BodyS,
+    BodyXs,
+    BodyXxs,
 }
 
 /**
  * Возвращает [EditableStyle] для [EditableStyles]
  */
 @Composable
-public fun EditableStyles.style(modifyAction: @Composable EditableStyleBuilder.() -> Unit = {}): EditableStyle {
+public fun EditableStyles.style(modify: @Composable EditableStyleBuilder.() -> Unit = {}): EditableStyle {
     val builder = when (this) {
         EditableStyles.EditableH1 -> Editable.H1
         EditableStyles.EditableH2 -> Editable.H2
@@ -56,5 +79,34 @@ public fun EditableStyles.style(modifyAction: @Composable EditableStyleBuilder.(
         EditableStyles.EditableBodyXs -> Editable.BodyXs
         EditableStyles.EditableBodyXxs -> Editable.BodyXxs
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [EditableStyles] для editable
+ */
+public fun EditableStyles.Companion.resolve(size: EditableSize = EditableSize.H1): EditableStyles =
+    when {
+        size == EditableSize.H1 -> EditableStyles.EditableH1
+        size == EditableSize.H2 -> EditableStyles.EditableH2
+        size == EditableSize.H3 -> EditableStyles.EditableH3
+        size == EditableSize.H4 -> EditableStyles.EditableH4
+        size == EditableSize.H5 -> EditableStyles.EditableH5
+        size == EditableSize.H6 -> EditableStyles.EditableH6
+        size == EditableSize.BodyL -> EditableStyles.EditableBodyL
+        size == EditableSize.BodyM -> EditableStyles.EditableBodyM
+        size == EditableSize.BodyS -> EditableStyles.EditableBodyS
+        size == EditableSize.BodyXs -> EditableStyles.EditableBodyXs
+        size == EditableSize.BodyXxs -> EditableStyles.EditableBodyXxs
+        else -> error("Unsupported editable style combination")
+    }
+
+/**
+ * Возвращает [EditableStyle] для editable
+ */
+@Composable
+public fun EditableStyles.Companion.style(
+    size: EditableSize = EditableSize.H1,
+    modify: @Composable
+    EditableStyleBuilder.() -> Unit = {},
+): EditableStyle = resolve(size).style(modify)

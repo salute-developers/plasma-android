@@ -45,13 +45,40 @@ public enum class LoaderStyles(
     LoaderSize16ModeColorGlobalWhite("Loader.Size16.ModeColorGlobalWhite"),
     LoaderSize16ModeColorAccent("Loader.Size16.ModeColorAccent"),
     LoaderSize16ModeColorDanger("Loader.Size16.ModeColorDanger"),
+    ;
+
+    /**
+     * Typed API для подбора стиля loader
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для loader
+ */
+public enum class LoaderSize {
+    Size40,
+    Size32,
+    Size24,
+    Size16,
+}
+
+/**
+ * Возможные значения свойства mode-color для loader
+ */
+public enum class LoaderModeColor {
+    Primary,
+    Secondary,
+    GlobalWhite,
+    Accent,
+    Danger,
 }
 
 /**
  * Возвращает [LoaderStyle] для [LoaderStyles]
  */
 @Composable
-public fun LoaderStyles.style(modifyAction: @Composable LoaderStyleBuilder.() -> Unit = {}): LoaderStyle {
+public fun LoaderStyles.style(modify: @Composable LoaderStyleBuilder.() -> Unit = {}): LoaderStyle {
     val builder = when (this) {
         LoaderStyles.LoaderSize40ModeColorPrimary -> Loader.Size40.ModeColorPrimary
         LoaderStyles.LoaderSize40ModeColorSecondary -> Loader.Size40.ModeColorSecondary
@@ -74,5 +101,65 @@ public fun LoaderStyles.style(modifyAction: @Composable LoaderStyleBuilder.() ->
         LoaderStyles.LoaderSize16ModeColorAccent -> Loader.Size16.ModeColorAccent
         LoaderStyles.LoaderSize16ModeColorDanger -> Loader.Size16.ModeColorDanger
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [LoaderStyles] для loader
+ */
+public fun LoaderStyles.Companion.resolve(
+    size: LoaderSize = LoaderSize.Size40,
+    modeColor: LoaderModeColor = LoaderModeColor.Primary,
+): LoaderStyles = when {
+    size == LoaderSize.Size40 && modeColor == LoaderModeColor.Primary ->
+        LoaderStyles.LoaderSize40ModeColorPrimary
+    size == LoaderSize.Size40 && modeColor == LoaderModeColor.Secondary ->
+        LoaderStyles.LoaderSize40ModeColorSecondary
+    size == LoaderSize.Size40 && modeColor == LoaderModeColor.GlobalWhite ->
+        LoaderStyles.LoaderSize40ModeColorGlobalWhite
+    size == LoaderSize.Size40 && modeColor == LoaderModeColor.Accent ->
+        LoaderStyles.LoaderSize40ModeColorAccent
+    size == LoaderSize.Size40 && modeColor == LoaderModeColor.Danger ->
+        LoaderStyles.LoaderSize40ModeColorDanger
+    size == LoaderSize.Size32 && modeColor == LoaderModeColor.Primary ->
+        LoaderStyles.LoaderSize32ModeColorPrimary
+    size == LoaderSize.Size32 && modeColor == LoaderModeColor.Secondary ->
+        LoaderStyles.LoaderSize32ModeColorSecondary
+    size == LoaderSize.Size32 && modeColor == LoaderModeColor.GlobalWhite ->
+        LoaderStyles.LoaderSize32ModeColorGlobalWhite
+    size == LoaderSize.Size32 && modeColor == LoaderModeColor.Accent ->
+        LoaderStyles.LoaderSize32ModeColorAccent
+    size == LoaderSize.Size32 && modeColor == LoaderModeColor.Danger ->
+        LoaderStyles.LoaderSize32ModeColorDanger
+    size == LoaderSize.Size24 && modeColor == LoaderModeColor.Primary ->
+        LoaderStyles.LoaderSize24ModeColorPrimary
+    size == LoaderSize.Size24 && modeColor == LoaderModeColor.Secondary ->
+        LoaderStyles.LoaderSize24ModeColorSecondary
+    size == LoaderSize.Size24 && modeColor == LoaderModeColor.GlobalWhite ->
+        LoaderStyles.LoaderSize24ModeColorGlobalWhite
+    size == LoaderSize.Size24 && modeColor == LoaderModeColor.Accent ->
+        LoaderStyles.LoaderSize24ModeColorAccent
+    size == LoaderSize.Size24 && modeColor == LoaderModeColor.Danger ->
+        LoaderStyles.LoaderSize24ModeColorDanger
+    size == LoaderSize.Size16 && modeColor == LoaderModeColor.Primary ->
+        LoaderStyles.LoaderSize16ModeColorPrimary
+    size == LoaderSize.Size16 && modeColor == LoaderModeColor.Secondary ->
+        LoaderStyles.LoaderSize16ModeColorSecondary
+    size == LoaderSize.Size16 && modeColor == LoaderModeColor.GlobalWhite ->
+        LoaderStyles.LoaderSize16ModeColorGlobalWhite
+    size == LoaderSize.Size16 && modeColor == LoaderModeColor.Accent ->
+        LoaderStyles.LoaderSize16ModeColorAccent
+    size == LoaderSize.Size16 && modeColor == LoaderModeColor.Danger ->
+        LoaderStyles.LoaderSize16ModeColorDanger
+    else -> error("Unsupported loader style combination")
+}
+
+/**
+ * Возвращает [LoaderStyle] для loader
+ */
+@Composable
+public fun LoaderStyles.Companion.style(
+    size: LoaderSize = LoaderSize.Size40,
+    modeColor: LoaderModeColor = LoaderModeColor.Primary,
+    modify: @Composable LoaderStyleBuilder.() -> Unit = {},
+): LoaderStyle = resolve(size, modeColor).style(modify)

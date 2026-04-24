@@ -101,7 +101,7 @@ internal object AvatarStory : ComposeBaseStory<SbComAvatarUiState, AvatarStyle>(
 }
 
 private fun shouldDisplayStatus(state: SbComAvatarUiState, style: AvatarStyle): Boolean {
-    return !state.hasBadge || style.iconBadgeStyle == null
+    return (!state.hasBadge || style.iconBadgeStyle == null) && style.statusStyle != null
 }
 
 @Composable

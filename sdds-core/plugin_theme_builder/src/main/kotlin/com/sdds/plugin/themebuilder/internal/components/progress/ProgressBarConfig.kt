@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.progress
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -34,16 +36,20 @@ internal data class ProgressBarProperties(
 }
 
 @Serializable
-internal data class ProgressBarView(override val props: ProgressBarProperties) :
+internal data class ProgressBarView(
+    override val props: ProgressBarProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<ProgressBarProperties> {
     override fun merge(parent: ViewVariation<ProgressBarProperties>): ViewVariation<ProgressBarProperties> =
-        copy(props = props.merge(parent.props) as ProgressBarProperties)
+        copy(props = props.merge(parent.props) as ProgressBarProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ProgressBarVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ProgressBarView> = emptyMap(),
     override val props: ProgressBarProperties,
 ) : ChildVariation<ProgressBarProperties>
@@ -53,4 +59,5 @@ internal data class ProgressBarConfig(
     override val view: Map<String, ProgressBarView> = emptyMap(),
     override val props: ProgressBarProperties,
     override val variations: List<ProgressBarVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ProgressBarProperties>, ComponentConfig

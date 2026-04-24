@@ -5,7 +5,11 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Annotation
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
+import com.sdds.plugin.themebuilder.internal.components.VariationProp
 import com.sdds.plugin.themebuilder.internal.components.VariationReference
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.BindingType
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -58,6 +62,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private val ktFileName: String = "${camelComponentName}Styles"
     private val generatedWrappers = mutableSetOf<String>()
     private var shouldAddInvariantPropsCall = false
+    private var viewPropName: String = "view"
 
     private val baseWrapperInterfaceName = "Wrapper$camelComponentName"
 
@@ -100,6 +105,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     private val variations: MutableMap<String, VariationReference> = mutableMapOf()
     private val viewVariations: MutableMap<String, VariationReference> = mutableMapOf()
+    private val variationProps: MutableMap<String, List<VariationProp>> = mutableMapOf()
+    private val viewVariationProps: MutableMap<String, List<VariationProp>> = mutableMapOf()
+    private var componentProps: List<VariationProp> = emptyList()
 
     protected open fun getVariationName(variationId: String?): String = variationId?.toCamelCase().orEmpty()
 
@@ -296,6 +304,21 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     }
 
     override fun generate(config: Config<PO>): ComponentStyleGenerator.Result {
+        val configuredViewBinding = config.findViewBinding()
+        viewPropName = configuredViewBinding?.name ?: "view"
+        componentProps = config.bindings.map { binding ->
+            VariationProp(
+                name = binding.name,
+                values = binding.values,
+                defaultValue = binding.defaultValue,
+            )
+        }
+        variationProps.clear()
+        variationProps.putAll(
+            config.variations.associate { variation ->
+                variation.id to variation.binding.toVariationProps()
+            },
+        )
         with(ktFileBuilder) {
             addCommonImports()
             addRootObject()
@@ -308,12 +331,20 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             )
             build(outputLocation)
         }
+        val variationReferences = getVariationsDict()
+        val variationProps = getVariationPropsDict()
         return ComponentStyleGenerator.Result.Compose(
             styleName = camelComponentName,
-            variations = getVariationsDict(),
+            variations = variationReferences,
             componentPackage = componentPackage,
             styleClassName = styleType,
             styleBuilderClassName = styleBuilderType,
+            props = mergeComponentAndViewProps(
+                componentProps = componentProps,
+                variationProps = variationProps.values,
+                configuredViewBinding = configuredViewBinding,
+            ),
+            variationProps = variationProps,
         )
     }
 
@@ -331,11 +362,62 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         }
         variations.forEach { entry ->
             viewVariations.forEach { view ->
-                put("${entry.key}.${view.key}", VariationReference("${entry.value.value}.${view.value.value}"))
+                put(
+                    "${entry.key}.${view.key}",
+                    VariationReference("${entry.value.value}.${view.value.value}"),
+                )
             }
             if (viewVariations.isEmpty()) {
                 put(entry.key, entry.value)
             }
+        }
+    }
+
+    @Suppress("NestedBlockDepth")
+    private fun getVariationPropsDict() = mutableMapOf<String, List<VariationProp>>().apply {
+        if (variations.isEmpty()) {
+            if (viewVariations.isEmpty()) {
+                put("default", emptyList())
+            } else {
+                viewVariations.forEach { view ->
+                    put(view.key, viewVariationProps[view.key].orEmpty())
+                }
+            }
+            return@apply
+        }
+        variations.forEach { entry ->
+            viewVariations.forEach { view ->
+                put(
+                    "${entry.key}.${view.key}",
+                    entry.value.let { variationProps[entry.key].orEmpty() + viewVariationProps[view.key].orEmpty() },
+                )
+            }
+            if (viewVariations.isEmpty()) {
+                put(entry.key, variationProps[entry.key].orEmpty())
+            }
+        }
+    }
+
+    private fun mergeComponentAndViewProps(
+        componentProps: List<VariationProp>,
+        variationProps: Collection<List<VariationProp>>,
+        configuredViewBinding: Bindings?,
+    ): List<VariationProp> {
+        val viewValues = linkedSetOf<String>()
+        variationProps.forEach { props ->
+            props.firstOrNull { it.name == viewPropName }?.value?.let(viewValues::add)
+        }
+        if (viewValues.isEmpty()) return componentProps
+        val viewProp = VariationProp(
+            name = viewPropName,
+            values = ((configuredViewBinding?.values ?: emptySet()) + viewValues).toSet(),
+            defaultValue = configuredViewBinding?.defaultValue,
+        )
+        val existingIndex = componentProps.indexOfFirst { it.name == viewPropName }
+        return if (existingIndex >= 0) {
+            componentProps.toMutableList().apply { this[existingIndex] = viewProp }
+        } else {
+            componentProps + viewProp
         }
     }
 
@@ -498,7 +580,12 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 wrapperSuffix = "${camelComponentName}Terminate",
                 description = "Терминальная обертка",
             )
-            viewVariations[viewEntry.key] = VariationReference(extensionName)
+            viewVariations[viewEntry.key] = VariationReference(
+                value = extensionName,
+            )
+            viewVariationProps[viewEntry.key] = viewEntry.value.binding
+                .toVariationProps()
+                .ifEmpty { listOf(viewEntry.key.asViewProp()) }
             appendRootVal(
                 name = extensionName,
                 typeName = outType,
@@ -561,7 +648,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 builderCalls.forEach { appendLine(it) }
                 appendLine(".wrap(::${outType.simpleName})")
             }
-            variations[variationNode.id] = VariationReference("$camelComponentName.$variationName")
+            variations[variationNode.id] = VariationReference(
+                "$camelComponentName.$variationName",
+            )
         } else {
             builderRef = "builder"
             receiverType =
@@ -580,7 +669,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 appendLine(".wrap(::${outType.simpleName})")
             }
             if (parentPath != null) {
-                variations[variationNode.id] = VariationReference("$camelComponentName.$parentPath.$variationName")
+                variations[variationNode.id] = VariationReference(
+                    value = "$camelComponentName.$parentPath.$variationName",
+                )
             }
         }
 
@@ -645,6 +736,22 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             dimenValue = adjustment ?: 0f,
             dimensionResSuffix = suffix,
         )
+    }
+
+    private fun String.asViewProp(): VariationProp = VariationProp(
+        name = viewPropName,
+        value = techToSnakeCase(),
+    )
+
+    private fun List<Binding>?.toVariationProps(): List<VariationProp> = this.orEmpty().map { binding ->
+        VariationProp(
+            name = binding.name,
+            value = binding.value,
+        )
+    }
+
+    private fun Config<PO>.findViewBinding(): Bindings? {
+        return bindings.firstOrNull { binding -> binding.type == BindingType.VIEW }
     }
 
     private val Color.asInteractiveFragment: String

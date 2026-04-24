@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.toast
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -51,16 +53,20 @@ internal data class ToastProperties(
 }
 
 @Serializable
-internal data class ToastView(override val props: ToastProperties) :
+internal data class ToastView(
+    override val props: ToastProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<ToastProperties> {
     override fun merge(parent: ViewVariation<ToastProperties>): ViewVariation<ToastProperties> =
-        copy(props = props.merge(parent.props) as ToastProperties)
+        copy(props = props.merge(parent.props) as ToastProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ToastVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ToastView> = emptyMap(),
     override val props: ToastProperties,
 ) : ChildVariation<ToastProperties>
@@ -70,4 +76,5 @@ internal data class ToastConfig(
     override val view: Map<String, ToastView> = emptyMap(),
     override val props: ToastProperties,
     override val variations: List<ToastVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ToastProperties>, ComponentConfig

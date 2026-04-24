@@ -45,13 +45,46 @@ public enum class ChipStyles(
     ChipXxsSecondary("Chip.Xxs.Secondary"),
     ChipXxsPilledDefault("Chip.Xxs.Pilled.Default"),
     ChipXxsPilledSecondary("Chip.Xxs.Pilled.Secondary"),
+    ;
+
+    /**
+     * Typed API для подбора стиля chip
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для chip
+ */
+public enum class ChipSize {
+    L,
+    M,
+    S,
+    Xs,
+    Xxs,
+}
+
+/**
+ * Возможные значения свойства shape для chip
+ */
+public enum class ChipShape {
+    Default,
+    Pilled,
+}
+
+/**
+ * Возможные значения свойства view для chip
+ */
+public enum class ChipView {
+    Default,
+    Secondary,
 }
 
 /**
  * Возвращает [ChipStyle] для [ChipStyles]
  */
 @Composable
-public fun ChipStyles.style(modifyAction: @Composable ChipStyleBuilder.() -> Unit = {}): ChipStyle {
+public fun ChipStyles.style(modify: @Composable ChipStyleBuilder.() -> Unit = {}): ChipStyle {
     val builder = when (this) {
         ChipStyles.ChipLDefault -> Chip.L.Default
         ChipStyles.ChipLSecondary -> Chip.L.Secondary
@@ -74,5 +107,57 @@ public fun ChipStyles.style(modifyAction: @Composable ChipStyleBuilder.() -> Uni
         ChipStyles.ChipXxsPilledDefault -> Chip.Xxs.Pilled.Default
         ChipStyles.ChipXxsPilledSecondary -> Chip.Xxs.Pilled.Secondary
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [ChipStyles] для chip
+ */
+public fun ChipStyles.Companion.resolve(
+    size: ChipSize = ChipSize.L,
+    shape: ChipShape = ChipShape.Default,
+    view: ChipView = ChipView.Default,
+): ChipStyles = when {
+    size == ChipSize.L && shape == ChipShape.Pilled && view == ChipView.Default ->
+        ChipStyles.ChipLPilledDefault
+    size == ChipSize.L && shape == ChipShape.Pilled && view == ChipView.Secondary ->
+        ChipStyles.ChipLPilledSecondary
+    size == ChipSize.M && shape == ChipShape.Pilled && view == ChipView.Default ->
+        ChipStyles.ChipMPilledDefault
+    size == ChipSize.M && shape == ChipShape.Pilled && view == ChipView.Secondary ->
+        ChipStyles.ChipMPilledSecondary
+    size == ChipSize.S && shape == ChipShape.Pilled && view == ChipView.Default ->
+        ChipStyles.ChipSPilledDefault
+    size == ChipSize.S && shape == ChipShape.Pilled && view == ChipView.Secondary ->
+        ChipStyles.ChipSPilledSecondary
+    size == ChipSize.Xs && shape == ChipShape.Pilled && view == ChipView.Default ->
+        ChipStyles.ChipXsPilledDefault
+    size == ChipSize.Xs && shape == ChipShape.Pilled && view == ChipView.Secondary ->
+        ChipStyles.ChipXsPilledSecondary
+    size == ChipSize.Xxs && shape == ChipShape.Pilled && view == ChipView.Default ->
+        ChipStyles.ChipXxsPilledDefault
+    size == ChipSize.Xxs && shape == ChipShape.Pilled && view == ChipView.Secondary ->
+        ChipStyles.ChipXxsPilledSecondary
+    size == ChipSize.L && view == ChipView.Default -> ChipStyles.ChipLDefault
+    size == ChipSize.L && view == ChipView.Secondary -> ChipStyles.ChipLSecondary
+    size == ChipSize.M && view == ChipView.Default -> ChipStyles.ChipMDefault
+    size == ChipSize.M && view == ChipView.Secondary -> ChipStyles.ChipMSecondary
+    size == ChipSize.S && view == ChipView.Default -> ChipStyles.ChipSDefault
+    size == ChipSize.S && view == ChipView.Secondary -> ChipStyles.ChipSSecondary
+    size == ChipSize.Xs && view == ChipView.Default -> ChipStyles.ChipXsDefault
+    size == ChipSize.Xs && view == ChipView.Secondary -> ChipStyles.ChipXsSecondary
+    size == ChipSize.Xxs && view == ChipView.Default -> ChipStyles.ChipXxsDefault
+    size == ChipSize.Xxs && view == ChipView.Secondary -> ChipStyles.ChipXxsSecondary
+    else -> error("Unsupported chip style combination")
+}
+
+/**
+ * Возвращает [ChipStyle] для chip
+ */
+@Composable
+public fun ChipStyles.Companion.style(
+    size: ChipSize = ChipSize.L,
+    shape: ChipShape = ChipShape.Default,
+    view: ChipView = ChipView.Default,
+    modify: @Composable ChipStyleBuilder.() -> Unit = {},
+): ChipStyle = resolve(size, shape, view).style(modify)

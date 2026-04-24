@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.note
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -91,16 +93,20 @@ internal data class NoteProperties(
 }
 
 @Serializable
-internal data class NoteView(override val props: NoteProperties) :
+internal data class NoteView(
+    override val props: NoteProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<NoteProperties> {
     override fun merge(parent: ViewVariation<NoteProperties>): ViewVariation<NoteProperties> =
-        copy(props = props.merge(parent.props) as NoteProperties)
+        copy(props = props.merge(parent.props) as NoteProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class NoteVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, NoteView> = emptyMap(),
     override val props: NoteProperties,
 ) : ChildVariation<NoteProperties>
@@ -110,4 +116,5 @@ internal data class NoteConfig(
     override val view: Map<String, NoteView> = emptyMap(),
     override val props: NoteProperties,
     override val variations: List<NoteVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<NoteProperties>, ComponentConfig

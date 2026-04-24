@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.loader
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -26,15 +28,19 @@ internal data class LoaderProperties(
 }
 
 @Serializable
-internal data class LoaderView(override val props: LoaderProperties) : ViewVariation<LoaderProperties> {
+internal data class LoaderView(
+    override val props: LoaderProperties,
+    override val binding: List<Binding>? = null,
+) : ViewVariation<LoaderProperties> {
     override fun merge(parent: ViewVariation<LoaderProperties>): ViewVariation<LoaderProperties> =
-        copy(props = props.merge(parent.props) as LoaderProperties)
+        copy(props = props.merge(parent.props) as LoaderProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class LoaderVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, LoaderView> = emptyMap(),
     override val props: LoaderProperties,
 ) : ChildVariation<LoaderProperties>
@@ -44,4 +50,5 @@ internal data class LoaderConfig(
     override val view: Map<String, LoaderView> = emptyMap(),
     override val props: LoaderProperties,
     override val variations: List<LoaderVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<LoaderProperties>, ComponentConfig

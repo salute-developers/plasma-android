@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.emptystate
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -42,16 +44,20 @@ internal data class EmptyStateProperties(
 }
 
 @Serializable
-internal data class EmptyStateView(override val props: EmptyStateProperties) :
+internal data class EmptyStateView(
+    override val props: EmptyStateProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<EmptyStateProperties> {
     override fun merge(parent: ViewVariation<EmptyStateProperties>): ViewVariation<EmptyStateProperties> =
-        copy(props = props.merge(parent.props) as EmptyStateProperties)
+        copy(props = props.merge(parent.props) as EmptyStateProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class EmptyStateVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, EmptyStateView> = emptyMap(),
     override val props: EmptyStateProperties,
 ) : ChildVariation<EmptyStateProperties>
@@ -61,4 +67,5 @@ internal data class EmptyStateConfig(
     override val view: Map<String, EmptyStateView> = emptyMap(),
     override val props: EmptyStateProperties,
     override val variations: List<EmptyStateVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<EmptyStateProperties>, ComponentConfig

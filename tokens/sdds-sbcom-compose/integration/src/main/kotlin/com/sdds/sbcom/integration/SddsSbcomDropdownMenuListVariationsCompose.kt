@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.sbcom.styles.list.Default
 import com.sdds.sbcom.styles.list.DropdownMenuList
 
 internal object SddsSbcomDropdownMenuListVariationsCompose : ComposeStyleProvider<ListStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ListStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { DropdownMenuList.Default.style() },
+            "DropdownMenuList.Default" to ComposeStyleReference { DropdownMenuList.Default.style() },
         )
 }

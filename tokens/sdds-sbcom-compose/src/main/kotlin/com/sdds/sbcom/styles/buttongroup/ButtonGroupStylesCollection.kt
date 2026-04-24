@@ -27,19 +27,57 @@ public enum class ButtonGroupStyles(
 ) {
     BasicButtonGroupDefault("BasicButtonGroup.Default"),
     IconButtonGroupDefault("IconButtonGroup.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля basic-button-group
+     */
+    public object BasicButtonGroup
+
+    /**
+     * Typed API для подбора стиля icon-button-group
+     */
+    public object IconButtonGroup
 }
 
 /**
  * Возвращает [ButtonGroupStyle] для [ButtonGroupStyles]
  */
 @Composable
-public fun ButtonGroupStyles.style(
-    modifyAction: @Composable ButtonGroupStyleBuilder.() -> Unit =
-        {},
-): ButtonGroupStyle {
+public fun ButtonGroupStyles.style(modify: @Composable ButtonGroupStyleBuilder.() -> Unit = {}): ButtonGroupStyle {
     val builder = when (this) {
         ButtonGroupStyles.BasicButtonGroupDefault -> BasicButtonGroup.Default
         ButtonGroupStyles.IconButtonGroupDefault -> IconButtonGroup.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [ButtonGroupStyles] для basic-button-group
+ */
+public fun ButtonGroupStyles.BasicButtonGroup.resolve(): ButtonGroupStyles =
+    ButtonGroupStyles.BasicButtonGroupDefault
+
+/**
+ * Возвращает [ButtonGroupStyle] для basic-button-group
+ */
+@Composable
+public fun ButtonGroupStyles.BasicButtonGroup.style(
+    modify: @Composable
+    ButtonGroupStyleBuilder.() -> Unit = {},
+): ButtonGroupStyle = resolve().style(modify)
+
+/**
+ * Возвращает экземпляр [ButtonGroupStyles] для icon-button-group
+ */
+public fun ButtonGroupStyles.IconButtonGroup.resolve(): ButtonGroupStyles =
+    ButtonGroupStyles.IconButtonGroupDefault
+
+/**
+ * Возвращает [ButtonGroupStyle] для icon-button-group
+ */
+@Composable
+public fun ButtonGroupStyles.IconButtonGroup.style(
+    modify: @Composable
+    ButtonGroupStyleBuilder.() -> Unit = {},
+): ButtonGroupStyle = resolve().style(modify)

@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.NoteStyle
 import com.sdds.compose.uikit.NoteStyleBuilder
 import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
+import kotlin.Boolean
 import kotlin.String
 import kotlin.Suppress
 import kotlin.Unit
@@ -45,13 +46,38 @@ public enum class NoteStyles(
     NoteContentBeforeFixedHasCloseNegative("Note.ContentBeforeFixed.HasClose.Negative"),
     NoteContentBeforeFixedHasCloseWarning("Note.ContentBeforeFixed.HasClose.Warning"),
     NoteContentBeforeFixedHasCloseInfo("Note.ContentBeforeFixed.HasClose.Info"),
+    ;
+
+    /**
+     * Typed API для подбора стиля note
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства content-before для note
+ */
+public enum class NoteContentBefore {
+    Fixed,
+    Scalable,
+}
+
+/**
+ * Возможные значения свойства view для note
+ */
+public enum class NoteView {
+    Default,
+    Positive,
+    Negative,
+    Warning,
+    Info,
 }
 
 /**
  * Возвращает [NoteStyle] для [NoteStyles]
  */
 @Composable
-public fun NoteStyles.style(modifyAction: @Composable NoteStyleBuilder.() -> Unit = {}): NoteStyle {
+public fun NoteStyles.style(modify: @Composable NoteStyleBuilder.() -> Unit = {}): NoteStyle {
     val builder = when (this) {
         NoteStyles.NoteContentBeforeScalableDefault -> Note.ContentBeforeScalable.Default
         NoteStyles.NoteContentBeforeScalablePositive -> Note.ContentBeforeScalable.Positive
@@ -80,5 +106,67 @@ public fun NoteStyles.style(modifyAction: @Composable NoteStyleBuilder.() -> Uni
         NoteStyles.NoteContentBeforeFixedHasCloseWarning -> Note.ContentBeforeFixed.HasClose.Warning
         NoteStyles.NoteContentBeforeFixedHasCloseInfo -> Note.ContentBeforeFixed.HasClose.Info
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [NoteStyles] для note
+ */
+public fun NoteStyles.Companion.resolve(
+    contentBefore: NoteContentBefore = NoteContentBefore.Fixed,
+    hasClose: Boolean = false,
+    view: NoteView = NoteView.Default,
+): NoteStyles = when {
+    contentBefore == NoteContentBefore.Scalable && hasClose == true && view == NoteView.Default ->
+        NoteStyles.NoteContentBeforeScalableHasCloseDefault
+    contentBefore == NoteContentBefore.Scalable && hasClose == true && view == NoteView.Positive ->
+        NoteStyles.NoteContentBeforeScalableHasClosePositive
+    contentBefore == NoteContentBefore.Scalable && hasClose == true && view == NoteView.Negative ->
+        NoteStyles.NoteContentBeforeScalableHasCloseNegative
+    contentBefore == NoteContentBefore.Scalable && hasClose == true && view == NoteView.Warning ->
+        NoteStyles.NoteContentBeforeScalableHasCloseWarning
+    contentBefore == NoteContentBefore.Scalable && hasClose == true && view == NoteView.Info ->
+        NoteStyles.NoteContentBeforeScalableHasCloseInfo
+    contentBefore == NoteContentBefore.Fixed && hasClose == true && view == NoteView.Default ->
+        NoteStyles.NoteContentBeforeFixedHasCloseDefault
+    contentBefore == NoteContentBefore.Fixed && hasClose == true && view == NoteView.Positive ->
+        NoteStyles.NoteContentBeforeFixedHasClosePositive
+    contentBefore == NoteContentBefore.Fixed && hasClose == true && view == NoteView.Negative ->
+        NoteStyles.NoteContentBeforeFixedHasCloseNegative
+    contentBefore == NoteContentBefore.Fixed && hasClose == true && view == NoteView.Warning ->
+        NoteStyles.NoteContentBeforeFixedHasCloseWarning
+    contentBefore == NoteContentBefore.Fixed && hasClose == true && view == NoteView.Info ->
+        NoteStyles.NoteContentBeforeFixedHasCloseInfo
+    contentBefore == NoteContentBefore.Scalable && view == NoteView.Default ->
+        NoteStyles.NoteContentBeforeScalableDefault
+    contentBefore == NoteContentBefore.Scalable && view == NoteView.Positive ->
+        NoteStyles.NoteContentBeforeScalablePositive
+    contentBefore == NoteContentBefore.Scalable && view == NoteView.Negative ->
+        NoteStyles.NoteContentBeforeScalableNegative
+    contentBefore == NoteContentBefore.Scalable && view == NoteView.Warning ->
+        NoteStyles.NoteContentBeforeScalableWarning
+    contentBefore == NoteContentBefore.Scalable && view == NoteView.Info ->
+        NoteStyles.NoteContentBeforeScalableInfo
+    contentBefore == NoteContentBefore.Fixed && view == NoteView.Default ->
+        NoteStyles.NoteContentBeforeFixedDefault
+    contentBefore == NoteContentBefore.Fixed && view == NoteView.Positive ->
+        NoteStyles.NoteContentBeforeFixedPositive
+    contentBefore == NoteContentBefore.Fixed && view == NoteView.Negative ->
+        NoteStyles.NoteContentBeforeFixedNegative
+    contentBefore == NoteContentBefore.Fixed && view == NoteView.Warning ->
+        NoteStyles.NoteContentBeforeFixedWarning
+    contentBefore == NoteContentBefore.Fixed && view == NoteView.Info ->
+        NoteStyles.NoteContentBeforeFixedInfo
+    else -> error("Unsupported note style combination")
+}
+
+/**
+ * Возвращает [NoteStyle] для note
+ */
+@Composable
+public fun NoteStyles.Companion.style(
+    contentBefore: NoteContentBefore = NoteContentBefore.Fixed,
+    hasClose: Boolean = false,
+    view: NoteView = NoteView.Default,
+    modify: @Composable NoteStyleBuilder.() -> Unit = {},
+): NoteStyle = resolve(contentBefore, hasClose, view).style(modify)

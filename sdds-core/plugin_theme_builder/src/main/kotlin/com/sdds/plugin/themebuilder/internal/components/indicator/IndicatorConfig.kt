@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.indicator
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -32,15 +34,17 @@ internal data class IndicatorProperties(
 @Serializable
 internal data class IndicatorView(
     override val props: IndicatorProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<IndicatorProperties> {
     override fun merge(parent: ViewVariation<IndicatorProperties>): ViewVariation<IndicatorProperties> =
-        copy(props = props.merge(parent.props) as IndicatorProperties)
+        copy(props = props.merge(parent.props) as IndicatorProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class IndicatorVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, IndicatorView> = emptyMap(),
     override val props: IndicatorProperties,
 ) : ChildVariation<IndicatorProperties>
@@ -50,4 +54,5 @@ internal data class IndicatorConfig(
     override val view: Map<String, IndicatorView> = emptyMap(),
     override val props: IndicatorProperties,
     override val variations: List<IndicatorVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<IndicatorProperties>, ComponentConfig

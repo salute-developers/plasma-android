@@ -60,13 +60,43 @@ public enum class SpinnerStyles(
     SpinnerScalableNegative("Spinner.Scalable.Negative"),
     SpinnerScalableWarning("Spinner.Scalable.Warning"),
     SpinnerScalableInfo("Spinner.Scalable.Info"),
+    ;
+
+    /**
+     * Typed API для подбора стиля spinner
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для spinner
+ */
+public enum class SpinnerSize {
+    M,
+    S,
+    Xs,
+    Xxs,
+    Scalable,
+}
+
+/**
+ * Возможные значения свойства view для spinner
+ */
+public enum class SpinnerView {
+    Default,
+    Secondary,
+    Accent,
+    Positive,
+    Negative,
+    Warning,
+    Info,
 }
 
 /**
  * Возвращает [SpinnerStyle] для [SpinnerStyles]
  */
 @Composable
-public fun SpinnerStyles.style(modifyAction: @Composable SpinnerStyleBuilder.() -> Unit = {}): SpinnerStyle {
+public fun SpinnerStyles.style(modify: @Composable SpinnerStyleBuilder.() -> Unit = {}): SpinnerStyle {
     val builder = when (this) {
         SpinnerStyles.SpinnerMDefault -> Spinner.M.Default
         SpinnerStyles.SpinnerMSecondary -> Spinner.M.Secondary
@@ -104,5 +134,67 @@ public fun SpinnerStyles.style(modifyAction: @Composable SpinnerStyleBuilder.() 
         SpinnerStyles.SpinnerScalableWarning -> Spinner.Scalable.Warning
         SpinnerStyles.SpinnerScalableInfo -> Spinner.Scalable.Info
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [SpinnerStyles] для spinner
+ */
+public fun SpinnerStyles.Companion.resolve(
+    size: SpinnerSize = SpinnerSize.M,
+    view: SpinnerView =
+        SpinnerView.Default,
+): SpinnerStyles = when {
+    size == SpinnerSize.M && view == SpinnerView.Default -> SpinnerStyles.SpinnerMDefault
+    size == SpinnerSize.M && view == SpinnerView.Secondary -> SpinnerStyles.SpinnerMSecondary
+    size == SpinnerSize.M && view == SpinnerView.Accent -> SpinnerStyles.SpinnerMAccent
+    size == SpinnerSize.M && view == SpinnerView.Positive -> SpinnerStyles.SpinnerMPositive
+    size == SpinnerSize.M && view == SpinnerView.Negative -> SpinnerStyles.SpinnerMNegative
+    size == SpinnerSize.M && view == SpinnerView.Warning -> SpinnerStyles.SpinnerMWarning
+    size == SpinnerSize.M && view == SpinnerView.Info -> SpinnerStyles.SpinnerMInfo
+    size == SpinnerSize.S && view == SpinnerView.Default -> SpinnerStyles.SpinnerSDefault
+    size == SpinnerSize.S && view == SpinnerView.Secondary -> SpinnerStyles.SpinnerSSecondary
+    size == SpinnerSize.S && view == SpinnerView.Accent -> SpinnerStyles.SpinnerSAccent
+    size == SpinnerSize.S && view == SpinnerView.Positive -> SpinnerStyles.SpinnerSPositive
+    size == SpinnerSize.S && view == SpinnerView.Negative -> SpinnerStyles.SpinnerSNegative
+    size == SpinnerSize.S && view == SpinnerView.Warning -> SpinnerStyles.SpinnerSWarning
+    size == SpinnerSize.S && view == SpinnerView.Info -> SpinnerStyles.SpinnerSInfo
+    size == SpinnerSize.Xs && view == SpinnerView.Default -> SpinnerStyles.SpinnerXsDefault
+    size == SpinnerSize.Xs && view == SpinnerView.Secondary -> SpinnerStyles.SpinnerXsSecondary
+    size == SpinnerSize.Xs && view == SpinnerView.Accent -> SpinnerStyles.SpinnerXsAccent
+    size == SpinnerSize.Xs && view == SpinnerView.Positive -> SpinnerStyles.SpinnerXsPositive
+    size == SpinnerSize.Xs && view == SpinnerView.Negative -> SpinnerStyles.SpinnerXsNegative
+    size == SpinnerSize.Xs && view == SpinnerView.Warning -> SpinnerStyles.SpinnerXsWarning
+    size == SpinnerSize.Xs && view == SpinnerView.Info -> SpinnerStyles.SpinnerXsInfo
+    size == SpinnerSize.Xxs && view == SpinnerView.Default -> SpinnerStyles.SpinnerXxsDefault
+    size == SpinnerSize.Xxs && view == SpinnerView.Secondary -> SpinnerStyles.SpinnerXxsSecondary
+    size == SpinnerSize.Xxs && view == SpinnerView.Accent -> SpinnerStyles.SpinnerXxsAccent
+    size == SpinnerSize.Xxs && view == SpinnerView.Positive -> SpinnerStyles.SpinnerXxsPositive
+    size == SpinnerSize.Xxs && view == SpinnerView.Negative -> SpinnerStyles.SpinnerXxsNegative
+    size == SpinnerSize.Xxs && view == SpinnerView.Warning -> SpinnerStyles.SpinnerXxsWarning
+    size == SpinnerSize.Xxs && view == SpinnerView.Info -> SpinnerStyles.SpinnerXxsInfo
+    size == SpinnerSize.Scalable && view == SpinnerView.Default ->
+        SpinnerStyles.SpinnerScalableDefault
+    size == SpinnerSize.Scalable && view == SpinnerView.Secondary ->
+        SpinnerStyles.SpinnerScalableSecondary
+    size == SpinnerSize.Scalable && view == SpinnerView.Accent ->
+        SpinnerStyles.SpinnerScalableAccent
+    size == SpinnerSize.Scalable && view == SpinnerView.Positive ->
+        SpinnerStyles.SpinnerScalablePositive
+    size == SpinnerSize.Scalable && view == SpinnerView.Negative ->
+        SpinnerStyles.SpinnerScalableNegative
+    size == SpinnerSize.Scalable && view == SpinnerView.Warning ->
+        SpinnerStyles.SpinnerScalableWarning
+    size == SpinnerSize.Scalable && view == SpinnerView.Info -> SpinnerStyles.SpinnerScalableInfo
+    else -> error("Unsupported spinner style combination")
+}
+
+/**
+ * Возвращает [SpinnerStyle] для spinner
+ */
+@Composable
+public fun SpinnerStyles.Companion.style(
+    size: SpinnerSize = SpinnerSize.M,
+    view: SpinnerView = SpinnerView.Default,
+    modify: @Composable SpinnerStyleBuilder.() -> Unit = {},
+): SpinnerStyle = resolve(size, view).style(modify)

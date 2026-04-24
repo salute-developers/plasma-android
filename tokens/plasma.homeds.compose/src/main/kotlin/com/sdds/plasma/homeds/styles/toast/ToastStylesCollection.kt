@@ -28,17 +28,52 @@ public enum class ToastStyles(
     ToastDefault("Toast.Default"),
     ToastPositive("Toast.Positive"),
     ToastNegative("Toast.Negative"),
+    ;
+
+    /**
+     * Typed API для подбора стиля toast
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства view для toast
+ */
+public enum class ToastView {
+    Default,
+    Positive,
+    Negative,
 }
 
 /**
  * Возвращает [ToastStyle] для [ToastStyles]
  */
 @Composable
-public fun ToastStyles.style(modifyAction: @Composable ToastStyleBuilder.() -> Unit = {}): ToastStyle {
+public fun ToastStyles.style(modify: @Composable ToastStyleBuilder.() -> Unit = {}): ToastStyle {
     val builder = when (this) {
         ToastStyles.ToastDefault -> Toast.Default
         ToastStyles.ToastPositive -> Toast.Positive
         ToastStyles.ToastNegative -> Toast.Negative
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [ToastStyles] для toast
+ */
+public fun ToastStyles.Companion.resolve(view: ToastView = ToastView.Default): ToastStyles = when {
+    view == ToastView.Default -> ToastStyles.ToastDefault
+    view == ToastView.Positive -> ToastStyles.ToastPositive
+    view == ToastView.Negative -> ToastStyles.ToastNegative
+    else -> error("Unsupported toast style combination")
+}
+
+/**
+ * Возвращает [ToastStyle] для toast
+ */
+@Composable
+public fun ToastStyles.Companion.style(
+    view: ToastView = ToastView.Default,
+    modify: @Composable
+    ToastStyleBuilder.() -> Unit = {},
+): ToastStyle = resolve(view).style(modify)

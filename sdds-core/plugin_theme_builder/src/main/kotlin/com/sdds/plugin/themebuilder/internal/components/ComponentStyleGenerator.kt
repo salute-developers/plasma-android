@@ -16,6 +16,8 @@ internal interface ComponentStyleGenerator<in T : ComponentConfig> {
         data class Compose(
             override val styleName: String,
             override val variations: Map<String, VariationReference>,
+            val props: List<VariationProp>,
+            val variationProps: Map<String, List<VariationProp>>,
             val componentPackage: String,
             val styleClassName: ClassName,
             val styleBuilderClassName: ClassName,

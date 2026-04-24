@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.sbcom.styles.switcher.Default
 import com.sdds.sbcom.styles.switcher.Switch
 
 internal object SddsSbcomSwitchVariationsCompose : ComposeStyleProvider<SwitchStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<SwitchStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Switch.Default.style() },
+            "Switch.Default" to ComposeStyleReference { Switch.Default.style() },
         )
 }

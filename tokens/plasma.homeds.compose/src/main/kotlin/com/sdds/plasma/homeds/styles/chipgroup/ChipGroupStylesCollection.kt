@@ -65,13 +65,78 @@ public enum class ChipGroupStyles(
     ChipGroupWideXxsSecondary("ChipGroupWide.Xxs.Secondary"),
     ChipGroupWideXxsPilledDefault("ChipGroupWide.Xxs.Pilled.Default"),
     ChipGroupWideXxsPilledSecondary("ChipGroupWide.Xxs.Pilled.Secondary"),
+    ;
+
+    /**
+     * Typed API для подбора стиля chip-group-dense
+     */
+    public object Dense
+
+    /**
+     * Typed API для подбора стиля chip-group-wide
+     */
+    public object Wide
+}
+
+/**
+ * Возможные значения свойства size для chip-group-dense
+ */
+public enum class ChipGroupDenseSize {
+    L,
+    M,
+    S,
+    Xs,
+    Xxs,
+}
+
+/**
+ * Возможные значения свойства shape для chip-group-dense
+ */
+public enum class ChipGroupDenseShape {
+    Default,
+    Pilled,
+}
+
+/**
+ * Возможные значения свойства view для chip-group-dense
+ */
+public enum class ChipGroupDenseView {
+    Default,
+    Secondary,
+}
+
+/**
+ * Возможные значения свойства size для chip-group-wide
+ */
+public enum class ChipGroupWideSize {
+    L,
+    M,
+    S,
+    Xs,
+    Xxs,
+}
+
+/**
+ * Возможные значения свойства shape для chip-group-wide
+ */
+public enum class ChipGroupWideShape {
+    Default,
+    Pilled,
+}
+
+/**
+ * Возможные значения свойства view для chip-group-wide
+ */
+public enum class ChipGroupWideView {
+    Default,
+    Secondary,
 }
 
 /**
  * Возвращает [ChipGroupStyle] для [ChipGroupStyles]
  */
 @Composable
-public fun ChipGroupStyles.style(modifyAction: @Composable ChipGroupStyleBuilder.() -> Unit = {}): ChipGroupStyle {
+public fun ChipGroupStyles.style(modify: @Composable ChipGroupStyleBuilder.() -> Unit = {}): ChipGroupStyle {
     val builder = when (this) {
         ChipGroupStyles.ChipGroupDenseLDefault -> ChipGroupDense.L.Default
         ChipGroupStyles.ChipGroupDenseLSecondary -> ChipGroupDense.L.Secondary
@@ -114,5 +179,129 @@ public fun ChipGroupStyles.style(modifyAction: @Composable ChipGroupStyleBuilder
         ChipGroupStyles.ChipGroupWideXxsPilledDefault -> ChipGroupWide.Xxs.Pilled.Default
         ChipGroupStyles.ChipGroupWideXxsPilledSecondary -> ChipGroupWide.Xxs.Pilled.Secondary
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [ChipGroupStyles] для chip-group-dense
+ */
+public fun ChipGroupStyles.Dense.resolve(
+    size: ChipGroupDenseSize = ChipGroupDenseSize.L,
+    shape: ChipGroupDenseShape = ChipGroupDenseShape.Default,
+    view: ChipGroupDenseView,
+): ChipGroupStyles = when {
+    size == ChipGroupDenseSize.L && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Default -> ChipGroupStyles.ChipGroupDenseLPilledDefault
+    size == ChipGroupDenseSize.L && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Secondary -> ChipGroupStyles.ChipGroupDenseLPilledSecondary
+    size == ChipGroupDenseSize.M && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Default -> ChipGroupStyles.ChipGroupDenseMPilledDefault
+    size == ChipGroupDenseSize.M && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Secondary -> ChipGroupStyles.ChipGroupDenseMPilledSecondary
+    size == ChipGroupDenseSize.S && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Default -> ChipGroupStyles.ChipGroupDenseSPilledDefault
+    size == ChipGroupDenseSize.S && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Secondary -> ChipGroupStyles.ChipGroupDenseSPilledSecondary
+    size == ChipGroupDenseSize.Xs && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Default -> ChipGroupStyles.ChipGroupDenseXsPilledDefault
+    size == ChipGroupDenseSize.Xs && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Secondary -> ChipGroupStyles.ChipGroupDenseXsPilledSecondary
+    size == ChipGroupDenseSize.Xxs && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Default -> ChipGroupStyles.ChipGroupDenseXxsPilledDefault
+    size == ChipGroupDenseSize.Xxs && shape == ChipGroupDenseShape.Pilled && view ==
+        ChipGroupDenseView.Secondary -> ChipGroupStyles.ChipGroupDenseXxsPilledSecondary
+    size == ChipGroupDenseSize.L && view == ChipGroupDenseView.Default ->
+        ChipGroupStyles.ChipGroupDenseLDefault
+    size == ChipGroupDenseSize.L && view == ChipGroupDenseView.Secondary ->
+        ChipGroupStyles.ChipGroupDenseLSecondary
+    size == ChipGroupDenseSize.M && view == ChipGroupDenseView.Default ->
+        ChipGroupStyles.ChipGroupDenseMDefault
+    size == ChipGroupDenseSize.M && view == ChipGroupDenseView.Secondary ->
+        ChipGroupStyles.ChipGroupDenseMSecondary
+    size == ChipGroupDenseSize.S && view == ChipGroupDenseView.Default ->
+        ChipGroupStyles.ChipGroupDenseSDefault
+    size == ChipGroupDenseSize.S && view == ChipGroupDenseView.Secondary ->
+        ChipGroupStyles.ChipGroupDenseSSecondary
+    size == ChipGroupDenseSize.Xs && view == ChipGroupDenseView.Default ->
+        ChipGroupStyles.ChipGroupDenseXsDefault
+    size == ChipGroupDenseSize.Xs && view == ChipGroupDenseView.Secondary ->
+        ChipGroupStyles.ChipGroupDenseXsSecondary
+    size == ChipGroupDenseSize.Xxs && view == ChipGroupDenseView.Default ->
+        ChipGroupStyles.ChipGroupDenseXxsDefault
+    size == ChipGroupDenseSize.Xxs && view == ChipGroupDenseView.Secondary ->
+        ChipGroupStyles.ChipGroupDenseXxsSecondary
+    else -> error("Unsupported chip-group-dense style combination")
+}
+
+/**
+ * Возвращает [ChipGroupStyle] для chip-group-dense
+ */
+@Composable
+public fun ChipGroupStyles.Dense.style(
+    size: ChipGroupDenseSize = ChipGroupDenseSize.L,
+    shape: ChipGroupDenseShape = ChipGroupDenseShape.Default,
+    view: ChipGroupDenseView,
+    modify: @Composable ChipGroupStyleBuilder.() -> Unit = {},
+): ChipGroupStyle = resolve(size, shape, view).style(modify)
+
+/**
+ * Возвращает экземпляр [ChipGroupStyles] для chip-group-wide
+ */
+public fun ChipGroupStyles.Wide.resolve(
+    size: ChipGroupWideSize = ChipGroupWideSize.L,
+    shape: ChipGroupWideShape = ChipGroupWideShape.Default,
+    view: ChipGroupWideView,
+): ChipGroupStyles = when {
+    size == ChipGroupWideSize.L && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Default -> ChipGroupStyles.ChipGroupWideLPilledDefault
+    size == ChipGroupWideSize.L && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Secondary -> ChipGroupStyles.ChipGroupWideLPilledSecondary
+    size == ChipGroupWideSize.M && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Default -> ChipGroupStyles.ChipGroupWideMPilledDefault
+    size == ChipGroupWideSize.M && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Secondary -> ChipGroupStyles.ChipGroupWideMPilledSecondary
+    size == ChipGroupWideSize.S && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Default -> ChipGroupStyles.ChipGroupWideSPilledDefault
+    size == ChipGroupWideSize.S && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Secondary -> ChipGroupStyles.ChipGroupWideSPilledSecondary
+    size == ChipGroupWideSize.Xs && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Default -> ChipGroupStyles.ChipGroupWideXsPilledDefault
+    size == ChipGroupWideSize.Xs && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Secondary -> ChipGroupStyles.ChipGroupWideXsPilledSecondary
+    size == ChipGroupWideSize.Xxs && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Default -> ChipGroupStyles.ChipGroupWideXxsPilledDefault
+    size == ChipGroupWideSize.Xxs && shape == ChipGroupWideShape.Pilled && view ==
+        ChipGroupWideView.Secondary -> ChipGroupStyles.ChipGroupWideXxsPilledSecondary
+    size == ChipGroupWideSize.L && view == ChipGroupWideView.Default ->
+        ChipGroupStyles.ChipGroupWideLDefault
+    size == ChipGroupWideSize.L && view == ChipGroupWideView.Secondary ->
+        ChipGroupStyles.ChipGroupWideLSecondary
+    size == ChipGroupWideSize.M && view == ChipGroupWideView.Default ->
+        ChipGroupStyles.ChipGroupWideMDefault
+    size == ChipGroupWideSize.M && view == ChipGroupWideView.Secondary ->
+        ChipGroupStyles.ChipGroupWideMSecondary
+    size == ChipGroupWideSize.S && view == ChipGroupWideView.Default ->
+        ChipGroupStyles.ChipGroupWideSDefault
+    size == ChipGroupWideSize.S && view == ChipGroupWideView.Secondary ->
+        ChipGroupStyles.ChipGroupWideSSecondary
+    size == ChipGroupWideSize.Xs && view == ChipGroupWideView.Default ->
+        ChipGroupStyles.ChipGroupWideXsDefault
+    size == ChipGroupWideSize.Xs && view == ChipGroupWideView.Secondary ->
+        ChipGroupStyles.ChipGroupWideXsSecondary
+    size == ChipGroupWideSize.Xxs && view == ChipGroupWideView.Default ->
+        ChipGroupStyles.ChipGroupWideXxsDefault
+    size == ChipGroupWideSize.Xxs && view == ChipGroupWideView.Secondary ->
+        ChipGroupStyles.ChipGroupWideXxsSecondary
+    else -> error("Unsupported chip-group-wide style combination")
+}
+
+/**
+ * Возвращает [ChipGroupStyle] для chip-group-wide
+ */
+@Composable
+public fun ChipGroupStyles.Wide.style(
+    size: ChipGroupWideSize = ChipGroupWideSize.L,
+    shape: ChipGroupWideShape = ChipGroupWideShape.Default,
+    view: ChipGroupWideView,
+    modify: @Composable ChipGroupStyleBuilder.() -> Unit = {},
+): ChipGroupStyle = resolve(size, shape, view).style(modify)

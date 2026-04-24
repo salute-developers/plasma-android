@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.radiobox.group
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -36,6 +38,7 @@ internal data class RadioBoxGroupView(override val props: RadioBoxGroupPropertie
 internal data class RadioBoxGroupVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, RadioBoxGroupView> = emptyMap(),
     override val props: RadioBoxGroupProperties,
 ) : ChildVariation<RadioBoxGroupProperties>
@@ -45,4 +48,5 @@ internal data class RadioBoxGroupConfig(
     override val view: Map<String, RadioBoxGroupView> = emptyMap(),
     override val props: RadioBoxGroupProperties,
     override val variations: List<RadioBoxGroupVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<RadioBoxGroupProperties>, ComponentConfig

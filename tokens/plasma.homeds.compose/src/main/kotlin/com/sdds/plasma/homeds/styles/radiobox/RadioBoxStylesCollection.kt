@@ -28,17 +28,53 @@ public enum class RadioBoxStyles(
     RadioBoxL("RadioBox.L"),
     RadioBoxM("RadioBox.M"),
     RadioBoxS("RadioBox.S"),
+    ;
+
+    /**
+     * Typed API для подбора стиля radio-box
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для radio-box
+ */
+public enum class RadioBoxSize {
+    L,
+    M,
+    S,
 }
 
 /**
  * Возвращает [RadioBoxStyle] для [RadioBoxStyles]
  */
 @Composable
-public fun RadioBoxStyles.style(modifyAction: @Composable RadioBoxStyleBuilder.() -> Unit = {}): RadioBoxStyle {
+public fun RadioBoxStyles.style(modify: @Composable RadioBoxStyleBuilder.() -> Unit = {}): RadioBoxStyle {
     val builder = when (this) {
         RadioBoxStyles.RadioBoxL -> RadioBox.L
         RadioBoxStyles.RadioBoxM -> RadioBox.M
         RadioBoxStyles.RadioBoxS -> RadioBox.S
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [RadioBoxStyles] для radio-box
+ */
+public fun RadioBoxStyles.Companion.resolve(size: RadioBoxSize = RadioBoxSize.L): RadioBoxStyles =
+    when {
+        size == RadioBoxSize.L -> RadioBoxStyles.RadioBoxL
+        size == RadioBoxSize.M -> RadioBoxStyles.RadioBoxM
+        size == RadioBoxSize.S -> RadioBoxStyles.RadioBoxS
+        else -> error("Unsupported radio-box style combination")
+    }
+
+/**
+ * Возвращает [RadioBoxStyle] для radio-box
+ */
+@Composable
+public fun RadioBoxStyles.Companion.style(
+    size: RadioBoxSize = RadioBoxSize.L,
+    modify: @Composable
+    RadioBoxStyleBuilder.() -> Unit = {},
+): RadioBoxStyle = resolve(size).style(modify)

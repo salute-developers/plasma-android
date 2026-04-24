@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.sbcom.styles.counter.Default
 import com.sdds.sbcom.styles.counter.TabBarCounter
 
 internal object SddsSbcomTabBarCounterVariationsCompose : ComposeStyleProvider<CounterStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<CounterStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { TabBarCounter.Default.style() },
+            "TabBarCounter.Default" to ComposeStyleReference { TabBarCounter.Default.style() },
         )
 }

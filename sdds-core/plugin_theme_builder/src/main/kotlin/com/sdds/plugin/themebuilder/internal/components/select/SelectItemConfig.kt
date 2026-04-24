@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.select
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -59,16 +61,20 @@ internal data class SelectItemProperties(
 }
 
 @Serializable
-internal data class SelectItemView(override val props: SelectItemProperties) :
+internal data class SelectItemView(
+    override val props: SelectItemProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<SelectItemProperties> {
     override fun merge(parent: ViewVariation<SelectItemProperties>): ViewVariation<SelectItemProperties> =
-        copy(props = props.merge(parent.props) as SelectItemProperties)
+        copy(props = props.merge(parent.props) as SelectItemProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class SelectItemVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, SelectItemView> = emptyMap(),
     override val props: SelectItemProperties,
 ) : ChildVariation<SelectItemProperties>
@@ -78,4 +84,5 @@ internal data class SelectItemConfig(
     override val view: Map<String, SelectItemView> = emptyMap(),
     override val props: SelectItemProperties,
     override val variations: List<SelectItemVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<SelectItemProperties>, ComponentConfig

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.textfield
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
@@ -211,15 +213,19 @@ internal data class TextFieldProperties(
 }
 
 @Serializable
-internal data class TextFieldView(override val props: TextFieldProperties) : ViewVariation<TextFieldProperties> {
+internal data class TextFieldView(
+    override val props: TextFieldProperties,
+    override val binding: List<Binding>? = null,
+) : ViewVariation<TextFieldProperties> {
     override fun merge(parent: ViewVariation<TextFieldProperties>): ViewVariation<TextFieldProperties> =
-        copy(props = props.merge(parent.props) as TextFieldProperties)
+        copy(props = props.merge(parent.props) as TextFieldProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class TextFieldVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, TextFieldView> = emptyMap(),
     override val props: TextFieldProperties,
 ) : ChildVariation<TextFieldProperties>
@@ -229,4 +235,5 @@ internal data class TextFieldConfig(
     override val view: Map<String, TextFieldView> = emptyMap(),
     override val props: TextFieldProperties,
     override val variations: List<TextFieldVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<TextFieldProperties>, ComponentConfig

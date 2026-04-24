@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.plasma.homeds.styles.tabbaritem.Default
 import com.sdds.plasma.homeds.styles.tabbaritem.TabBarItem
 
 internal object PlasmaHomedsTabBarItemVariationsCompose : ComposeStyleProvider<TabBarItemStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<TabBarItemStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { TabBarItem.Default.style() },
+            "TabBarItem.Default" to ComposeStyleReference { TabBarItem.Default.style() },
         )
 }

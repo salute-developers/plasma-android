@@ -26,18 +26,36 @@ public enum class RectSkeletonStyles(
     public val key: String,
 ) {
     RectSkeletonDefault("RectSkeleton.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля rect-skeleton
+     */
+    public companion object
 }
 
 /**
  * Возвращает [RectSkeletonStyle] для [RectSkeletonStyles]
  */
 @Composable
-public fun RectSkeletonStyles.style(
-    modifyAction: @Composable RectSkeletonStyleBuilder.() -> Unit =
-        {},
-): RectSkeletonStyle {
+public fun RectSkeletonStyles.style(modify: @Composable RectSkeletonStyleBuilder.() -> Unit = {}): RectSkeletonStyle {
     val builder = when (this) {
         RectSkeletonStyles.RectSkeletonDefault -> RectSkeleton.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [RectSkeletonStyles] для rect-skeleton
+ */
+public fun RectSkeletonStyles.Companion.resolve(): RectSkeletonStyles =
+    RectSkeletonStyles.RectSkeletonDefault
+
+/**
+ * Возвращает [RectSkeletonStyle] для rect-skeleton
+ */
+@Composable
+public fun RectSkeletonStyles.Companion.style(
+    modify: @Composable
+    RectSkeletonStyleBuilder.() -> Unit = {},
+): RectSkeletonStyle = resolve().style(modify)

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.card
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -77,15 +79,17 @@ internal data class CardProperties(
 @Serializable
 internal data class CardView(
     override val props: CardProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<CardProperties> {
     override fun merge(parent: ViewVariation<CardProperties>): ViewVariation<CardProperties> =
-        copy(props = props.merge(parent.props) as CardProperties)
+        copy(props = props.merge(parent.props) as CardProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class CardVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CardView> = emptyMap(),
     override val props: CardProperties,
 ) : ChildVariation<CardProperties>
@@ -95,4 +99,5 @@ internal data class CardConfig(
     override val view: Map<String, CardView> = emptyMap(),
     override val props: CardProperties = CardProperties(),
     override val variations: List<CardVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CardProperties>, ComponentConfig

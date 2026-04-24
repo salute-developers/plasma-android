@@ -26,15 +26,36 @@ public enum class TabBarItemStyles(
     public val key: String,
 ) {
     TabBarItemDefault("TabBarItem.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля tab-bar-item
+     */
+    public companion object
 }
 
 /**
  * Возвращает [TabBarItemStyle] для [TabBarItemStyles]
  */
 @Composable
-public fun TabBarItemStyles.style(modifyAction: @Composable TabBarItemStyleBuilder.() -> Unit = {}): TabBarItemStyle {
+public fun TabBarItemStyles.style(modify: @Composable TabBarItemStyleBuilder.() -> Unit = {}): TabBarItemStyle {
     val builder = when (this) {
         TabBarItemStyles.TabBarItemDefault -> TabBarItem.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [TabBarItemStyles] для tab-bar-item
+ */
+public fun TabBarItemStyles.Companion.resolve(): TabBarItemStyles =
+    TabBarItemStyles.TabBarItemDefault
+
+/**
+ * Возвращает [TabBarItemStyle] для tab-bar-item
+ */
+@Composable
+public fun TabBarItemStyles.Companion.style(
+    modify: @Composable TabBarItemStyleBuilder.() -> Unit =
+        {},
+): TabBarItemStyle = resolve().style(modify)

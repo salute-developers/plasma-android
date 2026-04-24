@@ -2,6 +2,8 @@ package com.sdds.plugin.themebuilder.internal.components.tabbar.item
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeProperties
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -72,6 +74,7 @@ internal data class TabBarItemView(
 internal data class TabBarItemVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, TabBarItemView> = emptyMap(),
     override val props: TabBarItemProperties,
 ) : ChildVariation<TabBarItemProperties>
@@ -81,4 +84,5 @@ internal data class TabBarItemConfig(
     override val view: Map<String, TabBarItemView> = emptyMap(),
     override val props: TabBarItemProperties = TabBarItemProperties(),
     override val variations: List<TabBarItemVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<TabBarItemProperties>, ComponentConfig

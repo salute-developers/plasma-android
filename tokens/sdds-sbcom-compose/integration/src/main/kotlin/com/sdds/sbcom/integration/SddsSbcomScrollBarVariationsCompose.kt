@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.sbcom.styles.scrollbar.Default
 import com.sdds.sbcom.styles.scrollbar.ScrollBar
 
 internal object SddsSbcomScrollBarVariationsCompose : ComposeStyleProvider<ScrollBarStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ScrollBarStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { ScrollBar.Default.style() },
+            "ScrollBar.Default" to ComposeStyleReference { ScrollBar.Default.style() },
         )
 }

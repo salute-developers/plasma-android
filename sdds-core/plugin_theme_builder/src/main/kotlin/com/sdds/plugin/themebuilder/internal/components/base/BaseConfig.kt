@@ -1,8 +1,19 @@
 package com.sdds.plugin.themebuilder.internal.components.base
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
+import kotlinx.serialization.json.JsonDecoder
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.booleanOrNull
+import kotlinx.serialization.json.contentOrNull
+import kotlinx.serialization.json.jsonPrimitive
 
 /**
  * Интерфейс сущности со свойствами компонента
@@ -26,6 +37,9 @@ internal interface ViewVariation<PO : PropertyOwner> {
      * Свойства вариации
      */
     val props: PO
+
+    val binding: List<Binding>?
+        get() = null
 
     /**
      * Совмещает свойства текущего объекта со свойствами [parent] и возвращает
@@ -60,6 +74,37 @@ internal interface ChildVariation<PO : PropertyOwner> : BaseVariation<PO> {
 internal interface Config<PO : PropertyOwner> : BaseVariation<PO>, ComponentConfig {
 
     val variations: List<ChildVariation<PO>>
+
+    val bindings: List<Bindings>
+        get() = emptyList()
+}
+
+@Serializable
+internal data class Bindings(
+    val name: String,
+    val type: BindingType,
+    val values: Set<String>? = null,
+    @Serializable(with = BindingValueSerializer::class)
+    val defaultValue: String? = null,
+)
+
+@Serializable
+internal data class Binding(
+    val name: String,
+    @Serializable(with = BindingValueSerializer::class)
+    val value: String,
+)
+
+@Serializable
+internal enum class BindingType {
+    @SerialName("enum")
+    ENUM,
+
+    @SerialName("boolean")
+    BOOLEAN,
+
+    @SerialName("view")
+    VIEW,
 }
 
 internal sealed interface State<T> {
@@ -335,3 +380,22 @@ internal data class Icon(
 internal data class BooleanValue(
     val value: Boolean,
 )
+
+private object BindingValueSerializer : KSerializer<String> {
+    override val descriptor: SerialDescriptor =
+        PrimitiveSerialDescriptor("BindingValue", PrimitiveKind.STRING)
+
+    override fun serialize(encoder: Encoder, value: String) {
+        encoder.encodeString(value)
+    }
+
+    override fun deserialize(decoder: Decoder): String {
+        return if (decoder is JsonDecoder) {
+            val primitive: JsonPrimitive = decoder.decodeJsonElement().jsonPrimitive
+            primitive.contentOrNull ?: primitive.booleanOrNull?.toString()
+                ?: primitive.toString()
+        } else {
+            decoder.decodeString()
+        }
+    }
+}

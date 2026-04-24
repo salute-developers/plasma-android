@@ -35,30 +35,39 @@ internal class ComponentViewModel<State : UiState, S : Style>(
 ) : ViewModel(), PropertiesOwner, StateOwner<State> {
 
     private val internalUiState = MutableStateFlow(defaultState)
+    private val selectedBindings = MutableStateFlow<Map<String, Any?>>(emptyMap())
     private val _subtheme = MutableStateFlow<SubTheme?>(null)
 
-    override val uiState: StateFlow<State>
-        get() = internalUiState.asStateFlow()
+    override val uiState: StateFlow<State> = internalUiState.asStateFlow()
 
     /**
      * Подтема
      */
-    val theme: StateFlow<ComposeTheme>
-        get() = themeManager.currentTheme
-            .mapNotNull { it as? ComposeTheme }
-            .stateIn(viewModelScope, SharingStarted.Lazily, ComposeTheme.Default)
+    val theme: StateFlow<ComposeTheme> = themeManager.currentTheme
+        .mapNotNull { it as? ComposeTheme }
+        .stateIn(viewModelScope, SharingStarted.Lazily, ComposeTheme.Default)
 
     /**
      * Подтема
      */
-    val subtheme: StateFlow<SubTheme?>
-        get() = _subtheme.asStateFlow()
+    val subtheme: StateFlow<SubTheme?> = _subtheme.asStateFlow()
 
-    override val properties: StateFlow<List<Property<*>>>
-        get() = combine(internalUiState, theme) { state, themeState ->
+    /**
+     * Параметры стиля
+     */
+    val styleProperties: StateFlow<List<Property<*>>> =
+        combine(internalUiState, theme, selectedBindings) { state, themeState, bindings ->
             if (themeState.components.components.isEmpty()) return@combine emptyList()
             updateUiStateWithDefaultVariant(state, themeState)
-            appearanceProperties(state, themeState) + variantProperty(state, themeState) + state.toProps()
+            appearanceProperties(state, themeState) +
+                styleProperties(state, themeState, bindings)
+        }
+            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+
+    override val properties: StateFlow<List<Property<*>>> =
+        combine(internalUiState, theme, selectedBindings) { state, themeState, bindings ->
+            if (themeState.components.components.isEmpty()) return@combine emptyList()
+            state.toProps()
         }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
@@ -73,7 +82,18 @@ internal class ComponentViewModel<State : UiState, S : Style>(
                 _subtheme.value = type
                 state
             }
-            else -> stateTransformer.transform(internalUiState.value, name, value ?: "")
+            else -> {
+                val styleProvider = getStyleProvider(state.appearance, theme.value)
+                if (styleProvider?.bindings?.any { it.name == name } == true) {
+                    selectedBindings.value += (name to normalizeBindingValue(name, value, styleProvider))
+                    state.updateVariant(
+                        state.appearance,
+                        styleProvider.resolveStyleKey(selectedBindings.value),
+                    ) as State
+                } else {
+                    stateTransformer.transform(internalUiState.value, name, value ?: "")
+                }
+            }
         }
     }
 
@@ -107,12 +127,18 @@ internal class ComponentViewModel<State : UiState, S : Style>(
         )
     }
 
-    private fun variantProperty(state: State, themeState: ComposeTheme): List<Property.SingleChoiceProperty> {
+    private fun styleProperties(
+        state: State,
+        themeState: ComposeTheme,
+        bindings: Map<String, Any?>,
+    ): List<Property<*>> {
         val styleProvider = getStyleProvider(state.appearance, themeState) ?: return emptyList()
         val subthemes = getSubThemes(themeState)
-        val variantProperties = mutableListOf<Property.SingleChoiceProperty>()
-        if (styleProvider.variants.isNotEmpty()) {
-            variantProperties.add(
+        val styleProperties = mutableListOf<Property<*>>()
+        if (styleProvider.bindings.isNotEmpty()) {
+            styleProperties.addAll(resolveBindingProperties(styleProvider, bindings))
+        } else if (styleProvider.variants.isNotEmpty()) {
+            styleProperties.add(
                 Property.SingleChoiceProperty(
                     VARIANT_PROPERTY_NAME,
                     variants = styleProvider.variants,
@@ -121,7 +147,7 @@ internal class ComponentViewModel<State : UiState, S : Style>(
             )
         }
         if (subthemes.isNotEmpty()) {
-            variantProperties.add(
+            styleProperties.add(
                 Property.SingleChoiceProperty(
                     SUBTHEME_PROPERTY_NAME,
                     variants = subthemes.map { it.key },
@@ -129,7 +155,7 @@ internal class ComponentViewModel<State : UiState, S : Style>(
                 ),
             )
         }
-        return variantProperties
+        return styleProperties
     }
 
     private fun getStyleProvider(appearance: String, themeState: ComposeTheme): ComposeStyleProvider<S>? {
@@ -152,8 +178,51 @@ internal class ComponentViewModel<State : UiState, S : Style>(
 
     private fun State.toProps(): List<Property<*>> = propertiesProducer.getProperties(this)
 
-    final override fun resetToDefault() {
+    override fun resetToDefault() {
         internalUiState.value = defaultState
+        selectedBindings.value = emptyMap()
+        _subtheme.value = null
+    }
+
+    private fun resolveBindingProperties(
+        styleProvider: ComposeStyleProvider<S>,
+        bindings: Map<String, Any?>,
+    ): List<Property<*>> {
+        return styleProvider.bindings.map { property ->
+            val value = bindings[property.name] ?: property.value
+            property.withValue(value)
+        }
+    }
+
+    private fun normalizeBindingValue(
+        name: String,
+        value: Any?,
+        styleProvider: ComposeStyleProvider<S>,
+    ): Any? {
+        val property = styleProvider.bindings.firstOrNull { it.name == name } ?: return value
+        return when (property) {
+            is Property.BooleanProperty -> when (value) {
+                is Boolean -> value
+                is String -> value.toBooleanStrictOrNull() ?: property.value
+                else -> property.value
+            }
+            is Property.SingleChoiceProperty -> value?.toString() ?: property.value
+            else -> value
+        }
+    }
+
+    private fun Property<*>.withValue(value: Any?): Property<*> {
+        return when (this) {
+            is Property.BooleanProperty -> copy(
+                value = when (value) {
+                    is Boolean -> value
+                    is String -> value.toBooleanStrictOrNull() ?: this.value
+                    else -> this.value
+                },
+            )
+            is Property.SingleChoiceProperty -> copy(value = value?.toString() ?: this.value)
+            else -> this
+        }
     }
 
     private companion object {

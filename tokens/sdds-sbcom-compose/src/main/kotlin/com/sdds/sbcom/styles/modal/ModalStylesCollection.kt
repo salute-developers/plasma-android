@@ -26,15 +26,33 @@ public enum class ModalStyles(
     public val key: String,
 ) {
     ModalDefault("Modal.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля modal
+     */
+    public companion object
 }
 
 /**
  * Возвращает [ModalStyle] для [ModalStyles]
  */
 @Composable
-public fun ModalStyles.style(modifyAction: @Composable ModalStyleBuilder.() -> Unit = {}): ModalStyle {
+public fun ModalStyles.style(modify: @Composable ModalStyleBuilder.() -> Unit = {}): ModalStyle {
     val builder = when (this) {
         ModalStyles.ModalDefault -> Modal.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [ModalStyles] для modal
+ */
+public fun ModalStyles.Companion.resolve(): ModalStyles = ModalStyles.ModalDefault
+
+/**
+ * Возвращает [ModalStyle] для modal
+ */
+@Composable
+public fun ModalStyles.Companion.style(modify: @Composable ModalStyleBuilder.() -> Unit = {}):
+    ModalStyle = resolve().style(modify)

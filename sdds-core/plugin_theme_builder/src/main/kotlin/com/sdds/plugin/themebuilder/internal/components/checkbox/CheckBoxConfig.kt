@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.checkbox
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -73,16 +75,20 @@ internal data class CheckBoxProperties(
 }
 
 @Serializable
-internal data class CheckBoxView(override val props: CheckBoxProperties) :
+internal data class CheckBoxView(
+    override val props: CheckBoxProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<CheckBoxProperties> {
     override fun merge(parent: ViewVariation<CheckBoxProperties>): ViewVariation<CheckBoxProperties> =
-        copy(props = props.merge(parent.props) as CheckBoxProperties)
+        copy(props = props.merge(parent.props) as CheckBoxProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class CheckBoxVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CheckBoxView> = emptyMap(),
     override val props: CheckBoxProperties,
 ) : ChildVariation<CheckBoxProperties>
@@ -92,4 +98,5 @@ internal data class CheckBoxConfig(
     override val view: Map<String, CheckBoxView> = emptyMap(),
     override val props: CheckBoxProperties,
     override val variations: List<CheckBoxVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CheckBoxProperties>, ComponentConfig

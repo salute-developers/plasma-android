@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,12 +17,36 @@ import com.sdds.plasma.homeds.styles.toast.Default
 import com.sdds.plasma.homeds.styles.toast.Negative
 import com.sdds.plasma.homeds.styles.toast.Positive
 import com.sdds.plasma.homeds.styles.toast.Toast
+import com.sdds.plasma.homeds.styles.toast.ToastStyles
+import com.sdds.plasma.homeds.styles.toast.ToastView
+import com.sdds.plasma.homeds.styles.toast.resolve
+import com.sdds.sandbox.Property
 
 internal object PlasmaHomedsToastVariationsCompose : ComposeStyleProvider<ToastStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(
+                name = "view",
+                value = "Default",
+                variants = listOf("Default", "Positive", "Negative"),
+            ),
+        )
+
     override val variations: Map<String, ComposeStyleReference<ToastStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Toast.Default.style() },
-            "Positive" to ComposeStyleReference { Toast.Positive.style() },
-            "Negative" to ComposeStyleReference { Toast.Negative.style() },
+            "Toast.Default" to ComposeStyleReference { Toast.Default.style() },
+            "Toast.Positive" to ComposeStyleReference { Toast.Positive.style() },
+            "Toast.Negative" to ComposeStyleReference { Toast.Negative.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return ToastStyles.resolve(
+            view = when (bindings["view"]?.toString()) {
+                "Default" -> ToastView.Default
+                "Positive" -> ToastView.Positive
+                "Negative" -> ToastView.Negative
+                else -> ToastView.Default
+            },
+        ).key
+    }
 }

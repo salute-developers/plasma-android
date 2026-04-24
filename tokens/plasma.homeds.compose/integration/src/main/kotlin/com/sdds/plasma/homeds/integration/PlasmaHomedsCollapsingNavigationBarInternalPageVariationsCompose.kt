@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,11 @@ import com.sdds.plasma.homeds.styles.collapsingnavigationbar.CollapsingNavigatio
 import com.sdds.plasma.homeds.styles.collapsingnavigationbar.Default
 
 internal object PlasmaHomedsCollapsingNavigationBarInternalPageVariationsCompose : ComposeStyleProvider<CollapsingNavigationBarStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<CollapsingNavigationBarStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { CollapsingNavigationBarInternalPage.Default.style() },
+            "CollapsingNavigationBarInternalPage.Default" to ComposeStyleReference {
+                CollapsingNavigationBarInternalPage.Default.style()
+            },
         )
 }

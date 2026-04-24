@@ -26,15 +26,33 @@ public enum class DividerStyles(
     public val key: String,
 ) {
     DividerDefault("Divider.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля divider
+     */
+    public companion object
 }
 
 /**
  * Возвращает [DividerStyle] для [DividerStyles]
  */
 @Composable
-public fun DividerStyles.style(modifyAction: @Composable DividerStyleBuilder.() -> Unit = {}): DividerStyle {
+public fun DividerStyles.style(modify: @Composable DividerStyleBuilder.() -> Unit = {}): DividerStyle {
     val builder = when (this) {
         DividerStyles.DividerDefault -> Divider.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [DividerStyles] для divider
+ */
+public fun DividerStyles.Companion.resolve(): DividerStyles = DividerStyles.DividerDefault
+
+/**
+ * Возвращает [DividerStyle] для divider
+ */
+@Composable
+public fun DividerStyles.Companion.style(modify: @Composable DividerStyleBuilder.() -> Unit = {}):
+    DividerStyle = resolve().style(modify)

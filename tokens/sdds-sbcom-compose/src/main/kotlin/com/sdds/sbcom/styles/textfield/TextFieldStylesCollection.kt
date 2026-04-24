@@ -27,16 +27,53 @@ public enum class TextFieldStyles(
 ) {
     TextFieldDefault("TextField.Default"),
     SearchBarDefault("SearchBar.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля text-field
+     */
+    public object Default
+
+    /**
+     * Typed API для подбора стиля search-bar
+     */
+    public object SearchBar
 }
 
 /**
  * Возвращает [TextFieldStyle] для [TextFieldStyles]
  */
 @Composable
-public fun TextFieldStyles.style(modifyAction: @Composable TextFieldStyleBuilder.() -> Unit = {}): TextFieldStyle {
+public fun TextFieldStyles.style(modify: @Composable TextFieldStyleBuilder.() -> Unit = {}): TextFieldStyle {
     val builder = when (this) {
         TextFieldStyles.TextFieldDefault -> TextField.Default
         TextFieldStyles.SearchBarDefault -> SearchBar.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [TextFieldStyles] для text-field
+ */
+public fun TextFieldStyles.Default.resolve(): TextFieldStyles = TextFieldStyles.TextFieldDefault
+
+/**
+ * Возвращает [TextFieldStyle] для text-field
+ */
+@Composable
+public fun TextFieldStyles.Default.style(modify: @Composable TextFieldStyleBuilder.() -> Unit = {}):
+    TextFieldStyle = resolve().style(modify)
+
+/**
+ * Возвращает экземпляр [TextFieldStyles] для search-bar
+ */
+public fun TextFieldStyles.SearchBar.resolve(): TextFieldStyles = TextFieldStyles.SearchBarDefault
+
+/**
+ * Возвращает [TextFieldStyle] для search-bar
+ */
+@Composable
+public fun TextFieldStyles.SearchBar.style(
+    modify: @Composable TextFieldStyleBuilder.() -> Unit =
+        {},
+): TextFieldStyle = resolve().style(modify)

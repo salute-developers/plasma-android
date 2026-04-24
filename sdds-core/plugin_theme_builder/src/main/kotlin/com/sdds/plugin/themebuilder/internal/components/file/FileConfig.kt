@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.file
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -56,18 +58,22 @@ internal data class FileProperties(
 }
 
 @Serializable
-internal data class FileView(override val props: FileProperties) :
+internal data class FileView(
+    override val props: FileProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<FileProperties> {
     override fun merge(
         parent: ViewVariation<FileProperties>,
     ): ViewVariation<FileProperties> =
-        copy(props = props.merge(parent.props) as FileProperties)
+        copy(props = props.merge(parent.props) as FileProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class FileVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, FileView> = emptyMap(),
     override val props: FileProperties,
 ) : ChildVariation<FileProperties>
@@ -77,4 +83,5 @@ internal data class FileConfig(
     override val view: Map<String, FileView> = emptyMap(),
     override val props: FileProperties,
     override val variations: List<FileVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<FileProperties>, ComponentConfig

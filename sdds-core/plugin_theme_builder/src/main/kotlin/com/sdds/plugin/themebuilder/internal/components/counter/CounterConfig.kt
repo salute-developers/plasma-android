@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.counter
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -47,15 +49,17 @@ internal data class CounterProperties(
 @Serializable
 internal data class CounterView(
     override val props: CounterProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<CounterProperties> {
     override fun merge(parent: ViewVariation<CounterProperties>): ViewVariation<CounterProperties> =
-        copy(props = props.merge(parent.props) as CounterProperties)
+        copy(props = props.merge(parent.props) as CounterProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class CounterVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CounterView> = emptyMap(),
     override val props: CounterProperties,
 ) : ChildVariation<CounterProperties>
@@ -65,4 +69,5 @@ internal data class CounterConfig(
     override val view: Map<String, CounterView> = emptyMap(),
     override val props: CounterProperties,
     override val variations: List<CounterVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CounterProperties>, ComponentConfig

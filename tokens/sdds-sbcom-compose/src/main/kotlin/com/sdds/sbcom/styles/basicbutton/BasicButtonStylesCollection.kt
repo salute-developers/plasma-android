@@ -65,16 +65,48 @@ public enum class BasicButtonStyles(
     BasicButtonSize24BgNoModeAccentWhite("BasicButton.Size24.BgNo.ModeAccentWhite"),
     BasicButtonSize24BgNoModeAccentGrey("BasicButton.Size24.BgNo.ModeAccentGrey"),
     BasicButtonSize24BgNoModeDangerTint("BasicButton.Size24.BgNo.ModeDangerTint"),
+    ;
+
+    /**
+     * Typed API для подбора стиля basic-button
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для basic-button
+ */
+public enum class BasicButtonSize {
+    Size48,
+    Size40,
+    Size32,
+    Size24,
+}
+
+/**
+ * Возможные значения свойства bg для basic-button
+ */
+public enum class BasicButtonBg {
+    Yes,
+    No,
+}
+
+/**
+ * Возможные значения свойства mode для basic-button
+ */
+public enum class BasicButtonMode {
+    Primary,
+    AccentFilled,
+    AccentWhite,
+    AccentGrey,
+    DangerTint,
 }
 
 /**
  * Возвращает [ButtonStyle] для [BasicButtonStyles]
  */
 @Composable
-public fun BasicButtonStyles.style(
-    modifyAction: @Composable BasicButtonStyleBuilder.() -> Unit =
-        {},
-): ButtonStyle {
+public fun BasicButtonStyles.style(modify: @Composable BasicButtonStyleBuilder.() -> Unit = {}): ButtonStyle {
     val builder = when (this) {
         BasicButtonStyles.BasicButtonSize48ModePrimary -> BasicButton.Size48.ModePrimary
         BasicButtonStyles.BasicButtonSize48ModeAccentFilled -> BasicButton.Size48.ModeAccentFilled
@@ -133,5 +165,107 @@ public fun BasicButtonStyles.style(
         BasicButtonStyles.BasicButtonSize24BgNoModeDangerTint ->
             BasicButton.Size24.BgNo.ModeDangerTint
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [BasicButtonStyles] для basic-button
+ */
+public fun BasicButtonStyles.Companion.resolve(
+    size: BasicButtonSize = BasicButtonSize.Size48,
+    bg: BasicButtonBg = BasicButtonBg.Yes,
+    mode: BasicButtonMode = BasicButtonMode.Primary,
+): BasicButtonStyles = when {
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.Yes && mode == BasicButtonMode.Primary ->
+        BasicButtonStyles.BasicButtonSize48ModePrimary
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentFilled -> BasicButtonStyles.BasicButtonSize48ModeAccentFilled
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentWhite -> BasicButtonStyles.BasicButtonSize48ModeAccentWhite
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentGrey -> BasicButtonStyles.BasicButtonSize48ModeAccentGrey
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.DangerTint -> BasicButtonStyles.BasicButtonSize48ModeDangerTint
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.No && mode == BasicButtonMode.Primary ->
+        BasicButtonStyles.BasicButtonSize48BgNoModePrimary
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentFilled -> BasicButtonStyles.BasicButtonSize48BgNoModeAccentFilled
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentWhite -> BasicButtonStyles.BasicButtonSize48BgNoModeAccentWhite
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentGrey -> BasicButtonStyles.BasicButtonSize48BgNoModeAccentGrey
+    size == BasicButtonSize.Size48 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.DangerTint -> BasicButtonStyles.BasicButtonSize48BgNoModeDangerTint
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.Yes && mode == BasicButtonMode.Primary ->
+        BasicButtonStyles.BasicButtonSize40ModePrimary
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentFilled -> BasicButtonStyles.BasicButtonSize40ModeAccentFilled
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentWhite -> BasicButtonStyles.BasicButtonSize40ModeAccentWhite
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentGrey -> BasicButtonStyles.BasicButtonSize40ModeAccentGrey
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.DangerTint -> BasicButtonStyles.BasicButtonSize40ModeDangerTint
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.No && mode == BasicButtonMode.Primary ->
+        BasicButtonStyles.BasicButtonSize40BgNoModePrimary
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentFilled -> BasicButtonStyles.BasicButtonSize40BgNoModeAccentFilled
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentWhite -> BasicButtonStyles.BasicButtonSize40BgNoModeAccentWhite
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentGrey -> BasicButtonStyles.BasicButtonSize40BgNoModeAccentGrey
+    size == BasicButtonSize.Size40 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.DangerTint -> BasicButtonStyles.BasicButtonSize40BgNoModeDangerTint
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.Yes && mode == BasicButtonMode.Primary ->
+        BasicButtonStyles.BasicButtonSize32ModePrimary
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentFilled -> BasicButtonStyles.BasicButtonSize32ModeAccentFilled
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentWhite -> BasicButtonStyles.BasicButtonSize32ModeAccentWhite
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentGrey -> BasicButtonStyles.BasicButtonSize32ModeAccentGrey
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.DangerTint -> BasicButtonStyles.BasicButtonSize32ModeDangerTint
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.No && mode == BasicButtonMode.Primary ->
+        BasicButtonStyles.BasicButtonSize32BgNoModePrimary
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentFilled -> BasicButtonStyles.BasicButtonSize32BgNoModeAccentFilled
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentWhite -> BasicButtonStyles.BasicButtonSize32BgNoModeAccentWhite
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentGrey -> BasicButtonStyles.BasicButtonSize32BgNoModeAccentGrey
+    size == BasicButtonSize.Size32 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.DangerTint -> BasicButtonStyles.BasicButtonSize32BgNoModeDangerTint
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.Yes && mode == BasicButtonMode.Primary ->
+        BasicButtonStyles.BasicButtonSize24ModePrimary
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentFilled -> BasicButtonStyles.BasicButtonSize24ModeAccentFilled
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentWhite -> BasicButtonStyles.BasicButtonSize24ModeAccentWhite
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.AccentGrey -> BasicButtonStyles.BasicButtonSize24ModeAccentGrey
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.Yes && mode ==
+        BasicButtonMode.DangerTint -> BasicButtonStyles.BasicButtonSize24ModeDangerTint
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.No && mode == BasicButtonMode.Primary ->
+        BasicButtonStyles.BasicButtonSize24BgNoModePrimary
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentFilled -> BasicButtonStyles.BasicButtonSize24BgNoModeAccentFilled
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentWhite -> BasicButtonStyles.BasicButtonSize24BgNoModeAccentWhite
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.AccentGrey -> BasicButtonStyles.BasicButtonSize24BgNoModeAccentGrey
+    size == BasicButtonSize.Size24 && bg == BasicButtonBg.No && mode ==
+        BasicButtonMode.DangerTint -> BasicButtonStyles.BasicButtonSize24BgNoModeDangerTint
+    else -> error("Unsupported basic-button style combination")
+}
+
+/**
+ * Возвращает [ButtonStyle] для basic-button
+ */
+@Composable
+public fun BasicButtonStyles.Companion.style(
+    size: BasicButtonSize = BasicButtonSize.Size48,
+    bg: BasicButtonBg = BasicButtonBg.Yes,
+    mode: BasicButtonMode = BasicButtonMode.Primary,
+    modify: @Composable BasicButtonStyleBuilder.() -> Unit = {},
+): ButtonStyle = resolve(size, bg, mode).style(modify)

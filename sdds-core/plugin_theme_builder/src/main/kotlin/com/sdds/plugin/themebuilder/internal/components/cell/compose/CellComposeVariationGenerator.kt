@@ -24,6 +24,7 @@ internal class CellComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
+    styleBuilderName: String,
 ) : ComposeVariationGenerator<CellProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -35,7 +36,11 @@ internal class CellComposeVariationGenerator(
     componentPackage = componentPackage,
     outputLocation = outputLocation,
     componentName = componentName,
+    styleBuilderName = styleBuilderName,
 ) {
+
+    override val componentStyleName: String = "CellStyle"
+
     override fun propsToBuilderCalls(
         props: CellProperties,
         ktFileBuilder: KtFileBuilder,

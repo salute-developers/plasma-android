@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.bottomsheet
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -59,15 +61,17 @@ internal data class BottomSheetProperties(
 @Serializable
 internal data class BottomSheetView(
     override val props: BottomSheetProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<BottomSheetProperties> {
     override fun merge(parent: ViewVariation<BottomSheetProperties>): ViewVariation<BottomSheetProperties> =
-        copy(props = props.merge(parent.props) as BottomSheetProperties)
+        copy(props = props.merge(parent.props) as BottomSheetProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class BottomSheetVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, BottomSheetView> = emptyMap(),
     override val props: BottomSheetProperties,
 ) : ChildVariation<BottomSheetProperties>
@@ -77,4 +81,5 @@ internal data class BottomSheetConfig(
     override val view: Map<String, BottomSheetView> = emptyMap(),
     override val props: BottomSheetProperties = BottomSheetProperties(),
     override val variations: List<BottomSheetVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<BottomSheetProperties>, ComponentConfig
