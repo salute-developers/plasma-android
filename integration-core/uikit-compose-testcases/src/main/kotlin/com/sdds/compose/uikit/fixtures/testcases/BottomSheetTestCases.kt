@@ -248,6 +248,42 @@ fun BottomSheetNoHeaderFooterAuto(
 }
 
 /**
+ * BottomSheet HalfExpanded
+ */
+@Composable
+fun BottomSheetNoHeaderFooterHalfExpanded(
+    style: ModalBottomSheetStyle,
+    buttonStyle: ButtonStyle,
+) {
+    val sheetState = rememberModalBottomSheetState(
+        initialValue = BottomSheetValue.HalfExpanded,
+    )
+    Box(modifier = Modifier.fillMaxSize()) {
+        val scope = rememberCoroutineScope()
+        Button(
+            style = buttonStyle,
+            label = "Show",
+            onClick = {
+                scope.launch { sheetState.show() }
+            },
+        )
+        ModalBottomSheet(
+            style = style,
+            sheetState = sheetState,
+            handlePlacement = BottomSheetHandlePlacement.Inner,
+            sheetGesturesEnabled = true,
+            fitContent = false,
+            header = {},
+            footer = {},
+            body = {
+                BodyText()
+            },
+            onDismiss = {},
+        )
+    }
+}
+
+/**
  * Header для BottomSheet
  */
 @Composable

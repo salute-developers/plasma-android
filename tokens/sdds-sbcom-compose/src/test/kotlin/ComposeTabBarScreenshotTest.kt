@@ -1,0 +1,72 @@
+package com.sdds.sbcom
+
+import androidx.compose.ui.test.onAllNodesWithTag
+import androidx.compose.ui.test.performClick
+import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.TabBarCounter
+import com.sdds.compose.uikit.fixtures.testcases.TabBarCounterCountSix
+import com.sdds.compose.uikit.fixtures.testcases.TabBarCustomWeight
+import com.sdds.compose.uikit.fixtures.testcases.TabBarExtraNone
+import com.sdds.compose.uikit.fixtures.testcases.TabBarIndicator
+import com.sdds.compose.uikit.style.style
+import com.sdds.sbcom.styles.tabbar.Default
+import com.sdds.sbcom.styles.tabbar.TabBar
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.ParameterizedRobolectricTestRunner
+import org.robolectric.annotation.Config
+import org.robolectric.annotation.GraphicsMode
+
+@RunWith(ParameterizedRobolectricTestRunner::class)
+@GraphicsMode(GraphicsMode.Mode.NATIVE)
+@Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
+class ComposeTabBarScreenshotTest(
+    theme: String,
+) : RoborazziConfigCompose(theme) {
+
+    @Test
+    fun testTabBarDefaultNone() {
+        composeTestRule.content {
+            TabBarExtraNone(style = TabBar.Default.style())
+        }
+    }
+
+    @Test
+    fun testTabBarDefaultCounter() {
+        composeTestRule.content {
+            TabBarCounter(style = TabBar.Default.style())
+        }
+    }
+
+    @Test
+    fun testTabBarIndicator() {
+        composeTestRule.content {
+            TabBarIndicator(style = TabBar.Default.style())
+        }
+    }
+
+    @Test
+    fun testTabBarDefaultCountSixCounter() {
+        composeTestRule.content {
+            TabBarCounterCountSix(style = TabBar.Default.style())
+        }
+    }
+
+    @Test
+    fun testTabBarDefaultClick() {
+        composeTestRule.content {
+            TabBarExtraNone(style = TabBar.Default.style())
+        }
+        composeTestRule.onAllNodesWithTag("TabBar", useUnmergedTree = true)[1]
+            .performClick()
+    }
+
+    @Test
+    fun testTabBarCustomWeight() {
+        composeTestRule.content {
+            TabBarCustomWeight(style = TabBar.Default.style())
+        }
+    }
+}
