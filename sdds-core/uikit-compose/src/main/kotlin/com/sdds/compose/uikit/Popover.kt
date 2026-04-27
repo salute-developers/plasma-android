@@ -207,8 +207,6 @@ internal val endAlignmentLine = VerticalAlignmentLine(merger = { old, new -> max
  * @property size размеры триггера
  * @property focusScaleFactor на сколько триггер увеличен в фокусе
  * @property topAlignmentLine верхняя линия выранивания триггера. Рассчитывается относительно [positionInRoot]
- * @property bottomAlignmentLine верхняя линия выранивания триггера. Рассчитывается относительно [positionInRoot]
- * @property topAlignmentLine верхняя линия выранивания триггера. Рассчитывается относительно [positionInRoot]
  * @property bottomAlignmentLine нижняя линия выранивания триггера. Рассчитывается относительно [positionInRoot]
  * @property startAlignmentLine начальная линия выранивания триггера. Рассчитывается относительно [positionInRoot]
  * @property endAlignmentLine конечная линия выранивания триггера. Рассчитывается относительно [positionInRoot]
