@@ -104,6 +104,7 @@ data class OverlayEntry(
     val visible: MutableTransitionState<Boolean> = MutableTransitionState(false),
     val animationSpec: OverlayAnimationSpec? = null,
     val isFocusable: Boolean = false,
+    val renderMode: OverlayRenderMode = OverlayRenderMode.Popup,
 )
 
 /**
@@ -213,6 +214,7 @@ interface OverlayManager {
 /**
  * Показывает toast
  *
+ * @param onDismiss колбэк при закрытии
  * @param position размещение toast
  * @param durationMillis время жизни toast
  * @param animationSpec настройки анимации
@@ -225,12 +227,41 @@ fun OverlayManager.showToast(
     animationSpec: OverlayAnimationSpec? = null,
     content: @Composable (Long) -> Unit,
 ): Long {
+    return showToast(
+        onDismiss = onDismiss,
+        position = position,
+        durationMillis = durationMillis,
+        animationSpec = animationSpec,
+        renderMode = OverlayRenderMode.Popup,
+        content = content,
+    )
+}
+
+/**
+ * Показывает toast
+ *
+ * @param onDismiss колбэк при закрытии
+ * @param position размещение toast
+ * @param durationMillis время жизни toast
+ * @param animationSpec настройки анимации
+ * @param renderMode режим отображения toast
+ * @param content контент toast
+ */
+fun OverlayManager.showToast(
+    onDismiss: (Long) -> Unit,
+    position: OverlayPosition = OverlayPosition.BottomCenter,
+    durationMillis: Long? = OVERLAY_DURATION_SLOW_MILLIS,
+    animationSpec: OverlayAnimationSpec? = null,
+    renderMode: OverlayRenderMode = OverlayRenderMode.Popup,
+    content: @Composable (Long) -> Unit,
+): Long {
     val animation = animationSpec ?: position.getAnimationSpec()
     val entryToShow = OverlayEntry(
         position = position,
         durationMillis = durationMillis,
         animationSpec = animation,
         isFocusable = false,
+        renderMode = renderMode,
         content = content,
     )
     addOnDismissListener(
@@ -355,4 +386,9 @@ fun overlayManager(lifecycle: OverlayManagerLifecycle = OverlayManagerLifecycle.
 enum class OverlayManagerLifecycle {
     ComposableScoped,
     ViewModelScoped,
+}
+
+enum class OverlayRenderMode {
+    Popup,
+    Dialog,
 }

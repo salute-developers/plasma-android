@@ -98,6 +98,69 @@ enum class OverlayDismissDirection {
     DismissToEnd,
 }
 
+// @Composable
+// private fun OverlayContainer(
+//    animationSpec: OverlayAnimationSpec,
+//    manager: OverlayManager,
+//    dismissDirection: Set<OverlayDismissDirection>,
+//    offset: DpOffset,
+//    spacing: Dp,
+// ) {
+//    val overlays by manager.overlays.collectAsState()
+//
+//    val entriesByPosition = remember(overlays) {
+//        overlays.groupBy { it.position }
+//            .mapValues { entry -> entry.value.takeIf { entry.key.isTop() }?.reversed() ?: entry.value }
+//    }
+//
+//    entriesByPosition
+//        .forEach { (position, entries) ->
+//            val anyEntryAnimating by remember(entries) {
+//                derivedStateOf { entries.count { !it.visible.isIdle } > 1 }
+//            }
+//            OverlayPopup(
+//                position = position,
+//                onDismissRequest = {
+//                    entries.forEach { it.visible.targetState = false }
+//                },
+//                isFocusable = entries.firstOrNull { it.isFocusable } != null,
+//                offset = offset,
+//                spacing = spacing,
+//            ) {
+//                entries.fastForEachIndexed { i, entry ->
+//                    key(entry.id) {
+//                        val visibilityState = remember(entry.id) { entry.visible }
+//
+//                        OverlayEntryItem(
+//                            entry = entry,
+//                            manager = manager,
+//                            animationSpec = animationSpec,
+//                            visibilityState = visibilityState,
+//                            dismissDirection = dismissDirection,
+//                            anyEntryAnimating = anyEntryAnimating,
+//                            index = i,
+//                            size = entries.size,
+//                            spacing = spacing,
+//                        )
+//
+//                        LaunchedEffect(entry.id) {
+//                            snapshotFlow {
+//                                visibilityState.isIdle &&
+//                                    !visibilityState.targetState &&
+//                                    !visibilityState.currentState
+//                            }
+//                                .collectLatest { shouldRemove ->
+//                                    if (shouldRemove) {
+//                                        manager.remove(entry.id)
+//                                    }
+//                                }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+// }
+
 @Composable
 private fun OverlayContainer(
     animationSpec: OverlayAnimationSpec,
@@ -115,50 +178,147 @@ private fun OverlayContainer(
 
     entriesByPosition
         .forEach { (position, entries) ->
-            val anyEntryAnimating by remember(entries) {
-                derivedStateOf { entries.count { !it.visible.isIdle } > 1 }
+            val popupEntries = entries.filter { it.renderMode == OverlayRenderMode.Popup }
+            val dialogEntries = entries.filter { it.renderMode == OverlayRenderMode.Dialog }
+
+            if (popupEntries.isNotEmpty()) {
+                OverlayPopupGroup(
+                    position = position,
+                    entries = entries,
+                    manager = manager,
+                    animationSpec = animationSpec,
+                    dismissDirection = dismissDirection,
+                    offset = offset,
+                    spacing = spacing,
+                )
             }
-            OverlayPopup(
-                position = position,
-                onDismissRequest = {
-                    entries.forEach { it.visible.targetState = false }
-                },
-                isFocusable = entries.firstOrNull { it.isFocusable } != null,
-                offset = offset,
-                spacing = spacing,
-            ) {
-                entries.fastForEachIndexed { i, entry ->
-                    key(entry.id) {
-                        val visibilityState = remember(entry.id) { entry.visible }
 
-                        OverlayEntryItem(
-                            entry = entry,
-                            manager = manager,
-                            animationSpec = animationSpec,
-                            visibilityState = visibilityState,
-                            dismissDirection = dismissDirection,
-                            anyEntryAnimating = anyEntryAnimating,
-                            index = i,
-                            size = entries.size,
-                            spacing = spacing,
-                        )
-
-                        LaunchedEffect(entry.id) {
-                            snapshotFlow {
-                                visibilityState.isIdle &&
-                                    !visibilityState.targetState &&
-                                    !visibilityState.currentState
-                            }
-                                .collectLatest { shouldRemove ->
-                                    if (shouldRemove) {
-                                        manager.remove(entry.id)
-                                    }
-                                }
-                        }
-                    }
-                }
+            if (dialogEntries.isNotEmpty()) {
+                OverlayDialogGroup(
+                    position = position,
+                    entries = entries,
+                    manager = manager,
+                    animationSpec = animationSpec,
+                    dismissDirection = dismissDirection,
+                    offset = offset,
+                    spacing = spacing,
+                )
             }
         }
+}
+
+@Composable
+private fun OverlayEntriesContent(
+    entries: List<OverlayEntry>,
+    manager: OverlayManager,
+    animationSpec: OverlayAnimationSpec,
+    dismissDirection: Set<OverlayDismissDirection>,
+    anyEntryAnimating: Boolean,
+    spacing: Dp,
+) {
+    entries.fastForEachIndexed { i, entry ->
+        key(entry.id) {
+            val visibilityState = remember(entry.id) { entry.visible }
+
+            OverlayEntryItem(
+                entry = entry,
+                manager = manager,
+                animationSpec = animationSpec,
+                visibilityState = visibilityState,
+                dismissDirection = dismissDirection,
+                anyEntryAnimating = anyEntryAnimating,
+                index = i,
+                size = entries.size,
+                spacing = spacing,
+            )
+
+            LaunchedEffect(entry.id) {
+                snapshotFlow {
+                    visibilityState.isIdle &&
+                        !visibilityState.targetState &&
+                        !visibilityState.currentState
+                }
+                    .collectLatest { shouldRemove ->
+                        if (shouldRemove) {
+                            manager.remove(entry.id)
+                        }
+                    }
+            }
+        }
+    }
+}
+
+@Composable
+private fun OverlayPopupGroup(
+    position: OverlayPosition,
+    entries: List<OverlayEntry>,
+    manager: OverlayManager,
+    animationSpec: OverlayAnimationSpec,
+    dismissDirection: Set<OverlayDismissDirection>,
+    offset: DpOffset,
+    spacing: Dp,
+) {
+    val anyEntryAnimating by remember(entries) {
+        derivedStateOf { entries.count { !it.visible.isIdle } > 1 }
+    }
+    OverlayPopup(
+        position = position,
+        onDismissRequest = {
+            entries.forEach { it.visible.targetState = false }
+        },
+        isFocusable = entries.firstOrNull { it.isFocusable } != null,
+        offset = offset,
+        spacing = spacing,
+    ) {
+        OverlayEntriesContent(
+            entries = entries,
+            manager = manager,
+            animationSpec = animationSpec,
+            dismissDirection = dismissDirection,
+            anyEntryAnimating = anyEntryAnimating,
+            spacing = spacing,
+        )
+    }
+}
+
+@Composable
+private fun OverlayDialogGroup(
+    position: OverlayPosition,
+    entries: List<OverlayEntry>,
+    manager: OverlayManager,
+    animationSpec: OverlayAnimationSpec,
+    dismissDirection: Set<OverlayDismissDirection>,
+    offset: DpOffset,
+    spacing: Dp,
+) {
+    val anyEntryAnimating by remember(entries) {
+        derivedStateOf { entries.count { !it.visible.isIdle } > 1 }
+    }
+    val newOffset = remember(position, spacing, offset) {
+        offset.ensureCorrectPosition(position, spacing)
+    }
+
+    OverlayWindowHost {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = position.toAlignment(),
+        ) {
+            Column(
+                modifier = Modifier.offset(newOffset.x, newOffset.y),
+                verticalArrangement = Arrangement.spacedBy(0.dp, position.toVerticalAlignment()),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                OverlayEntriesContent(
+                    entries = entries,
+                    manager = manager,
+                    animationSpec = animationSpec,
+                    dismissDirection = dismissDirection,
+                    anyEntryAnimating = anyEntryAnimating,
+                    spacing = spacing,
+                )
+            }
+        }
+    }
 }
 
 @Composable

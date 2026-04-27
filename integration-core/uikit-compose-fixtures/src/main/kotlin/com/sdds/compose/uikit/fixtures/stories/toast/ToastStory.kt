@@ -19,6 +19,7 @@ import com.sdds.compose.uikit.fixtures.stories.ToastUiStateTransformer
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
 import com.sdds.compose.uikit.overlay.OverlayManager
 import com.sdds.compose.uikit.overlay.OverlayPosition
+import com.sdds.compose.uikit.overlay.OverlayRenderMode
 import com.sdds.compose.uikit.overlay.showToast
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
@@ -60,7 +61,9 @@ object ToastStory : ComposeBaseStory<ToastUiState, ToastStyle>(
             label = "show",
             onClick = {
                 overlayManager.showToast(
+                    onDismiss = {},
                     position = state.position,
+                    renderMode = OverlayRenderMode.Dialog,
                     durationMillis = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS
                         .takeIf { state.autoDismiss },
                 ) {
