@@ -13358,7 +13358,8 @@
             {
                "name": "size",
                "values": [
-                  "s"
+                  "s",
+                  "m"
                ],
                "defaultValue": "s"
             },
@@ -13397,6 +13398,10 @@
                      {
                         "value": "s",
                         "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
                      }
                   ]
                },
@@ -13500,6 +13505,62 @@
                      "value": "true"
                   }
                ]
+            },
+            {
+               "name": "m",
+               "composeReference": "List.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-background",
+               "composeReference": "List.M.NoBackground",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "has-background",
+                     "value": "false"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-background.has-item-background",
+               "composeReference": "List.M.NoBackground.HasItemBackground",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "has-background",
+                     "value": "false"
+                  },
+                  {
+                     "name": "has-item-background",
+                     "value": "true"
+                  }
+               ]
+            },
+            {
+               "name": "m.has-background",
+               "composeReference": "List.M.HasBackground",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "has-background",
+                     "value": "true"
+                  }
+               ]
             }
          ]
       },
@@ -13511,7 +13572,8 @@
             {
                "name": "size",
                "values": [
-                  "s"
+                  "s",
+                  "m"
                ],
                "defaultValue": "s"
             }
@@ -13542,6 +13604,10 @@
                      {
                         "value": "s",
                         "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
                      }
                   ]
                }
@@ -13557,6 +13623,16 @@
                      "value": "s"
                   }
                ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ListNumbered.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
             }
          ]
       },
@@ -13568,7 +13644,8 @@
             {
                "name": "size",
                "values": [
-                  "s"
+                  "s",
+                  "m"
                ],
                "defaultValue": "s"
             },
@@ -13603,6 +13680,10 @@
                      {
                         "value": "s",
                         "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
                      }
                   ]
                },
@@ -13653,6 +13734,30 @@
                      "value": "true"
                   }
                ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ListItem.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "m.has-background",
+               "composeReference": "ListItem.M.HasBackground",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "has-background",
+                     "value": "true"
+                  }
+               ]
             }
          ]
       },
@@ -13664,7 +13769,8 @@
             {
                "name": "size",
                "values": [
-                  "s"
+                  "s",
+                  "m"
                ],
                "defaultValue": "s"
             }
@@ -13695,6 +13801,10 @@
                      {
                         "value": "s",
                         "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
                      }
                   ]
                }
@@ -13708,6 +13818,16 @@
                   {
                      "name": "size",
                      "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ListNumberedItem.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
                   }
                ]
             }

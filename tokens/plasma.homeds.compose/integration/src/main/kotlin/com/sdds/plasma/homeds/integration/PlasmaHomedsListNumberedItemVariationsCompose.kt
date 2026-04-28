@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.listitem.ListItemListNumberedItemSize
 import com.sdds.plasma.homeds.styles.listitem.ListItemStyles
 import com.sdds.plasma.homeds.styles.listitem.ListNumberedItem
+import com.sdds.plasma.homeds.styles.listitem.M
 import com.sdds.plasma.homeds.styles.listitem.S
 import com.sdds.plasma.homeds.styles.listitem.resolve
 import com.sdds.sandbox.Property
@@ -23,18 +24,20 @@ import com.sdds.sandbox.Property
 internal object PlasmaHomedsListNumberedItemVariationsCompose : ComposeStyleProvider<ListItemStyle>() {
     override val bindings: Set<Property<*>> =
         setOf(
-            Property.SingleChoiceProperty(name = "size", value = "S", variants = listOf("S")),
+            Property.SingleChoiceProperty(name = "size", value = "S", variants = listOf("S", "M")),
         )
 
     override val variations: Map<String, ComposeStyleReference<ListItemStyle>> =
         mapOf(
             "ListNumberedItem.S" to ComposeStyleReference { ListNumberedItem.S.style() },
+            "ListNumberedItem.M" to ComposeStyleReference { ListNumberedItem.M.style() },
         )
 
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return ListItemStyles.ListNumberedItem.resolve(
             size = when (bindings["size"]?.toString()) {
                 "S" -> ListItemListNumberedItemSize.S
+                "M" -> ListItemListNumberedItemSize.M
                 else -> ListItemListNumberedItemSize.S
             },
         ).key

@@ -51,7 +51,7 @@ internal object PlasmaHomedsAvatarVariationsCompose : ComposeStyleProvider<Avata
                 "L" -> AvatarSize.L
                 "M" -> AvatarSize.M
                 "S" -> AvatarSize.S
-                else -> AvatarSize.Xxl
+                else -> AvatarSize.M
             },
             shape = when (bindings["shape"]?.toString()) {
                 "Default" -> AvatarShape.Default

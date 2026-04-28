@@ -30,7 +30,12 @@ public enum class ListStyles(
     ListSNoBackground("List.S.NoBackground"),
     ListSNoBackgroundHasItemBackground("List.S.NoBackground.HasItemBackground"),
     ListSHasBackground("List.S.HasBackground"),
+    ListM("List.M"),
+    ListMNoBackground("List.M.NoBackground"),
+    ListMNoBackgroundHasItemBackground("List.M.NoBackground.HasItemBackground"),
+    ListMHasBackground("List.M.HasBackground"),
     ListNumberedS("ListNumbered.S"),
+    ListNumberedM("ListNumbered.M"),
     ;
 
     /**
@@ -49,6 +54,7 @@ public enum class ListStyles(
  */
 public enum class ListDefaultSize {
     S,
+    M,
 }
 
 /**
@@ -56,6 +62,7 @@ public enum class ListDefaultSize {
  */
 public enum class ListNumberedSize {
     S,
+    M,
 }
 
 /**
@@ -68,7 +75,12 @@ public fun ListStyles.style(modify: @Composable ListStyleBuilder.() -> Unit = {}
         ListStyles.ListSNoBackground -> List.S.NoBackground
         ListStyles.ListSNoBackgroundHasItemBackground -> List.S.NoBackground.HasItemBackground
         ListStyles.ListSHasBackground -> List.S.HasBackground
+        ListStyles.ListM -> List.M
+        ListStyles.ListMNoBackground -> List.M.NoBackground
+        ListStyles.ListMNoBackgroundHasItemBackground -> List.M.NoBackground.HasItemBackground
+        ListStyles.ListMHasBackground -> List.M.HasBackground
         ListStyles.ListNumberedS -> ListNumbered.S
+        ListStyles.ListNumberedM -> ListNumbered.M
     }
     return builder.modify(modify).style()
 }
@@ -83,9 +95,14 @@ public fun ListStyles.Default.resolve(
 ): ListStyles = when {
     size == ListDefaultSize.S && hasBackground == false && hasItemBackground == true ->
         ListStyles.ListSNoBackgroundHasItemBackground
+    size == ListDefaultSize.M && hasBackground == false && hasItemBackground == true ->
+        ListStyles.ListMNoBackgroundHasItemBackground
     size == ListDefaultSize.S && hasBackground == false -> ListStyles.ListSNoBackground
     size == ListDefaultSize.S && hasBackground == true -> ListStyles.ListSHasBackground
+    size == ListDefaultSize.M && hasBackground == false -> ListStyles.ListMNoBackground
+    size == ListDefaultSize.M && hasBackground == true -> ListStyles.ListMHasBackground
     size == ListDefaultSize.S -> ListStyles.ListS
+    size == ListDefaultSize.M -> ListStyles.ListM
     else -> error("Unsupported list style combination")
 }
 
@@ -106,6 +123,7 @@ public fun ListStyles.Default.style(
 public fun ListStyles.Numbered.resolve(size: ListNumberedSize = ListNumberedSize.S): ListStyles =
     when {
         size == ListNumberedSize.S -> ListStyles.ListNumberedS
+        size == ListNumberedSize.M -> ListStyles.ListNumberedM
         else -> error("Unsupported list-numbered style combination")
     }
 

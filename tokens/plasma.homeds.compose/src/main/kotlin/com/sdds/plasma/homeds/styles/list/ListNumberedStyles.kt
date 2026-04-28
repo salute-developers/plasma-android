@@ -17,6 +17,7 @@ import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.styles.divider.Default
 import com.sdds.plasma.homeds.styles.divider.Divider
 import com.sdds.plasma.homeds.styles.listitem.ListNumberedItem
+import com.sdds.plasma.homeds.styles.listitem.M
 import com.sdds.plasma.homeds.styles.listitem.S
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -35,6 +36,14 @@ public value class WrapperListNumberedS(
     public override val builder: ListStyleBuilder,
 ) : WrapperListNumbered
 
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperListNumberedM(
+    public override val builder: ListStyleBuilder,
+) : WrapperListNumbered
+
 private val ListStyleBuilder.invariantProps: ListStyleBuilder
     @Composable
     get() = this
@@ -50,3 +59,14 @@ public val ListNumbered.S: WrapperListNumberedS
             gap(12.0.dp)
         }
         .wrap(::WrapperListNumberedS)
+
+public val ListNumbered.M: WrapperListNumberedM
+    @Composable
+    @JvmName("WrapperListNumberedM")
+    get() = ListStyle.builder(this)
+        .invariantProps
+        .listItemStyle(ListNumberedItem.M.style())
+        .dimensions {
+            gap(12.0.dp)
+        }
+        .wrap(::WrapperListNumberedM)
