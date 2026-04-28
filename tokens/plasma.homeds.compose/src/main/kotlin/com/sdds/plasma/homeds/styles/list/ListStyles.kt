@@ -20,6 +20,7 @@ import com.sdds.plasma.homeds.styles.divider.Default
 import com.sdds.plasma.homeds.styles.divider.Divider
 import com.sdds.plasma.homeds.styles.listitem.HasBackground
 import com.sdds.plasma.homeds.styles.listitem.ListItem
+import com.sdds.plasma.homeds.styles.listitem.M
 import com.sdds.plasma.homeds.styles.listitem.S
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
 import kotlin.Suppress
@@ -60,6 +61,38 @@ public value class WrapperListSNoBackgroundHasItemBackground(
  */
 @JvmInline
 public value class WrapperListSHasBackground(
+    public override val builder: ListStyleBuilder,
+) : WrapperList
+
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperListM(
+    public override val builder: ListStyleBuilder,
+) : WrapperList
+
+/**
+ * Обертка для вариации MNoBackground
+ */
+@JvmInline
+public value class WrapperListMNoBackground(
+    public override val builder: ListStyleBuilder,
+) : WrapperList
+
+/**
+ * Обертка для вариации MNoBackgroundHasItemBackground
+ */
+@JvmInline
+public value class WrapperListMNoBackgroundHasItemBackground(
+    public override val builder: ListStyleBuilder,
+) : WrapperList
+
+/**
+ * Обертка для вариации MHasBackground
+ */
+@JvmInline
+public value class WrapperListMHasBackground(
     public override val builder: ListStyleBuilder,
 ) : WrapperList
 
@@ -110,3 +143,46 @@ public val WrapperListS.HasBackground: WrapperListSHasBackground
         }
         .shape(PlasmaHomeDsTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
         .wrap(::WrapperListSHasBackground)
+
+public val List.M: WrapperListM
+    @Composable
+    @JvmName("WrapperListM")
+    get() = ListStyle.builder(this)
+        .invariantProps
+        .listItemStyle(ListItem.M.style())
+        .dimensions {
+            gap(8.0.dp)
+        }
+        .wrap(::WrapperListM)
+
+public val WrapperListM.NoBackground: WrapperListMNoBackground
+    @Composable
+    @JvmName("WrapperListMNoBackground")
+    get() = builder
+        .wrap(::WrapperListMNoBackground)
+
+public val WrapperListMNoBackground.HasItemBackground: WrapperListMNoBackgroundHasItemBackground
+    @Composable
+    @JvmName("WrapperListMNoBackgroundHasItemBackground")
+    get() = builder
+        .listItemStyle(ListItem.M.HasBackground.style())
+        .wrap(::WrapperListMNoBackgroundHasItemBackground)
+
+public val WrapperListM.HasBackground: WrapperListMHasBackground
+    @Composable
+    @JvmName("WrapperListMHasBackground")
+    get() = builder
+        .listItemStyle(ListItem.M.style())
+        .dimensions {
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
+            paddingTop(8.0.dp)
+            paddingBottom(8.0.dp)
+        }
+        .colors {
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
+            )
+        }
+        .shape(PlasmaHomeDsTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
+        .wrap(::WrapperListMHasBackground)

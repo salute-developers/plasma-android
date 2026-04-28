@@ -28,7 +28,10 @@ public enum class ListItemStyles(
 ) {
     ListItemS("ListItem.S"),
     ListItemSHasBackground("ListItem.S.HasBackground"),
+    ListItemM("ListItem.M"),
+    ListItemMHasBackground("ListItem.M.HasBackground"),
     ListNumberedItemS("ListNumberedItem.S"),
+    ListNumberedItemM("ListNumberedItem.M"),
     ;
 
     /**
@@ -47,6 +50,7 @@ public enum class ListItemStyles(
  */
 public enum class ListItemDefaultSize {
     S,
+    M,
 }
 
 /**
@@ -54,6 +58,7 @@ public enum class ListItemDefaultSize {
  */
 public enum class ListItemListNumberedItemSize {
     S,
+    M,
 }
 
 /**
@@ -64,7 +69,10 @@ public fun ListItemStyles.style(modify: @Composable ListItemStyleBuilder.() -> U
     val builder = when (this) {
         ListItemStyles.ListItemS -> ListItem.S
         ListItemStyles.ListItemSHasBackground -> ListItem.S.HasBackground
+        ListItemStyles.ListItemM -> ListItem.M
+        ListItemStyles.ListItemMHasBackground -> ListItem.M.HasBackground
         ListItemStyles.ListNumberedItemS -> ListNumberedItem.S
+        ListItemStyles.ListNumberedItemM -> ListNumberedItem.M
     }
     return builder.modify(modify).style()
 }
@@ -77,7 +85,9 @@ public fun ListItemStyles.Default.resolve(
     hasBackground: Boolean = false,
 ): ListItemStyles = when {
     size == ListItemDefaultSize.S && hasBackground == true -> ListItemStyles.ListItemSHasBackground
+    size == ListItemDefaultSize.M && hasBackground == true -> ListItemStyles.ListItemMHasBackground
     size == ListItemDefaultSize.S -> ListItemStyles.ListItemS
+    size == ListItemDefaultSize.M -> ListItemStyles.ListItemM
     else -> error("Unsupported list-item style combination")
 }
 
@@ -99,6 +109,7 @@ public fun ListItemStyles.ListNumberedItem.resolve(
         ListItemListNumberedItemSize.S,
 ): ListItemStyles = when {
     size == ListItemListNumberedItemSize.S -> ListItemStyles.ListNumberedItemS
+    size == ListItemListNumberedItemSize.M -> ListItemStyles.ListNumberedItemM
     else -> error("Unsupported list-numbered-item style combination")
 }
 

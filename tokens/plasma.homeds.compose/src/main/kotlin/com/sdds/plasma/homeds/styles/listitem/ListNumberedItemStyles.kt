@@ -16,8 +16,8 @@ import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.styles.counter.Counter
+import com.sdds.plasma.homeds.styles.counter.S
 import com.sdds.plasma.homeds.styles.counter.Secondary
-import com.sdds.plasma.homeds.styles.counter.Xs
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -36,6 +36,14 @@ public value class WrapperListNumberedItemS(
     public override val builder: ListItemStyleBuilder,
 ) : WrapperListNumberedItem
 
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperListNumberedItemM(
+    public override val builder: ListItemStyleBuilder,
+) : WrapperListNumberedItem
+
 private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
     @Composable
     get() = this
@@ -51,6 +59,7 @@ public val ListNumberedItem.S: WrapperListNumberedItemS
     get() = ListItemStyle.builder(this)
         .invariantProps
         .titleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
+        .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .dimensions {
             contentPaddingStart(6.0.dp)
             paddingStart(0.0.dp)
@@ -58,5 +67,22 @@ public val ListNumberedItem.S: WrapperListNumberedItemS
             paddingTop(0.0.dp)
             paddingBottom(0.0.dp)
         }
-        .counterStyle(Counter.Xs.Secondary.style())
+        .counterStyle(Counter.S.Secondary.style())
         .wrap(::WrapperListNumberedItemS)
+
+public val ListNumberedItem.M: WrapperListNumberedItemM
+    @Composable
+    @JvmName("WrapperListNumberedItemM")
+    get() = ListItemStyle.builder(this)
+        .invariantProps
+        .titleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
+        .subtitleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
+        .dimensions {
+            contentPaddingStart(6.0.dp)
+            paddingStart(0.0.dp)
+            paddingEnd(0.0.dp)
+            paddingTop(0.0.dp)
+            paddingBottom(0.0.dp)
+        }
+        .counterStyle(Counter.S.Secondary.style())
+        .wrap(::WrapperListNumberedItemM)
