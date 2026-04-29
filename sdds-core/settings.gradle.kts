@@ -32,4 +32,5 @@ include(
     ":docs-views",
     ":docs-compose",
     ":docs-ksp",
+    ":config-codec"
 )
