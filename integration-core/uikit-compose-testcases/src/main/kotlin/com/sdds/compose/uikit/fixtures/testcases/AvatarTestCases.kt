@@ -13,10 +13,13 @@ import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.Badge
+import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.IconBadge
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.fixtures.R
+import com.sdds.compose.uikit.graphics.cutout.cutout
 
 /**
  * Тест кейсы для Avatar
@@ -267,6 +270,52 @@ fun AvatarSizeMBadgeBottomStart(style: AvatarStyle) {
         content = {
             Image(
                 painter = painterResource(id = R.drawable.il_avatar_for_test),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * Avatar и IconBadge
+ */
+@Composable
+fun AvatarIconBadge(style: AvatarStyle, iconBadgeStyle: BadgeStyle) {
+    Avatar(
+        style = style,
+        actionEnabled = false,
+        placeholder = AvatarPlaceholder.Name("Michael Scott"),
+        extra = {
+            IconBadge(
+                modifier = Modifier
+                    .cutout()
+                    .align(Alignment.BottomEnd),
+                style = iconBadgeStyle,
+                content = {
+                    Icon(
+                        painterResource(id = com.sdds.icons.R.drawable.ic_mute_fill_24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        },
+        content = {},
+    )
+}
+
+/**
+ * Avatar и Image
+ */
+@Composable
+fun AvatarContent(style: AvatarStyle) {
+    Avatar(
+        style = style,
+        status = AvatarStatus.Active,
+        actionEnabled = false,
+        placeholder = AvatarPlaceholder.Name("Michael Scott"),
+        content = {
+            Image(
+                painterResource(id = R.drawable.il_avatar_for_test),
                 contentDescription = "",
             )
         },

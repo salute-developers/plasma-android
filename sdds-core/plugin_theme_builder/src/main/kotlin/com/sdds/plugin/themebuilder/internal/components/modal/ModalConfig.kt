@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.modal
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -46,16 +48,20 @@ internal data class ModalProperties(
 }
 
 @Serializable
-internal data class ModalView(override val props: ModalProperties) :
+internal data class ModalView(
+    override val props: ModalProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<ModalProperties> {
     override fun merge(parent: ViewVariation<ModalProperties>): ViewVariation<ModalProperties> =
-        copy(props = props.merge(parent.props) as ModalProperties)
+        copy(props = props.merge(parent.props) as ModalProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ModalVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ModalView> = emptyMap(),
     override val props: ModalProperties,
 ) : ChildVariation<ModalProperties>
@@ -65,4 +71,5 @@ internal data class ModalConfig(
     override val view: Map<String, ModalView> = emptyMap(),
     override val props: ModalProperties,
     override val variations: List<ModalVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ModalProperties>, ComponentConfig

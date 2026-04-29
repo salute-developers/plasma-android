@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.plasma.homeds.styles.navigationbar.Default
 import com.sdds.plasma.homeds.styles.navigationbar.NavigationBarMainPage
 
 internal object PlasmaHomedsNavigationBarMainPageVariationsCompose : ComposeStyleProvider<NavigationBarStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<NavigationBarStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { NavigationBarMainPage.Default.style() },
+            "NavigationBarMainPage.Default" to ComposeStyleReference { NavigationBarMainPage.Default.style() },
         )
 }

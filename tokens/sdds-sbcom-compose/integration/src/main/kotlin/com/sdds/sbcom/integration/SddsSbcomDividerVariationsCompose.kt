@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.sbcom.styles.divider.Default
 import com.sdds.sbcom.styles.divider.Divider
 
 internal object SddsSbcomDividerVariationsCompose : ComposeStyleProvider<DividerStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<DividerStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Divider.Default.style() },
+            "Divider.Default" to ComposeStyleReference { Divider.Default.style() },
         )
 }

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.buttongroup
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -31,16 +33,20 @@ internal data class ButtonGroupProperties(
 }
 
 @Serializable
-internal data class ButtonGroupView(override val props: ButtonGroupProperties) :
+internal data class ButtonGroupView(
+    override val props: ButtonGroupProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<ButtonGroupProperties> {
     override fun merge(parent: ViewVariation<ButtonGroupProperties>): ViewVariation<ButtonGroupProperties> =
-        copy(props = props.merge(parent.props) as ButtonGroupProperties)
+        copy(props = props.merge(parent.props) as ButtonGroupProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ButtonGroupVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ButtonGroupView> = emptyMap(),
     override val props: ButtonGroupProperties,
 ) : ChildVariation<ButtonGroupProperties>
@@ -50,4 +56,5 @@ internal data class ButtonGroupConfig(
     override val view: Map<String, ButtonGroupView> = emptyMap(),
     override val props: ButtonGroupProperties,
     override val variations: List<ButtonGroupVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ButtonGroupProperties>, ComponentConfig

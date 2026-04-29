@@ -26,15 +26,33 @@ public enum class PopoverStyles(
     public val key: String,
 ) {
     PopoverDefault("Popover.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля popover
+     */
+    public companion object
 }
 
 /**
  * Возвращает [PopoverStyle] для [PopoverStyles]
  */
 @Composable
-public fun PopoverStyles.style(modifyAction: @Composable PopoverStyleBuilder.() -> Unit = {}): PopoverStyle {
+public fun PopoverStyles.style(modify: @Composable PopoverStyleBuilder.() -> Unit = {}): PopoverStyle {
     val builder = when (this) {
         PopoverStyles.PopoverDefault -> Popover.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [PopoverStyles] для popover
+ */
+public fun PopoverStyles.Companion.resolve(): PopoverStyles = PopoverStyles.PopoverDefault
+
+/**
+ * Возвращает [PopoverStyle] для popover
+ */
+@Composable
+public fun PopoverStyles.Companion.style(modify: @Composable PopoverStyleBuilder.() -> Unit = {}):
+    PopoverStyle = resolve().style(modify)

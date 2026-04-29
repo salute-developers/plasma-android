@@ -1,8 +1,10 @@
 package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.compose.uikit.CircularProgressBarStyle
+import com.sdds.compose.uikit.Icon
 
 /**
  * Тест-кейсы для [CircularProgressBar]
@@ -37,5 +39,23 @@ fun CircularProgressNoTrack(style: CircularProgressBarStyle) {
         progress = 0.5f,
         style = style,
         trackEnabled = false,
+    )
+}
+
+/**
+ * Тест-кейсы для [CircularProgressBar]
+ */
+@Composable
+fun CircularProgressWithIcon(style: CircularProgressBarStyle) {
+    CircularProgressBar(
+        progress = 0.5f,
+        style = style,
+        trackEnabled = false,
+        valueContent = {
+            Icon(
+                painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
+                contentDescription = "",
+            )
+        },
     )
 }

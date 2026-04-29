@@ -26,15 +26,33 @@ public enum class RadioBoxStyles(
     public val key: String,
 ) {
     RadioBoxDefault("RadioBox.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля radio-box
+     */
+    public companion object
 }
 
 /**
  * Возвращает [RadioBoxStyle] для [RadioBoxStyles]
  */
 @Composable
-public fun RadioBoxStyles.style(modifyAction: @Composable RadioBoxStyleBuilder.() -> Unit = {}): RadioBoxStyle {
+public fun RadioBoxStyles.style(modify: @Composable RadioBoxStyleBuilder.() -> Unit = {}): RadioBoxStyle {
     val builder = when (this) {
         RadioBoxStyles.RadioBoxDefault -> RadioBox.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [RadioBoxStyles] для radio-box
+ */
+public fun RadioBoxStyles.Companion.resolve(): RadioBoxStyles = RadioBoxStyles.RadioBoxDefault
+
+/**
+ * Возвращает [RadioBoxStyle] для radio-box
+ */
+@Composable
+public fun RadioBoxStyles.Companion.style(modify: @Composable RadioBoxStyleBuilder.() -> Unit = {}):
+    RadioBoxStyle = resolve().style(modify)

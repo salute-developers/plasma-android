@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -14,15 +16,43 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.list.HasBackground
 import com.sdds.plasma.homeds.styles.list.HasItemBackground
 import com.sdds.plasma.homeds.styles.list.List
+import com.sdds.plasma.homeds.styles.list.ListDefaultSize
+import com.sdds.plasma.homeds.styles.list.ListStyles
+import com.sdds.plasma.homeds.styles.list.M
 import com.sdds.plasma.homeds.styles.list.NoBackground
 import com.sdds.plasma.homeds.styles.list.S
+import com.sdds.plasma.homeds.styles.list.resolve
+import com.sdds.sandbox.Property
 
 internal object PlasmaHomedsListVariationsCompose : ComposeStyleProvider<ListStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "S", variants = listOf("S", "M")),
+            Property.BooleanProperty(name = "hasBackground", value = false),
+            Property.BooleanProperty(name = "hasItemBackground", value = false),
+        )
+
     override val variations: Map<String, ComposeStyleReference<ListStyle>> =
         mapOf(
-            "S" to ComposeStyleReference { List.S.style() },
-            "S.NoBackground" to ComposeStyleReference { List.S.NoBackground.style() },
-            "S.NoBackground.HasItemBackground" to ComposeStyleReference { List.S.NoBackground.HasItemBackground.style() },
-            "S.HasBackground" to ComposeStyleReference { List.S.HasBackground.style() },
+            "List.S" to ComposeStyleReference { List.S.style() },
+            "List.S.NoBackground" to ComposeStyleReference { List.S.NoBackground.style() },
+            "List.S.NoBackground.HasItemBackground" to ComposeStyleReference { List.S.NoBackground.HasItemBackground.style() },
+            "List.S.HasBackground" to ComposeStyleReference { List.S.HasBackground.style() },
+            "List.M" to ComposeStyleReference { List.M.style() },
+            "List.M.NoBackground" to ComposeStyleReference { List.M.NoBackground.style() },
+            "List.M.NoBackground.HasItemBackground" to ComposeStyleReference { List.M.NoBackground.HasItemBackground.style() },
+            "List.M.HasBackground" to ComposeStyleReference { List.M.HasBackground.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return ListStyles.Default.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "S" -> ListDefaultSize.S
+                "M" -> ListDefaultSize.M
+                else -> ListDefaultSize.S
+            },
+            hasBackground = booleanBindingValue(bindings, "hasBackground", false),
+            hasItemBackground = booleanBindingValue(bindings, "hasItemBackground", false),
+        ).key
+    }
 }

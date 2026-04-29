@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.divider
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -30,15 +32,17 @@ internal data class DividerProperties(
 @Serializable
 internal data class DividerView(
     override val props: DividerProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<DividerProperties> {
     override fun merge(parent: ViewVariation<DividerProperties>): ViewVariation<DividerProperties> =
-        copy(props = props.merge(parent.props) as DividerProperties)
+        copy(props = props.merge(parent.props) as DividerProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class DividerVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, DividerView> = emptyMap(),
     override val props: DividerProperties,
 ) : ChildVariation<DividerProperties>
@@ -48,4 +52,5 @@ internal data class DividerConfig(
     override val view: Map<String, DividerView> = emptyMap(),
     override val props: DividerProperties,
     override val variations: List<DividerVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<DividerProperties>, ComponentConfig

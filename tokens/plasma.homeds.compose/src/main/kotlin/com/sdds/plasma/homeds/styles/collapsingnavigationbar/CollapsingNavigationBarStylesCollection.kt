@@ -27,6 +27,17 @@ public enum class CollapsingNavigationBarStyles(
 ) {
     CollapsingNavigationBarMainPageDefault("CollapsingNavigationBarMainPage.Default"),
     CollapsingNavigationBarInternalPageDefault("CollapsingNavigationBarInternalPage.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля collapsing-navigation-bar-main-page
+     */
+    public object MainPage
+
+    /**
+     * Typed API для подбора стиля collapsing-navigation-bar-internal-page
+     */
+    public object InternalPage
 }
 
 /**
@@ -34,7 +45,7 @@ public enum class CollapsingNavigationBarStyles(
  */
 @Composable
 public fun CollapsingNavigationBarStyles.style(
-    modifyAction: @Composable
+    modify: @Composable
     CollapsingNavigationBarStyleBuilder.() -> Unit = {},
 ): CollapsingNavigationBarStyle {
     val builder = when (this) {
@@ -43,5 +54,37 @@ public fun CollapsingNavigationBarStyles.style(
         CollapsingNavigationBarStyles.CollapsingNavigationBarInternalPageDefault ->
             CollapsingNavigationBarInternalPage.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [CollapsingNavigationBarStyles] для collapsing-navigation-bar-main-page
+ */
+public fun CollapsingNavigationBarStyles.MainPage.resolve(): CollapsingNavigationBarStyles =
+    CollapsingNavigationBarStyles.CollapsingNavigationBarMainPageDefault
+
+/**
+ * Возвращает [CollapsingNavigationBarStyle] для collapsing-navigation-bar-main-page
+ */
+@Composable
+public fun CollapsingNavigationBarStyles.MainPage.style(
+    modify: @Composable
+    CollapsingNavigationBarStyleBuilder.() -> Unit = {},
+): CollapsingNavigationBarStyle =
+    resolve().style(modify)
+
+/**
+ * Возвращает экземпляр [CollapsingNavigationBarStyles] для collapsing-navigation-bar-internal-page
+ */
+public fun CollapsingNavigationBarStyles.InternalPage.resolve(): CollapsingNavigationBarStyles =
+    CollapsingNavigationBarStyles.CollapsingNavigationBarInternalPageDefault
+
+/**
+ * Возвращает [CollapsingNavigationBarStyle] для collapsing-navigation-bar-internal-page
+ */
+@Composable
+public fun CollapsingNavigationBarStyles.InternalPage.style(
+    modify: @Composable
+    CollapsingNavigationBarStyleBuilder.() -> Unit = {},
+): CollapsingNavigationBarStyle =
+    resolve().style(modify)

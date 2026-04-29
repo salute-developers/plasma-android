@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.sbcom.styles.buttongroup.BasicButtonGroup
 import com.sdds.sbcom.styles.buttongroup.Default
 
 internal object SddsSbcomBasicButtonGroupVariationsCompose : ComposeStyleProvider<ButtonGroupStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ButtonGroupStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { BasicButtonGroup.Default.style() },
+            "BasicButtonGroup.Default" to ComposeStyleReference { BasicButtonGroup.Default.style() },
         )
 }

@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.sbcom.styles.tabbar.Default
 import com.sdds.sbcom.styles.tabbar.TabBar
 
 internal object SddsSbcomTabBarVariationsCompose : ComposeStyleProvider<TabBarStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<TabBarStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { TabBar.Default.style() },
+            "TabBar.Default" to ComposeStyleReference { TabBar.Default.style() },
         )
 }

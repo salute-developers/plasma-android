@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.editable
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -37,16 +39,20 @@ internal data class EditableProperties(
 }
 
 @Serializable
-internal data class EditableView(override val props: EditableProperties) :
+internal data class EditableView(
+    override val props: EditableProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<EditableProperties> {
     override fun merge(parent: ViewVariation<EditableProperties>): ViewVariation<EditableProperties> =
-        copy(props = props.merge(parent.props) as EditableProperties)
+        copy(props = props.merge(parent.props) as EditableProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class EditableVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, EditableView> = emptyMap(),
     override val props: EditableProperties,
 ) : ChildVariation<EditableProperties>
@@ -56,4 +62,5 @@ internal data class EditableConfig(
     override val view: Map<String, EditableView> = emptyMap(),
     override val props: EditableProperties,
     override val variations: List<EditableVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<EditableProperties>, ComponentConfig

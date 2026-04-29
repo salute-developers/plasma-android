@@ -247,7 +247,8 @@ private fun Footer(
     ) {
         TextField(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .heightIn(max = 50.dp),
             value = "",
             placeholderText = "Для проверки клавиатуры",
             onValueChange = {},

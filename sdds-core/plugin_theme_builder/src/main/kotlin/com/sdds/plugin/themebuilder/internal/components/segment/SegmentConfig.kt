@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.segment
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -47,15 +49,17 @@ internal data class SegmentProperties(
 @Serializable
 internal data class SegmentView(
     override val props: SegmentProperties = SegmentProperties(),
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<SegmentProperties> {
     override fun merge(parent: ViewVariation<SegmentProperties>): ViewVariation<SegmentProperties> =
-        copy(props = props.merge(parent.props) as SegmentProperties)
+        copy(props = props.merge(parent.props) as SegmentProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class SegmentVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, SegmentView> = emptyMap(),
     override val props: SegmentProperties,
 ) : ChildVariation<SegmentProperties>
@@ -65,4 +69,5 @@ internal data class SegmentConfig(
     override val view: Map<String, SegmentView> = emptyMap(),
     override val props: SegmentProperties = SegmentProperties(),
     override val variations: List<SegmentVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<SegmentProperties>, ComponentConfig

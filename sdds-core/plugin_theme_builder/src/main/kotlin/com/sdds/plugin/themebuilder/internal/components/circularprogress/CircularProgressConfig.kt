@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.circularprogress
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
@@ -53,15 +55,17 @@ internal data class CircularProgressProperties(
 @Serializable
 internal data class CircularProgressView(
     override val props: CircularProgressProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<CircularProgressProperties> {
     override fun merge(parent: ViewVariation<CircularProgressProperties>): ViewVariation<CircularProgressProperties> =
-        copy(props = props.merge(parent.props) as CircularProgressProperties)
+        copy(props = props.merge(parent.props) as CircularProgressProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class CircularProgressVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CircularProgressView> = emptyMap(),
     override val props: CircularProgressProperties,
 ) : ChildVariation<CircularProgressProperties>
@@ -71,4 +75,5 @@ internal data class CircularProgressConfig(
     override val view: Map<String, CircularProgressView> = emptyMap(),
     override val props: CircularProgressProperties,
     override val variations: List<CircularProgressVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CircularProgressProperties>, ComponentConfig

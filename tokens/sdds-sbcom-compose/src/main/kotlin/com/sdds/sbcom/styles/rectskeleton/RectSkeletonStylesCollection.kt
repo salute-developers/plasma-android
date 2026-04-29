@@ -27,19 +27,50 @@ public enum class RectSkeletonStyles(
 ) {
     RectSkeletonDefault("RectSkeleton.Default"),
     RectSkeletonPulse("RectSkeleton.Pulse"),
+    ;
+
+    /**
+     * Typed API для подбора стиля rect-skeleton
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства type для rect-skeleton
+ */
+public enum class RectSkeletonType {
+    Default,
+    Pulse,
 }
 
 /**
  * Возвращает [RectSkeletonStyle] для [RectSkeletonStyles]
  */
 @Composable
-public fun RectSkeletonStyles.style(
-    modifyAction: @Composable RectSkeletonStyleBuilder.() -> Unit =
-        {},
-): RectSkeletonStyle {
+public fun RectSkeletonStyles.style(modify: @Composable RectSkeletonStyleBuilder.() -> Unit = {}): RectSkeletonStyle {
     val builder = when (this) {
         RectSkeletonStyles.RectSkeletonDefault -> RectSkeleton.Default
         RectSkeletonStyles.RectSkeletonPulse -> RectSkeleton.Pulse
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [RectSkeletonStyles] для rect-skeleton
+ */
+public fun RectSkeletonStyles.Companion.resolve(type: RectSkeletonType = RectSkeletonType.Default):
+    RectSkeletonStyles = when {
+    type == RectSkeletonType.Default -> RectSkeletonStyles.RectSkeletonDefault
+    type == RectSkeletonType.Pulse -> RectSkeletonStyles.RectSkeletonPulse
+    else -> error("Unsupported rect-skeleton style combination")
+}
+
+/**
+ * Возвращает [RectSkeletonStyle] для rect-skeleton
+ */
+@Composable
+public fun RectSkeletonStyles.Companion.style(
+    type: RectSkeletonType = RectSkeletonType.Default,
+    modify: @Composable RectSkeletonStyleBuilder.() -> Unit = {},
+): RectSkeletonStyle =
+    resolve(type).style(modify)

@@ -73,6 +73,58 @@ fun RadioBoxDisabled(style: RadioBoxStyle) {
 }
 
 /**
+ * RadioBox не отмеченный
+ */
+@Composable
+fun RadioBoxUnchecked(style: RadioBoxStyle) {
+    RadioBox(
+        style = style,
+        checked = false,
+        enabled = true,
+        onClick = {},
+    )
+}
+
+/**
+ * RadioBox отмеченный
+ */
+@Composable
+fun RadioBoxChecked(style: RadioBoxStyle) {
+    RadioBox(
+        style = style,
+        checked = true,
+        enabled = true,
+        onClick = {},
+    )
+}
+
+/**
+ * RadioBox отмеченный disabled
+ */
+@Composable
+fun RadioBoxCheckedDisabled(style: RadioBoxStyle) {
+    RadioBox(
+        style = style,
+        checked = true,
+        enabled = false,
+        onClick = {},
+    )
+}
+
+/**
+ * RadioBox не отмеченный disabled
+ */
+@Composable
+fun RadioBoxUncheckedDisabled(style: RadioBoxStyle) {
+    RadioBox(
+        style = style,
+        checked = false,
+        enabled = false,
+        onClick = {},
+    )
+}
+
+/**
  * PLASMA-T1421
  */
 @Composable

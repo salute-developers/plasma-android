@@ -31,13 +31,36 @@ public enum class CheckBoxStyles(
     CheckBoxMNegative("CheckBox.M.Negative"),
     CheckBoxSDefault("CheckBox.S.Default"),
     CheckBoxSNegative("CheckBox.S.Negative"),
+    ;
+
+    /**
+     * Typed API для подбора стиля check-box
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для check-box
+ */
+public enum class CheckBoxSize {
+    L,
+    M,
+    S,
+}
+
+/**
+ * Возможные значения свойства view для check-box
+ */
+public enum class CheckBoxView {
+    Default,
+    Negative,
 }
 
 /**
  * Возвращает [CheckBoxStyle] для [CheckBoxStyles]
  */
 @Composable
-public fun CheckBoxStyles.style(modifyAction: @Composable CheckBoxStyleBuilder.() -> Unit = {}): CheckBoxStyle {
+public fun CheckBoxStyles.style(modify: @Composable CheckBoxStyleBuilder.() -> Unit = {}): CheckBoxStyle {
     val builder = when (this) {
         CheckBoxStyles.CheckBoxLDefault -> CheckBox.L.Default
         CheckBoxStyles.CheckBoxLNegative -> CheckBox.L.Negative
@@ -46,5 +69,32 @@ public fun CheckBoxStyles.style(modifyAction: @Composable CheckBoxStyleBuilder.(
         CheckBoxStyles.CheckBoxSDefault -> CheckBox.S.Default
         CheckBoxStyles.CheckBoxSNegative -> CheckBox.S.Negative
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [CheckBoxStyles] для check-box
+ */
+public fun CheckBoxStyles.Companion.resolve(
+    size: CheckBoxSize = CheckBoxSize.L,
+    view: CheckBoxView =
+        CheckBoxView.Default,
+): CheckBoxStyles = when {
+    size == CheckBoxSize.L && view == CheckBoxView.Default -> CheckBoxStyles.CheckBoxLDefault
+    size == CheckBoxSize.L && view == CheckBoxView.Negative -> CheckBoxStyles.CheckBoxLNegative
+    size == CheckBoxSize.M && view == CheckBoxView.Default -> CheckBoxStyles.CheckBoxMDefault
+    size == CheckBoxSize.M && view == CheckBoxView.Negative -> CheckBoxStyles.CheckBoxMNegative
+    size == CheckBoxSize.S && view == CheckBoxView.Default -> CheckBoxStyles.CheckBoxSDefault
+    size == CheckBoxSize.S && view == CheckBoxView.Negative -> CheckBoxStyles.CheckBoxSNegative
+    else -> error("Unsupported check-box style combination")
+}
+
+/**
+ * Возвращает [CheckBoxStyle] для check-box
+ */
+@Composable
+public fun CheckBoxStyles.Companion.style(
+    size: CheckBoxSize = CheckBoxSize.L,
+    view: CheckBoxView = CheckBoxView.Default,
+    modify: @Composable CheckBoxStyleBuilder.() -> Unit = {},
+): CheckBoxStyle = resolve(size, view).style(modify)

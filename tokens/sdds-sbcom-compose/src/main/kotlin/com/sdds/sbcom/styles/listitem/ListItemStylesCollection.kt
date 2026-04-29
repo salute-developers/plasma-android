@@ -27,16 +27,54 @@ public enum class ListItemStyles(
 ) {
     DropdownMenuItemDefault("DropdownMenuItem.Default"),
     ListItemDefault("ListItem.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля dropdown-menu-item
+     */
+    public object DropdownMenuItem
+
+    /**
+     * Typed API для подбора стиля list-item
+     */
+    public object Default
 }
 
 /**
  * Возвращает [ListItemStyle] для [ListItemStyles]
  */
 @Composable
-public fun ListItemStyles.style(modifyAction: @Composable ListItemStyleBuilder.() -> Unit = {}): ListItemStyle {
+public fun ListItemStyles.style(modify: @Composable ListItemStyleBuilder.() -> Unit = {}): ListItemStyle {
     val builder = when (this) {
         ListItemStyles.DropdownMenuItemDefault -> DropdownMenuItem.Default
         ListItemStyles.ListItemDefault -> ListItem.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [ListItemStyles] для dropdown-menu-item
+ */
+public fun ListItemStyles.DropdownMenuItem.resolve(): ListItemStyles =
+    ListItemStyles.DropdownMenuItemDefault
+
+/**
+ * Возвращает [ListItemStyle] для dropdown-menu-item
+ */
+@Composable
+public fun ListItemStyles.DropdownMenuItem.style(
+    modify: @Composable ListItemStyleBuilder.() -> Unit =
+        {},
+): ListItemStyle = resolve().style(modify)
+
+/**
+ * Возвращает экземпляр [ListItemStyles] для list-item
+ */
+public fun ListItemStyles.Default.resolve(): ListItemStyles = ListItemStyles.ListItemDefault
+
+/**
+ * Возвращает [ListItemStyle] для list-item
+ */
+@Composable
+public fun ListItemStyles.Default.style(modify: @Composable ListItemStyleBuilder.() -> Unit = {}):
+    ListItemStyle = resolve().style(modify)

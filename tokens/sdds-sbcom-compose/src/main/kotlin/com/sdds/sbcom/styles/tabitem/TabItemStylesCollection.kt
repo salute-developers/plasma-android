@@ -26,15 +26,33 @@ public enum class TabItemStyles(
     public val key: String,
 ) {
     TabItemFolderDefault("TabItemFolder.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля tab-item-folder
+     */
+    public companion object
 }
 
 /**
  * Возвращает [TabItemStyle] для [TabItemStyles]
  */
 @Composable
-public fun TabItemStyles.style(modifyAction: @Composable TabItemStyleBuilder.() -> Unit = {}): TabItemStyle {
+public fun TabItemStyles.style(modify: @Composable TabItemStyleBuilder.() -> Unit = {}): TabItemStyle {
     val builder = when (this) {
         TabItemStyles.TabItemFolderDefault -> TabItemFolder.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [TabItemStyles] для tab-item-folder
+ */
+public fun TabItemStyles.Companion.resolve(): TabItemStyles = TabItemStyles.TabItemFolderDefault
+
+/**
+ * Возвращает [TabItemStyle] для tab-item-folder
+ */
+@Composable
+public fun TabItemStyles.Companion.style(modify: @Composable TabItemStyleBuilder.() -> Unit = {}):
+    TabItemStyle = resolve().style(modify)

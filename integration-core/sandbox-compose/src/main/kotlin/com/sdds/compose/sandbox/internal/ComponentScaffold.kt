@@ -224,6 +224,7 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
 ) {
     val contentState = remember { mutableStateOf<MenuPropertyContent>(MenuPropertyContent.PropertiesList) }
     val properties by viewModel.properties.collectAsState()
+    val styleProperties by viewModel.styleProperties.collectAsState()
     BackHandler(enabled = contentState.value is MenuPropertyContent.PropertyEditor) {
         contentState.value = MenuPropertyContent.PropertiesList
     }
@@ -248,6 +249,7 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
                         .then(insetsModifier),
                     headerTitle = title,
                     properties = properties,
+                    styleProperties = styleProperties,
                     onSelect = { property ->
                         if (property is Property.BooleanProperty) {
                             val newValue = !property.value

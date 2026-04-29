@@ -13,13 +13,33 @@ internal data class Component(
     val key: String,
     val coreName: String,
     val styleName: String,
-    val variations: List<VariationInfo>
+    val variations: List<VariationInfo>,
+    val styleApi: StyleApiInfo? = null,
 )
 
 internal data class VariationInfo(
     val name: String,
     val composeReference: String = "",
     val viewOverlayReference: String = "",
+)
+
+internal data class StyleApiInfo(
+    val stylesClassName: String = "",
+    val receiverClassName: String = "",
+    val params: List<StyleApiParam> = emptyList(),
+)
+
+internal data class StyleApiParam(
+    val name: String,
+    val type: String = "",
+    val typeQualifiedName: String = "",
+    val defaultValue: StyleApiValue? = null,
+    val values: List<StyleApiValue> = emptyList(),
+)
+
+internal data class StyleApiValue(
+    val value: String = "",
+    val codeName: String = "",
 )
 
 internal abstract class ComponentGenerator {
@@ -161,6 +181,10 @@ internal class ComposeComponentsGenerator(
         Scheme.V2 -> "ComposeComponentProviderKt_V2.txt"
     }
 
+    private fun expandResourceTemplate(path: String, values: Map<String, String>): String {
+        return expand(loadTemplate(path).trim(), values)
+    }
+
     override fun generate() {
         config.components.forEach {
             createStyleProvider(
@@ -192,7 +216,7 @@ internal class ComposeComponentsGenerator(
                 expand(
                     styleInstanceTemplate,
                     mapOf(
-                        "variationName" to it.name.toPascalCase("."),
+                        "variationName" to it.composeReference.toPascalCase("."),
                         "variationReference" to it.composeReference
                     )
                 )
@@ -217,6 +241,10 @@ internal class ComposeComponentsGenerator(
                 )
             }
 
+        val bindingImports = getBindingImports(component)
+        val bindingsDeclaration = getBindingsDeclaration(component)
+        val bindingStyleDeclaration = getBindingStyleDeclaration(component)
+
         val providerContent = expand(
             styleProviderTemplate,
             mapOf(
@@ -228,6 +256,9 @@ internal class ComposeComponentsGenerator(
                 "themePackageName" to themePackageName,
                 "variations" to styleContent,
                 "variationImports" to variationImports,
+                "bindingImports" to bindingImports,
+                "bindingsDeclaration" to bindingsDeclaration,
+                "bindingStyleDeclaration" to bindingStyleDeclaration,
                 "coreStyleClass" to getCoreStyleClass(component)
             )
         )
@@ -258,6 +289,131 @@ internal class ComposeComponentsGenerator(
 
             else -> "${component.coreName}Style"
         }
+    }
+
+    private fun getBindingImports(component: Component): String {
+        val styleApi = component.styleApi ?: return ""
+        if (styleApi.params.isEmpty()) return ""
+        return buildList {
+            add("${config.packageName}.styles.${getComponentStylePackageName(component)}.${styleApi.stylesClassName}")
+            add("${config.packageName}.styles.${getComponentStylePackageName(component)}.resolve")
+            addAll(
+                styleApi.params
+                    .filter { it.type != "boolean" }
+                    .mapNotNull { it.typeQualifiedName.takeIf(String::isNotBlank) },
+            )
+        }.distinct().joinToString("\n") { import ->
+            expandResourceTemplate(
+                "ComposeBindingImportKt.txt",
+                mapOf("import" to import),
+            )
+        }
+    }
+
+    private fun getBindingsDeclaration(component: Component): String {
+        val params = component.styleApi?.params.orEmpty()
+        if (params.isEmpty()) {
+            return ""
+        }
+        val properties = params.joinToString(",\n            ") { param ->
+            when (param.type) {
+                "boolean" -> {
+                    val defaultValue = param.defaultValue?.codeName ?: "false"
+                    expandResourceTemplate(
+                        "ComposeBindingBooleanPropertyKt.txt",
+                        mapOf(
+                            "name" to param.name,
+                            "defaultValue" to defaultValue,
+                        ),
+                    )
+                }
+
+                else -> {
+                    val defaultValue = param.defaultCodeName()
+                    val variants = param.values.joinToString(", ") { "\"${it.codeName}\"" }
+                    expandResourceTemplate(
+                        "ComposeBindingSingleChoicePropertyKt.txt",
+                        mapOf(
+                            "name" to param.name,
+                            "defaultValue" to defaultValue,
+                            "variants" to variants,
+                        ),
+                    )
+                }
+            }
+        }
+        return expandResourceTemplate(
+            "ComposeBindingDeclarationKt.txt",
+            mapOf("properties" to properties),
+        )
+    }
+
+    private fun getBindingStyleDeclaration(component: Component): String {
+        val styleApi = component.styleApi ?: return getDefaultBindingStyleDeclaration()
+        if (styleApi.params.isEmpty()) return getDefaultBindingStyleDeclaration()
+        val receiver = styleApi.receiverClassName.removeSuffix(".Companion").ifBlank { styleApi.stylesClassName }
+        val paramsBlock = styleApi.params.joinToString(",\n            ") { param ->
+            expandResourceTemplate(
+                "ComposeBindingResolveParamKt.txt",
+                mapOf(
+                    "name" to param.name,
+                    "valueExpression" to getBindingValueExpression(param),
+                ),
+            )
+        }
+        return expandResourceTemplate(
+            "ComposeBindingResolveStyleKeyKt.txt",
+            mapOf(
+                "receiver" to receiver,
+                "params" to paramsBlock,
+            ),
+        )
+    }
+
+    private fun getBindingValueExpression(param: StyleApiParam): String {
+        return when (param.type) {
+            "boolean" -> {
+                val defaultValue = param.defaultValue?.codeName ?: "false"
+                expandResourceTemplate(
+                    "ComposeBindingBooleanValueKt.txt",
+                    mapOf(
+                        "name" to param.name,
+                        "defaultValue" to defaultValue,
+                    ),
+                )
+            }
+
+            else -> {
+                val enumClassName = param.typeQualifiedName.substringAfterLast('.')
+                val defaultExpression = "$enumClassName.${param.defaultCodeName()}"
+                val mappings = param.values.joinToString("\n                ") { value ->
+                    expandResourceTemplate(
+                        "ComposeBindingEnumMappingKt.txt",
+                        mapOf(
+                            "codeName" to value.codeName,
+                            "enumClassName" to enumClassName,
+                        ),
+                    )
+                }
+                expandResourceTemplate(
+                    "ComposeBindingEnumValueKt.txt",
+                    mapOf(
+                        "name" to param.name,
+                        "mappings" to mappings,
+                        "defaultExpression" to defaultExpression,
+                    ),
+                )
+            }
+        }
+    }
+
+    private fun getDefaultBindingStyleDeclaration(): String {
+        return ""
+    }
+
+    private fun StyleApiParam.defaultCodeName(): String {
+        return defaultValue?.codeName ?: values.firstOrNull()?.codeName
+        ?: error("Style API param `$name` has no defaultValue and no values")
     }
 
     private fun createRegisterTheme(

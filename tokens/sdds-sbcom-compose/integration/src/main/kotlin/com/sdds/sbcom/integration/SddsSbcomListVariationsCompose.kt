@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.sbcom.styles.list.Default
 import com.sdds.sbcom.styles.list.List
 
 internal object SddsSbcomListVariationsCompose : ComposeStyleProvider<ListStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ListStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { List.Default.style() },
+            "List.Default" to ComposeStyleReference { List.Default.style() },
         )
 }

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.segment.item
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -77,6 +79,7 @@ internal data class SegmentItemView(
 internal data class SegmentItemVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, SegmentItemView> = emptyMap(),
     override val props: SegmentItemProperties,
 ) : ChildVariation<SegmentItemProperties>
@@ -86,4 +89,5 @@ internal data class SegmentItemConfig(
     override val view: Map<String, SegmentItemView> = emptyMap(),
     override val props: SegmentItemProperties = SegmentItemProperties(),
     override val variations: List<SegmentItemVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<SegmentItemProperties>, ComponentConfig

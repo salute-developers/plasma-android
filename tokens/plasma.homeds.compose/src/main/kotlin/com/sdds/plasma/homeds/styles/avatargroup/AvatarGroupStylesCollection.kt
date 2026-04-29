@@ -26,18 +26,46 @@ public enum class AvatarGroupStyles(
     public val key: String,
 ) {
     AvatarGroupS("AvatarGroup.S"),
+    ;
+
+    /**
+     * Typed API для подбора стиля avatar-group
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для avatar-group
+ */
+public enum class AvatarGroupSize {
+    S,
 }
 
 /**
  * Возвращает [AvatarGroupStyle] для [AvatarGroupStyles]
  */
 @Composable
-public fun AvatarGroupStyles.style(
-    modifyAction: @Composable AvatarGroupStyleBuilder.() -> Unit =
-        {},
-): AvatarGroupStyle {
+public fun AvatarGroupStyles.style(modify: @Composable AvatarGroupStyleBuilder.() -> Unit = {}): AvatarGroupStyle {
     val builder = when (this) {
         AvatarGroupStyles.AvatarGroupS -> AvatarGroup.S
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [AvatarGroupStyles] для avatar-group
+ */
+public fun AvatarGroupStyles.Companion.resolve(size: AvatarGroupSize = AvatarGroupSize.S): AvatarGroupStyles = when {
+    size == AvatarGroupSize.S -> AvatarGroupStyles.AvatarGroupS
+    else -> error("Unsupported avatar-group style combination")
+}
+
+/**
+ * Возвращает [AvatarGroupStyle] для avatar-group
+ */
+@Composable
+public fun AvatarGroupStyles.Companion.style(
+    size: AvatarGroupSize = AvatarGroupSize.S,
+    modify: @Composable AvatarGroupStyleBuilder.() -> Unit = {},
+): AvatarGroupStyle =
+    resolve(size).style(modify)

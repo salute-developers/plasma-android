@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.tabs.item
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -92,6 +94,7 @@ internal data class TabItemView(
 internal data class TabItemVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, TabItemView> = emptyMap(),
     override val props: TabItemProperties,
 ) : ChildVariation<TabItemProperties>
@@ -101,4 +104,5 @@ internal data class TabItemConfig(
     override val view: Map<String, TabItemView> = emptyMap(),
     override val props: TabItemProperties = TabItemProperties(),
     override val variations: List<TabItemVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<TabItemProperties>, ComponentConfig

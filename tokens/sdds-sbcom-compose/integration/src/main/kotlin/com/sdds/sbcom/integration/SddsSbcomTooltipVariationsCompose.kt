@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.sbcom.styles.tooltip.Default
 import com.sdds.sbcom.styles.tooltip.Tooltip
 
 internal object SddsSbcomTooltipVariationsCompose : ComposeStyleProvider<TooltipStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<TooltipStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Tooltip.Default.style() },
+            "Tooltip.Default" to ComposeStyleReference { Tooltip.Default.style() },
         )
 }

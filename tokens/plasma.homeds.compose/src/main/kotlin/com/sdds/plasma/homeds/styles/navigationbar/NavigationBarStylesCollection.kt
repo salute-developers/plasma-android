@@ -27,19 +27,58 @@ public enum class NavigationBarStyles(
 ) {
     NavigationBarMainPageDefault("NavigationBarMainPage.Default"),
     NavigationBarInternalPageDefault("NavigationBarInternalPage.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля navigation-bar-main-page
+     */
+    public object MainPage
+
+    /**
+     * Typed API для подбора стиля navigation-bar-internal-page
+     */
+    public object InternalPage
 }
 
 /**
  * Возвращает [NavigationBarStyle] для [NavigationBarStyles]
  */
 @Composable
-public fun NavigationBarStyles.style(
-    modifyAction: @Composable NavigationBarStyleBuilder.() -> Unit =
-        {},
-): NavigationBarStyle {
+public fun NavigationBarStyles.style(modify: @Composable NavigationBarStyleBuilder.() -> Unit = {}):
+    NavigationBarStyle {
     val builder = when (this) {
         NavigationBarStyles.NavigationBarMainPageDefault -> NavigationBarMainPage.Default
         NavigationBarStyles.NavigationBarInternalPageDefault -> NavigationBarInternalPage.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [NavigationBarStyles] для navigation-bar-main-page
+ */
+public fun NavigationBarStyles.MainPage.resolve(): NavigationBarStyles =
+    NavigationBarStyles.NavigationBarMainPageDefault
+
+/**
+ * Возвращает [NavigationBarStyle] для navigation-bar-main-page
+ */
+@Composable
+public fun NavigationBarStyles.MainPage.style(
+    modify: @Composable
+    NavigationBarStyleBuilder.() -> Unit = {},
+): NavigationBarStyle = resolve().style(modify)
+
+/**
+ * Возвращает экземпляр [NavigationBarStyles] для navigation-bar-internal-page
+ */
+public fun NavigationBarStyles.InternalPage.resolve(): NavigationBarStyles =
+    NavigationBarStyles.NavigationBarInternalPageDefault
+
+/**
+ * Возвращает [NavigationBarStyle] для navigation-bar-internal-page
+ */
+@Composable
+public fun NavigationBarStyles.InternalPage.style(
+    modify: @Composable
+    NavigationBarStyleBuilder.() -> Unit = {},
+): NavigationBarStyle = resolve().style(modify)
