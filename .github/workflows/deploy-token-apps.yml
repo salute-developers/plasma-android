@@ -56,7 +56,7 @@ jobs:
 
   release:
     name: Create Release
-    needs: deploy
+    needs: [deploy, state]
     runs-on: ubuntu-latest
     steps:
       - name: Download APK artifacts
