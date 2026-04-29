@@ -5,7 +5,10 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.isSpecified
@@ -15,6 +18,7 @@ import androidx.compose.ui.window.DialogWindowProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.px
+import java.util.UUID
 
 @Composable
 internal fun EdgeToEdgeDialog(
@@ -29,12 +33,32 @@ internal fun EdgeToEdgeDialog(
     lightAppearance: Boolean = !isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
+    val windowId = remember { UUID.randomUUID().toString() }
     Dialog(
         onDismissRequest = onDismissRequest,
         properties = dialogProperties.ensureCorrectProperties(edgeToEdge),
     ) {
+        RegisterDialogWindow(windowId)
         ConfigureWindow(edgeToEdge, useNativeBlackout, blurRadius, lightAppearance)
-        content()
+        CompositionLocalProvider(LocalDialogWindowId provides windowId) {
+            content()
+        }
+    }
+}
+
+@Composable
+private fun RegisterDialogWindow(windowId: String) {
+    val localView = LocalView.current
+    val dialogWindowProvider = localView.parent as? DialogWindowProvider
+    val decorView = dialogWindowProvider?.window?.decorView
+
+    DisposableEffect(windowId, decorView) {
+        if (decorView != null) {
+            DialogWindowRegistry.register(windowId, decorView)
+        }
+        onDispose {
+            DialogWindowRegistry.unregister(windowId)
+        }
     }
 }
 
