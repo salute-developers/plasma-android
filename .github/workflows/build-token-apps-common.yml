@@ -93,7 +93,7 @@ jobs:
           # Находим оригинальный apk файл
           original_apk=$(ls $apk_dir/*.apk | head -n 1)
           # Формируем новое имя (можно добавить branch, commit hash и т.д.)
-          new_name="app-${{ matrix.module }}-${{ env.BUILD_TYPE }}.apk"
+          new_name="${{ env.ARTIFACT_NAME }}.apk"
           # Очищаем new_name от недопустимых символов
           safe_name=$(echo "$new_name" | sed 's/[^a-zA-Z0-9._-]/_/g')
           mv "$original_apk" "$apk_dir/$safe_name"
