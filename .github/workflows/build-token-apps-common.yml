@@ -86,12 +86,25 @@ jobs:
           fi
           ./gradlew ${{ matrix.module }}:app:${task} -PbranchName=${{ steps.extract_branch.outputs.branch }}
 
+      - name: Rename APK file
+        shell: bash
+        run: |
+          apk_dir="${{ env.MODULE_PATH }}/build/outputs/apk/${{ env.BUILD_TYPE }}"
+          # Находим оригинальный apk файл
+          original_apk=$(ls $apk_dir/*.apk | head -n 1)
+          # Формируем новое имя (можно добавить branch, commit hash и т.д.)
+          new_name="app-${{ matrix.module }}-${{ env.BUILD_TYPE }}.apk"
+          # Очищаем new_name от недопустимых символов
+          safe_name=$(echo "$new_name" | sed 's/[^a-zA-Z0-9._-]/_/g')
+          mv "$original_apk" "$apk_dir/$safe_name"
+          echo "RENAMED_APK_PATH=$apk_dir/$safe_name" >> $GITHUB_ENV
+
       - name: Upload APK
         id: upload_apk
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARTIFACT_NAME }}
-          path: ${{ env.MODULE_PATH }}/build/outputs/apk/${{ env.BUILD_TYPE }}/*.apk
+          path: ${{ env.RENAMED_APK_PATH }}
 
       - name: Prepare artifact metadata
         if: success()
