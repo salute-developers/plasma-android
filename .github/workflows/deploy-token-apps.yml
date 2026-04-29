@@ -74,4 +74,4 @@ jobs:
           allowUpdates: true
           omitBody: true
           generateReleaseNotes: true
-          artifacts: artifacts/**/*.apk
+          artifacts: artifacts/**/sandbox-*-release-apk.apk
