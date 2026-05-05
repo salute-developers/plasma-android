@@ -3,11 +3,13 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Companion.TypeString
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Companion.nullable
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.FunParameter
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Getter
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INFIX
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -16,8 +18,12 @@ import com.sdds.plugin.themebuilder.internal.generator.GradientTokenGenerator.Co
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ComposeTokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
+import com.squareup.kotlinpoet.asClassName
 
 /**
  * Генератор Compose-атрибутов градиента.
@@ -34,7 +40,7 @@ internal class ComposeGradientAttributeGenerator(
     private val packageResolver: PackageResolver,
 ) : SimpleBaseGenerator {
 
-    private var tokenData: ComposeTokenData? = null
+    private var tokenData: Map<Tenant, ComposeTokenData> = emptyMap()
     private val gradientAttributes = mutableSetOf<String>()
 
     private val gradientKtFileBuilder: KtFileBuilder by unsafeLazy {
@@ -47,17 +53,16 @@ internal class ComposeGradientAttributeGenerator(
         gradientKtFileBuilder.getInternalClassType(gradientClassName)
     }
 
-    fun setGradientTokenData(data: ComposeTokenData) {
+    fun setGradientTokenData(data: Map<Tenant, ComposeTokenData>) {
         tokenData = data
+        val defaultTenantData = data[Tenant.Default] ?: return
         gradientAttributes.clear()
-        gradientAttributes.addAll(data.mergedLightAndDark())
+        gradientAttributes.addAll(defaultTenantData.mergedLightAndDark())
     }
 
     override fun generate() {
-        tokenData ?: return
-
+        if (tokenData.isEmpty()) return
         createGradientsFile()
-
         gradientKtFileBuilder.build(outputLocation)
     }
 
@@ -66,8 +71,11 @@ internal class ComposeGradientAttributeGenerator(
         addGradientsClass()
         addMutableMapExtension()
         addLightGradientsFun()
+        addLightTenants()
         addDarkGradientsFun()
+        addDarkTenants()
         addGradientOverrideScopeClass()
+        addGradientAttrOverrideScopeClass()
         addLinearGradientFun()
         addRadialGradientFun()
         addSweepGradientFun()
@@ -102,22 +110,23 @@ internal class ComposeGradientAttributeGenerator(
                 names = listOf("Gradients"),
             )
             addImport(KtFileBuilder.TypeOffset)
-            val tokenData = tokenData ?: return
-            if (tokenData.dark.isNotEmpty()) {
-                addImport(
-                    getInternalClassType(
-                        className = DARK_GRADIENT_TOKENS_NAME,
-                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                    ),
-                )
-            }
-            if (tokenData.light.isNotEmpty()) {
-                addImport(
-                    getInternalClassType(
-                        className = LIGHT_GRADIENT_TOKENS_NAME,
-                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                    ),
-                )
+            tokenData.forEach { (tenant, data) ->
+                if (data.dark.isNotEmpty()) {
+                    addImport(
+                        getInternalClassType(
+                            className = "${DARK_GRADIENT_TOKENS_NAME}${tenant.name}",
+                            classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                        ),
+                    )
+                }
+                if (data.light.isNotEmpty()) {
+                    addImport(
+                        getInternalClassType(
+                            className = "${LIGHT_GRADIENT_TOKENS_NAME}${tenant.name}",
+                            classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                        ),
+                    )
+                }
             }
         }
     }
@@ -145,7 +154,7 @@ internal class ComposeGradientAttributeGenerator(
                     name = gradient,
                     typeName = KtFileBuilder.TypeListOfShaderBrush,
                     delegate = "gradients",
-                    description = tokenData?.description(gradient).orEmpty(),
+                    description = tokenData[Tenant.Default]?.description(gradient).orEmpty(),
                 )
             }
 
@@ -169,6 +178,29 @@ internal class ComposeGradientAttributeGenerator(
                 ),
                 description = "Возвращает копию [$gradientClassName]. " +
                     "Предоставляет возможность переопределять градиенты.",
+            )
+
+            rootGradientClass.appendFun(
+                name = "copyAttrs",
+                returnType = getInternalClassType(gradientClassName),
+                params = listOf(
+                    KtFileBuilder.FunParameter(
+                        name = "overrideGradients",
+                        type = KtFileBuilder.getLambdaType(
+                            receiver = gradientKtFileBuilder.getInternalClassType("GradientAttrOverrideScope"),
+                        ),
+                        defValue = "{}",
+                    ),
+                ),
+                body = listOf(
+                    "val gradientOverrideScope = GradientAttrOverrideScope()\n",
+                    "overrideGradients.invoke(gradientOverrideScope)\n",
+                    "val overrideMap = gradientOverrideScope.overrideMap\n",
+                    "return $gradientClassName(gradients.mapValues { gradients[overrideMap[it.key]] ?: it.value })",
+                ),
+                modifiers = listOf(INTERNAL),
+                description = "Возвращает копию [$gradientClassName]. " +
+                    "Предоставляет возможность переопределять цвета.",
             )
         }
     }
@@ -210,6 +242,70 @@ internal class ComposeGradientAttributeGenerator(
         )
     }
 
+    private fun addLightTenants() {
+        tokenData
+            .filter { it.key != Tenant.Default }
+            .forEach { (tenant, data) ->
+                if (data.light.isNotEmpty()) {
+                    gradientKtFileBuilder.appendRootFun(
+                        name = "light${camelThemeName}Gradients${tenant.name}",
+                        params = listOf(
+                            KtFileBuilder.FunParameter(
+                                name = "overrideGradients",
+                                type = KtFileBuilder.getLambdaType(
+                                    receiver = gradientKtFileBuilder.getInternalClassType("GradientOverrideScope"),
+                                ),
+                                defValue = "{}",
+                            ),
+                        ),
+                        returnType = gradientClassType,
+                        body = listOf(
+                            "return light${camelThemeName}Gradients {\n",
+                            data.light.entries.joinToString(separator = "\n") {
+                                "${it.key} overrideBy ${lightGradientValue(it.key, tenant)}"
+                            },
+                            "\noverrideGradients()",
+                            "\n}",
+                        ),
+                        description = "Градиенты [$gradientClassName] для светлой темы в тенанте ${tenant.name}",
+                        suppressAnnotations = listOf("LongMethod"),
+                    )
+                }
+            }
+    }
+
+    private fun addDarkTenants() {
+        tokenData
+            .filter { it.key != Tenant.Default }
+            .forEach { (tenant, data) ->
+                if (data.dark.isNotEmpty()) {
+                    gradientKtFileBuilder.appendRootFun(
+                        name = "dark${camelThemeName}Gradients${tenant.name}",
+                        params = listOf(
+                            KtFileBuilder.FunParameter(
+                                name = "overrideGradients",
+                                type = KtFileBuilder.getLambdaType(
+                                    receiver = gradientKtFileBuilder.getInternalClassType("GradientOverrideScope"),
+                                ),
+                                defValue = "{}",
+                            ),
+                        ),
+                        returnType = gradientClassType,
+                        body = listOf(
+                            "return dark${camelThemeName}Gradients {\n",
+                            data.light.entries.joinToString(separator = "\n") {
+                                "${it.key} overrideBy ${darkGradientValue(it.key, tenant)}"
+                            },
+                            "\noverrideGradients()",
+                            "\n}",
+                        ),
+                        description = "Градиенты [$gradientClassName] для темной темы в тенанте ${tenant.name}",
+                        suppressAnnotations = listOf("LongMethod"),
+                    )
+                }
+            }
+    }
+
     private fun addLightGradientsFun() {
         gradientKtFileBuilder.appendRootFun(
             name = "light${camelThemeName}Gradients",
@@ -229,7 +325,7 @@ internal class ComposeGradientAttributeGenerator(
                 "val overwrite = gradientOverrideScope.overrideMap\n",
                 "val initial = mutableMapOf<String, List<ShaderBrush>>()\n",
                 gradientAttributes.joinToString(separator = "\n") {
-                    val defaultValue = defaultLightGradientValue(it)
+                    val defaultValue = lightGradientValue(it, Tenant.Default)
                     "initial.add(\"$it\", $defaultValue, overwrite)"
                 },
                 "\nreturn $gradientClassName(initial)",
@@ -239,51 +335,36 @@ internal class ComposeGradientAttributeGenerator(
         )
     }
 
-    private fun defaultLightGradientValue(attrName: String): String {
-        val lightLayers = tokenData?.light?.get(attrName)
-        val darkLayers = tokenData?.dark?.get(attrName)
+    private fun lightGradientValue(attrName: String, tenant: Tenant): String {
+        val data = tokenData[tenant]
+        val lightLayers = data?.light?.get(attrName)
+        val darkLayers = data?.dark?.get(attrName)
 
-        val parameters: List<ComposeTokenData.Gradient>
-        val objectName: String
-
-        if (lightLayers != null) {
-            parameters = lightLayers
-            objectName = "LightGradientTokens"
-        } else {
-            parameters = darkLayers
-                ?: throw ThemeBuilderException("Can't find token value for gradient $attrName")
-            objectName = "DarkGradientTokens"
-        }
+        val parameters: List<ComposeTokenData.Gradient> = lightLayers
+            ?: darkLayers
+            ?: throw ThemeBuilderException("Can't find token value for gradient $attrName")
 
         return KtFileBuilder.createFunCall(
             "listOf",
-            parameters.map { createGradientFabricCall(objectName, it) },
+            parameters.map { createGradientFabricCall(it) },
         )
     }
 
-    private fun defaultDarkGradientValue(attrName: String): String {
-        val lightLayers = tokenData?.light?.get(attrName)
-        val darkLayers = tokenData?.dark?.get(attrName)
+    private fun darkGradientValue(attrName: String, tenant: Tenant): String {
+        val data = tokenData[tenant]
+        val lightLayers = data?.light?.get(attrName)
+        val darkLayers = data?.dark?.get(attrName)
 
-        val parameters: List<ComposeTokenData.Gradient>
-        val objectName: String
-
-        if (darkLayers != null) {
-            parameters = darkLayers
-            objectName = "DarkGradientTokens"
-        } else {
-            parameters = lightLayers
-                ?: throw ThemeBuilderException("Can't find token value for gradient $attrName")
-            objectName = "LightGradientTokens"
-        }
+        val parameters: List<ComposeTokenData.Gradient> = darkLayers
+            ?: lightLayers
+            ?: throw ThemeBuilderException("Can't find token value for gradient $attrName")
         return KtFileBuilder.createFunCall(
             "listOf",
-            parameters.map { createGradientFabricCall(objectName, it) },
+            parameters.map { createGradientFabricCall(it) },
         )
     }
 
     private fun createGradientFabricCall(
-        objectName: String,
         gradient: ComposeTokenData.Gradient,
     ): String {
         val funName = when (gradient.gradientType) {
@@ -294,7 +375,7 @@ internal class ComposeGradientAttributeGenerator(
         }
         return KtFileBuilder.createFunCall(
             funName = funName,
-            parameters = gradient.tokenRefs.map { "$objectName.$it" },
+            parameters = gradient.tokenRefs.map { "${gradient.tokenObjectName}.$it" },
         )
     }
 
@@ -317,7 +398,7 @@ internal class ComposeGradientAttributeGenerator(
                 "val overwrite = gradientOverrideScope.overrideMap\n",
                 "val initial = mutableMapOf<String, List<ShaderBrush>>()\n",
                 gradientAttributes.joinToString(separator = "\n") {
-                    val defaultValue = defaultDarkGradientValue(it)
+                    val defaultValue = darkGradientValue(it, Tenant.Default)
                     "initial.add(\"$it\", $defaultValue, overwrite)"
                 },
                 "\nreturn $gradientClassName(initial)",
@@ -354,7 +435,7 @@ internal class ComposeGradientAttributeGenerator(
                     typeName = KtFileBuilder.TypeString,
                     isMutable = false,
                     initializer = "\"$gradient\"",
-                    description = tokenData?.description(gradient),
+                    description = tokenData[Tenant.Default]?.description(gradient),
                 )
             }
 
@@ -364,6 +445,55 @@ internal class ComposeGradientAttributeGenerator(
                     FunParameter(name = "gradient", type = KtFileBuilder.TypeListOfShaderBrush),
                 ),
                 modifiers = listOf(Modifier.INFIX),
+                receiver = KtFileBuilder.TypeString,
+                body = listOf("_overrideMap[this] = gradient"),
+                description = "Переопределяет аттрибут градиента.",
+            )
+        }
+    }
+
+    private fun addGradientAttrOverrideScopeClass() {
+        with(gradientKtFileBuilder) {
+            val rootColorsClass = rootClass(
+                name = "GradientAttrOverrideScope",
+                description = "Скоуп переопределения градиентов",
+            )
+            val mutableMapType = ClassName(
+                "kotlin.collections",
+                "MutableMap",
+            ).parameterizedBy(TypeString, TypeString)
+            val mapType = Map::class.asClassName().parameterizedBy(TypeString, TypeString)
+
+            rootColorsClass.appendProperty(
+                name = "_overrideMap",
+                typeName = mutableMapType,
+                initializer = "mutableMapOf()",
+                modifiers = listOf(Modifier.PRIVATE),
+            )
+
+            rootColorsClass.appendProperty(
+                name = "overrideMap",
+                typeName = mapType,
+                modifiers = listOf(INTERNAL),
+                propGetter = Getter.Annotated(body = "return _overrideMap.toMap()"),
+            )
+
+            gradientAttributes.forEach { gradient ->
+                rootColorsClass.appendProperty(
+                    name = gradient,
+                    typeName = KtFileBuilder.TypeString,
+                    isMutable = false,
+                    initializer = "\"$gradient\"",
+                    description = tokenData[Tenant.Default]?.description(gradient),
+                )
+            }
+
+            rootColorsClass.appendFun(
+                name = "overrideBy",
+                params = listOf(
+                    FunParameter("gradient", type = KtFileBuilder.TypeString),
+                ),
+                modifiers = listOf(INFIX),
                 receiver = KtFileBuilder.TypeString,
                 body = listOf("_overrideMap[this] = gradient"),
                 description = "Переопределяет аттрибут градиента.",

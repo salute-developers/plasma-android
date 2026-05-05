@@ -137,6 +137,38 @@ internal class KtFileBuilder(
      *
      * @param name имя свойства
      * @param typeName тип свойства
+     * @param initializer инициализатор свойства
+     * @param lazy инициализация через lazy делегат
+     */
+    fun appendRootVal(
+        name: String,
+        typeName: TypeName,
+        initializer: String? = null,
+        modifiers: List<Modifier>? = null,
+        isMutable: Boolean = false,
+        setter: Setter? = null,
+        getter: Getter? = null,
+        receiver: TypeName? = null,
+        lazy: Boolean = false,
+    ) {
+        appendPropertyInternal(
+            name = name,
+            typeName = typeName,
+            initializer = initializer,
+            isMutable = isMutable,
+            modifiers = modifiers?.toKModifiers(),
+            setter = setter,
+            getter = getter,
+            receiver = receiver,
+            lazy = lazy,
+        ).also(rootPropBuilders::add)
+    }
+
+    /**
+     * Создает val свойство в корне файла.
+     *
+     * @param name имя свойства
+     * @param typeName тип свойства
      * @param parameterizedType типовой аргумент
      * @param initializer инициализатор свойства
      * @param lazy инициализация через lazy делегат

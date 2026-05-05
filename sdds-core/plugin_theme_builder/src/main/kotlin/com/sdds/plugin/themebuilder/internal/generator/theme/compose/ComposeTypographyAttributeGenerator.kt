@@ -14,6 +14,7 @@ import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator.
 import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator.Companion.TYPOGRAPHY_SMALL_TOKENS_NAME
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -38,7 +39,7 @@ internal class ComposeTypographyAttributeGenerator(
     private val packageResolver: PackageResolver,
 ) : SimpleBaseGenerator {
 
-    private var tokenData: TypographyTokenResult.ComposeTokenData? = null
+    private var tokenData: Map<Tenant, TypographyTokenResult.ComposeTokenData> = emptyMap()
     private val typographyAttributes = mutableSetOf<String>()
     private val typographyKtFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(typographyClassName, TargetPackage.THEME)
@@ -54,7 +55,7 @@ internal class ComposeTypographyAttributeGenerator(
     }
 
     override fun generate() {
-        tokenData ?: return
+        if (tokenData.isEmpty()) return
 
         createWindowSizeFile()
         addImports()
@@ -69,10 +70,11 @@ internal class ComposeTypographyAttributeGenerator(
         typographyKtFileBuilder.build(outputLocation)
     }
 
-    fun setTypographyTokenData(data: TypographyTokenResult.ComposeTokenData) {
+    fun setTypographyTokenData(data: Map<Tenant, TypographyTokenResult.ComposeTokenData>) {
         tokenData = data
+        val defaultTenantData = data[Tenant.Default] ?: return
         typographyAttributes.clear()
-        typographyAttributes.addAll(data.mergedScreenClasses())
+        typographyAttributes.addAll(defaultTenantData.mergedScreenClasses())
     }
 
     private fun createWindowSizeFile() {
@@ -95,30 +97,31 @@ internal class ComposeTypographyAttributeGenerator(
                 ),
             )
             addImport(KtFileBuilder.TypeDpExtension)
-            val tokenData = tokenData ?: return
-            if (tokenData.small.isNotEmpty()) {
-                addImport(
-                    getInternalClassType(
-                        className = TYPOGRAPHY_SMALL_TOKENS_NAME,
-                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                    ),
-                )
-            }
-            if (tokenData.medium.isNotEmpty()) {
-                addImport(
-                    getInternalClassType(
-                        className = TYPOGRAPHY_MEDIUM_TOKENS_NAME,
-                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                    ),
-                )
-            }
-            if (tokenData.large.isNotEmpty()) {
-                addImport(
-                    getInternalClassType(
-                        className = TYPOGRAPHY_LARGE_TOKENS_NAME,
-                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                    ),
-                )
+            tokenData.forEach { (tenant, data) ->
+                if (data.small.isNotEmpty()) {
+                    addImport(
+                        getInternalClassType(
+                            className = "${TYPOGRAPHY_SMALL_TOKENS_NAME}${tenant.name}",
+                            classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                        ),
+                    )
+                }
+                if (data.medium.isNotEmpty()) {
+                    addImport(
+                        getInternalClassType(
+                            className = "${TYPOGRAPHY_MEDIUM_TOKENS_NAME}${tenant.name}",
+                            classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                        ),
+                    )
+                }
+                if (data.large.isNotEmpty()) {
+                    addImport(
+                        getInternalClassType(
+                            className = "${TYPOGRAPHY_LARGE_TOKENS_NAME}${tenant.name}",
+                            classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                        ),
+                    )
+                }
             }
         }
     }
@@ -138,23 +141,28 @@ internal class ComposeTypographyAttributeGenerator(
     }
 
     private fun addDynamicTypographyFun() {
-        typographyKtFileBuilder.appendRootFun(
-            name = "dynamic$typographyClassName",
-            annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
-            returnType = typographyClassType,
-            body = listOf(
-                """
+        tokenData.forEach { (tenant, data) ->
+            val largeFunCall = "large$typographyClassName${tenant.name}()"
+            val mediumFunCall = "medium$typographyClassName${tenant.name}()"
+            val smallFunCall = "small$typographyClassName${tenant.name}()"
+            typographyKtFileBuilder.appendRootFun(
+                name = "dynamic$typographyClassName${tenant.name}",
+                annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
+                returnType = typographyClassType,
+                body = listOf(
+                    """
                     |val widthClass = collectWindowSizeInfoAsState().value.widthClass
                     |return when (widthClass) {
-                    |    ${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Expanded -> large$typographyClassName()
-                    |    ${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Medium -> medium$typographyClassName()
-                    |    ${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Compact -> small$typographyClassName()
+                    |    ${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Expanded -> $largeFunCall
+                    |    ${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Medium -> $mediumFunCall
+                    |    ${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Compact -> $smallFunCall
                     |}
-                """.trimMargin(),
-            ),
-            description = "Возвращает разные [$typographyClassName] в зависимости от ширины окна. " +
-                "Значение динамически изменяется при изменении ширины окна.",
-        )
+                    """.trimMargin(),
+                ),
+                description = "Возвращает разные [$typographyClassName] в зависимости от ширины окна. " +
+                    "Значение динамически изменяется при изменении ширины окна.",
+            )
+        }
     }
 
     private fun addBreakPointFun() {
@@ -176,6 +184,7 @@ internal class ComposeTypographyAttributeGenerator(
 
     private fun addTypographyClass() {
         with(typographyKtFileBuilder) {
+            val defaultTokenData = tokenData[Tenant.Default]
             rootClass(
                 name = typographyClassName,
                 primaryConstructor = Constructor.Primary(
@@ -186,7 +195,7 @@ internal class ComposeTypographyAttributeGenerator(
                                 type = KtFileBuilder.TypeTextStyle,
                                 defValue = "TextStyle.Default",
                                 asProperty = true,
-                                description = tokenData?.description(it),
+                                description = defaultTokenData?.description(it),
                             )
                         },
                     modifiers = listOf(Modifier.INTERNAL),
@@ -199,33 +208,43 @@ internal class ComposeTypographyAttributeGenerator(
     }
 
     private fun addSmallTypographyFun() {
-        addScreenSpecificTypographyFun(
-            funName = "small$typographyClassName",
-            screenClass = ScreenClass.SMALL,
-            description = "Возвращает [$typographyClassName] для WindowSizeClass.Compact",
-        )
+        tokenData.forEach { entry ->
+            addScreenSpecificTypographyFun(
+                funName = "small$typographyClassName${entry.key.name}",
+                screenClass = ScreenClass.SMALL,
+                description = "Возвращает [$typographyClassName] для WindowSizeClass.Compact",
+                tenant = entry.key,
+            )
+        }
     }
 
     private fun addMediumTypographyFun() {
-        addScreenSpecificTypographyFun(
-            funName = "medium$typographyClassName",
-            screenClass = ScreenClass.MEDIUM,
-            description = "Возвращает [$typographyClassName] для WindowSizeClass.Medium",
-        )
+        tokenData.forEach { entry ->
+            addScreenSpecificTypographyFun(
+                funName = "medium$typographyClassName${entry.key.name}",
+                screenClass = ScreenClass.MEDIUM,
+                description = "Возвращает [$typographyClassName] для WindowSizeClass.Medium",
+                tenant = entry.key,
+            )
+        }
     }
 
     private fun addLargeTypographyFun() {
-        addScreenSpecificTypographyFun(
-            funName = "large$typographyClassName",
-            screenClass = ScreenClass.LARGE,
-            description = "Возвращает [$typographyClassName] для WindowSizeClass.Expanded",
-        )
+        tokenData.forEach { entry ->
+            addScreenSpecificTypographyFun(
+                funName = "large$typographyClassName${entry.key.name}",
+                screenClass = ScreenClass.LARGE,
+                description = "Возвращает [$typographyClassName] для WindowSizeClass.Expanded",
+                tenant = entry.key,
+            )
+        }
     }
 
     private fun addScreenSpecificTypographyFun(
         funName: String,
         screenClass: ScreenClass,
         description: String,
+        tenant: Tenant,
     ) {
         with(typographyKtFileBuilder) {
             appendRootFun(
@@ -235,7 +254,7 @@ internal class ComposeTypographyAttributeGenerator(
                     KtFileBuilder.createConstructorCall(
                         constructorName = typographyClassName,
                         initializers = typographyAttributes.map {
-                            "$it = ${findTypographyTokenRef(it, screenClass)}"
+                            "$it = ${findTypographyTokenRef(it, screenClass, tenant)}"
                         }.toTypedArray(),
                     ).let { "return $it" },
                 ),
@@ -248,20 +267,35 @@ internal class ComposeTypographyAttributeGenerator(
         }
     }
 
-    private fun findTypographyTokenRef(attributeName: String, screenClass: ScreenClass): String? {
-        val safeTokenData = tokenData ?: return null
+    @Suppress("CyclomaticComplexMethod")
+    private fun findTypographyTokenRef(
+        attributeName: String,
+        screenClass: ScreenClass,
+        tenant: Tenant,
+    ): String? {
+        val defaultTokenData = tokenData[Tenant.Default] ?: return null
+        val safeTokenData = tokenData[tenant] ?: defaultTokenData
         val info = when (screenClass) {
             ScreenClass.SMALL -> safeTokenData.small[attributeName]
                 ?: safeTokenData.medium[attributeName]
                 ?: safeTokenData.large[attributeName]
+                ?: defaultTokenData.small[attributeName]
+                ?: defaultTokenData.medium[attributeName]
+                ?: defaultTokenData.large[attributeName]
 
             ScreenClass.LARGE -> safeTokenData.large[attributeName]
                 ?: safeTokenData.medium[attributeName]
                 ?: safeTokenData.small[attributeName]
+                ?: defaultTokenData.large[attributeName]
+                ?: defaultTokenData.medium[attributeName]
+                ?: defaultTokenData.small[attributeName]
 
             else -> safeTokenData.medium[attributeName]
                 ?: safeTokenData.small[attributeName]
                 ?: safeTokenData.large[attributeName]
+                ?: defaultTokenData.medium[attributeName]
+                ?: defaultTokenData.small[attributeName]
+                ?: defaultTokenData.large[attributeName]
         }
         return info?.tokenRef
     }

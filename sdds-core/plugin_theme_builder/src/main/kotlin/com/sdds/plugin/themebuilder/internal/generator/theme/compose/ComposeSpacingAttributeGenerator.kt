@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.SpacingTokenGenerator.Companion.SPACING_TOKENS_NAME
 import com.sdds.plugin.themebuilder.internal.generator.data.SpacingTokenResult
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 
@@ -29,7 +30,7 @@ internal class ComposeSpacingAttributeGenerator(
     private val dimensionsConfig: DimensionsConfig,
     private val packageResolver: PackageResolver,
 ) : SimpleBaseGenerator {
-    private val spacing = mutableListOf<SpacingTokenResult.TokenData>()
+    private val spacing = mutableMapOf<Tenant, List<SpacingTokenResult.TokenData>>()
 
     private val spacingKtFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(spacingClassName, TargetPackage.THEME)
@@ -41,17 +42,18 @@ internal class ComposeSpacingAttributeGenerator(
         spacingKtFileBuilder.getInternalClassType(spacingClassName)
     }
 
-    fun setSpacingTokenData(spacing: List<SpacingTokenResult.TokenData>) {
+    fun setSpacingTokenData(spacing: Map<Tenant, List<SpacingTokenResult.TokenData>>) {
         this.spacing.clear()
-        this.spacing.addAll(spacing)
+        this.spacing.putAll(spacing)
     }
 
     override fun generate() {
         if (spacing.isEmpty()) return
+        val defaultSpacing = spacing[Tenant.Default] ?: return
 
         addImports()
         addSpacingClassFactoryFun()
-        addSpacingClass(spacing)
+        addSpacingClass(defaultSpacing)
         addLocalSpacingVal()
 
         spacingKtFileBuilder.build(outputLocation)
@@ -104,32 +106,41 @@ internal class ComposeSpacingAttributeGenerator(
             )
             addImport(KtFileBuilder.TypeDp)
             addImport(KtFileBuilder.TypeDpExtension)
-            addImport(
-                getInternalClassType(
-                    className = SPACING_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
+            spacing.keys.forEach { tenant ->
+                addImport(
+                    getInternalClassType(
+                        className = "${SPACING_TOKENS_NAME}${tenant.name}",
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
         }
     }
 
     private fun addSpacingClassFactoryFun() = with(spacingKtFileBuilder) {
-        appendRootFun(
-            name = "default$spacingClassName",
-            returnType = spacingClassType,
-            body = listOf(
-                KtFileBuilder.createConstructorCall(
-                    constructorName = spacingClassName,
-                    initializers = spacing.map {
-                        "${it.attrName} = $SPACING_TOKENS_NAME.${it.tokenRefName}"
-                    }.toTypedArray(),
-                ).let { "return $it" },
-            ),
-            description = "Возвращает [$spacingClassName]",
-            annotations = listOf(
-                KtFileBuilder.TypeAnnotationComposable,
-                KtFileBuilder.TypeAnnotationReadOnlyComposable,
-            ).takeIf { dimensionsConfig.fromResources },
-        )
+        val defaultSpacing = spacing[Tenant.Default] ?: return
+        spacing.forEach { (tenant, data) ->
+            val spacingList = (defaultSpacing + data)
+                .associateBy { it.attrName }
+                .values
+                .toList()
+            appendRootFun(
+                name = "default$spacingClassName${tenant.name}",
+                returnType = spacingClassType,
+                body = listOf(
+                    KtFileBuilder.createConstructorCall(
+                        constructorName = spacingClassName,
+                        initializers = spacingList.map {
+                            "${it.attrName} = ${it.tokenObjectName}.${it.tokenRefName}"
+                        }.toTypedArray(),
+                    ).let { "return $it" },
+                ),
+                description = "Возвращает [$spacingClassName]",
+                annotations = listOf(
+                    KtFileBuilder.TypeAnnotationComposable,
+                    KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                ).takeIf { dimensionsConfig.fromResources },
+            )
+        }
     }
 }

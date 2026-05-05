@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderF
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.ComposeTokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.TypographyInfo
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypographyAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
@@ -181,37 +182,43 @@ class ComposeTypographyAttributeGeneratorTest {
     }
 
     private companion object {
-        val input1 = ComposeTokenData(
-            small = mapOf(
-                "displayLNormal" to TypographyInfo("TypographySmallTokens.DisplayLNormal"),
-                "displayLBold" to TypographyInfo("TypographySmallTokens.DisplayLBold"),
-            ),
-            medium = mapOf(
-                "displayLNormal" to TypographyInfo("TypographyMediumTokens.DisplayLNormal"),
-                "displayLBold" to TypographyInfo("TypographyMediumTokens.DisplayLBold"),
-            ),
-            large = mapOf(
-                "displayLNormal" to TypographyInfo("TypographyLargeTokens.DisplayLNormal"),
-                "displayLBold" to TypographyInfo("TypographyLargeTokens.DisplayLBold"),
-            ),
-        )
-        val input2 = ComposeTokenData(
-            small = mapOf(
-                "displayLNormal" to TypographyInfo("TypographySmallTokens.DisplayLNormal"),
-            ),
-            medium = mapOf(
-                "displayLBold" to TypographyInfo("TypographyMediumTokens.DisplayLBold"),
-            ),
-            large = mapOf(
-                "displayLNormal" to TypographyInfo("TypographyLargeTokens.DisplayLNormal"),
+        val input1 = mapOf(
+            Tenant.Default to ComposeTokenData(
+                small = mapOf(
+                    "displayLNormal" to TypographyInfo("TypographySmallTokens.DisplayLNormal"),
+                    "displayLBold" to TypographyInfo("TypographySmallTokens.DisplayLBold"),
+                ),
+                medium = mapOf(
+                    "displayLNormal" to TypographyInfo("TypographyMediumTokens.DisplayLNormal"),
+                    "displayLBold" to TypographyInfo("TypographyMediumTokens.DisplayLBold"),
+                ),
+                large = mapOf(
+                    "displayLNormal" to TypographyInfo("TypographyLargeTokens.DisplayLNormal"),
+                    "displayLBold" to TypographyInfo("TypographyLargeTokens.DisplayLBold"),
+                ),
             ),
         )
-        val input3 = ComposeTokenData(
-            small = emptyMap(),
-            medium = emptyMap(),
-            large = mapOf(
-                "displayLNormal" to TypographyInfo("TypographyLargeTokens.DisplayLNormal"),
-                "displayLBold" to TypographyInfo("TypographyLargeTokens.DisplayLBold"),
+        val input2 = mapOf(
+            Tenant.Default to ComposeTokenData(
+                small = mapOf(
+                    "displayLNormal" to TypographyInfo("TypographySmallTokens.DisplayLNormal"),
+                ),
+                medium = mapOf(
+                    "displayLBold" to TypographyInfo("TypographyMediumTokens.DisplayLBold"),
+                ),
+                large = mapOf(
+                    "displayLNormal" to TypographyInfo("TypographyLargeTokens.DisplayLNormal"),
+                ),
+            ),
+        )
+        val input3 = mapOf(
+            Tenant.Default to ComposeTokenData(
+                small = emptyMap(),
+                medium = emptyMap(),
+                large = mapOf(
+                    "displayLNormal" to TypographyInfo("TypographyLargeTokens.DisplayLNormal"),
+                    "displayLBold" to TypographyInfo("TypographyLargeTokens.DisplayLBold"),
+                ),
             ),
         )
     }

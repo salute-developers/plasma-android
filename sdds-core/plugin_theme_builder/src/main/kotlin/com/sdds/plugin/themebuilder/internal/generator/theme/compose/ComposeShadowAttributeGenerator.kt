@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.ShadowTokenGenerator.Companion.SHADOW_TOKENS_NAME
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.decapitalized
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
@@ -31,7 +32,7 @@ internal class ComposeShadowAttributeGenerator(
     private val dimensionsConfig: DimensionsConfig,
     private val packageResolver: PackageResolver,
 ) : SimpleBaseGenerator {
-    private val shadows = mutableListOf<ShadowTokenResult.TokenData>()
+    private val shadows: MutableMap<Tenant, List<ShadowTokenResult.TokenData>> = mutableMapOf()
 
     private val shadowKtFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(shadowClassName, TargetPackage.THEME)
@@ -43,17 +44,18 @@ internal class ComposeShadowAttributeGenerator(
         shadowKtFileBuilder.getInternalClassType(shadowClassName)
     }
 
-    fun setShadowTokenData(shadows: List<ShadowTokenResult.TokenData>) {
+    fun setShadowTokenData(shadows: Map<Tenant, List<ShadowTokenResult.TokenData>>) {
         this.shadows.clear()
-        this.shadows.addAll(shadows)
+        this.shadows.putAll(shadows)
     }
 
     override fun generate() {
         if (shadows.isEmpty()) return
+        val defaultShadows = shadows[Tenant.Default] ?: return
 
         addImports()
         addShadowClassFactoryFun()
-        addShadowClass(shadows)
+        addShadowClass(defaultShadows)
         addLocalShadowsVal()
 
         shadowKtFileBuilder.build(outputLocation)
@@ -107,36 +109,46 @@ internal class ComposeShadowAttributeGenerator(
             addImport(KtFileBuilder.TypeShadowAppearance)
             addImport(KtFileBuilder.TypeShadowLayer)
             addImport(KtFileBuilder.TypeDpOffset)
-            addImport(
-                getInternalClassType(
-                    className = SHADOW_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
+            shadows.keys.forEach { tenant ->
+                addImport(
+                    getInternalClassType(
+                        className = "${SHADOW_TOKENS_NAME}${tenant.name}",
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
         }
     }
 
-    private fun addShadowClassFactoryFun() = with(shadowKtFileBuilder) {
-        appendRootFun(
-            name = "default$shadowClassName",
-            returnType = shadowClassType,
-            body = listOf(
-                KtFileBuilder.createConstructorCall(
-                    constructorName = shadowClassName,
-                    initializers = shadows.map {
-                        """
+    private fun addShadowClassFactoryFun() {
+        val defaultShadows = shadows[Tenant.Default] ?: return
+        shadows
+            .forEach { (tenant, data) ->
+                val shadowList = (defaultShadows + data)
+                    .associateBy { it.tokenTechName }
+                    .values
+                    .toList()
+                shadowKtFileBuilder.appendRootFun(
+                    name = "default$shadowClassName${tenant.name}",
+                    returnType = shadowClassType,
+                    body = listOf(
+                        KtFileBuilder.createConstructorCall(
+                            constructorName = shadowClassName,
+                            initializers = shadowList.map {
+                                """
                             ${it.tokenTechName.attributeName()} = ${createShadowAppearanceCall(it.layers)}
-                        """.trimIndent()
-                    }.toTypedArray(),
-                ).let { "return $it" },
-            ),
-            description = "Возвращает [$shadowClassName]",
-            annotations = listOf(
-                KtFileBuilder.TypeAnnotationComposable,
-                KtFileBuilder.TypeAnnotationReadOnlyComposable,
-            ).takeIf { dimensionsConfig.fromResources },
-            suppressAnnotations = listOf("LongMethod"),
-        )
+                                """.trimIndent()
+                            }.toTypedArray(),
+                        ).let { "return $it" },
+                    ),
+                    description = "Возвращает [$shadowClassName]",
+                    annotations = listOf(
+                        KtFileBuilder.TypeAnnotationComposable,
+                        KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                    ).takeIf { dimensionsConfig.fromResources },
+                    suppressAnnotations = listOf("LongMethod"),
+                )
+            }
     }
 
     private companion object {

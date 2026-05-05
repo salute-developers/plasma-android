@@ -16,7 +16,8 @@ open class ThemeBuilderExtension {
     internal var resourcesPrefix: String? = null
     internal var viewThemeParents: Set<ViewThemeParent> = emptySet()
     internal var viewShapeAppearanceConfig: Set<ShapeAppearanceConfig> = emptySet()
-    internal var themeSource: ThemeBuilderSource? = null
+    private var themeSource: ThemeBuilderSource? = null
+    private var themeSources: ThemeBuilderSources? = null
     internal var componentSource: ThemeBuilderSource? = null
     internal var componentsSource: String? = null
     internal var paletteUrl: String = DEFAULT_PALETTE_URL
@@ -104,6 +105,30 @@ open class ThemeBuilderExtension {
             ThemeBuilderSource.withUrl(url, name)
         } else {
             ThemeBuilderSource.withNameAndVersion(name, version, alias)
+        }
+    }
+
+    /**
+     * Конфигурирует источники темы
+     */
+    fun themeSources(baseAlias: String = "", sourceBuilder: ThemeSourcesBuilder.() -> Unit) {
+        val builder = ThemeSourcesBuilder(baseAlias).apply(sourceBuilder)
+        if (!builder.defaultSourceWasDefined) {
+            throw ThemeBuilderException("Default source must be defined when use multitenant mode")
+        }
+        this.themeSources = ThemeBuilderSources(
+            baseAlias = baseAlias,
+            sources = builder.sources,
+        )
+    }
+
+    internal fun getThemeSources(): ThemeBuilderSources {
+        val themeSrc = themeSource
+        val themeSrcs = themeSources
+        return when {
+            themeSrc != null -> ThemeBuilderSources(baseAlias = themeSrc.themeName, sources = listOf(themeSrc))
+            themeSrcs != null && themeSrcs.sources.isNotEmpty() -> themeSrcs
+            else -> throw ThemeBuilderException("themeSource(s) must be set")
         }
     }
 
@@ -216,6 +241,58 @@ open class ThemeBuilderExtension {
         fun Project.themeBuilderExt(): ThemeBuilderExtension {
             return extensions.create("themeBuilder", ThemeBuilderExtension::class.java)
         }
+    }
+}
+
+/**
+ * Класс, описывающий источники теы
+ */
+class ThemeSourcesBuilder(private val baseAlias: String) {
+    internal val sources = mutableListOf<ThemeBuilderSource>()
+    internal var defaultSourceWasDefined = false
+
+    /**
+     * Устанавливает базовый источник темы с помощью [name] и [version] темы
+     */
+    fun defaultSource(
+        name: String,
+        version: String = ThemeSourceBuilder.VERSION_LATEST,
+    ) {
+        source(name, version, "")
+        defaultSourceWasDefined = true
+    }
+
+    /**
+     * Устанавливает базовый источник темы с помощью ссылки [url]
+     */
+    fun defaultSourceFromUrl(
+        name: String,
+        url: String,
+    ) {
+        sourceFromUrl(name, url, "")
+        defaultSourceWasDefined = true
+    }
+
+    /**
+     * Устанавливает источник тенанта [tenant] темы с помощью [name] и [version].
+     */
+    fun source(
+        name: String,
+        version: String = ThemeSourceBuilder.VERSION_LATEST,
+        tenant: String,
+    ) {
+        sources.add(ThemeBuilderSource.withNameAndVersion(name, version, baseAlias, tenant))
+    }
+
+    /**
+     * Устанавливает источник тенанта [tenant] темы с помощью ссылки [url].
+     */
+    fun sourceFromUrl(
+        name: String,
+        url: String,
+        tenant: String = "",
+    ) {
+        sources.add(ThemeBuilderSource.withUrl(url, name, tenant))
     }
 }
 

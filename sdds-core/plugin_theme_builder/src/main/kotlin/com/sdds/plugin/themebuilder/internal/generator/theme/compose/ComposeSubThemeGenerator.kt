@@ -10,9 +10,9 @@ import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.
 import com.sdds.plugin.themebuilder.internal.generator.theme.OverrideToken
 import com.sdds.plugin.themebuilder.internal.generator.theme.SubTheme
 import com.sdds.plugin.themebuilder.internal.generator.theme.overriddenBySubTheme
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
-import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.utils.decapitalized
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 
@@ -28,16 +28,16 @@ internal class ComposeSubThemeGenerator(
 
     private val colorSubThemes: MutableMap<SubTheme, List<OverrideToken>> = mutableMapOf()
     private val gradientsSubThemes: MutableMap<SubTheme, List<OverrideToken>> = mutableMapOf()
-    private var colorTokenData: ColorTokenResult.TokenData? = null
-    private var gradientTokenData: ComposeTokenData? = null
+    private var colorTokenData: Map<Tenant, ColorTokenResult.TokenData> = emptyMap()
+    private var gradientTokenData: Map<Tenant, ComposeTokenData> = emptyMap()
     private val themePackage = packageResolver.getPackage(TargetPackage.THEME)
 
-    fun setColorTokens(tokens: List<ColorToken>, data: ColorTokenResult.TokenData) {
+    fun setColorTokens(tokens: List<ColorToken>, data: Map<Tenant, ColorTokenResult.TokenData>) {
         colorTokenData = data
         colorSubThemes.putAll(tokens.overriddenBySubTheme())
     }
 
-    fun setGradientTokens(tokens: List<GradientToken>, data: ComposeTokenData) {
+    fun setGradientTokens(tokens: List<GradientToken>, data: Map<Tenant, ComposeTokenData>) {
         gradientTokenData = data
         gradientsSubThemes.putAll(tokens.overriddenBySubTheme())
     }
@@ -52,14 +52,12 @@ internal class ComposeSubThemeGenerator(
                 addImports()
                 val colorAttrs = colorSubThemes[subTheme] ?: emptyList()
                 if (colorAttrs.isNotEmpty()) {
-                    addSubThemeColorsVal(subTheme, true, colorAttrs)
-                    addSubThemeColorsVal(subTheme, false, colorAttrs)
+                    addSubThemeColorsVal(subTheme, colorAttrs)
                 }
 
                 val gradientAttrs = gradientsSubThemes[subTheme] ?: emptyList()
                 if (gradientAttrs.isNotEmpty()) {
-                    addSubThemeGradientsVal(subTheme, true, gradientAttrs)
-                    addSubThemeGradientsVal(subTheme, false, gradientAttrs)
+                    addSubThemeGradientsVal(subTheme, gradientAttrs)
                 }
 
                 addSubTheme(subTheme, colorAttrs.isNotEmpty(), gradientAttrs.isNotEmpty())
@@ -70,20 +68,8 @@ internal class ComposeSubThemeGenerator(
 
     private fun KtFileBuilder.addImports() {
         addImport("androidx.compose.foundation", listOf("isSystemInDarkTheme"))
-        val tokensPackage = packageResolver.getPackage(TargetPackage.TOKENS)
-        addImport(getInternalClassType("DarkColorTokens", tokensPackage))
-        addImport(getInternalClassType("DarkGradientTokens", tokensPackage))
-        addImport(getInternalClassType("LightColorTokens", tokensPackage))
-        addImport(getInternalClassType("LightGradientTokens", tokensPackage))
-
-        addImport(getInternalClassType("dark${camelCaseThemeName}Colors", themePackage))
-        addImport(getInternalClassType("light${camelCaseThemeName}Colors", themePackage))
-        addImport(getInternalClassType("dark${camelCaseThemeName}Gradients", themePackage))
-        addImport(getInternalClassType("light${camelCaseThemeName}Gradients", themePackage))
-        addImport(getInternalClassType("linearGradient", themePackage))
-        addImport(getInternalClassType("radialGradient", themePackage))
-        addImport(getInternalClassType("sweepGradient", themePackage))
-        addImport(getInternalClassType("singleColor", themePackage))
+        addImport(getInternalClassType("Local${camelCaseThemeName}Colors", themePackage))
+        addImport(getInternalClassType("Local${camelCaseThemeName}Gradients", themePackage))
     }
 
     private fun KtFileBuilder.addSubTheme(
@@ -113,38 +99,29 @@ internal class ComposeSubThemeGenerator(
         )
     }
 
-    private fun getSubThemeColorsValName(isDark: Boolean, subTheme: SubTheme): String {
-        val prefix = if (isDark) "dark" else "light"
-        return "$prefix${subTheme.suffix}Colors"
+    private fun getSubThemeColorsValName(subTheme: SubTheme): String {
+        return "${subTheme.suffix}ColorsOverride"
     }
 
-    private fun getSubThemeGradientValName(isDark: Boolean, subTheme: SubTheme): String {
-        val prefix = if (isDark) "dark" else "light"
-        return "$prefix${subTheme.suffix}Gradients"
+    private fun getSubThemeGradientsValName(subTheme: SubTheme): String {
+        return "${subTheme.suffix}GradientsOverride"
     }
 
     private fun KtFileBuilder.addSubThemeGradientsVal(
         subTheme: SubTheme,
-        isDark: Boolean,
         attrs: List<OverrideToken>,
     ) {
-        val tokensClassName = if (isDark) "DarkGradientTokens" else "LightGradientTokens"
-        val builderPrefix = if (isDark) "dark" else "light"
         appendRootVal(
-            name = getSubThemeGradientValName(isDark, subTheme),
-            typeName = getInternalClassType(
-                "${camelCaseThemeName}Gradients",
-                packageResolver.getPackage(TargetPackage.THEME),
+            name = getSubThemeGradientsValName(subTheme),
+            typeName = KtFileBuilder.getLambdaType(
+                receiver = getInternalClassType(className = "GradientAttrOverrideScope", themePackage),
             ),
             modifiers = listOf(KtFileBuilder.Modifier.PRIVATE),
             lazy = true,
             initializer = buildString {
-                appendLine("$builderPrefix${camelCaseThemeName}Gradients {")
+                appendLine("{")
                 attrs.forEach {
-                    if (it.new.isDark == isDark) {
-                        val valueReference = getGradientValueReference(tokensClassName, it.new.ktName, isDark)
-                        appendLine("${it.old.ktName.decapitalized()}.overrideBy($valueReference)")
-                    }
+                    appendLine("${it.old.ktName.decapitalized()}.overrideBy(${it.new.ktName.decapitalized()})")
                 }
                 appendLine("}")
             },
@@ -153,109 +130,62 @@ internal class ComposeSubThemeGenerator(
 
     private fun KtFileBuilder.addSubThemeColorsVal(
         subTheme: SubTheme,
-        isDark: Boolean,
         attrs: List<OverrideToken>,
     ) {
-        val tokensClassName = if (isDark) "DarkColorTokens" else "LightColorTokens"
-        val builderPrefix = if (isDark) "dark" else "light"
         appendRootVal(
-            name = getSubThemeColorsValName(isDark, subTheme),
-            typeName = getInternalClassType(
-                "${camelCaseThemeName}Colors",
-                packageResolver.getPackage(TargetPackage.THEME),
+            name = getSubThemeColorsValName(subTheme),
+            typeName = KtFileBuilder.getLambdaType(
+                receiver = getInternalClassType(className = "ColorAttrOverrideScope", themePackage),
             ),
             modifiers = listOf(KtFileBuilder.Modifier.PRIVATE),
             lazy = true,
             initializer = buildString {
-                appendLine("$builderPrefix${camelCaseThemeName}Colors {")
+                appendLine("{")
                 attrs.forEach {
-                    if (it.new.isDark == isDark) {
-                        val valueReference = getValueReference(it.new.ktName, isDark)
-                        appendLine("${it.old.ktName.decapitalized()}.overrideBy($tokensClassName.$valueReference)")
-                    }
+                    appendLine("${it.old.ktName.decapitalized()}.overrideBy(${it.new.ktName.decapitalized()})")
                 }
                 appendLine("}")
             },
         )
     }
 
-    private fun getValueReference(attributeName: String, isDark: Boolean): String? {
-        return if (isDark) {
-            colorTokenData?.dark?.get(attributeName.decapitalized())?.colorRef
-        } else {
-            colorTokenData?.light?.get(attributeName.decapitalized())?.colorRef
-        }
-    }
-
-    private fun getGradientValueReference(objectName: String, attributeName: String, isDark: Boolean): String? {
-        val params = if (isDark) {
-            gradientTokenData?.dark?.get(attributeName.decapitalized())
-        } else {
-            gradientTokenData?.light?.get(attributeName.decapitalized())
-        }
-        params ?: return null
-
-        return KtFileBuilder.createFunCall(
-            "listOf",
-            params.map { createGradientFabricCall(objectName, it) },
-        )
-    }
-
-    private fun createGradientFabricCall(
-        objectName: String,
-        gradient: ComposeTokenData.Gradient,
-    ): String {
-        val funName = when (gradient.gradientType) {
-            ComposeTokenData.GradientType.LINEAR -> "linearGradient"
-            ComposeTokenData.GradientType.RADIAL -> "radialGradient"
-            ComposeTokenData.GradientType.SWEEP -> "sweepGradient"
-            ComposeTokenData.GradientType.BACKGROUND -> "singleColor"
-        }
-        return KtFileBuilder.createFunCall(
-            funName = funName,
-            parameters = gradient.tokenRefs.map { "$objectName.$it" },
-        )
-    }
-
     private fun buildDefaultSubThemeFunBody(): String = buildString {
-        appendLine("val colors = if (isDark) {")
-        appendLine("dark${camelCaseThemeName}Colors()")
-        appendLine("} else {")
-        appendLine("light${camelCaseThemeName}Colors()")
-        appendLine("}")
-        appendLine("val gradients = if (isDark) {")
-        appendLine("dark${camelCaseThemeName}Gradients()")
-        appendLine("} else {")
-        appendLine("light${camelCaseThemeName}Gradients()")
-        appendLine("}")
-        appendLine("$themeKtClassName(colors = colors, gradients = gradients, content = content)")
+        appendLine("val currentColors = Local${camelCaseThemeName}Colors.current")
+        appendLine("val currentGradients = Local${camelCaseThemeName}Gradients.current")
+        appendLine("$themeKtClassName(colors = currentColors, gradients = currentGradients, content = content)")
     }
 
     private fun buildSubThemeFunBody(
         subTheme: SubTheme,
         overrideColors: Boolean,
-        overrideGradient: Boolean,
+        overrideGradients: Boolean,
     ): String {
         return when (subTheme) {
             SubTheme.DEFAULT -> buildDefaultSubThemeFunBody()
             else -> buildString {
                 if (overrideColors) {
-                    appendLine("val colors = if (isDark) {")
-                    appendLine(getSubThemeColorsValName(true, subTheme))
-                    appendLine("} else {")
-                    appendLine(getSubThemeColorsValName(false, subTheme))
-                    appendLine("}")
+                    appendLine("val currentColors = Local${camelCaseThemeName}Colors.current")
+                    appendLine(
+                        "val overrideColors = currentColors.copyAttrs(${
+                            getSubThemeColorsValName(
+                                subTheme,
+                            )
+                        })",
+                    )
                 }
-                if (overrideGradient) {
-                    appendLine("val gradients = if (isDark) {")
-                    appendLine(getSubThemeGradientValName(true, subTheme))
-                    appendLine("} else {")
-                    appendLine(getSubThemeGradientValName(false, subTheme))
-                    appendLine("}")
+                if (overrideGradients) {
+                    appendLine("val currentGradients = Local${camelCaseThemeName}Gradients.current")
+                    appendLine(
+                        "val overrideGradients = currentGradients.copyAttrs(${
+                            getSubThemeGradientsValName(
+                                subTheme,
+                            )
+                        })",
+                    )
                 }
                 appendLine("$themeKtClassName(")
-                if (overrideColors) appendLine("colors = colors,")
-                if (overrideGradient) appendLine("gradients = gradients,")
+                if (overrideColors) appendLine("colors = overrideColors,")
+                if (overrideGradients) appendLine("gradients = overrideGradients,")
                 appendLine("content = content,")
                 appendLine(")")
             }
