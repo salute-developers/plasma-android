@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.interactions.getValue
@@ -81,10 +82,10 @@ fun Toast(
             endPadding = dimensions.paddingEnd,
         ),
         labelStyle = style.textStyle,
-        colorsSet = BaseIconText.Colors(
-            labelColor = colors.textColor,
-            startContentColor = colors.contentStartColor,
-            endContentColor = colors.contentEndColor,
+        colorsSet = BaseIconText.Brushes(
+            labelBrush = SolidColor(colors.textColor.colorForInteraction(interactionSource)),
+            startContentBrush = SolidColor(colors.contentStartColor.colorForInteraction(interactionSource)),
+            endContentBrush = SolidColor(colors.contentEndColor.colorForInteraction(interactionSource)),
         ),
         startContent = contentStart,
         endContent = contentEnd,

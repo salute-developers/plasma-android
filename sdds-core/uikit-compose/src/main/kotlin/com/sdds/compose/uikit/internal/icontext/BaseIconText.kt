@@ -11,7 +11,9 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -28,7 +30,7 @@ import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.LocalIconDefaultSize
-import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveColor
@@ -47,7 +49,7 @@ import com.sdds.compose.uikit.interactions.getValueAsState
 internal fun BaseIconText(
     modifier: Modifier = Modifier,
     dimensionsSet: BaseIconText.Dimensions,
-    colorsSet: BaseIconText.Colors,
+    colorsSet: BaseIconText.Brushes,
     labelContent: String = "",
     labelStyle: TextStyle,
     startContent: (@Composable () -> Unit)? = null,
@@ -64,13 +66,13 @@ internal fun BaseIconText(
             ),
         measurePolicy = measurePolicy,
         content = {
-            val contentColor = colorsSet.contentColor.colorForInteraction(interactionSource)
+            val contentColor = colorsSet.contentBrush
             val startContentColor =
-                colorsSet.startContentColor?.colorForInteraction(interactionSource) ?: contentColor
+                colorsSet.startContentBrush ?: contentColor
             val endContentColor =
-                colorsSet.endContentColor?.colorForInteraction(interactionSource) ?: contentColor
+                colorsSet.endContentBrush ?: contentColor
             val labelColor =
-                colorsSet.labelColor?.colorForInteraction(interactionSource) ?: contentColor
+                colorsSet.labelBrush ?: contentColor
             IconTextContent(
                 dimensions = dimensionsSet,
                 startContent = startContent,
@@ -94,7 +96,7 @@ internal fun BaseIconText(
 internal fun BaseIconText(
     modifier: Modifier = Modifier,
     dimensionsSet: BaseIconText.Dimensions,
-    colorsSet: BaseIconText.Colors,
+    colorsSet: BaseIconText.Brushes,
     labelStyle: TextStyle = TextStyle.Default,
     labelContent: (@Composable () -> Unit)? = null,
     startContent: (@Composable () -> Unit)? = null,
@@ -111,13 +113,13 @@ internal fun BaseIconText(
             ),
         measurePolicy = measurePolicy,
         content = {
-            val contentColor = colorsSet.contentColor.colorForInteraction(interactionSource)
+            val contentColor = colorsSet.contentBrush
             val startContentColor =
-                colorsSet.startContentColor?.colorForInteraction(interactionSource) ?: contentColor
+                colorsSet.startContentBrush ?: contentColor
             val endContentColor =
-                colorsSet.endContentColor?.colorForInteraction(interactionSource) ?: contentColor
+                colorsSet.endContentBrush ?: contentColor
             val labelColor =
-                colorsSet.labelColor?.colorForInteraction(interactionSource) ?: contentColor
+                colorsSet.labelBrush ?: contentColor
             IconTextContent(
                 dimensions = dimensionsSet,
                 startContent = startContent,
@@ -196,16 +198,16 @@ private class IconTextMeasurePolicy : MeasurePolicy {
 private fun IconTextContent(
     startContent: (@Composable () -> Unit)?,
     endContent: (@Composable () -> Unit)?,
-    startContentColor: Color,
-    endContentColor: Color,
-    labelColor: Color,
+    startContentColor: Brush,
+    endContentColor: Brush,
+    labelColor: Brush,
     label: String,
     labelStyle: TextStyle,
     dimensions: BaseIconText.Dimensions,
 ) {
     startContent?.let {
         CompositionLocalProvider(
-            LocalTint provides startContentColor,
+            LocalTintBrushProducer provides { startContentColor },
         ) {
             val startSpacing = remember(label, dimensions) {
                 dimensions.startContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
@@ -225,14 +227,14 @@ private fun IconTextContent(
         Text(
             modifier = Modifier.layoutId(TEXT_CONTENT),
             text = label,
-            style = labelStyle.copy(color = labelColor),
+            style = labelStyle.copy(brush = labelColor),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )
     }
     endContent?.let {
         CompositionLocalProvider(
-            LocalTint provides endContentColor,
+            LocalTintBrushProducer provides { endContentColor },
         ) {
             val endSpacing = remember(label, dimensions) {
                 dimensions.endContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
@@ -254,16 +256,16 @@ private fun IconTextContent(
 private fun IconTextContent(
     startContent: (@Composable () -> Unit)?,
     endContent: (@Composable () -> Unit)?,
-    startContentColor: Color,
-    endContentColor: Color,
-    labelColor: Color,
+    startContentColor: Brush,
+    endContentColor: Brush,
+    labelColor: Brush,
     labelStyle: TextStyle,
     labelContent: (@Composable () -> Unit)?,
     dimensions: BaseIconText.Dimensions,
 ) {
     startContent?.let {
         CompositionLocalProvider(
-            LocalTint provides startContentColor,
+            LocalTintBrushProducer provides { startContentColor },
             LocalIconDefaultSize provides dimensions.startContentSize.let { DpSize(it, it) },
         ) {
             Box(
@@ -276,7 +278,7 @@ private fun IconTextContent(
         }
     }
     labelContent?.let {
-        ProvideTextStyle(labelStyle, color = { labelColor }) {
+        ProvideTextStyle(labelStyle, brush = { labelColor }) {
             Box(
                 modifier = Modifier
                     .layoutId(TEXT_CONTENT),
@@ -285,7 +287,7 @@ private fun IconTextContent(
     }
     endContent?.let {
         CompositionLocalProvider(
-            LocalTint provides endContentColor,
+            LocalTintBrushProducer provides { endContentColor },
             LocalIconDefaultSize provides dimensions.endContentSize.let { DpSize(it, it) },
         ) {
             Box(
@@ -359,6 +361,22 @@ internal object BaseIconText {
         val labelColor: InteractiveColor? = contentColor,
         val startContentColor: InteractiveColor? = contentColor,
         val endContentColor: InteractiveColor? = contentColor,
+    )
+
+    /**
+     * Кисти, которые используются внутри компонента.
+     *
+     * @property contentBrush кисть контента
+     * @property labelBrush кисть текста
+     * @property startContentBrush кисть контента в начале компонента
+     * @property endContentBrush кисть контента в конце компонента
+     */
+    @Immutable
+    data class Brushes(
+        val contentBrush: Brush = SolidColor(Color.Black),
+        val labelBrush: Brush? = contentBrush,
+        val startContentBrush: Brush? = contentBrush,
+        val endContentBrush: Brush? = contentBrush,
     )
 }
 

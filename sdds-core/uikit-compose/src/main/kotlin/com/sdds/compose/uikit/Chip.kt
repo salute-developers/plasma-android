@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.Indication
+import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.runtime.Composable
@@ -42,7 +43,7 @@ fun Chip(
     val isFocused = interactionSource.collectIsFocusedAsState()
     val labelStyle = style.labelStyle
     val dimensionsSet = style.dimensions.toDimensionsSet()
-    val colorsSet = style.colors.toColorsSet()
+    val colorsSet = style.colors.toColorsSet(interactionSource)
     val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
     BaseIconText(
         modifier = modifier
@@ -100,7 +101,7 @@ fun Chip(
     val isFocused = interactionSource.collectIsFocusedAsState()
     val labelStyle = style.labelStyle
     val dimensionsSet = style.dimensions.toDimensionsSet()
-    val colorsSet = style.colors.toColorsSet()
+    val colorsSet = style.colors.toColorsSet(interactionSource)
     val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
     BaseIconText(
         modifier = modifier
@@ -142,12 +143,15 @@ internal fun ChipDimensions.toDimensionsSet(): BaseIconText.Dimensions {
     )
 }
 
-internal fun ChipColors.toColorsSet(): BaseIconText.Colors {
-    return BaseIconText.Colors(
-        contentColor = this.contentColor,
-        labelColor = this.labelColor,
-        startContentColor = this.contentStartColor,
-        endContentColor = this.contentEndColor,
+@Composable
+internal fun ChipColors.toColorsSet(
+    interactionSource: InteractionSource,
+): BaseIconText.Brushes {
+    return BaseIconText.Brushes(
+        contentBrush = SolidColor(this.contentColor.colorForInteraction(interactionSource)),
+        labelBrush = SolidColor(this.labelColor.colorForInteraction(interactionSource)),
+        startContentBrush = SolidColor(this.contentStartColor.colorForInteraction(interactionSource)),
+        endContentBrush = SolidColor(this.contentEndColor.colorForInteraction(interactionSource)),
     )
 }
 
