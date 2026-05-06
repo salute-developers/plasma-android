@@ -3,6 +3,10 @@ import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
 import utils.withVersionCatalogs
 
+plugins {
+    id("org.jetbrains.kotlin.plugin.compose")
+}
+
 val extension = app() ?: lib() ?: throwApplyException()
 extension.configureCompose()
 
@@ -20,7 +24,6 @@ fun throwApplyException(): Nothing =
 
 fun CommonExtension<*, *, *, *, *, *>.configureCompose() = withVersionCatalogs {
     buildFeatures.compose = true
-    composeOptions.kotlinCompilerExtensionVersion = versions.androidX.compose.compiler.get()
 
     dependencies {
         // Эта зависимость в обязательном порядке нужна компилятору Compose по этому есть смысл
