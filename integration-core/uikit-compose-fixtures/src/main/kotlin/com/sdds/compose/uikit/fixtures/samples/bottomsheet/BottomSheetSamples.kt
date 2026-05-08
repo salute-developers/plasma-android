@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -282,6 +283,7 @@ fun ModalBottomSheet_Insets() {
 
                 TextField(
                     modifier = Modifier
+                        .heightIn(min = 50.dp, max = 100.dp)
                         .fillMaxWidth(),
                     value = "",
                     placeholderText = "Введите значение",
