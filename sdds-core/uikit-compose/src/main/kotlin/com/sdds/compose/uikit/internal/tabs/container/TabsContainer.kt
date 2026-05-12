@@ -37,8 +37,10 @@ internal fun TabsContainer(
     onTabClicked: ((Int) -> Unit)? = null,
     clip: TabsClip = TabsClip.None,
     spacingDp: Dp,
+    minSpacingDp: Dp,
     spacingPx: Int,
     canStretch: Boolean = false,
+    stretchForScroll: Boolean = false,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     scrollState: ScrollState = rememberScrollState(),
     indicatorEnabled: Boolean = style.indicatorEnabled,
@@ -50,6 +52,7 @@ internal fun TabsContainer(
     dropdownTriggerInfo: MutableState<TriggerInfo>,
     onDisclosureClick: () -> Unit,
     onOverflowTab: ((Int) -> Unit)? = null,
+    onScrollControlsVisibilityChange: ((Boolean) -> Unit)? = null,
 ) {
     if (tabs.isEmpty()) return
 
@@ -63,7 +66,9 @@ internal fun TabsContainer(
                 onTabClicked = onTabClicked,
                 clip = clip,
                 spacingDp = spacingDp,
+                minSpacingDp = minSpacingDp,
                 canStretch = canStretch,
+                stretchForScroll = stretchForScroll,
                 scrollState = scrollState,
                 indicatorEnabled = indicatorEnabled,
                 interactionSource = interactionSource,
@@ -73,16 +78,20 @@ internal fun TabsContainer(
                 dropdownTriggerInfo = dropdownTriggerInfo,
                 onDisclosureClick = onDisclosureClick,
                 onOverflowTab = onOverflowTab,
+                onScrollControlsVisibilityChange = onScrollControlsVisibilityChange,
             )
 
             TabsOrientation.Vertical -> VerticalTabsContainer(
                 style = style,
                 enabled = enabled,
                 onTabClicked = onTabClicked,
+                selectedTabOffset = selectedTabOffset,
                 selectedTabIndexProvider = selectedTabIndexProvider,
                 clip = clip,
                 spacingDp = spacingDp,
+                minSpacingDp = minSpacingDp,
                 canStretch = canStretch,
+                stretchForScroll = stretchForScroll,
                 scrollState = scrollState,
                 indicatorEnabled = indicatorEnabled,
                 interactionSource = interactionSource,
@@ -92,6 +101,7 @@ internal fun TabsContainer(
                 dropdownTriggerInfo = dropdownTriggerInfo,
                 onDisclosureClick = onDisclosureClick,
                 onOverflowTab = onOverflowTab,
+                onScrollControlsVisibilityChange = onScrollControlsVisibilityChange,
             )
         }
     }

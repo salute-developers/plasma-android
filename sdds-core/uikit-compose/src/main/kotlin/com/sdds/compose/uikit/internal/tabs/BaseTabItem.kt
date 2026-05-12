@@ -68,13 +68,14 @@ internal fun BaseTabItem(
         Modifier
     }
     Row(
-        modifier = modifier
+        modifier = Modifier
             .defaultMinSize(
                 minHeight = style.dimensions.minHeight,
                 minWidth = style.dimensions.minWidth,
             )
             .selection(isSelected, motion.context.interactionSource)
             .then(clickableModifier)
+            .then(modifier)
             .backgroundBrush(
                 brushProducer = { backgroundColor.value },
                 shape = style.shape,
