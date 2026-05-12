@@ -110,6 +110,7 @@ object TabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
                         modifier = Modifier.combinedClickable(
                             interactionSource = tabMotion.context.interactionSource,
                             indication = null,
+                            enabled = state.enabled,
                             onClick = {
                                 scope.launch {
                                     pagerState.animateScrollToPage(
