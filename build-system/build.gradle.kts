@@ -16,6 +16,7 @@ buildscript {
         classpath(libs.base.gradle.kotlin)
         classpath(libs.base.gradle.nexusPublish)
         classpath(libs.base.dokka.graddle)
+        classpath(libs.base.dokka.analysis)
         classpath(libs.base.kotlin.ksp)
         classpath(libs.base.gradle.compose)
     }

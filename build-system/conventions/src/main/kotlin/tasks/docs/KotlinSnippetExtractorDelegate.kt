@@ -1,202 +1,229 @@
 package tasks.docs
 
 import org.gradle.api.Project
+import org.jetbrains.kotlin.psi.KtAnnotationEntry
+import org.jetbrains.kotlin.psi.KtCallExpression
+import org.jetbrains.kotlin.psi.KtNamedFunction
+import org.jetbrains.kotlin.psi.KtPsiFactory
+import org.jetbrains.kotlin.psi.KtStringTemplateExpression
+import org.jetbrains.kotlin.psi.psiUtil.collectDescendantsOfType
 import java.io.File
 
 internal class KotlinSnippetExtractorDelegate(
+    private val psiFactory: KtPsiFactory,
     private val snippetsDir: File,
     private val project: Project,
 ) {
-    // @DocSample("id")  or  @DocSample(id = "id")
-    private val docSampleRe = Regex(
-        """@DocSample\s*\(\s*(?:id\s*=\s*)?\"([^\"]+)\"\s*\)"""
-    )
-    private val snippetCallRe = Regex(
-        """(composableCodeSnippet|codeSnippet)\s*\{"""
-    )
-    private val packageRe = Regex("""^\s*package\s+([\w.]+)""", RegexOption.MULTILINE)
-    private val funRe     = Regex("""fun\s+(\w+)\s*\(""")
-
-    // ── public ────────────────────────────────────────────────────────────────
-
     fun extractFromFile(file: File): List<SampleMeta> {
         val text = file.readText()
-        val pkg  = packageRe.find(text)?.groupValues?.get(1) ?: ""
-        return extractSamples(text, pkg, file)
-    }
+        val ktFile = psiFactory.createFile(file.name, text)
 
-    // ── extraction ────────────────────────────────────────────────────────────
-
-    private fun extractSamples(text: String, pkg: String, file: File): List<SampleMeta> {
+        val pkg = ktFile.packageFqName.asString()
         val result = mutableListOf<SampleMeta>()
-        var pos = 0
 
-        while (pos < text.length) {
-            val annMatch = docSampleRe.find(text, pos) ?: break
-            val id = annMatch.groupValues[1]
-
-            val funMatch = funRe.find(text, annMatch.range.last + 1) ?: break
-            val funName  = funMatch.groupValues[1]
-            val fqName   = if (pkg.isBlank()) funName else "$pkg.$funName"
-
-            val bodyOpen = text.indexOf('{', funMatch.range.last)
-            if (bodyOpen == -1) { pos = annMatch.range.last + 1; continue }
-
-            val bodyClose = matchingBrace(text, bodyOpen)
-            if (bodyClose == -1) { pos = annMatch.range.last + 1; continue }
-
-            val funBody       = text.substring(bodyOpen + 1, bodyClose)
-            val funBodyOffset = bodyOpen + 1
-
-            val calls = findSnippetCalls(funBody, funBodyOffset)
-            if (calls.isEmpty()) { pos = bodyClose + 1; continue }
-
-            var hasComposable = false
-            var hasRegular    = false
-            var minStart      = Int.MAX_VALUE
-            var maxEnd        = Int.MIN_VALUE
-            val blocks        = mutableListOf<String>()
-
-            for (call in calls) {
-                when (call.type) {
-                    "composableCodeSnippet" -> hasComposable = true
-                    else                    -> hasRegular    = true
-                }
-                val callIndent  = indentBefore(text, call.callAbsStart)
-                val normalized  = normalizeIndent(call.lambdaBody, callIndent)
-                val replaced    = replacePlaceholders(normalized)
-                if (replaced.isNotBlank()) {
-                    blocks += replaced
-                    minStart = minOf(minStart, call.lambdaAbsRange.first)
-                    maxEnd   = maxOf(maxEnd,   call.lambdaAbsRange.last)
-                }
+        ktFile.declarations
+            .asSequence()
+            .filterIsInstance<KtNamedFunction>()
+            .forEach { fn ->
+                extractFromFunction(
+                    pkg = pkg,
+                    fn = fn,
+                    file = file,
+                    fileText = text,
+                )?.let(result::add)
             }
-
-            val snippet = blocks.filter { it.isNotBlank() }.joinToString("\n\n").trimEnd()
-            if (snippet.isBlank()) { pos = bodyClose + 1; continue }
-
-            val kind = when {
-                hasComposable && hasRegular -> "mixed"
-                hasComposable               -> "composable"
-                else                        -> "regular"
-            }
-
-            val relPath     = snippetRelPath(pkg, id)
-            val snippetFile = File(snippetsDir, relPath).also { it.parentFile.mkdirs() }
-            snippetFile.writeText(snippet + "\n")
-
-            result += SampleMeta(
-                id                  = id,
-                kind                = kind,
-                fqName              = fqName,
-                file                = project.relativePath(file),
-                snippetPath         = snippetFile.relativeTo(snippetsDir).path,
-                snippetStartOffset  = if (minStart == Int.MAX_VALUE) 0 else minStart,
-                snippetEndOffset    = if (maxEnd   == Int.MIN_VALUE) 0 else maxEnd,
-            )
-
-            pos = bodyClose + 1
-        }
 
         return result
     }
 
-    // ── snippet call finding ──────────────────────────────────────────────────
+    private fun extractFromFunction(
+        pkg: String,
+        fn: KtNamedFunction,
+        file: File,
+        fileText: String,
+    ): SampleMeta? {
+        val docAnn = findDocSampleAnnotation(fn) ?: return null
+        val id = readDocSampleId(docAnn) ?: fn.name ?: return null
+        val funName = fn.name ?: return null
+        val fqName = buildFqName(pkg, funName)
 
-    private data class SnippetCall(
-        val type:            String,
-        val lambdaBody:      String,
-        val lambdaAbsRange:  IntRange,
-        val callAbsStart:    Int,
-    )
+        val calls = collectSnippetCalls(fn)
+        if (calls.isEmpty()) return null
 
-    private fun findSnippetCalls(body: String, bodyAbsOffset: Int): List<SnippetCall> {
-        val result = mutableListOf<SnippetCall>()
-        var pos = 0
-        while (pos < body.length) {
-            val m = snippetCallRe.find(body, pos) ?: break
-            val braceOpen  = m.range.last          // the '{' captured by the regex
-            val braceClose = matchingBrace(body, braceOpen)
-            if (braceClose == -1) { pos = m.range.last + 1; continue }
+        val blocks = mutableListOf<String>()
+        var hasRegular = false
+        var hasComposable = false
+        var minStart = Int.MAX_VALUE
+        var maxEnd = Int.MIN_VALUE
 
-            result += SnippetCall(
-                type           = m.groupValues[1],
-                lambdaBody     = body.substring(braceOpen + 1, braceClose),
-                lambdaAbsRange = (bodyAbsOffset + braceOpen + 1)..(bodyAbsOffset + braceClose),
-                callAbsStart   = bodyAbsOffset + m.range.first,
-            )
-            pos = braceClose + 1
-        }
-        return result
-    }
-
-    // ── brace matching ────────────────────────────────────────────────────────
-
-    private fun matchingBrace(text: String, openPos: Int): Int {
-        var depth  = 0
-        var inStr  = false
-        var escape = false
-        var i      = openPos
-        while (i < text.length) {
-            when {
-                escape         -> escape = false
-                text[i] == '\\' && inStr -> escape = true
-                text[i] == '"'  -> inStr = !inStr
-                !inStr && text[i] == '{' -> depth++
-                !inStr && text[i] == '}' -> { if (--depth == 0) return i }
+        calls.forEach { call ->
+            when (call.calleeExpression?.text) {
+                "composableCodeSnippet" -> hasComposable = true
+                else -> hasRegular = true
             }
-            i++
-        }
-        return -1
-    }
 
-    // ── indent helpers ────────────────────────────────────────────────────────
-
-    private fun indentBefore(text: String, offset: Int): String {
-        val lineStart = text.lastIndexOf('\n', offset - 1).let { if (it == -1) 0 else it + 1 }
-        return text.substring(lineStart, offset).takeWhile { it == ' ' || it == '\t' }
-    }
-
-    private fun normalizeIndent(raw: String, callIndent: String): String {
-        val lines = raw.lines().dropWhile { it.isBlank() }.dropLastWhile { it.isBlank() }
-        if (lines.isEmpty()) return ""
-
-        // determine the indent level of the first content line inside the lambda
-        val firstContentIndent = lines.firstOrNull { it.isNotBlank() }
-            ?.takeWhile { it == ' ' || it == '\t' } ?: ""
-
-        val stripPrefix = if (callIndent.isNotEmpty() && firstContentIndent.startsWith(callIndent))
-            firstContentIndent          // callIndent + relative-lambda-indent
-        else
-            firstContentIndent
-
-        return lines.joinToString("\n") { line ->
-            val trimmed = line.trimEnd()
-            when {
-                stripPrefix.isNotEmpty() && trimmed.startsWith(stripPrefix) ->
-                    trimmed.removePrefix(stripPrefix)
-                callIndent.isNotEmpty() && trimmed.startsWith(callIndent) ->
-                    trimmed.removePrefix(callIndent)
-                else -> trimmed
+            extractNormalizedBlock(call, fileText)?.let { (block, range) ->
+                blocks += block
+                minStart = kotlin.math.min(minStart, range.startOffset)
+                maxEnd = kotlin.math.max(maxEnd, range.endOffset)
             }
         }
+
+        val normalizedSnippet = blocks
+            .filter { it.isNotBlank() }
+            .joinToString("\n\n")
+            .trimEnd()
+
+        if (normalizedSnippet.isBlank()) return null
+
+        val kind = when {
+            hasComposable && hasRegular -> "mixed"
+            hasComposable -> "composable"
+            else -> "regular"
+        }
+
+        val snippetStartOffset = if (minStart == Int.MAX_VALUE) 0 else minStart
+        val snippetEndOffset = if (maxEnd == Int.MIN_VALUE) 0 else maxEnd
+
+        val snippetRelPath = buildSnippetRelPath(pkg = pkg, id = id)
+        val snippetFile = File(snippetsDir, snippetRelPath)
+        snippetFile.parentFile.mkdirs()
+        snippetFile.writeText(normalizedSnippet + "\n")
+
+        return SampleMeta(
+            id = id,
+            kind = kind,
+            fqName = fqName,
+            file = project.relativePath(file),
+            snippetPath = snippetFile.relativeTo(snippetsDir).path,
+            snippetStartOffset = snippetStartOffset,
+            snippetEndOffset = snippetEndOffset,
+        )
     }
 
-    // ── placeholder replacement ───────────────────────────────────────────────
+    private fun findDocSampleAnnotation(fn: KtNamedFunction): KtAnnotationEntry? {
+        return fn.annotationEntries.firstOrNull { it.shortName?.asString() == "DocSample" }
+    }
 
-    private val placeholderRe =
-        Regex("""placeholder\s*\(\s*[^,]+,\s*"([^"\\]*(?:\\.[^"\\]*)*)"\s*\)""")
+    private fun collectSnippetCalls(fn: KtNamedFunction): List<KtCallExpression> {
+        return fn.bodyBlockExpression
+            ?.statements
+            ?.asSequence()
+            ?.flatMap { it.collectDescendantsOfType<KtCallExpression>().asSequence() }
+            ?.filter {
+                val callee = it.calleeExpression?.text
+                callee == "codeSnippet" || callee == "composableCodeSnippet"
+            }
+            ?.toList()
+            .orEmpty()
+    }
 
-    private fun replacePlaceholders(snippet: String): String =
-        snippet.replace(placeholderRe) { it.groupValues[1].trim() }
+    private fun extractNormalizedBlock(
+        call: KtCallExpression,
+        fileText: String,
+    ): Pair<String, org.jetbrains.kotlin.com.intellij.openapi.util.TextRange>? {
+        val lambda = call.lambdaArguments.firstOrNull()?.getLambdaExpression() ?: return null
+        val body = lambda.bodyExpression ?: return null
+        val range = body.textRange
 
-    // ── path helpers ──────────────────────────────────────────────────────────
+        val rawSnippet = fileText.substring(range.startOffset, range.endOffset)
+        val callIndentPrefix = computeCallIndentPrefix(call, fileText)
+        val lambdaIndentRelative = computeLambdaIndentRelative(callIndentPrefix, range, fileText)
 
-    private fun snippetRelPath(pkg: String, id: String): String {
-        fun sanitize(s: String) = s.trim().replace(Regex("[^A-Za-z0-9_.-]"), "_")
-        val safeId  = sanitize(id)
+        val normalized = normalizeIndent(rawSnippet, callIndentPrefix, lambdaIndentRelative)
+        val replaced = replacePlaceholderCalls(normalized)
+
+        return replaced to range
+    }
+
+    private fun computeCallIndentPrefix(call: KtCallExpression, fileText: String): String {
+        val callStart = call.textRange.startOffset
+        val lineStart = fileText.lastIndexOf('\n', startIndex = callStart).let { if (it == -1) 0 else it + 1 }
+        val beforeCall = fileText.substring(lineStart, callStart)
+        return beforeCall.takeWhile { it == ' ' || it == '\t' }
+    }
+
+    private fun computeLambdaIndentRelative(
+        callIndentPrefix: String,
+        bodyRange: org.jetbrains.kotlin.com.intellij.openapi.util.TextRange,
+        fileText: String,
+    ): String {
+        val bodyStart = bodyRange.startOffset
+        val lineStart = fileText.lastIndexOf('\n', startIndex = bodyStart).let { if (it == -1) 0 else it + 1 }
+        val beforeBody = fileText.substring(lineStart, bodyStart)
+        val lambdaBodyIndentPrefix = beforeBody.takeWhile { it == ' ' || it == '\t' }
+
+        return if (callIndentPrefix.isNotEmpty() && lambdaBodyIndentPrefix.startsWith(callIndentPrefix)) {
+            lambdaBodyIndentPrefix.removePrefix(callIndentPrefix)
+        } else {
+            lambdaBodyIndentPrefix
+        }
+    }
+
+    private fun normalizeIndent(
+        rawSnippet: String,
+        callIndentPrefix: String,
+        lambdaIndentRelative: String,
+    ): String {
+        return rawSnippet
+            .lines()
+            .dropWhile { it.isBlank() }
+            .dropLastWhile { it.isBlank() }
+            .map { line ->
+                var s = line.trimEnd()
+
+                // 1) Shift by the indentation of the call-site.
+                if (callIndentPrefix.isNotEmpty() && s.startsWith(callIndentPrefix)) {
+                    s = s.removePrefix(callIndentPrefix)
+                }
+
+                // 2) Shift by the indentation level inside the lambda (relative to the call-site indent).
+                if (lambdaIndentRelative.isNotEmpty() && s.startsWith(lambdaIndentRelative)) {
+                    s = s.removePrefix(lambdaIndentRelative)
+                }
+
+                s
+            }
+            .joinToString("\n")
+    }
+
+    private fun replacePlaceholderCalls(snippet: String): String {
+        val re = "placeholder\\s*\\(\\s*[^,]+,\\s*\"([^\"\\\\]*(?:\\\\.[^\"\\\\]*)*)\"\\s*\\)".toRegex()
+        return snippet.replace(re) { m -> m.groupValues[1].trim() }
+    }
+
+    private fun readDocSampleId(ann: KtAnnotationEntry): String? {
+        // @DocSample(id = "x") or @DocSample("x")
+        val args = ann.valueArguments
+        if (args.isEmpty()) return null
+
+        // Named id=
+        val named = args.firstOrNull { it.getArgumentName()?.asName?.asString() == "id" }
+        val arg = named ?: args.first()
+
+        val expr = arg.getArgumentExpression() as? KtStringTemplateExpression ?: return null
+        // Support only literal strings in MVP
+        return expr.entries.joinToString("") { it.text }.trim('"')
+    }
+
+    private fun buildFqName(pkg: String, funName: String): String =
+        if (pkg.isBlank()) funName else "$pkg.$funName"
+
+    private fun buildSnippetRelPath(pkg: String, id: String): String {
+        fun sanitizeSegment(s: String): String = s
+            .trim()
+            .replace(Regex("[^A-Za-z0-9_.-]"), "_")
+
+        val safeId = sanitizeSegment(id)
         val pkgPath = pkg.takeIf { it.isNotBlank() }
-            ?.split('.')?.joinToString(File.separator) { sanitize(it) } ?: ""
-        return if (pkgPath.isBlank()) "$safeId.kt" else "$pkgPath${File.separator}$safeId.kt"
+            ?.split('.')
+            ?.joinToString(File.separator) { sanitizeSegment(it) }
+            ?: ""
+
+        return if (pkgPath.isBlank()) {
+            "$safeId.kt"
+        } else {
+            pkgPath + File.separator + "$safeId.kt"
+        }
     }
 }
