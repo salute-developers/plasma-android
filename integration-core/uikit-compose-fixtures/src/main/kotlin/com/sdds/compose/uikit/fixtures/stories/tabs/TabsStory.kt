@@ -199,6 +199,7 @@ object IconTabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
                         },
                         counter = counter(state, tabMotion.context),
                         action = actionIconContent(state, style),
+                        enabled = state.enabled,
                         content = {
                             Icon(
                                 source = resourceImageSource(R.drawable.ic_plasma_24),
