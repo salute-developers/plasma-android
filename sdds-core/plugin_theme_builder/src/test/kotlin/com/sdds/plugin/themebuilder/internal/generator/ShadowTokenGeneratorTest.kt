@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -100,20 +101,22 @@ class ShadowTokenGeneratorTest {
 
     private companion object {
         val shadowTokenValues = mapOf(
-            "down.hard.l" to listOf(
-                ShadowTokenValue(
-                    color = "#00000099",
-                    offsetX = 1.0f,
-                    offsetY = 1.0f,
-                    spreadRadius = 1.0f,
-                    blurRadius = 1.0f,
-                ),
-                ShadowTokenValue(
-                    color = "[general.black.1000]",
-                    offsetX = 1.0f,
-                    offsetY = 1.0f,
-                    spreadRadius = 1.0f,
-                    blurRadius = 1.0f,
+            Tenant.Default to mapOf(
+                "down.hard.l" to listOf(
+                    ShadowTokenValue(
+                        color = "#00000099",
+                        offsetX = 1.0f,
+                        offsetY = 1.0f,
+                        spreadRadius = 1.0f,
+                        blurRadius = 1.0f,
+                    ),
+                    ShadowTokenValue(
+                        color = "[general.black.1000]",
+                        offsetX = 1.0f,
+                        offsetY = 1.0f,
+                        spreadRadius = 1.0f,
+                        blurRadius = 1.0f,
+                    ),
                 ),
             ),
         )

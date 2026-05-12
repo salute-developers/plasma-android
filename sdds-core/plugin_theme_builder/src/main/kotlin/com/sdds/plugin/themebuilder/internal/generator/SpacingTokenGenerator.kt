@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.SpacingTokenResult
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.SpacingToken
 import com.sdds.plugin.themebuilder.internal.token.SpacingTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
@@ -22,7 +23,6 @@ import java.io.File
 /**
  * Генератор токенов отступов
  * @param outputLocation локация для сохранения kt-файла с токенами
- * @param outputResDir директория для сохранения xml-файла с токенами
  * @param target целевой фреймворк
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
  * @param dimensAggregator агрегатор размеров
@@ -37,22 +37,29 @@ internal class SpacingTokenGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val dimensAggregator: DimensAggregator,
     private val resourceReferenceProvider: ResourceReferenceProvider,
-    private val spacingTokenValues: Map<String, SpacingTokenValue>,
+    private val spacingTokenValues: Map<Tenant, Map<String, SpacingTokenValue>>,
     private val dimensionsConfig: DimensionsConfig,
     namespace: String,
 ) : TokenGenerator<SpacingToken, SpacingTokenResult>(target) {
 
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(SPACING_TOKENS_NAME) }
-    private val rootSpacings by unsafeLazy { ktFileBuilder.rootObject(SPACING_TOKENS_NAME, SPACING_TOKENS_DESC) }
+    private val rootSpacings =
+        mutableMapOf(
+            Tenant.Default to ktFileBuilder.rootObject(
+                SPACING_TOKENS_NAME,
+                SPACING_TOKENS_DESC,
+            ),
+        )
     private val rFileImport = ClassName(namespace, "R")
 
-    private val composeTokenDataCollector =
-        mutableListOf<SpacingTokenResult.TokenData>()
+    private val composeTokenDataCollectors =
+        mutableMapOf(Tenant.Default to mutableListOf<SpacingTokenResult.TokenData>())
+
     private val viewTokenDataCollector =
         mutableListOf<SpacingTokenResult.TokenData>()
 
     override fun collectResult() = SpacingTokenResult(
-        composeTokens = composeTokenDataCollector,
+        composeTokens = composeTokenDataCollectors,
         viewTokens = viewTokenDataCollector,
     )
 
@@ -73,7 +80,7 @@ internal class SpacingTokenGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: SpacingToken): Boolean {
-        val tokenValue = spacingTokenValues[token.name]
+        val tokenValue = spacingTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for spacing token ${token.name}. " +
                     "It should be in android_spacing.json.",
@@ -98,28 +105,43 @@ internal class SpacingTokenGenerator(
     /**
      * @see TokenGenerator.addComposeToken
      */
-    override fun addComposeToken(token: SpacingToken): Boolean = with(ktFileBuilder) {
-        val tokenValue = spacingTokenValues[token.name]
+    override fun addComposeToken(token: SpacingToken): Boolean {
+        spacingTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for spacing token ${token.name}. " +
                     "It should be in android_spacing.json.",
             )
-        SpacingTokenValidator.validate(tokenValue, token.name)
-
-        if (dimensionsConfig.fromResources) {
-            rootSpacings.addSpacingTokenWithResources(token, tokenValue)
-        } else {
-            rootSpacings.addSpacingToken(token, tokenValue)
+        spacingTokenValues.forEach { (tenant, values) ->
+            val tokenValue = values[token.name]
+            if (tokenValue != null) {
+                SpacingTokenValidator.validate(tokenValue, token.name)
+                val rootSpacingObject = rootSpacings.getOrPut(tenant) {
+                    ktFileBuilder.rootObject(
+                        "${SPACING_TOKENS_NAME}${tenant.name}",
+                        SPACING_TOKENS_DESC,
+                    )
+                }
+                if (dimensionsConfig.fromResources) {
+                    rootSpacingObject.addSpacingTokenWithResources(token, tokenValue, tenant)
+                } else {
+                    rootSpacingObject.addSpacingToken(token, tokenValue)
+                }
+                val decapitalizedName = token.ktName.decapitalized()
+                val composeTokenDataCollector = composeTokenDataCollectors.getOrPut(tenant) {
+                    mutableListOf()
+                }
+                composeTokenDataCollector.add(
+                    SpacingTokenResult.TokenData(
+                        attrName = decapitalizedName,
+                        tokenRefName = decapitalizedName,
+                        description = token.description,
+                        tokenObjectName = "${SPACING_TOKENS_NAME}${tenant.name}",
+                    ),
+                )
+            }
         }
-        val decapitalizedName = token.ktName.decapitalized()
-        composeTokenDataCollector.add(
-            SpacingTokenResult.TokenData(
-                attrName = decapitalizedName,
-                tokenRefName = decapitalizedName,
-                description = token.description,
-            ),
-        )
-        return@with true
+
+        return true
     }
 
     private fun TypeSpec.Builder.addSpacingToken(
@@ -139,9 +161,15 @@ internal class SpacingTokenGenerator(
     private fun TypeSpec.Builder.addSpacingTokenWithResources(
         token: SpacingToken,
         value: SpacingTokenValue,
+        tenant: Tenant,
     ) = with(ktFileBuilder) {
+        val tenantSuffix = if (tenant == Tenant.Default) {
+            ""
+        } else {
+            "_${tenant.name.lowercase()}"
+        }
         val dimenValue = DimenData(
-            name = token.xmlName,
+            name = "${token.xmlName}$tenantSuffix",
             value = value.value,
             type = DimenData.Type.DP,
         )

@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.ShapeTokenGenerator.Companion.ROUND_SHAPE_TOKENS_NAME
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 
@@ -29,7 +30,7 @@ internal class ComposeShapeAttributeGenerator(
     private val dimensionsConfig: DimensionsConfig,
     private val packageResolver: PackageResolver,
 ) : SimpleBaseGenerator {
-    private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
+    private val shapes = mutableMapOf<Tenant, List<ShapeTokenResult.TokenData>>()
 
     private val shapeKtFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(shapeClassName, TargetPackage.THEME)
@@ -41,17 +42,18 @@ internal class ComposeShapeAttributeGenerator(
         shapeKtFileBuilder.getInternalClassType(shapeClassName)
     }
 
-    fun setShapeTokenData(shapes: List<ShapeTokenResult.TokenData>) {
+    fun setShapeTokenData(shapes: Map<Tenant, List<ShapeTokenResult.TokenData>>) {
         this.shapes.clear()
-        this.shapes.addAll(shapes)
+        this.shapes.putAll(shapes)
     }
 
     override fun generate() {
         if (shapes.isEmpty()) return
+        val defaultShapes = shapes[Tenant.Default] ?: return
 
         addImports()
         addShapeClassFactoryFun()
-        addShapesClass(shapes)
+        addShapesClass(defaultShapes)
         addLocalShapesVal()
 
         shapeKtFileBuilder.build(outputLocation)
@@ -103,32 +105,41 @@ internal class ComposeShapeAttributeGenerator(
                 ),
             )
             addImport(KtFileBuilder.TypeRoundRectShape)
-            addImport(
-                getInternalClassType(
-                    className = ROUND_SHAPE_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
+            shapes.keys.forEach { tenant ->
+                addImport(
+                    getInternalClassType(
+                        className = "${ROUND_SHAPE_TOKENS_NAME}${tenant.name}",
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
         }
     }
 
     private fun addShapeClassFactoryFun() = with(shapeKtFileBuilder) {
-        appendRootFun(
-            name = "default$shapeClassName",
-            returnType = shapeClassType,
-            body = listOf(
-                KtFileBuilder.createConstructorCall(
-                    constructorName = shapeClassName,
-                    initializers = shapes.map {
-                        "${it.attrName} = RoundShapeTokens.${it.tokenRefName}"
-                    }.toTypedArray(),
-                ).let { "return $it" },
-            ),
-            description = "Возвращает [$shapeClassName]",
-            annotations = listOf(
-                KtFileBuilder.TypeAnnotationComposable,
-                KtFileBuilder.TypeAnnotationReadOnlyComposable,
-            ).takeIf { dimensionsConfig.fromResources },
-        )
+        val defaultShapes = shapes[Tenant.Default] ?: return
+        shapes.forEach { (tenant, data) ->
+            val shapeList = (defaultShapes + data)
+                .associateBy { it.attrName }
+                .values
+                .toList()
+            appendRootFun(
+                name = "default$shapeClassName${tenant.name}",
+                returnType = shapeClassType,
+                body = listOf(
+                    KtFileBuilder.createConstructorCall(
+                        constructorName = shapeClassName,
+                        initializers = shapeList.map {
+                            "${it.attrName} = ${it.tokenObjectName}.${it.tokenRefName}"
+                        }.toTypedArray(),
+                    ).let { "return $it" },
+                ),
+                description = "Возвращает [$shapeClassName]",
+                annotations = listOf(
+                    KtFileBuilder.TypeAnnotationComposable,
+                    KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                ).takeIf { dimensionsConfig.fromResources },
+            )
+        }
     }
 }

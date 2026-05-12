@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorsXmlFile
@@ -89,8 +90,10 @@ class ColorTokenGeneratorTest {
 
     private companion object {
         val colorTokenValues = mapOf(
-            "dark.on-light.surface.transparent-accent" to "#FFFFFF1F",
-            "dark.surface.transparent-accent" to "[general.green.1000]",
+            Tenant.Default to mapOf(
+                "dark.on-light.surface.transparent-accent" to "#FFFFFF1F",
+                "dark.surface.transparent-accent" to "[general.green.1000]",
+            ),
         )
         val palette = mapOf(
             "green" to mapOf("1000" to "#EEEEEE1F"),

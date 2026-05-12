@@ -17,19 +17,22 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.TypographyInfo
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.textAppearancesXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.typographyXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.decapitalized
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.TypographyTokenValidator
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
-import java.util.Locale
+import kotlin.collections.component1
+import kotlin.collections.component2
 
 /**
  * Генерирует токены типографики.
@@ -59,7 +62,7 @@ internal class TypographyTokenGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
-    private val typographyTokenValues: Map<String, TypographyTokenValue>,
+    private val typographyTokenValues: Map<Tenant, Map<String, TypographyTokenValue>>,
     private val fontsAggregator: FontsAggregator,
     private val dimensionsConfig: DimensionsConfig,
     namespace: String,
@@ -74,23 +77,38 @@ internal class TypographyTokenGenerator(
         ktFileBuilderFactory.create("TypographyTokens")
             .apply { this.addSuppressAnnotation("DEPRECATION") }
     }
-    private val largeBuilder by unsafeLazy {
-        ktFileBuilder.rootObject(TYPOGRAPHY_LARGE_TOKENS_NAME, TYPOGRAPHY_LARGE_TOKENS_DESC)
+    private val largeBuilders by unsafeLazy {
+        mutableMapOf(
+            Tenant.Default to ktFileBuilder.rootObject(
+                TYPOGRAPHY_LARGE_TOKENS_NAME,
+                TYPOGRAPHY_LARGE_TOKENS_DESC,
+            ),
+        )
     }
-    private val mediumBuilder by unsafeLazy {
-        ktFileBuilder.rootObject(TYPOGRAPHY_MEDIUM_TOKENS_NAME, TYPOGRAPHY_MEDIUM_TOKENS_DESC)
+    private val mediumBuilders by unsafeLazy {
+        mutableMapOf(
+            Tenant.Default to ktFileBuilder.rootObject(
+                TYPOGRAPHY_MEDIUM_TOKENS_NAME,
+                TYPOGRAPHY_MEDIUM_TOKENS_DESC,
+            ),
+        )
     }
-    private val smallBuilder by unsafeLazy {
-        ktFileBuilder.rootObject(TYPOGRAPHY_SMALL_TOKENS_NAME, TYPOGRAPHY_SMALL_TOKENS_DESC)
+    private val smallBuilders by unsafeLazy {
+        mutableMapOf(
+            Tenant.Default to ktFileBuilder.rootObject(
+                TYPOGRAPHY_SMALL_TOKENS_NAME,
+                TYPOGRAPHY_SMALL_TOKENS_DESC,
+            ),
+        )
     }
     private val defaultValuesBuilder by unsafeLazy {
         ktFileBuilder.rootObject(DEFAULTS_NAME, modifiers = PrivateModifier)
     }
     private var needDeclareStyle: Boolean = true
 
-    private val composeSmallTokenDataCollector = mutableMapOf<String, TypographyInfo>()
-    private val composeMediumTokenDataCollector = mutableMapOf<String, TypographyInfo>()
-    private val composeLargeTokenDataCollector = mutableMapOf<String, TypographyInfo>()
+    private val composeSmallTokenDataCollectors = mutableMapOf<Tenant, MutableMap<String, TypographyInfo>>()
+    private val composeMediumTokenDataCollectors = mutableMapOf<Tenant, MutableMap<String, TypographyInfo>>()
+    private val composeLargeTokenDataCollectors = mutableMapOf<Tenant, MutableMap<String, TypographyInfo>>()
 
     private val viewTokenDataCollector = mutableMapOf<String, TypographyInfo>()
 
@@ -100,11 +118,13 @@ internal class TypographyTokenGenerator(
     private val rFileImport = ClassName(namespace, "R")
 
     override fun collectResult() = TypographyTokenResult(
-        composeTokens = TypographyTokenResult.ComposeTokenData(
-            small = composeSmallTokenDataCollector,
-            medium = composeMediumTokenDataCollector,
-            large = composeLargeTokenDataCollector,
-        ),
+        composeTokens = typographyTokenValues.mapValues {
+            TypographyTokenResult.ComposeTokenData(
+                composeSmallTokenDataCollectors[it.key] ?: emptyMap(),
+                composeMediumTokenDataCollectors[it.key] ?: emptyMap(),
+                composeLargeTokenDataCollectors[it.key] ?: emptyMap(),
+            )
+        },
         viewTokens = TypographyTokenResult.ViewTokenData(
             attrs = viewTokenDataCollector,
         ),
@@ -165,51 +185,83 @@ internal class TypographyTokenGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: TypographyToken): Boolean {
-        val tokenValue = typographyTokenValues[token.name]
+        typographyTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for typography token ${token.name}. " +
                     "It should be in android_typography.json.",
             )
-        TypographyTokenValidator.validate(tokenValue, token.name)
-        val attrName = token.ktName.decapitalize(Locale.getDefault())
-        when (token.screenClass) {
-            ScreenClass.SMALL -> {
-                smallBuilder.addTypographyToken(
-                    token,
-                    token.description,
-                    tokenValue,
-                )
-                val tokenRef = "$TYPOGRAPHY_SMALL_TOKENS_NAME.${token.ktName}"
-                composeSmallTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
-            }
+        typographyTokenValues.forEach { (tenant, values) ->
+            val tokenValue = values[token.name]
+            if (tokenValue != null) {
+                TypographyTokenValidator.validate(tokenValue, token.name)
+                val attrName = token.ktName.decapitalized()
+                val composeSmallTokenDataCollector = composeSmallTokenDataCollectors.getOrPut(tenant) { mutableMapOf() }
+                val composeMediumTokenDataCollector = composeMediumTokenDataCollectors.getOrPut(
+                    tenant,
+                ) { mutableMapOf() }
+                val composeLargeTokenDataCollector = composeLargeTokenDataCollectors.getOrPut(tenant) { mutableMapOf() }
+                when (token.screenClass) {
+                    ScreenClass.SMALL -> {
+                        val smallBuilder = smallBuilders.getOrPut(tenant) {
+                            ktFileBuilder.rootObject(
+                                "${TYPOGRAPHY_SMALL_TOKENS_NAME}${tenant.name}",
+                                TYPOGRAPHY_SMALL_TOKENS_DESC,
+                            )
+                        }
+                        smallBuilder.addTypographyToken(
+                            token,
+                            token.description,
+                            tokenValue,
+                            tenant,
+                        )
+                        val tokenRef = "$TYPOGRAPHY_SMALL_TOKENS_NAME${tenant.name}.${token.ktName}"
+                        composeSmallTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
+                    }
 
-            ScreenClass.LARGE -> {
-                largeBuilder.addTypographyToken(
-                    token,
-                    token.description,
-                    tokenValue,
-                )
-                val tokenRef = "$TYPOGRAPHY_LARGE_TOKENS_NAME.${token.ktName}"
-                composeLargeTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
-            }
+                    ScreenClass.LARGE -> {
+                        val largeBuilder = largeBuilders.getOrPut(tenant) {
+                            ktFileBuilder.rootObject(
+                                "${TYPOGRAPHY_LARGE_TOKENS_NAME}${tenant.name}",
+                                TYPOGRAPHY_LARGE_TOKENS_DESC,
+                            )
+                        }
+                        largeBuilder.addTypographyToken(
+                            token,
+                            token.description,
+                            tokenValue,
+                            tenant,
+                        )
+                        val tokenRef = "$TYPOGRAPHY_LARGE_TOKENS_NAME${tenant.name}.${token.ktName}"
+                        composeLargeTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
+                    }
 
-            else -> {
-                mediumBuilder.addTypographyToken(
-                    token,
-                    token.description,
-                    tokenValue,
-                )
-                val tokenRef = "$TYPOGRAPHY_MEDIUM_TOKENS_NAME.${token.ktName}"
-                composeMediumTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
+                    else -> {
+                        val mediumBuilder = mediumBuilders.getOrPut(tenant) {
+                            ktFileBuilder.rootObject(
+                                "${TYPOGRAPHY_MEDIUM_TOKENS_NAME}${tenant.name}",
+                                TYPOGRAPHY_MEDIUM_TOKENS_DESC,
+                            )
+                        }
+                        mediumBuilder.addTypographyToken(
+                            token,
+                            token.description,
+                            tokenValue,
+                            tenant,
+                        )
+                        val tokenRef = "$TYPOGRAPHY_MEDIUM_TOKENS_NAME${tenant.name}.${token.ktName}"
+                        composeMediumTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
+                    }
+                }
             }
         }
+
         return true
     }
 
     private fun generateViewTypographyTokens(tokenName: String, screenClass: ScreenClass) {
         val token = findTypographyTokenByScreenClass(tokenName, screenClass)
             ?: throw ThemeBuilderException("Token $tokenName not found")
-        val tokenValue = typographyTokenValues[token.name]
+        val tokenValue = typographyTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for typography token ${token.name}. " +
                     "It should be in android_typography.json.",
@@ -366,6 +418,7 @@ internal class TypographyTokenGenerator(
         token: TypographyToken,
         description: String,
         tokenValue: TypographyTokenValue,
+        tenant: Tenant,
     ) = with(ktFileBuilder) {
         val letterSpacing = if (tokenValue.letterSpacing < 0) {
             "(${tokenValue.letterSpacing}).sp"
@@ -376,13 +429,18 @@ internal class TypographyTokenGenerator(
         val fontSizeInitializer: String
         val lineHeightInitializer: String
         if (fromResources) {
+            val tenantSuffix = if (tenant == Tenant.Default) {
+                ""
+            } else {
+                "_${tenant.name.lowercase()}"
+            }
             val textSizeDimen = DimenData(
-                "${token.name.techToSnakeCase()}_text_size",
+                "${token.name.techToSnakeCase()}_text_size$tenantSuffix",
                 tokenValue.textSize,
                 DimenData.Type.SP,
             )
             val lineHeightDimen = DimenData(
-                "${token.name.techToSnakeCase()}_line_height",
+                "${token.name.techToSnakeCase()}_line_height$tenantSuffix",
                 tokenValue.lineHeight,
                 DimenData.Type.SP,
             )
@@ -400,7 +458,7 @@ internal class TypographyTokenGenerator(
             "fontSize = $fontSizeInitializer",
             "lineHeight = $lineHeightInitializer",
             "letterSpacing = $letterSpacing",
-            "fontFamily = FontTokens.${tokenValue.fontFamilyRef.split('.').last()}",
+            "fontFamily = FontTokens${tenant.name}.${tokenValue.fontFamilyRef.split('.').last()}",
             "lineHeightStyle = $DEFAULTS_NAME.$DEFAULTS_LINE_STYLE_NAME",
             "platformStyle = $DEFAULTS_NAME.$DEFAULTS_PLATFORM_STYLE_NAME",
         ).trimIndent()

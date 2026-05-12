@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult.Tok
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.TypographyInfo
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
@@ -34,7 +35,8 @@ class ComposeThemeGeneratorTest {
             TypeSpec,
             FileProvider,
         )
-        ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.sdds.playground.themebuilder"))
+        ktFileBuilderFactory =
+            KtFileBuilderFactory(PackageResolver("com.sdds.playground.themebuilder"))
     }
 
     @After
@@ -75,12 +77,14 @@ class ComposeThemeGeneratorTest {
             themeName = "Test",
             DefaultThemeTypography.DYNAMIC,
         )
-        underTest.setColorTokenData(TokenData(emptyMap(), emptyMap()))
+        underTest.setColorTokenData(mapOf(Tenant.Default to TokenData(emptyMap(), emptyMap())))
         underTest.setTypographyTokenData(
-            TypographyTokenResult.ComposeTokenData(
-                emptyMap(),
-                emptyMap(),
-                emptyMap(),
+            mapOf(
+                Tenant.Default to TypographyTokenResult.ComposeTokenData(
+                    emptyMap(),
+                    emptyMap(),
+                    emptyMap(),
+                ),
             ),
         )
         underTest.generate()
@@ -92,24 +96,28 @@ class ComposeThemeGeneratorTest {
     }
 
     private companion object {
-        val colorAttrsWithDefaultColors = TokenData(
-            light = mapOf(
-                "textPrimary" to TokenData.ColorInfo("TextPrimary"),
-                "textDefaultAccent" to TokenData.ColorInfo("TextDefaultAccent"),
-            ),
-            dark = mapOf(
-                "textPrimary" to TokenData.ColorInfo("TextPrimary"),
-                "textDefaultAccent" to TokenData.ColorInfo("TextDefaultAccent"),
+        val colorAttrsWithDefaultColors = mapOf(
+            Tenant.Default to TokenData(
+                light = mapOf(
+                    "textPrimary" to TokenData.ColorInfo("TextPrimary"),
+                    "textDefaultAccent" to TokenData.ColorInfo("TextDefaultAccent"),
+                ),
+                dark = mapOf(
+                    "textPrimary" to TokenData.ColorInfo("TextPrimary"),
+                    "textDefaultAccent" to TokenData.ColorInfo("TextDefaultAccent"),
+                ),
             ),
         )
 
-        val typographyAttrs = TypographyTokenResult.ComposeTokenData(
-            small = emptyMap(),
-            medium = mapOf(
-                "headerH3Bold" to TypographyInfo("TypographyMediumTokens.HeaderH3Bold"),
-                "bodyMNormal" to TypographyInfo("TypographyMediumTokens.BodyMNormal"),
+        val typographyAttrs = mapOf(
+            Tenant.Default to TypographyTokenResult.ComposeTokenData(
+                small = emptyMap(),
+                medium = mapOf(
+                    "headerH3Bold" to TypographyInfo("TypographyMediumTokens.HeaderH3Bold"),
+                    "bodyMNormal" to TypographyInfo("TypographyMediumTokens.BodyMNormal"),
+                ),
+                large = emptyMap(),
             ),
-            large = emptyMap(),
         )
     }
 }

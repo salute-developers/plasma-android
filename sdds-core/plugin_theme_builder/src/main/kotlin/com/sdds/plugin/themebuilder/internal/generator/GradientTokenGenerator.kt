@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ComposeTokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ViewTokenData
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.BackgroundGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.GradientPoint
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
@@ -49,26 +50,37 @@ internal class GradientTokenGenerator(
     target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
-    private val gradientTokenValues: Map<String, List<GradientTokenValue>>,
+    private val gradientTokenValues: Map<Tenant, Map<String, List<GradientTokenValue>>>,
     private val palette: Map<String, Map<String, String>>,
     private val resourceReferenceProvider: ResourceReferenceProvider,
 ) : TokenGenerator<GradientToken, GradientTokenResult>(target) {
 
     private val composeKtFileBuilder by unsafeLazy { ktFileBuilderFactory.create("GradientTokens") }
-    private val composeLightBuilder by unsafeLazy {
-        composeKtFileBuilder.rootObject(LIGHT_GRADIENT_TOKENS_NAME, LIGHT_GRADIENT_TOKENS_DESC)
+    private val composeLightBuilders by unsafeLazy {
+        mutableMapOf(
+            Tenant.Default to composeKtFileBuilder.rootObject(
+                LIGHT_GRADIENT_TOKENS_NAME,
+                LIGHT_GRADIENT_TOKENS_DESC,
+            ),
+        )
     }
-    private val composeDarkBuilder by unsafeLazy {
-        composeKtFileBuilder.rootObject(DARK_GRADIENT_TOKENS_NAME, DARK_GRADIENT_TOKENS_DESC)
+    private val composeDarkBuilders by unsafeLazy {
+        mutableMapOf(
+            Tenant.Default to composeKtFileBuilder.rootObject(
+                DARK_GRADIENT_TOKENS_NAME,
+                DARK_GRADIENT_TOKENS_DESC,
+            ),
+        )
     }
+
     private val xmlParametersDocumentBuilder by unsafeLazy {
         xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES)
     }
 
-    private val composeKtLightTokenDataCollector =
-        mutableMapOf<String, MutableList<ComposeTokenData.Gradient>>()
-    private val composeKtDarkTokenDataCollector =
-        mutableMapOf<String, MutableList<ComposeTokenData.Gradient>>()
+    private val composeKtLightTokenDataCollectors =
+        mutableMapOf<Tenant, MutableMap<String, MutableList<ComposeTokenData.Gradient>>>()
+    private val composeKtDarkTokenDataCollectors =
+        mutableMapOf<Tenant, MutableMap<String, MutableList<ComposeTokenData.Gradient>>>()
     private val viewXmlDrawableLightTokenDataCollector =
         mutableMapOf<String, ViewTokenData.Gradient>()
     private val viewXmlDrawableDarkTokenDataCollector =
@@ -76,10 +88,12 @@ internal class GradientTokenGenerator(
 
     override fun collectResult() = GradientTokenResult(
         tokens = tokens,
-        composeTokens = ComposeTokenData(
-            light = composeKtLightTokenDataCollector,
-            dark = composeKtDarkTokenDataCollector,
-        ),
+        composeTokens = gradientTokenValues.mapValues {
+            ComposeTokenData(
+                light = composeKtLightTokenDataCollectors[it.key] ?: emptyMap(),
+                dark = composeKtDarkTokenDataCollectors[it.key] ?: emptyMap(),
+            )
+        },
         viewXmlTokens = ViewTokenData(
             light = viewXmlDrawableLightTokenDataCollector,
             dark = viewXmlDrawableDarkTokenDataCollector,
@@ -106,7 +120,7 @@ internal class GradientTokenGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: GradientToken): Boolean {
-        val tokenValue = gradientTokenValues[token.name]
+        val tokenValue = gradientTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for gradient token ${token.name}. " +
                     "It should be in android_gradient.json.",
@@ -118,12 +132,18 @@ internal class GradientTokenGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: GradientToken): Boolean {
-        val tokenValues = gradientTokenValues[token.name]
+        gradientTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for gradient token ${token.name}. " +
                     "It should be in android_gradient.json.",
             )
-        return addKtToken(token, tokenValues)
+        gradientTokenValues.forEach { (tenant, values) ->
+            val tokenValues = values[token.name]
+            if (tokenValues != null) {
+                addKtToken(token, tokenValues, tenant)
+            }
+        }
+        return true
     }
 
     private fun addXmlViewToken(
@@ -219,28 +239,29 @@ internal class GradientTokenGenerator(
     private fun addKtToken(
         token: GradientToken,
         tokenValues: List<GradientTokenValue>,
-    ): Boolean {
-        val darkLightObjectBuilder = darkLightObjectBuilder(token)
+        tenant: Tenant,
+    ) {
+        val objectBuilder = objectBuilder(token, tenant)
         val baseTokenName = token.ktName
-        with(darkLightObjectBuilder) {
+        with(objectBuilder) {
             appendObject(baseTokenName, token.description) {
                 if (tokenValues.size > 1) {
-                    appendGradientLayers(tokenValues, token)
+                    appendGradientLayers(tokenValues, token, tenant)
                 } else {
-                    appendGradientLayer(tokenValues.first(), token, null)
+                    appendGradientLayer(tokenValues.first(), token, null, tenant)
                 }
             }
         }
-        return true
     }
 
     private fun TypeSpec.Builder.appendGradientLayers(
         tokenValues: List<GradientTokenValue>,
         token: GradientToken,
+        tenant: Tenant,
     ) {
         tokenValues.mapIndexed { index, gradient ->
             appendObject("Layer$index", "Cлой $index") {
-                appendGradientLayer(gradient, token, index)
+                appendGradientLayer(gradient, token, index, tenant)
             }
         }
     }
@@ -249,36 +270,47 @@ internal class GradientTokenGenerator(
         tokenValue: GradientTokenValue,
         token: GradientToken,
         layerIndex: Int?,
+        tenant: Tenant,
     ) {
         val layerRef = layerIndex?.let { "Layer$it." }.orEmpty()
+        val objectName = if (token.isDark) {
+            "${DARK_GRADIENT_TOKENS_NAME}${tenant.name}"
+        } else {
+            "${LIGHT_GRADIENT_TOKENS_NAME}${tenant.name}"
+        }
         val tokenData = when (tokenValue) {
             is LinearGradientTokenValue -> appendLinearGradient(
                 token = token,
                 tokenValue = tokenValue,
                 layerRef = layerRef,
+                objectName = objectName,
             )
 
             is RadialGradientTokenValue -> appendRadialGradient(
                 token = token,
                 tokenValue = tokenValue,
                 layerRef = layerRef,
+                objectName = objectName,
             )
 
             is SweepGradientTokenValue -> appendSweepGradient(
                 token = token,
                 tokenValue = tokenValue,
                 layerRef = layerRef,
+                objectName = objectName,
             )
 
             is BackgroundGradientTokenValue -> appendSingleColorBackground(
                 token = token,
                 tokenValue = tokenValue,
                 layerRef = layerRef,
+                objectName = objectName,
             )
         }
         token.addKtTokenData(
             token.attrName(),
             tokenData,
+            tenant,
         )
     }
 
@@ -483,11 +515,18 @@ internal class GradientTokenGenerator(
         }
     }
 
-    private fun darkLightObjectBuilder(token: GradientToken): TypeSpec.Builder {
+    private fun objectBuilder(token: GradientToken, tenant: Tenant): TypeSpec.Builder {
         return if (token.isDark) {
-            composeDarkBuilder
+            composeDarkBuilders.getOrPut(tenant) {
+                composeKtFileBuilder.rootObject("${DARK_GRADIENT_TOKENS_NAME}${tenant.name}", DARK_GRADIENT_TOKENS_DESC)
+            }
         } else {
-            composeLightBuilder
+            composeLightBuilders.getOrPut(tenant) {
+                composeKtFileBuilder.rootObject(
+                    "${LIGHT_GRADIENT_TOKENS_NAME}${tenant.name}",
+                    LIGHT_GRADIENT_TOKENS_DESC,
+                )
+            }
         }
     }
 
@@ -495,6 +534,7 @@ internal class GradientTokenGenerator(
         token: GradientToken,
         tokenValue: LinearGradientTokenValue,
         layerRef: String,
+        objectName: String,
     ): ComposeTokenData.Gradient {
         val baseTokenName = token.ktName
         LinearGradientTokenValidator.validate(tokenValue, baseTokenName)
@@ -527,6 +567,7 @@ internal class GradientTokenGenerator(
             tokenRefs = tokenRefs,
             gradientType = ComposeTokenData.GradientType.LINEAR,
             description = token.description,
+            tokenObjectName = objectName,
         )
     }
 
@@ -534,6 +575,7 @@ internal class GradientTokenGenerator(
         token: GradientToken,
         tokenValue: SweepGradientTokenValue,
         layerRef: String,
+        objectName: String,
     ): ComposeTokenData.Gradient {
         val baseTokenName = token.ktName
         SweepGradientTokenValidator.validate(tokenValue, baseTokenName)
@@ -563,6 +605,7 @@ internal class GradientTokenGenerator(
             ),
             gradientType = ComposeTokenData.GradientType.SWEEP,
             description = token.description,
+            tokenObjectName = objectName,
         )
     }
 
@@ -570,6 +613,7 @@ internal class GradientTokenGenerator(
         token: GradientToken,
         tokenValue: RadialGradientTokenValue,
         layerRef: String,
+        objectName: String,
     ): ComposeTokenData.Gradient {
         val baseTokenName = token.ktName
         RadialGradientTokenValidator.validate(tokenValue, baseTokenName)
@@ -609,6 +653,8 @@ internal class GradientTokenGenerator(
             ),
             gradientType = ComposeTokenData.GradientType.RADIAL,
             description = token.description,
+            tokenObjectName = objectName,
+
         )
     }
 
@@ -616,6 +662,7 @@ internal class GradientTokenGenerator(
         token: GradientToken,
         tokenValue: BackgroundGradientTokenValue,
         layerRef: String,
+        objectName: String,
     ): ComposeTokenData.Gradient {
         val baseTokenName = token.ktName
         val resolvedColor =
@@ -634,6 +681,7 @@ internal class GradientTokenGenerator(
             ),
             gradientType = ComposeTokenData.GradientType.BACKGROUND,
             description = token.description,
+            tokenObjectName = objectName,
         )
     }
 
@@ -689,16 +737,21 @@ internal class GradientTokenGenerator(
     private fun GradientToken.addKtTokenData(
         attrName: String,
         params: ComposeTokenData.Gradient,
+        tenant: Tenant,
     ) {
-        val lightDataCollector = composeKtLightTokenDataCollector
-        val darkDataCollector = composeKtDarkTokenDataCollector
+        val lightCollector = composeKtLightTokenDataCollectors.getOrPut(tenant) {
+            mutableMapOf()
+        }
+        val darkCollector = composeKtDarkTokenDataCollectors.getOrPut(tenant) {
+            mutableMapOf()
+        }
         if (this.isLight) {
-            lightDataCollector.getOrPut(attrName) { mutableListOf() }.add(params)
+            lightCollector.getOrPut(attrName) { mutableListOf() }.add(params)
         } else if (this.isDark) {
-            darkDataCollector.getOrPut(attrName) { mutableListOf() }.add(params)
+            darkCollector.getOrPut(attrName) { mutableListOf() }.add(params)
         } else {
-            lightDataCollector.getOrPut(attrName) { mutableListOf() }.add(params)
-            darkDataCollector.getOrPut(attrName) { mutableListOf() }.add(params)
+            lightCollector.getOrPut(attrName) { mutableListOf() }.add(params)
+            darkCollector.getOrPut(attrName) { mutableListOf() }.add(params)
         }
     }
 

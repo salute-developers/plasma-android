@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.fonts.FontData
 import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontDir
@@ -44,7 +45,7 @@ internal class FontTokenGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     namespace: String,
     private val resPrefix: String,
-    private val fontTokenValues: Map<String, FontTokenValue>,
+    private val fontTokenValues: Map<Tenant, Map<String, FontTokenValue>>,
     private val fontsAggregator: FontsAggregator,
     private val dimensionsConfig: DimensionsConfig,
 ) : TokenGenerator<FontToken, String>(target) {
@@ -59,9 +60,8 @@ internal class FontTokenGenerator(
             }
         }
     }
-    private val ktFileRootObjectBuilder by unsafeLazy {
-        ktFileBuilder.rootObject(FONT_TOKENS_NAME, FONT_TOKENS_DESC)
-    }
+    private val rootObjectBuilders =
+        mutableMapOf(Tenant.Default to ktFileBuilder.rootObject(FONT_TOKENS_NAME, FONT_TOKENS_DESC))
     private val fontDownloader by unsafeLazy { fontDownloaderFactory.create() }
 
     override fun collectResult() = ""
@@ -74,7 +74,7 @@ internal class FontTokenGenerator(
     }
 
     override fun addViewSystemToken(token: FontToken): Boolean {
-        val tokenValue = fontTokenValues[token.name]
+        val tokenValue = fontTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for font token ${token.name}. " +
                     "It should be in android_fontFamily.json.",
@@ -97,17 +97,27 @@ internal class FontTokenGenerator(
     }
 
     override fun addComposeToken(token: FontToken): Boolean {
-        val tokenValue = fontTokenValues[token.name]
+        fontTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for font token ${token.name}. " +
                     "It should be in android_fontFamily.json.",
             )
-        FontTokenValidator.validate(tokenValue, token.name)
-        ktFileRootObjectBuilder.addFontFamilyToken(
-            name = token.ktName,
-            description = token.description,
-            tokenValue = tokenValue,
-        )
+        fontTokenValues.forEach { (tenant, values) ->
+            val tokenValue = values[token.name]
+            if (tokenValue != null) {
+                FontTokenValidator.validate(tokenValue, token.name)
+                val objectName = "${FONT_TOKENS_NAME}${tenant.name}"
+                val objectBuilder = rootObjectBuilders.getOrPut(tenant) {
+                    ktFileBuilder.rootObject(objectName, FONT_TOKENS_DESC)
+                }
+                objectBuilder.addFontFamilyToken(
+                    name = token.ktName,
+                    description = token.description,
+                    tokenValue = tokenValue,
+                )
+            }
+        }
+
         return true
     }
 

@@ -13,6 +13,7 @@ import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.HexFormat
@@ -43,7 +44,7 @@ internal class ShadowTokenGenerator(
     target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
-    private val shadowTokenValues: Map<String, List<ShadowTokenValue>>,
+    private val shadowTokenValues: Map<Tenant, Map<String, List<ShadowTokenValue>>>,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val dimensionsConfig: DimensionsConfig,
     private val dimensAggregator: DimensAggregator,
@@ -53,17 +54,18 @@ internal class ShadowTokenGenerator(
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(SHADOW_TOKENS_NAME) }
-    private val rootShadows by unsafeLazy { ktFileBuilder.rootObject(SHADOW_TOKENS_NAME, SHADOW_TOKENS_DESC) }
+    private val rootShadows =
+        mutableMapOf(Tenant.Default to ktFileBuilder.rootObject(SHADOW_TOKENS_NAME, SHADOW_TOKENS_DESC))
     private val rFileImport = ClassName(namespace, "R")
 
-    private val composeTokenDataCollector = mutableListOf<ShadowTokenResult.TokenData>()
+    private val composeTokenDataCollectors = mutableMapOf<Tenant, MutableList<ShadowTokenResult.TokenData>>()
     private val viewTokenDataCollector = mutableListOf<ShadowTokenResult.TokenData>()
 
     /**
      * @see TokenGenerator.collectResult
      */
     override fun collectResult() = ShadowTokenResult(
-        composeTokenDataCollector,
+        composeTokenDataCollectors,
         viewTokenDataCollector,
     )
 
@@ -93,7 +95,7 @@ internal class ShadowTokenGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: ShadowToken): Boolean = with(xmlDocumentBuilder) {
-        val tokenValues = shadowTokenValues[token.name]
+        val tokenValues = shadowTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for shadow token ${token.name}. " +
                     "It should be in android_shadow.json.",
@@ -166,36 +168,48 @@ internal class ShadowTokenGenerator(
     /**
      * @see TokenGenerator.addComposeToken
      */
-    override fun addComposeToken(token: ShadowToken): Boolean = with(ktFileBuilder) {
-        val tokenValues = shadowTokenValues[token.name]
+    override fun addComposeToken(token: ShadowToken): Boolean {
+        shadowTokenValues[Tenant.Default]?.get(token.name)
             ?: throw ThemeBuilderException(
                 "Can't find value for shadow token ${token.name}. " +
                     "It should be in android_shadow.json.",
             )
-        val useLayerSuffix = tokenValues.size > 1
-        val layers = mutableListOf<ShadowTokenResult.ShadowLayer>()
-        tokenValues.forEachIndexed { index, tokenValue ->
-            ShadowTokenValidator.validate(tokenValue, token.name)
-            val tokenName = "${token.ktName}Layer${index + 1}".takeIf { useLayerSuffix } ?: token.ktName
-            rootShadows.appendObject(tokenName, token.description) {
-                val layerRef = appendShadowProperties(tokenName, tokenValue, token.description)
-                layers.add(layerRef)
+        shadowTokenValues.forEach { (tenant, values) ->
+            val tokenValues = values[token.name]
+            if (tokenValues != null) {
+                val useLayerSuffix = tokenValues.size > 1
+                val layers = mutableListOf<ShadowTokenResult.ShadowLayer>()
+                tokenValues.forEachIndexed { index, tokenValue ->
+                    ShadowTokenValidator.validate(tokenValue, token.name)
+                    val tokenName = "${token.ktName}Layer${index + 1}".takeIf { useLayerSuffix } ?: token.ktName
+                    val rootShadowsObject = rootShadows.getOrPut(tenant) {
+                        ktFileBuilder.rootObject("${SHADOW_TOKENS_NAME}${tenant.name}", SHADOW_TOKENS_DESC)
+                    }
+                    rootShadowsObject.appendObject(tokenName, token.description) {
+                        val layerRef = appendShadowProperties(tokenName, tokenValue, token.description, tenant)
+                        layers.add(layerRef)
+                    }
+                }
+                val composeTokenDataCollector = composeTokenDataCollectors.getOrPut(tenant) {
+                    mutableListOf()
+                }
+                composeTokenDataCollector.add(
+                    ShadowTokenResult.TokenData(
+                        tokenTechName = token.name,
+                        layers = layers,
+                        tokenDescription = token.description,
+                    ),
+                )
             }
         }
-        composeTokenDataCollector.add(
-            ShadowTokenResult.TokenData(
-                tokenTechName = token.name,
-                layers = layers,
-                tokenDescription = token.description,
-            ),
-        )
-        return@with true
+        return true
     }
 
     private fun TypeSpec.Builder.appendShadowProperties(
         tokenName: String,
         tokenValue: ShadowTokenValue,
         description: String,
+        tenant: Tenant,
     ): ShadowTokenResult.ShadowLayer =
         with(ktFileBuilder) {
             val offsetXRef = appendShadowProperty(
@@ -203,27 +217,31 @@ internal class ShadowTokenGenerator(
                 "offsetX",
                 tokenValue.offsetX,
                 description,
+                tenant,
             )
             val offsetYRef = appendShadowProperty(
                 tokenName,
                 "offsetY",
                 tokenValue.offsetY,
                 description,
+                tenant,
             )
             val spreadRadiusRef = appendShadowProperty(
                 tokenName,
                 "spreadRadius",
                 tokenValue.spreadRadius,
                 description,
+                tenant,
             )
             val blurRadiusRef = appendShadowProperty(
                 tokenName,
                 "blurRadius",
                 tokenValue.blurRadius,
                 description,
+                tenant,
             )
             val elevationRef = tokenValue.fallbackElevation?.let {
-                appendShadowProperty(tokenName, "fallbackElevation", it, description)
+                appendShadowProperty(tokenName, "fallbackElevation", it, description, tenant)
             }
             val resolvedColor = resolveColor(
                 tokenValue = tokenValue.color,
@@ -239,7 +257,7 @@ internal class ShadowTokenGenerator(
             )
 
             ShadowTokenResult.ShadowLayer(
-                colorRef = "$SHADOW_TOKENS_NAME.$tokenName.color",
+                colorRef = "$SHADOW_TOKENS_NAME${tenant.name}.$tokenName.color",
                 offsetXRef = offsetXRef,
                 offsetYRef = offsetYRef,
                 spreadRef = spreadRadiusRef,
@@ -253,13 +271,14 @@ internal class ShadowTokenGenerator(
         propertyName: String,
         value: Float,
         description: String,
+        tenant: Tenant,
     ): String = with(ktFileBuilder) {
         if (dimensionsConfig.fromResources) {
             shadowPropertyWithResources(tokenName, propertyName, value, description)
         } else {
             shadowProperty(propertyName, value, description)
         }
-        return "$SHADOW_TOKENS_NAME.$tokenName.$propertyName"
+        return "$SHADOW_TOKENS_NAME${tenant.name}.$tokenName.$propertyName"
     }
 
     private fun TypeSpec.Builder.shadowProperty(

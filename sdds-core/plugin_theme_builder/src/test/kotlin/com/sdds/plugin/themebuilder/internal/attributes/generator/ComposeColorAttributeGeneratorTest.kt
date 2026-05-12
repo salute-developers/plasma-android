@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
@@ -83,14 +84,16 @@ class ComposeColorAttributeGeneratorTest {
     }
 
     private companion object {
-        val inputData = ColorTokenResult.TokenData(
-            light = mapOf(
-                "textPrimary" to ColorTokenResult.TokenData.ColorInfo("TextPrimary"),
-                "textTertiary" to ColorTokenResult.TokenData.ColorInfo("TextTertiary"),
-            ),
-            dark = mapOf(
-                "textPrimary" to ColorTokenResult.TokenData.ColorInfo("TextPrimary"),
-                "textTertiary" to ColorTokenResult.TokenData.ColorInfo("TextTertiary"),
+        val inputData = mapOf(
+            Tenant.Default to ColorTokenResult.TokenData(
+                light = mapOf(
+                    "textPrimary" to ColorTokenResult.TokenData.ColorInfo("TextPrimary"),
+                    "textTertiary" to ColorTokenResult.TokenData.ColorInfo("TextTertiary"),
+                ),
+                dark = mapOf(
+                    "textPrimary" to ColorTokenResult.TokenData.ColorInfo("TextPrimary"),
+                    "textTertiary" to ColorTokenResult.TokenData.ColorInfo("TextTertiary"),
+                ),
             ),
         )
     }

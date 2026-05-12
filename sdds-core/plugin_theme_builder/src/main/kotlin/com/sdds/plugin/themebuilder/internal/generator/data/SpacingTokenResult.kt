@@ -1,5 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.data
 
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
+
 /**
  * Данные о токенах отступов.
  *
@@ -7,7 +9,7 @@ package com.sdds.plugin.themebuilder.internal.generator.data
  * @property viewTokens данные о токенах для View
  */
 internal data class SpacingTokenResult(
-    val composeTokens: List<TokenData>,
+    val composeTokens: Map<Tenant, List<TokenData>>,
     val viewTokens: List<TokenData>,
 ) {
 
@@ -22,5 +24,6 @@ internal data class SpacingTokenResult(
         val attrName: String,
         val tokenRefName: String,
         val description: String? = null,
+        val tokenObjectName: String? = null,
     )
 }

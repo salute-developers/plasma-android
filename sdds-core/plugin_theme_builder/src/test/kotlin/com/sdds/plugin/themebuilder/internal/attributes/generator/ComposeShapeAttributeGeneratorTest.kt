@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShapeAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
@@ -104,9 +105,19 @@ class ComposeShapeAttributeGeneratorTest {
     }
 
     private companion object {
-        val inputAttrs = listOf(
-            ShapeTokenResult.TokenData("roundXs", "RoundXs"),
-            ShapeTokenResult.TokenData("roundXxs", "RoundXxs"),
+        val inputAttrs = mapOf(
+            Tenant.Default to listOf(
+                ShapeTokenResult.TokenData(
+                    attrName = "roundXs",
+                    tokenRefName = "RoundXs",
+                    tokenObjectName = "RoundShapeTokens",
+                ),
+                ShapeTokenResult.TokenData(
+                    attrName = "roundXxs",
+                    tokenRefName = "RoundXxs",
+                    tokenObjectName = "RoundShapeTokens",
+                ),
+            ),
         )
     }
 }

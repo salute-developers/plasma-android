@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.data
 
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 
 /**
@@ -11,7 +12,7 @@ import com.sdds.plugin.themebuilder.internal.token.ColorToken
  */
 internal data class ColorTokenResult(
     val tokens: List<ColorToken>,
-    val composeTokens: TokenData,
+    val composeTokens: Map<Tenant, TokenData>,
     val viewTokens: TokenData,
 ) {
 

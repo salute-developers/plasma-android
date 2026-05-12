@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.ClassName
@@ -230,14 +231,16 @@ internal class ComposeThemeGenerator(
         )
     }
 
-    fun setColorTokenData(colors: ColorTokenResult.TokenData) {
-        val attrSet = colors.mergedLightAndDark()
+    fun setColorTokenData(colors: Map<Tenant, ColorTokenResult.TokenData>) {
+        val defaultTenantColors = colors[Tenant.Default] ?: return
+        val attrSet = defaultTenantColors.mergedLightAndDark()
         findDefaultSelectionColors(attrSet)
         findDefaultTextStyleColor(attrSet)
     }
 
-    fun setTypographyTokenData(typography: TypographyTokenResult.ComposeTokenData) {
-        val attrSet = typography.mergedScreenClasses()
+    fun setTypographyTokenData(typography: Map<Tenant, TypographyTokenResult.ComposeTokenData>) {
+        val defaultTypography = typography[Tenant.Default] ?: return
+        val attrSet = defaultTypography.mergedScreenClasses()
         findDefaultTextStyle(attrSet)
     }
 

@@ -18,6 +18,7 @@ import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.register
+import java.io.File
 
 /**
  * Плагин для генерации тем и токенов ДС
@@ -25,7 +26,6 @@ import org.gradle.kotlin.dsl.register
  */
 class ThemeBuilderPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        val themeZip = project.layout.buildDirectory.file("$THEME_PATH/theme.zip")
         val componentsZip = project.layout.buildDirectory.file("$COMPONENTS_PATH/components.zip")
         val paletteJson = project.layout.buildDirectory.file("$THEME_PATH/$PALETTE_JSON_NAME")
         val extension = project.themeBuilderExt()
@@ -33,11 +33,34 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
         project.afterEvaluate {
             project.registerClean(extension)
-            val unzipThemeTask = registerFetchAndUnzipTheme(extension, themeZip, paletteJson)
+            val themeSources = extension.getThemeSources()
+
+            val fetchPaletteTask = registerPaletteFetcher(
+                taskName = "fetchPalette",
+                paletteUrl = extension.paletteUrl,
+                paletteOutput = paletteJson,
+            )
+
+            val unzipTasks = mutableListOf<TaskProvider<Copy>>()
+            themeSources.sources.forEach { source ->
+                val tenantId = source.tenant
+                val tenantIdForPath = if (tenantId.isEmpty()) "default" else tenantId.lowercase()
+                val themeZip = project.layout.buildDirectory.file("$THEME_PATH/$tenantIdForPath/theme.zip")
+
+                val unzipThemeTask = registerFetchAndUnzipTheme(
+                    source = source,
+                    themeOutputZip = themeZip,
+                    themeId = tenantId,
+                    fetchPaletteTask = fetchPaletteTask,
+                )
+                unzipTasks.add(unzipThemeTask)
+            }
+
             registerThemeBuilder(
                 extension = extension,
-                unzipThemeTask = unzipThemeTask,
+                unzipThemeTasks = unzipTasks,
                 dependOnPreBuild = extension.autoGenerate,
+                themeSources = themeSources,
             )
 
             val fetchComponentsTask = registerFetchAndUnzipComponents(extension, componentsZip)
@@ -78,27 +101,23 @@ class ThemeBuilderPlugin : Plugin<Project> {
     }
 
     private fun Project.registerFetchAndUnzipTheme(
-        extension: ThemeBuilderExtension,
         themeOutputZip: Provider<RegularFile>,
-        paletteOutputJson: Provider<RegularFile>,
+        source: ThemeBuilderSource,
+        themeId: String,
+        fetchPaletteTask: TaskProvider<FetchFileTask>,
     ): TaskProvider<Copy> {
-        val source = getThemeSource(extension)
+        val themeIdPathToken = if (themeId.isEmpty()) "default" else themeId.lowercase()
 
-        val fetchPaletteTask = registerPaletteFetcher(
-            taskName = "fetchPalette",
-            paletteUrl = extension.paletteUrl,
-            paletteOutput = paletteOutputJson,
-        )
         val fetchThemeTask = registerFileFetcher(
-            taskName = "fetchTheme",
+            taskName = "fetchTheme$themeId",
             url = getThemeUrl(source),
             output = themeOutputZip,
             dependsOnTask = fetchPaletteTask,
         )
         val unzipTask = registerUnzip(
-            taskName = "unpackThemeFiles",
+            taskName = "unpackThemeFiles$themeId",
             zipFile = themeOutputZip,
-            outputPath = THEME_PATH,
+            outputPath = "$THEME_PATH$themeIdPathToken",
             dependsOnTask = fetchThemeTask,
         )
         return unzipTask
@@ -129,22 +148,48 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
     private fun Project.registerThemeBuilder(
         extension: ThemeBuilderExtension,
-        unzipThemeTask: Any,
+        unzipThemeTasks: List<Any>,
         dependOnPreBuild: Boolean,
+        themeSources: ThemeBuilderSources,
     ) {
+        val tenants = mutableListOf<String>()
+        val colorFiles = mutableListOf<File>()
+        val gradientFiles = mutableListOf<File>()
+        val typographyFiles = mutableListOf<File>()
+        val fontFiles = mutableListOf<File>()
+        val shapeFiles = mutableListOf<File>()
+        val shadowFiles = mutableListOf<File>()
+        val spacingFiles = mutableListOf<File>()
+
+        themeSources.sources.forEach {
+            val themeId = it.tenant.also(tenants::add)
+            val themeIdPathToken = if (themeId.isEmpty()) "default" else themeId.lowercase()
+            colorFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.COLORS)))
+            gradientFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.GRADIENTS)))
+            typographyFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.TYPOGRAPHY)))
+            fontFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.FONTS)))
+            shapeFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.SHAPES)))
+            shadowFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.SHADOWS)))
+            spacingFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.SPACING)))
+        }
+
+        logger.warn("themeSources=$themeSources")
+
         val generateThemeTask =
             registerThemeGenerator(
                 extension = extension,
                 paletteFileProvider = getPaletteFile(),
-                baseFileProvider = getMetaFile(),
-                colorFileProvider = getValueFile(TokenValueFile.COLORS),
-                typographyFileProvider = getValueFile(TokenValueFile.TYPOGRAPHY),
-                fontFileProvider = getValueFile(TokenValueFile.FONTS),
-                shadowFileProvider = getValueFile(TokenValueFile.SHADOWS),
-                spacingFileProvider = getValueFile(TokenValueFile.SPACING),
-                gradientFileProvider = getValueFile(TokenValueFile.GRADIENTS),
-                shapeFileProvider = getValueFile(TokenValueFile.SHAPES),
-                unzipTask = unzipThemeTask,
+                metaFileProvider = getMetaFile(),
+                tenants = tenants,
+                colorFiles = colorFiles,
+                typographyFiles = typographyFiles,
+                fontFiles = fontFiles,
+                shadowFiles = shadowFiles,
+                spacingFiles = spacingFiles,
+                gradientFiles = gradientFiles,
+                shapeFiles = shapeFiles,
+                unzipTasks = unzipThemeTasks,
+                themeName = themeSources.baseAlias,
             )
         if (dependOnPreBuild) {
             tasks.named("preBuild").dependsOn(generateThemeTask)
@@ -162,9 +207,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
             }
         }
     }
-
-    private fun getThemeSource(extension: ThemeBuilderExtension): ThemeBuilderSource =
-        extension.themeSource ?: throw GradleException("themeSource must be set")
 
     private fun getThemeUrl(source: ThemeBuilderSource): String {
         return getSourceUrl(source, BASE_THEME_URL)
@@ -200,11 +242,11 @@ class ThemeBuilderPlugin : Plugin<Project> {
     }
 
     private fun Project.getMetaFile(): Provider<RegularFile> {
-        return layout.buildDirectory.file("$THEME_PATH/$META_JSON_NAME")
+        return layout.buildDirectory.file("${THEME_PATH}default/$META_JSON_NAME")
     }
 
-    private fun Project.getValueFile(fileType: TokenValueFile): Provider<RegularFile> {
-        return layout.buildDirectory.file("$THEME_PATH/android/${fileType.fileName}")
+    private fun Project.getValueFile(themeIdPathToken: String, fileType: TokenValueFile): String {
+        return "build/$THEME_PATH$themeIdPathToken/android/${fileType.fileName}"
     }
 
     private fun Project.getComponentConfigFile(fileName: String): Provider<RegularFile> {
@@ -257,31 +299,35 @@ class ThemeBuilderPlugin : Plugin<Project> {
         }
     }
 
+    @Suppress("SpreadOperator")
     private fun Project.registerThemeGenerator(
         extension: ThemeBuilderExtension,
         paletteFileProvider: Provider<RegularFile>,
-        baseFileProvider: Provider<RegularFile>,
-        colorFileProvider: Provider<RegularFile>,
-        typographyFileProvider: Provider<RegularFile>,
-        fontFileProvider: Provider<RegularFile>,
-        shadowFileProvider: Provider<RegularFile>,
-        spacingFileProvider: Provider<RegularFile>,
-        gradientFileProvider: Provider<RegularFile>,
-        shapeFileProvider: Provider<RegularFile>,
-        unzipTask: Any,
+        metaFileProvider: Provider<RegularFile>,
+        unzipTasks: List<Any>,
+        tenants: List<String>,
+        colorFiles: List<File>,
+        typographyFiles: List<File>,
+        fontFiles: List<File>,
+        shadowFiles: List<File>,
+        spacingFiles: List<File>,
+        gradientFiles: List<File>,
+        shapeFiles: List<File>,
+        themeName: String,
     ): TaskProvider<GenerateThemeTask> {
         return project.tasks.register<GenerateThemeTask>("generateTheme") {
             group = TASK_GROUP
             paletteFile.set(paletteFileProvider)
-            themeName.set(getThemeSource(extension).themeName)
-            metaFile.set(baseFileProvider)
-            colorFile.set(colorFileProvider)
-            typographyFile.set(typographyFileProvider)
-            fontFile.set(fontFileProvider)
-            shadowFile.set(shadowFileProvider)
-            spacingFile.set(spacingFileProvider)
-            gradientFile.set(gradientFileProvider)
-            shapeFile.set(shapeFileProvider)
+            metaFile.set(metaFileProvider)
+            this.themeTenants.set(tenants)
+            this.themeName.set(themeName)
+            this.colorFiles.setFrom(colorFiles)
+            this.typographyFiles.setFrom(typographyFiles)
+            this.fontFiles.setFrom(fontFiles)
+            this.shadowFiles.setFrom(shadowFiles)
+            this.spacingFiles.setFrom(spacingFiles)
+            this.gradientFiles.setFrom(gradientFiles)
+            this.shapeFiles.setFrom(shapeFiles)
 
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
             target.set(extension.target)
@@ -298,7 +344,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             dimensionsConfig.set(extension.dimensionsConfig)
             defaultThemeTypography.set(extension.defaultThemeTypography)
             ignoreDisabledTokens.set(extension.ignoreDisabledTokens)
-            dependsOn(unzipTask)
+            dependsOn(*unzipTasks.toTypedArray())
         }
     }
 

@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.fonts.FontData
 import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -184,53 +185,55 @@ class TypographyTokenGeneratorTest {
         )
 
         val typographyTokenValues = mapOf(
-            "screen-l.display.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "fontFamily.sans",
-                fontWeight = 300,
-                fontStyle = "normal",
-                textSize = 128f,
-                letterSpacing = 0.02f,
-                lineHeight = 128f,
-            ),
-            "screen-l.display.l.bold" to TypographyTokenValue(
-                fontFamilyRef = "fontFamily.sans",
-                fontWeight = 300,
-                fontStyle = "normal",
-                textSize = 128f,
-                letterSpacing = 0.02f,
-                lineHeight = 128f,
-            ),
-            "screen-s.text.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "fontFamily.sans",
-                fontWeight = 400,
-                fontStyle = "normal",
-                textSize = 124f,
-                letterSpacing = 0.04f,
-                lineHeight = 124f,
-            ),
-            "screen-m.header.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "fontFamily.sans",
-                fontWeight = 400,
-                fontStyle = "normal",
-                textSize = 124f,
-                letterSpacing = 0.04f,
-                lineHeight = 124f,
-            ),
-            "screen-m.display.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "fontFamily.sans",
-                fontWeight = 300,
-                fontStyle = "normal",
-                textSize = 96f,
-                letterSpacing = 0.02f,
-                lineHeight = 96f,
-            ),
-            "screen-s.display.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "fontFamily.sans",
-                fontWeight = 300,
-                fontStyle = "normal",
-                textSize = 72f,
-                letterSpacing = 0.02f,
-                lineHeight = 72f,
+            Tenant.Default to mapOf(
+                "screen-l.display.l.normal" to TypographyTokenValue(
+                    fontFamilyRef = "fontFamily.sans",
+                    fontWeight = 300,
+                    fontStyle = "normal",
+                    textSize = 128f,
+                    letterSpacing = 0.02f,
+                    lineHeight = 128f,
+                ),
+                "screen-l.display.l.bold" to TypographyTokenValue(
+                    fontFamilyRef = "fontFamily.sans",
+                    fontWeight = 300,
+                    fontStyle = "normal",
+                    textSize = 128f,
+                    letterSpacing = 0.02f,
+                    lineHeight = 128f,
+                ),
+                "screen-s.text.l.normal" to TypographyTokenValue(
+                    fontFamilyRef = "fontFamily.sans",
+                    fontWeight = 400,
+                    fontStyle = "normal",
+                    textSize = 124f,
+                    letterSpacing = 0.04f,
+                    lineHeight = 124f,
+                ),
+                "screen-m.header.l.normal" to TypographyTokenValue(
+                    fontFamilyRef = "fontFamily.sans",
+                    fontWeight = 400,
+                    fontStyle = "normal",
+                    textSize = 124f,
+                    letterSpacing = 0.04f,
+                    lineHeight = 124f,
+                ),
+                "screen-m.display.l.normal" to TypographyTokenValue(
+                    fontFamilyRef = "fontFamily.sans",
+                    fontWeight = 300,
+                    fontStyle = "normal",
+                    textSize = 96f,
+                    letterSpacing = 0.02f,
+                    lineHeight = 96f,
+                ),
+                "screen-s.display.l.normal" to TypographyTokenValue(
+                    fontFamilyRef = "fontFamily.sans",
+                    fontWeight = 300,
+                    fontStyle = "normal",
+                    textSize = 72f,
+                    letterSpacing = 0.02f,
+                    lineHeight = 72f,
+                ),
             ),
         )
     }
