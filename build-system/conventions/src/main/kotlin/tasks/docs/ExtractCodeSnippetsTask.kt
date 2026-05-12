@@ -5,6 +5,7 @@ import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.FileCollection
 import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
@@ -12,12 +13,6 @@ import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.PathSensitive
 import org.gradle.api.tasks.PathSensitivity
 import org.gradle.api.tasks.TaskAction
-import org.jetbrains.kotlin.cli.jvm.compiler.EnvironmentConfigFiles
-import org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment
-import org.jetbrains.kotlin.com.google.gson.GsonBuilder
-import org.jetbrains.kotlin.com.intellij.openapi.util.Disposer
-import org.jetbrains.kotlin.config.CompilerConfiguration
-import org.jetbrains.kotlin.psi.KtPsiFactory
 
 abstract class ExtractCodeSnippetsTask : DefaultTask() {
 
@@ -30,7 +25,6 @@ abstract class ExtractCodeSnippetsTask : DefaultTask() {
     @get:OutputFile
     abstract val outputMeta: RegularFileProperty
 
-
     @get:InputFiles
     @get:PathSensitive(PathSensitivity.RELATIVE)
     abstract val kotlinSources: ConfigurableFileCollection
@@ -40,7 +34,7 @@ abstract class ExtractCodeSnippetsTask : DefaultTask() {
     abstract val xmlSources: ConfigurableFileCollection
 
     @get:Input
-    abstract val xmlNamespace: org.gradle.api.provider.Property<String>
+    abstract val xmlNamespace: Property<String>
 
     init {
         kotlinSources.from(kotlinSourceTrees())
@@ -50,81 +44,72 @@ abstract class ExtractCodeSnippetsTask : DefaultTask() {
 
     @TaskAction
     fun run() {
-        val outKotlinDir = outputKotlinDir.get().asFile
-        outKotlinDir.mkdirs()
+        val outKotlinDir = outputKotlinDir.get().asFile.also { it.mkdirs() }
+        val outXmlDir    = outputXmlDir.get().asFile.also    { it.mkdirs() }
 
-        val outXmlDir = outputXmlDir.get().asFile
-        outXmlDir.mkdirs()
-
-        val kotlinFiles = kotlinSources.files.toList()
-        val xmlFiles = xmlSources.files.toList()
         val meta = mutableListOf<SampleMeta>()
 
-        val disposable = Disposer.newDisposable("sdds-docs-psi")
-        try {
-            val env = KotlinCoreEnvironment.createForProduction(
-                disposable,
-                CompilerConfiguration(),
-                EnvironmentConfigFiles.JVM_CONFIG_FILES
-            )
+        val kotlinDelegate = KotlinSnippetExtractorDelegate(
+            snippetsDir = outKotlinDir,
+            project     = project,
+        )
+        kotlinSources.files.forEach { meta += kotlinDelegate.extractFromFile(it) }
 
-            val psiFactory = KtPsiFactory(env.project, markGenerated = false)
+        val xmlDelegate = XmlSnippetExtractorDelegate(
+            snippetsDir = outXmlDir,
+            project     = project,
+            namespace   = xmlNamespace.get(),
+        )
+        xmlSources.files.forEach { meta += xmlDelegate.extractFromFile(it) }
 
-            val kotlinDelegate = KotlinSnippetExtractorDelegate(
-                psiFactory = psiFactory,
-                snippetsDir = outKotlinDir,
-                project = project
-            )
-
-            kotlinFiles.forEach { file ->
-                meta += kotlinDelegate.extractFromFile(file)
-            }
-
-            val xmlDelegate = XmlSnippetExtractorDelegate(
-                snippetsDir = outXmlDir,
-                project = project,
-                namespace = xmlNamespace.get()
-            )
-
-            xmlFiles.forEach { file ->
-                meta += xmlDelegate.extractFromFile(file)
-            }
-
-            val metaFile = outputMeta.asFile.get()
-            val gson = GsonBuilder().setPrettyPrinting().create()
-            metaFile.writeText(gson.toJson(meta))
-            logger.lifecycle("Written docs meta: ${project.relativePath(metaFile)} (samples=${meta.size})")
-        } finally {
-            Disposer.dispose(disposable)
-        }
+        val metaFile = outputMeta.asFile.get()
+        metaFile.writeText(serializeMetaToJson(meta))
+        logger.lifecycle("Written docs meta: ${project.relativePath(metaFile)} (samples=${meta.size})")
     }
 
+    // ── JSON ──────────────────────────────────────────────────────────────────
+
+    private fun serializeMetaToJson(meta: List<SampleMeta>): String = buildString {
+        appendLine("[")
+        meta.forEachIndexed { i, m ->
+            appendLine("  {")
+            appendLine("""    "id": ${m.id.toJsonString()},""")
+            appendLine("""    "kind": ${m.kind.toJsonString()},""")
+            appendLine("""    "fqName": ${m.fqName.toJsonString()},""")
+            appendLine("""    "file": ${m.file.toJsonString()},""")
+            appendLine("""    "snippetPath": ${m.snippetPath.toJsonString()},""")
+            appendLine("""    "snippetStartOffset": ${m.snippetStartOffset},""")
+            append("""    "snippetEndOffset": ${m.snippetEndOffset}""")
+            appendLine()
+            append("  }")
+            if (i < meta.lastIndex) append(",")
+            appendLine()
+        }
+        append("]")
+    }
+
+    private fun String.toJsonString(): String {
+        val escaped = replace("\\", "\\\\")
+            .replace("\"", "\\\"")
+            .replace("\n", "\\n")
+            .replace("\r", "\\r")
+            .replace("\t", "\\t")
+        return "\"$escaped\""
+    }
 
     private fun kotlinSourceTrees(): FileCollection {
-        val roots = listOf(
-            project.file("src/main/kotlin"),
-            project.file("src/main/java"),
-            project.file("src")
-        ).filter { it.exists() }
-
+        val roots = listOf("src/main/kotlin", "src/main/java", "src")
+            .map(project::file).filter { it.exists() }
         return project.files(roots.map { root ->
-            project.fileTree(root) {
-                include("**/*.kt")
-            }
+            project.fileTree(root) { include("**/*.kt") }
         })
     }
 
     private fun xmlSourceTrees(): FileCollection {
-        val roots = listOf(
-            project.file("src/main/res"),
-            project.file("src/main/resources"),
-            project.file("src")
-        ).filter { it.exists() }
-
+        val roots = listOf("src/main/res", "src/main/resources", "src")
+            .map(project::file).filter { it.exists() }
         return project.files(roots.map { root ->
-            project.fileTree(root) {
-                include("**/*.xml")
-            }
+            project.fileTree(root) { include("**/*.xml") }
         })
     }
 }

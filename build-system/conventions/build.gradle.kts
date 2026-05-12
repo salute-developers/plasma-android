@@ -19,7 +19,6 @@ dependencies {
     implementation(libs.base.dokka.graddle)
     implementation(libs.base.dokka)
     implementation(libs.base.kotlin.serialization.json)
-    implementation(libs.base.kotlin.compiler.embeddable)
     implementation(libs.base.kotlin.compose.compiler)
     implementation("org.commonmark:commonmark:0.21.0")
     implementation(libs.base.gradle.compose)
