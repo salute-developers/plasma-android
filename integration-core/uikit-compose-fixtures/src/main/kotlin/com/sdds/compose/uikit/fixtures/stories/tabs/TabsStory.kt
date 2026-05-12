@@ -282,6 +282,7 @@ private fun CommonTabsContent(
             Box(contentAlignment = Alignment.Center) {
                 VerticalPager(
                     state = pagerState,
+                    userScrollEnabled = state.enabled,
                     modifier = Modifier
                         .fillMaxHeight()
                         .width(200.dp),
@@ -296,6 +297,7 @@ private fun CommonTabsContent(
             Box(contentAlignment = Alignment.Center) {
                 HorizontalPager(
                     state = pagerState,
+                    userScrollEnabled = state.enabled,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(200.dp),
