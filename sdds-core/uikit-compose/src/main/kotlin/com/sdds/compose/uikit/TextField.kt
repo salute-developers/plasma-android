@@ -322,11 +322,13 @@ fun TextField(
     var textFieldValueState by remember {
         mutableStateOf(TextFieldValue(text = value, selection = TextRange(value.length)))
     }
+    val clampedStart = textFieldValueState.selection.start.coerceIn(0, value.length)
+    val clampedEnd = textFieldValueState.selection.end.coerceIn(0, value.length)
     val textFieldValue = textFieldValueState.copy(
         text = value,
         selection = TextRange(
-            textFieldValueState.selection.start.coerceIn(0, value.length),
-            textFieldValueState.selection.end.coerceIn(0, value.length),
+            minOf(clampedStart, clampedEnd),
+            maxOf(clampedStart, clampedEnd),
         ),
     )
     SideEffect {
