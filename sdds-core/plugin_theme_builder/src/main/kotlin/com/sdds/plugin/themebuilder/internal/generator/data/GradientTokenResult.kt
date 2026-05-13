@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.data
 
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
 
 /**
@@ -11,7 +12,7 @@ import com.sdds.plugin.themebuilder.internal.token.GradientToken
  */
 internal data class GradientTokenResult(
     val tokens: List<GradientToken>,
-    val composeTokens: ComposeTokenData,
+    val composeTokens: Map<Tenant, ComposeTokenData>,
     val viewXmlTokens: ViewTokenData,
 ) {
 
@@ -79,6 +80,7 @@ internal data class GradientTokenResult(
             val tokenRefs: List<String>,
             val gradientType: GradientType,
             val description: String = "",
+            val tokenObjectName: String? = null,
         )
 
         /**

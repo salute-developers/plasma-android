@@ -1,6 +1,4 @@
 import com.vanniktech.maven.publish.SonatypeHost
-import gradle.kotlin.dsl.accessors._8edd1b0c1852f0ac869e9c414c462ba9.mavenPublishing
-import gradle.kotlin.dsl.accessors._8edd1b0c1852f0ac869e9c414c462ba9.publishing
 import utils.findPropertyOrDefault
 import utils.versionInfo
 import org.gradle.api.publish.maven.tasks.PublishToMavenRepository

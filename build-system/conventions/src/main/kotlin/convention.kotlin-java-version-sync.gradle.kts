@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KaptGenerateStubs
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import utils.withVersionCatalogs
@@ -6,16 +7,15 @@ description = "Синхронизация версий Java для Kotlin и Jav
 
 withVersionCatalogs {
     tasks.withType<KaptGenerateStubs>().configureEach {
-        kotlinOptions {
-            jvmTarget = versions.global.jvmTarget.get()
+        compilerOptions {
+            jvmTarget.set(JvmTarget.fromTarget(versions.global.jvmTarget.get()))
         }
     }
 
     tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = versions.global.jvmTarget.get()
-            freeCompilerArgs = freeCompilerArgs +
-                "-opt-in=kotlin.RequiresOptIn"
+        compilerOptions {
+            jvmTarget.set(JvmTarget.fromTarget(versions.global.jvmTarget.get()))
+            freeCompilerArgs.add("-opt-in=kotlin.RequiresOptIn")
         }
     }
     tasks.withType<JavaCompile>().configureEach {

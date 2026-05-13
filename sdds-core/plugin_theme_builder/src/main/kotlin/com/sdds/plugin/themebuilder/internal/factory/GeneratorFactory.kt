@@ -20,6 +20,7 @@ import com.sdds.plugin.themebuilder.internal.generator.ShapeTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.SpacingTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
@@ -273,7 +274,7 @@ internal class GeneratorFactory(
      * @return [ColorTokenGenerator] генератор токенов цвета
      */
     fun createColorGenerator(
-        colors: Map<String, String>,
+        colors: Map<Tenant, Map<String, String>>,
         palette: Map<String, Map<String, String>>,
     ): ColorTokenGenerator {
         return ColorTokenGenerator(
@@ -292,7 +293,7 @@ internal class GeneratorFactory(
      * Создает генератор градиентов [GradientTokenGenerator]
      */
     fun createGradientGenerator(
-        gradients: Map<String, List<GradientTokenValue>>,
+        gradients: Map<Tenant, Map<String, List<GradientTokenValue>>>,
         palette: Map<String, Map<String, String>>,
     ): GradientTokenGenerator {
         return GradientTokenGenerator(
@@ -310,7 +311,7 @@ internal class GeneratorFactory(
     /**
      * Создает генератор шрифтов [FontTokenGenerator]
      */
-    fun createFontGenerator(fonts: Map<String, FontTokenValue>): FontTokenGenerator {
+    fun createFontGenerator(fonts: Map<Tenant, Map<String, FontTokenValue>>): FontTokenGenerator {
         return FontTokenGenerator(
             OutputLocation.Directory(outputDir),
             outputResDir,
@@ -330,7 +331,7 @@ internal class GeneratorFactory(
      * Создает генератор типографии [TypographyTokenGenerator]
      */
     fun createTypographyGenerator(
-        typography: Map<String, TypographyTokenValue>,
+        typography: Map<Tenant, Map<String, TypographyTokenValue>>,
     ): TypographyTokenGenerator {
         return TypographyTokenGenerator(
             outputLocation = OutputLocation.Directory(outputDir),
@@ -362,7 +363,7 @@ internal class GeneratorFactory(
     /**
      * Создает генератор форм [ShapeTokenGenerator]
      */
-    fun createShapesGenerator(shapes: Map<String, ShapeTokenValue>): ShapeTokenGenerator {
+    fun createShapesGenerator(shapes: Map<Tenant, Map<String, ShapeTokenValue>>): ShapeTokenGenerator {
         return ShapeTokenGenerator(
             outputLocation = OutputLocation.Directory(outputDir),
             outputResDir = outputResDir,
@@ -382,7 +383,7 @@ internal class GeneratorFactory(
      * Создает генератор теней [ShadowTokenGenerator]
      */
     fun createShadowGenerator(
-        shadows: Map<String, List<ShadowTokenValue>>,
+        shadows: Map<Tenant, Map<String, List<ShadowTokenValue>>>,
         palette: Map<String, Map<String, String>>,
     ): ShadowTokenGenerator {
         return ShadowTokenGenerator(
@@ -403,7 +404,7 @@ internal class GeneratorFactory(
     /**
      * Создает генератор форм [SpacingTokenGenerator]
      */
-    fun createSpacingGenerator(spacings: Map<String, SpacingTokenValue>): SpacingTokenGenerator {
+    fun createSpacingGenerator(spacings: Map<Tenant, Map<String, SpacingTokenValue>>): SpacingTokenGenerator {
         return SpacingTokenGenerator(
             outputLocation = OutputLocation.Directory(outputDir),
             outputResDir = outputResDir,

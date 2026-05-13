@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
 import com.sdds.compose.uikit.graphics.Gradients
+import com.sdds.playground.themebuilder.theme.GradientAttrOverrideScope
 import com.sdds.playground.themebuilder.theme.GradientOverrideScope
 import com.sdds.playground.themebuilder.theme.ThemeGradients
 import com.sdds.playground.themebuilder.tokens.DarkGradientTokens
@@ -45,6 +46,17 @@ public class ThemeGradients(
         val overrideMap = gradientOverrideScope.overrideMap
         return ThemeGradients(gradients.mapValues { overrideMap[it.key] ?: it.value })
     }
+
+    /**
+     * Возвращает копию [ThemeGradients]. Предоставляет возможность переопределять цвета.
+     */
+    internal fun copyAttrs(overrideGradients: GradientAttrOverrideScope.() -> Unit = {}):
+            ThemeGradients {
+        val gradientOverrideScope = GradientAttrOverrideScope()
+        overrideGradients.invoke(gradientOverrideScope)
+        val overrideMap = gradientOverrideScope.overrideMap
+        return ThemeGradients(gradients.mapValues { gradients[overrideMap[it.key]] ?: it.value })
+    }
 }
 
 /**
@@ -64,6 +76,27 @@ public class GradientOverrideScope {
      * Переопределяет аттрибут градиента.
      */
     public infix fun String.overrideBy(gradient: List<ShaderBrush>): Unit {
+        _overrideMap[this] = gradient
+    }
+}
+
+/**
+ * Скоуп переопределения градиентов
+ */
+public class GradientAttrOverrideScope {
+    private val _overrideMap: MutableMap<String, String> = mutableMapOf()
+
+    internal val overrideMap: Map<String, String>
+        get() = _overrideMap.toMap()
+
+    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+
+    public val textDefaultGradientJoyActive: String = "textDefaultGradientJoyActive"
+
+    /**
+     * Переопределяет аттрибут градиента.
+     */
+    public infix fun String.overrideBy(gradient: String): Unit {
         _overrideMap[this] = gradient
     }
 }

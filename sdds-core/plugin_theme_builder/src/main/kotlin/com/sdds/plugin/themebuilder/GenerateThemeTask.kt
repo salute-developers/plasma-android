@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
 import com.sdds.plugin.themebuilder.internal.factory.GeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -11,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilde
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
@@ -29,14 +31,17 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.api.DefaultTask
+import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
+import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
+import java.io.File
 
 /**
  * Gradle-задача для генерации темы
@@ -57,52 +62,58 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val paletteFile: RegularFileProperty
 
     /**
-     * Путь до json-файла с темой
+     * Список тенантов
+     */
+    @get:Input
+    abstract val themeTenants: ListProperty<String>
+
+    /**
+     * Список мета-файлов темы
      */
     @get:InputFile
     abstract val metaFile: RegularFileProperty
 
     /**
-     * Путь до json-файла с цветами
+     * Список файлов с токенами цветов
      */
-    @get:InputFile
-    abstract val colorFile: RegularFileProperty
+    @get:InputFiles
+    abstract val colorFiles: ConfigurableFileCollection
 
     /**
-     * Путь до json-файла с типографикой
+     * Список файлов с токенами типографики
      */
-    @get:InputFile
-    abstract val typographyFile: RegularFileProperty
+    @get:InputFiles
+    abstract val typographyFiles: ConfigurableFileCollection
 
     /**
-     * Путь до json-файла со шрифтами
+     * Список файлов с токенами шрифтов
      */
-    @get:InputFile
-    abstract val fontFile: RegularFileProperty
+    @get:InputFiles
+    abstract val fontFiles: ConfigurableFileCollection
 
     /**
-     * Путь до json-файла с тенями
+     * Список файлов с токенами теней
      */
-    @get:InputFile
-    abstract val shadowFile: RegularFileProperty
+    @get:InputFiles
+    abstract val shadowFiles: ConfigurableFileCollection
 
     /**
-     * Путь до json-файла с отступами
+     * Список файлов с токенами отступов
      */
-    @get:InputFile
-    abstract val spacingFile: RegularFileProperty
+    @get:InputFiles
+    abstract val spacingFiles: ConfigurableFileCollection
 
     /**
-     * Путь до json-файла с градиентами
+     * Список файлов с токенами градиентов
      */
-    @get:InputFile
-    abstract val gradientFile: RegularFileProperty
+    @get:InputFiles
+    abstract val gradientFiles: ConfigurableFileCollection
 
     /**
-     * Путь до json-файла с формами
+     * Список файлов с токенами форм
      */
-    @get:InputFile
-    abstract val shapeFile: RegularFileProperty
+    @get:InputFiles
+    abstract val shapeFiles: ConfigurableFileCollection
 
     /**
      * Название пакета для файлов kotlin
@@ -218,48 +229,111 @@ abstract class GenerateThemeTask : DefaultTask() {
     }
 
     private val themeGenerator by unsafeLazy { generatorFactory.createThemeGenerator() }
-    private val colorGenerator by unsafeLazy {
-        generatorFactory.createColorGenerator(colors, palette)
-    }
-    private val gradientGenerator by unsafeLazy {
-        generatorFactory.createGradientGenerator(
-            gradients,
-            palette,
-        )
-    }
-    private val fontGenerator by unsafeLazy { generatorFactory.createFontGenerator(fonts) }
-    private val typographyGenerator by unsafeLazy {
-        generatorFactory.createTypographyGenerator(typography)
-    }
     private val dimensGenerator by unsafeLazy { generatorFactory.createDimensGenerator() }
-    private val shapesGenerator by unsafeLazy { generatorFactory.createShapesGenerator(shapes) }
-    private val shadowGenerator by unsafeLazy { generatorFactory.createShadowGenerator(shadows, palette) }
-    private val spacingGenerator by unsafeLazy { generatorFactory.createSpacingGenerator(spacing) }
 
     /**
      * Генерирует файлы с токенами
      */
     @TaskAction
+    @Suppress("CyclomaticComplexMethod")
     fun generate() {
-        collectTokens()
-        generateAll()
-    }
+        checkCollectionSize()
+        val tenants = themeTenants.get()
+        val tenantDataMap = tenants.mapIndexed { index, tenant ->
+            TenantData(
+                colorFile = colorFiles.files.elementAt(index),
+                gradientFile = gradientFiles.files.elementAt(index),
+                fontFile = fontFiles.files.elementAt(index),
+                typographyFile = typographyFiles.files.elementAt(index),
+                shapeFile = shapeFiles.files.elementAt(index),
+                shadowFile = shadowFiles.files.elementAt(index),
+                spacingFile = spacingFiles.files.elementAt(index),
+                tenant = tenant,
+            )
+        }.associateBy { Tenant(it.tenant) }
 
-    private fun collectTokens() {
-        decodeBase().tokens.onEach {
-            when (it) {
-                is ColorToken -> colorGenerator.addToken(it)
-                is GradientToken -> gradientGenerator.addToken(it)
-                is ShadowToken -> shadowGenerator.addToken(it)
-                is ShapeToken -> shapesGenerator.addToken(it)
-                is TypographyToken -> typographyGenerator.addToken(it)
-                is FontToken -> fontGenerator.addToken(it)
-                is SpacingToken -> spacingGenerator.addToken(it)
+        val metaFileTokens = decodeMeta().tokens
+
+        val defaultTenant = tenantDataMap[Tenant.Default]
+            ?: throw ThemeBuilderException("Theme must have default tenant")
+
+        val defaultTenantColors = colors(defaultTenant.colorFile)
+        val defaultTenantGradients = gradients(defaultTenant.gradientFile)
+        val defaultTenantFonts = fonts(defaultTenant.fontFile)
+        val defaultTenantTypography = typography(defaultTenant.typographyFile)
+        val defaultTenantShapes = shapes(defaultTenant.shapeFile)
+        val defaultTenantShadows = shadows(defaultTenant.shadowFile)
+        val defaultTenantSpacings = spacing(defaultTenant.spacingFile)
+
+        val allColors = mutableMapOf<Tenant, Map<String, String>>()
+            .apply { this[Tenant.Default] = defaultTenantColors }
+        val allGradients = mutableMapOf<Tenant, Map<String, List<GradientTokenValue>>>()
+            .apply { this[Tenant.Default] = defaultTenantGradients }
+        val allFonts = mutableMapOf<Tenant, Map<String, FontTokenValue>>()
+            .apply { this[Tenant.Default] = defaultTenantFonts }
+        val allTypography = mutableMapOf<Tenant, Map<String, TypographyTokenValue>>()
+            .apply { this[Tenant.Default] = defaultTenantTypography }
+        val allShapes = mutableMapOf<Tenant, Map<String, ShapeTokenValue>>()
+            .apply { this[Tenant.Default] = defaultTenantShapes }
+        val allShadows = mutableMapOf<Tenant, Map<String, List<ShadowTokenValue>>>()
+            .apply { this[Tenant.Default] = defaultTenantShadows }
+        val allSpacings = mutableMapOf<Tenant, Map<String, SpacingTokenValue>>()
+            .apply { this[Tenant.Default] = defaultTenantSpacings }
+
+        tenantDataMap
+            .filter { it.key != Tenant.Default }
+            .forEach { tenantEntry ->
+                val tenant = tenantEntry.key
+
+                val tenantColors = colors(tenantEntry.value.colorFile)
+                val tenantDiffColors = tenantToDefaultDiff(defaultTenantColors, tenantColors)
+                allColors[tenant] = tenantDiffColors
+
+                val tenantGradients = gradients(tenantEntry.value.gradientFile)
+                val tenantDiffGradients = tenantToDefaultDiff(defaultTenantGradients, tenantGradients)
+                allGradients[tenant] = tenantDiffGradients
+
+                val tenantFonts = fonts(tenantEntry.value.fontFile)
+                val tenantDiffFonts = tenantToDefaultDiff(defaultTenantFonts, tenantFonts)
+                allFonts[tenant] = tenantDiffFonts
+
+                val tenantTypography = typography(tenantEntry.value.typographyFile)
+                val tenantDiffTypography = tenantToDefaultDiff(defaultTenantTypography, tenantTypography)
+                allTypography[tenant] = tenantDiffTypography
+
+                val tenantShapes = shapes(tenantEntry.value.shapeFile)
+                val tenantDiffShapes = tenantToDefaultDiff(defaultTenantShapes, tenantShapes)
+                allShapes[tenant] = tenantDiffShapes
+
+                val tenantShadows = shadows(tenantEntry.value.shadowFile)
+                val tenantDiffShadows = tenantToDefaultDiff(defaultTenantShadows, tenantShadows)
+                allShadows[tenant] = tenantDiffShadows
+
+                val tenantSpacings = spacing(tenantEntry.value.spacingFile)
+                val tenantDiffSpacings = tenantToDefaultDiff(defaultTenantSpacings, tenantSpacings)
+                allSpacings[tenant] = tenantDiffSpacings
+            }
+
+        val colorGenerator = generatorFactory.createColorGenerator(allColors, palette)
+        val gradientGenerator = generatorFactory.createGradientGenerator(allGradients, palette)
+        val fontGenerator = generatorFactory.createFontGenerator(allFonts)
+        val typographyGenerator = generatorFactory.createTypographyGenerator(allTypography)
+        val shapesGenerator = generatorFactory.createShapesGenerator(allShapes)
+        val shadowGenerator = generatorFactory.createShadowGenerator(allShadows, palette)
+        val spacingGenerator = generatorFactory.createSpacingGenerator(allSpacings)
+
+        metaFileTokens.onEach { token ->
+            when (token) {
+                is ColorToken -> colorGenerator.addToken(token)
+                is GradientToken -> gradientGenerator.addToken(token)
+                is ShadowToken -> shadowGenerator.addToken(token)
+                is ShapeToken -> shapesGenerator.addToken(token)
+                is TypographyToken -> typographyGenerator.addToken(token)
+                is FontToken -> fontGenerator.addToken(token)
+                is SpacingToken -> spacingGenerator.addToken(token)
             }
         }
-    }
 
-    private fun generateAll() {
         colorGenerator.generate().also(themeGenerator::setColorTokenData)
         gradientGenerator.generate().also(themeGenerator::setGradientTokenData)
         typographyGenerator.generate().also(themeGenerator::setTypographyTokenData)
@@ -272,7 +346,67 @@ abstract class GenerateThemeTask : DefaultTask() {
         themeGenerator.generate()
     }
 
-    private fun decodeBase(): Theme =
+    private fun <T> tenantToDefaultDiff(
+        defaultTokens: Map<String, T>,
+        tenantTokens: Map<String, T>,
+    ): Map<String, T> {
+        return tenantTokens.filter {
+            defaultTokens[it.key] != it.value
+        }
+    }
+
+    @Suppress("ThrowsCount")
+    private fun checkCollectionSize() {
+        val tenantSize = themeTenants.get().size
+        if (colorFiles.files.size != tenantSize) {
+            throw ThemeBuilderException(
+                "colorFiles count and themeTenants count must be the same",
+            )
+        }
+        if (gradientFiles.files.size != tenantSize) {
+            throw ThemeBuilderException(
+                "gradientFiles count and themeTenants count must be the same",
+            )
+        }
+        if (fontFiles.files.size != tenantSize) {
+            throw ThemeBuilderException(
+                "fontFiles count and themeTenants count must be the same",
+            )
+        }
+        if (typographyFiles.files.size != tenantSize) {
+            throw ThemeBuilderException(
+                "typographyFiles count and themeTenants count must be the same",
+            )
+        }
+        if (shapeFiles.files.size != tenantSize) {
+            throw ThemeBuilderException(
+                "shapeFiles count and themeTenants count must be the same",
+            )
+        }
+        if (shadowFiles.files.size != tenantSize) {
+            throw ThemeBuilderException(
+                "shadowFiles count and themeTenants count must be the same",
+            )
+        }
+        if (spacingFiles.files.size != tenantSize) {
+            throw ThemeBuilderException(
+                "spacingFiles count and themeTenants count must be the same",
+            )
+        }
+    }
+
+    private data class TenantData(
+        val tenant: String,
+        val colorFile: File,
+        val gradientFile: File,
+        val fontFile: File,
+        val typographyFile: File,
+        val shapeFile: File,
+        val shadowFile: File,
+        val spacingFile: File,
+    )
+
+    private fun decodeMeta(): Theme =
         metaFile.get().asFile.decode<Theme>(Serializer.meta)
             .let { theme ->
                 if (ignoreDisabledTokens.get()) {
@@ -283,38 +417,38 @@ abstract class GenerateThemeTask : DefaultTask() {
             }
             .also { logger.debug("decoded base $it") }
 
-    private val colors: Map<String, String> by unsafeLazy {
-        colorFile.get().asFile.decode<Map<String, String>>()
+    private fun colors(file: File): Map<String, String> {
+        return file.decode<Map<String, String>>()
             .also { logger.debug("decoded colors $it") }
     }
 
-    private val shapes: Map<String, ShapeTokenValue> by unsafeLazy {
-        shapeFile.get().asFile.decode<Map<String, ShapeTokenValue>>()
+    private fun shapes(file: File): Map<String, ShapeTokenValue> {
+        return file.decode<Map<String, ShapeTokenValue>>()
             .also { logger.debug("decoded shapes $it") }
     }
 
-    private val gradients: Map<String, List<GradientTokenValue>> by unsafeLazy {
-        gradientFile.get().asFile.decode<Map<String, List<GradientTokenValue>>>()
+    private fun gradients(file: File): Map<String, List<GradientTokenValue>> {
+        return file.decode<Map<String, List<GradientTokenValue>>>()
             .also { logger.debug("decoded gradients $it") }
     }
 
-    private val shadows: Map<String, List<ShadowTokenValue>> by unsafeLazy {
-        shadowFile.get().asFile.decode<Map<String, List<ShadowTokenValue>>>()
+    private fun shadows(file: File): Map<String, List<ShadowTokenValue>> {
+        return file.decode<Map<String, List<ShadowTokenValue>>>()
             .also { logger.debug("decoded shadows $it") }
     }
 
-    private val spacing: Map<String, SpacingTokenValue> by unsafeLazy {
-        spacingFile.get().asFile.decode<Map<String, SpacingTokenValue>>()
+    private fun spacing(file: File): Map<String, SpacingTokenValue> {
+        return file.decode<Map<String, SpacingTokenValue>>()
             .also { logger.debug("decoded spacing $it") }
     }
 
-    private val typography: Map<String, TypographyTokenValue> by unsafeLazy {
-        typographyFile.get().asFile.decode<Map<String, TypographyTokenValue>>()
+    private fun typography(file: File): Map<String, TypographyTokenValue> {
+        return file.decode<Map<String, TypographyTokenValue>>()
             .also { logger.debug("decoded typography $it") }
     }
 
-    private val fonts: Map<String, FontTokenValue> by unsafeLazy {
-        fontFile.get().asFile.decode<Map<String, FontTokenValue>>()
+    private fun fonts(file: File): Map<String, FontTokenValue> {
+        return file.decode<Map<String, FontTokenValue>>()
             .also { logger.debug("decoded fonts $it") }
     }
 

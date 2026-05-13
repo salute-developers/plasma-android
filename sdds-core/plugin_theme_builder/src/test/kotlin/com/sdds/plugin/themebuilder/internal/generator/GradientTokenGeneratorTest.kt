@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.RadialGradientTokenValue
@@ -58,7 +59,10 @@ class GradientTokenGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             gradientTokenValues = gradientTokenValues,
             palette = mockk(),
-            resourceReferenceProvider = ResourceReferenceProvider(resourcePrefix = "thmbldr", "TestTheme"),
+            resourceReferenceProvider = ResourceReferenceProvider(
+                resourcePrefix = "thmbldr",
+                "TestTheme",
+            ),
         )
     }
 
@@ -100,28 +104,30 @@ class GradientTokenGeneratorTest {
 
     private companion object {
         val gradientTokenValues = mapOf(
-            "dark.inverse.surface.accent" to listOf(
-                SweepGradientTokenValue(
-                    colors = listOf("#000", "#fff"),
-                    locations = listOf(0f, 0.7f),
-                    centerX = 0.5f,
-                    centerY = 0.5f,
+            Tenant.Default to mapOf(
+                "dark.inverse.surface.accent" to listOf(
+                    SweepGradientTokenValue(
+                        colors = listOf("#000", "#fff"),
+                        locations = listOf(0f, 0.7f),
+                        centerX = 0.5f,
+                        centerY = 0.5f,
+                    ),
                 ),
-            ),
-            "light.on-dark.surface.tertiary" to listOf(
-                LinearGradientTokenValue(
-                    colors = listOf("#000", "#fff"),
-                    locations = listOf(0f, 0.7f),
-                    angle = 90f,
+                "light.on-dark.surface.tertiary" to listOf(
+                    LinearGradientTokenValue(
+                        colors = listOf("#000", "#fff"),
+                        locations = listOf(0f, 0.7f),
+                        angle = 90f,
+                    ),
                 ),
-            ),
-            "light.on-dark.surface.secondary" to listOf(
-                RadialGradientTokenValue(
-                    colors = listOf("#000", "#fff"),
-                    locations = listOf(0f, 0.7f),
-                    radius = 0.8f,
-                    centerX = 0.5f,
-                    centerY = 0.5f,
+                "light.on-dark.surface.secondary" to listOf(
+                    RadialGradientTokenValue(
+                        colors = listOf("#000", "#fff"),
+                        locations = listOf(0f, 0.7f),
+                        radius = 0.8f,
+                        centerX = 0.5f,
+                        centerY = 0.5f,
+                    ),
                 ),
             ),
         )

@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.SpacingToken
 import com.sdds.plugin.themebuilder.internal.token.SpacingTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -92,7 +93,10 @@ class SpacingTokenGeneratorTest {
             ),
             result.viewTokens.map { it.tokenRefName },
         )
-        assertEquals(getResourceAsText("spacing-outputs/TestSpacingOutputKt.txt"), outputKt.toString())
+        assertEquals(
+            getResourceAsText("spacing-outputs/TestSpacingOutputKt.txt"),
+            outputKt.toString(),
+        )
     }
 
     @Test
@@ -109,14 +113,19 @@ class SpacingTokenGeneratorTest {
         spacingTokens.forEach { underTest.addToken(it) }
         underTest.generate()
 
-        assertEquals(getResourceAsText("spacing-outputs/TestSpacingFromResourceOutputKt.txt"), outputKt.toString())
+        assertEquals(
+            getResourceAsText("spacing-outputs/TestSpacingFromResourceOutputKt.txt"),
+            outputKt.toString(),
+        )
     }
 
     private companion object {
         val spacingTokenValues = mapOf(
-            "spacing.0x" to SpacingTokenValue(0f),
-            "spacing.1x" to SpacingTokenValue(2f),
-            "spacing.2x" to SpacingTokenValue(4f),
+            Tenant.Default to mapOf(
+                "spacing.0x" to SpacingTokenValue(0f),
+                "spacing.1x" to SpacingTokenValue(2f),
+                "spacing.2x" to SpacingTokenValue(4f),
+            ),
         )
     }
 }

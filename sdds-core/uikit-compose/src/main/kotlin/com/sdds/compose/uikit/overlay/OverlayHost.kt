@@ -1,7 +1,11 @@
 package com.sdds.compose.uikit.overlay
 
 import android.graphics.Rect
+import android.view.Gravity
+import android.view.MotionEvent
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.MutableTransitionState
@@ -15,6 +19,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
@@ -36,9 +41,12 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEachIndexed
-import androidx.compose.ui.window.Popup
-import androidx.compose.ui.window.PopupProperties
+import androidx.compose.ui.window.DialogProperties
+import androidx.compose.ui.window.DialogWindowProvider
 import com.sdds.compose.uikit.internal.SwipeToDismissBox
+import com.sdds.compose.uikit.internal.modal.DialogWindowRegistry
+import com.sdds.compose.uikit.internal.modal.EdgeToEdgeDialog
+import com.sdds.compose.uikit.internal.modal.LocalDialogWindowId
 import com.sdds.compose.uikit.internal.rememberSwipeToDismissBoxState
 import com.sdds.compose.uikit.overlay.OverlayDismissDirection.DismissToEnd
 import com.sdds.compose.uikit.overlay.OverlayDismissDirection.DismissToStart
@@ -245,25 +253,31 @@ private fun OverlayPopup(
     val alignment = position.toAlignment()
     val rootView = LocalView.current.rootView
 
-    Popup(
-        alignment = alignment,
-        properties = PopupProperties(
-            focusable = isFocusable,
-            excludeFromSystemGesture = false,
-            dismissOnClickOutside = false,
-        ),
+    EdgeToEdgeDialog(
         onDismissRequest = onDismissRequest,
+        useNativeBlackout = false,
+        dialogProperties = DialogProperties(
+            dismissOnBackPress = false,
+            dismissOnClickOutside = isFocusable,
+        ),
     ) {
-        val dialogView = LocalView.current.rootView
+        val dialogView = LocalView.current
+        val currentWindowId = LocalDialogWindowId.current
         val newOffset = remember(position, spacing, offset) {
             offset.ensureCorrectPosition(position, spacing)
         }
-        LaunchedEffect(dialogView, rootView) {
-            dialogView.enablePassthroughTouch(rootView)
+        LaunchedEffect(dialogView, currentWindowId, position, isFocusable, rootView) {
+            val dialogWindowProvider = dialogView.parent as? DialogWindowProvider
+            dialogWindowProvider?.window?.ensureCorrect(position, isFocusable)
+            dialogView.rootView.enablePassthroughTouch {
+                currentWindowId?.let(DialogWindowRegistry::findDecorViewBelow) ?: rootView
+            }
         }
 
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .systemBarsPadding(),
             contentAlignment = alignment,
         ) {
             Column(
@@ -278,14 +292,35 @@ private fun OverlayPopup(
 }
 
 @Suppress("ClickableViewAccessibility")
-private fun View.enablePassthroughTouch(decorView: View) {
+private fun View.enablePassthroughTouch(decorViewProvider: () -> View?) {
     setOnTouchListener { v, event ->
+        val decorView = decorViewProvider()
+        if (decorView == null) return@setOnTouchListener false
         val anchorLocation = decorView.getScreenRect()
         val listLocation = v.getScreenRect()
         val offsetX = (listLocation.left - anchorLocation.left).toFloat()
         val offsetY = (listLocation.top - anchorLocation.top).toFloat()
-        event.offsetLocation(offsetX, offsetY)
-        decorView.dispatchTouchEvent(event)
+        val transformedEvent = MotionEvent.obtain(event)
+        transformedEvent.offsetLocation(offsetX, offsetY)
+        val handled = decorView.dispatchTouchEvent(transformedEvent)
+        transformedEvent.recycle()
+        handled
+    }
+}
+
+@Suppress("ClickableViewAccessibility")
+private fun Window.ensureCorrect(position: OverlayPosition, isFocusable: Boolean) {
+    setLayout(
+        WindowManager.LayoutParams.WRAP_CONTENT,
+        WindowManager.LayoutParams.WRAP_CONTENT,
+    )
+    setGravity(position.toGravity())
+    if (!isFocusable) {
+        addFlags(
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                or WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+        )
     }
 }
 
@@ -310,6 +345,18 @@ private fun OverlayPosition.toAlignment(): Alignment = when (this) {
     OverlayPosition.BottomStart -> Alignment.BottomStart
     OverlayPosition.BottomCenter -> Alignment.BottomCenter
     OverlayPosition.BottomEnd -> Alignment.BottomEnd
+}
+
+private fun OverlayPosition.toGravity(): Int = when (this) {
+    OverlayPosition.TopStart -> Gravity.TOP or Gravity.START
+    OverlayPosition.TopCenter -> Gravity.TOP or Gravity.CENTER_HORIZONTAL
+    OverlayPosition.TopEnd -> Gravity.TOP or Gravity.END
+    OverlayPosition.CenterStart -> Gravity.CENTER_VERTICAL or Gravity.START
+    OverlayPosition.Center -> Gravity.CENTER
+    OverlayPosition.CenterEnd -> Gravity.CENTER_VERTICAL or Gravity.END
+    OverlayPosition.BottomStart -> Gravity.BOTTOM or Gravity.START
+    OverlayPosition.BottomCenter -> Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
+    OverlayPosition.BottomEnd -> Gravity.BOTTOM or Gravity.END
 }
 
 private fun OverlayPosition.toVerticalAlignment(): Alignment.Vertical = when (this) {

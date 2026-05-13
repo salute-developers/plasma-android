@@ -12,7 +12,6 @@ dependencies {
     }
     implementation(libs.base.gradle.cacheFix)
     implementation(libs.base.gradle.kotlin)
-    implementation(libs.base.gradle.paparazzi)
     implementation(libs.base.gradle.detekt)
     implementation(libs.base.gradle.spotless)
     implementation(libs.base.gradle.nexusPublish)
@@ -20,7 +19,8 @@ dependencies {
     implementation(libs.base.dokka.graddle)
     implementation(libs.base.dokka)
     implementation(libs.base.kotlin.serialization.json)
-    implementation(libs.base.kotlin.compiler.embeddable)
+    compileOnly(libs.base.kotlin.compiler.embeddable)
+    implementation(libs.base.kotlin.compose.compiler)
     implementation("org.commonmark:commonmark:0.21.0")
     implementation(libs.base.gradle.compose)
     implementation(libs.base.gradle.mavenpublish)

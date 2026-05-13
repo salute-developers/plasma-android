@@ -14,18 +14,19 @@ import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.RoundedShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shapesXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.decapitalized
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.ShapeTokenValidator
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
-import java.util.Locale
 
 /**
  * Генератор токенов форм
@@ -48,27 +49,25 @@ internal class ShapeTokenGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val dimensAggregator: DimensAggregator,
     private val resourceReferenceProvider: ResourceReferenceProvider,
-    private val shapeTokenValues: Map<String, ShapeTokenValue>,
+    private val shapeTokenValues: Map<Tenant, Map<String, ShapeTokenValue>>,
     private val dimensionsConfig: DimensionsConfig,
     namespace: String,
 ) : TokenGenerator<ShapeToken, ShapeTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(ROUND_SHAPE_TOKENS_NAME) }
-    private val rootRoundShapes by unsafeLazy {
-        ktFileBuilder.rootObject(ROUND_SHAPE_TOKENS_NAME, ROUND_SHAPE_TOKENS_DESC)
-    }
+    private val rootRoundShapes =
+        mutableMapOf(Tenant.Default to ktFileBuilder.rootObject(ROUND_SHAPE_TOKENS_NAME, ROUND_SHAPE_TOKENS_DESC))
     private val shouldGenerateShapeStyles: Boolean = viewShapeAppearanceConfig.isNotEmpty()
     private val rFileImport = ClassName(namespace, "R")
     private var needCreateStyle: Boolean = true
 
-    private val composeTokenDataCollector =
-        mutableListOf<ShapeTokenResult.TokenData>()
+    private val composeTokenDataCollectors = mutableMapOf<Tenant, MutableList<ShapeTokenResult.TokenData>>()
     private val viewTokenDataCollector =
         mutableListOf<ShapeTokenResult.TokenData>()
 
     override fun collectResult() = ShapeTokenResult(
-        composeTokens = composeTokenDataCollector,
+        composeTokens = composeTokenDataCollectors,
         viewTokens = viewTokenDataCollector,
     )
 
@@ -99,7 +98,7 @@ internal class ShapeTokenGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: ShapeToken): Boolean = with(xmlDocumentBuilder) {
-        val roundedShapeTokenValue = shapeTokenValues[token.name] as? RoundedShapeTokenValue
+        val roundedShapeTokenValue = shapeTokenValues[Tenant.Default]?.get(token.name) as? RoundedShapeTokenValue
             ?: throw ThemeBuilderException(
                 "Can't find value for shape token ${token.name}. " +
                     "It should be in android_shape.json.",
@@ -160,27 +159,39 @@ internal class ShapeTokenGenerator(
     /**
      * @see TokenGenerator.addComposeToken
      */
-    override fun addComposeToken(token: ShapeToken): Boolean = with(ktFileBuilder) {
-        val roundedShapeTokenValue = shapeTokenValues[token.name] as? RoundedShapeTokenValue
+    override fun addComposeToken(token: ShapeToken): Boolean {
+        shapeTokenValues[Tenant.Default]?.get(token.name) as? RoundedShapeTokenValue
             ?: throw ThemeBuilderException(
                 "Can't find value for shape token ${token.name}. " +
                     "It should be in android_shape.json.",
             )
-        ShapeTokenValidator.validate(roundedShapeTokenValue, token.name)
+        shapeTokenValues.forEach { (tenant, values) ->
+            val tokenValue = values[token.name]
+            if (tokenValue != null && tokenValue is RoundedShapeTokenValue) {
+                ShapeTokenValidator.validate(tokenValue, token.name)
 
-        if (dimensionsConfig.fromResources) {
-            rootRoundShapes.addShapeTokenWithResources(token, roundedShapeTokenValue)
-        } else {
-            rootRoundShapes.addShapeToken(token, roundedShapeTokenValue)
+                val rootObject = rootRoundShapes.getOrPut(tenant) {
+                    ktFileBuilder.rootObject("${ROUND_SHAPE_TOKENS_NAME}${tenant.name}", ROUND_SHAPE_TOKENS_DESC)
+                }
+                if (dimensionsConfig.fromResources) {
+                    rootObject.addShapeTokenWithResources(token, tokenValue, tenant)
+                } else {
+                    rootObject.addShapeToken(token, tokenValue)
+                }
+                val composeTokenDataCollector = composeTokenDataCollectors.getOrPut(tenant) {
+                    mutableListOf()
+                }
+                composeTokenDataCollector.add(
+                    ShapeTokenResult.TokenData(
+                        attrName = token.ktName.decapitalized(),
+                        tokenRefName = token.ktName,
+                        description = token.description,
+                        tokenObjectName = "${ROUND_SHAPE_TOKENS_NAME}${tenant.name}",
+                    ),
+                )
+            }
         }
-        composeTokenDataCollector.add(
-            ShapeTokenResult.TokenData(
-                attrName = token.ktName.decapitalize(Locale.getDefault()),
-                tokenRefName = token.ktName,
-                description = token.description,
-            ),
-        )
-        return@with true
+        return true
     }
 
     private fun TypeSpec.Builder.addShapeToken(
@@ -200,9 +211,15 @@ internal class ShapeTokenGenerator(
     private fun TypeSpec.Builder.addShapeTokenWithResources(
         token: ShapeToken,
         value: RoundedShapeTokenValue,
+        tenant: Tenant,
     ) = with(ktFileBuilder) {
+        val tenantSuffix = if (tenant == Tenant.Default) {
+            ""
+        } else {
+            "_${tenant.name}"
+        }
         val cornerSize = DimenData(
-            name = "${token.name.techToSnakeCase()}_corner_size",
+            name = "${token.name.techToSnakeCase()}_corner_size$tenantSuffix",
             value = value.cornerRadius,
             type = DimenData.Type.DP,
         )

@@ -4,7 +4,6 @@ plugins {
     id("convention.maven-publish")
     id("convention.auto-bump")
     id("convention.dokka")
-    alias(libs.plugins.paparazzi)
     alias(libs.plugins.binary.compatibility.validator)
 }
 

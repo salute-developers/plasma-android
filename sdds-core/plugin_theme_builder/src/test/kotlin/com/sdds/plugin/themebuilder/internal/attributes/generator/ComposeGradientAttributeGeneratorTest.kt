@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ComposeTokenData
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeGradientAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
@@ -87,41 +88,46 @@ class ComposeGradientAttributeGeneratorTest {
     }
 
     private companion object {
-        val inputData = ComposeTokenData(
-            light = mapOf(
-                "textDefaultAccentGradient" to listOf(
-                    ComposeTokenData.Gradient(
-                        tokenRefs = listOf(
-                            "TextDefaultAccentGradient.colors",
-                            "TextDefaultAccentGradient.positions",
-                            "TextDefaultAccentGradient.angle",
+        val inputData = mapOf(
+            Tenant.Default to ComposeTokenData(
+                light = mapOf(
+                    "textDefaultAccentGradient" to listOf(
+                        ComposeTokenData.Gradient(
+                            tokenRefs = listOf(
+                                "TextDefaultAccentGradient.colors",
+                                "TextDefaultAccentGradient.positions",
+                                "TextDefaultAccentGradient.angle",
+                            ),
+                            gradientType = ComposeTokenData.GradientType.LINEAR,
+                            tokenObjectName = "LightGradientTokens",
                         ),
-                        gradientType = ComposeTokenData.GradientType.LINEAR,
+                    ),
+                    "textDefaultGradientJoyActive" to listOf(
+                        ComposeTokenData.Gradient(
+                            tokenRefs = listOf(
+                                "TextDefaultGradientJoyActive.colors",
+                                "TextDefaultGradientJoyActive.positions",
+                                "TextDefaultGradientJoyActive.centerX",
+                                "TextDefaultGradientJoyActive.centerY",
+                            ),
+                            gradientType = ComposeTokenData.GradientType.SWEEP,
+                            tokenObjectName = "LightGradientTokens",
+                        ),
                     ),
                 ),
-                "textDefaultGradientJoyActive" to listOf(
-                    ComposeTokenData.Gradient(
-                        tokenRefs = listOf(
-                            "TextDefaultGradientJoyActive.colors",
-                            "TextDefaultGradientJoyActive.positions",
-                            "TextDefaultGradientJoyActive.centerX",
-                            "TextDefaultGradientJoyActive.centerY",
+                dark = mapOf(
+                    "textDefaultAccentGradient" to listOf(
+                        ComposeTokenData.Gradient(
+                            tokenRefs = listOf(
+                                "TextDefaultAccentGradient.colors",
+                                "TextDefaultAccentGradient.positions",
+                                "TextDefaultAccentGradient.radius",
+                                "TextDefaultAccentGradient.centerX",
+                                "TextDefaultAccentGradient.centerY",
+                            ),
+                            gradientType = ComposeTokenData.GradientType.RADIAL,
+                            tokenObjectName = "DarkGradientTokens",
                         ),
-                        gradientType = ComposeTokenData.GradientType.SWEEP,
-                    ),
-                ),
-            ),
-            dark = mapOf(
-                "textDefaultAccentGradient" to listOf(
-                    ComposeTokenData.Gradient(
-                        tokenRefs = listOf(
-                            "TextDefaultAccentGradient.colors",
-                            "TextDefaultAccentGradient.positions",
-                            "TextDefaultAccentGradient.radius",
-                            "TextDefaultAccentGradient.centerX",
-                            "TextDefaultAccentGradient.centerY",
-                        ),
-                        gradientType = ComposeTokenData.GradientType.RADIAL,
                     ),
                 ),
             ),

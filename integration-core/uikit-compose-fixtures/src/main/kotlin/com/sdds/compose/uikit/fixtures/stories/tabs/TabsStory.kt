@@ -1,15 +1,22 @@
 package com.sdds.compose.uikit.fixtures.stories.tabs
 
+import android.util.Log
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -26,6 +33,7 @@ import com.sdds.compose.uikit.TabItem
 import com.sdds.compose.uikit.TabScope
 import com.sdds.compose.uikit.Tabs
 import com.sdds.compose.uikit.TabsClip
+import com.sdds.compose.uikit.TabsOrientation
 import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.stories.TabsUiStatePropertiesProducer
@@ -81,6 +89,9 @@ object TabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
     TabsUiStatePropertiesProducer,
     TabsUiStateTransformer,
 ) {
+
+    private const val TAG = "TabsStory"
+
     @Composable
     override fun BoxScope.Content(
         style: TabsStyle,
@@ -96,15 +107,22 @@ object TabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
                     val tabMotion = rememberTabItemPagerMotion(index, pagerState)
                     val isTabSelected = rememberTabSelectedState(index, pagerState)
                     TabItem(
+                        modifier = Modifier.combinedClickable(
+                            interactionSource = tabMotion.context.interactionSource,
+                            indication = null,
+                            enabled = state.enabled,
+                            onClick = {
+                                scope.launch {
+                                    pagerState.animateScrollToPage(
+                                        index,
+                                        pagerState.currentPageOffsetFraction,
+                                    )
+                                }
+                            },
+                            onLongClick = { Log.d(TAG, "Tabs: long click on tab$index") },
+                        ),
                         isSelected = isTabSelected.value,
-                        onClick = {
-                            scope.launch {
-                                pagerState.animateScrollToPage(
-                                    index,
-                                    pagerState.currentPageOffsetFraction,
-                                )
-                            }
-                        },
+                        onClick = {},
                         content = { Text(stringSource(label)) },
                         helperContent = { Text(stringSource(state.tabItemValue)) },
                         counter = counter(state, tabMotion.context),
@@ -181,6 +199,7 @@ object IconTabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
                         },
                         counter = counter(state, tabMotion.context),
                         action = actionIconContent(state, style),
+                        enabled = state.enabled,
                         content = {
                             Icon(
                                 source = resourceImageSource(R.drawable.ic_plasma_24),
@@ -232,33 +251,61 @@ private fun CommonTabsContent(
     style: TabsStyle,
     tabs: TabScope.() -> Unit,
 ) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Tabs(
-            style = style,
-            enabled = state.enabled,
-            selectedTabIndexProvider = { pagerState.currentPage },
-            selectedTabOffset = { pagerState.currentPageOffsetFraction },
-            onDisclosureTabClicked = {
-                scope.launch {
-                    pagerState.animateScrollToPage(it, pagerState.currentPageOffsetFraction)
-                }
-            },
-            clip = state.clip,
-            stretch = state.stretch,
-            indicatorEnabled = state.indicatorEnabled,
-            dividerEnabled = state.dividerEnabled,
-            tabs = tabs,
-        )
-
-        Box(contentAlignment = Alignment.Center) {
-            HorizontalPager(
-                state = pagerState,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp),
-                pageContent = {},
+    val content = remember(state, style) {
+        movableContentOf {
+            val sizeModifier = when {
+                style.orientation == TabsOrientation.Horizontal && state.stretch -> Modifier.fillMaxWidth()
+                style.orientation == TabsOrientation.Vertical && state.stretch -> Modifier.fillMaxHeight()
+                else -> Modifier
+            }
+            Tabs(
+                modifier = sizeModifier,
+                style = style,
+                enabled = state.enabled,
+                selectedTabIndexProvider = { pagerState.currentPage },
+                selectedTabOffset = { pagerState.currentPageOffsetFraction },
+                onDisclosureTabClicked = {
+                    scope.launch {
+                        pagerState.animateScrollToPage(it, pagerState.currentPageOffsetFraction)
+                    }
+                },
+                clip = state.clip,
+                stretch = state.stretch,
+                indicatorEnabled = state.indicatorEnabled,
+                dividerEnabled = state.dividerEnabled,
+                tabs = tabs,
             )
-            Text("Swipe here to change tabs")
+        }
+    }
+    if (style.orientation == TabsOrientation.Vertical) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            content()
+            Box(contentAlignment = Alignment.Center) {
+                VerticalPager(
+                    state = pagerState,
+                    userScrollEnabled = state.enabled,
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(200.dp),
+                    pageContent = {},
+                )
+                Text("Swipe here to change tabs")
+            }
+        }
+    } else {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            content()
+            Box(contentAlignment = Alignment.Center) {
+                HorizontalPager(
+                    state = pagerState,
+                    userScrollEnabled = state.enabled,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(200.dp),
+                    pageContent = {},
+                )
+                Text("Swipe here to change tabs")
+            }
         }
     }
 }

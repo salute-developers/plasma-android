@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.RoundedShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -116,9 +117,11 @@ class ShapeTokenGeneratorTest {
 
     private companion object {
         val shapeTokenValues = mapOf(
-            "round.xs" to RoundedShapeTokenValue(cornerRadius = 6.0f),
-            "round.s" to RoundedShapeTokenValue(cornerRadius = 8.0f),
-            "round.l" to RoundedShapeTokenValue(cornerRadius = 16.0f),
+            Tenant.Default to mapOf(
+                "round.xs" to RoundedShapeTokenValue(cornerRadius = 6.0f),
+                "round.s" to RoundedShapeTokenValue(cornerRadius = 8.0f),
+                "round.l" to RoundedShapeTokenValue(cornerRadius = 16.0f),
+            ),
         )
     }
 }

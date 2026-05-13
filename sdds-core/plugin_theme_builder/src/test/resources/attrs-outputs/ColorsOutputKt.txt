@@ -10,6 +10,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.graphics.Color
+import com.sdds.playground.themebuilder.theme.ColorAttrOverrideScope
 import com.sdds.playground.themebuilder.theme.ColorOverrideScope
 import com.sdds.playground.themebuilder.theme.ThemeColors
 import com.sdds.playground.themebuilder.tokens.DarkColorTokens
@@ -40,6 +41,16 @@ public class ThemeColors(
         val overrideMap = colorOverrideScope.overrideMap
         return ThemeColors(colors.mapValues { overrideMap[it.key] ?: it.value })
     }
+
+    /**
+     * Возвращает копию [ThemeColors]. Предоставляет возможность переопределять цвета.
+     */
+    internal fun copyAttrs(overrideColors: ColorAttrOverrideScope.() -> Unit = {}): ThemeColors {
+        val colorOverrideScope = ColorAttrOverrideScope()
+        overrideColors.invoke(colorOverrideScope)
+        val overrideMap = colorOverrideScope.overrideMap
+        return ThemeColors(colors.mapValues { colors[overrideMap[it.key]] ?: it.value })
+    }
 }
 
 /**
@@ -59,6 +70,27 @@ public class ColorOverrideScope {
      * Переопределяет аттрибут цвета.
      */
     public infix fun String.overrideBy(color: Color): Unit {
+        _overrideMap[this] = color
+    }
+}
+
+/**
+ * Скоуп переопределения цветов по арибутам
+ */
+internal class ColorAttrOverrideScope {
+    private val _overrideMap: MutableMap<String, String> = mutableMapOf()
+
+    internal val overrideMap: Map<String, String>
+        get() = _overrideMap.toMap()
+
+    public val textPrimary: String = "textPrimary"
+
+    public val textTertiary: String = "textTertiary"
+
+    /**
+     * Переопределяет аттрибут цвета.
+     */
+    public infix fun String.overrideBy(color: String): Unit {
         _overrideMap[this] = color
     }
 }

@@ -12,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -129,43 +130,45 @@ class FontTokenGeneratorTest {
 
     private companion object {
         val fontTokenValues = mapOf(
-            "font-family.display" to FontTokenValue(
-                name = "SB Sans Display",
-                fonts = listOf(
-                    FontToken.FontVariant(
-                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                            "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Regular.otf",
-                        fontWeight = 300,
-                        fontStyle = "normal",
-                    ),
-                    FontToken.FontVariant(
-                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                            "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Bold.otf",
-                        fontWeight = 600,
-                        fontStyle = "normal",
+            Tenant.Default to mapOf(
+                "font-family.display" to FontTokenValue(
+                    name = "SB Sans Display",
+                    fonts = listOf(
+                        FontToken.FontVariant(
+                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                                "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Regular.otf",
+                            fontWeight = 300,
+                            fontStyle = "normal",
+                        ),
+                        FontToken.FontVariant(
+                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                                "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Bold.otf",
+                            fontWeight = 600,
+                            fontStyle = "normal",
+                        ),
                     ),
                 ),
-            ),
-            "font-family.text" to FontTokenValue(
-                name = "SB Sans Text",
-                fonts = listOf(
-                    FontToken.FontVariant(
-                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                            "fonts/SBSansText.0.2.0/SBSansText-Regular.otf",
-                        fontWeight = 300,
-                        fontStyle = "normal",
-                    ),
-                    FontToken.FontVariant(
-                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                            "fonts/SBSansText.0.2.0/SBSansText-Italic.otf",
-                        fontWeight = 300,
-                        fontStyle = "italic",
-                    ),
-                    FontToken.FontVariant(
-                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                            "fonts/SBSansText.0.2.0/SBSansText-Bold.otf",
-                        fontWeight = 600,
-                        fontStyle = "normal",
+                "font-family.text" to FontTokenValue(
+                    name = "SB Sans Text",
+                    fonts = listOf(
+                        FontToken.FontVariant(
+                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                                "fonts/SBSansText.0.2.0/SBSansText-Regular.otf",
+                            fontWeight = 300,
+                            fontStyle = "normal",
+                        ),
+                        FontToken.FontVariant(
+                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                                "fonts/SBSansText.0.2.0/SBSansText-Italic.otf",
+                            fontWeight = 300,
+                            fontStyle = "italic",
+                        ),
+                        FontToken.FontVariant(
+                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                                "fonts/SBSansText.0.2.0/SBSansText-Bold.otf",
+                            fontWeight = 600,
+                            fontStyle = "normal",
+                        ),
                     ),
                 ),
             ),

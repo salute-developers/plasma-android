@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.android.cache.fix) apply false
-    alias(libs.plugins.paparazzi) apply false
 }
 
 buildscript {
@@ -29,7 +28,6 @@ buildscript {
         classpath(libs.base.gradle.kotlin)
         classpath(libs.base.gradle.detekt)
         classpath(libs.base.gradle.spotless)
-        classpath(libs.base.gradle.paparazzi)
         classpath(libs.base.gradle.cacheFix)
         classpath(files("../build-system/libs/star-dimens.jar"))
     }

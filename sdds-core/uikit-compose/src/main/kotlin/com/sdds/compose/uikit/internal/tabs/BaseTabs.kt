@@ -84,6 +84,9 @@ internal fun BaseTabs(
         val overFlowPrevIcon: Int? = style.overflowPrevIcon
         val dropdownTriggerInfo = remember { mutableStateOf(TriggerInfo()) }
         val showDropdown = remember { mutableStateOf(false) }
+        val showScrollControls = remember(clip, stretch, orientation) {
+            mutableStateOf(clip == TabsClip.Scroll && !stretch)
+        }
         Layout(
             modifier = Modifier
                 .clip(style.shape)
@@ -107,17 +110,17 @@ internal fun BaseTabs(
                 val coroutineScope = rememberCoroutineScope()
                 val canStretch = stretch && clip != TabsClip.Scroll
                 val spacingDp = getItemSpacing(style.dimensions.minSpacing, canStretch)
-                val spacingPx = with(LocalDensity.current) {
-                    spacingDp.roundToPx()
+                val minSpacingPx = with(LocalDensity.current) {
+                    style.dimensions.minSpacing.roundToPx()
                 }
                 val tabSizes = remember { mutableStateListOf<Int>() }
                 StartControl(
-                    overFlowIcon = overFlowPrevIcon,
+                    overFlowIcon = if (showScrollControls.value) overFlowPrevIcon else null,
                     clip = clip,
                     coroutineScope = coroutineScope,
                     scrollState = scrollState,
                     tabSizes = tabSizes,
-                    spacingPx = spacingPx,
+                    spacingPx = minSpacingPx,
                     color = style.colors.overflowPrevIconColor,
                     interactionSource = interactionSource,
                     enabled = enabled,
@@ -133,8 +136,10 @@ internal fun BaseTabs(
                     onTabClicked = onTabClicked,
                     clip = clip,
                     canStretch = canStretch,
+                    stretchForScroll = stretch && clip == TabsClip.Scroll,
                     spacingDp = spacingDp,
-                    spacingPx = spacingPx,
+                    minSpacingDp = style.dimensions.minSpacing,
+                    spacingPx = minSpacingPx,
                     scrollState = scrollState,
                     coroutineScope = coroutineScope,
                     indicatorEnabled = indicatorEnabled,
@@ -146,14 +151,19 @@ internal fun BaseTabs(
                     tabs = tabScope.tabs.map { it.main },
                     disclosureContent = tabScope.disclosureContent,
                     onOverflowTab = { overflowIndex = it },
+                    onScrollControlsVisibilityChange = { visible ->
+                        if (showScrollControls.value != visible) {
+                            showScrollControls.value = visible
+                        }
+                    },
                 )
                 EndControl(
-                    overFlowIcon = overFlowNextIcon,
+                    overFlowIcon = if (showScrollControls.value) overFlowNextIcon else null,
                     clip = clip,
                     coroutineScope = coroutineScope,
                     scrollState = scrollState,
                     tabSizes = tabSizes,
-                    spacingPx = spacingPx,
+                    spacingPx = minSpacingPx,
                     color = style.colors.overflowNextIconColor,
                     interactionSource = interactionSource,
                     enabled = enabled,

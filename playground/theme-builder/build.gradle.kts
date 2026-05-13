@@ -15,9 +15,16 @@ android {
 }
 
 themeBuilder {
-    themeSource {
-        url("file://${projectDir.path}/json/test_theme.zip")
-        name("sdds_serv")
+    themeSources(baseAlias = "SddsServ") {
+        defaultSourceFromUrl(
+            name = "sdds_serv",
+            url = "file://${projectDir.path}/json/latest.zip",
+        )
+        sourceFromUrl(
+            name = "sdds_serv",
+            url = "file://${projectDir.path}/json/latest_gold.zip",
+            tenant = "Gold",
+        )
     }
     componentSource {
         url("file://${projectDir.path}/json/test_components.zip")
