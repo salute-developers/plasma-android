@@ -14,7 +14,6 @@ import com.sdds.compose.uikit.motion.components.badge.IconBadgeMotionStyle
 import com.sdds.compose.uikit.motion.components.badge.rememberBadgeMotion
 import com.sdds.compose.uikit.motion.components.badge.rememberIconBadgeMotion
 import com.sdds.compose.uikit.motion.getBrushAsState
-import com.sdds.compose.uikit.motion.getTextStyleAsState
 import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
@@ -40,12 +39,8 @@ fun Badge(
         motionContext = rememberMotionContext(interactionSource),
     ),
 ) {
-    val labelStyle = style.labelStyles.getTextStyleAsState(
-        motion.context,
-        motion.style.labelStyle,
-    )
     val dimens = style.dimensions.toDimensionsSet(interactionSource)
-    val colors = style.colors.toBadgeColorsSet(motion)
+    val colors = style.colors.toBadgeColorsSet()
     val background = style.colors.backgroundBrush.getBrushAsState(
         motion.context,
         motion.style.backgroundColor,
@@ -57,12 +52,12 @@ fun Badge(
             interactionSource = interactionSource,
         ),
         dimensionsSet = dimens,
-        colorsSet = colors,
+        brushesSet = colors,
         labelContent = label,
-        labelStyle = labelStyle.value,
+        labelStyle = style.labelStyles,
         startContent = startContent,
         endContent = endContent,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -90,7 +85,7 @@ fun Badge(
     ),
 ) {
     val dimens = style.dimensions.toDimensionsSet(interactionSource)
-    val colors = style.colors.toBadgeColorsSet(motion)
+    val colors = style.colors.toBadgeColorsSet()
     val background = style.colors.backgroundBrush.getBrushAsState(
         motion.context,
         motion.style.backgroundColor,
@@ -102,12 +97,12 @@ fun Badge(
             interactionSource = interactionSource,
         ),
         dimensionsSet = dimens,
-        colorsSet = colors,
+        brushesSet = colors,
         labelContent = label,
-        labelStyle = style.labelStyle,
+        labelStyle = style.labelStyles,
         startContent = startContent,
         endContent = endContent,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -131,7 +126,7 @@ fun IconBadge(
     ),
 ) {
     val dimens = style.dimensions.toDimensionsSet(interactionSource)
-    val colors = style.colors.toIconBadgeColorsSet(motion)
+    val colors = style.colors.toIconBadgeColorsSet()
     val background = style.colors.backgroundBrush.getBrushAsState(
         motion.context,
         motion.style.backgroundColor,
@@ -143,7 +138,7 @@ fun IconBadge(
             interactionSource = interactionSource,
         ),
         dimensionsSet = dimens,
-        colorsSet = colors,
+        brushesSet = colors,
         startContent = content,
         interactionSource = interactionSource,
     )
@@ -153,8 +148,6 @@ fun IconBadge(
 internal fun BadgeDimensions.toDimensionsSet(
     interactionSource: InteractionSource,
 ): BaseIconText.Dimensions {
-    // В будущем нужно будет получить из BadgeMotionStyle
-    // Dp values и прокинуть их в маппер
     return BaseIconText.Dimensions(
         height = this.heightValues.getValue(interactionSource),
         endContentSize = this.endContentSizeValues.getValue(interactionSource),
@@ -167,41 +160,15 @@ internal fun BadgeDimensions.toDimensionsSet(
 }
 
 @Composable
-internal fun BadgeColors.toBadgeColorsSet(
-    motion: Motion<BadgeMotionStyle>,
-): BaseIconText.Brushes {
-    return BaseIconText.Brushes(
-        contentBrush = this.contentBrush.getBrushAsState(
-            motion.context,
-            motion.style.contentColor,
-        ).value,
-        labelBrush = this.labelBrush.getBrushAsState(
-            motion.context,
-            motion.style.labelColor,
-        ).value,
-        startContentBrush = this.startContentBrush.getBrushAsState(
-            motion.context,
-            motion.style.startContentColor,
-        ).value,
-        endContentBrush = this.endContentBrush.getBrushAsState(
-            motion.context,
-            motion.style.endContentColor,
-        ).value,
-    )
-}
+internal fun BadgeColors.toBadgeColorsSet() = BaseIconText.Brushes(
+    contentBrush = this.contentBrush,
+    labelBrush = this.labelBrush,
+    startContentBrush = this.startContentBrush,
+    endContentBrush = this.endContentBrush,
+)
 
 @Composable
-internal fun BadgeColors.toIconBadgeColorsSet(
-    motion: Motion<IconBadgeMotionStyle>,
-): BaseIconText.Brushes {
-    return BaseIconText.Brushes(
-        contentBrush = this.startContentBrush.getBrushAsState(
-            motion.context,
-            motion.style.startContentColor,
-        ).value,
-        startContentBrush = this.startContentBrush.getBrushAsState(
-            motion.context,
-            motion.style.startContentColor,
-        ).value,
-    )
-}
+internal fun BadgeColors.toIconBadgeColorsSet() = BaseIconText.Brushes(
+    contentBrush = this.startContentBrush,
+    startContentBrush = this.startContentBrush,
+)

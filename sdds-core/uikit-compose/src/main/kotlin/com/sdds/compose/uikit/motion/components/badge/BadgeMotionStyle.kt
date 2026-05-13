@@ -6,8 +6,8 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.motion.MotionProperty
-import com.sdds.compose.uikit.motion.MotionStyle
-import com.sdds.compose.uikit.motion.MotionStyleBuilder
+import com.sdds.compose.uikit.motion.components.icontext.IconTextMotionStyle
+import com.sdds.compose.uikit.motion.components.icontext.IconTextMotionStyleBuilder
 import com.sdds.compose.uikit.motion.noMotion
 
 /**
@@ -22,37 +22,12 @@ val LocalBadgeMotionStyle = compositionLocalOf { BadgeMotionStyle.builder().styl
  * при различных состояниях (например, выбран, нажат и т.д.).
  */
 @Stable
-interface BadgeMotionStyle : MotionStyle {
+interface BadgeMotionStyle : IconTextMotionStyle {
 
     /**
      * Анимационное свойство цвета фона Badge.
      */
     val backgroundColor: MotionProperty<Brush>
-
-    /**
-     * Анимационное свойство цвета основного текста (label) Badge.
-     */
-    val labelColor: MotionProperty<Brush>
-
-    /**
-     * Анимационное свойство стиля основного текста (label) Badge.
-     */
-    val labelStyle: MotionProperty<TextStyle>
-
-    /**
-     * Анимационное свойство цвета контента (как в начале,  так и в конце) Badge.
-     */
-    val contentColor: MotionProperty<Brush>
-
-    /**
-     * Анимационное свойство цвета контента, расположенного в начале Badge.
-     */
-    val startContentColor: MotionProperty<Brush>
-
-    /**
-     * Анимационное свойство цвета контента, расположенного в конце Badge.
-     */
-    val endContentColor: MotionProperty<Brush>
 
     companion object {
         /**
@@ -66,7 +41,7 @@ interface BadgeMotionStyle : MotionStyle {
  * Билдер для поэтапной конфигурации [BadgeMotionStyle].
  */
 @Stable
-interface BadgeMotionStyleBuilder : MotionStyleBuilder<BadgeMotionStyle> {
+interface BadgeMotionStyleBuilder : IconTextMotionStyleBuilder {
 
     /**
      * Устанавливает анимационное свойство цвета фона.
@@ -76,27 +51,29 @@ interface BadgeMotionStyleBuilder : MotionStyleBuilder<BadgeMotionStyle> {
     /**
      * Устанавливает анимационное свойство цвета label.
      */
-    fun labelColor(label: MotionProperty<Brush>): BadgeMotionStyleBuilder
+    override fun labelColor(label: MotionProperty<Brush>): BadgeMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство стиля label.
      */
-    fun labelStyle(label: MotionProperty<TextStyle>): BadgeMotionStyleBuilder
+    override fun labelStyle(label: MotionProperty<TextStyle>): BadgeMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство цвета начального контента.
      */
-    fun contentColor(content: MotionProperty<Brush>): BadgeMotionStyleBuilder
+    override fun contentColor(content: MotionProperty<Brush>): BadgeMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство цвета начального контента.
      */
-    fun startContentColor(startContent: MotionProperty<Brush>): BadgeMotionStyleBuilder
+    override fun startContentColor(startContent: MotionProperty<Brush>): BadgeMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство цвета конечного контента.
      */
-    fun endContentColor(endContent: MotionProperty<Brush>): BadgeMotionStyleBuilder
+    override fun endContentColor(endContent: MotionProperty<Brush>): BadgeMotionStyleBuilder
+
+    override fun style(): BadgeMotionStyle
 }
 
 @Immutable
@@ -117,27 +94,27 @@ private class BadgeMotionStyleImpl(
         private var endContent: MotionProperty<Brush>? = null
         private var labelStyle: MotionProperty<TextStyle>? = null
 
-        override fun backgroundColor(background: MotionProperty<Brush>) = apply {
+        override fun backgroundColor(background: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
             this.background = background
         }
 
-        override fun labelColor(label: MotionProperty<Brush>) = apply {
+        override fun labelColor(label: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
             this.label = label
         }
 
-        override fun labelStyle(label: MotionProperty<TextStyle>) = apply {
+        override fun labelStyle(label: MotionProperty<TextStyle>): BadgeMotionStyleBuilder = apply {
             this.labelStyle = label
         }
 
-        override fun contentColor(content: MotionProperty<Brush>) = apply {
+        override fun contentColor(content: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
             this.content = content
         }
 
-        override fun startContentColor(startContent: MotionProperty<Brush>) = apply {
+        override fun startContentColor(startContent: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
             this.startContent = startContent
         }
 
-        override fun endContentColor(endContent: MotionProperty<Brush>) = apply {
+        override fun endContentColor(endContent: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
             this.endContent = endContent
         }
 

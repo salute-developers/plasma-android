@@ -1,7 +1,6 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.Indication
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.runtime.Composable
@@ -11,6 +10,8 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.semantics.Role
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.icontext.BaseIconText
@@ -41,9 +42,9 @@ fun Chip(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val isFocused = interactionSource.collectIsFocusedAsState()
-    val labelStyle = style.labelStyle
+    val labelStyles = style.labelStyle.asStatefulValue()
     val dimensionsSet = style.dimensions.toDimensionsSet()
-    val colorsSet = style.colors.toColorsSet(interactionSource)
+    val colorsSet = style.colors.toColorsSet()
     val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
     BaseIconText(
         modifier = modifier
@@ -62,9 +63,9 @@ fun Chip(
                 interactionSource = interactionSource,
             ),
         dimensionsSet = dimensionsSet,
-        colorsSet = colorsSet,
+        brushesSet = colorsSet,
         labelContent = label,
-        labelStyle = labelStyle,
+        labelStyle = labelStyles,
         startContent = startContent,
         endContent = endContent,
         interactionSource = interactionSource,
@@ -99,9 +100,9 @@ fun Chip(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val isFocused = interactionSource.collectIsFocusedAsState()
-    val labelStyle = style.labelStyle
+    val labelStyles = style.labelStyle.asStatefulValue()
     val dimensionsSet = style.dimensions.toDimensionsSet()
-    val colorsSet = style.colors.toColorsSet(interactionSource)
+    val colorsSet = style.colors.toColorsSet()
     val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
     BaseIconText(
         modifier = modifier
@@ -122,37 +123,31 @@ fun Chip(
             )
             .selection(isSelected, interactionSource),
         dimensionsSet = dimensionsSet,
-        colorsSet = colorsSet,
+        brushesSet = colorsSet,
         labelContent = label,
-        labelStyle = labelStyle,
+        labelStyle = labelStyles,
         startContent = startContent,
         endContent = endContent,
         interactionSource = interactionSource,
     )
 }
 
-internal fun ChipDimensions.toDimensionsSet(): BaseIconText.Dimensions {
-    return BaseIconText.Dimensions(
-        height = this.height,
-        endContentSize = this.contentEndSize,
-        startContentSize = this.contentStartSize,
-        endContentMargin = this.contentEndPadding,
-        startContentMargin = this.contentStartPadding,
-        startPadding = this.startPaddings,
-        endPadding = this.endPaddings,
-    )
-}
+internal fun ChipDimensions.toDimensionsSet() = BaseIconText.Dimensions(
+    height = this.height,
+    endContentSize = this.contentEndSize,
+    startContentSize = this.contentStartSize,
+    endContentMargin = this.contentEndPadding,
+    startContentMargin = this.contentStartPadding,
+    startPadding = this.startPaddings,
+    endPadding = this.endPaddings,
+)
 
 @Composable
-internal fun ChipColors.toColorsSet(
-    interactionSource: InteractionSource,
-): BaseIconText.Brushes {
-    return BaseIconText.Brushes(
-        contentBrush = SolidColor(this.contentColor.colorForInteraction(interactionSource)),
-        labelBrush = SolidColor(this.labelColor.colorForInteraction(interactionSource)),
-        startContentBrush = SolidColor(this.contentStartColor.colorForInteraction(interactionSource)),
-        endContentBrush = SolidColor(this.contentEndColor.colorForInteraction(interactionSource)),
-    )
-}
+internal fun ChipColors.toColorsSet() = BaseIconText.Brushes(
+    contentBrush = this.contentColor.asStatefulBrush(),
+    labelBrush = this.labelColor.asStatefulBrush(),
+    startContentBrush = this.contentStartColor.asStatefulBrush(),
+    endContentBrush = this.contentEndColor.asStatefulBrush(),
+)
 
 private const val ENABLED_CHIP_ALPHA = 1f

@@ -10,7 +10,7 @@ import androidx.compose.runtime.remember
  * Используется как точка входа в Motion API на уровне компонента: стиль описывает
  * доступные motion-свойства, а контекст предоставляет текущее состояние и каналы анимации.
  */
-interface Motion<S : MotionStyle> {
+interface Motion<out S : MotionStyle> {
     /**
      * Контекст, в котором вычисляются состояния и запускаются анимации.
      */

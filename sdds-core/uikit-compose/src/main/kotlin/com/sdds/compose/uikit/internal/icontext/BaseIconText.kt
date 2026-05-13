@@ -8,12 +8,12 @@ import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -33,12 +33,16 @@ import com.sdds.compose.uikit.LocalIconDefaultSize
 import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.StatefulValue
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
-import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.icontext.IconTextMotionStyle
+import com.sdds.compose.uikit.motion.components.icontext.rememberIconTextMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Базовый компонент для отрисовки
@@ -49,12 +53,15 @@ import com.sdds.compose.uikit.interactions.getValueAsState
 internal fun BaseIconText(
     modifier: Modifier = Modifier,
     dimensionsSet: BaseIconText.Dimensions,
-    colorsSet: BaseIconText.Brushes,
+    brushesSet: BaseIconText.Brushes,
     labelContent: String = "",
-    labelStyle: TextStyle,
+    labelStyle: StatefulValue<TextStyle>,
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<IconTextMotionStyle> = rememberIconTextMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     val measurePolicy = remember { IconTextMeasurePolicy() }
     Layout(
@@ -66,22 +73,14 @@ internal fun BaseIconText(
             ),
         measurePolicy = measurePolicy,
         content = {
-            val contentColor = colorsSet.contentBrush
-            val startContentColor =
-                colorsSet.startContentBrush ?: contentColor
-            val endContentColor =
-                colorsSet.endContentBrush ?: contentColor
-            val labelColor =
-                colorsSet.labelBrush ?: contentColor
             IconTextContent(
                 dimensions = dimensionsSet,
                 startContent = startContent,
                 endContent = endContent,
-                startContentColor = startContentColor,
-                endContentColor = endContentColor,
-                labelColor = labelColor,
+                brushSet = brushesSet,
                 label = labelContent,
                 labelStyle = labelStyle,
+                motion = motion,
             )
         },
     )
@@ -96,12 +95,15 @@ internal fun BaseIconText(
 internal fun BaseIconText(
     modifier: Modifier = Modifier,
     dimensionsSet: BaseIconText.Dimensions,
-    colorsSet: BaseIconText.Brushes,
-    labelStyle: TextStyle = TextStyle.Default,
+    brushesSet: BaseIconText.Brushes,
+    labelStyle: StatefulValue<TextStyle> = TextStyle.Default.asStatefulValue(),
     labelContent: (@Composable () -> Unit)? = null,
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<IconTextMotionStyle> = rememberIconTextMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     val measurePolicy = remember { IconTextMeasurePolicy() }
     Layout(
@@ -113,22 +115,14 @@ internal fun BaseIconText(
             ),
         measurePolicy = measurePolicy,
         content = {
-            val contentColor = colorsSet.contentBrush
-            val startContentColor =
-                colorsSet.startContentBrush ?: contentColor
-            val endContentColor =
-                colorsSet.endContentBrush ?: contentColor
-            val labelColor =
-                colorsSet.labelBrush ?: contentColor
             IconTextContent(
                 dimensions = dimensionsSet,
                 startContent = startContent,
-                labelStyle = labelStyle,
                 endContent = endContent,
-                startContentColor = startContentColor,
-                endContentColor = endContentColor,
-                labelColor = labelColor,
+                labelStyle = labelStyle,
+                brushSet = brushesSet,
                 labelContent = labelContent,
+                motion = motion,
             )
         },
     )
@@ -198,16 +192,17 @@ private class IconTextMeasurePolicy : MeasurePolicy {
 private fun IconTextContent(
     startContent: (@Composable () -> Unit)?,
     endContent: (@Composable () -> Unit)?,
-    startContentColor: Brush,
-    endContentColor: Brush,
-    labelColor: Brush,
     label: String,
-    labelStyle: TextStyle,
+    labelStyle: StatefulValue<TextStyle>,
+    brushSet: BaseIconText.Brushes,
     dimensions: BaseIconText.Dimensions,
+    motion: Motion<IconTextMotionStyle>,
 ) {
     startContent?.let {
+        val startStates = brushSet.startContentBrush ?: brushSet.contentBrush
+        val startBrush = startStates.getBrushAsState(motion.context, motion.style.startContentColor)
         CompositionLocalProvider(
-            LocalTintBrushProducer provides { startContentColor },
+            LocalTintBrushProducer provides { startBrush.value },
         ) {
             val startSpacing = remember(label, dimensions) {
                 dimensions.startContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
@@ -224,17 +219,23 @@ private fun IconTextContent(
         }
     }
     if (label.isNotEmpty()) {
+        val style by labelStyle.getTextStyleAsState(motion.context, motion.style.labelStyle)
+        val labelStates = brushSet.labelBrush ?: brushSet.contentBrush
+        val labelBrush = labelStates.getBrushAsState(motion.context, motion.style.labelColor)
         Text(
             modifier = Modifier.layoutId(TEXT_CONTENT),
             text = label,
-            style = labelStyle.copy(brush = labelColor),
+            style = style,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
+            brush = { labelBrush.value },
         )
     }
     endContent?.let {
+        val endStates = brushSet.endContentBrush ?: brushSet.contentBrush
+        val endBrush = endStates.getBrushAsState(motion.context, motion.style.endContentColor)
         CompositionLocalProvider(
-            LocalTintBrushProducer provides { endContentColor },
+            LocalTintBrushProducer provides { endBrush.value },
         ) {
             val endSpacing = remember(label, dimensions) {
                 dimensions.endContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
@@ -256,16 +257,17 @@ private fun IconTextContent(
 private fun IconTextContent(
     startContent: (@Composable () -> Unit)?,
     endContent: (@Composable () -> Unit)?,
-    startContentColor: Brush,
-    endContentColor: Brush,
-    labelColor: Brush,
-    labelStyle: TextStyle,
+    brushSet: BaseIconText.Brushes,
+    labelStyle: StatefulValue<TextStyle>,
     labelContent: (@Composable () -> Unit)?,
     dimensions: BaseIconText.Dimensions,
+    motion: Motion<IconTextMotionStyle>,
 ) {
     startContent?.let {
+        val startStates = brushSet.startContentBrush ?: brushSet.contentBrush
+        val startBrush = startStates.getBrushAsState(motion.context, motion.style.startContentColor)
         CompositionLocalProvider(
-            LocalTintBrushProducer provides { startContentColor },
+            LocalTintBrushProducer provides { startBrush.value },
             LocalIconDefaultSize provides dimensions.startContentSize.let { DpSize(it, it) },
         ) {
             Box(
@@ -278,7 +280,10 @@ private fun IconTextContent(
         }
     }
     labelContent?.let {
-        ProvideTextStyle(labelStyle, brush = { labelColor }) {
+        val style by labelStyle.getTextStyleAsState(motion.context, motion.style.labelStyle)
+        val labelStates = brushSet.labelBrush ?: brushSet.contentBrush
+        val labelBrush = labelStates.getBrushAsState(motion.context, motion.style.labelColor)
+        ProvideTextStyle(style, brush = { labelBrush.value }) {
             Box(
                 modifier = Modifier
                     .layoutId(TEXT_CONTENT),
@@ -286,8 +291,10 @@ private fun IconTextContent(
         }
     }
     endContent?.let {
+        val endStates = brushSet.endContentBrush ?: brushSet.contentBrush
+        val endBrush = endStates.getBrushAsState(motion.context, motion.style.endContentColor)
         CompositionLocalProvider(
-            LocalTintBrushProducer provides { endContentColor },
+            LocalTintBrushProducer provides { endBrush.value },
             LocalIconDefaultSize provides dimensions.endContentSize.let { DpSize(it, it) },
         ) {
             Box(
@@ -348,22 +355,6 @@ internal object BaseIconText {
     }
 
     /**
-     * Цвета, которые используются внутри компонента.
-     *
-     * @property contentColor цвет контента
-     * @property labelColor цвет текста
-     * @property startContentColor цвет контента в начале компонента
-     * @property endContentColor цвет контента в конце компонента
-     */
-    @Immutable
-    data class Colors(
-        val contentColor: InteractiveColor = Color.Black.asInteractive(),
-        val labelColor: InteractiveColor? = contentColor,
-        val startContentColor: InteractiveColor? = contentColor,
-        val endContentColor: InteractiveColor? = contentColor,
-    )
-
-    /**
      * Кисти, которые используются внутри компонента.
      *
      * @property contentBrush кисть контента
@@ -373,10 +364,10 @@ internal object BaseIconText {
      */
     @Immutable
     data class Brushes(
-        val contentBrush: Brush = SolidColor(Color.Black),
-        val labelBrush: Brush? = contentBrush,
-        val startContentBrush: Brush? = contentBrush,
-        val endContentBrush: Brush? = contentBrush,
+        val contentBrush: StatefulValue<Brush> = Color.Black.asStatefulBrush(),
+        val labelBrush: StatefulValue<Brush>? = contentBrush,
+        val startContentBrush: StatefulValue<Brush>? = contentBrush,
+        val endContentBrush: StatefulValue<Brush>? = contentBrush,
     )
 }
 
