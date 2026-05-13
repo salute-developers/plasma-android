@@ -327,7 +327,7 @@ fun TextField(
         selection = TextRange(
             textFieldValueState.selection.start.coerceIn(0, value.length),
             textFieldValueState.selection.end.coerceIn(0, value.length),
-        )
+        ),
     )
     SideEffect {
         if (
