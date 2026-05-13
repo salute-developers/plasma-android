@@ -5,13 +5,18 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -71,7 +76,7 @@ interface ListStyleBuilder : StyleBuilder<ListStyle> {
     fun listItemStyle(listItemStyle: ListItemStyle): ListStyleBuilder
 
     /**
-     * Устанавливает стиль разделителей [dividerStyle]
+     * Устанавливает стили разделителей [dividerStyle]
      */
     fun dividerStyle(dividerStyle: DividerStyle): ListStyleBuilder
 
@@ -102,7 +107,13 @@ interface ListColors {
     /**
      * Цвет фона
      */
+    @Deprecated("use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
     val backgroundColor: InteractiveColor
+
+    /**
+     * Кисти фона
+     */
+    val backgroundBrush: StatefulValue<Brush>
 
     companion object {
 
@@ -125,9 +136,19 @@ interface ListDimensions {
     val gap: Dp
 
     /**
+     * Отступы между контентом вначале и контентом в конце
+     */
+    val gapValues: StatefulValue<Dp>
+
+    /**
      * Отступ в начале
      */
     val paddingStart: Dp
+
+    /**
+     * Отступы в начале
+     */
+    val paddingStartValues: StatefulValue<Dp>
 
     /**
      * Отступ в конце
@@ -135,14 +156,29 @@ interface ListDimensions {
     val paddingEnd: Dp
 
     /**
+     * Отступы в конце
+     */
+    val paddingEndValues: StatefulValue<Dp>
+
+    /**
      * Отступ сверху
      */
     val paddingTop: Dp
 
     /**
+     * Отступы сверху
+     */
+    val paddingTopValues: StatefulValue<Dp>
+
+    /**
      * Оступ снизу
      */
     val paddingBottom: Dp
+
+    /**
+     * Оступы снизу
+     */
+    val paddingBottomValues: StatefulValue<Dp>
 
     companion object {
 
@@ -161,27 +197,57 @@ interface ListDimensionsBuilder {
     /**
      * Устанавливает отступ между элементами
      */
-    fun gap(gap: Dp): ListDimensionsBuilder
+    fun gap(gap: Dp): ListDimensionsBuilder =
+        gap(gap.asStatefulValue())
+
+    /**
+     * Устанавливает отступы между элементами
+     */
+    fun gap(gap: StatefulValue<Dp>): ListDimensionsBuilder
 
     /**
      * Устанавливает отступ в начале
      */
-    fun paddingStart(paddingStart: Dp): ListDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): ListDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступы в начале
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): ListDimensionsBuilder
 
     /**
      * Устанавливает отступ в конце
      */
-    fun paddingEnd(paddingEnd: Dp): ListDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): ListDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступы в конце
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): ListDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху
      */
-    fun paddingTop(paddingTop: Dp): ListDimensionsBuilder
+    fun paddingTop(paddingTop: Dp): ListDimensionsBuilder =
+        paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает отступы сверху
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): ListDimensionsBuilder
 
     /**
      * Устанавливает отступ снизу
      */
-    fun paddingBottom(paddingBottom: Dp): ListDimensionsBuilder
+    fun paddingBottom(paddingBottom: Dp): ListDimensionsBuilder =
+        paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает отступы снизу
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): ListDimensionsBuilder
 
     /**
      * Создаёт экземпляр [ListDimensions]
@@ -198,12 +264,18 @@ interface ListColorsBuilder {
      * Устанавливает цвет фона
      */
     fun backgroundColor(backgroundColor: Color): ListColorsBuilder =
-        backgroundColor(backgroundColor.asInteractive())
+        backgroundBrush(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона
      */
-    fun backgroundColor(backgroundColor: InteractiveColor): ListColorsBuilder
+    fun backgroundColor(backgroundColor: InteractiveColor): ListColorsBuilder =
+        backgroundBrush(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисти фона
+     */
+    fun backgroundBrush(backgroundBrush: StatefulValue<Brush>): ListColorsBuilder
 
     /**
      * Возвращает [ListItemColors]
@@ -267,18 +339,21 @@ private class DefaultListStyle(
 
 @Immutable
 private class DefaultListColors(
-    override val backgroundColor: InteractiveColor,
+    override val backgroundBrush: StatefulValue<Brush>,
 ) : ListColors {
+    @Deprecated("use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
+    override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
     class Builder : ListColorsBuilder {
-        private var backgroundColor: InteractiveColor? = null
 
-        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
-            this.backgroundColor = backgroundColor
+        private var backgroundBrush: StatefulValue<Brush>? = null
+
+        override fun backgroundBrush(backgroundBrush: StatefulValue<Brush>): ListColorsBuilder = apply {
+            this.backgroundBrush = backgroundBrush
         }
 
         override fun build(): ListColors {
             return DefaultListColors(
-                backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
+                backgroundBrush = backgroundBrush ?: Color.Transparent.asStatefulBrush(),
             )
         }
     }
@@ -286,47 +361,51 @@ private class DefaultListColors(
 
 @Immutable
 private class DefaultListDimensions(
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
-    override val paddingTop: Dp,
-    override val paddingBottom: Dp,
-    override val gap: Dp,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
+    override val paddingTopValues: StatefulValue<Dp>,
+    override val paddingBottomValues: StatefulValue<Dp>,
+    override val gapValues: StatefulValue<Dp>,
+
 ) : ListDimensions {
-
+    override val paddingStart: Dp = 0.dp
+    override val paddingEnd: Dp = 0.dp
+    override val paddingTop: Dp = 0.dp
+    override val paddingBottom: Dp = 0.dp
+    override val gap: Dp = Dp.Unspecified
     class Builder : ListDimensionsBuilder {
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
-        private var paddingTop: Dp? = null
-        private var paddingBottom: Dp? = null
-        private var gap: Dp? = null
-
-        override fun paddingStart(paddingStart: Dp) = apply {
-            this.paddingStart = paddingStart
+        private var paddingStartValues: StatefulValue<Dp>? = null
+        private var paddingEndValues: StatefulValue<Dp>? = null
+        private var paddingTopValues: StatefulValue<Dp>? = null
+        private var paddingBottomValues: StatefulValue<Dp>? = null
+        private var gapValues: StatefulValue<Dp>? = null
+        override fun gap(gap: StatefulValue<Dp>): ListDimensionsBuilder = apply {
+            this.gapValues = gap
         }
 
-        override fun paddingEnd(paddingEnd: Dp) = apply {
-            this.paddingEnd = paddingEnd
+        override fun paddingStart(paddingStart: StatefulValue<Dp>): ListDimensionsBuilder = apply {
+            this.paddingStartValues = paddingStart
         }
 
-        override fun paddingTop(paddingTop: Dp) = apply {
-            this.paddingTop = paddingTop
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>): ListDimensionsBuilder = apply {
+            this.paddingEndValues = paddingEnd
         }
 
-        override fun paddingBottom(paddingBottom: Dp) = apply {
-            this.paddingBottom = paddingBottom
+        override fun paddingTop(paddingTop: StatefulValue<Dp>): ListDimensionsBuilder = apply {
+            this.paddingTopValues = paddingTop
         }
 
-        override fun gap(gap: Dp) = apply {
-            this.gap = gap
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>): ListDimensionsBuilder = apply {
+            this.paddingBottomValues = paddingBottom
         }
 
         override fun build(): ListDimensions {
             return DefaultListDimensions(
-                paddingStart = paddingStart ?: 0.dp,
-                paddingEnd = paddingEnd ?: 0.dp,
-                paddingTop = paddingTop ?: 0.dp,
-                paddingBottom = paddingBottom ?: 0.dp,
-                gap = gap ?: Dp.Unspecified,
+                paddingStartValues = paddingStartValues ?: 0.dp.asStatefulValue(),
+                paddingEndValues = paddingEndValues ?: 0.dp.asStatefulValue(),
+                paddingTopValues = paddingTopValues ?: 0.dp.asStatefulValue(),
+                paddingBottomValues = paddingBottomValues ?: 0.dp.asStatefulValue(),
+                gapValues = gapValues ?: Dp.Unspecified.asStatefulValue(),
             )
         }
     }
