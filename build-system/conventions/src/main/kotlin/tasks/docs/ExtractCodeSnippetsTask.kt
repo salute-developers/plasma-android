@@ -5,6 +5,8 @@ import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.FileCollection
 import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Classpath
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
@@ -12,12 +14,8 @@ import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.PathSensitive
 import org.gradle.api.tasks.PathSensitivity
 import org.gradle.api.tasks.TaskAction
-import org.jetbrains.kotlin.cli.jvm.compiler.EnvironmentConfigFiles
-import org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment
-import org.jetbrains.kotlin.com.google.gson.GsonBuilder
-import org.jetbrains.kotlin.com.intellij.openapi.util.Disposer
-import org.jetbrains.kotlin.config.CompilerConfiguration
-import org.jetbrains.kotlin.psi.KtPsiFactory
+import org.gradle.workers.WorkerExecutor
+import javax.inject.Inject
 
 abstract class ExtractCodeSnippetsTask : DefaultTask() {
 
@@ -30,7 +28,6 @@ abstract class ExtractCodeSnippetsTask : DefaultTask() {
     @get:OutputFile
     abstract val outputMeta: RegularFileProperty
 
-
     @get:InputFiles
     @get:PathSensitive(PathSensitivity.RELATIVE)
     abstract val kotlinSources: ConfigurableFileCollection
@@ -39,8 +36,14 @@ abstract class ExtractCodeSnippetsTask : DefaultTask() {
     @get:PathSensitive(PathSensitivity.RELATIVE)
     abstract val xmlSources: ConfigurableFileCollection
 
+    @get:Inject
+    abstract val executor: WorkerExecutor
+
+    @get:Classpath
+    abstract val kotlinCompiler: ConfigurableFileCollection
+
     @get:Input
-    abstract val xmlNamespace: org.gradle.api.provider.Property<String>
+    abstract val xmlNamespace: Property<String>
 
     init {
         kotlinSources.from(kotlinSourceTrees())
@@ -49,56 +52,20 @@ abstract class ExtractCodeSnippetsTask : DefaultTask() {
     }
 
     @TaskAction
-    fun run() {
-        val outKotlinDir = outputKotlinDir.get().asFile
-        outKotlinDir.mkdirs()
-
-        val outXmlDir = outputXmlDir.get().asFile
-        outXmlDir.mkdirs()
-
-        val kotlinFiles = kotlinSources.files.toList()
-        val xmlFiles = xmlSources.files.toList()
-        val meta = mutableListOf<SampleMeta>()
-
-        val disposable = Disposer.newDisposable("sdds-docs-psi")
-        try {
-            val env = KotlinCoreEnvironment.createForProduction(
-                disposable,
-                CompilerConfiguration(),
-                EnvironmentConfigFiles.JVM_CONFIG_FILES
-            )
-
-            val psiFactory = KtPsiFactory(env.project, markGenerated = false)
-
-            val kotlinDelegate = KotlinSnippetExtractorDelegate(
-                psiFactory = psiFactory,
-                snippetsDir = outKotlinDir,
-                project = project
-            )
-
-            kotlinFiles.forEach { file ->
-                meta += kotlinDelegate.extractFromFile(file)
-            }
-
-            val xmlDelegate = XmlSnippetExtractorDelegate(
-                snippetsDir = outXmlDir,
-                project = project,
-                namespace = xmlNamespace.get()
-            )
-
-            xmlFiles.forEach { file ->
-                meta += xmlDelegate.extractFromFile(file)
-            }
-
-            val metaFile = outputMeta.asFile.get()
-            val gson = GsonBuilder().setPrettyPrinting().create()
-            metaFile.writeText(gson.toJson(meta))
-            logger.lifecycle("Written docs meta: ${project.relativePath(metaFile)} (samples=${meta.size})")
-        } finally {
-            Disposer.dispose(disposable)
+    fun compile() {
+        val workQueue = executor.classLoaderIsolation {
+            classpath.from(kotlinCompiler)
+        }
+        workQueue.submit(ActionUsingKotlinCompiler::class.java) {
+            kotlinSources.from(this@ExtractCodeSnippetsTask.kotlinSources)
+            xmlSources.from(this@ExtractCodeSnippetsTask.xmlSources)
+            outputKotlinDir.set(this@ExtractCodeSnippetsTask.outputKotlinDir)
+            outputXmlDir.set(this@ExtractCodeSnippetsTask.outputXmlDir)
+            outputMeta.set(this@ExtractCodeSnippetsTask.outputMeta)
+            namespace.set(this@ExtractCodeSnippetsTask.xmlNamespace)
+            projectDir.set(project.layout.projectDirectory)
         }
     }
-
 
     private fun kotlinSourceTrees(): FileCollection {
         val roots = listOf(

@@ -2,17 +2,30 @@ import com.android.build.gradle.LibraryExtension
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import tasks.docs.ExtractCodeSnippetsTask
-import org.gradle.api.attributes.Attribute
 import utils.baseDetektConfigDirPath
 import utils.baseDetektConfigPath
 import utils.isAndroidLib
+import utils.withVersionCatalogs
 
 
 val docsDirPath = "docs"
 
+val kotlinCompilerDependencies = configurations.create("kotlinCompilerDependencies")
+
+dependencies {
+    withVersionCatalogs {
+        add(kotlinCompilerDependencies.name, base.kotlin.compiler.embeddable)
+    }
+}
+
+val kotlinCompilerClassPath = configurations.create("kotlinCompilerClassPath") {
+    extendsFrom(kotlinCompilerDependencies)
+}
+
 tasks.register<ExtractCodeSnippetsTask>("collectCodeSnippets") {
     group = "documentation"
     description = "Извлекает код внутри codeSnippet/composableCodeSnippet из функций @DocSample"
+    kotlinCompiler.from(kotlinCompilerClassPath)
     if (isAndroidLib()) {
         val namespace = project.extensions.getByType(LibraryExtension::class.java).namespace.orEmpty()
         xmlNamespace.set(namespace)

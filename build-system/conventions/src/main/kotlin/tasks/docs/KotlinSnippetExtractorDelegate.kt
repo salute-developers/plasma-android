@@ -1,6 +1,5 @@
 package tasks.docs
 
-import org.gradle.api.Project
 import org.jetbrains.kotlin.psi.KtAnnotationEntry
 import org.jetbrains.kotlin.psi.KtCallExpression
 import org.jetbrains.kotlin.psi.KtNamedFunction
@@ -12,7 +11,7 @@ import java.io.File
 internal class KotlinSnippetExtractorDelegate(
     private val psiFactory: KtPsiFactory,
     private val snippetsDir: File,
-    private val project: Project,
+    private val projectDir: File,
 ) {
     fun extractFromFile(file: File): List<SampleMeta> {
         val text = file.readText()
@@ -94,7 +93,7 @@ internal class KotlinSnippetExtractorDelegate(
             id = id,
             kind = kind,
             fqName = fqName,
-            file = project.relativePath(file),
+            file = relativePath(projectDir, file),
             snippetPath = snippetFile.relativeTo(snippetsDir).path,
             snippetStartOffset = snippetStartOffset,
             snippetEndOffset = snippetEndOffset,

@@ -2,15 +2,25 @@ import com.android.build.gradle.LibraryExtension
 import extensions.docs.DocusaurusExtension
 import extensions.docs.FixturesExtension
 import io.gitlab.arturbosch.detekt.Detekt
-import tasks.docs.ExtractCodeSnippetsTask
 import tasks.docs.UnzipCodeSnippetsTask
 import org.gradle.api.attributes.Attribute
+import tasks.docs.ExtractCodeSnippetsTask
 import utils.isAndroidLib
 
 plugins {
     id("convention.android-lib")
     id("convention.docusaurus")
     id("com.google.devtools.ksp")
+}
+
+val kotlinCompilerDependencies = configurations.create("kotlinCompilerDependencies")
+
+dependencies {
+    add(kotlinCompilerDependencies.name, "org.jetbrains.kotlin:kotlin-compiler-embeddable:2.1.10")
+}
+
+val kotlinCompilerClassPath = configurations.create("kotlinCompilerClassPath") {
+    extendsFrom(kotlinCompilerDependencies)
 }
 
 val docsVariantAttr: Attribute<String> = Attribute.of("com.sdds.docs.variant", String::class.java)
@@ -30,6 +40,9 @@ extensions.configure<DocusaurusExtension>("docusaurus") {
 val collectSnippets = tasks.register<ExtractCodeSnippetsTask>("collectCodeSnippets") {
     group = "documentation"
     description = "Извлекает код внутри codeSnippet/composableCodeSnippet из функций @DocSample"
+
+    kotlinCompiler.from(kotlinCompilerClassPath)
+
     if (isAndroidLib()) {
         val namespace = project.extensions.getByType(LibraryExtension::class.java).namespace.orEmpty()
         xmlNamespace.set(namespace)

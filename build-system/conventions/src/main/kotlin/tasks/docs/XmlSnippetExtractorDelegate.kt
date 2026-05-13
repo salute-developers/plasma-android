@@ -1,11 +1,10 @@
 package tasks.docs
 
-import org.gradle.api.Project
 import java.io.File
 
 internal class XmlSnippetExtractorDelegate(
     private val snippetsDir: File,
-    private val project: Project,
+    private val projectDir: File,
     private val namespace: String,
 ) {
 
@@ -43,7 +42,7 @@ internal class XmlSnippetExtractorDelegate(
                 id = id,
                 kind = "xml",
                 fqName = "xml.$id",
-                file = project.relativePath(file),
+                file = relativePath(projectDir, file),
                 snippetPath = outFile.relativeTo(snippetsDir).path,
                 snippetStartOffset = if (sampleStartOffset >= 0) sampleStartOffset else 0,
                 snippetEndOffset = if (sampleEndOffset >= 0) sampleEndOffset else 0,

@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     id("org.gradle.android.cache-fix")
     id("convention.kotlin-java-version-sync")
+    id("org.jetbrains.kotlin.plugin.compose")
     kotlin("multiplatform")
     id("org.jetbrains.compose")
     id("convention.detekt")
@@ -22,10 +23,6 @@ android {
 
         buildFeatures {
             compose = true
-        }
-
-        composeOptions {
-            kotlinCompilerExtensionVersion = versions.androidX.compose.compiler.get()
         }
     }
 

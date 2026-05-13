@@ -1,9 +1,11 @@
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import utils.versionInfo
 import utils.withVersionCatalogs
 
 plugins {
     id("com.android.application")
+    id("org.jetbrains.kotlin.plugin.compose")
     kotlin("multiplatform")
     id("org.jetbrains.compose")
     id("convention.detekt")
@@ -11,11 +13,11 @@ plugins {
 }
 
 kotlin {
-    android {
+    androidTarget {
         withVersionCatalogs {
             compilations.all {
-                kotlinOptions {
-                    jvmTarget = versions.global.jvmTarget.get()
+                this@androidTarget.compilerOptions {
+                    jvmTarget.set(JvmTarget.fromTarget(versions.global.jvmTarget.get()))
                 }
             }
         }
@@ -44,12 +46,6 @@ android {
             versionName = vInfo.name
             versionNameSuffix = vInfo.nameSuffix
 
-        }
-    }
-
-    withVersionCatalogs {
-        composeOptions {
-            kotlinCompilerExtensionVersion = versions.androidX.compose.compiler.get()
         }
     }
 
