@@ -10,6 +10,8 @@ import com.sdds.plugin.themebuilder.ThemeBuilderExtension.Companion.themeBuilder
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.artifacts.Configuration
+import org.gradle.api.attributes.Attribute
 import org.gradle.api.file.Directory
 import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.Provider
@@ -25,13 +27,23 @@ import java.io.File
  * @author Малышев Александр on 09.02.2024
  */
 class ThemeBuilderPlugin : Plugin<Project> {
+
     override fun apply(project: Project) {
         val componentsZip = project.layout.buildDirectory.file("$COMPONENTS_PATH/components.zip")
         val paletteJson = project.layout.buildDirectory.file("$THEME_PATH/$PALETTE_JSON_NAME")
         val extension = project.themeBuilderExt()
         project.configureSourceSets()
 
+        val readUikitApiMetaTask = project.registerApiMetaTask()
+
         project.afterEvaluate {
+            val compileClasspath = listOf(
+                "debugCompileClasspath",
+                "releaseCompileClasspath",
+                "compileClasspath",
+            ).firstNotNullOfOrNull { project.configurations.findByName(it) } ?: return@afterEvaluate
+            readUikitApiMetaTask.configureUikitApiMetaTask(compileClasspath)
+
             project.registerClean(extension)
             val themeSources = extension.getThemeSources()
 
@@ -65,6 +77,29 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
             val fetchComponentsTask = registerFetchAndUnzipComponents(extension, componentsZip)
             fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it) }
+        }
+    }
+
+    private fun Project.registerApiMetaTask() = tasks.register(
+        "readUikitApiMeta",
+        UikitApiMetaTask::class.java,
+    ) {
+        group = TASK_GROUP
+    }
+
+    private fun TaskProvider<UikitApiMetaTask>.configureUikitApiMetaTask(compileClasspath: Configuration) {
+        configure {
+            metaClasspath.from(
+                compileClasspath.incoming.artifactView {
+                    attributes {
+                        attribute(
+                            Attribute.of("artifactType", String::class.java),
+                            "jar",
+                        )
+                    }
+                    isLenient = true
+                }.files,
+            )
         }
     }
 
