@@ -40,6 +40,7 @@ internal class CardComposeVariationGenerator(
 
     override fun KtFileBuilder.onAddImports() {
         addImport("com.sdds.compose.uikit", listOf("CardOrientation"))
+        addImport("androidx.compose.ui.graphics", listOf("SolidColor"))
     }
 
     override fun propsToBuilderCalls(
@@ -51,6 +52,8 @@ internal class CardComposeVariationGenerator(
             shapeCall(props, variationId),
             orientationCall(props),
             labelStyleCall(props),
+            titleStyleCall(props),
+            subtitleStyleCall(props),
             colorsCall(props),
             dimensionsCall(props, variationId),
         )
@@ -87,15 +90,33 @@ internal class CardComposeVariationGenerator(
         }
     }
 
+    private fun titleStyleCall(props: CardProperties): String? {
+        return props.titleStyle?.let {
+            getTypography("titleStyle", it)
+        }
+    }
+
+    private fun subtitleStyleCall(props: CardProperties): String? {
+        return props.subtitleStyle?.let {
+            getTypography("subtitleStyle", it)
+        }
+    }
+
     private fun colorsCall(props: CardProperties): String? {
         return if (props.hasColors()) {
             buildString {
                 appendLine(".colors {")
                 props.backgroundColor?.let {
-                    appendLine(getColor("backgroundColor", it))
+                    appendLine(getGradientOrWrappedColor("backgroundColor", it))
                 }
                 props.labelColor?.let {
                     appendLine(getColor("labelColor", it))
+                }
+                props.titleColor?.let {
+                    appendLine(getGradientOrWrappedColor("titleColor", it))
+                }
+                props.subtitleColor?.let {
+                    appendLine(getGradientOrWrappedColor("subtitleColor", it))
                 }
                 append("}")
             }
@@ -106,7 +127,9 @@ internal class CardComposeVariationGenerator(
 
     private fun CardProperties.hasColors(): Boolean {
         return backgroundColor != null ||
-            labelColor != null
+            labelColor != null ||
+            titleColor != null ||
+            subtitleColor != null
     }
 
     @Suppress("CyclomaticComplexMethod")
@@ -156,6 +179,9 @@ internal class CardComposeVariationGenerator(
                 props.mainAxisGap?.let {
                     appendDimension("mainAxisGap", it, variationId)
                 }
+                props.subtitleGap?.let {
+                    appendDimension("subtitleGap", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -176,7 +202,8 @@ internal class CardComposeVariationGenerator(
             contentMinHeight != null ||
             contentMaxWidth != null ||
             contentMaxHeight != null ||
-            mainAxisGap != null
+            mainAxisGap != null ||
+            subtitleGap != null
     }
 
     private fun CardProperties.hasShape(): Boolean {

@@ -8,11 +8,13 @@
 package com.sdds.plasma.homeds.styles.card
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CardOrientation
 import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.CardStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -94,12 +96,20 @@ private val CardStyleBuilder.invariantProps: CardStyleBuilder
     get() = this
         .orientation(CardOrientation.Vertical)
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
+        .titleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
+        .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .colors {
             backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive(),
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear).asStatefulValue(),
             )
             labelColor(
                 PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            titleColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue(),
+            )
+            subtitleColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue(),
             )
         }
         .dimensions {
@@ -108,6 +118,7 @@ private val CardStyleBuilder.invariantProps: CardStyleBuilder
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
             mainAxisGap(8.0.dp)
+            subtitleGap(2.0.dp)
         }
 
 public val Card.Xl: WrapperCardXl
