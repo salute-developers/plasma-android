@@ -21,6 +21,12 @@ title: Card
 
 <!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.card.Card_Extra -->
 
+Перегрузка Card с обязательным слотом title и опциональным subtitle позволяет описать заголовочную область без ручной сборки label.
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/card/Card_TitleSubtitle.kt
+```
+
 ## Стиль Card
 
 В большинстве случаев можно использовать готовые сгенерированные стили, а при необходимости создать собственный стиль через соответствующий builder. Подробнее о том, как работают `Style`, `StyleBuilder` и stateful-параметры стиля, см. в разделе [Стилизация компонентов](../theme/Styles.md).

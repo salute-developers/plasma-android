@@ -41,6 +41,7 @@ data class CardUiState(
     override val appearance: String = "",
     val orientation: CardOrientation = CardOrientation.Vertical,
     val label: String = "Title",
+    val subtitle: String = "",
     val hasExtra: Boolean = true,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
@@ -63,7 +64,12 @@ object CardStory : ComposeBaseStory<CardUiState, CardStyle>(
         Card(
             style = style,
             orientation = state.orientation,
-            label = { Text(state.label) },
+            title = { Text(state.label) },
+            subtitle = if (state.subtitle.isNotBlank()) {
+                { Text(state.subtitle) }
+            } else {
+                null
+            },
             extra = if (state.hasExtra) getExtra() else null,
         ) {
             Box(
