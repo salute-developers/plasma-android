@@ -77,7 +77,7 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
             modifier = Modifier
                 .align(state.triggerPlacement.toAlignment())
                 .popoverTrigger(triggerInfo, triggerStyle.shape),
-            label = "Sho DropdownMenu",
+            label = "Show DropdownMenu",
             onClick = { showDropdownMenu.value = true },
         )
 
