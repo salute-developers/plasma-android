@@ -43,6 +43,15 @@ Popover(
 )
 ```
 
+Если нужна точная форма trigger для связанных компонентов, поддерживающих cutout, используйте overload с `shape`:
+
+```kotlin
+Modifier.popoverTrigger(
+    triggerInfo = triggerInfo,
+    shape = RoundedCornerShape(16.dp),
+)
+```
+
 ## PopoverPlacement
 
 Расположение Popover относительно триггера.

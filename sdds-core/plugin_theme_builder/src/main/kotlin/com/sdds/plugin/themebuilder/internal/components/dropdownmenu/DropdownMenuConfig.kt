@@ -15,6 +15,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerProperties
 import com.sdds.plugin.themebuilder.internal.components.emptystate.EmptyStateProperties
 import com.sdds.plugin.themebuilder.internal.components.list.ListProperties
+import com.sdds.plugin.themebuilder.internal.components.overlay.OverlayProperties
 import com.sdds.plugin.themebuilder.internal.components.scrollbar.ScrollBarProperties
 import kotlinx.serialization.Serializable
 
@@ -37,6 +38,7 @@ internal data class DropdownMenuProperties(
     val dividerStyle: ComponentStyle<DividerProperties>? = null,
     val scrollBarStyle: ComponentStyle<ScrollBarProperties>? = null,
     val emptyStateStyle: ComponentStyle<EmptyStateProperties>? = null,
+    val overlayStyle: ComponentStyle<OverlayProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -60,6 +62,7 @@ internal data class DropdownMenuProperties(
             scrollBarPaddingBottom = scrollBarPaddingBottom ?: otherProps.scrollBarPaddingBottom,
             scrollBarStyle = scrollBarStyle ?: otherProps.scrollBarStyle,
             emptyStateStyle = emptyStateStyle ?: otherProps.emptyStateStyle,
+            overlayStyle = overlayStyle ?: otherProps.overlayStyle,
         )
     }
 }

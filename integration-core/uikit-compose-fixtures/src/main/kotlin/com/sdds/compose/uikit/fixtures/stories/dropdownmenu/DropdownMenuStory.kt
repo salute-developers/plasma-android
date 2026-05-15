@@ -5,9 +5,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -21,9 +20,12 @@ import com.sdds.compose.uikit.DropdownMenu
 import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
+import com.sdds.compose.uikit.LocalButtonStyle
+import com.sdds.compose.uikit.ModalDropdownMenu
 import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.PopoverPlacement
 import com.sdds.compose.uikit.PopoverPlacementMode
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.fixtures.stories.DropdownMenuUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.DropdownMenuUiStateTransformer
@@ -47,6 +49,7 @@ data class DropdownMenuUiState(
     val placement: PopoverPlacement = PopoverPlacement.Bottom,
     val alignment: PopoverAlignment = PopoverAlignment.Center,
     val triggerPlacement: TriggerPlacement = TriggerPlacement.Center,
+    val dimBackground: Boolean = false,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
@@ -66,17 +69,36 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
         style: DropdownMenuStyle,
         state: DropdownMenuUiState,
     ) {
-        Box(
-            Modifier.fillMaxSize(),
-            contentAlignment = state.triggerPlacement.toAlignment(),
-        ) {
-            val showDropdownMenu = remember { mutableStateOf(false) }
-            val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
-            Button(
-                modifier = Modifier.popoverTrigger(triggerInfo),
-                label = "show",
-                onClick = { showDropdownMenu.value = true },
-            )
+        val showDropdownMenu = remember { mutableStateOf(false) }
+        val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
+        val triggerStyle = LocalButtonStyle.current
+        Button(
+            style = triggerStyle,
+            modifier = Modifier
+                .align(state.triggerPlacement.toAlignment())
+                .popoverTrigger(triggerInfo, triggerStyle.shape),
+            label = "Sho DropdownMenu",
+            onClick = { showDropdownMenu.value = true },
+        )
+
+        if (state.dimBackground) {
+            ModalDropdownMenu(
+                opened = showDropdownMenu.value,
+                onDismissRequest = {
+                    showDropdownMenu.value = false
+                },
+                triggerInfo = triggerInfo.value,
+                placement = state.placement,
+                placementMode = state.placementMode,
+                alignment = state.alignment,
+                style = style,
+                clipHeight = true,
+                clipWidth = true,
+                dimBackground = true,
+            ) {
+                DropdownContent(state)
+            }
+        } else {
             DropdownMenu(
                 opened = showDropdownMenu.value,
                 onDismissRequest = {
@@ -90,30 +112,7 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
                 clipHeight = true,
                 clipWidth = true,
             ) {
-                List(modifier = Modifier.widthIn(0.dp, 200.dp)) {
-                    items(state.amount) {
-                        val interactionSource = remember { MutableInteractionSource() }
-                        ListItem(
-                            modifier = Modifier
-                                .clickable(
-                                    indication = null,
-                                    interactionSource = interactionSource,
-                                ) {
-                                    Log.d(
-                                        "DropdownMenu",
-                                        "${state.itemTitle} $it pressed",
-                                    )
-                                }
-                                .fillMaxWidth(),
-                            title = "${state.itemTitle} $it",
-                            disclosureEnabled = state.hasDisclosure,
-                            interactionSource = interactionSource,
-                        )
-                        if (state.itemDividerEnabled && it != state.amount - 1) {
-                            Divider()
-                        }
-                    }
-                }
+                DropdownContent(state)
             }
         }
     }
@@ -123,30 +122,34 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
         style: DropdownMenuStyle,
         key: ComponentKey,
     ) {
-        val showDropdownMenu = remember { mutableStateOf(false) }
-        val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
-        Button(
-            modifier = Modifier.popoverTrigger(triggerInfo),
-            label = "Show Dropdown",
-            onClick = { showDropdownMenu.value = true },
-        )
-        DropdownMenu(
-            opened = showDropdownMenu.value,
-            onDismissRequest = {
-                showDropdownMenu.value = false
-            },
-            placement = PopoverPlacement.Bottom,
-            placementMode = PopoverPlacementMode.Strict,
-            alignment = PopoverAlignment.Center,
-            triggerInfo = triggerInfo.value,
-            style = style,
-        ) {
-            List(modifier = Modifier.width(200.dp)) {
-                items(3) {
-                    ListItem(
-                        text = "Item Title $it",
-                        disclosureEnabled = true,
-                    )
+        Box {
+            Content(style, defaultState)
+        }
+    }
+
+    @Composable
+    private fun DropdownContent(state: DropdownMenuUiState) {
+        List(modifier = Modifier.widthIn(0.dp, 200.dp)) {
+            items(state.amount) {
+                val interactionSource = remember { MutableInteractionSource() }
+                ListItem(
+                    modifier = Modifier
+                        .clickable(
+                            indication = null,
+                            interactionSource = interactionSource,
+                        ) {
+                            Log.d(
+                                "DropdownMenu",
+                                "${state.itemTitle} $it pressed",
+                            )
+                        }
+                        .fillMaxWidth(),
+                    titleContent = { Text("${state.itemTitle} $it") },
+                    disclosureEnabled = state.hasDisclosure,
+                    interactionSource = interactionSource,
+                )
+                if (state.itemDividerEnabled && it != state.amount - 1) {
+                    Divider()
                 }
             }
         }

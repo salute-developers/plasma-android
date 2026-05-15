@@ -20,6 +20,8 @@ import com.sdds.sbcom.styles.divider.Default
 import com.sdds.sbcom.styles.divider.Divider
 import com.sdds.sbcom.styles.list.Default
 import com.sdds.sbcom.styles.list.DropdownMenuList
+import com.sdds.sbcom.styles.overlay.Default
+import com.sdds.sbcom.styles.overlay.Overlay
 import com.sdds.sbcom.styles.scrollbar.Default
 import com.sdds.sbcom.styles.scrollbar.ScrollBar
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -64,4 +66,5 @@ public val DropdownMenu.Default: WrapperDropdownMenuDefault
         .listStyle(DropdownMenuList.Default.style())
         .dividerStyle(Divider.Default.style())
         .scrollBarStyle(ScrollBar.Default.style())
+        .overlayStyle(Overlay.Default.style())
         .wrap(::WrapperDropdownMenuDefault)

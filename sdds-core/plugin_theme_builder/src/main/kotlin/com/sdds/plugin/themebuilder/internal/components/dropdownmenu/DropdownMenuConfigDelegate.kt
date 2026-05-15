@@ -50,6 +50,7 @@ internal class DropdownMenuConfigDelegate : ComponentConfigDelegate<DropdownMenu
         dividerStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.divider",
         scrollBarStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.scrollbar",
         emptyStateStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.dropdownemptystate",
+        overlayStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.overlay",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
     )
 }
