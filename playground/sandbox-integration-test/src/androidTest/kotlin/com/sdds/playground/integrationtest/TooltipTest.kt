@@ -1,14 +1,7 @@
 package com.sdds.playground.integrationtest
 
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.assertIsNotDisplayed
-import androidx.compose.ui.test.click
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.performTouchInput
 import androidx.test.espresso.Espresso.pressBack
-import com.sdds.playground.integrationtest.testtags.TooltipTags
+import com.sdds.playground.integrationtest.pageobject.TooltipPage
 import com.sdds.playground.sandboxhelper.SandboxScenariosIds
 import com.sdds.playground.sandboxhelper.createSandboxComposeRule
 import org.junit.Rule
@@ -21,27 +14,31 @@ class TooltipTest {
 
     @Test
     fun test_close_tooltip_with_btn_in_shadow() {
-        composeTestRule.onNodeWithTag(TooltipTags.FIRST_OPEN_BUTTON).performClick()
-        composeTestRule.onNodeWithTag(TooltipTags.CHECK_FIRST_OPENED).assertIsDisplayed()
-        composeTestRule.onNodeWithTag(TooltipTags.FIRST_CLOSE_BUTTON).performClick()
-        composeTestRule.onNodeWithTag(TooltipTags.FIRST_TOOLTIP).assertIsNotDisplayed()
+        TooltipPage(composeTestRule)
+            .clickFirstOpenButton()
+            .checkFirstOpenedTooltip()
+            .checkFirstTooltipIsDisplayed()
+            .clickCloseButton()
+            .checkFirstTooltipIsNotDisplayed()
     }
 
     @Test
     fun test_close_tooltip_with_tap_outside() {
-        composeTestRule.onNodeWithTag(TooltipTags.SECOND_OPEN_BUTTON).performClick()
-        composeTestRule.onNodeWithTag(TooltipTags.SECOND_TOOLTIP).assertIsDisplayed()
-        composeTestRule.onNodeWithTag(TooltipTags.ROOT).performTouchInput {
-            click(Offset(x = center.x, y = bottom - 10f))
-        }
-        composeTestRule.onNodeWithTag(TooltipTags.SECOND_TOOLTIP).assertIsNotDisplayed()
+        TooltipPage(composeTestRule)
+            .clickSecondOpenButton()
+            .checkSecondOpenedTooltip()
+            .checkSecondTooltipIsDisplayed()
+            .tapOutsideTooltip()
+            .checkSecondTooltipIsNotDisplayed()
     }
 
     @Test
     fun test_close_tooltip_with_pressBack() {
-        composeTestRule.onNodeWithTag(TooltipTags.SECOND_OPEN_BUTTON).performClick()
-        composeTestRule.onNodeWithTag(TooltipTags.SECOND_TOOLTIP).assertIsDisplayed()
+        TooltipPage(composeTestRule)
+            .clickSecondOpenButton()
+            .checkSecondTooltipIsDisplayed()
         pressBack()
-        composeTestRule.onNodeWithTag(TooltipTags.SECOND_TOOLTIP).assertIsNotDisplayed()
+        TooltipPage(composeTestRule)
+            .checkSecondTooltipIsNotDisplayed()
     }
 }
