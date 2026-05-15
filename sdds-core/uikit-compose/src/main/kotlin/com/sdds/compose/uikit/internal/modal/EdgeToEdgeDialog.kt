@@ -84,7 +84,6 @@ private fun ConfigureWindow(
                 }
 
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
-                    window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
                     window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING)
                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
                     window.attributes.fitInsetsTypes = 0

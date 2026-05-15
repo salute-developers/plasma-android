@@ -1,19 +1,24 @@
 package com.sdds.compose.uikit
 
 import androidx.annotation.DrawableRes
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
@@ -22,19 +27,33 @@ import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.onClick
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.offset
+import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.PopupProperties
+import com.sdds.compose.uikit.graphics.cutout.ProvideCutoutState
+import com.sdds.compose.uikit.graphics.cutout.cutout
+import com.sdds.compose.uikit.graphics.cutout.cutoutTarget
+import com.sdds.compose.uikit.graphics.cutout.rememberCutoutState
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.heightOrZero
+import com.sdds.compose.uikit.internal.modal.EdgeToEdgeDialog
 import com.sdds.compose.uikit.internal.popover.BasePopover
 import com.sdds.compose.uikit.internal.popover.DefaultPopupProperties
 import com.sdds.compose.uikit.internal.widthOrZero
+import androidx.compose.ui.unit.offset as constraintsOffset
 
 /**
  * Компонент DropdownMenu.
@@ -221,6 +240,184 @@ fun DropdownMenu(
 }
 
 /**
+ * Модальный вариант DropdownMenu.
+ * Представляет собой раскрывающееся меню — отображает список пунктов поверх контента.
+ *
+ * @param opened будет ли открыто меню
+ * @param onDismissRequest колбэк, который будет вызван при нажатии вне меню
+ * @param triggerInfo информация о размерах и размещении триггера
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param clipHeight высота DropdownMenu будет ограничена доступным пространством на экране, с учетом клавиатуры
+ * @param clipWidth ширина DropdownMenu будет ограничена доступным пространством на экране
+ * @param placement ориентация компонента относительно триггера
+ * @param placementMode режим размещения [PopoverPlacementMode]
+ * @param alignment выравнивание компонента относительно триггера
+ * @param popupProperties свойства [Popup]
+ * @param enterTransition анимация появления
+ * @param exitTransition анимация исчезновения
+ * @param interactionSource источник взаимодействий
+ * @param scrollState состояния прокрутки [LazyListState]
+ * @param showEmptyState отобразить или нет пустое состояние
+ * @param edgeToEdge включить/выключить полноэкранный режим (отрисовка под системным UI)
+ * @param dimBackground включить/выключить затемнение фона
+ * @param emptyState слот для представления пустого состояния
+ * @param footer слот для футера. Например для лоадера, индикатора загрузки и т.д.
+ * @param content содержимое DropdownMenu
+ */
+@Composable
+@NonRestartableComposable
+fun ModalDropdownMenu(
+    opened: Boolean,
+    onDismissRequest: () -> Unit,
+    triggerInfo: TriggerInfo,
+    modifier: Modifier = Modifier,
+    style: DropdownMenuStyle = LocalDropdownMenuStyle.current,
+    clipHeight: Boolean = false,
+    clipWidth: Boolean = false,
+    placement: PopoverPlacement = PopoverPlacement.Top,
+    placementMode: PopoverPlacementMode = PopoverPlacementMode.Loose,
+    alignment: PopoverAlignment = PopoverAlignment.Start,
+    dialogProperties: DialogProperties = DefaultModalDropdownDialogProperties,
+    popupProperties: PopupProperties = DefaultModalDropdownPopupProperties,
+    enterTransition: EnterTransition = fadeIn(),
+    exitTransition: ExitTransition = fadeOut(),
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    offset: Dp = style.dimensions.offset,
+    scrollState: LazyListState? = null,
+    showEmptyState: Boolean = false,
+    edgeToEdge: Boolean = true,
+    dimBackground: Boolean = true,
+    emptyState: (@Composable DropdownScope.() -> Unit)? = null,
+    header: (@Composable () -> Unit)? = null,
+    footer: (@Composable () -> Unit)? = null,
+    content: @Composable () -> Unit,
+) {
+    val visibleState = remember { MutableTransitionState(false) }
+    visibleState.targetState = opened
+    if (!visibleState.currentState && !visibleState.targetState && visibleState.isIdle) return
+    EdgeToEdgeDialog(
+        onDismissRequest = onDismissRequest,
+        dialogProperties = dialogProperties,
+        edgeToEdge = edgeToEdge,
+        useNativeBlackout = false,
+        lightAppearance = false,
+    ) {
+        if (dimBackground) {
+            ModalDropdownMenuContent(
+                visibleState = visibleState,
+                onDismissRequest = onDismissRequest,
+                triggerInfo = triggerInfo,
+                overlayStyle = style.overlayStyle,
+                enterTransition = enterTransition,
+                exitTransition = exitTransition,
+            )
+        }
+        DropdownMenu(
+            opened = opened,
+            onDismissRequest = onDismissRequest,
+            triggerInfo = triggerInfo.asDialogTriggerInfo(),
+            modifier = modifier,
+            style = style,
+            clipHeight = clipHeight,
+            clipWidth = clipWidth,
+            placement = placement,
+            placementMode = placementMode,
+            alignment = alignment,
+            popupProperties = popupProperties,
+            enterTransition = enterTransition,
+            exitTransition = exitTransition,
+            interactionSource = interactionSource,
+            offset = offset,
+            scrollState = scrollState,
+            showEmptyState = showEmptyState,
+            emptyState = emptyState,
+            header = header,
+            footer = footer,
+            content = content,
+        )
+    }
+}
+
+@Composable
+private fun ModalDropdownMenuContent(
+    visibleState: MutableTransitionState<Boolean>,
+    onDismissRequest: () -> Unit,
+    triggerInfo: TriggerInfo,
+    overlayStyle: OverlayStyle,
+    enterTransition: EnterTransition,
+    exitTransition: ExitTransition,
+) {
+    val cutoutState = rememberCutoutState()
+    val density = LocalDensity.current
+    val dialogView = LocalView.current.rootView
+    ProvideCutoutState(cutoutState) {
+        AnimatedVisibility(
+            visibleState = visibleState,
+            enter = enterTransition,
+            exit = exitTransition,
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .pointerInput(onDismissRequest) {
+                        detectTapGestures(onTap = { onDismissRequest() })
+                    }
+                    .semantics(mergeDescendants = true) {
+                        contentDescription = CLOSE_DROPDOWN_MENU_DESCRIPTION
+                        onClick {
+                            onDismissRequest()
+                            true
+                        }
+                    },
+            ) {
+                Overlay(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .cutoutTarget(),
+                    style = overlayStyle,
+                )
+                Box(
+                    modifier = Modifier
+                        .offset {
+                            val location = IntArray(2)
+                            dialogView.getLocationOnScreen(location)
+                            IntOffset(
+                                x = triggerInfo.positionInScreen.x - location[0],
+                                y = triggerInfo.positionInScreen.y - location[1],
+                            )
+                        }
+                        .requiredSize(
+                            width = with(density) { triggerInfo.size.width.toDp() },
+                            height = with(density) { triggerInfo.size.height.toDp() },
+                        )
+                        .cutout(shape = triggerInfo.cutoutShape, triggerInfo.cutoutPaddings)
+                        .alpha(0f),
+                )
+            }
+        }
+    }
+}
+
+private fun TriggerInfo.asDialogTriggerInfo(): TriggerInfo = copy(
+    positionInRoot = positionInScreen,
+)
+
+private val DefaultModalDropdownDialogProperties = DialogProperties(
+    usePlatformDefaultWidth = false,
+    decorFitsSystemWindows = false,
+    dismissOnClickOutside = false,
+)
+
+internal val DefaultModalDropdownPopupProperties = PopupProperties(
+    clippingEnabled = false,
+    focusable = true,
+    usePlatformDefaultWidth = false,
+)
+
+private const val CLOSE_DROPDOWN_MENU_DESCRIPTION = "Close DropdownMenu"
+
+/**
  * Скоуп компонента [DropdownMenu]
  */
 interface DropdownScope
@@ -388,7 +585,7 @@ private fun ScrollableContentWithHeaderFooter(
         val headerHeight = headerPlaceable.heightOrZero()
 
         val listPlaceable = measurables.find { it.layoutId == LIST_CONTENT_ID }?.measure(
-            constraints.offset(vertical = -footerHeight - headerHeight),
+            constraints.constraintsOffset(vertical = -footerHeight - headerHeight),
         )
 
         val height = listPlaceable.heightOrZero() + footerPlaceable.heightOrZero() + headerPlaceable.heightOrZero()

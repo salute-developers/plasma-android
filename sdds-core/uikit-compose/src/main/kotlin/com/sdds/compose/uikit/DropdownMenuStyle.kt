@@ -10,7 +10,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.compose.uikit.style.Style
@@ -67,6 +70,11 @@ interface DropdownMenuStyle : Style {
      */
     val scrollBarStyle: ScrollBarStyle
 
+    /**
+     * Стиль overlay
+     */
+    val overlayStyle: OverlayStyle
+
     companion object {
         /**
          * Возвращает экземпляр [DropdownMenuStyleBuilder]
@@ -122,6 +130,11 @@ interface DropdownMenuStyleBuilder : StyleBuilder<DropdownMenuStyle> {
      * Устанавливает стиль пустого состояния [emptyStateStyle]
      */
     fun emptyStateStyle(emptyStateStyle: DropdownEmptyStateStyle): DropdownMenuStyleBuilder
+
+    /**
+     * Устанавливает стиль [overlayStyle]
+     */
+    fun overlayStyle(overlayStyle: OverlayStyle): DropdownMenuStyleBuilder
 }
 
 @Immutable
@@ -134,6 +147,7 @@ private class DefaultDropdownMenuStyle(
     override val dividerStyle: DividerStyle,
     override val emptyStateStyle: DropdownEmptyStateStyle,
     override val scrollBarStyle: ScrollBarStyle,
+    override val overlayStyle: OverlayStyle,
 ) : DropdownMenuStyle {
 
     class Builder : DropdownMenuStyleBuilder {
@@ -145,6 +159,7 @@ private class DefaultDropdownMenuStyle(
         private var dividerStyle: DividerStyle? = null
         private var emptyStateStyle: DropdownEmptyStateStyle? = null
         private var scrollBarStyle: ScrollBarStyle? = null
+        private var overlayStyle: OverlayStyle? = null
 
         override fun shape(shape: CornerBasedShape) = apply {
             this.shape = shape
@@ -181,6 +196,10 @@ private class DefaultDropdownMenuStyle(
             this.emptyStateStyle = emptyStateStyle
         }
 
+        override fun overlayStyle(overlayStyle: OverlayStyle) = apply {
+            this.overlayStyle = overlayStyle
+        }
+
         override fun style(): DropdownMenuStyle {
             return DefaultDropdownMenuStyle(
                 shape = shape ?: RoundedCornerShape(15),
@@ -191,6 +210,7 @@ private class DefaultDropdownMenuStyle(
                 dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
                 scrollBarStyle = scrollBarStyle ?: ScrollBarStyle.builder().style(),
                 emptyStateStyle = emptyStateStyle ?: DropdownEmptyStateStyle.builder().style(),
+                overlayStyle = overlayStyle ?: OverlayStyle.builder().style(),
             )
         }
     }
@@ -228,6 +248,18 @@ interface DropdownMenuColorsBuilder {
     /**
      * Устанавливает фон [backgroundColor] компонента.
      */
+    fun backgroundColor(backgroundColor: Color): DropdownMenuColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает фон [backgroundColor] компонента.
+     */
+    fun backgroundColor(backgroundColor: InteractiveColor): DropdownMenuColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает фон [backgroundColor] компонента.
+     */
     fun backgroundColor(backgroundColor: Brush): DropdownMenuColorsBuilder =
         backgroundColor(backgroundColor.asStatefulValue())
 
@@ -235,6 +267,18 @@ interface DropdownMenuColorsBuilder {
      * Устанавливает фон [backgroundColor] компонента.
      */
     fun backgroundColor(backgroundColor: StatefulValue<Brush>): DropdownMenuColorsBuilder
+
+    /**
+     * Устанавливает цвет обводки [strokeColor] компонента.
+     */
+    fun strokeColor(strokeColor: Color): DropdownMenuColorsBuilder =
+        strokeColor(strokeColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет обводки [strokeColor] компонента.
+     */
+    fun strokeColor(strokeColor: InteractiveColor): DropdownMenuColorsBuilder =
+        strokeColor(strokeColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет обводки [strokeColor] компонента.

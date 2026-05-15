@@ -13,6 +13,7 @@ internal class DropdownMenuComposeVariationGenerator(
     private val dividerStylesPackage: String,
     private val scrollBarStylesPackage: String,
     private val emptyStateStylesPackage: String,
+    private val overlayStylesPackage: String,
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -57,6 +58,7 @@ internal class DropdownMenuComposeVariationGenerator(
         dividerStyleCall(props, ktFileBuilder),
         scrollBarStyleCall(props, ktFileBuilder),
         emptyStateStyleCall(props, ktFileBuilder),
+        overlayStyleCall(props, ktFileBuilder),
     )
 
     private fun listStyleCall(
@@ -110,6 +112,20 @@ internal class DropdownMenuComposeVariationGenerator(
                 it.value.getComponentStyle(
                     ktFileBuilder,
                     dividerStylesPackage,
+                )
+            }.style())"
+        }
+    }
+
+    private fun overlayStyleCall(
+        props: DropdownMenuProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.overlayStyle?.let {
+            ".overlayStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    overlayStylesPackage,
                 )
             }.style())"
         }
