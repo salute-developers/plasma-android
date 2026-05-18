@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
@@ -14,6 +15,14 @@ import androidx.compose.ui.text.AnnotatedString
 import com.sdds.compose.uikit.internal.cell.BaseCell
 import com.sdds.compose.uikit.internal.cell.CellCenterContent
 import com.sdds.compose.uikit.internal.common.StyledText
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.cell.CellMotionStyle
+import com.sdds.compose.uikit.motion.components.cell.LocalCellMotionStyle
+import com.sdds.compose.uikit.motion.components.cell.rememberCellMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент Cell.
@@ -28,6 +37,7 @@ import com.sdds.compose.uikit.internal.common.StyledText
  * @param startContent контент в начале
  * @param endContent контент в конце
  * @param interactionSource источник взаимодействий
+ * @param motion объект анимаций
  */
 @Composable
 fun Cell(
@@ -41,6 +51,9 @@ fun Cell(
     startContent: (@Composable RowScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CellMotionStyle> = rememberCellMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseCell(
         modifier = modifier,
@@ -52,14 +65,15 @@ fun Cell(
                 labelContent = labelContent,
                 subtitleContent = subtitleContent,
                 style = style,
-                interactionSource = interactionSource,
+                motionStyle = motion.style,
+                motionContext = motion.context,
             )
         },
         startContent = startContent,
         endContent = endContent,
         disclosureEnabled = disclosureContent != null,
         disclosureContent = disclosureContent,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -93,6 +107,9 @@ fun Cell(
     startContent: (@Composable RowScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CellMotionStyle> = rememberCellMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseCell(
         modifier = modifier,
@@ -104,33 +121,44 @@ fun Cell(
                 label = label,
                 subtitle = subtitle,
                 style = style,
-                interactionSource = interactionSource,
+                motionStyle = motion.style,
+                motionContext = motion.context,
             )
         },
         startContent = startContent,
         endContent = endContent,
         disclosureEnabled = disclosureContentEnabled,
         disclosureContent = {
-            StyledText(
-                text = disclosureText,
-                textStyle = style.disclosureTextStyle,
-                textColor = style.colors.disclosureTextColor.colorForInteraction(
-                    interactionSource,
-                ),
+            val textColor = style.colors.disclosureTextBrush.getBrushAsState(
+                motion.context,
+                motion.style.disclosureTextColor,
             )
+            val textStyle by style.disclosureTextStyles.getTextStyleAsState(
+                motion.context,
+                motion.style.disclosureTextStyle,
+            )
+            if (disclosureText.isNotEmpty()) {
+                Text(
+                    text = disclosureText,
+                    style = textStyle,
+                    brush = { textColor.value },
+                )
+            }
             val iconRes = disclosureIconRes ?: style.disclosureIconRes
             val painter = iconRes?.let { painterResource(it) } ?: style.disclosureIcon
             painter?.let {
+                val iconColor = style.colors.disclosureIconBrush.getBrushAsState(
+                    motion.context,
+                    motion.style.disclosureIconColor,
+                )
                 Icon(
                     painter = it,
                     contentDescription = "",
-                    tint = style.colors.disclosureIconColor.colorForInteraction(
-                        interactionSource,
-                    ),
+                    brush = { iconColor.value },
                 )
             }
         },
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -166,6 +194,10 @@ fun Cell(
     endContent: (@Composable RowScope.() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    val motion = rememberMotion(
+        LocalCellMotionStyle.current,
+        rememberMotionContext(interactionSource),
+    )
     BaseCell(
         modifier = modifier,
         style = style,
@@ -176,7 +208,8 @@ fun Cell(
                 label = label,
                 subtitle = subtitle,
                 style = style,
-                interactionSource = interactionSource,
+                motionStyle = motion.style,
+                motionContext = motion.context,
             )
         },
         startContent = startContent,
@@ -205,6 +238,7 @@ fun Cell(
                         )
                     }
         },
+        motion = motion,
     )
 }
 
@@ -233,6 +267,9 @@ fun Cell(
     centerContent: (@Composable ColumnScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CellMotionStyle> = rememberCellMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseCell(
         modifier = modifier,
@@ -243,7 +280,7 @@ fun Cell(
         startContent = startContent,
         centerContent = centerContent,
         endContent = endContent,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
