@@ -19,6 +19,7 @@ import com.sdds.compose.uikit.DropdownMenu
 import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
+import com.sdds.compose.uikit.ModalDropdownMenu
 import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.PopoverPlacement
 import com.sdds.compose.uikit.PopoverPlacementMode
@@ -405,6 +406,41 @@ fun DropDownMenuTightXsStrictCenter(style: DropdownMenuStyle, buttonStyle: Butto
             placement = PopoverPlacement.Top,
             placementMode = PopoverPlacementMode.Strict,
             alignment = PopoverAlignment.Center,
+            enterTransition = EnterTransition.None,
+            exitTransition = ExitTransition.None,
+        ) {
+            ListForDropDownMenu()
+        }
+    }
+}
+
+/**
+ * PLASMA-2622
+ */
+@Composable
+fun ModalDropdownDimBackground(style: DropdownMenuStyle, buttonStyle: ButtonStyle) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        val showDropDownMenu = remember { mutableStateOf(false) }
+        val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
+        Button(
+            style = buttonStyle,
+            modifier = Modifier
+                .align(Alignment.Center)
+                .popoverTrigger(triggerInfo),
+            label = "Show DropDownMenu",
+            onClick = { showDropDownMenu.value = true },
+        )
+        ModalDropdownMenu(
+            opened = showDropDownMenu.value,
+            onDismissRequest = {
+                showDropDownMenu.value = false
+            },
+            triggerInfo = triggerInfo.value,
+            style = style,
+            placement = PopoverPlacement.Top,
+            placementMode = PopoverPlacementMode.Strict,
+            alignment = PopoverAlignment.Center,
+            dimBackground = true,
             enterTransition = EnterTransition.None,
             exitTransition = ExitTransition.None,
         ) {
