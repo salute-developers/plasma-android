@@ -133,6 +133,7 @@ interface ListDimensions {
     /**
      * Отступ между контентом вначале и контентом в конце
      */
+    @Deprecated("use gapValues", replaceWith = ReplaceWith("gapValues"))
     val gap: Dp
 
     /**
@@ -143,6 +144,7 @@ interface ListDimensions {
     /**
      * Отступ в начале
      */
+    @Deprecated("use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
     val paddingStart: Dp
 
     /**
@@ -153,6 +155,7 @@ interface ListDimensions {
     /**
      * Отступ в конце
      */
+    @Deprecated("use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
     val paddingEnd: Dp
 
     /**
@@ -163,6 +166,7 @@ interface ListDimensions {
     /**
      * Отступ сверху
      */
+    @Deprecated("use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
     val paddingTop: Dp
 
     /**
@@ -173,6 +177,7 @@ interface ListDimensions {
     /**
      * Оступ снизу
      */
+    @Deprecated("use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
     val paddingBottom: Dp
 
     /**
@@ -368,10 +373,19 @@ private class DefaultListDimensions(
     override val gapValues: StatefulValue<Dp>,
 
 ) : ListDimensions {
+    @Deprecated("use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
     override val paddingStart: Dp = 0.dp
+
+    @Deprecated("use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
     override val paddingEnd: Dp = 0.dp
+
+    @Deprecated("use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
     override val paddingTop: Dp = 0.dp
+
+    @Deprecated("use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
     override val paddingBottom: Dp = 0.dp
+
+    @Deprecated("use gapValues", replaceWith = ReplaceWith("gapValues"))
     override val gap: Dp = Dp.Unspecified
     class Builder : ListDimensionsBuilder {
         private var paddingStartValues: StatefulValue<Dp>? = null
@@ -379,6 +393,7 @@ private class DefaultListDimensions(
         private var paddingTopValues: StatefulValue<Dp>? = null
         private var paddingBottomValues: StatefulValue<Dp>? = null
         private var gapValues: StatefulValue<Dp>? = null
+
         override fun gap(gap: StatefulValue<Dp>): ListDimensionsBuilder = apply {
             this.gapValues = gap
         }

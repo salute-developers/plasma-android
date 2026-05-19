@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -24,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.list.ListItemMotionStyle
 import com.sdds.compose.uikit.motion.components.list.rememberListItemMotion
@@ -46,6 +46,7 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
  * @param disclosureContent контент в disclosure
  */
 @Composable
+@Deprecated("use ListItem with motion parameter")
 fun ListItem(
     modifier: Modifier = Modifier,
     titleContent: @Composable () -> Unit,
@@ -157,7 +158,6 @@ fun ListItem(
         motion.style.backgroundColor,
     )
     val paddings = style.dimensions.getPaddingValues(interactionSource)
-    Log.d("paddings", "$paddings")
     Cell(
         style = style.toCellStyle(),
         modifier = modifier
@@ -195,16 +195,18 @@ fun RowScope.ListItemDisclosure(
     text: (@Composable () -> Unit)? = null,
 ) {
     if (text != null) {
+        val brushState = style.colors.disclosureTextBrush.getValueAsState(interactionSource)
         ProvideTextStyle(
             style.disclosureTextStyle.getValue(interactionSource),
-            color = style.colors.disclosureTextColor.colorForInteraction(interactionSource),
+            brush = { brushState.value },
             content = text,
         )
     }
 
     if (icon != null) {
+        val brushState = style.colors.disclosureIconBrush.getValueAsState(interactionSource)
         CompositionLocalProvider(
-            LocalTint provides style.colors.disclosureIconColor.colorForInteraction(interactionSource),
+            LocalTintBrushProducer provides { brushState.value },
             content = icon,
         )
     }
@@ -303,14 +305,15 @@ private fun ListItemStyle.toCellStyle(): CellStyle {
         disclosureTextStyle(disclosureTextStyle)
         disclosureIconRes?.let { disclosureIcon(it) }
         colors {
-            titleBrush(colors.titleBrush)
-            subtitleBrush(colors.subtitleBrush)
-            labelBrush(colors.labelBrush)
-            disclosureIconBrush(colors.disclosureIconBrush)
-            disclosureTextBrush(colors.disclosureTextBrush)
+            titleColor(colors.titleBrush)
+            subtitleColor(colors.subtitleBrush)
+            labelColor(colors.labelBrush)
+            disclosureIconColor(colors.disclosureIconBrush)
+            disclosureTextColor(colors.disclosureTextBrush)
         }
         dimensions {
-            contentPaddingEnd(dimensions.contentPaddingEnd)
+            contentPaddingEnd(dimensions.contentPaddingEndValues)
+            contentPaddingStart(dimensions.contentPaddingStartValues)
         }
         avatarStyle?.let { avatarStyle(it) }
         iconButtonStyle?.let { iconButtonStyle(it) }
@@ -332,12 +335,11 @@ private fun RowScope.ListItemDisclosure(
         interactionSource = interactionSource,
         icon = style.disclosureIconRes?.let {
             @Composable {
+                val brush = style.colors.disclosureIconBrush.getValueAsState(interactionSource)
                 Icon(
                     painter = painterResource(it),
                     contentDescription = "",
-                    tint = style.colors.disclosureIconColor.colorForInteraction(
-                        interactionSource,
-                    ),
+                    brush = { brush.value },
                 )
             }
         },
@@ -350,15 +352,15 @@ private fun RowScope.ListItemDisclosure(
     style: ListItemStyle = LocalListItemStyle.current,
     motion: Motion<ListItemMotionStyle>,
 ) {
-    val iconColor = style.colors.disclosureIconBrush.getBrushAsState(
-        motion.context,
-        motion.style.disclosureIconColor,
-    )
     style.disclosureIconRes?.let { icon ->
         ListItemDisclosure(
             style = style,
             motion = motion,
             icon = {
+                val iconColor = style.colors.disclosureIconBrush.getBrushAsState(
+                    motion.context,
+                    motion.style.disclosureIconColor,
+                )
                 Icon(
                     painter = painterResource(icon),
                     contentDescription = "",

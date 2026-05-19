@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.list.ListMotionStyle
 import com.sdds.compose.uikit.motion.components.list.rememberListMotion
@@ -105,7 +107,7 @@ fun List(
 ) {
     val interactionSource = motion.context.interactionSource
     val resolvedArrangement = if (verticalArrangement == DefaultVerticalArrangement) {
-        val gap = style.dimensions.gapValues.getValue(interactionSource)
+        val gap by style.dimensions.gapValues.getValueAsState(interactionSource)
         getVerticalArrangement(gap, reverseLayout)
     } else {
         verticalArrangement

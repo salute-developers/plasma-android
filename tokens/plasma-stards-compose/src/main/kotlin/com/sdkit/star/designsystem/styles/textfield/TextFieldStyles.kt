@@ -113,6 +113,7 @@ public value class WrapperTextFieldMInnerLabel(
 public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
     @Composable
     get() = builder
+        .singleLine(true)
         .colors {
             captionColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(),
@@ -131,6 +132,7 @@ public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
 public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
     @Composable
     get() = builder
+        .singleLine(true)
         .colors {
             captionColor(
                 StarDsTheme.colors.textDefaultNegative.asInteractive(
@@ -248,6 +250,7 @@ public val TextField.Xs: WrapperTextFieldXs
     @JvmName("WrapperTextFieldXs")
     get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .shape(
             StarDsTheme.shapes.roundS.adjustBy(
                 all =
@@ -277,6 +280,7 @@ public val WrapperTextFieldXs.OuterLabel: WrapperTextFieldXsOuterLabel
     @Composable
     @JvmName("WrapperTextFieldXsOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_box_padding_top_xs_outer_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_box_padding_bottom_xs_outer_label))
@@ -297,6 +301,7 @@ public val TextField.S: WrapperTextFieldS
     @JvmName("WrapperTextFieldS")
     get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .shape(
             StarDsTheme.shapes.roundM.adjustBy(
                 all =
@@ -326,6 +331,7 @@ public val WrapperTextFieldS.OuterLabel: WrapperTextFieldSOuterLabel
     @Composable
     @JvmName("WrapperTextFieldSOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_label_padding_s_outer_label))
         }
@@ -343,6 +349,7 @@ public val WrapperTextFieldS.InnerLabel: WrapperTextFieldSInnerLabel
     @Composable
     @JvmName("WrapperTextFieldSInnerLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_box_padding_top_s_inner_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_box_padding_bottom_s_inner_label))
@@ -372,6 +379,7 @@ public val TextField.M: WrapperTextFieldM
     @JvmName("WrapperTextFieldM")
     get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .shape(StarDsTheme.shapes.roundM)
         .dimensions {
             boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_field_box_padding_start_m))
@@ -396,6 +404,7 @@ public val WrapperTextFieldM.OuterLabel: WrapperTextFieldMOuterLabel
     @Composable
     @JvmName("WrapperTextFieldMOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_label_padding_m_outer_label))
         }
@@ -413,6 +422,7 @@ public val WrapperTextFieldM.InnerLabel: WrapperTextFieldMInnerLabel
     @Composable
     @JvmName("WrapperTextFieldMInnerLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_box_padding_top_m_inner_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_box_padding_bottom_m_inner_label))

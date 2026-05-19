@@ -119,6 +119,7 @@ public val ListItem.L: WrapperListItemL
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_l))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_l))
             height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_l))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_start_l))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_end_l))
@@ -148,6 +149,7 @@ public val ListItem.M: WrapperListItemM
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_m))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_m))
             height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_m))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_start_m))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_end_m))
@@ -172,6 +174,7 @@ public val ListItem.S: WrapperListItemS
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_s))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_s))
             height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_s))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_start_s))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_end_s))
@@ -201,6 +204,7 @@ public val ListItem.Xs: WrapperListItemXs
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_xs))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_xs))
             height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_xs))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_start_xs))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_end_xs))
