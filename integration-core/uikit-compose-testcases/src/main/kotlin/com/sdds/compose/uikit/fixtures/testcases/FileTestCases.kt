@@ -1,7 +1,6 @@
 package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.compose.uikit.File
 import com.sdds.compose.uikit.FileActionPlacement
@@ -9,6 +8,7 @@ import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ProgressBar
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.icons.R
 
 /**
@@ -32,7 +32,7 @@ fun FileCircularProgressIsLoadingStart(style: FileStyle) {
                 progress = 0.5f,
                 valueContent = {
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_close_16),
+                        source = resourceImageSource(id = R.drawable.ic_close_16),
                         contentDescription = "",
                     )
                 },
@@ -53,7 +53,7 @@ fun FileLinearProgressIsLoadingHasImageEnd(style: FileStyle) {
         description = "1.2MB",
         image = {
             Icon(
-                painterResource(R.drawable.ic_file_check_fill_36),
+                source = resourceImageSource(R.drawable.ic_file_check_fill_36),
                 contentDescription = "",
             )
         },
@@ -84,7 +84,7 @@ fun FileCircularProgressHasImageEnd(style: FileStyle) {
         description = "1.2MB",
         image = {
             Icon(
-                painterResource(R.drawable.ic_file_check_fill_36),
+                resourceImageSource(R.drawable.ic_file_check_fill_36),
                 contentDescription = "",
             )
         },
@@ -94,7 +94,7 @@ fun FileCircularProgressHasImageEnd(style: FileStyle) {
                 progress = 0.5f,
                 valueContent = {
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_close_16),
+                        source = resourceImageSource(id = R.drawable.ic_close_16),
                         contentDescription = "",
                     )
                 },
@@ -121,7 +121,7 @@ fun FileLinearProgressIsLoadingStart(style: FileStyle) {
         description = "1.2MB",
         image = {
             Icon(
-                painterResource(R.drawable.ic_file_check_fill_36),
+                resourceImageSource(R.drawable.ic_file_check_fill_36),
                 contentDescription = "",
             )
         },
@@ -157,7 +157,7 @@ fun FileCircularProgressIsLoadingEndLongText(style: FileStyle) {
                 progress = 0.5f,
                 valueContent = {
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_close_16),
+                        source = resourceImageSource(id = R.drawable.ic_close_16),
                         contentDescription = "",
                     )
                 },
@@ -178,7 +178,7 @@ fun FileCircularProgressIsLoadingHasImageNoDesc(style: FileStyle) {
         description = "",
         image = {
             Icon(
-                painterResource(R.drawable.ic_file_check_fill_36),
+                resourceImageSource(R.drawable.ic_file_check_fill_36),
                 contentDescription = "",
             )
         },
@@ -188,7 +188,7 @@ fun FileCircularProgressIsLoadingHasImageNoDesc(style: FileStyle) {
                 progress = 0.5f,
                 valueContent = {
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_close_16),
+                        source = resourceImageSource(id = R.drawable.ic_close_16),
                         contentDescription = "",
                     )
                 },
