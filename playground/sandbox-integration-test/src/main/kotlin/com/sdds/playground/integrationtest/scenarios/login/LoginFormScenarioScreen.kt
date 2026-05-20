@@ -81,9 +81,9 @@ internal fun LoginFormScenarioScreen() {
     }
 
     ScenarioScaffold(
-        title = "Интеграционный сценарий: Login Form",
-        description = "A realistic form flow that checks field composition, CTA gating, " +
-            "error rendering and loading transition.",
+        title = "Интеграционный сценарий: Форма входа",
+        description = "Реалистичный сценарий формы, который проверяет композицию полей, CTA gating, " +
+            "отображение ошибки и переход в состояние загрузки.",
         checks = uiState.checks,
         rootTestTag = LoginFormTags.ROOT,
     ) {
@@ -114,7 +114,7 @@ internal fun LoginFormScenarioScreen() {
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceBetween,
                         ) {
-                            Text(text = "Login Form")
+                            Text(text = "Форма входа")
                             IconButton(
                                 style = IconButton.M.Clear.style(),
                                 modifier = Modifier.testTag("login_form_close_sheet_btn"),

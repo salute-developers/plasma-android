@@ -25,32 +25,32 @@ internal data class ModalScenarioUiState(
     val checks: List<ScenarioCheckUiState>
         get() = listOf(
             ScenarioCheckUiState(
-                title = "First modal opens",
+                title = "Первое модальное окно открывается",
                 passed = firstModalOpened,
                 testTag = ModalTags.CHECK_FIRST_OPENED,
             ),
             ScenarioCheckUiState(
-                title = "First modal closes before scrolling",
+                title = "Первое модальное окно закрывается перед прокруткой",
                 passed = firstModalClosed && !firstModalVisible,
                 testTag = ModalTags.CHECK_FIRST_CLOSED,
             ),
             ScenarioCheckUiState(
-                title = "First scenario content scrolls after modal close",
+                title = "Контент первого сценария прокручивается после закрытия модального окна",
                 passed = firstScrolled,
                 testTag = ModalTags.CHECK_FIRST_SCROLLED,
             ),
             ScenarioCheckUiState(
-                title = "Second modal opens",
+                title = "Второе модальное окно открывается",
                 passed = secondModalOpened,
                 testTag = ModalTags.CHECK_SECOND_OPENED,
             ),
             ScenarioCheckUiState(
-                title = "Second modal closes before scrolling",
+                title = "Второе модальное окно закрывается перед прокруткой",
                 passed = secondModalClosed && !secondModalVisible,
                 testTag = ModalTags.CHECK_SECOND_CLOSED,
             ),
             ScenarioCheckUiState(
-                title = "Second scenario content scrolls after modal close",
+                title = "Контент второго сценария прокручивается после закрытия модального окна",
                 passed = secondScrolled,
                 testTag = ModalTags.CHECK_SECOND_SCROLLED,
             ),

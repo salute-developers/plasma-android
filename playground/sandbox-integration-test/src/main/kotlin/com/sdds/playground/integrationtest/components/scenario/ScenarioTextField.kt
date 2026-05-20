@@ -21,6 +21,7 @@ internal fun ScenarioTextField(
     modifier: Modifier = Modifier,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
+    focusSelectorSettings: FocusSelectorSettings = FocusSelectorSettings.None,
 ) {
     TextField(
         value = state.value,
@@ -29,7 +30,7 @@ internal fun ScenarioTextField(
         style = style,
         placeholderText = state.placeholder,
         labelText = state.label,
-        focusSelectorSettings = FocusSelectorSettings.None,
+        focusSelectorSettings = focusSelectorSettings,
         keyboardOptions = keyboardOptions,
         visualTransformation = visualTransformation,
     )
