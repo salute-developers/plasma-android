@@ -11,7 +11,6 @@ import com.sdds.playground.integrationtest.sandbox.AppActivity
 import com.sdds.playground.integrationtest.testtags.LoginFormTags
 import com.sdds.playground.integrationtest.testtags.ModalTags
 
-
 class LoginFormPage(
     private val composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<AppActivity>, AppActivity>,
 ) {
