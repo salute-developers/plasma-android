@@ -19,6 +19,7 @@ internal object FocusSelectorTags {
     const val RADIO_BOX_GROUP = "focus_selector_radio_box_group"
     const val RADIO_BOX_GROUP_TAB = "focus_selector_radio_box_group_tab"
     const val CODE_INPUT_TAB = "focus_selector_code_input_tab"
+    const val TABS_TAB = "focus_selector_tabs_tab"
     const val BUTTON_TAB_CONTENT = "focus_selector_button_tab_content"
     const val BUTTON_GROUP_TAB_CONTENT = "focus_selector_button_group_tab_content"
     const val CHIP_TAB_CONTENT = "focus_selector_chip_tab_content"
@@ -26,6 +27,7 @@ internal object FocusSelectorTags {
     const val TEXT_FIELD_TAB_CONTENT = "focus_selector_text_field_tab_content"
     const val RADIO_BOX_GROUP_TAB_CONTENT = "focus_selector_radio_box_group_tab_content"
     const val CODE_INPUT_TAB_CONTENT = "focus_selector_code_input_tab_content"
+    const val TABS_TAB_CONTENT = "focus_selector_tabs_tab_content"
     const val FOCUSABLE_BUTTON = "focus_selector_focusable_button"
     const val FOCUSABLE_BUTTON_GROUP = "focus_selector_focusable_button_group"
     const val FOCUSABLE_CHIP = "focus_selector_focusable_chip"
@@ -41,9 +43,11 @@ internal object FocusSelectorTags {
     const val TEXT_FIELD_FOCUS_STATE = "focus_selector_text_field_focus_state"
     const val RADIO_BOX_GROUP_FOCUS_STATE = "focus_selector_radio_box_group_focus_state"
     const val CODE_INPUT_FOCUS_STATE = "focus_selector_code_input_focus_state"
+    const val TABS_FOCUS_STATE = "focus_selector_tabs_focus_state"
 
     internal fun check(index: Int): String = "focus_selector_check_$index"
     internal fun buttonGroupItem(index: Int) = "focus_selector_button_group_item_$index"
     internal fun chipGroupItem(index: Int) = "focus_selector_chip_group_item_$index"
     internal fun radioBoxGroupItem(index: Int) = "focus_selector_radio_box_group_item_$index"
+    internal fun tabsItem(index: Int) = "focus_selector_tabs_item_$index"
 }

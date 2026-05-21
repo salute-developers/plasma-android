@@ -57,6 +57,10 @@ internal class FocusSelectorPage(
         selectOverflowTab("CodeInput")
     }
 
+    fun selectTabsTab() = apply {
+        selectOverflowTab("Tabs")
+    }
+
     fun pressTab() = apply {
         composeTestRule.onRoot().performKeyInput {
             pressKey(Key.Tab)
@@ -101,6 +105,10 @@ internal class FocusSelectorPage(
 
     fun checkCodeInputTabContentVisible() = apply {
         composeTestRule.onNodeWithTag(FocusSelectorTags.CODE_INPUT_TAB_CONTENT).assertExists()
+    }
+
+    fun checkTabsTabContentVisible() = apply {
+        composeTestRule.onNodeWithTag(FocusSelectorTags.TABS_TAB_CONTENT).assertExists()
     }
 
     fun checkButtonFocusStateFocused() = apply {
@@ -168,6 +176,16 @@ internal class FocusSelectorPage(
             .assertTextEquals("CodeInput не в фокусе")
     }
 
+    fun checkTabsFocusStateFocused() = apply {
+        composeTestRule.onNodeWithTag(FocusSelectorTags.TABS_FOCUS_STATE)
+            .assertTextEquals("Tabs в фокусе")
+    }
+
+    fun checkTabsFocusStateNotFocused() = apply {
+        composeTestRule.onNodeWithTag(FocusSelectorTags.TABS_FOCUS_STATE)
+            .assertTextEquals("Tabs не в фокусе")
+    }
+
     fun checkButtonFocusRequestPassed() = apply {
         composeTestRule.onNodeWithTag(FocusSelectorTags.check(1))
             .assertTextContains("PASS", substring = true)
@@ -215,6 +233,16 @@ internal class FocusSelectorPage(
 
     fun checkRadioBoxAndCodeInputClearFocusPassed() = apply {
         composeTestRule.onNodeWithTag(FocusSelectorTags.check(10))
+            .assertTextContains("PASS", substring = true)
+    }
+
+    fun checkTabsFocusPassed() = apply {
+        composeTestRule.onNodeWithTag(FocusSelectorTags.check(11))
+            .assertTextContains("PASS", substring = true)
+    }
+
+    fun checkTabsClearFocusPassed() = apply {
+        composeTestRule.onNodeWithTag(FocusSelectorTags.check(12))
             .assertTextContains("PASS", substring = true)
     }
 

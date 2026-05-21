@@ -1,5 +1,6 @@
 package com.sdds.playground.integrationtest.scenarios.login
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -102,10 +103,14 @@ internal fun LoginFormScenarioScreen() {
             )
 
             ModalBottomSheet(
+                modifier = Modifier.testTag(LoginFormTags.SHEET),
                 style = ModalBottomSheet.Default.style(),
                 edgeToEdge = false,
                 sheetState = sheetState,
                 handlePlacement = BottomSheetHandlePlacement.Auto,
+                onDismiss = {
+                    Log.d(LOG_TAG, "onDismiss")
+                },
                 fitContent = true,
                 header = {
                     Column {
@@ -196,3 +201,5 @@ internal fun LoginFormScenarioScreen() {
         }
     }
 }
+
+private const val LOG_TAG = "LoginFormScenario"

@@ -18,5 +18,7 @@ internal object LoginFormTags {
     const val ERROR = "login_form_error"
     const val LOADING_HINT = "login_form_loading_hint"
 
+    const val SHEET = "bottom_sheet_content"
+
     internal fun check(index: Int): String = "login_form_check_$index"
 }

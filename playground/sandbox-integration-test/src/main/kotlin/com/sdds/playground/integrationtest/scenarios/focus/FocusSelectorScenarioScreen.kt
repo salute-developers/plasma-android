@@ -10,14 +10,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.TabItem
-import com.sdds.compose.uikit.Tabs
-import com.sdds.compose.uikit.TabsClip
-import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.integrationtest.components.scenario.ButtonFocusCase
 import com.sdds.playground.integrationtest.components.scenario.ButtonGroupFocusCase
@@ -26,6 +20,9 @@ import com.sdds.playground.integrationtest.components.scenario.ChipGroupFocusCas
 import com.sdds.playground.integrationtest.components.scenario.CodeInputFocusCase
 import com.sdds.playground.integrationtest.components.scenario.RadioBoxGroupFocusCase
 import com.sdds.playground.integrationtest.components.scenario.ScenarioButton
+import com.sdds.playground.integrationtest.components.scenario.ScenarioTabs
+import com.sdds.playground.integrationtest.components.scenario.ScenarioTabsItem
+import com.sdds.playground.integrationtest.components.scenario.TabsFocusCase
 import com.sdds.playground.integrationtest.components.scenario.TextFieldFocusCase
 import com.sdds.playground.integrationtest.scaffold.ScenarioScaffold
 import com.sdds.playground.integrationtest.testtags.FocusSelectorTags
@@ -34,9 +31,6 @@ import com.sdds.playground.integrationtest.uistate.ScenarioCheckUiState
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Secondary
 import com.sdds.serv.styles.basicbutton.Xs
-import com.sdds.serv.styles.tabs.Horizontal
-import com.sdds.serv.styles.tabs.TabsDefault
-import com.sdds.serv.styles.tabs.Xs
 
 private enum class FocusSelectorTab(
     val title: String,
@@ -78,6 +72,11 @@ private enum class FocusSelectorTab(
         tabTag = FocusSelectorTags.CODE_INPUT_TAB,
         contentTag = FocusSelectorTags.CODE_INPUT_TAB_CONTENT,
     ),
+    Tabs(
+        title = "Tabs",
+        tabTag = FocusSelectorTags.TABS_TAB,
+        contentTag = FocusSelectorTags.TABS_TAB_CONTENT,
+    ),
 }
 
 @Composable
@@ -90,6 +89,7 @@ internal fun FocusSelectorScenarioScreen() {
     var isTextFieldFocused by remember { mutableStateOf(false) }
     var isRadioBoxGroupFocused by remember { mutableStateOf(false) }
     var isCodeInputFocused by remember { mutableStateOf(false) }
+    var isTabsFocused by remember { mutableStateOf(false) }
     var wasButtonFocused by remember { mutableStateOf(false) }
     var wasButtonGroupFocused by remember { mutableStateOf(false) }
     var wasChipFocused by remember { mutableStateOf(false) }
@@ -97,6 +97,7 @@ internal fun FocusSelectorScenarioScreen() {
     var wasTextFieldFocused by remember { mutableStateOf(false) }
     var wasRadioBoxGroupFocused by remember { mutableStateOf(false) }
     var wasCodeInputFocused by remember { mutableStateOf(false) }
+    var wasTabsFocused by remember { mutableStateOf(false) }
     var textFieldValue by remember { mutableStateOf("") }
 
     val focusManager = LocalFocusManager.current
@@ -112,11 +113,13 @@ internal fun FocusSelectorScenarioScreen() {
         wasTextFieldFocused = wasTextFieldFocused,
         wasRadioBoxGroupFocused = wasRadioBoxGroupFocused,
         wasCodeInputFocused = wasCodeInputFocused,
+        wasTabsFocused = wasTabsFocused,
         isButtonFocused = isButtonFocused,
         isChipFocused = isChipFocused,
         isTextFieldFocused = isTextFieldFocused,
         isRadioBoxGroupFocused = isRadioBoxGroupFocused,
         isCodeInputFocused = isCodeInputFocused,
+        isTabsFocused = isTabsFocused,
     )
 
     ScenarioScaffold(
@@ -130,11 +133,18 @@ internal fun FocusSelectorScenarioScreen() {
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             item {
-                FocusSelectorTabs(
-                    selectedTab = selectedTab,
-                    onTabSelected = { tab ->
+                ScenarioTabs(
+                    items = FocusSelectorTab.entries.map { tab ->
+                        ScenarioTabsItem(
+                            title = tab.title,
+                            testTag = tab.tabTag,
+                        )
+                    },
+                    selectedIndex = selectedTab.ordinal,
+                    keyboardFocusable = false,
+                    onTabSelected = { index ->
                         focusManager.clearFocus(force = true)
-                        selectedTab = tab
+                        selectedTab = FocusSelectorTab.entries[index]
                     },
                 )
             }
@@ -150,6 +160,7 @@ internal fun FocusSelectorScenarioScreen() {
                     isTextFieldFocused = isTextFieldFocused,
                     isRadioBoxGroupFocused = isRadioBoxGroupFocused,
                     isCodeInputFocused = isCodeInputFocused,
+                    isTabsFocused = isTabsFocused,
                     buttonInteractionSource = buttonInteractionSource,
                     chipInteractionSource = chipInteractionSource,
                     codeInputInteractionSource = codeInputInteractionSource,
@@ -181,6 +192,10 @@ internal fun FocusSelectorScenarioScreen() {
                         isCodeInputFocused = focusState
                         wasCodeInputFocused = wasCodeInputFocused || focusState
                     },
+                    onTabsFocusChanged = { focusState ->
+                        isTabsFocused = focusState
+                        wasTabsFocused = wasTabsFocused || focusState
+                    },
                     onTextFieldValueChange = { value -> textFieldValue = value },
                     onClearButtonFocus = { focusManager.clearFocus(force = true) },
                     onClearChipFocus = { focusManager.clearFocus(force = true) },
@@ -192,6 +207,10 @@ internal fun FocusSelectorScenarioScreen() {
                     onClearCodeInputFocus = {
                         focusManager.clearFocus(force = true)
                         isCodeInputFocused = false
+                    },
+                    onClearTabsFocus = {
+                        focusManager.clearFocus(force = true)
+                        isTabsFocused = false
                     },
                 )
             }
@@ -210,6 +229,7 @@ private fun FocusSelectorTabContent(
     isTextFieldFocused: Boolean,
     isRadioBoxGroupFocused: Boolean,
     isCodeInputFocused: Boolean,
+    isTabsFocused: Boolean,
     buttonInteractionSource: MutableInteractionSource,
     chipInteractionSource: MutableInteractionSource,
     codeInputInteractionSource: MutableInteractionSource,
@@ -220,12 +240,14 @@ private fun FocusSelectorTabContent(
     onTextFieldFocusChanged: (Boolean) -> Unit,
     onRadioBoxGroupFocusChanged: (Boolean) -> Unit,
     onCodeInputFocusChanged: (Boolean) -> Unit,
+    onTabsFocusChanged: (Boolean) -> Unit,
     onTextFieldValueChange: (String) -> Unit,
     onClearButtonFocus: () -> Unit,
     onClearChipFocus: () -> Unit,
     onClearTextFieldFocus: () -> Unit,
     onClearRadioBoxGroupFocus: () -> Unit,
     onClearCodeInputFocus: () -> Unit,
+    onClearTabsFocus: () -> Unit,
 ) {
     when (selectedTab) {
         FocusSelectorTab.Button -> ButtonFocusCase(
@@ -274,6 +296,12 @@ private fun FocusSelectorTabContent(
             onFocusChanged = onCodeInputFocusChanged,
             onClearFocus = onClearCodeInputFocus,
         )
+
+        FocusSelectorTab.Tabs -> TabsFocusCase(
+            isFocused = isTabsFocused,
+            onFocusChanged = onTabsFocusChanged,
+            onClearFocus = onClearTabsFocus,
+        )
     }
 }
 
@@ -285,11 +313,13 @@ private fun focusSelectorChecks(
     wasTextFieldFocused: Boolean,
     wasRadioBoxGroupFocused: Boolean,
     wasCodeInputFocused: Boolean,
+    wasTabsFocused: Boolean,
     isButtonFocused: Boolean,
     isChipFocused: Boolean,
     isTextFieldFocused: Boolean,
     isRadioBoxGroupFocused: Boolean,
     isCodeInputFocused: Boolean,
+    isTabsFocused: Boolean,
 ): List<ScenarioCheckUiState> = listOf(
     ScenarioCheckUiState(
         title = "Кнопка получает фокус",
@@ -342,36 +372,17 @@ private fun focusSelectorChecks(
             !isRadioBoxGroupFocused && !isCodeInputFocused,
         testTag = FocusSelectorTags.check(10),
     ),
+    ScenarioCheckUiState(
+        title = "Tabs получает фокус",
+        passed = wasTabsFocused,
+        testTag = FocusSelectorTags.check(11),
+    ),
+    ScenarioCheckUiState(
+        title = "Фокус можно сбросить у Tabs",
+        passed = wasTabsFocused && !isTabsFocused,
+        testTag = FocusSelectorTags.check(12),
+    ),
 )
-
-@Composable
-private fun FocusSelectorTabs(
-    selectedTab: FocusSelectorTab,
-    onTabSelected: (FocusSelectorTab) -> Unit,
-) {
-    Tabs(
-        selectedTabIndexProvider = { selectedTab.ordinal },
-        style = TabsDefault.Xs.Horizontal.style(),
-        clip = TabsClip.ShowMore,
-        onDisclosureTabClicked = { index ->
-            onTabSelected(FocusSelectorTab.entries[index])
-        },
-    ) {
-        FocusSelectorTab.entries.forEach { tab ->
-            tabItem(dropdownAlias = tab.title) {
-                TabItem(
-                    modifier = Modifier
-                        .focusProperties { canFocus = false }
-                        .testTag(tab.tabTag),
-                    isSelected = selectedTab == tab,
-                    onClick = { onTabSelected(tab) },
-                ) {
-                    Text(tab.title)
-                }
-            }
-        }
-    }
-}
 
 @Composable
 internal fun FocusSelectorClearButton(
