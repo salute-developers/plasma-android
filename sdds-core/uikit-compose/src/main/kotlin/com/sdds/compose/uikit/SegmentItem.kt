@@ -23,8 +23,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.DpSize
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.ButtonText
+import com.sdds.compose.uikit.motion.components.common.rememberCommonButtonMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент SegmentItem
@@ -109,7 +113,11 @@ fun SegmentItem(
         modifier = modifier,
         isSelected = isSelected,
         style = style,
-        valueContent = if (value != null) { { Text(value, maxLines = 1, overflow = TextOverflow.Ellipsis) } } else null,
+        valueContent = if (value != null) {
+            { Text(value, maxLines = 1, overflow = TextOverflow.Ellipsis) }
+        } else {
+            null
+        },
         startContent = startContent,
         endContent = endContent,
         enabled = enabled,
@@ -142,12 +150,11 @@ fun SegmentItem(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
-    val labelColor = style.colors.labelColor.colorForInteraction(interactionSource)
-    val valueColor = style.colors.valueColor.colorForInteraction(interactionSource)
-    val startContentColor = style.colors.startContentColor.colorForInteraction(interactionSource)
-    val endContentColor = style.colors.endContentColor.colorForInteraction(interactionSource)
-    val isFocused by interactionSource.collectIsFocusedAsState()
+    val motion = rememberCommonButtonMotion(motionContext = rememberMotionContext(interactionSource))
+    val backgroundColor = style.colors.backgroundColor.colorForInteraction(motion.context.interactionSource)
+    val startContentColor = style.colors.startContentColor.colorForInteraction(motion.context.interactionSource)
+    val endContentColor = style.colors.endContentColor.colorForInteraction(motion.context.interactionSource)
+    val isFocused by motion.context.interactionSource.collectIsFocusedAsState()
     Row(
         modifier = modifier
             .defaultMinSize(
@@ -171,17 +178,20 @@ fun SegmentItem(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
     ) {
+        val labelColor = style.colors.labelColor.asStatefulBrush()
+        val valueColor = style.colors.valueColor.asStatefulBrush()
         startContent?.let { content ->
             StartContent(style, startContentColor, content)
         }
         ButtonText(
             labelContent = labelContent,
-            labelColor = { labelColor },
-            labelTextStyle = style.labelStyle,
+            labelColor = labelColor,
+            labelTextStyle = style.labelStyle.asStatefulValue(),
             valueContent = valueContent,
-            valueTextStyle = style.valueStyle,
-            valueColor = { valueColor },
-            valueMargin = style.dimensions.valueMargin,
+            valueTextStyle = style.valueStyle.asStatefulValue(),
+            valueColor = valueColor,
+            valueMargin = style.dimensions.valueMargin.asStatefulValue(),
+            motion = motion,
         )
         endContent?.let { content ->
             EndContent(style, endContentColor, content)

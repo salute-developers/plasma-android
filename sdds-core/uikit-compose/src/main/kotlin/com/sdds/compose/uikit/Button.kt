@@ -2,7 +2,6 @@ package com.sdds.compose.uikit
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Indication
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
@@ -17,9 +16,18 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.BaseButton
 import com.sdds.compose.uikit.internal.ButtonIcon
 import com.sdds.compose.uikit.internal.ButtonText
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.button.ButtonMotionStyle
+import com.sdds.compose.uikit.motion.components.button.IconButtonMotionStyle
+import com.sdds.compose.uikit.motion.components.button.LinkButtonMotionStyle
+import com.sdds.compose.uikit.motion.components.button.rememberButtonMotion
+import com.sdds.compose.uikit.motion.components.button.rememberIconButtonMotion
+import com.sdds.compose.uikit.motion.components.button.rememberLinkButtonMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Кнопка с иконкой.
@@ -52,26 +60,69 @@ fun IconButton(
     onClickLabel: String? = null,
     onClick: () -> Unit,
 ) {
-    val dimensions = style.dimensions
-    BaseButton(
-        modifier = modifier.requiredSize(dimensions.height),
-        onClick = onClick,
-        shape = LocalButtonForceShape.current ?: style.shape,
-        dimensions = dimensions,
-        colors = style.colors,
+    val motion: Motion<IconButtonMotionStyle> = rememberIconButtonMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    )
+    IconButton(
+        iconRes = iconRes,
+        modifier = modifier,
+        motion = motion,
+        iconContentDescription = iconContentDescription,
+        style = style,
         enabled = enabled,
         loading = loading,
-        loadingAlpha = style.loadingAlpha,
-        disabledAlpha = style.disableAlpha,
         indication = indication,
-        interactionSource = interactionSource,
+        onClickLabel = onClickLabel,
+        onClick = onClick,
+    )
+}
+
+/**
+ * Кнопка с иконкой.
+ * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
+ * На время анимации загрузки контент будет скрыт или станет полупрозрачным
+ * в зависимости от стиля.
+ *
+ * @param iconRes иконка
+ * @param modifier модификатор
+ * @param iconContentDescription описание иконки
+ * @param style стиль кнопки
+ * @param enabled флаг доступности кнопки
+ * @param loading флаг загрузки
+ * @param indication [Indication] кнопки
+ * @param onClick обработчик нажатий
+ * @param onClickLabel надпись для Accessibility
+ */
+@Composable
+fun IconButton(
+    @DrawableRes
+    iconRes: Int,
+    motion: Motion<IconButtonMotionStyle>,
+    modifier: Modifier = Modifier,
+    iconContentDescription: String? = null,
+    style: ButtonStyle = LocalIconButtonStyle.current,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    indication: Indication? = null,
+    onClickLabel: String? = null,
+    onClick: () -> Unit,
+) {
+    val size = style.dimensions.heightValues.getValue(motion.context.interactionSource)
+    BaseButton(
+        modifier = modifier.requiredSize(size),
+        onClick = onClick,
+        style = style,
+        enabled = enabled,
+        loading = loading,
+        indication = indication,
+        motion = motion,
         onClickLabel = onClickLabel,
         startContent = {
             ButtonIcon(
                 iconRes = iconRes,
                 contentDescription = iconContentDescription,
-                size = dimensions.iconSize,
-                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
+                style = style,
+                motion = motion,
             )
         },
     )
@@ -83,6 +134,7 @@ fun IconButton(
  * На время анимации загрузки контент будет скрыт или станет полупрозрачным
  * в зависимости от стиля.
  * @param icon контент, представляющий иконку
+ * @param onClick обработчик нажатий
  * @param modifier модификатор
  * @param iconContentDescription описание иконки
  * @param style стиль кнопки
@@ -91,8 +143,7 @@ fun IconButton(
  * @param indication [Indication] кнопки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
  * @param onClickLabel надпись для Accessibility
- * @param onClick обработчик нажатий
- * @param
+ * @param motion объект анимаций
  */
 @Composable
 fun IconButton(
@@ -106,25 +157,25 @@ fun IconButton(
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClickLabel: String? = null,
+    motion: Motion<IconButtonMotionStyle> = rememberIconButtonMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     val dimensions = style.dimensions
     BaseButton(
-        modifier = modifier.requiredSize(dimensions.height),
+        modifier = modifier.requiredSize(dimensions.heightValues.getValue(interactionSource)),
         onClick = onClick,
-        shape = LocalButtonForceShape.current ?: style.shape,
-        dimensions = dimensions,
-        colors = style.colors,
+        style = style,
         enabled = enabled,
         loading = loading,
-        loadingAlpha = style.loadingAlpha,
-        disabledAlpha = style.disableAlpha,
         indication = indication,
-        interactionSource = interactionSource,
+        motion = motion,
         onClickLabel = onClickLabel,
         startContent = {
             ButtonIcon(
-                iconSize = dimensions.iconSize,
-                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
+                iconSize = dimensions.iconSizeValues,
+                iconColor = style.colors.iconBrush,
+                motion = motion,
                 icon = icon,
             )
         },
@@ -147,6 +198,7 @@ fun IconButton(
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
  * @param onClick обработчик нажатий
  * @param onClickLabel надпись для Accessibility
+ * @param motion объект анимаций
  */
 @Composable
 fun LinkButton(
@@ -160,6 +212,9 @@ fun LinkButton(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClick: () -> Unit,
     onClickLabel: String? = null,
+    motion: Motion<LinkButtonMotionStyle> = rememberLinkButtonMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     Button(
         label = label,
@@ -172,6 +227,7 @@ fun LinkButton(
         indication = indication,
         interactionSource = interactionSource,
         onClickLabel = onClickLabel,
+        motion = motion,
     )
 }
 
@@ -250,24 +306,24 @@ fun IconButton(
 ) {
     val dimensions = style.dimensions
     BaseButton(
-        modifier = modifier.requiredSize(dimensions.height),
+        modifier = modifier.requiredSize(dimensions.heightValues.getValue(interactionSource)),
         onClick = onClick,
         onClickLabel = onClickLabel,
-        shape = LocalButtonForceShape.current ?: style.shape,
-        dimensions = dimensions,
-        colors = style.colors,
+        style = style,
         enabled = enabled,
         loading = loading,
-        loadingAlpha = style.loadingAlpha,
-        disabledAlpha = style.disableAlpha,
         indication = indication,
-        interactionSource = interactionSource,
+        motion = rememberIconButtonMotion(
+            motionContext = rememberMotionContext(interactionSource),
+        ),
         startContent = {
             ButtonIcon(
                 icon = icon,
+                style = style,
                 contentDescription = iconContentDescription,
-                size = dimensions.iconSize,
-                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
+                motion = rememberButtonMotion(
+                    motionContext = rememberMotionContext(interactionSource),
+                ),
             )
         },
     )
@@ -289,8 +345,10 @@ fun IconButton(
  * @param loading флаг загрузки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
  * @param onClickLabel надпись для Accessibility
+ * @param motion объект анимаций
  */
 @Composable
+@Deprecated("Use Button with startIconRes and endIconRes parameters")
 fun Button(
     label: String,
     onClick: () -> Unit,
@@ -304,59 +362,119 @@ fun Button(
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClickLabel: String? = null,
+    motion: Motion<ButtonMotionStyle> = rememberButtonMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
-    val dimensions = style.dimensions.let {
-        var paddingStart = it.paddingStart
-        var paddingEnd = it.paddingEnd
-        when {
-            (icons?.start != null || icons?.startRes != null) && paddingStart > IconPaddingOffset ->
-                paddingStart -= IconPaddingOffset
-
-            (icons?.end != null || icons?.endRes != null) && paddingEnd > IconPaddingOffset ->
-                paddingEnd -= IconPaddingOffset
-
-            else -> {}
-        }
-        it.copy(paddingStart = paddingStart, paddingEnd = paddingEnd)
-    }
-    val colors = style.colors
-
     BaseButton(
         modifier = modifier,
         onClick = onClick,
-        colors = colors,
         onClickLabel = onClickLabel,
-        loadingAlpha = style.loadingAlpha,
-        disabledAlpha = style.disableAlpha,
+        style = style,
         enabled = enabled,
-        shape = LocalButtonForceShape.current ?: style.shape,
         loading = loading,
-        dimensions = dimensions,
         indication = indication,
         spacing = spacing,
-        interactionSource = interactionSource,
-        startContent = {
-            StartButtonIcon(
-                icons = icons,
-                dimensions = dimensions,
-                colors = style.colors,
-                interactionSource = interactionSource,
-            )
+        needPaddingCompensation = true,
+        motion = motion,
+        startContent =
+        if (icons?.startRes != null || icons?.start != null) {
+            { StartButtonIcon(icons = icons, style = style, motion = motion) }
+        } else {
+            null
         },
-        endContent = {
-            EndButtonIcon(icons, dimensions, style.colors, interactionSource)
+        endContent =
+        if (icons?.endRes != null || icons?.end != null) {
+            { EndButtonIcon(icons = icons, style = style, motion = motion) }
+        } else {
+            null
         },
     ) {
-        val labelColor = colors.labelColor.colorForInteraction(interactionSource)
-        val valueColor = colors.valueColor.colorForInteraction(interactionSource)
         ButtonText(
             label = label,
-            labelTextStyle = style.labelStyle,
-            labelColor = labelColor,
-            valueTextStyle = style.valueStyle,
-            valueColor = valueColor,
+            labelTextStyle = style.labelStyles,
+            labelColor = style.colors.labelBrush,
+            valueTextStyle = style.valueStyles,
+            valueColor = style.colors.valueBrush,
             value = value,
-            valueMargin = dimensions.valueMargin,
+            valueMargin = style.dimensions.valueMarginValues,
+            motion = motion,
+        )
+    }
+}
+
+/**
+ * Кнопка с текстом и иконкой.
+ * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
+ * Кнопка умеет отобрать иконки в начале и в конце.
+ *
+ * @param label текст кнопки
+ * @param onClick обработчик нажатий
+ * @param motion объект анимаций
+ * @param modifier модификатор
+ * @param value доп. текст кнопки
+ * @param style стиль кнопки
+ * @param spacing вид отступа между [label] и [value]
+ * @param startIconRes иконка в начале
+ * @param endIconRes иконка в конце
+ * @param enabled флаг доступности кнопки
+ * @param loading флаг загрузки
+ * @param indication [Indication] кнопки
+ * @param onClickLabel надпись для Accessibility
+ */
+@Composable
+fun Button(
+    label: String,
+    onClick: () -> Unit,
+    motion: Motion<ButtonMotionStyle>,
+    modifier: Modifier = Modifier,
+    value: String? = null,
+    style: ButtonStyle = LocalButtonStyle.current,
+    spacing: ButtonSpacing = ButtonSpacing.Packed,
+    @DrawableRes
+    startIconRes: Int? = null,
+    @DrawableRes
+    endIconRes: Int? = null,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    indication: Indication? = null,
+    onClickLabel: String? = null,
+
+) {
+    val icons = ButtonIcons(startRes = startIconRes, endRes = endIconRes)
+    BaseButton(
+        modifier = modifier,
+        onClick = onClick,
+        onClickLabel = onClickLabel,
+        style = style,
+        enabled = enabled,
+        loading = loading,
+        indication = indication,
+        needPaddingCompensation = true,
+        motion = motion,
+        spacing = spacing,
+        startContent =
+        if (icons.startRes != null) {
+            { StartButtonIcon(icons = icons, style = style, motion = motion) }
+        } else {
+            null
+        },
+        endContent =
+        if (icons.endRes != null) {
+            { EndButtonIcon(icons = icons, style = style, motion = motion) }
+        } else {
+            null
+        },
+    ) {
+        ButtonText(
+            label = label,
+            labelTextStyle = style.labelStyles,
+            labelColor = style.colors.labelBrush,
+            valueTextStyle = style.valueStyles,
+            valueColor = style.colors.valueBrush,
+            value = value,
+            valueMargin = style.dimensions.valueMarginValues,
+            motion = motion,
         )
     }
 }
@@ -447,25 +565,24 @@ internal val LocalButtonForceShape: ProvidableCompositionLocal<Shape?> =
 @Composable
 private fun StartButtonIcon(
     icons: ButtonIcons?,
-    dimensions: ButtonDimensions,
-    colors: ButtonColors,
-    interactionSource: InteractionSource,
+    style: ButtonStyle,
+    motion: Motion<ButtonMotionStyle>,
 ) {
     if (icons?.startRes != null) {
         ButtonIcon(
             iconRes = icons.startRes,
             contentDescription = icons.startContentDescription,
-            size = dimensions.iconSize,
-            marginEnd = dimensions.iconMargin,
-            iconColor = colors.iconColor.colorForInteraction(interactionSource),
+            style = style,
+            marginEnd = style.dimensions.iconMarginValues,
+            motion = motion,
         )
     } else if (icons?.start != null) {
         ButtonIcon(
             icon = icons.start,
             contentDescription = icons.startContentDescription,
-            size = dimensions.iconSize,
-            marginEnd = dimensions.iconMargin,
-            iconColor = colors.iconColor.colorForInteraction(interactionSource),
+            style = style,
+            marginEnd = style.dimensions.iconMarginValues,
+            motion = motion,
         )
     }
 }
@@ -473,27 +590,24 @@ private fun StartButtonIcon(
 @Composable
 private fun EndButtonIcon(
     icons: ButtonIcons?,
-    dimensions: ButtonDimensions,
-    colors: ButtonColors,
-    interactionSource: InteractionSource,
+    style: ButtonStyle,
+    motion: Motion<ButtonMotionStyle>,
 ) {
     if (icons?.endRes != null) {
         ButtonIcon(
             iconRes = icons.endRes,
             contentDescription = icons.endContentDescription,
-            size = dimensions.iconSize,
-            marginStart = dimensions.iconMargin,
-            iconColor = colors.iconColor.colorForInteraction(interactionSource),
+            style = style,
+            marginStart = style.dimensions.iconMarginValues,
+            motion = motion,
         )
     } else if (icons?.end != null) {
         ButtonIcon(
             icon = icons.end,
             contentDescription = icons.endContentDescription,
-            size = dimensions.iconSize,
-            marginStart = dimensions.iconMargin,
-            iconColor = colors.iconColor.colorForInteraction(interactionSource),
+            style = style,
+            marginStart = style.dimensions.iconMarginValues,
+            motion = motion,
         )
     }
 }
-
-private val IconPaddingOffset = 2.dp
