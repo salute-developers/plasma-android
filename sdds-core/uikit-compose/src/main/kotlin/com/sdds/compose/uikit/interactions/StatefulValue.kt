@@ -8,9 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import com.sdds.compose.uikit.motion.MotionContext
 
 /**
  * Интерфейс-маркер, описывающий состояние [StatefulValue]
@@ -68,6 +71,11 @@ open class StatefulValue<T> internal constructor(
      * @return `true`, если хотя бы один набор состояний не пустой.
      */
     fun isStateful(): Boolean = states.any { it.isNotEmpty() }
+
+    /**
+     * Возвращет множество всех возможных значений
+     */
+    fun getStates(): ValueStateSet = states.flatten().toSet()
 
     /**
      * Возвращает копию [StatefulValue]
@@ -177,6 +185,23 @@ fun <T : Any> StatefulValue<T>.getValue(
 }
 
 /**
+ * Возвращает значение, которое соответствует набору состояний [SemanticStateSource] и [InteractionSource]
+ */
+@Composable
+fun <T : Any> StatefulValue<T>.getValue(
+    interactionSource: InteractionSource,
+    semanticStateSource: SemanticStateSource,
+    defaultValue: T? = null,
+): T {
+    if (!isStateful()) return remember(this) { getDefaultValue() }
+    val stateSet = semanticStateSource.states.collectAsState()
+    val derivedStates by remember(this) {
+        derivedStateOf { stateSet.value }
+    }
+    return getValue(interactionSource, derivedStates, defaultValue)
+}
+
+/**
  * Возвращает значение как [State], которое соответствует набору состояний [stateSet] и [interactionSource]
  */
 @Composable
@@ -185,6 +210,23 @@ fun <T : Any> StatefulValue<T>.getValueAsState(
     stateSet: Set<ValueState> = emptySet(),
     defaultValue: T? = null,
 ): State<T> = rememberUpdatedState(getValue(interactionSource, stateSet, defaultValue))
+
+/**
+ * Возвращает значение как [State], которое соответствует набору состояний [SemanticStateSource] и [InteractionSource]
+ */
+@Composable
+fun <T : Any> StatefulValue<T>.getValueAsState(
+    motionContext: MotionContext,
+    defaultValue: T? = null,
+): State<T> {
+    return rememberUpdatedState(
+        getValue(
+            motionContext.interactionSource,
+            motionContext.semanticStateSource,
+            defaultValue,
+        ),
+    )
+}
 
 /**
  * Трансформирует значение [StatefulValue]<[T]> в [StatefulValue]<[V]>, используя [transformer]

@@ -30,7 +30,7 @@ fun StatefulValue<Color>.getColorAsState(
     defaultValue: Color? = null,
 ): State<Color> {
     if (!isStateful()) return rememberUpdatedState(getDefaultValue())
-    val stateSnapshot = context.stateSnapshotProvider.provide()
+    val stateSnapshot = context.stateSnapshotProvider.provide(getStates())
     val colorSpace = getValue(stateSnapshot.target).colorSpace
     val typeConverter = remember(colorSpace) { Color.VectorConverter(colorSpace) }
     return getValueAsState(
@@ -49,7 +49,7 @@ fun StatefulValue<Color>.getColorAsState(
 fun StatefulValue<Dp>.getDpAsState(
     context: MotionContext,
     motionProperty: MotionProperty<Dp>,
-    defaultValue: Dp = Dp.Unspecified,
+    defaultValue: Dp = getDefaultValue(),
 ): State<Dp> {
     return getValueAsState(
         context = context,
@@ -66,7 +66,7 @@ fun StatefulValue<Dp>.getDpAsState(
 fun StatefulValue<Float>.getFloatAsState(
     context: MotionContext,
     motionProperty: MotionProperty<Float>,
-    defaultValue: Float = 0f,
+    defaultValue: Float = getDefaultValue(),
 ): State<Float> {
     return getValueAsState(
         context = context,
@@ -83,7 +83,7 @@ fun StatefulValue<Float>.getFloatAsState(
 fun StatefulValue<Int>.getIntAsState(
     context: MotionContext,
     motionProperty: MotionProperty<Int>,
-    defaultValue: Int = 0,
+    defaultValue: Int = getDefaultValue(),
 ): State<Int> {
     return getValueAsState(
         context = context,
@@ -100,7 +100,7 @@ fun StatefulValue<Int>.getIntAsState(
 fun StatefulValue<Offset>.getOffsetAsState(
     context: MotionContext,
     motionProperty: MotionProperty<Offset>,
-    defaultValue: Offset = Offset.Zero,
+    defaultValue: Offset = getDefaultValue(),
 ): State<Offset> {
     return getValueAsState(
         context = context,
@@ -117,7 +117,7 @@ fun StatefulValue<Offset>.getOffsetAsState(
 fun StatefulValue<IntOffset>.getIntOffsetAsState(
     context: MotionContext,
     motionProperty: MotionProperty<IntOffset>,
-    defaultValue: IntOffset = IntOffset.Zero,
+    defaultValue: IntOffset = getDefaultValue(),
 ): State<IntOffset> {
     return getValueAsState(
         context = context,
@@ -134,7 +134,7 @@ fun StatefulValue<IntOffset>.getIntOffsetAsState(
 fun StatefulValue<Size>.getSizeAsState(
     context: MotionContext,
     motionProperty: MotionProperty<Size>,
-    defaultValue: Size = Size.Zero,
+    defaultValue: Size = getDefaultValue(),
 ): State<Size> {
     return getValueAsState(
         context = context,
@@ -151,7 +151,7 @@ fun StatefulValue<Size>.getSizeAsState(
 fun StatefulValue<IntSize>.getIntSizeAsState(
     context: MotionContext,
     motionProperty: MotionProperty<IntSize>,
-    defaultValue: IntSize = IntSize.Zero,
+    defaultValue: IntSize = getDefaultValue(),
 ): State<IntSize> {
     return getValueAsState(
         context = context,
@@ -168,7 +168,7 @@ fun StatefulValue<IntSize>.getIntSizeAsState(
 fun StatefulValue<Rect>.getRectAsState(
     context: MotionContext,
     motionProperty: MotionProperty<Rect>,
-    defaultValue: Rect = Rect.Zero,
+    defaultValue: Rect = getDefaultValue(),
 ): State<Rect> {
     return getValueAsState(
         context = context,
@@ -231,7 +231,7 @@ internal fun <T : Any, V : AnimationVector> StatefulValue<T>.getValueAsState(
     defaultValue: T? = null,
 ): State<T> {
     if (!isStateful()) return rememberUpdatedState(getDefaultValue())
-    val state = stateSnapshot ?: context.stateSnapshotProvider.provide()
+    val state = stateSnapshot ?: context.stateSnapshotProvider.provide(getStates())
     if (motionProperty.isEmpty) return rememberUpdatedState(getValue(state.target, defaultValue))
     return when (motionProperty) {
         is TransitionMotionProperty -> animateAsState(context, motionProperty, converter, state, defaultValue)

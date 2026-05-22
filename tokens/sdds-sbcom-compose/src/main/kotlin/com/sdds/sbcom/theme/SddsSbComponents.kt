@@ -18,6 +18,7 @@ import com.sdds.compose.uikit.LocalIndicatorStyle
 import com.sdds.compose.uikit.LocalLoaderStyle
 import com.sdds.compose.uikit.LocalModalBottomSheetStyle
 import com.sdds.compose.uikit.LocalModalStyle
+import com.sdds.compose.uikit.LocalNavigationDrawerStyle
 import com.sdds.compose.uikit.LocalOverlayStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalRectSkeletonStyle
@@ -29,7 +30,11 @@ import com.sdds.compose.uikit.LocalTabBarStyle
 import com.sdds.compose.uikit.LocalTabsStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
+import com.sdds.compose.uikit.motion.components.navigationdrawer.LocalNavigationDrawerItemMotionStyle
+import com.sdds.compose.uikit.motion.components.navigationdrawer.LocalNavigationDrawerMotionStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.sbcom.motion.navigationdrawer.NavigationDrawerMotion
+import com.sdds.sbcom.motion.navigationdraweritem.NavigationDrawerItemMotionStyle
 import com.sdds.sbcom.styles.avatar.Avatar
 import com.sdds.sbcom.styles.avatar.Size36
 import com.sdds.sbcom.styles.basicbutton.BasicButton
@@ -51,6 +56,7 @@ import com.sdds.sbcom.styles.circularprogressbar.Size40
 import com.sdds.sbcom.styles.collapsingnavigationbar.CollapsingNavigationBarMainPage
 import com.sdds.sbcom.styles.collapsingnavigationbar.Default
 import com.sdds.sbcom.styles.counter.Counter
+import com.sdds.sbcom.styles.counter.Mute
 import com.sdds.sbcom.styles.counter.MuteNo
 import com.sdds.sbcom.styles.divider.Default
 import com.sdds.sbcom.styles.divider.Divider
@@ -66,6 +72,8 @@ import com.sdds.sbcom.styles.loader.ModeColorPrimary
 import com.sdds.sbcom.styles.loader.Size40
 import com.sdds.sbcom.styles.modal.Default
 import com.sdds.sbcom.styles.modal.Modal
+import com.sdds.sbcom.styles.navigationdrawer.Default
+import com.sdds.sbcom.styles.navigationdrawer.NavigationDrawer
 import com.sdds.sbcom.styles.overlay.Default
 import com.sdds.sbcom.styles.overlay.Overlay
 import com.sdds.sbcom.styles.radiobox.Default
@@ -103,7 +111,7 @@ internal fun DefaultComponents(
         LocalChipStyle provides Chip.ChipSlotPadding.style(),
         LocalCircularProgressBarStyle provides CircularProgressBar.Size40.ModeColorPrimary.style(),
         LocalCollapsingNavigationBarStyle provides CollapsingNavigationBarMainPage.Default.style(),
-        LocalCounterStyle provides Counter.MuteNo.style(),
+        LocalCounterStyle provides Counter.Mute.MuteNo.style(),
         LocalDividerStyle provides Divider.Default.style(),
         LocalIndicatorStyle provides Indicator.StateSuccess.style(),
         LocalLoaderStyle provides Loader.Size40.ModeColorPrimary.style(),
@@ -122,6 +130,21 @@ internal fun DefaultComponents(
         LocalScrollBarStyle provides ScrollBar.Default.style(),
         LocalSegmentStyle provides Segment.Default.style(),
         LocalTabsStyle provides TabsFolder.Default.style(),
+        LocalNavigationDrawerStyle provides NavigationDrawer.Default.style(),
+    ) {
+        DefaultMotion {
+            content()
+        }
+    }
+}
+
+@Composable
+private fun DefaultMotion(
+    content: @Composable () -> Unit,
+) {
+    CompositionLocalProvider(
+        LocalNavigationDrawerMotionStyle provides NavigationDrawerMotion,
+        LocalNavigationDrawerItemMotionStyle provides NavigationDrawerItemMotionStyle,
     ) {
         content()
     }

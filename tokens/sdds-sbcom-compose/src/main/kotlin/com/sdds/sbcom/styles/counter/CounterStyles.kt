@@ -18,11 +18,20 @@ import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 /**
  * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperCounter : BuilderWrapper<CounterStyle, CounterStyleBuilder>
+
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
+public interface WrapperCounterView : WrapperCounter
 
 /**
  * Терминальная обертка
@@ -32,10 +41,33 @@ public value class WrapperCounterTerminate(
     public override val builder: CounterStyleBuilder,
 ) : WrapperCounter
 
-public val Counter.MuteNo: WrapperCounterTerminate
+/**
+ * Обертка для вариации Mute
+ */
+@JvmInline
+public value class WrapperCounterMute(
+    public override val builder: CounterStyleBuilder,
+) : WrapperCounterView
+
+/**
+ * Интерфейс, который реализуют все обертки вариации danger
+ * и обертки ее подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
+public interface WrapperCounterDangerView : WrapperCounterView
+
+/**
+ * Обертка для вариации Danger
+ */
+@JvmInline
+public value class WrapperCounterDanger(
+    public override val builder: CounterStyleBuilder,
+) : WrapperCounterDangerView
+
+public val WrapperCounterView.MuteNo: WrapperCounterTerminate
     @Composable
-    get() = CounterStyle.builder(this)
-        .invariantProps
+    get() = builder
         .colors {
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
@@ -46,10 +78,9 @@ public val Counter.MuteNo: WrapperCounterTerminate
         }
         .wrap(::WrapperCounterTerminate)
 
-public val Counter.MuteYes: WrapperCounterTerminate
+public val WrapperCounterView.MuteYes: WrapperCounterTerminate
     @Composable
-    get() = CounterStyle.builder(this)
-        .invariantProps
+    get() = builder
         .colors {
             backgroundColor(
                 SddsSbComTheme.colors.textDefaultParagraph.asInteractive(),
@@ -71,3 +102,45 @@ private val CounterStyleBuilder.invariantProps: CounterStyleBuilder
             paddingStart(5.0.dp)
             paddingEnd(5.0.dp)
         }
+
+public val Counter.Mute: WrapperCounterMute
+    @Composable
+    @JvmName("WrapperCounterMute")
+    get() = CounterStyle.builder(this)
+        .invariantProps
+        .wrap(::WrapperCounterMute)
+
+public val WrapperCounterDangerView.MuteNo: WrapperCounterTerminate
+    @Composable
+    @JvmName("WrapperCounterDangerViewMuteNo")
+    get() = builder
+        .colors {
+            backgroundColor(
+                SddsSbComTheme.colors.surfaceDefaultNegative.asInteractive(),
+            )
+            textColor(
+                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperCounterTerminate)
+
+public val WrapperCounterDangerView.MuteYes: WrapperCounterTerminate
+    @Composable
+    @JvmName("WrapperCounterDangerViewMuteYes")
+    get() = builder
+        .colors {
+            backgroundColor(
+                SddsSbComTheme.colors.textDefaultParagraph.asInteractive(),
+            )
+            textColor(
+                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperCounterTerminate)
+
+public val Counter.Danger: WrapperCounterDanger
+    @Composable
+    @JvmName("WrapperCounterDanger")
+    get() = CounterStyle.builder(this)
+        .invariantProps
+        .wrap(::WrapperCounterDanger)

@@ -26,7 +26,7 @@ fun StatefulValue<Brush>.getBrushAsState(
     defaultValue: Brush? = null,
 ): State<Brush> {
     if (!isStateful()) return rememberUpdatedState(getDefaultValue())
-    val stateSnapshot = context.stateSnapshotProvider.provide()
+    val stateSnapshot = context.stateSnapshotProvider.provide(getStates())
     return when {
         isSolidColors -> evaluateSolidColors(this, context, motionProperty, stateSnapshot, defaultValue)
         iShaderBrushes -> evaluateBrushes(this, context, motionProperty, stateSnapshot, defaultValue)

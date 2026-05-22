@@ -36,6 +36,8 @@ import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemConfig
 import com.sdds.plugin.themebuilder.internal.components.loader.LoaderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.modal.ModalConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.navigationbar.NavigationBarConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.navigationdrawer.NavigationDrawerConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.navigationdrawer.NavigationDrawerItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.note.NoteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notification.NotificationConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notificationcontent.NotificationContentConfigDelegate
@@ -133,6 +135,8 @@ internal val componentDelegates by unsafeLazy {
         "icon-tab-item" to TabItemConfigDelegate(TabItemComponent.IconTabItem),
         "tool-bar" to ToolBarConfigDelegate(),
         "navigation-bar" to NavigationBarConfigDelegate(),
+        "navigation-drawer" to NavigationDrawerConfigDelegate(),
+        "navigation-drawer-item" to NavigationDrawerItemConfigDelegate(),
         "collapsing-navigation-bar" to CollapsingNavigationBarConfigDelegate(),
         "pagination-dots" to PaginationDotsConfigDelegate(),
         "carousel" to CarouselConfigDelegate(),

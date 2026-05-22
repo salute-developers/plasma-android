@@ -225,5 +225,17 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                     "VoiceChatBadge" to SddsSbcomVoiceChatBadgeVariationsCompose,
                 ),
             ),
+            Component(
+                ComponentKey.NavigationDrawer,
+                mapOf(
+                    "NavigationDrawer" to SddsSbcomNavigationDrawerVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.NavigationDrawerItem,
+                mapOf(
+                    "NavigationDrawerItem" to SddsSbcomNavigationDrawerItemVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

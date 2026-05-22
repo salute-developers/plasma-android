@@ -88,6 +88,88 @@ interface ButtonMotionStyle : MotionStyle {
 // @sample: com/sdds/compose/uikit/fixtures/samples/motion/Motion_InterpolationChannel.kt
 ```
 
+## Семантические состояния через `SemanticStateSource`
+
+`SemanticStateSource` - это источник логических состояний компонента. Он похож на `InteractionSource`, но описывает не пользовательские взаимодействия, а состояние самого компонента или его модели.
+
+Примеры семантических состояний:
+
+- `Expanded` / `Collapsed`;
+- `Checked` / `Unchecked`;
+- `Opened` / `Closed`;
+- активный режим или состояние шага, если оно описано через `ValueState`.
+
+`InteractionSource` отвечает за состояния вроде `Pressed`, `Focused`, `Hovered`, `Selected`. `SemanticStateSource` нужен для состояний, которые не возникают из pointer/focus interaction автоматически и должны быть установлены самим компонентом.
+
+Минимальная модель:
+
+```kotlin
+enum class DrawerValue : ValueState {
+    Expanded,
+    Collapsed,
+}
+
+val semanticStateSource = remember { MutableSemanticStateSource() }
+
+LaunchedEffect(drawerState.targetValue) {
+    val excludedStates = DrawerValue.entries
+        .filter { it != drawerState.targetValue }
+        .toTypedArray()
+
+    semanticStateSource.setExclusive(drawerState.targetValue, *excludedStates)
+}
+
+val motionContext = rememberMotionContext(
+    semanticStateSource = semanticStateSource,
+    interactionSource = interactionSource,
+)
+```
+
+После этого `StatefulValue` и `MotionProperty` могут использовать `DrawerValue.Expanded` и `DrawerValue.Collapsed` так же, как интерактивные состояния:
+
+```kotlin
+val width = 56.dp.asStatefulValue(
+    valueStateSetOf(DrawerValue.Expanded) to 280.dp,
+)
+
+val animatedWidth by width.getDpAsState(
+    context = motionContext,
+    motionProperty = motionStyle.width,
+)
+```
+
+### Как обновлять `MutableSemanticStateSource`
+
+Для обычных независимых состояний можно использовать `add`, `remove`, `set` и `toggle`:
+
+```kotlin
+semanticStateSource.set(MyState.Checked, checked)
+semanticStateSource += MyState.Active
+semanticStateSource -= MyState.Loading
+```
+
+Для взаимоисключающих состояний используйте `setExclusive(...)`. Это важно для пар вроде `Expanded` / `Collapsed`: в одном снимке состояния не должны одновременно присутствовать оба значения.
+
+```kotlin
+semanticStateSource.setExclusive(
+    NavigationDrawerValue.Expanded,
+    NavigationDrawerValue.Collapsed,
+)
+```
+
+Если нужно полностью заменить набор состояний, используйте `replace(...)`, а для сброса - `clear()`.
+
+### Когда использовать `SemanticStateSource`
+
+Используйте `SemanticStateSource`, когда:
+
+- визуальные значения зависят от состояния компонента, а не только от пользовательской интеракции;
+- нужно синхронизировать несколько `StatefulValue` и `MotionProperty` по одному логическому состоянию;
+- состояние должно участвовать в `MotionStateSnapshot` и условиях motion-сегментов;
+- компонент имеет взаимоисключающие режимы, например expanded/collapsed.
+
+Если состояние уже приходит из `InteractionSource`, отдельный semantic state обычно не нужен. Например, `pressed` и `focused` должны оставаться интерактивными состояниями.
+
 ## Transition-свойства
 
 `transition(...)` подходит для стандартных анимаций между значениями `StatefulValue`, когда запуск анимации должен происходить автоматически при смене состояния компонента.
