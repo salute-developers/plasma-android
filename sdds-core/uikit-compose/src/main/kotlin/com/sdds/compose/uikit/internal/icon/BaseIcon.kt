@@ -67,7 +67,7 @@ internal fun BaseIcon(
             .defaultSizeFor(sourcePainter, LocalIconDefaultSize.current)
             .graphicsLayer {
                 val brush = brushProducer?.invoke()
-                if (brush?.isSpecified == true && brush is SolidColor) {
+                if (brush?.isSpecified == true && brush !is SolidColor) {
                     compositingStrategy = CompositingStrategy.Offscreen
                 }
             }
