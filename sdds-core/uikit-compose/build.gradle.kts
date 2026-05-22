@@ -44,7 +44,7 @@ dependencies {
     implementation(libs.sdds.haze)
     implementation(libs.base.androidX.lifecycle.compose.viewmodel)
 
-    implementation(project(":api-info-compose"))
+    compileOnly(project(":api-info-compose"))
     ksp(project(":api-info-ksp"))
 
     // Preview support
