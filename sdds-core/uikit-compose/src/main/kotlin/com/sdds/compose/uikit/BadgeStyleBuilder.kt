@@ -38,7 +38,14 @@ interface BadgeStyleBuilder : StyleBuilder<BadgeStyle> {
      * Устанавливает форму компонента [shape]
      * @see BadgeStyle.shape
      */
-    fun shape(shape: CornerBasedShape): BadgeStyleBuilder
+    fun shape(shape: CornerBasedShape): BadgeStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы компонента [shape]
+     * @see BadgeStyle.shape
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): BadgeStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]
@@ -173,7 +180,7 @@ interface BadgeColorsBuilder {
      * @see InteractiveColor
      */
     fun contentColor(contentColor: InteractiveColor): BadgeColorsBuilder =
-        contentBrush(contentColor.asStatefulBrush())
+        contentColor(contentColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет контента компонента [contentColor]
@@ -181,18 +188,18 @@ interface BadgeColorsBuilder {
      * @see BadgeColors.contentColor
      */
     fun contentColor(contentColor: Color): BadgeColorsBuilder =
-        contentBrush(contentColor.asStatefulBrush())
-
-    /**
-     * Устанавливает цвет контента
-     */
-    fun contentColor(contentColor: StatefulValue<Color>): BadgeColorsBuilder =
-        contentBrush(contentColor.asStatefulBrush())
+        contentColor(contentColor.asStatefulBrush())
 
     /**
      * Устанавливает кисть контента
      */
-    fun contentBrush(contentBrush: StatefulValue<Brush>): BadgeColorsBuilder
+    fun contentColor(contentBrush: Brush): BadgeColorsBuilder =
+        contentColor(contentBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти контента
+     */
+    fun contentColor(contentBrush: StatefulValue<Brush>): BadgeColorsBuilder
 
     /**
      * Устанавливает цвет фона компонента [backgroundColor]
@@ -200,25 +207,25 @@ interface BadgeColorsBuilder {
      * @see InteractiveColor
      */
     fun backgroundColor(backgroundColor: InteractiveColor): BadgeColorsBuilder =
-        backgroundBrush(backgroundColor.asStatefulBrush())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона компонента [backgroundColor]
      * @see BadgeColors.backgroundColor
      */
     fun backgroundColor(backgroundColor: Color): BadgeColorsBuilder =
-        backgroundBrush(backgroundColor.asStatefulBrush())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет фона компонента [backgroundColor]
+     * Устанавливает кисть фона компонента [backgroundColor]
      */
-    fun backgroundColor(backgroundColor: StatefulValue<Color>): BadgeColorsBuilder =
-        backgroundBrush(backgroundColor.asStatefulBrush())
+    fun backgroundColor(backgroundBrush: Brush): BadgeColorsBuilder =
+        backgroundColor(backgroundBrush.asStatefulValue())
 
     /**
-     * Устанавливает кисть фона компонента [backgroundBrush]
+     * Устанавливает кисти фона компонента [backgroundColor]
      */
-    fun backgroundBrush(backgroundBrush: StatefulValue<Brush>): BadgeColorsBuilder
+    fun backgroundColor(backgroundBrush: StatefulValue<Brush>): BadgeColorsBuilder
 
     /**
      * Устанавливает цвет основного текста компонента [labelColor]
@@ -226,25 +233,25 @@ interface BadgeColorsBuilder {
      * @see InteractiveColor
      */
     fun labelColor(labelColor: InteractiveColor): BadgeColorsBuilder =
-        labelBrush(labelColor.asStatefulBrush())
+        labelColor(labelColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет основного текста компонента [labelColor]
      * @see BadgeColors.labelColor
      */
     fun labelColor(labelColor: Color): BadgeColorsBuilder =
-        labelBrush(labelColor.asStatefulBrush())
+        labelColor(labelColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет основного текста [labelColor]
+     * Устанавливает кисть основного текста [labelColor]
      */
-    fun labelColor(labelColor: StatefulValue<Color>): BadgeColorsBuilder =
-        labelBrush(labelColor.asStatefulBrush())
+    fun labelColor(labelBrush: Brush): BadgeColorsBuilder =
+        labelColor(labelBrush.asStatefulValue())
 
     /**
-     * Устанавливает кисть основного текста [labelBrush]
+     * Устанавливает кисти основного текста [labelColor]
      */
-    fun labelBrush(labelBrush: StatefulValue<Brush>): BadgeColorsBuilder
+    fun labelColor(labelBrush: StatefulValue<Brush>): BadgeColorsBuilder
 
     /**
      * Устанавливает цвет контента в начале [startContentColor]
@@ -252,25 +259,25 @@ interface BadgeColorsBuilder {
      * @see InteractiveColor
      */
     fun startContentColor(startContentColor: InteractiveColor): BadgeColorsBuilder =
-        startContentBrush(startContentColor.asStatefulBrush())
+        startContentColor(startContentColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет контента в начале [valueColor]
      * @see BadgeColors.startContentColor
      */
     fun startContentColor(valueColor: Color): BadgeColorsBuilder =
-        startContentBrush(valueColor.asStatefulBrush())
+        startContentColor(valueColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет контента в начале [startContentColor]
+     * Устанавливает кисть контента в начале [startContentColor]
      */
-    fun startContentColor(startContentColor: StatefulValue<Color>): BadgeColorsBuilder =
-        startContentBrush(startContentColor.asStatefulBrush())
+    fun startContentColor(startContentBrush: Brush): BadgeColorsBuilder =
+        startContentColor(startContentBrush.asStatefulValue())
 
     /**
-     * Устанавливает кисть контента в начале [startContentBrush]
+     * Устанавливает кисти контента в начале [startContentColor]
      */
-    fun startContentBrush(startContentBrush: StatefulValue<Brush>): BadgeColorsBuilder
+    fun startContentColor(startContentBrush: StatefulValue<Brush>): BadgeColorsBuilder
 
     /**
      * Устанавливает цвет иконки компонента [endContentColor]
@@ -278,25 +285,25 @@ interface BadgeColorsBuilder {
      * @see InteractiveColor
      */
     fun endContentColor(endContentColor: InteractiveColor): BadgeColorsBuilder =
-        endContentBrush(endContentColor.asStatefulBrush())
+        endContentColor(endContentColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет контента в конце [endContentColor]
      * @see BadgeColors.endContentColor
      */
     fun endContentColor(endContentColor: Color): BadgeColorsBuilder =
-        endContentBrush(endContentColor.asStatefulBrush())
+        endContentColor(endContentColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет контента в конце [endContentColor]
+     * Устанавливает кисть контента в конце [endContentColor]
      */
-    fun endContentColor(endContentColor: StatefulValue<Color>): BadgeColorsBuilder =
-        endContentBrush(endContentColor.asStatefulBrush())
+    fun endContentColor(endContentBrush: Brush): BadgeColorsBuilder =
+        endContentColor(endContentBrush.asStatefulValue())
 
     /**
-     * Устанавливает кисть контента в конце [endContentBrush]
+     * Устанавливает кисти контента в конце [endContentColor]
      */
-    fun endContentBrush(endContentBrush: StatefulValue<Brush>): BadgeColorsBuilder
+    fun endContentColor(endContentBrush: StatefulValue<Brush>): BadgeColorsBuilder
 
     /**
      * Возвращает готовый экземпляр [BadgeColors]
@@ -316,11 +323,16 @@ interface BadgeColorsBuilder {
 private class DefaultBadgeStyle(
     override val dimensions: BadgeDimensions,
     override val colors: BadgeColors,
-    override val shape: CornerBasedShape,
-    override val labelStyle: TextStyle,
     override val disableAlpha: Float,
     override val labelStyles: StatefulValue<TextStyle>,
-) : BadgeStyle
+    override val shapes: StatefulValue<CornerBasedShape>,
+) : BadgeStyle {
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
+    override val labelStyle: TextStyle = labelStyles.getDefaultValue()
+
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
+}
 
 @Immutable
 private class DefaultBadgeDimensions(
@@ -470,23 +482,23 @@ private class DefaultBadgeColors(
         private var startContentBrush: StatefulValue<Brush>? = null
         private var endContentBrush: StatefulValue<Brush>? = null
 
-        override fun backgroundBrush(backgroundBrush: StatefulValue<Brush>) = apply {
+        override fun backgroundColor(backgroundBrush: StatefulValue<Brush>) = apply {
             this.backgroundBrush = backgroundBrush
         }
 
-        override fun labelBrush(labelBrush: StatefulValue<Brush>) = apply {
+        override fun labelColor(labelBrush: StatefulValue<Brush>) = apply {
             this.labelBrush = labelBrush
         }
 
-        override fun startContentBrush(startContentBrush: StatefulValue<Brush>) = apply {
+        override fun startContentColor(startContentBrush: StatefulValue<Brush>) = apply {
             this.startContentBrush = startContentBrush
         }
 
-        override fun endContentBrush(endContentBrush: StatefulValue<Brush>) = apply {
+        override fun endContentColor(endContentBrush: StatefulValue<Brush>) = apply {
             this.endContentBrush = endContentBrush
         }
 
-        override fun contentBrush(contentBrush: StatefulValue<Brush>) = apply {
+        override fun contentColor(contentBrush: StatefulValue<Brush>) = apply {
             this.contentBrush = contentBrush
         }
 
@@ -503,15 +515,14 @@ private class DefaultBadgeColors(
 }
 
 internal class BadgeStyleBuilderImpl(receiver: Any?) : BadgeStyleBuilder {
-    private var shape: CornerBasedShape? = null
+    private var shapes: StatefulValue<CornerBasedShape>? = null
     private var colorsBuilder: BadgeColorsBuilder = BadgeColorsBuilder.builder()
-    private var labelStyle: TextStyle? = null
     private var dimensionsBuilder: BadgeDimensionsBuilder = BadgeDimensionsBuilder.builder()
     private var disableAlpha: Float? = null
     private var labelStyles: StatefulValue<TextStyle>? = null
 
-    override fun shape(shape: CornerBasedShape): BadgeStyleBuilder = apply {
-        this.shape = shape
+    override fun shape(shape: StatefulValue<CornerBasedShape>): BadgeStyleBuilder = apply {
+        this.shapes = shape
     }
 
     @Composable
@@ -542,8 +553,7 @@ internal class BadgeStyleBuilderImpl(receiver: Any?) : BadgeStyleBuilder {
         return DefaultBadgeStyle(
             dimensions = dimensionsBuilder.build(),
             colors = colorsBuilder.build(),
-            shape = shape ?: RoundedCornerShape(25),
-            labelStyle = labelStyle ?: TextStyle.Default,
+            shapes = shapes ?: RoundedCornerShape(25).asStatefulValue(),
             disableAlpha = disableAlpha ?: DISABLE_BADGE_ALPHA,
             labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),
         )

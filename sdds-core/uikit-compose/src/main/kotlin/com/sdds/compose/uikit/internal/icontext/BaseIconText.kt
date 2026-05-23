@@ -36,7 +36,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
-import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.icontext.IconTextMotionStyle
 import com.sdds.compose.uikit.motion.components.icontext.rememberIconTextMotion
@@ -64,12 +64,15 @@ internal fun BaseIconText(
     ),
 ) {
     val measurePolicy = remember { IconTextMeasurePolicy() }
+    val height = dimensionsSet.height?.getValue(interactionSource)
+    val startPadding = dimensionsSet.startPadding.getValue(interactionSource)
+    val endPadding = dimensionsSet.endPadding.getValue(interactionSource)
     Layout(
         modifier = modifier
-            .then(dimensionsSet.height?.let { Modifier.height(it) } ?: Modifier)
+            .then(height?.let { Modifier.height(it) } ?: Modifier)
             .padding(
-                start = dimensionsSet.startPadding.getValueAsState(interactionSource).value,
-                end = dimensionsSet.endPadding.getValueAsState(interactionSource).value,
+                start = startPadding,
+                end = endPadding,
             ),
         measurePolicy = measurePolicy,
         content = {
@@ -105,13 +108,16 @@ internal fun BaseIconText(
         motionContext = rememberMotionContext(interactionSource),
     ),
 ) {
+    val height = dimensionsSet.height?.getValue(interactionSource)
+    val startPadding = dimensionsSet.startPadding.getValue(interactionSource)
+    val endPadding = dimensionsSet.endPadding.getValue(interactionSource)
     val measurePolicy = remember { IconTextMeasurePolicy() }
     Layout(
         modifier = modifier
-            .then(dimensionsSet.height?.let { Modifier.height(it) } ?: Modifier)
+            .then(height?.let { Modifier.height(it) } ?: Modifier)
             .padding(
-                start = dimensionsSet.startPadding.getValueAsState(interactionSource).value,
-                end = dimensionsSet.endPadding.getValueAsState(interactionSource).value,
+                start = startPadding,
+                end = endPadding,
             ),
         measurePolicy = measurePolicy,
         content = {
@@ -204,15 +210,18 @@ private fun IconTextContent(
         CompositionLocalProvider(
             LocalTintBrushProducer provides { startBrush.value },
         ) {
-            val startSpacing = remember(label, dimensions) {
-                dimensions.startContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
+            val startSpacing = if (label.isNotEmpty()) {
+                dimensions.startContentMargin.getValue(motion.context.interactionSource)
+            } else {
+                0.dp
             }
+            val size = dimensions.startContentSize.getValue(motion.context.interactionSource)
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .layoutId(START_CONTENT)
                     .padding(end = startSpacing)
-                    .requiredSize(dimensions.startContentSize),
+                    .requiredSize(size),
             ) {
                 startContent()
             }
@@ -237,15 +246,18 @@ private fun IconTextContent(
         CompositionLocalProvider(
             LocalTintBrushProducer provides { endBrush.value },
         ) {
-            val endSpacing = remember(label, dimensions) {
-                dimensions.endContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
+            val endSpacing = if (label.isNotEmpty()) {
+                dimensions.endContentMargin.getValue(motion.context.interactionSource)
+            } else {
+                0.dp
             }
+            val size = dimensions.startContentSize.getValue(motion.context.interactionSource)
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .layoutId(END_CONTENT)
                     .padding(start = endSpacing)
-                    .requiredSize(dimensions.endContentSize),
+                    .requiredSize(size),
             ) {
                 endContent()
             }
@@ -263,17 +275,20 @@ private fun IconTextContent(
     dimensions: BaseIconText.Dimensions,
     motion: Motion<IconTextMotionStyle>,
 ) {
+    val interactionSource = motion.context.interactionSource
     startContent?.let {
         val startStates = brushSet.startContentBrush ?: brushSet.contentBrush
         val startBrush = startStates.getBrushAsState(motion.context, motion.style.startContentColor)
+        val size = dimensions.startContentSize.getValue(interactionSource)
+        val margin = dimensions.startContentMargin.getValue(interactionSource)
         CompositionLocalProvider(
             LocalTintBrushProducer provides { startBrush.value },
-            LocalIconDefaultSize provides dimensions.startContentSize.let { DpSize(it, it) },
+            LocalIconDefaultSize provides DpSize(size, size),
         ) {
             Box(
                 modifier = Modifier
                     .layoutId(START_CONTENT)
-                    .padding(end = dimensions.startContentMargin),
+                    .padding(end = margin),
             ) {
                 startContent()
             }
@@ -293,14 +308,16 @@ private fun IconTextContent(
     endContent?.let {
         val endStates = brushSet.endContentBrush ?: brushSet.contentBrush
         val endBrush = endStates.getBrushAsState(motion.context, motion.style.endContentColor)
+        val size = dimensions.endContentSize.getValue(interactionSource)
+        val margin = dimensions.endContentMargin.getValue(interactionSource)
         CompositionLocalProvider(
             LocalTintBrushProducer provides { endBrush.value },
-            LocalIconDefaultSize provides dimensions.endContentSize.let { DpSize(it, it) },
+            LocalIconDefaultSize provides DpSize(size, size),
         ) {
             Box(
                 modifier = Modifier
                     .layoutId(END_CONTENT)
-                    .padding(start = dimensions.endContentMargin),
+                    .padding(start = margin),
             ) {
                 endContent()
             }
@@ -326,11 +343,11 @@ internal object BaseIconText {
      */
     @Immutable
     data class Dimensions(
-        val height: Dp? = null,
-        val startContentSize: Dp = 16.dp,
-        val endContentSize: Dp = 16.dp,
-        val startContentMargin: Dp = 0.dp,
-        val endContentMargin: Dp = 0.dp,
+        val height: StatefulValue<Dp>? = null,
+        val startContentSize: StatefulValue<Dp>,
+        val endContentSize: StatefulValue<Dp>,
+        val startContentMargin: StatefulValue<Dp>,
+        val endContentMargin: StatefulValue<Dp>,
         val startPadding: StatefulValue<Dp>,
         val endPadding: StatefulValue<Dp>,
     ) {
@@ -344,13 +361,31 @@ internal object BaseIconText {
             startPadding: Dp = 0.dp,
             endPadding: Dp = 0.dp,
         ) : this(
-            height,
-            startContentSize,
-            endContentSize,
-            startContentMargin,
-            endContentMargin,
+            height?.asStatefulValue(),
+            startContentSize.asStatefulValue(),
+            endContentSize.asStatefulValue(),
+            startContentMargin.asStatefulValue(),
+            endContentMargin.asStatefulValue(),
             startPadding.asStatefulValue(),
             endPadding.asStatefulValue(),
+        )
+
+        constructor(
+            height: Dp? = null,
+            startContentSize: Dp = 16.dp,
+            endContentSize: Dp = 16.dp,
+            startContentMargin: Dp = 0.dp,
+            endContentMargin: Dp = 0.dp,
+            startPadding: StatefulValue<Dp>,
+            endPadding: StatefulValue<Dp>,
+        ) : this(
+            height?.asStatefulValue(),
+            startContentSize.asStatefulValue(),
+            endContentSize.asStatefulValue(),
+            startContentMargin.asStatefulValue(),
+            endContentMargin.asStatefulValue(),
+            startPadding,
+            endPadding,
         )
     }
 

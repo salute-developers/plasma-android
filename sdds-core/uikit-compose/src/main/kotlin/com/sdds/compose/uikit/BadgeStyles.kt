@@ -31,18 +31,19 @@ interface BadgeStyle : Style {
      * Форма
      * @see CornerBasedShape
      */
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
     val shape: CornerBasedShape
+
+    /**
+     * Формы
+     */
+    val shapes: StatefulValue<CornerBasedShape>
 
     /**
      * Стиль основного текста
      * @see TextStyle
      */
-    @Deprecated(
-        "Use labelStyles",
-        replaceWith = ReplaceWith(
-            "labelStyles",
-        ),
-    )
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
     val labelStyle: TextStyle
 
     /**

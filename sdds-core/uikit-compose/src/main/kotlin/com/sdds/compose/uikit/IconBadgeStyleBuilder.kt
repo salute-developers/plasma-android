@@ -38,7 +38,14 @@ interface IconBadgeStyleBuilder : StyleBuilder<BadgeStyle> {
      * Устанавливает форму компонента [shape]
      * @see BadgeStyle.shape
      */
-    fun shape(shape: CornerBasedShape): IconBadgeStyleBuilder
+    fun shape(shape: CornerBasedShape): IconBadgeStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы компонента [shape]
+     * @see BadgeStyle.shape
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): IconBadgeStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]
@@ -128,25 +135,25 @@ interface IconBadgeColorsBuilder {
      * @see InteractiveColor
      */
     fun backgroundColor(backgroundColor: InteractiveColor): IconBadgeColorsBuilder =
-        backgroundBrush(backgroundColor.asStatefulBrush())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона компонента [backgroundColor]
      * @see BadgeColors.backgroundColor
      */
     fun backgroundColor(backgroundColor: Color): IconBadgeColorsBuilder =
-        backgroundBrush(backgroundColor.asStatefulBrush())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет фона компонента [backgroundColor]
+     * Устанавливает кисть фона компонента [backgroundColor]
      */
-    fun backgroundColor(backgroundColor: StatefulValue<Color>): IconBadgeColorsBuilder =
-        backgroundBrush(backgroundColor.asStatefulBrush())
+    fun backgroundColor(backgroundBrush: Brush): IconBadgeColorsBuilder =
+        backgroundColor(backgroundBrush.asStatefulValue())
 
     /**
-     * Устанавливает кисть фона компонента [backgroundBrush]
+     * Устанавливает кисти фона компонента [backgroundColor]
      */
-    fun backgroundBrush(backgroundBrush: StatefulValue<Brush>): IconBadgeColorsBuilder
+    fun backgroundColor(backgroundBrush: StatefulValue<Brush>): IconBadgeColorsBuilder
 
     /**
      * Устанавливает цвет контента [startContentColor]
@@ -154,25 +161,25 @@ interface IconBadgeColorsBuilder {
      * @see InteractiveColor
      */
     fun startContentColor(startContentColor: InteractiveColor): IconBadgeColorsBuilder =
-        startContentBrush(startContentColor.asStatefulBrush())
+        startContentColor(startContentColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет контента [valueColor]
      * @see BadgeColors.startContentColor
      */
     fun startContentColor(valueColor: Color): IconBadgeColorsBuilder =
-        startContentBrush(valueColor.asStatefulBrush())
+        startContentColor(valueColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет контента [startContentColor]
+     * Устанавливает кисть контента [startContentColor]
      */
-    fun startContentColor(startContentColor: StatefulValue<Color>): IconBadgeColorsBuilder =
-        startContentBrush(startContentColor.asStatefulBrush())
+    fun startContentColor(startContentBrush: Brush): IconBadgeColorsBuilder =
+        startContentColor(startContentBrush.asStatefulValue())
 
     /**
-     * Устанавливает кисть контента [startContentBrush]
+     * Устанавливает кисти контента [startContentColor]
      */
-    fun startContentBrush(startContentBrush: StatefulValue<Brush>): IconBadgeColorsBuilder
+    fun startContentColor(startContentBrush: StatefulValue<Brush>): IconBadgeColorsBuilder
 
     /**
      * Возвращает готовый экземпляр [BadgeColors]
@@ -192,11 +199,17 @@ interface IconBadgeColorsBuilder {
 private class DefaultIconBadgeStyle(
     override val dimensions: BadgeDimensions,
     override val colors: BadgeColors,
-    override val shape: CornerBasedShape,
-    override val labelStyle: TextStyle,
     override val disableAlpha: Float,
     override val labelStyles: StatefulValue<TextStyle>,
-) : BadgeStyle
+    override val shapes: StatefulValue<CornerBasedShape>,
+) : BadgeStyle {
+
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
+    override val labelStyle: TextStyle = labelStyles.getDefaultValue()
+
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
+}
 
 @Immutable
 private class DefaultIconBadgeDimensions(
@@ -335,11 +348,11 @@ private class DefaultIconBadgeColors(
         private var startContentBrush: StatefulValue<Brush>? = null
         private var endContentBrush: StatefulValue<Brush>? = null
 
-        override fun backgroundBrush(backgroundBrush: StatefulValue<Brush>): IconBadgeColorsBuilder = apply {
+        override fun backgroundColor(backgroundBrush: StatefulValue<Brush>): IconBadgeColorsBuilder = apply {
             this.backgroundBrush = backgroundBrush
         }
 
-        override fun startContentBrush(startContentBrush: StatefulValue<Brush>): IconBadgeColorsBuilder = apply {
+        override fun startContentColor(startContentBrush: StatefulValue<Brush>): IconBadgeColorsBuilder = apply {
             this.startContentBrush = startContentBrush
         }
 
@@ -356,15 +369,15 @@ private class DefaultIconBadgeColors(
 }
 
 private class IconBadgeStyleBuilderImpl(receiver: Any?) : IconBadgeStyleBuilder {
-    private var shape: CornerBasedShape? = null
+    private var shapes: StatefulValue<CornerBasedShape>? = null
     private var colorsBuilder: IconBadgeColorsBuilder = IconBadgeColorsBuilder.builder()
     private var labelStyle: TextStyle? = null
     private var dimensionsBuilder: IconBadgeDimensionsBuilder = IconBadgeDimensionsBuilder.builder()
     private var disableAlpha: Float? = null
     private var labelStyles: StatefulValue<TextStyle>? = null
 
-    override fun shape(shape: CornerBasedShape): IconBadgeStyleBuilder = apply {
-        this.shape = shape
+    override fun shape(shape: StatefulValue<CornerBasedShape>): IconBadgeStyleBuilder = apply {
+        this.shapes = shape
     }
 
     @Composable
@@ -391,8 +404,7 @@ private class IconBadgeStyleBuilderImpl(receiver: Any?) : IconBadgeStyleBuilder 
         return DefaultIconBadgeStyle(
             dimensions = dimensionsBuilder.build(),
             colors = colorsBuilder.build(),
-            shape = shape ?: RoundedCornerShape(25),
-            labelStyle = labelStyle ?: TextStyle.Default,
+            shapes = shapes ?: RoundedCornerShape(25).asStatefulValue(),
             disableAlpha = disableAlpha ?: DISABLE_BADGE_ALPHA,
             labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),
         )

@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -39,7 +38,7 @@ fun Badge(
         motionContext = rememberMotionContext(interactionSource),
     ),
 ) {
-    val dimens = style.dimensions.toDimensionsSet(interactionSource)
+    val dimens = style.dimensions.toDimensionsSet()
     val colors = style.colors.toBadgeColorsSet()
     val background = style.colors.backgroundBrush.getBrushAsState(
         motion.context,
@@ -47,7 +46,7 @@ fun Badge(
     )
     BaseIconText(
         modifier = modifier.surface(
-            shape = style.shape,
+            shape = style.shapes.getValue(interactionSource),
             backgroundColor = { background.value },
             interactionSource = interactionSource,
         ),
@@ -84,7 +83,7 @@ fun Badge(
         motionContext = rememberMotionContext(interactionSource),
     ),
 ) {
-    val dimens = style.dimensions.toDimensionsSet(interactionSource)
+    val dimens = style.dimensions.toDimensionsSet()
     val colors = style.colors.toBadgeColorsSet()
     val background = style.colors.backgroundBrush.getBrushAsState(
         motion.context,
@@ -92,7 +91,7 @@ fun Badge(
     )
     BaseIconText(
         modifier = modifier.surface(
-            shape = style.shape,
+            shape = style.shapes.getValue(interactionSource),
             backgroundColor = { background.value },
             interactionSource = interactionSource,
         ),
@@ -125,7 +124,7 @@ fun IconBadge(
         motionContext = rememberMotionContext(interactionSource),
     ),
 ) {
-    val dimens = style.dimensions.toDimensionsSet(interactionSource)
+    val dimens = style.dimensions.toDimensionsSet()
     val colors = style.colors.toIconBadgeColorsSet()
     val background = style.colors.backgroundBrush.getBrushAsState(
         motion.context,
@@ -133,7 +132,7 @@ fun IconBadge(
     )
     BaseIconText(
         modifier = modifier.surface(
-            shape = style.shape,
+            shape = style.shapes.getValue(interactionSource),
             backgroundColor = { background.value },
             interactionSource = interactionSource,
         ),
@@ -145,15 +144,13 @@ fun IconBadge(
 }
 
 @Composable
-internal fun BadgeDimensions.toDimensionsSet(
-    interactionSource: InteractionSource,
-): BaseIconText.Dimensions {
+internal fun BadgeDimensions.toDimensionsSet(): BaseIconText.Dimensions {
     return BaseIconText.Dimensions(
-        height = this.heightValues.getValue(interactionSource),
-        endContentSize = this.endContentSizeValues.getValue(interactionSource),
-        startContentSize = this.startContentSizeValues.getValue(interactionSource),
-        endContentMargin = this.endContentMarginValues.getValue(interactionSource),
-        startContentMargin = this.startContentMarginValues.getValue(interactionSource),
+        height = this.heightValues,
+        endContentSize = this.endContentSizeValues,
+        startContentSize = this.startContentSizeValues,
+        endContentMargin = this.endContentMarginValues,
+        startContentMargin = this.startContentMarginValues,
         endPadding = this.endPaddingValues,
         startPadding = this.startPaddingValues,
     )
