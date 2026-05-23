@@ -55,7 +55,13 @@ interface ListStyle : Style {
     /**
      * Форма
      */
+    @Deprecated("use shapes", replaceWith = ReplaceWith("shapes"))
     val shape: Shape
+
+    /**
+     * Формы
+     */
+    val shapes: StatefulValue<Shape>
 
     companion object {
         /**
@@ -95,7 +101,13 @@ interface ListStyleBuilder : StyleBuilder<ListStyle> {
     /**
      * Устанавливает форму компонента
      */
-    fun shape(shape: Shape): ListStyleBuilder
+    fun shape(shape: Shape): ListStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает форму компонента
+     */
+    fun shape(shape: StatefulValue<Shape>): ListStyleBuilder
 }
 
 /**
@@ -269,18 +281,24 @@ interface ListColorsBuilder {
      * Устанавливает цвет фона
      */
     fun backgroundColor(backgroundColor: Color): ListColorsBuilder =
-        backgroundBrush(backgroundColor.asStatefulBrush())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона
      */
     fun backgroundColor(backgroundColor: InteractiveColor): ListColorsBuilder =
-        backgroundBrush(backgroundColor.asStatefulBrush())
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть фона
+     */
+    fun backgroundColor(backgroundBrush: Brush): ListColorsBuilder =
+        backgroundColor(backgroundBrush.asStatefulValue())
 
     /**
      * Устанавливает кисти фона
      */
-    fun backgroundBrush(backgroundBrush: StatefulValue<Brush>): ListColorsBuilder
+    fun backgroundColor(backgroundBrush: StatefulValue<Brush>): ListColorsBuilder
 
     /**
      * Возвращает [ListItemColors]
@@ -294,15 +312,18 @@ private class DefaultListStyle(
     override val dividerStyle: DividerStyle,
     override val dimensions: ListDimensions,
     override val colors: ListColors,
-    override val shape: Shape,
+    override val shapes: StatefulValue<Shape>,
 ) : ListStyle {
+
+    @Deprecated("use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: Shape = shapes.getDefaultValue()
 
     class Builder : ListStyleBuilder {
         private var listItemStyle: ListItemStyle? = null
         private var dividerStyle: DividerStyle? = null
         private var dimensionsBuilder: ListDimensionsBuilder = ListDimensions.builder()
         private var colorsBuilder: ListColorsBuilder = ListColors.builder()
-        private var shape: Shape? = null
+        private var shapes: StatefulValue<Shape>? = null
 
         override fun dividerStyle(dividerStyle: DividerStyle) = apply {
             this.dividerStyle = dividerStyle
@@ -322,8 +343,8 @@ private class DefaultListStyle(
             this.colorsBuilder.builder()
         }
 
-        override fun shape(shape: Shape) = apply {
-            this.shape = shape
+        override fun shape(shape: StatefulValue<Shape>) = apply {
+            this.shapes = shape
         }
 
         override fun listItemStyle(listItemStyle: ListItemStyle) = apply {
@@ -336,7 +357,7 @@ private class DefaultListStyle(
                 dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
                 dimensions = dimensionsBuilder.build(),
                 colors = colorsBuilder.build(),
-                shape = shape ?: RectangleShape,
+                shapes = shapes ?: RectangleShape.asStatefulValue(),
             )
         }
     }
@@ -348,11 +369,12 @@ private class DefaultListColors(
 ) : ListColors {
     @Deprecated("use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
     override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
+
     class Builder : ListColorsBuilder {
 
         private var backgroundBrush: StatefulValue<Brush>? = null
 
-        override fun backgroundBrush(backgroundBrush: StatefulValue<Brush>): ListColorsBuilder = apply {
+        override fun backgroundColor(backgroundBrush: StatefulValue<Brush>): ListColorsBuilder = apply {
             this.backgroundBrush = backgroundBrush
         }
 
@@ -387,6 +409,7 @@ private class DefaultListDimensions(
 
     @Deprecated("use gapValues", replaceWith = ReplaceWith("gapValues"))
     override val gap: Dp = Dp.Unspecified
+
     class Builder : ListDimensionsBuilder {
         private var paddingStartValues: StatefulValue<Dp>? = null
         private var paddingEndValues: StatefulValue<Dp>? = null

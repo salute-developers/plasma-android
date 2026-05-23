@@ -38,7 +38,13 @@ interface ListItemStyle : Style {
     /**
      * Форма
      */
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
     val shape: Shape
+
+    /**
+     * Форма
+     */
+    val shapes: StatefulValue<Shape>
 
     /**
      * Стиль тайтла
@@ -140,7 +146,6 @@ interface ListItemStyle : Style {
 
 @Immutable
 private data class DefaultListItemStyle(
-    override val shape: Shape,
     @Deprecated("Use disclosureIconRes instead")
     override val disclosureIcon: Painter?,
     override val disclosureIconRes: Int?,
@@ -156,6 +161,7 @@ private data class DefaultListItemStyle(
     override val switchStyle: SwitchStyle?,
     override val counterStyle: CounterStyle?,
     override val disclosureTextStyle: StatefulValue<TextStyle>,
+    override val shapes: StatefulValue<Shape>,
 ) : ListItemStyle {
 
     @Deprecated("Use titleStyles", replaceWith = ReplaceWith("titleStyles"))
@@ -167,8 +173,11 @@ private data class DefaultListItemStyle(
     @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
     override val labelStyle: TextStyle get() = labelStyles.getDefaultValue()
 
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: Shape = shapes.getDefaultValue()
+
     class Builder : ListItemStyleBuilder {
-        private var shape: Shape? = null
+        private var shapes: StatefulValue<Shape>? = null
         private var titleStyle: StatefulValue<TextStyle>? = null
         private var disclosureStyle: StatefulValue<TextStyle>? = null
         private var subtitleStyle: StatefulValue<TextStyle>? = null
@@ -184,8 +193,8 @@ private data class DefaultListItemStyle(
         private var switchStyle: SwitchStyle? = null
         private var counterStyle: CounterStyle? = null
 
-        override fun shape(shape: Shape) = apply {
-            this.shape = shape
+        override fun shape(shape: StatefulValue<Shape>) = apply {
+            this.shapes = shape
         }
 
         override fun titleStyle(titleStyle: TextStyle): ListItemStyleBuilder =
@@ -259,7 +268,7 @@ private data class DefaultListItemStyle(
 
         override fun style(): ListItemStyle {
             return DefaultListItemStyle(
-                shape = shape ?: RectangleShape,
+                shapes = shapes ?: RectangleShape.asStatefulValue(),
                 titleStyles = titleStyle ?: TextStyle.Default.asStatefulValue(),
                 subtitleStyles = subtitleStyle ?: TextStyle.Default.asStatefulValue(),
                 labelStyles = labelStyle ?: TextStyle.Default.asStatefulValue(),
@@ -287,7 +296,13 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
     /**
      * Устанавливает форму
      */
-    fun shape(shape: Shape): ListItemStyleBuilder
+    fun shape(shape: Shape): ListItemStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает форму
+     */
+    fun shape(shape: StatefulValue<Shape>): ListItemStyleBuilder
 
     /**
      * Устанавливает стиль заголовка
@@ -592,6 +607,7 @@ private class DefaultListItemDimensions(
 
     @Deprecated("use contentPaddingStartValues", replaceWith = ReplaceWith("contentPaddingStartValues"))
     override val contentPaddingStart: Dp = 0.dp
+
     class Builder : ListItemDimensionsBuilder {
         private var contentPaddingEndValues: StatefulValue<Dp>? = null
         private var contentPaddingStartValues: StatefulValue<Dp>? = null
@@ -741,6 +757,12 @@ interface ListItemColorsBuilder {
         backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
+     * Устанавливает кисть фона
+     */
+    fun backgroundColor(backgroundBrush: Brush): ListItemColorsBuilder =
+        backgroundColor(backgroundBrush.asStatefulValue())
+
+    /**
      * Устанавливает кисти фона
      */
     fun backgroundColor(backgroundBrush: StatefulValue<Brush>): ListItemColorsBuilder
@@ -756,6 +778,12 @@ interface ListItemColorsBuilder {
      */
     fun titleColor(titleColor: InteractiveColor): ListItemColorsBuilder =
         titleColor(titleColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть тайтла
+     */
+    fun titleColor(titleBrush: Brush): ListItemColorsBuilder =
+        titleColor(titleBrush.asStatefulValue())
 
     /**
      * Устанавливает кисти тайтла
@@ -775,6 +803,12 @@ interface ListItemColorsBuilder {
         subtitleColor(subtitleColor.asStatefulBrush())
 
     /**
+     * Устанавливает кисть сабтайтла
+     */
+    fun subtitleColor(subtitleBrush: Brush): ListItemColorsBuilder =
+        subtitleColor(subtitleBrush.asStatefulValue())
+
+    /**
      * Устанавливает кисти сабтайтла
      */
     fun subtitleColor(subtitleBrush: StatefulValue<Brush>): ListItemColorsBuilder
@@ -790,6 +824,12 @@ interface ListItemColorsBuilder {
      */
     fun labelColor(labelColor: InteractiveColor): ListItemColorsBuilder =
         labelColor(labelColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть лэйбла
+     */
+    fun labelColor(labelBrush: Brush): ListItemColorsBuilder =
+        labelColor(labelBrush.asStatefulValue())
 
     /**
      * Устанавливает кисти лэйбла
@@ -809,6 +849,12 @@ interface ListItemColorsBuilder {
         disclosureIconColor(disclosureIconColor.asStatefulBrush())
 
     /**
+     * Устанавливает кисть иконки disclosure
+     */
+    fun disclosureIconColor(disclosureIconBrush: Brush): ListItemColorsBuilder =
+        disclosureIconColor(disclosureIconBrush.asStatefulValue())
+
+    /**
      * Устанавливает кисти иконки disclosure
      */
     fun disclosureIconColor(disclosureIconBrush: StatefulValue<Brush>): ListItemColorsBuilder
@@ -824,6 +870,12 @@ interface ListItemColorsBuilder {
      */
     fun disclosureTextColor(disclosureTextColor: InteractiveColor): ListItemColorsBuilder =
         disclosureTextColor(disclosureTextColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть текста disclosure
+     */
+    fun disclosureTextColor(disclosureTextBrush: Brush): ListItemColorsBuilder =
+        disclosureTextColor(disclosureTextBrush.asStatefulValue())
 
     /**
      * Устанавливает кисти текста disclosure
@@ -863,6 +915,7 @@ private class DefaultListItemColors(
 
     @Deprecated("use disclosureTextBrush", replaceWith = ReplaceWith("disclosureTextBrush"))
     override val disclosureTextColor: InteractiveColor = Color.Transparent.asInteractive()
+
     class Builder : ListItemColorsBuilder {
         private var titleBrush: StatefulValue<Brush>? = null
         private var subtitleBrush: StatefulValue<Brush>? = null

@@ -1,7 +1,6 @@
 package com.sdds.compose.uikit
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
@@ -46,7 +45,6 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
  * @param disclosureContent контент в disclosure
  */
 @Composable
-@Deprecated("use ListItem with motion parameter")
 fun ListItem(
     modifier: Modifier = Modifier,
     titleContent: @Composable () -> Unit,
@@ -76,8 +74,8 @@ fun ListItem(
 /**
  * Компонент ListItem
  *
- * @param modifier модификатор
  * @param motion объект анимаций
+ * @param modifier модификатор
  * @param titleContent заголовок элемента
  * @param style стиль компонента
  * @param disclosureEnabled включен ли disclosure
@@ -89,9 +87,9 @@ fun ListItem(
  */
 @Composable
 fun ListItem(
-    modifier: Modifier = Modifier,
     motion: Motion<ListItemMotionStyle>,
     titleContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
     style: ListItemStyle = LocalListItemStyle.current,
     disclosureEnabled: Boolean = true,
     labelContent: (@Composable () -> Unit)? = null,
@@ -102,13 +100,14 @@ fun ListItem(
 ) {
     val background = style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
     val interactionSource = motion.context.interactionSource
+    val shape = style.shapes.getValue(interactionSource)
     val paddings = style.dimensions.getPaddingValues(interactionSource)
     Cell(
         style = style.toCellStyle(),
         modifier = modifier
             .backgroundBrush(
                 brushProducer = { background.value },
-                shape = style.shape,
+                shape = shape,
             )
             .heightIn(min = style.dimensions.heightValues.getValue(interactionSource))
             .padding(paddings),
@@ -158,12 +157,13 @@ fun ListItem(
         motion.style.backgroundColor,
     )
     val paddings = style.dimensions.getPaddingValues(interactionSource)
+    val shape = style.shapes.getValue(interactionSource)
     Cell(
         style = style.toCellStyle(),
         modifier = modifier
             .backgroundBrush(
                 brushProducer = { background.value },
-                shape = style.shape,
+                shape = shape,
             )
             .heightIn(min = style.dimensions.heightValues.getValue(interactionSource))
             .padding(paddings),
@@ -186,7 +186,6 @@ fun ListItem(
  * @param icon иконка Disclosure
  * @param text текст Disclosure
  */
-@Deprecated("Use extension ListItemDisclosure with motion")
 @Composable
 fun RowScope.ListItemDisclosure(
     style: ListItemStyle = LocalListItemStyle.current,
@@ -196,8 +195,9 @@ fun RowScope.ListItemDisclosure(
 ) {
     if (text != null) {
         val brushState = style.colors.disclosureTextBrush.getValueAsState(interactionSource)
+        val style by style.disclosureTextStyle.getValueAsState(interactionSource)
         ProvideTextStyle(
-            style.disclosureTextStyle.getValue(interactionSource),
+            style,
             brush = { brushState.value },
             content = text,
         )
@@ -274,12 +274,13 @@ fun ListItem(
     disclosureIcon: Painter? = style.disclosureIcon,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    val background = style.colors.backgroundBrush.getValueAsState(interactionSource)
     Cell(
         style = style.toCellStyle(),
         modifier = modifier
-            .background(
-                color = style.colors.backgroundColor.colorForInteraction(interactionSource),
-                shape = style.shape,
+            .backgroundBrush(
+                brushProducer = { background.value },
+                shape = style.shapes.getValue(interactionSource),
             )
             .height(style.dimensions.height)
             .padding(

@@ -606,6 +606,12 @@ interface CellColorsBuilder {
     /**
      * Устанавливает кисть тайтла компонента [brush]
      */
+    fun titleColor(brush: Brush): CellColorsBuilder =
+        titleColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти тайтла компонента [brush]
+     */
     fun titleColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
     /**
@@ -622,6 +628,12 @@ interface CellColorsBuilder {
 
     /**
      * Устанавливает кисть лэйбла компонента [brush]
+     */
+    fun labelColor(brush: Brush): CellColorsBuilder =
+        labelColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти лэйбла компонента [brush]
      */
     fun labelColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
@@ -640,6 +652,12 @@ interface CellColorsBuilder {
     /**
      * Устанавливает кисть сабтайтла компонента [brush]
      */
+    fun subtitleColor(brush: Brush): CellColorsBuilder =
+        subtitleColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти сабтайтла компонента [brush]
+     */
     fun subtitleColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
     /**
@@ -657,6 +675,12 @@ interface CellColorsBuilder {
     /**
      * Устанавливает кисть текста disclosure компонента [brush]
      */
+    fun disclosureTextColor(brush: Brush): CellColorsBuilder =
+        disclosureTextColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти текста disclosure компонента [brush]
+     */
     fun disclosureTextColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
     /**
@@ -673,6 +697,12 @@ interface CellColorsBuilder {
 
     /**
      * Устанавливает кисть иконки disclosure компонента [brush]
+     */
+    fun disclosureIconColor(brush: Brush): CellColorsBuilder =
+        disclosureIconColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти иконки disclosure компонента [brush]
      */
     fun disclosureIconColor(brush: StatefulValue<Brush>): CellColorsBuilder
 

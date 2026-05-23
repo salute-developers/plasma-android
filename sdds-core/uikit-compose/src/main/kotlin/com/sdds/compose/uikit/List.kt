@@ -59,10 +59,10 @@ fun List(
     content: LazyListScope.() -> Unit,
 ) {
     List(
-        modifier = modifier,
         motion = rememberListMotion(
             motionContext = rememberMotionContext(interactionSource),
         ),
+        modifier = modifier,
         style = style,
         state = state,
         reverseLayout = reverseLayout,
@@ -79,8 +79,8 @@ fun List(
  * Компонент List
  * Представляет собой список [ListItem] либо произвольных элементов.
  *
- * @param modifier модификатор
  * @param motion объект анимаций
+ * @param modifier модификатор
  * @param style стиль компонента
  * @param state [LazyListState]
  * @param reverseLayout меняет порядок скролла и расположения
@@ -93,8 +93,8 @@ fun List(
  */
 @Composable
 fun List(
-    modifier: Modifier = Modifier,
     motion: Motion<ListMotionStyle>,
+    modifier: Modifier = Modifier,
     style: ListStyle = LocalListStyle.current,
     state: LazyListState = rememberLazyListState(),
     reverseLayout: Boolean = false,
@@ -117,6 +117,7 @@ fun List(
     } else {
         contentPadding
     }
+    val shape = style.shapes.getValue(interactionSource)
     CompositionLocalProvider(
         LocalListItemStyle provides style.listItemStyle,
         LocalDividerStyle provides style.dividerStyle,
@@ -129,7 +130,7 @@ fun List(
             modifier = modifier
                 .backgroundBrush(
                     brushProducer = { background.value },
-                    shape = style.shape,
+                    shape = shape,
                 ),
             state = state,
             contentPadding = resolvedPaddings,
