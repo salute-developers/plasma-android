@@ -40,7 +40,14 @@ interface IconButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * Устанавливает форму кнопки [shape]
      * @see ButtonStyle.shape
      */
-    fun shape(shape: CornerBasedShape): IconButtonStyleBuilder
+    fun shape(shape: CornerBasedShape): IconButtonStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы кнопки [shape]
+     * @see ButtonStyle.shape
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): IconButtonStyleBuilder
 
     /**
      * Устанавливает цвета кнопки при помощи [builder]
@@ -97,6 +104,12 @@ interface IconButtonColorsBuilder {
         contentColor(contentColor.asStatefulBrush())
 
     /**
+     * Устанавливает кисть контента кнопки [contentColor]
+     */
+    fun contentColor(contentColor: Brush): IconButtonColorsBuilder =
+        contentColor(contentColor.asStatefulValue())
+
+    /**
      * Устанавливает кисти контента кнопки [contentColor]
      */
     fun contentColor(contentColor: StatefulValue<Brush>): IconButtonColorsBuilder
@@ -115,6 +128,13 @@ interface IconButtonColorsBuilder {
      */
     fun backgroundColor(backgroundColor: Color): IconButtonColorsBuilder =
         backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть фона кнопки [backgroundColor]
+     * @see ButtonColors.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Brush): IconButtonColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulValue())
 
     /**
      * Устанавливает кисти фона кнопки [backgroundColor]
@@ -136,6 +156,13 @@ interface IconButtonColorsBuilder {
      */
     fun iconColor(iconColor: Color): IconButtonColorsBuilder =
         iconColor(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть иконки кнопки [iconColor]
+     * @see ButtonColors.iconColor
+     */
+    fun iconColor(iconColor: Brush): IconButtonColorsBuilder =
+        iconColor(iconColor.asStatefulValue())
 
     /**
      * Устанавливает кисти иконки кнопки [iconColor]
@@ -332,7 +359,7 @@ private class DefaultIconButtonDimensions(
 
 @Immutable
 private class DefaultIconButtonStyle(
-    override val shape: CornerBasedShape,
+    override val shapes: StatefulValue<CornerBasedShape>,
     override val colors: ButtonColors,
     override val dimensions: ButtonDimension,
     override val disableAlpha: Float,
@@ -347,8 +374,11 @@ private class DefaultIconButtonStyle(
     @Deprecated("Use valueStyles", replaceWith = ReplaceWith("valueStyles"))
     override val valueStyle: TextStyle = valueStyles.getDefaultValue()
 
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
+
     class Builder(override val receiver: Any?) : IconButtonStyleBuilder {
-        private var shape: CornerBasedShape? = null
+        private var shapes: StatefulValue<CornerBasedShape>? = null
         private var colorsBuilder: IconButtonColorsBuilder = IconButtonColorsBuilder.builder()
         private var labelStyles: StatefulValue<TextStyle>? = null
         private var valueStyles: StatefulValue<TextStyle>? = null
@@ -357,8 +387,8 @@ private class DefaultIconButtonStyle(
         private var disableAlpha: Float? = null
         private var loadingAlpha: Float? = null
 
-        override fun shape(shape: CornerBasedShape) = apply {
-            this.shape = shape
+        override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
+            this.shapes = shape
         }
 
         @Composable
@@ -395,7 +425,7 @@ private class DefaultIconButtonStyle(
 
         override fun style(): ButtonStyle {
             return DefaultIconButtonStyle(
-                shape = shape ?: RoundedCornerShape(25),
+                shapes = shapes ?: RoundedCornerShape(25).asStatefulValue(),
                 colors = colorsBuilder.build(),
                 labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),
                 valueStyles = valueStyles ?: TextStyle.Default.asStatefulValue(),

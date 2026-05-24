@@ -310,7 +310,8 @@ private fun OuterEndButton(
     if (buttonsPlacement == CarouselButtonsPlacement.Inner) return
     if (nextIcon == null || !hasControls) return
     val paddings = PaddingValues(start = style.dimensions.nextButtonPadding)
-    val size = style.nextButtonStyle.dimensions.heightValues.getDefaultValue()
+    val interactionSource = remember { MutableInteractionSource() }
+    val size = style.nextButtonStyle.dimensions.heightValues.getValue(interactionSource)
     Box(Modifier.size(size)) {
         if (state.currentPage != state.pageCount - 1) {
             EndButton(
@@ -361,12 +362,14 @@ private fun EndButton(
     coroutineScope: CoroutineScope,
     animationSpec: AnimationSpec<Float>,
     modifier: Modifier = Modifier,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     ControlButton(
         modifier = modifier,
         paddings = paddings,
         buttonStyle = style.nextButtonStyle,
         iconRes = iconRes,
+        interactionSource = interactionSource,
         scrollAction = {
             coroutineScope.launch {
                 state.animateScrollToPage(state.currentPage + 1, animationSpec = animationSpec)

@@ -40,7 +40,14 @@ interface LinkButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * Устанавливает форму кнопки [shape]
      * @see ButtonStyle.shape
      */
-    fun shape(shape: CornerBasedShape): LinkButtonStyleBuilder
+    fun shape(shape: CornerBasedShape): LinkButtonStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы кнопки [shape]
+     * @see ButtonStyle.shape
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): LinkButtonStyleBuilder
 
     /**
      * Устанавливает цвета кнопки при помощи [builder]
@@ -123,6 +130,12 @@ interface LinkButtonColorsBuilder {
         contentColor(contentColor.asStatefulBrush())
 
     /**
+     * Устанавливает кисть контента кнопки [contentColor]
+     */
+    fun contentColor(contentColor: Brush): LinkButtonColorsBuilder =
+        contentColor(contentColor.asStatefulValue())
+
+    /**
      * Устанавливает кисти контента кнопки [contentColor]
      */
     fun contentColor(contentColor: StatefulValue<Brush>): LinkButtonColorsBuilder
@@ -141,6 +154,13 @@ interface LinkButtonColorsBuilder {
      */
     fun backgroundColor(backgroundColor: Color): LinkButtonColorsBuilder =
         backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть фона кнопки [backgroundColor]
+     * @see ButtonColors.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Brush): LinkButtonColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulValue())
 
     /**
      * Устанавливает кисти фона кнопки [backgroundColor]
@@ -164,6 +184,13 @@ interface LinkButtonColorsBuilder {
         labelColor(labelColor.asStatefulBrush())
 
     /**
+     * Устанавливает кисть основного текста кнопки [labelColor]
+     * @see ButtonColors.labelColor
+     */
+    fun labelColor(labelColor: Brush): LinkButtonColorsBuilder =
+        labelColor(labelColor.asStatefulValue())
+
+    /**
      * Устанавливает кисти основного текста кнопки [labelColor]
      * @see ButtonColors.labelColor
      */
@@ -185,6 +212,13 @@ interface LinkButtonColorsBuilder {
         valueColor(valueColor.asStatefulBrush())
 
     /**
+     * Устанавливает кисть дополнительного текста кнопки [valueColor]
+     * @see ButtonColors.valueColor
+     */
+    fun valueColor(valueColor: Brush): LinkButtonColorsBuilder =
+        valueColor(valueColor.asStatefulValue())
+
+    /**
      * Устанавливает кисти дополнительного текста кнопки [valueColor]
      * @see ButtonColors.valueColor
      */
@@ -204,6 +238,13 @@ interface LinkButtonColorsBuilder {
      */
     fun iconColor(iconColor: Color): LinkButtonColorsBuilder =
         iconColor(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть иконки кнопки [iconColor]
+     * @see ButtonColors.iconColor
+     */
+    fun iconColor(iconColor: Brush): LinkButtonColorsBuilder =
+        iconColor(iconColor.asStatefulValue())
 
     /**
      * Устанавливает кисти иконки кнопки [iconColor]
@@ -418,7 +459,7 @@ private class DefaultLinkButtonDimensions(
 
 @Immutable
 private class DefaultLinkButtonStyle(
-    override val shape: CornerBasedShape,
+    override val shapes: StatefulValue<CornerBasedShape>,
     override val colors: ButtonColors,
     override val dimensions: ButtonDimension,
     override val disableAlpha: Float,
@@ -428,15 +469,16 @@ private class DefaultLinkButtonStyle(
 ) : ButtonStyle {
 
     @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
-    override val labelStyle: TextStyle
-        get() = labelStyles.getDefaultValue()
+    override val labelStyle: TextStyle = labelStyles.getDefaultValue()
 
     @Deprecated("Use valueStyles", replaceWith = ReplaceWith("valueStyles"))
-    override val valueStyle: TextStyle
-        get() = valueStyles.getDefaultValue()
+    override val valueStyle: TextStyle = valueStyles.getDefaultValue()
+
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
 
     class Builder(override val receiver: Any?) : LinkButtonStyleBuilder {
-        private var shape: CornerBasedShape? = null
+        private var shapes: StatefulValue<CornerBasedShape>? = null
         private var colorsBuilder: LinkButtonColorsBuilder = LinkButtonColorsBuilder.builder()
         private var labelStyles: StatefulValue<TextStyle>? = null
         private var valueStyles: StatefulValue<TextStyle>? = null
@@ -445,8 +487,8 @@ private class DefaultLinkButtonStyle(
         private var disableAlpha: Float? = null
         private var loadingAlpha: Float? = null
 
-        override fun shape(shape: CornerBasedShape) = apply {
-            this.shape = shape
+        override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
+            this.shapes = shape
         }
 
         @Composable
@@ -492,7 +534,7 @@ private class DefaultLinkButtonStyle(
 
         override fun style(): ButtonStyle {
             return DefaultLinkButtonStyle(
-                shape = shape ?: RoundedCornerShape(25),
+                shapes = shapes ?: RoundedCornerShape(25).asStatefulValue(),
                 colors = colorsBuilder.build(),
                 labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),
                 valueStyles = valueStyles ?: TextStyle.Default.asStatefulValue(),

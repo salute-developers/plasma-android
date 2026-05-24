@@ -19,7 +19,13 @@ interface ButtonStyle : Style {
      * Форма кнопки
      * @see CornerBasedShape
      */
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
     val shape: CornerBasedShape
+
+    /**
+     * Формы кнопки
+     */
+    val shapes: StatefulValue<CornerBasedShape>
 
     /**
      * Цвета кнопки

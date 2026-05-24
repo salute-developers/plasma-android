@@ -76,7 +76,7 @@ internal fun BaseButton(
 ) {
     val interactionSource = motion.context.interactionSource
     val isFocused = interactionSource.collectIsFocusedAsState()
-    val shape = LocalButtonForceShape.current ?: style.shape
+    val shape = LocalButtonForceShape.current ?: style.shapes.getValue(interactionSource)
     val bgBrush = style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
 
     val minWidth = style.dimensions.minWidthValues.getValue(interactionSource)
