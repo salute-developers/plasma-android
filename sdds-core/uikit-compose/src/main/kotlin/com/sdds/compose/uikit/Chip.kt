@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.semantics.Role
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.icontext.BaseIconText
@@ -40,7 +42,7 @@ fun Chip(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val isFocused = interactionSource.collectIsFocusedAsState()
-    val labelStyle = style.labelStyle
+    val labelStyles = style.labelStyle.asStatefulValue()
     val dimensionsSet = style.dimensions.toDimensionsSet()
     val colorsSet = style.colors.toColorsSet()
     val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
@@ -61,9 +63,9 @@ fun Chip(
                 interactionSource = interactionSource,
             ),
         dimensionsSet = dimensionsSet,
-        colorsSet = colorsSet,
+        brushesSet = colorsSet,
         labelContent = label,
-        labelStyle = labelStyle,
+        labelStyle = labelStyles,
         startContent = startContent,
         endContent = endContent,
         interactionSource = interactionSource,
@@ -98,7 +100,7 @@ fun Chip(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val isFocused = interactionSource.collectIsFocusedAsState()
-    val labelStyle = style.labelStyle
+    val labelStyles = style.labelStyle.asStatefulValue()
     val dimensionsSet = style.dimensions.toDimensionsSet()
     val colorsSet = style.colors.toColorsSet()
     val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
@@ -121,34 +123,31 @@ fun Chip(
             )
             .selection(isSelected, interactionSource),
         dimensionsSet = dimensionsSet,
-        colorsSet = colorsSet,
+        brushesSet = colorsSet,
         labelContent = label,
-        labelStyle = labelStyle,
+        labelStyle = labelStyles,
         startContent = startContent,
         endContent = endContent,
         interactionSource = interactionSource,
     )
 }
 
-internal fun ChipDimensions.toDimensionsSet(): BaseIconText.Dimensions {
-    return BaseIconText.Dimensions(
-        height = this.height,
-        endContentSize = this.contentEndSize,
-        startContentSize = this.contentStartSize,
-        endContentMargin = this.contentEndPadding,
-        startContentMargin = this.contentStartPadding,
-        startPadding = this.startPaddings,
-        endPadding = this.endPaddings,
-    )
-}
+internal fun ChipDimensions.toDimensionsSet() = BaseIconText.Dimensions(
+    height = this.height,
+    endContentSize = this.contentEndSize,
+    startContentSize = this.contentStartSize,
+    endContentMargin = this.contentEndPadding,
+    startContentMargin = this.contentStartPadding,
+    startPadding = this.startPaddings,
+    endPadding = this.endPaddings,
+)
 
-internal fun ChipColors.toColorsSet(): BaseIconText.Colors {
-    return BaseIconText.Colors(
-        contentColor = this.contentColor,
-        labelColor = this.labelColor,
-        startContentColor = this.contentStartColor,
-        endContentColor = this.contentEndColor,
-    )
-}
+@Composable
+internal fun ChipColors.toColorsSet() = BaseIconText.Brushes(
+    contentBrush = this.contentColor.asStatefulBrush(),
+    labelBrush = this.labelColor.asStatefulBrush(),
+    startContentBrush = this.contentStartColor.asStatefulBrush(),
+    endContentBrush = this.contentEndColor.asStatefulBrush(),
+)
 
 private const val ENABLED_CHIP_ALPHA = 1f
