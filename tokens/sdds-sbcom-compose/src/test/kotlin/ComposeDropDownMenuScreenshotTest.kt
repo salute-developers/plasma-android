@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXlAmountTenStrictCe
 import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXlHasDisclosureTopStart
 import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXlLooseTopEndDivider
 import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXsStrictCenter
+import com.sdds.compose.uikit.fixtures.testcases.ModalDropdownDimBackground
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.basicbutton.BasicButton
 import com.sdds.sbcom.styles.basicbutton.ModePrimary
@@ -152,6 +153,20 @@ class ComposeDropDownMenuScreenshotTest(
     fun testDropDownMenuTightXsStrictCenter() {
         composeTestRule.content {
             DropDownMenuTightXsStrictCenter(
+                DropdownMenu.Default.style(),
+                BasicButton.Size48.ModePrimary.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show DropDownMenu").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalDropdownDimBackground() {
+        composeTestRule.content {
+            ModalDropdownDimBackground(
                 DropdownMenu.Default.style(),
                 BasicButton.Size48.ModePrimary.style(),
             )
