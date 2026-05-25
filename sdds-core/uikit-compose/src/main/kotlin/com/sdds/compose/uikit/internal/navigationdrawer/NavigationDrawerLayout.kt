@@ -10,10 +10,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -53,6 +53,8 @@ internal val LocalNavigationDrawerSelectionRegistry =
 internal class NavigationDrawerSelectionRegistry {
     var selectorMotionState: NavigationDrawerSelectorMotionState? by mutableStateOf(null)
         private set
+    var selectorBounds: Rect? by mutableStateOf(null)
+        private set
     private var selectedKey: Any? = null
     private var rootBounds: Rect? = null
     private var hasSelectedOnce = false
@@ -66,31 +68,40 @@ internal class NavigationDrawerSelectionRegistry {
         val previousKey = selectedKey
         selectedKey = key
         val targetBounds = boundsInWindow[key]?.toRootBounds()
+        selectorBounds = targetBounds
         val previousBounds = selectorMotionState?.targetBounds
         val shouldAnimate = hasSelectedOnce && previousKey != key && previousBounds != null
         hasSelectedOnce = true
-        targetBounds?.let { updateSelectorState(it, shouldAnimate) }
+        targetBounds?.let { updateSelectorMotionState(it, shouldAnimate) }
     }
 
     fun updateRootBounds(bounds: Rect) {
         rootBounds = bounds
-        updateSelectedBounds(animate = false)
+        updateSelectedBounds()
     }
 
     fun updateBounds(key: Any, boundsInWindow: Rect) {
         this.boundsInWindow[key] = boundsInWindow
         if (selectedKey == key) {
-            updateSelectedBounds(animate = false)
+            updateSelectedBounds()
         }
     }
 
-    private fun updateSelectedBounds(animate: Boolean) {
-        val key = selectedKey ?: return
-        val bounds = boundsInWindow[key]?.toRootBounds() ?: return
-        updateSelectorState(bounds, animate)
+    fun removeBounds(key: Any) {
+        boundsInWindow.remove(key)
+        if (selectedKey == key) {
+            selectedKey = null
+            selectorBounds = null
+            selectorMotionState = null
+        }
     }
 
-    private fun updateSelectorState(bounds: Rect, animate: Boolean) {
+    private fun updateSelectedBounds() {
+        val key = selectedKey ?: return
+        selectorBounds = boundsInWindow[key]?.toRootBounds()?.takeIf { it.isVisibleInRoot() }
+    }
+
+    private fun updateSelectorMotionState(bounds: Rect, animate: Boolean) {
         val currentState = selectorMotionState
         if (currentState?.targetBounds == bounds) return
         selectorMotionState = when {
@@ -108,6 +119,14 @@ internal class NavigationDrawerSelectionRegistry {
             right = right - rootBounds.left,
             bottom = bottom - rootBounds.top,
         )
+    }
+
+    private fun Rect.isVisibleInRoot(): Boolean {
+        val rootBounds = rootBounds ?: return false
+        return bottom > 0f &&
+            top < rootBounds.height &&
+            right > 0f &&
+            left < rootBounds.width
     }
 }
 
@@ -132,20 +151,21 @@ internal fun NavigationDrawerLayout(
         selectorMotionStateProvider = { registry.selectorMotionState },
         selectorBoundsMotion = motion.style.selectorBounds,
     )
-    val selectorTop = remember(selectorBounds) {
-        derivedStateOf { selectorBounds?.value?.top }
-    }
-    val selectorHeight = remember(selectorBounds) {
-        derivedStateOf { selectorBounds?.value?.height }
-    }
     Box(
         modifier = modifier
             .onGloballyPositioned {
                 registry.updateRootBounds(it.boundsInWindow())
             }
             .navigationDrawerSelector(
-                top = { selectorTop.value },
-                height = { selectorHeight.value },
+                bounds = {
+                    val drawBounds = registry.selectorBounds ?: return@navigationDrawerSelector null
+                    val animatedBounds = selectorBounds?.value
+                    if (animatedBounds != null && registry.selectorMotionState?.targetBounds == drawBounds) {
+                        animatedBounds
+                    } else {
+                        drawBounds
+                    }
+                },
                 selector = { selector.value },
                 shape = { selectorShape.value },
                 selectorPaddingStart = { selectorPaddingStart.value },
@@ -211,15 +231,14 @@ private fun selectorBoundsAsState(
 }
 
 private fun Modifier.navigationDrawerSelector(
-    top: () -> Float?,
-    height: () -> Float?,
+    bounds: () -> Rect?,
     selector: () -> Brush,
     shape: () -> Shape,
     selectorPaddingStart: () -> Dp,
     selectorPaddingEnd: () -> Dp,
 ): Modifier = drawWithCache {
-    val selectorHeight = height()
-    if (selectorHeight == null) {
+    val selectorBounds = bounds()
+    if (selectorBounds == null) {
         onDrawWithContent {
             drawContent()
         }
@@ -229,14 +248,14 @@ private fun Modifier.navigationDrawerSelector(
         val outline = shape().createOutline(
             size = Size(
                 width = (right - left).coerceAtLeast(0f),
-                height = selectorHeight.coerceAtLeast(0f),
+                height = selectorBounds.height.coerceAtLeast(0f),
             ),
             layoutDirection = layoutDirection,
             density = this,
         )
         val selector = selector()
         onDrawWithContent {
-            translate(left = left, top = top() ?: 0f) {
+            translate(left = left, top = bounds()?.top ?: 0f) {
                 drawOutline(outline, brush = selector)
             }
             drawContent()
@@ -244,10 +263,16 @@ private fun Modifier.navigationDrawerSelector(
     }
 }
 
+@Composable
 internal fun Modifier.navigationDrawerItemBounds(
     key: Any,
     registry: NavigationDrawerSelectionRegistry?,
 ): Modifier {
+    DisposableEffect(key, registry) {
+        onDispose {
+            registry?.removeBounds(key)
+        }
+    }
     return this.onGloballyPositioned {
         registry?.updateBounds(key, it.boundsInWindow())
     }

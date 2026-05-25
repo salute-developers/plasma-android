@@ -12,8 +12,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -94,8 +97,14 @@ fun NavigationDrawerItem(
     val interactionSource = motion.context.interactionSource
     val cellStyle = style.toCellStyle()
     val cellMotionStyle = remember(motion.style) { motion.style.toCellMotionStyle() }
+    val bringIntoViewRequester = remember { BringIntoViewRequester() }
     SideEffect {
         registry?.select(registryKey, selected)
+    }
+    LaunchedEffect(selected) {
+        if (selected) {
+            bringIntoViewRequester.bringIntoView()
+        }
     }
 
     CompositionLocalProvider(
@@ -105,6 +114,7 @@ fun NavigationDrawerItem(
             Cell(
                 modifier = Modifier
                     .sizeIn(minHeight = minHeight.value)
+                    .bringIntoViewRequester(bringIntoViewRequester)
                     .selection(selected, motion.context.semanticStateSource)
                     .navigationDrawerItemClickable(enabled, onClick, onClickLabel, interactionSource)
                     .fillMaxWidth()

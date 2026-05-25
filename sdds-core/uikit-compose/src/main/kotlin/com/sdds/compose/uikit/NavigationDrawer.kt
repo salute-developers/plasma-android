@@ -1,11 +1,15 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.focusable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
@@ -137,7 +141,54 @@ fun rememberNavigationDrawerState(
 }
 
 /**
- * Slot-based контейнер NavigationDrawer с областями header, content и footer.
+ * Навигационное меню с областями header, content и footer.
+ *
+ * [NavigationDrawerValue.Collapsed] остаётся видимым интерактивным состоянием, поэтому
+ * компонент меняет измеряемую ширину контейнера и не использует drag/gesture механику.
+ *
+ * @param modifier модификатор контейнера.
+ * @param state состояние раскрытия [NavigationDrawer].
+ * @param style стиль контейнера.
+ * @param motion стиль анимаций контейнера.
+ * @param expandOnFocus раскрывает drawer при фокусе внутри subtree и схлопывает при потере фокуса.
+ * @param header необязательный верхний слот.
+ * @param footer необязательный нижний слот.
+ * @param lazyContent основной ленивый контент drawer.
+ */
+@Composable
+fun NavigationDrawer(
+    lazyContent: LazyListScope.() -> Unit,
+    modifier: Modifier = Modifier,
+    state: NavigationDrawerState = rememberNavigationDrawerState(),
+    style: NavigationDrawerStyle = LocalNavigationDrawerStyle.current,
+    motion: Motion<NavigationDrawerMotionStyle> = rememberNavigationDrawerMotion(state),
+    expandOnFocus: Boolean = false,
+    header: (@Composable ColumnScope.() -> Unit)? = null,
+    footer: (@Composable ColumnScope.() -> Unit)? = null,
+    verticalArrangement: Arrangement.Vertical = style.dimensions.getDefaultArrangement(motion),
+) {
+    NavigationDrawer(
+        modifier = modifier,
+        state = state,
+        style = style,
+        motion = motion,
+        expandOnFocus = expandOnFocus,
+        header = header,
+        footer = footer,
+        content = {
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = verticalArrangement,
+                overscrollEffect = null,
+            ) {
+                lazyContent()
+            }
+        },
+    )
+}
+
+/**
+ * Навигационное меню с областями header, content и footer.
  *
  * [NavigationDrawerValue.Collapsed] остаётся видимым интерактивным состоянием, поэтому
  * компонент меняет измеряемую ширину контейнера и не использует drag/gesture механику.
@@ -225,6 +276,14 @@ fun NavigationDrawer(
             NavigationDrawerValue.Collapsed,
         )
     }
+}
+
+@Composable
+private fun NavigationDrawerDimensions.getDefaultArrangement(
+    motion: Motion<NavigationDrawerMotionStyle>,
+): Arrangement.Vertical {
+    val itemSpacingValue by itemSpacing.getValueAsState(motion.context)
+    return Arrangement.spacedBy(itemSpacingValue)
 }
 
 @Composable

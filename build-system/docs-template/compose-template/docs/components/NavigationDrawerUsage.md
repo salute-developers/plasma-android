@@ -30,6 +30,15 @@ NavigationDrawer - боковая панель навигации с двумя 
 Если передать `expandOnFocus = true`, drawer будет раскрываться при получении фокуса внутри subtree
 и схлопываться при потере фокуса.
 
+## NavigationDrawer с ленивым списком
+
+Если в меню много элементов, используйте перегрузку `NavigationDrawer` с `lazyContent: LazyListScope.() -> Unit`.
+Внутри она использует `LazyColumn`, поэтому элементы будут создаваться лениво по мере прокрутки.
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/navigationdrawer/NavigationDrawer_LazyList.kt
+```
+
 ## Состояние NavigationDrawer
 
 Для управления состоянием используется `NavigationDrawerState`, который можно создать через

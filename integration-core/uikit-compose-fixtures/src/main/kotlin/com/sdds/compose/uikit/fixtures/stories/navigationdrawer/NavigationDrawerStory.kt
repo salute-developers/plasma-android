@@ -2,7 +2,6 @@ package com.sdds.compose.uikit.fixtures.stories.navigationdrawer
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -90,6 +89,7 @@ private fun NavigationDrawerStoryContent(
     LaunchedEffect(state.expanded) {
         drawerState.snapTo(if (state.expanded) NavigationDrawerValue.Expanded else NavigationDrawerValue.Collapsed)
     }
+    val selectedIndex = remember { mutableIntStateOf(0) }
     NavigationDrawer(
         style = style,
         state = drawerState,
@@ -106,25 +106,18 @@ private fun NavigationDrawerStoryContent(
             )
         },
         footer = { NavigationDrawerFooter() },
-    ) {
-        NavigationDrawerContent(state)
-    }
-}
-
-@Composable
-private fun ColumnScope.NavigationDrawerContent(state: NavigationDrawerUiState) {
-    val selectedIndex = remember {
-        mutableIntStateOf(0)
-    }
-    repeat(state.itemCount) {
-        val isSelected by remember { derivedStateOf { selectedIndex.intValue == it } }
-        DrawerItem(
-            selected = isSelected,
-            onClick = { selectedIndex.intValue = it },
-            iconRes = R.drawable.ic_mail_outline_24,
-            state = state,
-        )
-    }
+        lazyContent = {
+            items(state.itemCount) {
+                val isSelected by remember { derivedStateOf { selectedIndex.intValue == it } }
+                DrawerItem(
+                    selected = isSelected,
+                    onClick = { selectedIndex.intValue = it },
+                    iconRes = R.drawable.ic_mail_outline_24,
+                    state = state,
+                )
+            }
+        },
+    )
 }
 
 @Composable
