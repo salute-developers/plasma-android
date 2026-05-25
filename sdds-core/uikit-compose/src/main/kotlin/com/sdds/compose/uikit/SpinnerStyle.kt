@@ -4,11 +4,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -27,7 +32,13 @@ interface SpinnerStyle : Style {
     /**
      * Угол дуги спиннера
      */
+    @Deprecated("use angleValues", ReplaceWith("angleValues"))
     val angle: Float
+
+    /**
+     * Углы дуги спиннера
+     */
+    val angleValues: StatefulValue<Float>
 
     /**
      * Вид концов спиннера
@@ -61,7 +72,13 @@ interface SpinnerStyleBuilder : StyleBuilder<SpinnerStyle> {
     /**
      * Устанавливает угол дуги спиннера [angle]
      */
-    fun angle(angle: Float): SpinnerStyleBuilder
+    fun angle(angle: Float): SpinnerStyleBuilder =
+        angle(angle.asStatefulValue())
+
+    /**
+     * Устанавливает углы дуги спиннера [angle]
+     */
+    fun angle(angle: StatefulValue<Float>): SpinnerStyleBuilder
 
     /**
      * Устанавливает вид концов спиннера [strokeCap]
@@ -85,19 +102,23 @@ interface SpinnerStyleBuilder : StyleBuilder<SpinnerStyle> {
 private class DefaultSpinnerStyle(
     override val colors: SpinnerColors,
     override val dimensions: SpinnerDimensions,
-    override val angle: Float,
     override val strokeCap: SpinnerStrokeCap,
+    override val angleValues: StatefulValue<Float>,
 ) : SpinnerStyle {
 
+    @Deprecated("use angleValues", ReplaceWith("angleValues"))
+    override val angle: Float = angleValues.getDefaultValue()
+
     class Builder : SpinnerStyleBuilder {
-        private var angle: Float? = null
+
+        private var angleValues: StatefulValue<Float>? = null
         private var strokeCap: SpinnerStrokeCap? = null
         private var colorsBuilder: SpinnerColorsBuilder = SpinnerColors.builder()
         private var dimensionsBuilder: SpinnerDimensionsBuilder =
             SpinnerDimensions.builder()
 
-        override fun angle(angle: Float) = apply {
-            this.angle = angle
+        override fun angle(angle: StatefulValue<Float>) = apply {
+            this.angleValues = angle
         }
 
         override fun strokeCap(strokeCap: SpinnerStrokeCap) = apply {
@@ -119,7 +140,7 @@ private class DefaultSpinnerStyle(
             return DefaultSpinnerStyle(
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
-                angle = angle ?: 360f,
+                angleValues = angleValues ?: 360f.asStatefulValue(),
                 strokeCap = strokeCap ?: SpinnerStrokeCap.Round,
             )
         }
@@ -135,7 +156,13 @@ interface SpinnerColors {
     /**
      * Цвет фона трека спиннера
      */
+    @Deprecated("use backgroundBrush", ReplaceWith("backgroundBrush"))
     val backgroundColor: InteractiveColor
+
+    /**
+     * Кисть фона трека спиннера
+     */
+    val backgroundBrush: StatefulValue<Brush>
 
     /**
      * Цвет начала спиннера
@@ -165,12 +192,24 @@ interface SpinnerColorsBuilder {
      * Устанавливает цвет фона трека спиннера
      */
     fun backgroundColor(backgroundColor: Color): SpinnerColorsBuilder =
-        backgroundColor(backgroundColor.asInteractive())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона трека спиннера
      */
-    fun backgroundColor(backgroundColor: InteractiveColor): SpinnerColorsBuilder
+    fun backgroundColor(backgroundColor: InteractiveColor): SpinnerColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть фона трека спиннера
+     */
+    fun backgroundColor(backgroundColor: Brush): SpinnerColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти фона трека спиннера
+     */
+    fun backgroundColor(backgroundColor: StatefulValue<Brush>): SpinnerColorsBuilder
 
     /**
      * Устанавливает цвет начала спиннера
@@ -204,16 +243,19 @@ interface SpinnerColorsBuilder {
 private class DefaultSpinnerColors(
     override val startColor: InteractiveColor,
     override val endColor: InteractiveColor,
-    override val backgroundColor: InteractiveColor,
+    override val backgroundBrush: StatefulValue<Brush>,
 ) : SpinnerColors {
+
+    @Deprecated("use backgroundBrush", ReplaceWith("backgroundBrush"))
+    override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
 
     class Builder : SpinnerColorsBuilder {
         private var startColor: InteractiveColor? = null
         private var endColor: InteractiveColor? = null
-        private var backgroundColor: InteractiveColor? = null
+        private var backgroundBrush: StatefulValue<Brush>? = null
 
-        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
-            this.backgroundColor = backgroundColor
+        override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
+            this.backgroundBrush = backgroundColor
         }
 
         override fun startColor(startColor: InteractiveColor) = apply {
@@ -228,7 +270,7 @@ private class DefaultSpinnerColors(
             return DefaultSpinnerColors(
                 startColor = startColor ?: Color.Black.asInteractive(),
                 endColor = endColor ?: Color.Black.copy(0f).asInteractive(),
-                backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
+                backgroundBrush = backgroundBrush ?: Color.Transparent.asStatefulBrush(),
             )
         }
     }
@@ -243,17 +285,35 @@ interface SpinnerDimensions {
     /**
      * Размер спиннера
      */
+    @Deprecated("use sizeValues", ReplaceWith("sizeValues"))
     val size: Dp
+
+    /**
+     * Размер спиннера
+     */
+    val sizeValues: StatefulValue<Dp>
 
     /**
      * Толщина линии спиннера
      */
+    @Deprecated("use strokeWidthValues", ReplaceWith("strokeWidthValues"))
     val strokeWidth: Dp
+
+    /**
+     * Толщина линии спиннера
+     */
+    val strokeWidthValues: StatefulValue<Dp>
 
     /**
      * Отступ спиннера
      */
+    @Deprecated("use paddingValues", ReplaceWith("paddingValues"))
     val padding: Dp
+
+    /**
+     * Отступ спиннера
+     */
+    val paddingValues: StatefulValue<Dp>
 
     companion object {
 
@@ -272,17 +332,35 @@ interface SpinnerDimensionsBuilder {
     /**
      * Устанавливает размер спиннера
      */
-    fun size(size: Dp): SpinnerDimensionsBuilder
+    fun size(size: Dp): SpinnerDimensionsBuilder =
+        size(size.asStatefulValue())
+
+    /**
+     * Устанавливает размер спиннера
+     */
+    fun size(size: StatefulValue<Dp>): SpinnerDimensionsBuilder
 
     /**
      * Устанавливает толщину линии спиннера
      */
-    fun strokeWidth(strokeWidth: Dp): SpinnerDimensionsBuilder
+    fun strokeWidth(strokeWidth: Dp): SpinnerDimensionsBuilder =
+        strokeWidth(strokeWidth.asStatefulValue())
+
+    /**
+     * Устанавливает толщину линии спиннера
+     */
+    fun strokeWidth(strokeWidth: StatefulValue<Dp>): SpinnerDimensionsBuilder
 
     /**
      * Устанавливает отступ спиннера
      */
-    fun padding(padding: Dp): SpinnerDimensionsBuilder
+    fun padding(padding: Dp): SpinnerDimensionsBuilder =
+        padding(padding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ спиннера
+     */
+    fun padding(padding: StatefulValue<Dp>): SpinnerDimensionsBuilder
 
     /**
      * Вернет [SpinnerDimensions]
@@ -292,37 +370,49 @@ interface SpinnerDimensionsBuilder {
 
 @Immutable
 private class DefaultSpinnerDimensions(
-    override val size: Dp,
-    override val strokeWidth: Dp,
-    override val padding: Dp,
+    override val sizeValues: StatefulValue<Dp>,
+    override val strokeWidthValues: StatefulValue<Dp>,
+    override val paddingValues: StatefulValue<Dp>,
+
 ) : SpinnerDimensions {
+    @Deprecated("use sizeValues", ReplaceWith("sizeValues"))
+    override val size: Dp = sizeValues.getDefaultValue()
+
+    @Deprecated("use strokeWidthValues", ReplaceWith("strokeWidthValues"))
+    override val strokeWidth: Dp = strokeWidthValues.getDefaultValue()
+
+    @Deprecated("use paddingValues", ReplaceWith("paddingValues"))
+    override val padding: Dp = paddingValues.getDefaultValue()
 
     class Builder : SpinnerDimensionsBuilder {
-        private var size: Dp? = null
-        private var strokeWidth: Dp? = null
-        private var padding: Dp? = null
+        private var sizeValues: StatefulValue<Dp>? = null
+        private var strokeWidthValues: StatefulValue<Dp>? = null
+        private var paddingValues: StatefulValue<Dp>? = null
 
-        override fun size(size: Dp) = apply {
-            this.size = size
+        override fun size(size: StatefulValue<Dp>) = apply {
+            this.sizeValues = size
         }
 
-        override fun strokeWidth(strokeWidth: Dp) = apply {
-            this.strokeWidth = strokeWidth
+        override fun strokeWidth(strokeWidth: StatefulValue<Dp>) = apply {
+            this.strokeWidthValues = strokeWidth
         }
 
-        override fun padding(padding: Dp) = apply {
-            this.padding = padding
+        override fun padding(padding: StatefulValue<Dp>) = apply {
+            this.paddingValues = padding
         }
 
         private fun calculateThickness(): Dp {
-            return (MIN_SPINNER_THICKNESS * (size?.value ?: MIN_SPINNER_SIZE) / MIN_SPINNER_SIZE).dp
+            return (
+                MIN_SPINNER_THICKNESS * (sizeValues?.getDefaultValue()?.value ?: MIN_SPINNER_SIZE) /
+                    MIN_SPINNER_SIZE
+                ).dp
         }
 
         override fun build(): SpinnerDimensions {
             return DefaultSpinnerDimensions(
-                size = size ?: MIN_SPINNER_SIZE.dp,
-                strokeWidth = strokeWidth ?: calculateThickness(),
-                padding = padding ?: 2.dp,
+                sizeValues = sizeValues ?: MIN_SPINNER_SIZE.dp.asStatefulValue(),
+                strokeWidthValues = strokeWidthValues ?: calculateThickness().asStatefulValue(),
+                paddingValues = paddingValues ?: 2.dp.asStatefulValue(),
             )
         }
     }

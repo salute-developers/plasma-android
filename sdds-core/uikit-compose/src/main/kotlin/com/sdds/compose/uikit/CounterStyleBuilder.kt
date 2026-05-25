@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.StyleBuilder
 
 /**
@@ -31,7 +32,14 @@ interface CounterStyleBuilder : StyleBuilder<CounterStyle> {
      * Устанавливает форму компонента [shape]
      * @see CounterStyle.shape
      */
-    fun shape(shape: CornerBasedShape): CounterStyleBuilder
+    fun shape(shape: CornerBasedShape): CounterStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы компонента [shape]
+     * @see CounterStyle.shape
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): CounterStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]
@@ -53,7 +61,14 @@ interface CounterStyleBuilder : StyleBuilder<CounterStyle> {
      * Устанавливает стиль основного текста компонента [textStyle]
      * @see CounterStyle.textStyle
      */
-    fun textStyle(textStyle: TextStyle): CounterStyleBuilder
+    fun textStyle(textStyle: TextStyle): CounterStyleBuilder =
+        textStyle(textStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили основного текста компонента [textStyle]
+     * @see CounterStyle.textStyle
+     */
+    fun textStyle(textStyle: StatefulValue<TextStyle>): CounterStyleBuilder
 }
 
 /**
@@ -77,7 +92,14 @@ interface CounterColorsBuilder {
         backgroundBrush(bColor.asStatefulBrush())
 
     /**
-     * Устанавливает кисть фона компонента [brush]
+     * Устанавливает кисть фона компонента [backgroundBrush]
+     * @see CounterColors.backgroundColor
+     */
+    fun backgroundBrush(bColor: Brush): CounterColorsBuilder =
+        backgroundBrush(bColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти фона компонента [brush]
      */
     fun backgroundBrush(brush: StatefulValue<Brush>): CounterColorsBuilder
 
@@ -98,6 +120,12 @@ interface CounterColorsBuilder {
 
     /**
      * Устанавливает ксить текста компонента [brush]
+     */
+    fun textBrush(brush: Brush): CounterColorsBuilder =
+        textBrush(brush.asStatefulValue())
+
+    /**
+     * Устанавливает ксити текста компонента [brush]
      */
     fun textBrush(brush: StatefulValue<Brush>): CounterColorsBuilder
 
@@ -123,22 +151,46 @@ interface CounterDimensionsBuilder {
     /**
      * Устанавливает ширину компонента
      */
-    fun minWidth(width: Dp): CounterDimensionsBuilder
+    fun minWidth(width: Dp): CounterDimensionsBuilder =
+        minWidth(width.asStatefulValue())
+
+    /**
+     * Устанавливает ширину компонента
+     */
+    fun minWidth(width: StatefulValue<Dp>): CounterDimensionsBuilder
 
     /**
      * Устанавливает высоту компонента
      */
-    fun minHeight(height: Dp): CounterDimensionsBuilder
+    fun minHeight(height: Dp): CounterDimensionsBuilder =
+        minHeight(height.asStatefulValue())
+
+    /**
+     * Устанавливает высоту компонента
+     */
+    fun minHeight(height: StatefulValue<Dp>): CounterDimensionsBuilder
 
     /**
      * Устанавливает отступ слева
      */
-    fun paddingStart(pStart: Dp): CounterDimensionsBuilder
+    fun paddingStart(pStart: Dp): CounterDimensionsBuilder =
+        paddingStart(pStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступ слева
+     */
+    fun paddingStart(pStart: StatefulValue<Dp>): CounterDimensionsBuilder
 
     /**
      * Устанавливает отступ справа
      */
-    fun paddingEnd(pEnd: Dp): CounterDimensionsBuilder
+    fun paddingEnd(pEnd: Dp): CounterDimensionsBuilder =
+        paddingEnd(pEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступ справа
+     */
+    fun paddingEnd(pEnd: StatefulValue<Dp>): CounterDimensionsBuilder
 
     /**
      * Возвращает готовый экземпляр [CounterDimensions]
@@ -156,41 +208,51 @@ interface CounterDimensionsBuilder {
 
 @Immutable
 private class DefaultCounterDimensions(
-    override val minWidth: Dp,
-    override val minHeight: Dp,
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
+    override val minWidthValues: StatefulValue<Dp>,
+    override val minHeightValues: StatefulValue<Dp>,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
 ) : CounterDimensions {
+
+    @Deprecated("use minWidthValues", ReplaceWith("minWidthValues"))
+    override val minWidth: Dp = minWidthValues.getDefaultValue()
+
+    @Deprecated("use minHeightValues", ReplaceWith("minHeightValues"))
+    override val minHeight: Dp = minHeightValues.getDefaultValue()
+
+    @Deprecated("use paddingStartValues", ReplaceWith("paddingStartValues"))
+    override val paddingStart: Dp = paddingStartValues.getDefaultValue()
+
+    @Deprecated("use paddingEndValues", ReplaceWith("paddingEndValues"))
+    override val paddingEnd: Dp = paddingEndValues.getDefaultValue()
     class Builder : CounterDimensionsBuilder {
-        private var minWidth: Dp? = null
-        private var minHeight: Dp? = null
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
-        private var paddingTop: Dp? = null
-        private var paddingBottom: Dp? = null
+        private var minWidthValues: StatefulValue<Dp>? = null
+        private var minHeightValues: StatefulValue<Dp>? = null
+        private var paddingStartValues: StatefulValue<Dp>? = null
+        private var paddingEndValues: StatefulValue<Dp>? = null
 
-        override fun minWidth(width: Dp): CounterDimensionsBuilder = apply {
-            this.minWidth = width
+        override fun minWidth(width: StatefulValue<Dp>): CounterDimensionsBuilder = apply {
+            this.minWidthValues = width
         }
 
-        override fun minHeight(height: Dp): CounterDimensionsBuilder = apply {
-            this.minHeight = height
+        override fun minHeight(height: StatefulValue<Dp>): CounterDimensionsBuilder = apply {
+            this.minHeightValues = height
         }
 
-        override fun paddingStart(pStart: Dp): CounterDimensionsBuilder = apply {
-            this.paddingStart = pStart
+        override fun paddingStart(pStart: StatefulValue<Dp>): CounterDimensionsBuilder = apply {
+            this.paddingStartValues = pStart
         }
 
-        override fun paddingEnd(pEnd: Dp): CounterDimensionsBuilder = apply {
-            this.paddingEnd = pEnd
+        override fun paddingEnd(pEnd: StatefulValue<Dp>): CounterDimensionsBuilder = apply {
+            this.paddingEndValues = pEnd
         }
 
         override fun build(): CounterDimensions {
             return DefaultCounterDimensions(
-                minWidth = minWidth ?: 28.dp,
-                minHeight = minHeight ?: 28.dp,
-                paddingStart = paddingStart ?: 10.dp,
-                paddingEnd = paddingEnd ?: 10.dp,
+                minWidthValues = minWidthValues ?: 28.dp.asStatefulValue(),
+                minHeightValues = minHeightValues ?: 28.dp.asStatefulValue(),
+                paddingStartValues = paddingStartValues ?: 10.dp.asStatefulValue(),
+                paddingEndValues = paddingEndValues ?: 10.dp.asStatefulValue(),
             )
         }
     }
@@ -230,56 +292,61 @@ private class DefaultCounterColors(
 }
 
 @Immutable
-private class DefaultCounterStyle(
+internal class DefaultCounterStyle(
     override val colors: CounterColors,
     override val dimensions: CounterDimensions,
-    override val shape: CornerBasedShape,
-    override val textStyle: TextStyle,
+    override val textStyles: StatefulValue<TextStyle>,
     override val disableAlpha: Float,
-) : CounterStyle
+    override val shapes: StatefulValue<CornerBasedShape>,
+) : CounterStyle {
+    @Deprecated("use textStyles", ReplaceWith("textStyles"))
+    override val textStyle: TextStyle = textStyles.getDefaultValue()
 
-internal class CounterStyleBuilderImpl(receiver: Any?) : CounterStyleBuilder {
+    @Deprecated("use shapes", ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
 
-    private var colorsBuilder: CounterColorsBuilder = CounterColorsBuilder.builder()
-    private var dimensionsBuilder: CounterDimensionsBuilder = CounterDimensionsBuilder.builder()
-    private var shape: CornerBasedShape? = null
-    private var textStyle: TextStyle? = null
-    private var disableAlpha: Float? = null
+    class Builder(receiver: Any?) : CounterStyleBuilder {
+        private var colorsBuilder: CounterColorsBuilder = CounterColorsBuilder.builder()
+        private var dimensionsBuilder: CounterDimensionsBuilder = CounterDimensionsBuilder.builder()
+        private var shapes: StatefulValue<CornerBasedShape>? = null
+        private var textStyles: StatefulValue<TextStyle>? = null
+        private var disableAlpha: Float? = null
 
-    override fun shape(shape: CornerBasedShape): CounterStyleBuilder = apply {
-        this.shape = shape
-    }
+        override fun shape(shape: StatefulValue<CornerBasedShape>): CounterStyleBuilder = apply {
+            this.shapes = shape
+        }
 
-    @Composable
-    override fun colors(
-        builder:
-        @Composable()
-        (CounterColorsBuilder.() -> Unit),
-    ): CounterStyleBuilder = apply {
-        this.colorsBuilder.builder()
-    }
+        @Composable
+        override fun colors(
+            builder:
+            @Composable()
+            (CounterColorsBuilder.() -> Unit),
+        ): CounterStyleBuilder = apply {
+            this.colorsBuilder.builder()
+        }
 
-    @Composable
-    override fun dimensions(
-        builder:
-        @Composable()
-        (CounterDimensionsBuilder.() -> Unit),
-    ): CounterStyleBuilder = apply {
-        this.dimensionsBuilder.builder()
-    }
+        @Composable
+        override fun dimensions(
+            builder:
+            @Composable()
+            (CounterDimensionsBuilder.() -> Unit),
+        ): CounterStyleBuilder = apply {
+            this.dimensionsBuilder.builder()
+        }
 
-    override fun textStyle(textStyle: TextStyle): CounterStyleBuilder = apply {
-        this.textStyle = textStyle
-    }
+        override fun textStyle(textStyle: StatefulValue<TextStyle>): CounterStyleBuilder = apply {
+            this.textStyles = textStyle
+        }
 
-    override fun style(): CounterStyle {
-        return DefaultCounterStyle(
-            colors = colorsBuilder.build(),
-            dimensions = dimensionsBuilder.build(),
-            shape = shape ?: RoundedCornerShape(50),
-            textStyle = textStyle ?: TextStyle.Default,
-            disableAlpha = disableAlpha ?: DISABLE_COUNTER_ALPHA,
-        )
+        override fun style(): CounterStyle {
+            return DefaultCounterStyle(
+                colors = colorsBuilder.build(),
+                dimensions = dimensionsBuilder.build(),
+                shapes = shapes ?: RoundedCornerShape(50).asStatefulValue(),
+                textStyles = textStyles ?: TextStyle.Default.asStatefulValue(),
+                disableAlpha = disableAlpha ?: DISABLE_COUNTER_ALPHA,
+            )
+        }
     }
 }
 

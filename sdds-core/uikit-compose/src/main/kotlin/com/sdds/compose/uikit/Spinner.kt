@@ -26,6 +26,11 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.spinner.LocalSpinnerMotionStyle
+import com.sdds.compose.uikit.motion.components.spinner.SpinnerMotionStyle
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.rememberMotion
 import kotlin.math.atan2
 
 /**
@@ -41,6 +46,7 @@ fun Spinner(
     style: SpinnerStyle = LocalSpinnerStyle.current,
     animationSpec: InfiniteRepeatableSpec<Float> = DefaultSpinnerAnimationSpec,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<SpinnerMotionStyle> = rememberMotion(LocalSpinnerMotionStyle.current),
 ) {
     val transition = rememberInfiniteTransition()
     val rotationAngle by transition.animateFloat(
@@ -50,7 +56,7 @@ fun Spinner(
     )
 
     val angle = style.angle
-    val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
+    val background by style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
     val startColor = style.colors.startColor.colorForInteraction(interactionSource)
     val endColor = style.colors.endColor.colorForInteraction(interactionSource)
     val endStop = if (angle == 360f) 1f else angle / 360f
@@ -82,7 +88,7 @@ fun Spinner(
                     drawCircle(
                         center = center,
                         radius = radius,
-                        color = backgroundColor,
+                        brush = background,
                         style = stroke,
                     )
                     withTransform({ rotate(rotationAngle) }) {

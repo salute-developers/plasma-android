@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,18 +23,24 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toIntSize
-import androidx.compose.ui.unit.toSize
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.background
 import com.sdds.compose.uikit.internal.common.drawOutline
 import com.sdds.compose.uikit.internal.drawWithLayer
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.indicator.IndicatorMotionStyle
+import com.sdds.compose.uikit.motion.components.indicator.rememberIndicatorMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент [Indicator]
  * @param modifier модификатор
  * @param style стиль компонента
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param motion объект анимаций
  */
 @Composable
 fun Indicator(
@@ -41,9 +48,12 @@ fun Indicator(
     style: IndicatorStyle = LocalIndicatorStyle.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     stateSet: Set<ValueState> = emptySet(),
+    motion: Motion<IndicatorMotionStyle> = rememberIndicatorMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     Box(
-        modifier = modifier.indicator(style, interactionSource, stateSet),
+        modifier = modifier.indicator(style, interactionSource, stateSet, motion),
     )
 }
 
@@ -51,6 +61,7 @@ fun Indicator(
  * Модификатор, который декорирует компонент как Indicator.
  * @param style стиль компонента
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param motion объект анимаций
  */
 
 @Suppress("ComposableModifierFactory")
@@ -59,20 +70,23 @@ fun Modifier.indicator(
     style: IndicatorStyle = LocalIndicatorStyle.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     stateSet: Set<ValueState> = emptySet(),
+    motion: Motion<IndicatorMotionStyle> = rememberIndicatorMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ): Modifier = composed {
-    val brush = style.color.backgroundBrush?.getValue(interactionSource, stateSet)
-    val color = style.color.backgroundColor.takeIf { brush == null }?.colorForInteraction(interactionSource, stateSet)
-    val dimensions = style.dimensions
+    val interactionSource = motion.context.interactionSource
+    val brush = style.color.background.getBrushAsState(motion.context, motion.style.background)
     this then Modifier
-        .height(dimensions.height)
-        .width(dimensions.width)
-        .background(brush, color, style.shape)
+        .height(style.dimensions.heightValues.getValue(interactionSource, stateSet))
+        .width(style.dimensions.widthValues.getValue(interactionSource, stateSet))
+        .background(brush.value, style.shapes.getValue(interactionSource, stateSet))
 }
 
 /**
  * Модификатор, который декорирует компонент как Indicator,
  *  с возможностью отрисовки Indicator как внутри,
  *  так и снаружи декорируемого компонента.
+ *
  * @param alignment положение Indicator относительно сторон компонента
  * @param style стиль компонента
  * @param horizontalPadding отступ по горизонтали
@@ -82,6 +96,7 @@ fun Modifier.indicator(
  * @param verticalMode размещение относительно границ
  * @see IndicatorMode
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param stateSet набор состояний, от которых зависит внешний вид компонента
  * @param alpha прозрачность индикатора
  * @param cutoutEnabled включен ли вырез под индикатор
  * @param cutoutPadding внутренний отступ выреза
@@ -100,30 +115,82 @@ fun Modifier.indicator(
     alpha: () -> Float = { 1f },
     cutoutEnabled: Boolean = false,
     cutoutPadding: Dp = 3.dp,
+): Modifier = indicator(
+    motion = rememberIndicatorMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
+    alignment = alignment,
+    style = style,
+    horizontalPadding = horizontalPadding,
+    verticalPadding = verticalPadding,
+    horizontalMode = horizontalMode,
+    verticalMode = verticalMode,
+    stateSet = stateSet,
+    alpha = alpha,
+    cutoutEnabled = cutoutEnabled,
+    cutoutPadding = cutoutPadding,
+)
+
+/**
+ * Модификатор, который декорирует компонент как Indicator,
+ *  с возможностью отрисовки Indicator как внутри,
+ *  так и снаружи декорируемого компонента.
+ *
+ * @param motion объект анимаций
+ * @param alignment положение Indicator относительно сторон компонента
+ * @param style стиль компонента
+ * @param horizontalPadding отступ по горизонтали
+ * @param verticalPadding отступ по вертикали
+ * @param horizontalMode размещение относительно границ
+ * @see IndicatorMode
+ * @param verticalMode размещение относительно границ
+ * @see IndicatorMode
+ * @param stateSet набор состояний, от которых зависит внешний вид компонента
+ * @param alpha прозрачность индикатора
+ * @param cutoutEnabled включен ли вырез под индикатор
+ * @param cutoutPadding внутренний отступ выреза
+ */
+@Suppress("ComposableModifierFactory")
+@Composable
+fun Modifier.indicator(
+    motion: Motion<IndicatorMotionStyle>,
+    alignment: Alignment,
+    style: IndicatorStyle = LocalIndicatorStyle.current,
+    horizontalPadding: Dp = 0.dp,
+    verticalPadding: Dp = 0.dp,
+    horizontalMode: IndicatorMode = IndicatorMode.Inner,
+    verticalMode: IndicatorMode = IndicatorMode.Inner,
+    stateSet: Set<ValueState> = emptySet(),
+    alpha: () -> Float = { 1f },
+    cutoutEnabled: Boolean = false,
+    cutoutPadding: Dp = 3.dp,
 ): Modifier = composed {
-    val brush = style.color.backgroundBrush?.getValue(interactionSource, stateSet)
-    val color = style.color.backgroundColor.takeIf { brush == null }?.colorForInteraction(interactionSource, stateSet)
-    val shape = style.shape
+    val interactionSource = motion.context.interactionSource
+    val brush by style.color.background.getBrushAsState(motion.context, motion.style.background)
+    val width by style.dimensions.widthValues.getValueAsState(interactionSource, stateSet)
+    val height by style.dimensions.heightValues.getValueAsState(interactionSource, stateSet)
+    val shape by style.shapes.getValueAsState(interactionSource, stateSet)
     val cutoutModifier = if (cutoutEnabled) {
         Modifier.cutout(
             alignment = Alignment.BottomEnd,
             size = DpSize(
-                style.dimensions.width + cutoutPadding * 2,
-                style.dimensions.height + cutoutPadding * 2,
+                width + cutoutPadding * 2,
+                height + cutoutPadding * 2,
             ),
             horizontalPadding = horizontalPadding - cutoutPadding,
             verticalPadding = verticalPadding - cutoutPadding,
-            shape = style.shape,
+            shape = shape,
         )
     } else {
         Modifier
     }
     this then Modifier
         .drawWithCache {
+            val currentBrush = brush
             val horizontalOffset = horizontalPadding.roundToPx()
             val verticalOffset = verticalPadding.roundToPx()
-            val indicatorWidthPx = style.dimensions.width.roundToPx()
-            val indicatorHeightPx = style.dimensions.height.roundToPx()
+            val indicatorWidthPx = width.roundToPx()
+            val indicatorHeightPx = height.roundToPx()
             val deltaSpace = IntOffset(
                 x = when (horizontalMode) {
                     IndicatorMode.Inner -> -horizontalOffset * 2
@@ -156,7 +223,7 @@ fun Modifier.indicator(
             onDrawWithContent {
                 drawContent()
                 translate(resultOffset.x.toFloat(), resultOffset.y.toFloat()) {
-                    drawOutline(outline, brush, color, alpha())
+                    drawOutline(outline, currentBrush, alpha = alpha())
                 }
             }
         }
