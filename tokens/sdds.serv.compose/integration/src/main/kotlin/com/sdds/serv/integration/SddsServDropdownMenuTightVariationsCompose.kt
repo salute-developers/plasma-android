@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -11,20 +13,42 @@ import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.sandbox.Property
+import com.sdds.serv.styles.dropdownmenu.DropdownMenuStyles
 import com.sdds.serv.styles.dropdownmenu.DropdownMenuTight
+import com.sdds.serv.styles.dropdownmenu.DropdownMenuTightSize
 import com.sdds.serv.styles.dropdownmenu.L
 import com.sdds.serv.styles.dropdownmenu.M
 import com.sdds.serv.styles.dropdownmenu.S
 import com.sdds.serv.styles.dropdownmenu.Xl
 import com.sdds.serv.styles.dropdownmenu.Xs
+import com.sdds.serv.styles.dropdownmenu.resolve
 
 internal object SddsServDropdownMenuTightVariationsCompose : ComposeStyleProvider<DropdownMenuStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "Xl", variants = listOf("Xl", "L", "M", "S", "Xs")),
+        )
+
     override val variations: Map<String, ComposeStyleReference<DropdownMenuStyle>> =
         mapOf(
-            "Xl" to ComposeStyleReference { DropdownMenuTight.Xl.style() },
-            "L" to ComposeStyleReference { DropdownMenuTight.L.style() },
-            "M" to ComposeStyleReference { DropdownMenuTight.M.style() },
-            "S" to ComposeStyleReference { DropdownMenuTight.S.style() },
-            "Xs" to ComposeStyleReference { DropdownMenuTight.Xs.style() },
+            "DropdownMenuTight.Xl" to ComposeStyleReference { DropdownMenuTight.Xl.style() },
+            "DropdownMenuTight.L" to ComposeStyleReference { DropdownMenuTight.L.style() },
+            "DropdownMenuTight.M" to ComposeStyleReference { DropdownMenuTight.M.style() },
+            "DropdownMenuTight.S" to ComposeStyleReference { DropdownMenuTight.S.style() },
+            "DropdownMenuTight.Xs" to ComposeStyleReference { DropdownMenuTight.Xs.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return DropdownMenuStyles.Tight.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "Xl" -> DropdownMenuTightSize.Xl
+                "L" -> DropdownMenuTightSize.L
+                "M" -> DropdownMenuTightSize.M
+                "S" -> DropdownMenuTightSize.S
+                "Xs" -> DropdownMenuTightSize.Xs
+                else -> DropdownMenuTightSize.Xl
+            },
+        ).key
+    }
 }

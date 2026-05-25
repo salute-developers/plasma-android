@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -11,16 +13,36 @@ import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.sandbox.Property
 import com.sdds.serv.styles.card.CardSolid
+import com.sdds.serv.styles.card.CardSolidSize
+import com.sdds.serv.styles.card.CardStyles
 import com.sdds.serv.styles.card.L
 import com.sdds.serv.styles.card.M
 import com.sdds.serv.styles.card.S
+import com.sdds.serv.styles.card.resolve
 
 internal object SddsServCardSolidVariationsCompose : ComposeStyleProvider<CardStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "L", variants = listOf("L", "M", "S")),
+        )
+
     override val variations: Map<String, ComposeStyleReference<CardStyle>> =
         mapOf(
-            "L" to ComposeStyleReference { CardSolid.L.style() },
-            "M" to ComposeStyleReference { CardSolid.M.style() },
-            "S" to ComposeStyleReference { CardSolid.S.style() },
+            "CardSolid.L" to ComposeStyleReference { CardSolid.L.style() },
+            "CardSolid.M" to ComposeStyleReference { CardSolid.M.style() },
+            "CardSolid.S" to ComposeStyleReference { CardSolid.S.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return CardStyles.Solid.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "L" -> CardSolidSize.L
+                "M" -> CardSolidSize.M
+                "S" -> CardSolidSize.S
+                else -> CardSolidSize.L
+            },
+        ).key
+    }
 }

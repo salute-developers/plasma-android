@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -11,6 +13,7 @@ import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.TabBarStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.sandbox.Property
 import com.sdds.serv.styles.tabbar.Accent
 import com.sdds.serv.styles.tabbar.Default
 import com.sdds.serv.styles.tabbar.Divider
@@ -20,45 +23,81 @@ import com.sdds.serv.styles.tabbar.Rounded
 import com.sdds.serv.styles.tabbar.Secondary
 import com.sdds.serv.styles.tabbar.Shadow
 import com.sdds.serv.styles.tabbar.TabBarSolid
+import com.sdds.serv.styles.tabbar.TabBarSolidSize
+import com.sdds.serv.styles.tabbar.TabBarSolidView
+import com.sdds.serv.styles.tabbar.TabBarStyles
+import com.sdds.serv.styles.tabbar.resolve
 
 internal object SddsServTabBarSolidVariationsCompose : ComposeStyleProvider<TabBarStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "M", variants = listOf("M", "L")),
+            Property.BooleanProperty(name = "hasShadow", value = false),
+            Property.BooleanProperty(name = "rounded", value = false),
+            Property.BooleanProperty(name = "divider", value = false),
+            Property.SingleChoiceProperty(
+                name = "view",
+                value = "Default",
+                variants = listOf("Default", "Secondary", "Accent"),
+            ),
+        )
+
     override val variations: Map<String, ComposeStyleReference<TabBarStyle>> =
         mapOf(
-            "M.Default" to ComposeStyleReference { TabBarSolid.M.Default.style() },
-            "M.Secondary" to ComposeStyleReference { TabBarSolid.M.Secondary.style() },
-            "M.Accent" to ComposeStyleReference { TabBarSolid.M.Accent.style() },
-            "M.Rounded.Default" to ComposeStyleReference { TabBarSolid.M.Rounded.Default.style() },
-            "M.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.M.Rounded.Secondary.style() },
-            "M.Rounded.Accent" to ComposeStyleReference { TabBarSolid.M.Rounded.Accent.style() },
-            "M.Shadow.Default" to ComposeStyleReference { TabBarSolid.M.Shadow.Default.style() },
-            "M.Shadow.Secondary" to ComposeStyleReference { TabBarSolid.M.Shadow.Secondary.style() },
-            "M.Shadow.Accent" to ComposeStyleReference { TabBarSolid.M.Shadow.Accent.style() },
-            "M.Shadow.Rounded.Default" to ComposeStyleReference { TabBarSolid.M.Shadow.Rounded.Default.style() },
-            "M.Shadow.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.M.Shadow.Rounded.Secondary.style() },
-            "M.Shadow.Rounded.Accent" to ComposeStyleReference { TabBarSolid.M.Shadow.Rounded.Accent.style() },
-            "M.Divider.Default" to ComposeStyleReference { TabBarSolid.M.Divider.Default.style() },
-            "M.Divider.Secondary" to ComposeStyleReference { TabBarSolid.M.Divider.Secondary.style() },
-            "M.Divider.Accent" to ComposeStyleReference { TabBarSolid.M.Divider.Accent.style() },
-            "M.Divider.Rounded.Default" to ComposeStyleReference { TabBarSolid.M.Divider.Rounded.Default.style() },
-            "M.Divider.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.M.Divider.Rounded.Secondary.style() },
-            "M.Divider.Rounded.Accent" to ComposeStyleReference { TabBarSolid.M.Divider.Rounded.Accent.style() },
-            "L.Default" to ComposeStyleReference { TabBarSolid.L.Default.style() },
-            "L.Secondary" to ComposeStyleReference { TabBarSolid.L.Secondary.style() },
-            "L.Accent" to ComposeStyleReference { TabBarSolid.L.Accent.style() },
-            "L.Rounded.Default" to ComposeStyleReference { TabBarSolid.L.Rounded.Default.style() },
-            "L.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.L.Rounded.Secondary.style() },
-            "L.Rounded.Accent" to ComposeStyleReference { TabBarSolid.L.Rounded.Accent.style() },
-            "L.Shadow.Default" to ComposeStyleReference { TabBarSolid.L.Shadow.Default.style() },
-            "L.Shadow.Secondary" to ComposeStyleReference { TabBarSolid.L.Shadow.Secondary.style() },
-            "L.Shadow.Accent" to ComposeStyleReference { TabBarSolid.L.Shadow.Accent.style() },
-            "L.Shadow.Rounded.Default" to ComposeStyleReference { TabBarSolid.L.Shadow.Rounded.Default.style() },
-            "L.Shadow.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.L.Shadow.Rounded.Secondary.style() },
-            "L.Shadow.Rounded.Accent" to ComposeStyleReference { TabBarSolid.L.Shadow.Rounded.Accent.style() },
-            "L.Divider.Default" to ComposeStyleReference { TabBarSolid.L.Divider.Default.style() },
-            "L.Divider.Secondary" to ComposeStyleReference { TabBarSolid.L.Divider.Secondary.style() },
-            "L.Divider.Accent" to ComposeStyleReference { TabBarSolid.L.Divider.Accent.style() },
-            "L.Divider.Rounded.Default" to ComposeStyleReference { TabBarSolid.L.Divider.Rounded.Default.style() },
-            "L.Divider.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.L.Divider.Rounded.Secondary.style() },
-            "L.Divider.Rounded.Accent" to ComposeStyleReference { TabBarSolid.L.Divider.Rounded.Accent.style() },
+            "TabBarSolid.M.Default" to ComposeStyleReference { TabBarSolid.M.Default.style() },
+            "TabBarSolid.M.Secondary" to ComposeStyleReference { TabBarSolid.M.Secondary.style() },
+            "TabBarSolid.M.Accent" to ComposeStyleReference { TabBarSolid.M.Accent.style() },
+            "TabBarSolid.M.Rounded.Default" to ComposeStyleReference { TabBarSolid.M.Rounded.Default.style() },
+            "TabBarSolid.M.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.M.Rounded.Secondary.style() },
+            "TabBarSolid.M.Rounded.Accent" to ComposeStyleReference { TabBarSolid.M.Rounded.Accent.style() },
+            "TabBarSolid.M.Shadow.Default" to ComposeStyleReference { TabBarSolid.M.Shadow.Default.style() },
+            "TabBarSolid.M.Shadow.Secondary" to ComposeStyleReference { TabBarSolid.M.Shadow.Secondary.style() },
+            "TabBarSolid.M.Shadow.Accent" to ComposeStyleReference { TabBarSolid.M.Shadow.Accent.style() },
+            "TabBarSolid.M.Shadow.Rounded.Default" to ComposeStyleReference { TabBarSolid.M.Shadow.Rounded.Default.style() },
+            "TabBarSolid.M.Shadow.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.M.Shadow.Rounded.Secondary.style() },
+            "TabBarSolid.M.Shadow.Rounded.Accent" to ComposeStyleReference { TabBarSolid.M.Shadow.Rounded.Accent.style() },
+            "TabBarSolid.M.Divider.Default" to ComposeStyleReference { TabBarSolid.M.Divider.Default.style() },
+            "TabBarSolid.M.Divider.Secondary" to ComposeStyleReference { TabBarSolid.M.Divider.Secondary.style() },
+            "TabBarSolid.M.Divider.Accent" to ComposeStyleReference { TabBarSolid.M.Divider.Accent.style() },
+            "TabBarSolid.M.Divider.Rounded.Default" to ComposeStyleReference { TabBarSolid.M.Divider.Rounded.Default.style() },
+            "TabBarSolid.M.Divider.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.M.Divider.Rounded.Secondary.style() },
+            "TabBarSolid.M.Divider.Rounded.Accent" to ComposeStyleReference { TabBarSolid.M.Divider.Rounded.Accent.style() },
+            "TabBarSolid.L.Default" to ComposeStyleReference { TabBarSolid.L.Default.style() },
+            "TabBarSolid.L.Secondary" to ComposeStyleReference { TabBarSolid.L.Secondary.style() },
+            "TabBarSolid.L.Accent" to ComposeStyleReference { TabBarSolid.L.Accent.style() },
+            "TabBarSolid.L.Rounded.Default" to ComposeStyleReference { TabBarSolid.L.Rounded.Default.style() },
+            "TabBarSolid.L.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.L.Rounded.Secondary.style() },
+            "TabBarSolid.L.Rounded.Accent" to ComposeStyleReference { TabBarSolid.L.Rounded.Accent.style() },
+            "TabBarSolid.L.Shadow.Default" to ComposeStyleReference { TabBarSolid.L.Shadow.Default.style() },
+            "TabBarSolid.L.Shadow.Secondary" to ComposeStyleReference { TabBarSolid.L.Shadow.Secondary.style() },
+            "TabBarSolid.L.Shadow.Accent" to ComposeStyleReference { TabBarSolid.L.Shadow.Accent.style() },
+            "TabBarSolid.L.Shadow.Rounded.Default" to ComposeStyleReference { TabBarSolid.L.Shadow.Rounded.Default.style() },
+            "TabBarSolid.L.Shadow.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.L.Shadow.Rounded.Secondary.style() },
+            "TabBarSolid.L.Shadow.Rounded.Accent" to ComposeStyleReference { TabBarSolid.L.Shadow.Rounded.Accent.style() },
+            "TabBarSolid.L.Divider.Default" to ComposeStyleReference { TabBarSolid.L.Divider.Default.style() },
+            "TabBarSolid.L.Divider.Secondary" to ComposeStyleReference { TabBarSolid.L.Divider.Secondary.style() },
+            "TabBarSolid.L.Divider.Accent" to ComposeStyleReference { TabBarSolid.L.Divider.Accent.style() },
+            "TabBarSolid.L.Divider.Rounded.Default" to ComposeStyleReference { TabBarSolid.L.Divider.Rounded.Default.style() },
+            "TabBarSolid.L.Divider.Rounded.Secondary" to ComposeStyleReference { TabBarSolid.L.Divider.Rounded.Secondary.style() },
+            "TabBarSolid.L.Divider.Rounded.Accent" to ComposeStyleReference { TabBarSolid.L.Divider.Rounded.Accent.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return TabBarStyles.Solid.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "M" -> TabBarSolidSize.M
+                "L" -> TabBarSolidSize.L
+                else -> TabBarSolidSize.M
+            },
+            hasShadow = booleanBindingValue(bindings, "hasShadow", false),
+            rounded = booleanBindingValue(bindings, "rounded", false),
+            divider = booleanBindingValue(bindings, "divider", false),
+            view = when (bindings["view"]?.toString()) {
+                "Default" -> TabBarSolidView.Default
+                "Secondary" -> TabBarSolidView.Secondary
+                "Accent" -> TabBarSolidView.Accent
+                else -> TabBarSolidView.Default
+            },
+        ).key
+    }
 }
