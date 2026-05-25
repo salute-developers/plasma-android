@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
@@ -167,7 +168,11 @@ fun NavigationDrawer(
     footer: (@Composable ColumnScope.() -> Unit)? = null,
     verticalArrangement: Arrangement.Vertical = style.dimensions.getDefaultArrangement(motion),
 ) {
-    NavigationDrawer(
+    val lazyListState = rememberLazyListState()
+    val selectorCanSyncPosition by remember {
+        derivedStateOf { !lazyListState.isScrollInProgress }
+    }
+    NavigationDrawerImpl(
         modifier = modifier,
         state = state,
         style = style,
@@ -175,9 +180,11 @@ fun NavigationDrawer(
         expandOnFocus = expandOnFocus,
         header = header,
         footer = footer,
+        selectorCanSyncPosition = selectorCanSyncPosition,
         content = {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
+                state = lazyListState,
                 verticalArrangement = verticalArrangement,
                 overscrollEffect = null,
             ) {
@@ -211,6 +218,30 @@ fun NavigationDrawer(
     expandOnFocus: Boolean = false,
     header: (@Composable ColumnScope.() -> Unit)? = null,
     footer: (@Composable ColumnScope.() -> Unit)? = null,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    NavigationDrawerImpl(
+        modifier = modifier,
+        state = state,
+        style = style,
+        motion = motion,
+        expandOnFocus = expandOnFocus,
+        header = header,
+        footer = footer,
+        content = content,
+    )
+}
+
+@Composable
+private fun NavigationDrawerImpl(
+    modifier: Modifier = Modifier,
+    state: NavigationDrawerState = rememberNavigationDrawerState(),
+    style: NavigationDrawerStyle = LocalNavigationDrawerStyle.current,
+    motion: Motion<NavigationDrawerMotionStyle> = rememberNavigationDrawerMotion(state),
+    expandOnFocus: Boolean = false,
+    header: (@Composable ColumnScope.() -> Unit)? = null,
+    footer: (@Composable ColumnScope.() -> Unit)? = null,
+    selectorCanSyncPosition: Boolean = true,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val scope = rememberCoroutineScope()
@@ -254,6 +285,7 @@ fun NavigationDrawer(
                 .padding(paddings.value),
             header = header,
             footer = footer,
+            selectorCanSyncPosition = selectorCanSyncPosition,
             content = content,
             motion = motion,
             style = style,

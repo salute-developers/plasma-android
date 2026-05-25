@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
@@ -27,6 +28,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.boundsInWindow
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
@@ -58,7 +60,8 @@ internal class NavigationDrawerSelectionRegistry {
     private var selectedKey: Any? = null
     private var rootBounds: Rect? = null
     private var hasSelectedOnce = false
-    private val boundsInWindow = mutableMapOf<Any, Rect>()
+    private var lastVisibleSelectedBounds: Rect? = null
+    private val itemCoordinates = mutableMapOf<Any, LayoutCoordinates>()
 
     fun select(key: Any, selected: Boolean) {
         if (selected) select(key)
@@ -66,13 +69,22 @@ internal class NavigationDrawerSelectionRegistry {
 
     private fun select(key: Any) {
         val previousKey = selectedKey
+        val previousBounds = previousKey?.let { boundsForKey(it, visibleOnly = true) }
+            ?: lastVisibleSelectedBounds
+            ?: selectorBounds
+            ?: selectorMotionState?.targetBounds
         selectedKey = key
-        val targetBounds = boundsInWindow[key]?.toRootBounds()
-        selectorBounds = targetBounds
-        val previousBounds = selectorMotionState?.targetBounds
+        val targetBounds = boundsForKey(key, visibleOnly = false)
         val shouldAnimate = hasSelectedOnce && previousKey != key && previousBounds != null
         hasSelectedOnce = true
-        targetBounds?.let { updateSelectorMotionState(it, shouldAnimate) }
+        updateSelectedBounds(updateMotionTarget = false)
+        targetBounds?.let { bounds ->
+            updateSelectorMotionState(
+                bounds = bounds,
+                animate = shouldAnimate,
+                initialBounds = previousBounds,
+            )
+        }
     }
 
     fun updateRootBounds(bounds: Rect) {
@@ -80,44 +92,69 @@ internal class NavigationDrawerSelectionRegistry {
         updateSelectedBounds()
     }
 
-    fun updateBounds(key: Any, boundsInWindow: Rect) {
-        this.boundsInWindow[key] = boundsInWindow
+    fun syncSelectedBounds() {
+        updateSelectedBounds()
+    }
+
+    fun updateBounds(key: Any, coordinates: LayoutCoordinates) {
+        itemCoordinates[key] = coordinates
         if (selectedKey == key) {
-            updateSelectedBounds()
+            updateSelectedBounds(updateMotionTarget = false)
         }
     }
 
     fun removeBounds(key: Any) {
-        boundsInWindow.remove(key)
+        itemCoordinates.remove(key)
         if (selectedKey == key) {
-            selectedKey = null
             selectorBounds = null
-            selectorMotionState = null
         }
     }
 
-    private fun updateSelectedBounds() {
+    private fun updateSelectedBounds(updateMotionTarget: Boolean = true) {
         val key = selectedKey ?: return
-        selectorBounds = boundsInWindow[key]?.toRootBounds()?.takeIf { it.isVisibleInRoot() }
+        val visibleBounds = boundsForKey(key, visibleOnly = true)
+        selectorBounds = visibleBounds
+        visibleBounds?.let {
+            lastVisibleSelectedBounds = it
+            if (updateMotionTarget) {
+                updateSelectorMotionState(
+                    bounds = it,
+                    animate = false,
+                    initialBounds = it,
+                )
+            }
+        }
     }
 
-    private fun updateSelectorMotionState(bounds: Rect, animate: Boolean) {
+    private fun boundsForKey(key: Any, visibleOnly: Boolean): Rect? {
+        val bounds = itemCoordinates[key]?.toRootBounds() ?: return null
+        return if (!visibleOnly || bounds.isVisibleInRoot()) bounds else null
+    }
+
+    private fun updateSelectorMotionState(
+        bounds: Rect,
+        animate: Boolean,
+        initialBounds: Rect? = null,
+    ) {
         val currentState = selectorMotionState
         if (currentState?.targetBounds == bounds) return
         selectorMotionState = when {
+            currentState == null && animate && initialBounds != null ->
+                NavigationDrawerSelectorMotionState.next(initialBounds, bounds)
             currentState == null -> NavigationDrawerSelectorMotionState.snap(bounds)
-            animate -> currentState.next(bounds)
+            animate && initialBounds != null -> currentState.next(initialBounds, bounds)
             else -> currentState.snap(bounds)
         }
     }
 
-    private fun Rect.toRootBounds(): Rect? {
+    private fun LayoutCoordinates.toRootBounds(): Rect? {
         val rootBounds = rootBounds ?: return null
+        val bounds = boundsInWindow()
         return Rect(
-            left = left - rootBounds.left,
-            top = top - rootBounds.top,
-            right = right - rootBounds.left,
-            bottom = bottom - rootBounds.top,
+            left = bounds.left - rootBounds.left,
+            top = bounds.top - rootBounds.top,
+            right = bounds.right - rootBounds.left,
+            bottom = bounds.bottom - rootBounds.top,
         )
     }
 
@@ -137,6 +174,7 @@ internal fun NavigationDrawerLayout(
     style: NavigationDrawerStyle,
     header: (@Composable ColumnScope.() -> Unit)?,
     footer: (@Composable ColumnScope.() -> Unit)?,
+    selectorCanSyncPosition: Boolean = true,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val registry = remember { NavigationDrawerSelectionRegistry() }
@@ -151,6 +189,11 @@ internal fun NavigationDrawerLayout(
         selectorMotionStateProvider = { registry.selectorMotionState },
         selectorBoundsMotion = motion.style.selectorBounds,
     )
+    LaunchedEffect(selectorCanSyncPosition) {
+        if (selectorCanSyncPosition) {
+            registry.syncSelectedBounds()
+        }
+    }
     Box(
         modifier = modifier
             .onGloballyPositioned {
@@ -158,7 +201,8 @@ internal fun NavigationDrawerLayout(
             }
             .navigationDrawerSelector(
                 bounds = {
-                    val drawBounds = registry.selectorBounds ?: return@navigationDrawerSelector null
+                    val drawBounds = registry.selectorBounds
+                        ?: return@navigationDrawerSelector null
                     val animatedBounds = selectorBounds?.value
                     if (animatedBounds != null && registry.selectorMotionState?.targetBounds == drawBounds) {
                         animatedBounds
@@ -274,7 +318,7 @@ internal fun Modifier.navigationDrawerItemBounds(
         }
     }
     return this.onGloballyPositioned {
-        registry?.updateBounds(key, it.boundsInWindow())
+        registry?.updateBounds(key, it)
     }
 }
 
@@ -291,9 +335,12 @@ internal data class NavigationDrawerSelectorMotionState(
     val targetState: NavigationDrawerSelectorValue,
     val animate: Boolean,
 ) {
-    fun next(bounds: Rect): NavigationDrawerSelectorMotionState {
+    fun next(
+        initialBounds: Rect = this.targetBounds,
+        bounds: Rect,
+    ): NavigationDrawerSelectorMotionState {
         return NavigationDrawerSelectorMotionState(
-            initialBounds = targetBounds,
+            initialBounds = initialBounds,
             targetBounds = bounds,
             initialState = targetState,
             targetState = if (targetState == NavigationDrawerSelectorValue.From) {
@@ -316,6 +363,19 @@ internal data class NavigationDrawerSelectorMotionState(
     }
 
     companion object {
+        fun next(
+            initialBounds: Rect,
+            targetBounds: Rect,
+        ): NavigationDrawerSelectorMotionState {
+            return NavigationDrawerSelectorMotionState(
+                initialBounds = initialBounds,
+                targetBounds = targetBounds,
+                initialState = NavigationDrawerSelectorValue.From,
+                targetState = NavigationDrawerSelectorValue.To,
+                animate = true,
+            )
+        }
+
         fun snap(bounds: Rect): NavigationDrawerSelectorMotionState {
             return NavigationDrawerSelectorMotionState(
                 initialBounds = bounds,
