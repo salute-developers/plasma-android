@@ -8,7 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -61,6 +64,21 @@ interface InteractiveColor {
     fun colorForInteractionAsState(
         motionContext: MotionContext,
         motionProperty: MotionProperty<Color>,
+    ): State<Color>
+
+    /**
+     * Возвращает цвет [Color], согласно текущему состоянию [InteractionSource] и [SemanticStateSource]
+     */
+    @Composable
+    fun colorForInteraction(interactionSource: InteractionSource, semanticStateSource: SemanticStateSource): Color
+
+    /**
+     * Возвращает цвет [Color], сохраненный в [State], согласно текущему состоянию [InteractionSource] и [SemanticStateSource]
+     */
+    @Composable
+    fun colorForInteractionAsState(
+        interactionSource: InteractionSource,
+        semanticStateSource: SemanticStateSource,
     ): State<Color>
 }
 
@@ -163,6 +181,37 @@ private data class SimpleInteractiveColor(
     ): State<Color> {
         return colorForInteractionAsState(motionContext.interactionSource)
     }
+
+    @Composable
+    override fun colorForInteraction(
+        interactionSource: InteractionSource,
+        semanticStateSource: SemanticStateSource,
+    ): Color {
+        val isPressed by interactionSource.collectIsPressedAsState()
+        val isHovered by interactionSource.collectIsHoveredAsState()
+        val isFocused by interactionSource.collectIsFocusedAsState()
+        val isActivated by interactionSource.collectIsActivatedAsState()
+        val semanticStates by semanticStateSource.states.collectAsState()
+        val isSelected by remember {
+            derivedStateOf { semanticStates.contains(InteractiveState.Selected) }
+        }
+        return when {
+            isPressed -> pressed
+            isHovered -> hovered
+            isFocused -> focused
+            isActivated -> activated
+            isSelected -> selected
+            else -> default
+        }
+    }
+
+    @Composable
+    override fun colorForInteractionAsState(
+        interactionSource: InteractionSource,
+        semanticStateSource: SemanticStateSource,
+    ): State<Color> {
+        return rememberUpdatedState(colorForInteraction(interactionSource, semanticStateSource))
+    }
 }
 
 @Immutable
@@ -193,6 +242,23 @@ private class ColorStateList(
         motionProperty: MotionProperty<Color>,
     ): State<Color> {
         return getColorAsState(motionContext, motionProperty)
+    }
+
+    @Composable
+    override fun colorForInteraction(
+        interactionSource: InteractionSource,
+        semanticStateSource: SemanticStateSource,
+    ): Color {
+        val semanticStates by semanticStateSource.states.collectAsState()
+        return getValueAsState(interactionSource, semanticStates).value
+    }
+
+    @Composable
+    override fun colorForInteractionAsState(
+        interactionSource: InteractionSource,
+        semanticStateSource: SemanticStateSource,
+    ): State<Color> {
+        return rememberUpdatedState(colorForInteraction(interactionSource, semanticStateSource))
     }
 }
 

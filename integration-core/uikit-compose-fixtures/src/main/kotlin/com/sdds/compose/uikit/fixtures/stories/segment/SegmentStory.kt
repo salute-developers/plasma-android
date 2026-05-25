@@ -23,6 +23,9 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.stories.SegmentUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.SegmentUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.segmentitem.SegmentItemContent
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
+import com.sdds.compose.uikit.motion.components.counter.rememberCounterMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
@@ -141,6 +144,7 @@ private fun SegmentScope.SegmentItems(
     repeat(uiState.amount) { id ->
         segmentItem {
             val interactionSource = remember { MutableInteractionSource() }
+            val semanticStateSource = remember { MutableSemanticStateSource() }
             SegmentItem(
                 labelContent = { Text(uiState.label) },
                 modifier = Modifier
@@ -154,9 +158,10 @@ private fun SegmentScope.SegmentItems(
                 isSelected = isChecked(id),
                 valueContent = { Text(uiState.value) },
                 startContent = startIcon(uiState.startIcon),
-                endContent = endContent(uiState),
+                endContent = endContent(uiState, semanticStateSource),
                 enabled = uiState.enabled,
                 interactionSource = interactionSource,
+                semanticStateSource = semanticStateSource,
             )
         }
 
@@ -178,7 +183,10 @@ private fun startIcon(hasStartIcon: Boolean): (@Composable () -> Unit)? {
 }
 
 @Composable
-private fun endContent(state: SegmentUiState): (@Composable () -> Unit)? {
+private fun endContent(
+    state: SegmentUiState,
+    semanticStateSource: MutableSemanticStateSource,
+): (@Composable () -> Unit)? {
     return when (state.endContent) {
         SegmentItemContent.NONE -> null
         SegmentItemContent.ICON -> {
@@ -189,7 +197,10 @@ private fun endContent(state: SegmentUiState): (@Composable () -> Unit)? {
 
         SegmentItemContent.COUNTER -> {
             {
-                Counter(count = state.count)
+                Counter(
+                    count = state.count,
+                    motion = rememberCounterMotion(motionContext = rememberMotionContext(semanticStateSource)),
+                )
             }
         }
     }

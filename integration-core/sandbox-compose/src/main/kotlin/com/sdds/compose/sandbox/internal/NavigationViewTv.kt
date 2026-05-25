@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.selection
 
@@ -165,6 +166,7 @@ private fun NavigationItemTv(
     onClick: () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
+    val semanticStateSource = remember { MutableSemanticStateSource() }
     val background = style.itemBackground.colorForInteraction(interactionSource)
     val titleColor = style.itemTextColor.colorForInteraction(interactionSource)
     Row(
@@ -173,7 +175,7 @@ private fun NavigationItemTv(
             .fillMaxWidth()
             .selection(
                 selected = isSelected,
-                interactionSource = interactionSource,
+                semanticStateSource = semanticStateSource,
             )
             .background(color = background, shape = style.selectedShape)
             .clickable(

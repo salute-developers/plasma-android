@@ -23,11 +23,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.DpSize
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.ButtonText
 import com.sdds.compose.uikit.motion.components.common.rememberCommonButtonMotion
+import com.sdds.compose.uikit.motion.components.counter.rememberCounterMotion
 import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
@@ -42,6 +44,7 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
  * @param counter значение счетчика
  * @param enabled включен ли компонент
  * @param interactionSource источник взаимодействий
+ * @param semanticStateSource источник семантических состояний
  */
 @Composable
 fun SegmentItem(
@@ -55,6 +58,7 @@ fun SegmentItem(
     counter: String? = null,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
     SegmentItem(
         label = label,
@@ -78,9 +82,17 @@ fun SegmentItem(
         } else {
             null
         },
-        endContent = endIconOrCounter(isSelected, endIcon, counter, style, interactionSource),
+        endContent = endIconOrCounter(
+            isSelected = isSelected,
+            endIcon = endIcon,
+            counter = counter,
+            style = style,
+            interactionSource = interactionSource,
+            semanticStateSource = semanticStateSource,
+        ),
         enabled = enabled,
         interactionSource = interactionSource,
+        semanticStateSource = semanticStateSource,
     )
 }
 
@@ -95,6 +107,7 @@ fun SegmentItem(
  * @param endContent контент в конце
  * @param enabled включен ли компонент
  * @param interactionSource источник взаимодействий
+ * @param semanticStateSource источник семантических состояний
  */
 @Composable
 fun SegmentItem(
@@ -107,6 +120,7 @@ fun SegmentItem(
     endContent: (@Composable () -> Unit)? = null,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
     SegmentItem(
         labelContent = { Text(label, maxLines = 1, overflow = TextOverflow.Ellipsis) },
@@ -122,6 +136,7 @@ fun SegmentItem(
         endContent = endContent,
         enabled = enabled,
         interactionSource = interactionSource,
+        semanticStateSource = semanticStateSource,
     )
 }
 
@@ -137,6 +152,7 @@ fun SegmentItem(
  * @param endContent контент в конце
  * @param enabled включен ли компонент
  * @param interactionSource источник взаимодействий
+ * @param semanticStateSource источник семантических состояний
  */
 @Composable
 fun SegmentItem(
@@ -149,11 +165,23 @@ fun SegmentItem(
     endContent: (@Composable () -> Unit)? = null,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
-    val motion = rememberCommonButtonMotion(motionContext = rememberMotionContext(interactionSource))
-    val backgroundColor = style.colors.backgroundColor.colorForInteraction(motion.context.interactionSource)
-    val startContentColor = style.colors.startContentColor.colorForInteraction(motion.context.interactionSource)
-    val endContentColor = style.colors.endContentColor.colorForInteraction(motion.context.interactionSource)
+    val motion = rememberCommonButtonMotion(
+        motionContext = rememberMotionContext(semanticStateSource, interactionSource),
+    )
+    val backgroundColor = style.colors.backgroundColor.colorForInteraction(
+        motion.context.interactionSource,
+        motion.context.semanticStateSource,
+    )
+    val startContentColor = style.colors.startContentColor.colorForInteraction(
+        motion.context.interactionSource,
+        motion.context.semanticStateSource,
+    )
+    val endContentColor = style.colors.endContentColor.colorForInteraction(
+        motion.context.interactionSource,
+        motion.context.semanticStateSource,
+    )
     val isFocused by motion.context.interactionSource.collectIsFocusedAsState()
     Row(
         modifier = modifier
@@ -164,7 +192,7 @@ fun SegmentItem(
             .focusSelector(LocalFocusSelectorSettings.current, style.shape) { isFocused }
             .selection(
                 selected = isSelected,
-                interactionSource = interactionSource,
+                semanticStateSource = motion.context.semanticStateSource,
             )
             .graphicsLayer { this.alpha = if (enabled) 1f else style.disabledAlpha }
             .background(
@@ -205,6 +233,7 @@ private fun endIconOrCounter(
     counter: String?,
     style: SegmentItemStyle,
     interactionSource: MutableInteractionSource,
+    semanticStateSource: MutableSemanticStateSource,
 ): @Composable (() -> Unit)? {
     return if (endIcon != null) {
         @Composable {
@@ -225,11 +254,17 @@ private fun endIconOrCounter(
                 modifier = Modifier
                     .selection(
                         selected = isSelected,
-                        interactionSource = interactionSource,
+                        semanticStateSource = semanticStateSource,
                     ),
                 count = AnnotatedString(counter),
                 style = style.counterStyle,
                 interactionSource = interactionSource,
+                motion = rememberCounterMotion(
+                    motionContext = rememberMotionContext(
+                        semanticStateSource = semanticStateSource,
+                        interactionSource = interactionSource,
+                    ),
+                ),
             )
         }
     } else {
