@@ -401,22 +401,14 @@ private class DefaultSpinnerDimensions(
             this.paddingValues = padding
         }
 
-        private fun calculateThickness(): Dp {
-            return (
-                MIN_SPINNER_THICKNESS * (sizeValues?.getDefaultValue()?.value ?: MIN_SPINNER_SIZE) /
-                    MIN_SPINNER_SIZE
-                ).dp
-        }
-
         override fun build(): SpinnerDimensions {
             return DefaultSpinnerDimensions(
                 sizeValues = sizeValues ?: MIN_SPINNER_SIZE.dp.asStatefulValue(),
-                strokeWidthValues = strokeWidthValues ?: calculateThickness().asStatefulValue(),
+                strokeWidthValues = strokeWidthValues ?: Dp.Unspecified.asStatefulValue(),
                 paddingValues = paddingValues ?: 2.dp.asStatefulValue(),
             )
         }
     }
 }
 
-private const val MIN_SPINNER_THICKNESS = 1.5f
 private const val MIN_SPINNER_SIZE = 16f

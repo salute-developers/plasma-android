@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.progressSemantics
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -25,7 +26,9 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.spinner.LocalSpinnerMotionStyle
 import com.sdds.compose.uikit.motion.components.spinner.SpinnerMotionStyle
@@ -55,8 +58,8 @@ fun Spinner(
         animationSpec = animationSpec,
     )
 
-    val angle = style.angle
-    val background by style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
+    val angle by style.angleValues.getValueAsState(interactionSource)
+    val background = style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
     val startColor = style.colors.startColor.colorForInteraction(interactionSource)
     val endColor = style.colors.endColor.colorForInteraction(interactionSource)
     val endStop = if (angle == 360f) 1f else angle / 360f
@@ -66,18 +69,29 @@ fun Spinner(
             endStop to startColor,
         )
     }
-
+    val spinnerSize = style.dimensions.sizeValues.getValueAsState(interactionSource)
+    val padding = style.dimensions.paddingValues.getValueAsState(interactionSource)
+    val strokeState = style.dimensions.strokeWidthValues.getValueAsState(interactionSource)
+    val resolvedStroke by remember {
+        derivedStateOf {
+            if (strokeState.value != Dp.Unspecified) {
+                strokeState.value
+            } else {
+                calculateThickness(spinnerSize.value)
+            }
+        }
+    }
     Box(
         modifier
             .progressSemantics()
-            .size(style.dimensions.size)
-            .padding(style.dimensions.padding)
+            .size(spinnerSize.value)
+            .padding(padding.value)
             .drawWithCache {
                 val stroke = Stroke(
-                    width = style.dimensions.strokeWidth.toPx(),
+                    width = resolvedStroke.toPx(),
                     cap = style.strokeCap.cap,
                 )
-                val strokeWidthPx = style.dimensions.strokeWidth.toPx()
+                val strokeWidthPx = resolvedStroke.toPx()
                 val arcSize = Size(size.width - strokeWidthPx, size.height - strokeWidthPx)
                 val arcOffset = Offset(strokeWidthPx / 2f, strokeWidthPx / 2f)
                 val angleCompensation =
@@ -88,7 +102,7 @@ fun Spinner(
                     drawCircle(
                         center = center,
                         radius = radius,
-                        brush = background,
+                        brush = background.value,
                         style = stroke,
                     )
                     withTransform({ rotate(rotationAngle) }) {
@@ -138,7 +152,11 @@ private fun SpinnerPreview() {
     )
 }
 
-private const val ANIMATION_DURATION = 1000
+private fun calculateThickness(size: Dp): Dp {
+    val resolvedSize = if (size.value != 0f) size.value else MIN_SPINNER_SIZE
+    return (MIN_SPINNER_THICKNESS * resolvedSize / MIN_SPINNER_SIZE).dp
+}
+
 private val DefaultSpinnerAnimationSpec: InfiniteRepeatableSpec<Float> =
     infiniteRepeatable(
         animation = tween(
@@ -146,3 +164,7 @@ private val DefaultSpinnerAnimationSpec: InfiniteRepeatableSpec<Float> =
             easing = LinearEasing,
         ),
     )
+
+private const val ANIMATION_DURATION = 1000
+private const val MIN_SPINNER_THICKNESS = 1.5f
+private const val MIN_SPINNER_SIZE = 16f

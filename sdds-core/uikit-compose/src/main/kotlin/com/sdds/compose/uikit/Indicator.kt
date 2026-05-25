@@ -23,10 +23,10 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toIntSize
+import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
-import com.sdds.compose.uikit.internal.common.background
 import com.sdds.compose.uikit.internal.common.drawOutline
 import com.sdds.compose.uikit.internal.drawWithLayer
 import com.sdds.compose.uikit.motion.Motion
@@ -79,7 +79,10 @@ fun Modifier.indicator(
     this then Modifier
         .height(style.dimensions.heightValues.getValue(interactionSource, stateSet))
         .width(style.dimensions.widthValues.getValue(interactionSource, stateSet))
-        .background(brush.value, style.shapes.getValue(interactionSource, stateSet))
+        .backgroundBrush(
+            { brush.value },
+            style.shapes.getValue(interactionSource, stateSet),
+        )
 }
 
 /**
@@ -166,7 +169,7 @@ fun Modifier.indicator(
     cutoutPadding: Dp = 3.dp,
 ): Modifier = composed {
     val interactionSource = motion.context.interactionSource
-    val brush by style.color.background.getBrushAsState(motion.context, motion.style.background)
+    val brush = style.color.background.getBrushAsState(motion.context, motion.style.background)
     val width by style.dimensions.widthValues.getValueAsState(interactionSource, stateSet)
     val height by style.dimensions.heightValues.getValueAsState(interactionSource, stateSet)
     val shape by style.shapes.getValueAsState(interactionSource, stateSet)
@@ -186,7 +189,6 @@ fun Modifier.indicator(
     }
     this then Modifier
         .drawWithCache {
-            val currentBrush = brush
             val horizontalOffset = horizontalPadding.roundToPx()
             val verticalOffset = verticalPadding.roundToPx()
             val indicatorWidthPx = width.roundToPx()
@@ -223,7 +225,7 @@ fun Modifier.indicator(
             onDrawWithContent {
                 drawContent()
                 translate(resultOffset.x.toFloat(), resultOffset.y.toFloat()) {
-                    drawOutline(outline, currentBrush, alpha = alpha())
+                    drawOutline(outline, brush.value, alpha = alpha())
                 }
             }
         }

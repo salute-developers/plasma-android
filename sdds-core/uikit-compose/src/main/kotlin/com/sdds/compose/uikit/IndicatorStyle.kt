@@ -161,6 +161,13 @@ interface IndicatorColorBuilder {
         backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
+     * Устанавливает цвет [backgroundColor] фона компонента.
+     * @see IndicatorColor.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Color): IndicatorColorBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
      * Устанавливает кисть [backgroundBrush] в качестве фона компонента.
      * @see IndicatorColor.backgroundBrush
      */
