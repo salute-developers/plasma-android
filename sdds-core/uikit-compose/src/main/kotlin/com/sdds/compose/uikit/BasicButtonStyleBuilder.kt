@@ -6,12 +6,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.StyleBuilder
 
 /**
@@ -23,7 +28,7 @@ val LocalButtonStyle = compositionLocalOf { ButtonStyle.basicButtonBuilder().sty
  * Возвращает экземпляр [BasicButtonStyleBuilder]
  */
 fun ButtonStyle.Companion.basicButtonBuilder(receiver: Any? = null): BasicButtonStyleBuilder =
-    BasicButtonStyleBuilderImpl(receiver)
+    DefaultBasicButtonStyle.Builder(receiver)
 
 /**
  * Builder стиля базовой кнопки.
@@ -35,7 +40,14 @@ interface BasicButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * Устанавливает форму кнопки [shape]
      * @see ButtonStyle.shape
      */
-    fun shape(shape: CornerBasedShape): BasicButtonStyleBuilder
+    fun shape(shape: CornerBasedShape): BasicButtonStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы кнопки [shape]
+     * @see ButtonStyle.shape
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): BasicButtonStyleBuilder
 
     /**
      * Устанавливает цвета кнопки при помощи [builder]
@@ -49,13 +61,27 @@ interface BasicButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * Устанавливает стиль основного текста кнопки [labelStyle]
      * @see ButtonStyle.labelStyle
      */
-    fun labelStyle(labelStyle: TextStyle): BasicButtonStyleBuilder
+    fun labelStyle(labelStyle: TextStyle): BasicButtonStyleBuilder =
+        labelStyle(labelStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили основного текста кнопки [labelStyle]
+     * @see ButtonStyle.labelStyle
+     */
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): BasicButtonStyleBuilder
 
     /**
      * Устанавливает стиль дополнительного текста кнопки [valueStyle]
      * @see ButtonStyle.valueStyle
      */
-    fun valueStyle(valueStyle: TextStyle): BasicButtonStyleBuilder
+    fun valueStyle(valueStyle: TextStyle): BasicButtonStyleBuilder =
+        valueStyle(valueStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили дополнительного текста кнопки [valueStyle]
+     * @see ButtonStyle.valueStyle
+     */
+    fun valueStyle(valueStyle: StatefulValue<TextStyle>): BasicButtonStyleBuilder
 
     /**
      * Устанавливает размеры и отступы компонента [dimensions]
@@ -93,74 +119,138 @@ interface BasicButtonColorsBuilder {
      * Устанавливает цвет контента кнопки [contentColor]
      * @see InteractiveColor
      */
-    fun contentColor(contentColor: InteractiveColor): BasicButtonColorsBuilder
+    fun contentColor(contentColor: InteractiveColor): BasicButtonColorsBuilder =
+        contentColor(contentColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет контента кнопки [contentColor]
      * @see BasicButtonColorsBuilder.contentColor
-     * @see InteractiveColor
      */
     fun contentColor(contentColor: Color): BasicButtonColorsBuilder =
-        contentColor(contentColor.asInteractive())
+        contentColor(contentColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента кнопки [contentColor]
+     */
+    fun contentColor(contentColor: Brush): BasicButtonColorsBuilder =
+        contentColor(contentColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти контента кнопки [contentColor]
+     */
+    fun contentColor(contentColor: StatefulValue<Brush>): BasicButtonColorsBuilder
 
     /**
      * Устанавливает цвет фона кнопки [backgroundColor]
      * @see ButtonColors.backgroundColor
      * @see InteractiveColor
      */
-    fun backgroundColor(backgroundColor: InteractiveColor): BasicButtonColorsBuilder
+    fun backgroundColor(backgroundColor: InteractiveColor): BasicButtonColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона кнопки [backgroundColor]
      * @see ButtonColors.backgroundColor
      */
     fun backgroundColor(backgroundColor: Color): BasicButtonColorsBuilder =
-        backgroundColor(backgroundColor.asInteractive())
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть фона кнопки [backgroundColor]
+     * @see ButtonColors.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Brush): BasicButtonColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти фона кнопки [backgroundColor]
+     * @see ButtonColors.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: StatefulValue<Brush>): BasicButtonColorsBuilder
 
     /**
      * Устанавливает цвет основного текста кнопки [labelColor]
      * @see ButtonColors.labelColor
      * @see InteractiveColor
      */
-    fun labelColor(labelColor: InteractiveColor): BasicButtonColorsBuilder
+    fun labelColor(labelColor: InteractiveColor): BasicButtonColorsBuilder =
+        labelColor(labelColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет основного текста кнопки [labelColor]
      * @see ButtonColors.labelColor
-     * @see InteractiveColor
      */
     fun labelColor(labelColor: Color): BasicButtonColorsBuilder =
-        labelColor(labelColor.asInteractive())
+        labelColor(labelColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть основного текста кнопки [labelColor]
+     * @see ButtonColors.labelColor
+     */
+    fun labelColor(labelColor: Brush): BasicButtonColorsBuilder =
+        labelColor(labelColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти основного текста кнопки [labelColor]
+     * @see ButtonColors.labelColor
+     */
+    fun labelColor(labelColor: StatefulValue<Brush>): BasicButtonColorsBuilder
 
     /**
      * Устанавливает цвет дополнительного текста кнопки [valueColor]
      * @see ButtonColors.valueColor
      * @see InteractiveColor
      */
-    fun valueColor(valueColor: InteractiveColor): BasicButtonColorsBuilder
+    fun valueColor(valueColor: InteractiveColor): BasicButtonColorsBuilder =
+        valueColor(valueColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет дополнительного текста кнопки [valueColor]
      * @see ButtonColors.valueColor
-     * @see InteractiveColor
      */
     fun valueColor(valueColor: Color): BasicButtonColorsBuilder =
-        valueColor(valueColor.asInteractive())
+        valueColor(valueColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть дополнительного текста кнопки [valueColor]
+     * @see ButtonColors.valueColor
+     */
+    fun valueColor(valueColor: Brush): BasicButtonColorsBuilder =
+        valueColor(valueColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти дополнительного текста кнопки [valueColor]
+     * @see ButtonColors.valueColor
+     */
+    fun valueColor(valueColor: StatefulValue<Brush>): BasicButtonColorsBuilder
 
     /**
      * Устанавливает цвет иконки кнопки [iconColor]
      * @see ButtonColors.iconColor
      * @see InteractiveColor
      */
-    fun iconColor(iconColor: InteractiveColor): BasicButtonColorsBuilder
+    fun iconColor(iconColor: InteractiveColor): BasicButtonColorsBuilder =
+        iconColor(iconColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет иконки кнопки [iconColor]
      * @see ButtonColors.iconColor
-     * @see InteractiveColor
      */
     fun iconColor(iconColor: Color): BasicButtonColorsBuilder =
-        iconColor(iconColor.asInteractive())
+        iconColor(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть иконки кнопки [iconColor]
+     * @see ButtonColors.iconColor
+     */
+    fun iconColor(iconColor: Brush): BasicButtonColorsBuilder =
+        iconColor(iconColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти иконки кнопки [iconColor]
+     * @see ButtonColors.iconColor
+     */
+    fun iconColor(iconColor: StatefulValue<Brush>): BasicButtonColorsBuilder
 
     /**
      * Устанавливает цвет индикатора загрузки кнопки [spinnerColor]
@@ -172,7 +262,6 @@ interface BasicButtonColorsBuilder {
     /**
      * Устанавливает цвет индикатора загрузки кнопки [spinnerColor]
      * @see ButtonColors.spinnerColor
-     * @see InteractiveColor
      */
     fun spinnerColor(spinnerColor: Color): BasicButtonColorsBuilder =
         spinnerColor(spinnerColor.asInteractive())
@@ -198,238 +287,326 @@ interface BasicButtonDimensionsBuilder {
     /**
      * Устанавливает высоту кнопки
      */
-    fun height(height: Dp): BasicButtonDimensionsBuilder
+    fun height(height: Dp): BasicButtonDimensionsBuilder =
+        height(height.asStatefulValue())
+
+    /**
+     * Устанавливает высоту кнопки
+     */
+    fun height(height: StatefulValue<Dp>): BasicButtonDimensionsBuilder
 
     /**
      * Устанавливает отступ кнопки в начале
      */
-    fun paddingStart(paddingStart: Dp): BasicButtonDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): BasicButtonDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступы кнопки в начале
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): BasicButtonDimensionsBuilder
 
     /**
      * Устанавливает отступ кнопки в конце
      */
-    fun paddingEnd(paddingEnd: Dp): BasicButtonDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): BasicButtonDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступы кнопки в конце
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): BasicButtonDimensionsBuilder
 
     /**
      * Устанавливает минимальную ширину кнопки
      */
-    fun minWidth(minWidth: Dp): BasicButtonDimensionsBuilder
+    fun minWidth(minWidth: Dp): BasicButtonDimensionsBuilder =
+        minWidth(minWidth.asStatefulValue())
+
+    /**
+     * Устанавливает минимальную ширину кнопки
+     */
+    fun minWidth(minWidth: StatefulValue<Dp>): BasicButtonDimensionsBuilder
 
     /**
      * Устанавливает размер иконки
      */
-    fun iconSize(iconSize: Dp): BasicButtonDimensionsBuilder
+    fun iconSize(iconSize: Dp): BasicButtonDimensionsBuilder =
+        iconSize(iconSize.asStatefulValue())
+
+    /**
+     * Устанавливает размеры иконки
+     */
+    fun iconSize(iconSize: StatefulValue<Dp>): BasicButtonDimensionsBuilder
 
     /**
      * Устанавливает размер спиннера
      */
-    fun spinnerSize(spinnerSize: Dp): BasicButtonDimensionsBuilder
+    fun spinnerSize(spinnerSize: Dp): BasicButtonDimensionsBuilder =
+        spinnerSize(spinnerSize.asStatefulValue())
+
+    /**
+     * Устанавливает размеры спиннера
+     */
+    fun spinnerSize(spinnerSize: StatefulValue<Dp>): BasicButtonDimensionsBuilder
 
     /**
      * Устанавливает толщину спиннера
      */
-    fun spinnerStrokeWidth(spinnerStrokeWidth: Dp): BasicButtonDimensionsBuilder
+    fun spinnerStrokeWidth(spinnerStrokeWidth: Dp): BasicButtonDimensionsBuilder =
+        spinnerStrokeWidth(spinnerStrokeWidth.asStatefulValue())
+
+    /**
+     * Устанавливает толщину спиннера
+     */
+    fun spinnerStrokeWidth(spinnerStrokeWidth: StatefulValue<Dp>): BasicButtonDimensionsBuilder
 
     /**
      * Устанавливает отступ иконки
      */
-    fun iconMargin(iconMargin: Dp): BasicButtonDimensionsBuilder
+    fun iconMargin(iconMargin: Dp): BasicButtonDimensionsBuilder =
+        iconMargin(iconMargin.asStatefulValue())
+
+    /**
+     * Устанавливает отступы иконки
+     */
+    fun iconMargin(iconMargin: StatefulValue<Dp>): BasicButtonDimensionsBuilder
 
     /**
      * Устанавливает отступ доп. текста
      */
-    fun valueMargin(valueMargin: Dp): BasicButtonDimensionsBuilder
+    fun valueMargin(valueMargin: Dp): BasicButtonDimensionsBuilder =
+        valueMargin(valueMargin.asStatefulValue())
+
+    /**
+     * Устанавливает отступы доп. текста
+     */
+    fun valueMargin(valueMargin: StatefulValue<Dp>): BasicButtonDimensionsBuilder
 
     /**
      * Возвращает [ButtonDimensions]
      */
-    fun build(): ButtonDimensions
+    fun build(): ButtonDimension
 
     companion object {
         /**
          * Вернет экземпляр билдера [BasicButtonDimensionsBuilder]
          */
-        fun builder(): BasicButtonDimensionsBuilder = DefaultBasicButtonDimensionsBuilder()
+        fun builder(): BasicButtonDimensionsBuilder = DefaultBasicButtonDimensions.Builder()
     }
 }
 
-private class DefaultBasicButtonDimensionsBuilder : BasicButtonDimensionsBuilder {
-    private var height: Dp? = null
-    private var paddingStart: Dp? = null
-    private var paddingEnd: Dp? = null
-    private var minWidth: Dp? = null
-    private var iconSize: Dp? = null
-    private var spinnerSize: Dp? = null
-    private var spinnerStrokeWidth: Dp? = null
-    private var iconMargin: Dp? = null
-    private var valueMargin: Dp? = null
-    override fun height(height: Dp): BasicButtonDimensionsBuilder = apply {
-        this.height = height
-    }
+@Immutable
+private class DefaultBasicButtonDimensions(
+    override val heightValues: StatefulValue<Dp>,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
+    override val minWidthValues: StatefulValue<Dp>,
+    override val iconSizeValues: StatefulValue<Dp>,
+    override val spinnerSizeValues: StatefulValue<Dp>,
+    override val spinnerStrokeWidthValues: StatefulValue<Dp>,
+    override val iconMarginValues: StatefulValue<Dp>,
+    override val valueMarginValues: StatefulValue<Dp>,
 
-    override fun paddingStart(paddingStart: Dp): BasicButtonDimensionsBuilder = apply {
-        this.paddingStart = paddingStart
-    }
+) : ButtonDimension {
+    class Builder : BasicButtonDimensionsBuilder {
+        private var heightValues: StatefulValue<Dp>? = null
+        private var paddingStartValues: StatefulValue<Dp>? = null
+        private var paddingEndValues: StatefulValue<Dp>? = null
+        private var minWidthValues: StatefulValue<Dp>? = null
+        private var iconSizeValues: StatefulValue<Dp>? = null
+        private var spinnerSizeValues: StatefulValue<Dp>? = null
+        private var spinnerStrokeWidthValues: StatefulValue<Dp>? = null
+        private var iconMarginValues: StatefulValue<Dp>? = null
+        private var valueMarginValues: StatefulValue<Dp>? = null
 
-    override fun paddingEnd(paddingEnd: Dp): BasicButtonDimensionsBuilder = apply {
-        this.paddingEnd = paddingEnd
-    }
-
-    override fun minWidth(minWidth: Dp): BasicButtonDimensionsBuilder = apply {
-        this.minWidth = minWidth
-    }
-
-    override fun iconSize(iconSize: Dp): BasicButtonDimensionsBuilder = apply {
-        this.iconSize = iconSize
-    }
-
-    override fun spinnerSize(spinnerSize: Dp): BasicButtonDimensionsBuilder = apply {
-        this.spinnerSize = spinnerSize
-    }
-
-    override fun spinnerStrokeWidth(spinnerStrokeWidth: Dp) = apply {
-        this.spinnerStrokeWidth = spinnerStrokeWidth
-    }
-
-    override fun iconMargin(iconMargin: Dp): BasicButtonDimensionsBuilder = apply {
-        this.iconMargin = iconMargin
-    }
-
-    override fun valueMargin(valueMargin: Dp): BasicButtonDimensionsBuilder = apply {
-        this.valueMargin = valueMargin
-    }
-
-    override fun build(): ButtonDimensions {
-        return ButtonDimensions(
-            height = height ?: 46.dp,
-            paddingStart = paddingStart ?: 0.dp,
-            paddingEnd = paddingEnd ?: 0.dp,
-            minWidth = minWidth ?: 84.dp,
-            iconSize = iconSize ?: 24.dp,
-            spinnerSize = spinnerSize ?: 22.dp,
-            spinnerStrokeWidth = spinnerStrokeWidth ?: 2.dp,
-            iconMargin = iconMargin ?: 6.dp,
-            valueMargin = valueMargin ?: 4.dp,
-        )
-    }
-}
-
-@Stable
-private class BasicButtonStyleBuilderImpl(override val receiver: Any?) : BasicButtonStyleBuilder {
-    private var shape: CornerBasedShape? = null
-    private var colorsBuilder: BasicButtonColorsBuilder = BasicButtonColorsBuilder.builder()
-    private var labelStyle: TextStyle? = null
-    private var valueStyle: TextStyle? = null
-    private var dimensionsBuilder: BasicButtonDimensionsBuilder =
-        BasicButtonDimensionsBuilder.builder()
-    private var disableAlpha: Float? = null
-    private var loadingAlpha: Float? = null
-
-    override fun shape(shape: CornerBasedShape) = apply {
-        this.shape = shape
-    }
-
-    @Composable
-    override fun colors(builder: @Composable BasicButtonColorsBuilder.() -> Unit): BasicButtonStyleBuilder =
-        apply {
-            this.colorsBuilder.builder()
+        override fun height(height: StatefulValue<Dp>): BasicButtonDimensionsBuilder = apply {
+            this.heightValues = height
         }
 
-    override fun labelStyle(labelStyle: TextStyle) = apply {
-        this.labelStyle = labelStyle
-    }
-
-    override fun valueStyle(valueStyle: TextStyle) = apply {
-        this.valueStyle = valueStyle
-    }
-
-    @Composable
-    override fun dimensions(builder: @Composable (BasicButtonDimensionsBuilder.() -> Unit)) =
-        apply {
-            this.dimensionsBuilder.builder()
+        override fun paddingStart(paddingStart: StatefulValue<Dp>): BasicButtonDimensionsBuilder = apply {
+            this.paddingStartValues = paddingStart
         }
 
-    @Deprecated("Use dimensions() with builder instead")
-    override fun dimensions(dimensions: ButtonDimensions) = apply {
-        this.dimensionsBuilder.apply {
-            height(dimensions.height)
-            paddingStart(dimensions.paddingStart)
-            paddingEnd(dimensions.paddingEnd)
-            minWidth(dimensions.minWidth)
-            iconSize(dimensions.iconSize)
-            spinnerSize(dimensions.spinnerSize)
-            iconMargin(dimensions.iconMargin)
-            valueMargin(dimensions.valueMargin)
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>): BasicButtonDimensionsBuilder = apply {
+            this.paddingEndValues = paddingEnd
         }
-    }
 
-    override fun disableAlpha(disableAlpha: Float) = apply {
-        this.disableAlpha = disableAlpha
-    }
+        override fun minWidth(minWidth: StatefulValue<Dp>): BasicButtonDimensionsBuilder = apply {
+            this.minWidthValues = minWidth
+        }
 
-    override fun loadingAlpha(loadingAlpha: Float) = apply {
-        this.loadingAlpha = loadingAlpha
-    }
+        override fun iconSize(iconSize: StatefulValue<Dp>): BasicButtonDimensionsBuilder = apply {
+            this.iconSizeValues = iconSize
+        }
 
-    override fun style(): ButtonStyle {
-        return DefaultBasicButtonStyle(
-            shape = shape ?: RoundedCornerShape(25),
-            colors = colorsBuilder.build(),
-            labelStyle = labelStyle ?: TextStyle.Default,
-            valueStyle = valueStyle ?: TextStyle.Default,
-            dimensions = dimensionsBuilder.build(),
-            disableAlpha = disableAlpha ?: DISABLED_BUTTON_ALPHA,
-            loadingAlpha = loadingAlpha ?: LOADING_BUTTON_ALPHA,
-        )
+        override fun spinnerSize(spinnerSize: StatefulValue<Dp>): BasicButtonDimensionsBuilder = apply {
+            this.spinnerSizeValues = spinnerSize
+        }
+
+        override fun spinnerStrokeWidth(spinnerStrokeWidth: StatefulValue<Dp>) = apply {
+            this.spinnerStrokeWidthValues = spinnerStrokeWidth
+        }
+
+        override fun iconMargin(iconMargin: StatefulValue<Dp>): BasicButtonDimensionsBuilder = apply {
+            this.iconMarginValues = iconMargin
+        }
+
+        override fun valueMargin(valueMargin: StatefulValue<Dp>): BasicButtonDimensionsBuilder = apply {
+            this.valueMarginValues = valueMargin
+        }
+
+        override fun build(): ButtonDimension {
+            return DefaultBasicButtonDimensions(
+                heightValues = heightValues ?: 46.dp.asStatefulValue(),
+                paddingStartValues = paddingStartValues ?: 0.dp.asStatefulValue(),
+                paddingEndValues = paddingEndValues ?: 0.dp.asStatefulValue(),
+                minWidthValues = minWidthValues ?: 84.dp.asStatefulValue(),
+                iconSizeValues = iconSizeValues ?: 24.dp.asStatefulValue(),
+                spinnerSizeValues = spinnerSizeValues ?: 22.dp.asStatefulValue(),
+                spinnerStrokeWidthValues = spinnerStrokeWidthValues ?: 2.dp.asStatefulValue(),
+                iconMarginValues = iconMarginValues ?: 6.dp.asStatefulValue(),
+                valueMarginValues = valueMarginValues ?: 4.dp.asStatefulValue(),
+            )
+        }
     }
 }
 
 @Immutable
 private class DefaultBasicButtonStyle(
-    override val shape: CornerBasedShape,
     override val colors: ButtonColors,
-    override val labelStyle: TextStyle,
-    override val valueStyle: TextStyle,
-    override val dimensions: ButtonDimensions,
+    override val labelStyles: StatefulValue<TextStyle>,
+    override val valueStyles: StatefulValue<TextStyle>,
+    override val dimensions: ButtonDimension,
     override val disableAlpha: Float,
     override val loadingAlpha: Float,
-) : ButtonStyle
+    override val shapes: StatefulValue<CornerBasedShape>,
+) : ButtonStyle {
+
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
+    override val labelStyle: TextStyle = labelStyles.getDefaultValue()
+
+    @Deprecated("Use valueStyles", replaceWith = ReplaceWith("valueStyles"))
+    override val valueStyle: TextStyle = valueStyles.getDefaultValue()
+
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
+
+    class Builder(override val receiver: Any?) : BasicButtonStyleBuilder {
+        private var shapes: StatefulValue<CornerBasedShape>? = null
+        private var colorsBuilder: BasicButtonColorsBuilder = BasicButtonColorsBuilder.builder()
+        private var labelStyles: StatefulValue<TextStyle>? = null
+        private var valueStyles: StatefulValue<TextStyle>? = null
+        private var dimensionsBuilder: BasicButtonDimensionsBuilder =
+            BasicButtonDimensionsBuilder.builder()
+        private var disableAlpha: Float? = null
+        private var loadingAlpha: Float? = null
+
+        override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
+            this.shapes = shape
+        }
+
+        @Composable
+        override fun colors(builder: @Composable BasicButtonColorsBuilder.() -> Unit): BasicButtonStyleBuilder =
+            apply {
+                this.colorsBuilder.builder()
+            }
+
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>) = apply {
+            this.labelStyles = labelStyle
+        }
+
+        override fun valueStyle(valueStyle: StatefulValue<TextStyle>) = apply {
+            this.valueStyles = valueStyle
+        }
+
+        @Composable
+        override fun dimensions(builder: @Composable (BasicButtonDimensionsBuilder.() -> Unit)) =
+            apply {
+                this.dimensionsBuilder.builder()
+            }
+
+        @Deprecated("Use dimensions() with builder instead")
+        override fun dimensions(dimensions: ButtonDimensions) = apply {
+            this.dimensionsBuilder.apply {
+                height(dimensions.height)
+                paddingStart(dimensions.paddingStart)
+                paddingEnd(dimensions.paddingEnd)
+                minWidth(dimensions.minWidth)
+                iconSize(dimensions.iconSize)
+                spinnerSize(dimensions.spinnerSize)
+                iconMargin(dimensions.iconMargin)
+                valueMargin(dimensions.valueMargin)
+            }
+        }
+
+        override fun disableAlpha(disableAlpha: Float) = apply {
+            this.disableAlpha = disableAlpha
+        }
+
+        override fun loadingAlpha(loadingAlpha: Float) = apply {
+            this.loadingAlpha = loadingAlpha
+        }
+
+        override fun style(): ButtonStyle {
+            return DefaultBasicButtonStyle(
+                shapes = shapes ?: RoundedCornerShape(25).asStatefulValue(),
+                colors = colorsBuilder.build(),
+                labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),
+                valueStyles = valueStyles ?: TextStyle.Default.asStatefulValue(),
+                dimensions = dimensionsBuilder.build(),
+                disableAlpha = disableAlpha ?: DISABLED_BUTTON_ALPHA,
+                loadingAlpha = loadingAlpha ?: LOADING_BUTTON_ALPHA,
+            )
+        }
+    }
+}
 
 @Immutable
 private class DefaultBasicButtonColors(
-    override val backgroundColor: InteractiveColor,
-    override val labelColor: InteractiveColor,
-    override val valueColor: InteractiveColor,
-    override val iconColor: InteractiveColor,
+    override val backgroundBrush: StatefulValue<Brush>,
+    override val labelBrush: StatefulValue<Brush>,
+    override val valueBrush: StatefulValue<Brush>,
+    override val iconBrush: StatefulValue<Brush>,
     override val spinnerColor: InteractiveColor,
 ) : ButtonColors {
+    @Deprecated("Use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
+    override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
 
+    @Deprecated("Use labelBrush", replaceWith = ReplaceWith("labelBrush"))
+    override val labelColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("Use valueBrush", replaceWith = ReplaceWith("valueBrush"))
+    override val valueColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("Use iconBrush", replaceWith = ReplaceWith("iconBrush"))
+    override val iconColor: InteractiveColor = Color.Transparent.asInteractive()
     class Builder : BasicButtonColorsBuilder {
-        private var contentColor: InteractiveColor? = null
-        private var backgroundColor: InteractiveColor? = null
-        private var labelColor: InteractiveColor? = null
-        private var valueColor: InteractiveColor? = null
-        private var iconColor: InteractiveColor? = null
+        private var contentBrush: StatefulValue<Brush>? = null
+        private var backgroundBrush: StatefulValue<Brush>? = null
+        private var labelBrush: StatefulValue<Brush>? = null
+        private var valueBrush: StatefulValue<Brush>? = null
+        private var iconBrush: StatefulValue<Brush>? = null
         private var spinnerColor: InteractiveColor? = null
 
-        override fun contentColor(contentColor: InteractiveColor) = apply {
-            this.contentColor = contentColor
+        override fun contentColor(contentColor: StatefulValue<Brush>) = apply {
+            this.contentBrush = contentColor
         }
 
-        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
-            this.backgroundColor = backgroundColor
+        override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
+            this.backgroundBrush = backgroundColor
         }
 
-        override fun labelColor(labelColor: InteractiveColor) = apply {
-            this.labelColor = labelColor
+        override fun labelColor(labelColor: StatefulValue<Brush>) = apply {
+            this.labelBrush = labelColor
         }
 
-        override fun valueColor(valueColor: InteractiveColor) = apply {
-            this.valueColor = valueColor
+        override fun valueColor(valueColor: StatefulValue<Brush>) = apply {
+            this.valueBrush = valueColor
         }
 
-        override fun iconColor(iconColor: InteractiveColor) = apply {
-            this.iconColor = iconColor
+        override fun iconColor(iconColor: StatefulValue<Brush>) = apply {
+            this.iconBrush = iconColor
         }
 
         override fun spinnerColor(spinnerColor: InteractiveColor) = apply {
@@ -438,10 +615,10 @@ private class DefaultBasicButtonColors(
 
         override fun build(): ButtonColors {
             return DefaultBasicButtonColors(
-                backgroundColor = backgroundColor ?: Color.White.asInteractive(),
-                labelColor = labelColor ?: Color.Black.asInteractive(),
-                valueColor = valueColor ?: Color.Black.asInteractive(),
-                iconColor = iconColor ?: Color.Black.asInteractive(),
+                backgroundBrush = backgroundBrush ?: Color.White.asStatefulBrush(),
+                labelBrush = labelBrush ?: Color.Black.asStatefulBrush(),
+                valueBrush = valueBrush ?: Color.Black.asStatefulBrush(),
+                iconBrush = iconBrush ?: Color.Black.asStatefulBrush(),
                 spinnerColor = spinnerColor ?: Color.Black.asInteractive(),
             )
         }

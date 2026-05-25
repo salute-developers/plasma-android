@@ -2,7 +2,6 @@ package com.sdds.compose.uikit.internal
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Indication
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.defaultMinSize
@@ -11,13 +10,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.layoutId
@@ -33,19 +30,29 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import androidx.compose.ui.util.fastRoundToInt
 import androidx.compose.ui.zIndex
-import com.sdds.compose.uikit.ButtonColors
-import com.sdds.compose.uikit.ButtonDimensions
 import com.sdds.compose.uikit.ButtonSpacing
+import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.LocalButtonForceShape
 import com.sdds.compose.uikit.LocalIconDefaultSize
-import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.ProvideTextBehaviour
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextBehaviour
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.surface
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.button.ButtonMotionStyle
+import com.sdds.compose.uikit.motion.components.button.rememberButtonMotion
+import com.sdds.compose.uikit.motion.components.common.CommonButtonMotionStyle
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.getValueAsState
 
 /**
  * Базовая кнопка
@@ -56,50 +63,63 @@ internal fun BaseButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
     onClickLabel: String? = null,
-    shape: Shape,
-    colors: ButtonColors,
-    loadingAlpha: Float,
-    dimensions: ButtonDimensions,
-    disabledAlpha: Float,
+    style: ButtonStyle,
     enabled: Boolean = true,
     loading: Boolean = false,
     indication: Indication? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<ButtonMotionStyle> = rememberButtonMotion(),
+    needPaddingCompensation: Boolean = false,
     spacing: ButtonSpacing = ButtonSpacing.Packed,
-    startContent: @Composable () -> Unit = {},
-    endContent: @Composable () -> Unit = {},
+    startContent: (@Composable () -> Unit)? = null,
+    endContent: (@Composable () -> Unit)? = null,
     textContent: @Composable () -> Unit = {},
 ) {
-    val backgroundColor = colors.backgroundColor.colorForInteraction(interactionSource)
-    val spinnerColor = colors.spinnerColor.colorForInteraction(interactionSource)
+    val interactionSource = motion.context.interactionSource
     val isFocused = interactionSource.collectIsFocusedAsState()
+    val shape = LocalButtonForceShape.current ?: style.shapes.getValue(interactionSource)
+    val bgBrush = style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
+
+    val minWidth = style.dimensions.minWidthValues.getValue(interactionSource)
+    val height = style.dimensions.heightValues.getValue(interactionSource)
+    val startPadding by style.dimensions.paddingStartValues.getValueAsState(interactionSource)
+    val endPadding by style.dimensions.paddingEndValues.getValueAsState(interactionSource)
+    val startResolved = resolvePadding((needPaddingCompensation && startContent != null), startPadding)
+    val endResolved = resolvePadding((needPaddingCompensation && endContent != null), endPadding)
     Box(
         modifier = modifier
             .focusSelector(LocalFocusSelectorSettings.current, shape) { isFocused.value }
-            .defaultMinSize(dimensions.minWidth, dimensions.height)
-            .height(dimensions.height)
+            .defaultMinSize(minWidth, height)
+            .height(height)
             .surface(
                 shape = shape,
                 onClick = onClick,
                 onClickLabel = onClickLabel,
-                backgroundColor = { SolidColor(backgroundColor) },
+                backgroundColor = { bgBrush.value },
                 indication = indication,
                 enabled = enabled,
-                alpha = { if (it) ENABLED_BUTTON_ALPHA else disabledAlpha },
+                alpha = { if (it) ENABLED_BUTTON_ALPHA else style.disableAlpha },
                 role = Role.Button,
                 interactionSource = interactionSource,
             )
             .zIndex(if (isFocused.value) 1f else 0f)
-            .padding(dimensions.paddingStart, 0.dp, dimensions.paddingEnd, 0.dp),
+            .padding(startResolved, 0.dp, endResolved, 0.dp),
         contentAlignment = Alignment.Center,
         propagateMinConstraints = true,
     ) {
         Layout(
             modifier = Modifier
-                .alpha(if (loading) loadingAlpha else ENABLED_BUTTON_ALPHA),
+                .alpha(if (loading) style.loadingAlpha else ENABLED_BUTTON_ALPHA),
             content = {
-                Box(Modifier.layoutId(START_CONTENT_ID)) { startContent() }
-                Box(Modifier.layoutId(END_CONTENT_ID)) { endContent() }
+                startContent?.let {
+                    Box(Modifier.layoutId(START_CONTENT_ID)) {
+                        it.invoke()
+                    }
+                }
+                endContent?.let {
+                    Box(Modifier.layoutId(END_CONTENT_ID)) {
+                        it.invoke()
+                    }
+                }
                 Box(
                     modifier = Modifier.layoutId(TEXT_CONTENT_ID),
                     propagateMinConstraints = true,
@@ -173,10 +193,13 @@ internal fun BaseButton(
             }
         }
         if (loading) {
+            val tint by style.colors.spinnerColor.colorForInteractionAsState(motion.context, motion.style.spinnerColor)
+            val size = style.dimensions.spinnerSizeValues.getValue(interactionSource)
+            val stroke by style.dimensions.spinnerStrokeWidthValues.getValueAsState(interactionSource)
             BaseSpinner(
-                modifier = Modifier.requiredSize(dimensions.spinnerSize),
-                tint = spinnerColor,
-                strokeWidth = dimensions.spinnerStrokeWidth,
+                modifier = Modifier.requiredSize(size),
+                tint = tint,
+                strokeWidth = stroke,
             )
         }
     }
@@ -190,22 +213,27 @@ internal fun BaseButton(
 @Deprecated("Use ButtonIcon with iconRes parameter")
 internal fun ButtonIcon(
     icon: Painter,
-    size: Dp,
-    marginStart: Dp = 0.dp,
-    marginEnd: Dp = 0.dp,
-    iconColor: Color,
+    style: ButtonStyle,
+    marginStart: StatefulValue<Dp>? = null,
+    marginEnd: StatefulValue<Dp>? = null,
     contentDescription: String? = null,
+    motion: Motion<ButtonMotionStyle>,
 ) {
+    val interactionSource = motion.context.interactionSource
+    val startMargin = marginStart?.getValue(interactionSource) ?: 0.dp
+    val endMargin = marginEnd?.getValue(interactionSource) ?: 0.dp
+    val size = style.dimensions.iconSizeValues.getValue(interactionSource)
+    val brush = style.colors.iconBrush.getBrushAsState(motion.context, motion.style.iconColor)
     Icon(
         painter = icon,
         contentDescription = contentDescription,
         modifier = Modifier
             .padding(
-                start = if (marginStart.value > 0) marginStart else 0.dp,
-                end = if (marginEnd.value > 0) marginEnd else 0.dp,
+                start = startMargin,
+                end = endMargin,
             )
             .requiredSize(size),
-        tint = iconColor,
+        brush = { brush.value },
     )
 }
 
@@ -217,22 +245,27 @@ internal fun ButtonIcon(
 internal fun ButtonIcon(
     @DrawableRes
     iconRes: Int,
-    size: Dp,
-    marginStart: Dp = 0.dp,
-    marginEnd: Dp = 0.dp,
-    iconColor: Color,
+    style: ButtonStyle,
+    marginStart: StatefulValue<Dp>? = null,
+    marginEnd: StatefulValue<Dp>? = null,
     contentDescription: String? = null,
+    motion: Motion<ButtonMotionStyle>,
 ) {
+    val interactionSource = motion.context.interactionSource
+    val startMargin = marginStart?.getValue(interactionSource) ?: 0.dp
+    val endMargin = marginEnd?.getValue(interactionSource) ?: 0.dp
+    val size = style.dimensions.iconSizeValues.getValue(interactionSource)
+    val brush = style.colors.iconBrush.getBrushAsState(motion.context, motion.style.iconColor)
     Icon(
         painter = painterResource(iconRes),
         contentDescription = contentDescription,
         modifier = Modifier
             .padding(
-                start = if (marginStart.value > 0) marginStart else 0.dp,
-                end = if (marginEnd.value > 0) marginEnd else 0.dp,
+                start = startMargin,
+                end = endMargin,
             )
             .requiredSize(size),
-        tint = iconColor,
+        brush = { brush.value },
     )
 }
 
@@ -242,21 +275,27 @@ internal fun ButtonIcon(
  */
 @Composable
 internal fun ButtonIcon(
-    iconSize: Dp,
-    marginStart: Dp = 0.dp,
-    marginEnd: Dp = 0.dp,
-    iconColor: Color,
+    iconSize: StatefulValue<Dp>,
+    marginStart: StatefulValue<Dp>? = null,
+    marginEnd: StatefulValue<Dp>? = null,
+    iconColor: StatefulValue<Brush>,
+    motion: Motion<ButtonMotionStyle>,
     icon: @Composable () -> Unit,
 ) {
+    val interactionSource = motion.context.interactionSource
+    val startMargin = marginStart?.getValue(interactionSource) ?: 0.dp
+    val endMargin = marginEnd?.getValue(interactionSource) ?: 0.dp
+    val size by iconSize.getValueAsState(interactionSource)
+    val brush = iconColor.getBrushAsState(motion.context, motion.style.iconColor)
     Box(
         Modifier.padding(
-            start = if (marginStart.value > 0) marginStart else 0.dp,
-            end = if (marginEnd.value > 0) marginEnd else 0.dp,
+            start = startMargin,
+            end = endMargin,
         ),
     ) {
-        val actualIconSize = if (iconSize == 0.dp) Dp.Unspecified else iconSize
+        val actualIconSize = if (size == 0.dp) Dp.Unspecified else size
         CompositionLocalProvider(
-            LocalTint provides iconColor,
+            LocalTintBrushProducer provides { brush.value },
             LocalIconDefaultSize provides DpSize(actualIconSize, actualIconSize),
         ) {
             icon()
@@ -270,29 +309,29 @@ internal fun ButtonIcon(
 @Composable
 internal fun ButtonText(
     label: String,
-    labelTextStyle: TextStyle,
-    labelColor: Color,
-    valueTextStyle: TextStyle,
-    valueColor: Color,
+    labelTextStyle: StatefulValue<TextStyle>,
+    labelColor: StatefulValue<Brush>,
+    valueTextStyle: StatefulValue<TextStyle>,
+    valueColor: StatefulValue<Brush>,
     modifier: Modifier = Modifier,
-    valueMargin: Dp,
+    valueMargin: StatefulValue<Dp>,
     value: String?,
+    motion: Motion<CommonButtonMotionStyle>,
 ) {
     ButtonText(
         modifier = modifier,
         labelContent = { Text(label) },
         labelTextStyle = labelTextStyle,
-        labelColor = { labelColor },
+        labelColor = labelColor,
         valueContent = if (!value.isNullOrEmpty()) {
-            {
-                Text(value)
-            }
+            { Text(value) }
         } else {
             null
         },
         valueTextStyle = valueTextStyle,
-        valueColor = { valueColor },
+        valueColor = valueColor,
         valueMargin = valueMargin,
+        motion = motion,
     )
 }
 
@@ -302,30 +341,35 @@ internal fun ButtonText(
 @Composable
 internal fun ButtonText(
     labelContent: @Composable () -> Unit,
-    labelTextStyle: TextStyle,
-    labelColor: () -> Color,
+    labelTextStyle: StatefulValue<TextStyle>,
+    labelColor: StatefulValue<Brush>,
     modifier: Modifier = Modifier,
     valueContent: (@Composable () -> Unit)?,
-    valueTextStyle: TextStyle,
-    valueColor: () -> Color,
-    valueMargin: Dp = Dp.Unspecified,
+    valueTextStyle: StatefulValue<TextStyle>,
+    valueColor: StatefulValue<Brush>,
+    valueMargin: StatefulValue<Dp>,
+    motion: Motion<CommonButtonMotionStyle>,
 ) {
     ProvideTextBehaviour(TextBehaviour(overflow = TextOverflow.Ellipsis, maxLines = 1, softWrap = false)) {
         Layout(
             modifier = modifier,
             content = {
                 Box(Modifier.layoutId(LABEL_TEXT_ID)) {
-                    ProvideTextStyle(labelTextStyle, color = labelColor) {
+                    val labelStateBrush = labelColor.getBrushAsState(motion.context, motion.style.labelColor)
+                    val labelStyle by labelTextStyle.getTextStyleAsState(motion.context, motion.style.labelStyle)
+                    ProvideTextStyle(labelStyle, brush = { labelStateBrush.value }) {
                         labelContent()
                     }
                 }
                 if (valueContent != null) {
                     Box(
                         Modifier
-                            .padding(start = valueMargin)
+                            .padding(start = valueMargin.getValue(motion.context.interactionSource))
                             .layoutId(VALUE_TEXT_ID),
                     ) {
-                        ProvideTextStyle(valueTextStyle, color = valueColor) {
+                        val valueStateBrush = valueColor.getBrushAsState(motion.context, motion.style.valueColor)
+                        val valueStyle by valueTextStyle.getTextStyleAsState(motion.context, motion.style.valueStyle)
+                        ProvideTextStyle(valueStyle, brush = { valueStateBrush.value }) {
                             valueContent()
                         }
                     }
@@ -354,9 +398,20 @@ internal fun ButtonText(
     }
 }
 
+private fun resolvePadding(
+    needCompensation: Boolean,
+    padding: Dp,
+) = if (needCompensation && padding > IconPaddingOffset) {
+    padding - IconPaddingOffset
+} else {
+    padding
+}
+
 private const val ENABLED_BUTTON_ALPHA = 1f
 private const val LABEL_TEXT_ID = "label_text"
 private const val VALUE_TEXT_ID = "value_text"
 private const val START_CONTENT_ID = "start_content"
 private const val END_CONTENT_ID = "end_content"
 private const val TEXT_CONTENT_ID = "text_content"
+
+private val IconPaddingOffset = 2.dp
