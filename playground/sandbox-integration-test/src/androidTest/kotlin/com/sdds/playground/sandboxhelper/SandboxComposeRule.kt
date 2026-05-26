@@ -27,6 +27,7 @@ fun createSandboxComposeRule(
 }
 
 internal object SandboxScenariosIds {
+    const val FOCUS_SELECTOR = "focus-selector-tabs"
     const val LOGIN_FORM = "login-form-basic"
     const val TOOLTIP_CLOSE = "popup-tooltip-basic"
     const val MODAL_SCROLLBAR = "modal-scrollbar-basic"

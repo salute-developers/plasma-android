@@ -36,7 +36,7 @@ internal fun TooltipScenarioScreen() {
     var uiState by remember { mutableStateOf(TooltipScenarioUiState.initial()) }
 
     ScenarioScaffold(
-        title = "Интеграционный сценарий: Tooltip popupProperties",
+        title = "Интеграционный сценарий: Всплывающий тултип",
         description = "Первый тултип закрывается по нажатию на встроенную кнопку. " +
             "Второй тултип закрывается по тапу вне области тултипа.",
         checks = uiState.checks,

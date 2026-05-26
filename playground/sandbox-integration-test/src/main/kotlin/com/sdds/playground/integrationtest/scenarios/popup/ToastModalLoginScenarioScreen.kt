@@ -76,14 +76,14 @@ internal fun ToastModalLoginFormScenarioScreen() {
     }
 
     val checks = uiState.checks + ScenarioCheckUiState(
-        title = "Toast появляется после успешного ввода",
+        title = "Тост появляется после успешного ввода",
         passed = toastShownAfterValidSubmit,
         testTag = ToastTags.CHECK_TOAST_AFTER_VALID_SUBMIT,
     )
 
     ScenarioScaffold(
-        title = "Интеграционный сценарий: Toast показывается после ввода",
-        description = "Toast появляется после ввода и закрытия модал",
+        title = "Интеграционный сценарий: Тост показывается после ввода",
+        description = "Тост появляется после ввода и закрытия модального окна",
         checks = checks,
         rootTestTag = ToastTags.ROOT,
     ) {

@@ -40,7 +40,7 @@ internal fun ModalScenarioScreen() {
     val screenScrollState = rememberScrollState()
 
     ScenarioScaffold(
-        title = "Интеграционный сценарий: Modal + Scrollbar",
+        title = "Интеграционный сценарий: Модальное окно и скроллбар",
         description = "Проверяем скролится ли контент после открытия и закрытия модального окна",
         checks = uiState.checks,
         rootTestTag = ModalTags.ROOT,

@@ -170,7 +170,7 @@ private fun buildChecks(
         testTag = LoginFormTags.check(3),
     ),
     ScenarioCheckUiState(
-        title = "Правильный ввод переводит кнопку в статус Loading",
+        title = "Правильный ввод переводит кнопку в состояние загрузки",
         passed = loading && email == "demo" && password == "demo",
         testTag = LoginFormTags.check(4),
     ),

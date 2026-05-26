@@ -1,5 +1,6 @@
 package com.sdds.playground.integrationtest.scenarios.login
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -81,9 +82,9 @@ internal fun LoginFormScenarioScreen() {
     }
 
     ScenarioScaffold(
-        title = "Интеграционный сценарий: Login Form",
-        description = "A realistic form flow that checks field composition, CTA gating, " +
-            "error rendering and loading transition.",
+        title = "Интеграционный сценарий: Форма входа",
+        description = "Реалистичный сценарий формы, который проверяет композицию полей, CTA gating, " +
+            "отображение ошибки и переход в состояние загрузки.",
         checks = uiState.checks,
         rootTestTag = LoginFormTags.ROOT,
     ) {
@@ -102,10 +103,14 @@ internal fun LoginFormScenarioScreen() {
             )
 
             ModalBottomSheet(
+                modifier = Modifier.testTag(LoginFormTags.SHEET),
                 style = ModalBottomSheet.Default.style(),
                 edgeToEdge = false,
                 sheetState = sheetState,
                 handlePlacement = BottomSheetHandlePlacement.Auto,
+                onDismiss = {
+                    Log.d(LOG_TAG, "onDismiss")
+                },
                 fitContent = true,
                 header = {
                     Column {
@@ -114,7 +119,7 @@ internal fun LoginFormScenarioScreen() {
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceBetween,
                         ) {
-                            Text(text = "Login Form")
+                            Text(text = "Форма входа")
                             IconButton(
                                 style = IconButton.M.Clear.style(),
                                 modifier = Modifier.testTag("login_form_close_sheet_btn"),
@@ -196,3 +201,5 @@ internal fun LoginFormScenarioScreen() {
         }
     }
 }
+
+private const val LOG_TAG = "LoginFormScenario"

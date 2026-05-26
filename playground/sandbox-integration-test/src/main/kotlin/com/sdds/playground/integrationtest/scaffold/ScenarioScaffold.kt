@@ -2,14 +2,20 @@ package com.sdds.playground.integrationtest.scaffold
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.List
+import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.style.style
 import com.sdds.playground.integrationtest.testtags.CommonScenarioTags
 import com.sdds.playground.integrationtest.uistate.ScenarioCheckUiState
+import com.sdds.serv.styles.list.ListTight
+import com.sdds.serv.styles.list.Xs
 
 @Composable
 internal fun ScenarioScaffold(
@@ -26,27 +32,39 @@ internal fun ScenarioScaffold(
             .testTag(rootTestTag),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        Text(
-            text = title,
-            modifier = Modifier.testTag(CommonScenarioTags.TITLE),
-        )
-        Text(
-            text = description,
-            modifier = Modifier.testTag(CommonScenarioTags.DESCRIPTION),
-        )
-        Text(
-            text = "Progress: ${checks.count { it.passed }}/${checks.size}",
-            modifier = Modifier.testTag(CommonScenarioTags.PROGRESS),
-        )
-        Column(
-            modifier = Modifier.testTag(CommonScenarioTags.CHECKS_SECTION),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+        List(
+            modifier = Modifier.fillMaxWidth(),
+            style = ListTight.Xs.style(),
         ) {
-            checks.forEachIndexed { index, check ->
+            item {
+                ListItem(
+                    text = title,
+                    modifier = Modifier.testTag(CommonScenarioTags.TITLE),
+                )
+            }
+            item {
+                ListItem(
+                    text = description,
+                    modifier = Modifier.testTag(CommonScenarioTags.DESCRIPTION),
+                )
+            }
+            item {
+                ListItem(
+                    text = "Progress: ${checks.count { it.passed }}/${checks.size}",
+                    modifier = Modifier.testTag(CommonScenarioTags.PROGRESS),
+                )
+            }
+            items(checks.size) { index ->
+                val check = checks[index]
                 val prefix = if (check.passed) "PASS" else "WAIT"
-                Text(
-                    text = "$prefix ${index + 1}. ${check.title}",
-                    modifier = Modifier.testTag(check.testTag),
+                ListItem(
+                    modifier = Modifier.fillMaxWidth(),
+                    titleContent = {
+                        Text(
+                            text = "$prefix ${index + 1}. ${check.title}",
+                            modifier = Modifier.testTag(check.testTag),
+                        )
+                    },
                 )
             }
         }
