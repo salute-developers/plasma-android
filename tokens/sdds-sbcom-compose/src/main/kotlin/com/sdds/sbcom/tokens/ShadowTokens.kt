@@ -75,6 +75,246 @@ public object ShadowTokens {
     }
 
     /**
+     * center hard s
+     */
+    public object CenterHardSLayer1 {
+        /**
+         * center hard s
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * center hard s
+         */
+        public val offsetY: Dp = 0.0.dp
+
+        /**
+         * center hard s
+         */
+        public val spreadRadius: Dp = -2.0.dp
+
+        /**
+         * center hard s
+         */
+        public val blurRadius: Dp = 12.0.dp
+
+        /**
+         * center hard s
+         */
+        public val color: Color = Color(0x33080808)
+    }
+
+    /**
+     * center hard s
+     */
+    public object CenterHardSLayer2 {
+        /**
+         * center hard s
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * center hard s
+         */
+        public val offsetY: Dp = 0.0.dp
+
+        /**
+         * center hard s
+         */
+        public val spreadRadius: Dp = 0.0.dp
+
+        /**
+         * center hard s
+         */
+        public val blurRadius: Dp = 4.0.dp
+
+        /**
+         * center hard s
+         */
+        public val color: Color = Color(0x08000000)
+    }
+
+    /**
+     * center soft s
+     */
+    public object CenterSoftSLayer1 {
+        /**
+         * center soft s
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * center soft s
+         */
+        public val offsetY: Dp = 0.0.dp
+
+        /**
+         * center soft s
+         */
+        public val spreadRadius: Dp = -4.0.dp
+
+        /**
+         * center soft s
+         */
+        public val blurRadius: Dp = 14.0.dp
+
+        /**
+         * center soft s
+         */
+        public val color: Color = Color(0x14080808)
+    }
+
+    /**
+     * center soft s
+     */
+    public object CenterSoftSLayer2 {
+        /**
+         * center soft s
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * center soft s
+         */
+        public val offsetY: Dp = 0.0.dp
+
+        /**
+         * center soft s
+         */
+        public val spreadRadius: Dp = -1.0.dp
+
+        /**
+         * center soft s
+         */
+        public val blurRadius: Dp = 4.0.dp
+
+        /**
+         * center soft s
+         */
+        public val color: Color = Color(0x08000000)
+    }
+
+    /**
+     * center hard l
+     */
+    public object CenterHardL {
+        /**
+         * center hard l
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * center hard l
+         */
+        public val offsetY: Dp = 0.0.dp
+
+        /**
+         * center hard l
+         */
+        public val spreadRadius: Dp = 0.0.dp
+
+        /**
+         * center hard l
+         */
+        public val blurRadius: Dp = 96.0.dp
+
+        /**
+         * center hard l
+         */
+        public val color: Color = Color(0x66000000)
+    }
+
+    /**
+     * center hard m
+     */
+    public object CenterHardM {
+        /**
+         * center hard m
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * center hard m
+         */
+        public val offsetY: Dp = 0.0.dp
+
+        /**
+         * center hard m
+         */
+        public val spreadRadius: Dp = 0.0.dp
+
+        /**
+         * center hard m
+         */
+        public val blurRadius: Dp = 24.0.dp
+
+        /**
+         * center hard m
+         */
+        public val color: Color = Color(0x3D000000)
+    }
+
+    /**
+     * center soft l
+     */
+    public object CenterSoftL {
+        /**
+         * center soft l
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * center soft l
+         */
+        public val offsetY: Dp = 0.0.dp
+
+        /**
+         * center soft l
+         */
+        public val spreadRadius: Dp = -8.0.dp
+
+        /**
+         * center soft l
+         */
+        public val blurRadius: Dp = 112.0.dp
+
+        /**
+         * center soft l
+         */
+        public val color: Color = Color(0x14000000)
+    }
+
+    /**
+     * center soft m
+     */
+    public object CenterSoftM {
+        /**
+         * center soft m
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * center soft m
+         */
+        public val offsetY: Dp = 0.0.dp
+
+        /**
+         * center soft m
+         */
+        public val spreadRadius: Dp = -8.0.dp
+
+        /**
+         * center soft m
+         */
+        public val blurRadius: Dp = 48.0.dp
+
+        /**
+         * center soft m
+         */
+        public val color: Color = Color(0x14000000)
+    }
+
+    /**
      * shadow down soft s
      */
     public object DownSoftSLayer1 {
@@ -140,41 +380,6 @@ public object ShadowTokens {
     }
 
     /**
-     * shadow down soft m
-     */
-    public object DownSoftM {
-        /**
-         * shadow down soft m
-         */
-        public val offsetX: Dp = 0.0.dp
-
-        /**
-         * shadow down soft m
-         */
-        public val offsetY: Dp = 24.0.dp
-
-        /**
-         * shadow down soft m
-         */
-        public val spreadRadius: Dp = -8.0.dp
-
-        /**
-         * shadow down soft m
-         */
-        public val blurRadius: Dp = 48.0.dp
-
-        /**
-         * shadow down soft m
-         */
-        public val fallbackElevation: Dp = 4.0.dp
-
-        /**
-         * shadow down soft m
-         */
-        public val color: Color = Color(0x14000000)
-    }
-
-    /**
      * shadow down soft l
      */
     public object DownSoftL {
@@ -210,133 +415,38 @@ public object ShadowTokens {
     }
 
     /**
-     * shadow up hard m
+     * shadow down soft m
      */
-    public object UpHardM {
+    public object DownSoftM {
         /**
-         * shadow up hard m
+         * shadow down soft m
          */
         public val offsetX: Dp = 0.0.dp
 
         /**
-         * shadow up hard m
+         * shadow down soft m
          */
-        public val offsetY: Dp = -16.0.dp
+        public val offsetY: Dp = 24.0.dp
 
         /**
-         * shadow up hard m
-         */
-        public val spreadRadius: Dp = -8.0.dp
-
-        /**
-         * shadow up hard m
-         */
-        public val blurRadius: Dp = 32.0.dp
-
-        /**
-         * shadow up hard m
-         */
-        public val color: Color = Color(0x3D000000)
-    }
-
-    /**
-     * shadow up hard l
-     */
-    public object UpHardL {
-        /**
-         * shadow up hard l
-         */
-        public val offsetX: Dp = 0.0.dp
-
-        /**
-         * shadow up hard l
-         */
-        public val offsetY: Dp = -60.0.dp
-
-        /**
-         * shadow up hard l
+         * shadow down soft m
          */
         public val spreadRadius: Dp = -8.0.dp
 
         /**
-         * shadow up hard l
+         * shadow down soft m
          */
-        public val blurRadius: Dp = 112.0.dp
+        public val blurRadius: Dp = 48.0.dp
 
         /**
-         * shadow up hard l
-         */
-        public val color: Color = Color(0x66000000)
-    }
-
-    /**
-     * shadow down hard m
-     */
-    public object DownHardM {
-        /**
-         * shadow down hard m
-         */
-        public val offsetX: Dp = 0.0.dp
-
-        /**
-         * shadow down hard m
-         */
-        public val offsetY: Dp = 16.0.dp
-
-        /**
-         * shadow down hard m
-         */
-        public val spreadRadius: Dp = -8.0.dp
-
-        /**
-         * shadow down hard m
-         */
-        public val blurRadius: Dp = 32.0.dp
-
-        /**
-         * shadow down hard m
+         * shadow down soft m
          */
         public val fallbackElevation: Dp = 4.0.dp
 
         /**
-         * shadow down hard m
+         * shadow down soft m
          */
-        public val color: Color = Color(0x3D000000)
-    }
-
-    /**
-     * shadow down hard l
-     */
-    public object DownHardL {
-        /**
-         * shadow down hard l
-         */
-        public val offsetX: Dp = 0.0.dp
-
-        /**
-         * shadow down hard l
-         */
-        public val offsetY: Dp = 60.0.dp
-
-        /**
-         * shadow down hard l
-         */
-        public val spreadRadius: Dp = -8.0.dp
-
-        /**
-         * shadow down hard l
-         */
-        public val blurRadius: Dp = 112.0.dp
-
-        /**
-         * shadow down hard l
-         */
-        public val fallbackElevation: Dp = 6.0.dp
-
-        /**
-         * shadow down hard l
-         */
-        public val color: Color = Color(0x66000000)
+        public val color: Color = Color(0x14000000)
     }
 
     /**
@@ -517,5 +627,135 @@ public object ShadowTokens {
          * shadow up hard s
          */
         public val color: Color = Color(0x08000000)
+    }
+
+    /**
+     * shadow down hard m
+     */
+    public object DownHardM {
+        /**
+         * shadow down hard m
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * shadow down hard m
+         */
+        public val offsetY: Dp = 16.0.dp
+
+        /**
+         * shadow down hard m
+         */
+        public val spreadRadius: Dp = -8.0.dp
+
+        /**
+         * shadow down hard m
+         */
+        public val blurRadius: Dp = 32.0.dp
+
+        /**
+         * shadow down hard m
+         */
+        public val fallbackElevation: Dp = 4.0.dp
+
+        /**
+         * shadow down hard m
+         */
+        public val color: Color = Color(0x3D000000)
+    }
+
+    /**
+     * shadow up hard l
+     */
+    public object UpHardL {
+        /**
+         * shadow up hard l
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * shadow up hard l
+         */
+        public val offsetY: Dp = -60.0.dp
+
+        /**
+         * shadow up hard l
+         */
+        public val spreadRadius: Dp = -8.0.dp
+
+        /**
+         * shadow up hard l
+         */
+        public val blurRadius: Dp = 112.0.dp
+
+        /**
+         * shadow up hard l
+         */
+        public val color: Color = Color(0x66000000)
+    }
+
+    /**
+     * shadow up hard m
+     */
+    public object UpHardM {
+        /**
+         * shadow up hard m
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * shadow up hard m
+         */
+        public val offsetY: Dp = -16.0.dp
+
+        /**
+         * shadow up hard m
+         */
+        public val spreadRadius: Dp = -8.0.dp
+
+        /**
+         * shadow up hard m
+         */
+        public val blurRadius: Dp = 32.0.dp
+
+        /**
+         * shadow up hard m
+         */
+        public val color: Color = Color(0x3D000000)
+    }
+
+    /**
+     * shadow down hard l
+     */
+    public object DownHardL {
+        /**
+         * shadow down hard l
+         */
+        public val offsetX: Dp = 0.0.dp
+
+        /**
+         * shadow down hard l
+         */
+        public val offsetY: Dp = 60.0.dp
+
+        /**
+         * shadow down hard l
+         */
+        public val spreadRadius: Dp = -8.0.dp
+
+        /**
+         * shadow down hard l
+         */
+        public val blurRadius: Dp = 112.0.dp
+
+        /**
+         * shadow down hard l
+         */
+        public val fallbackElevation: Dp = 6.0.dp
+
+        /**
+         * shadow down hard l
+         */
+        public val color: Color = Color(0x66000000)
     }
 }

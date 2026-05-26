@@ -3,11 +3,9 @@ package com.sdds.sbcom.theme.subthemes
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import com.sdds.sbcom.theme.LocalSddsSbComColors
+import com.sdds.sbcom.theme.LocalSddsSbComGradients
 import com.sdds.sbcom.theme.SddsSbComTheme
-import com.sdds.sbcom.theme.darkSddsSbComColors
-import com.sdds.sbcom.theme.darkSddsSbComGradients
-import com.sdds.sbcom.theme.lightSddsSbComColors
-import com.sdds.sbcom.theme.lightSddsSbComGradients
 import kotlin.Boolean
 import kotlin.Unit
 
@@ -20,15 +18,7 @@ public fun SddsSbComTheme.Default(
     content: @Composable
     () -> Unit,
 ) {
-    val colors = if (isDark) {
-        darkSddsSbComColors()
-    } else {
-        lightSddsSbComColors()
-    }
-    val gradients = if (isDark) {
-        darkSddsSbComGradients()
-    } else {
-        lightSddsSbComGradients()
-    }
-    SddsSbComTheme(colors = colors, gradients = gradients, content = content)
+    val currentColors = LocalSddsSbComColors.current
+    val currentGradients = LocalSddsSbComGradients.current
+    SddsSbComTheme(colors = currentColors, gradients = currentGradients, content = content)
 }

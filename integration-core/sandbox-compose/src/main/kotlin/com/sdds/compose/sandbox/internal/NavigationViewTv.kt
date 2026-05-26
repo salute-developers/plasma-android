@@ -113,7 +113,7 @@ internal fun NavigationViewTv(
                 color = style.menuBackground,
                 shape = style.menuShape,
             )
-            .padding(start = 4.dp, end = 4.dp, bottom = 24.dp)
+            .padding(start = 4.dp, end = 4.dp)
             .systemBarsPadding(),
 
     ) {
@@ -167,8 +167,8 @@ private fun NavigationItemTv(
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val semanticStateSource = remember { MutableSemanticStateSource() }
-    val background = style.itemBackground.colorForInteraction(interactionSource)
-    val titleColor = style.itemTextColor.colorForInteraction(interactionSource)
+    val background = style.itemBackground.colorForInteraction(interactionSource, semanticStateSource)
+    val titleColor = style.itemTextColor.colorForInteractionAsState(interactionSource, semanticStateSource)
     Row(
         modifier = Modifier
             .height(style.itemHeight)
@@ -190,7 +190,8 @@ private fun NavigationItemTv(
     ) {
         Text(
             text = title,
-            style = style.itemTextStyle.copy(color = titleColor),
+            style = style.itemTextStyle,
+            color = { titleColor.value },
         )
     }
 }

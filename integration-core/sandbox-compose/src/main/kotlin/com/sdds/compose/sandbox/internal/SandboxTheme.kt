@@ -107,7 +107,11 @@ fun SandboxTheme(
                     componentBackgroundShape = SddsSandboxTheme.shapes.roundM,
                 ),
                 LocalNavigationViewStyle provides NavigationViewStyle.create(
-                    itemTextStyle = SddsSandboxTheme.typography.bodyMBold,
+                    itemTextStyle = if (isLarge) {
+                        SddsSandboxTheme.typography.bodyMNormal
+                    } else {
+                        SddsSandboxTheme.typography.bodyMBold
+                    },
                     itemTextColor = colorScheme.textDefaultPrimary.asInteractive(
                         focused = if (darkTheme) {
                             colorScheme.textInversePrimary
