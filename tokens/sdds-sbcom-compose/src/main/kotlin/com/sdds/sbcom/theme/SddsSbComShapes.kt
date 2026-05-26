@@ -26,25 +26,9 @@ public data class SddsSbComShapes(
      */
     public val round5xl: CornerBasedShape = RoundedCornerShape(0),
     /**
-     * borderRadius xs
-     */
-    public val roundXs: CornerBasedShape = RoundedCornerShape(0),
-    /**
-     * borderRadius xxl
-     */
-    public val roundXxl: CornerBasedShape = RoundedCornerShape(0),
-    /**
      * borderRadius s
      */
     public val roundS: CornerBasedShape = RoundedCornerShape(0),
-    /**
-     * borderRadius xl
-     */
-    public val roundXl: CornerBasedShape = RoundedCornerShape(0),
-    /**
-     * borderRadius circle
-     */
-    public val roundCircle: CornerBasedShape = RoundedCornerShape(0),
     /**
      * borderRadius m
      */
@@ -57,6 +41,22 @@ public data class SddsSbComShapes(
      * borderRadius xxs
      */
     public val roundXxs: CornerBasedShape = RoundedCornerShape(0),
+    /**
+     * borderRadius xl
+     */
+    public val roundXl: CornerBasedShape = RoundedCornerShape(0),
+    /**
+     * borderRadius xxl
+     */
+    public val roundXxl: CornerBasedShape = RoundedCornerShape(0),
+    /**
+     * borderRadius xs
+     */
+    public val roundXs: CornerBasedShape = RoundedCornerShape(0),
+    /**
+     * borderRadius circle
+     */
+    public val roundCircle: CornerBasedShape = RoundedCornerShape(0),
 )
 
 internal val LocalSddsSbComShapes: ProvidableCompositionLocal<SddsSbComShapes> =
@@ -71,12 +71,12 @@ public fun defaultSddsSbComShapes(): SddsSbComShapes = SddsSbComShapes(
     round4xl = RoundShapeTokens.Round4xl,
     round3xl = RoundShapeTokens.Round3xl,
     round5xl = RoundShapeTokens.Round5xl,
-    roundXs = RoundShapeTokens.RoundXs,
-    roundXxl = RoundShapeTokens.RoundXxl,
     roundS = RoundShapeTokens.RoundS,
-    roundXl = RoundShapeTokens.RoundXl,
-    roundCircle = RoundShapeTokens.RoundCircle,
     roundM = RoundShapeTokens.RoundM,
     roundL = RoundShapeTokens.RoundL,
     roundXxs = RoundShapeTokens.RoundXxs,
+    roundXl = RoundShapeTokens.RoundXl,
+    roundXxl = RoundShapeTokens.RoundXxl,
+    roundXs = RoundShapeTokens.RoundXs,
+    roundCircle = RoundShapeTokens.RoundCircle,
 )

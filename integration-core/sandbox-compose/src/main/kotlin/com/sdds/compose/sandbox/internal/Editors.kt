@@ -246,7 +246,7 @@ private fun <T> ChoiceEditor(
             items(choices.size) {
                 val interactionSource = remember { MutableInteractionSource() }
                 val semanticStateSource = remember { MutableSemanticStateSource() }
-                val background = style.editorItemBackground.colorForInteraction(interactionSource)
+                val background = style.editorItemBackground.colorForInteraction(interactionSource, semanticStateSource)
                 val choice = choices[it]
                 val isSelected = choice == selected
                 Row(

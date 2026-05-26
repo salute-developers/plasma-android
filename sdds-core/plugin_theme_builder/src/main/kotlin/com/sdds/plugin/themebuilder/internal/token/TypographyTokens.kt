@@ -80,7 +80,9 @@ internal data class TypographyToken(
             } else {
                 nameTokens
             }
-            return nameTokensExcludeScreen.joinToString("") { it.capitalized() }
+            return nameTokensExcludeScreen
+                .flatMap { it.split("-") }
+                .joinToString("") { it.capitalized() }
         }
 
         fun getKtName(tokenName: String): String = getXmlName(tokenName)

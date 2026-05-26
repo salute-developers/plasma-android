@@ -42,6 +42,22 @@ import kotlin.jvm.JvmName
 public interface WrapperAvatar : BuilderWrapper<AvatarStyle, AvatarStyleBuilder>
 
 /**
+ * Обертка для вариации Size180
+ */
+@JvmInline
+public value class WrapperAvatarSize180(
+    public override val builder: AvatarStyleBuilder,
+) : WrapperAvatar
+
+/**
+ * Обертка для вариации Size100
+ */
+@JvmInline
+public value class WrapperAvatarSize100(
+    public override val builder: AvatarStyleBuilder,
+) : WrapperAvatar
+
+/**
  * Обертка для вариации Size72
  */
 @JvmInline
@@ -130,6 +146,30 @@ private val AvatarStyleBuilder.invariantProps: AvatarStyleBuilder
             )
         }
         .statusCutoutEnabled(true)
+
+public val Avatar.Size180: WrapperAvatarSize180
+    @Composable
+    @JvmName("WrapperAvatarSize180")
+    get() = AvatarStyle.builder(this)
+        .invariantProps
+        .dimensions {
+            width(180.0.dp)
+            height(180.0.dp)
+        }
+        .textStyle(SddsSbComTheme.typography.headerHXxlMedium)
+        .wrap(::WrapperAvatarSize180)
+
+public val Avatar.Size100: WrapperAvatarSize100
+    @Composable
+    @JvmName("WrapperAvatarSize100")
+    get() = AvatarStyle.builder(this)
+        .invariantProps
+        .dimensions {
+            width(100.0.dp)
+            height(100.0.dp)
+        }
+        .textStyle(SddsSbComTheme.typography.headerHXlMedium)
+        .wrap(::WrapperAvatarSize100)
 
 public val Avatar.Size72: WrapperAvatarSize72
     @Composable

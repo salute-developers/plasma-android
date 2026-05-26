@@ -10,6 +10,8 @@
             {
                "name": "size",
                "values": [
+                  "size-180",
+                  "size-100",
                   "size-72",
                   "size-64",
                   "size-56",
@@ -45,6 +47,14 @@
                      "codeName": "Size72"
                   },
                   "values": [
+                     {
+                        "value": "size-180",
+                        "codeName": "Size180"
+                     },
+                     {
+                        "value": "size-100",
+                        "codeName": "Size100"
+                     },
                      {
                         "value": "size-72",
                         "codeName": "Size72"
@@ -86,6 +96,26 @@
             ]
          },
          "variations": [
+            {
+               "name": "size-180",
+               "composeReference": "Avatar.Size180",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-180"
+                  }
+               ]
+            },
+            {
+               "name": "size-100",
+               "composeReference": "Avatar.Size100",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-100"
+                  }
+               ]
+            },
             {
                "name": "size-72",
                "composeReference": "Avatar.Size72",

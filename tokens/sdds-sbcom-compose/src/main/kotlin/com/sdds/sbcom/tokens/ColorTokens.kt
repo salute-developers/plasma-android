@@ -4,3418 +4,13 @@ package com.sdds.sbcom.tokens
 import androidx.compose.ui.graphics.Color
 
 /**
- * Токены цвета для светлой темы
- */
-public object LightColorTokens {
-    /**
-     * Primary Hover On Light
-     */
-    public val OutlineOnLightPrimaryHover: Color = Color(0xFFADA39F)
-
-    /**
-     * Default Active Inverse
-     */
-    public val OutlineInverseDefaultActive: Color = Color(0xFF292929)
-
-    /**
-     * Sea Blue Text Accent Active Inverse
-     */
-    public val PersonasInverseSeaBlueTextAccentActive: Color = Color(0xFF00A8AD)
-
-    /**
-     * Violet Text Accent Active Inverse
-     */
-    public val PersonasInverseVioletTextAccentActive: Color = Color(0xFFD982E8)
-
-    /**
-     * Default Hover On Light
-     */
-    public val OutlineOnLightDefaultHover: Color = Color(0xFFCCCCCC)
-
-    /**
-     * Default Hover On Dark
-     */
-    public val OutlineOnDarkDefaultHover: Color = Color(0xFF666666)
-
-    /**
-     * Default Active On Dark
-     */
-    public val OutlineOnDarkDefaultActive: Color = Color(0xFF292929)
-
-    /**
-     * Green Text Accent Hover Default
-     */
-    public val PersonasDefaultGreenTextAccentHover: Color = Color(0xFF8CDECA)
-
-    /**
-     * Sea Blue Text Accent Hover Default
-     */
-    public val PersonasDefaultSeaBlueTextAccentHover: Color = Color(0xFF000000)
-
-    /**
-     * Accent Secondary Hover Inverse
-     */
-    public val SurfaceInverseAccentSecondaryHover: Color = Color(0xFF70CDB7)
-
-    /**
-     * Transparent Navi Active Default
-     */
-    public val SurfaceDefaultTransparentNaviActive: Color = Color(0xADFFFFFF)
-
-    /**
-     * Transparent Accent Minor Active On Light
-     */
-    public val SurfaceOnLightTransparentAccentMinorActive: Color = Color(0x520BA888)
-
-    /**
-     * Green Text Accent Active On Light
-     */
-    public val PersonasOnLightGreenTextAccentActive: Color = Color(0xFF04AF87)
-
-    /**
-     * Default Active Default
-     */
-    public val OutlineDefaultDefaultActive: Color = Color(0xFF6B6B6B)
-
-    /**
-     * Primary Active On Dark
-     */
-    public val OutlineOnDarkPrimaryActive: Color = Color(0xFF2B2827)
-
-    /**
-     * Olive Text Accent Active Default
-     */
-    public val PersonasDefaultOliveTextAccentActive: Color = Color(0xFF179315)
-
-    /**
-     * Olive Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkOliveTextAccentHover: Color = Color(0xFFA6D4A5)
-
-    /**
-     * Violet Text Accent Active On Light
-     */
-    public val PersonasOnLightVioletTextAccentActive: Color = Color(0xFF81288F)
-
-    /**
-     * Ochre Text Accent Active On Light
-     */
-    public val PersonasOnLightOchreTextAccentActive: Color = Color(0xFFAA4A0E)
-
-    /**
-     * Accent Secondary Hover On Dark
-     */
-    public val SurfaceOnDarkAccentSecondaryHover: Color = Color(0xFF70CDB7)
-
-    /**
-     * Pink Text Accent Hover On Light
-     */
-    public val PersonasOnLightPinkTextAccentHover: Color = Color(0xFFE47777)
-
-    /**
-     * Accent Secondary Hover Default
-     */
-    public val SurfaceDefaultAccentSecondaryHover: Color = Color(0xFF50C3A8)
-
-    /**
-     * Indigo Text Accent Hover Default
-     */
-    public val PersonasDefaultIndigoTextAccentHover: Color = Color(0xFF000000)
-
-    /**
-     * Violet Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkVioletTextAccentHover: Color = Color(0xFFE9B6F2)
-
-    /**
-     * On Light Outline Primary
-     */
-    public val OutlineOnLightPrimary: Color = Color(0xFFDDD9D7)
-
-    /**
-     * Inverse Outline Default
-     */
-    public val OutlineInverseDefault: Color = Color(0xFF383838)
-
-    /**
-     * Blue Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkBlueTextAccentHover: Color = Color(0xFFC3DDF9)
-
-    /**
-     * Indigo Text Accent Hover On Light
-     */
-    public val PersonasOnLightIndigoTextAccentHover: Color = Color(0xFF000000)
-
-    /**
-     * Sea Blue Text Accent Hover On Light
-     */
-    public val PersonasOnLightSeaBlueTextAccentHover: Color = Color(0xFF00D9E0)
-
-    /**
-     * Ochre Text Accent Active Default
-     */
-    public val PersonasDefaultOchreTextAccentActive: Color = Color(0xFFAA4A0E)
-
-    /**
-     * Inverse Background Hardline
-     */
-    public val BackgroundInverseHardline: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Sea Blue Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkSeaBlueTextAccentHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Surface Transparent Navi
-     */
-    public val SurfaceDefaultTransparentNavi: Color = Color(0x99FFFFFF)
-
-    /**
-     * Violet Text Accent Active Default
-     */
-    public val PersonasDefaultVioletTextAccentActive: Color = Color(0xFFD679E6)
-
-    /**
-     * Blue Text Accent Hover Default
-     */
-    public val PersonasDefaultBlueTextAccentHover: Color = Color(0xFF1477E1)
-
-    /**
-     * Outline Default
-     */
-    public val OutlineDefaultDefault: Color = Color(0xFF383838)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimaryBrightnessActive: Color = Color(0xC4171717)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCardBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCardBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardBrightnessHover: Color = Color(0x1FFAFAFA)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardBrightnessActive: Color = Color(0x0AFAFAFA)
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCardBrightnessHover: Color = Color(0xFF303030)
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCardBrightnessActive: Color = Color(0xFF212121)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimaryBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimaryBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Inverse Personas Indigo Text Accent
-     */
-    public val PersonasInverseIndigoTextAccent: Color = Color(0xFF7133BE)
-
-    /**
-     * Inverse Personas Pink Text Accent
-     */
-    public val PersonasInversePinkTextAccent: Color = Color(0xFFDE5555)
-
-    /**
-     * Personas Olive Text Accent
-     */
-    public val PersonasDefaultOliveTextAccent: Color = Color(0xFF127210)
-
-    /**
-     * Цвет обводки успех на светлом фоне
-     */
-    public val OutlineOnLightPositiveActive: Color = Color(0xFF20801E)
-
-    /**
-     * Inverse Personas Ochre Text Accent
-     */
-    public val PersonasInverseOchreTextAccent: Color = Color(0xFFF4B49B)
-
-    /**
-     * On Dark Personas Olive Text Accent
-     */
-    public val PersonasOnDarkOliveTextAccent: Color = Color(0xFF93CB92)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidTertiaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidTertiaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Inverse Surface Transparent Navi
-     */
-    public val SurfaceInverseTransparentNavi: Color = Color(0x99232323)
-
-    /**
-     * Прозрачный фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightTransparentCardBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimary: Color = Color(0xFC15110F)
-
-    /**
-     * Акцентный минорный цвет на темном фоне
-     */
-    public val TextOnDarkAccentMinorHover: Color = Color(0xFF60C7AF)
-
-    /**
-     * On Light Personas Olive Text Accent
-     */
-    public val PersonasOnLightOliveTextAccent: Color = Color(0xFF127210)
-
-    /**
-     * Прозрачный фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightTransparentCardBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccentMinorActive: Color = Color(0xFF043F34)
-
-    /**
-     * Основной фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightSolidCardBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightSolidCardBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCardBrightnessHover: Color = Color(0x1FFAFAFA)
-
-    /**
-     * Outline Primary
-     */
-    public val OutlineDefaultPrimary: Color = Color(0xFF3B3735)
-
-    /**
-     * On Light Personas Ochre Text Accent
-     */
-    public val PersonasOnLightOchreTextAccent: Color = Color(0xFFD15A11)
-
-    /**
-     * On Dark Personas Indigo Text Accent
-     */
-    public val PersonasOnDarkIndigoTextAccent: Color = Color(0xFFBD91F5)
-
-    /**
-     * On Dark Surface Accent Secondary
-     */
-    public val SurfaceOnDarkAccentSecondary: Color = Color(0xFF61C8B0)
-
-    /**
-     * Inverse Personas Green Text Accent
-     */
-    public val PersonasInverseGreenTextAccent: Color = Color(0xFF038768)
-
-    /**
-     * Surface Accent Secondary
-     */
-    public val SurfaceDefaultAccentSecondary: Color = Color(0xFF41BDA1)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccentMinor: Color = Color(0xFFD0F2E9)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidTertiaryActive: Color = Color(0xFF424242)
-
-    /**
-     * Вторичный фон на светлом фоне
-     */
-    public val BackgroundLightSecondary: Color = Color(0xFFF6F2F0)
-
-    /**
-     * Инвертированный третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidTertiary: Color = Color(0xFF474747)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightAccentMinor: Color = Color(0xFFD0F2E9)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCardBrightnessActive: Color = Color(0x0AFAFAFA)
-
-    /**
-     * Цвет обводки предупреждение на светлом фоне
-     */
-    public val OutlineOnLightWarningActive: Color = Color(0xFFA3420A)
-
-    /**
-     * On Light Personas Violet Text Accent
-     */
-    public val PersonasOnLightVioletTextAccent: Color = Color(0xFF9E32AF)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCardBrightnessActive: Color = Color(0xFF212121)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccentMinorHover: Color = Color(0xFF055C4C)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightAccentMinorHover: Color = Color(0xFFC7F0E5)
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentMinor: Color = Color(0xFF04473B)
-
-    /**
-     * On Light Personas Sea Blue Text Accent
-     */
-    public val PersonasOnLightSeaBlueTextAccent: Color = Color(0xFF00898D)
-
-    /**
-     * Personas Ochre Text Accent
-     */
-    public val PersonasDefaultOchreTextAccent: Color = Color(0xFFD15A11)
-
-    /**
-     * On Dark Surface Transparent Accent Minor
-     */
-    public val SurfaceOnDarkTransparentAccentMinor: Color = Color(0x470BA686)
-
-    /**
-     * On Dark Personas Violet Text Accent
-     */
-    public val PersonasOnDarkVioletTextAccent: Color = Color(0xFFE19DED)
-
-    /**
-     * On Light Surface Transparent Navi
-     */
-    public val SurfaceOnLightTransparentNavi: Color = Color(0x99FFFFFF)
-
-    /**
-     * On Dark Personas Blue Text Accent
-     */
-    public val PersonasOnDarkBlueTextAccent: Color = Color(0xFF79B3F2)
-
-    /**
-     * Green Text Accent Active Default
-     */
-    public val PersonasDefaultGreenTextAccentActive: Color = Color(0xFF4CCDAC)
-
-    /**
-     * Sea Blue Text Accent Active Default
-     */
-    public val PersonasDefaultSeaBlueTextAccentActive: Color = Color(0xFF4BB4B4)
-
-    /**
-     * Accent Secondary Active Inverse
-     */
-    public val SurfaceInverseAccentSecondaryActive: Color = Color(0xFF59C5AC)
-
-    /**
-     * Pink Text Accent Active On Dark
-     */
-    public val PersonasOnDarkPinkTextAccentActive: Color = Color(0xFFF58A8A)
-
-    /**
-     * Primary Active Default
-     */
-    public val OutlineDefaultPrimaryActive: Color = Color(0xFF706966)
-
-    /**
-     * Indigo Text Accent Active Inverse
-     */
-    public val PersonasInverseIndigoTextAccentActive: Color = Color(0xFF652DA9)
-
-    /**
-     * Pink Text Accent Active Inverse
-     */
-    public val PersonasInversePinkTextAccentActive: Color = Color(0xFFD83B3B)
-
-    /**
-     * Olive Text Accent Active On Dark
-     */
-    public val PersonasOnDarkOliveTextAccentActive: Color = Color(0xFF7DC07C)
-
-    /**
-     * Accent Secondary Active On Dark
-     */
-    public val SurfaceOnDarkAccentSecondaryActive: Color = Color(0xFF59C5AC)
-
-    /**
-     * Green Text Accent Active Inverse
-     */
-    public val PersonasInverseGreenTextAccentActive: Color = Color(0xFF03A57F)
-
-    /**
-     * Pink Text Accent Active On Light
-     */
-    public val PersonasOnLightPinkTextAccentActive: Color = Color(0xFFD73333)
-
-    /**
-     * Indigo Text Accent Active Default
-     */
-    public val PersonasDefaultIndigoTextAccentActive: Color = Color(0xFF5B2999)
-
-    /**
-     * Violet Text Accent Active On Dark
-     */
-    public val PersonasOnDarkVioletTextAccentActive: Color = Color(0xFFD982E8)
-
-    /**
-     * Transparent Navi Hover On Light
-     */
-    public val SurfaceOnLightTransparentNaviHover: Color = Color(0xA8FFFFFF)
-
-    /**
-     * Transparent Navi Active On Light
-     */
-    public val SurfaceOnLightTransparentNaviActive: Color = Color(0xADFFFFFF)
-
-    /**
-     * Olive Text Accent Hover Inverse
-     */
-    public val PersonasInverseOliveTextAccentHover: Color = Color(0xFFA6D4A5)
-
-    /**
-     * Ochre Text Accent Hover Default
-     */
-    public val PersonasDefaultOchreTextAccentHover: Color = Color(0xFFED6C1D)
-
-    /**
-     * Inverse Surface Accent Secondary
-     */
-    public val SurfaceInverseAccentSecondary: Color = Color(0xFF61C8B0)
-
-    /**
-     * Light Background Hardline
-     */
-    public val BackgroundLightHardline: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Sea Blue Text Accent Active On Dark
-     */
-    public val PersonasOnDarkSeaBlueTextAccentActive: Color = Color(0xFF2D6C6C)
-
-    /**
-     * On Light Surface Transparent Accent Minor
-     */
-    public val SurfaceOnLightTransparentAccentMinor: Color = Color(0x3D0BA686)
-
-    /**
-     * On Light Personas Green Text Accent
-     */
-    public val PersonasOnLightGreenTextAccent: Color = Color(0xFF038768)
-
-    /**
-     * Primary Active On Light
-     */
-    public val OutlineOnLightPrimaryActive: Color = Color(0xFFC4BEBA)
-
-    /**
-     * Blue Text Accent Active Inverse
-     */
-    public val PersonasInverseBlueTextAccentActive: Color = Color(0xFF5DA3EF)
-
-    /**
-     * Transparent Accent Minor Active Inverse
-     */
-    public val SurfaceInverseTransparentAccentMinorActive: Color = Color(0x2E0BA888)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimaryBrightnessHover: Color = Color(0x93171717)
-
-    /**
-     * Green Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkGreenTextAccentHover: Color = Color(0xFF84DCC6)
-
-    /**
-     * Основной цвет текста на темном фоне
-     */
-    public val TextOnDarkPrimaryBrightnessHover: Color = Color(0x93FAFAFA)
-
-    /**
-     * On Dark Personas Sea Blue Text Accent
-     */
-    public val PersonasOnDarkSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
-
-    /**
-     * Blue Text Accent Active On Light
-     */
-    public val PersonasOnLightBlueTextAccentActive: Color = Color(0xFF0D4F96)
-
-    /**
-     * Default Active On Light
-     */
-    public val OutlineOnLightDefaultActive: Color = Color(0xFFE6E6E6)
-
-    /**
-     * Цвет предупреждения на светлом фоне
-     */
-    public val TextOnLightWarningActive: Color = Color(0xFF6F2D06)
-
-    /**
-     * Green Text Accent Hover On Light
-     */
-    public val PersonasOnLightGreenTextAccentHover: Color = Color(0xFF04D7A6)
-
-    /**
-     * Pink Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkPinkTextAccentHover: Color = Color(0xFFF26E6E)
-
-    /**
-     * Primary Hover Default
-     */
-    public val OutlineDefaultPrimaryHover: Color = Color(0xFFB6B1AF)
-
-    /**
-     * Indigo Text Accent Hover Inverse
-     */
-    public val PersonasInverseIndigoTextAccentHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Pink Text Accent Hover Inverse
-     */
-    public val PersonasInversePinkTextAccentHover: Color = Color(0xFFE26E6E)
-
-    /**
-     * Olive Text Accent Hover Default
-     */
-    public val PersonasDefaultOliveTextAccentHover: Color = Color(0xFF1DB71A)
-
-    /**
-     * Ochre Text Accent Hover Inverse
-     */
-    public val PersonasInverseOchreTextAccentHover: Color = Color(0xFFF7C8B6)
-
-    /**
-     * Transparent Navi Hover Inverse
-     */
-    public val SurfaceInverseTransparentNaviHover: Color = Color(0xB8242424)
-
-    /**
-     * Olive Text Accent Hover On Light
-     */
-    public val PersonasOnLightOliveTextAccentHover: Color = Color(0xFF1DB71A)
-
-    /**
-     * Violet Text Accent Hover On Light
-     */
-    public val PersonasOnLightVioletTextAccentHover: Color = Color(0xFFB740C9)
-
-    /**
-     * Ochre Text Accent Hover On Light
-     */
-    public val PersonasOnLightOchreTextAccentHover: Color = Color(0xFFED6C1D)
-
-    /**
-     * Indigo Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkIndigoTextAccentHover: Color = Color(0xFFE8DAFC)
-
-    /**
-     * On Dark Personas Ochre Text Accent
-     */
-    public val PersonasOnDarkOchreTextAccent: Color = Color(0xFFF4B49B)
-
-    /**
-     * Green Text Accent Active On Dark
-     */
-    public val PersonasOnDarkGreenTextAccentActive: Color = Color(0xFF54CFB0)
-
-    /**
-     * Ochre Text Accent Active On Dark
-     */
-    public val PersonasOnDarkOchreTextAccentActive: Color = Color(0xFFF19F7E)
-
-    /**
-     * Transparent Accent Minor Active Default
-     */
-    public val SurfaceDefaultTransparentAccentMinorActive: Color = Color(0x520BA888)
-
-    /**
-     * Default Hover Inverse
-     */
-    public val OutlineInverseDefaultHover: Color = Color(0xFF666666)
-
-    /**
-     * Personas Violet Text Accent
-     */
-    public val PersonasDefaultVioletTextAccent: Color = Color(0xFFE19DED)
-
-    /**
-     * Primary Hover Inverse
-     */
-    public val OutlineInversePrimaryHover: Color = Color(0xFF6B6461)
-
-    /**
-     * Sea Blue Text Accent Hover Inverse
-     */
-    public val PersonasInverseSeaBlueTextAccentHover: Color = Color(0xFF00C5CC)
-
-    /**
-     * Blue Text Accent Hover Inverse
-     */
-    public val PersonasInverseBlueTextAccentHover: Color = Color(0xFFC3DDF9)
-
-    /**
-     * Violet Text Accent Hover Inverse
-     */
-    public val PersonasInverseVioletTextAccentHover: Color = Color(0xFFE9B6F2)
-
-    /**
-     * Transparent Accent Minor Hover Inverse
-     */
-    public val SurfaceInverseTransparentAccentMinorHover: Color = Color(0x5C0BA888)
-
-    /**
-     * Blue Text Accent Hover On Light
-     */
-    public val PersonasOnLightBlueTextAccentHover: Color = Color(0xFF1477E1)
-
-    /**
-     * Transparent Navi Hover On Dark
-     */
-    public val SurfaceOnDarkTransparentNaviHover: Color = Color(0xB8242424)
-
-    /**
-     * Accent Secondary Hover On Light
-     */
-    public val SurfaceOnLightAccentSecondaryHover: Color = Color(0xFF50C3A8)
-
-    /**
-     * Transparent Navi Hover Default
-     */
-    public val SurfaceDefaultTransparentNaviHover: Color = Color(0xA8FFFFFF)
-
-    /**
-     * Transparent Accent Minor Hover On Light
-     */
-    public val SurfaceOnLightTransparentAccentMinorHover: Color = Color(0x4D0BA888)
-
-    /**
-     * Default Hover Default
-     */
-    public val OutlineDefaultDefaultHover: Color = Color(0xFFB3B3B3)
-
-    /**
-     * Primary Hover On Dark
-     */
-    public val OutlineOnDarkPrimaryHover: Color = Color(0xFF6B6461)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCardBrightnessHover: Color = Color(0xFF303030)
-
-    /**
-     * Inverse Personas Blue Text Accent
-     */
-    public val PersonasInverseBlueTextAccent: Color = Color(0xFF79B3F2)
-
-    /**
-     * Blue Text Accent Active Default
-     */
-    public val PersonasDefaultBlueTextAccentActive: Color = Color(0xFF0D4F96)
-
-    /**
-     * Accent Secondary Active Default
-     */
-    public val SurfaceDefaultAccentSecondaryActive: Color = Color(0xFF3CAF94)
-
-    /**
-     * Surface Transparent Accent Minor
-     */
-    public val SurfaceDefaultTransparentAccentMinor: Color = Color(0x3D0BA686)
-
-    /**
-     * Inverse Personas Sea Blue Text Accent
-     */
-    public val PersonasInverseSeaBlueTextAccent: Color = Color(0xFF00898D)
-
-    /**
-     * On Dark Personas Pink Text Accent
-     */
-    public val PersonasOnDarkPinkTextAccent: Color = Color(0xFFF7A4A4)
-
-    /**
-     * Personas Pink Text Accent
-     */
-    public val PersonasDefaultPinkTextAccent: Color = Color(0xFFF7A4A4)
-
-    /**
-     * On Dark Surface Transparent Navi
-     */
-    public val SurfaceOnDarkTransparentNavi: Color = Color(0x99232323)
-
-    /**
-     * Inverse Outline Primary
-     */
-    public val OutlineInversePrimary: Color = Color(0xFF3B3735)
-
-    /**
-     * Olive Text Accent Active Inverse
-     */
-    public val PersonasInverseOliveTextAccentActive: Color = Color(0xFF7DC07C)
-
-    /**
-     * On Dark Outline Default
-     */
-    public val OutlineOnDarkDefault: Color = Color(0xFF383838)
-
-    /**
-     * Personas Green Text Accent
-     */
-    public val PersonasDefaultGreenTextAccent: Color = Color(0xFF6CD5BB)
-
-    /**
-     * Dark Background Hardline
-     */
-    public val BackgroundDarkHardline: Color = Color(0xFF000000)
-
-    /**
-     * On Dark Outline Primary
-     */
-    public val OutlineOnDarkPrimary: Color = Color(0xFF3B3735)
-
-    /**
-     * Personas Blue Text Accent
-     */
-    public val PersonasDefaultBlueTextAccent: Color = Color(0xFF1063BA)
-
-    /**
-     * Personas Sea Blue Text Accent
-     */
-    public val PersonasDefaultSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
-
-    /**
-     * Violet Text Accent Hover Default
-     */
-    public val PersonasDefaultVioletTextAccentHover: Color = Color(0xFFEBBEF3)
-
-    /**
-     * Background Hardline
-     */
-    public val BackgroundDefaultHardline: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryBrightnessHover: Color = Color(0x93171717)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryBrightnessHover: Color = Color(0x93FAFAFA)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
-
-    /**
-     * Inverse Personas Violet Text Accent
-     */
-    public val PersonasInverseVioletTextAccent: Color = Color(0xFFE19DED)
-
-    /**
-     * Inverse Surface Transparent Accent Minor
-     */
-    public val SurfaceInverseTransparentAccentMinor: Color = Color(0x3D0BA686)
-
-    /**
-     * On Light Personas Blue Text Accent
-     */
-    public val PersonasOnLightBlueTextAccent: Color = Color(0xFF1063BA)
-
-    /**
-     * Основной цвет текста на темном фоне
-     */
-    public val TextOnDarkPrimaryBrightnessActive: Color = Color(0xC4FAFAFA)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryBrightnessActive: Color = Color(0xC4171717)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryBrightnessActive: Color = Color(0xC4FAFAFA)
-
-    /**
-     * Personas Indigo Text Accent
-     */
-    public val PersonasDefaultIndigoTextAccent: Color = Color(0xFF7133BE)
-
-    /**
-     * Ochre Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkOchreTextAccentHover: Color = Color(0xFFF7C8B6)
-
-    /**
-     * Indigo Text Accent Active On Dark
-     */
-    public val PersonasOnDarkIndigoTextAccentActive: Color = Color(0xFFAA73F2)
-
-    /**
-     * Pink Text Accent Hover Default
-     */
-    public val PersonasDefaultPinkTextAccentHover: Color = Color(0xFFFBCBCB)
-
-    /**
-     * On Dark Personas Green Text Accent
-     */
-    public val PersonasOnDarkGreenTextAccent: Color = Color(0xFF6CD5BB)
-
-    /**
-     * Transparent Accent Minor Hover Default
-     */
-    public val SurfaceDefaultTransparentAccentMinorHover: Color = Color(0x4D0BA888)
-
-    /**
-     * Transparent Navi Active On Dark
-     */
-    public val SurfaceOnDarkTransparentNaviActive: Color = Color(0x8A242424)
-
-    /**
-     * Ochre Text Accent Active Inverse
-     */
-    public val PersonasInverseOchreTextAccentActive: Color = Color(0xFFF19F7E)
-
-    /**
-     * Transparent Navi Active Inverse
-     */
-    public val SurfaceInverseTransparentNaviActive: Color = Color(0x8A242424)
-
-    /**
-     * Olive Text Accent Active On Light
-     */
-    public val PersonasOnLightOliveTextAccentActive: Color = Color(0xFF179315)
-
-    /**
-     * Pink Text Accent Active Default
-     */
-    public val PersonasDefaultPinkTextAccentActive: Color = Color(0xFFF48080)
-
-    /**
-     * Blue Text Accent Active On Dark
-     */
-    public val PersonasOnDarkBlueTextAccentActive: Color = Color(0xFF5DA3EF)
-
-    /**
-     * Sea Blue Text Accent Active On Light
-     */
-    public val PersonasOnLightSeaBlueTextAccentActive: Color = Color(0xFF00B1B8)
-
-    /**
-     * On Light Outline Default
-     */
-    public val OutlineOnLightDefault: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Transparent Accent Minor Hover On Dark
-     */
-    public val SurfaceOnDarkTransparentAccentMinorHover: Color = Color(0x660BA888)
-
-    /**
-     * On Light Surface Accent Secondary
-     */
-    public val SurfaceOnLightAccentSecondary: Color = Color(0xFF41BDA1)
-
-    /**
-     * On Light Personas Pink Text Accent
-     */
-    public val PersonasOnLightPinkTextAccent: Color = Color(0xFFDE5555)
-
-    /**
-     * Inverse Personas Olive Text Accent
-     */
-    public val PersonasInverseOliveTextAccent: Color = Color(0xFF93CB92)
-
-    /**
-     * Primary Active Inverse
-     */
-    public val OutlineInversePrimaryActive: Color = Color(0xFF2B2827)
-
-    /**
-     * Accent Secondary Active On Light
-     */
-    public val SurfaceOnLightAccentSecondaryActive: Color = Color(0xFF3CAF94)
-
-    /**
-     * Transparent Accent Minor Active On Dark
-     */
-    public val SurfaceOnDarkTransparentAccentMinorActive: Color = Color(0x380BA888)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
-
-    /**
-     * On Light Personas Indigo Text Accent
-     */
-    public val PersonasOnLightIndigoTextAccent: Color = Color(0xFF7133BE)
-
-    /**
-     * Green Text Accent Hover Inverse
-     */
-    public val PersonasInverseGreenTextAccentHover: Color = Color(0xFF04C396)
-
-    /**
-     * Indigo Text Accent Active On Light
-     */
-    public val PersonasOnLightIndigoTextAccentActive: Color = Color(0xFF5B2999)
-
-    /**
-     * Акцентный цвет
-     */
-    public val TextDefaultAccent: Color = Color(0xFF0A8E73)
-
-    /**
-     * Акцентный цвет
-     */
-    public val TextDefaultAccentHover: Color = Color(0xFF0DB593)
-
-    /**
-     * Акцентный цвет
-     */
-    public val TextDefaultAccentActive: Color = Color(0xFF076955)
-
-    /**
-     * Акцентный минорный цвет
-     */
-    public val TextDefaultAccentMinor: Color = Color(0x660A8E73)
-
-    /**
-     * Акцентный минорный цвет
-     */
-    public val TextDefaultAccentMinorHover: Color = Color(0xFF0A8F74)
-
-    /**
-     * Акцентный минорный цвет
-     */
-    public val TextDefaultAccentMinorActive: Color = Color(0x7A0A8F74)
-
-    /**
-     * Цвет успеха
-     */
-    public val TextDefaultPositive: Color = Color(0xFF207F1F)
-
-    /**
-     * Цвет успеха
-     */
-    public val TextDefaultPositiveHover: Color = Color(0xFF29A027)
-
-    /**
-     * Цвет успеха
-     */
-    public val TextDefaultPositiveActive: Color = Color(0xFF185E17)
-
-    /**
-     * Цвет предупреждения
-     */
-    public val TextDefaultWarning: Color = Color(0xFF973C09)
-
-    /**
-     * Цвет предупреждения
-     */
-    public val TextDefaultWarningHover: Color = Color(0xFFBC4C0B)
-
-    /**
-     * Цвет предупреждения
-     */
-    public val TextDefaultWarningActive: Color = Color(0xFF6F2D06)
-
-    /**
-     * Цвет ошибки
-     */
-    public val TextDefaultNegative: Color = Color(0xFFD11D23)
-
-    /**
-     * Цвет ошибки
-     */
-    public val TextDefaultNegativeHover: Color = Color(0xFFE3353B)
-
-    /**
-     * Цвет ошибки
-     */
-    public val TextDefaultNegativeActive: Color = Color(0xFFAF181D)
-
-    /**
-     * Цвет информации
-     */
-    public val TextDefaultInfo: Color = Color(0xFF205EA5)
-
-    /**
-     * Цвет информации
-     */
-    public val TextDefaultInfoHover: Color = Color(0xFF000000)
-
-    /**
-     * Цвет информации
-     */
-    public val TextDefaultInfoActive: Color = Color(0xFF194B85)
-
-    /**
-     * Вторичный цвет текста
-     */
-    public val TextDefaultSecondaryHover: Color = Color(0xFF15110F)
-
-    /**
-     * Вторичный цвет текста
-     */
-    public val TextDefaultSecondary: Color = Color(0xA315110F)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimaryActive: Color = Color(0xCA15110F)
-
-    /**
-     * Вторичный цвет текста
-     */
-    public val TextDefaultSecondaryActive: Color = Color(0xC415110F)
-
-    /**
-     * Третичный цвет текста
-     */
-    public val TextDefaultTertiary: Color = Color(0x3D15110F)
-
-    /**
-     * Третичный цвет текста
-     */
-    public val TextDefaultTertiaryHover: Color = Color(0xFF15110F)
-
-    /**
-     * Третичный цвет текста
-     */
-    public val TextDefaultTertiaryActive: Color = Color(0x4915110F)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimaryBrightness: Color = Color(0xF5171717)
-
-    /**
-     * Сплошной наборный текст
-     */
-    public val TextDefaultParagraph: Color = Color(0x6615110F)
-
-    /**
-     * Сплошной наборный текст
-     */
-    public val TextDefaultParagraphHover: Color = Color(0xFF15110F)
-
-    /**
-     * Сплошной наборный текст
-     */
-    public val TextDefaultParagraphActive: Color = Color(0x7A15110F)
-
-    /**
-     * Акцентный цвет на темном фоне
-     */
-    public val TextOnDarkAccent: Color = Color(0xFF61C8B0)
-
-    /**
-     * Акцентный цвет на темном фоне
-     */
-    public val TextOnDarkAccentHover: Color = Color(0xFF77CFBB)
-
-    /**
-     * Акцентный цвет на темном фоне
-     */
-    public val TextOnDarkAccentActive: Color = Color(0xFF4ABFA4)
-
-    /**
-     * Акцентный минорный цвет на темном фоне
-     */
-    public val TextOnDarkAccentMinor: Color = Color(0x7A61C8B0)
-
-    /**
-     * Акцентный минорный цвет на темном фоне
-     */
-    public val TextOnDarkAccentMinorActive: Color = Color(0x9360C7AF)
-
-    /**
-     * Цвет успеха на темном фоне
-     */
-    public val TextOnDarkPositive: Color = Color(0xFF50A84C)
-
-    /**
-     * Цвет успеха на темном фоне
-     */
-    public val TextOnDarkPositiveHover: Color = Color(0xFF62B65D)
-
-    /**
-     * Цвет успеха на темном фоне
-     */
-    public val TextOnDarkPositiveActive: Color = Color(0xFF469442)
-
-    /**
-     * Цвет предупреждения на темном фоне
-     */
-    public val TextOnDarkWarning: Color = Color(0xFFDA6828)
-
-    /**
-     * Цвет предупреждения на темном фоне
-     */
-    public val TextOnDarkWarningHover: Color = Color(0xFFDF7D43)
-
-    /**
-     * Цвет предупреждения на темном фоне
-     */
-    public val TextOnDarkWarningActive: Color = Color(0xFFC45D21)
-
-    /**
-     * Цвет ошибки на темном фоне
-     */
-    public val TextOnDarkNegative: Color = Color(0xFFF57E83)
-
-    /**
-     * Цвет ошибки на темном фоне
-     */
-    public val TextOnDarkNegativeHover: Color = Color(0xFFF89BA0)
-
-    /**
-     * Цвет ошибки на темном фоне
-     */
-    public val TextOnDarkNegativeActive: Color = Color(0xFFF3626A)
-
-    /**
-     * Цвет информации на темном фоне
-     */
-    public val TextOnDarkInfo: Color = Color(0xFF70B2F5)
-
-    /**
-     * Цвет информации на темном фоне
-     */
-    public val TextOnDarkInfoHover: Color = Color(0xFFBCDBFA)
-
-    /**
-     * Цвет информации на темном фоне
-     */
-    public val TextOnDarkInfoActive: Color = Color(0xFF53A3F3)
-
-    /**
-     * Основной цвет текста на темном фоне
-     */
-    public val TextOnDarkPrimaryActive: Color = Color(0xCAFFFFFF)
-
-    /**
-     * Третичный цвет текста на темном фоне
-     */
-    public val TextOnDarkTertiaryActive: Color = Color(0x49F5F1EF)
-
-    /**
-     * Основной цвет текста на темном фоне
-     */
-    public val TextOnDarkPrimary: Color = Color(0xFCFFFFFF)
-
-    /**
-     * Основной цвет текста на темном фоне
-     */
-    public val TextOnDarkPrimaryBrightness: Color = Color(0xF5FAFAFA)
-
-    /**
-     * Вторичный цвет текста на темном фоне
-     */
-    public val TextOnDarkSecondary: Color = Color(0xA3F6F2F0)
-
-    /**
-     * Вторичный цвет текста на темном фоне
-     */
-    public val TextOnDarkSecondaryHover: Color = Color(0xFFF5F1EF)
-
-    /**
-     * Третичный цвет текста на темном фоне
-     */
-    public val TextOnDarkTertiary: Color = Color(0x3DF6F2F0)
-
-    /**
-     * Третичный цвет текста на темном фоне
-     */
-    public val TextOnDarkTertiaryHover: Color = Color(0xFFF5F1EF)
-
-    /**
-     * Вторичный цвет текста на темном фоне
-     */
-    public val TextOnDarkSecondaryActive: Color = Color(0xC4F5F1EF)
-
-    /**
-     * Основной цвет текста на темном фоне
-     */
-    public val TextOnDarkPrimaryHover: Color = Color(0x97FFFFFF)
-
-    /**
-     * Сплошной наборный текст на темном фоне
-     */
-    public val TextOnDarkParagraph: Color = Color(0x7AF6F2F0)
-
-    /**
-     * Сплошной наборный текст на темном фоне
-     */
-    public val TextOnDarkParagraphHover: Color = Color(0xFFF5F1EF)
-
-    /**
-     * Сплошной наборный текст на темном фоне
-     */
-    public val TextOnDarkParagraphActive: Color = Color(0x93F5F1EF)
-
-    /**
-     * Вторичный цвет текста на светлом фоне
-     */
-    public val TextOnLightSecondary: Color = Color(0xA315110F)
-
-    /**
-     * Вторичный цвет текста на светлом фоне
-     */
-    public val TextOnLightSecondaryHover: Color = Color(0xFF15110F)
-
-    /**
-     * Вторичный цвет текста на светлом фоне
-     */
-    public val TextOnLightSecondaryActive: Color = Color(0xC415110F)
-
-    /**
-     * Третичный цвет текста на светлом фоне
-     */
-    public val TextOnLightTertiary: Color = Color(0x3D15110F)
-
-    /**
-     * Третичный цвет текста на светлом фоне
-     */
-    public val TextOnLightTertiaryHover: Color = Color(0xFF15110F)
-
-    /**
-     * Третичный цвет текста на светлом фоне
-     */
-    public val TextOnLightTertiaryActive: Color = Color(0x4915110F)
-
-    /**
-     * Сплошной наборный текст на светлом фоне
-     */
-    public val TextOnLightParagraph: Color = Color(0x6615110F)
-
-    /**
-     * Сплошной наборный текст на светлом фоне
-     */
-    public val TextOnLightParagraphHover: Color = Color(0xFF15110F)
-
-    /**
-     * Сплошной наборный текст на светлом фоне
-     */
-    public val TextOnLightParagraphActive: Color = Color(0x7A15110F)
-
-    /**
-     * Акцентный цвет на светлом фоне
-     */
-    public val TextOnLightAccent: Color = Color(0xFF0A8E73)
-
-    /**
-     * Акцентный цвет на светлом фоне
-     */
-    public val TextOnLightAccentHover: Color = Color(0xFF0DB593)
-
-    /**
-     * Акцентный цвет на светлом фоне
-     */
-    public val TextOnLightAccentActive: Color = Color(0xFF076955)
-
-    /**
-     * Акцентный минорный цвет на светлом фоне
-     */
-    public val TextOnLightAccentMinor: Color = Color(0x660A8E73)
-
-    /**
-     * Акцентный минорный цвет на светлом фоне
-     */
-    public val TextOnLightAccentMinorHover: Color = Color(0xFF0A8F74)
-
-    /**
-     * Акцентный минорный цвет на светлом фоне
-     */
-    public val TextOnLightAccentMinorActive: Color = Color(0x7A0A8F74)
-
-    /**
-     * Цвет успеха на светлом фоне
-     */
-    public val TextOnLightPositive: Color = Color(0xFF207F1F)
-
-    /**
-     * Цвет успеха на светлом фоне
-     */
-    public val TextOnLightPositiveHover: Color = Color(0xFF29A027)
-
-    /**
-     * Цвет успеха на светлом фоне
-     */
-    public val TextOnLightPositiveActive: Color = Color(0xFF185E17)
-
-    /**
-     * Цвет предупреждения на светлом фоне
-     */
-    public val TextOnLightWarning: Color = Color(0xFF973C09)
-
-    /**
-     * Цвет предупреждения на светлом фоне
-     */
-    public val TextOnLightWarningHover: Color = Color(0xFFBC4C0B)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimary: Color = Color(0xFC15110F)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryHover: Color = Color(0x9715110F)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryActive: Color = Color(0xCA15110F)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryBrightness: Color = Color(0xF5171717)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimary: Color = Color(0xFCFFFFFF)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryHover: Color = Color(0x97FFFFFF)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryActive: Color = Color(0xCAFFFFFF)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryBrightness: Color = Color(0xF5FAFAFA)
-
-    /**
-     * Инвертированный вторичный цвет текста
-     */
-    public val TextInverseSecondary: Color = Color(0xA3F6F2F0)
-
-    /**
-     * Инвертированный вторичный цвет текста
-     */
-    public val TextInverseSecondaryHover: Color = Color(0xFFF5F1EF)
-
-    /**
-     * Инвертированный вторичный цвет текста
-     */
-    public val TextInverseSecondaryActive: Color = Color(0xC4F5F1EF)
-
-    /**
-     * Инвертированный третичный цвет текста
-     */
-    public val TextInverseTertiary: Color = Color(0x3DF6F2F0)
-
-    /**
-     * Инвертированный третичный цвет текста
-     */
-    public val TextInverseTertiaryHover: Color = Color(0xFFF5F1EF)
-
-    /**
-     * Инвертированный третичный цвет текста
-     */
-    public val TextInverseTertiaryActive: Color = Color(0x49F5F1EF)
-
-    /**
-     * Инвертированный сплошной наборный текст
-     */
-    public val TextInverseParagraph: Color = Color(0x7AF6F2F0)
-
-    /**
-     * Инвертированный сплошной наборный текст
-     */
-    public val TextInverseParagraphHover: Color = Color(0xFFF5F1EF)
-
-    /**
-     * Инвертированный сплошной наборный текст
-     */
-    public val TextInverseParagraphActive: Color = Color(0x93F5F1EF)
-
-    /**
-     * Инвертированный акцентный цвет
-     */
-    public val TextInverseAccent: Color = Color(0xFF61C8B0)
-
-    /**
-     * Инвертированный акцентный цвет
-     */
-    public val TextInverseAccentHover: Color = Color(0xFF77CFBB)
-
-    /**
-     * Инвертированный акцентный цвет
-     */
-    public val TextInverseAccentActive: Color = Color(0xFF4ABFA4)
-
-    /**
-     * Инвертированный минорный акцентный цвет
-     */
-    public val TextInverseAccentMinor: Color = Color(0x7A61C8B0)
-
-    /**
-     * Инвертированный минорный акцентный цвет
-     */
-    public val TextInverseAccentMinorHover: Color = Color(0xFF60C7AF)
-
-    /**
-     * Инвертированный минорный акцентный цвет
-     */
-    public val TextInverseAccentMinorActive: Color = Color(0x9360C7AF)
-
-    /**
-     * Цвет ошибки на светлом фоне
-     */
-    public val TextOnLightNegativeActive: Color = Color(0xFFAF181D)
-
-    /**
-     * Цвет ошибки на светлом фоне
-     */
-    public val TextOnLightNegative: Color = Color(0xFFD11D23)
-
-    /**
-     * Цвет информации на светлом фоне
-     */
-    public val TextOnLightInfo: Color = Color(0xFF205EA5)
-
-    /**
-     * Цвет информации на светлом фоне
-     */
-    public val TextOnLightInfoHover: Color = Color(0xFF000000)
-
-    /**
-     * Цвет информации на светлом фоне
-     */
-    public val TextOnLightInfoActive: Color = Color(0xFF194B85)
-
-    /**
-     * Цвет ошибки на светлом фоне
-     */
-    public val TextOnLightNegativeHover: Color = Color(0xFFE3353B)
-
-    /**
-     * Инвертированный цвет информации
-     */
-    public val TextInverseInfo: Color = Color(0xFF70B2F5)
-
-    /**
-     * Инвертированный цвет информации
-     */
-    public val TextInverseInfoHover: Color = Color(0xFFBCDBFA)
-
-    /**
-     * Инвертированный цвет информации
-     */
-    public val TextInverseInfoActive: Color = Color(0xFF53A3F3)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный цвет предупреждения
-     */
-    public val TextInverseWarningActive: Color = Color(0xFFC45D21)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryBrightness: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidSecondary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidSecondaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidSecondaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidTertiary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidTertiaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный цвет успеха
-     */
-    public val TextInversePositive: Color = Color(0xFF50A84C)
-
-    /**
-     * Инвертированный цвет успеха
-     */
-    public val TextInversePositiveHover: Color = Color(0xFF62B65D)
-
-    /**
-     * Инвертированный цвет предупреждения
-     */
-    public val TextInverseWarning: Color = Color(0xFFDA6828)
-
-    /**
-     * Инвертированный цвет предупреждения
-     */
-    public val TextInverseWarningHover: Color = Color(0xFFDF7D43)
-
-    /**
-     * Инвертированный цвет успеха
-     */
-    public val TextInversePositiveActive: Color = Color(0xFF469442)
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val TextInverseNegative: Color = Color(0xFFF57E83)
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val TextInverseNegativeHover: Color = Color(0xFFF89BA0)
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val TextInverseNegativeActive: Color = Color(0xFFF3626A)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentTertiary: Color = Color(0x1F15110F)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentTertiaryHover: Color = Color(0x2E15110F)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentTertiaryActive: Color = Color(0x3315110F)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentDeep: Color = Color(0xB2FFFFFF)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentDeepHover: Color = Color(0xC2FFFFFF)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentDeepActive: Color = Color(0xC7FFFFFF)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCard: Color = Color(0x84FFFFFF)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCardHover: Color = Color(0x94FFFFFF)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCardActive: Color = Color(0x99FFFFFF)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCardBrightness: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки
-     */
-    public val SurfaceDefaultClear: Color = Color(0x0015110F)
-
-    /**
-     * Фон поверхности/контрола без заливки
-     */
-    public val SurfaceDefaultClearHover: Color = Color(0x0015110F)
-
-    /**
-     * Фон поверхности/контрола без заливки
-     */
-    public val SurfaceDefaultClearActive: Color = Color(0x0015110F)
-
-    /**
-     * Акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccent: Color = Color(0xFF0BA686)
-
-    /**
-     * Акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccentHover: Color = Color(0xFF0CBB98)
-
-    /**
-     * Акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccentActive: Color = Color(0xFF099579)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccentMinorHover: Color = Color(0xFFC7F0E5)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccentMinorActive: Color = Color(0xFFBFEDE1)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentAccent: Color = Color(0x1F0BA686)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentAccentHover: Color = Color(0x2E0BA888)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentAccentActive: Color = Color(0x330BA888)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCard: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardBrightness: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceDefaultSolidDefault: Color = Color(0xFF15110F)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceDefaultSolidDefaultHover: Color = Color(0xFF271F1C)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentPrimary: Color = Color(0x0A15110F)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentPrimaryHover: Color = Color(0x0D15110F)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceDefaultSolidDefaultActive: Color = Color(0xFF090706)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentPrimaryActive: Color = Color(0x0F15110F)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentSecondary: Color = Color(0x1415110F)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentSecondaryHover: Color = Color(0x1A15110F)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentSecondaryActive: Color = Color(0x1F15110F)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка
-     */
-    public val SurfaceDefaultNegative: Color = Color(0xFFE83439)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка
-     */
-    public val SurfaceDefaultNegativeHover: Color = Color(0xFFEC5156)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка
-     */
-    public val SurfaceDefaultNegativeActive: Color = Color(0xFFE72329)
-
-    /**
-     * Цвет фона поверхности/контрола информация
-     */
-    public val SurfaceDefaultInfo: Color = Color(0xFF3776BC)
-
-    /**
-     * Цвет фона поверхности/контрола информация
-     */
-    public val SurfaceDefaultInfoHover: Color = Color(0xFF4180C8)
-
-    /**
-     * Цвет фона поверхности/контрола информация
-     */
-    public val SurfaceDefaultInfoActive: Color = Color(0xFF326CAE)
-
-    /**
-     * Цвет фона поверхности/контрола успех
-     */
-    public val SurfaceDefaultPositiveActive: Color = Color(0xFF20801E)
-
-    /**
-     * Цвет фона поверхности/контрола успех
-     */
-    public val SurfaceDefaultPositive: Color = Color(0xFF239322)
-
-    /**
-     * Цвет фона поверхности/контрола успех
-     */
-    public val SurfaceDefaultPositiveHover: Color = Color(0xFF28A126)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceDefaultWarning: Color = Color(0xFFBE4E0C)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceDefaultWarningHover: Color = Color(0xFFD3560D)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceDefaultWarningActive: Color = Color(0xFFAD460B)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceDefaultTransparentNegativeHover: Color = Color(0x38E9353B)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceDefaultReadOnly: Color = Color(0x02F9F9F9)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceDefaultReadOnlyHover: Color = Color(0x05FAFAFA)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceDefaultReadOnlyActive: Color = Color(0x08FAFAFA)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidPrimary: Color = Color(0xFF232323)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidPrimaryHover: Color = Color(0xFF2E2E2E)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidPrimaryActive: Color = Color(0xFF1F1F1F)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidPrimaryBrightness: Color = Color(0xFF262626)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidSecondary: Color = Color(0xFF292929)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidSecondaryHover: Color = Color(0xFF333333)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidSecondaryActive: Color = Color(0xFF242424)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidTertiary: Color = Color(0xFF474747)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkSolidTertiaryHover: Color = Color(0xFF525252)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceDefaultTransparentNegativeActive: Color = Color(0x3DE9353B)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceDefaultTransparentNegative: Color = Color(0x29E83439)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentTertiary: Color = Color(0x3DFFFFFF)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentTertiaryHover: Color = Color(0x5CFFFFFF)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentTertiaryActive: Color = Color(0x2EFFFFFF)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentDeep: Color = Color(0xB8373737)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentDeepHover: Color = Color(0xD6383838)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentDeepActive: Color = Color(0xA8383838)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCard: Color = Color(0x80232323)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x9E242424)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x70242424)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x0FFAFAFA)
-
-    /**
-     * Фон поверхности/контрола без заливки на темном фоне
-     */
-    public val SurfaceOnDarkClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки на темном фоне
-     */
-    public val SurfaceOnDarkClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки на темном фоне
-     */
-    public val SurfaceOnDarkClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccent: Color = Color(0xFF0BA686)
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccentHover: Color = Color(0xFF0CBB98)
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccentActive: Color = Color(0xFF0A9E81)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccentMinor: Color = Color(0xFF04473B)
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCardActive: Color = Color(0xFF1F1F1F)
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCard: Color = Color(0xFF232323)
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCardBrightness: Color = Color(0xFF262626)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
-     */
-    public val SurfaceOnDarkSolidDefaultHover: Color = Color(0xFFF9F7F5)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
-     */
-    public val SurfaceOnDarkSolidDefaultActive: Color = Color(0xFFF2ECE9)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentPrimary: Color = Color(0x14FFFFFF)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentPrimaryHover: Color = Color(0x24FFFFFF)
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCardHover: Color = Color(0xFF2E2E2E)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentPrimaryActive: Color = Color(0x0FFFFFFF)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentSecondary: Color = Color(0x28FFFFFF)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentSecondaryHover: Color = Color(0x47FFFFFF)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
-
-    /**
-     * Цвет фона поверхности/контрола успех на темном фоне
-     */
-    public val SurfaceOnDarkPositiveHover: Color = Color(0xFFB3D9B0)
-
-    /**
-     * Цвет фона поверхности/контрола успех на темном фоне
-     */
-    public val SurfaceOnDarkPositiveActive: Color = Color(0xFF9FCF9B)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val SurfaceOnDarkWarning: Color = Color(0xFFF8AD80)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val SurfaceOnDarkWarningHover: Color = Color(0xFFF9BB94)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val SurfaceOnDarkWarningActive: Color = Color(0xFFF8A977)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на темном фоне
-     */
-    public val SurfaceOnDarkNegative: Color = Color(0xFFF8A6A9)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на темном фоне
-     */
-    public val SurfaceOnDarkNegativeHover: Color = Color(0xFFF9B8BA)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на темном фоне
-     */
-    public val SurfaceOnDarkNegativeActive: Color = Color(0xFFF79C9F)
-
-    /**
-     * Цвет фона поверхности/контрола информация на темном фоне
-     */
-    public val SurfaceOnDarkInfo: Color = Color(0xFF9BCAF8)
-
-    /**
-     * Цвет фона поверхности/контрола информация на темном фоне
-     */
-    public val SurfaceOnDarkInfoHover: Color = Color(0xFFAED4F9)
-
-    /**
-     * Цвет фона поверхности/контрола информация на темном фоне
-     */
-    public val SurfaceOnDarkInfoActive: Color = Color(0xFF91C4F7)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentAccentActive: Color = Color(0x240BA888)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentAccent: Color = Color(0x330BA686)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentAccentHover: Color = Color(0x520BA888)
-
-    /**
-     * Цвет фона поверхности/контрола успех на темном фоне
-     */
-    public val SurfaceOnDarkPositive: Color = Color(0xFFA6D2A2)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceOnDarkReadOnly: Color = Color(0x05F9F9F9)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceOnDarkReadOnlyHover: Color = Color(0x0FFAFAFA)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceOnDarkReadOnlyActive: Color = Color(0x00FAFAFA)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimaryBrightness: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidSecondary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidSecondaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidSecondaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidTertiary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidTertiaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val SurfaceOnDarkTransparentNegativeActive: Color = Color(0x70F8A5A8)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val SurfaceOnDarkTransparentNegative: Color = Color(0x80F8A6A9)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val SurfaceOnDarkTransparentNegativeHover: Color = Color(0x9EF8A5A8)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentTertiary: Color = Color(0x1F15110F)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentTertiaryHover: Color = Color(0x2E15110F)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentTertiaryActive: Color = Color(0x3315110F)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentDeep: Color = Color(0xB2FFFFFF)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentDeepHover: Color = Color(0xC2FFFFFF)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentDeepActive: Color = Color(0xC7FFFFFF)
-
-    /**
-     * Прозрачный фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightTransparentCard: Color = Color(0x84FFFFFF)
-
-    /**
-     * Прозрачный фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightTransparentCardHover: Color = Color(0x94FFFFFF)
-
-    /**
-     * Прозрачный фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightTransparentCardActive: Color = Color(0x99FFFFFF)
-
-    /**
-     * Прозрачный фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightTransparentCardBrightness: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки на светлом фоне
-     */
-    public val SurfaceOnLightClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки на светлом фоне
-     */
-    public val SurfaceOnLightClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки на светлом фоне
-     */
-    public val SurfaceOnLightClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Акцентный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightAccent: Color = Color(0xFF0BA686)
-
-    /**
-     * Акцентный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightAccentHover: Color = Color(0xFF0CBB98)
-
-    /**
-     * Акцентный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightAccentActive: Color = Color(0xFF099579)
-
-    /**
-     * Основной фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightSolidCardActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightSolidCard: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightSolidCardBrightness: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val SurfaceOnLightSolidDefault: Color = Color(0xFF15110F)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val SurfaceOnLightSolidDefaultHover: Color = Color(0xFF271F1C)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentPrimary: Color = Color(0x0A15110F)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentPrimaryHover: Color = Color(0x0D15110F)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val SurfaceOnLightSolidDefaultActive: Color = Color(0xFF090706)
-
-    /**
-     * Основной фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightSolidCardHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentPrimaryActive: Color = Color(0x0F15110F)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentSecondary: Color = Color(0x1415110F)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentSecondaryHover: Color = Color(0x1A15110F)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentSecondaryActive: Color = Color(0x1F15110F)
-
-    /**
-     * Цвет фона поверхности/контрола успех на светлом фоне
-     */
-    public val SurfaceOnLightPositive: Color = Color(0xFF239322)
-
-    /**
-     * Цвет фона поверхности/контрола успех на светлом фоне
-     */
-    public val SurfaceOnLightPositiveHover: Color = Color(0xFF28A126)
-
-    /**
-     * Цвет фона поверхности/контрола успех на светлом фоне
-     */
-    public val SurfaceOnLightPositiveActive: Color = Color(0xFF20801E)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
-    public val SurfaceOnLightWarning: Color = Color(0xFFBE4E0C)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
-    public val SurfaceOnLightWarningHover: Color = Color(0xFFD3560D)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
-    public val SurfaceOnLightWarningActive: Color = Color(0xFFAD460B)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на светлом фоне
-     */
-    public val SurfaceOnLightNegative: Color = Color(0xFFE83439)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на светлом фоне
-     */
-    public val SurfaceOnLightNegativeHover: Color = Color(0xFFEC5156)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на светлом фоне
-     */
-    public val SurfaceOnLightNegativeActive: Color = Color(0xFFE72329)
-
-    /**
-     * Цвет фона поверхности/контрола информация на светлом фоне
-     */
-    public val SurfaceOnLightInfo: Color = Color(0xFF3776BC)
-
-    /**
-     * Цвет фона поверхности/контрола информация на светлом фоне
-     */
-    public val SurfaceOnLightInfoHover: Color = Color(0xFF4180C8)
-
-    /**
-     * Цвет фона поверхности/контрола информация на светлом фоне
-     */
-    public val SurfaceOnLightInfoActive: Color = Color(0xFF326CAE)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentAccentActive: Color = Color(0x330BA888)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentAccent: Color = Color(0x1F0BA686)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentAccentHover: Color = Color(0x2E0BA888)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
-    public val SurfaceOnLightTransparentNegativeHover: Color = Color(0x38E9353B)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceOnLightReadOnly: Color = Color(0x02F9F9F9)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceOnLightReadOnlyHover: Color = Color(0x05FAFAFA)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceOnLightReadOnlyActive: Color = Color(0x08FAFAFA)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimary: Color = Color(0xFF232323)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryHover: Color = Color(0xFF2E2E2E)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryActive: Color = Color(0xFF1F1F1F)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryBrightness: Color = Color(0xFF262626)
-
-    /**
-     * Инвертированный вторичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidSecondary: Color = Color(0xFF292929)
-
-    /**
-     * Инвертированный вторичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidSecondaryHover: Color = Color(0xFF333333)
-
-    /**
-     * Инвертированный вторичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidSecondaryActive: Color = Color(0xFF242424)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
-    public val SurfaceOnLightTransparentNegativeActive: Color = Color(0x3DE9353B)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
-    public val SurfaceOnLightTransparentNegative: Color = Color(0x29E83439)
-
-    /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
-
-    /**
-     * Инвертированный третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentTertiary: Color = Color(0x3DFFFFFF)
-
-    /**
-     * Инвертированный третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentTertiaryHover: Color = Color(0x5CFFFFFF)
-
-    /**
-     * Инвертированный третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentTertiaryActive: Color = Color(0x2EFFFFFF)
-
-    /**
-     * Инвертированный глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentDeep: Color = Color(0xB8373737)
-
-    /**
-     * Инвертированный глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentDeepHover: Color = Color(0xD6383838)
-
-    /**
-     * Инвертированный глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentDeepActive: Color = Color(0xA8383838)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCard: Color = Color(0x80232323)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCardHover: Color = Color(0x9E242424)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCardActive: Color = Color(0x70242424)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCardBrightness: Color = Color(0x0FFAFAFA)
-
-    /**
-     * Инвертированный фон поверхности/контрола без заливки
-     */
-    public val SurfaceInverseClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Инвертированный фон поверхности/контрола без заливки
-     */
-    public val SurfaceInverseClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Инвертированный фон поверхности/контрола без заливки
-     */
-    public val SurfaceInverseClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccent: Color = Color(0xFF0BA686)
-
-    /**
-     * Инвертированный третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidTertiaryActive: Color = Color(0xFF424242)
-
-    /**
-     * Инвертированный третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidTertiaryHover: Color = Color(0xFF525252)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCard: Color = Color(0xFF232323)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCardActive: Color = Color(0xFF1F1F1F)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCardHover: Color = Color(0xFF2E2E2E)
-
-    /**
-     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceInverseSolidDefaultHover: Color = Color(0xFFF9F7F5)
-
-    /**
-     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceInverseSolidDefaultActive: Color = Color(0xFFF2ECE9)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCardBrightness: Color = Color(0xFF262626)
-
-    /**
-     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceInverseSolidDefault: Color = Color(0xFFF6F2F0)
-
-    /**
-     * Инвертированный основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentPrimary: Color = Color(0x14FFFFFF)
-
-    /**
-     * Инвертированный основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentPrimaryHover: Color = Color(0x24FFFFFF)
-
-    /**
-     * Инвертированный основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentPrimaryActive: Color = Color(0x0FFFFFFF)
-
-    /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentSecondary: Color = Color(0x28FFFFFF)
-
-    /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentSecondaryHover: Color = Color(0x47FFFFFF)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола успех
-     */
-    public val SurfaceInversePositive: Color = Color(0xFFA6D2A2)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола успех
-     */
-    public val SurfaceInversePositiveHover: Color = Color(0xFFB3D9B0)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола успех
-     */
-    public val SurfaceInversePositiveActive: Color = Color(0xFF9FCF9B)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceInverseWarning: Color = Color(0xFFF8AD80)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceInverseWarningHover: Color = Color(0xFFF9BB94)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceInverseWarningActive: Color = Color(0xFFF8A977)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола ошибка
-     */
-    public val SurfaceInverseNegative: Color = Color(0xFFF8A6A9)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола ошибка
-     */
-    public val SurfaceInverseNegativeHover: Color = Color(0xFFF9B8BA)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола ошибка
-     */
-    public val SurfaceInverseNegativeActive: Color = Color(0xFFF79C9F)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола информация
-     */
-    public val SurfaceInverseInfo: Color = Color(0xFF9BCAF8)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола информация
-     */
-    public val SurfaceInverseInfoHover: Color = Color(0xFFAED4F9)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола информация
-     */
-    public val SurfaceInverseInfoActive: Color = Color(0xFF91C4F7)
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentMinorActive: Color = Color(0xFF043F34)
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentHover: Color = Color(0xFF0CBB98)
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentAccent: Color = Color(0x330BA686)
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentAccentHover: Color = Color(0x520BA888)
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentAccentActive: Color = Color(0x240BA888)
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentActive: Color = Color(0xFF0A9E81)
-
-    /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceInverseTransparentNegativeActive: Color = Color(0x70F8A5A8)
-
-    /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceInverseTransparentNegative: Color = Color(0x80F8A6A9)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceInverseReadOnly: Color = Color(0x05F9F9F9)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceInverseReadOnlyHover: Color = Color(0x0FFAFAFA)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceInverseReadOnlyActive: Color = Color(0x00FAFAFA)
-
-    /**
-     * Основной фон
-     */
-    public val BackgroundDefaultPrimary: Color = Color(0xFFEBE7E5)
-
-    /**
-     * Вторичный фон
-     */
-    public val BackgroundDefaultSecondary: Color = Color(0xFFF6F2F0)
-
-    /**
-     * Третичный фон
-     */
-    public val BackgroundDefaultTertiary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной фон на темном фоне
-     */
-    public val BackgroundDarkPrimary: Color = Color(0xFF141413)
-
-    /**
-     * Вторичный фон на темном фоне
-     */
-    public val BackgroundDarkSecondary: Color = Color(0xFF0F0F0F)
-
-    /**
-     * Третичный фон на темном фоне
-     */
-    public val BackgroundDarkTertiary: Color = Color(0xFF141413)
-
-    /**
-     * Основной фон на светлом фоне
-     */
-    public val BackgroundLightPrimary: Color = Color(0xFFEBE7E5)
-
-    /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceInverseTransparentNegativeHover: Color = Color(0x9EF8A5A8)
-
-    /**
-     * Инвертированный цвет фона паранжи светлый
-     */
-    public val OverlayInverseSoft: Color = Color(0x1F000000)
-
-    /**
-     * Инвертированный цвет фона паранжи темный
-     */
-    public val OverlayInverseHard: Color = Color(0x29000000)
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public val OutlineDefaultTransparentPrimary: Color = Color(0x3D15110F)
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public val OutlineDefaultTransparentPrimaryHover: Color = Color(0x2515110F)
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public val OutlineDefaultTransparentPrimaryActive: Color = Color(0x6215110F)
-
-    /**
-     * Бесцветная обводка
-     */
-    public val OutlineDefaultClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Инвертированный вторичный фон
-     */
-    public val BackgroundInverseSecondary: Color = Color(0xFF0F0F0F)
-
-    /**
-     * Третичный фон на светлом фоне
-     */
-    public val BackgroundLightTertiary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный третичный фон
-     */
-    public val BackgroundInverseTertiary: Color = Color(0xFF141413)
-
-    /**
-     * Цвет фона паранжи светлый
-     */
-    public val OverlayDefaultSoft: Color = Color(0x3D000000)
-
-    /**
-     * Цвет фона паранжи темный
-     */
-    public val OverlayDefaultHard: Color = Color(0x52000000)
-
-    /**
-     * Цвет фона паранжи светлый на темном фоне
-     */
-    public val OverlayOnDarkSoft: Color = Color(0x1F000000)
-
-    /**
-     * Цвет фона паранжи темный на темном фоне
-     */
-    public val OverlayOnDarkHard: Color = Color(0x29000000)
-
-    /**
-     * Инвертированный основной фон
-     */
-    public val BackgroundInversePrimary: Color = Color(0xFF141413)
-
-    /**
-     * Цвет фона паранжи светлый на светлом фоне
-     */
-    public val OverlayOnLightSoft: Color = Color(0x3D000000)
-
-    /**
-     * Цвет фона паранжи темный на светлом фоне
-     */
-    public val OverlayOnLightHard: Color = Color(0x52000000)
-
-    /**
-     * Цвет обводки успех
-     */
-    public val OutlineDefaultPositive: Color = Color(0xFF239322)
-
-    /**
-     * Цвет обводки успех
-     */
-    public val OutlineDefaultPositiveHover: Color = Color(0xFF32CA2F)
-
-    /**
-     * Цвет обводки успех
-     */
-    public val OutlineDefaultPositiveActive: Color = Color(0xFF20801E)
-
-    /**
-     * Цвет обводки предупреждение
-     */
-    public val OutlineDefaultWarning: Color = Color(0xFFBE4E0C)
-
-    /**
-     * Цвет обводки предупреждение
-     */
-    public val OutlineDefaultWarningHover: Color = Color(0xFFF3813F)
-
-    /**
-     * Цвет обводки предупреждение
-     */
-    public val OutlineDefaultWarningActive: Color = Color(0xFFA3420A)
-
-    /**
-     * Цвет обводки ошибка
-     */
-    public val OutlineDefaultNegative: Color = Color(0xFFE83439)
-
-    /**
-     * Цвет обводки ошибка
-     */
-    public val OutlineDefaultNegativeHover: Color = Color(0xFFF17E82)
-
-    /**
-     * Цвет обводки ошибка
-     */
-    public val OutlineDefaultNegativeActive: Color = Color(0xFFDC181F)
-
-    /**
-     * Цвет обводки информация
-     */
-    public val OutlineDefaultInfo: Color = Color(0xFF3776BC)
-
-    /**
-     * Цвет обводки информация
-     */
-    public val OutlineDefaultInfoHover: Color = Color(0xFF81AADA)
-
-    /**
-     * Цвет обводки информация
-     */
-    public val OutlineDefaultInfoActive: Color = Color(0xFF3067A6)
-
-    /**
-     * Бесцветная обводка
-     */
-    public val OutlineDefaultClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Бесцветная обводка
-     */
-    public val OutlineDefaultClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Основной прозрачный цвет обводки на темном фоне
-     */
-    public val OutlineOnDarkTransparentPrimary: Color = Color(0x1EFFFFFF)
-
-    /**
-     * Основной прозрачный цвет обводки на темном фоне
-     */
-    public val OutlineOnDarkTransparentPrimaryHover: Color = Color(0x4DFFFFFF)
-
-    /**
-     * Основной прозрачный цвет обводки на темном фоне
-     */
-    public val OutlineOnDarkTransparentPrimaryActive: Color = Color(0x12FFFFFF)
-
-    /**
-     * Цвет обводки успех на темном фоне
-     */
-    public val OutlineOnDarkPositive: Color = Color(0xFFA6D2A2)
-
-    /**
-     * Цвет обводки успех на темном фоне
-     */
-    public val OutlineOnDarkPositiveHover: Color = Color(0xFFDBEDD9)
-
-    /**
-     * Цвет обводки успех на темном фоне
-     */
-    public val OutlineOnDarkPositiveActive: Color = Color(0xFF92C88D)
-
-    /**
-     * Цвет обводки предупреждение на темном фоне
-     */
-    public val OutlineOnDarkWarning: Color = Color(0xFFF8AD80)
-
-    /**
-     * Цвет обводки предупреждение на темном фоне
-     */
-    public val OutlineOnDarkWarningHover: Color = Color(0xFFFCE0CF)
-
-    /**
-     * Цвет обводки предупреждение на темном фоне
-     */
-    public val OutlineOnDarkWarningActive: Color = Color(0xFFF79C64)
-
-    /**
-     * Цвет обводки ошибка на темном фоне
-     */
-    public val OutlineOnDarkNegative: Color = Color(0xFFF8A6A9)
-
-    /**
-     * Цвет обводки ошибка на темном фоне
-     */
-    public val OutlineOnDarkNegativeHover: Color = Color(0xFFF25A5F)
-
-    /**
-     * Цвет обводки ошибка на темном фоне
-     */
-    public val OutlineOnDarkNegativeActive: Color = Color(0xFFEF343A)
-
-    /**
-     * Цвет обводки информация на темном фоне
-     */
-    public val OutlineOnDarkInfo: Color = Color(0xFF9BCAF8)
-
-    /**
-     * Цвет обводки информация на темном фоне
-     */
-    public val OutlineOnDarkInfoHover: Color = Color(0xFFE7F2FD)
-
-    /**
-     * Цвет обводки информация на темном фоне
-     */
-    public val OutlineOnDarkInfoActive: Color = Color(0xFF7EBAF6)
-
-    /**
-     * Бесцветная обводка на темном фоне
-     */
-    public val OutlineOnDarkClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Бесцветная обводка на темном фоне
-     */
-    public val OutlineOnDarkClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Бесцветная обводка на темном фоне
-     */
-    public val OutlineOnDarkClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Бесцветная обводка на светлом фоне
-     */
-    public val OutlineOnLightClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Бесцветная обводка на светлом фоне
-     */
-    public val OutlineOnLightClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Бесцветная обводка на светлом фоне
-     */
-    public val OutlineOnLightClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Цвет обводки успех на светлом фоне
-     */
-    public val OutlineOnLightPositive: Color = Color(0xFF239322)
-
-    /**
-     * Цвет обводки успех на светлом фоне
-     */
-    public val OutlineOnLightPositiveHover: Color = Color(0xFF32CA2F)
-
-    /**
-     * Основной прозрачный цвет обводки на светлом фоне
-     */
-    public val OutlineOnLightTransparentPrimary: Color = Color(0x3D15110F)
-
-    /**
-     * Основной прозрачный цвет обводки на светлом фоне
-     */
-    public val OutlineOnLightTransparentPrimaryHover: Color = Color(0x2515110F)
-
-    /**
-     * Основной прозрачный цвет обводки на светлом фоне
-     */
-    public val OutlineOnLightTransparentPrimaryActive: Color = Color(0x6215110F)
-
-    /**
-     * Цвет обводки ошибка на светлом фоне
-     */
-    public val OutlineOnLightNegative: Color = Color(0xFFE83439)
-
-    /**
-     * Цвет обводки предупреждение на светлом фоне
-     */
-    public val OutlineOnLightWarning: Color = Color(0xFFBE4E0C)
-
-    /**
-     * Цвет обводки ошибка на светлом фоне
-     */
-    public val OutlineOnLightNegativeHover: Color = Color(0xFFF17E82)
-
-    /**
-     * Цвет обводки ошибка на светлом фоне
-     */
-    public val OutlineOnLightNegativeActive: Color = Color(0xFFDC181F)
-
-    /**
-     * Цвет обводки информация на светлом фоне
-     */
-    public val OutlineOnLightInfo: Color = Color(0xFF3776BC)
-
-    /**
-     * Цвет обводки информация на светлом фоне
-     */
-    public val OutlineOnLightInfoActive: Color = Color(0xFF3067A6)
-
-    /**
-     * Цвет обводки информация на светлом фоне
-     */
-    public val OutlineOnLightInfoHover: Color = Color(0xFF81AADA)
-
-    /**
-     * Цвет обводки предупреждение на светлом фоне
-     */
-    public val OutlineOnLightWarningHover: Color = Color(0xFFF3813F)
-
-    /**
-     * Инвертированный основной прозрачный цвет обводки
-     */
-    public val OutlineInverseTransparentPrimary: Color = Color(0x1EFFFFFF)
-
-    /**
-     * Инвертированный основной прозрачный цвет обводки
-     */
-    public val OutlineInverseTransparentPrimaryHover: Color = Color(0x4DFFFFFF)
-
-    /**
-     * Инвертированный основной прозрачный цвет обводки
-     */
-    public val OutlineInverseTransparentPrimaryActive: Color = Color(0x12FFFFFF)
-
-    /**
-     * Инвертированная бесцветная обводка
-     */
-    public val OutlineInverseClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Инвертированная бесцветная обводка
-     */
-    public val OutlineInverseClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Инвертированная бесцветная обводка
-     */
-    public val OutlineInverseClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Инвертированный цвет обводки ошибка
-     */
-    public val OutlineInverseNegative: Color = Color(0xFFF8A6A9)
-
-    /**
-     * Инвертированный цвет обводки ошибка
-     */
-    public val OutlineInverseNegativeHover: Color = Color(0xFFF25A5F)
-
-    /**
-     * Инвертированный цвет обводки ошибка
-     */
-    public val OutlineInverseNegativeActive: Color = Color(0xFFEF343A)
-
-    /**
-     * Инвертированный цвет обводки информация
-     */
-    public val OutlineInverseInfo: Color = Color(0xFF9BCAF8)
-
-    /**
-     * Инвертированный цвет обводки информация
-     */
-    public val OutlineInverseInfoHover: Color = Color(0xFFE7F2FD)
-
-    /**
-     * Инвертированный цвет обводки информация
-     */
-    public val OutlineInverseInfoActive: Color = Color(0xFF7EBAF6)
-
-    /**
-     * Инвертированный цвет обводки успех
-     */
-    public val OutlineInversePositiveActive: Color = Color(0xFF92C88D)
-
-    /**
-     * Инвертированный цвет обводки успех
-     */
-    public val OutlineInversePositive: Color = Color(0xFFA6D2A2)
-
-    /**
-     * Инвертированный цвет обводки успех
-     */
-    public val OutlineInversePositiveHover: Color = Color(0xFFDBEDD9)
-
-    /**
-     * Инвертированный цвет обводки предупреждение
-     */
-    public val OutlineInverseWarning: Color = Color(0xFFF8AD80)
-
-    /**
-     * Инвертированный цвет обводки предупреждение
-     */
-    public val OutlineInverseWarningHover: Color = Color(0xFFFCE0CF)
-
-    /**
-     * Инвертированный цвет обводки предупреждение
-     */
-    public val OutlineInverseWarningActive: Color = Color(0xFFF79C64)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimaryHover: Color = Color(0x9715110F)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
-     */
-    public val SurfaceOnDarkSolidDefault: Color = Color(0xFFF6F2F0)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightAccentMinorActive: Color = Color(0xFFBFEDE1)
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentMinorHover: Color = Color(0xFF055C4C)
-}
-
-/**
  * Токены цвета для темной темы
  */
 public object DarkColorTokens {
     /**
-     * Primary Hover On Light
-     */
-    public val OutlineOnLightPrimaryHover: Color = Color(0xFFADA39F)
-
-    /**
-     * Default Active Inverse
-     */
-    public val OutlineInverseDefaultActive: Color = Color(0xFFE6E6E6)
-
-    /**
-     * Sea Blue Text Accent Active Inverse
-     */
-    public val PersonasInverseSeaBlueTextAccentActive: Color = Color(0xFF4BB4B4)
-
-    /**
-     * Violet Text Accent Active Inverse
-     */
-    public val PersonasInverseVioletTextAccentActive: Color = Color(0xFF81288F)
-
-    /**
-     * Default Hover On Light
-     */
-    public val OutlineOnLightDefaultHover: Color = Color(0xFFCCCCCC)
-
-    /**
      * Default Hover On Dark
      */
     public val OutlineOnDarkDefaultHover: Color = Color(0xFF666666)
-
-    /**
-     * Default Active On Dark
-     */
-    public val OutlineOnDarkDefaultActive: Color = Color(0xFF292929)
-
-    /**
-     * Green Text Accent Hover Default
-     */
-    public val PersonasDefaultGreenTextAccentHover: Color = Color(0xFF04C396)
-
-    /**
-     * Sea Blue Text Accent Hover Default
-     */
-    public val PersonasDefaultSeaBlueTextAccentHover: Color = Color(0xFF00C5CC)
-
-    /**
-     * Accent Secondary Hover Inverse
-     */
-    public val SurfaceInverseAccentSecondaryHover: Color = Color(0xFF50C3A8)
-
-    /**
-     * Transparent Navi Active Default
-     */
-    public val SurfaceDefaultTransparentNaviActive: Color = Color(0x8A242424)
-
-    /**
-     * Transparent Accent Minor Active On Light
-     */
-    public val SurfaceOnLightTransparentAccentMinorActive: Color = Color(0x520BA888)
-
-    /**
-     * Green Text Accent Active On Light
-     */
-    public val PersonasOnLightGreenTextAccentActive: Color = Color(0xFF04AF87)
-
-    /**
-     * Default Active Default
-     */
-    public val OutlineDefaultDefaultActive: Color = Color(0xFF666666)
-
-    /**
-     * Primary Active On Dark
-     */
-    public val OutlineOnDarkPrimaryActive: Color = Color(0xFF2B2827)
-
-    /**
-     * Olive Text Accent Active Default
-     */
-    public val PersonasDefaultOliveTextAccentActive: Color = Color(0xFF7DC07C)
-
-    /**
-     * Olive Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkOliveTextAccentHover: Color = Color(0xFFA6D4A5)
-
-    /**
-     * Violet Text Accent Active On Light
-     */
-    public val PersonasOnLightVioletTextAccentActive: Color = Color(0xFF81288F)
-
-    /**
-     * Ochre Text Accent Active On Light
-     */
-    public val PersonasOnLightOchreTextAccentActive: Color = Color(0xFFAA4A0E)
-
-    /**
-     * Accent Secondary Hover On Dark
-     */
-    public val SurfaceOnDarkAccentSecondaryHover: Color = Color(0xFF70CDB7)
-
-    /**
-     * Pink Text Accent Hover On Light
-     */
-    public val PersonasOnLightPinkTextAccentHover: Color = Color(0xFFE47777)
 
     /**
      * Accent Secondary Hover Default
@@ -3423,124 +18,14 @@ public object DarkColorTokens {
     public val SurfaceDefaultAccentSecondaryHover: Color = Color(0xFF70CDB7)
 
     /**
-     * Indigo Text Accent Hover Default
-     */
-    public val PersonasDefaultIndigoTextAccentHover: Color = Color(0xFFE8DAFC)
-
-    /**
-     * Violet Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkVioletTextAccentHover: Color = Color(0xFFE9B6F2)
-
-    /**
-     * On Light Outline Primary
-     */
-    public val OutlineOnLightPrimary: Color = Color(0xFFDDD9D7)
-
-    /**
-     * Inverse Outline Default
-     */
-    public val OutlineInverseDefault: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Blue Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkBlueTextAccentHover: Color = Color(0xFFC3DDF9)
-
-    /**
-     * Indigo Text Accent Hover On Light
-     */
-    public val PersonasOnLightIndigoTextAccentHover: Color = Color(0xFF000000)
-
-    /**
-     * Sea Blue Text Accent Hover On Light
-     */
-    public val PersonasOnLightSeaBlueTextAccentHover: Color = Color(0xFF00D9E0)
-
-    /**
-     * Ochre Text Accent Active Default
-     */
-    public val PersonasDefaultOchreTextAccentActive: Color = Color(0xFFF19F7E)
-
-    /**
-     * Inverse Background Hardline
-     */
-    public val BackgroundInverseHardline: Color = Color(0xFF000000)
-
-    /**
-     * Sea Blue Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkSeaBlueTextAccentHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Surface Transparent Navi
-     */
-    public val SurfaceDefaultTransparentNavi: Color = Color(0x99232323)
-
-    /**
-     * Violet Text Accent Active Default
-     */
-    public val PersonasDefaultVioletTextAccentActive: Color = Color(0xFF892B97)
-
-    /**
-     * Blue Text Accent Hover Default
-     */
-    public val PersonasDefaultBlueTextAccentHover: Color = Color(0xFFC3DDF9)
-
-    /**
-     * Outline Default
-     */
-    public val OutlineDefaultDefault: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimaryBrightnessActive: Color = Color(0xC4FAFAFA)
-
-    /**
      * Прозрачный фон для карточек
      */
     public val SurfaceDefaultTransparentCardBrightnessHover: Color = Color(0x1FFAFAFA)
 
     /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardBrightnessActive: Color = Color(0xFF212121)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
-
-    /**
      * Прозрачный фон для карточек
      */
     public val SurfaceDefaultTransparentCardBrightnessActive: Color = Color(0x0AFAFAFA)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardBrightnessHover: Color = Color(0xFF303030)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardBrightnessHover: Color = Color(0x1FFAFAFA)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardBrightnessActive: Color = Color(0x0AFAFAFA)
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCardBrightnessHover: Color = Color(0xFF303030)
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCardBrightnessActive: Color = Color(0xFF212121)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на светлом фоне
@@ -3553,64 +38,19 @@ public object DarkColorTokens {
     public val SurfaceOnLightSolidPrimaryBrightnessActive: Color = Color(0xFFFFFFFF)
 
     /**
-     * Inverse Personas Indigo Text Accent
+     * Прозрачный фон для карточек на темном фоне
      */
-    public val PersonasInverseIndigoTextAccent: Color = Color(0xFFBD91F5)
+    public val SurfaceOnDarkTransparentCardBrightnessHover: Color = Color(0x1FFAFAFA)
 
     /**
-     * Inverse Personas Pink Text Accent
+     * Основной фон для карточек на темном фоне
      */
-    public val PersonasInversePinkTextAccent: Color = Color(0xFFF7A4A4)
+    public val SurfaceOnDarkSolidCardBrightnessHover: Color = Color(0xFF303030)
 
     /**
-     * Personas Olive Text Accent
+     * Прозрачный фон для карточек на темном фоне
      */
-    public val PersonasDefaultOliveTextAccent: Color = Color(0xFF93CB92)
-
-    /**
-     * Цвет обводки успех на светлом фоне
-     */
-    public val OutlineOnLightPositiveActive: Color = Color(0xFF20801E)
-
-    /**
-     * Inverse Personas Ochre Text Accent
-     */
-    public val PersonasInverseOchreTextAccent: Color = Color(0xFFD15A11)
-
-    /**
-     * On Dark Personas Olive Text Accent
-     */
-    public val PersonasOnDarkOliveTextAccent: Color = Color(0xFF93CB92)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidTertiaryActive: Color = Color(0xFF424242)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidTertiaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Inverse Surface Transparent Navi
-     */
-    public val SurfaceInverseTransparentNavi: Color = Color(0x99FFFFFF)
-
-    /**
-     * Прозрачный фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightTransparentCardBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimary: Color = Color(0xFCFFFFFF)
-
-    /**
-     * Акцентный минорный цвет на темном фоне
-     */
-    public val TextOnDarkAccentMinorHover: Color = Color(0xFF60C7AF)
+    public val SurfaceOnDarkTransparentCardBrightnessActive: Color = Color(0x0AFAFAFA)
 
     /**
      * On Light Personas Olive Text Accent
@@ -3618,9 +58,84 @@ public object DarkColorTokens {
     public val PersonasOnLightOliveTextAccent: Color = Color(0xFF127210)
 
     /**
+     * On Dark Personas Olive Text Accent
+     */
+    public val PersonasOnDarkOliveTextAccent: Color = Color(0xFF93CB92)
+
+    /**
+     * Inverse Personas Ochre Text Accent
+     */
+    public val PersonasInverseOchreTextAccent: Color = Color(0xFFD15A11)
+
+    /**
+     * Inverse Personas Pink Text Accent
+     */
+    public val PersonasInversePinkTextAccent: Color = Color(0xFFF7A4A4)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidTertiaryActive: Color = Color(0xFF424242)
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimaryBrightnessHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной цвет текста
+     */
+    public val TextDefaultPrimary: Color = Color(0xFCFFFFFF)
+
+    /**
+     * Inverse Surface Transparent Navi
+     */
+    public val SurfaceInverseTransparentNavi: Color = Color(0x99FFFFFF)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCardBrightnessHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidTertiaryActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Inverse Personas Indigo Text Accent
+     */
+    public val PersonasInverseIndigoTextAccent: Color = Color(0xFFBD91F5)
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimaryBrightnessActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Personas Olive Text Accent
+     */
+    public val PersonasDefaultOliveTextAccent: Color = Color(0xFF93CB92)
+
+    /**
+     * Акцентный минорный цвет на темном фоне
+     */
+    public val TextOnDarkAccentMinorHover: Color = Color(0xFF60C7AF)
+
+    /**
      * Прозрачный фон для карточек на светлом фоне
      */
     public val SurfaceOnLightTransparentCardBrightnessActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightTransparentCardBrightnessHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightSolidCardBrightnessActive: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
@@ -3633,44 +148,19 @@ public object DarkColorTokens {
     public val SurfaceOnLightSolidCardBrightnessHover: Color = Color(0xFFFFFFFF)
 
     /**
-     * Основной фон для карточек на светлом фоне
+     * Цвет обводки успех на светлом фоне
      */
-    public val SurfaceOnLightSolidCardBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCardBrightnessHover: Color = Color(0xFFFFFFFF)
+    public val OutlineOnLightPositiveActive: Color = Color(0xFF20801E)
 
     /**
      * Outline Primary
      */
-    public val OutlineDefaultPrimary: Color = Color(0xFFDDD9D7)
+    public val OutlineDefaultPrimary: Color = Color(0xFF3B3735)
 
     /**
-     * On Light Personas Ochre Text Accent
+     * Инвертированный третичный непрозрачный фон поверхности/контрола
      */
-    public val PersonasOnLightOchreTextAccent: Color = Color(0xFFD15A11)
-
-    /**
-     * On Dark Personas Indigo Text Accent
-     */
-    public val PersonasOnDarkIndigoTextAccent: Color = Color(0xFFBD91F5)
-
-    /**
-     * On Dark Surface Accent Secondary
-     */
-    public val SurfaceOnDarkAccentSecondary: Color = Color(0xFF61C8B0)
+    public val SurfaceInverseSolidTertiary: Color = Color(0xFFFFFFFF)
 
     /**
      * Inverse Personas Green Text Accent
@@ -3688,24 +178,34 @@ public object DarkColorTokens {
     public val SurfaceDefaultAccentMinor: Color = Color(0xFF04473B)
 
     /**
+     * On Dark Surface Accent Secondary
+     */
+    public val SurfaceOnDarkAccentSecondary: Color = Color(0xFF61C8B0)
+
+    /**
+     * On Dark Personas Indigo Text Accent
+     */
+    public val PersonasOnDarkIndigoTextAccent: Color = Color(0xFFBD91F5)
+
+    /**
      * Третичный непрозрачный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkSolidTertiaryActive: Color = Color(0xFF424242)
 
     /**
-     * Вторичный фон на светлом фоне
-     */
-    public val BackgroundLightSecondary: Color = Color(0xFFF6F2F0)
-
-    /**
-     * Инвертированный третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidTertiary: Color = Color(0xFFFFFFFF)
-
-    /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
     public val SurfaceOnLightAccentMinor: Color = Color(0xFFD0F2E9)
+
+    /**
+     * On Light Personas Ochre Text Accent
+     */
+    public val PersonasOnLightOchreTextAccent: Color = Color(0xFFD15A11)
+
+    /**
+     * On Light Personas Violet Text Accent
+     */
+    public val PersonasOnLightVioletTextAccent: Color = Color(0xFF9E32AF)
 
     /**
      * Инвертированный прозрачный фон для карточек
@@ -3718,19 +218,14 @@ public object DarkColorTokens {
     public val OutlineOnLightWarningActive: Color = Color(0xFFA3420A)
 
     /**
-     * On Light Personas Violet Text Accent
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val PersonasOnLightVioletTextAccent: Color = Color(0xFF9E32AF)
+    public val SurfaceOnDarkAccentMinorHover: Color = Color(0xFF055C4C)
 
     /**
      * Инвертированный основной фон для карточек
      */
     public val SurfaceInverseSolidCardBrightnessActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccentMinorHover: Color = Color(0xFF055C4C)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
@@ -3743,29 +238,14 @@ public object DarkColorTokens {
     public val SurfaceInverseAccentMinor: Color = Color(0xFFD0F2E9)
 
     /**
-     * On Light Personas Sea Blue Text Accent
-     */
-    public val PersonasOnLightSeaBlueTextAccent: Color = Color(0xFF00898D)
-
-    /**
-     * Personas Ochre Text Accent
-     */
-    public val PersonasDefaultOchreTextAccent: Color = Color(0xFFF4B49B)
-
-    /**
      * On Dark Surface Transparent Accent Minor
      */
     public val SurfaceOnDarkTransparentAccentMinor: Color = Color(0x470BA686)
 
     /**
-     * On Dark Personas Violet Text Accent
+     * On Light Personas Sea Blue Text Accent
      */
-    public val PersonasOnDarkVioletTextAccent: Color = Color(0xFFE19DED)
-
-    /**
-     * On Light Surface Transparent Navi
-     */
-    public val SurfaceOnLightTransparentNavi: Color = Color(0x99FFFFFF)
+    public val PersonasOnLightSeaBlueTextAccent: Color = Color(0xFF00898D)
 
     /**
      * On Dark Personas Blue Text Accent
@@ -3773,44 +253,74 @@ public object DarkColorTokens {
     public val PersonasOnDarkBlueTextAccent: Color = Color(0xFF79B3F2)
 
     /**
-     * Green Text Accent Active Default
+     * On Dark Personas Violet Text Accent
      */
-    public val PersonasDefaultGreenTextAccentActive: Color = Color(0xFF03A57F)
+    public val PersonasOnDarkVioletTextAccent: Color = Color(0xFFE19DED)
 
     /**
-     * Sea Blue Text Accent Active Default
+     * Personas Ochre Text Accent
      */
-    public val PersonasDefaultSeaBlueTextAccentActive: Color = Color(0xFF00A8AD)
+    public val PersonasDefaultOchreTextAccent: Color = Color(0xFFF4B49B)
 
     /**
-     * Accent Secondary Active Inverse
+     * On Light Surface Transparent Navi
      */
-    public val SurfaceInverseAccentSecondaryActive: Color = Color(0xFF3CAF94)
+    public val SurfaceOnLightTransparentNavi: Color = Color(0x99FFFFFF)
 
     /**
-     * Pink Text Accent Active On Dark
+     * Blue Text Accent Active Inverse
      */
-    public val PersonasOnDarkPinkTextAccentActive: Color = Color(0xFFF58A8A)
+    public val PersonasInverseBlueTextAccentActive: Color = Color(0xFF0D4F96)
 
     /**
-     * Primary Active Default
+     * Цвет предупреждения на светлом фоне
      */
-    public val OutlineDefaultPrimaryActive: Color = Color(0xFF665C57)
+    public val TextOnLightWarningActive: Color = Color(0xFF6F2D06)
 
     /**
-     * Indigo Text Accent Active Inverse
+     * Olive Text Accent Hover Inverse
      */
-    public val PersonasInverseIndigoTextAccentActive: Color = Color(0xFFA46AF1)
+    public val PersonasInverseOliveTextAccentHover: Color = Color(0xFF1DB71A)
 
     /**
-     * Pink Text Accent Active Inverse
+     * Transparent Navi Active On Light
      */
-    public val PersonasInversePinkTextAccentActive: Color = Color(0xFFF48080)
+    public val SurfaceOnLightTransparentNaviActive: Color = Color(0xADFFFFFF)
+
+    /**
+     * Blue Text Accent Active On Light
+     */
+    public val PersonasOnLightBlueTextAccentActive: Color = Color(0xFF0D4F96)
+
+    /**
+     * Primary Active On Light
+     */
+    public val OutlineOnLightPrimaryActive: Color = Color(0xFFC4BEBA)
+
+    /**
+     * Default Active On Light
+     */
+    public val OutlineOnLightDefaultActive: Color = Color(0xFFE6E6E6)
 
     /**
      * Olive Text Accent Active On Dark
      */
     public val PersonasOnDarkOliveTextAccentActive: Color = Color(0xFF7DC07C)
+
+    /**
+     * On Dark Personas Sea Blue Text Accent
+     */
+    public val PersonasOnDarkSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
+
+    /**
+     * Violet Text Accent Active On Dark
+     */
+    public val PersonasOnDarkVioletTextAccentActive: Color = Color(0xFFD982E8)
+
+    /**
+     * Green Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkGreenTextAccentHover: Color = Color(0xFF84DCC6)
 
     /**
      * Accent Secondary Active On Dark
@@ -3823,89 +333,9 @@ public object DarkColorTokens {
     public val PersonasInverseGreenTextAccentActive: Color = Color(0xFF4CCDAC)
 
     /**
-     * Pink Text Accent Active On Light
-     */
-    public val PersonasOnLightPinkTextAccentActive: Color = Color(0xFFD73333)
-
-    /**
-     * Indigo Text Accent Active Default
-     */
-    public val PersonasDefaultIndigoTextAccentActive: Color = Color(0xFFAA73F2)
-
-    /**
-     * Violet Text Accent Active On Dark
-     */
-    public val PersonasOnDarkVioletTextAccentActive: Color = Color(0xFFD982E8)
-
-    /**
-     * Transparent Navi Hover On Light
-     */
-    public val SurfaceOnLightTransparentNaviHover: Color = Color(0xA8FFFFFF)
-
-    /**
-     * Transparent Navi Active On Light
-     */
-    public val SurfaceOnLightTransparentNaviActive: Color = Color(0xADFFFFFF)
-
-    /**
-     * Olive Text Accent Hover Inverse
-     */
-    public val PersonasInverseOliveTextAccentHover: Color = Color(0xFF1DB71A)
-
-    /**
-     * Ochre Text Accent Hover Default
-     */
-    public val PersonasDefaultOchreTextAccentHover: Color = Color(0xFFF7C8B6)
-
-    /**
      * Inverse Surface Accent Secondary
      */
     public val SurfaceInverseAccentSecondary: Color = Color(0xFF41BDA1)
-
-    /**
-     * Light Background Hardline
-     */
-    public val BackgroundLightHardline: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Sea Blue Text Accent Active On Dark
-     */
-    public val PersonasOnDarkSeaBlueTextAccentActive: Color = Color(0xFF2D6C6C)
-
-    /**
-     * On Light Surface Transparent Accent Minor
-     */
-    public val SurfaceOnLightTransparentAccentMinor: Color = Color(0x3D0BA686)
-
-    /**
-     * On Light Personas Green Text Accent
-     */
-    public val PersonasOnLightGreenTextAccent: Color = Color(0xFF038768)
-
-    /**
-     * Primary Active On Light
-     */
-    public val OutlineOnLightPrimaryActive: Color = Color(0xFFC4BEBA)
-
-    /**
-     * Blue Text Accent Active Inverse
-     */
-    public val PersonasInverseBlueTextAccentActive: Color = Color(0xFF0D4F96)
-
-    /**
-     * Transparent Accent Minor Active Inverse
-     */
-    public val SurfaceInverseTransparentAccentMinorActive: Color = Color(0x5C0BA888)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimaryBrightnessHover: Color = Color(0x93FAFAFA)
-
-    /**
-     * Green Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkGreenTextAccentHover: Color = Color(0xFF84DCC6)
 
     /**
      * Основной цвет текста на темном фоне
@@ -3913,39 +343,104 @@ public object DarkColorTokens {
     public val TextOnDarkPrimaryBrightnessHover: Color = Color(0x93FAFAFA)
 
     /**
-     * On Dark Personas Sea Blue Text Accent
+     * Pink Text Accent Active On Dark
      */
-    public val PersonasOnDarkSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
+    public val PersonasOnDarkPinkTextAccentActive: Color = Color(0xFFF58A8A)
 
     /**
-     * Blue Text Accent Active On Light
+     * Indigo Text Accent Active Inverse
      */
-    public val PersonasOnLightBlueTextAccentActive: Color = Color(0xFF0D4F96)
+    public val PersonasInverseIndigoTextAccentActive: Color = Color(0xFFA46AF1)
 
     /**
-     * Default Active On Light
+     * Sea Blue Text Accent Active Default
      */
-    public val OutlineOnLightDefaultActive: Color = Color(0xFFE6E6E6)
+    public val PersonasDefaultSeaBlueTextAccentActive: Color = Color(0xFF00A8AD)
 
     /**
-     * Цвет предупреждения на светлом фоне
+     * On Light Surface Transparent Accent Minor
      */
-    public val TextOnLightWarningActive: Color = Color(0xFF6F2D06)
+    public val SurfaceOnLightTransparentAccentMinor: Color = Color(0x3D0BA686)
 
     /**
-     * Green Text Accent Hover On Light
+     * Pink Text Accent Active On Light
      */
-    public val PersonasOnLightGreenTextAccentHover: Color = Color(0xFF04D7A6)
+    public val PersonasOnLightPinkTextAccentActive: Color = Color(0xFFD73333)
 
     /**
-     * Pink Text Accent Hover On Dark
+     * Основной цвет текста
      */
-    public val PersonasOnDarkPinkTextAccentHover: Color = Color(0xFFF26E6E)
+    public val TextDefaultPrimaryBrightnessHover: Color = Color(0x93FAFAFA)
 
     /**
-     * Primary Hover Default
+     * Transparent Accent Minor Active Inverse
      */
-    public val OutlineDefaultPrimaryHover: Color = Color(0xFF91847E)
+    public val SurfaceInverseTransparentAccentMinorActive: Color = Color(0x5C0BA888)
+
+    /**
+     * Ochre Text Accent Hover Default
+     */
+    public val PersonasDefaultOchreTextAccentHover: Color = Color(0xFFF7C8B6)
+
+    /**
+     * Pink Text Accent Active Inverse
+     */
+    public val PersonasInversePinkTextAccentActive: Color = Color(0xFFF48080)
+
+    /**
+     * Transparent Navi Hover On Light
+     */
+    public val SurfaceOnLightTransparentNaviHover: Color = Color(0xA8FFFFFF)
+
+    /**
+     * Primary Active Default
+     */
+    public val OutlineDefaultPrimaryActive: Color = Color(0xFF2B2827)
+
+    /**
+     * Sea Blue Text Accent Active On Dark
+     */
+    public val PersonasOnDarkSeaBlueTextAccentActive: Color = Color(0xFF2D6C6C)
+
+    /**
+     * On Light Personas Green Text Accent
+     */
+    public val PersonasOnLightGreenTextAccent: Color = Color(0xFF038768)
+
+    /**
+     * Accent Secondary Active Inverse
+     */
+    public val SurfaceInverseAccentSecondaryActive: Color = Color(0xFF3CAF94)
+
+    /**
+     * Indigo Text Accent Active Default
+     */
+    public val PersonasDefaultIndigoTextAccentActive: Color = Color(0xFFAA73F2)
+
+    /**
+     * Green Text Accent Active Default
+     */
+    public val PersonasDefaultGreenTextAccentActive: Color = Color(0xFF03A57F)
+
+    /**
+     * Transparent Navi Hover On Dark
+     */
+    public val SurfaceOnDarkTransparentNaviHover: Color = Color(0xB8242424)
+
+    /**
+     * Sea Blue Text Accent Hover Inverse
+     */
+    public val PersonasInverseSeaBlueTextAccentHover: Color = Color(0xFF000000)
+
+    /**
+     * Accent Secondary Hover On Light
+     */
+    public val SurfaceOnLightAccentSecondaryHover: Color = Color(0xFF50C3A8)
+
+    /**
+     * Blue Text Accent Hover Inverse
+     */
+    public val PersonasInverseBlueTextAccentHover: Color = Color(0xFF1477E1)
 
     /**
      * Indigo Text Accent Hover Inverse
@@ -3953,9 +448,69 @@ public object DarkColorTokens {
     public val PersonasInverseIndigoTextAccentHover: Color = Color(0xFFD2B4F8)
 
     /**
-     * Pink Text Accent Hover Inverse
+     * On Dark Personas Ochre Text Accent
      */
-    public val PersonasInversePinkTextAccentHover: Color = Color(0xFFFBCBCB)
+    public val PersonasOnDarkOchreTextAccent: Color = Color(0xFFF4B49B)
+
+    /**
+     * Green Text Accent Hover On Light
+     */
+    public val PersonasOnLightGreenTextAccentHover: Color = Color(0xFF04D7A6)
+
+    /**
+     * Ochre Text Accent Active On Dark
+     */
+    public val PersonasOnDarkOchreTextAccentActive: Color = Color(0xFFF19F7E)
+
+    /**
+     * Ochre Text Accent Hover On Light
+     */
+    public val PersonasOnLightOchreTextAccentHover: Color = Color(0xFFED6C1D)
+
+    /**
+     * Primary Hover Default
+     */
+    public val OutlineDefaultPrimaryHover: Color = Color(0xFF6B6461)
+
+    /**
+     * Transparent Accent Minor Active Default
+     */
+    public val SurfaceDefaultTransparentAccentMinorActive: Color = Color(0x380BA888)
+
+    /**
+     * Transparent Navi Hover Default
+     */
+    public val SurfaceDefaultTransparentNaviHover: Color = Color(0xB8242424)
+
+    /**
+     * Default Hover Inverse
+     */
+    public val OutlineInverseDefaultHover: Color = Color(0xFFCCCCCC)
+
+    /**
+     * Violet Text Accent Hover Inverse
+     */
+    public val PersonasInverseVioletTextAccentHover: Color = Color(0xFFB740C9)
+
+    /**
+     * Transparent Accent Minor Hover On Light
+     */
+    public val SurfaceOnLightTransparentAccentMinorHover: Color = Color(0x4D0BA888)
+
+    /**
+     * Transparent Accent Minor Hover Inverse
+     */
+    public val SurfaceInverseTransparentAccentMinorHover: Color = Color(0x570BA888)
+
+    /**
+     * Transparent Navi Hover Inverse
+     */
+    public val SurfaceInverseTransparentNaviHover: Color = Color(0xA8FFFFFF)
+
+    /**
+     * Primary Hover Inverse
+     */
+    public val OutlineInversePrimaryHover: Color = Color(0xFFADA39F)
 
     /**
      * Olive Text Accent Hover Default
@@ -3963,14 +518,39 @@ public object DarkColorTokens {
     public val PersonasDefaultOliveTextAccentHover: Color = Color(0xFFA6D4A5)
 
     /**
+     * Personas Violet Text Accent
+     */
+    public val PersonasDefaultVioletTextAccent: Color = Color(0xFF9E32AF)
+
+    /**
      * Ochre Text Accent Hover Inverse
      */
     public val PersonasInverseOchreTextAccentHover: Color = Color(0xFFED6C1D)
 
     /**
-     * Transparent Navi Hover Inverse
+     * Green Text Accent Active On Dark
      */
-    public val SurfaceInverseTransparentNaviHover: Color = Color(0xA8FFFFFF)
+    public val PersonasOnDarkGreenTextAccentActive: Color = Color(0xFF54CFB0)
+
+    /**
+     * Pink Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkPinkTextAccentHover: Color = Color(0xFFF26E6E)
+
+    /**
+     * Pink Text Accent Hover Inverse
+     */
+    public val PersonasInversePinkTextAccentHover: Color = Color(0xFFFBCBCB)
+
+    /**
+     * Indigo Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkIndigoTextAccentHover: Color = Color(0xFFE8DAFC)
+
+    /**
+     * Blue Text Accent Hover On Light
+     */
+    public val PersonasOnLightBlueTextAccentHover: Color = Color(0xFF1477E1)
 
     /**
      * Olive Text Accent Hover On Light
@@ -3983,134 +563,9 @@ public object DarkColorTokens {
     public val PersonasOnLightVioletTextAccentHover: Color = Color(0xFFB740C9)
 
     /**
-     * Ochre Text Accent Hover On Light
-     */
-    public val PersonasOnLightOchreTextAccentHover: Color = Color(0xFFED6C1D)
-
-    /**
-     * Indigo Text Accent Hover On Dark
-     */
-    public val PersonasOnDarkIndigoTextAccentHover: Color = Color(0xFFE8DAFC)
-
-    /**
-     * On Dark Personas Ochre Text Accent
-     */
-    public val PersonasOnDarkOchreTextAccent: Color = Color(0xFFF4B49B)
-
-    /**
-     * Green Text Accent Active On Dark
-     */
-    public val PersonasOnDarkGreenTextAccentActive: Color = Color(0xFF54CFB0)
-
-    /**
-     * Ochre Text Accent Active On Dark
-     */
-    public val PersonasOnDarkOchreTextAccentActive: Color = Color(0xFFF19F7E)
-
-    /**
-     * Transparent Accent Minor Active Default
-     */
-    public val SurfaceDefaultTransparentAccentMinorActive: Color = Color(0x380BA888)
-
-    /**
-     * Default Hover Inverse
-     */
-    public val OutlineInverseDefaultHover: Color = Color(0xFFCCCCCC)
-
-    /**
-     * Personas Violet Text Accent
-     */
-    public val PersonasDefaultVioletTextAccent: Color = Color(0xFF9E32AF)
-
-    /**
-     * Primary Hover Inverse
-     */
-    public val OutlineInversePrimaryHover: Color = Color(0xFFADA39F)
-
-    /**
-     * Sea Blue Text Accent Hover Inverse
-     */
-    public val PersonasInverseSeaBlueTextAccentHover: Color = Color(0xFF000000)
-
-    /**
-     * Blue Text Accent Hover Inverse
-     */
-    public val PersonasInverseBlueTextAccentHover: Color = Color(0xFF1477E1)
-
-    /**
-     * Violet Text Accent Hover Inverse
-     */
-    public val PersonasInverseVioletTextAccentHover: Color = Color(0xFFB740C9)
-
-    /**
-     * Transparent Accent Minor Hover Inverse
-     */
-    public val SurfaceInverseTransparentAccentMinorHover: Color = Color(0x570BA888)
-
-    /**
-     * Blue Text Accent Hover On Light
-     */
-    public val PersonasOnLightBlueTextAccentHover: Color = Color(0xFF1477E1)
-
-    /**
-     * Transparent Navi Hover On Dark
-     */
-    public val SurfaceOnDarkTransparentNaviHover: Color = Color(0xB8242424)
-
-    /**
-     * Accent Secondary Hover On Light
-     */
-    public val SurfaceOnLightAccentSecondaryHover: Color = Color(0xFF50C3A8)
-
-    /**
-     * Transparent Navi Hover Default
-     */
-    public val SurfaceDefaultTransparentNaviHover: Color = Color(0xB8242424)
-
-    /**
-     * Transparent Accent Minor Hover On Light
-     */
-    public val SurfaceOnLightTransparentAccentMinorHover: Color = Color(0x4D0BA888)
-
-    /**
-     * Default Hover Default
-     */
-    public val OutlineDefaultDefaultHover: Color = Color(0xFF858585)
-
-    /**
      * Primary Hover On Dark
      */
     public val OutlineOnDarkPrimaryHover: Color = Color(0xFF6B6461)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCardBrightnessHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Inverse Personas Blue Text Accent
-     */
-    public val PersonasInverseBlueTextAccent: Color = Color(0xFF1063BA)
-
-    /**
-     * Blue Text Accent Active Default
-     */
-    public val PersonasDefaultBlueTextAccentActive: Color = Color(0xFF5DA3EF)
-
-    /**
-     * Accent Secondary Active Default
-     */
-    public val SurfaceDefaultAccentSecondaryActive: Color = Color(0xFF59C5AC)
-
-    /**
-     * Surface Transparent Accent Minor
-     */
-    public val SurfaceDefaultTransparentAccentMinor: Color = Color(0x470BA686)
-
-    /**
-     * Inverse Personas Sea Blue Text Accent
-     */
-    public val PersonasInverseSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
 
     /**
      * On Dark Personas Pink Text Accent
@@ -4118,44 +573,19 @@ public object DarkColorTokens {
     public val PersonasOnDarkPinkTextAccent: Color = Color(0xFFF7A4A4)
 
     /**
-     * Personas Pink Text Accent
-     */
-    public val PersonasDefaultPinkTextAccent: Color = Color(0xFFDE5555)
-
-    /**
-     * On Dark Surface Transparent Navi
-     */
-    public val SurfaceOnDarkTransparentNavi: Color = Color(0x99232323)
-
-    /**
-     * Inverse Outline Primary
-     */
-    public val OutlineInversePrimary: Color = Color(0xFFDDD9D7)
-
-    /**
-     * Olive Text Accent Active Inverse
-     */
-    public val PersonasInverseOliveTextAccentActive: Color = Color(0xFF179315)
-
-    /**
-     * On Dark Outline Default
-     */
-    public val OutlineOnDarkDefault: Color = Color(0xFF383838)
-
-    /**
-     * Personas Green Text Accent
-     */
-    public val PersonasDefaultGreenTextAccent: Color = Color(0xFF038768)
-
-    /**
-     * Dark Background Hardline
-     */
-    public val BackgroundDarkHardline: Color = Color(0xFF000000)
-
-    /**
      * On Dark Outline Primary
      */
     public val OutlineOnDarkPrimary: Color = Color(0xFF3B3735)
+
+    /**
+     * On Light Personas Blue Text Accent
+     */
+    public val PersonasOnLightBlueTextAccent: Color = Color(0xFF1063BA)
+
+    /**
+     * Accent Secondary Active Default
+     */
+    public val SurfaceDefaultAccentSecondaryActive: Color = Color(0xFF59C5AC)
 
     /**
      * Personas Blue Text Accent
@@ -4163,29 +593,14 @@ public object DarkColorTokens {
     public val PersonasDefaultBlueTextAccent: Color = Color(0xFF79B3F2)
 
     /**
-     * Personas Sea Blue Text Accent
+     * Blue Text Accent Active Default
      */
-    public val PersonasDefaultSeaBlueTextAccent: Color = Color(0xFF00898D)
+    public val PersonasDefaultBlueTextAccentActive: Color = Color(0xFF5DA3EF)
 
     /**
-     * Violet Text Accent Hover Default
+     * Personas Green Text Accent
      */
-    public val PersonasDefaultVioletTextAccentHover: Color = Color(0xFFB438C7)
-
-    /**
-     * Background Hardline
-     */
-    public val BackgroundDefaultHardline: Color = Color(0xFF000000)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryBrightnessHover: Color = Color(0x93171717)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryBrightnessHover: Color = Color(0x93171717)
+    public val PersonasDefaultGreenTextAccent: Color = Color(0xFF038768)
 
     /**
      * Основной непрозрачный фон поверхности/контрола
@@ -4193,14 +608,44 @@ public object DarkColorTokens {
     public val SurfaceDefaultSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
 
     /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     * Основной цвет текста на светлом фоне
      */
-    public val SurfaceOnDarkSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
+    public val TextOnLightPrimaryBrightnessHover: Color = Color(0x93171717)
 
     /**
-     * Inverse Personas Violet Text Accent
+     * Personas Pink Text Accent
      */
-    public val PersonasInverseVioletTextAccent: Color = Color(0xFF9E32AF)
+    public val PersonasDefaultPinkTextAccent: Color = Color(0xFFDE5555)
+
+    /**
+     * Personas Sea Blue Text Accent
+     */
+    public val PersonasDefaultSeaBlueTextAccent: Color = Color(0xFF00898D)
+
+    /**
+     * Surface Transparent Accent Minor
+     */
+    public val SurfaceDefaultTransparentAccentMinor: Color = Color(0x470BA686)
+
+    /**
+     * Violet Text Accent Hover Default
+     */
+    public val PersonasDefaultVioletTextAccentHover: Color = Color(0xFFB438C7)
+
+    /**
+     * Inverse Personas Blue Text Accent
+     */
+    public val PersonasInverseBlueTextAccent: Color = Color(0xFF1063BA)
+
+    /**
+     * Olive Text Accent Active Inverse
+     */
+    public val PersonasInverseOliveTextAccentActive: Color = Color(0xFF179315)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCardBrightnessHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Inverse Surface Transparent Accent Minor
@@ -4208,9 +653,49 @@ public object DarkColorTokens {
     public val SurfaceInverseTransparentAccentMinor: Color = Color(0x470BA686)
 
     /**
-     * On Light Personas Blue Text Accent
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val PersonasOnLightBlueTextAccent: Color = Color(0xFF1063BA)
+    public val SurfaceOnDarkSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
+
+    /**
+     * On Dark Surface Transparent Navi
+     */
+    public val SurfaceOnDarkTransparentNavi: Color = Color(0x99232323)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryBrightnessHover: Color = Color(0x93171717)
+
+    /**
+     * Background Hardline
+     */
+    public val BackgroundDefaultHardline: Color = Color(0xFF000000)
+
+    /**
+     * Inverse Outline Primary
+     */
+    public val OutlineInversePrimary: Color = Color(0xFFDDD9D7)
+
+    /**
+     * On Dark Outline Default
+     */
+    public val OutlineOnDarkDefault: Color = Color(0xFF383838)
+
+    /**
+     * Inverse Personas Violet Text Accent
+     */
+    public val PersonasInverseVioletTextAccent: Color = Color(0xFF9E32AF)
+
+    /**
+     * Personas Indigo Text Accent
+     */
+    public val PersonasDefaultIndigoTextAccent: Color = Color(0xFFBD91F5)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryBrightnessActive: Color = Color(0xC4171717)
 
     /**
      * Основной цвет текста на темном фоне
@@ -4223,14 +708,9 @@ public object DarkColorTokens {
     public val TextOnLightPrimaryBrightnessActive: Color = Color(0xC4171717)
 
     /**
-     * Инвертированный основной цвет текста
+     * Indigo Text Accent Active On Dark
      */
-    public val TextInversePrimaryBrightnessActive: Color = Color(0xC4171717)
-
-    /**
-     * Personas Indigo Text Accent
-     */
-    public val PersonasDefaultIndigoTextAccent: Color = Color(0xFFBD91F5)
+    public val PersonasOnDarkIndigoTextAccentActive: Color = Color(0xFFAA73F2)
 
     /**
      * Ochre Text Accent Hover On Dark
@@ -4238,24 +718,9 @@ public object DarkColorTokens {
     public val PersonasOnDarkOchreTextAccentHover: Color = Color(0xFFF7C8B6)
 
     /**
-     * Indigo Text Accent Active On Dark
-     */
-    public val PersonasOnDarkIndigoTextAccentActive: Color = Color(0xFFAA73F2)
-
-    /**
      * Pink Text Accent Hover Default
      */
     public val PersonasDefaultPinkTextAccentHover: Color = Color(0xFFE26E6E)
-
-    /**
-     * On Dark Personas Green Text Accent
-     */
-    public val PersonasOnDarkGreenTextAccent: Color = Color(0xFF6CD5BB)
-
-    /**
-     * Transparent Accent Minor Hover Default
-     */
-    public val SurfaceDefaultTransparentAccentMinorHover: Color = Color(0x660BA888)
 
     /**
      * Transparent Navi Active On Dark
@@ -4263,34 +728,9 @@ public object DarkColorTokens {
     public val SurfaceOnDarkTransparentNaviActive: Color = Color(0x8A242424)
 
     /**
-     * Ochre Text Accent Active Inverse
+     * On Light Surface Accent Secondary
      */
-    public val PersonasInverseOchreTextAccentActive: Color = Color(0xFFAA4A0E)
-
-    /**
-     * Transparent Navi Active Inverse
-     */
-    public val SurfaceInverseTransparentNaviActive: Color = Color(0xADFFFFFF)
-
-    /**
-     * Olive Text Accent Active On Light
-     */
-    public val PersonasOnLightOliveTextAccentActive: Color = Color(0xFF179315)
-
-    /**
-     * Pink Text Accent Active Default
-     */
-    public val PersonasDefaultPinkTextAccentActive: Color = Color(0xFFD83B3B)
-
-    /**
-     * Blue Text Accent Active On Dark
-     */
-    public val PersonasOnDarkBlueTextAccentActive: Color = Color(0xFF5DA3EF)
-
-    /**
-     * Sea Blue Text Accent Active On Light
-     */
-    public val PersonasOnLightSeaBlueTextAccentActive: Color = Color(0xFF00B1B8)
+    public val SurfaceOnLightAccentSecondary: Color = Color(0xFF41BDA1)
 
     /**
      * On Light Outline Default
@@ -4298,19 +738,14 @@ public object DarkColorTokens {
     public val OutlineOnLightDefault: Color = Color(0xFFFFFFFF)
 
     /**
-     * Transparent Accent Minor Hover On Dark
+     * Pink Text Accent Active Default
      */
-    public val SurfaceOnDarkTransparentAccentMinorHover: Color = Color(0x660BA888)
+    public val PersonasDefaultPinkTextAccentActive: Color = Color(0xFFD83B3B)
 
     /**
-     * On Light Surface Accent Secondary
+     * Ochre Text Accent Active Inverse
      */
-    public val SurfaceOnLightAccentSecondary: Color = Color(0xFF41BDA1)
-
-    /**
-     * On Light Personas Pink Text Accent
-     */
-    public val PersonasOnLightPinkTextAccent: Color = Color(0xFFDE5555)
+    public val PersonasInverseOchreTextAccentActive: Color = Color(0xFFAA4A0E)
 
     /**
      * Inverse Personas Olive Text Accent
@@ -4318,19 +753,49 @@ public object DarkColorTokens {
     public val PersonasInverseOliveTextAccent: Color = Color(0xFF127210)
 
     /**
-     * Primary Active Inverse
+     * Blue Text Accent Active On Dark
      */
-    public val OutlineInversePrimaryActive: Color = Color(0xFFC4BEBA)
+    public val PersonasOnDarkBlueTextAccentActive: Color = Color(0xFF5DA3EF)
 
     /**
-     * Accent Secondary Active On Light
+     * On Dark Personas Green Text Accent
      */
-    public val SurfaceOnLightAccentSecondaryActive: Color = Color(0xFF3CAF94)
+    public val PersonasOnDarkGreenTextAccent: Color = Color(0xFF6CD5BB)
 
     /**
-     * Transparent Accent Minor Active On Dark
+     * Olive Text Accent Active On Light
      */
-    public val SurfaceOnDarkTransparentAccentMinorActive: Color = Color(0x380BA888)
+    public val PersonasOnLightOliveTextAccentActive: Color = Color(0xFF179315)
+
+    /**
+     * On Light Personas Pink Text Accent
+     */
+    public val PersonasOnLightPinkTextAccent: Color = Color(0xFFDE5555)
+
+    /**
+     * Sea Blue Text Accent Active On Light
+     */
+    public val PersonasOnLightSeaBlueTextAccentActive: Color = Color(0xFF00B1B8)
+
+    /**
+     * Transparent Accent Minor Hover Default
+     */
+    public val SurfaceDefaultTransparentAccentMinorHover: Color = Color(0x660BA888)
+
+    /**
+     * Transparent Navi Active Inverse
+     */
+    public val SurfaceInverseTransparentNaviActive: Color = Color(0xADFFFFFF)
+
+    /**
+     * Transparent Accent Minor Hover On Dark
+     */
+    public val SurfaceOnDarkTransparentAccentMinorHover: Color = Color(0x660BA888)
+
+    /**
+     * On Light Personas Indigo Text Accent
+     */
+    public val PersonasOnLightIndigoTextAccent: Color = Color(0xFF7133BE)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
@@ -4338,9 +803,14 @@ public object DarkColorTokens {
     public val SurfaceOnDarkSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
 
     /**
-     * On Light Personas Indigo Text Accent
+     * Transparent Accent Minor Active On Dark
      */
-    public val PersonasOnLightIndigoTextAccent: Color = Color(0xFF7133BE)
+    public val SurfaceOnDarkTransparentAccentMinorActive: Color = Color(0x380BA888)
+
+    /**
+     * Accent Secondary Active On Light
+     */
+    public val SurfaceOnLightAccentSecondaryActive: Color = Color(0xFF3CAF94)
 
     /**
      * Green Text Accent Hover Inverse
@@ -4353,44 +823,229 @@ public object DarkColorTokens {
     public val PersonasOnLightIndigoTextAccentActive: Color = Color(0xFF5B2999)
 
     /**
-     * Акцентный цвет
+     * New description
      */
-    public val TextDefaultAccent: Color = Color(0xFF61C8B0)
+    public val OutlineDefaultTransparentWhiteActive: Color = Color(0x49FFFFFF)
 
     /**
-     * Акцентный цвет
+     * New description
      */
-    public val TextDefaultAccentHover: Color = Color(0xFF77CFBB)
+    public val OutlineDefaultTransparentWhiteHover: Color = Color(0xF5FFFFFF)
 
     /**
-     * Акцентный цвет
+     * New description
      */
-    public val TextDefaultAccentActive: Color = Color(0xFF4ABFA4)
+    public val OutlineInverseDeep: Color = Color(0xFFA1A09F)
 
     /**
-     * Акцентный минорный цвет
+     * New description
      */
-    public val TextDefaultAccentMinor: Color = Color(0x7A61C8B0)
+    public val OutlineInverseDeepActive: Color = Color(0xFF8D8C8B)
 
     /**
-     * Акцентный минорный цвет
+     * New description
      */
-    public val TextDefaultAccentMinorHover: Color = Color(0xFF60C7AF)
+    public val OutlineInverseDeepHover: Color = Color(0xFFCAC9C9)
 
     /**
-     * Акцентный минорный цвет
+     * New description
      */
-    public val TextDefaultAccentMinorActive: Color = Color(0x9360C7AF)
+    public val OutlineInverseTransparentWhite: Color = Color(0x66FFFFFF)
 
     /**
-     * Цвет успеха
+     * New description
      */
-    public val TextDefaultPositive: Color = Color(0xFF50A84C)
+    public val OutlineInverseTransparentWhiteHover: Color = Color(0x3DFFFFFF)
 
     /**
-     * Цвет успеха
+     * New description
      */
-    public val TextDefaultPositiveHover: Color = Color(0xFF62B65D)
+    public val OutlineOnDarkDeep: Color = Color(0xFF777675)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkDeepActive: Color = Color(0xFF5D5C5B)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkDeepHover: Color = Color(0xFFD2D1D1)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkTransparentWhite: Color = Color(0x7AFFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkTransparentWhiteActive: Color = Color(0x49FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkTransparentWhiteHover: Color = Color(0xF5FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightDeep: Color = Color(0xFFA1A09F)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightDeepActive: Color = Color(0xFF8D8C8B)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightDeepHover: Color = Color(0xFFCAC9C9)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightTransparentWhite: Color = Color(0x66FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultSolidDeep: Color = Color(0xFF777675)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultSolidDeepActive: Color = Color(0xFF71706F)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultSolidDeepHover: Color = Color(0xFF81807E)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultTransparentCardMinor: Color = Color(0x80232323)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultTransparentCardMinorActive: Color = Color(0x70242424)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultTransparentCardMinorHover: Color = Color(0x9E242424)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseSolidDeep: Color = Color(0xFFA1A09F)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseSolidDeepActive: Color = Color(0xFF979695)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseSolidDeepHover: Color = Color(0xFFB1B0AF)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseTransparentCardMinor: Color = Color(0x85FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseTransparentCardMinorActive: Color = Color(0x99FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseTransparentCardMinorHover: Color = Color(0x94FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkSolidDeep: Color = Color(0xFF777675)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkSolidDeepActive: Color = Color(0xFF71706F)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkSolidDeepHover: Color = Color(0xFF81807E)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkTransparentCardMinor: Color = Color(0x80232323)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkTransparentCardMinorActive: Color = Color(0x70242424)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkTransparentCardMinorHover: Color = Color(0x9E242424)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightSolidDeep: Color = Color(0xFFA1A09F)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightSolidDeepActive: Color = Color(0xFF979695)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightSolidDeepHover: Color = Color(0xFFB1B0AF)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightTransparentCardMinor: Color = Color(0x85FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightTransparentCardMinorActive: Color = Color(0x99FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightTransparentCardMinorHover: Color = Color(0x94FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultDeepActive: Color = Color(0xFF5D5C5B)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultDeepHover: Color = Color(0xFFD2D1D1)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightTransparentWhiteActive: Color = Color(0xA3FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightTransparentWhiteHover: Color = Color(0x3DFFFFFF)
 
     /**
      * Цвет успеха
@@ -4398,19 +1053,19 @@ public object DarkColorTokens {
     public val TextDefaultPositiveActive: Color = Color(0xFF469442)
 
     /**
-     * Цвет предупреждения
+     * Цвет успеха
      */
-    public val TextDefaultWarning: Color = Color(0xFFDA6828)
+    public val TextDefaultPositiveHover: Color = Color(0xFF62B65D)
 
     /**
-     * Цвет предупреждения
+     * Основной цвет текста
      */
-    public val TextDefaultWarningHover: Color = Color(0xFFDF7D43)
+    public val TextDefaultPrimaryActive: Color = Color(0xCAFFFFFF)
 
     /**
-     * Цвет предупреждения
+     * Основной цвет текста
      */
-    public val TextDefaultWarningActive: Color = Color(0xFFC45D21)
+    public val TextDefaultPrimaryBrightness: Color = Color(0xF5FAFAFA)
 
     /**
      * Цвет ошибки
@@ -4420,57 +1075,12 @@ public object DarkColorTokens {
     /**
      * Цвет ошибки
      */
-    public val TextDefaultNegativeHover: Color = Color(0xFFF89BA0)
+    public val TextDefaultNegativeActive: Color = Color(0xFFF3626A)
 
     /**
      * Цвет ошибки
      */
-    public val TextDefaultNegativeActive: Color = Color(0xFFF3626A)
-
-    /**
-     * Цвет информации
-     */
-    public val TextDefaultInfo: Color = Color(0xFF70B2F5)
-
-    /**
-     * Цвет информации
-     */
-    public val TextDefaultInfoHover: Color = Color(0xFFBCDBFA)
-
-    /**
-     * Цвет информации
-     */
-    public val TextDefaultInfoActive: Color = Color(0xFF53A3F3)
-
-    /**
-     * Вторичный цвет текста
-     */
-    public val TextDefaultSecondaryHover: Color = Color(0xFFF5F1EF)
-
-    /**
-     * Вторичный цвет текста
-     */
-    public val TextDefaultSecondary: Color = Color(0xA3F6F2F0)
-
-    /**
-     * Основной цвет текста
-     */
-    public val TextDefaultPrimaryActive: Color = Color(0xCAFFFFFF)
-
-    /**
-     * Вторичный цвет текста
-     */
-    public val TextDefaultSecondaryActive: Color = Color(0xC4F5F1EF)
-
-    /**
-     * Третичный цвет текста
-     */
-    public val TextDefaultTertiary: Color = Color(0x3DF6F2F0)
-
-    /**
-     * Третичный цвет текста
-     */
-    public val TextDefaultTertiaryHover: Color = Color(0xFFF5F1EF)
+    public val TextDefaultNegativeHover: Color = Color(0xFFF89BA0)
 
     /**
      * Третичный цвет текста
@@ -4478,9 +1088,49 @@ public object DarkColorTokens {
     public val TextDefaultTertiaryActive: Color = Color(0x49F5F1EF)
 
     /**
-     * Основной цвет текста
+     * Третичный цвет текста
      */
-    public val TextDefaultPrimaryBrightness: Color = Color(0xF5FAFAFA)
+    public val TextDefaultTertiaryHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Цвет предупреждения
+     */
+    public val TextDefaultWarning: Color = Color(0xFFDA6828)
+
+    /**
+     * Цвет предупреждения
+     */
+    public val TextDefaultWarningActive: Color = Color(0xFFC45D21)
+
+    /**
+     * Цвет предупреждения
+     */
+    public val TextDefaultWarningHover: Color = Color(0xFFDF7D43)
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val TextDefaultAccentMinor: Color = Color(0x7A61C8B0)
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val TextDefaultAccentMinorActive: Color = Color(0x9360C7AF)
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val TextDefaultAccentMinorHover: Color = Color(0xFF60C7AF)
+
+    /**
+     * Сплошной наборный текст
+     */
+    public val TextDefaultParagraphHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Цвет успеха
+     */
+    public val TextDefaultPositive: Color = Color(0xFF50A84C)
 
     /**
      * Сплошной наборный текст
@@ -4490,32 +1140,52 @@ public object DarkColorTokens {
     /**
      * Сплошной наборный текст
      */
-    public val TextDefaultParagraphHover: Color = Color(0xFFF5F1EF)
-
-    /**
-     * Сплошной наборный текст
-     */
     public val TextDefaultParagraphActive: Color = Color(0x93F5F1EF)
 
     /**
-     * Акцентный цвет на темном фоне
+     * Цвет информации
      */
-    public val TextOnDarkAccent: Color = Color(0xED61C8B0)
+    public val TextDefaultInfo: Color = Color(0xFF70B2F5)
 
     /**
-     * Акцентный цвет на темном фоне
+     * Цвет информации
      */
-    public val TextOnDarkAccentHover: Color = Color(0x8E60C7AF)
+    public val TextDefaultInfoActive: Color = Color(0xFF53A3F3)
 
     /**
-     * Акцентный цвет на темном фоне
+     * Цвет информации
      */
-    public val TextOnDarkAccentActive: Color = Color(0xBE60C7AF)
+    public val TextDefaultInfoHover: Color = Color(0xFFBCDBFA)
 
     /**
-     * Акцентный минорный цвет на темном фоне
+     * Вторичный цвет текста
      */
-    public val TextOnDarkAccentMinor: Color = Color(0x7A61C8B0)
+    public val TextDefaultSecondary: Color = Color(0xA3F6F2F0)
+
+    /**
+     * Вторичный цвет текста
+     */
+    public val TextDefaultSecondaryActive: Color = Color(0xC4F5F1EF)
+
+    /**
+     * Вторичный цвет текста
+     */
+    public val TextDefaultSecondaryHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Третичный цвет текста
+     */
+    public val TextDefaultTertiary: Color = Color(0x3DF6F2F0)
+
+    /**
+     * Акцентный цвет
+     */
+    public val TextDefaultAccent: Color = Color(0xFF61C8B0)
+
+    /**
+     * Акцентный цвет
+     */
+    public val TextDefaultAccentActive: Color = Color(0xFF4ABFA4)
 
     /**
      * Акцентный минорный цвет на темном фоне
@@ -4523,49 +1193,9 @@ public object DarkColorTokens {
     public val TextOnDarkAccentMinorActive: Color = Color(0x9360C7AF)
 
     /**
-     * Цвет успеха на темном фоне
+     * Цвет информации на темном фоне
      */
-    public val TextOnDarkPositive: Color = Color(0xFF50A84C)
-
-    /**
-     * Цвет успеха на темном фоне
-     */
-    public val TextOnDarkPositiveHover: Color = Color(0xFF62B65D)
-
-    /**
-     * Цвет успеха на темном фоне
-     */
-    public val TextOnDarkPositiveActive: Color = Color(0xFF469442)
-
-    /**
-     * Цвет предупреждения на темном фоне
-     */
-    public val TextOnDarkWarning: Color = Color(0xFFDA6828)
-
-    /**
-     * Цвет предупреждения на темном фоне
-     */
-    public val TextOnDarkWarningHover: Color = Color(0xFFDF7D43)
-
-    /**
-     * Цвет предупреждения на темном фоне
-     */
-    public val TextOnDarkWarningActive: Color = Color(0xFFC45D21)
-
-    /**
-     * Цвет ошибки на темном фоне
-     */
-    public val TextOnDarkNegative: Color = Color(0xFFF57E83)
-
-    /**
-     * Цвет ошибки на темном фоне
-     */
-    public val TextOnDarkNegativeHover: Color = Color(0xFFF89BA0)
-
-    /**
-     * Цвет ошибки на темном фоне
-     */
-    public val TextOnDarkNegativeActive: Color = Color(0xFFF3626A)
+    public val TextOnDarkInfoActive: Color = Color(0xFF53A3F3)
 
     /**
      * Цвет информации на темном фоне
@@ -4578,29 +1208,9 @@ public object DarkColorTokens {
     public val TextOnDarkInfoHover: Color = Color(0xFFBCDBFA)
 
     /**
-     * Цвет информации на темном фоне
+     * Цвет ошибки на темном фоне
      */
-    public val TextOnDarkInfoActive: Color = Color(0xFF53A3F3)
-
-    /**
-     * Основной цвет текста на темном фоне
-     */
-    public val TextOnDarkPrimaryActive: Color = Color(0xCAFFFFFF)
-
-    /**
-     * Третичный цвет текста на темном фоне
-     */
-    public val TextOnDarkTertiaryActive: Color = Color(0x49F5F1EF)
-
-    /**
-     * Основной цвет текста на темном фоне
-     */
-    public val TextOnDarkPrimary: Color = Color(0xFCFFFFFF)
-
-    /**
-     * Основной цвет текста на темном фоне
-     */
-    public val TextOnDarkPrimaryBrightness: Color = Color(0xF5FAFAFA)
+    public val TextOnDarkNegative: Color = Color(0xFFF57E83)
 
     /**
      * Вторичный цвет текста на темном фоне
@@ -4610,7 +1220,7 @@ public object DarkColorTokens {
     /**
      * Вторичный цвет текста на темном фоне
      */
-    public val TextOnDarkSecondaryHover: Color = Color(0xFFF5F1EF)
+    public val TextOnDarkSecondaryActive: Color = Color(0xC4F5F1EF)
 
     /**
      * Третичный цвет текста на темном фоне
@@ -4618,24 +1228,24 @@ public object DarkColorTokens {
     public val TextOnDarkTertiary: Color = Color(0x3DF6F2F0)
 
     /**
-     * Третичный цвет текста на темном фоне
-     */
-    public val TextOnDarkTertiaryHover: Color = Color(0xFFF5F1EF)
-
-    /**
      * Вторичный цвет текста на темном фоне
      */
-    public val TextOnDarkSecondaryActive: Color = Color(0xC4F5F1EF)
+    public val TextOnDarkSecondaryHover: Color = Color(0xFFF5F1EF)
 
     /**
      * Основной цвет текста на темном фоне
      */
-    public val TextOnDarkPrimaryHover: Color = Color(0x97FFFFFF)
+    public val TextOnDarkPrimary: Color = Color(0xFCFFFFFF)
 
     /**
-     * Сплошной наборный текст на темном фоне
+     * Акцентный цвет на темном фоне
      */
-    public val TextOnDarkParagraph: Color = Color(0x7AF6F2F0)
+    public val TextOnDarkAccentHover: Color = Color(0x8E60C7AF)
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val TextOnDarkPositive: Color = Color(0xFF50A84C)
 
     /**
      * Сплошной наборный текст на темном фоне
@@ -4643,19 +1253,144 @@ public object DarkColorTokens {
     public val TextOnDarkParagraphHover: Color = Color(0xFFF5F1EF)
 
     /**
+     * Цвет ошибки на темном фоне
+     */
+    public val TextOnDarkNegativeActive: Color = Color(0xFFF3626A)
+
+    /**
      * Сплошной наборный текст на темном фоне
      */
-    public val TextOnDarkParagraphActive: Color = Color(0x93F5F1EF)
+    public val TextOnDarkParagraph: Color = Color(0x7AF6F2F0)
+
+    /**
+     * Цвет ошибки на темном фоне
+     */
+    public val TextOnDarkNegativeHover: Color = Color(0xFFF89BA0)
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val TextOnDarkPrimaryActive: Color = Color(0xCAFFFFFF)
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val TextOnDarkPrimaryBrightness: Color = Color(0xF5FAFAFA)
+
+    /**
+     * Цвет предупреждения на темном фоне
+     */
+    public val TextOnDarkWarningHover: Color = Color(0xFFDF7D43)
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val TextOnDarkTertiaryActive: Color = Color(0x49F5F1EF)
+
+    /**
+     * Цвет предупреждения на темном фоне
+     */
+    public val TextOnDarkWarning: Color = Color(0xFFDA6828)
+
+    /**
+     * Цвет предупреждения на темном фоне
+     */
+    public val TextOnDarkWarningActive: Color = Color(0xFFC45D21)
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val TextOnDarkTertiaryHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val TextOnDarkPrimaryHover: Color = Color(0x97FFFFFF)
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val TextOnDarkPositiveActive: Color = Color(0xFF469442)
+
+    /**
+     * Акцентный минорный цвет на темном фоне
+     */
+    public val TextOnDarkAccentMinor: Color = Color(0x7A61C8B0)
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val TextOnDarkPositiveHover: Color = Color(0xFF62B65D)
+
+    /**
+     * Третичный цвет текста на светлом фоне
+     */
+    public val TextOnLightTertiaryActive: Color = Color(0x4915110F)
+
+    /**
+     * Цвет предупреждения на светлом фоне
+     */
+    public val TextOnLightWarning: Color = Color(0xFF973C09)
+
+    /**
+     * Третичный цвет текста на светлом фоне
+     */
+    public val TextOnLightTertiaryHover: Color = Color(0xFF15110F)
+
+    /**
+     * Цвет предупреждения на светлом фоне
+     */
+    public val TextOnLightWarningHover: Color = Color(0xFFBC4C0B)
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val TextOnLightPositiveActive: Color = Color(0xFF185E17)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimary: Color = Color(0xFC15110F)
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val TextOnLightPositiveHover: Color = Color(0xFF29A027)
+
+    /**
+     * Акцентный минорный цвет на светлом фоне
+     */
+    public val TextOnLightAccentMinorActive: Color = Color(0x7A0A8F74)
+
+    /**
+     * Сплошной наборный текст на светлом фоне
+     */
+    public val TextOnLightParagraph: Color = Color(0x6615110F)
+
+    /**
+     * Акцентный минорный цвет на светлом фоне
+     */
+    public val TextOnLightAccentMinorHover: Color = Color(0xFF0A8F74)
+
+    /**
+     * Сплошной наборный текст на светлом фоне
+     */
+    public val TextOnLightParagraphActive: Color = Color(0x7A15110F)
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val TextOnLightPositive: Color = Color(0xFF207F1F)
+
+    /**
+     * Сплошной наборный текст на светлом фоне
+     */
+    public val TextOnLightParagraphHover: Color = Color(0xFF15110F)
 
     /**
      * Вторичный цвет текста на светлом фоне
      */
     public val TextOnLightSecondary: Color = Color(0xA315110F)
-
-    /**
-     * Вторичный цвет текста на светлом фоне
-     */
-    public val TextOnLightSecondaryHover: Color = Color(0xFF15110F)
 
     /**
      * Вторичный цвет текста на светлом фоне
@@ -4668,39 +1403,24 @@ public object DarkColorTokens {
     public val TextOnLightTertiary: Color = Color(0x3D15110F)
 
     /**
-     * Третичный цвет текста на светлом фоне
+     * Вторичный цвет текста на светлом фоне
      */
-    public val TextOnLightTertiaryHover: Color = Color(0xFF15110F)
+    public val TextOnLightSecondaryHover: Color = Color(0xFF15110F)
 
     /**
-     * Третичный цвет текста на светлом фоне
+     * Основной цвет текста на светлом фоне
      */
-    public val TextOnLightTertiaryActive: Color = Color(0x4915110F)
+    public val TextOnLightPrimaryActive: Color = Color(0xCA15110F)
 
     /**
-     * Сплошной наборный текст на светлом фоне
+     * Основной цвет текста на светлом фоне
      */
-    public val TextOnLightParagraph: Color = Color(0x6615110F)
+    public val TextOnLightPrimaryHover: Color = Color(0x9715110F)
 
     /**
-     * Сплошной наборный текст на светлом фоне
+     * Основной цвет текста на светлом фоне
      */
-    public val TextOnLightParagraphHover: Color = Color(0xFF15110F)
-
-    /**
-     * Сплошной наборный текст на светлом фоне
-     */
-    public val TextOnLightParagraphActive: Color = Color(0x7A15110F)
-
-    /**
-     * Акцентный цвет на светлом фоне
-     */
-    public val TextOnLightAccent: Color = Color(0xFF0A8E73)
-
-    /**
-     * Акцентный цвет на светлом фоне
-     */
-    public val TextOnLightAccentHover: Color = Color(0xFF0DB593)
+    public val TextOnLightPrimaryBrightness: Color = Color(0xF5171717)
 
     /**
      * Акцентный цвет на светлом фоне
@@ -4713,154 +1433,14 @@ public object DarkColorTokens {
     public val TextOnLightAccentMinor: Color = Color(0x660A8E73)
 
     /**
-     * Акцентный минорный цвет на светлом фоне
+     * Акцентный цвет на светлом фоне
      */
-    public val TextOnLightAccentMinorHover: Color = Color(0xFF0A8F74)
+    public val TextOnLightAccent: Color = Color(0xFF0A8E73)
 
     /**
-     * Акцентный минорный цвет на светлом фоне
+     * Акцентный цвет на светлом фоне
      */
-    public val TextOnLightAccentMinorActive: Color = Color(0x7A0A8F74)
-
-    /**
-     * Цвет успеха на светлом фоне
-     */
-    public val TextOnLightPositive: Color = Color(0xFF207F1F)
-
-    /**
-     * Цвет успеха на светлом фоне
-     */
-    public val TextOnLightPositiveHover: Color = Color(0xFF29A027)
-
-    /**
-     * Цвет успеха на светлом фоне
-     */
-    public val TextOnLightPositiveActive: Color = Color(0xFF185E17)
-
-    /**
-     * Цвет предупреждения на светлом фоне
-     */
-    public val TextOnLightWarning: Color = Color(0xFF973C09)
-
-    /**
-     * Цвет предупреждения на светлом фоне
-     */
-    public val TextOnLightWarningHover: Color = Color(0xFFBC4C0B)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimary: Color = Color(0xFC15110F)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryHover: Color = Color(0x9715110F)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryActive: Color = Color(0xCA15110F)
-
-    /**
-     * Основной цвет текста на светлом фоне
-     */
-    public val TextOnLightPrimaryBrightness: Color = Color(0xF5171717)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimary: Color = Color(0xFC15110F)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryHover: Color = Color(0x9715110F)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryActive: Color = Color(0xCA15110F)
-
-    /**
-     * Инвертированный основной цвет текста
-     */
-    public val TextInversePrimaryBrightness: Color = Color(0xF5171717)
-
-    /**
-     * Инвертированный вторичный цвет текста
-     */
-    public val TextInverseSecondary: Color = Color(0xA315110F)
-
-    /**
-     * Инвертированный вторичный цвет текста
-     */
-    public val TextInverseSecondaryHover: Color = Color(0xFF15110F)
-
-    /**
-     * Инвертированный вторичный цвет текста
-     */
-    public val TextInverseSecondaryActive: Color = Color(0xC415110F)
-
-    /**
-     * Инвертированный третичный цвет текста
-     */
-    public val TextInverseTertiary: Color = Color(0x3D15110F)
-
-    /**
-     * Инвертированный третичный цвет текста
-     */
-    public val TextInverseTertiaryHover: Color = Color(0xFF15110F)
-
-    /**
-     * Инвертированный третичный цвет текста
-     */
-    public val TextInverseTertiaryActive: Color = Color(0x4915110F)
-
-    /**
-     * Инвертированный сплошной наборный текст
-     */
-    public val TextInverseParagraph: Color = Color(0x6615110F)
-
-    /**
-     * Инвертированный сплошной наборный текст
-     */
-    public val TextInverseParagraphHover: Color = Color(0xFF15110F)
-
-    /**
-     * Инвертированный сплошной наборный текст
-     */
-    public val TextInverseParagraphActive: Color = Color(0x7A15110F)
-
-    /**
-     * Инвертированный акцентный цвет
-     */
-    public val TextInverseAccent: Color = Color(0xFF0A8E73)
-
-    /**
-     * Инвертированный акцентный цвет
-     */
-    public val TextInverseAccentHover: Color = Color(0xFF0DB593)
-
-    /**
-     * Инвертированный акцентный цвет
-     */
-    public val TextInverseAccentActive: Color = Color(0xFF076955)
-
-    /**
-     * Инвертированный минорный акцентный цвет
-     */
-    public val TextInverseAccentMinor: Color = Color(0x660A8E73)
-
-    /**
-     * Инвертированный минорный акцентный цвет
-     */
-    public val TextInverseAccentMinorHover: Color = Color(0xFF0A8F74)
-
-    /**
-     * Инвертированный минорный акцентный цвет
-     */
-    public val TextInverseAccentMinorActive: Color = Color(0x7A0A8F74)
+    public val TextOnLightAccentHover: Color = Color(0xFF0DB593)
 
     /**
      * Цвет ошибки на светлом фоне
@@ -4870,7 +1450,27 @@ public object DarkColorTokens {
     /**
      * Цвет ошибки на светлом фоне
      */
-    public val TextOnLightNegative: Color = Color(0xFFD11D23)
+    public val TextOnLightNegativeHover: Color = Color(0xFFE3353B)
+
+    /**
+     * Инвертированный вторичный цвет текста
+     */
+    public val TextInverseSecondaryHover: Color = Color(0xFF15110F)
+
+    /**
+     * Инвертированный вторичный цвет текста
+     */
+    public val TextInverseSecondary: Color = Color(0xA315110F)
+
+    /**
+     * Инвертированный вторичный цвет текста
+     */
+    public val TextInverseSecondaryActive: Color = Color(0xC415110F)
+
+    /**
+     * Инвертированный третичный цвет текста
+     */
+    public val TextInverseTertiaryActive: Color = Color(0x4915110F)
 
     /**
      * Цвет информации на светлом фоне
@@ -4878,9 +1478,9 @@ public object DarkColorTokens {
     public val TextOnLightInfo: Color = Color(0xFF205EA5)
 
     /**
-     * Цвет информации на светлом фоне
+     * Инвертированный третичный цвет текста
      */
-    public val TextOnLightInfoHover: Color = Color(0xFF000000)
+    public val TextInverseTertiaryHover: Color = Color(0xFF15110F)
 
     /**
      * Цвет информации на светлом фоне
@@ -4888,9 +1488,134 @@ public object DarkColorTokens {
     public val TextOnLightInfoActive: Color = Color(0xFF194B85)
 
     /**
+     * Цвет информации на светлом фоне
+     */
+    public val TextOnLightInfoHover: Color = Color(0xFF000000)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryActive: Color = Color(0xCA15110F)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryHover: Color = Color(0x9715110F)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryBrightness: Color = Color(0xF5171717)
+
+    /**
+     * Инвертированный минорный акцентный цвет
+     */
+    public val TextInverseAccentMinorActive: Color = Color(0x7A0A8F74)
+
+    /**
+     * Инвертированный сплошной наборный текст
+     */
+    public val TextInverseParagraph: Color = Color(0x6615110F)
+
+    /**
+     * Инвертированный минорный акцентный цвет
+     */
+    public val TextInverseAccentMinorHover: Color = Color(0xFF0A8F74)
+
+    /**
+     * Инвертированный сплошной наборный текст
+     */
+    public val TextInverseParagraphActive: Color = Color(0x7A15110F)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimary: Color = Color(0xFC15110F)
+
+    /**
+     * Инвертированный сплошной наборный текст
+     */
+    public val TextInverseParagraphHover: Color = Color(0xFF15110F)
+
+    /**
+     * Инвертированный третичный цвет текста
+     */
+    public val TextInverseTertiary: Color = Color(0x3D15110F)
+
+    /**
      * Цвет ошибки на светлом фоне
      */
-    public val TextOnLightNegativeHover: Color = Color(0xFFE3353B)
+    public val TextOnLightNegative: Color = Color(0xFFD11D23)
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val TextInverseAccentActive: Color = Color(0xFF076955)
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val TextInverseAccentHover: Color = Color(0xFF0DB593)
+
+    /**
+     * Инвертированный минорный акцентный цвет
+     */
+    public val TextInverseAccentMinor: Color = Color(0x660A8E73)
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val TextInverseNegative: Color = Color(0xFFD11D23)
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val TextInversePositiveActive: Color = Color(0xFF185E17)
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val TextInversePositiveHover: Color = Color(0xFF29A027)
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val TextInverseNegativeActive: Color = Color(0xFFAF181D)
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val TextInverseNegativeHover: Color = Color(0xFFE3353B)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidSecondary: Color = Color(0xFF292929)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidTertiary: Color = Color(0xFF474747)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidSecondaryActive: Color = Color(0xFF242424)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidSecondaryHover: Color = Color(0xFF333333)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidTertiaryHover: Color = Color(0xFF525252)
+
+    /**
+     * Инвертированный цвет информации
+     */
+    public val TextInverseInfoActive: Color = Color(0xFF194B85)
 
     /**
      * Инвертированный цвет информации
@@ -4903,9 +1628,14 @@ public object DarkColorTokens {
     public val TextInverseInfoHover: Color = Color(0xFF000000)
 
     /**
-     * Инвертированный цвет информации
+     * Инвертированный цвет предупреждения
      */
-    public val TextInverseInfoActive: Color = Color(0xFF194B85)
+    public val TextInverseWarning: Color = Color(0xFF973C09)
+
+    /**
+     * Инвертированный цвет предупреждения
+     */
+    public val TextInverseWarningHover: Color = Color(0xFFBC4C0B)
 
     /**
      * Основной непрозрачный фон поверхности/контрола
@@ -4918,154 +1648,14 @@ public object DarkColorTokens {
     public val TextInverseWarningActive: Color = Color(0xFF6F2D06)
 
     /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryHover: Color = Color(0xFF2E2E2E)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryActive: Color = Color(0xFF1F1F1F)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidPrimaryBrightness: Color = Color(0xFF262626)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidSecondary: Color = Color(0xFF292929)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidSecondaryHover: Color = Color(0xFF333333)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidSecondaryActive: Color = Color(0xFF242424)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidTertiary: Color = Color(0xFF474747)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultSolidTertiaryHover: Color = Color(0xFF525252)
-
-    /**
      * Инвертированный цвет успеха
      */
     public val TextInversePositive: Color = Color(0xFF207F1F)
 
     /**
-     * Инвертированный цвет успеха
+     * Основной непрозрачный фон поверхности/контрола
      */
-    public val TextInversePositiveHover: Color = Color(0xFF29A027)
-
-    /**
-     * Инвертированный цвет предупреждения
-     */
-    public val TextInverseWarning: Color = Color(0xFF973C09)
-
-    /**
-     * Инвертированный цвет предупреждения
-     */
-    public val TextInverseWarningHover: Color = Color(0xFFBC4C0B)
-
-    /**
-     * Инвертированный цвет успеха
-     */
-    public val TextInversePositiveActive: Color = Color(0xFF185E17)
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val TextInverseNegative: Color = Color(0xFFD11D23)
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val TextInverseNegativeHover: Color = Color(0xFFE3353B)
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val TextInverseNegativeActive: Color = Color(0xFFAF181D)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentTertiary: Color = Color(0x3DFFFFFF)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentTertiaryHover: Color = Color(0x5CFFFFFF)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentTertiaryActive: Color = Color(0x2EFFFFFF)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentDeep: Color = Color(0xB8373737)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentDeepHover: Color = Color(0xD6383838)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentDeepActive: Color = Color(0xA8383838)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCard: Color = Color(0x80232323)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCardHover: Color = Color(0x9E242424)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCardActive: Color = Color(0x70242424)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCardBrightness: Color = Color(0x0FFAFAFA)
-
-    /**
-     * Фон поверхности/контрола без заливки
-     */
-    public val SurfaceDefaultClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки
-     */
-    public val SurfaceDefaultClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки
-     */
-    public val SurfaceDefaultClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccent: Color = Color(0xFF0BA686)
+    public val SurfaceDefaultSolidPrimaryHover: Color = Color(0xFF2E2E2E)
 
     /**
      * Акцентный фон поверхности/контрола
@@ -5078,76 +1668,6 @@ public object DarkColorTokens {
     public val SurfaceDefaultAccentActive: Color = Color(0xFF0A9E81)
 
     /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccentMinorHover: Color = Color(0xFF055C4C)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccentMinorActive: Color = Color(0xFF043F34)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentAccent: Color = Color(0x330BA686)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentAccentHover: Color = Color(0x520BA888)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentAccentActive: Color = Color(0x240BA888)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardActive: Color = Color(0xFF1F1F1F)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCard: Color = Color(0xFF232323)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardBrightness: Color = Color(0xFF262626)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceDefaultSolidDefault: Color = Color(0xFFF6F2F0)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceDefaultSolidDefaultHover: Color = Color(0xFFF9F7F5)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentPrimary: Color = Color(0x14FFFFFF)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentPrimaryHover: Color = Color(0x24FFFFFF)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceDefaultSolidDefaultActive: Color = Color(0xFFF2ECE9)
-
-    /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCardHover: Color = Color(0xFF2E2E2E)
-
-    /**
      * Основной прозрачный фон поверхности/контрола
      */
     public val SurfaceDefaultTransparentPrimaryActive: Color = Color(0x0FFFFFFF)
@@ -5158,9 +1678,99 @@ public object DarkColorTokens {
     public val SurfaceDefaultTransparentSecondary: Color = Color(0x28FFFFFF)
 
     /**
-     * Вторичный прозрачный фон поверхности/контрола
+     * Основной прозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultTransparentSecondaryHover: Color = Color(0x47FFFFFF)
+    public val SurfaceDefaultTransparentPrimaryHover: Color = Color(0x24FFFFFF)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentDeep: Color = Color(0x99A1A09F)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentPrimary: Color = Color(0x14FFFFFF)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentDeepActive: Color = Color(0x8AA2A1A0)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentDeepHover: Color = Color(0xB8A2A1A0)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardActive: Color = Color(0xFF1F1F1F)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardHover: Color = Color(0xFF2E2E2E)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardBrightness: Color = Color(0xFF262626)
+
+    /**
+     * Фон поверхности/контрола без заливки
+     */
+    public val SurfaceDefaultClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки
+     */
+    public val SurfaceDefaultClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCard: Color = Color(0xFF232323)
+
+    /**
+     * Фон поверхности/контрола без заливки
+     */
+    public val SurfaceDefaultClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCardActive: Color = Color(0xA8383838)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCardHover: Color = Color(0xD6383838)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCardBrightness: Color = Color(0x0FFAFAFA)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceDefaultSolidDefaultActive: Color = Color(0xFFF2ECE9)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceDefaultSolidDefaultHover: Color = Color(0xFFF9F7F5)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentAccentActive: Color = Color(0x240BA888)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCard: Color = Color(0xB8373737)
 
     /**
      * Вторичный прозрачный фон поверхности/контрола
@@ -5168,34 +1778,34 @@ public object DarkColorTokens {
     public val SurfaceDefaultTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
 
     /**
-     * Цвет фона поверхности/контрола ошибка
+     * Третичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultNegative: Color = Color(0xFFF8A6A9)
+    public val SurfaceDefaultTransparentTertiary: Color = Color(0x3DFFFFFF)
 
     /**
-     * Цвет фона поверхности/контрола ошибка
+     * Прозрачный акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultNegativeHover: Color = Color(0xFFF9B8BA)
+    public val SurfaceDefaultTransparentAccentHover: Color = Color(0x520BA888)
 
     /**
-     * Цвет фона поверхности/контрола ошибка
+     * Прозрачный акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultNegativeActive: Color = Color(0xFFF79C9F)
+    public val SurfaceDefaultTransparentAccent: Color = Color(0x330BA686)
 
     /**
-     * Цвет фона поверхности/контрола информация
+     * Вторичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultInfo: Color = Color(0xFF9BCAF8)
+    public val SurfaceDefaultTransparentSecondaryHover: Color = Color(0x47FFFFFF)
 
     /**
-     * Цвет фона поверхности/контрола информация
+     * Третичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultInfoHover: Color = Color(0xFFAED4F9)
+    public val SurfaceDefaultTransparentTertiaryActive: Color = Color(0x2EFFFFFF)
 
     /**
-     * Цвет фона поверхности/контрола информация
+     * Третичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultInfoActive: Color = Color(0xFF91C4F7)
+    public val SurfaceDefaultTransparentTertiaryHover: Color = Color(0x5CFFFFFF)
 
     /**
      * Цвет фона поверхности/контрола успех
@@ -5205,12 +1815,27 @@ public object DarkColorTokens {
     /**
      * Цвет фона поверхности/контрола успех
      */
-    public val SurfaceDefaultPositive: Color = Color(0xFFA6D2A2)
+    public val SurfaceDefaultPositiveHover: Color = Color(0xFFB3D9B0)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка
+     */
+    public val SurfaceDefaultNegativeActive: Color = Color(0xFFF79C9F)
 
     /**
      * Цвет фона поверхности/контрола успех
      */
-    public val SurfaceDefaultPositiveHover: Color = Color(0xFFB3D9B0)
+    public val SurfaceDefaultPositive: Color = Color(0xFFA6D2A2)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка
+     */
+    public val SurfaceDefaultNegativeHover: Color = Color(0xFFF9B8BA)
+
+    /**
+     * Цвет фона поверхности/контрола информация
+     */
+    public val SurfaceDefaultInfoHover: Color = Color(0xFFAED4F9)
 
     /**
      * Цвет фона поверхности/контрола предупреждение
@@ -5228,34 +1853,54 @@ public object DarkColorTokens {
     public val SurfaceDefaultWarningActive: Color = Color(0xFFF8A977)
 
     /**
+     * Цвет фона поверхности/контрола информация
+     */
+    public val SurfaceDefaultInfoActive: Color = Color(0xFF91C4F7)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка
+     */
+    public val SurfaceDefaultNegative: Color = Color(0xFFF8A6A9)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceDefaultTransparentNegativeActive: Color = Color(0x70F8A5A8)
+
+    /**
      * Прозрачный цвет фона поверхности/контрола предупреждение
      */
     public val SurfaceDefaultTransparentNegativeHover: Color = Color(0x9EF8A5A8)
 
     /**
-     * Цвет для readOnly
+     * Прозрачный цвет фона поверхности/контрола предупреждение
      */
-    public val SurfaceDefaultReadOnly: Color = Color(0x05F9F9F9)
+    public val SurfaceDefaultTransparentNegative: Color = Color(0x80F8A6A9)
 
     /**
-     * Цвет для readOnly
+     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceDefaultReadOnlyHover: Color = Color(0x0FFAFAFA)
+    public val SurfaceOnDarkSolidSecondary: Color = Color(0xFF292929)
 
     /**
-     * Цвет для readOnly
+     * Третичный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceDefaultReadOnlyActive: Color = Color(0x00FAFAFA)
+    public val SurfaceOnDarkSolidTertiary: Color = Color(0xFF474747)
 
     /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkSolidPrimary: Color = Color(0xFF232323)
+    public val SurfaceOnDarkSolidSecondaryActive: Color = Color(0xFF242424)
 
     /**
-     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkSolidPrimaryHover: Color = Color(0xFF2E2E2E)
+    public val SurfaceOnDarkSolidSecondaryHover: Color = Color(0xFF333333)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidTertiaryHover: Color = Color(0xFF525252)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
@@ -5268,104 +1913,29 @@ public object DarkColorTokens {
     public val SurfaceOnDarkSolidPrimaryBrightness: Color = Color(0xFF262626)
 
     /**
-     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
+     * Цвет для readOnly
      */
-    public val SurfaceOnDarkSolidSecondary: Color = Color(0xFF292929)
+    public val SurfaceDefaultReadOnlyActive: Color = Color(0x00FAFAFA)
 
     /**
-     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
+     * Цвет для readOnly
      */
-    public val SurfaceOnDarkSolidSecondaryHover: Color = Color(0xFF333333)
+    public val SurfaceDefaultReadOnly: Color = Color(0x05F9F9F9)
 
     /**
-     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
+     * Цвет для readOnly
      */
-    public val SurfaceOnDarkSolidSecondaryActive: Color = Color(0xFF242424)
+    public val SurfaceDefaultReadOnlyHover: Color = Color(0x0FFAFAFA)
 
     /**
-     * Третичный непрозрачный фон поверхности/контрола на темном фоне
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkSolidTertiary: Color = Color(0xFF474747)
+    public val SurfaceOnDarkSolidPrimaryHover: Color = Color(0xFF2E2E2E)
 
     /**
-     * Третичный непрозрачный фон поверхности/контрола на темном фоне
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkSolidTertiaryHover: Color = Color(0xFF525252)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceDefaultTransparentNegativeActive: Color = Color(0x70F8A5A8)
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceDefaultTransparentNegative: Color = Color(0x80F8A6A9)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentTertiary: Color = Color(0x3DFFFFFF)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentTertiaryHover: Color = Color(0x5CFFFFFF)
-
-    /**
-     * Третичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentTertiaryActive: Color = Color(0x2EFFFFFF)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentDeep: Color = Color(0xB8373737)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentDeepHover: Color = Color(0xD6383838)
-
-    /**
-     * Глубокий прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentDeepActive: Color = Color(0xA8383838)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCard: Color = Color(0x80232323)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x9E242424)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x70242424)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x0FFAFAFA)
-
-    /**
-     * Фон поверхности/контрола без заливки на темном фоне
-     */
-    public val SurfaceOnDarkClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки на темном фоне
-     */
-    public val SurfaceOnDarkClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки на темном фоне
-     */
-    public val SurfaceOnDarkClearActive: Color = Color(0x00FFFFFF)
+    public val SurfaceOnDarkSolidPrimary: Color = Color(0xFF232323)
 
     /**
      * Акцентный фон поверхности/контрола на темном фоне
@@ -5383,9 +1953,39 @@ public object DarkColorTokens {
     public val SurfaceOnDarkAccentActive: Color = Color(0xFF0A9E81)
 
     /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
+     * Основной прозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkAccentMinor: Color = Color(0xFF04473B)
+    public val SurfaceOnDarkTransparentPrimaryActive: Color = Color(0x0FFFFFFF)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentSecondary: Color = Color(0x28FFFFFF)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentPrimaryHover: Color = Color(0x24FFFFFF)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentDeep: Color = Color(0x99A1A09F)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentPrimary: Color = Color(0x14FFFFFF)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentDeepActive: Color = Color(0x8AA2A1A0)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentDeepHover: Color = Color(0xB8A2A1A0)
 
     /**
      * Основной фон для карточек на темном фоне
@@ -5395,12 +1995,32 @@ public object DarkColorTokens {
     /**
      * Основной фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkSolidCard: Color = Color(0xFF232323)
+    public val SurfaceOnDarkSolidCardHover: Color = Color(0xFF2E2E2E)
 
     /**
      * Основной фон для карточек на темном фоне
      */
     public val SurfaceOnDarkSolidCardBrightness: Color = Color(0xFF262626)
+
+    /**
+     * Фон поверхности/контрола без заливки на темном фоне
+     */
+    public val SurfaceOnDarkClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки на темном фоне
+     */
+    public val SurfaceOnDarkClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки на темном фоне
+     */
+    public val SurfaceOnDarkClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCard: Color = Color(0xFF232323)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
@@ -5413,34 +2033,19 @@ public object DarkColorTokens {
     public val SurfaceOnDarkSolidDefaultActive: Color = Color(0xFFF2ECE9)
 
     /**
-     * Основной прозрачный фон поверхности/контрола на темном фоне
+     * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentPrimary: Color = Color(0x14FFFFFF)
+    public val SurfaceOnDarkTransparentCard: Color = Color(0xB8373737)
 
     /**
-     * Основной прозрачный фон поверхности/контрола на темном фоне
+     * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentPrimaryHover: Color = Color(0x24FFFFFF)
+    public val SurfaceOnDarkTransparentCardHover: Color = Color(0xD6383838)
 
     /**
-     * Основной фон для карточек на темном фоне
+     * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkSolidCardHover: Color = Color(0xFF2E2E2E)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentPrimaryActive: Color = Color(0x0FFFFFFF)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentSecondary: Color = Color(0x28FFFFFF)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentSecondaryHover: Color = Color(0x47FFFFFF)
+    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x0FFAFAFA)
 
     /**
      * Вторичный прозрачный фон поверхности/контрола на темном фоне
@@ -5448,9 +2053,29 @@ public object DarkColorTokens {
     public val SurfaceOnDarkTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
 
     /**
-     * Цвет фона поверхности/контрола успех на темном фоне
+     * Третичный прозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkPositiveHover: Color = Color(0xFFB3D9B0)
+    public val SurfaceOnDarkTransparentTertiary: Color = Color(0x3DFFFFFF)
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCardActive: Color = Color(0xA8383838)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentSecondaryHover: Color = Color(0x47FFFFFF)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentTertiaryActive: Color = Color(0x2EFFFFFF)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentTertiaryHover: Color = Color(0x5CFFFFFF)
 
     /**
      * Цвет фона поверхности/контрола успех на темном фоне
@@ -5458,29 +2083,9 @@ public object DarkColorTokens {
     public val SurfaceOnDarkPositiveActive: Color = Color(0xFF9FCF9B)
 
     /**
-     * Цвет фона поверхности/контрола предупреждение на темном фоне
+     * Цвет фона поверхности/контрола успех на темном фоне
      */
-    public val SurfaceOnDarkWarning: Color = Color(0xFFF8AD80)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val SurfaceOnDarkWarningHover: Color = Color(0xFFF9BB94)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val SurfaceOnDarkWarningActive: Color = Color(0xFFF8A977)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на темном фоне
-     */
-    public val SurfaceOnDarkNegative: Color = Color(0xFFF8A6A9)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на темном фоне
-     */
-    public val SurfaceOnDarkNegativeHover: Color = Color(0xFFF9B8BA)
+    public val SurfaceOnDarkPositiveHover: Color = Color(0xFFB3D9B0)
 
     /**
      * Цвет фона поверхности/контрола ошибка на темном фоне
@@ -5488,9 +2093,14 @@ public object DarkColorTokens {
     public val SurfaceOnDarkNegativeActive: Color = Color(0xFFF79C9F)
 
     /**
-     * Цвет фона поверхности/контрола информация на темном фоне
+     * Цвет фона поверхности/контрола успех на темном фоне
      */
-    public val SurfaceOnDarkInfo: Color = Color(0xFF9BCAF8)
+    public val SurfaceOnDarkPositive: Color = Color(0xFFA6D2A2)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public val SurfaceOnDarkNegativeHover: Color = Color(0xFFF9B8BA)
 
     /**
      * Цвет фона поверхности/контрола информация на темном фоне
@@ -5500,12 +2110,17 @@ public object DarkColorTokens {
     /**
      * Цвет фона поверхности/контрола информация на темном фоне
      */
+    public val SurfaceOnDarkInfo: Color = Color(0xFF9BCAF8)
+
+    /**
+     * Цвет фона поверхности/контрола информация на темном фоне
+     */
     public val SurfaceOnDarkInfoActive: Color = Color(0xFF91C4F7)
 
     /**
-     * Прозрачный акцентный фон поверхности/контрола на темном фоне
+     * Цвет фона поверхности/контрола предупреждение на темном фоне
      */
-    public val SurfaceOnDarkTransparentAccentActive: Color = Color(0x240BA888)
+    public val SurfaceOnDarkWarningActive: Color = Color(0xFFF8A977)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на темном фоне
@@ -5518,69 +2133,24 @@ public object DarkColorTokens {
     public val SurfaceOnDarkTransparentAccentHover: Color = Color(0x520BA888)
 
     /**
-     * Цвет фона поверхности/контрола успех на темном фоне
+     * Прозрачный акцентный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkPositive: Color = Color(0xFFA6D2A2)
+    public val SurfaceOnDarkTransparentAccentActive: Color = Color(0x240BA888)
 
     /**
-     * Цвет для readOnly
+     * Цвет фона поверхности/контрола предупреждение на темном фоне
      */
-    public val SurfaceOnDarkReadOnly: Color = Color(0x05F9F9F9)
+    public val SurfaceOnDarkWarning: Color = Color(0xFFF8AD80)
 
     /**
-     * Цвет для readOnly
+     * Цвет фона поверхности/контрола предупреждение на темном фоне
      */
-    public val SurfaceOnDarkReadOnlyHover: Color = Color(0x0FFAFAFA)
+    public val SurfaceOnDarkWarningHover: Color = Color(0xFFF9BB94)
 
     /**
-     * Цвет для readOnly
+     * Цвет фона поверхности/контрола ошибка на темном фоне
      */
-    public val SurfaceOnDarkReadOnlyActive: Color = Color(0x00FAFAFA)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidPrimaryBrightness: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidSecondary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidSecondaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidSecondaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidTertiary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+    public val SurfaceOnDarkNegative: Color = Color(0xFFF8A6A9)
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
@@ -5590,77 +2160,72 @@ public object DarkColorTokens {
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
      */
-    public val SurfaceOnDarkTransparentNegative: Color = Color(0x80F8A6A9)
+    public val SurfaceOnDarkTransparentNegativeHover: Color = Color(0x9EF8A5A8)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceOnDarkReadOnlyActive: Color = Color(0x00FAFAFA)
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
      */
-    public val SurfaceOnDarkTransparentNegativeHover: Color = Color(0x9EF8A5A8)
+    public val SurfaceOnDarkTransparentNegative: Color = Color(0x80F8A6A9)
 
     /**
-     * Третичный прозрачный фон поверхности/контрола на светлом фоне
+     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentTertiary: Color = Color(0x1F15110F)
+    public val SurfaceOnLightSolidSecondary: Color = Color(0xFFFFFFFF)
 
     /**
-     * Третичный прозрачный фон поверхности/контрола на светлом фоне
+     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentTertiaryHover: Color = Color(0x2E15110F)
+    public val SurfaceOnLightSolidTertiary: Color = Color(0xFFFFFFFF)
 
     /**
-     * Третичный прозрачный фон поверхности/контрола на светлом фоне
+     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentTertiaryActive: Color = Color(0x3315110F)
+    public val SurfaceOnLightSolidSecondaryActive: Color = Color(0xFFFFFFFF)
 
     /**
-     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
+     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentDeep: Color = Color(0xB2FFFFFF)
+    public val SurfaceOnLightSolidSecondaryHover: Color = Color(0xFFFFFFFF)
 
     /**
-     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
+     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentDeepHover: Color = Color(0xC2FFFFFF)
+    public val SurfaceOnLightSolidTertiaryHover: Color = Color(0xFFFFFFFF)
 
     /**
-     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
+     * Цвет для readOnly
      */
-    public val SurfaceOnLightTransparentDeepActive: Color = Color(0xC7FFFFFF)
+    public val SurfaceOnDarkReadOnlyHover: Color = Color(0x0FFAFAFA)
 
     /**
-     * Прозрачный фон для карточек на светлом фоне
+     * Цвет для readOnly
      */
-    public val SurfaceOnLightTransparentCard: Color = Color(0x84FFFFFF)
+    public val SurfaceOnDarkReadOnly: Color = Color(0x05F9F9F9)
 
     /**
-     * Прозрачный фон для карточек на светлом фоне
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentCardHover: Color = Color(0x94FFFFFF)
+    public val SurfaceOnLightSolidPrimaryActive: Color = Color(0xFFFFFFFF)
 
     /**
-     * Прозрачный фон для карточек на светлом фоне
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentCardActive: Color = Color(0x99FFFFFF)
+    public val SurfaceOnLightSolidPrimaryHover: Color = Color(0xFFFFFFFF)
 
     /**
-     * Прозрачный фон для карточек на светлом фоне
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentCardBrightness: Color = Color(0xFFFFFFFF)
+    public val SurfaceOnLightSolidPrimaryBrightness: Color = Color(0xFFFFFFFF)
 
     /**
-     * Фон поверхности/контрола без заливки на светлом фоне
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки на светлом фоне
-     */
-    public val SurfaceOnLightClearHover: Color = Color(0x00FFFFFF)
-
-    /**
-     * Фон поверхности/контрола без заливки на светлом фоне
-     */
-    public val SurfaceOnLightClearActive: Color = Color(0x00FFFFFF)
+    public val SurfaceOnLightSolidPrimary: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный фон поверхности/контрола на светлом фоне
@@ -5678,6 +2243,36 @@ public object DarkColorTokens {
     public val SurfaceOnLightAccentActive: Color = Color(0xFF099579)
 
     /**
+     * Основной прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentPrimaryActive: Color = Color(0x0F15110F)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentSecondary: Color = Color(0x1415110F)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentPrimaryHover: Color = Color(0x0D15110F)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentDeep: Color = Color(0xA3A1A09F)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentPrimary: Color = Color(0x0A15110F)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentDeepActive: Color = Color(0xB8A2A1A0)
+
+    /**
      * Основной фон для карточек на светлом фоне
      */
     public val SurfaceOnLightSolidCardActive: Color = Color(0xFFFFFFFF)
@@ -5685,12 +2280,32 @@ public object DarkColorTokens {
     /**
      * Основной фон для карточек на светлом фоне
      */
-    public val SurfaceOnLightSolidCard: Color = Color(0xFFFFFFFF)
+    public val SurfaceOnLightSolidCardHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Основной фон для карточек на светлом фоне
      */
     public val SurfaceOnLightSolidCardBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки на светлом фоне
+     */
+    public val SurfaceOnLightClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightSolidCard: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки на светлом фоне
+     */
+    public val SurfaceOnLightClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val SurfaceOnLightSolidDefaultActive: Color = Color(0xFF090706)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
@@ -5703,39 +2318,14 @@ public object DarkColorTokens {
     public val SurfaceOnLightSolidDefaultHover: Color = Color(0xFF271F1C)
 
     /**
-     * Основной прозрачный фон поверхности/контрола на светлом фоне
+     * Прозрачный фон для карточек на светлом фоне
      */
-    public val SurfaceOnLightTransparentPrimary: Color = Color(0x0A15110F)
+    public val SurfaceOnLightTransparentCardActive: Color = Color(0xC7FFFFFF)
 
     /**
-     * Основной прозрачный фон поверхности/контрола на светлом фоне
+     * Прозрачный фон для карточек на светлом фоне
      */
-    public val SurfaceOnLightTransparentPrimaryHover: Color = Color(0x0D15110F)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val SurfaceOnLightSolidDefaultActive: Color = Color(0xFF090706)
-
-    /**
-     * Основной фон для карточек на светлом фоне
-     */
-    public val SurfaceOnLightSolidCardHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Основной прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentPrimaryActive: Color = Color(0x0F15110F)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentSecondary: Color = Color(0x1415110F)
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val SurfaceOnLightTransparentSecondaryHover: Color = Color(0x1A15110F)
+    public val SurfaceOnLightTransparentCardHover: Color = Color(0xC2FFFFFF)
 
     /**
      * Вторичный прозрачный фон поверхности/контрола на светлом фоне
@@ -5743,14 +2333,34 @@ public object DarkColorTokens {
     public val SurfaceOnLightTransparentSecondaryActive: Color = Color(0x1F15110F)
 
     /**
-     * Цвет фона поверхности/контрола успех на светлом фоне
+     * Третичный прозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightPositive: Color = Color(0xFF239322)
+    public val SurfaceOnLightTransparentTertiary: Color = Color(0x1F15110F)
 
     /**
-     * Цвет фона поверхности/контрола успех на светлом фоне
+     * Прозрачный фон для карточек на светлом фоне
      */
-    public val SurfaceOnLightPositiveHover: Color = Color(0xFF28A126)
+    public val SurfaceOnLightTransparentCardBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightTransparentCard: Color = Color(0xB2FFFFFF)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentTertiaryActive: Color = Color(0x3315110F)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentTertiaryHover: Color = Color(0x2E15110F)
+
+    /**
+     * Цвет фона поверхности/контрола информация на светлом фоне
+     */
+    public val SurfaceOnLightInfo: Color = Color(0xFF3776BC)
 
     /**
      * Цвет фона поверхности/контрола успех на светлом фоне
@@ -5758,29 +2368,9 @@ public object DarkColorTokens {
     public val SurfaceOnLightPositiveActive: Color = Color(0xFF20801E)
 
     /**
-     * Цвет фона поверхности/контрола предупреждение на светлом фоне
+     * Цвет фона поверхности/контрола успех на светлом фоне
      */
-    public val SurfaceOnLightWarning: Color = Color(0xFFBE4E0C)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
-    public val SurfaceOnLightWarningHover: Color = Color(0xFFD3560D)
-
-    /**
-     * Цвет фона поверхности/контрола предупреждение на светлом фоне
-     */
-    public val SurfaceOnLightWarningActive: Color = Color(0xFFAD460B)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на светлом фоне
-     */
-    public val SurfaceOnLightNegative: Color = Color(0xFFE83439)
-
-    /**
-     * Цвет фона поверхности/контрола ошибка на светлом фоне
-     */
-    public val SurfaceOnLightNegativeHover: Color = Color(0xFFEC5156)
+    public val SurfaceOnLightPositiveHover: Color = Color(0xFF28A126)
 
     /**
      * Цвет фона поверхности/контрола ошибка на светлом фоне
@@ -5788,9 +2378,14 @@ public object DarkColorTokens {
     public val SurfaceOnLightNegativeActive: Color = Color(0xFFE72329)
 
     /**
-     * Цвет фона поверхности/контрола информация на светлом фоне
+     * Цвет фона поверхности/контрола успех на светлом фоне
      */
-    public val SurfaceOnLightInfo: Color = Color(0xFF3776BC)
+    public val SurfaceOnLightPositive: Color = Color(0xFF239322)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на светлом фоне
+     */
+    public val SurfaceOnLightNegativeHover: Color = Color(0xFFEC5156)
 
     /**
      * Цвет фона поверхности/контрола информация на светлом фоне
@@ -5805,7 +2400,7 @@ public object DarkColorTokens {
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentAccentActive: Color = Color(0x330BA888)
+    public val SurfaceOnLightTransparentAccentHover: Color = Color(0x2E0BA888)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
@@ -5815,7 +2410,32 @@ public object DarkColorTokens {
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentAccentHover: Color = Color(0x2E0BA888)
+    public val SurfaceOnLightTransparentAccentActive: Color = Color(0x330BA888)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightWarning: Color = Color(0xFFBE4E0C)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightWarningActive: Color = Color(0xFFAD460B)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на светлом фоне
+     */
+    public val SurfaceOnLightNegative: Color = Color(0xFFE83439)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightWarningHover: Color = Color(0xFFD3560D)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightTransparentNegativeActive: Color = Color(0x3DE9353B)
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
@@ -5825,37 +2445,12 @@ public object DarkColorTokens {
     /**
      * Цвет для readOnly
      */
-    public val SurfaceOnLightReadOnly: Color = Color(0x02F9F9F9)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceOnLightReadOnlyHover: Color = Color(0x05FAFAFA)
-
-    /**
-     * Цвет для readOnly
-     */
     public val SurfaceOnLightReadOnlyActive: Color = Color(0x08FAFAFA)
 
     /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
      */
-    public val SurfaceInverseSolidPrimary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryBrightness: Color = Color(0xFFFFFFFF)
+    public val SurfaceOnLightTransparentNegative: Color = Color(0x29E83439)
 
     /**
      * Инвертированный вторичный непрозрачный фон поверхности/контрола
@@ -5868,29 +2463,29 @@ public object DarkColorTokens {
     public val SurfaceInverseSolidSecondaryHover: Color = Color(0xFFFFFFFF)
 
     /**
-     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     * Цвет для readOnly
      */
-    public val SurfaceInverseSolidSecondaryActive: Color = Color(0xFFFFFFFF)
+    public val SurfaceOnLightReadOnlyHover: Color = Color(0x05FAFAFA)
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     * Цвет для readOnly
      */
-    public val SurfaceOnLightTransparentNegativeActive: Color = Color(0x3DE9353B)
+    public val SurfaceOnLightReadOnly: Color = Color(0x02F9F9F9)
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     * Инвертированный основной непрозрачный фон поверхности/контрола
      */
-    public val SurfaceOnLightTransparentNegative: Color = Color(0x29E83439)
+    public val SurfaceInverseSolidPrimaryBrightness: Color = Color(0xFFFFFFFF)
 
     /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     * Инвертированный основной непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentSecondaryActive: Color = Color(0x1F15110F)
+    public val SurfaceInverseSolidPrimaryActive: Color = Color(0xFFFFFFFF)
 
     /**
-     * Инвертированный третичный прозрачный фон поверхности/контрола
+     * Инвертированный основной непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentTertiary: Color = Color(0x1F15110F)
+    public val SurfaceInverseSolidPrimaryHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный третичный прозрачный фон поверхности/контрола
@@ -5898,119 +2493,14 @@ public object DarkColorTokens {
     public val SurfaceInverseTransparentTertiaryHover: Color = Color(0x2E15110F)
 
     /**
-     * Инвертированный третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentTertiaryActive: Color = Color(0x3315110F)
-
-    /**
-     * Инвертированный глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentDeep: Color = Color(0xB2FFFFFF)
-
-    /**
-     * Инвертированный глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentDeepHover: Color = Color(0xC2FFFFFF)
-
-    /**
-     * Инвертированный глубокий прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentDeepActive: Color = Color(0xC7FFFFFF)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCard: Color = Color(0x84FFFFFF)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCardHover: Color = Color(0x94FFFFFF)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCardActive: Color = Color(0x99FFFFFF)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCardBrightness: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный фон поверхности/контрола без заливки
-     */
-    public val SurfaceInverseClear: Color = Color(0x00FFFFFF)
-
-    /**
-     * Инвертированный фон поверхности/контрола без заливки
-     */
-    public val SurfaceInverseClearHover: Color = Color(0x00FFFFFF)
-
-    /**
      * Инвертированный фон поверхности/контрола без заливки
      */
     public val SurfaceInverseClearActive: Color = Color(0x00FFFFFF)
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
+     * Инвертированный фон поверхности/контрола без заливки
      */
-    public val SurfaceInverseAccent: Color = Color(0xFF0BA686)
-
-    /**
-     * Инвертированный третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidTertiaryActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный третичный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidTertiaryHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCard: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCardActive: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCardHover: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceInverseSolidDefaultHover: Color = Color(0xFF271F1C)
-
-    /**
-     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceInverseSolidDefaultActive: Color = Color(0xFF090706)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCardBrightness: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceInverseSolidDefault: Color = Color(0xFF15110F)
-
-    /**
-     * Инвертированный основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentPrimary: Color = Color(0x0A15110F)
-
-    /**
-     * Инвертированный основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentPrimaryHover: Color = Color(0x0D15110F)
+    public val SurfaceInverseClear: Color = Color(0x00FFFFFF)
 
     /**
      * Инвертированный основной прозрачный фон поверхности/контрола
@@ -6023,34 +2513,114 @@ public object DarkColorTokens {
     public val SurfaceInverseTransparentSecondary: Color = Color(0x1415110F)
 
     /**
+     * Инвертированный основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentPrimaryHover: Color = Color(0x0D15110F)
+
+    /**
+     * Инвертированный глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentDeep: Color = Color(0xA3A1A09F)
+
+    /**
+     * Инвертированный основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentPrimary: Color = Color(0x0A15110F)
+
+    /**
+     * Инвертированный глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentDeepActive: Color = Color(0xB8A2A1A0)
+
+    /**
+     * Инвертированный глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentDeepHover: Color = Color(0xB3A2A1A0)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCardActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCardHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCardBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCard: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCardBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCardHover: Color = Color(0xC2FFFFFF)
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceInverseSolidDefaultActive: Color = Color(0xFF090706)
+
+    /**
+     * Инвертированный третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidTertiaryActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCardActive: Color = Color(0xC7FFFFFF)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCard: Color = Color(0xB2FFFFFF)
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceInverseSolidDefaultHover: Color = Color(0xFF271F1C)
+
+    /**
+     * Инвертированный третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentSecondaryActive: Color = Color(0x1F15110F)
+
+    /**
+     * Инвертированный третичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentTertiary: Color = Color(0x1F15110F)
+
+    /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
      */
     public val SurfaceInverseTransparentSecondaryHover: Color = Color(0x1A15110F)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола успех
+     * Инвертированный третичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceInversePositive: Color = Color(0xFF239322)
+    public val SurfaceInverseTransparentTertiaryActive: Color = Color(0x3315110F)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола успех
+     * Инвертированный фон поверхности/контрола без заливки
      */
-    public val SurfaceInversePositiveHover: Color = Color(0xFF28A126)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола успех
-     */
-    public val SurfaceInversePositiveActive: Color = Color(0xFF20801E)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceInverseWarning: Color = Color(0xFFBE4E0C)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола предупреждение
-     */
-    public val SurfaceInverseWarningHover: Color = Color(0xFFD3560D)
+    public val SurfaceInverseClearHover: Color = Color(0x00FFFFFF)
 
     /**
      * Инвертированный цвет фона поверхности/контрола предупреждение
@@ -6058,9 +2628,34 @@ public object DarkColorTokens {
     public val SurfaceInverseWarningActive: Color = Color(0xFFAD460B)
 
     /**
+     * Инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceInverseWarningHover: Color = Color(0xFFD3560D)
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccentHover: Color = Color(0xFF0CBB98)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола успех
+     */
+    public val SurfaceInversePositiveActive: Color = Color(0xFF20801E)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола успех
+     */
+    public val SurfaceInversePositiveHover: Color = Color(0xFF28A126)
+
+    /**
      * Инвертированный цвет фона поверхности/контрола ошибка
      */
-    public val SurfaceInverseNegative: Color = Color(0xFFE83439)
+    public val SurfaceInverseNegativeActive: Color = Color(0xFFE72329)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола успех
+     */
+    public val SurfaceInversePositive: Color = Color(0xFF239322)
 
     /**
      * Инвертированный цвет фона поверхности/контрола ошибка
@@ -6070,12 +2665,7 @@ public object DarkColorTokens {
     /**
      * Инвертированный цвет фона поверхности/контрола ошибка
      */
-    public val SurfaceInverseNegativeActive: Color = Color(0xFFE72329)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола информация
-     */
-    public val SurfaceInverseInfo: Color = Color(0xFF3776BC)
+    public val SurfaceInverseNegative: Color = Color(0xFFE83439)
 
     /**
      * Инвертированный цвет фона поверхности/контрола информация
@@ -6083,19 +2673,9 @@ public object DarkColorTokens {
     public val SurfaceInverseInfoHover: Color = Color(0xFF4180C8)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола информация
+     * Инвертированный цвет фона поверхности/контрола предупреждение
      */
-    public val SurfaceInverseInfoActive: Color = Color(0xFF326CAE)
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentMinorActive: Color = Color(0xFFBFEDE1)
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentHover: Color = Color(0xFF0CBB98)
+    public val SurfaceInverseWarning: Color = Color(0xFFBE4E0C)
 
     /**
      * Прозрачный инвертированный акцентный фон поверхности/контрола
@@ -6103,9 +2683,9 @@ public object DarkColorTokens {
     public val SurfaceInverseTransparentAccent: Color = Color(0x1F0BA686)
 
     /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола
+     * Инвертированный цвет фона поверхности/контрола информация
      */
-    public val SurfaceInverseTransparentAccentHover: Color = Color(0x2E0BA888)
+    public val SurfaceInverseInfoActive: Color = Color(0xFF326CAE)
 
     /**
      * Прозрачный инвертированный акцентный фон поверхности/контрола
@@ -6113,9 +2693,14 @@ public object DarkColorTokens {
     public val SurfaceInverseTransparentAccentActive: Color = Color(0x330BA888)
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
+     * Инвертированный цвет фона поверхности/контрола информация
      */
-    public val SurfaceInverseAccentActive: Color = Color(0xFF099579)
+    public val SurfaceInverseInfo: Color = Color(0xFF3776BC)
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentAccentHover: Color = Color(0x2E0BA888)
 
     /**
      * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
@@ -6125,27 +2710,12 @@ public object DarkColorTokens {
     /**
      * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
      */
+    public val SurfaceInverseTransparentNegativeHover: Color = Color(0x38E9353B)
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
     public val SurfaceInverseTransparentNegative: Color = Color(0x29E83439)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceInverseReadOnly: Color = Color(0x02F9F9F9)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceInverseReadOnlyHover: Color = Color(0x05FAFAFA)
-
-    /**
-     * Цвет для readOnly
-     */
-    public val SurfaceInverseReadOnlyActive: Color = Color(0x08FAFAFA)
-
-    /**
-     * Основной фон
-     */
-    public val BackgroundDefaultPrimary: Color = Color(0xFF141413)
 
     /**
      * Вторичный фон
@@ -6158,9 +2728,14 @@ public object DarkColorTokens {
     public val BackgroundDefaultTertiary: Color = Color(0xFF141413)
 
     /**
-     * Основной фон на темном фоне
+     * Основной фон на светлом фоне
      */
-    public val BackgroundDarkPrimary: Color = Color(0xFF141413)
+    public val BackgroundLightPrimary: Color = Color(0xFFEBE7E5)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceInverseReadOnlyActive: Color = Color(0x08FAFAFA)
 
     /**
      * Вторичный фон на темном фоне
@@ -6168,29 +2743,39 @@ public object DarkColorTokens {
     public val BackgroundDarkSecondary: Color = Color(0xFF0F0F0F)
 
     /**
+     * Цвет для readOnly
+     */
+    public val SurfaceInverseReadOnlyHover: Color = Color(0x05FAFAFA)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceInverseReadOnly: Color = Color(0x02F9F9F9)
+
+    /**
      * Третичный фон на темном фоне
      */
     public val BackgroundDarkTertiary: Color = Color(0xFF141413)
 
     /**
-     * Основной фон на светлом фоне
+     * Основной фон
      */
-    public val BackgroundLightPrimary: Color = Color(0xFFEBE7E5)
+    public val BackgroundDefaultPrimary: Color = Color(0xFF141413)
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Цвет фона паранжи светлый на темном фоне
      */
-    public val SurfaceInverseTransparentNegativeHover: Color = Color(0x38E9353B)
+    public val OverlayOnDarkSoft: Color = Color(0x1F000000)
 
     /**
-     * Инвертированный цвет фона паранжи светлый
+     * Цвет фона паранжи темный на темном фоне
      */
-    public val OverlayInverseSoft: Color = Color(0x3D000000)
+    public val OverlayOnDarkHard: Color = Color(0x66000000)
 
     /**
-     * Инвертированный цвет фона паранжи темный
+     * Основной прозрачный цвет обводки
      */
-    public val OverlayInverseHard: Color = Color(0x52000000)
+    public val OutlineDefaultTransparentPrimaryActive: Color = Color(0x12FFFFFF)
 
     /**
      * Основной прозрачный цвет обводки
@@ -6203,14 +2788,44 @@ public object DarkColorTokens {
     public val OutlineDefaultTransparentPrimaryHover: Color = Color(0x4DFFFFFF)
 
     /**
-     * Основной прозрачный цвет обводки
+     * Цвет фона паранжи темный
      */
-    public val OutlineDefaultTransparentPrimaryActive: Color = Color(0x12FFFFFF)
+    public val OverlayDefaultHard: Color = Color(0x66000000)
+
+    /**
+     * Цвет фона паранжи светлый
+     */
+    public val OverlayDefaultSoft: Color = Color(0x1F000000)
+
+    /**
+     * Цвет фона паранжи темный на светлом фоне
+     */
+    public val OverlayOnLightHard: Color = Color(0xCC000000)
+
+    /**
+     * Инвертированный цвет фона паранжи светлый
+     */
+    public val OverlayInverseSoft: Color = Color(0x3D000000)
+
+    /**
+     * Цвет фона паранжи светлый на светлом фоне
+     */
+    public val OverlayOnLightSoft: Color = Color(0x3D000000)
+
+    /**
+     * Инвертированный цвет фона паранжи темный
+     */
+    public val OverlayInverseHard: Color = Color(0xCC000000)
 
     /**
      * Бесцветная обводка
      */
     public val OutlineDefaultClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Инвертированный третичный фон
+     */
+    public val BackgroundInverseTertiary: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный вторичный фон
@@ -6223,49 +2838,29 @@ public object DarkColorTokens {
     public val BackgroundLightTertiary: Color = Color(0xFFFFFFFF)
 
     /**
-     * Инвертированный третичный фон
+     * Цвет обводки успех
      */
-    public val BackgroundInverseTertiary: Color = Color(0xFFFFFFFF)
+    public val OutlineDefaultPositive: Color = Color(0xFFA6D2A2)
 
     /**
-     * Цвет фона паранжи светлый
+     * Цвет обводки ошибка
      */
-    public val OverlayDefaultSoft: Color = Color(0x1F000000)
+    public val OutlineDefaultNegative: Color = Color(0xFFF8A6A9)
 
     /**
-     * Цвет фона паранжи темный
+     * Акцентный цвет обводки
      */
-    public val OverlayDefaultHard: Color = Color(0x29000000)
+    public val OutlineDefaultAccentHover: Color = Color(0xFF0EE1B7)
 
     /**
-     * Цвет фона паранжи светлый на темном фоне
+     * Акцентный цвет обводки
      */
-    public val OverlayOnDarkSoft: Color = Color(0x1F000000)
-
-    /**
-     * Цвет фона паранжи темный на темном фоне
-     */
-    public val OverlayOnDarkHard: Color = Color(0x29000000)
-
-    /**
-     * Инвертированный основной фон
-     */
-    public val BackgroundInversePrimary: Color = Color(0xFFEBE7E5)
-
-    /**
-     * Цвет фона паранжи светлый на светлом фоне
-     */
-    public val OverlayOnLightSoft: Color = Color(0x3D000000)
-
-    /**
-     * Цвет фона паранжи темный на светлом фоне
-     */
-    public val OverlayOnLightHard: Color = Color(0x52000000)
+    public val OutlineDefaultAccentActive: Color = Color(0xFF099579)
 
     /**
      * Цвет обводки успех
      */
-    public val OutlineDefaultPositive: Color = Color(0xFFA6D2A2)
+    public val OutlineDefaultPositiveActive: Color = Color(0xFF92C88D)
 
     /**
      * Цвет обводки успех
@@ -6273,9 +2868,34 @@ public object DarkColorTokens {
     public val OutlineDefaultPositiveHover: Color = Color(0xFFDBEDD9)
 
     /**
-     * Цвет обводки успех
+     * Цвет обводки ошибка
      */
-    public val OutlineDefaultPositiveActive: Color = Color(0xFF92C88D)
+    public val OutlineDefaultNegativeActive: Color = Color(0xFFEF343A)
+
+    /**
+     * Цвет обводки ошибка
+     */
+    public val OutlineDefaultNegativeHover: Color = Color(0xFFF25A5F)
+
+    /**
+     * Бесцветная обводка
+     */
+    public val OutlineDefaultClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Цвет обводки информация
+     */
+    public val OutlineDefaultInfoHover: Color = Color(0xFFE7F2FD)
+
+    /**
+     * Цвет обводки предупреждение
+     */
+    public val OutlineDefaultWarningHover: Color = Color(0xFFFCE0CF)
+
+    /**
+     * Бесцветная обводка
+     */
+    public val OutlineDefaultClearActive: Color = Color(0x00FFFFFF)
 
     /**
      * Цвет обводки предупреждение
@@ -6285,27 +2905,7 @@ public object DarkColorTokens {
     /**
      * Цвет обводки предупреждение
      */
-    public val OutlineDefaultWarningHover: Color = Color(0xFFFCE0CF)
-
-    /**
-     * Цвет обводки предупреждение
-     */
     public val OutlineDefaultWarningActive: Color = Color(0xFFF79C64)
-
-    /**
-     * Цвет обводки ошибка
-     */
-    public val OutlineDefaultNegative: Color = Color(0xFFF8A6A9)
-
-    /**
-     * Цвет обводки ошибка
-     */
-    public val OutlineDefaultNegativeHover: Color = Color(0xFFF25A5F)
-
-    /**
-     * Цвет обводки ошибка
-     */
-    public val OutlineDefaultNegativeActive: Color = Color(0xFFEF343A)
 
     /**
      * Цвет обводки информация
@@ -6315,22 +2915,7 @@ public object DarkColorTokens {
     /**
      * Цвет обводки информация
      */
-    public val OutlineDefaultInfoHover: Color = Color(0xFFE7F2FD)
-
-    /**
-     * Цвет обводки информация
-     */
     public val OutlineDefaultInfoActive: Color = Color(0xFF7EBAF6)
-
-    /**
-     * Бесцветная обводка
-     */
-    public val OutlineDefaultClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Бесцветная обводка
-     */
-    public val OutlineDefaultClearHover: Color = Color(0x00FFFFFF)
 
     /**
      * Основной прозрачный цвет обводки на темном фоне
@@ -6340,27 +2925,12 @@ public object DarkColorTokens {
     /**
      * Основной прозрачный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkTransparentPrimaryHover: Color = Color(0x4DFFFFFF)
+    public val OutlineOnDarkTransparentPrimaryActive: Color = Color(0x12FFFFFF)
 
     /**
      * Основной прозрачный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkTransparentPrimaryActive: Color = Color(0x12FFFFFF)
-
-    /**
-     * Цвет обводки успех на темном фоне
-     */
-    public val OutlineOnDarkPositive: Color = Color(0xFFA6D2A2)
-
-    /**
-     * Цвет обводки успех на темном фоне
-     */
-    public val OutlineOnDarkPositiveHover: Color = Color(0xFFDBEDD9)
-
-    /**
-     * Цвет обводки успех на темном фоне
-     */
-    public val OutlineOnDarkPositiveActive: Color = Color(0xFF92C88D)
+    public val OutlineOnDarkTransparentPrimaryHover: Color = Color(0x4DFFFFFF)
 
     /**
      * Цвет обводки предупреждение на темном фоне
@@ -6368,24 +2938,19 @@ public object DarkColorTokens {
     public val OutlineOnDarkWarning: Color = Color(0xFFF8AD80)
 
     /**
-     * Цвет обводки предупреждение на темном фоне
+     * Акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkWarningHover: Color = Color(0xFFFCE0CF)
+    public val OutlineOnDarkAccent: Color = Color(0xFF0BA686)
 
     /**
-     * Цвет обводки предупреждение на темном фоне
+     * Цвет обводки успех на темном фоне
      */
-    public val OutlineOnDarkWarningActive: Color = Color(0xFFF79C64)
+    public val OutlineOnDarkPositiveActive: Color = Color(0xFF92C88D)
 
     /**
-     * Цвет обводки ошибка на темном фоне
+     * Цвет обводки успех на темном фоне
      */
-    public val OutlineOnDarkNegative: Color = Color(0xFFF8A6A9)
-
-    /**
-     * Цвет обводки ошибка на темном фоне
-     */
-    public val OutlineOnDarkNegativeHover: Color = Color(0xFFF25A5F)
+    public val OutlineOnDarkPositiveHover: Color = Color(0xFFDBEDD9)
 
     /**
      * Цвет обводки ошибка на темном фоне
@@ -6393,9 +2958,24 @@ public object DarkColorTokens {
     public val OutlineOnDarkNegativeActive: Color = Color(0xFFEF343A)
 
     /**
-     * Цвет обводки информация на темном фоне
+     * Цвет обводки успех на темном фоне
      */
-    public val OutlineOnDarkInfo: Color = Color(0xFF9BCAF8)
+    public val OutlineOnDarkPositive: Color = Color(0xFFA6D2A2)
+
+    /**
+     * Цвет обводки ошибка на темном фоне
+     */
+    public val OutlineOnDarkNegativeHover: Color = Color(0xFFF25A5F)
+
+    /**
+     * Акцентный цвет обводки на темном фоне
+     */
+    public val OutlineOnDarkAccentHover: Color = Color(0xFF0EE1B7)
+
+    /**
+     * Бесцветная обводка на темном фоне
+     */
+    public val OutlineOnDarkClear: Color = Color(0x00FFFFFF)
 
     /**
      * Цвет обводки информация на темном фоне
@@ -6408,19 +2988,39 @@ public object DarkColorTokens {
     public val OutlineOnDarkInfoActive: Color = Color(0xFF7EBAF6)
 
     /**
-     * Бесцветная обводка на темном фоне
+     * Цвет обводки информация на темном фоне
      */
-    public val OutlineOnDarkClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Бесцветная обводка на темном фоне
-     */
-    public val OutlineOnDarkClear: Color = Color(0x00FFFFFF)
+    public val OutlineOnDarkInfo: Color = Color(0xFF9BCAF8)
 
     /**
      * Бесцветная обводка на темном фоне
      */
     public val OutlineOnDarkClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Бесцветная обводка на темном фоне
+     */
+    public val OutlineOnDarkClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Цвет обводки предупреждение на темном фоне
+     */
+    public val OutlineOnDarkWarningActive: Color = Color(0xFFF79C64)
+
+    /**
+     * Цвет обводки ошибка на темном фоне
+     */
+    public val OutlineOnDarkNegative: Color = Color(0xFFF8A6A9)
+
+    /**
+     * Цвет обводки предупреждение на темном фоне
+     */
+    public val OutlineOnDarkWarningHover: Color = Color(0xFFFCE0CF)
+
+    /**
+     * Цвет обводки успех на светлом фоне
+     */
+    public val OutlineOnLightPositiveHover: Color = Color(0xFF32CA2F)
 
     /**
      * Бесцветная обводка на светлом фоне
@@ -6433,21 +3033,6 @@ public object DarkColorTokens {
     public val OutlineOnLightClearHover: Color = Color(0x00FFFFFF)
 
     /**
-     * Бесцветная обводка на светлом фоне
-     */
-    public val OutlineOnLightClearActive: Color = Color(0x00FFFFFF)
-
-    /**
-     * Цвет обводки успех на светлом фоне
-     */
-    public val OutlineOnLightPositive: Color = Color(0xFF239322)
-
-    /**
-     * Цвет обводки успех на светлом фоне
-     */
-    public val OutlineOnLightPositiveHover: Color = Color(0xFF32CA2F)
-
-    /**
      * Основной прозрачный цвет обводки на светлом фоне
      */
     public val OutlineOnLightTransparentPrimary: Color = Color(0x3D15110F)
@@ -6455,22 +3040,37 @@ public object DarkColorTokens {
     /**
      * Основной прозрачный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightTransparentPrimaryHover: Color = Color(0x2515110F)
+    public val OutlineOnLightTransparentPrimaryActive: Color = Color(0x6215110F)
 
     /**
      * Основной прозрачный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightTransparentPrimaryActive: Color = Color(0x6215110F)
+    public val OutlineOnLightTransparentPrimaryHover: Color = Color(0x2515110F)
+
+    /**
+     * Акцентный цвет обводки на светлом фоне
+     */
+    public val OutlineOnLightAccentHover: Color = Color(0xFF0ED8AF)
+
+    /**
+     * Цвет обводки успех на светлом фоне
+     */
+    public val OutlineOnLightPositive: Color = Color(0xFF239322)
+
+    /**
+     * Акцентный цвет обводки на светлом фоне
+     */
+    public val OutlineOnLightAccentActive: Color = Color(0xFF088169)
+
+    /**
+     * Бесцветная обводка на светлом фоне
+     */
+    public val OutlineOnLightClearActive: Color = Color(0x00FFFFFF)
 
     /**
      * Цвет обводки ошибка на светлом фоне
      */
-    public val OutlineOnLightNegative: Color = Color(0xFFE83439)
-
-    /**
-     * Цвет обводки предупреждение на светлом фоне
-     */
-    public val OutlineOnLightWarning: Color = Color(0xFFBE4E0C)
+    public val OutlineOnLightNegativeActive: Color = Color(0xFFDC181F)
 
     /**
      * Цвет обводки ошибка на светлом фоне
@@ -6478,9 +3078,24 @@ public object DarkColorTokens {
     public val OutlineOnLightNegativeHover: Color = Color(0xFFF17E82)
 
     /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public val OutlineOnLightWarning: Color = Color(0xFFBE4E0C)
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public val OutlineOnLightWarningHover: Color = Color(0xFFF3813F)
+
+    /**
      * Цвет обводки ошибка на светлом фоне
      */
-    public val OutlineOnLightNegativeActive: Color = Color(0xFFDC181F)
+    public val OutlineOnLightNegative: Color = Color(0xFFE83439)
+
+    /**
+     * Цвет обводки информация на светлом фоне
+     */
+    public val OutlineOnLightInfoHover: Color = Color(0xFF81AADA)
 
     /**
      * Цвет обводки информация на светлом фоне
@@ -6493,29 +3108,9 @@ public object DarkColorTokens {
     public val OutlineOnLightInfoActive: Color = Color(0xFF3067A6)
 
     /**
-     * Цвет обводки информация на светлом фоне
+     * Инвертированный акцентный цвет обводки
      */
-    public val OutlineOnLightInfoHover: Color = Color(0xFF81AADA)
-
-    /**
-     * Цвет обводки предупреждение на светлом фоне
-     */
-    public val OutlineOnLightWarningHover: Color = Color(0xFFF3813F)
-
-    /**
-     * Инвертированный основной прозрачный цвет обводки
-     */
-    public val OutlineInverseTransparentPrimary: Color = Color(0x3D15110F)
-
-    /**
-     * Инвертированный основной прозрачный цвет обводки
-     */
-    public val OutlineInverseTransparentPrimaryHover: Color = Color(0x2515110F)
-
-    /**
-     * Инвертированный основной прозрачный цвет обводки
-     */
-    public val OutlineInverseTransparentPrimaryActive: Color = Color(0x6215110F)
+    public val OutlineInverseAccentActive: Color = Color(0xFF088169)
 
     /**
      * Инвертированная бесцветная обводка
@@ -6525,32 +3120,37 @@ public object DarkColorTokens {
     /**
      * Инвертированная бесцветная обводка
      */
-    public val OutlineInverseClearHover: Color = Color(0x00FFFFFF)
+    public val OutlineInverseClearActive: Color = Color(0x00FFFFFF)
 
     /**
      * Инвертированная бесцветная обводка
      */
-    public val OutlineInverseClearActive: Color = Color(0x00FFFFFF)
+    public val OutlineInverseClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Инвертированный основной прозрачный цвет обводки
+     */
+    public val OutlineInverseTransparentPrimaryHover: Color = Color(0x2515110F)
+
+    /**
+     * Инвертированный основной прозрачный цвет обводки
+     */
+    public val OutlineInverseTransparentPrimary: Color = Color(0x3D15110F)
+
+    /**
+     * Инвертированный основной прозрачный цвет обводки
+     */
+    public val OutlineInverseTransparentPrimaryActive: Color = Color(0x6215110F)
+
+    /**
+     * Инвертированный цвет обводки успех
+     */
+    public val OutlineInversePositive: Color = Color(0xFF239322)
 
     /**
      * Инвертированный цвет обводки ошибка
      */
     public val OutlineInverseNegative: Color = Color(0xFFE83439)
-
-    /**
-     * Инвертированный цвет обводки ошибка
-     */
-    public val OutlineInverseNegativeHover: Color = Color(0xFFF17E82)
-
-    /**
-     * Инвертированный цвет обводки ошибка
-     */
-    public val OutlineInverseNegativeActive: Color = Color(0xFFDC181F)
-
-    /**
-     * Инвертированный цвет обводки информация
-     */
-    public val OutlineInverseInfo: Color = Color(0xFF3776BC)
 
     /**
      * Инвертированный цвет обводки информация
@@ -6570,17 +3170,22 @@ public object DarkColorTokens {
     /**
      * Инвертированный цвет обводки успех
      */
-    public val OutlineInversePositive: Color = Color(0xFF239322)
+    public val OutlineInversePositiveHover: Color = Color(0xFF32CA2F)
 
     /**
-     * Инвертированный цвет обводки успех
+     * Инвертированный цвет обводки ошибка
      */
-    public val OutlineInversePositiveHover: Color = Color(0xFF32CA2F)
+    public val OutlineInverseNegativeActive: Color = Color(0xFFDC181F)
+
+    /**
+     * Инвертированный цвет обводки ошибка
+     */
+    public val OutlineInverseNegativeHover: Color = Color(0xFFF17E82)
 
     /**
      * Инвертированный цвет обводки предупреждение
      */
-    public val OutlineInverseWarning: Color = Color(0xFFBE4E0C)
+    public val OutlineInverseWarningActive: Color = Color(0xFFA3420A)
 
     /**
      * Инвертированный цвет обводки предупреждение
@@ -6590,12 +3195,17 @@ public object DarkColorTokens {
     /**
      * Инвертированный цвет обводки предупреждение
      */
-    public val OutlineInverseWarningActive: Color = Color(0xFFA3420A)
+    public val OutlineInverseWarning: Color = Color(0xFFBE4E0C)
 
     /**
-     * Основной цвет текста
+     * Инвертированный цвет обводки информация
      */
-    public val TextDefaultPrimaryHover: Color = Color(0x97FFFFFF)
+    public val OutlineInverseInfo: Color = Color(0xFF3776BC)
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccentMinorHover: Color = Color(0xFFC7F0E5)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
@@ -6608,7 +3218,4037 @@ public object DarkColorTokens {
     public val SurfaceOnLightAccentMinorActive: Color = Color(0xFFBFEDE1)
 
     /**
+     * Основной цвет текста
+     */
+    public val TextDefaultPrimaryHover: Color = Color(0x97FFFFFF)
+
+    /**
+     * Основной фон на темном фоне
+     */
+    public val BackgroundDarkPrimary: Color = Color(0xFF141413)
+
+    /**
+     * Inverse Background Hardline
+     */
+    public val BackgroundInverseHardline: Color = Color(0xFF000000)
+
+    /**
+     * Инвертированный основной фон
+     */
+    public val BackgroundInversePrimary: Color = Color(0xFFEBE7E5)
+
+    /**
+     * Light Background Hardline
+     */
+    public val BackgroundLightHardline: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Вторичный фон на светлом фоне
+     */
+    public val BackgroundLightSecondary: Color = Color(0xFFF6F2F0)
+
+    /**
+     * Акцентный цвет обводки
+     */
+    public val OutlineDefaultAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultDeep: Color = Color(0xFF777675)
+
+    /**
+     * Outline Default
+     */
+    public val OutlineDefaultDefault: Color = Color(0xFF383838)
+
+    /**
+     * Default Active Default
+     */
+    public val OutlineDefaultDefaultActive: Color = Color(0xFF292929)
+
+    /**
+     * Default Hover Default
+     */
+    public val OutlineDefaultDefaultHover: Color = Color(0xFF666666)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultTransparentWhite: Color = Color(0x7AFFFFFF)
+
+    /**
+     * Инвертированный акцентный цвет обводки
+     */
+    public val OutlineInverseAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * Инвертированный акцентный цвет обводки
+     */
+    public val OutlineInverseAccentHover: Color = Color(0xFF0ED8AF)
+
+    /**
+     * Inverse Outline Default
+     */
+    public val OutlineInverseDefault: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Default Active Inverse
+     */
+    public val OutlineInverseDefaultActive: Color = Color(0xFFE6E6E6)
+
+    /**
+     * Default Hover On Light
+     */
+    public val OutlineOnLightDefaultHover: Color = Color(0xFFCCCCCC)
+
+    /**
+     * Primary Hover On Light
+     */
+    public val OutlineOnLightPrimaryHover: Color = Color(0xFFADA39F)
+
+    /**
+     * Blue Text Accent Hover Default
+     */
+    public val PersonasDefaultBlueTextAccentHover: Color = Color(0xFFC3DDF9)
+
+    /**
+     * Green Text Accent Hover Default
+     */
+    public val PersonasDefaultGreenTextAccentHover: Color = Color(0xFF04C396)
+
+    /**
+     * Indigo Text Accent Hover Default
+     */
+    public val PersonasDefaultIndigoTextAccentHover: Color = Color(0xFFE8DAFC)
+
+    /**
+     * Sea Blue Text Accent Hover Default
+     */
+    public val PersonasDefaultSeaBlueTextAccentHover: Color = Color(0xFF00C5CC)
+
+    /**
+     * Blue Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkBlueTextAccentHover: Color = Color(0xFFC3DDF9)
+
+    /**
+     * Olive Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkOliveTextAccentHover: Color = Color(0xFFA6D4A5)
+
+    /**
+     * Sea Blue Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkSeaBlueTextAccentHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Violet Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkVioletTextAccentHover: Color = Color(0xFFE9B6F2)
+
+    /**
+     * Indigo Text Accent Hover On Light
+     */
+    public val PersonasOnLightIndigoTextAccentHover: Color = Color(0xFF000000)
+
+    /**
+     * Pink Text Accent Hover On Light
+     */
+    public val PersonasOnLightPinkTextAccentHover: Color = Color(0xFFE47777)
+
+    /**
+     * Sea Blue Text Accent Hover On Light
+     */
+    public val PersonasOnLightSeaBlueTextAccentHover: Color = Color(0xFF00D9E0)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccentMinorHover: Color = Color(0xFF055C4C)
+
+    /**
+     * Accent Secondary Hover Inverse
+     */
+    public val SurfaceInverseAccentSecondaryHover: Color = Color(0xFF50C3A8)
+
+    /**
+     * Accent Secondary Hover On Dark
+     */
+    public val SurfaceOnDarkAccentSecondaryHover: Color = Color(0xFF70CDB7)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentDeepHover: Color = Color(0xB3A2A1A0)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentSecondaryHover: Color = Color(0x1A15110F)
+
+    /**
+     * Акцентный цвет
+     */
+    public val TextDefaultAccentHover: Color = Color(0xFF77CFBB)
+
+    /**
+     * Primary Active Inverse
+     */
+    public val OutlineInversePrimaryActive: Color = Color(0xFFC4BEBA)
+
+    /**
+     * New description
+     */
+    public val OutlineInverseTransparentWhiteActive: Color = Color(0xA3FFFFFF)
+
+    /**
+     * Акцентный цвет обводки на темном фоне
+     */
+    public val OutlineOnDarkAccentActive: Color = Color(0xFF099579)
+
+    /**
+     * Default Active On Dark
+     */
+    public val OutlineOnDarkDefaultActive: Color = Color(0xFF292929)
+
+    /**
+     * Primary Active On Dark
+     */
+    public val OutlineOnDarkPrimaryActive: Color = Color(0xFF2B2827)
+
+    /**
+     * Ochre Text Accent Active Default
+     */
+    public val PersonasDefaultOchreTextAccentActive: Color = Color(0xFFF19F7E)
+
+    /**
+     * Olive Text Accent Active Default
+     */
+    public val PersonasDefaultOliveTextAccentActive: Color = Color(0xFF7DC07C)
+
+    /**
+     * Violet Text Accent Active Default
+     */
+    public val PersonasDefaultVioletTextAccentActive: Color = Color(0xFF892B97)
+
+    /**
+     * Sea Blue Text Accent Active Inverse
+     */
+    public val PersonasInverseSeaBlueTextAccentActive: Color = Color(0xFF4BB4B4)
+
+    /**
+     * Violet Text Accent Active Inverse
+     */
+    public val PersonasInverseVioletTextAccentActive: Color = Color(0xFF81288F)
+
+    /**
+     * Green Text Accent Active On Light
+     */
+    public val PersonasOnLightGreenTextAccentActive: Color = Color(0xFF04AF87)
+
+    /**
+     * Ochre Text Accent Active On Light
+     */
+    public val PersonasOnLightOchreTextAccentActive: Color = Color(0xFFAA4A0E)
+
+    /**
+     * Violet Text Accent Active On Light
+     */
+    public val PersonasOnLightVioletTextAccentActive: Color = Color(0xFF81288F)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccentMinorActive: Color = Color(0xFF043F34)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryActive: Color = Color(0xFF1F1F1F)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
+
+    /**
+     * Transparent Navi Active Default
+     */
+    public val SurfaceDefaultTransparentNaviActive: Color = Color(0x8A242424)
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccentActive: Color = Color(0xFF099579)
+
+    /**
      * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentMinorHover: Color = Color(0xFFC7F0E5)
+    public val SurfaceInverseAccentMinorActive: Color = Color(0xFFBFEDE1)
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidSecondaryActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Transparent Accent Minor Active On Light
+     */
+    public val SurfaceOnLightTransparentAccentMinorActive: Color = Color(0x520BA888)
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val TextOnDarkAccentActive: Color = Color(0xBE60C7AF)
+
+    /**
+     * Акцентный цвет обводки на светлом фоне
+     */
+    public val OutlineOnLightAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * On Light Outline Primary
+     */
+    public val OutlineOnLightPrimary: Color = Color(0xFFDDD9D7)
+
+    /**
+     * Inverse Personas Sea Blue Text Accent
+     */
+    public val PersonasInverseSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
+
+    /**
+     * Акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * Цвет фона поверхности/контрола информация
+     */
+    public val SurfaceDefaultInfo: Color = Color(0xFF9BCAF8)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardBrightnessActive: Color = Color(0xFF212121)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceDefaultSolidDefault: Color = Color(0xFFF6F2F0)
+
+    /**
+     * Surface Transparent Navi
+     */
+    public val SurfaceDefaultTransparentNavi: Color = Color(0x99232323)
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccentMinor: Color = Color(0xFF04473B)
+
+    /**
+     * Фон поверхности/контрола без заливки на светлом фоне
+     */
+    public val SurfaceOnLightClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Основной цвет текста
+     */
+    public val TextDefaultPrimaryBrightnessActive: Color = Color(0xC4FAFAFA)
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val TextInverseAccent: Color = Color(0xFF0A8E73)
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val TextOnDarkAccent: Color = Color(0xED61C8B0)
+
+    /**
+     * Dark Background Hardline
+     */
+    public val BackgroundDarkHardline: Color = Color(0xFF000000)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardBrightnessHover: Color = Color(0xFF303030)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryBrightness: Color = Color(0xFF262626)
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceInverseSolidDefault: Color = Color(0xFF15110F)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCardBrightnessActive: Color = Color(0xFF212121)
+
+    /**
+     * Сплошной наборный текст на темном фоне
+     */
+    public val TextOnDarkParagraphActive: Color = Color(0x93F5F1EF)
+
+    /**
+     * New description
+     */
+    public val OverlayDefaultMedium: Color = Color(0x29000000)
+
+    /**
+     * New description
+     */
+    public val OverlayInverseMedium: Color = Color(0x52000000)
+
+    /**
+     * New description
+     */
+    public val OverlayOnDarkMedium: Color = Color(0x29000000)
+
+    /**
+     * New description
+     */
+    public val OverlayOnLightMedium: Color = Color(0x52000000)
+}
+
+/**
+ * Токены цвета для светлой темы
+ */
+public object LightColorTokens {
+    /**
+     * Default Hover On Dark
+     */
+    public val OutlineOnDarkDefaultHover: Color = Color(0xFF666666)
+
+    /**
+     * Accent Secondary Hover Default
+     */
+    public val SurfaceDefaultAccentSecondaryHover: Color = Color(0xFF50C3A8)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCardBrightnessHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCardBrightnessActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidPrimaryBrightnessHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidPrimaryBrightnessActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCardBrightnessHover: Color = Color(0x1FFAFAFA)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCardBrightnessHover: Color = Color(0xFF303030)
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCardBrightnessActive: Color = Color(0x0AFAFAFA)
+
+    /**
+     * On Light Personas Olive Text Accent
+     */
+    public val PersonasOnLightOliveTextAccent: Color = Color(0xFF127210)
+
+    /**
+     * On Dark Personas Olive Text Accent
+     */
+    public val PersonasOnDarkOliveTextAccent: Color = Color(0xFF93CB92)
+
+    /**
+     * Inverse Personas Ochre Text Accent
+     */
+    public val PersonasInverseOchreTextAccent: Color = Color(0xFFF4B49B)
+
+    /**
+     * Inverse Personas Pink Text Accent
+     */
+    public val PersonasInversePinkTextAccent: Color = Color(0xFFDE5555)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidTertiaryActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
+
+    /**
+     * Основной цвет текста
+     */
+    public val TextDefaultPrimary: Color = Color(0xFC15110F)
+
+    /**
+     * Inverse Surface Transparent Navi
+     */
+    public val SurfaceInverseTransparentNavi: Color = Color(0x99232323)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCardBrightnessHover: Color = Color(0x1FFAFAFA)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidTertiaryActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Inverse Personas Indigo Text Accent
+     */
+    public val PersonasInverseIndigoTextAccent: Color = Color(0xFF7133BE)
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
+
+    /**
+     * Personas Olive Text Accent
+     */
+    public val PersonasDefaultOliveTextAccent: Color = Color(0xFF127210)
+
+    /**
+     * Акцентный минорный цвет на темном фоне
+     */
+    public val TextOnDarkAccentMinorHover: Color = Color(0xFF60C7AF)
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightTransparentCardBrightnessActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightTransparentCardBrightnessHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightSolidCardBrightnessActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccentMinorActive: Color = Color(0xFF043F34)
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightSolidCardBrightnessHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Цвет обводки успех на светлом фоне
+     */
+    public val OutlineOnLightPositiveActive: Color = Color(0xFF20801E)
+
+    /**
+     * Outline Primary
+     */
+    public val OutlineDefaultPrimary: Color = Color(0xFFDDD9D7)
+
+    /**
+     * Инвертированный третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidTertiary: Color = Color(0xFF474747)
+
+    /**
+     * Inverse Personas Green Text Accent
+     */
+    public val PersonasInverseGreenTextAccent: Color = Color(0xFF038768)
+
+    /**
+     * Surface Accent Secondary
+     */
+    public val SurfaceDefaultAccentSecondary: Color = Color(0xFF41BDA1)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccentMinor: Color = Color(0xFFD0F2E9)
+
+    /**
+     * On Dark Surface Accent Secondary
+     */
+    public val SurfaceOnDarkAccentSecondary: Color = Color(0xFF61C8B0)
+
+    /**
+     * On Dark Personas Indigo Text Accent
+     */
+    public val PersonasOnDarkIndigoTextAccent: Color = Color(0xFFBD91F5)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidTertiaryActive: Color = Color(0xFF424242)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightAccentMinor: Color = Color(0xFFD0F2E9)
+
+    /**
+     * On Light Personas Ochre Text Accent
+     */
+    public val PersonasOnLightOchreTextAccent: Color = Color(0xFFD15A11)
+
+    /**
+     * On Light Personas Violet Text Accent
+     */
+    public val PersonasOnLightVioletTextAccent: Color = Color(0xFF9E32AF)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCardBrightnessActive: Color = Color(0x0AFAFAFA)
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public val OutlineOnLightWarningActive: Color = Color(0xFFA3420A)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccentMinorHover: Color = Color(0xFF055C4C)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCardBrightnessActive: Color = Color(0xFF212121)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightAccentMinorHover: Color = Color(0xFFC7F0E5)
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccentMinor: Color = Color(0xFF04473B)
+
+    /**
+     * On Dark Surface Transparent Accent Minor
+     */
+    public val SurfaceOnDarkTransparentAccentMinor: Color = Color(0x470BA686)
+
+    /**
+     * On Light Personas Sea Blue Text Accent
+     */
+    public val PersonasOnLightSeaBlueTextAccent: Color = Color(0xFF00898D)
+
+    /**
+     * On Dark Personas Blue Text Accent
+     */
+    public val PersonasOnDarkBlueTextAccent: Color = Color(0xFF79B3F2)
+
+    /**
+     * On Dark Personas Violet Text Accent
+     */
+    public val PersonasOnDarkVioletTextAccent: Color = Color(0xFFE19DED)
+
+    /**
+     * Personas Ochre Text Accent
+     */
+    public val PersonasDefaultOchreTextAccent: Color = Color(0xFFD15A11)
+
+    /**
+     * On Light Surface Transparent Navi
+     */
+    public val SurfaceOnLightTransparentNavi: Color = Color(0x99FFFFFF)
+
+    /**
+     * Blue Text Accent Active Inverse
+     */
+    public val PersonasInverseBlueTextAccentActive: Color = Color(0xFF5DA3EF)
+
+    /**
+     * Цвет предупреждения на светлом фоне
+     */
+    public val TextOnLightWarningActive: Color = Color(0xFF6F2D06)
+
+    /**
+     * Olive Text Accent Hover Inverse
+     */
+    public val PersonasInverseOliveTextAccentHover: Color = Color(0xFFA6D4A5)
+
+    /**
+     * Transparent Navi Active On Light
+     */
+    public val SurfaceOnLightTransparentNaviActive: Color = Color(0xADFFFFFF)
+
+    /**
+     * Blue Text Accent Active On Light
+     */
+    public val PersonasOnLightBlueTextAccentActive: Color = Color(0xFF0D4F96)
+
+    /**
+     * Primary Active On Light
+     */
+    public val OutlineOnLightPrimaryActive: Color = Color(0xFFC4BEBA)
+
+    /**
+     * Default Active On Light
+     */
+    public val OutlineOnLightDefaultActive: Color = Color(0xFFE6E6E6)
+
+    /**
+     * Olive Text Accent Active On Dark
+     */
+    public val PersonasOnDarkOliveTextAccentActive: Color = Color(0xFF7DC07C)
+
+    /**
+     * On Dark Personas Sea Blue Text Accent
+     */
+    public val PersonasOnDarkSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
+
+    /**
+     * Violet Text Accent Active On Dark
+     */
+    public val PersonasOnDarkVioletTextAccentActive: Color = Color(0xFFD982E8)
+
+    /**
+     * Green Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkGreenTextAccentHover: Color = Color(0xFF84DCC6)
+
+    /**
+     * Accent Secondary Active On Dark
+     */
+    public val SurfaceOnDarkAccentSecondaryActive: Color = Color(0xFF59C5AC)
+
+    /**
+     * Green Text Accent Active Inverse
+     */
+    public val PersonasInverseGreenTextAccentActive: Color = Color(0xFF03A57F)
+
+    /**
+     * Inverse Surface Accent Secondary
+     */
+    public val SurfaceInverseAccentSecondary: Color = Color(0xFF61C8B0)
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val TextOnDarkPrimaryBrightnessHover: Color = Color(0x93FAFAFA)
+
+    /**
+     * Pink Text Accent Active On Dark
+     */
+    public val PersonasOnDarkPinkTextAccentActive: Color = Color(0xFFF58A8A)
+
+    /**
+     * Indigo Text Accent Active Inverse
+     */
+    public val PersonasInverseIndigoTextAccentActive: Color = Color(0xFF652DA9)
+
+    /**
+     * Sea Blue Text Accent Active Default
+     */
+    public val PersonasDefaultSeaBlueTextAccentActive: Color = Color(0xFF4BB4B4)
+
+    /**
+     * On Light Surface Transparent Accent Minor
+     */
+    public val SurfaceOnLightTransparentAccentMinor: Color = Color(0x3D0BA686)
+
+    /**
+     * Pink Text Accent Active On Light
+     */
+    public val PersonasOnLightPinkTextAccentActive: Color = Color(0xFFD73333)
+
+    /**
+     * Основной цвет текста
+     */
+    public val TextDefaultPrimaryBrightnessHover: Color = Color(0x93171717)
+
+    /**
+     * Transparent Accent Minor Active Inverse
+     */
+    public val SurfaceInverseTransparentAccentMinorActive: Color = Color(0x2E0BA888)
+
+    /**
+     * Ochre Text Accent Hover Default
+     */
+    public val PersonasDefaultOchreTextAccentHover: Color = Color(0xFFED6C1D)
+
+    /**
+     * Pink Text Accent Active Inverse
+     */
+    public val PersonasInversePinkTextAccentActive: Color = Color(0xFFD83B3B)
+
+    /**
+     * Transparent Navi Hover On Light
+     */
+    public val SurfaceOnLightTransparentNaviHover: Color = Color(0xA8FFFFFF)
+
+    /**
+     * Primary Active Default
+     */
+    public val OutlineDefaultPrimaryActive: Color = Color(0xFFC4BEBA)
+
+    /**
+     * Sea Blue Text Accent Active On Dark
+     */
+    public val PersonasOnDarkSeaBlueTextAccentActive: Color = Color(0xFF2D6C6C)
+
+    /**
+     * On Light Personas Green Text Accent
+     */
+    public val PersonasOnLightGreenTextAccent: Color = Color(0xFF038768)
+
+    /**
+     * Accent Secondary Active Inverse
+     */
+    public val SurfaceInverseAccentSecondaryActive: Color = Color(0xFF59C5AC)
+
+    /**
+     * Indigo Text Accent Active Default
+     */
+    public val PersonasDefaultIndigoTextAccentActive: Color = Color(0xFF5B2999)
+
+    /**
+     * Green Text Accent Active Default
+     */
+    public val PersonasDefaultGreenTextAccentActive: Color = Color(0xFF4CCDAC)
+
+    /**
+     * Transparent Navi Hover On Dark
+     */
+    public val SurfaceOnDarkTransparentNaviHover: Color = Color(0xB8242424)
+
+    /**
+     * Sea Blue Text Accent Hover Inverse
+     */
+    public val PersonasInverseSeaBlueTextAccentHover: Color = Color(0xFF00C5CC)
+
+    /**
+     * Accent Secondary Hover On Light
+     */
+    public val SurfaceOnLightAccentSecondaryHover: Color = Color(0xFF50C3A8)
+
+    /**
+     * Blue Text Accent Hover Inverse
+     */
+    public val PersonasInverseBlueTextAccentHover: Color = Color(0xFFC3DDF9)
+
+    /**
+     * Indigo Text Accent Hover Inverse
+     */
+    public val PersonasInverseIndigoTextAccentHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * On Dark Personas Ochre Text Accent
+     */
+    public val PersonasOnDarkOchreTextAccent: Color = Color(0xFFF4B49B)
+
+    /**
+     * Green Text Accent Hover On Light
+     */
+    public val PersonasOnLightGreenTextAccentHover: Color = Color(0xFF04D7A6)
+
+    /**
+     * Ochre Text Accent Active On Dark
+     */
+    public val PersonasOnDarkOchreTextAccentActive: Color = Color(0xFFF19F7E)
+
+    /**
+     * Ochre Text Accent Hover On Light
+     */
+    public val PersonasOnLightOchreTextAccentHover: Color = Color(0xFFED6C1D)
+
+    /**
+     * Primary Hover Default
+     */
+    public val OutlineDefaultPrimaryHover: Color = Color(0xFFADA39F)
+
+    /**
+     * Transparent Accent Minor Active Default
+     */
+    public val SurfaceDefaultTransparentAccentMinorActive: Color = Color(0x520BA888)
+
+    /**
+     * Transparent Navi Hover Default
+     */
+    public val SurfaceDefaultTransparentNaviHover: Color = Color(0xA8FFFFFF)
+
+    /**
+     * Default Hover Inverse
+     */
+    public val OutlineInverseDefaultHover: Color = Color(0xFF666666)
+
+    /**
+     * Violet Text Accent Hover Inverse
+     */
+    public val PersonasInverseVioletTextAccentHover: Color = Color(0xFFE9B6F2)
+
+    /**
+     * Transparent Accent Minor Hover On Light
+     */
+    public val SurfaceOnLightTransparentAccentMinorHover: Color = Color(0x4D0BA888)
+
+    /**
+     * Transparent Accent Minor Hover Inverse
+     */
+    public val SurfaceInverseTransparentAccentMinorHover: Color = Color(0x5C0BA888)
+
+    /**
+     * Transparent Navi Hover Inverse
+     */
+    public val SurfaceInverseTransparentNaviHover: Color = Color(0xB8242424)
+
+    /**
+     * Primary Hover Inverse
+     */
+    public val OutlineInversePrimaryHover: Color = Color(0xFF6B6461)
+
+    /**
+     * Olive Text Accent Hover Default
+     */
+    public val PersonasDefaultOliveTextAccentHover: Color = Color(0xFF1DB71A)
+
+    /**
+     * Personas Violet Text Accent
+     */
+    public val PersonasDefaultVioletTextAccent: Color = Color(0xFFE19DED)
+
+    /**
+     * Ochre Text Accent Hover Inverse
+     */
+    public val PersonasInverseOchreTextAccentHover: Color = Color(0xFFF7C8B6)
+
+    /**
+     * Green Text Accent Active On Dark
+     */
+    public val PersonasOnDarkGreenTextAccentActive: Color = Color(0xFF54CFB0)
+
+    /**
+     * Pink Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkPinkTextAccentHover: Color = Color(0xFFF26E6E)
+
+    /**
+     * Pink Text Accent Hover Inverse
+     */
+    public val PersonasInversePinkTextAccentHover: Color = Color(0xFFE26E6E)
+
+    /**
+     * Indigo Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkIndigoTextAccentHover: Color = Color(0xFFE8DAFC)
+
+    /**
+     * Blue Text Accent Hover On Light
+     */
+    public val PersonasOnLightBlueTextAccentHover: Color = Color(0xFF1477E1)
+
+    /**
+     * Olive Text Accent Hover On Light
+     */
+    public val PersonasOnLightOliveTextAccentHover: Color = Color(0xFF1DB71A)
+
+    /**
+     * Violet Text Accent Hover On Light
+     */
+    public val PersonasOnLightVioletTextAccentHover: Color = Color(0xFFB740C9)
+
+    /**
+     * Primary Hover On Dark
+     */
+    public val OutlineOnDarkPrimaryHover: Color = Color(0xFF6B6461)
+
+    /**
+     * On Dark Personas Pink Text Accent
+     */
+    public val PersonasOnDarkPinkTextAccent: Color = Color(0xFFF7A4A4)
+
+    /**
+     * On Dark Outline Primary
+     */
+    public val OutlineOnDarkPrimary: Color = Color(0xFF3B3735)
+
+    /**
+     * On Light Personas Blue Text Accent
+     */
+    public val PersonasOnLightBlueTextAccent: Color = Color(0xFF1063BA)
+
+    /**
+     * Accent Secondary Active Default
+     */
+    public val SurfaceDefaultAccentSecondaryActive: Color = Color(0xFF3CAF94)
+
+    /**
+     * Personas Blue Text Accent
+     */
+    public val PersonasDefaultBlueTextAccent: Color = Color(0xFF1063BA)
+
+    /**
+     * Blue Text Accent Active Default
+     */
+    public val PersonasDefaultBlueTextAccentActive: Color = Color(0xFF0D4F96)
+
+    /**
+     * Personas Green Text Accent
+     */
+    public val PersonasDefaultGreenTextAccent: Color = Color(0xFF6CD5BB)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryBrightnessActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimaryBrightnessHover: Color = Color(0x93171717)
+
+    /**
+     * Personas Pink Text Accent
+     */
+    public val PersonasDefaultPinkTextAccent: Color = Color(0xFFF7A4A4)
+
+    /**
+     * Personas Sea Blue Text Accent
+     */
+    public val PersonasDefaultSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
+
+    /**
+     * Surface Transparent Accent Minor
+     */
+    public val SurfaceDefaultTransparentAccentMinor: Color = Color(0x3D0BA686)
+
+    /**
+     * Violet Text Accent Hover Default
+     */
+    public val PersonasDefaultVioletTextAccentHover: Color = Color(0xFFEBBEF3)
+
+    /**
+     * Inverse Personas Blue Text Accent
+     */
+    public val PersonasInverseBlueTextAccent: Color = Color(0xFF79B3F2)
+
+    /**
+     * Olive Text Accent Active Inverse
+     */
+    public val PersonasInverseOliveTextAccentActive: Color = Color(0xFF7DC07C)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCardBrightnessHover: Color = Color(0xFF303030)
+
+    /**
+     * Inverse Surface Transparent Accent Minor
+     */
+    public val SurfaceInverseTransparentAccentMinor: Color = Color(0x3D0BA686)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimaryBrightnessHover: Color = Color(0xFF303030)
+
+    /**
+     * On Dark Surface Transparent Navi
+     */
+    public val SurfaceOnDarkTransparentNavi: Color = Color(0x99232323)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryBrightnessHover: Color = Color(0x93FAFAFA)
+
+    /**
+     * Background Hardline
+     */
+    public val BackgroundDefaultHardline: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Inverse Outline Primary
+     */
+    public val OutlineInversePrimary: Color = Color(0xFF3B3735)
+
+    /**
+     * On Dark Outline Default
+     */
+    public val OutlineOnDarkDefault: Color = Color(0xFF383838)
+
+    /**
+     * Inverse Personas Violet Text Accent
+     */
+    public val PersonasInverseVioletTextAccent: Color = Color(0xFFE19DED)
+
+    /**
+     * Personas Indigo Text Accent
+     */
+    public val PersonasDefaultIndigoTextAccent: Color = Color(0xFF7133BE)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryBrightnessActive: Color = Color(0xC4FAFAFA)
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val TextOnDarkPrimaryBrightnessActive: Color = Color(0xC4FAFAFA)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimaryBrightnessActive: Color = Color(0xC4171717)
+
+    /**
+     * Indigo Text Accent Active On Dark
+     */
+    public val PersonasOnDarkIndigoTextAccentActive: Color = Color(0xFFAA73F2)
+
+    /**
+     * Ochre Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkOchreTextAccentHover: Color = Color(0xFFF7C8B6)
+
+    /**
+     * Pink Text Accent Hover Default
+     */
+    public val PersonasDefaultPinkTextAccentHover: Color = Color(0xFFFBCBCB)
+
+    /**
+     * Transparent Navi Active On Dark
+     */
+    public val SurfaceOnDarkTransparentNaviActive: Color = Color(0x8A242424)
+
+    /**
+     * On Light Surface Accent Secondary
+     */
+    public val SurfaceOnLightAccentSecondary: Color = Color(0xFF41BDA1)
+
+    /**
+     * On Light Outline Default
+     */
+    public val OutlineOnLightDefault: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Pink Text Accent Active Default
+     */
+    public val PersonasDefaultPinkTextAccentActive: Color = Color(0xFFF48080)
+
+    /**
+     * Ochre Text Accent Active Inverse
+     */
+    public val PersonasInverseOchreTextAccentActive: Color = Color(0xFFF19F7E)
+
+    /**
+     * Inverse Personas Olive Text Accent
+     */
+    public val PersonasInverseOliveTextAccent: Color = Color(0xFF93CB92)
+
+    /**
+     * Blue Text Accent Active On Dark
+     */
+    public val PersonasOnDarkBlueTextAccentActive: Color = Color(0xFF5DA3EF)
+
+    /**
+     * On Dark Personas Green Text Accent
+     */
+    public val PersonasOnDarkGreenTextAccent: Color = Color(0xFF6CD5BB)
+
+    /**
+     * Olive Text Accent Active On Light
+     */
+    public val PersonasOnLightOliveTextAccentActive: Color = Color(0xFF179315)
+
+    /**
+     * On Light Personas Pink Text Accent
+     */
+    public val PersonasOnLightPinkTextAccent: Color = Color(0xFFDE5555)
+
+    /**
+     * Sea Blue Text Accent Active On Light
+     */
+    public val PersonasOnLightSeaBlueTextAccentActive: Color = Color(0xFF00B1B8)
+
+    /**
+     * Transparent Accent Minor Hover Default
+     */
+    public val SurfaceDefaultTransparentAccentMinorHover: Color = Color(0x4D0BA888)
+
+    /**
+     * Transparent Navi Active Inverse
+     */
+    public val SurfaceInverseTransparentNaviActive: Color = Color(0x8A242424)
+
+    /**
+     * Transparent Accent Minor Hover On Dark
+     */
+    public val SurfaceOnDarkTransparentAccentMinorHover: Color = Color(0x660BA888)
+
+    /**
+     * On Light Personas Indigo Text Accent
+     */
+    public val PersonasOnLightIndigoTextAccent: Color = Color(0xFF7133BE)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimaryBrightnessActive: Color = Color(0xFF212121)
+
+    /**
+     * Transparent Accent Minor Active On Dark
+     */
+    public val SurfaceOnDarkTransparentAccentMinorActive: Color = Color(0x380BA888)
+
+    /**
+     * Accent Secondary Active On Light
+     */
+    public val SurfaceOnLightAccentSecondaryActive: Color = Color(0xFF3CAF94)
+
+    /**
+     * Green Text Accent Hover Inverse
+     */
+    public val PersonasInverseGreenTextAccentHover: Color = Color(0xFF04C396)
+
+    /**
+     * Indigo Text Accent Active On Light
+     */
+    public val PersonasOnLightIndigoTextAccentActive: Color = Color(0xFF5B2999)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultTransparentWhiteActive: Color = Color(0xA3FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultTransparentWhiteHover: Color = Color(0x3DFFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineInverseDeep: Color = Color(0xFF777675)
+
+    /**
+     * New description
+     */
+    public val OutlineInverseDeepActive: Color = Color(0xFF5D5C5B)
+
+    /**
+     * New description
+     */
+    public val OutlineInverseDeepHover: Color = Color(0xFFD2D1D1)
+
+    /**
+     * New description
+     */
+    public val OutlineInverseTransparentWhite: Color = Color(0x7AFFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineInverseTransparentWhiteHover: Color = Color(0xF5FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkDeep: Color = Color(0xFF777675)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkDeepActive: Color = Color(0xFF5D5C5B)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkDeepHover: Color = Color(0xFFD2D1D1)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkTransparentWhite: Color = Color(0x7AFFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkTransparentWhiteActive: Color = Color(0x49FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineOnDarkTransparentWhiteHover: Color = Color(0xF5FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightDeep: Color = Color(0xFFA1A09F)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightDeepActive: Color = Color(0xFF8D8C8B)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightDeepHover: Color = Color(0xFFCAC9C9)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightTransparentWhite: Color = Color(0x66FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultSolidDeep: Color = Color(0xFFA1A09F)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultSolidDeepActive: Color = Color(0xFF979695)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultSolidDeepHover: Color = Color(0xFFB1B0AF)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultTransparentCardMinor: Color = Color(0x85FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultTransparentCardMinorActive: Color = Color(0x99FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceDefaultTransparentCardMinorHover: Color = Color(0x94FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseSolidDeep: Color = Color(0xFF777675)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseSolidDeepActive: Color = Color(0xFF71706F)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseSolidDeepHover: Color = Color(0xFF81807E)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseTransparentCardMinor: Color = Color(0x80232323)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseTransparentCardMinorActive: Color = Color(0x70242424)
+
+    /**
+     * New description
+     */
+    public val SurfaceInverseTransparentCardMinorHover: Color = Color(0x9E242424)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkSolidDeep: Color = Color(0xFF777675)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkSolidDeepActive: Color = Color(0xFF71706F)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkSolidDeepHover: Color = Color(0xFF81807E)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkTransparentCardMinor: Color = Color(0x80232323)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkTransparentCardMinorActive: Color = Color(0x70242424)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnDarkTransparentCardMinorHover: Color = Color(0x9E242424)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightSolidDeep: Color = Color(0xFFA1A09F)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightSolidDeepActive: Color = Color(0xFF979695)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightSolidDeepHover: Color = Color(0xFFB1B0AF)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightTransparentCardMinor: Color = Color(0x85FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightTransparentCardMinorActive: Color = Color(0x99FFFFFF)
+
+    /**
+     * New description
+     */
+    public val SurfaceOnLightTransparentCardMinorHover: Color = Color(0x94FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultDeepActive: Color = Color(0xFF8D8C8B)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultDeepHover: Color = Color(0xFFCAC9C9)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightTransparentWhiteActive: Color = Color(0xA3FFFFFF)
+
+    /**
+     * New description
+     */
+    public val OutlineOnLightTransparentWhiteHover: Color = Color(0x3DFFFFFF)
+
+    /**
+     * Цвет успеха
+     */
+    public val TextDefaultPositiveActive: Color = Color(0xFF185E17)
+
+    /**
+     * Цвет успеха
+     */
+    public val TextDefaultPositiveHover: Color = Color(0xFF29A027)
+
+    /**
+     * Основной цвет текста
+     */
+    public val TextDefaultPrimaryActive: Color = Color(0xCA15110F)
+
+    /**
+     * Основной цвет текста
+     */
+    public val TextDefaultPrimaryBrightness: Color = Color(0xF5171717)
+
+    /**
+     * Цвет ошибки
+     */
+    public val TextDefaultNegative: Color = Color(0xFFD11D23)
+
+    /**
+     * Цвет ошибки
+     */
+    public val TextDefaultNegativeActive: Color = Color(0xFFAF181D)
+
+    /**
+     * Цвет ошибки
+     */
+    public val TextDefaultNegativeHover: Color = Color(0xFFE3353B)
+
+    /**
+     * Третичный цвет текста
+     */
+    public val TextDefaultTertiaryActive: Color = Color(0x4915110F)
+
+    /**
+     * Третичный цвет текста
+     */
+    public val TextDefaultTertiaryHover: Color = Color(0xFF15110F)
+
+    /**
+     * Цвет предупреждения
+     */
+    public val TextDefaultWarning: Color = Color(0xFF973C09)
+
+    /**
+     * Цвет предупреждения
+     */
+    public val TextDefaultWarningActive: Color = Color(0xFF6F2D06)
+
+    /**
+     * Цвет предупреждения
+     */
+    public val TextDefaultWarningHover: Color = Color(0xFFBC4C0B)
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val TextDefaultAccentMinor: Color = Color(0x660A8E73)
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val TextDefaultAccentMinorActive: Color = Color(0x7A0A8F74)
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val TextDefaultAccentMinorHover: Color = Color(0xFF0A8F74)
+
+    /**
+     * Сплошной наборный текст
+     */
+    public val TextDefaultParagraphHover: Color = Color(0xFF15110F)
+
+    /**
+     * Цвет успеха
+     */
+    public val TextDefaultPositive: Color = Color(0xFF207F1F)
+
+    /**
+     * Сплошной наборный текст
+     */
+    public val TextDefaultParagraph: Color = Color(0x6615110F)
+
+    /**
+     * Сплошной наборный текст
+     */
+    public val TextDefaultParagraphActive: Color = Color(0x7A15110F)
+
+    /**
+     * Цвет информации
+     */
+    public val TextDefaultInfo: Color = Color(0xFF205EA5)
+
+    /**
+     * Цвет информации
+     */
+    public val TextDefaultInfoActive: Color = Color(0xFF194B85)
+
+    /**
+     * Цвет информации
+     */
+    public val TextDefaultInfoHover: Color = Color(0xFF000000)
+
+    /**
+     * Вторичный цвет текста
+     */
+    public val TextDefaultSecondary: Color = Color(0xA315110F)
+
+    /**
+     * Вторичный цвет текста
+     */
+    public val TextDefaultSecondaryActive: Color = Color(0xC415110F)
+
+    /**
+     * Вторичный цвет текста
+     */
+    public val TextDefaultSecondaryHover: Color = Color(0xFF15110F)
+
+    /**
+     * Третичный цвет текста
+     */
+    public val TextDefaultTertiary: Color = Color(0x3D15110F)
+
+    /**
+     * Акцентный цвет
+     */
+    public val TextDefaultAccent: Color = Color(0xFF0A8E73)
+
+    /**
+     * Акцентный цвет
+     */
+    public val TextDefaultAccentActive: Color = Color(0xFF076955)
+
+    /**
+     * Акцентный минорный цвет на темном фоне
+     */
+    public val TextOnDarkAccentMinorActive: Color = Color(0x9360C7AF)
+
+    /**
+     * Цвет информации на темном фоне
+     */
+    public val TextOnDarkInfoActive: Color = Color(0xFF53A3F3)
+
+    /**
+     * Цвет информации на темном фоне
+     */
+    public val TextOnDarkInfo: Color = Color(0xFF70B2F5)
+
+    /**
+     * Цвет информации на темном фоне
+     */
+    public val TextOnDarkInfoHover: Color = Color(0xFFBCDBFA)
+
+    /**
+     * Цвет ошибки на темном фоне
+     */
+    public val TextOnDarkNegative: Color = Color(0xFFF57E83)
+
+    /**
+     * Вторичный цвет текста на темном фоне
+     */
+    public val TextOnDarkSecondary: Color = Color(0xA3F6F2F0)
+
+    /**
+     * Вторичный цвет текста на темном фоне
+     */
+    public val TextOnDarkSecondaryActive: Color = Color(0xC4F5F1EF)
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val TextOnDarkTertiary: Color = Color(0x3DF6F2F0)
+
+    /**
+     * Вторичный цвет текста на темном фоне
+     */
+    public val TextOnDarkSecondaryHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val TextOnDarkPrimary: Color = Color(0xFCFFFFFF)
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val TextOnDarkAccentHover: Color = Color(0xFF77CFBB)
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val TextOnDarkPositive: Color = Color(0xFF50A84C)
+
+    /**
+     * Сплошной наборный текст на темном фоне
+     */
+    public val TextOnDarkParagraphHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Цвет ошибки на темном фоне
+     */
+    public val TextOnDarkNegativeActive: Color = Color(0xFFF3626A)
+
+    /**
+     * Сплошной наборный текст на темном фоне
+     */
+    public val TextOnDarkParagraph: Color = Color(0x7AF6F2F0)
+
+    /**
+     * Цвет ошибки на темном фоне
+     */
+    public val TextOnDarkNegativeHover: Color = Color(0xFFF89BA0)
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val TextOnDarkPrimaryActive: Color = Color(0xCAFFFFFF)
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val TextOnDarkPrimaryBrightness: Color = Color(0xF5FAFAFA)
+
+    /**
+     * Цвет предупреждения на темном фоне
+     */
+    public val TextOnDarkWarningHover: Color = Color(0xFFDF7D43)
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val TextOnDarkTertiaryActive: Color = Color(0x49F5F1EF)
+
+    /**
+     * Цвет предупреждения на темном фоне
+     */
+    public val TextOnDarkWarning: Color = Color(0xFFDA6828)
+
+    /**
+     * Цвет предупреждения на темном фоне
+     */
+    public val TextOnDarkWarningActive: Color = Color(0xFFC45D21)
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val TextOnDarkTertiaryHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val TextOnDarkPrimaryHover: Color = Color(0x97FFFFFF)
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val TextOnDarkPositiveActive: Color = Color(0xFF469442)
+
+    /**
+     * Акцентный минорный цвет на темном фоне
+     */
+    public val TextOnDarkAccentMinor: Color = Color(0x7A61C8B0)
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val TextOnDarkPositiveHover: Color = Color(0xFF62B65D)
+
+    /**
+     * Третичный цвет текста на светлом фоне
+     */
+    public val TextOnLightTertiaryActive: Color = Color(0x4915110F)
+
+    /**
+     * Цвет предупреждения на светлом фоне
+     */
+    public val TextOnLightWarning: Color = Color(0xFF973C09)
+
+    /**
+     * Третичный цвет текста на светлом фоне
+     */
+    public val TextOnLightTertiaryHover: Color = Color(0xFF15110F)
+
+    /**
+     * Цвет предупреждения на светлом фоне
+     */
+    public val TextOnLightWarningHover: Color = Color(0xFFBC4C0B)
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val TextOnLightPositiveActive: Color = Color(0xFF185E17)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimary: Color = Color(0xFC15110F)
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val TextOnLightPositiveHover: Color = Color(0xFF29A027)
+
+    /**
+     * Акцентный минорный цвет на светлом фоне
+     */
+    public val TextOnLightAccentMinorActive: Color = Color(0x7A0A8F74)
+
+    /**
+     * Сплошной наборный текст на светлом фоне
+     */
+    public val TextOnLightParagraph: Color = Color(0x6615110F)
+
+    /**
+     * Акцентный минорный цвет на светлом фоне
+     */
+    public val TextOnLightAccentMinorHover: Color = Color(0xFF0A8F74)
+
+    /**
+     * Сплошной наборный текст на светлом фоне
+     */
+    public val TextOnLightParagraphActive: Color = Color(0x7A15110F)
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val TextOnLightPositive: Color = Color(0xFF207F1F)
+
+    /**
+     * Сплошной наборный текст на светлом фоне
+     */
+    public val TextOnLightParagraphHover: Color = Color(0xFF15110F)
+
+    /**
+     * Вторичный цвет текста на светлом фоне
+     */
+    public val TextOnLightSecondary: Color = Color(0xA315110F)
+
+    /**
+     * Вторичный цвет текста на светлом фоне
+     */
+    public val TextOnLightSecondaryActive: Color = Color(0xC415110F)
+
+    /**
+     * Третичный цвет текста на светлом фоне
+     */
+    public val TextOnLightTertiary: Color = Color(0x3D15110F)
+
+    /**
+     * Вторичный цвет текста на светлом фоне
+     */
+    public val TextOnLightSecondaryHover: Color = Color(0xFF15110F)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimaryActive: Color = Color(0xCA15110F)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimaryHover: Color = Color(0x9715110F)
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val TextOnLightPrimaryBrightness: Color = Color(0xF5171717)
+
+    /**
+     * Акцентный цвет на светлом фоне
+     */
+    public val TextOnLightAccentActive: Color = Color(0xFF076955)
+
+    /**
+     * Акцентный минорный цвет на светлом фоне
+     */
+    public val TextOnLightAccentMinor: Color = Color(0x660A8E73)
+
+    /**
+     * Акцентный цвет на светлом фоне
+     */
+    public val TextOnLightAccent: Color = Color(0xFF0A8E73)
+
+    /**
+     * Акцентный цвет на светлом фоне
+     */
+    public val TextOnLightAccentHover: Color = Color(0xFF0DB593)
+
+    /**
+     * Цвет ошибки на светлом фоне
+     */
+    public val TextOnLightNegativeActive: Color = Color(0xFFAF181D)
+
+    /**
+     * Цвет ошибки на светлом фоне
+     */
+    public val TextOnLightNegativeHover: Color = Color(0xFFE3353B)
+
+    /**
+     * Инвертированный вторичный цвет текста
+     */
+    public val TextInverseSecondaryHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Инвертированный вторичный цвет текста
+     */
+    public val TextInverseSecondary: Color = Color(0xA3F6F2F0)
+
+    /**
+     * Инвертированный вторичный цвет текста
+     */
+    public val TextInverseSecondaryActive: Color = Color(0xC4F5F1EF)
+
+    /**
+     * Инвертированный третичный цвет текста
+     */
+    public val TextInverseTertiaryActive: Color = Color(0x49F5F1EF)
+
+    /**
+     * Цвет информации на светлом фоне
+     */
+    public val TextOnLightInfo: Color = Color(0xFF205EA5)
+
+    /**
+     * Инвертированный третичный цвет текста
+     */
+    public val TextInverseTertiaryHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Цвет информации на светлом фоне
+     */
+    public val TextOnLightInfoActive: Color = Color(0xFF194B85)
+
+    /**
+     * Цвет информации на светлом фоне
+     */
+    public val TextOnLightInfoHover: Color = Color(0xFF000000)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryActive: Color = Color(0xCAFFFFFF)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryHover: Color = Color(0x97FFFFFF)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimaryBrightness: Color = Color(0xF5FAFAFA)
+
+    /**
+     * Инвертированный минорный акцентный цвет
+     */
+    public val TextInverseAccentMinorActive: Color = Color(0x9360C7AF)
+
+    /**
+     * Инвертированный сплошной наборный текст
+     */
+    public val TextInverseParagraph: Color = Color(0x7AF6F2F0)
+
+    /**
+     * Инвертированный минорный акцентный цвет
+     */
+    public val TextInverseAccentMinorHover: Color = Color(0xFF60C7AF)
+
+    /**
+     * Инвертированный сплошной наборный текст
+     */
+    public val TextInverseParagraphActive: Color = Color(0x93F5F1EF)
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val TextInversePrimary: Color = Color(0xFCFFFFFF)
+
+    /**
+     * Инвертированный сплошной наборный текст
+     */
+    public val TextInverseParagraphHover: Color = Color(0xFFF5F1EF)
+
+    /**
+     * Инвертированный третичный цвет текста
+     */
+    public val TextInverseTertiary: Color = Color(0x3DF6F2F0)
+
+    /**
+     * Цвет ошибки на светлом фоне
+     */
+    public val TextOnLightNegative: Color = Color(0xFFD11D23)
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val TextInverseAccentActive: Color = Color(0xFF4ABFA4)
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val TextInverseAccentHover: Color = Color(0xFF77CFBB)
+
+    /**
+     * Инвертированный минорный акцентный цвет
+     */
+    public val TextInverseAccentMinor: Color = Color(0x7A61C8B0)
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val TextInverseNegative: Color = Color(0xFFF57E83)
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val TextInversePositiveActive: Color = Color(0xFF469442)
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val TextInversePositiveHover: Color = Color(0xFF62B65D)
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val TextInverseNegativeActive: Color = Color(0xFFF3626A)
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val TextInverseNegativeHover: Color = Color(0xFFF89BA0)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidSecondary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidTertiary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidSecondaryActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный цвет информации
+     */
+    public val TextInverseInfoActive: Color = Color(0xFF53A3F3)
+
+    /**
+     * Инвертированный цвет информации
+     */
+    public val TextInverseInfo: Color = Color(0xFF70B2F5)
+
+    /**
+     * Инвертированный цвет информации
+     */
+    public val TextInverseInfoHover: Color = Color(0xFFBCDBFA)
+
+    /**
+     * Инвертированный цвет предупреждения
+     */
+    public val TextInverseWarning: Color = Color(0xFFDA6828)
+
+    /**
+     * Инвертированный цвет предупреждения
+     */
+    public val TextInverseWarningHover: Color = Color(0xFFDF7D43)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный цвет предупреждения
+     */
+    public val TextInverseWarningActive: Color = Color(0xFFC45D21)
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val TextInversePositive: Color = Color(0xFF50A84C)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccentHover: Color = Color(0xFF0CBB98)
+
+    /**
+     * Акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccentActive: Color = Color(0xFF099579)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentPrimaryActive: Color = Color(0x0F15110F)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentSecondary: Color = Color(0x1415110F)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentPrimaryHover: Color = Color(0x0D15110F)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentDeep: Color = Color(0xA3A1A09F)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentPrimary: Color = Color(0x0A15110F)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentDeepActive: Color = Color(0xB8A2A1A0)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentDeepHover: Color = Color(0xB3A2A1A0)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки
+     */
+    public val SurfaceDefaultClearActive: Color = Color(0x0015110F)
+
+    /**
+     * Фон поверхности/контрола без заливки
+     */
+    public val SurfaceDefaultClear: Color = Color(0x0015110F)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCard: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки
+     */
+    public val SurfaceDefaultClearHover: Color = Color(0x0015110F)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCardActive: Color = Color(0xC7FFFFFF)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCardHover: Color = Color(0xC2FFFFFF)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCardBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceDefaultSolidDefaultActive: Color = Color(0xFF090706)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceDefaultSolidDefaultHover: Color = Color(0xFF271F1C)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentAccentActive: Color = Color(0x330BA888)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCard: Color = Color(0xB2FFFFFF)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentSecondaryActive: Color = Color(0x1F15110F)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentTertiary: Color = Color(0x1F15110F)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentAccentHover: Color = Color(0x2E0BA888)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentAccent: Color = Color(0x1F0BA686)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentSecondaryHover: Color = Color(0x1A15110F)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentTertiaryActive: Color = Color(0x3315110F)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentTertiaryHover: Color = Color(0x2E15110F)
+
+    /**
+     * Цвет фона поверхности/контрола успех
+     */
+    public val SurfaceDefaultPositiveActive: Color = Color(0xFF20801E)
+
+    /**
+     * Цвет фона поверхности/контрола успех
+     */
+    public val SurfaceDefaultPositiveHover: Color = Color(0xFF28A126)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка
+     */
+    public val SurfaceDefaultNegativeActive: Color = Color(0xFFE72329)
+
+    /**
+     * Цвет фона поверхности/контрола успех
+     */
+    public val SurfaceDefaultPositive: Color = Color(0xFF239322)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка
+     */
+    public val SurfaceDefaultNegativeHover: Color = Color(0xFFEC5156)
+
+    /**
+     * Цвет фона поверхности/контрола информация
+     */
+    public val SurfaceDefaultInfoHover: Color = Color(0xFF4180C8)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceDefaultWarning: Color = Color(0xFFBE4E0C)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceDefaultWarningHover: Color = Color(0xFFD3560D)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceDefaultWarningActive: Color = Color(0xFFAD460B)
+
+    /**
+     * Цвет фона поверхности/контрола информация
+     */
+    public val SurfaceDefaultInfoActive: Color = Color(0xFF326CAE)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка
+     */
+    public val SurfaceDefaultNegative: Color = Color(0xFFE83439)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceDefaultTransparentNegativeActive: Color = Color(0x3DE9353B)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceDefaultTransparentNegativeHover: Color = Color(0x38E9353B)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceDefaultTransparentNegative: Color = Color(0x29E83439)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidSecondary: Color = Color(0xFF292929)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidTertiary: Color = Color(0xFF474747)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidSecondaryActive: Color = Color(0xFF242424)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidSecondaryHover: Color = Color(0xFF333333)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidTertiaryHover: Color = Color(0xFF525252)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimaryActive: Color = Color(0xFF1F1F1F)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimaryBrightness: Color = Color(0xFF262626)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceDefaultReadOnlyActive: Color = Color(0x08FAFAFA)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceDefaultReadOnly: Color = Color(0x02F9F9F9)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceDefaultReadOnlyHover: Color = Color(0x05FAFAFA)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimaryHover: Color = Color(0xFF2E2E2E)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkSolidPrimary: Color = Color(0xFF232323)
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccentHover: Color = Color(0xFF0CBB98)
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccentActive: Color = Color(0xFF0A9E81)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentPrimaryActive: Color = Color(0x0FFFFFFF)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentSecondary: Color = Color(0x28FFFFFF)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentPrimaryHover: Color = Color(0x24FFFFFF)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentDeep: Color = Color(0x99A1A09F)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentPrimary: Color = Color(0x14FFFFFF)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentDeepActive: Color = Color(0x8AA2A1A0)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentDeepHover: Color = Color(0xB8A2A1A0)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCardActive: Color = Color(0xFF1F1F1F)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCardHover: Color = Color(0xFF2E2E2E)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCardBrightness: Color = Color(0xFF262626)
+
+    /**
+     * Фон поверхности/контрола без заливки на темном фоне
+     */
+    public val SurfaceOnDarkClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки на темном фоне
+     */
+    public val SurfaceOnDarkClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки на темном фоне
+     */
+    public val SurfaceOnDarkClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCard: Color = Color(0xFF232323)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val SurfaceOnDarkSolidDefaultHover: Color = Color(0xFFF9F7F5)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val SurfaceOnDarkSolidDefaultActive: Color = Color(0xFFF2ECE9)
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCard: Color = Color(0xB8373737)
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCardHover: Color = Color(0xD6383838)
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x0FFAFAFA)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentTertiary: Color = Color(0x3DFFFFFF)
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCardActive: Color = Color(0xA8383838)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentSecondaryHover: Color = Color(0x47FFFFFF)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentTertiaryActive: Color = Color(0x2EFFFFFF)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentTertiaryHover: Color = Color(0x5CFFFFFF)
+
+    /**
+     * Цвет фона поверхности/контрола успех на темном фоне
+     */
+    public val SurfaceOnDarkPositiveActive: Color = Color(0xFF9FCF9B)
+
+    /**
+     * Цвет фона поверхности/контрола успех на темном фоне
+     */
+    public val SurfaceOnDarkPositiveHover: Color = Color(0xFFB3D9B0)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public val SurfaceOnDarkNegativeActive: Color = Color(0xFFF79C9F)
+
+    /**
+     * Цвет фона поверхности/контрола успех на темном фоне
+     */
+    public val SurfaceOnDarkPositive: Color = Color(0xFFA6D2A2)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public val SurfaceOnDarkNegativeHover: Color = Color(0xFFF9B8BA)
+
+    /**
+     * Цвет фона поверхности/контрола информация на темном фоне
+     */
+    public val SurfaceOnDarkInfoHover: Color = Color(0xFFAED4F9)
+
+    /**
+     * Цвет фона поверхности/контрола информация на темном фоне
+     */
+    public val SurfaceOnDarkInfo: Color = Color(0xFF9BCAF8)
+
+    /**
+     * Цвет фона поверхности/контрола информация на темном фоне
+     */
+    public val SurfaceOnDarkInfoActive: Color = Color(0xFF91C4F7)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val SurfaceOnDarkWarningActive: Color = Color(0xFFF8A977)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentAccent: Color = Color(0x330BA686)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentAccentHover: Color = Color(0x520BA888)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentAccentActive: Color = Color(0x240BA888)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val SurfaceOnDarkWarning: Color = Color(0xFFF8AD80)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val SurfaceOnDarkWarningHover: Color = Color(0xFFF9BB94)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public val SurfaceOnDarkNegative: Color = Color(0xFFF8A6A9)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val SurfaceOnDarkTransparentNegativeActive: Color = Color(0x70F8A5A8)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val SurfaceOnDarkTransparentNegativeHover: Color = Color(0x9EF8A5A8)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceOnDarkReadOnlyActive: Color = Color(0x00FAFAFA)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val SurfaceOnDarkTransparentNegative: Color = Color(0x80F8A6A9)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidSecondary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidTertiary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidSecondaryActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceOnDarkReadOnlyHover: Color = Color(0x0FFAFAFA)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceOnDarkReadOnly: Color = Color(0x05F9F9F9)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidPrimaryActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidPrimaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidPrimaryBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightSolidPrimary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Акцентный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * Акцентный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightAccentHover: Color = Color(0xFF0CBB98)
+
+    /**
+     * Акцентный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightAccentActive: Color = Color(0xFF099579)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentPrimaryActive: Color = Color(0x0F15110F)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentSecondary: Color = Color(0x1415110F)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentPrimaryHover: Color = Color(0x0D15110F)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentDeep: Color = Color(0xA3A1A09F)
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentPrimary: Color = Color(0x0A15110F)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentDeepActive: Color = Color(0xB8A2A1A0)
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightSolidCardActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightSolidCardHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightSolidCardBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки на светлом фоне
+     */
+    public val SurfaceOnLightClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightSolidCard: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Фон поверхности/контрола без заливки на светлом фоне
+     */
+    public val SurfaceOnLightClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val SurfaceOnLightSolidDefaultActive: Color = Color(0xFF090706)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val SurfaceOnLightSolidDefault: Color = Color(0xFF15110F)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val SurfaceOnLightSolidDefaultHover: Color = Color(0xFF271F1C)
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightTransparentCardActive: Color = Color(0xC7FFFFFF)
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightTransparentCardHover: Color = Color(0xC2FFFFFF)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentSecondaryActive: Color = Color(0x1F15110F)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentTertiary: Color = Color(0x1F15110F)
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightTransparentCardBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val SurfaceOnLightTransparentCard: Color = Color(0xB2FFFFFF)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentTertiaryActive: Color = Color(0x3315110F)
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentTertiaryHover: Color = Color(0x2E15110F)
+
+    /**
+     * Цвет фона поверхности/контрола информация на светлом фоне
+     */
+    public val SurfaceOnLightInfo: Color = Color(0xFF3776BC)
+
+    /**
+     * Цвет фона поверхности/контрола успех на светлом фоне
+     */
+    public val SurfaceOnLightPositiveActive: Color = Color(0xFF20801E)
+
+    /**
+     * Цвет фона поверхности/контрола успех на светлом фоне
+     */
+    public val SurfaceOnLightPositiveHover: Color = Color(0xFF28A126)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на светлом фоне
+     */
+    public val SurfaceOnLightNegativeActive: Color = Color(0xFFE72329)
+
+    /**
+     * Цвет фона поверхности/контрола успех на светлом фоне
+     */
+    public val SurfaceOnLightPositive: Color = Color(0xFF239322)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на светлом фоне
+     */
+    public val SurfaceOnLightNegativeHover: Color = Color(0xFFEC5156)
+
+    /**
+     * Цвет фона поверхности/контрола информация на светлом фоне
+     */
+    public val SurfaceOnLightInfoHover: Color = Color(0xFF4180C8)
+
+    /**
+     * Цвет фона поверхности/контрола информация на светлом фоне
+     */
+    public val SurfaceOnLightInfoActive: Color = Color(0xFF326CAE)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentAccentHover: Color = Color(0x2E0BA888)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentAccent: Color = Color(0x1F0BA686)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentAccentActive: Color = Color(0x330BA888)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightWarning: Color = Color(0xFFBE4E0C)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightWarningActive: Color = Color(0xFFAD460B)
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на светлом фоне
+     */
+    public val SurfaceOnLightNegative: Color = Color(0xFFE83439)
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightWarningHover: Color = Color(0xFFD3560D)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightTransparentNegativeActive: Color = Color(0x3DE9353B)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightTransparentNegativeHover: Color = Color(0x38E9353B)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceOnLightReadOnlyActive: Color = Color(0x08FAFAFA)
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val SurfaceOnLightTransparentNegative: Color = Color(0x29E83439)
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidSecondary: Color = Color(0xFF292929)
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidSecondaryHover: Color = Color(0xFF333333)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceOnLightReadOnlyHover: Color = Color(0x05FAFAFA)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceOnLightReadOnly: Color = Color(0x02F9F9F9)
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimaryBrightness: Color = Color(0xFF262626)
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimaryActive: Color = Color(0xFF1F1F1F)
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimaryHover: Color = Color(0xFF2E2E2E)
+
+    /**
+     * Инвертированный третичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentTertiaryHover: Color = Color(0x5CFFFFFF)
+
+    /**
+     * Инвертированный фон поверхности/контрола без заливки
+     */
+    public val SurfaceInverseClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Инвертированный фон поверхности/контрола без заливки
+     */
+    public val SurfaceInverseClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Инвертированный основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentPrimaryActive: Color = Color(0x0FFFFFFF)
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentSecondary: Color = Color(0x28FFFFFF)
+
+    /**
+     * Инвертированный основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentPrimaryHover: Color = Color(0x24FFFFFF)
+
+    /**
+     * Инвертированный глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentDeep: Color = Color(0x99A1A09F)
+
+    /**
+     * Инвертированный основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentPrimary: Color = Color(0x14FFFFFF)
+
+    /**
+     * Инвертированный глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentDeepActive: Color = Color(0x8AA2A1A0)
+
+    /**
+     * Инвертированный глубокий прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentDeepHover: Color = Color(0xB8A2A1A0)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCardActive: Color = Color(0xFF1F1F1F)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCardHover: Color = Color(0xFF2E2E2E)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCardBrightness: Color = Color(0xFF262626)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCard: Color = Color(0xFF232323)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCardBrightness: Color = Color(0x0FFAFAFA)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCardHover: Color = Color(0xD6383838)
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceInverseSolidDefaultActive: Color = Color(0xFFF2ECE9)
+
+    /**
+     * Инвертированный третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidTertiaryActive: Color = Color(0xFF424242)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCardActive: Color = Color(0xA8383838)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCard: Color = Color(0xB8373737)
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceInverseSolidDefaultHover: Color = Color(0xFFF9F7F5)
+
+    /**
+     * Инвертированный третичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidTertiaryHover: Color = Color(0xFF525252)
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentSecondaryActive: Color = Color(0x1AFFFFFF)
+
+    /**
+     * Инвертированный третичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentTertiary: Color = Color(0x3DFFFFFF)
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentSecondaryHover: Color = Color(0x47FFFFFF)
+
+    /**
+     * Инвертированный третичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentTertiaryActive: Color = Color(0x2EFFFFFF)
+
+    /**
+     * Инвертированный фон поверхности/контрола без заливки
+     */
+    public val SurfaceInverseClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceInverseWarningActive: Color = Color(0xFFF8A977)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceInverseWarningHover: Color = Color(0xFFF9BB94)
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccentHover: Color = Color(0xFF0CBB98)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола успех
+     */
+    public val SurfaceInversePositiveActive: Color = Color(0xFF9FCF9B)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола успех
+     */
+    public val SurfaceInversePositiveHover: Color = Color(0xFFB3D9B0)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола ошибка
+     */
+    public val SurfaceInverseNegativeActive: Color = Color(0xFFF79C9F)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола успех
+     */
+    public val SurfaceInversePositive: Color = Color(0xFFA6D2A2)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола ошибка
+     */
+    public val SurfaceInverseNegativeHover: Color = Color(0xFFF9B8BA)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола ошибка
+     */
+    public val SurfaceInverseNegative: Color = Color(0xFFF8A6A9)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола информация
+     */
+    public val SurfaceInverseInfoHover: Color = Color(0xFFAED4F9)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceInverseWarning: Color = Color(0xFFF8AD80)
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentAccent: Color = Color(0x330BA686)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола информация
+     */
+    public val SurfaceInverseInfoActive: Color = Color(0xFF91C4F7)
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentAccentActive: Color = Color(0x240BA888)
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола информация
+     */
+    public val SurfaceInverseInfo: Color = Color(0xFF9BCAF8)
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentAccentHover: Color = Color(0x520BA888)
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceInverseTransparentNegativeActive: Color = Color(0x70F8A5A8)
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceInverseTransparentNegativeHover: Color = Color(0x9EF8A5A8)
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val SurfaceInverseTransparentNegative: Color = Color(0x80F8A6A9)
+
+    /**
+     * Вторичный фон
+     */
+    public val BackgroundDefaultSecondary: Color = Color(0xFFF6F2F0)
+
+    /**
+     * Третичный фон
+     */
+    public val BackgroundDefaultTertiary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной фон на светлом фоне
+     */
+    public val BackgroundLightPrimary: Color = Color(0xFFEBE7E5)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceInverseReadOnlyActive: Color = Color(0x00FAFAFA)
+
+    /**
+     * Вторичный фон на темном фоне
+     */
+    public val BackgroundDarkSecondary: Color = Color(0xFF0F0F0F)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceInverseReadOnlyHover: Color = Color(0x0FFAFAFA)
+
+    /**
+     * Цвет для readOnly
+     */
+    public val SurfaceInverseReadOnly: Color = Color(0x05F9F9F9)
+
+    /**
+     * Третичный фон на темном фоне
+     */
+    public val BackgroundDarkTertiary: Color = Color(0xFF141413)
+
+    /**
+     * Основной фон
+     */
+    public val BackgroundDefaultPrimary: Color = Color(0xFFEBE7E5)
+
+    /**
+     * Цвет фона паранжи светлый на темном фоне
+     */
+    public val OverlayOnDarkSoft: Color = Color(0x1F000000)
+
+    /**
+     * Цвет фона паранжи темный на темном фоне
+     */
+    public val OverlayOnDarkHard: Color = Color(0x66000000)
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public val OutlineDefaultTransparentPrimaryActive: Color = Color(0x6215110F)
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public val OutlineDefaultTransparentPrimary: Color = Color(0x3D15110F)
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public val OutlineDefaultTransparentPrimaryHover: Color = Color(0x2515110F)
+
+    /**
+     * Цвет фона паранжи темный
+     */
+    public val OverlayDefaultHard: Color = Color(0xCC000000)
+
+    /**
+     * Цвет фона паранжи светлый
+     */
+    public val OverlayDefaultSoft: Color = Color(0x3D000000)
+
+    /**
+     * Цвет фона паранжи темный на светлом фоне
+     */
+    public val OverlayOnLightHard: Color = Color(0xCC000000)
+
+    /**
+     * Инвертированный цвет фона паранжи светлый
+     */
+    public val OverlayInverseSoft: Color = Color(0x1F000000)
+
+    /**
+     * Цвет фона паранжи светлый на светлом фоне
+     */
+    public val OverlayOnLightSoft: Color = Color(0x3D000000)
+
+    /**
+     * Инвертированный цвет фона паранжи темный
+     */
+    public val OverlayInverseHard: Color = Color(0x66000000)
+
+    /**
+     * Бесцветная обводка
+     */
+    public val OutlineDefaultClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Инвертированный третичный фон
+     */
+    public val BackgroundInverseTertiary: Color = Color(0xFF141413)
+
+    /**
+     * Инвертированный вторичный фон
+     */
+    public val BackgroundInverseSecondary: Color = Color(0xFF0F0F0F)
+
+    /**
+     * Третичный фон на светлом фоне
+     */
+    public val BackgroundLightTertiary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Цвет обводки успех
+     */
+    public val OutlineDefaultPositive: Color = Color(0xFF239322)
+
+    /**
+     * Цвет обводки ошибка
+     */
+    public val OutlineDefaultNegative: Color = Color(0xFFE83439)
+
+    /**
+     * Акцентный цвет обводки
+     */
+    public val OutlineDefaultAccentHover: Color = Color(0xFF0ED8AF)
+
+    /**
+     * Акцентный цвет обводки
+     */
+    public val OutlineDefaultAccentActive: Color = Color(0xFF088169)
+
+    /**
+     * Цвет обводки успех
+     */
+    public val OutlineDefaultPositiveActive: Color = Color(0xFF20801E)
+
+    /**
+     * Цвет обводки успех
+     */
+    public val OutlineDefaultPositiveHover: Color = Color(0xFF32CA2F)
+
+    /**
+     * Цвет обводки ошибка
+     */
+    public val OutlineDefaultNegativeActive: Color = Color(0xFFDC181F)
+
+    /**
+     * Цвет обводки ошибка
+     */
+    public val OutlineDefaultNegativeHover: Color = Color(0xFFF17E82)
+
+    /**
+     * Бесцветная обводка
+     */
+    public val OutlineDefaultClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Цвет обводки информация
+     */
+    public val OutlineDefaultInfoHover: Color = Color(0xFF81AADA)
+
+    /**
+     * Цвет обводки предупреждение
+     */
+    public val OutlineDefaultWarningHover: Color = Color(0xFFF3813F)
+
+    /**
+     * Бесцветная обводка
+     */
+    public val OutlineDefaultClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Цвет обводки предупреждение
+     */
+    public val OutlineDefaultWarning: Color = Color(0xFFBE4E0C)
+
+    /**
+     * Цвет обводки предупреждение
+     */
+    public val OutlineDefaultWarningActive: Color = Color(0xFFA3420A)
+
+    /**
+     * Цвет обводки информация
+     */
+    public val OutlineDefaultInfo: Color = Color(0xFF3776BC)
+
+    /**
+     * Цвет обводки информация
+     */
+    public val OutlineDefaultInfoActive: Color = Color(0xFF3067A6)
+
+    /**
+     * Основной прозрачный цвет обводки на темном фоне
+     */
+    public val OutlineOnDarkTransparentPrimary: Color = Color(0x1EFFFFFF)
+
+    /**
+     * Основной прозрачный цвет обводки на темном фоне
+     */
+    public val OutlineOnDarkTransparentPrimaryActive: Color = Color(0x12FFFFFF)
+
+    /**
+     * Основной прозрачный цвет обводки на темном фоне
+     */
+    public val OutlineOnDarkTransparentPrimaryHover: Color = Color(0x4DFFFFFF)
+
+    /**
+     * Цвет обводки предупреждение на темном фоне
+     */
+    public val OutlineOnDarkWarning: Color = Color(0xFFF8AD80)
+
+    /**
+     * Акцентный цвет обводки на темном фоне
+     */
+    public val OutlineOnDarkAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * Цвет обводки успех на темном фоне
+     */
+    public val OutlineOnDarkPositiveActive: Color = Color(0xFF92C88D)
+
+    /**
+     * Цвет обводки успех на темном фоне
+     */
+    public val OutlineOnDarkPositiveHover: Color = Color(0xFFDBEDD9)
+
+    /**
+     * Цвет обводки ошибка на темном фоне
+     */
+    public val OutlineOnDarkNegativeActive: Color = Color(0xFFEF343A)
+
+    /**
+     * Цвет обводки успех на темном фоне
+     */
+    public val OutlineOnDarkPositive: Color = Color(0xFFA6D2A2)
+
+    /**
+     * Цвет обводки ошибка на темном фоне
+     */
+    public val OutlineOnDarkNegativeHover: Color = Color(0xFFF25A5F)
+
+    /**
+     * Акцентный цвет обводки на темном фоне
+     */
+    public val OutlineOnDarkAccentHover: Color = Color(0xFF0EE1B7)
+
+    /**
+     * Бесцветная обводка на темном фоне
+     */
+    public val OutlineOnDarkClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Цвет обводки информация на темном фоне
+     */
+    public val OutlineOnDarkInfoHover: Color = Color(0xFFE7F2FD)
+
+    /**
+     * Цвет обводки информация на темном фоне
+     */
+    public val OutlineOnDarkInfoActive: Color = Color(0xFF7EBAF6)
+
+    /**
+     * Цвет обводки информация на темном фоне
+     */
+    public val OutlineOnDarkInfo: Color = Color(0xFF9BCAF8)
+
+    /**
+     * Бесцветная обводка на темном фоне
+     */
+    public val OutlineOnDarkClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Бесцветная обводка на темном фоне
+     */
+    public val OutlineOnDarkClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Цвет обводки предупреждение на темном фоне
+     */
+    public val OutlineOnDarkWarningActive: Color = Color(0xFFF79C64)
+
+    /**
+     * Цвет обводки ошибка на темном фоне
+     */
+    public val OutlineOnDarkNegative: Color = Color(0xFFF8A6A9)
+
+    /**
+     * Цвет обводки предупреждение на темном фоне
+     */
+    public val OutlineOnDarkWarningHover: Color = Color(0xFFFCE0CF)
+
+    /**
+     * Цвет обводки успех на светлом фоне
+     */
+    public val OutlineOnLightPositiveHover: Color = Color(0xFF32CA2F)
+
+    /**
+     * Бесцветная обводка на светлом фоне
+     */
+    public val OutlineOnLightClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Бесцветная обводка на светлом фоне
+     */
+    public val OutlineOnLightClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Основной прозрачный цвет обводки на светлом фоне
+     */
+    public val OutlineOnLightTransparentPrimary: Color = Color(0x3D15110F)
+
+    /**
+     * Основной прозрачный цвет обводки на светлом фоне
+     */
+    public val OutlineOnLightTransparentPrimaryActive: Color = Color(0x6215110F)
+
+    /**
+     * Основной прозрачный цвет обводки на светлом фоне
+     */
+    public val OutlineOnLightTransparentPrimaryHover: Color = Color(0x2515110F)
+
+    /**
+     * Акцентный цвет обводки на светлом фоне
+     */
+    public val OutlineOnLightAccentHover: Color = Color(0xFF0ED8AF)
+
+    /**
+     * Цвет обводки успех на светлом фоне
+     */
+    public val OutlineOnLightPositive: Color = Color(0xFF239322)
+
+    /**
+     * Акцентный цвет обводки на светлом фоне
+     */
+    public val OutlineOnLightAccentActive: Color = Color(0xFF088169)
+
+    /**
+     * Бесцветная обводка на светлом фоне
+     */
+    public val OutlineOnLightClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Цвет обводки ошибка на светлом фоне
+     */
+    public val OutlineOnLightNegativeActive: Color = Color(0xFFDC181F)
+
+    /**
+     * Цвет обводки ошибка на светлом фоне
+     */
+    public val OutlineOnLightNegativeHover: Color = Color(0xFFF17E82)
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public val OutlineOnLightWarning: Color = Color(0xFFBE4E0C)
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public val OutlineOnLightWarningHover: Color = Color(0xFFF3813F)
+
+    /**
+     * Цвет обводки ошибка на светлом фоне
+     */
+    public val OutlineOnLightNegative: Color = Color(0xFFE83439)
+
+    /**
+     * Цвет обводки информация на светлом фоне
+     */
+    public val OutlineOnLightInfoHover: Color = Color(0xFF81AADA)
+
+    /**
+     * Цвет обводки информация на светлом фоне
+     */
+    public val OutlineOnLightInfo: Color = Color(0xFF3776BC)
+
+    /**
+     * Цвет обводки информация на светлом фоне
+     */
+    public val OutlineOnLightInfoActive: Color = Color(0xFF3067A6)
+
+    /**
+     * Инвертированный акцентный цвет обводки
+     */
+    public val OutlineInverseAccentActive: Color = Color(0xFF099579)
+
+    /**
+     * Инвертированная бесцветная обводка
+     */
+    public val OutlineInverseClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Инвертированная бесцветная обводка
+     */
+    public val OutlineInverseClearActive: Color = Color(0x00FFFFFF)
+
+    /**
+     * Инвертированная бесцветная обводка
+     */
+    public val OutlineInverseClearHover: Color = Color(0x00FFFFFF)
+
+    /**
+     * Инвертированный основной прозрачный цвет обводки
+     */
+    public val OutlineInverseTransparentPrimaryHover: Color = Color(0x4DFFFFFF)
+
+    /**
+     * Инвертированный основной прозрачный цвет обводки
+     */
+    public val OutlineInverseTransparentPrimary: Color = Color(0x1EFFFFFF)
+
+    /**
+     * Инвертированный основной прозрачный цвет обводки
+     */
+    public val OutlineInverseTransparentPrimaryActive: Color = Color(0x12FFFFFF)
+
+    /**
+     * Инвертированный цвет обводки успех
+     */
+    public val OutlineInversePositive: Color = Color(0xFFA6D2A2)
+
+    /**
+     * Инвертированный цвет обводки ошибка
+     */
+    public val OutlineInverseNegative: Color = Color(0xFFF8A6A9)
+
+    /**
+     * Инвертированный цвет обводки информация
+     */
+    public val OutlineInverseInfoHover: Color = Color(0xFFE7F2FD)
+
+    /**
+     * Инвертированный цвет обводки информация
+     */
+    public val OutlineInverseInfoActive: Color = Color(0xFF7EBAF6)
+
+    /**
+     * Инвертированный цвет обводки успех
+     */
+    public val OutlineInversePositiveActive: Color = Color(0xFF92C88D)
+
+    /**
+     * Инвертированный цвет обводки успех
+     */
+    public val OutlineInversePositiveHover: Color = Color(0xFFDBEDD9)
+
+    /**
+     * Инвертированный цвет обводки ошибка
+     */
+    public val OutlineInverseNegativeActive: Color = Color(0xFFEF343A)
+
+    /**
+     * Инвертированный цвет обводки ошибка
+     */
+    public val OutlineInverseNegativeHover: Color = Color(0xFFF25A5F)
+
+    /**
+     * Инвертированный цвет обводки предупреждение
+     */
+    public val OutlineInverseWarningActive: Color = Color(0xFFF79C64)
+
+    /**
+     * Инвертированный цвет обводки предупреждение
+     */
+    public val OutlineInverseWarningHover: Color = Color(0xFFFCE0CF)
+
+    /**
+     * Инвертированный цвет обводки предупреждение
+     */
+    public val OutlineInverseWarning: Color = Color(0xFFF8AD80)
+
+    /**
+     * Инвертированный цвет обводки информация
+     */
+    public val OutlineInverseInfo: Color = Color(0xFF9BCAF8)
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccentMinorHover: Color = Color(0xFF055C4C)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val SurfaceOnDarkSolidDefault: Color = Color(0xFFF6F2F0)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightAccentMinorActive: Color = Color(0xFFBFEDE1)
+
+    /**
+     * Основной цвет текста
+     */
+    public val TextDefaultPrimaryHover: Color = Color(0x9715110F)
+
+    /**
+     * Основной фон на темном фоне
+     */
+    public val BackgroundDarkPrimary: Color = Color(0xFF141413)
+
+    /**
+     * Inverse Background Hardline
+     */
+    public val BackgroundInverseHardline: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный основной фон
+     */
+    public val BackgroundInversePrimary: Color = Color(0xFF141413)
+
+    /**
+     * Light Background Hardline
+     */
+    public val BackgroundLightHardline: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Вторичный фон на светлом фоне
+     */
+    public val BackgroundLightSecondary: Color = Color(0xFFF6F2F0)
+
+    /**
+     * Акцентный цвет обводки
+     */
+    public val OutlineDefaultAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultDeep: Color = Color(0xFFA1A09F)
+
+    /**
+     * Outline Default
+     */
+    public val OutlineDefaultDefault: Color = Color(0xFFffffff)
+
+    /**
+     * Default Active Default
+     */
+    public val OutlineDefaultDefaultActive: Color = Color(0xFFE6E6E6)
+
+    /**
+     * Default Hover Default
+     */
+    public val OutlineDefaultDefaultHover: Color = Color(0xFFCCCCCC)
+
+    /**
+     * New description
+     */
+    public val OutlineDefaultTransparentWhite: Color = Color(0x66FFFFFF)
+
+    /**
+     * Инвертированный акцентный цвет обводки
+     */
+    public val OutlineInverseAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * Инвертированный акцентный цвет обводки
+     */
+    public val OutlineInverseAccentHover: Color = Color(0xFF0EE1B7)
+
+    /**
+     * Inverse Outline Default
+     */
+    public val OutlineInverseDefault: Color = Color(0xFF383838)
+
+    /**
+     * Default Active Inverse
+     */
+    public val OutlineInverseDefaultActive: Color = Color(0xFF292929)
+
+    /**
+     * Default Hover On Light
+     */
+    public val OutlineOnLightDefaultHover: Color = Color(0xFFCCCCCC)
+
+    /**
+     * Primary Hover On Light
+     */
+    public val OutlineOnLightPrimaryHover: Color = Color(0xFFADA39F)
+
+    /**
+     * Blue Text Accent Hover Default
+     */
+    public val PersonasDefaultBlueTextAccentHover: Color = Color(0xFF1477E1)
+
+    /**
+     * Green Text Accent Hover Default
+     */
+    public val PersonasDefaultGreenTextAccentHover: Color = Color(0xFF8CDECA)
+
+    /**
+     * Indigo Text Accent Hover Default
+     */
+    public val PersonasDefaultIndigoTextAccentHover: Color = Color(0xFF000000)
+
+    /**
+     * Sea Blue Text Accent Hover Default
+     */
+    public val PersonasDefaultSeaBlueTextAccentHover: Color = Color(0xFF000000)
+
+    /**
+     * Blue Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkBlueTextAccentHover: Color = Color(0xFFC3DDF9)
+
+    /**
+     * Olive Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkOliveTextAccentHover: Color = Color(0xFFA6D4A5)
+
+    /**
+     * Sea Blue Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkSeaBlueTextAccentHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Violet Text Accent Hover On Dark
+     */
+    public val PersonasOnDarkVioletTextAccentHover: Color = Color(0xFFE9B6F2)
+
+    /**
+     * Indigo Text Accent Hover On Light
+     */
+    public val PersonasOnLightIndigoTextAccentHover: Color = Color(0xFF000000)
+
+    /**
+     * Pink Text Accent Hover On Light
+     */
+    public val PersonasOnLightPinkTextAccentHover: Color = Color(0xFFE47777)
+
+    /**
+     * Sea Blue Text Accent Hover On Light
+     */
+    public val PersonasOnLightSeaBlueTextAccentHover: Color = Color(0xFF00D9E0)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccentMinorHover: Color = Color(0xFFC7F0E5)
+
+    /**
+     * Accent Secondary Hover Inverse
+     */
+    public val SurfaceInverseAccentSecondaryHover: Color = Color(0xFF70CDB7)
+
+    /**
+     * Accent Secondary Hover On Dark
+     */
+    public val SurfaceOnDarkAccentSecondaryHover: Color = Color(0xFF70CDB7)
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentDeepHover: Color = Color(0xB3A2A1A0)
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val SurfaceOnLightTransparentSecondaryHover: Color = Color(0x1A15110F)
+
+    /**
+     * Акцентный цвет
+     */
+    public val TextDefaultAccentHover: Color = Color(0xFF0DB593)
+
+    /**
+     * Primary Active Inverse
+     */
+    public val OutlineInversePrimaryActive: Color = Color(0xFF2B2827)
+
+    /**
+     * New description
+     */
+    public val OutlineInverseTransparentWhiteActive: Color = Color(0x49FFFFFF)
+
+    /**
+     * Акцентный цвет обводки на темном фоне
+     */
+    public val OutlineOnDarkAccentActive: Color = Color(0xFF099579)
+
+    /**
+     * Default Active On Dark
+     */
+    public val OutlineOnDarkDefaultActive: Color = Color(0xFF292929)
+
+    /**
+     * Primary Active On Dark
+     */
+    public val OutlineOnDarkPrimaryActive: Color = Color(0xFF2B2827)
+
+    /**
+     * Ochre Text Accent Active Default
+     */
+    public val PersonasDefaultOchreTextAccentActive: Color = Color(0xFFAA4A0E)
+
+    /**
+     * Olive Text Accent Active Default
+     */
+    public val PersonasDefaultOliveTextAccentActive: Color = Color(0xFF179315)
+
+    /**
+     * Violet Text Accent Active Default
+     */
+    public val PersonasDefaultVioletTextAccentActive: Color = Color(0xFFD679E6)
+
+    /**
+     * Sea Blue Text Accent Active Inverse
+     */
+    public val PersonasInverseSeaBlueTextAccentActive: Color = Color(0xFF00A8AD)
+
+    /**
+     * Violet Text Accent Active Inverse
+     */
+    public val PersonasInverseVioletTextAccentActive: Color = Color(0xFFD982E8)
+
+    /**
+     * Green Text Accent Active On Light
+     */
+    public val PersonasOnLightGreenTextAccentActive: Color = Color(0xFF04AF87)
+
+    /**
+     * Ochre Text Accent Active On Light
+     */
+    public val PersonasOnLightOchreTextAccentActive: Color = Color(0xFFAA4A0E)
+
+    /**
+     * Violet Text Accent Active On Light
+     */
+    public val PersonasOnLightVioletTextAccentActive: Color = Color(0xFF81288F)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccentMinorActive: Color = Color(0xFFBFEDE1)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryBrightnessHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Transparent Navi Active Default
+     */
+    public val SurfaceDefaultTransparentNaviActive: Color = Color(0xADFFFFFF)
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccentActive: Color = Color(0xFF0A9E81)
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccentMinorActive: Color = Color(0xFF043F34)
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidSecondaryActive: Color = Color(0xFF242424)
+
+    /**
+     * Transparent Accent Minor Active On Light
+     */
+    public val SurfaceOnLightTransparentAccentMinorActive: Color = Color(0x520BA888)
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val TextOnDarkAccentActive: Color = Color(0xFF4ABFA4)
+
+    /**
+     * Акцентный цвет обводки на светлом фоне
+     */
+    public val OutlineOnLightAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * On Light Outline Primary
+     */
+    public val OutlineOnLightPrimary: Color = Color(0xFFDDD9D7)
+
+    /**
+     * Inverse Personas Sea Blue Text Accent
+     */
+    public val PersonasInverseSeaBlueTextAccent: Color = Color(0xFF00898D)
+
+    /**
+     * Акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * Цвет фона поверхности/контрола информация
+     */
+    public val SurfaceDefaultInfo: Color = Color(0xFF3776BC)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardBrightnessActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceDefaultSolidDefault: Color = Color(0xFF15110F)
+
+    /**
+     * Surface Transparent Navi
+     */
+    public val SurfaceDefaultTransparentNavi: Color = Color(0x99FFFFFF)
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccent: Color = Color(0xFF0BA686)
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimary: Color = Color(0xFF232323)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccentMinor: Color = Color(0xFF04473B)
+
+    /**
+     * Фон поверхности/контрола без заливки на светлом фоне
+     */
+    public val SurfaceOnLightClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * Основной цвет текста
+     */
+    public val TextDefaultPrimaryBrightnessActive: Color = Color(0xC4171717)
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val TextInverseAccent: Color = Color(0xFF61C8B0)
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val TextOnDarkAccent: Color = Color(0xFF61C8B0)
+
+    /**
+     * Dark Background Hardline
+     */
+    public val BackgroundDarkHardline: Color = Color(0xFF000000)
+
+    /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCardBrightnessHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultSolidPrimaryBrightness: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceInverseSolidDefault: Color = Color(0xFFF6F2F0)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCardBrightnessActive: Color = Color(0xFF212121)
+
+    /**
+     * Сплошной наборный текст на темном фоне
+     */
+    public val TextOnDarkParagraphActive: Color = Color(0x93F5F1EF)
+
+    /**
+     * New description
+     */
+    public val OverlayDefaultMedium: Color = Color(0x52000000)
+
+    /**
+     * New description
+     */
+    public val OverlayInverseMedium: Color = Color(0x29000000)
+
+    /**
+     * New description
+     */
+    public val OverlayOnDarkMedium: Color = Color(0x29000000)
+
+    /**
+     * New description
+     */
+    public val OverlayOnLightMedium: Color = Color(0x52000000)
 }
