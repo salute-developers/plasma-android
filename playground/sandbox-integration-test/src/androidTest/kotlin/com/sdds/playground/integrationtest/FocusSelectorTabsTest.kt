@@ -18,7 +18,7 @@ class FocusSelectorTabsTest {
             .selectTabsTab()
             .checkTabsTabContentVisible()
             .checkTabsFocusStateNotFocused()
-            .pressTab(5)
+            .pressTab()
             .checkTabsFocusStateFocused()
             .checkTabsFocusPassed()
     }
@@ -29,7 +29,7 @@ class FocusSelectorTabsTest {
             .clickShowAll()
             .selectTabsTab()
             .checkTabsTabContentVisible()
-            .pressTab(5)
+            .pressTab()
             .checkTabsFocusStateFocused()
             .clearFocus()
             .checkTabsFocusStateNotFocused()

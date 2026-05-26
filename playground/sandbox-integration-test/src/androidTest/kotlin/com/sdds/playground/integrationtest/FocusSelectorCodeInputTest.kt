@@ -18,7 +18,7 @@ class FocusSelectorCodeInputTest {
             .selectCodeInputTab()
             .checkCodeInputTabContentVisible()
             .checkCodeInputFocusStateNotFocused()
-            .pressTab(times = 5)
+            .pressTab()
             .checkCodeInputFocusStateFocused()
             .checkCodeInputFocusPassed()
     }
@@ -29,7 +29,7 @@ class FocusSelectorCodeInputTest {
             .clickShowAll()
             .selectCodeInputTab()
             .checkCodeInputTabContentVisible()
-            .pressTab(times = 5)
+            .pressTab()
             .checkCodeInputFocusStateFocused()
             .clearFocus()
             .checkCodeInputFocusStateNotFocused()

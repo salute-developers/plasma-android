@@ -1,10 +1,15 @@
 package com.sdds.playground.integrationtest.components.scenario
 
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
@@ -23,6 +28,7 @@ import com.sdds.serv.styles.codeinput.M
 internal fun CodeInputFocusCase(
     isFocused: Boolean,
     interactionSource: MutableInteractionSource,
+    rootFocusRequester: FocusRequester,
     onFocusChanged: (Boolean) -> Unit,
     onClearFocus: () -> Unit,
 ) {
@@ -31,6 +37,12 @@ internal fun CodeInputFocusCase(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Text(text = "CodeInput")
+        Box(
+            modifier = Modifier
+                .size(1.dp)
+                .focusRequester(rootFocusRequester)
+                .focusable(),
+        )
         CodeInput(
             modifier = Modifier
                 .onFocusChanged { onFocusChanged(it.isFocused) }

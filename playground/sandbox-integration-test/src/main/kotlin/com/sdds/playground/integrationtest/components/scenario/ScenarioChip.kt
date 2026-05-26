@@ -3,10 +3,14 @@ package com.sdds.playground.integrationtest.components.scenario
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
@@ -31,6 +35,7 @@ import com.sdds.serv.styles.chipgroup.M
 internal fun ChipFocusCase(
     isFocused: Boolean,
     interactionSource: MutableInteractionSource,
+    rootFocusRequester: FocusRequester,
     onFocusChanged: (Boolean) -> Unit,
     onClearFocus: () -> Unit,
 ) {
@@ -39,6 +44,12 @@ internal fun ChipFocusCase(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Text(text = "Chip")
+        Box(
+            modifier = Modifier
+                .size(1.dp)
+                .focusRequester(rootFocusRequester)
+                .focusable(),
+        )
         Chip(
             modifier = Modifier
                 .onFocusChanged { onFocusChanged(it.isFocused) }
@@ -63,6 +74,7 @@ internal fun ChipFocusCase(
 @Composable
 internal fun ChipGroupFocusCase(
     isFocused: Boolean,
+    rootFocusRequester: FocusRequester,
     onFocusChanged: (Boolean) -> Unit,
     onClearFocus: () -> Unit,
 ) {
@@ -71,6 +83,12 @@ internal fun ChipGroupFocusCase(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Text(text = "ChipGroup")
+        Box(
+            modifier = Modifier
+                .size(1.dp)
+                .focusRequester(rootFocusRequester)
+                .focusable(),
+        )
         ChipGroup(
             modifier = Modifier.testTag(FocusSelectorTags.CHIP_GROUP),
             style = ChipGroupDense.M.Default.style(),

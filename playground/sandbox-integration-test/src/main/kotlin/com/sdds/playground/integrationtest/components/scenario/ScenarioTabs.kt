@@ -4,7 +4,9 @@ import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -12,6 +14,8 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
@@ -110,6 +114,7 @@ internal fun ScenarioTabs(
 @Composable
 internal fun TabsFocusCase(
     isFocused: Boolean,
+    rootFocusRequester: FocusRequester,
     onFocusChanged: (Boolean) -> Unit,
     onClearFocus: () -> Unit,
 ) {
@@ -125,6 +130,12 @@ internal fun TabsFocusCase(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Text(text = "Tabs")
+        Box(
+            modifier = Modifier
+                .size(1.dp)
+                .focusRequester(rootFocusRequester)
+                .focusable(),
+        )
         ScenarioTabs(
             items = tabs,
             selectedIndex = selectedIndex,

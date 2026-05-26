@@ -5,11 +5,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.style.style
@@ -31,6 +33,7 @@ import com.sdds.playground.integrationtest.uistate.ScenarioCheckUiState
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Secondary
 import com.sdds.serv.styles.basicbutton.Xs
+import kotlinx.coroutines.android.awaitFrame
 
 private enum class FocusSelectorTab(
     val title: String,
@@ -104,6 +107,12 @@ internal fun FocusSelectorScenarioScreen() {
     val buttonInteractionSource = remember { MutableInteractionSource() }
     val chipInteractionSource = remember { MutableInteractionSource() }
     val codeInputInteractionSource = remember { MutableInteractionSource() }
+    val tabFocusAnchorRequester = remember { FocusRequester() }
+
+    LaunchedEffect(selectedTab) {
+        awaitFrame()
+        tabFocusAnchorRequester.requestFocus()
+    }
 
     val checks = focusSelectorChecks(
         wasButtonFocused = wasButtonFocused,
@@ -212,6 +221,7 @@ internal fun FocusSelectorScenarioScreen() {
                         focusManager.clearFocus(force = true)
                         isTabsFocused = false
                     },
+                    tabFocusAnchorRequester = tabFocusAnchorRequester,
                 )
             }
         }
@@ -248,17 +258,20 @@ private fun FocusSelectorTabContent(
     onClearRadioBoxGroupFocus: () -> Unit,
     onClearCodeInputFocus: () -> Unit,
     onClearTabsFocus: () -> Unit,
+    tabFocusAnchorRequester: FocusRequester,
 ) {
     when (selectedTab) {
         FocusSelectorTab.Button -> ButtonFocusCase(
             isFocused = isButtonFocused,
             interactionSource = buttonInteractionSource,
+            rootFocusRequester = tabFocusAnchorRequester,
             onFocusChanged = onButtonFocusChanged,
             onClearFocus = onClearButtonFocus,
         )
 
         FocusSelectorTab.ButtonGroup -> ButtonGroupFocusCase(
             isFocused = isButtonGroupFocused,
+            rootFocusRequester = tabFocusAnchorRequester,
             onFocusChanged = onButtonGroupFocusChanged,
             onClearFocus = onClearButtonFocus,
         )
@@ -266,12 +279,14 @@ private fun FocusSelectorTabContent(
         FocusSelectorTab.Chip -> ChipFocusCase(
             isFocused = isChipFocused,
             interactionSource = chipInteractionSource,
+            rootFocusRequester = tabFocusAnchorRequester,
             onFocusChanged = onChipFocusChanged,
             onClearFocus = onClearChipFocus,
         )
 
         FocusSelectorTab.ChipGroup -> ChipGroupFocusCase(
             isFocused = isChipGroupFocused,
+            rootFocusRequester = tabFocusAnchorRequester,
             onFocusChanged = onChipGroupFocusChanged,
             onClearFocus = onClearChipFocus,
         )
@@ -279,6 +294,7 @@ private fun FocusSelectorTabContent(
         FocusSelectorTab.TextField -> TextFieldFocusCase(
             value = textFieldValue,
             isFocused = isTextFieldFocused,
+            rootFocusRequester = tabFocusAnchorRequester,
             onValueChange = onTextFieldValueChange,
             onFocusChanged = onTextFieldFocusChanged,
             onClearFocus = onClearTextFieldFocus,
@@ -286,6 +302,7 @@ private fun FocusSelectorTabContent(
 
         FocusSelectorTab.RadioBoxGroup -> RadioBoxGroupFocusCase(
             isFocused = isRadioBoxGroupFocused,
+            rootFocusRequester = tabFocusAnchorRequester,
             onFocusChanged = onRadioBoxGroupFocusChanged,
             onClearFocus = onClearRadioBoxGroupFocus,
         )
@@ -293,12 +310,14 @@ private fun FocusSelectorTabContent(
         FocusSelectorTab.CodeInput -> CodeInputFocusCase(
             isFocused = isCodeInputFocused,
             interactionSource = codeInputInteractionSource,
+            rootFocusRequester = tabFocusAnchorRequester,
             onFocusChanged = onCodeInputFocusChanged,
             onClearFocus = onClearCodeInputFocus,
         )
 
         FocusSelectorTab.Tabs -> TabsFocusCase(
             isFocused = isTabsFocused,
+            rootFocusRequester = tabFocusAnchorRequester,
             onFocusChanged = onTabsFocusChanged,
             onClearFocus = onClearTabsFocus,
         )

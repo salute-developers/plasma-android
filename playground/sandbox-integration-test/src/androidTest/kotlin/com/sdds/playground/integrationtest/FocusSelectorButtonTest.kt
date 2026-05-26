@@ -14,13 +14,8 @@ class FocusSelectorButtonTest {
     @Test
     fun test_button_receives_focus_after_tab_press() {
         FocusSelectorPage(composeTestRule)
-            .selectButtonTab()
             .checkButtonTabContentVisible()
             .checkButtonFocusStateNotFocused()
-            .pressTab()
-            .pressTab()
-            .pressTab()
-            .pressTab()
             .pressTab()
             .checkButtonFocusStateFocused()
             .checkButtonFocusRequestPassed()
@@ -29,12 +24,7 @@ class FocusSelectorButtonTest {
     @Test
     fun test_button_focus_can_be_cleared() {
         FocusSelectorPage(composeTestRule)
-            .selectButtonTab()
             .checkButtonTabContentVisible()
-            .pressTab()
-            .pressTab()
-            .pressTab()
-            .pressTab()
             .pressTab()
             .checkButtonFocusStateFocused()
             .clearFocus()

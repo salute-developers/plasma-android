@@ -1,10 +1,15 @@
 package com.sdds.playground.integrationtest.components.scenario
 
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.input.VisualTransformation
@@ -53,6 +58,7 @@ internal fun ScenarioTextField(
 internal fun TextFieldFocusCase(
     value: String,
     isFocused: Boolean,
+    rootFocusRequester: FocusRequester,
     onValueChange: (String) -> Unit,
     onFocusChanged: (Boolean) -> Unit,
     onClearFocus: () -> Unit,
@@ -62,6 +68,12 @@ internal fun TextFieldFocusCase(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Text(text = "TextField")
+        Box(
+            modifier = Modifier
+                .size(1.dp)
+                .focusRequester(rootFocusRequester)
+                .focusable(),
+        )
         ScenarioTextField(
             state = TextFieldUiState(
                 value = value,

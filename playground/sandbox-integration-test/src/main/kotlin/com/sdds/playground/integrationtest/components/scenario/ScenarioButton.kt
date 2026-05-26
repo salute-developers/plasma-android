@@ -3,11 +3,15 @@ package com.sdds.playground.integrationtest.components.scenario
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
@@ -107,6 +111,7 @@ internal fun ScenarioButtonGroup(
 internal fun ButtonFocusCase(
     isFocused: Boolean,
     interactionSource: MutableInteractionSource,
+    rootFocusRequester: FocusRequester,
     onFocusChanged: (Boolean) -> Unit,
     onClearFocus: () -> Unit,
 ) {
@@ -115,6 +120,12 @@ internal fun ButtonFocusCase(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Text(text = "Button")
+        Box(
+            modifier = Modifier
+                .size(1.dp)
+                .focusRequester(rootFocusRequester)
+                .focusable(),
+        )
         ScenarioButton(
             state = ButtonUiState(
                 label = "Фокусируемая кнопка",
@@ -137,6 +148,7 @@ internal fun ButtonFocusCase(
 @Composable
 internal fun ButtonGroupFocusCase(
     isFocused: Boolean,
+    rootFocusRequester: FocusRequester,
     onFocusChanged: (Boolean) -> Unit,
     onClearFocus: () -> Unit,
 ) {
@@ -145,6 +157,12 @@ internal fun ButtonGroupFocusCase(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Text(text = "ButtonGroup")
+        Box(
+            modifier = Modifier
+                .size(1.dp)
+                .focusRequester(rootFocusRequester)
+                .focusable(),
+        )
         ScenarioButtonGroup(
             state = ButtonUiState(
                 label = "Buttons",
