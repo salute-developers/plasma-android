@@ -73,7 +73,7 @@ internal fun BaseTabItem(
                 minHeight = style.dimensions.minHeight,
                 minWidth = style.dimensions.minWidth,
             )
-            .selection(isSelected, motion.context.interactionSource)
+            .selection(isSelected, motion.context.semanticStateSource)
             .then(clickableModifier)
             .then(modifier)
             .backgroundBrush(

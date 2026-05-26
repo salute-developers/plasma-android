@@ -16,7 +16,7 @@ fun StatefulValue<TextStyle>.getTextStyleAsState(
     defaultValue: TextStyle? = null,
 ): State<TextStyle> {
     if (!isStateful()) return rememberUpdatedState(getDefaultValue())
-    val stateSnapshot = context.stateSnapshotProvider.provide()
+    val stateSnapshot = context.stateSnapshotProvider.provide(getStates())
     return when (motionProperty) {
         is TransitionMotionProperty -> evaluateTransition(
             evaluator = genericTextStyleEvaluator(),

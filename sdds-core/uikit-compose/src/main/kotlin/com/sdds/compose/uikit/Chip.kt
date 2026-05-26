@@ -10,11 +10,14 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.semantics.Role
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.icontext.BaseIconText
+import com.sdds.compose.uikit.motion.components.icontext.rememberIconTextMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент Chip с поддержкой кликабельности
@@ -40,12 +43,16 @@ fun Chip(
     enabled: Boolean = true,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
     val isFocused = interactionSource.collectIsFocusedAsState()
     val labelStyles = style.labelStyle.asStatefulValue()
     val dimensionsSet = style.dimensions.toDimensionsSet()
     val colorsSet = style.colors.toColorsSet()
-    val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
+    val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(
+        interactionSource,
+        semanticStateSource,
+    )
     BaseIconText(
         modifier = modifier
             .focusSelector(
@@ -68,7 +75,9 @@ fun Chip(
         labelStyle = labelStyles,
         startContent = startContent,
         endContent = endContent,
-        interactionSource = interactionSource,
+        motion = rememberIconTextMotion(
+            motionContext = rememberMotionContext(semanticStateSource, interactionSource),
+        ),
     )
 }
 
@@ -85,6 +94,7 @@ fun Chip(
  * @param enabled включен ли компонент
  * @param indication [Indication]
  * @param interactionSource источник взаимодействий
+ * @param semanticStateSource источник семантических состояний
  */
 @Composable
 fun Chip(
@@ -98,12 +108,16 @@ fun Chip(
     enabled: Boolean = true,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
     val isFocused = interactionSource.collectIsFocusedAsState()
     val labelStyles = style.labelStyle.asStatefulValue()
     val dimensionsSet = style.dimensions.toDimensionsSet()
     val colorsSet = style.colors.toColorsSet()
-    val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
+    val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(
+        interactionSource,
+        semanticStateSource,
+    )
     BaseIconText(
         modifier = modifier
             .focusSelector(
@@ -121,14 +135,16 @@ fun Chip(
                 role = Role.Button,
                 interactionSource = interactionSource,
             )
-            .selection(isSelected, interactionSource),
+            .selection(isSelected, semanticStateSource),
         dimensionsSet = dimensionsSet,
         brushesSet = colorsSet,
         labelContent = label,
         labelStyle = labelStyles,
         startContent = startContent,
         endContent = endContent,
-        interactionSource = interactionSource,
+        motion = rememberIconTextMotion(
+            motionContext = rememberMotionContext(semanticStateSource, interactionSource),
+        ),
     )
 }
 

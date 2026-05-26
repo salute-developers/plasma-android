@@ -18,6 +18,7 @@ import com.sdds.compose.uikit.internal.tabs.BaseTabItem
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.tabs.LocalTabItemMotionStyle
 import com.sdds.compose.uikit.motion.components.tabs.TabItemMotionStyle
+import com.sdds.compose.uikit.motion.components.tabs.rememberTabItemMotion
 import com.sdds.compose.uikit.motion.rememberMotion
 import com.sdds.compose.uikit.motion.rememberMotionContext
 
@@ -51,7 +52,7 @@ fun TabItem(
     endContent: (@Composable () -> Unit)? = null,
     action: (@Composable () -> Unit)? = null,
     onClickLabel: String? = null,
-    motion: Motion<TabItemMotionStyle> = rememberMotion(LocalTabItemMotionStyle.current),
+    motion: Motion<TabItemMotionStyle> = rememberTabItemMotion(),
     content: @Composable () -> Unit,
 ) {
     BaseTabItem(

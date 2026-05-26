@@ -5,7 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -20,6 +21,7 @@ import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.CellDimensions
@@ -35,7 +37,7 @@ import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import com.sdds.compose.uikit.motion.Motion
@@ -59,12 +61,6 @@ internal fun BaseCell(
     endContent: (@Composable RowScope.() -> Unit)? = null,
     motion: Motion<CellMotionStyle> = rememberCellMotion(),
 ) {
-    val interactionSource = motion.context.interactionSource
-    val iconTint = style.colors.titleBrush.getBrushAsState(
-        motion.context,
-        motion.style.titleColor,
-    )
-
     CompositionLocalProvider(
         LocalAvatarStyle provides style.avatarStyle,
         LocalIconButtonStyle provides style.iconButtonStyle,
@@ -78,15 +74,22 @@ internal fun BaseCell(
             measurePolicy = remember(gravity) { BaseCellMeasurePolicy(gravity) },
             content = {
                 startContent?.let {
-                    val contentPaddingStart = dimensions.contentPaddingStartValues.getValue(interactionSource)
                     Row(
-                        modifier = Modifier
-                            .layoutId("StartContent")
-                            .padding(end = contentPaddingStart),
+                        modifier = Modifier.layoutId("StartContent"),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
+                        val iconTint = style.colors.titleBrush.getBrushAsState(
+                            motion.context,
+                            motion.style.titleColor,
+                        )
                         CompositionLocalProvider(LocalTintBrushProducer provides { iconTint.value }) {
                             startContent()
+                        }
+
+                        if (centerContent != null || endContent != null) {
+                            val contentPaddingStart by dimensions.contentPaddingStartValues
+                                .getValueAsState(motion.context)
+                            Spacer(Modifier.width(contentPaddingStart))
                         }
                     }
                 }
@@ -99,13 +102,19 @@ internal fun BaseCell(
                     ) { centerContent() }
                 }
                 if (endContent != null || (disclosureEnabled && disclosureContent != null)) {
-                    val contentPaddingEnd = dimensions.contentPaddingEndValues.getValue(interactionSource)
                     Row(
-                        modifier = Modifier
-                            .padding(start = contentPaddingEnd)
-                            .layoutId("EndContent"),
+                        modifier = Modifier.layoutId("EndContent"),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
+                        if (centerContent != null || startContent != null) {
+                            val contentPaddingEnd by dimensions.contentPaddingEndValues
+                                .getValueAsState(motion.context)
+                            Spacer(Modifier.width(contentPaddingEnd))
+                        }
+                        val iconTint = style.colors.titleBrush.getBrushAsState(
+                            motion.context,
+                            motion.style.titleColor,
+                        )
                         CompositionLocalProvider(LocalTintBrushProducer provides { iconTint.value }) {
                             endContent?.invoke(this)
                         }
@@ -140,10 +149,12 @@ private class BaseCellMeasurePolicy(
             .firstOrNull { it.layoutId == "CenterContent" }
             ?.measure(looseConstraints.offset(-startContent.widthOrZero() - endContent.widthOrZero()))
 
-        val height = maxOf(
-            startContent.heightOrZero(),
-            centerContent.heightOrZero(),
-            endContent.heightOrZero(),
+        val height = constraints.constrainHeight(
+            maxOf(
+                startContent.heightOrZero(),
+                centerContent.heightOrZero(),
+                endContent.heightOrZero(),
+            ),
         )
 
         val width = constraints.constrainWidth(

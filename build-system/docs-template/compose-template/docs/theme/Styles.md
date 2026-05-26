@@ -108,7 +108,50 @@ val LocalButtonStyle = compositionLocalOf {
 - участвовать в теме,
 - локально переопределяться внутри отдельного блока интерфейса.
 
-### 3. `StyleBuilder` собирает финальный объект стиля
+### 3. Слоты получают стиль через `CompositionLocalProvider`
+
+Многие компоненты принимают часть содержимого через composable-слоты: `icon`, `label`, `title`, `startContent`, `endContent`, `counter`, `badge` и другие. Это нужно не только для гибкости API, но и для корректной стилизации вложенного контента.
+
+Компонент сам знает, какой цвет, типографику, размер или вложенный стиль должен получить конкретный слот. Поэтому перед вызовом слота он может обернуть его в `CompositionLocalProvider` и предоставить нужные значения:
+
+- `LocalTextStyle` для `Text`;
+- `LocalTintBrushProducer` или `LocalTint` для `Icon`;
+- `LocalCounterStyle`, `LocalBadgeStyle`, `LocalIndicatorStyle` и другие локалы для вложенных компонентов.
+
+За счёт этого потребителю обычно не нужно вручную стилизовать `Text`, `Icon` или вложенный `Counter` внутри слота. Достаточно использовать компоненты библиотеки, которые читают свои значения по умолчанию из composition locals.
+
+Например, если компонент предоставляет стиль для icon-слота, можно писать так:
+
+```kotlin
+SomeComponent(
+    icon = {
+        Icon(
+            painter = painterResource(id = R.drawable.ic_add),
+            contentDescription = null,
+        )
+    },
+)
+```
+
+А не так:
+
+```kotlin
+SomeComponent(
+    icon = {
+        Icon(
+            painter = painterResource(id = R.drawable.ic_add),
+            contentDescription = null,
+            tint = myManuallyCalculatedColor,
+        )
+    },
+)
+```
+
+Ручная стилизация внутри слота нужна только если вы осознанно хотите переопределить стиль, который задаёт родительский компонент. В остальных случаях лучше опираться на значения, которые компонент уже прокидывает через `CompositionLocalProvider`. Так слот сохраняет правильные состояния `pressed`, `focused`, `selected`, `disabled`, а generated theme продолжает управлять внешним видом централизованно.
+
+Если слот содержит не компонент из `uikit-compose`, а произвольный custom composable, он не обязан читать эти локалы автоматически. В таком случае custom composable должен сам принять нужные параметры или явно прочитать подходящий `CompositionLocal`.
+
+### 4. `StyleBuilder` собирает финальный объект стиля
 
 Builder для кнопки создаётся так:
 
