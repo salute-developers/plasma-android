@@ -98,8 +98,5 @@ public val AiHeaderEmbeddedIconButtonGroup.Xl: WrapperAiHeaderEmbeddedIconButton
     @JvmName("WrapperAiHeaderEmbeddedIconButtonGroupXl")
     get() = ButtonGroupStyle.builder(this)
         .invariantProps
-        .dimensions {
-            spacing(8.0.dp)
-        }
         .buttonStyle(AiHeaderEmbeddedIconButton.Xl.Secondary.style())
         .wrap(::WrapperAiHeaderEmbeddedIconButtonGroupXl)

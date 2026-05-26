@@ -27,6 +27,7 @@ import com.sdds.compose.uikit.LocalChipStyle
 import com.sdds.compose.uikit.LocalCircularProgressBarStyle
 import com.sdds.compose.uikit.LocalCodeFieldStyle
 import com.sdds.compose.uikit.LocalCodeInputStyle
+import com.sdds.compose.uikit.LocalComboBoxStyle
 import com.sdds.compose.uikit.LocalCounterStyle
 import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalDrawerStyle
@@ -118,6 +119,8 @@ import com.sdds.serv.styles.codefield.CodeField
 import com.sdds.serv.styles.codefield.M
 import com.sdds.serv.styles.codeinput.CodeInput
 import com.sdds.serv.styles.codeinput.M
+import com.sdds.serv.styles.combobox.ComboBoxMultipleNormal
+import com.sdds.serv.styles.combobox.M
 import com.sdds.serv.styles.counter.Counter
 import com.sdds.serv.styles.counter.Default
 import com.sdds.serv.styles.counter.M
@@ -321,6 +324,7 @@ fun ThemeSetup(
             LocalTooltipStyle provides Tooltip.M.style(),
             LocalAiAnswerStyle provides AiAnswer.M.style(),
             LocalAiHeaderStyle provides AiHeader.M.Default.style(),
+            LocalComboBoxStyle provides ComboBoxMultipleNormal.M.style(),
         ) {
             content()
         }

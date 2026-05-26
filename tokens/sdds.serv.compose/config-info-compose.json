@@ -61092,6 +61092,474 @@
          ]
       },
       {
+         "key": "combo-box",
+         "coreName": "ComboBox",
+         "styleName": "ComboBoxSingleNormal",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "xl"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.combobox",
+            "stylesClassName": "ComboBoxStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxStyles",
+            "receiverClassName": "ComboBoxStyles.SingleNormal",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxStyles.SingleNormal",
+            "returnTypeName": "ComboBoxStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ComboBoxStyle",
+            "modifyReceiverTypeName": "ComboBoxStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ComboBoxStyleBuilder",
+            "holderName": "SingleNormal",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ComboBoxSingleNormalSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxSingleNormalSize",
+                  "defaultValue": {
+                     "value": "xl",
+                     "codeName": "Xl"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "ComboBoxSingleNormal.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "ComboBoxSingleNormal.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ComboBoxSingleNormal.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "ComboBoxSingleNormal.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "ComboBoxSingleNormal.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "combo-box",
+         "coreName": "ComboBox",
+         "styleName": "ComboBoxSingleTight",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "xl"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.combobox",
+            "stylesClassName": "ComboBoxStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxStyles",
+            "receiverClassName": "ComboBoxStyles.SingleTight",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxStyles.SingleTight",
+            "returnTypeName": "ComboBoxStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ComboBoxStyle",
+            "modifyReceiverTypeName": "ComboBoxStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ComboBoxStyleBuilder",
+            "holderName": "SingleTight",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ComboBoxSingleTightSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxSingleTightSize",
+                  "defaultValue": {
+                     "value": "xl",
+                     "codeName": "Xl"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "ComboBoxSingleTight.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "ComboBoxSingleTight.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ComboBoxSingleTight.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "ComboBoxSingleTight.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "ComboBoxSingleTight.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "combo-box",
+         "coreName": "ComboBox",
+         "styleName": "ComboBoxMultipleNormal",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "xl"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.combobox",
+            "stylesClassName": "ComboBoxStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxStyles",
+            "receiverClassName": "ComboBoxStyles.MultipleNormal",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxStyles.MultipleNormal",
+            "returnTypeName": "ComboBoxStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ComboBoxStyle",
+            "modifyReceiverTypeName": "ComboBoxStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ComboBoxStyleBuilder",
+            "holderName": "MultipleNormal",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ComboBoxMultipleNormalSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxMultipleNormalSize",
+                  "defaultValue": {
+                     "value": "xl",
+                     "codeName": "Xl"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "ComboBoxMultipleNormal.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "ComboBoxMultipleNormal.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ComboBoxMultipleNormal.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "ComboBoxMultipleNormal.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "ComboBoxMultipleNormal.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "combo-box",
+         "coreName": "ComboBox",
+         "styleName": "ComboBoxMultipleTight",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "xl"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.combobox",
+            "stylesClassName": "ComboBoxStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxStyles",
+            "receiverClassName": "ComboBoxStyles.MultipleTight",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxStyles.MultipleTight",
+            "returnTypeName": "ComboBoxStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ComboBoxStyle",
+            "modifyReceiverTypeName": "ComboBoxStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ComboBoxStyleBuilder",
+            "holderName": "MultipleTight",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ComboBoxMultipleTightSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.combobox.ComboBoxMultipleTightSize",
+                  "defaultValue": {
+                     "value": "xl",
+                     "codeName": "Xl"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "ComboBoxMultipleTight.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "ComboBoxMultipleTight.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ComboBoxMultipleTight.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "ComboBoxMultipleTight.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "ComboBoxMultipleTight.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "ai-header",
          "coreName": "AiHeader",
          "styleName": "AiHeader",

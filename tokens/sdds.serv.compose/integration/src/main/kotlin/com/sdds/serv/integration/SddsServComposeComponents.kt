@@ -482,6 +482,15 @@ object SddsServComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.ComboBox,
+                mapOf(
+                    "ComboBoxSingleNormal" to SddsServComboBoxSingleNormalVariationsCompose,
+                    "ComboBoxSingleTight" to SddsServComboBoxSingleTightVariationsCompose,
+                    "ComboBoxMultipleNormal" to SddsServComboBoxMultipleNormalVariationsCompose,
+                    "ComboBoxMultipleTight" to SddsServComboBoxMultipleTightVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.SelectItem,
                 mapOf(
                     "SelectItemSingleNormal" to SddsServSelectItemSingleNormalVariationsCompose,
