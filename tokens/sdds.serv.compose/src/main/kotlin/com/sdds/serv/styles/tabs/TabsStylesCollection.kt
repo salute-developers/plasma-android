@@ -94,7 +94,7 @@ public enum class TabsDefaultOrientation {
 /**
  * Возможные значения свойства size для icon-tabs
  */
-public enum class TabsIconTabsSize {
+public enum class IconTabsSize {
     L,
     M,
     S,
@@ -104,7 +104,7 @@ public enum class TabsIconTabsSize {
 /**
  * Возможные значения свойства orientation для icon-tabs
  */
-public enum class TabsIconTabsOrientation {
+public enum class IconTabsOrientation {
     Default,
     Horizontal,
     Vertical,
@@ -204,29 +204,29 @@ public fun TabsStyles.Default.style(
  * Возвращает экземпляр [TabsStyles] для icon-tabs
  */
 public fun TabsStyles.IconTabs.resolve(
-    size: TabsIconTabsSize = TabsIconTabsSize.L,
-    orientation: TabsIconTabsOrientation = TabsIconTabsOrientation.Default,
+    size: IconTabsSize = IconTabsSize.L,
+    orientation: IconTabsOrientation = IconTabsOrientation.Default,
 ): TabsStyles = when {
-    size == TabsIconTabsSize.L && orientation == TabsIconTabsOrientation.Vertical ->
+    size == IconTabsSize.L && orientation == IconTabsOrientation.Vertical ->
         TabsStyles.IconTabsLVertical
-    size == TabsIconTabsSize.L && orientation == TabsIconTabsOrientation.Horizontal ->
+    size == IconTabsSize.L && orientation == IconTabsOrientation.Horizontal ->
         TabsStyles.IconTabsLHorizontal
-    size == TabsIconTabsSize.M && orientation == TabsIconTabsOrientation.Vertical ->
+    size == IconTabsSize.M && orientation == IconTabsOrientation.Vertical ->
         TabsStyles.IconTabsMVertical
-    size == TabsIconTabsSize.M && orientation == TabsIconTabsOrientation.Horizontal ->
+    size == IconTabsSize.M && orientation == IconTabsOrientation.Horizontal ->
         TabsStyles.IconTabsMHorizontal
-    size == TabsIconTabsSize.S && orientation == TabsIconTabsOrientation.Vertical ->
+    size == IconTabsSize.S && orientation == IconTabsOrientation.Vertical ->
         TabsStyles.IconTabsSVertical
-    size == TabsIconTabsSize.S && orientation == TabsIconTabsOrientation.Horizontal ->
+    size == IconTabsSize.S && orientation == IconTabsOrientation.Horizontal ->
         TabsStyles.IconTabsSHorizontal
-    size == TabsIconTabsSize.Xs && orientation == TabsIconTabsOrientation.Vertical ->
+    size == IconTabsSize.Xs && orientation == IconTabsOrientation.Vertical ->
         TabsStyles.IconTabsXsVertical
-    size == TabsIconTabsSize.Xs && orientation == TabsIconTabsOrientation.Horizontal ->
+    size == IconTabsSize.Xs && orientation == IconTabsOrientation.Horizontal ->
         TabsStyles.IconTabsXsHorizontal
-    size == TabsIconTabsSize.L -> TabsStyles.IconTabsL
-    size == TabsIconTabsSize.M -> TabsStyles.IconTabsM
-    size == TabsIconTabsSize.S -> TabsStyles.IconTabsS
-    size == TabsIconTabsSize.Xs -> TabsStyles.IconTabsXs
+    size == IconTabsSize.L -> TabsStyles.IconTabsL
+    size == IconTabsSize.M -> TabsStyles.IconTabsM
+    size == IconTabsSize.S -> TabsStyles.IconTabsS
+    size == IconTabsSize.Xs -> TabsStyles.IconTabsXs
     else -> error("Unsupported icon-tabs style combination")
 }
 
@@ -235,8 +235,8 @@ public fun TabsStyles.IconTabs.resolve(
  */
 @Composable
 public fun TabsStyles.IconTabs.style(
-    size: TabsIconTabsSize = TabsIconTabsSize.L,
-    orientation: TabsIconTabsOrientation = TabsIconTabsOrientation.Default,
+    size: IconTabsSize = IconTabsSize.L,
+    orientation: IconTabsOrientation = IconTabsOrientation.Default,
     modify: @Composable TabsStyleBuilder.() -> Unit = {},
 ): TabsStyle = resolve(size, orientation).style(modify)
 

@@ -16,11 +16,11 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.sandbox.Property
 import com.sdds.serv.styles.tabs.Horizontal
 import com.sdds.serv.styles.tabs.IconTabs
+import com.sdds.serv.styles.tabs.IconTabsOrientation
+import com.sdds.serv.styles.tabs.IconTabsSize
 import com.sdds.serv.styles.tabs.L
 import com.sdds.serv.styles.tabs.M
 import com.sdds.serv.styles.tabs.S
-import com.sdds.serv.styles.tabs.TabsIconTabsOrientation
-import com.sdds.serv.styles.tabs.TabsIconTabsSize
 import com.sdds.serv.styles.tabs.TabsStyles
 import com.sdds.serv.styles.tabs.Vertical
 import com.sdds.serv.styles.tabs.Xs
@@ -56,17 +56,17 @@ internal object SddsServIconTabsVariationsCompose : ComposeStyleProvider<TabsSty
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return TabsStyles.IconTabs.resolve(
             size = when (bindings["size"]?.toString()) {
-                "L" -> TabsIconTabsSize.L
-                "M" -> TabsIconTabsSize.M
-                "S" -> TabsIconTabsSize.S
-                "Xs" -> TabsIconTabsSize.Xs
-                else -> TabsIconTabsSize.L
+                "L" -> IconTabsSize.L
+                "M" -> IconTabsSize.M
+                "S" -> IconTabsSize.S
+                "Xs" -> IconTabsSize.Xs
+                else -> IconTabsSize.L
             },
             orientation = when (bindings["orientation"]?.toString()) {
-                "Default" -> TabsIconTabsOrientation.Default
-                "Horizontal" -> TabsIconTabsOrientation.Horizontal
-                "Vertical" -> TabsIconTabsOrientation.Vertical
-                else -> TabsIconTabsOrientation.Default
+                "Default" -> IconTabsOrientation.Default
+                "Horizontal" -> IconTabsOrientation.Horizontal
+                "Vertical" -> IconTabsOrientation.Vertical
+                else -> IconTabsOrientation.Default
             },
         ).key
     }

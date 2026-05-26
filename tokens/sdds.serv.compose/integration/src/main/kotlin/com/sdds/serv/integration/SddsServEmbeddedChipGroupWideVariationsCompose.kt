@@ -15,11 +15,11 @@ import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sandbox.Property
 import com.sdds.serv.styles.chipgroup.Accent
-import com.sdds.serv.styles.chipgroup.ChipGroupEmbeddedChipGroupWideSize
-import com.sdds.serv.styles.chipgroup.ChipGroupEmbeddedChipGroupWideView
 import com.sdds.serv.styles.chipgroup.ChipGroupStyles
 import com.sdds.serv.styles.chipgroup.Default
 import com.sdds.serv.styles.chipgroup.EmbeddedChipGroupWide
+import com.sdds.serv.styles.chipgroup.EmbeddedChipGroupWideSize
+import com.sdds.serv.styles.chipgroup.EmbeddedChipGroupWideView
 import com.sdds.serv.styles.chipgroup.L
 import com.sdds.serv.styles.chipgroup.M
 import com.sdds.serv.styles.chipgroup.Negative
@@ -79,21 +79,21 @@ internal object SddsServEmbeddedChipGroupWideVariationsCompose : ComposeStylePro
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return ChipGroupStyles.EmbeddedChipGroupWide.resolve(
             size = when (bindings["size"]?.toString()) {
-                "Xl" -> ChipGroupEmbeddedChipGroupWideSize.Xl
-                "L" -> ChipGroupEmbeddedChipGroupWideSize.L
-                "M" -> ChipGroupEmbeddedChipGroupWideSize.M
-                "S" -> ChipGroupEmbeddedChipGroupWideSize.S
-                "Xs" -> ChipGroupEmbeddedChipGroupWideSize.Xs
-                else -> ChipGroupEmbeddedChipGroupWideSize.Xl
+                "Xl" -> EmbeddedChipGroupWideSize.Xl
+                "L" -> EmbeddedChipGroupWideSize.L
+                "M" -> EmbeddedChipGroupWideSize.M
+                "S" -> EmbeddedChipGroupWideSize.S
+                "Xs" -> EmbeddedChipGroupWideSize.Xs
+                else -> EmbeddedChipGroupWideSize.Xl
             },
             view = when (bindings["view"]?.toString()) {
-                "Default" -> ChipGroupEmbeddedChipGroupWideView.Default
-                "Accent" -> ChipGroupEmbeddedChipGroupWideView.Accent
-                "Negative" -> ChipGroupEmbeddedChipGroupWideView.Negative
-                "Positive" -> ChipGroupEmbeddedChipGroupWideView.Positive
-                "Secondary" -> ChipGroupEmbeddedChipGroupWideView.Secondary
-                "Warning" -> ChipGroupEmbeddedChipGroupWideView.Warning
-                else -> ChipGroupEmbeddedChipGroupWideView.Default
+                "Default" -> EmbeddedChipGroupWideView.Default
+                "Accent" -> EmbeddedChipGroupWideView.Accent
+                "Negative" -> EmbeddedChipGroupWideView.Negative
+                "Positive" -> EmbeddedChipGroupWideView.Positive
+                "Secondary" -> EmbeddedChipGroupWideView.Secondary
+                "Warning" -> EmbeddedChipGroupWideView.Warning
+                else -> EmbeddedChipGroupWideView.Default
             },
         ).key
     }

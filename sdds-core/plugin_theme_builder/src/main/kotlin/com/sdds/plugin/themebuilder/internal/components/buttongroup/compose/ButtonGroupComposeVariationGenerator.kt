@@ -4,7 +4,9 @@ import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.button.ButtonProperties
 import com.sdds.plugin.themebuilder.internal.components.buttongroup.ButtonGroupProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -55,8 +57,7 @@ internal class ButtonGroupComposeVariationGenerator(
         ktFileBuilder: KtFileBuilder,
     ): String? {
         return props.buttonStyle?.let {
-            val buttonType = it.value.split("-").firstOrNull()
-            val buttonStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.${buttonType}button"
+            val buttonStylesPackage = it.getButtonPackageName()
             ".buttonStyle(${
                 it.value.getComponentStyle(
                     ktFileBuilder,
@@ -97,5 +98,14 @@ internal class ButtonGroupComposeVariationGenerator(
 
     private fun ButtonGroupProperties.hasDimensions(): Boolean {
         return spacing != null
+    }
+
+    private fun ComponentStyle<ButtonProperties>.getButtonPackageName(): String {
+        val buttonType = when {
+            value.contains("icon-button") || value.contains("icon") -> "iconbutton"
+            value.contains("link-button") || value.contains("link") -> "linkbutton"
+            else -> "basicbutton"
+        }
+        return "${packageResolver.getPackage(TargetPackage.STYLES)}.$buttonType"
     }
 }

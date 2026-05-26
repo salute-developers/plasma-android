@@ -15,8 +15,8 @@ import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sandbox.Property
 import com.sdds.serv.styles.list.DropdownMenuListNormal
+import com.sdds.serv.styles.list.DropdownMenuListNormalSize
 import com.sdds.serv.styles.list.L
-import com.sdds.serv.styles.list.ListDropdownMenuListNormalSize
 import com.sdds.serv.styles.list.ListStyles
 import com.sdds.serv.styles.list.M
 import com.sdds.serv.styles.list.S
@@ -42,12 +42,12 @@ internal object SddsServDropdownMenuListNormalVariationsCompose : ComposeStylePr
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return ListStyles.DropdownMenuListNormal.resolve(
             size = when (bindings["size"]?.toString()) {
-                "Xl" -> ListDropdownMenuListNormalSize.Xl
-                "L" -> ListDropdownMenuListNormalSize.L
-                "M" -> ListDropdownMenuListNormalSize.M
-                "S" -> ListDropdownMenuListNormalSize.S
-                "Xs" -> ListDropdownMenuListNormalSize.Xs
-                else -> ListDropdownMenuListNormalSize.Xl
+                "Xl" -> DropdownMenuListNormalSize.Xl
+                "L" -> DropdownMenuListNormalSize.L
+                "M" -> DropdownMenuListNormalSize.M
+                "S" -> DropdownMenuListNormalSize.S
+                "Xs" -> DropdownMenuListNormalSize.Xs
+                else -> DropdownMenuListNormalSize.Xl
             },
         ).key
     }

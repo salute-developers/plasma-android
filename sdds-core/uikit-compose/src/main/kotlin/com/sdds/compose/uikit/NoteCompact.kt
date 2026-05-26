@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
@@ -31,8 +30,9 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
+import com.sdds.compose.uikit.interactions.SemanticStateSource
 import com.sdds.compose.uikit.interactions.getValue
-import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.abs
@@ -63,6 +63,52 @@ fun NoteCompact(
     contentBefore: (@Composable BoxScope.() -> Unit)? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     action: (@Composable BoxScope.() -> Unit)? = null,
+) {
+    NoteCompact(
+        modifier = modifier,
+        style = style,
+        titleContent = { Text(title) },
+        textContent = if (text.isNotBlank()) {
+            { Text(text) }
+        } else {
+            null
+        },
+        closeIcon = if (closeIconRes != null) {
+            { CloseIcon(closeIconRes, onClose, style) }
+        } else {
+            null
+        },
+        contentBefore = contentBefore,
+        interactionSource = interactionSource,
+        action = action,
+    )
+}
+
+/**
+ * Компонент [NoteCompact]
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param titleContent заголовок
+ * @param textContent текст
+ * @param closeIcon иконка закрытия
+ * @param contentBefore контент перед текстовым блоком
+ * @param action дополнительный контент для взаимодейстивия с компонентом
+ * @param interactionSource источник взаимодействий
+ * @param semanticStateSource источник состояния семантики
+ */
+@Suppress("LongMethod")
+@Composable
+fun NoteCompact(
+    titleContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    style: NoteCompactStyle = LocalNoteCompactStyle.current,
+    textContent: (@Composable () -> Unit)? = null,
+    closeIcon: (@Composable BoxScope.() -> Unit)? = null,
+    contentBefore: (@Composable BoxScope.() -> Unit)? = null,
+    action: (@Composable BoxScope.() -> Unit)? = null,
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    semanticStateSource: SemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
     val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
     val contentBeforeArrangement = style.contentBeforeArrangement
@@ -108,26 +154,35 @@ fun NoteCompact(
                             .height(extraTopPadding),
                     )
                 }
-                if (title.isNotBlank()) {
-                    StyledText(
-                        modifier = Modifier
-                            .layoutId(TITLE),
-                        text = title,
-                        textStyle = style.titleStyle,
-                        textColor = style.colors.titleColor.colorForInteraction(interactionSource),
-                        overflow = TextOverflow.Ellipsis,
-                    )
+                Box(
+                    modifier = Modifier.layoutId(TITLE),
+                ) {
+                    ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
+                        val textColor = style.colors.titleColor.colorForInteractionAsState(
+                            interactionSource,
+                            semanticStateSource,
+                        )
+                        ProvideTextStyle(style.titleStyle, color = { textColor.value }) {
+                            titleContent()
+                        }
+                    }
                 }
-                if (text.isNotBlank()) {
-                    StyledText(
+                if (textContent != null) {
+                    Box(
                         modifier = Modifier
                             .layoutId(TEXT)
                             .padding(top = style.dimensions.textTopMargin),
-                        text = text,
-                        textStyle = style.textStyle,
-                        textColor = style.colors.textColor.colorForInteraction(interactionSource),
-                        overflow = TextOverflow.Ellipsis,
-                    )
+                    ) {
+                        ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
+                            val textColor = style.colors.textColor.colorForInteractionAsState(
+                                interactionSource,
+                                semanticStateSource,
+                            )
+                            ProvideTextStyle(style.textStyle, color = { textColor.value }) {
+                                textContent()
+                            }
+                        }
+                    }
                 }
                 action?.let {
                     Box(
@@ -145,28 +200,37 @@ fun NoteCompact(
                         }
                     }
                 }
-                CloseIcon(Modifier.layoutId(CLOSE), closeIconRes, onClose, style)
+                if (closeIcon != null) {
+                    val closeSize = style.dimensions.closeSize
+                    Box(
+                        modifier = Modifier
+                            .layoutId(CLOSE)
+                            .padding(start = style.dimensions.closeStartMargin)
+                            .defaultMinSize(),
+                    ) {
+                        CompositionLocalProvider(
+                            LocalIconDefaultSize provides DpSize(closeSize, closeSize),
+                        ) {
+                            closeIcon()
+                        }
+                    }
+                }
             },
         )
     }
 }
 
 @Composable
-private fun CloseIcon(
-    modifier: Modifier,
+private fun BoxScope.CloseIcon(
     closeIconRes: Int?,
     onClose: (() -> Unit)?,
     style: NoteCompactStyle,
 ) {
     if (closeIconRes == null) return
-    val closeSize = style.dimensions.closeSize
     val closeInteractionSource = remember { MutableInteractionSource() }
     val closeColor = style.colors.closeColor.colorForInteraction(closeInteractionSource)
     Icon(
-        modifier = modifier
-            .padding(start = style.dimensions.closeStartMargin)
-            .size(closeSize)
-            .defaultMinSize(closeSize, closeSize)
+        modifier = Modifier
             .clickable(
                 interactionSource = closeInteractionSource,
                 indication = null,

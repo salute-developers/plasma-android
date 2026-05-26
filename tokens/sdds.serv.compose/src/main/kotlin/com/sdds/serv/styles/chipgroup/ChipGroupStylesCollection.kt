@@ -181,6 +181,10 @@ public enum class ChipGroupStyles(
     EmbeddedChipGroupWideXsPositive("EmbeddedChipGroupWide.Xs.Positive"),
     EmbeddedChipGroupWideXsSecondary("EmbeddedChipGroupWide.Xs.Secondary"),
     EmbeddedChipGroupWideXsWarning("EmbeddedChipGroupWide.Xs.Warning"),
+    AiAnswerChipGroupL("AiAnswerChipGroup.L"),
+    AiAnswerChipGroupM("AiAnswerChipGroup.M"),
+    AiAnswerChipGroupS("AiAnswerChipGroup.S"),
+    AiAnswerChipGroupXs("AiAnswerChipGroup.Xs"),
     ;
 
     /**
@@ -202,6 +206,11 @@ public enum class ChipGroupStyles(
      * Typed API для подбора стиля embedded-chip-group-wide
      */
     public object EmbeddedChipGroupWide
+
+    /**
+     * Typed API для подбора стиля ai-answer-chip-group
+     */
+    public object AiAnswerChipGroup
 }
 
 /**
@@ -267,7 +276,7 @@ public enum class ChipGroupWideView {
 /**
  * Возможные значения свойства size для embedded-chip-group-dense
  */
-public enum class ChipGroupEmbeddedChipGroupDenseSize {
+public enum class EmbeddedChipGroupDenseSize {
     Xl,
     L,
     M,
@@ -278,7 +287,7 @@ public enum class ChipGroupEmbeddedChipGroupDenseSize {
 /**
  * Возможные значения свойства view для embedded-chip-group-dense
  */
-public enum class ChipGroupEmbeddedChipGroupDenseView {
+public enum class EmbeddedChipGroupDenseView {
     Default,
     Accent,
     Negative,
@@ -290,7 +299,7 @@ public enum class ChipGroupEmbeddedChipGroupDenseView {
 /**
  * Возможные значения свойства size для embedded-chip-group-wide
  */
-public enum class ChipGroupEmbeddedChipGroupWideSize {
+public enum class EmbeddedChipGroupWideSize {
     Xl,
     L,
     M,
@@ -301,13 +310,23 @@ public enum class ChipGroupEmbeddedChipGroupWideSize {
 /**
  * Возможные значения свойства view для embedded-chip-group-wide
  */
-public enum class ChipGroupEmbeddedChipGroupWideView {
+public enum class EmbeddedChipGroupWideView {
     Default,
     Accent,
     Negative,
     Positive,
     Secondary,
     Warning,
+}
+
+/**
+ * Возможные значения свойства size для ai-answer-chip-group
+ */
+public enum class AiAnswerChipGroupSize {
+    L,
+    M,
+    S,
+    Xs,
 }
 
 /**
@@ -472,6 +491,10 @@ public fun ChipGroupStyles.style(modify: @Composable ChipGroupStyleBuilder.() ->
         ChipGroupStyles.EmbeddedChipGroupWideXsPositive -> EmbeddedChipGroupWide.Xs.Positive
         ChipGroupStyles.EmbeddedChipGroupWideXsSecondary -> EmbeddedChipGroupWide.Xs.Secondary
         ChipGroupStyles.EmbeddedChipGroupWideXsWarning -> EmbeddedChipGroupWide.Xs.Warning
+        ChipGroupStyles.AiAnswerChipGroupL -> AiAnswerChipGroup.L
+        ChipGroupStyles.AiAnswerChipGroupM -> AiAnswerChipGroup.M
+        ChipGroupStyles.AiAnswerChipGroupS -> AiAnswerChipGroup.S
+        ChipGroupStyles.AiAnswerChipGroupXs -> AiAnswerChipGroup.Xs
     }
     return builder.modify(modify).style()
 }
@@ -716,94 +739,69 @@ public fun ChipGroupStyles.Wide.style(
  * Возвращает экземпляр [ChipGroupStyles] для embedded-chip-group-dense
  */
 public fun ChipGroupStyles.EmbeddedChipGroupDense.resolve(
-    size: ChipGroupEmbeddedChipGroupDenseSize =
-        ChipGroupEmbeddedChipGroupDenseSize.Xl,
-    view: ChipGroupEmbeddedChipGroupDenseView,
+    size: EmbeddedChipGroupDenseSize =
+        EmbeddedChipGroupDenseSize.Xl,
+    view: EmbeddedChipGroupDenseView,
 ): ChipGroupStyles = when {
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Default ->
+    size == EmbeddedChipGroupDenseSize.Xl && view == EmbeddedChipGroupDenseView.Default ->
         ChipGroupStyles.EmbeddedChipGroupDenseXlDefault
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Accent -> ChipGroupStyles.EmbeddedChipGroupDenseXlAccent
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Negative ->
+    size == EmbeddedChipGroupDenseSize.Xl && view == EmbeddedChipGroupDenseView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupDenseXlAccent
+    size == EmbeddedChipGroupDenseSize.Xl && view == EmbeddedChipGroupDenseView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupDenseXlNegative
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Positive ->
+    size == EmbeddedChipGroupDenseSize.Xl && view == EmbeddedChipGroupDenseView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupDenseXlPositive
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Secondary ->
+    size == EmbeddedChipGroupDenseSize.Xl && view == EmbeddedChipGroupDenseView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupDenseXlSecondary
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Warning ->
+    size == EmbeddedChipGroupDenseSize.Xl && view == EmbeddedChipGroupDenseView.Warning ->
         ChipGroupStyles.EmbeddedChipGroupDenseXlWarning
-    size == ChipGroupEmbeddedChipGroupDenseSize.L && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Default ->
+    size == EmbeddedChipGroupDenseSize.L && view == EmbeddedChipGroupDenseView.Default ->
         ChipGroupStyles.EmbeddedChipGroupDenseLDefault
-    size == ChipGroupEmbeddedChipGroupDenseSize.L && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Accent -> ChipGroupStyles.EmbeddedChipGroupDenseLAccent
-    size == ChipGroupEmbeddedChipGroupDenseSize.L && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Negative ->
+    size == EmbeddedChipGroupDenseSize.L && view == EmbeddedChipGroupDenseView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupDenseLAccent
+    size == EmbeddedChipGroupDenseSize.L && view == EmbeddedChipGroupDenseView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupDenseLNegative
-    size == ChipGroupEmbeddedChipGroupDenseSize.L && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Positive ->
+    size == EmbeddedChipGroupDenseSize.L && view == EmbeddedChipGroupDenseView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupDenseLPositive
-    size == ChipGroupEmbeddedChipGroupDenseSize.L && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Secondary ->
+    size == EmbeddedChipGroupDenseSize.L && view == EmbeddedChipGroupDenseView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupDenseLSecondary
-    size == ChipGroupEmbeddedChipGroupDenseSize.L && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Warning ->
+    size == EmbeddedChipGroupDenseSize.L && view == EmbeddedChipGroupDenseView.Warning ->
         ChipGroupStyles.EmbeddedChipGroupDenseLWarning
-    size == ChipGroupEmbeddedChipGroupDenseSize.M && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Default ->
+    size == EmbeddedChipGroupDenseSize.M && view == EmbeddedChipGroupDenseView.Default ->
         ChipGroupStyles.EmbeddedChipGroupDenseMDefault
-    size == ChipGroupEmbeddedChipGroupDenseSize.M && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Accent -> ChipGroupStyles.EmbeddedChipGroupDenseMAccent
-    size == ChipGroupEmbeddedChipGroupDenseSize.M && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Negative ->
+    size == EmbeddedChipGroupDenseSize.M && view == EmbeddedChipGroupDenseView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupDenseMAccent
+    size == EmbeddedChipGroupDenseSize.M && view == EmbeddedChipGroupDenseView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupDenseMNegative
-    size == ChipGroupEmbeddedChipGroupDenseSize.M && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Positive ->
+    size == EmbeddedChipGroupDenseSize.M && view == EmbeddedChipGroupDenseView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupDenseMPositive
-    size == ChipGroupEmbeddedChipGroupDenseSize.M && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Secondary ->
+    size == EmbeddedChipGroupDenseSize.M && view == EmbeddedChipGroupDenseView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupDenseMSecondary
-    size == ChipGroupEmbeddedChipGroupDenseSize.M && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Warning ->
+    size == EmbeddedChipGroupDenseSize.M && view == EmbeddedChipGroupDenseView.Warning ->
         ChipGroupStyles.EmbeddedChipGroupDenseMWarning
-    size == ChipGroupEmbeddedChipGroupDenseSize.S && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Default ->
+    size == EmbeddedChipGroupDenseSize.S && view == EmbeddedChipGroupDenseView.Default ->
         ChipGroupStyles.EmbeddedChipGroupDenseSDefault
-    size == ChipGroupEmbeddedChipGroupDenseSize.S && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Accent -> ChipGroupStyles.EmbeddedChipGroupDenseSAccent
-    size == ChipGroupEmbeddedChipGroupDenseSize.S && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Negative ->
+    size == EmbeddedChipGroupDenseSize.S && view == EmbeddedChipGroupDenseView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupDenseSAccent
+    size == EmbeddedChipGroupDenseSize.S && view == EmbeddedChipGroupDenseView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupDenseSNegative
-    size == ChipGroupEmbeddedChipGroupDenseSize.S && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Positive ->
+    size == EmbeddedChipGroupDenseSize.S && view == EmbeddedChipGroupDenseView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupDenseSPositive
-    size == ChipGroupEmbeddedChipGroupDenseSize.S && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Secondary ->
+    size == EmbeddedChipGroupDenseSize.S && view == EmbeddedChipGroupDenseView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupDenseSSecondary
-    size == ChipGroupEmbeddedChipGroupDenseSize.S && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Warning ->
+    size == EmbeddedChipGroupDenseSize.S && view == EmbeddedChipGroupDenseView.Warning ->
         ChipGroupStyles.EmbeddedChipGroupDenseSWarning
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Default ->
+    size == EmbeddedChipGroupDenseSize.Xs && view == EmbeddedChipGroupDenseView.Default ->
         ChipGroupStyles.EmbeddedChipGroupDenseXsDefault
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Accent -> ChipGroupStyles.EmbeddedChipGroupDenseXsAccent
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Negative ->
+    size == EmbeddedChipGroupDenseSize.Xs && view == EmbeddedChipGroupDenseView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupDenseXsAccent
+    size == EmbeddedChipGroupDenseSize.Xs && view == EmbeddedChipGroupDenseView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupDenseXsNegative
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Positive ->
+    size == EmbeddedChipGroupDenseSize.Xs && view == EmbeddedChipGroupDenseView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupDenseXsPositive
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Secondary ->
+    size == EmbeddedChipGroupDenseSize.Xs && view == EmbeddedChipGroupDenseView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupDenseXsSecondary
-    size == ChipGroupEmbeddedChipGroupDenseSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupDenseView.Warning ->
+    size == EmbeddedChipGroupDenseSize.Xs && view == EmbeddedChipGroupDenseView.Warning ->
         ChipGroupStyles.EmbeddedChipGroupDenseXsWarning
     else -> error("Unsupported embedded-chip-group-dense style combination")
 }
@@ -813,8 +811,8 @@ public fun ChipGroupStyles.EmbeddedChipGroupDense.resolve(
  */
 @Composable
 public fun ChipGroupStyles.EmbeddedChipGroupDense.style(
-    size: ChipGroupEmbeddedChipGroupDenseSize = ChipGroupEmbeddedChipGroupDenseSize.Xl,
-    view: ChipGroupEmbeddedChipGroupDenseView,
+    size: EmbeddedChipGroupDenseSize = EmbeddedChipGroupDenseSize.Xl,
+    view: EmbeddedChipGroupDenseView,
     modify: @Composable ChipGroupStyleBuilder.() -> Unit = {},
 ): ChipGroupStyle = resolve(size, view).style(modify)
 
@@ -822,85 +820,70 @@ public fun ChipGroupStyles.EmbeddedChipGroupDense.style(
  * Возвращает экземпляр [ChipGroupStyles] для embedded-chip-group-wide
  */
 public fun ChipGroupStyles.EmbeddedChipGroupWide.resolve(
-    size: ChipGroupEmbeddedChipGroupWideSize =
-        ChipGroupEmbeddedChipGroupWideSize.Xl,
-    view: ChipGroupEmbeddedChipGroupWideView,
+    size: EmbeddedChipGroupWideSize =
+        EmbeddedChipGroupWideSize.Xl,
+    view: EmbeddedChipGroupWideView,
 ): ChipGroupStyles = when {
-    size == ChipGroupEmbeddedChipGroupWideSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupWideView.Default -> ChipGroupStyles.EmbeddedChipGroupWideXlDefault
-    size == ChipGroupEmbeddedChipGroupWideSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupWideView.Accent -> ChipGroupStyles.EmbeddedChipGroupWideXlAccent
-    size == ChipGroupEmbeddedChipGroupWideSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupWideView.Negative ->
+    size == EmbeddedChipGroupWideSize.Xl && view == EmbeddedChipGroupWideView.Default ->
+        ChipGroupStyles.EmbeddedChipGroupWideXlDefault
+    size == EmbeddedChipGroupWideSize.Xl && view == EmbeddedChipGroupWideView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupWideXlAccent
+    size == EmbeddedChipGroupWideSize.Xl && view == EmbeddedChipGroupWideView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupWideXlNegative
-    size == ChipGroupEmbeddedChipGroupWideSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupWideView.Positive ->
+    size == EmbeddedChipGroupWideSize.Xl && view == EmbeddedChipGroupWideView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupWideXlPositive
-    size == ChipGroupEmbeddedChipGroupWideSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupWideView.Secondary ->
+    size == EmbeddedChipGroupWideSize.Xl && view == EmbeddedChipGroupWideView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupWideXlSecondary
-    size == ChipGroupEmbeddedChipGroupWideSize.Xl && view ==
-        ChipGroupEmbeddedChipGroupWideView.Warning -> ChipGroupStyles.EmbeddedChipGroupWideXlWarning
-    size == ChipGroupEmbeddedChipGroupWideSize.L && view ==
-        ChipGroupEmbeddedChipGroupWideView.Default -> ChipGroupStyles.EmbeddedChipGroupWideLDefault
-    size == ChipGroupEmbeddedChipGroupWideSize.L && view ==
-        ChipGroupEmbeddedChipGroupWideView.Accent -> ChipGroupStyles.EmbeddedChipGroupWideLAccent
-    size == ChipGroupEmbeddedChipGroupWideSize.L && view ==
-        ChipGroupEmbeddedChipGroupWideView.Negative ->
+    size == EmbeddedChipGroupWideSize.Xl && view == EmbeddedChipGroupWideView.Warning ->
+        ChipGroupStyles.EmbeddedChipGroupWideXlWarning
+    size == EmbeddedChipGroupWideSize.L && view == EmbeddedChipGroupWideView.Default ->
+        ChipGroupStyles.EmbeddedChipGroupWideLDefault
+    size == EmbeddedChipGroupWideSize.L && view == EmbeddedChipGroupWideView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupWideLAccent
+    size == EmbeddedChipGroupWideSize.L && view == EmbeddedChipGroupWideView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupWideLNegative
-    size == ChipGroupEmbeddedChipGroupWideSize.L && view ==
-        ChipGroupEmbeddedChipGroupWideView.Positive ->
+    size == EmbeddedChipGroupWideSize.L && view == EmbeddedChipGroupWideView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupWideLPositive
-    size == ChipGroupEmbeddedChipGroupWideSize.L && view ==
-        ChipGroupEmbeddedChipGroupWideView.Secondary ->
+    size == EmbeddedChipGroupWideSize.L && view == EmbeddedChipGroupWideView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupWideLSecondary
-    size == ChipGroupEmbeddedChipGroupWideSize.L && view ==
-        ChipGroupEmbeddedChipGroupWideView.Warning -> ChipGroupStyles.EmbeddedChipGroupWideLWarning
-    size == ChipGroupEmbeddedChipGroupWideSize.M && view ==
-        ChipGroupEmbeddedChipGroupWideView.Default -> ChipGroupStyles.EmbeddedChipGroupWideMDefault
-    size == ChipGroupEmbeddedChipGroupWideSize.M && view ==
-        ChipGroupEmbeddedChipGroupWideView.Accent -> ChipGroupStyles.EmbeddedChipGroupWideMAccent
-    size == ChipGroupEmbeddedChipGroupWideSize.M && view ==
-        ChipGroupEmbeddedChipGroupWideView.Negative ->
+    size == EmbeddedChipGroupWideSize.L && view == EmbeddedChipGroupWideView.Warning ->
+        ChipGroupStyles.EmbeddedChipGroupWideLWarning
+    size == EmbeddedChipGroupWideSize.M && view == EmbeddedChipGroupWideView.Default ->
+        ChipGroupStyles.EmbeddedChipGroupWideMDefault
+    size == EmbeddedChipGroupWideSize.M && view == EmbeddedChipGroupWideView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupWideMAccent
+    size == EmbeddedChipGroupWideSize.M && view == EmbeddedChipGroupWideView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupWideMNegative
-    size == ChipGroupEmbeddedChipGroupWideSize.M && view ==
-        ChipGroupEmbeddedChipGroupWideView.Positive ->
+    size == EmbeddedChipGroupWideSize.M && view == EmbeddedChipGroupWideView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupWideMPositive
-    size == ChipGroupEmbeddedChipGroupWideSize.M && view ==
-        ChipGroupEmbeddedChipGroupWideView.Secondary ->
+    size == EmbeddedChipGroupWideSize.M && view == EmbeddedChipGroupWideView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupWideMSecondary
-    size == ChipGroupEmbeddedChipGroupWideSize.M && view ==
-        ChipGroupEmbeddedChipGroupWideView.Warning -> ChipGroupStyles.EmbeddedChipGroupWideMWarning
-    size == ChipGroupEmbeddedChipGroupWideSize.S && view ==
-        ChipGroupEmbeddedChipGroupWideView.Default -> ChipGroupStyles.EmbeddedChipGroupWideSDefault
-    size == ChipGroupEmbeddedChipGroupWideSize.S && view ==
-        ChipGroupEmbeddedChipGroupWideView.Accent -> ChipGroupStyles.EmbeddedChipGroupWideSAccent
-    size == ChipGroupEmbeddedChipGroupWideSize.S && view ==
-        ChipGroupEmbeddedChipGroupWideView.Negative ->
+    size == EmbeddedChipGroupWideSize.M && view == EmbeddedChipGroupWideView.Warning ->
+        ChipGroupStyles.EmbeddedChipGroupWideMWarning
+    size == EmbeddedChipGroupWideSize.S && view == EmbeddedChipGroupWideView.Default ->
+        ChipGroupStyles.EmbeddedChipGroupWideSDefault
+    size == EmbeddedChipGroupWideSize.S && view == EmbeddedChipGroupWideView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupWideSAccent
+    size == EmbeddedChipGroupWideSize.S && view == EmbeddedChipGroupWideView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupWideSNegative
-    size == ChipGroupEmbeddedChipGroupWideSize.S && view ==
-        ChipGroupEmbeddedChipGroupWideView.Positive ->
+    size == EmbeddedChipGroupWideSize.S && view == EmbeddedChipGroupWideView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupWideSPositive
-    size == ChipGroupEmbeddedChipGroupWideSize.S && view ==
-        ChipGroupEmbeddedChipGroupWideView.Secondary ->
+    size == EmbeddedChipGroupWideSize.S && view == EmbeddedChipGroupWideView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupWideSSecondary
-    size == ChipGroupEmbeddedChipGroupWideSize.S && view ==
-        ChipGroupEmbeddedChipGroupWideView.Warning -> ChipGroupStyles.EmbeddedChipGroupWideSWarning
-    size == ChipGroupEmbeddedChipGroupWideSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupWideView.Default -> ChipGroupStyles.EmbeddedChipGroupWideXsDefault
-    size == ChipGroupEmbeddedChipGroupWideSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupWideView.Accent -> ChipGroupStyles.EmbeddedChipGroupWideXsAccent
-    size == ChipGroupEmbeddedChipGroupWideSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupWideView.Negative ->
+    size == EmbeddedChipGroupWideSize.S && view == EmbeddedChipGroupWideView.Warning ->
+        ChipGroupStyles.EmbeddedChipGroupWideSWarning
+    size == EmbeddedChipGroupWideSize.Xs && view == EmbeddedChipGroupWideView.Default ->
+        ChipGroupStyles.EmbeddedChipGroupWideXsDefault
+    size == EmbeddedChipGroupWideSize.Xs && view == EmbeddedChipGroupWideView.Accent ->
+        ChipGroupStyles.EmbeddedChipGroupWideXsAccent
+    size == EmbeddedChipGroupWideSize.Xs && view == EmbeddedChipGroupWideView.Negative ->
         ChipGroupStyles.EmbeddedChipGroupWideXsNegative
-    size == ChipGroupEmbeddedChipGroupWideSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupWideView.Positive ->
+    size == EmbeddedChipGroupWideSize.Xs && view == EmbeddedChipGroupWideView.Positive ->
         ChipGroupStyles.EmbeddedChipGroupWideXsPositive
-    size == ChipGroupEmbeddedChipGroupWideSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupWideView.Secondary ->
+    size == EmbeddedChipGroupWideSize.Xs && view == EmbeddedChipGroupWideView.Secondary ->
         ChipGroupStyles.EmbeddedChipGroupWideXsSecondary
-    size == ChipGroupEmbeddedChipGroupWideSize.Xs && view ==
-        ChipGroupEmbeddedChipGroupWideView.Warning -> ChipGroupStyles.EmbeddedChipGroupWideXsWarning
+    size == EmbeddedChipGroupWideSize.Xs && view == EmbeddedChipGroupWideView.Warning ->
+        ChipGroupStyles.EmbeddedChipGroupWideXsWarning
     else -> error("Unsupported embedded-chip-group-wide style combination")
 }
 
@@ -909,7 +892,31 @@ public fun ChipGroupStyles.EmbeddedChipGroupWide.resolve(
  */
 @Composable
 public fun ChipGroupStyles.EmbeddedChipGroupWide.style(
-    size: ChipGroupEmbeddedChipGroupWideSize = ChipGroupEmbeddedChipGroupWideSize.Xl,
-    view: ChipGroupEmbeddedChipGroupWideView,
+    size: EmbeddedChipGroupWideSize = EmbeddedChipGroupWideSize.Xl,
+    view: EmbeddedChipGroupWideView,
     modify: @Composable ChipGroupStyleBuilder.() -> Unit = {},
 ): ChipGroupStyle = resolve(size, view).style(modify)
+
+/**
+ * Возвращает экземпляр [ChipGroupStyles] для ai-answer-chip-group
+ */
+public fun ChipGroupStyles.AiAnswerChipGroup.resolve(
+    size: AiAnswerChipGroupSize =
+        AiAnswerChipGroupSize.L,
+): ChipGroupStyles = when {
+    size == AiAnswerChipGroupSize.L -> ChipGroupStyles.AiAnswerChipGroupL
+    size == AiAnswerChipGroupSize.M -> ChipGroupStyles.AiAnswerChipGroupM
+    size == AiAnswerChipGroupSize.S -> ChipGroupStyles.AiAnswerChipGroupS
+    size == AiAnswerChipGroupSize.Xs -> ChipGroupStyles.AiAnswerChipGroupXs
+    else -> error("Unsupported ai-answer-chip-group style combination")
+}
+
+/**
+ * Возвращает [ChipGroupStyle] для ai-answer-chip-group
+ */
+@Composable
+public fun ChipGroupStyles.AiAnswerChipGroup.style(
+    size: AiAnswerChipGroupSize =
+        AiAnswerChipGroupSize.L,
+    modify: @Composable ChipGroupStyleBuilder.() -> Unit = {},
+): ChipGroupStyle = resolve(size).style(modify)

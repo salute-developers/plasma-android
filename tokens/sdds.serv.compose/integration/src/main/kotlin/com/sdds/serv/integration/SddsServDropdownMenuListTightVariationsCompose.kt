@@ -15,8 +15,8 @@ import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sandbox.Property
 import com.sdds.serv.styles.list.DropdownMenuListTight
+import com.sdds.serv.styles.list.DropdownMenuListTightSize
 import com.sdds.serv.styles.list.L
-import com.sdds.serv.styles.list.ListDropdownMenuListTightSize
 import com.sdds.serv.styles.list.ListStyles
 import com.sdds.serv.styles.list.M
 import com.sdds.serv.styles.list.S
@@ -42,12 +42,12 @@ internal object SddsServDropdownMenuListTightVariationsCompose : ComposeStylePro
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return ListStyles.DropdownMenuListTight.resolve(
             size = when (bindings["size"]?.toString()) {
-                "Xl" -> ListDropdownMenuListTightSize.Xl
-                "L" -> ListDropdownMenuListTightSize.L
-                "M" -> ListDropdownMenuListTightSize.M
-                "S" -> ListDropdownMenuListTightSize.S
-                "Xs" -> ListDropdownMenuListTightSize.Xs
-                else -> ListDropdownMenuListTightSize.Xl
+                "Xl" -> DropdownMenuListTightSize.Xl
+                "L" -> DropdownMenuListTightSize.L
+                "M" -> DropdownMenuListTightSize.M
+                "S" -> DropdownMenuListTightSize.S
+                "Xs" -> DropdownMenuListTightSize.Xs
+                else -> DropdownMenuListTightSize.Xl
             },
         ).key
     }

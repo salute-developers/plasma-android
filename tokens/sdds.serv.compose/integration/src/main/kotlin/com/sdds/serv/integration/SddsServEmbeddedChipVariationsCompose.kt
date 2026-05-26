@@ -15,11 +15,11 @@ import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sandbox.Property
 import com.sdds.serv.styles.chip.Accent
-import com.sdds.serv.styles.chip.ChipEmbeddedChipSize
-import com.sdds.serv.styles.chip.ChipEmbeddedChipView
 import com.sdds.serv.styles.chip.ChipStyles
 import com.sdds.serv.styles.chip.Default
 import com.sdds.serv.styles.chip.EmbeddedChip
+import com.sdds.serv.styles.chip.EmbeddedChipSize
+import com.sdds.serv.styles.chip.EmbeddedChipView
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.chip.Negative
@@ -79,21 +79,21 @@ internal object SddsServEmbeddedChipVariationsCompose : ComposeStyleProvider<Chi
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return ChipStyles.EmbeddedChip.resolve(
             size = when (bindings["size"]?.toString()) {
-                "Xl" -> ChipEmbeddedChipSize.Xl
-                "L" -> ChipEmbeddedChipSize.L
-                "M" -> ChipEmbeddedChipSize.M
-                "S" -> ChipEmbeddedChipSize.S
-                "Xs" -> ChipEmbeddedChipSize.Xs
-                else -> ChipEmbeddedChipSize.Xl
+                "Xl" -> EmbeddedChipSize.Xl
+                "L" -> EmbeddedChipSize.L
+                "M" -> EmbeddedChipSize.M
+                "S" -> EmbeddedChipSize.S
+                "Xs" -> EmbeddedChipSize.Xs
+                else -> EmbeddedChipSize.Xl
             },
             view = when (bindings["view"]?.toString()) {
-                "Default" -> ChipEmbeddedChipView.Default
-                "Accent" -> ChipEmbeddedChipView.Accent
-                "Negative" -> ChipEmbeddedChipView.Negative
-                "Positive" -> ChipEmbeddedChipView.Positive
-                "Secondary" -> ChipEmbeddedChipView.Secondary
-                "Warning" -> ChipEmbeddedChipView.Warning
-                else -> ChipEmbeddedChipView.Default
+                "Default" -> EmbeddedChipView.Default
+                "Accent" -> EmbeddedChipView.Accent
+                "Negative" -> EmbeddedChipView.Negative
+                "Positive" -> EmbeddedChipView.Positive
+                "Secondary" -> EmbeddedChipView.Secondary
+                "Warning" -> EmbeddedChipView.Warning
+                else -> EmbeddedChipView.Default
             },
         ).key
     }

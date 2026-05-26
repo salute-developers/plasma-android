@@ -405,7 +405,11 @@ private fun buildPropModels(
             PropType.Boolean
         } else {
             PropType.Enum(
-                enumClassName = "${camelCoreComponentName}${appearanceSuffix}${prop.name.toCamelCase()}",
+                enumClassName = buildPropEnumClassName(
+                    camelCoreComponentName = camelCoreComponentName,
+                    appearanceSuffix = appearanceSuffix,
+                    propName = prop.name,
+                ),
                 values = values,
             )
         }
@@ -447,6 +451,19 @@ private fun MetaClassAppearance.toHolderName(camelCoreComponentName: String): St
     return camelName
         .removePrefix(camelCoreComponentName)
         .ifBlank { "Default" }
+}
+
+private fun buildPropEnumClassName(
+    camelCoreComponentName: String,
+    appearanceSuffix: String,
+    propName: String,
+): String {
+    val enumPrefix = when {
+        appearanceSuffix.isBlank() -> camelCoreComponentName
+        appearanceSuffix.contains(camelCoreComponentName) -> appearanceSuffix
+        else -> camelCoreComponentName + appearanceSuffix
+    }
+    return enumPrefix + propName.toCamelCase()
 }
 
 private fun String.toStyleEnumName(): String {

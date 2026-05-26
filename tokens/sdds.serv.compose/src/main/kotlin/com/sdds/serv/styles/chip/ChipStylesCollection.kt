@@ -149,7 +149,7 @@ public enum class ChipDefaultView {
 /**
  * Возможные значения свойства size для embedded-chip
  */
-public enum class ChipEmbeddedChipSize {
+public enum class EmbeddedChipSize {
     Xl,
     L,
     M,
@@ -160,7 +160,7 @@ public enum class ChipEmbeddedChipSize {
 /**
  * Возможные значения свойства view для embedded-chip
  */
-public enum class ChipEmbeddedChipView {
+public enum class EmbeddedChipView {
     Default,
     Accent,
     Negative,
@@ -355,68 +355,65 @@ public fun ChipStyles.Default.style(
  * Возвращает экземпляр [ChipStyles] для embedded-chip
  */
 public fun ChipStyles.EmbeddedChip.resolve(
-    size: ChipEmbeddedChipSize = ChipEmbeddedChipSize.Xl,
-    view: ChipEmbeddedChipView = ChipEmbeddedChipView.Default,
+    size: EmbeddedChipSize = EmbeddedChipSize.Xl,
+    view: EmbeddedChipView = EmbeddedChipView.Default,
 ): ChipStyles = when {
-    size == ChipEmbeddedChipSize.Xl && view == ChipEmbeddedChipView.Default ->
+    size == EmbeddedChipSize.Xl && view == EmbeddedChipView.Default ->
         ChipStyles.EmbeddedChipXlDefault
-    size == ChipEmbeddedChipSize.Xl && view == ChipEmbeddedChipView.Accent ->
+    size == EmbeddedChipSize.Xl && view == EmbeddedChipView.Accent ->
         ChipStyles.EmbeddedChipXlAccent
-    size == ChipEmbeddedChipSize.Xl && view == ChipEmbeddedChipView.Negative ->
+    size == EmbeddedChipSize.Xl && view == EmbeddedChipView.Negative ->
         ChipStyles.EmbeddedChipXlNegative
-    size == ChipEmbeddedChipSize.Xl && view == ChipEmbeddedChipView.Positive ->
+    size == EmbeddedChipSize.Xl && view == EmbeddedChipView.Positive ->
         ChipStyles.EmbeddedChipXlPositive
-    size == ChipEmbeddedChipSize.Xl && view == ChipEmbeddedChipView.Secondary ->
+    size == EmbeddedChipSize.Xl && view == EmbeddedChipView.Secondary ->
         ChipStyles.EmbeddedChipXlSecondary
-    size == ChipEmbeddedChipSize.Xl && view == ChipEmbeddedChipView.Warning ->
+    size == EmbeddedChipSize.Xl && view == EmbeddedChipView.Warning ->
         ChipStyles.EmbeddedChipXlWarning
-    size == ChipEmbeddedChipSize.L && view == ChipEmbeddedChipView.Default ->
+    size == EmbeddedChipSize.L && view == EmbeddedChipView.Default ->
         ChipStyles.EmbeddedChipLDefault
-    size == ChipEmbeddedChipSize.L && view == ChipEmbeddedChipView.Accent ->
-        ChipStyles.EmbeddedChipLAccent
-    size == ChipEmbeddedChipSize.L && view == ChipEmbeddedChipView.Negative ->
+    size == EmbeddedChipSize.L && view == EmbeddedChipView.Accent -> ChipStyles.EmbeddedChipLAccent
+    size == EmbeddedChipSize.L && view == EmbeddedChipView.Negative ->
         ChipStyles.EmbeddedChipLNegative
-    size == ChipEmbeddedChipSize.L && view == ChipEmbeddedChipView.Positive ->
+    size == EmbeddedChipSize.L && view == EmbeddedChipView.Positive ->
         ChipStyles.EmbeddedChipLPositive
-    size == ChipEmbeddedChipSize.L && view == ChipEmbeddedChipView.Secondary ->
+    size == EmbeddedChipSize.L && view == EmbeddedChipView.Secondary ->
         ChipStyles.EmbeddedChipLSecondary
-    size == ChipEmbeddedChipSize.L && view == ChipEmbeddedChipView.Warning ->
+    size == EmbeddedChipSize.L && view == EmbeddedChipView.Warning ->
         ChipStyles.EmbeddedChipLWarning
-    size == ChipEmbeddedChipSize.M && view == ChipEmbeddedChipView.Default ->
+    size == EmbeddedChipSize.M && view == EmbeddedChipView.Default ->
         ChipStyles.EmbeddedChipMDefault
-    size == ChipEmbeddedChipSize.M && view == ChipEmbeddedChipView.Accent ->
-        ChipStyles.EmbeddedChipMAccent
-    size == ChipEmbeddedChipSize.M && view == ChipEmbeddedChipView.Negative ->
+    size == EmbeddedChipSize.M && view == EmbeddedChipView.Accent -> ChipStyles.EmbeddedChipMAccent
+    size == EmbeddedChipSize.M && view == EmbeddedChipView.Negative ->
         ChipStyles.EmbeddedChipMNegative
-    size == ChipEmbeddedChipSize.M && view == ChipEmbeddedChipView.Positive ->
+    size == EmbeddedChipSize.M && view == EmbeddedChipView.Positive ->
         ChipStyles.EmbeddedChipMPositive
-    size == ChipEmbeddedChipSize.M && view == ChipEmbeddedChipView.Secondary ->
+    size == EmbeddedChipSize.M && view == EmbeddedChipView.Secondary ->
         ChipStyles.EmbeddedChipMSecondary
-    size == ChipEmbeddedChipSize.M && view == ChipEmbeddedChipView.Warning ->
+    size == EmbeddedChipSize.M && view == EmbeddedChipView.Warning ->
         ChipStyles.EmbeddedChipMWarning
-    size == ChipEmbeddedChipSize.S && view == ChipEmbeddedChipView.Default ->
+    size == EmbeddedChipSize.S && view == EmbeddedChipView.Default ->
         ChipStyles.EmbeddedChipSDefault
-    size == ChipEmbeddedChipSize.S && view == ChipEmbeddedChipView.Accent ->
-        ChipStyles.EmbeddedChipSAccent
-    size == ChipEmbeddedChipSize.S && view == ChipEmbeddedChipView.Negative ->
+    size == EmbeddedChipSize.S && view == EmbeddedChipView.Accent -> ChipStyles.EmbeddedChipSAccent
+    size == EmbeddedChipSize.S && view == EmbeddedChipView.Negative ->
         ChipStyles.EmbeddedChipSNegative
-    size == ChipEmbeddedChipSize.S && view == ChipEmbeddedChipView.Positive ->
+    size == EmbeddedChipSize.S && view == EmbeddedChipView.Positive ->
         ChipStyles.EmbeddedChipSPositive
-    size == ChipEmbeddedChipSize.S && view == ChipEmbeddedChipView.Secondary ->
+    size == EmbeddedChipSize.S && view == EmbeddedChipView.Secondary ->
         ChipStyles.EmbeddedChipSSecondary
-    size == ChipEmbeddedChipSize.S && view == ChipEmbeddedChipView.Warning ->
+    size == EmbeddedChipSize.S && view == EmbeddedChipView.Warning ->
         ChipStyles.EmbeddedChipSWarning
-    size == ChipEmbeddedChipSize.Xs && view == ChipEmbeddedChipView.Default ->
+    size == EmbeddedChipSize.Xs && view == EmbeddedChipView.Default ->
         ChipStyles.EmbeddedChipXsDefault
-    size == ChipEmbeddedChipSize.Xs && view == ChipEmbeddedChipView.Accent ->
+    size == EmbeddedChipSize.Xs && view == EmbeddedChipView.Accent ->
         ChipStyles.EmbeddedChipXsAccent
-    size == ChipEmbeddedChipSize.Xs && view == ChipEmbeddedChipView.Negative ->
+    size == EmbeddedChipSize.Xs && view == EmbeddedChipView.Negative ->
         ChipStyles.EmbeddedChipXsNegative
-    size == ChipEmbeddedChipSize.Xs && view == ChipEmbeddedChipView.Positive ->
+    size == EmbeddedChipSize.Xs && view == EmbeddedChipView.Positive ->
         ChipStyles.EmbeddedChipXsPositive
-    size == ChipEmbeddedChipSize.Xs && view == ChipEmbeddedChipView.Secondary ->
+    size == EmbeddedChipSize.Xs && view == EmbeddedChipView.Secondary ->
         ChipStyles.EmbeddedChipXsSecondary
-    size == ChipEmbeddedChipSize.Xs && view == ChipEmbeddedChipView.Warning ->
+    size == EmbeddedChipSize.Xs && view == EmbeddedChipView.Warning ->
         ChipStyles.EmbeddedChipXsWarning
     else -> error("Unsupported embedded-chip style combination")
 }
@@ -426,7 +423,7 @@ public fun ChipStyles.EmbeddedChip.resolve(
  */
 @Composable
 public fun ChipStyles.EmbeddedChip.style(
-    size: ChipEmbeddedChipSize = ChipEmbeddedChipSize.Xl,
-    view: ChipEmbeddedChipView = ChipEmbeddedChipView.Default,
+    size: EmbeddedChipSize = EmbeddedChipSize.Xl,
+    view: EmbeddedChipView = EmbeddedChipView.Default,
     modify: @Composable ChipStyleBuilder.() -> Unit = {},
 ): ChipStyle = resolve(size, view).style(modify)

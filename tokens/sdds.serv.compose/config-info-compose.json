@@ -7431,19 +7431,20 @@
             "packageName": "com.sdds.serv.styles.iconbutton",
             "stylesClassName": "IconButtonStyles",
             "stylesClassQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonStyles",
-            "receiverClassName": "IconButtonStyles.Companion",
-            "receiverClassQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonStyles.Companion",
+            "receiverClassName": "IconButtonStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonStyles.Default",
             "returnTypeName": "ButtonStyle",
             "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
             "modifyReceiverTypeName": "IconButtonStyleBuilder",
             "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconButtonStyleBuilder",
+            "holderName": "Default",
             "params": [
                {
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "IconButtonSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonSize",
+                  "typeName": "IconButtonDefaultSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonDefaultSize",
                   "defaultValue": {
                      "value": "xl",
                      "codeName": "Xl"
@@ -7479,8 +7480,8 @@
                   "name": "shape",
                   "type": "enum",
                   "required": false,
-                  "typeName": "IconButtonShape",
-                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonShape",
+                  "typeName": "IconButtonDefaultShape",
+                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonDefaultShape",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -7500,8 +7501,8 @@
                   "name": "view",
                   "type": "enum",
                   "required": false,
-                  "typeName": "IconButtonView",
-                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonView",
+                  "typeName": "IconButtonDefaultView",
+                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonDefaultView",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -9469,6 +9470,519 @@
                   {
                      "name": "view",
                      "value": "white"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "icon-button",
+         "coreName": "IconButton",
+         "styleName": "EmbeddedIconButton",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "m"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "accent",
+                  "positive",
+                  "negative",
+                  "warning",
+                  "clear",
+                  "info"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.iconbutton",
+            "stylesClassName": "IconButtonStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonStyles",
+            "receiverClassName": "IconButtonStyles.EmbeddedIconButton",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonStyles.EmbeddedIconButton",
+            "returnTypeName": "ButtonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+            "modifyReceiverTypeName": "IconButtonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconButtonStyleBuilder",
+            "holderName": "EmbeddedIconButton",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "EmbeddedIconButtonSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.EmbeddedIconButtonSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "EmbeddedIconButtonView",
+                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.EmbeddedIconButtonView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "clear",
+                        "codeName": "Clear"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "EmbeddedIconButton.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "EmbeddedIconButton.L.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "EmbeddedIconButton.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "EmbeddedIconButton.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "EmbeddedIconButton.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "EmbeddedIconButton.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "EmbeddedIconButton.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "EmbeddedIconButton.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "EmbeddedIconButton.M.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "EmbeddedIconButton.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "EmbeddedIconButton.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "EmbeddedIconButton.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "EmbeddedIconButton.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "EmbeddedIconButton.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "EmbeddedIconButton.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "EmbeddedIconButton.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "EmbeddedIconButton.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "EmbeddedIconButton.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "EmbeddedIconButton.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "EmbeddedIconButton.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "EmbeddedIconButton.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "EmbeddedIconButton.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "EmbeddedIconButton.Xs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "EmbeddedIconButton.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "EmbeddedIconButton.Xs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "EmbeddedIconButton.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "EmbeddedIconButton.Xs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "EmbeddedIconButton.Xs.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             }
@@ -11692,8 +12206,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ChipEmbeddedChipSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.chip.ChipEmbeddedChipSize",
+                  "typeName": "EmbeddedChipSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.chip.EmbeddedChipSize",
                   "defaultValue": {
                      "value": "xl",
                      "codeName": "Xl"
@@ -11725,8 +12239,8 @@
                   "name": "view",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ChipEmbeddedChipView",
-                  "typeQualifiedName": "com.sdds.serv.styles.chip.ChipEmbeddedChipView",
+                  "typeName": "EmbeddedChipView",
+                  "typeQualifiedName": "com.sdds.serv.styles.chip.EmbeddedChipView",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -14033,8 +14547,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ChipGroupEmbeddedChipGroupDenseSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.chipgroup.ChipGroupEmbeddedChipGroupDenseSize",
+                  "typeName": "EmbeddedChipGroupDenseSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.chipgroup.EmbeddedChipGroupDenseSize",
                   "defaultValue": {
                      "value": "xl",
                      "codeName": "Xl"
@@ -14066,8 +14580,8 @@
                   "name": "view",
                   "type": "enum",
                   "required": true,
-                  "typeName": "ChipGroupEmbeddedChipGroupDenseView",
-                  "typeQualifiedName": "com.sdds.serv.styles.chipgroup.ChipGroupEmbeddedChipGroupDenseView",
+                  "typeName": "EmbeddedChipGroupDenseView",
+                  "typeQualifiedName": "com.sdds.serv.styles.chipgroup.EmbeddedChipGroupDenseView",
                   "values": [
                      {
                         "value": "default",
@@ -14564,8 +15078,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ChipGroupEmbeddedChipGroupWideSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.chipgroup.ChipGroupEmbeddedChipGroupWideSize",
+                  "typeName": "EmbeddedChipGroupWideSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.chipgroup.EmbeddedChipGroupWideSize",
                   "defaultValue": {
                      "value": "xl",
                      "codeName": "Xl"
@@ -14597,8 +15111,8 @@
                   "name": "view",
                   "type": "enum",
                   "required": true,
-                  "typeName": "ChipGroupEmbeddedChipGroupWideView",
-                  "typeQualifiedName": "com.sdds.serv.styles.chipgroup.ChipGroupEmbeddedChipGroupWideView",
+                  "typeName": "EmbeddedChipGroupWideView",
+                  "typeQualifiedName": "com.sdds.serv.styles.chipgroup.EmbeddedChipGroupWideView",
                   "values": [
                      {
                         "value": "default",
@@ -15046,6 +15560,108 @@
                   {
                      "name": "view",
                      "value": "warning"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "chip-group",
+         "coreName": "ChipGroup",
+         "styleName": "AiAnswerChipGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.chipgroup",
+            "stylesClassName": "ChipGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.chipgroup.ChipGroupStyles",
+            "receiverClassName": "ChipGroupStyles.AiAnswerChipGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.chipgroup.ChipGroupStyles.AiAnswerChipGroup",
+            "returnTypeName": "ChipGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ChipGroupStyle",
+            "modifyReceiverTypeName": "ChipGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ChipGroupStyleBuilder",
+            "holderName": "AiAnswerChipGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiAnswerChipGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.chipgroup.AiAnswerChipGroupSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "AiAnswerChipGroup.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiAnswerChipGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiAnswerChipGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "AiAnswerChipGroup.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
                   }
                ]
             }
@@ -37547,8 +38163,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ListDropdownMenuListNormalSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.list.ListDropdownMenuListNormalSize",
+                  "typeName": "DropdownMenuListNormalSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.list.DropdownMenuListNormalSize",
                   "defaultValue": {
                      "value": "xl",
                      "codeName": "Xl"
@@ -37664,8 +38280,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ListDropdownMenuListTightSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.list.ListDropdownMenuListTightSize",
+                  "typeName": "DropdownMenuListTightSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.list.DropdownMenuListTightSize",
                   "defaultValue": {
                      "value": "xl",
                      "codeName": "Xl"
@@ -45400,8 +46016,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupBasicButtonGroupSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupBasicButtonGroupSize",
+                  "typeName": "BasicButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.BasicButtonGroupSize",
                   "defaultValue": {
                      "value": "xxs",
                      "codeName": "Xxs"
@@ -45433,8 +46049,8 @@
                   "name": "gap",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupBasicButtonGroupGap",
-                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupBasicButtonGroupGap",
+                  "typeName": "BasicButtonGroupGap",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.BasicButtonGroupGap",
                   "defaultValue": {
                      "value": "wide",
                      "codeName": "Wide"
@@ -45458,8 +46074,8 @@
                   "name": "shape",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupBasicButtonGroupShape",
-                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupBasicButtonGroupShape",
+                  "typeName": "BasicButtonGroupShape",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.BasicButtonGroupShape",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -46330,8 +46946,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupIconButtonGroupSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupIconButtonGroupSize",
+                  "typeName": "IconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.IconButtonGroupSize",
                   "defaultValue": {
                      "value": "xs",
                      "codeName": "Xs"
@@ -46359,8 +46975,8 @@
                   "name": "gap",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupIconButtonGroupGap",
-                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupIconButtonGroupGap",
+                  "typeName": "IconButtonGroupGap",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.IconButtonGroupGap",
                   "defaultValue": {
                      "value": "wide",
                      "codeName": "Wide"
@@ -46384,8 +47000,8 @@
                   "name": "shape",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupIconButtonGroupShape",
-                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupIconButtonGroupShape",
+                  "typeName": "IconButtonGroupShape",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.IconButtonGroupShape",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -47261,6 +47877,514 @@
                   {
                      "name": "shape",
                      "value": "segmented"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "EmbeddedIconButtonGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l"
+               ],
+               "defaultValue": "m"
+            },
+            {
+               "name": "gap",
+               "values": [
+                  "wide",
+                  "dense",
+                  "none"
+               ],
+               "defaultValue": "wide"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.EmbeddedIconButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles.EmbeddedIconButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "EmbeddedIconButtonGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "EmbeddedIconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.EmbeddedIconButtonGroupSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     }
+                  ]
+               },
+               {
+                  "name": "gap",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "EmbeddedIconButtonGroupGap",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.EmbeddedIconButtonGroupGap",
+                  "defaultValue": {
+                     "value": "wide",
+                     "codeName": "Wide"
+                  },
+                  "values": [
+                     {
+                        "value": "wide",
+                        "codeName": "Wide"
+                     },
+                     {
+                        "value": "dense",
+                        "codeName": "Dense"
+                     },
+                     {
+                        "value": "none",
+                        "codeName": "None"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "EmbeddedIconButtonGroup.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            },
+            {
+               "name": "xs.wide",
+               "composeReference": "EmbeddedIconButtonGroup.Xs.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dense",
+               "composeReference": "EmbeddedIconButtonGroup.Xs.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "xs.no-gap",
+               "composeReference": "EmbeddedIconButtonGroup.Xs.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "EmbeddedIconButtonGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "s.wide",
+               "composeReference": "EmbeddedIconButtonGroup.S.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "s.dense",
+               "composeReference": "EmbeddedIconButtonGroup.S.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "s.no-gap",
+               "composeReference": "EmbeddedIconButtonGroup.S.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "EmbeddedIconButtonGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "m.wide",
+               "composeReference": "EmbeddedIconButtonGroup.M.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "m.dense",
+               "composeReference": "EmbeddedIconButtonGroup.M.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-gap",
+               "composeReference": "EmbeddedIconButtonGroup.M.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "EmbeddedIconButtonGroup.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "l.wide",
+               "composeReference": "EmbeddedIconButtonGroup.L.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "l.dense",
+               "composeReference": "EmbeddedIconButtonGroup.L.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "l.no-gap",
+               "composeReference": "EmbeddedIconButtonGroup.L.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "AiAnswerIconButtonGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.AiAnswerIconButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles.AiAnswerIconButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "AiAnswerIconButtonGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiAnswerIconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiAnswerIconButtonGroupSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "AiAnswerIconButtonGroup.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiAnswerIconButtonGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiAnswerIconButtonGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiAnswerIconButtonGroup.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "AiAnswerBasicButtonGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.AiAnswerBasicButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles.AiAnswerBasicButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "AiAnswerBasicButtonGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiAnswerBasicButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiAnswerBasicButtonGroupSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "AiAnswerBasicButtonGroup.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiAnswerBasicButtonGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiAnswerBasicButtonGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiAnswerBasicButtonGroup.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
                   }
                ]
             }
@@ -53223,8 +54347,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "TabsIconTabsSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.tabs.TabsIconTabsSize",
+                  "typeName": "IconTabsSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.tabs.IconTabsSize",
                   "defaultValue": {
                      "value": "l",
                      "codeName": "L"
@@ -53252,8 +54376,8 @@
                   "name": "orientation",
                   "type": "enum",
                   "required": false,
-                  "typeName": "TabsIconTabsOrientation",
-                  "typeQualifiedName": "com.sdds.serv.styles.tabs.TabsIconTabsOrientation",
+                  "typeName": "IconTabsOrientation",
+                  "typeQualifiedName": "com.sdds.serv.styles.tabs.IconTabsOrientation",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -59811,6 +60935,122 @@
             {
                "name": "xs",
                "composeReference": "SelectItemMultipleTight.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "answer",
+         "coreName": "Answer",
+         "styleName": "Answer",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.answer",
+            "stylesClassName": "AnswerStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.answer.AnswerStyles",
+            "receiverClassName": "AnswerStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.answer.AnswerStyles.Companion",
+            "returnTypeName": "AnswerStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AnswerStyle",
+            "modifyReceiverTypeName": "AnswerStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AnswerStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AnswerSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.answer.AnswerSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "Answer.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "Answer.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "Answer.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "Answer.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "Answer.Xs",
                "props": [
                   {
                      "name": "size",

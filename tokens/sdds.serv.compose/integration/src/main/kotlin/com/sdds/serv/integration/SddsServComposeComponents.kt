@@ -56,6 +56,7 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.IconButton,
                 mapOf(
                     "IconButton" to SddsServIconButtonVariationsCompose,
+                    "EmbeddedIconButton" to SddsServEmbeddedIconButtonVariationsCompose,
                 ),
             ),
             Component(
@@ -109,6 +110,7 @@ object SddsServComposeComponents : ComponentProvider() {
                     "ChipGroupWide" to SddsServChipGroupWideVariationsCompose,
                     "EmbeddedChipGroupDense" to SddsServEmbeddedChipGroupDenseVariationsCompose,
                     "EmbeddedChipGroupWide" to SddsServEmbeddedChipGroupWideVariationsCompose,
+                    "AiAnswerChipGroup" to SddsServAiAnswerChipGroupVariationsCompose,
                 ),
             ),
             Component(
@@ -340,6 +342,9 @@ object SddsServComposeComponents : ComponentProvider() {
                 mapOf(
                     "BasicButtonGroup" to SddsServBasicButtonGroupVariationsCompose,
                     "IconButtonGroup" to SddsServIconButtonGroupVariationsCompose,
+                    "EmbeddedIconButtonGroup" to SddsServEmbeddedIconButtonGroupVariationsCompose,
+                    "AiAnswerIconButtonGroup" to SddsServAiAnswerIconButtonGroupVariationsCompose,
+                    "AiAnswerBasicButtonGroup" to SddsServAiAnswerBasicButtonGroupVariationsCompose,
                 ),
             ),
             Component(
@@ -476,6 +481,12 @@ object SddsServComposeComponents : ComponentProvider() {
                     "SelectItemSingleTight" to SddsServSelectItemSingleTightVariationsCompose,
                     "SelectItemMultipleNormal" to SddsServSelectItemMultipleNormalVariationsCompose,
                     "SelectItemMultipleTight" to SddsServSelectItemMultipleTightVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.Answer,
+                mapOf(
+                    "Answer" to SddsServAnswerVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

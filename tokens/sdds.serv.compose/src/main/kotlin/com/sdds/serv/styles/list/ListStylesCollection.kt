@@ -93,7 +93,7 @@ public enum class ListTightSize {
 /**
  * Возможные значения свойства size для dropdown-menu-list-normal
  */
-public enum class ListDropdownMenuListNormalSize {
+public enum class DropdownMenuListNormalSize {
     Xl,
     L,
     M,
@@ -104,7 +104,7 @@ public enum class ListDropdownMenuListNormalSize {
 /**
  * Возможные значения свойства size для dropdown-menu-list-tight
  */
-public enum class ListDropdownMenuListTightSize {
+public enum class DropdownMenuListTightSize {
     Xl,
     L,
     M,
@@ -190,14 +190,14 @@ public fun ListStyles.Tight.style(
  * Возвращает экземпляр [ListStyles] для dropdown-menu-list-normal
  */
 public fun ListStyles.DropdownMenuListNormal.resolve(
-    size: ListDropdownMenuListNormalSize =
-        ListDropdownMenuListNormalSize.Xl,
+    size: DropdownMenuListNormalSize =
+        DropdownMenuListNormalSize.Xl,
 ): ListStyles = when {
-    size == ListDropdownMenuListNormalSize.Xl -> ListStyles.DropdownMenuListNormalXl
-    size == ListDropdownMenuListNormalSize.L -> ListStyles.DropdownMenuListNormalL
-    size == ListDropdownMenuListNormalSize.M -> ListStyles.DropdownMenuListNormalM
-    size == ListDropdownMenuListNormalSize.S -> ListStyles.DropdownMenuListNormalS
-    size == ListDropdownMenuListNormalSize.Xs -> ListStyles.DropdownMenuListNormalXs
+    size == DropdownMenuListNormalSize.Xl -> ListStyles.DropdownMenuListNormalXl
+    size == DropdownMenuListNormalSize.L -> ListStyles.DropdownMenuListNormalL
+    size == DropdownMenuListNormalSize.M -> ListStyles.DropdownMenuListNormalM
+    size == DropdownMenuListNormalSize.S -> ListStyles.DropdownMenuListNormalS
+    size == DropdownMenuListNormalSize.Xs -> ListStyles.DropdownMenuListNormalXs
     else -> error("Unsupported dropdown-menu-list-normal style combination")
 }
 
@@ -206,8 +206,8 @@ public fun ListStyles.DropdownMenuListNormal.resolve(
  */
 @Composable
 public fun ListStyles.DropdownMenuListNormal.style(
-    size: ListDropdownMenuListNormalSize =
-        ListDropdownMenuListNormalSize.Xl,
+    size: DropdownMenuListNormalSize =
+        DropdownMenuListNormalSize.Xl,
     modify: @Composable ListStyleBuilder.() -> Unit = {},
 ): ListStyle = resolve(size).style(modify)
 
@@ -215,14 +215,14 @@ public fun ListStyles.DropdownMenuListNormal.style(
  * Возвращает экземпляр [ListStyles] для dropdown-menu-list-tight
  */
 public fun ListStyles.DropdownMenuListTight.resolve(
-    size: ListDropdownMenuListTightSize =
-        ListDropdownMenuListTightSize.Xl,
+    size: DropdownMenuListTightSize =
+        DropdownMenuListTightSize.Xl,
 ): ListStyles = when {
-    size == ListDropdownMenuListTightSize.Xl -> ListStyles.DropdownMenuListTightXl
-    size == ListDropdownMenuListTightSize.L -> ListStyles.DropdownMenuListTightL
-    size == ListDropdownMenuListTightSize.M -> ListStyles.DropdownMenuListTightM
-    size == ListDropdownMenuListTightSize.S -> ListStyles.DropdownMenuListTightS
-    size == ListDropdownMenuListTightSize.Xs -> ListStyles.DropdownMenuListTightXs
+    size == DropdownMenuListTightSize.Xl -> ListStyles.DropdownMenuListTightXl
+    size == DropdownMenuListTightSize.L -> ListStyles.DropdownMenuListTightL
+    size == DropdownMenuListTightSize.M -> ListStyles.DropdownMenuListTightM
+    size == DropdownMenuListTightSize.S -> ListStyles.DropdownMenuListTightS
+    size == DropdownMenuListTightSize.Xs -> ListStyles.DropdownMenuListTightXs
     else -> error("Unsupported dropdown-menu-list-tight style combination")
 }
 
@@ -231,7 +231,7 @@ public fun ListStyles.DropdownMenuListTight.resolve(
  */
 @Composable
 public fun ListStyles.DropdownMenuListTight.style(
-    size: ListDropdownMenuListTightSize =
-        ListDropdownMenuListTightSize.Xl,
+    size: DropdownMenuListTightSize =
+        DropdownMenuListTightSize.Xl,
     modify: @Composable ListStyleBuilder.() -> Unit = {},
 ): ListStyle = resolve(size).style(modify)

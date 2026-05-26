@@ -127,6 +127,30 @@ public enum class ButtonGroupStyles(
     IconButtonGroupLNoGapDefault("IconButtonGroup.L.NoGap.Default"),
     IconButtonGroupLNoGapPilled("IconButtonGroup.L.NoGap.Pilled"),
     IconButtonGroupLNoGapSegmented("IconButtonGroup.L.NoGap.Segmented"),
+    EmbeddedIconButtonGroupXs("EmbeddedIconButtonGroup.Xs"),
+    EmbeddedIconButtonGroupXsWide("EmbeddedIconButtonGroup.Xs.Wide"),
+    EmbeddedIconButtonGroupXsDense("EmbeddedIconButtonGroup.Xs.Dense"),
+    EmbeddedIconButtonGroupXsNoGap("EmbeddedIconButtonGroup.Xs.NoGap"),
+    EmbeddedIconButtonGroupS("EmbeddedIconButtonGroup.S"),
+    EmbeddedIconButtonGroupSWide("EmbeddedIconButtonGroup.S.Wide"),
+    EmbeddedIconButtonGroupSDense("EmbeddedIconButtonGroup.S.Dense"),
+    EmbeddedIconButtonGroupSNoGap("EmbeddedIconButtonGroup.S.NoGap"),
+    EmbeddedIconButtonGroupM("EmbeddedIconButtonGroup.M"),
+    EmbeddedIconButtonGroupMWide("EmbeddedIconButtonGroup.M.Wide"),
+    EmbeddedIconButtonGroupMDense("EmbeddedIconButtonGroup.M.Dense"),
+    EmbeddedIconButtonGroupMNoGap("EmbeddedIconButtonGroup.M.NoGap"),
+    EmbeddedIconButtonGroupL("EmbeddedIconButtonGroup.L"),
+    EmbeddedIconButtonGroupLWide("EmbeddedIconButtonGroup.L.Wide"),
+    EmbeddedIconButtonGroupLDense("EmbeddedIconButtonGroup.L.Dense"),
+    EmbeddedIconButtonGroupLNoGap("EmbeddedIconButtonGroup.L.NoGap"),
+    AiAnswerIconButtonGroupXs("AiAnswerIconButtonGroup.Xs"),
+    AiAnswerIconButtonGroupS("AiAnswerIconButtonGroup.S"),
+    AiAnswerIconButtonGroupM("AiAnswerIconButtonGroup.M"),
+    AiAnswerIconButtonGroupL("AiAnswerIconButtonGroup.L"),
+    AiAnswerBasicButtonGroupXs("AiAnswerBasicButtonGroup.Xs"),
+    AiAnswerBasicButtonGroupS("AiAnswerBasicButtonGroup.S"),
+    AiAnswerBasicButtonGroupM("AiAnswerBasicButtonGroup.M"),
+    AiAnswerBasicButtonGroupL("AiAnswerBasicButtonGroup.L"),
     ;
 
     /**
@@ -138,12 +162,27 @@ public enum class ButtonGroupStyles(
      * Typed API для подбора стиля icon-button-group
      */
     public object IconButtonGroup
+
+    /**
+     * Typed API для подбора стиля embedded-icon-button-group
+     */
+    public object EmbeddedIconButtonGroup
+
+    /**
+     * Typed API для подбора стиля ai-answer-icon-button-group
+     */
+    public object AiAnswerIconButtonGroup
+
+    /**
+     * Typed API для подбора стиля ai-answer-basic-button-group
+     */
+    public object AiAnswerBasicButtonGroup
 }
 
 /**
  * Возможные значения свойства size для basic-button-group
  */
-public enum class ButtonGroupBasicButtonGroupSize {
+public enum class BasicButtonGroupSize {
     Xxs,
     Xs,
     S,
@@ -154,7 +193,7 @@ public enum class ButtonGroupBasicButtonGroupSize {
 /**
  * Возможные значения свойства gap для basic-button-group
  */
-public enum class ButtonGroupBasicButtonGroupGap {
+public enum class BasicButtonGroupGap {
     Wide,
     Dense,
     None,
@@ -163,7 +202,7 @@ public enum class ButtonGroupBasicButtonGroupGap {
 /**
  * Возможные значения свойства shape для basic-button-group
  */
-public enum class ButtonGroupBasicButtonGroupShape {
+public enum class BasicButtonGroupShape {
     Default,
     Segmented,
 }
@@ -171,7 +210,7 @@ public enum class ButtonGroupBasicButtonGroupShape {
 /**
  * Возможные значения свойства size для icon-button-group
  */
-public enum class ButtonGroupIconButtonGroupSize {
+public enum class IconButtonGroupSize {
     Xs,
     S,
     M,
@@ -181,7 +220,7 @@ public enum class ButtonGroupIconButtonGroupSize {
 /**
  * Возможные значения свойства gap для icon-button-group
  */
-public enum class ButtonGroupIconButtonGroupGap {
+public enum class IconButtonGroupGap {
     Wide,
     Dense,
     None,
@@ -190,10 +229,49 @@ public enum class ButtonGroupIconButtonGroupGap {
 /**
  * Возможные значения свойства shape для icon-button-group
  */
-public enum class ButtonGroupIconButtonGroupShape {
+public enum class IconButtonGroupShape {
     Default,
     Pilled,
     Segmented,
+}
+
+/**
+ * Возможные значения свойства size для embedded-icon-button-group
+ */
+public enum class EmbeddedIconButtonGroupSize {
+    Xs,
+    S,
+    M,
+    L,
+}
+
+/**
+ * Возможные значения свойства gap для embedded-icon-button-group
+ */
+public enum class EmbeddedIconButtonGroupGap {
+    Wide,
+    Dense,
+    None,
+}
+
+/**
+ * Возможные значения свойства size для ai-answer-icon-button-group
+ */
+public enum class AiAnswerIconButtonGroupSize {
+    Xs,
+    S,
+    M,
+    L,
+}
+
+/**
+ * Возможные значения свойства size для ai-answer-basic-button-group
+ */
+public enum class AiAnswerBasicButtonGroupSize {
+    Xs,
+    S,
+    M,
+    L,
 }
 
 /**
@@ -304,6 +382,30 @@ public fun ButtonGroupStyles.style(modify: @Composable ButtonGroupStyleBuilder.(
         ButtonGroupStyles.IconButtonGroupLNoGapDefault -> IconButtonGroup.L.NoGap.Default
         ButtonGroupStyles.IconButtonGroupLNoGapPilled -> IconButtonGroup.L.NoGap.Pilled
         ButtonGroupStyles.IconButtonGroupLNoGapSegmented -> IconButtonGroup.L.NoGap.Segmented
+        ButtonGroupStyles.EmbeddedIconButtonGroupXs -> EmbeddedIconButtonGroup.Xs
+        ButtonGroupStyles.EmbeddedIconButtonGroupXsWide -> EmbeddedIconButtonGroup.Xs.Wide
+        ButtonGroupStyles.EmbeddedIconButtonGroupXsDense -> EmbeddedIconButtonGroup.Xs.Dense
+        ButtonGroupStyles.EmbeddedIconButtonGroupXsNoGap -> EmbeddedIconButtonGroup.Xs.NoGap
+        ButtonGroupStyles.EmbeddedIconButtonGroupS -> EmbeddedIconButtonGroup.S
+        ButtonGroupStyles.EmbeddedIconButtonGroupSWide -> EmbeddedIconButtonGroup.S.Wide
+        ButtonGroupStyles.EmbeddedIconButtonGroupSDense -> EmbeddedIconButtonGroup.S.Dense
+        ButtonGroupStyles.EmbeddedIconButtonGroupSNoGap -> EmbeddedIconButtonGroup.S.NoGap
+        ButtonGroupStyles.EmbeddedIconButtonGroupM -> EmbeddedIconButtonGroup.M
+        ButtonGroupStyles.EmbeddedIconButtonGroupMWide -> EmbeddedIconButtonGroup.M.Wide
+        ButtonGroupStyles.EmbeddedIconButtonGroupMDense -> EmbeddedIconButtonGroup.M.Dense
+        ButtonGroupStyles.EmbeddedIconButtonGroupMNoGap -> EmbeddedIconButtonGroup.M.NoGap
+        ButtonGroupStyles.EmbeddedIconButtonGroupL -> EmbeddedIconButtonGroup.L
+        ButtonGroupStyles.EmbeddedIconButtonGroupLWide -> EmbeddedIconButtonGroup.L.Wide
+        ButtonGroupStyles.EmbeddedIconButtonGroupLDense -> EmbeddedIconButtonGroup.L.Dense
+        ButtonGroupStyles.EmbeddedIconButtonGroupLNoGap -> EmbeddedIconButtonGroup.L.NoGap
+        ButtonGroupStyles.AiAnswerIconButtonGroupXs -> AiAnswerIconButtonGroup.Xs
+        ButtonGroupStyles.AiAnswerIconButtonGroupS -> AiAnswerIconButtonGroup.S
+        ButtonGroupStyles.AiAnswerIconButtonGroupM -> AiAnswerIconButtonGroup.M
+        ButtonGroupStyles.AiAnswerIconButtonGroupL -> AiAnswerIconButtonGroup.L
+        ButtonGroupStyles.AiAnswerBasicButtonGroupXs -> AiAnswerBasicButtonGroup.Xs
+        ButtonGroupStyles.AiAnswerBasicButtonGroupS -> AiAnswerBasicButtonGroup.S
+        ButtonGroupStyles.AiAnswerBasicButtonGroupM -> AiAnswerBasicButtonGroup.M
+        ButtonGroupStyles.AiAnswerBasicButtonGroupL -> AiAnswerBasicButtonGroup.L
     }
     return builder.modify(modify).style()
 }
@@ -312,135 +414,105 @@ public fun ButtonGroupStyles.style(modify: @Composable ButtonGroupStyleBuilder.(
  * Возвращает экземпляр [ButtonGroupStyles] для basic-button-group
  */
 public fun ButtonGroupStyles.BasicButtonGroup.resolve(
-    size: ButtonGroupBasicButtonGroupSize = ButtonGroupBasicButtonGroupSize.Xxs,
-    gap: ButtonGroupBasicButtonGroupGap = ButtonGroupBasicButtonGroupGap.Wide,
-    shape: ButtonGroupBasicButtonGroupShape = ButtonGroupBasicButtonGroupShape.Default,
+    size: BasicButtonGroupSize = BasicButtonGroupSize.Xxs,
+    gap: BasicButtonGroupGap = BasicButtonGroupGap.Wide,
+    shape: BasicButtonGroupShape = BasicButtonGroupShape.Default,
 ): ButtonGroupStyles = when {
-    size == ButtonGroupBasicButtonGroupSize.Xxs && gap == ButtonGroupBasicButtonGroupGap.Wide &&
-        shape == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupXxsWideDefault
-    size == ButtonGroupBasicButtonGroupSize.Xxs && gap == ButtonGroupBasicButtonGroupGap.Wide &&
-        shape == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupXxsWideSegmented
-    size == ButtonGroupBasicButtonGroupSize.Xxs && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupXxsDenseDefault
-    size == ButtonGroupBasicButtonGroupSize.Xxs && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupXxsDenseSegmented
-    size == ButtonGroupBasicButtonGroupSize.Xxs && gap == ButtonGroupBasicButtonGroupGap.None &&
-        shape == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupXxsNoGapDefault
-    size == ButtonGroupBasicButtonGroupSize.Xxs && gap == ButtonGroupBasicButtonGroupGap.None &&
-        shape == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupXxsNoGapSegmented
-    size == ButtonGroupBasicButtonGroupSize.Xs && gap == ButtonGroupBasicButtonGroupGap.Wide &&
-        shape == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupXsWideDefault
-    size == ButtonGroupBasicButtonGroupSize.Xs && gap == ButtonGroupBasicButtonGroupGap.Wide &&
-        shape == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupXsWideSegmented
-    size == ButtonGroupBasicButtonGroupSize.Xs && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupXsDenseDefault
-    size == ButtonGroupBasicButtonGroupSize.Xs && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupXsDenseSegmented
-    size == ButtonGroupBasicButtonGroupSize.Xs && gap == ButtonGroupBasicButtonGroupGap.None &&
-        shape == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupXsNoGapDefault
-    size == ButtonGroupBasicButtonGroupSize.Xs && gap == ButtonGroupBasicButtonGroupGap.None &&
-        shape == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupXsNoGapSegmented
-    size == ButtonGroupBasicButtonGroupSize.S && gap == ButtonGroupBasicButtonGroupGap.Wide && shape
-        == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupSWideDefault
-    size == ButtonGroupBasicButtonGroupSize.S && gap == ButtonGroupBasicButtonGroupGap.Wide && shape
-        == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupSWideSegmented
-    size == ButtonGroupBasicButtonGroupSize.S && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupSDenseDefault
-    size == ButtonGroupBasicButtonGroupSize.S && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupSDenseSegmented
-    size == ButtonGroupBasicButtonGroupSize.S && gap == ButtonGroupBasicButtonGroupGap.None && shape
-        == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupSNoGapDefault
-    size == ButtonGroupBasicButtonGroupSize.S && gap == ButtonGroupBasicButtonGroupGap.None && shape
-        == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupSNoGapSegmented
-    size == ButtonGroupBasicButtonGroupSize.M && gap == ButtonGroupBasicButtonGroupGap.Wide && shape
-        == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupMWideDefault
-    size == ButtonGroupBasicButtonGroupSize.M && gap == ButtonGroupBasicButtonGroupGap.Wide && shape
-        == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupMWideSegmented
-    size == ButtonGroupBasicButtonGroupSize.M && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupMDenseDefault
-    size == ButtonGroupBasicButtonGroupSize.M && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupMDenseSegmented
-    size == ButtonGroupBasicButtonGroupSize.M && gap == ButtonGroupBasicButtonGroupGap.None && shape
-        == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupMNoGapDefault
-    size == ButtonGroupBasicButtonGroupSize.M && gap == ButtonGroupBasicButtonGroupGap.None && shape
-        == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupMNoGapSegmented
-    size == ButtonGroupBasicButtonGroupSize.L && gap == ButtonGroupBasicButtonGroupGap.Wide && shape
-        == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupLWideDefault
-    size == ButtonGroupBasicButtonGroupSize.L && gap == ButtonGroupBasicButtonGroupGap.Wide && shape
-        == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupLWideSegmented
-    size == ButtonGroupBasicButtonGroupSize.L && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupLDenseDefault
-    size == ButtonGroupBasicButtonGroupSize.L && gap == ButtonGroupBasicButtonGroupGap.Dense &&
-        shape == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupLDenseSegmented
-    size == ButtonGroupBasicButtonGroupSize.L && gap == ButtonGroupBasicButtonGroupGap.None && shape
-        == ButtonGroupBasicButtonGroupShape.Default ->
-        ButtonGroupStyles.BasicButtonGroupLNoGapDefault
-    size == ButtonGroupBasicButtonGroupSize.L && gap == ButtonGroupBasicButtonGroupGap.None && shape
-        == ButtonGroupBasicButtonGroupShape.Segmented ->
-        ButtonGroupStyles.BasicButtonGroupLNoGapSegmented
-    size == ButtonGroupBasicButtonGroupSize.Xxs && gap == ButtonGroupBasicButtonGroupGap.Wide ->
+    size == BasicButtonGroupSize.Xxs && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupXxsWideDefault
+    size == BasicButtonGroupSize.Xxs && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupXxsWideSegmented
+    size == BasicButtonGroupSize.Xxs && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupXxsDenseDefault
+    size == BasicButtonGroupSize.Xxs && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupXxsDenseSegmented
+    size == BasicButtonGroupSize.Xxs && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupXxsNoGapDefault
+    size == BasicButtonGroupSize.Xxs && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupXxsNoGapSegmented
+    size == BasicButtonGroupSize.Xs && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupXsWideDefault
+    size == BasicButtonGroupSize.Xs && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupXsWideSegmented
+    size == BasicButtonGroupSize.Xs && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupXsDenseDefault
+    size == BasicButtonGroupSize.Xs && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupXsDenseSegmented
+    size == BasicButtonGroupSize.Xs && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupXsNoGapDefault
+    size == BasicButtonGroupSize.Xs && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupXsNoGapSegmented
+    size == BasicButtonGroupSize.S && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupSWideDefault
+    size == BasicButtonGroupSize.S && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupSWideSegmented
+    size == BasicButtonGroupSize.S && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupSDenseDefault
+    size == BasicButtonGroupSize.S && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupSDenseSegmented
+    size == BasicButtonGroupSize.S && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupSNoGapDefault
+    size == BasicButtonGroupSize.S && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupSNoGapSegmented
+    size == BasicButtonGroupSize.M && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupMWideDefault
+    size == BasicButtonGroupSize.M && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupMWideSegmented
+    size == BasicButtonGroupSize.M && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupMDenseDefault
+    size == BasicButtonGroupSize.M && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupMDenseSegmented
+    size == BasicButtonGroupSize.M && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupMNoGapDefault
+    size == BasicButtonGroupSize.M && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupMNoGapSegmented
+    size == BasicButtonGroupSize.L && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupLWideDefault
+    size == BasicButtonGroupSize.L && gap == BasicButtonGroupGap.Wide && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupLWideSegmented
+    size == BasicButtonGroupSize.L && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupLDenseDefault
+    size == BasicButtonGroupSize.L && gap == BasicButtonGroupGap.Dense && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupLDenseSegmented
+    size == BasicButtonGroupSize.L && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Default -> ButtonGroupStyles.BasicButtonGroupLNoGapDefault
+    size == BasicButtonGroupSize.L && gap == BasicButtonGroupGap.None && shape ==
+        BasicButtonGroupShape.Segmented -> ButtonGroupStyles.BasicButtonGroupLNoGapSegmented
+    size == BasicButtonGroupSize.Xxs && gap == BasicButtonGroupGap.Wide ->
         ButtonGroupStyles.BasicButtonGroupXxsWide
-    size == ButtonGroupBasicButtonGroupSize.Xxs && gap == ButtonGroupBasicButtonGroupGap.Dense ->
+    size == BasicButtonGroupSize.Xxs && gap == BasicButtonGroupGap.Dense ->
         ButtonGroupStyles.BasicButtonGroupXxsDense
-    size == ButtonGroupBasicButtonGroupSize.Xxs && gap == ButtonGroupBasicButtonGroupGap.None ->
+    size == BasicButtonGroupSize.Xxs && gap == BasicButtonGroupGap.None ->
         ButtonGroupStyles.BasicButtonGroupXxsNoGap
-    size == ButtonGroupBasicButtonGroupSize.Xs && gap == ButtonGroupBasicButtonGroupGap.Wide ->
+    size == BasicButtonGroupSize.Xs && gap == BasicButtonGroupGap.Wide ->
         ButtonGroupStyles.BasicButtonGroupXsWide
-    size == ButtonGroupBasicButtonGroupSize.Xs && gap == ButtonGroupBasicButtonGroupGap.Dense ->
+    size == BasicButtonGroupSize.Xs && gap == BasicButtonGroupGap.Dense ->
         ButtonGroupStyles.BasicButtonGroupXsDense
-    size == ButtonGroupBasicButtonGroupSize.Xs && gap == ButtonGroupBasicButtonGroupGap.None ->
+    size == BasicButtonGroupSize.Xs && gap == BasicButtonGroupGap.None ->
         ButtonGroupStyles.BasicButtonGroupXsNoGap
-    size == ButtonGroupBasicButtonGroupSize.S && gap == ButtonGroupBasicButtonGroupGap.Wide ->
+    size == BasicButtonGroupSize.S && gap == BasicButtonGroupGap.Wide ->
         ButtonGroupStyles.BasicButtonGroupSWide
-    size == ButtonGroupBasicButtonGroupSize.S && gap == ButtonGroupBasicButtonGroupGap.Dense ->
+    size == BasicButtonGroupSize.S && gap == BasicButtonGroupGap.Dense ->
         ButtonGroupStyles.BasicButtonGroupSDense
-    size == ButtonGroupBasicButtonGroupSize.S && gap == ButtonGroupBasicButtonGroupGap.None ->
+    size == BasicButtonGroupSize.S && gap == BasicButtonGroupGap.None ->
         ButtonGroupStyles.BasicButtonGroupSNoGap
-    size == ButtonGroupBasicButtonGroupSize.M && gap == ButtonGroupBasicButtonGroupGap.Wide ->
+    size == BasicButtonGroupSize.M && gap == BasicButtonGroupGap.Wide ->
         ButtonGroupStyles.BasicButtonGroupMWide
-    size == ButtonGroupBasicButtonGroupSize.M && gap == ButtonGroupBasicButtonGroupGap.Dense ->
+    size == BasicButtonGroupSize.M && gap == BasicButtonGroupGap.Dense ->
         ButtonGroupStyles.BasicButtonGroupMDense
-    size == ButtonGroupBasicButtonGroupSize.M && gap == ButtonGroupBasicButtonGroupGap.None ->
+    size == BasicButtonGroupSize.M && gap == BasicButtonGroupGap.None ->
         ButtonGroupStyles.BasicButtonGroupMNoGap
-    size == ButtonGroupBasicButtonGroupSize.L && gap == ButtonGroupBasicButtonGroupGap.Wide ->
+    size == BasicButtonGroupSize.L && gap == BasicButtonGroupGap.Wide ->
         ButtonGroupStyles.BasicButtonGroupLWide
-    size == ButtonGroupBasicButtonGroupSize.L && gap == ButtonGroupBasicButtonGroupGap.Dense ->
+    size == BasicButtonGroupSize.L && gap == BasicButtonGroupGap.Dense ->
         ButtonGroupStyles.BasicButtonGroupLDense
-    size == ButtonGroupBasicButtonGroupSize.L && gap == ButtonGroupBasicButtonGroupGap.None ->
+    size == BasicButtonGroupSize.L && gap == BasicButtonGroupGap.None ->
         ButtonGroupStyles.BasicButtonGroupLNoGap
-    size == ButtonGroupBasicButtonGroupSize.Xxs -> ButtonGroupStyles.BasicButtonGroupXxs
-    size == ButtonGroupBasicButtonGroupSize.Xs -> ButtonGroupStyles.BasicButtonGroupXs
-    size == ButtonGroupBasicButtonGroupSize.S -> ButtonGroupStyles.BasicButtonGroupS
-    size == ButtonGroupBasicButtonGroupSize.M -> ButtonGroupStyles.BasicButtonGroupM
-    size == ButtonGroupBasicButtonGroupSize.L -> ButtonGroupStyles.BasicButtonGroupL
+    size == BasicButtonGroupSize.Xxs -> ButtonGroupStyles.BasicButtonGroupXxs
+    size == BasicButtonGroupSize.Xs -> ButtonGroupStyles.BasicButtonGroupXs
+    size == BasicButtonGroupSize.S -> ButtonGroupStyles.BasicButtonGroupS
+    size == BasicButtonGroupSize.M -> ButtonGroupStyles.BasicButtonGroupM
+    size == BasicButtonGroupSize.L -> ButtonGroupStyles.BasicButtonGroupL
     else -> error("Unsupported basic-button-group style combination")
 }
 
@@ -449,9 +521,9 @@ public fun ButtonGroupStyles.BasicButtonGroup.resolve(
  */
 @Composable
 public fun ButtonGroupStyles.BasicButtonGroup.style(
-    size: ButtonGroupBasicButtonGroupSize = ButtonGroupBasicButtonGroupSize.Xxs,
-    gap: ButtonGroupBasicButtonGroupGap = ButtonGroupBasicButtonGroupGap.Wide,
-    shape: ButtonGroupBasicButtonGroupShape = ButtonGroupBasicButtonGroupShape.Default,
+    size: BasicButtonGroupSize = BasicButtonGroupSize.Xxs,
+    gap: BasicButtonGroupGap = BasicButtonGroupGap.Wide,
+    shape: BasicButtonGroupShape = BasicButtonGroupShape.Default,
     modify: @Composable ButtonGroupStyleBuilder.() -> Unit = {},
 ): ButtonGroupStyle = resolve(size, gap, shape).style(modify)
 
@@ -459,124 +531,110 @@ public fun ButtonGroupStyles.BasicButtonGroup.style(
  * Возвращает экземпляр [ButtonGroupStyles] для icon-button-group
  */
 public fun ButtonGroupStyles.IconButtonGroup.resolve(
-    size: ButtonGroupIconButtonGroupSize = ButtonGroupIconButtonGroupSize.Xs,
-    gap: ButtonGroupIconButtonGroupGap = ButtonGroupIconButtonGroupGap.Wide,
-    shape: ButtonGroupIconButtonGroupShape = ButtonGroupIconButtonGroupShape.Default,
+    size: IconButtonGroupSize = IconButtonGroupSize.Xs,
+    gap: IconButtonGroupGap = IconButtonGroupGap.Wide,
+    shape: IconButtonGroupShape = IconButtonGroupShape.Default,
 ): ButtonGroupStyles = when {
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupXsWideDefault
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupXsWidePilled
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupXsWideSegmented
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Default ->
-        ButtonGroupStyles.IconButtonGroupXsDenseDefault
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupXsDensePilled
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupXsDenseSegmented
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Default ->
-        ButtonGroupStyles.IconButtonGroupXsNoGapDefault
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupXsNoGapPilled
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupXsNoGapSegmented
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupSWideDefault
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupSWidePilled
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupSWideSegmented
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupSDenseDefault
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupSDensePilled
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupSDenseSegmented
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupSNoGapDefault
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupSNoGapPilled
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupSNoGapSegmented
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupMWideDefault
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupMWidePilled
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupMWideSegmented
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupMDenseDefault
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupMDensePilled
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupMDenseSegmented
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupMNoGapDefault
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupMNoGapPilled
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupMNoGapSegmented
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupLWideDefault
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupLWidePilled
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.Wide && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupLWideSegmented
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupLDenseDefault
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupLDensePilled
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.Dense && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupLDenseSegmented
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupLNoGapDefault
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupLNoGapPilled
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.None && shape
-        == ButtonGroupIconButtonGroupShape.Segmented ->
-        ButtonGroupStyles.IconButtonGroupLNoGapSegmented
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.Wide ->
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupXsWideDefault
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupXsWidePilled
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupXsWideSegmented
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupXsDenseDefault
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupXsDensePilled
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupXsDenseSegmented
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupXsNoGapDefault
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupXsNoGapPilled
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupXsNoGapSegmented
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupSWideDefault
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupSWidePilled
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupSWideSegmented
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupSDenseDefault
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupSDensePilled
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupSDenseSegmented
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupSNoGapDefault
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupSNoGapPilled
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupSNoGapSegmented
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupMWideDefault
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupMWidePilled
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupMWideSegmented
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupMDenseDefault
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupMDensePilled
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupMDenseSegmented
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupMNoGapDefault
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupMNoGapPilled
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupMNoGapSegmented
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupLWideDefault
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupLWidePilled
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.Wide && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupLWideSegmented
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupLDenseDefault
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupLDensePilled
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.Dense && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupLDenseSegmented
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Default -> ButtonGroupStyles.IconButtonGroupLNoGapDefault
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Pilled -> ButtonGroupStyles.IconButtonGroupLNoGapPilled
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.None && shape ==
+        IconButtonGroupShape.Segmented -> ButtonGroupStyles.IconButtonGroupLNoGapSegmented
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.Wide ->
         ButtonGroupStyles.IconButtonGroupXsWide
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.Dense ->
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.Dense ->
         ButtonGroupStyles.IconButtonGroupXsDense
-    size == ButtonGroupIconButtonGroupSize.Xs && gap == ButtonGroupIconButtonGroupGap.None ->
+    size == IconButtonGroupSize.Xs && gap == IconButtonGroupGap.None ->
         ButtonGroupStyles.IconButtonGroupXsNoGap
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.Wide ->
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.Wide ->
         ButtonGroupStyles.IconButtonGroupSWide
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.Dense ->
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.Dense ->
         ButtonGroupStyles.IconButtonGroupSDense
-    size == ButtonGroupIconButtonGroupSize.S && gap == ButtonGroupIconButtonGroupGap.None ->
+    size == IconButtonGroupSize.S && gap == IconButtonGroupGap.None ->
         ButtonGroupStyles.IconButtonGroupSNoGap
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.Wide ->
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.Wide ->
         ButtonGroupStyles.IconButtonGroupMWide
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.Dense ->
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.Dense ->
         ButtonGroupStyles.IconButtonGroupMDense
-    size == ButtonGroupIconButtonGroupSize.M && gap == ButtonGroupIconButtonGroupGap.None ->
+    size == IconButtonGroupSize.M && gap == IconButtonGroupGap.None ->
         ButtonGroupStyles.IconButtonGroupMNoGap
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.Wide ->
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.Wide ->
         ButtonGroupStyles.IconButtonGroupLWide
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.Dense ->
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.Dense ->
         ButtonGroupStyles.IconButtonGroupLDense
-    size == ButtonGroupIconButtonGroupSize.L && gap == ButtonGroupIconButtonGroupGap.None ->
+    size == IconButtonGroupSize.L && gap == IconButtonGroupGap.None ->
         ButtonGroupStyles.IconButtonGroupLNoGap
-    size == ButtonGroupIconButtonGroupSize.Xs -> ButtonGroupStyles.IconButtonGroupXs
-    size == ButtonGroupIconButtonGroupSize.S -> ButtonGroupStyles.IconButtonGroupS
-    size == ButtonGroupIconButtonGroupSize.M -> ButtonGroupStyles.IconButtonGroupM
-    size == ButtonGroupIconButtonGroupSize.L -> ButtonGroupStyles.IconButtonGroupL
+    size == IconButtonGroupSize.Xs -> ButtonGroupStyles.IconButtonGroupXs
+    size == IconButtonGroupSize.S -> ButtonGroupStyles.IconButtonGroupS
+    size == IconButtonGroupSize.M -> ButtonGroupStyles.IconButtonGroupM
+    size == IconButtonGroupSize.L -> ButtonGroupStyles.IconButtonGroupL
     else -> error("Unsupported icon-button-group style combination")
 }
 
@@ -585,8 +643,107 @@ public fun ButtonGroupStyles.IconButtonGroup.resolve(
  */
 @Composable
 public fun ButtonGroupStyles.IconButtonGroup.style(
-    size: ButtonGroupIconButtonGroupSize = ButtonGroupIconButtonGroupSize.Xs,
-    gap: ButtonGroupIconButtonGroupGap = ButtonGroupIconButtonGroupGap.Wide,
-    shape: ButtonGroupIconButtonGroupShape = ButtonGroupIconButtonGroupShape.Default,
+    size: IconButtonGroupSize = IconButtonGroupSize.Xs,
+    gap: IconButtonGroupGap = IconButtonGroupGap.Wide,
+    shape: IconButtonGroupShape = IconButtonGroupShape.Default,
     modify: @Composable ButtonGroupStyleBuilder.() -> Unit = {},
 ): ButtonGroupStyle = resolve(size, gap, shape).style(modify)
+
+/**
+ * Возвращает экземпляр [ButtonGroupStyles] для embedded-icon-button-group
+ */
+public fun ButtonGroupStyles.EmbeddedIconButtonGroup.resolve(
+    size: EmbeddedIconButtonGroupSize =
+        EmbeddedIconButtonGroupSize.M,
+    gap: EmbeddedIconButtonGroupGap =
+        EmbeddedIconButtonGroupGap.Wide,
+): ButtonGroupStyles = when {
+    size == EmbeddedIconButtonGroupSize.Xs && gap == EmbeddedIconButtonGroupGap.Wide ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupXsWide
+    size == EmbeddedIconButtonGroupSize.Xs && gap == EmbeddedIconButtonGroupGap.Dense ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupXsDense
+    size == EmbeddedIconButtonGroupSize.Xs && gap == EmbeddedIconButtonGroupGap.None ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupXsNoGap
+    size == EmbeddedIconButtonGroupSize.S && gap == EmbeddedIconButtonGroupGap.Wide ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupSWide
+    size == EmbeddedIconButtonGroupSize.S && gap == EmbeddedIconButtonGroupGap.Dense ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupSDense
+    size == EmbeddedIconButtonGroupSize.S && gap == EmbeddedIconButtonGroupGap.None ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupSNoGap
+    size == EmbeddedIconButtonGroupSize.M && gap == EmbeddedIconButtonGroupGap.Wide ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupMWide
+    size == EmbeddedIconButtonGroupSize.M && gap == EmbeddedIconButtonGroupGap.Dense ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupMDense
+    size == EmbeddedIconButtonGroupSize.M && gap == EmbeddedIconButtonGroupGap.None ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupMNoGap
+    size == EmbeddedIconButtonGroupSize.L && gap == EmbeddedIconButtonGroupGap.Wide ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupLWide
+    size == EmbeddedIconButtonGroupSize.L && gap == EmbeddedIconButtonGroupGap.Dense ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupLDense
+    size == EmbeddedIconButtonGroupSize.L && gap == EmbeddedIconButtonGroupGap.None ->
+        ButtonGroupStyles.EmbeddedIconButtonGroupLNoGap
+    size == EmbeddedIconButtonGroupSize.Xs -> ButtonGroupStyles.EmbeddedIconButtonGroupXs
+    size == EmbeddedIconButtonGroupSize.S -> ButtonGroupStyles.EmbeddedIconButtonGroupS
+    size == EmbeddedIconButtonGroupSize.M -> ButtonGroupStyles.EmbeddedIconButtonGroupM
+    size == EmbeddedIconButtonGroupSize.L -> ButtonGroupStyles.EmbeddedIconButtonGroupL
+    else -> error("Unsupported embedded-icon-button-group style combination")
+}
+
+/**
+ * Возвращает [ButtonGroupStyle] для embedded-icon-button-group
+ */
+@Composable
+public fun ButtonGroupStyles.EmbeddedIconButtonGroup.style(
+    size: EmbeddedIconButtonGroupSize = EmbeddedIconButtonGroupSize.M,
+    gap: EmbeddedIconButtonGroupGap = EmbeddedIconButtonGroupGap.Wide,
+    modify: @Composable ButtonGroupStyleBuilder.() -> Unit = {},
+): ButtonGroupStyle = resolve(size, gap).style(modify)
+
+/**
+ * Возвращает экземпляр [ButtonGroupStyles] для ai-answer-icon-button-group
+ */
+public fun ButtonGroupStyles.AiAnswerIconButtonGroup.resolve(
+    size: AiAnswerIconButtonGroupSize =
+        AiAnswerIconButtonGroupSize.M,
+): ButtonGroupStyles = when {
+    size == AiAnswerIconButtonGroupSize.Xs -> ButtonGroupStyles.AiAnswerIconButtonGroupXs
+    size == AiAnswerIconButtonGroupSize.S -> ButtonGroupStyles.AiAnswerIconButtonGroupS
+    size == AiAnswerIconButtonGroupSize.M -> ButtonGroupStyles.AiAnswerIconButtonGroupM
+    size == AiAnswerIconButtonGroupSize.L -> ButtonGroupStyles.AiAnswerIconButtonGroupL
+    else -> error("Unsupported ai-answer-icon-button-group style combination")
+}
+
+/**
+ * Возвращает [ButtonGroupStyle] для ai-answer-icon-button-group
+ */
+@Composable
+public fun ButtonGroupStyles.AiAnswerIconButtonGroup.style(
+    size: AiAnswerIconButtonGroupSize =
+        AiAnswerIconButtonGroupSize.M,
+    modify: @Composable ButtonGroupStyleBuilder.() -> Unit = {},
+): ButtonGroupStyle = resolve(size).style(modify)
+
+/**
+ * Возвращает экземпляр [ButtonGroupStyles] для ai-answer-basic-button-group
+ */
+public fun ButtonGroupStyles.AiAnswerBasicButtonGroup.resolve(
+    size: AiAnswerBasicButtonGroupSize =
+        AiAnswerBasicButtonGroupSize.M,
+): ButtonGroupStyles = when {
+    size == AiAnswerBasicButtonGroupSize.Xs -> ButtonGroupStyles.AiAnswerBasicButtonGroupXs
+    size == AiAnswerBasicButtonGroupSize.S -> ButtonGroupStyles.AiAnswerBasicButtonGroupS
+    size == AiAnswerBasicButtonGroupSize.M -> ButtonGroupStyles.AiAnswerBasicButtonGroupM
+    size == AiAnswerBasicButtonGroupSize.L -> ButtonGroupStyles.AiAnswerBasicButtonGroupL
+    else -> error("Unsupported ai-answer-basic-button-group style combination")
+}
+
+/**
+ * Возвращает [ButtonGroupStyle] для ai-answer-basic-button-group
+ */
+@Composable
+public fun ButtonGroupStyles.AiAnswerBasicButtonGroup.style(
+    size: AiAnswerBasicButtonGroupSize =
+        AiAnswerBasicButtonGroupSize.M,
+    modify: @Composable ButtonGroupStyleBuilder.() -> Unit =
+        {},
+): ButtonGroupStyle = resolve(size).style(modify)

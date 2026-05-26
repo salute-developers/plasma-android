@@ -14,13 +14,13 @@ import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sandbox.Property
-import com.sdds.serv.styles.buttongroup.ButtonGroupIconButtonGroupGap
-import com.sdds.serv.styles.buttongroup.ButtonGroupIconButtonGroupShape
-import com.sdds.serv.styles.buttongroup.ButtonGroupIconButtonGroupSize
 import com.sdds.serv.styles.buttongroup.ButtonGroupStyles
 import com.sdds.serv.styles.buttongroup.Default
 import com.sdds.serv.styles.buttongroup.Dense
 import com.sdds.serv.styles.buttongroup.IconButtonGroup
+import com.sdds.serv.styles.buttongroup.IconButtonGroupGap
+import com.sdds.serv.styles.buttongroup.IconButtonGroupShape
+import com.sdds.serv.styles.buttongroup.IconButtonGroupSize
 import com.sdds.serv.styles.buttongroup.L
 import com.sdds.serv.styles.buttongroup.M
 import com.sdds.serv.styles.buttongroup.NoGap
@@ -102,23 +102,23 @@ internal object SddsServIconButtonGroupVariationsCompose : ComposeStyleProvider<
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return ButtonGroupStyles.IconButtonGroup.resolve(
             size = when (bindings["size"]?.toString()) {
-                "Xs" -> ButtonGroupIconButtonGroupSize.Xs
-                "S" -> ButtonGroupIconButtonGroupSize.S
-                "M" -> ButtonGroupIconButtonGroupSize.M
-                "L" -> ButtonGroupIconButtonGroupSize.L
-                else -> ButtonGroupIconButtonGroupSize.Xs
+                "Xs" -> IconButtonGroupSize.Xs
+                "S" -> IconButtonGroupSize.S
+                "M" -> IconButtonGroupSize.M
+                "L" -> IconButtonGroupSize.L
+                else -> IconButtonGroupSize.Xs
             },
             gap = when (bindings["gap"]?.toString()) {
-                "Wide" -> ButtonGroupIconButtonGroupGap.Wide
-                "Dense" -> ButtonGroupIconButtonGroupGap.Dense
-                "None" -> ButtonGroupIconButtonGroupGap.None
-                else -> ButtonGroupIconButtonGroupGap.Wide
+                "Wide" -> IconButtonGroupGap.Wide
+                "Dense" -> IconButtonGroupGap.Dense
+                "None" -> IconButtonGroupGap.None
+                else -> IconButtonGroupGap.Wide
             },
             shape = when (bindings["shape"]?.toString()) {
-                "Default" -> ButtonGroupIconButtonGroupShape.Default
-                "Pilled" -> ButtonGroupIconButtonGroupShape.Pilled
-                "Segmented" -> ButtonGroupIconButtonGroupShape.Segmented
-                else -> ButtonGroupIconButtonGroupShape.Default
+                "Default" -> IconButtonGroupShape.Default
+                "Pilled" -> IconButtonGroupShape.Pilled
+                "Segmented" -> IconButtonGroupShape.Segmented
+                else -> IconButtonGroupShape.Default
             },
         ).key
     }

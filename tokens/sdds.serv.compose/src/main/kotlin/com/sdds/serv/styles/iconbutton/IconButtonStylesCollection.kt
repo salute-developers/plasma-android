@@ -145,18 +145,51 @@ public enum class IconButtonStyles(
     IconButtonXxsPilledDark("IconButton.Xxs.Pilled.Dark"),
     IconButtonXxsPilledBlack("IconButton.Xxs.Pilled.Black"),
     IconButtonXxsPilledWhite("IconButton.Xxs.Pilled.White"),
+    EmbeddedIconButtonLDefault("EmbeddedIconButton.L.Default"),
+    EmbeddedIconButtonLSecondary("EmbeddedIconButton.L.Secondary"),
+    EmbeddedIconButtonLAccent("EmbeddedIconButton.L.Accent"),
+    EmbeddedIconButtonLPositive("EmbeddedIconButton.L.Positive"),
+    EmbeddedIconButtonLNegative("EmbeddedIconButton.L.Negative"),
+    EmbeddedIconButtonLWarning("EmbeddedIconButton.L.Warning"),
+    EmbeddedIconButtonLInfo("EmbeddedIconButton.L.Info"),
+    EmbeddedIconButtonMDefault("EmbeddedIconButton.M.Default"),
+    EmbeddedIconButtonMSecondary("EmbeddedIconButton.M.Secondary"),
+    EmbeddedIconButtonMAccent("EmbeddedIconButton.M.Accent"),
+    EmbeddedIconButtonMPositive("EmbeddedIconButton.M.Positive"),
+    EmbeddedIconButtonMNegative("EmbeddedIconButton.M.Negative"),
+    EmbeddedIconButtonMWarning("EmbeddedIconButton.M.Warning"),
+    EmbeddedIconButtonMInfo("EmbeddedIconButton.M.Info"),
+    EmbeddedIconButtonSDefault("EmbeddedIconButton.S.Default"),
+    EmbeddedIconButtonSSecondary("EmbeddedIconButton.S.Secondary"),
+    EmbeddedIconButtonSAccent("EmbeddedIconButton.S.Accent"),
+    EmbeddedIconButtonSPositive("EmbeddedIconButton.S.Positive"),
+    EmbeddedIconButtonSNegative("EmbeddedIconButton.S.Negative"),
+    EmbeddedIconButtonSWarning("EmbeddedIconButton.S.Warning"),
+    EmbeddedIconButtonSInfo("EmbeddedIconButton.S.Info"),
+    EmbeddedIconButtonXsDefault("EmbeddedIconButton.Xs.Default"),
+    EmbeddedIconButtonXsSecondary("EmbeddedIconButton.Xs.Secondary"),
+    EmbeddedIconButtonXsAccent("EmbeddedIconButton.Xs.Accent"),
+    EmbeddedIconButtonXsPositive("EmbeddedIconButton.Xs.Positive"),
+    EmbeddedIconButtonXsNegative("EmbeddedIconButton.Xs.Negative"),
+    EmbeddedIconButtonXsWarning("EmbeddedIconButton.Xs.Warning"),
+    EmbeddedIconButtonXsInfo("EmbeddedIconButton.Xs.Info"),
     ;
 
     /**
      * Typed API для подбора стиля icon-button
      */
-    public companion object
+    public object Default
+
+    /**
+     * Typed API для подбора стиля embedded-icon-button
+     */
+    public object EmbeddedIconButton
 }
 
 /**
  * Возможные значения свойства size для icon-button
  */
-public enum class IconButtonSize {
+public enum class IconButtonDefaultSize {
     Xl,
     L,
     M,
@@ -168,7 +201,7 @@ public enum class IconButtonSize {
 /**
  * Возможные значения свойства shape для icon-button
  */
-public enum class IconButtonShape {
+public enum class IconButtonDefaultShape {
     Default,
     Pilled,
 }
@@ -176,7 +209,7 @@ public enum class IconButtonShape {
 /**
  * Возможные значения свойства view для icon-button
  */
-public enum class IconButtonView {
+public enum class IconButtonDefaultView {
     Default,
     Secondary,
     Accent,
@@ -187,6 +220,30 @@ public enum class IconButtonView {
     Dark,
     Black,
     White,
+}
+
+/**
+ * Возможные значения свойства size для embedded-icon-button
+ */
+public enum class EmbeddedIconButtonSize {
+    L,
+    M,
+    S,
+    Xs,
+}
+
+/**
+ * Возможные значения свойства view для embedded-icon-button
+ */
+public enum class EmbeddedIconButtonView {
+    Default,
+    Secondary,
+    Accent,
+    Positive,
+    Negative,
+    Warning,
+    Clear,
+    Info,
 }
 
 /**
@@ -315,6 +372,34 @@ public fun IconButtonStyles.style(modify: @Composable IconButtonStyleBuilder.() 
         IconButtonStyles.IconButtonXxsPilledDark -> IconButton.Xxs.Pilled.Dark
         IconButtonStyles.IconButtonXxsPilledBlack -> IconButton.Xxs.Pilled.Black
         IconButtonStyles.IconButtonXxsPilledWhite -> IconButton.Xxs.Pilled.White
+        IconButtonStyles.EmbeddedIconButtonLDefault -> EmbeddedIconButton.L.Default
+        IconButtonStyles.EmbeddedIconButtonLSecondary -> EmbeddedIconButton.L.Secondary
+        IconButtonStyles.EmbeddedIconButtonLAccent -> EmbeddedIconButton.L.Accent
+        IconButtonStyles.EmbeddedIconButtonLPositive -> EmbeddedIconButton.L.Positive
+        IconButtonStyles.EmbeddedIconButtonLNegative -> EmbeddedIconButton.L.Negative
+        IconButtonStyles.EmbeddedIconButtonLWarning -> EmbeddedIconButton.L.Warning
+        IconButtonStyles.EmbeddedIconButtonLInfo -> EmbeddedIconButton.L.Info
+        IconButtonStyles.EmbeddedIconButtonMDefault -> EmbeddedIconButton.M.Default
+        IconButtonStyles.EmbeddedIconButtonMSecondary -> EmbeddedIconButton.M.Secondary
+        IconButtonStyles.EmbeddedIconButtonMAccent -> EmbeddedIconButton.M.Accent
+        IconButtonStyles.EmbeddedIconButtonMPositive -> EmbeddedIconButton.M.Positive
+        IconButtonStyles.EmbeddedIconButtonMNegative -> EmbeddedIconButton.M.Negative
+        IconButtonStyles.EmbeddedIconButtonMWarning -> EmbeddedIconButton.M.Warning
+        IconButtonStyles.EmbeddedIconButtonMInfo -> EmbeddedIconButton.M.Info
+        IconButtonStyles.EmbeddedIconButtonSDefault -> EmbeddedIconButton.S.Default
+        IconButtonStyles.EmbeddedIconButtonSSecondary -> EmbeddedIconButton.S.Secondary
+        IconButtonStyles.EmbeddedIconButtonSAccent -> EmbeddedIconButton.S.Accent
+        IconButtonStyles.EmbeddedIconButtonSPositive -> EmbeddedIconButton.S.Positive
+        IconButtonStyles.EmbeddedIconButtonSNegative -> EmbeddedIconButton.S.Negative
+        IconButtonStyles.EmbeddedIconButtonSWarning -> EmbeddedIconButton.S.Warning
+        IconButtonStyles.EmbeddedIconButtonSInfo -> EmbeddedIconButton.S.Info
+        IconButtonStyles.EmbeddedIconButtonXsDefault -> EmbeddedIconButton.Xs.Default
+        IconButtonStyles.EmbeddedIconButtonXsSecondary -> EmbeddedIconButton.Xs.Secondary
+        IconButtonStyles.EmbeddedIconButtonXsAccent -> EmbeddedIconButton.Xs.Accent
+        IconButtonStyles.EmbeddedIconButtonXsPositive -> EmbeddedIconButton.Xs.Positive
+        IconButtonStyles.EmbeddedIconButtonXsNegative -> EmbeddedIconButton.Xs.Negative
+        IconButtonStyles.EmbeddedIconButtonXsWarning -> EmbeddedIconButton.Xs.Warning
+        IconButtonStyles.EmbeddedIconButtonXsInfo -> EmbeddedIconButton.Xs.Info
     }
     return builder.modify(modify).style()
 }
@@ -322,226 +407,250 @@ public fun IconButtonStyles.style(modify: @Composable IconButtonStyleBuilder.() 
 /**
  * Возвращает экземпляр [IconButtonStyles] для icon-button
  */
-public fun IconButtonStyles.Companion.resolve(
-    size: IconButtonSize = IconButtonSize.Xl,
-    shape: IconButtonShape = IconButtonShape.Default,
-    view: IconButtonView = IconButtonView.Default,
+public fun IconButtonStyles.Default.resolve(
+    size: IconButtonDefaultSize = IconButtonDefaultSize.Xl,
+    shape: IconButtonDefaultShape = IconButtonDefaultShape.Default,
+    view: IconButtonDefaultView = IconButtonDefaultView.Default,
 ): IconButtonStyles = when {
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Default -> IconButtonStyles.IconButtonXlPilledDefault
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Secondary -> IconButtonStyles.IconButtonXlPilledSecondary
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view == IconButtonView.Accent ->
-        IconButtonStyles.IconButtonXlPilledAccent
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Positive -> IconButtonStyles.IconButtonXlPilledPositive
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Negative -> IconButtonStyles.IconButtonXlPilledNegative
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Warning -> IconButtonStyles.IconButtonXlPilledWarning
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view == IconButtonView.Clear ->
-        IconButtonStyles.IconButtonXlPilledClear
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view == IconButtonView.Dark ->
-        IconButtonStyles.IconButtonXlPilledDark
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view == IconButtonView.Black ->
-        IconButtonStyles.IconButtonXlPilledBlack
-    size == IconButtonSize.Xl && shape == IconButtonShape.Pilled && view == IconButtonView.White ->
-        IconButtonStyles.IconButtonXlPilledWhite
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view == IconButtonView.Default ->
-        IconButtonStyles.IconButtonLPilledDefault
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Secondary -> IconButtonStyles.IconButtonLPilledSecondary
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view == IconButtonView.Accent ->
-        IconButtonStyles.IconButtonLPilledAccent
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Positive -> IconButtonStyles.IconButtonLPilledPositive
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Negative -> IconButtonStyles.IconButtonLPilledNegative
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view == IconButtonView.Warning ->
-        IconButtonStyles.IconButtonLPilledWarning
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view == IconButtonView.Clear ->
-        IconButtonStyles.IconButtonLPilledClear
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view == IconButtonView.Dark ->
-        IconButtonStyles.IconButtonLPilledDark
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view == IconButtonView.Black ->
-        IconButtonStyles.IconButtonLPilledBlack
-    size == IconButtonSize.L && shape == IconButtonShape.Pilled && view == IconButtonView.White ->
-        IconButtonStyles.IconButtonLPilledWhite
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view == IconButtonView.Default ->
-        IconButtonStyles.IconButtonMPilledDefault
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Secondary -> IconButtonStyles.IconButtonMPilledSecondary
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view == IconButtonView.Accent ->
-        IconButtonStyles.IconButtonMPilledAccent
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Positive -> IconButtonStyles.IconButtonMPilledPositive
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Negative -> IconButtonStyles.IconButtonMPilledNegative
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view == IconButtonView.Warning ->
-        IconButtonStyles.IconButtonMPilledWarning
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view == IconButtonView.Clear ->
-        IconButtonStyles.IconButtonMPilledClear
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view == IconButtonView.Dark ->
-        IconButtonStyles.IconButtonMPilledDark
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view == IconButtonView.Black ->
-        IconButtonStyles.IconButtonMPilledBlack
-    size == IconButtonSize.M && shape == IconButtonShape.Pilled && view == IconButtonView.White ->
-        IconButtonStyles.IconButtonMPilledWhite
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view == IconButtonView.Default ->
-        IconButtonStyles.IconButtonSPilledDefault
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Secondary -> IconButtonStyles.IconButtonSPilledSecondary
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view == IconButtonView.Accent ->
-        IconButtonStyles.IconButtonSPilledAccent
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Positive -> IconButtonStyles.IconButtonSPilledPositive
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Negative -> IconButtonStyles.IconButtonSPilledNegative
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view == IconButtonView.Warning ->
-        IconButtonStyles.IconButtonSPilledWarning
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view == IconButtonView.Clear ->
-        IconButtonStyles.IconButtonSPilledClear
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view == IconButtonView.Dark ->
-        IconButtonStyles.IconButtonSPilledDark
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view == IconButtonView.Black ->
-        IconButtonStyles.IconButtonSPilledBlack
-    size == IconButtonSize.S && shape == IconButtonShape.Pilled && view == IconButtonView.White ->
-        IconButtonStyles.IconButtonSPilledWhite
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Default -> IconButtonStyles.IconButtonXsPilledDefault
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Secondary -> IconButtonStyles.IconButtonXsPilledSecondary
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view == IconButtonView.Accent ->
-        IconButtonStyles.IconButtonXsPilledAccent
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Positive -> IconButtonStyles.IconButtonXsPilledPositive
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Negative -> IconButtonStyles.IconButtonXsPilledNegative
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Warning -> IconButtonStyles.IconButtonXsPilledWarning
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view == IconButtonView.Clear ->
-        IconButtonStyles.IconButtonXsPilledClear
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view == IconButtonView.Dark ->
-        IconButtonStyles.IconButtonXsPilledDark
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view == IconButtonView.Black ->
-        IconButtonStyles.IconButtonXsPilledBlack
-    size == IconButtonSize.Xs && shape == IconButtonShape.Pilled && view == IconButtonView.White ->
-        IconButtonStyles.IconButtonXsPilledWhite
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Default -> IconButtonStyles.IconButtonXxsPilledDefault
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Secondary -> IconButtonStyles.IconButtonXxsPilledSecondary
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Accent -> IconButtonStyles.IconButtonXxsPilledAccent
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Positive -> IconButtonStyles.IconButtonXxsPilledPositive
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Negative -> IconButtonStyles.IconButtonXxsPilledNegative
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view ==
-        IconButtonView.Warning -> IconButtonStyles.IconButtonXxsPilledWarning
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view == IconButtonView.Clear ->
-        IconButtonStyles.IconButtonXxsPilledClear
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view == IconButtonView.Dark ->
-        IconButtonStyles.IconButtonXxsPilledDark
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view == IconButtonView.Black ->
-        IconButtonStyles.IconButtonXxsPilledBlack
-    size == IconButtonSize.Xxs && shape == IconButtonShape.Pilled && view == IconButtonView.White ->
-        IconButtonStyles.IconButtonXxsPilledWhite
-    size == IconButtonSize.Xl && view == IconButtonView.Default ->
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Default -> IconButtonStyles.IconButtonXlPilledDefault
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Secondary -> IconButtonStyles.IconButtonXlPilledSecondary
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Accent -> IconButtonStyles.IconButtonXlPilledAccent
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Positive -> IconButtonStyles.IconButtonXlPilledPositive
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Negative -> IconButtonStyles.IconButtonXlPilledNegative
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Warning -> IconButtonStyles.IconButtonXlPilledWarning
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Clear -> IconButtonStyles.IconButtonXlPilledClear
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Dark -> IconButtonStyles.IconButtonXlPilledDark
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Black -> IconButtonStyles.IconButtonXlPilledBlack
+    size == IconButtonDefaultSize.Xl && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.White -> IconButtonStyles.IconButtonXlPilledWhite
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Default -> IconButtonStyles.IconButtonLPilledDefault
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Secondary -> IconButtonStyles.IconButtonLPilledSecondary
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Accent -> IconButtonStyles.IconButtonLPilledAccent
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Positive -> IconButtonStyles.IconButtonLPilledPositive
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Negative -> IconButtonStyles.IconButtonLPilledNegative
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Warning -> IconButtonStyles.IconButtonLPilledWarning
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Clear -> IconButtonStyles.IconButtonLPilledClear
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Dark -> IconButtonStyles.IconButtonLPilledDark
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Black -> IconButtonStyles.IconButtonLPilledBlack
+    size == IconButtonDefaultSize.L && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.White -> IconButtonStyles.IconButtonLPilledWhite
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Default -> IconButtonStyles.IconButtonMPilledDefault
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Secondary -> IconButtonStyles.IconButtonMPilledSecondary
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Accent -> IconButtonStyles.IconButtonMPilledAccent
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Positive -> IconButtonStyles.IconButtonMPilledPositive
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Negative -> IconButtonStyles.IconButtonMPilledNegative
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Warning -> IconButtonStyles.IconButtonMPilledWarning
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Clear -> IconButtonStyles.IconButtonMPilledClear
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Dark -> IconButtonStyles.IconButtonMPilledDark
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Black -> IconButtonStyles.IconButtonMPilledBlack
+    size == IconButtonDefaultSize.M && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.White -> IconButtonStyles.IconButtonMPilledWhite
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Default -> IconButtonStyles.IconButtonSPilledDefault
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Secondary -> IconButtonStyles.IconButtonSPilledSecondary
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Accent -> IconButtonStyles.IconButtonSPilledAccent
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Positive -> IconButtonStyles.IconButtonSPilledPositive
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Negative -> IconButtonStyles.IconButtonSPilledNegative
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Warning -> IconButtonStyles.IconButtonSPilledWarning
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Clear -> IconButtonStyles.IconButtonSPilledClear
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Dark -> IconButtonStyles.IconButtonSPilledDark
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Black -> IconButtonStyles.IconButtonSPilledBlack
+    size == IconButtonDefaultSize.S && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.White -> IconButtonStyles.IconButtonSPilledWhite
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Default -> IconButtonStyles.IconButtonXsPilledDefault
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Secondary -> IconButtonStyles.IconButtonXsPilledSecondary
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Accent -> IconButtonStyles.IconButtonXsPilledAccent
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Positive -> IconButtonStyles.IconButtonXsPilledPositive
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Negative -> IconButtonStyles.IconButtonXsPilledNegative
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Warning -> IconButtonStyles.IconButtonXsPilledWarning
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Clear -> IconButtonStyles.IconButtonXsPilledClear
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Dark -> IconButtonStyles.IconButtonXsPilledDark
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Black -> IconButtonStyles.IconButtonXsPilledBlack
+    size == IconButtonDefaultSize.Xs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.White -> IconButtonStyles.IconButtonXsPilledWhite
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Default -> IconButtonStyles.IconButtonXxsPilledDefault
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Secondary -> IconButtonStyles.IconButtonXxsPilledSecondary
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Accent -> IconButtonStyles.IconButtonXxsPilledAccent
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Positive -> IconButtonStyles.IconButtonXxsPilledPositive
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Negative -> IconButtonStyles.IconButtonXxsPilledNegative
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Warning -> IconButtonStyles.IconButtonXxsPilledWarning
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Clear -> IconButtonStyles.IconButtonXxsPilledClear
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Dark -> IconButtonStyles.IconButtonXxsPilledDark
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.Black -> IconButtonStyles.IconButtonXxsPilledBlack
+    size == IconButtonDefaultSize.Xxs && shape == IconButtonDefaultShape.Pilled && view ==
+        IconButtonDefaultView.White -> IconButtonStyles.IconButtonXxsPilledWhite
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.Default ->
         IconButtonStyles.IconButtonXlDefault
-    size == IconButtonSize.Xl && view == IconButtonView.Secondary ->
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.Secondary ->
         IconButtonStyles.IconButtonXlSecondary
-    size == IconButtonSize.Xl && view == IconButtonView.Accent ->
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.Accent ->
         IconButtonStyles.IconButtonXlAccent
-    size == IconButtonSize.Xl && view == IconButtonView.Positive ->
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.Positive ->
         IconButtonStyles.IconButtonXlPositive
-    size == IconButtonSize.Xl && view == IconButtonView.Negative ->
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.Negative ->
         IconButtonStyles.IconButtonXlNegative
-    size == IconButtonSize.Xl && view == IconButtonView.Warning ->
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.Warning ->
         IconButtonStyles.IconButtonXlWarning
-    size == IconButtonSize.Xl && view == IconButtonView.Clear -> IconButtonStyles.IconButtonXlClear
-    size == IconButtonSize.Xl && view == IconButtonView.Dark -> IconButtonStyles.IconButtonXlDark
-    size == IconButtonSize.Xl && view == IconButtonView.Black -> IconButtonStyles.IconButtonXlBlack
-    size == IconButtonSize.Xl && view == IconButtonView.White -> IconButtonStyles.IconButtonXlWhite
-    size == IconButtonSize.L && view == IconButtonView.Default ->
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.Clear ->
+        IconButtonStyles.IconButtonXlClear
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.Dark ->
+        IconButtonStyles.IconButtonXlDark
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.Black ->
+        IconButtonStyles.IconButtonXlBlack
+    size == IconButtonDefaultSize.Xl && view == IconButtonDefaultView.White ->
+        IconButtonStyles.IconButtonXlWhite
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.Default ->
         IconButtonStyles.IconButtonLDefault
-    size == IconButtonSize.L && view == IconButtonView.Secondary ->
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.Secondary ->
         IconButtonStyles.IconButtonLSecondary
-    size == IconButtonSize.L && view == IconButtonView.Accent -> IconButtonStyles.IconButtonLAccent
-    size == IconButtonSize.L && view == IconButtonView.Positive ->
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.Accent ->
+        IconButtonStyles.IconButtonLAccent
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.Positive ->
         IconButtonStyles.IconButtonLPositive
-    size == IconButtonSize.L && view == IconButtonView.Negative ->
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.Negative ->
         IconButtonStyles.IconButtonLNegative
-    size == IconButtonSize.L && view == IconButtonView.Warning ->
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.Warning ->
         IconButtonStyles.IconButtonLWarning
-    size == IconButtonSize.L && view == IconButtonView.Clear -> IconButtonStyles.IconButtonLClear
-    size == IconButtonSize.L && view == IconButtonView.Dark -> IconButtonStyles.IconButtonLDark
-    size == IconButtonSize.L && view == IconButtonView.Black -> IconButtonStyles.IconButtonLBlack
-    size == IconButtonSize.L && view == IconButtonView.White -> IconButtonStyles.IconButtonLWhite
-    size == IconButtonSize.M && view == IconButtonView.Default ->
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.Clear ->
+        IconButtonStyles.IconButtonLClear
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.Dark ->
+        IconButtonStyles.IconButtonLDark
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.Black ->
+        IconButtonStyles.IconButtonLBlack
+    size == IconButtonDefaultSize.L && view == IconButtonDefaultView.White ->
+        IconButtonStyles.IconButtonLWhite
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.Default ->
         IconButtonStyles.IconButtonMDefault
-    size == IconButtonSize.M && view == IconButtonView.Secondary ->
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.Secondary ->
         IconButtonStyles.IconButtonMSecondary
-    size == IconButtonSize.M && view == IconButtonView.Accent -> IconButtonStyles.IconButtonMAccent
-    size == IconButtonSize.M && view == IconButtonView.Positive ->
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.Accent ->
+        IconButtonStyles.IconButtonMAccent
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.Positive ->
         IconButtonStyles.IconButtonMPositive
-    size == IconButtonSize.M && view == IconButtonView.Negative ->
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.Negative ->
         IconButtonStyles.IconButtonMNegative
-    size == IconButtonSize.M && view == IconButtonView.Warning ->
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.Warning ->
         IconButtonStyles.IconButtonMWarning
-    size == IconButtonSize.M && view == IconButtonView.Clear -> IconButtonStyles.IconButtonMClear
-    size == IconButtonSize.M && view == IconButtonView.Dark -> IconButtonStyles.IconButtonMDark
-    size == IconButtonSize.M && view == IconButtonView.Black -> IconButtonStyles.IconButtonMBlack
-    size == IconButtonSize.M && view == IconButtonView.White -> IconButtonStyles.IconButtonMWhite
-    size == IconButtonSize.S && view == IconButtonView.Default ->
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.Clear ->
+        IconButtonStyles.IconButtonMClear
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.Dark ->
+        IconButtonStyles.IconButtonMDark
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.Black ->
+        IconButtonStyles.IconButtonMBlack
+    size == IconButtonDefaultSize.M && view == IconButtonDefaultView.White ->
+        IconButtonStyles.IconButtonMWhite
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.Default ->
         IconButtonStyles.IconButtonSDefault
-    size == IconButtonSize.S && view == IconButtonView.Secondary ->
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.Secondary ->
         IconButtonStyles.IconButtonSSecondary
-    size == IconButtonSize.S && view == IconButtonView.Accent -> IconButtonStyles.IconButtonSAccent
-    size == IconButtonSize.S && view == IconButtonView.Positive ->
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.Accent ->
+        IconButtonStyles.IconButtonSAccent
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.Positive ->
         IconButtonStyles.IconButtonSPositive
-    size == IconButtonSize.S && view == IconButtonView.Negative ->
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.Negative ->
         IconButtonStyles.IconButtonSNegative
-    size == IconButtonSize.S && view == IconButtonView.Warning ->
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.Warning ->
         IconButtonStyles.IconButtonSWarning
-    size == IconButtonSize.S && view == IconButtonView.Clear -> IconButtonStyles.IconButtonSClear
-    size == IconButtonSize.S && view == IconButtonView.Dark -> IconButtonStyles.IconButtonSDark
-    size == IconButtonSize.S && view == IconButtonView.Black -> IconButtonStyles.IconButtonSBlack
-    size == IconButtonSize.S && view == IconButtonView.White -> IconButtonStyles.IconButtonSWhite
-    size == IconButtonSize.Xs && view == IconButtonView.Default ->
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.Clear ->
+        IconButtonStyles.IconButtonSClear
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.Dark ->
+        IconButtonStyles.IconButtonSDark
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.Black ->
+        IconButtonStyles.IconButtonSBlack
+    size == IconButtonDefaultSize.S && view == IconButtonDefaultView.White ->
+        IconButtonStyles.IconButtonSWhite
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.Default ->
         IconButtonStyles.IconButtonXsDefault
-    size == IconButtonSize.Xs && view == IconButtonView.Secondary ->
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.Secondary ->
         IconButtonStyles.IconButtonXsSecondary
-    size == IconButtonSize.Xs && view == IconButtonView.Accent ->
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.Accent ->
         IconButtonStyles.IconButtonXsAccent
-    size == IconButtonSize.Xs && view == IconButtonView.Positive ->
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.Positive ->
         IconButtonStyles.IconButtonXsPositive
-    size == IconButtonSize.Xs && view == IconButtonView.Negative ->
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.Negative ->
         IconButtonStyles.IconButtonXsNegative
-    size == IconButtonSize.Xs && view == IconButtonView.Warning ->
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.Warning ->
         IconButtonStyles.IconButtonXsWarning
-    size == IconButtonSize.Xs && view == IconButtonView.Clear -> IconButtonStyles.IconButtonXsClear
-    size == IconButtonSize.Xs && view == IconButtonView.Dark -> IconButtonStyles.IconButtonXsDark
-    size == IconButtonSize.Xs && view == IconButtonView.Black -> IconButtonStyles.IconButtonXsBlack
-    size == IconButtonSize.Xs && view == IconButtonView.White -> IconButtonStyles.IconButtonXsWhite
-    size == IconButtonSize.Xxs && view == IconButtonView.Default ->
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.Clear ->
+        IconButtonStyles.IconButtonXsClear
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.Dark ->
+        IconButtonStyles.IconButtonXsDark
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.Black ->
+        IconButtonStyles.IconButtonXsBlack
+    size == IconButtonDefaultSize.Xs && view == IconButtonDefaultView.White ->
+        IconButtonStyles.IconButtonXsWhite
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.Default ->
         IconButtonStyles.IconButtonXxsDefault
-    size == IconButtonSize.Xxs && view == IconButtonView.Secondary ->
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.Secondary ->
         IconButtonStyles.IconButtonXxsSecondary
-    size == IconButtonSize.Xxs && view == IconButtonView.Accent ->
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.Accent ->
         IconButtonStyles.IconButtonXxsAccent
-    size == IconButtonSize.Xxs && view == IconButtonView.Positive ->
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.Positive ->
         IconButtonStyles.IconButtonXxsPositive
-    size == IconButtonSize.Xxs && view == IconButtonView.Negative ->
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.Negative ->
         IconButtonStyles.IconButtonXxsNegative
-    size == IconButtonSize.Xxs && view == IconButtonView.Warning ->
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.Warning ->
         IconButtonStyles.IconButtonXxsWarning
-    size == IconButtonSize.Xxs && view == IconButtonView.Clear ->
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.Clear ->
         IconButtonStyles.IconButtonXxsClear
-    size == IconButtonSize.Xxs && view == IconButtonView.Dark -> IconButtonStyles.IconButtonXxsDark
-    size == IconButtonSize.Xxs && view == IconButtonView.Black ->
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.Dark ->
+        IconButtonStyles.IconButtonXxsDark
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.Black ->
         IconButtonStyles.IconButtonXxsBlack
-    size == IconButtonSize.Xxs && view == IconButtonView.White ->
+    size == IconButtonDefaultSize.Xxs && view == IconButtonDefaultView.White ->
         IconButtonStyles.IconButtonXxsWhite
     else -> error("Unsupported icon-button style combination")
 }
@@ -550,9 +659,86 @@ public fun IconButtonStyles.Companion.resolve(
  * Возвращает [ButtonStyle] для icon-button
  */
 @Composable
-public fun IconButtonStyles.Companion.style(
-    size: IconButtonSize = IconButtonSize.Xl,
-    shape: IconButtonShape = IconButtonShape.Default,
-    view: IconButtonView = IconButtonView.Default,
+public fun IconButtonStyles.Default.style(
+    size: IconButtonDefaultSize = IconButtonDefaultSize.Xl,
+    shape: IconButtonDefaultShape = IconButtonDefaultShape.Default,
+    view: IconButtonDefaultView = IconButtonDefaultView.Default,
     modify: @Composable IconButtonStyleBuilder.() -> Unit = {},
 ): ButtonStyle = resolve(size, shape, view).style(modify)
+
+/**
+ * Возвращает экземпляр [IconButtonStyles] для embedded-icon-button
+ */
+public fun IconButtonStyles.EmbeddedIconButton.resolve(
+    size: EmbeddedIconButtonSize =
+        EmbeddedIconButtonSize.M,
+    view: EmbeddedIconButtonView = EmbeddedIconButtonView.Default,
+): IconButtonStyles = when {
+    size == EmbeddedIconButtonSize.L && view == EmbeddedIconButtonView.Default ->
+        IconButtonStyles.EmbeddedIconButtonLDefault
+    size == EmbeddedIconButtonSize.L && view == EmbeddedIconButtonView.Secondary ->
+        IconButtonStyles.EmbeddedIconButtonLSecondary
+    size == EmbeddedIconButtonSize.L && view == EmbeddedIconButtonView.Accent ->
+        IconButtonStyles.EmbeddedIconButtonLAccent
+    size == EmbeddedIconButtonSize.L && view == EmbeddedIconButtonView.Positive ->
+        IconButtonStyles.EmbeddedIconButtonLPositive
+    size == EmbeddedIconButtonSize.L && view == EmbeddedIconButtonView.Negative ->
+        IconButtonStyles.EmbeddedIconButtonLNegative
+    size == EmbeddedIconButtonSize.L && view == EmbeddedIconButtonView.Warning ->
+        IconButtonStyles.EmbeddedIconButtonLWarning
+    size == EmbeddedIconButtonSize.L && view == EmbeddedIconButtonView.Info ->
+        IconButtonStyles.EmbeddedIconButtonLInfo
+    size == EmbeddedIconButtonSize.M && view == EmbeddedIconButtonView.Default ->
+        IconButtonStyles.EmbeddedIconButtonMDefault
+    size == EmbeddedIconButtonSize.M && view == EmbeddedIconButtonView.Secondary ->
+        IconButtonStyles.EmbeddedIconButtonMSecondary
+    size == EmbeddedIconButtonSize.M && view == EmbeddedIconButtonView.Accent ->
+        IconButtonStyles.EmbeddedIconButtonMAccent
+    size == EmbeddedIconButtonSize.M && view == EmbeddedIconButtonView.Positive ->
+        IconButtonStyles.EmbeddedIconButtonMPositive
+    size == EmbeddedIconButtonSize.M && view == EmbeddedIconButtonView.Negative ->
+        IconButtonStyles.EmbeddedIconButtonMNegative
+    size == EmbeddedIconButtonSize.M && view == EmbeddedIconButtonView.Warning ->
+        IconButtonStyles.EmbeddedIconButtonMWarning
+    size == EmbeddedIconButtonSize.M && view == EmbeddedIconButtonView.Info ->
+        IconButtonStyles.EmbeddedIconButtonMInfo
+    size == EmbeddedIconButtonSize.S && view == EmbeddedIconButtonView.Default ->
+        IconButtonStyles.EmbeddedIconButtonSDefault
+    size == EmbeddedIconButtonSize.S && view == EmbeddedIconButtonView.Secondary ->
+        IconButtonStyles.EmbeddedIconButtonSSecondary
+    size == EmbeddedIconButtonSize.S && view == EmbeddedIconButtonView.Accent ->
+        IconButtonStyles.EmbeddedIconButtonSAccent
+    size == EmbeddedIconButtonSize.S && view == EmbeddedIconButtonView.Positive ->
+        IconButtonStyles.EmbeddedIconButtonSPositive
+    size == EmbeddedIconButtonSize.S && view == EmbeddedIconButtonView.Negative ->
+        IconButtonStyles.EmbeddedIconButtonSNegative
+    size == EmbeddedIconButtonSize.S && view == EmbeddedIconButtonView.Warning ->
+        IconButtonStyles.EmbeddedIconButtonSWarning
+    size == EmbeddedIconButtonSize.S && view == EmbeddedIconButtonView.Info ->
+        IconButtonStyles.EmbeddedIconButtonSInfo
+    size == EmbeddedIconButtonSize.Xs && view == EmbeddedIconButtonView.Default ->
+        IconButtonStyles.EmbeddedIconButtonXsDefault
+    size == EmbeddedIconButtonSize.Xs && view == EmbeddedIconButtonView.Secondary ->
+        IconButtonStyles.EmbeddedIconButtonXsSecondary
+    size == EmbeddedIconButtonSize.Xs && view == EmbeddedIconButtonView.Accent ->
+        IconButtonStyles.EmbeddedIconButtonXsAccent
+    size == EmbeddedIconButtonSize.Xs && view == EmbeddedIconButtonView.Positive ->
+        IconButtonStyles.EmbeddedIconButtonXsPositive
+    size == EmbeddedIconButtonSize.Xs && view == EmbeddedIconButtonView.Negative ->
+        IconButtonStyles.EmbeddedIconButtonXsNegative
+    size == EmbeddedIconButtonSize.Xs && view == EmbeddedIconButtonView.Warning ->
+        IconButtonStyles.EmbeddedIconButtonXsWarning
+    size == EmbeddedIconButtonSize.Xs && view == EmbeddedIconButtonView.Info ->
+        IconButtonStyles.EmbeddedIconButtonXsInfo
+    else -> error("Unsupported embedded-icon-button style combination")
+}
+
+/**
+ * Возвращает [ButtonStyle] для embedded-icon-button
+ */
+@Composable
+public fun IconButtonStyles.EmbeddedIconButton.style(
+    size: EmbeddedIconButtonSize = EmbeddedIconButtonSize.M,
+    view: EmbeddedIconButtonView = EmbeddedIconButtonView.Default,
+    modify: @Composable IconButtonStyleBuilder.() -> Unit = {},
+): ButtonStyle = resolve(size, view).style(modify)
