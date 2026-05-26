@@ -102,6 +102,7 @@ public val ListItemTight.Xl: WrapperListItemTightXl
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
+            contentPaddingStart(8.0.dp)
             height(56.0.dp)
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
@@ -122,6 +123,7 @@ public val ListItemTight.L: WrapperListItemTightL
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
+            contentPaddingStart(8.0.dp)
             height(48.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
@@ -142,6 +144,7 @@ public val ListItemTight.M: WrapperListItemTightM
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
+            contentPaddingStart(8.0.dp)
             height(40.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
@@ -162,6 +165,7 @@ public val ListItemTight.S: WrapperListItemTightS
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
+            contentPaddingStart(6.0.dp)
             height(32.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
@@ -182,6 +186,7 @@ public val ListItemTight.Xs: WrapperListItemTightXs
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
+            contentPaddingStart(6.0.dp)
             height(24.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)

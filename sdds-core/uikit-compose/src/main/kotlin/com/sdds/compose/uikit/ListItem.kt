@@ -1,8 +1,8 @@
 package com.sdds.compose.uikit
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,7 +20,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.list.ListItemMotionStyle
+import com.sdds.compose.uikit.motion.components.list.rememberListItemMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент ListItem
@@ -33,6 +42,7 @@ import com.sdds.compose.uikit.interactions.getValue
  * @param subtitleContent подзаголовок
  * @param startContent контент в начале
  * @param endContent контент в конце
+ * @param disclosureContent контент в disclosure
  */
 @Composable
 fun ListItem(
@@ -47,20 +57,60 @@ fun ListItem(
     endContent: (@Composable RowScope.() -> Unit)? = null,
     disclosureContent: (@Composable RowScope.() -> Unit) = { ListItemDisclosure(style, interactionSource) },
 ) {
+    ListItem(
+        modifier = modifier,
+        motion = rememberListItemMotion(motionContext = rememberMotionContext(interactionSource)),
+        titleContent = titleContent,
+        style = style,
+        disclosureEnabled = disclosureEnabled,
+        labelContent = labelContent,
+        subtitleContent = subtitleContent,
+        startContent = startContent,
+        endContent = endContent,
+        disclosureContent = disclosureContent,
+    )
+}
+
+/**
+ * Компонент ListItem
+ *
+ * @param motion объект анимаций
+ * @param modifier модификатор
+ * @param titleContent заголовок элемента
+ * @param style стиль компонента
+ * @param disclosureEnabled включен ли disclosure
+ * @param labelContent подпись элемента
+ * @param subtitleContent подзаголовок
+ * @param startContent контент в начале
+ * @param endContent контент в конце
+ * @param disclosureContent контент в disclosure
+ */
+@Composable
+fun ListItem(
+    motion: Motion<ListItemMotionStyle>,
+    titleContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    style: ListItemStyle = LocalListItemStyle.current,
+    disclosureEnabled: Boolean = true,
+    labelContent: (@Composable () -> Unit)? = null,
+    subtitleContent: (@Composable () -> Unit)? = null,
+    startContent: (@Composable RowScope.() -> Unit)? = null,
+    endContent: (@Composable RowScope.() -> Unit)? = null,
+    disclosureContent: (@Composable RowScope.() -> Unit) = { ListItemDisclosure(style, motion) },
+) {
+    val background = style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
+    val interactionSource = motion.context.interactionSource
+    val shape = style.shapes.getValue(interactionSource)
+    val paddings = style.dimensions.getPaddingValues(interactionSource)
     Cell(
         style = style.toCellStyle(),
         modifier = modifier
-            .background(
-                color = style.colors.backgroundColor.colorForInteraction(interactionSource),
-                shape = style.shape,
+            .backgroundBrush(
+                brushProducer = { background.value },
+                shape = shape,
             )
-            .heightIn(min = style.dimensions.height)
-            .padding(
-                start = style.dimensions.paddingStart,
-                top = style.dimensions.paddingTop,
-                end = style.dimensions.paddingEnd,
-                bottom = style.dimensions.paddingBottom,
-            ),
+            .heightIn(min = style.dimensions.heightValues.getValue(interactionSource))
+            .padding(paddings),
         titleContent = titleContent,
         subtitleContent = subtitleContent,
         labelContent = labelContent,
@@ -68,7 +118,7 @@ fun ListItem(
         disclosureContent = disclosureContent.takeIf { disclosureEnabled },
         startContent = startContent,
         endContent = endContent,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -98,21 +148,25 @@ fun ListItem(
     endContent: (@Composable RowScope.() -> Unit)? = null,
     label: String? = null,
     subtitle: String? = null,
+    motion: Motion<ListItemMotionStyle> = rememberListItemMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
+    val background = style.colors.backgroundBrush.getBrushAsState(
+        motion.context,
+        motion.style.backgroundColor,
+    )
+    val paddings = style.dimensions.getPaddingValues(interactionSource)
+    val shape = style.shapes.getValue(interactionSource)
     Cell(
         style = style.toCellStyle(),
         modifier = modifier
-            .background(
-                color = style.colors.backgroundColor.colorForInteraction(interactionSource),
-                shape = style.shape,
+            .backgroundBrush(
+                brushProducer = { background.value },
+                shape = shape,
             )
-            .heightIn(min = style.dimensions.height)
-            .padding(
-                start = style.dimensions.paddingStart,
-                top = style.dimensions.paddingTop,
-                end = style.dimensions.paddingEnd,
-                bottom = style.dimensions.paddingBottom,
-            ),
+            .heightIn(min = style.dimensions.heightValues.getValue(interactionSource))
+            .padding(paddings),
         title = AnnotatedString(text),
         subtitle = subtitle?.let { AnnotatedString(it) } ?: AnnotatedString(""),
         label = label?.let { AnnotatedString(it) } ?: AnnotatedString(""),
@@ -121,7 +175,7 @@ fun ListItem(
         disclosureIconRes = disclosureIconRes,
         startContent = startContent,
         endContent = endContent,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -140,16 +194,61 @@ fun RowScope.ListItemDisclosure(
     text: (@Composable () -> Unit)? = null,
 ) {
     if (text != null) {
+        val brushState = style.colors.disclosureTextBrush.getValueAsState(interactionSource)
+        val style by style.disclosureTextStyle.getValueAsState(interactionSource)
         ProvideTextStyle(
-            style.disclosureTextStyle.getValue(interactionSource),
-            color = style.colors.disclosureTextColor.colorForInteraction(interactionSource),
+            style,
+            brush = { brushState.value },
             content = text,
         )
     }
 
     if (icon != null) {
+        val brushState = style.colors.disclosureIconBrush.getValueAsState(interactionSource)
         CompositionLocalProvider(
-            LocalTint provides style.colors.disclosureIconColor.colorForInteraction(interactionSource),
+            LocalTintBrushProducer provides { brushState.value },
+            content = icon,
+        )
+    }
+}
+
+/**
+ * Элемент Disclosue для ListItem
+ * @param style стиль ListItem
+ * @param motion объект анимаций
+ * @param icon иконка Disclosure
+ * @param text текст Disclosure
+ */
+@Composable
+fun RowScope.ListItemDisclosure(
+    style: ListItemStyle = LocalListItemStyle.current,
+    motion: Motion<ListItemMotionStyle>,
+    icon: (@Composable () -> Unit)? = null,
+    text: (@Composable () -> Unit)? = null,
+) {
+    if (text != null) {
+        val textStyle by style.disclosureTextStyle.getTextStyleAsState(
+            motion.context,
+            motion.style.disclosureTextStyle,
+        )
+        val textColor = style.colors.disclosureTextBrush.getBrushAsState(
+            motion.context,
+            motion.style.disclosureTextColor,
+        )
+        ProvideTextStyle(
+            textStyle,
+            brush = { textColor.value },
+            content = text,
+        )
+    }
+
+    if (icon != null) {
+        val iconColor = style.colors.disclosureIconBrush.getBrushAsState(
+            motion.context,
+            motion.style.disclosureIconColor,
+        )
+        CompositionLocalProvider(
+            LocalTintBrushProducer provides { iconColor.value },
             content = icon,
         )
     }
@@ -175,12 +274,13 @@ fun ListItem(
     disclosureIcon: Painter? = style.disclosureIcon,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    val background = style.colors.backgroundBrush.getValueAsState(interactionSource)
     Cell(
         style = style.toCellStyle(),
         modifier = modifier
-            .background(
-                color = style.colors.backgroundColor.colorForInteraction(interactionSource),
-                shape = style.shape,
+            .backgroundBrush(
+                brushProducer = { background.value },
+                shape = style.shapes.getValue(interactionSource),
             )
             .height(style.dimensions.height)
             .padding(
@@ -206,14 +306,15 @@ private fun ListItemStyle.toCellStyle(): CellStyle {
         disclosureTextStyle(disclosureTextStyle)
         disclosureIconRes?.let { disclosureIcon(it) }
         colors {
-            titleColor(colors.titleColor)
-            subtitleColor(colors.subtitleColor)
-            labelColor(colors.labelColor)
-            disclosureIconColor(colors.disclosureIconColor)
-            disclosureTextColor(colors.disclosureTextColor)
+            titleColor(colors.titleBrush)
+            subtitleColor(colors.subtitleBrush)
+            labelColor(colors.labelBrush)
+            disclosureIconColor(colors.disclosureIconBrush)
+            disclosureTextColor(colors.disclosureTextBrush)
         }
         dimensions {
-            contentPaddingEnd(dimensions.contentPaddingEnd)
+            contentPaddingEnd(dimensions.contentPaddingEndValues)
+            contentPaddingStart(dimensions.contentPaddingStartValues)
         }
         avatarStyle?.let { avatarStyle(it) }
         iconButtonStyle?.let { iconButtonStyle(it) }
@@ -235,17 +336,51 @@ private fun RowScope.ListItemDisclosure(
         interactionSource = interactionSource,
         icon = style.disclosureIconRes?.let {
             @Composable {
+                val brush = style.colors.disclosureIconBrush.getValueAsState(interactionSource)
                 Icon(
                     painter = painterResource(it),
                     contentDescription = "",
-                    tint = style.colors.disclosureIconColor.colorForInteraction(
-                        interactionSource,
-                    ),
+                    brush = { brush.value },
                 )
             }
         },
     )
 }
+
+@Composable
+@NonRestartableComposable
+private fun RowScope.ListItemDisclosure(
+    style: ListItemStyle = LocalListItemStyle.current,
+    motion: Motion<ListItemMotionStyle>,
+) {
+    style.disclosureIconRes?.let { icon ->
+        ListItemDisclosure(
+            style = style,
+            motion = motion,
+            icon = {
+                val iconColor = style.colors.disclosureIconBrush.getBrushAsState(
+                    motion.context,
+                    motion.style.disclosureIconColor,
+                )
+                Icon(
+                    painter = painterResource(icon),
+                    contentDescription = "",
+                    brush = { iconColor.value },
+                )
+            },
+        )
+    }
+}
+
+@Composable
+private fun ListItemDimensions.getPaddingValues(
+    interactionSource: MutableInteractionSource,
+) = PaddingValues(
+    start = paddingStartValues.getValue(interactionSource),
+    top = paddingTopValues.getValue(interactionSource),
+    end = paddingEndValues.getValue(interactionSource),
+    bottom = paddingBottomValues.getValue(interactionSource),
+)
 
 @Composable
 @Preview(showBackground = true)
