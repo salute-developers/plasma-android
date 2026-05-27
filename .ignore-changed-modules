@@ -1,6 +1,8 @@
 :tokens:plasma.giga.app.compose
 :tokens:stylessalute.compose
 :tokens:stylessalute.view
+:sdds-core:api-info-compose
+:sdds-core:api-info-ksp
 :sdds-core:docs
 :sdds-core:docs-compose
 :sdds-core:docs-ksp
