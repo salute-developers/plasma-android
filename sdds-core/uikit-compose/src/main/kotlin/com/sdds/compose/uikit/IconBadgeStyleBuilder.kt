@@ -5,12 +5,17 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.StyleBuilder
 
 /**
@@ -33,7 +38,14 @@ interface IconBadgeStyleBuilder : StyleBuilder<BadgeStyle> {
      * Устанавливает форму компонента [shape]
      * @see BadgeStyle.shape
      */
-    fun shape(shape: CornerBasedShape): IconBadgeStyleBuilder
+    fun shape(shape: CornerBasedShape): IconBadgeStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы компонента [shape]
+     * @see BadgeStyle.shape
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): IconBadgeStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]
@@ -58,22 +70,46 @@ interface IconBadgeDimensionsBuilder {
     /**
      * Устанавливает высоту Badge
      */
-    fun height(height: Dp): IconBadgeDimensionsBuilder
+    fun height(height: Dp): IconBadgeDimensionsBuilder =
+        height(height.asStatefulValue())
+
+    /**
+     * Устанавливает высоту Badge
+     */
+    fun height(values: StatefulValue<Dp>): IconBadgeDimensionsBuilder
 
     /**
      * Устанавливает  размер иконки в начале
      */
-    fun startContentSize(startContentSize: Dp): IconBadgeDimensionsBuilder
+    fun startContentSize(startContentSize: Dp): IconBadgeDimensionsBuilder =
+        startContentSize(startContentSize.asStatefulValue())
+
+    /**
+     * Устанавливает  размер иконки в начале
+     */
+    fun startContentSize(values: StatefulValue<Dp>): IconBadgeDimensionsBuilder
 
     /**
      * Устанавливает отступ от начала компонента до контента
      */
-    fun startPadding(startPadding: Dp): IconBadgeDimensionsBuilder
+    fun startPadding(startPadding: Dp): IconBadgeDimensionsBuilder =
+        startPadding(startPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ от начала компонента до контента
+     */
+    fun startPadding(values: StatefulValue<Dp>): IconBadgeDimensionsBuilder
 
     /**
      * Устанавливает отступ от контента до конца компонента
      */
-    fun endPadding(endPadding: Dp): IconBadgeDimensionsBuilder
+    fun endPadding(endPadding: Dp): IconBadgeDimensionsBuilder =
+        endPadding(endPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ от контента до конца компонента
+     */
+    fun endPadding(values: StatefulValue<Dp>): IconBadgeDimensionsBuilder
 
     /**
      * Возвращает готовый экземпляр [BadgeDimensions]
@@ -98,29 +134,52 @@ interface IconBadgeColorsBuilder {
      * @see BadgeColors.backgroundColor
      * @see InteractiveColor
      */
-    fun backgroundColor(backgroundColor: InteractiveColor): IconBadgeColorsBuilder
+    fun backgroundColor(backgroundColor: InteractiveColor): IconBadgeColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона компонента [backgroundColor]
      * @see BadgeColors.backgroundColor
      */
     fun backgroundColor(backgroundColor: Color): IconBadgeColorsBuilder =
-        backgroundColor(backgroundColor.asInteractive())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет дополнительного текста компонента [startContentColor]
+     * Устанавливает кисть фона компонента [backgroundColor]
+     */
+    fun backgroundColor(backgroundBrush: Brush): IconBadgeColorsBuilder =
+        backgroundColor(backgroundBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти фона компонента [backgroundColor]
+     */
+    fun backgroundColor(backgroundBrush: StatefulValue<Brush>): IconBadgeColorsBuilder
+
+    /**
+     * Устанавливает цвет контента [startContentColor]
      * @see BadgeColors.startContentColor
      * @see InteractiveColor
      */
-    fun startContentColor(startContentColor: InteractiveColor): IconBadgeColorsBuilder
+    fun startContentColor(startContentColor: InteractiveColor): IconBadgeColorsBuilder =
+        startContentColor(startContentColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет дополнительного текста компонента [valueColor]
+     * Устанавливает цвет контента [valueColor]
      * @see BadgeColors.startContentColor
-     * @see InteractiveColor
      */
     fun startContentColor(valueColor: Color): IconBadgeColorsBuilder =
-        startContentColor(valueColor.asInteractive())
+        startContentColor(valueColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента [startContentColor]
+     */
+    fun startContentColor(startContentBrush: Brush): IconBadgeColorsBuilder =
+        startContentColor(startContentBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти контента [startContentColor]
+     */
+    fun startContentColor(startContentBrush: StatefulValue<Brush>): IconBadgeColorsBuilder
 
     /**
      * Возвращает готовый экземпляр [BadgeColors]
@@ -140,55 +199,105 @@ interface IconBadgeColorsBuilder {
 private class DefaultIconBadgeStyle(
     override val dimensions: BadgeDimensions,
     override val colors: BadgeColors,
-    override val shape: CornerBasedShape,
-    override val labelStyle: TextStyle,
     override val disableAlpha: Float,
-) : BadgeStyle
+    override val labelStyles: StatefulValue<TextStyle>,
+    override val shapes: StatefulValue<CornerBasedShape>,
+) : BadgeStyle {
+
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
+    override val labelStyle: TextStyle = labelStyles.getDefaultValue()
+
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
+}
 
 @Immutable
 private class DefaultIconBadgeDimensions(
-    override val height: Dp,
-    override val startContentSize: Dp,
-    override val endContentSize: Dp,
-    override val startContentMargin: Dp,
-    override val endContentMargin: Dp,
-    override val startPadding: Dp,
-    override val endPadding: Dp,
+    override val heightValues: StatefulValue<Dp>,
+    override val startContentSizeValues: StatefulValue<Dp>,
+    override val endContentSizeValues: StatefulValue<Dp>,
+    override val startContentMarginValues: StatefulValue<Dp>,
+    override val endContentMarginValues: StatefulValue<Dp>,
+    override val startPaddingValues: StatefulValue<Dp>,
+    override val endPaddingValues: StatefulValue<Dp>,
 ) : BadgeDimensions {
 
+    @Deprecated(
+        "Use heightValues",
+        replaceWith = ReplaceWith("heightValues"),
+    )
+    override val height: Dp = 28.dp
+
+    @Deprecated(
+        "Use startContentSizeValues",
+        replaceWith = ReplaceWith("startContentSizeValues"),
+    )
+    override val startContentSize: Dp = 16.dp
+
+    @Deprecated(
+        "Use endContentSizeValues",
+        replaceWith = ReplaceWith("endContentSizeValues"),
+    )
+    override val endContentSize: Dp = 0.dp
+
+    @Deprecated(
+        "Use startContentMarginValues",
+        replaceWith = ReplaceWith("startContentMarginValues"),
+    )
+    override val startContentMargin: Dp = 0.dp
+
+    @Deprecated(
+        "Use endContentMarginValues",
+        replaceWith = ReplaceWith("endContentMarginValues"),
+    )
+    override val endContentMargin: Dp = 0.dp
+
+    @Deprecated(
+        "Use startPaddingValues",
+        replaceWith = ReplaceWith("startPaddingValues"),
+    )
+    override val startPadding: Dp = 6.dp
+
+    @Deprecated(
+        "Use endPaddingValues",
+        replaceWith = ReplaceWith("endPaddingValues"),
+    )
+    override val endPadding: Dp = 6.dp
+
     class Builder : IconBadgeDimensionsBuilder {
-        private var height: Dp? = null
-        private var endContentSize: Dp? = null
-        private var startContentSize: Dp? = null
-        private var startContentMargin: Dp? = null
-        private var endContentMargin: Dp? = null
-        private var startPadding: Dp? = null
-        private var endPadding: Dp? = null
-        override fun height(height: Dp): IconBadgeDimensionsBuilder = apply {
-            this.height = height
+        private var heightValues: StatefulValue<Dp>? = null
+        private var endContentSizeValues: StatefulValue<Dp>? = null
+        private var startContentSizeValues: StatefulValue<Dp>? = null
+        private var startContentMarginValues: StatefulValue<Dp>? = null
+        private var endContentMarginValues: StatefulValue<Dp>? = null
+        private var startPaddingValues: StatefulValue<Dp>? = null
+        private var endPaddingValues: StatefulValue<Dp>? = null
+
+        override fun height(values: StatefulValue<Dp>): IconBadgeDimensionsBuilder = apply {
+            this.heightValues = values
         }
 
-        override fun startContentSize(startContentSize: Dp): IconBadgeDimensionsBuilder = apply {
-            this.startContentSize = startContentSize
+        override fun startContentSize(values: StatefulValue<Dp>): IconBadgeDimensionsBuilder = apply {
+            this.startContentSizeValues = values
         }
 
-        override fun startPadding(startPadding: Dp): IconBadgeDimensionsBuilder = apply {
-            this.startPadding = startPadding
+        override fun startPadding(values: StatefulValue<Dp>): IconBadgeDimensionsBuilder = apply {
+            this.startPaddingValues = values
         }
 
-        override fun endPadding(endPadding: Dp): IconBadgeDimensionsBuilder = apply {
-            this.endPadding = endPadding
+        override fun endPadding(values: StatefulValue<Dp>): IconBadgeDimensionsBuilder = apply {
+            this.endPaddingValues = values
         }
 
         override fun build(): BadgeDimensions {
             return DefaultIconBadgeDimensions(
-                height = height ?: 28.dp,
-                startContentSize = startContentSize ?: 16.dp,
-                endContentSize = endContentSize ?: 0.dp,
-                startContentMargin = startContentMargin ?: 0.dp,
-                endContentMargin = endContentMargin ?: 0.dp,
-                startPadding = startPadding ?: 6.dp,
-                endPadding = endPadding ?: 6.dp,
+                heightValues = heightValues ?: 28.dp.asStatefulValue(),
+                startContentSizeValues = startContentSizeValues ?: 16.dp.asStatefulValue(),
+                endContentSizeValues = endContentSizeValues ?: 0.dp.asStatefulValue(),
+                startContentMarginValues = startContentMarginValues ?: 0.dp.asStatefulValue(),
+                endContentMarginValues = endContentMarginValues ?: 0.dp.asStatefulValue(),
+                startPaddingValues = startPaddingValues ?: 6.dp.asStatefulValue(),
+                endPaddingValues = endPaddingValues ?: 6.dp.asStatefulValue(),
             )
         }
     }
@@ -196,50 +305,79 @@ private class DefaultIconBadgeDimensions(
 
 @Immutable
 private class DefaultIconBadgeColors(
-    override val contentColor: InteractiveColor,
-    override val backgroundColor: InteractiveColor,
-    override val labelColor: InteractiveColor,
-    override val startContentColor: InteractiveColor,
-    override val endContentColor: InteractiveColor,
+    override val contentBrush: StatefulValue<Brush>,
+    override val backgroundBrush: StatefulValue<Brush>,
+    override val labelBrush: StatefulValue<Brush>,
+    override val startContentBrush: StatefulValue<Brush>,
+    override val endContentBrush: StatefulValue<Brush>,
 ) : BadgeColors {
+    @Deprecated(
+        "Use contentBrush",
+        replaceWith = ReplaceWith("contentBrush"),
+    )
+    override val contentColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated(
+        "Use backgroundBrush",
+        replaceWith = ReplaceWith("backgroundBrush"),
+    )
+    override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated(
+        "Use labelBrush",
+        replaceWith = ReplaceWith("labelBrush"),
+    )
+    override val labelColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated(
+        "Use startContentBrush",
+        replaceWith = ReplaceWith("startContentBrush"),
+    )
+    override val startContentColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated(
+        "Use endContentBrush",
+        replaceWith = ReplaceWith("endContentBrush"),
+    )
+    override val endContentColor: InteractiveColor = Color.Transparent.asInteractive()
+
     class Builder : IconBadgeColorsBuilder {
-        private var contentColor: InteractiveColor? = null
-        private var backgroundColor: InteractiveColor? = null
-        private var labelColor: InteractiveColor? = null
-        private var startContentColor: InteractiveColor? = null
-        private var endContentColor: InteractiveColor? = null
+        private var contentBrush: StatefulValue<Brush>? = null
+        private var backgroundBrush: StatefulValue<Brush>? = null
+        private var labelBrush: StatefulValue<Brush>? = null
+        private var startContentBrush: StatefulValue<Brush>? = null
+        private var endContentBrush: StatefulValue<Brush>? = null
 
-        override fun backgroundColor(backgroundColor: InteractiveColor): IconBadgeColorsBuilder =
-            apply {
-                this.backgroundColor = backgroundColor
-            }
+        override fun backgroundColor(backgroundBrush: StatefulValue<Brush>): IconBadgeColorsBuilder = apply {
+            this.backgroundBrush = backgroundBrush
+        }
 
-        override fun startContentColor(startContentColor: InteractiveColor): IconBadgeColorsBuilder =
-            apply {
-                this.startContentColor = startContentColor
-            }
+        override fun startContentColor(startContentBrush: StatefulValue<Brush>): IconBadgeColorsBuilder = apply {
+            this.startContentBrush = startContentBrush
+        }
 
         override fun build(): BadgeColors {
             return DefaultIconBadgeColors(
-                contentColor = contentColor ?: Color.White.asInteractive(),
-                backgroundColor = backgroundColor ?: Color.Black.asInteractive(),
-                labelColor = labelColor ?: Color.Black.asInteractive(),
-                startContentColor = startContentColor ?: Color.Black.asInteractive(),
-                endContentColor = endContentColor ?: Color.Black.asInteractive(),
+                contentBrush = contentBrush ?: Color.White.asStatefulBrush(),
+                backgroundBrush = backgroundBrush ?: Color.Black.asStatefulBrush(),
+                labelBrush = labelBrush ?: Color.Black.asStatefulBrush(),
+                startContentBrush = startContentBrush ?: Color.Black.asStatefulBrush(),
+                endContentBrush = endContentBrush ?: Color.Black.asStatefulBrush(),
             )
         }
     }
 }
 
 private class IconBadgeStyleBuilderImpl(receiver: Any?) : IconBadgeStyleBuilder {
-    private var shape: CornerBasedShape? = null
+    private var shapes: StatefulValue<CornerBasedShape>? = null
     private var colorsBuilder: IconBadgeColorsBuilder = IconBadgeColorsBuilder.builder()
     private var labelStyle: TextStyle? = null
     private var dimensionsBuilder: IconBadgeDimensionsBuilder = IconBadgeDimensionsBuilder.builder()
     private var disableAlpha: Float? = null
+    private var labelStyles: StatefulValue<TextStyle>? = null
 
-    override fun shape(shape: CornerBasedShape): IconBadgeStyleBuilder = apply {
-        this.shape = shape
+    override fun shape(shape: StatefulValue<CornerBasedShape>): IconBadgeStyleBuilder = apply {
+        this.shapes = shape
     }
 
     @Composable
@@ -266,9 +404,9 @@ private class IconBadgeStyleBuilderImpl(receiver: Any?) : IconBadgeStyleBuilder 
         return DefaultIconBadgeStyle(
             dimensions = dimensionsBuilder.build(),
             colors = colorsBuilder.build(),
-            shape = shape ?: RoundedCornerShape(25),
-            labelStyle = labelStyle ?: TextStyle.Default,
+            shapes = shapes ?: RoundedCornerShape(25).asStatefulValue(),
             disableAlpha = disableAlpha ?: DISABLE_BADGE_ALPHA,
+            labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),
         )
     }
 }

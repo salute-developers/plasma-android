@@ -6,14 +6,17 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -32,6 +35,12 @@ interface CellStyle : Style {
     /**
      * Стиль лэйбла
      */
+    @Deprecated(
+        "Use labelStyles",
+        replaceWith = ReplaceWith(
+            "labelStyles",
+        ),
+    )
     val labelStyle: TextStyle
 
     /**
@@ -42,6 +51,12 @@ interface CellStyle : Style {
     /**
      * Стиль тайтла
      */
+    @Deprecated(
+        "Use titleStyle",
+        replaceWith = ReplaceWith(
+            "titleStyle",
+        ),
+    )
     val titleStyle: TextStyle
 
     /**
@@ -52,6 +67,12 @@ interface CellStyle : Style {
     /**
      * Стиль сабйтайтла
      */
+    @Deprecated(
+        "Use subtitleStyles",
+        replaceWith = ReplaceWith(
+            "subtitleStyles",
+        ),
+    )
     val subtitleStyle: TextStyle
 
     /**
@@ -62,6 +83,12 @@ interface CellStyle : Style {
     /**
      * Cтиль текста disclosure
      */
+    @Deprecated(
+        "Use disclosureTextStyles",
+        replaceWith = ReplaceWith(
+            "disclosureTextStyles",
+        ),
+    )
     val disclosureTextStyle: TextStyle
 
     /**
@@ -148,9 +175,16 @@ private data class DefaultCellStyle(
     override val counterStyle: CounterStyle,
 ) : CellStyle {
 
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
     override val labelStyle: TextStyle get() = labelStyles.getDefaultValue()
+
+    @Deprecated("Use titleStyles", replaceWith = ReplaceWith("titleStyles"))
     override val titleStyle: TextStyle get() = titleStyles.getDefaultValue()
+
+    @Deprecated("Use subtitleStyles", replaceWith = ReplaceWith("subtitleStyles"))
     override val subtitleStyle: TextStyle get() = subtitleStyles.getDefaultValue()
+
+    @Deprecated("Use disclosureTextStyles", replaceWith = ReplaceWith("disclosureTextStyles"))
     override val disclosureTextStyle: TextStyle get() = disclosureTextStyles.getDefaultValue()
 
     class Builder : CellStyleBuilder {
@@ -169,29 +203,17 @@ private data class DefaultCellStyle(
         private var switchStyle: SwitchStyle? = null
         private var counterStyle: CounterStyle? = null
 
-        override fun labelStyle(labelStyle: TextStyle) =
-            labelStyle(labelStyle.asStatefulValue())
-
         override fun labelStyle(labelStyle: StatefulValue<TextStyle>) = apply {
             this.labelStyle = labelStyle
         }
-
-        override fun titleStyle(titleStyle: TextStyle): CellStyleBuilder =
-            titleStyle(titleStyle.asStatefulValue())
 
         override fun titleStyle(titleStyle: StatefulValue<TextStyle>) = apply {
             this.titleStyle = titleStyle
         }
 
-        override fun subtitleStyle(subtitleStyle: TextStyle) =
-            subtitleStyle(subtitleStyle.asStatefulValue())
-
         override fun subtitleStyle(subtitleStyle: StatefulValue<TextStyle>) = apply {
             this.subtitleStyle = subtitleStyle
         }
-
-        override fun disclosureTextStyle(disclosureStyle: TextStyle) =
-            disclosureTextStyle(disclosureStyle.asStatefulValue())
 
         override fun disclosureTextStyle(disclosureStyle: StatefulValue<TextStyle>) = apply {
             this.disclosureStyle = disclosureStyle
@@ -269,7 +291,8 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
     /**
      * Устанавливает стиль лэйбла
      */
-    fun labelStyle(labelStyle: TextStyle): CellStyleBuilder
+    fun labelStyle(labelStyle: TextStyle): CellStyleBuilder =
+        labelStyle(labelStyle.asStatefulValue())
 
     /**
      * Устанавливает стили лэйбла
@@ -279,7 +302,8 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
     /**
      * Устанавливает стиль тайтла
      */
-    fun titleStyle(titleStyle: TextStyle): CellStyleBuilder
+    fun titleStyle(titleStyle: TextStyle): CellStyleBuilder =
+        titleStyle(titleStyle.asStatefulValue())
 
     /**
      * Устанавливает стили тайтла
@@ -289,7 +313,8 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
     /**
      * Устанавливает стиль сабтайтла
      */
-    fun subtitleStyle(subtitleStyle: TextStyle): CellStyleBuilder
+    fun subtitleStyle(subtitleStyle: TextStyle): CellStyleBuilder =
+        subtitleStyle(subtitleStyle.asStatefulValue())
 
     /**
      * Устанавливает стили сабтайтла
@@ -299,7 +324,8 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
     /**
      * Устанавливает стиль текста disclosure
      */
-    fun disclosureTextStyle(disclosureStyle: TextStyle): CellStyleBuilder
+    fun disclosureTextStyle(disclosureStyle: TextStyle): CellStyleBuilder =
+        disclosureTextStyle(disclosureStyle.asStatefulValue())
 
     /**
      * Устанавливает стили текста disclosure
@@ -369,12 +395,30 @@ interface CellDimensions {
     /**
      * Отступ между контентом вначале и контентом по середине
      */
+    @Deprecated(
+        "Use contentPaddingStartValues",
+        replaceWith = ReplaceWith("contentPaddingStartValues"),
+    )
     val contentPaddingStart: Dp
+
+    /**
+     * Отступ между контентом вначале и контентом по середине
+     */
+    val contentPaddingStartValues: StatefulValue<Dp>
 
     /**
      * Отступ между контентом вначале и контентом в конце
      */
+    @Deprecated(
+        "Use contentPaddingEndValues",
+        replaceWith = ReplaceWith("contentPaddingEndValues"),
+    )
     val contentPaddingEnd: Dp
+
+    /**
+     * Отступ между контентом вначале и контентом в конце
+     */
+    val contentPaddingEndValues: StatefulValue<Dp>
 
     companion object {
 
@@ -393,12 +437,24 @@ interface CellDimensionsBuilder {
     /**
      * Устанавливает отступ между контентом вначале и контентом по середине
      */
-    fun contentPaddingStart(contentPaddingStart: Dp): CellDimensionsBuilder
+    fun contentPaddingStart(contentPaddingStart: Dp): CellDimensionsBuilder =
+        contentPaddingStart(contentPaddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступ между контентом вначале и контентом по середине
+     */
+    fun contentPaddingStart(values: StatefulValue<Dp>): CellDimensionsBuilder
 
     /**
      * Устанавливает отступ между контентом по середине и контентом в конце
      */
-    fun contentPaddingEnd(contentPaddingEnd: Dp): CellDimensionsBuilder
+    fun contentPaddingEnd(contentPaddingEnd: Dp): CellDimensionsBuilder =
+        contentPaddingEnd(contentPaddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступ между контентом по середине и контентом в конце
+     */
+    fun contentPaddingEnd(values: StatefulValue<Dp>): CellDimensionsBuilder
 
     /**
      * Создаёт экземпляр [CellDimensions]
@@ -408,25 +464,38 @@ interface CellDimensionsBuilder {
 
 @Immutable
 private class DefaultCellDimensions(
-    override val contentPaddingStart: Dp,
-    override val contentPaddingEnd: Dp,
-) : CellDimensions {
-    class Builder : CellDimensionsBuilder {
-        private var contentPaddingStart: Dp? = null
-        private var contentPaddingEnd: Dp? = null
+    override val contentPaddingStartValues: StatefulValue<Dp>,
+    override val contentPaddingEndValues: StatefulValue<Dp>,
 
-        override fun contentPaddingStart(contentPaddingStart: Dp) = apply {
-            this.contentPaddingStart = contentPaddingStart
+) : CellDimensions {
+    @Deprecated(
+        "Use contentPaddingStartValues",
+        replaceWith = ReplaceWith("contentPaddingStartValues"),
+    )
+    override val contentPaddingStart: Dp = 16.dp
+
+    @Deprecated(
+        "Use contentPaddingEndValues",
+        replaceWith = ReplaceWith("contentPaddingEndValues"),
+    )
+    override val contentPaddingEnd: Dp = 16.dp
+
+    class Builder : CellDimensionsBuilder {
+        private var contentPaddingStart: StatefulValue<Dp>? = null
+        private var contentPaddingEnd: StatefulValue<Dp>? = null
+
+        override fun contentPaddingStart(values: StatefulValue<Dp>): CellDimensionsBuilder = apply {
+            this.contentPaddingStart = values
         }
 
-        override fun contentPaddingEnd(contentPaddingEnd: Dp) = apply {
-            this.contentPaddingEnd = contentPaddingEnd
+        override fun contentPaddingEnd(values: StatefulValue<Dp>): CellDimensionsBuilder = apply {
+            this.contentPaddingEnd = values
         }
 
         override fun build(): CellDimensions {
             return DefaultCellDimensions(
-                contentPaddingStart = contentPaddingStart ?: 16.dp,
-                contentPaddingEnd = contentPaddingEnd ?: 16.dp,
+                contentPaddingStartValues = contentPaddingStart ?: 16.dp.asStatefulValue(),
+                contentPaddingEndValues = contentPaddingEnd ?: 16.dp.asStatefulValue(),
             )
         }
     }
@@ -441,27 +510,72 @@ interface CellColors {
     /**
      * Цвет тайтла
      */
+    @Deprecated(
+        "Use titleBrush",
+        replaceWith = ReplaceWith("titleBrush"),
+    )
     val titleColor: InteractiveColor
+
+    /**
+     * Кисть тайтла
+     */
+    val titleBrush: StatefulValue<Brush>
 
     /**
      * Цвет лэйбла
      */
+    @Deprecated(
+        "Use labelBrush",
+        replaceWith = ReplaceWith("labelBrush"),
+    )
     val labelColor: InteractiveColor
+
+    /**
+     * Кистmь лэйбла
+     */
+    val labelBrush: StatefulValue<Brush>
 
     /**
      * Цвет сабтайтла
      */
+    @Deprecated(
+        "Use subtitleBrush",
+        replaceWith = ReplaceWith("subtitleBrush"),
+    )
     val subtitleColor: InteractiveColor
+
+    /**
+     * Кисть сабтайтла
+     */
+    val subtitleBrush: StatefulValue<Brush>
 
     /**
      * Цвет текста disclosure
      */
+    @Deprecated(
+        "Use disclosureTextBrush",
+        replaceWith = ReplaceWith("disclosureTextBrush"),
+    )
     val disclosureTextColor: InteractiveColor
+
+    /**
+     * Кисть текста disclosure
+     */
+    val disclosureTextBrush: StatefulValue<Brush>
 
     /**
      * Цвет иконки disclosure
      */
+    @Deprecated(
+        "Use disclosureIconBrush",
+        replaceWith = ReplaceWith("disclosureIconBrush"),
+    )
     val disclosureIconColor: InteractiveColor
+
+    /**
+     * Кисть иконки disclosure
+     */
+    val disclosureIconBrush: StatefulValue<Brush>
 
     companion object {
 
@@ -481,56 +595,116 @@ interface CellColorsBuilder {
      * Устанавливает цвет тайтла
      */
     fun titleColor(titleColor: Color): CellColorsBuilder =
-        titleColor(titleColor.asInteractive())
+        titleColor(titleColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет тайтла
      */
-    fun titleColor(titleColor: InteractiveColor): CellColorsBuilder
+    fun titleColor(titleColor: InteractiveColor): CellColorsBuilder =
+        titleColor(titleColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть тайтла компонента [brush]
+     */
+    fun titleColor(brush: Brush): CellColorsBuilder =
+        titleColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти тайтла компонента [brush]
+     */
+    fun titleColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
     /**
      * Устанавливает цвет лэйбла
      */
     fun labelColor(labelColor: Color): CellColorsBuilder =
-        labelColor(labelColor.asInteractive())
+        labelColor(labelColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет лэйбла
      */
-    fun labelColor(labelColor: InteractiveColor): CellColorsBuilder
+    fun labelColor(labelColor: InteractiveColor): CellColorsBuilder =
+        labelColor(labelColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть лэйбла компонента [brush]
+     */
+    fun labelColor(brush: Brush): CellColorsBuilder =
+        labelColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти лэйбла компонента [brush]
+     */
+    fun labelColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
     /**
      * Устанавливает цвет сабтайтла
      */
     fun subtitleColor(subtitleColor: Color): CellColorsBuilder =
-        subtitleColor(subtitleColor.asInteractive())
+        subtitleColor(subtitleColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет сабтайтла
      */
-    fun subtitleColor(subtitleColor: InteractiveColor): CellColorsBuilder
+    fun subtitleColor(subtitleColor: InteractiveColor): CellColorsBuilder =
+        subtitleColor(subtitleColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть сабтайтла компонента [brush]
+     */
+    fun subtitleColor(brush: Brush): CellColorsBuilder =
+        subtitleColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти сабтайтла компонента [brush]
+     */
+    fun subtitleColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
     /**
      * Устанавливает цвет текста disclosure
      */
     fun disclosureTextColor(disclosureTextColor: Color): CellColorsBuilder =
-        disclosureTextColor(disclosureTextColor.asInteractive())
+        disclosureTextColor(disclosureTextColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет текста disclosure
      */
-    fun disclosureTextColor(disclosureTextColor: InteractiveColor): CellColorsBuilder
+    fun disclosureTextColor(disclosureTextColor: InteractiveColor): CellColorsBuilder =
+        disclosureTextColor(disclosureTextColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть текста disclosure компонента [brush]
+     */
+    fun disclosureTextColor(brush: Brush): CellColorsBuilder =
+        disclosureTextColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти текста disclosure компонента [brush]
+     */
+    fun disclosureTextColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
     /**
      * Устанавливает цвет иконки disclosure
      */
     fun disclosureIconColor(disclosureIconColor: Color): CellColorsBuilder =
-        disclosureIconColor(disclosureIconColor.asInteractive())
+        disclosureIconColor(disclosureIconColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет иконки disclosure
      */
-    fun disclosureIconColor(disclosureIconColor: InteractiveColor): CellColorsBuilder
+    fun disclosureIconColor(disclosureIconColor: InteractiveColor): CellColorsBuilder =
+        disclosureIconColor(disclosureIconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть иконки disclosure компонента [brush]
+     */
+    fun disclosureIconColor(brush: Brush): CellColorsBuilder =
+        disclosureIconColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти иконки disclosure компонента [brush]
+     */
+    fun disclosureIconColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
     /**
      * Возвращает [CellColors]
@@ -540,46 +714,76 @@ interface CellColorsBuilder {
 
 @Immutable
 private class DefaultCellColors(
-    override val titleColor: InteractiveColor,
-    override val labelColor: InteractiveColor,
-    override val subtitleColor: InteractiveColor,
-    override val disclosureTextColor: InteractiveColor,
-    override val disclosureIconColor: InteractiveColor,
+    override val titleBrush: StatefulValue<Brush>,
+    override val labelBrush: StatefulValue<Brush>,
+    override val subtitleBrush: StatefulValue<Brush>,
+    override val disclosureTextBrush: StatefulValue<Brush>,
+    override val disclosureIconBrush: StatefulValue<Brush>,
 ) : CellColors {
+    @Deprecated(
+        "Use titleBrush",
+        replaceWith = ReplaceWith("titleBrush"),
+    )
+    override val titleColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated(
+        "Use labelBrush",
+        replaceWith = ReplaceWith("labelBrush"),
+    )
+    override val labelColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated(
+        "Use subtitleBrush",
+        replaceWith = ReplaceWith("subtitleBrush"),
+    )
+    override val subtitleColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated(
+        "Use disclosureTextBrush",
+        replaceWith = ReplaceWith("disclosureTextBrush"),
+    )
+    override val disclosureTextColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated(
+        "Use disclosureIconBrush",
+        replaceWith = ReplaceWith("disclosureIconBrush"),
+    )
+    override val disclosureIconColor: InteractiveColor = Color.Transparent.asInteractive()
+
     class Builder : CellColorsBuilder {
-        private var titleColor: InteractiveColor? = null
-        private var labelColor: InteractiveColor? = null
-        private var subtitleColor: InteractiveColor? = null
-        private var disclosureTextColor: InteractiveColor? = null
-        private var disclosureIconColor: InteractiveColor? = null
+        private var titleColor: StatefulValue<Brush>? = null
+        private var labelColor: StatefulValue<Brush>? = null
+        private var subtitleColor: StatefulValue<Brush>? = null
+        private var disclosureTextColor: StatefulValue<Brush>? = null
+        private var disclosureIconColor: StatefulValue<Brush>? = null
 
-        override fun titleColor(titleColor: InteractiveColor) = apply {
-            this.titleColor = titleColor
+        override fun titleColor(brush: StatefulValue<Brush>) = apply {
+            this.titleColor = brush
         }
 
-        override fun labelColor(labelColor: InteractiveColor) = apply {
-            this.labelColor = labelColor
+        override fun labelColor(brush: StatefulValue<Brush>) = apply {
+            this.labelColor = brush
         }
 
-        override fun subtitleColor(subtitleColor: InteractiveColor) = apply {
-            this.subtitleColor = subtitleColor
+        override fun subtitleColor(brush: StatefulValue<Brush>) = apply {
+            this.subtitleColor = brush
         }
 
-        override fun disclosureTextColor(disclosureTextColor: InteractiveColor) = apply {
-            this.disclosureTextColor = disclosureTextColor
+        override fun disclosureTextColor(brush: StatefulValue<Brush>) = apply {
+            this.disclosureTextColor = brush
         }
 
-        override fun disclosureIconColor(disclosureIconColor: InteractiveColor) = apply {
-            this.disclosureIconColor = disclosureIconColor
+        override fun disclosureIconColor(brush: StatefulValue<Brush>) = apply {
+            this.disclosureIconColor = brush
         }
 
         override fun build(): CellColors {
             return DefaultCellColors(
-                titleColor = titleColor ?: Color.Black.asInteractive(),
-                labelColor = labelColor ?: Color.Black.asInteractive(),
-                subtitleColor = subtitleColor ?: Color.Black.asInteractive(),
-                disclosureTextColor = disclosureTextColor ?: Color.Black.asInteractive(),
-                disclosureIconColor = disclosureIconColor ?: Color.Black.asInteractive(),
+                titleBrush = titleColor ?: Color.Black.asStatefulBrush(),
+                labelBrush = labelColor ?: Color.Black.asStatefulBrush(),
+                subtitleBrush = subtitleColor ?: Color.Black.asStatefulBrush(),
+                disclosureTextBrush = disclosureTextColor ?: Color.Black.asStatefulBrush(),
+                disclosureIconBrush = disclosureIconColor ?: Color.Black.asStatefulBrush(),
             )
         }
     }

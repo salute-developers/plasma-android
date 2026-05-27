@@ -152,6 +152,35 @@ fun Card_Extra() {
 
 @Composable
 @DocSample(needScreenshot = false)
+fun Card_TitleSubtitle() {
+    composableCodeSnippet {
+        Card(
+            modifier = Modifier
+                .width(220.dp)
+                .height(260.dp),
+            focusSelectorSettings = LocalFocusSelectorSettings.current,
+            title = {
+                Text("Заголовок")
+            },
+            subtitle = {
+                Text("Подзаголовок")
+            },
+        ) {
+            CardContent(
+                modifier = Modifier.fillMaxSize(),
+                focusSelectorSettings = FocusSelectorSettings.None,
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.ic_bulb_diode_fill_36),
+                    contentDescription = "",
+                )
+            }
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = false)
 fun Card_Style() {
     composableCodeSnippet {
         CardStyle.builder()

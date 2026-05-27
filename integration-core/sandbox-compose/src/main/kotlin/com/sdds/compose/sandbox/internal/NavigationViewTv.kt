@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.selection
 
@@ -112,7 +113,7 @@ internal fun NavigationViewTv(
                 color = style.menuBackground,
                 shape = style.menuShape,
             )
-            .padding(start = 4.dp, end = 4.dp, bottom = 24.dp)
+            .padding(start = 4.dp, end = 4.dp)
             .systemBarsPadding(),
 
     ) {
@@ -165,15 +166,16 @@ private fun NavigationItemTv(
     onClick: () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
-    val background = style.itemBackground.colorForInteraction(interactionSource)
-    val titleColor = style.itemTextColor.colorForInteraction(interactionSource)
+    val semanticStateSource = remember { MutableSemanticStateSource() }
+    val background = style.itemBackground.colorForInteraction(interactionSource, semanticStateSource)
+    val titleColor = style.itemTextColor.colorForInteractionAsState(interactionSource, semanticStateSource)
     Row(
         modifier = Modifier
             .height(style.itemHeight)
             .fillMaxWidth()
             .selection(
                 selected = isSelected,
-                interactionSource = interactionSource,
+                semanticStateSource = semanticStateSource,
             )
             .background(color = background, shape = style.selectedShape)
             .clickable(
@@ -188,7 +190,8 @@ private fun NavigationItemTv(
     ) {
         Text(
             text = title,
-            style = style.itemTextStyle.copy(color = titleColor),
+            style = style.itemTextStyle,
+            color = { titleColor.value },
         )
     }
 }

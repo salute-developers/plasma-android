@@ -393,6 +393,7 @@ public value class WrapperTextAreaClearXlInnerLabelRequiredEnd(
 public val WrapperTextAreaClearView.Default: WrapperTextAreaClearTerminate
     @Composable
     get() = builder
+        .singleLine(false)
         .colors {
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
@@ -421,6 +422,7 @@ public val WrapperTextAreaClearView.Default: WrapperTextAreaClearTerminate
 public val WrapperTextAreaClearView.Warning: WrapperTextAreaClearTerminate
     @Composable
     get() = builder
+        .singleLine(false)
         .colors {
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
@@ -458,6 +460,7 @@ public val WrapperTextAreaClearView.Warning: WrapperTextAreaClearTerminate
 public val WrapperTextAreaClearView.Error: WrapperTextAreaClearTerminate
     @Composable
     get() = builder
+        .singleLine(false)
         .colors {
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
@@ -562,6 +565,7 @@ public val TextAreaClear.Xs: WrapperTextAreaClearXs
     @JvmName("WrapperTextAreaClearXs")
     get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
@@ -584,6 +588,7 @@ public val WrapperTextAreaClearXs.RequiredStart: WrapperTextAreaClearXsRequiredS
     @Composable
     @JvmName("WrapperTextAreaClearXsRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -598,6 +603,7 @@ public val WrapperTextAreaClearXs.RequiredEnd: WrapperTextAreaClearXsRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaClearXsRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -612,6 +618,7 @@ public val WrapperTextAreaClearXs.OuterLabel: WrapperTextAreaClearXsOuterLabel
     @Composable
     @JvmName("WrapperTextAreaClearXsOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
@@ -632,6 +639,7 @@ public val WrapperTextAreaClearXsOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextAreaClearXsOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -646,6 +654,7 @@ public val WrapperTextAreaClearXsOuterLabel.RequiredEnd: WrapperTextAreaClearXsO
     @Composable
     @JvmName("WrapperTextAreaClearXsOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -661,6 +670,7 @@ public val TextAreaClear.S: WrapperTextAreaClearS
     @JvmName("WrapperTextAreaClearS")
     get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
@@ -683,6 +693,7 @@ public val WrapperTextAreaClearS.RequiredStart: WrapperTextAreaClearSRequiredSta
     @Composable
     @JvmName("WrapperTextAreaClearSRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -697,6 +708,7 @@ public val WrapperTextAreaClearS.RequiredEnd: WrapperTextAreaClearSRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaClearSRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -711,6 +723,7 @@ public val WrapperTextAreaClearS.OuterLabel: WrapperTextAreaClearSOuterLabel
     @Composable
     @JvmName("WrapperTextAreaClearSOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             labelPadding(4.0.dp)
         }
@@ -729,6 +742,7 @@ public val WrapperTextAreaClearSOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextAreaClearSOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -743,6 +757,7 @@ public val WrapperTextAreaClearSOuterLabel.RequiredEnd: WrapperTextAreaClearSOut
     @Composable
     @JvmName("WrapperTextAreaClearSOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -757,6 +772,7 @@ public val WrapperTextAreaClearS.InnerLabel: WrapperTextAreaClearSInnerLabel
     @Composable
     @JvmName("WrapperTextAreaClearSInnerLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(4.0.dp)
             boxPaddingBottom(4.0.dp)
@@ -777,6 +793,7 @@ public val WrapperTextAreaClearSInnerLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextAreaClearSInnerLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -791,6 +808,7 @@ public val WrapperTextAreaClearSInnerLabel.RequiredEnd: WrapperTextAreaClearSInn
     @Composable
     @JvmName("WrapperTextAreaClearSInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -806,6 +824,7 @@ public val TextAreaClear.M: WrapperTextAreaClearM
     @JvmName("WrapperTextAreaClearM")
     get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(12.0.dp)
             boxPaddingBottom(12.0.dp)
@@ -828,6 +847,7 @@ public val WrapperTextAreaClearM.RequiredStart: WrapperTextAreaClearMRequiredSta
     @Composable
     @JvmName("WrapperTextAreaClearMRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -842,6 +862,7 @@ public val WrapperTextAreaClearM.RequiredEnd: WrapperTextAreaClearMRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaClearMRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -856,6 +877,7 @@ public val WrapperTextAreaClearM.OuterLabel: WrapperTextAreaClearMOuterLabel
     @Composable
     @JvmName("WrapperTextAreaClearMOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             labelPadding(4.0.dp)
         }
@@ -874,6 +896,7 @@ public val WrapperTextAreaClearMOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextAreaClearMOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -888,6 +911,7 @@ public val WrapperTextAreaClearMOuterLabel.RequiredEnd: WrapperTextAreaClearMOut
     @Composable
     @JvmName("WrapperTextAreaClearMOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -902,6 +926,7 @@ public val WrapperTextAreaClearM.InnerLabel: WrapperTextAreaClearMInnerLabel
     @Composable
     @JvmName("WrapperTextAreaClearMInnerLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(6.0.dp)
             boxPaddingBottom(6.0.dp)
@@ -922,6 +947,7 @@ public val WrapperTextAreaClearMInnerLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextAreaClearMInnerLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -936,6 +962,7 @@ public val WrapperTextAreaClearMInnerLabel.RequiredEnd: WrapperTextAreaClearMInn
     @Composable
     @JvmName("WrapperTextAreaClearMInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -951,6 +978,7 @@ public val TextAreaClear.L: WrapperTextAreaClearL
     @JvmName("WrapperTextAreaClearL")
     get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(16.0.dp)
             boxPaddingBottom(16.0.dp)
@@ -973,6 +1001,7 @@ public val WrapperTextAreaClearL.RequiredStart: WrapperTextAreaClearLRequiredSta
     @Composable
     @JvmName("WrapperTextAreaClearLRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -987,6 +1016,7 @@ public val WrapperTextAreaClearL.RequiredEnd: WrapperTextAreaClearLRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaClearLRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1001,6 +1031,7 @@ public val WrapperTextAreaClearL.OuterLabel: WrapperTextAreaClearLOuterLabel
     @Composable
     @JvmName("WrapperTextAreaClearLOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             labelPadding(4.0.dp)
         }
@@ -1019,6 +1050,7 @@ public val WrapperTextAreaClearLOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextAreaClearLOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1033,6 +1065,7 @@ public val WrapperTextAreaClearLOuterLabel.RequiredEnd: WrapperTextAreaClearLOut
     @Composable
     @JvmName("WrapperTextAreaClearLOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -1047,6 +1080,7 @@ public val WrapperTextAreaClearL.InnerLabel: WrapperTextAreaClearLInnerLabel
     @Composable
     @JvmName("WrapperTextAreaClearLInnerLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(9.0.dp)
             boxPaddingBottom(9.0.dp)
@@ -1067,6 +1101,7 @@ public val WrapperTextAreaClearLInnerLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextAreaClearLInnerLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1081,6 +1116,7 @@ public val WrapperTextAreaClearLInnerLabel.RequiredEnd: WrapperTextAreaClearLInn
     @Composable
     @JvmName("WrapperTextAreaClearLInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1096,6 +1132,7 @@ public val TextAreaClear.Xl: WrapperTextAreaClearXl
     @JvmName("WrapperTextAreaClearXl")
     get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(21.0.dp)
             boxPaddingBottom(21.0.dp)
@@ -1118,6 +1155,7 @@ public val WrapperTextAreaClearXl.RequiredStart: WrapperTextAreaClearXlRequiredS
     @Composable
     @JvmName("WrapperTextAreaClearXlRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1132,6 +1170,7 @@ public val WrapperTextAreaClearXl.RequiredEnd: WrapperTextAreaClearXlRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaClearXlRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1146,6 +1185,7 @@ public val WrapperTextAreaClearXl.OuterLabel: WrapperTextAreaClearXlOuterLabel
     @Composable
     @JvmName("WrapperTextAreaClearXlOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             labelPadding(4.0.dp)
         }
@@ -1164,6 +1204,7 @@ public val WrapperTextAreaClearXlOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextAreaClearXlOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1178,6 +1219,7 @@ public val WrapperTextAreaClearXlOuterLabel.RequiredEnd: WrapperTextAreaClearXlO
     @Composable
     @JvmName("WrapperTextAreaClearXlOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -1192,6 +1234,7 @@ public val WrapperTextAreaClearXl.InnerLabel: WrapperTextAreaClearXlInnerLabel
     @Composable
     @JvmName("WrapperTextAreaClearXlInnerLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(9.0.dp)
             boxPaddingBottom(9.0.dp)
@@ -1212,6 +1255,7 @@ public val WrapperTextAreaClearXlInnerLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextAreaClearXlInnerLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1226,6 +1270,7 @@ public val WrapperTextAreaClearXlInnerLabel.RequiredEnd: WrapperTextAreaClearXlI
     @Composable
     @JvmName("WrapperTextAreaClearXlInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)

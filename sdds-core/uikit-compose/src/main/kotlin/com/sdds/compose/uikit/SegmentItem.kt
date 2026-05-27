@@ -23,8 +23,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.DpSize
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.ButtonText
+import com.sdds.compose.uikit.motion.components.common.rememberCommonButtonMotion
+import com.sdds.compose.uikit.motion.components.counter.rememberCounterMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент SegmentItem
@@ -38,6 +44,7 @@ import com.sdds.compose.uikit.internal.ButtonText
  * @param counter значение счетчика
  * @param enabled включен ли компонент
  * @param interactionSource источник взаимодействий
+ * @param semanticStateSource источник семантических состояний
  */
 @Composable
 fun SegmentItem(
@@ -51,6 +58,7 @@ fun SegmentItem(
     counter: String? = null,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
     SegmentItem(
         label = label,
@@ -74,9 +82,17 @@ fun SegmentItem(
         } else {
             null
         },
-        endContent = endIconOrCounter(isSelected, endIcon, counter, style, interactionSource),
+        endContent = endIconOrCounter(
+            isSelected = isSelected,
+            endIcon = endIcon,
+            counter = counter,
+            style = style,
+            interactionSource = interactionSource,
+            semanticStateSource = semanticStateSource,
+        ),
         enabled = enabled,
         interactionSource = interactionSource,
+        semanticStateSource = semanticStateSource,
     )
 }
 
@@ -91,6 +107,7 @@ fun SegmentItem(
  * @param endContent контент в конце
  * @param enabled включен ли компонент
  * @param interactionSource источник взаимодействий
+ * @param semanticStateSource источник семантических состояний
  */
 @Composable
 fun SegmentItem(
@@ -103,17 +120,23 @@ fun SegmentItem(
     endContent: (@Composable () -> Unit)? = null,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
     SegmentItem(
         labelContent = { Text(label, maxLines = 1, overflow = TextOverflow.Ellipsis) },
         modifier = modifier,
         isSelected = isSelected,
         style = style,
-        valueContent = if (value != null) { { Text(value, maxLines = 1, overflow = TextOverflow.Ellipsis) } } else null,
+        valueContent = if (value != null) {
+            { Text(value, maxLines = 1, overflow = TextOverflow.Ellipsis) }
+        } else {
+            null
+        },
         startContent = startContent,
         endContent = endContent,
         enabled = enabled,
         interactionSource = interactionSource,
+        semanticStateSource = semanticStateSource,
     )
 }
 
@@ -129,6 +152,7 @@ fun SegmentItem(
  * @param endContent контент в конце
  * @param enabled включен ли компонент
  * @param interactionSource источник взаимодействий
+ * @param semanticStateSource источник семантических состояний
  */
 @Composable
 fun SegmentItem(
@@ -141,13 +165,24 @@ fun SegmentItem(
     endContent: (@Composable () -> Unit)? = null,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
-    val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
-    val labelColor = style.colors.labelColor.colorForInteraction(interactionSource)
-    val valueColor = style.colors.valueColor.colorForInteraction(interactionSource)
-    val startContentColor = style.colors.startContentColor.colorForInteraction(interactionSource)
-    val endContentColor = style.colors.endContentColor.colorForInteraction(interactionSource)
-    val isFocused by interactionSource.collectIsFocusedAsState()
+    val motion = rememberCommonButtonMotion(
+        motionContext = rememberMotionContext(semanticStateSource, interactionSource),
+    )
+    val backgroundColor = style.colors.backgroundColor.colorForInteraction(
+        motion.context.interactionSource,
+        motion.context.semanticStateSource,
+    )
+    val startContentColor = style.colors.startContentColor.colorForInteraction(
+        motion.context.interactionSource,
+        motion.context.semanticStateSource,
+    )
+    val endContentColor = style.colors.endContentColor.colorForInteraction(
+        motion.context.interactionSource,
+        motion.context.semanticStateSource,
+    )
+    val isFocused by motion.context.interactionSource.collectIsFocusedAsState()
     Row(
         modifier = modifier
             .defaultMinSize(
@@ -157,7 +192,7 @@ fun SegmentItem(
             .focusSelector(LocalFocusSelectorSettings.current, style.shape) { isFocused }
             .selection(
                 selected = isSelected,
-                interactionSource = interactionSource,
+                semanticStateSource = motion.context.semanticStateSource,
             )
             .graphicsLayer { this.alpha = if (enabled) 1f else style.disabledAlpha }
             .background(
@@ -171,17 +206,20 @@ fun SegmentItem(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
     ) {
+        val labelColor = style.colors.labelColor.asStatefulBrush()
+        val valueColor = style.colors.valueColor.asStatefulBrush()
         startContent?.let { content ->
             StartContent(style, startContentColor, content)
         }
         ButtonText(
             labelContent = labelContent,
-            labelColor = { labelColor },
-            labelTextStyle = style.labelStyle,
+            labelColor = labelColor,
+            labelTextStyle = style.labelStyle.asStatefulValue(),
             valueContent = valueContent,
-            valueTextStyle = style.valueStyle,
-            valueColor = { valueColor },
-            valueMargin = style.dimensions.valueMargin,
+            valueTextStyle = style.valueStyle.asStatefulValue(),
+            valueColor = valueColor,
+            valueMargin = style.dimensions.valueMargin.asStatefulValue(),
+            motion = motion,
         )
         endContent?.let { content ->
             EndContent(style, endContentColor, content)
@@ -195,6 +233,7 @@ private fun endIconOrCounter(
     counter: String?,
     style: SegmentItemStyle,
     interactionSource: MutableInteractionSource,
+    semanticStateSource: MutableSemanticStateSource,
 ): @Composable (() -> Unit)? {
     return if (endIcon != null) {
         @Composable {
@@ -215,11 +254,17 @@ private fun endIconOrCounter(
                 modifier = Modifier
                     .selection(
                         selected = isSelected,
-                        interactionSource = interactionSource,
+                        semanticStateSource = semanticStateSource,
                     ),
                 count = AnnotatedString(counter),
                 style = style.counterStyle,
                 interactionSource = interactionSource,
+                motion = rememberCounterMotion(
+                    motionContext = rememberMotionContext(
+                        semanticStateSource = semanticStateSource,
+                        interactionSource = interactionSource,
+                    ),
+                ),
             )
         }
     } else {

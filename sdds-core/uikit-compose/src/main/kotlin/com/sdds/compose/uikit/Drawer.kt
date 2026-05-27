@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
@@ -328,7 +329,7 @@ private fun getCloseIcon(
         {
             val interactionSource = remember { MutableInteractionSource() }
             val color by closeIconColor.colorForInteractionAsState(interactionSource)
-            CompositionLocalProvider(LocalTint provides color) {
+            CompositionLocalProvider(LocalTintBrushProducer provides { SolidColor(color) }) {
                 closeIcon?.invoke() ?: getDefaultCloseIcon(closeIconRes, interactionSource, onClose)?.invoke()
             }
         }

@@ -25,8 +25,10 @@ import kotlin.Unit
 public enum class CounterStyles(
     public val key: String,
 ) {
-    CounterMuteNo("Counter.MuteNo"),
-    CounterMuteYes("Counter.MuteYes"),
+    CounterMuteMuteNo("Counter.Mute.MuteNo"),
+    CounterMuteMuteYes("Counter.Mute.MuteYes"),
+    CounterDangerMuteNo("Counter.Danger.MuteNo"),
+    CounterDangerMuteYes("Counter.Danger.MuteYes"),
     TabBarCounterDefault("TabBarCounter.Default"),
     TabItemFolderCounterDefault("TabItemFolderCounter.Default"),
     ;
@@ -56,13 +58,23 @@ public enum class CounterDefaultMute {
 }
 
 /**
+ * Возможные значения свойства type для counter
+ */
+public enum class CounterDefaultType {
+    Mute,
+    Danger,
+}
+
+/**
  * Возвращает [CounterStyle] для [CounterStyles]
  */
 @Composable
 public fun CounterStyles.style(modify: @Composable CounterStyleBuilder.() -> Unit = {}): CounterStyle {
     val builder = when (this) {
-        CounterStyles.CounterMuteNo -> Counter.MuteNo
-        CounterStyles.CounterMuteYes -> Counter.MuteYes
+        CounterStyles.CounterMuteMuteNo -> Counter.Mute.MuteNo
+        CounterStyles.CounterMuteMuteYes -> Counter.Mute.MuteYes
+        CounterStyles.CounterDangerMuteNo -> Counter.Danger.MuteNo
+        CounterStyles.CounterDangerMuteYes -> Counter.Danger.MuteYes
         CounterStyles.TabBarCounterDefault -> TabBarCounter.Default
         CounterStyles.TabItemFolderCounterDefault -> TabItemFolderCounter.Default
     }
@@ -72,9 +84,18 @@ public fun CounterStyles.style(modify: @Composable CounterStyleBuilder.() -> Uni
 /**
  * Возвращает экземпляр [CounterStyles] для counter
  */
-public fun CounterStyles.Default.resolve(mute: CounterDefaultMute = CounterDefaultMute.No): CounterStyles = when {
-    mute == CounterDefaultMute.No -> CounterStyles.CounterMuteNo
-    mute == CounterDefaultMute.Yes -> CounterStyles.CounterMuteYes
+public fun CounterStyles.Default.resolve(
+    mute: CounterDefaultMute = CounterDefaultMute.No,
+    type: CounterDefaultType = CounterDefaultType.Mute,
+): CounterStyles = when {
+    mute == CounterDefaultMute.No && type == CounterDefaultType.Mute ->
+        CounterStyles.CounterMuteMuteNo
+    mute == CounterDefaultMute.Yes && type == CounterDefaultType.Mute ->
+        CounterStyles.CounterMuteMuteYes
+    mute == CounterDefaultMute.No && type == CounterDefaultType.Danger ->
+        CounterStyles.CounterDangerMuteNo
+    mute == CounterDefaultMute.Yes && type == CounterDefaultType.Danger ->
+        CounterStyles.CounterDangerMuteYes
     else -> error("Unsupported counter style combination")
 }
 
@@ -84,9 +105,9 @@ public fun CounterStyles.Default.resolve(mute: CounterDefaultMute = CounterDefau
 @Composable
 public fun CounterStyles.Default.style(
     mute: CounterDefaultMute = CounterDefaultMute.No,
+    type: CounterDefaultType = CounterDefaultType.Mute,
     modify: @Composable CounterStyleBuilder.() -> Unit = {},
-): CounterStyle =
-    resolve(mute).style(modify)
+): CounterStyle = resolve(mute, type).style(modify)
 
 /**
  * Возвращает экземпляр [CounterStyles] для tab-bar-counter

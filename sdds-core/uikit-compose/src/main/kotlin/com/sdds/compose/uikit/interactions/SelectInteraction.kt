@@ -19,6 +19,7 @@ import kotlinx.coroutines.launch
 /**
  * Событие, описывающее выбранное состояние компонента.
  */
+@Deprecated("Don't use. Selected state can be retrieved from the SemanticStateSource")
 interface SelectInteraction : Interaction {
 
     /**
@@ -38,6 +39,7 @@ interface SelectInteraction : Interaction {
  * Вернет [State], описывающий selected состояние компонента.
  */
 @Composable
+@Deprecated("Don't use. Selected state can be retrieved from the SemanticStateSource")
 fun InteractionSource.collectIsSelectedAsState(): State<Boolean> {
     val isSelected = remember { mutableStateOf(false) }
     LaunchedEffect(this) {
@@ -63,6 +65,7 @@ fun InteractionSource.collectIsSelectedAsState(): State<Boolean> {
  * @param interactionSource источник взаимодействий
  */
 @Suppress("LongMethod")
+@Deprecated("Use Modifier.selection with MutableSemanticStateSource")
 fun Modifier.selection(
     selected: Boolean,
     interactionSource: MutableInteractionSource,

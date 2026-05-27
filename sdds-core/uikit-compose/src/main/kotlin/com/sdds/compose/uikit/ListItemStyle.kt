@@ -6,6 +6,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
@@ -13,9 +14,11 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -35,11 +38,18 @@ interface ListItemStyle : Style {
     /**
      * Форма
      */
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
     val shape: Shape
+
+    /**
+     * Форма
+     */
+    val shapes: StatefulValue<Shape>
 
     /**
      * Стиль тайтла
      */
+    @Deprecated("Use titleStyles", replaceWith = ReplaceWith("titleStyles"))
     val titleStyle: TextStyle
 
     /**
@@ -50,6 +60,7 @@ interface ListItemStyle : Style {
     /**
      * Стиль сабтайтла
      */
+    @Deprecated("Use subtitleStyles", replaceWith = ReplaceWith("subtitleStyles"))
     val subtitleStyle: TextStyle
 
     /**
@@ -60,6 +71,7 @@ interface ListItemStyle : Style {
     /**
      * Стиль лэйбла
      */
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
     val labelStyle: TextStyle
 
     /**
@@ -134,7 +146,6 @@ interface ListItemStyle : Style {
 
 @Immutable
 private data class DefaultListItemStyle(
-    override val shape: Shape,
     @Deprecated("Use disclosureIconRes instead")
     override val disclosureIcon: Painter?,
     override val disclosureIconRes: Int?,
@@ -150,14 +161,23 @@ private data class DefaultListItemStyle(
     override val switchStyle: SwitchStyle?,
     override val counterStyle: CounterStyle?,
     override val disclosureTextStyle: StatefulValue<TextStyle>,
+    override val shapes: StatefulValue<Shape>,
 ) : ListItemStyle {
 
+    @Deprecated("Use titleStyles", replaceWith = ReplaceWith("titleStyles"))
     override val titleStyle: TextStyle get() = titleStyles.getDefaultValue()
+
+    @Deprecated("Use subtitleStyles", replaceWith = ReplaceWith("subtitleStyles"))
     override val subtitleStyle: TextStyle get() = subtitleStyles.getDefaultValue()
+
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
     override val labelStyle: TextStyle get() = labelStyles.getDefaultValue()
 
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: Shape = shapes.getDefaultValue()
+
     class Builder : ListItemStyleBuilder {
-        private var shape: Shape? = null
+        private var shapes: StatefulValue<Shape>? = null
         private var titleStyle: StatefulValue<TextStyle>? = null
         private var disclosureStyle: StatefulValue<TextStyle>? = null
         private var subtitleStyle: StatefulValue<TextStyle>? = null
@@ -173,8 +193,8 @@ private data class DefaultListItemStyle(
         private var switchStyle: SwitchStyle? = null
         private var counterStyle: CounterStyle? = null
 
-        override fun shape(shape: Shape) = apply {
-            this.shape = shape
+        override fun shape(shape: StatefulValue<Shape>) = apply {
+            this.shapes = shape
         }
 
         override fun titleStyle(titleStyle: TextStyle): ListItemStyleBuilder =
@@ -248,7 +268,7 @@ private data class DefaultListItemStyle(
 
         override fun style(): ListItemStyle {
             return DefaultListItemStyle(
-                shape = shape ?: RectangleShape,
+                shapes = shapes ?: RectangleShape.asStatefulValue(),
                 titleStyles = titleStyle ?: TextStyle.Default.asStatefulValue(),
                 subtitleStyles = subtitleStyle ?: TextStyle.Default.asStatefulValue(),
                 labelStyles = labelStyle ?: TextStyle.Default.asStatefulValue(),
@@ -276,12 +296,19 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
     /**
      * Устанавливает форму
      */
-    fun shape(shape: Shape): ListItemStyleBuilder
+    fun shape(shape: Shape): ListItemStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает форму
+     */
+    fun shape(shape: StatefulValue<Shape>): ListItemStyleBuilder
 
     /**
      * Устанавливает стиль заголовка
      */
-    fun titleStyle(titleStyle: TextStyle): ListItemStyleBuilder
+    fun titleStyle(titleStyle: TextStyle): ListItemStyleBuilder =
+        titleStyle(titleStyle.asStatefulValue())
 
     /**
      * Устанавливает стили заголовка
@@ -291,7 +318,8 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
     /**
      * Устанавливает стиль подзаголовка
      */
-    fun subtitleStyle(subtitleStyle: TextStyle): ListItemStyleBuilder
+    fun subtitleStyle(subtitleStyle: TextStyle): ListItemStyleBuilder =
+        subtitleStyle(subtitleStyle.asStatefulValue())
 
     /**
      * Устанавливает стили подзаголовка
@@ -301,7 +329,8 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
     /**
      * Устанавливает стиль лейбла
      */
-    fun labelStyle(labelStyle: TextStyle): ListItemStyleBuilder
+    fun labelStyle(labelStyle: TextStyle): ListItemStyleBuilder =
+        labelStyle(labelStyle.asStatefulValue())
 
     /**
      * Устанавливает стили лейбла
@@ -376,37 +405,79 @@ interface ListItemDimensions {
     /**
      * Отступ между контентом в центре и контентом в конце
      */
+    @Deprecated("use contentPaddingEndValues", replaceWith = ReplaceWith("contentPaddingEndValues"))
     val contentPaddingEnd: Dp
+
+    /**
+     * Отступы между контентом в центре и контентом в конце
+     */
+    val contentPaddingEndValues: StatefulValue<Dp>
 
     /**
      * Отступ в начале
      */
+    @Deprecated("use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
     val paddingStart: Dp
+
+    /**
+     * Отступы в начале
+     */
+    val paddingStartValues: StatefulValue<Dp>
 
     /**
      * Отступ в конце
      */
+    @Deprecated("use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
     val paddingEnd: Dp
+
+    /**
+     * Отступы в конце
+     */
+    val paddingEndValues: StatefulValue<Dp>
 
     /**
      * Отступ сверху
      */
+    @Deprecated("use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
     val paddingTop: Dp
+
+    /**
+     * Отступы сверху
+     */
+    val paddingTopValues: StatefulValue<Dp>
 
     /**
      * Оступ снизу
      */
+    @Deprecated("use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
     val paddingBottom: Dp
+
+    /**
+     * Оступы снизу
+     */
+    val paddingBottomValues: StatefulValue<Dp>
 
     /**
      * Высота элемента
      */
+    @Deprecated("use heightValues", replaceWith = ReplaceWith("heightValues"))
     val height: Dp
+
+    /**
+     * Высота элемента
+     */
+    val heightValues: StatefulValue<Dp>
 
     /**
      * Отступ между контентом в начале и контентом в центре
      */
+    @Deprecated("use contentPaddingStartValues", replaceWith = ReplaceWith("contentPaddingStartValues"))
     val contentPaddingStart: Dp
+
+    /**
+     * Отступы между контентом в начале и контентом в центре
+     */
+    val contentPaddingStartValues: StatefulValue<Dp>
 
     companion object {
 
@@ -425,37 +496,79 @@ interface ListItemDimensionsBuilder {
     /**
      * Устанавливает отступ между контентом в центре и контентом в конце
      */
-    fun contentPaddingEnd(contentPaddingEnd: Dp): ListItemDimensionsBuilder
+    fun contentPaddingEnd(contentPaddingEnd: Dp): ListItemDimensionsBuilder =
+        contentPaddingEnd(contentPaddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступы между контентом в центре и контентом в конце
+     */
+    fun contentPaddingEnd(contentPaddingEnd: StatefulValue<Dp>): ListItemDimensionsBuilder
 
     /**
      * Устанавливает отступ в начале
      */
-    fun paddingStart(paddingStart: Dp): ListItemDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): ListItemDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступы в начале
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): ListItemDimensionsBuilder
 
     /**
      * Устанавливает отступ в конце
      */
-    fun paddingEnd(paddingEnd: Dp): ListItemDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): ListItemDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступы в конце
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): ListItemDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху
      */
-    fun paddingTop(paddingTop: Dp): ListItemDimensionsBuilder
+    fun paddingTop(paddingTop: Dp): ListItemDimensionsBuilder =
+        paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает отступы сверху
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): ListItemDimensionsBuilder
 
     /**
      * Устанавливает отступ снизу
      */
-    fun paddingBottom(paddingBottom: Dp): ListItemDimensionsBuilder
+    fun paddingBottom(paddingBottom: Dp): ListItemDimensionsBuilder =
+        paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает отступы снизу
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): ListItemDimensionsBuilder
 
     /**
      * Устанавливает высоту
      */
-    fun height(height: Dp): ListItemDimensionsBuilder
+    fun height(height: Dp): ListItemDimensionsBuilder =
+        height(height.asStatefulValue())
+
+    /**
+     * Устанавливает высоту
+     */
+    fun height(height: StatefulValue<Dp>): ListItemDimensionsBuilder
 
     /**
      * Устанавливает отступ между контентом в начале и контентом в центре
      */
-    fun contentPaddingStart(contentPaddingStart: Dp): ListItemDimensionsBuilder
+    fun contentPaddingStart(contentPaddingStart: Dp): ListItemDimensionsBuilder =
+        contentPaddingStart(contentPaddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступы между контентом в начале и контентом в центре
+     */
+    fun contentPaddingStart(contentPaddingStart: StatefulValue<Dp>): ListItemDimensionsBuilder
 
     /**
      * Создаёт экземпляр [ListItemDimensions]
@@ -465,60 +578,81 @@ interface ListItemDimensionsBuilder {
 
 @Immutable
 private class DefaultListItemDimensions(
-    override val contentPaddingEnd: Dp,
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
-    override val paddingTop: Dp,
-    override val paddingBottom: Dp,
-    override val height: Dp,
-    override val contentPaddingStart: Dp,
+    override val contentPaddingEndValues: StatefulValue<Dp>,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
+    override val paddingTopValues: StatefulValue<Dp>,
+    override val paddingBottomValues: StatefulValue<Dp>,
+    override val heightValues: StatefulValue<Dp>,
+    override val contentPaddingStartValues: StatefulValue<Dp>,
+
 ) : ListItemDimensions {
+    @Deprecated("use contentPaddingEndValues", replaceWith = ReplaceWith("contentPaddingEndValues"))
+    override val contentPaddingEnd: Dp = 0.dp
+
+    @Deprecated("use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
+    override val paddingStart: Dp = 0.dp
+
+    @Deprecated("use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
+    override val paddingEnd: Dp = 0.dp
+
+    @Deprecated("use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
+    override val paddingTop: Dp = 0.dp
+
+    @Deprecated("use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
+    override val paddingBottom: Dp = 0.dp
+
+    @Deprecated("use heightValues", replaceWith = ReplaceWith("heightValues"))
+    override val height: Dp = 0.dp
+
+    @Deprecated("use contentPaddingStartValues", replaceWith = ReplaceWith("contentPaddingStartValues"))
+    override val contentPaddingStart: Dp = 0.dp
+
     class Builder : ListItemDimensionsBuilder {
-        private var contentPaddingEnd: Dp? = null
-        private var contentPaddingStart: Dp? = null
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
-        private var paddingTop: Dp? = null
-        private var paddingBottom: Dp? = null
-        private var height: Dp? = null
-
-        override fun contentPaddingEnd(contentPaddingEnd: Dp) = apply {
-            this.contentPaddingEnd = contentPaddingEnd
+        private var contentPaddingEndValues: StatefulValue<Dp>? = null
+        private var contentPaddingStartValues: StatefulValue<Dp>? = null
+        private var paddingStartValues: StatefulValue<Dp>? = null
+        private var paddingEndValues: StatefulValue<Dp>? = null
+        private var paddingTopValues: StatefulValue<Dp>? = null
+        private var paddingBottomValues: StatefulValue<Dp>? = null
+        private var heightValues: StatefulValue<Dp>? = null
+        override fun contentPaddingEnd(contentPaddingEnd: StatefulValue<Dp>): ListItemDimensionsBuilder = apply {
+            this.contentPaddingEndValues = contentPaddingEnd
         }
 
-        override fun contentPaddingStart(contentPaddingStart: Dp) = apply {
-            this.contentPaddingStart = contentPaddingStart
+        override fun paddingStart(paddingStart: StatefulValue<Dp>): ListItemDimensionsBuilder = apply {
+            this.paddingStartValues = paddingStart
         }
 
-        override fun paddingStart(paddingStart: Dp) = apply {
-            this.paddingStart = paddingStart
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>): ListItemDimensionsBuilder = apply {
+            this.paddingEndValues = paddingEnd
         }
 
-        override fun paddingEnd(paddingEnd: Dp) = apply {
-            this.paddingEnd = paddingEnd
+        override fun paddingTop(paddingTop: StatefulValue<Dp>): ListItemDimensionsBuilder = apply {
+            this.paddingTopValues = paddingTop
         }
 
-        override fun paddingTop(paddingTop: Dp) = apply {
-            this.paddingTop = paddingTop
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>): ListItemDimensionsBuilder = apply {
+            this.paddingBottomValues = paddingBottom
         }
 
-        override fun paddingBottom(paddingBottom: Dp) = apply {
-            this.paddingBottom = paddingBottom
+        override fun height(height: StatefulValue<Dp>): ListItemDimensionsBuilder = apply {
+            this.heightValues = height
         }
 
-        override fun height(height: Dp) = apply {
-            this.height = height
+        override fun contentPaddingStart(contentPaddingStart: StatefulValue<Dp>): ListItemDimensionsBuilder = apply {
+            this.contentPaddingStartValues = contentPaddingStart
         }
 
         override fun build(): ListItemDimensions {
             return DefaultListItemDimensions(
-                contentPaddingEnd = contentPaddingEnd ?: 0.dp,
-                paddingStart = paddingStart ?: 0.dp,
-                paddingEnd = paddingEnd ?: 0.dp,
-                paddingTop = paddingTop ?: 0.dp,
-                paddingBottom = paddingBottom ?: 0.dp,
-                height = height ?: 0.dp,
-                contentPaddingStart = contentPaddingStart ?: 0.dp,
+                contentPaddingEndValues = contentPaddingEndValues ?: 0.dp.asStatefulValue(),
+                paddingStartValues = paddingStartValues ?: 0.dp.asStatefulValue(),
+                paddingEndValues = paddingEndValues ?: 0.dp.asStatefulValue(),
+                paddingTopValues = paddingTopValues ?: 0.dp.asStatefulValue(),
+                paddingBottomValues = paddingBottomValues ?: 0.dp.asStatefulValue(),
+                heightValues = heightValues ?: 0.dp.asStatefulValue(),
+                contentPaddingStartValues = contentPaddingStartValues ?: 0.dp.asStatefulValue(),
             )
         }
     }
@@ -533,32 +667,68 @@ interface ListItemColors {
     /**
      * Цвет тайтла
      */
+    @Deprecated("use titleBrush", replaceWith = ReplaceWith("titleBrush"))
     val titleColor: InteractiveColor
+
+    /**
+     * Кисти тайтла
+     */
+    val titleBrush: StatefulValue<Brush>
 
     /**
      * Цвет сабтайтла
      */
+    @Deprecated("use subtitleBrush", replaceWith = ReplaceWith("subtitleBrush"))
     val subtitleColor: InteractiveColor
+
+    /**
+     * Кисти сабтайтла
+     */
+    val subtitleBrush: StatefulValue<Brush>
 
     /**
      * Цвет лэйбла
      */
+    @Deprecated("use labelBrush", replaceWith = ReplaceWith("labelBrush"))
     val labelColor: InteractiveColor
+
+    /**
+     * Кисти лэйбла
+     */
+    val labelBrush: StatefulValue<Brush>
 
     /**
      * Цвет фона
      */
+    @Deprecated("use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
     val backgroundColor: InteractiveColor
+
+    /**
+     * Кисти фона
+     */
+    val backgroundBrush: StatefulValue<Brush>
 
     /**
      * Цвет иконки disclosure
      */
+    @Deprecated("use disclosureIconBrush", replaceWith = ReplaceWith("disclosureIconBrush"))
     val disclosureIconColor: InteractiveColor
+
+    /**
+     * Кисти иконки disclosure
+     */
+    val disclosureIconBrush: StatefulValue<Brush>
 
     /**
      * Цвет текста disclosure
      */
+    @Deprecated("use disclosureTextBrush", replaceWith = ReplaceWith("disclosureTextBrush"))
     val disclosureTextColor: InteractiveColor
+
+    /**
+     * Кисти текста disclosure
+     */
+    val disclosureTextBrush: StatefulValue<Brush>
 
     companion object {
 
@@ -578,61 +748,139 @@ interface ListItemColorsBuilder {
      * Устанавливает цвет фона
      */
     fun backgroundColor(backgroundColor: Color): ListItemColorsBuilder =
-        backgroundColor(backgroundColor.asInteractive())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона
      */
-    fun backgroundColor(backgroundColor: InteractiveColor): ListItemColorsBuilder
+    fun backgroundColor(backgroundColor: InteractiveColor): ListItemColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть фона
+     */
+    fun backgroundColor(backgroundBrush: Brush): ListItemColorsBuilder =
+        backgroundColor(backgroundBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти фона
+     */
+    fun backgroundColor(backgroundBrush: StatefulValue<Brush>): ListItemColorsBuilder
 
     /**
      * Устанавливает цвет тайтла
      */
     fun titleColor(titleColor: Color): ListItemColorsBuilder =
-        titleColor(titleColor.asInteractive())
+        titleColor(titleColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет тайтла
      */
-    fun titleColor(titleColor: InteractiveColor): ListItemColorsBuilder
+    fun titleColor(titleColor: InteractiveColor): ListItemColorsBuilder =
+        titleColor(titleColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет тайтла
+     * Устанавливает кисть тайтла
+     */
+    fun titleColor(titleBrush: Brush): ListItemColorsBuilder =
+        titleColor(titleBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти тайтла
+     */
+    fun titleColor(titleBrush: StatefulValue<Brush>): ListItemColorsBuilder
+
+    /**
+     * Устанавливает цвет сабтайтла
      */
     fun subtitleColor(subtitleColor: Color): ListItemColorsBuilder =
-        subtitleColor(subtitleColor.asInteractive())
+        subtitleColor(subtitleColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет тайтла
+     * Устанавливает цвет сабтайтла
      */
-    fun subtitleColor(subtitleColor: InteractiveColor): ListItemColorsBuilder
+    fun subtitleColor(subtitleColor: InteractiveColor): ListItemColorsBuilder =
+        subtitleColor(subtitleColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет тайтла
+     * Устанавливает кисть сабтайтла
+     */
+    fun subtitleColor(subtitleBrush: Brush): ListItemColorsBuilder =
+        subtitleColor(subtitleBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти сабтайтла
+     */
+    fun subtitleColor(subtitleBrush: StatefulValue<Brush>): ListItemColorsBuilder
+
+    /**
+     * Устанавливает цвет лэйбла
      */
     fun labelColor(labelColor: Color): ListItemColorsBuilder =
-        labelColor(labelColor.asInteractive())
+        labelColor(labelColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет тайтла
+     * Устанавливает цвет лэйбла
      */
-    fun labelColor(labelColor: InteractiveColor): ListItemColorsBuilder
+    fun labelColor(labelColor: InteractiveColor): ListItemColorsBuilder =
+        labelColor(labelColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть лэйбла
+     */
+    fun labelColor(labelBrush: Brush): ListItemColorsBuilder =
+        labelColor(labelBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти лэйбла
+     */
+    fun labelColor(labelBrush: StatefulValue<Brush>): ListItemColorsBuilder
 
     /**
      * Устанавливает цвет иконки disclosure
      */
     fun disclosureIconColor(disclosureIconColor: Color): ListItemColorsBuilder =
-        disclosureIconColor(disclosureIconColor.asInteractive())
+        disclosureIconColor(disclosureIconColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет иконки disclosure
      */
-    fun disclosureIconColor(disclosureIconColor: InteractiveColor): ListItemColorsBuilder
+    fun disclosureIconColor(disclosureIconColor: InteractiveColor): ListItemColorsBuilder =
+        disclosureIconColor(disclosureIconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть иконки disclosure
+     */
+    fun disclosureIconColor(disclosureIconBrush: Brush): ListItemColorsBuilder =
+        disclosureIconColor(disclosureIconBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти иконки disclosure
+     */
+    fun disclosureIconColor(disclosureIconBrush: StatefulValue<Brush>): ListItemColorsBuilder
 
     /**
      * Устанавливает цвет текста disclosure
      */
-    fun disclosureTextColor(disclosureTextColor: InteractiveColor): ListItemColorsBuilder
+    fun disclosureTextColor(disclosureTextColor: Color): ListItemColorsBuilder =
+        disclosureTextColor(disclosureTextColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет текста disclosure
+     */
+    fun disclosureTextColor(disclosureTextColor: InteractiveColor): ListItemColorsBuilder =
+        disclosureTextColor(disclosureTextColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть текста disclosure
+     */
+    fun disclosureTextColor(disclosureTextBrush: Brush): ListItemColorsBuilder =
+        disclosureTextColor(disclosureTextBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти текста disclosure
+     */
+    fun disclosureTextColor(disclosureTextBrush: StatefulValue<Brush>): ListItemColorsBuilder
 
     /**
      * Возвращает [ListItemColors]
@@ -642,53 +890,72 @@ interface ListItemColorsBuilder {
 
 @Immutable
 private class DefaultListItemColors(
-    override val titleColor: InteractiveColor,
-    override val disclosureIconColor: InteractiveColor,
-    override val backgroundColor: InteractiveColor,
-    override val subtitleColor: InteractiveColor,
-    override val labelColor: InteractiveColor,
-    override val disclosureTextColor: InteractiveColor,
+    override val titleBrush: StatefulValue<Brush>,
+    override val disclosureIconBrush: StatefulValue<Brush>,
+    override val backgroundBrush: StatefulValue<Brush>,
+    override val subtitleBrush: StatefulValue<Brush>,
+    override val labelBrush: StatefulValue<Brush>,
+    override val disclosureTextBrush: StatefulValue<Brush>,
+
 ) : ListItemColors {
+    @Deprecated("use titleBrush", replaceWith = ReplaceWith("titleBrush"))
+    override val titleColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("use disclosureIconBrush", replaceWith = ReplaceWith("disclosureIconBrush"))
+    override val disclosureIconColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
+    override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("use subtitleBrush", replaceWith = ReplaceWith("subtitleBrush"))
+    override val subtitleColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("use labelBrush", replaceWith = ReplaceWith("labelBrush"))
+    override val labelColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("use disclosureTextBrush", replaceWith = ReplaceWith("disclosureTextBrush"))
+    override val disclosureTextColor: InteractiveColor = Color.Transparent.asInteractive()
+
     class Builder : ListItemColorsBuilder {
-        private var titleColor: InteractiveColor? = null
-        private var subtitleColor: InteractiveColor? = null
-        private var labelColor: InteractiveColor? = null
-        private var backgroundColor: InteractiveColor? = null
-        private var disclosureIconColor: InteractiveColor? = null
-        private var disclosureTextColor: InteractiveColor? = null
+        private var titleBrush: StatefulValue<Brush>? = null
+        private var subtitleBrush: StatefulValue<Brush>? = null
+        private var labelBrush: StatefulValue<Brush>? = null
+        private var backgroundBrush: StatefulValue<Brush>? = null
+        private var disclosureIconBrush: StatefulValue<Brush>? = null
+        private var disclosureTextBrush: StatefulValue<Brush>? = null
 
-        override fun titleColor(titleColor: InteractiveColor) = apply {
-            this.titleColor = titleColor
+        override fun backgroundColor(backgroundBrush: StatefulValue<Brush>): ListItemColorsBuilder = apply {
+            this.backgroundBrush = backgroundBrush
         }
 
-        override fun subtitleColor(subtitleColor: InteractiveColor) = apply {
-            this.subtitleColor = subtitleColor
+        override fun titleColor(titleBrush: StatefulValue<Brush>): ListItemColorsBuilder = apply {
+            this.titleBrush = titleBrush
         }
 
-        override fun labelColor(labelColor: InteractiveColor) = apply {
-            this.labelColor = labelColor
+        override fun subtitleColor(subtitleBrush: StatefulValue<Brush>): ListItemColorsBuilder = apply {
+            this.subtitleBrush = subtitleBrush
         }
 
-        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
-            this.backgroundColor = backgroundColor
+        override fun labelColor(labelBrush: StatefulValue<Brush>): ListItemColorsBuilder = apply {
+            this.labelBrush = labelBrush
         }
 
-        override fun disclosureIconColor(disclosureIconColor: InteractiveColor) = apply {
-            this.disclosureIconColor = disclosureIconColor
+        override fun disclosureIconColor(disclosureIconBrush: StatefulValue<Brush>): ListItemColorsBuilder = apply {
+            this.disclosureIconBrush = disclosureIconBrush
         }
 
-        override fun disclosureTextColor(disclosureTextColor: InteractiveColor) = apply {
-            this.disclosureTextColor = disclosureTextColor
+        override fun disclosureTextColor(disclosureTextBrush: StatefulValue<Brush>): ListItemColorsBuilder = apply {
+            this.disclosureTextBrush = disclosureTextBrush
         }
 
         override fun build(): ListItemColors {
             return DefaultListItemColors(
-                titleColor = titleColor ?: Color.Black.asInteractive(),
-                subtitleColor = subtitleColor ?: Color.LightGray.asInteractive(),
-                labelColor = labelColor ?: Color.LightGray.asInteractive(),
-                backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
-                disclosureIconColor = disclosureIconColor ?: Color.Black.asInteractive(),
-                disclosureTextColor = disclosureTextColor ?: Color.Black.asInteractive(),
+                titleBrush = titleBrush ?: Color.Black.asStatefulBrush(),
+                subtitleBrush = subtitleBrush ?: Color.LightGray.asStatefulBrush(),
+                labelBrush = labelBrush ?: Color.LightGray.asStatefulBrush(),
+                backgroundBrush = backgroundBrush ?: Color.Transparent.asStatefulBrush(),
+                disclosureIconBrush = disclosureIconBrush ?: Color.Black.asStatefulBrush(),
+                disclosureTextBrush = disclosureTextBrush ?: Color.Black.asStatefulBrush(),
             )
         }
     }

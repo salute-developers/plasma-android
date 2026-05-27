@@ -8,6 +8,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.icontext.BaseIconText
 
@@ -80,11 +82,11 @@ fun Toast(
             startPadding = dimensions.paddingStart,
             endPadding = dimensions.paddingEnd,
         ),
-        labelStyle = style.textStyle,
-        colorsSet = BaseIconText.Colors(
-            labelColor = colors.textColor,
-            startContentColor = colors.contentStartColor,
-            endContentColor = colors.contentEndColor,
+        labelStyle = style.textStyle.asStatefulValue(),
+        brushesSet = BaseIconText.Brushes(
+            labelBrush = colors.textColor.asStatefulBrush(),
+            startContentBrush = colors.contentStartColor.asStatefulBrush(),
+            endContentBrush = colors.contentEndColor.asStatefulBrush(),
         ),
         startContent = contentStart,
         endContent = contentEnd,

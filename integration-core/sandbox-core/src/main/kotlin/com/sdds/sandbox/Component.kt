@@ -83,6 +83,7 @@ data class ComponentKey(
         val Indicator = ComponentKey(CoreComponentName.INDICATOR)
         val Flow = ComponentKey(CoreComponentName.FLOW)
         val NavigationDrawer = ComponentKey(CoreComponentName.NAVIGATION_DRAWER)
+        val NavigationDrawerItem = ComponentKey(CoreComponentName.NAVIGATION_DRAWER_ITEM)
         val ProgressBar = ComponentKey(CoreComponentName.PROGRESS)
         val CircularProgressBar = ComponentKey(CoreComponentName.CIRCULAR_PROGRESS)
 
@@ -187,6 +188,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     INDICATOR,
 
     NAVIGATION_DRAWER,
+    NAVIGATION_DRAWER_ITEM,
 
     PROGRESS,
     CIRCULAR_PROGRESS,
@@ -321,6 +323,7 @@ private fun CoreComponentName.group(): ComponentGroup {
 
         CoreComponentName.DROPDOWN_MENU,
         CoreComponentName.NAVIGATION_DRAWER,
+        CoreComponentName.NAVIGATION_DRAWER_ITEM,
         CoreComponentName.SCROLL_BAR,
         CoreComponentName.TABS,
         CoreComponentName.TAB_ITEM,

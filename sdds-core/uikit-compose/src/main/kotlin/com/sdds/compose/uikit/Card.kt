@@ -19,10 +19,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.SolidColor
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
@@ -90,14 +91,14 @@ fun Card(
     content: (@Composable () -> Unit),
 ) {
     val isFocused by interactionSource.collectIsFocusedAsState()
-    val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
     val shape = style.shape
     CompositionLocalProvider(LocalCardStyle provides style) {
+        val backgroundBrush = style.colors.backgroundBrush.getValueAsState(interactionSource)
         Box(
             modifier = modifier
                 .focusSelector(focusSelectorSettings, shape) { isFocused }
                 .surface(
-                    backgroundColor = { SolidColor(backgroundColor) },
+                    backgroundColor = { backgroundBrush.value },
                     shape = shape,
                     onClick = onClick,
                     enabled = enabled,
@@ -152,12 +153,12 @@ fun Card(
     content: (@Composable () -> Unit),
 ) {
     val isFocused by interactionSource.collectIsFocusedAsState()
-    val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
+    val backgroundBrush = style.colors.backgroundBrush.getValueAsState(interactionSource)
     val shape = style.shape
     val cardModifier = modifier
         .focusSelector(focusSelectorSettings, shape) { isFocused }
         .surface(
-            backgroundColor = { SolidColor(backgroundColor) },
+            backgroundColor = { backgroundBrush.value },
             shape = shape,
             onClick = onClick,
             enabled = enabled,
@@ -195,6 +196,65 @@ fun Card(
                 interactionSource = interactionSource,
             )
     }
+}
+
+/**
+ * Компонент Карточка [Card] со слотами title и subtitle.
+ *
+ * @param modifier модификатор
+ * @param style стиль карточки
+ * @param onClick обработчик нажатий
+ * @param enabled флаг доступности карточки
+ * @param indication [Indication]
+ * @param focusSelectorSettings режим отображения фокуса компонента [FocusSelectorSettings]
+ * @param contentFocusSelectorSettings режим отображения фокуса контента [FocusSelectorSettings]
+ * @param orientation расположение контента внутри карточки [CardOrientation]
+ * @param contentPaddings отступ внутри контента
+ * @param extra слот для дополнительного контента (к нему не применяются contentPadding)
+ * @param title слот для расположения заголовка
+ * @param subtitle слот для расположения подзаголовка
+ * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param content контент
+ */
+@Composable
+fun Card(
+    title: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    style: CardStyle = LocalCardStyle.current,
+    onClick: () -> Unit = {},
+    enabled: Boolean = true,
+    indication: Indication? = null,
+    focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
+    contentFocusSelectorSettings: FocusSelectorSettings = FocusSelectorSettings.None,
+    orientation: CardOrientation = CardOrientation.Vertical,
+    contentPaddings: PaddingValues = style.toPaddingValues(),
+    subtitle: (@Composable () -> Unit)? = null,
+    extra: (@Composable BoxScope.() -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: (@Composable () -> Unit),
+) {
+    Card(
+        modifier = modifier,
+        style = style,
+        onClick = onClick,
+        enabled = enabled,
+        indication = indication,
+        focusSelectorSettings = focusSelectorSettings,
+        contentFocusSelectorSettings = contentFocusSelectorSettings,
+        orientation = orientation,
+        contentPaddings = contentPaddings,
+        extra = extra,
+        label = {
+            CardLabel(
+                style = style,
+                interactionSource = interactionSource,
+                title = title,
+                subtitle = subtitle,
+            )
+        },
+        interactionSource = interactionSource,
+        content = content,
+    )
 }
 
 /**
@@ -287,7 +347,6 @@ private fun VerticalCard(
     label: (@Composable () -> Unit)? = null,
     interactionSource: MutableInteractionSource,
 ) {
-    val labelColor = style.colors.labelColor.colorForInteraction(interactionSource)
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -310,7 +369,9 @@ private fun VerticalCard(
                 }
             }
         }
-        CompositionLocalProvider(LocalTextStyle provides style.labelStyle.copy(color = labelColor)) {
+        val labelColor = style.colors.labelColor.colorForInteractionAsState(interactionSource)
+        @Suppress("DEPRECATION")
+        ProvideTextStyle(style.labelStyle, color = { labelColor.value }) {
             Box(
                 modifier = Modifier
                     .widthIn(max = style.dimensions.contentMaxWidth),
@@ -332,7 +393,6 @@ private fun HorizontalCard(
     label: (@Composable () -> Unit)? = null,
     interactionSource: MutableInteractionSource,
 ) {
-    val labelColor = style.colors.labelColor.colorForInteraction(interactionSource)
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
@@ -355,14 +415,40 @@ private fun HorizontalCard(
                 }
             }
         }
-        CompositionLocalProvider(
-            LocalTextStyle provides style.labelStyle.copy(color = labelColor),
-        ) {
+        val labelColor = style.colors.labelColor.colorForInteractionAsState(interactionSource)
+        @Suppress("DEPRECATION")
+        ProvideTextStyle(style.labelStyle, color = { labelColor.value }) {
             Box(
                 modifier = Modifier
                     .heightIn(max = style.dimensions.contentMaxHeight),
             ) {
                 label?.invoke()
+            }
+        }
+    }
+}
+
+@Composable
+private fun CardLabel(
+    style: CardStyle,
+    interactionSource: MutableInteractionSource,
+    title: @Composable () -> Unit,
+    subtitle: (@Composable () -> Unit)?,
+) {
+    val subtitleGap = style.dimensions.subtitleGap.getValue(interactionSource)
+    Column(
+        verticalArrangement = Arrangement.spacedBy(subtitleGap),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        val titleColor = style.colors.titleColor.getValueAsState(interactionSource)
+        ProvideTextStyle(style.titleStyle, brush = { titleColor.value }) {
+            title()
+        }
+        if (subtitle != null) {
+            val subtitleStyle by style.subtitleStyles.getValueAsState(interactionSource)
+            val subtitleBrush = style.colors.subtitleBrush.getValueAsState(interactionSource)
+            ProvideTextStyle(subtitleStyle, brush = { subtitleBrush.value }) {
+                subtitle()
             }
         }
     }

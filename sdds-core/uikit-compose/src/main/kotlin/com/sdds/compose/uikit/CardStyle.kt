@@ -2,9 +2,11 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Immutable
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.style.Style
 
 /**
@@ -32,10 +34,27 @@ interface CardStyle : Style {
     val orientation: CardOrientation
 
     /**
-     * Стиль текста Label
+     * Стиль текста Label.
+     *
+     * @see titleStyle
+     */
+    @Deprecated(
+        message = "Use titleStyle",
+        replaceWith = ReplaceWith("titleStyle"),
+    )
+    val labelStyle: TextStyle
+
+    /**
+     * Стиль текста Title
      * @see TextStyle
      */
-    val labelStyle: TextStyle
+    val titleStyle: TextStyle
+
+    /**
+     * Стили текста Subtitle
+     * @see TextStyle
+     */
+    val subtitleStyles: StatefulValue<TextStyle>
 
     /**
      * Форма контента Card
@@ -65,16 +84,38 @@ interface CardStyle : Style {
 interface CardColors {
 
     /**
-     * Цвет текса в label
-     * @see InteractiveColor
+     * Цвет текса в label.
      */
     val labelColor: InteractiveColor
 
     /**
-     * Цвет фона
-     * @see InteractiveColor
+     * Цвет фона.
+     *
+     * @see backgroundBrush
      */
+    @Deprecated(
+        message = "Use backgroundBrush: StatefulValue<Brush>",
+        replaceWith = ReplaceWith("backgroundBrush"),
+    )
     val backgroundColor: InteractiveColor
+
+    /**
+     * Цвет текста в title
+     * @see Brush
+     */
+    val titleColor: StatefulValue<Brush>
+
+    /**
+     * Кисть текста в subtitle
+     * @see Brush
+     */
+    val subtitleBrush: StatefulValue<Brush>
+
+    /**
+     * Кисть фона
+     * @see Brush
+     */
+    val backgroundBrush: StatefulValue<Brush>
 }
 
 /**
@@ -147,4 +188,9 @@ interface CardDimensions {
      * Отступ между content и label
      */
     val mainAxisGap: Dp
+
+    /**
+     * Отступ между title и subtitle
+     */
+    val subtitleGap: StatefulValue<Dp>
 }

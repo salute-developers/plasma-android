@@ -21,4 +21,7 @@ dependencyResolutionManagement {
 rootProject.name = "playground"
 includeBuild("../build-system")
 includeBuild("../sdds-core")
-include(":theme-builder",)
+includeBuild("../integration-core")
+includeBuild("../tokens")
+include(":theme-builder")
+include(":sandbox-integration-test")

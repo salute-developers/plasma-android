@@ -5,6 +5,7 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.NonRestartableComposable
@@ -13,14 +14,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.HorizontalAlignmentLine
 import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInWindow
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.round
 import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
@@ -166,8 +171,25 @@ enum class PopoverPlacementMode {
  * необходимую для корректной работы [Popover], [Tooltip], [DropdownMenu]
  */
 fun Modifier.popoverTrigger(triggerInfo: MutableState<TriggerInfo>): Modifier {
+    return popoverTrigger(triggerInfo, RectangleShape)
+}
+
+/**
+ * Модификатор, позволяющий получать информацию о размещении и форме триггера,
+ * необходимую для корректной работы [Popover], [Tooltip], [DropdownMenu].
+ *
+ * @param triggerInfo состояние с информацией о trigger
+ * @param shape форма trigger для сценариев, где нужна точная геометрия выреза
+ * @param cutoutPaddings отступ выреза формы trigger
+ */
+fun Modifier.popoverTrigger(
+    triggerInfo: MutableState<TriggerInfo>,
+    shape: Shape = RectangleShape,
+    cutoutPaddings: PaddingValues = PaddingValues(0.dp),
+): Modifier {
     return composed {
         val currentScaleFactor = LocalFocusSelectorSettings.current.scale.scaleFactor
+        val hostView = LocalView.current
         layout { measurable, constraints ->
             val placeable = measurable.measure(constraints)
             triggerInfo.value = triggerInfo.value.copy(
@@ -180,9 +202,18 @@ fun Modifier.popoverTrigger(triggerInfo: MutableState<TriggerInfo>): Modifier {
                 placeable.placeRelative(IntOffset.Zero)
             }
         }.onGloballyPositioned {
+            val positionInWindow = it.positionInWindow().round()
+            val hostLocation = IntArray(2)
+            hostView.rootView.getLocationOnScreen(hostLocation)
             triggerInfo.value = triggerInfo.value.copy(
                 size = it.size,
-                positionInRoot = it.positionInWindow().round(),
+                positionInRoot = positionInWindow,
+                positionInScreen = IntOffset(
+                    x = hostLocation[0] + positionInWindow.x,
+                    y = hostLocation[1] + positionInWindow.y,
+                ),
+                cutoutShape = shape,
+                cutoutPaddings = cutoutPaddings,
             )
         }.onFocusChanged {
             val scaleFactor = if (it.isFocused) {
@@ -210,6 +241,9 @@ internal val endAlignmentLine = VerticalAlignmentLine(merger = { old, new -> max
  * @property bottomAlignmentLine нижняя линия выранивания триггера. Рассчитывается относительно [positionInRoot]
  * @property startAlignmentLine начальная линия выранивания триггера. Рассчитывается относительно [positionInRoot]
  * @property endAlignmentLine конечная линия выранивания триггера. Рассчитывается относительно [positionInRoot]
+ * @property cutoutShape форма выреза под trigger
+ * @property cutoutPaddings отступ формы выреза под trigger
+ * @property positionInScreen координаты триггера на экране
  */
 @Stable
 data class TriggerInfo(
@@ -220,4 +254,7 @@ data class TriggerInfo(
     val bottomAlignmentLine: Int = AlignmentLine.Unspecified,
     val startAlignmentLine: Int = AlignmentLine.Unspecified,
     val endAlignmentLine: Int = AlignmentLine.Unspecified,
+    val cutoutShape: Shape = RectangleShape,
+    val cutoutPaddings: PaddingValues = PaddingValues(0.dp),
+    val positionInScreen: IntOffset = IntOffset.Zero,
 )

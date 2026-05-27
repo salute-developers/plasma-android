@@ -6,6 +6,7 @@ import androidx.compose.foundation.OverscrollEffect
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.TargetedFlingBehavior
 import androidx.compose.foundation.gestures.snapping.SnapPosition
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.getValue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -225,8 +227,9 @@ private fun OuterStartButton(
     if (buttonsPlacement == CarouselButtonsPlacement.Inner) return
     if (prevIcon == null || !hasControls) return
     val paddings = PaddingValues(end = style.dimensions.prevButtonPadding)
-
-    Box(Modifier.size(style.nextButtonStyle.dimensions.height)) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val size = style.nextButtonStyle.dimensions.heightValues.getValue(interactionSource)
+    Box(Modifier.size(size)) {
         if (state.currentPage != 0) {
             StartButton(
                 paddings = paddings,
@@ -235,6 +238,7 @@ private fun OuterStartButton(
                 state = state,
                 coroutineScope = coroutineScope,
                 animationSpec = animationSpec,
+                interactionSource = interactionSource,
                 modifier = modifier,
             )
         }
@@ -276,12 +280,14 @@ private fun StartButton(
     coroutineScope: CoroutineScope,
     animationSpec: AnimationSpec<Float>,
     modifier: Modifier = Modifier,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     ControlButton(
         modifier = modifier,
         paddings = paddings,
         buttonStyle = style.prevButtonStyle,
         iconRes = iconRes,
+        interactionSource = interactionSource,
         scrollAction = {
             coroutineScope.launch {
                 state.animateScrollToPage(state.currentPage - 1, animationSpec = animationSpec)
@@ -304,8 +310,9 @@ private fun OuterEndButton(
     if (buttonsPlacement == CarouselButtonsPlacement.Inner) return
     if (nextIcon == null || !hasControls) return
     val paddings = PaddingValues(start = style.dimensions.nextButtonPadding)
-
-    Box(Modifier.size(style.nextButtonStyle.dimensions.height)) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val size = style.nextButtonStyle.dimensions.heightValues.getValue(interactionSource)
+    Box(Modifier.size(size)) {
         if (state.currentPage != state.pageCount - 1) {
             EndButton(
                 paddings = paddings,
@@ -355,12 +362,14 @@ private fun EndButton(
     coroutineScope: CoroutineScope,
     animationSpec: AnimationSpec<Float>,
     modifier: Modifier = Modifier,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     ControlButton(
         modifier = modifier,
         paddings = paddings,
         buttonStyle = style.nextButtonStyle,
         iconRes = iconRes,
+        interactionSource = interactionSource,
         scrollAction = {
             coroutineScope.launch {
                 state.animateScrollToPage(state.currentPage + 1, animationSpec = animationSpec)
@@ -375,12 +384,14 @@ private fun ControlButton(
     paddings: PaddingValues,
     buttonStyle: ButtonStyle,
     iconRes: Int,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     scrollAction: () -> Unit,
 ) {
     IconButton(
         modifier = modifier.padding(paddings),
         style = buttonStyle,
         iconRes = iconRes,
+        interactionSource = interactionSource,
         onClick = scrollAction,
     )
 }

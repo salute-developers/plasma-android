@@ -1,15 +1,15 @@
 package com.sdds.compose.uikit.internal.cell
 
-import androidx.compose.foundation.interaction.InteractionSource
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +21,7 @@ import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.CellDimensions
@@ -33,12 +34,18 @@ import com.sdds.compose.uikit.LocalCounterStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
-import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.ProvideTextStyle
-import com.sdds.compose.uikit.interactions.getValue
-import com.sdds.compose.uikit.internal.common.StyledText
+import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.MotionContext
+import com.sdds.compose.uikit.motion.components.cell.CellMotionStyle
+import com.sdds.compose.uikit.motion.components.cell.rememberCellMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
 import kotlin.math.roundToInt
 
 @Composable
@@ -52,9 +59,8 @@ internal fun BaseCell(
     startContent: (@Composable RowScope.() -> Unit)? = null,
     centerContent: (@Composable ColumnScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
-    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CellMotionStyle> = rememberCellMotion(),
 ) {
-    val iconTint = style.colors.titleColor.colorForInteraction(interactionSource)
     CompositionLocalProvider(
         LocalAvatarStyle provides style.avatarStyle,
         LocalIconButtonStyle provides style.iconButtonStyle,
@@ -69,13 +75,21 @@ internal fun BaseCell(
             content = {
                 startContent?.let {
                     Row(
-                        modifier = Modifier
-                            .layoutId("StartContent")
-                            .padding(end = dimensions.contentPaddingStart),
+                        modifier = Modifier.layoutId("StartContent"),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        CompositionLocalProvider(LocalTint provides iconTint) {
+                        val iconTint = style.colors.titleBrush.getBrushAsState(
+                            motion.context,
+                            motion.style.titleColor,
+                        )
+                        CompositionLocalProvider(LocalTintBrushProducer provides { iconTint.value }) {
                             startContent()
+                        }
+
+                        if (centerContent != null || endContent != null) {
+                            val contentPaddingStart by dimensions.contentPaddingStartValues
+                                .getValueAsState(motion.context)
+                            Spacer(Modifier.width(contentPaddingStart))
                         }
                     }
                 }
@@ -89,12 +103,19 @@ internal fun BaseCell(
                 }
                 if (endContent != null || (disclosureEnabled && disclosureContent != null)) {
                     Row(
-                        modifier = Modifier
-                            .padding(start = dimensions.contentPaddingEnd)
-                            .layoutId("EndContent"),
+                        modifier = Modifier.layoutId("EndContent"),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        CompositionLocalProvider(LocalTint provides iconTint) {
+                        if (centerContent != null || startContent != null) {
+                            val contentPaddingEnd by dimensions.contentPaddingEndValues
+                                .getValueAsState(motion.context)
+                            Spacer(Modifier.width(contentPaddingEnd))
+                        }
+                        val iconTint = style.colors.titleBrush.getBrushAsState(
+                            motion.context,
+                            motion.style.titleColor,
+                        )
+                        CompositionLocalProvider(LocalTintBrushProducer provides { iconTint.value }) {
                             endContent?.invoke(this)
                         }
                         if (disclosureEnabled && disclosureContent != null) {
@@ -128,10 +149,12 @@ private class BaseCellMeasurePolicy(
             .firstOrNull { it.layoutId == "CenterContent" }
             ?.measure(looseConstraints.offset(-startContent.widthOrZero() - endContent.widthOrZero()))
 
-        val height = maxOf(
-            startContent.heightOrZero(),
-            centerContent.heightOrZero(),
-            endContent.heightOrZero(),
+        val height = constraints.constrainHeight(
+            maxOf(
+                startContent.heightOrZero(),
+                centerContent.heightOrZero(),
+                endContent.heightOrZero(),
+            ),
         )
 
         val width = constraints.constrainWidth(
@@ -187,55 +210,75 @@ internal fun ColumnScope.CellCenterContent(
     label: AnnotatedString = AnnotatedString(""),
     subtitle: AnnotatedString = AnnotatedString(""),
     style: CellStyle,
-    interactionSource: InteractionSource,
+    motionContext: MotionContext,
+    motionStyle: CellMotionStyle,
 ) {
-    val colors = style.colors
-    StyledText(
-        text = label,
-        textStyle = style.labelStyles.getValue(interactionSource),
-        textColor = colors.labelColor.colorForInteraction(interactionSource),
-    )
-    StyledText(
-        text = title,
-        textStyle = style.titleStyles.getValue(interactionSource),
-        textColor = colors.titleColor.colorForInteraction(interactionSource),
-    )
-    StyledText(
-        text = subtitle,
-        textStyle = style.subtitleStyles.getValue(interactionSource),
-        textColor = colors.subtitleColor.colorForInteraction(interactionSource),
-    )
+    val labelStyle by style.labelStyles.getTextStyleAsState(motionContext, motionStyle.labelStyle)
+    val titleStyle by style.titleStyles.getTextStyleAsState(motionContext, motionStyle.titleStyle)
+    val subtitleStyle by style.subtitleStyles.getTextStyleAsState(motionContext, motionStyle.subtitleStyle)
+    val labelBrush = style.colors.labelBrush.getBrushAsState(motionContext, motionStyle.labelColor)
+    val titleBrush = style.colors.titleBrush.getBrushAsState(motionContext, motionStyle.titleColor)
+    val subTitleBrush = style.colors.subtitleBrush.getBrushAsState(motionContext, motionStyle.subtitleColor)
+
+    if (label.isNotEmpty()) {
+        Text(
+            text = label,
+            style = labelStyle,
+            brush = { labelBrush.value },
+        )
+    }
+    if (title.isNotEmpty()) {
+        Text(
+            text = title,
+            style = titleStyle,
+            brush = { titleBrush.value },
+        )
+    }
+    if (subtitle.isNotEmpty()) {
+        Text(
+            text = subtitle,
+            style = subtitleStyle,
+            brush = { subTitleBrush.value },
+        )
+    }
 }
 
 @Composable
 internal fun ColumnScope.CellCenterContent(
     style: CellStyle,
-    interactionSource: InteractionSource,
+    motionContext: MotionContext,
+    motionStyle: CellMotionStyle,
     titleContent: (@Composable () -> Unit)? = null,
     labelContent: (@Composable () -> Unit)? = null,
     subtitleContent: (@Composable () -> Unit)? = null,
 ) {
     val colors = style.colors
     if (labelContent != null) {
+        val labelStyle by style.labelStyles.getTextStyleAsState(motionContext, motionStyle.labelStyle)
+        val labelBrush = colors.labelBrush.getBrushAsState(motionContext, motionStyle.labelColor)
         ProvideTextStyle(
-            style.labelStyles.getValue(interactionSource),
-            colors.labelColor.colorForInteraction(interactionSource),
+            labelStyle,
+            brush = { labelBrush.value },
             labelContent,
         )
     }
 
     if (titleContent != null) {
+        val titleStyle by style.titleStyles.getTextStyleAsState(motionContext, motionStyle.titleStyle)
+        val titleBrush = colors.titleBrush.getBrushAsState(motionContext, motionStyle.titleColor)
         ProvideTextStyle(
-            style.titleStyles.getValue(interactionSource),
-            colors.titleColor.colorForInteraction(interactionSource),
+            titleStyle,
+            brush = { titleBrush.value },
             titleContent,
         )
     }
 
     if (subtitleContent != null) {
+        val subtitleStyle by style.subtitleStyles.getTextStyleAsState(motionContext, motionStyle.subtitleStyle)
+        val subtitleBrush = colors.subtitleBrush.getBrushAsState(motionContext, motionStyle.subtitleColor)
         ProvideTextStyle(
-            style.subtitleStyles.getValue(interactionSource),
-            colors.subtitleColor.colorForInteraction(interactionSource),
+            subtitleStyle,
+            brush = { subtitleBrush.value },
             subtitleContent,
         )
     }

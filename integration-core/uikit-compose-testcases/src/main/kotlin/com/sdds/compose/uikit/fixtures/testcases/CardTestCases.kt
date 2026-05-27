@@ -14,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Card
 import com.sdds.compose.uikit.CardContent
+import com.sdds.compose.uikit.CardOrientation
 import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Image
@@ -157,6 +158,36 @@ fun CardHorizontalExtra(style: CardStyle) {
                 )
                 Text(
                     text = "Content",
+                )
+            }
+        }
+    }
+}
+
+/**
+ * PLASMA-2621
+ */
+@Composable
+fun CardTitleSubtitle(style: CardStyle) {
+    Card(
+        style = style,
+        orientation = CardOrientation.Horizontal,
+        title = { Text("Title") },
+        subtitle = { Text("Subtitle") },
+        focusSelectorSettings = LocalFocusSelectorSettings.current,
+    ) {
+        Row {
+            Box(
+                modifier = Modifier
+                    .width(250.dp)
+                    .height(250.dp)
+                    .weight(1f),
+            ) {
+                Image(
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop,
+                    painter = painterResource(id = R.drawable.il_avatar_for_test),
+                    contentDescription = "Android",
                 )
             }
         }

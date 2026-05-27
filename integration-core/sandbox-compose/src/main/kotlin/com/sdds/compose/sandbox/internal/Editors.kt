@@ -49,6 +49,7 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.basicButtonBuilder
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.sandbox.Property
@@ -244,7 +245,8 @@ private fun <T> ChoiceEditor(
         ) {
             items(choices.size) {
                 val interactionSource = remember { MutableInteractionSource() }
-                val background = style.editorItemBackground.colorForInteraction(interactionSource)
+                val semanticStateSource = remember { MutableSemanticStateSource() }
+                val background = style.editorItemBackground.colorForInteraction(interactionSource, semanticStateSource)
                 val choice = choices[it]
                 val isSelected = choice == selected
                 Row(
@@ -252,7 +254,7 @@ private fun <T> ChoiceEditor(
                         .fillMaxWidth()
                         .height(style.editorItemHeight)
                         .focusRequester(focusRequester[it])
-                        .selection(isSelected, interactionSource)
+                        .selection(isSelected, semanticStateSource)
                         .background(color = background, shape = style.editorItemShape)
                         .clickable(
                             onClick = {

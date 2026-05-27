@@ -5,6 +5,7 @@ import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.testcases.CardHorizontal
 import com.sdds.compose.uikit.fixtures.testcases.CardHorizontalExtra
+import com.sdds.compose.uikit.fixtures.testcases.CardTitleSubtitle
 import com.sdds.compose.uikit.fixtures.testcases.CardVertical
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.card.Card
@@ -79,6 +80,13 @@ class ComposeCardScreenshotTest(
     fun testCardSizeXLInnerPaddingsVertical() {
         composeTestRule.content {
             CardVertical(style = Card.Xl.HasInnerPaddings.style())
+        }
+    }
+
+    @Test
+    fun testCardTitleSubtitle() {
+        composeTestRule.content {
+            CardTitleSubtitle(style = Card.L.HasInnerPaddings.style())
         }
     }
 }

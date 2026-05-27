@@ -25,6 +25,8 @@ import kotlin.Unit
 public enum class AvatarStyles(
     public val key: String,
 ) {
+    AvatarSize180("Avatar.Size180"),
+    AvatarSize100("Avatar.Size100"),
     AvatarSize72("Avatar.Size72"),
     AvatarSize64("Avatar.Size64"),
     AvatarSize56("Avatar.Size56"),
@@ -46,6 +48,8 @@ public enum class AvatarStyles(
  * Возможные значения свойства size для avatar
  */
 public enum class AvatarSize {
+    Size180,
+    Size100,
     Size72,
     Size64,
     Size56,
@@ -63,6 +67,8 @@ public enum class AvatarSize {
 @Composable
 public fun AvatarStyles.style(modify: @Composable AvatarStyleBuilder.() -> Unit = {}): AvatarStyle {
     val builder = when (this) {
+        AvatarStyles.AvatarSize180 -> Avatar.Size180
+        AvatarStyles.AvatarSize100 -> Avatar.Size100
         AvatarStyles.AvatarSize72 -> Avatar.Size72
         AvatarStyles.AvatarSize64 -> Avatar.Size64
         AvatarStyles.AvatarSize56 -> Avatar.Size56
@@ -80,6 +86,8 @@ public fun AvatarStyles.style(modify: @Composable AvatarStyleBuilder.() -> Unit 
  * Возвращает экземпляр [AvatarStyles] для avatar
  */
 public fun AvatarStyles.Companion.resolve(size: AvatarSize = AvatarSize.Size72): AvatarStyles = when {
+    size == AvatarSize.Size180 -> AvatarStyles.AvatarSize180
+    size == AvatarSize.Size100 -> AvatarStyles.AvatarSize100
     size == AvatarSize.Size72 -> AvatarStyles.AvatarSize72
     size == AvatarSize.Size64 -> AvatarStyles.AvatarSize64
     size == AvatarSize.Size56 -> AvatarStyles.AvatarSize56

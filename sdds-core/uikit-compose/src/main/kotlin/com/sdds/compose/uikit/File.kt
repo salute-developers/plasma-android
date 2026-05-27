@@ -15,8 +15,11 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.internal.cell.BaseCell
 
 /**
@@ -85,7 +88,11 @@ fun File(
             gravity = CellGravity.Center,
             dimensions = object : CellDimensions {
                 override val contentPaddingStart: Dp = style.dimensions.startContentPadding
+                override val contentPaddingStartValues: StatefulValue<Dp> =
+                    style.dimensions.startContentPadding.asStatefulValue()
                 override val contentPaddingEnd: Dp = style.dimensions.endContentPadding
+                override val contentPaddingEndValues: StatefulValue<Dp> =
+                    style.dimensions.endContentPadding.asStatefulValue()
             },
             startContent = startContent(
                 style = style,
@@ -227,7 +234,9 @@ private fun startContent(
     val imageOrNull: (@Composable RowScope.() -> Unit)? = image?.let {
         {
             val color = style.colors.iconColor.colorForInteraction(interactionSource)
-            CompositionLocalProvider(LocalTint provides color) {
+            CompositionLocalProvider(
+                LocalTintBrushProducer provides { SolidColor(color) },
+            ) {
                 image.invoke()
             }
         }
@@ -312,7 +321,7 @@ private fun inlineProgress(
     return {
         val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
         CompositionLocalProvider(
-            LocalTint provides iconColor,
+            LocalTintBrushProducer provides { SolidColor(iconColor) },
             LocalCircularProgressBarStyle provides style.circularProgressBarStyle,
         ) {
             progress.invoke()
@@ -329,7 +338,7 @@ private fun action(
     return {
         val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
         CompositionLocalProvider(
-            LocalTint provides iconColor,
+            LocalTintBrushProducer provides { SolidColor(iconColor) },
             LocalIconButtonStyle provides style.actionButtonStyle,
         ) {
             action.invoke()

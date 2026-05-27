@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.motion.MotionProperty
 import com.sdds.compose.uikit.motion.MotionStyle
 import com.sdds.compose.uikit.motion.MotionStyleBuilder
@@ -30,6 +31,11 @@ interface CounterMotionStyle : MotionStyle {
      */
     val textBrush: MotionProperty<Brush>
 
+    /**
+     * Анимационное свойство стиля текста
+     */
+    val textStyle: MotionProperty<TextStyle>
+
     companion object {
 
         /**
@@ -54,17 +60,25 @@ interface CounterMotionStyleBuilder : MotionStyleBuilder<CounterMotionStyle> {
      * Устанавливает анимацию изменения цвета текста
      */
     fun textBrush(textColor: MotionProperty<Brush>): CounterMotionStyleBuilder
+
+    /**
+     * Устанавливает анимационное свойство стиля текста.
+     */
+    fun textStyle(textStyle: MotionProperty<TextStyle>): CounterMotionStyleBuilder
 }
 
 @Immutable
 private class CounterMotionStyleImpl(
     override val backgroundBrush: MotionProperty<Brush>,
     override val textBrush: MotionProperty<Brush>,
+    override val textStyle: MotionProperty<TextStyle>,
 ) : CounterMotionStyle {
 
     class Builder : CounterMotionStyleBuilder {
         private var backgroundColor: MotionProperty<Brush>? = null
         private var textColor: MotionProperty<Brush>? = null
+        private var textStyle: MotionProperty<TextStyle>? = null
+
         override fun backgroundBrush(background: MotionProperty<Brush>) = apply {
             this.backgroundColor = background
         }
@@ -73,10 +87,15 @@ private class CounterMotionStyleImpl(
             this.textColor = textColor
         }
 
+        override fun textStyle(textStyle: MotionProperty<TextStyle>) = apply {
+            this.textStyle = textStyle
+        }
+
         override fun style(): CounterMotionStyle {
             return CounterMotionStyleImpl(
                 backgroundBrush = backgroundColor ?: noMotion(),
                 textBrush = textColor ?: noMotion(),
+                textStyle = textStyle ?: noMotion(),
             )
         }
     }

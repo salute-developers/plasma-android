@@ -7,17 +7,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.graphics.backgroundColor
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.counter.CounterMotionStyle
 import com.sdds.compose.uikit.motion.components.counter.LocalCounterMotionStyle
 import com.sdds.compose.uikit.motion.components.counter.rememberCounterMotion
 import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
 import com.sdds.compose.uikit.motion.rememberMotion
 import com.sdds.compose.uikit.motion.rememberMotionContext
 
@@ -123,17 +126,18 @@ fun Counter(
         motion.context,
         motion.style.backgroundBrush,
     )
+    val interactionSource = motion.context.interactionSource
     Box(
         modifier = modifier
-            .heightIn(min = style.dimensions.minHeight)
-            .widthIn(min = style.dimensions.minWidth)
+            .heightIn(min = style.dimensions.minHeightValues.getValue(interactionSource))
+            .widthIn(min = style.dimensions.minWidthValues.getValue(interactionSource))
             .backgroundBrush(
                 brushProducer = { backgroundColor.value },
-                shape = style.shape,
+                shape = style.shapes.getValue(interactionSource),
             )
             .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
+                start = style.dimensions.paddingStartValues.getValue(interactionSource),
+                end = style.dimensions.paddingEndValues.getValue(interactionSource),
             ),
         contentAlignment = Alignment.Center,
     ) {
@@ -142,7 +146,8 @@ fun Counter(
                 motion.context,
                 motion.style.textBrush,
             )
-            ProvideTextStyle(style.textStyle, brush = { textColor.value }) {
+            val textStyle by style.textStyles.getTextStyleAsState(motion.context, motion.style.textStyle)
+            ProvideTextStyle(textStyle, brush = { textColor.value }) {
                 content()
             }
         }

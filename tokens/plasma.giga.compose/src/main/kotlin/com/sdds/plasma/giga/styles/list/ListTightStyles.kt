@@ -13,6 +13,8 @@ import com.sdds.compose.uikit.ListStyleBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.giga.styles.divider.Default
+import com.sdds.plasma.giga.styles.divider.Divider
 import com.sdds.plasma.giga.styles.listitem.L
 import com.sdds.plasma.giga.styles.listitem.ListItemTight
 import com.sdds.plasma.giga.styles.listitem.M
@@ -71,6 +73,7 @@ public value class WrapperListTightXs(
 private val ListStyleBuilder.invariantProps: ListStyleBuilder
     @Composable
     get() = this
+        .dividerStyle(Divider.Default.style())
 
 public val ListTight.Xl: WrapperListTightXl
     @Composable

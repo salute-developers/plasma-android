@@ -27,6 +27,8 @@ import com.sdds.compose.uikit.ImageSource
 import com.sdds.compose.uikit.LocalIconDefaultSize
 import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.graphics.brush.BrushProducer
+import com.sdds.compose.uikit.graphics.brush.isSpecified
+import com.sdds.compose.uikit.graphics.brush.isUnspecified
 
 @Composable
 internal fun BaseIcon(
@@ -49,8 +51,10 @@ internal fun BaseIcon(
         ColorFilterPainter(
             delegate = sourcePainter,
             colorFilterProvider = {
-                when (val brush = brushProducer?.invoke()) {
-                    is SolidColor -> ColorFilter.tint(brush.value)
+                val brush = brushProducer?.invoke()
+                when {
+                    brush == null || brush.isUnspecified -> null
+                    brush is SolidColor -> ColorFilter.tint(brush.value)
                     else -> ColorFilter.tint(Color.Black)
                 }
             },
@@ -62,7 +66,8 @@ internal fun BaseIcon(
             .toolingGraphicsLayer()
             .defaultSizeFor(sourcePainter, LocalIconDefaultSize.current)
             .graphicsLayer {
-                if (brushProducer != null && brushProducer.invoke() !is SolidColor) {
+                val brush = brushProducer?.invoke()
+                if (brush?.isSpecified == true && brush !is SolidColor) {
                     compositingStrategy = CompositingStrategy.Offscreen
                 }
             }

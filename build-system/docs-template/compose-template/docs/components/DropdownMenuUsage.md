@@ -6,11 +6,21 @@ title: DropdownMenu
 
 В качестве контента ожидает List c элементами ListItem (стилизуются автоматически при использовании предопределенных стилей) либо произвольный контент.
 
+
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/dropdownmenu/DropdownMenu_Simple.kt
 ```
 
 <!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.dropdownmenu.DropdownMenu_Simple -->
+
+## Модальный DropdownMenu
+
+`DropdownMenu` поддерживает модальный режим отображения. В таком режиме вся область экрана "блокируется" и затемняется. 
+Если trigger должен остаться незатемнённым, форму выреза можно передать через `Modifier.popoverTrigger(triggerInfo, shape = ...)`.
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/dropdownmenu/DropdownMenu_Modal.kt
+```
 
 ## Стиль DropdownMenu
 

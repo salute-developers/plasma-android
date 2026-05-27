@@ -10,6 +10,8 @@
             {
                "name": "size",
                "values": [
+                  "size-180",
+                  "size-100",
                   "size-72",
                   "size-64",
                   "size-56",
@@ -45,6 +47,14 @@
                      "codeName": "Size72"
                   },
                   "values": [
+                     {
+                        "value": "size-180",
+                        "codeName": "Size180"
+                     },
+                     {
+                        "value": "size-100",
+                        "codeName": "Size100"
+                     },
                      {
                         "value": "size-72",
                         "codeName": "Size72"
@@ -86,6 +96,26 @@
             ]
          },
          "variations": [
+            {
+               "name": "size-180",
+               "composeReference": "Avatar.Size180",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-180"
+                  }
+               ]
+            },
+            {
+               "name": "size-100",
+               "composeReference": "Avatar.Size100",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-100"
+                  }
+               ]
+            },
             {
                "name": "size-72",
                "composeReference": "Avatar.Size72",
@@ -2076,6 +2106,14 @@
                   "yes"
                ],
                "defaultValue": "no"
+            },
+            {
+               "name": "type",
+               "values": [
+                  "mute",
+                  "danger"
+               ],
+               "defaultValue": "mute"
             }
          ],
          "styleApi": {
@@ -2110,14 +2148,39 @@
                         "codeName": "Yes"
                      }
                   ]
+               },
+               {
+                  "name": "type",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CounterDefaultType",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.counter.CounterDefaultType",
+                  "defaultValue": {
+                     "value": "mute",
+                     "codeName": "Mute"
+                  },
+                  "values": [
+                     {
+                        "value": "mute",
+                        "codeName": "Mute"
+                     },
+                     {
+                        "value": "danger",
+                        "codeName": "Danger"
+                     }
+                  ]
                }
             ]
          },
          "variations": [
             {
-               "name": "mute-no",
-               "composeReference": "Counter.MuteNo",
+               "name": "mute.mute-no",
+               "composeReference": "Counter.Mute.MuteNo",
                "props": [
+                  {
+                     "name": "type",
+                     "value": "mute"
+                  },
                   {
                      "name": "mute",
                      "value": "no"
@@ -2125,9 +2188,41 @@
                ]
             },
             {
-               "name": "mute-yes",
-               "composeReference": "Counter.MuteYes",
+               "name": "mute.mute-yes",
+               "composeReference": "Counter.Mute.MuteYes",
                "props": [
+                  {
+                     "name": "type",
+                     "value": "mute"
+                  },
+                  {
+                     "name": "mute",
+                     "value": "yes"
+                  }
+               ]
+            },
+            {
+               "name": "danger.mute-no",
+               "composeReference": "Counter.Danger.MuteNo",
+               "props": [
+                  {
+                     "name": "type",
+                     "value": "danger"
+                  },
+                  {
+                     "name": "mute",
+                     "value": "no"
+                  }
+               ]
+            },
+            {
+               "name": "danger.mute-yes",
+               "composeReference": "Counter.Danger.MuteYes",
+               "props": [
+                  {
+                     "name": "type",
+                     "value": "danger"
+                  },
                   {
                      "name": "mute",
                      "value": "yes"
@@ -4095,6 +4190,50 @@
                      "value": "size-14"
                   }
                ]
+            }
+         ]
+      },
+      {
+         "key": "navigation-drawer",
+         "coreName": "NavigationDrawer",
+         "styleName": "NavigationDrawer",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.navigationdrawer",
+            "stylesClassName": "NavigationDrawerStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.navigationdrawer.NavigationDrawerStyles",
+            "receiverClassName": "NavigationDrawerStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.navigationdrawer.NavigationDrawerStyles.Companion",
+            "returnTypeName": "NavigationDrawerStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.NavigationDrawerStyle",
+            "modifyReceiverTypeName": "NavigationDrawerStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.NavigationDrawerStyleBuilder"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "NavigationDrawer.Default"
+            }
+         ]
+      },
+      {
+         "key": "navigation-drawer-item",
+         "coreName": "NavigationDrawerItem",
+         "styleName": "NavigationDrawerItem",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.navigationdraweritem",
+            "stylesClassName": "NavigationDrawerItemStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.navigationdraweritem.NavigationDrawerItemStyles",
+            "receiverClassName": "NavigationDrawerItemStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.navigationdraweritem.NavigationDrawerItemStyles.Companion",
+            "returnTypeName": "NavigationDrawerItemStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.NavigationDrawerItemStyle",
+            "modifyReceiverTypeName": "NavigationDrawerItemStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.NavigationDrawerItemStyleBuilder"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "NavigationDrawerItem.Default"
             }
          ]
       }

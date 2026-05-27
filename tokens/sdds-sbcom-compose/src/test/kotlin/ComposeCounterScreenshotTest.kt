@@ -6,6 +6,7 @@ import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.testcases.CounterCommon
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.counter.Counter
+import com.sdds.sbcom.styles.counter.Mute
 import com.sdds.sbcom.styles.counter.MuteNo
 import com.sdds.sbcom.styles.counter.MuteYes
 import org.junit.Test
@@ -24,14 +25,14 @@ class ComposeCounterScreenshotTest(
     @Test
     fun testCounterMuteYes() {
         composeTestRule.content {
-            CounterCommon(style = Counter.MuteYes.style())
+            CounterCommon(style = Counter.Mute.MuteYes.style())
         }
     }
 
     @Test
     fun testCounterMuteNo() {
         composeTestRule.content {
-            CounterCommon(style = Counter.MuteNo.style())
+            CounterCommon(style = Counter.Mute.MuteNo.style())
         }
     }
 }
