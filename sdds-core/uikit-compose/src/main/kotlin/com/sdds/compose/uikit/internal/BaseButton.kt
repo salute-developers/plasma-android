@@ -52,7 +52,6 @@ import com.sdds.compose.uikit.motion.components.button.rememberButtonMotion
 import com.sdds.compose.uikit.motion.components.common.CommonButtonMotionStyle
 import com.sdds.compose.uikit.motion.getBrushAsState
 import com.sdds.compose.uikit.motion.getTextStyleAsState
-import com.sdds.compose.uikit.motion.getValueAsState
 
 /**
  * Базовая кнопка

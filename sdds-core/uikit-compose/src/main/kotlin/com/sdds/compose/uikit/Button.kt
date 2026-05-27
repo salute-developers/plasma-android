@@ -348,7 +348,6 @@ fun IconButton(
  * @param motion объект анимаций
  */
 @Composable
-@Deprecated("Use Button with startIconRes and endIconRes parameters")
 fun Button(
     label: String,
     onClick: () -> Unit,
@@ -385,82 +384,6 @@ fun Button(
         },
         endContent =
         if (icons?.endRes != null || icons?.end != null) {
-            { EndButtonIcon(icons = icons, style = style, motion = motion) }
-        } else {
-            null
-        },
-    ) {
-        ButtonText(
-            label = label,
-            labelTextStyle = style.labelStyles,
-            labelColor = style.colors.labelBrush,
-            valueTextStyle = style.valueStyles,
-            valueColor = style.colors.valueBrush,
-            value = value,
-            valueMargin = style.dimensions.valueMarginValues,
-            motion = motion,
-        )
-    }
-}
-
-/**
- * Кнопка с текстом и иконкой.
- * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
- * Кнопка умеет отобрать иконки в начале и в конце.
- *
- * @param label текст кнопки
- * @param onClick обработчик нажатий
- * @param motion объект анимаций
- * @param modifier модификатор
- * @param value доп. текст кнопки
- * @param style стиль кнопки
- * @param spacing вид отступа между [label] и [value]
- * @param startIconRes иконка в начале
- * @param endIconRes иконка в конце
- * @param enabled флаг доступности кнопки
- * @param loading флаг загрузки
- * @param indication [Indication] кнопки
- * @param onClickLabel надпись для Accessibility
- */
-@Composable
-fun Button(
-    label: String,
-    onClick: () -> Unit,
-    motion: Motion<ButtonMotionStyle>,
-    modifier: Modifier = Modifier,
-    value: String? = null,
-    style: ButtonStyle = LocalButtonStyle.current,
-    spacing: ButtonSpacing = ButtonSpacing.Packed,
-    @DrawableRes
-    startIconRes: Int? = null,
-    @DrawableRes
-    endIconRes: Int? = null,
-    enabled: Boolean = true,
-    loading: Boolean = false,
-    indication: Indication? = null,
-    onClickLabel: String? = null,
-
-) {
-    val icons = ButtonIcons(startRes = startIconRes, endRes = endIconRes)
-    BaseButton(
-        modifier = modifier,
-        onClick = onClick,
-        onClickLabel = onClickLabel,
-        style = style,
-        enabled = enabled,
-        loading = loading,
-        indication = indication,
-        needPaddingCompensation = true,
-        motion = motion,
-        spacing = spacing,
-        startContent =
-        if (icons.startRes != null) {
-            { StartButtonIcon(icons = icons, style = style, motion = motion) }
-        } else {
-            null
-        },
-        endContent =
-        if (icons.endRes != null) {
             { EndButtonIcon(icons = icons, style = style, motion = motion) }
         } else {
             null
