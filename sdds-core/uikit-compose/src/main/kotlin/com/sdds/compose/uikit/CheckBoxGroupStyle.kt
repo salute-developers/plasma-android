@@ -7,6 +7,8 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -98,12 +100,24 @@ interface CheckBoxGroupDimensions {
     /**
      * Расстояние между элементами
      */
+    @Deprecated("Use itemSpacingValues", ReplaceWith("itemSpacingValues"))
     val itemSpacing: Dp
+
+    /**
+     * Расстояние между элементами
+     */
+    val itemSpacingValues: StatefulValue<Dp>
 
     /**
      * Смещение дочерних элементов
      */
+    @Deprecated("Use itemOffsetValues", ReplaceWith("itemOffsetValues"))
     val itemOffset: Dp
+
+    /**
+     * Смещение дочерних элементов
+     */
+    val itemOffsetValues: StatefulValue<Dp>
 
     companion object {
 
@@ -122,12 +136,24 @@ interface CheckBoxGroupDimensionsBuilder {
     /**
      * Устанавливает расстояние между элементами [itemSpacing]
      */
-    fun itemSpacing(itemSpacing: Dp): CheckBoxGroupDimensionsBuilder
+    fun itemSpacing(itemSpacing: Dp): CheckBoxGroupDimensionsBuilder =
+        itemSpacing(itemSpacing.asStatefulValue())
+
+    /**
+     * Устанавливает расстояние между элементами [itemSpacing]
+     */
+    fun itemSpacing(itemSpacing: StatefulValue<Dp>): CheckBoxGroupDimensionsBuilder
 
     /**
      * Устанавливает смещение элементов [itemOffset]
      */
-    fun itemOffset(itemOffset: Dp): CheckBoxGroupDimensionsBuilder
+    fun itemOffset(itemOffset: Dp): CheckBoxGroupDimensionsBuilder =
+        itemOffset(itemOffset.asStatefulValue())
+
+    /**
+     * Устанавливает смещение элементов [itemOffset]
+     */
+    fun itemOffset(itemOffset: StatefulValue<Dp>): CheckBoxGroupDimensionsBuilder
 
     /**
      * Создаёт экземпляр [CheckBoxGroupDimensions]
@@ -137,26 +163,32 @@ interface CheckBoxGroupDimensionsBuilder {
 
 @Immutable
 private class DefaultCheckBoxGroupDimensions(
-    override val itemSpacing: Dp,
-    override val itemOffset: Dp,
+    override val itemSpacingValues: StatefulValue<Dp>,
+    override val itemOffsetValues: StatefulValue<Dp>,
+
 ) : CheckBoxGroupDimensions {
 
-    class Builder : CheckBoxGroupDimensionsBuilder {
-        private var itemSpacing: Dp? = null
-        private var itemOffset: Dp? = null
+    @Deprecated("Use itemSpacingValues", ReplaceWith("itemSpacingValues"))
+    override val itemSpacing: Dp = itemSpacingValues.getDefaultValue()
 
-        override fun itemSpacing(itemSpacing: Dp) = apply {
-            this.itemSpacing = itemSpacing
+    @Deprecated("Use itemOffsetValues", ReplaceWith("itemOffsetValues"))
+    override val itemOffset: Dp = itemOffsetValues.getDefaultValue()
+    class Builder : CheckBoxGroupDimensionsBuilder {
+        private var itemSpacingValues: StatefulValue<Dp>? = null
+        private var itemOffsetValues: StatefulValue<Dp>? = null
+
+        override fun itemSpacing(itemSpacing: StatefulValue<Dp>) = apply {
+            this.itemSpacingValues = itemSpacing
         }
 
-        override fun itemOffset(itemOffset: Dp) = apply {
-            this.itemOffset = itemOffset
+        override fun itemOffset(itemOffset: StatefulValue<Dp>) = apply {
+            this.itemOffsetValues = itemOffset
         }
 
         override fun build(): CheckBoxGroupDimensions {
             return DefaultCheckBoxGroupDimensions(
-                itemSpacing = itemSpacing ?: DefaultArrangementSize,
-                itemOffset = itemOffset ?: DefaultStartIndent,
+                itemSpacingValues = itemSpacingValues ?: DefaultArrangementSize.asStatefulValue(),
+                itemOffsetValues = itemOffsetValues ?: DefaultStartIndent.asStatefulValue(),
             )
         }
     }

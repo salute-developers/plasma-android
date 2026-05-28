@@ -2,13 +2,11 @@
 
 package com.sdds.compose.uikit.internal.checkable.checkbox
 
-import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -20,14 +18,12 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.State
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.CacheDrawScope
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathMeasure
@@ -42,10 +38,13 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CheckBoxColorValues
 import com.sdds.compose.uikit.CheckBoxDimensionValues
-import com.sdds.compose.uikit.CheckBoxStates
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.lerp
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.checkbox.CheckBoxMotionStyle
+import com.sdds.compose.uikit.motion.getBrushAsState
 
 /**
  * Control вида CheckBox для [BaseCheckableLayout]
@@ -57,7 +56,7 @@ import com.sdds.compose.uikit.internal.lerp
  * @param shape форма контрола Checkbox
  * @param icons иконки для состояний checked / indeterminate
  * @param animationDuration длительность анимации
- * @param interactionSource источник взаимодействий
+ * @param motion объект анимаций
  */
 @Composable
 internal fun CheckBoxControl(
@@ -68,9 +67,8 @@ internal fun CheckBoxControl(
     animationDuration: Int,
     shape: CornerBasedShape,
     icons: CheckBoxIcons?,
-    interactionSource: MutableInteractionSource,
+    motion: Motion<CheckBoxMotionStyle>,
 ) {
-    val stateSet = remember(state) { state.toStateSet() }
     val transition = updateTransition(state, label = "transition")
     val checkDrawFraction = transition.animateFloat(
         transitionSpec = {
@@ -96,38 +94,22 @@ internal fun CheckBoxControl(
     ) {
         checkCenterGravitationShiftFraction(it)
     }
-    val toggleBorderWidth =
-        dimensions.toggleBorderWidth.getValueAsState(interactionSource, stateSet)
-    val toggleBorderOffset =
-        dimensions.toggleBorderOffset.getValueAsState(interactionSource, stateSet)
-    val toggleIconWidth = dimensions.toggleIconWidth.getValueAsState(interactionSource, stateSet)
-    val toggleIconHeight = dimensions.toggleIconHeight.getValueAsState(interactionSource, stateSet)
-    val toggleColor = transition.animateColor(
-        transitionSpec = { tween(animationDuration) },
-        label = "toggleColor",
-    ) {
-        colors.toggleColor.colorForInteraction(interactionSource, it.toStateSet())
-    }
-    val borderColor = transition.animateColor(
-        transitionSpec = { tween(animationDuration) },
-        label = "borderColor",
-    ) {
-        colors.toggleBorderColor.colorForInteraction(interactionSource, it.toStateSet())
-    }
-    val iconColor = transition.animateColor(
-        transitionSpec = { tween(animationDuration) },
-        label = "iconColor",
-    ) {
-        colors.toggleIconColor.colorForInteraction(interactionSource, it.toStateSet())
-    }
+    val toggleBorderWidth = dimensions.toggleBorderWidth.getValueAsState(motion.context)
+    val toggleBorderOffset = dimensions.toggleBorderOffset.getValueAsState(motion.context)
+    val toggleIconWidth = dimensions.toggleIconWidth.getValueAsState(motion.context)
+    val toggleIconHeight = dimensions.toggleIconHeight.getValueAsState(motion.context)
+
+    val toggleColor = colors.toggleBrush.getBrushAsState(motion.context, motion.style.toggleColor)
+    val borderColor = colors.toggleBorderBrush.getBrushAsState(motion.context, motion.style.toggleBorderColor)
+    val iconColor = colors.toggleIconBrush.getBrushAsState(motion.context, motion.style.toggleIconColor)
 
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .wrapContentSize(Alignment.Center)
-            .requiredWidth(dimensions.toggleWidth)
-            .requiredHeight(dimensions.toggleHeight)
-            .padding(dimensions.togglePadding)
+            .requiredWidth(dimensions.toggleWidthValues.getValue(motion.context.interactionSource))
+            .requiredHeight(dimensions.toggleHeightValues.getValue(motion.context.interactionSource))
+            .padding(dimensions.togglePaddingValues.getValue(motion.context.interactionSource))
             .drawWithCache {
                 val checkCache = CheckDrawingCache()
                 val toggleOutline = createToggleOutline(shape)
@@ -141,7 +123,7 @@ internal fun CheckBoxControl(
                     ) {
                         drawOutline(
                             outline = toggleBorderOutline,
-                            color = borderColor.value,
+                            brush = borderColor.value,
                             style = Stroke(width = toggleBorderWidth.value.toPx()),
                         )
                     }
@@ -174,7 +156,7 @@ internal class CheckBoxIcons(
 )
 
 private fun DrawScope.drawCheck(
-    checkColor: Color,
+    checkColor: Brush,
     checkFraction: Float,
     crossCenterGravitation: Float,
     strokeWidthPx: Float,
@@ -284,14 +266,6 @@ private fun DrawScope.getBorderOutlineTranslate(
     toggleBorderOffset: State<Dp>,
 ): Float {
     return -(toggleBorderOffset.value - toggleBorderWidth.value / 2).toPx()
-}
-
-private fun ToggleableState.toStateSet(): Set<CheckBoxStates> {
-    return when (this) {
-        ToggleableState.On -> setOf(CheckBoxStates.Checked)
-        ToggleableState.Off -> emptySet()
-        ToggleableState.Indeterminate -> setOf(CheckBoxStates.Indeterminate)
-    }
 }
 
 private fun checkDrawFraction(state: ToggleableState): Float {
