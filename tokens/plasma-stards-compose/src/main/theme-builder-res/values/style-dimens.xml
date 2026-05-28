@@ -336,8 +336,10 @@
     <dimen name="sdkit_cmp_radio_box_toggle_border_offset">0.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_width_l">48.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_height_l">48.0dp</dimen>
-    <dimen name="sdkit_cmp_radio_box_toggle_icon_height_l">20.0dp</dimen>
-    <dimen name="sdkit_cmp_radio_box_toggle_icon_width_l">20.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_height_l_0">20.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_height_l">0.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_width_l_0">20.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_width_l">0.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_border_width_l_0">2.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_border_width_l">4.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_padding_l">2.0dp</dimen>
@@ -345,8 +347,10 @@
     <dimen name="sdkit_cmp_radio_box_description_padding_l">4.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_width_m">48.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_height_m">48.0dp</dimen>
-    <dimen name="sdkit_cmp_radio_box_toggle_icon_height_m">20.0dp</dimen>
-    <dimen name="sdkit_cmp_radio_box_toggle_icon_width_m">20.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_height_m_0">20.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_height_m">0.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_width_m_0">20.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_width_m">0.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_border_width_m_0">2.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_border_width_m">4.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_padding_m">2.0dp</dimen>
@@ -354,8 +358,10 @@
     <dimen name="sdkit_cmp_radio_box_description_padding_m">4.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_width_s">36.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_height_s">36.0dp</dimen>
-    <dimen name="sdkit_cmp_radio_box_toggle_icon_height_s">16.0dp</dimen>
-    <dimen name="sdkit_cmp_radio_box_toggle_icon_width_s">16.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_height_s_0">16.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_height_s">0.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_width_s_0">16.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_toggle_icon_width_s">0.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_border_width_s_0">2.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_border_width_s">3.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_padding_s">2.0dp</dimen>
@@ -861,7 +867,7 @@
     <dimen name="sdkit_cmp_scroll_bar_width_m">8.0dp</dimen>
     <dimen name="sdkit_cmp_wheel_item_text_after_padding_h1">4.0dp</dimen>
     <dimen name="sdkit_cmp_wheel_description_padding_h1">16.0dp</dimen>
-    <dimen name="sdkit_cmp_wheel_separator_spacing_h1">80.0dp</dimen>
+    <dimen name="sdkit_cmp_wheel_separator_spacing_h1">112.0dp</dimen>
     <dimen name="sdkit_cmp_wheel_item_min_spacing_h1">40.0dp</dimen>
     <dimen name="sdkit_cmp_basic_button_group_spacing_xs_wide">16.0dp</dimen>
     <dimen name="sdkit_cmp_basic_button_group_shapeAdjustment_xs_wide_segmented">-4.0dp</dimen>

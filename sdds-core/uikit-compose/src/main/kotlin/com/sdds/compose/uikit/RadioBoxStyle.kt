@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -40,19 +41,39 @@ interface RadioBoxStyle : Style {
     /**
      * Форма контрола
      */
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
     val shape: CornerBasedShape
+
+    /**
+     * Формы контрола
+     */
+    val shapes: StatefulValue<CornerBasedShape>
 
     /**
      * Стиль основного текста
      * @see TextStyle
      */
+    @Deprecated("Use labelStyles", ReplaceWith("labelStyles"))
     val labelStyle: TextStyle
+
+    /**
+     * Стили основного текста
+     * @see TextStyle
+     */
+    val labelStyles: StatefulValue<TextStyle>
 
     /**
      * Стиль дополнительного текста
      * @see TextStyle
      */
+    @Deprecated("Use descriptionStyles", ReplaceWith("descriptionStyles"))
     val descriptionStyle: TextStyle
+
+    /**
+     * Стили дополнительного текста
+     * @see TextStyle
+     */
+    val descriptionStyles: StatefulValue<TextStyle>
 
     /**
      * Цвета компонента
@@ -94,7 +115,13 @@ interface RadioBoxStyle : Style {
     /**
      * Форма фона
      */
+    @Deprecated("Use backgroundShapes", ReplaceWith("backgroundShapes"))
     val backgroundShape: Shape
+
+    /**
+     * Формы фона
+     */
+    val backgroundShapes: StatefulValue<Shape>
 
     companion object {
 
@@ -115,13 +142,27 @@ interface RadioBoxStyleBuilder : StyleBuilder<RadioBoxStyle> {
      * Устанавливает стиль основного текста [labelStyle]
      * @see RadioBoxStyle.labelStyle
      */
-    fun labelStyle(labelStyle: TextStyle): RadioBoxStyleBuilder
+    fun labelStyle(labelStyle: TextStyle): RadioBoxStyleBuilder =
+        labelStyle(labelStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили основного текста [labelStyle]
+     * @see RadioBoxStyle.labelStyle
+     */
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): RadioBoxStyleBuilder
 
     /**
      * Устанавливает стиль дополнительного текста [descriptionStyle]
      * @see RadioBoxStyle.descriptionStyle
      */
-    fun descriptionStyle(descriptionStyle: TextStyle): RadioBoxStyleBuilder
+    fun descriptionStyle(descriptionStyle: TextStyle): RadioBoxStyleBuilder =
+        descriptionStyle(descriptionStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили дополнительного текста [descriptionStyle]
+     * @see RadioBoxStyle.descriptionStyle
+     */
+    fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): RadioBoxStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]
@@ -173,13 +214,27 @@ interface RadioBoxStyleBuilder : StyleBuilder<RadioBoxStyle> {
      * Устанавливает форму контрола [shape]
      * @see RadioBoxStyle.shape
      */
-    fun shape(shape: CornerBasedShape): RadioBoxStyleBuilder
+    fun shape(shape: CornerBasedShape): RadioBoxStyleBuilder =
+        shape(shape.asStatefulValue())
 
     /**
-     * Устанавливает форму фона [shape]
+     * Устанавливает формы контрола [shape]
      * @see RadioBoxStyle.shape
      */
-    fun backgroundShape(backgroundShape: Shape): RadioBoxStyleBuilder
+    fun shape(shape: StatefulValue<CornerBasedShape>): RadioBoxStyleBuilder
+
+    /**
+     * Устанавливает форму фона [backgroundShape]
+     * @see RadioBoxStyle.shape
+     */
+    fun backgroundShape(backgroundShape: Shape): RadioBoxStyleBuilder =
+        backgroundShape(backgroundShape.asStatefulValue())
+
+    /**
+     * Устанавливает формы фона [backgroundShape]
+     * @see RadioBoxStyle.shape
+     */
+    fun backgroundShape(backgroundShape: StatefulValue<Shape>): RadioBoxStyleBuilder
 }
 
 /**
@@ -356,27 +411,57 @@ interface RadioBoxColorValues {
     /**
      * Цвет основного текста
      */
+    @Deprecated("Use labelBrush", ReplaceWith("labelBrush"))
     val labelColor: InteractiveColor
+
+    /**
+     * Кисти основного текста
+     */
+    val labelBrush: StatefulValue<Brush>
 
     /**
      * Цвет дополнительного текста
      */
+    @Deprecated("Use descriptionBrush", ReplaceWith("descriptionBrush"))
     val descriptionColor: InteractiveColor
+
+    /**
+     * Кисти дополнительного текста
+     */
+    val descriptionBrush: StatefulValue<Brush>
 
     /**
      * Цвет контрола
      */
+    @Deprecated("Use toggleBrush", ReplaceWith("toggleBrush"))
     val toggleColor: InteractiveColor
+
+    /**
+     * Кисти контрола
+     */
+    val toggleBrush: StatefulValue<Brush>
 
     /**
      * Цвет центральной иконки
      */
+    @Deprecated("Use toggleIconBrush", ReplaceWith("toggleIconBrush"))
     val toggleIconColor: InteractiveColor
+
+    /**
+     * Кисти центральной иконки
+     */
+    val toggleIconBrush: StatefulValue<Brush>
 
     /**
      * Цвет бордера
      */
+    @Deprecated("Use toggleBorderBrush", ReplaceWith("toggleBorderBrush"))
     val toggleBorderColor: InteractiveColor
+
+    /**
+     * Кисти бордера
+     */
+    val toggleBorderBrush: StatefulValue<Brush>
 
     /**
      * Цвет фона
@@ -402,69 +487,139 @@ interface RadioBoxColorValuesBuilder {
      * Устанавливает цвет основного текста [labelColor]
      * @see RadioBoxColorValuesBuilder.labelColor
      */
-    fun labelColor(labelColor: InteractiveColor): RadioBoxColorValuesBuilder
+    fun labelColor(labelColor: InteractiveColor): RadioBoxColorValuesBuilder =
+        labelColor(labelColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет основного текста [labelColor]
      * @see RadioBoxColorValuesBuilder.labelColor
      */
     fun labelColor(labelColor: Color): RadioBoxColorValuesBuilder =
-        labelColor(labelColor.asInteractive())
+        labelColor(labelColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть основного текста [labelColor]
+     * @see RadioBoxColorValuesBuilder.labelColor
+     */
+    fun labelColor(labelColor: Brush): RadioBoxColorValuesBuilder =
+        labelColor(labelColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти основного текста [labelColor]
+     * @see RadioBoxColorValuesBuilder.labelColor
+     */
+    fun labelColor(labelColor: StatefulValue<Brush>): RadioBoxColorValuesBuilder
 
     /**
      * Устанавливает цвет дополнительного текста [descriptionColor]
      * @see RadioBoxColorValuesBuilder.descriptionColor
      */
-    fun descriptionColor(descriptionColor: InteractiveColor): RadioBoxColorValuesBuilder
+    fun descriptionColor(descriptionColor: InteractiveColor): RadioBoxColorValuesBuilder =
+        descriptionColor(descriptionColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет дополнительного текста [descriptionColor]
      * @see RadioBoxColorValuesBuilder.descriptionColor
      */
     fun descriptionColor(descriptionColor: Color): RadioBoxColorValuesBuilder =
-        descriptionColor(descriptionColor.asInteractive())
+        descriptionColor(descriptionColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть дополнительного текста [descriptionColor]
+     * @see RadioBoxColorValuesBuilder.descriptionColor
+     */
+    fun descriptionColor(descriptionColor: Brush): RadioBoxColorValuesBuilder =
+        descriptionColor(descriptionColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти дополнительного текста [descriptionColor]
+     * @see RadioBoxColorValuesBuilder.descriptionColor
+     */
+    fun descriptionColor(descriptionColor: StatefulValue<Brush>): RadioBoxColorValuesBuilder
+
+    /**
+     * Устанавливает кисть бордера [toggleBorderColor]
+     * @see RadioBoxColorValuesBuilder.toggleBorderColor
+     */
+    fun toggleBorderColor(toggleBorderColor: StatefulValue<Brush>): RadioBoxColorValuesBuilder
+
+    /**
+     * Устанавливает кисти бордера [toggleBorderColor]
+     * @see RadioBoxColorValuesBuilder.toggleBorderColor
+     */
+    fun toggleBorderColor(toggleBorderColor: Brush): RadioBoxColorValuesBuilder =
+        toggleBorderColor(toggleBorderColor.asStatefulValue())
 
     /**
      * Устанавливает цвет бордера [toggleBorderColor]
      * @see RadioBoxColorValuesBuilder.toggleBorderColor
      */
-    fun toggleBorderColor(toggleBorderColor: InteractiveColor): RadioBoxColorValuesBuilder
+    fun toggleBorderColor(toggleBorderColor: InteractiveColor): RadioBoxColorValuesBuilder =
+        toggleBorderColor(toggleBorderColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет бордера [toggleBorderColor]
      * @see RadioBoxColorValuesBuilder.toggleBorderColor
      */
     fun toggleBorderColor(toggleBorderColor: Color): RadioBoxColorValuesBuilder =
-        toggleBorderColor(toggleBorderColor.asInteractive())
+        toggleBorderColor(toggleBorderColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет бордера [toggleColor]
      * @see RadioBoxColorValuesBuilder.toggleColor
      */
-    fun toggleColor(toggleColor: InteractiveColor): RadioBoxColorValuesBuilder
+    fun toggleColor(toggleColor: InteractiveColor): RadioBoxColorValuesBuilder =
+        toggleColor(toggleColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет бордера [toggleColor]
      * @see RadioBoxColorValuesBuilder.toggleColor
      */
     fun toggleColor(toggleColor: Color): RadioBoxColorValuesBuilder =
-        toggleColor(toggleColor.asInteractive())
+        toggleColor(toggleColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть бордера [toggleColor]
+     * @see RadioBoxColorValuesBuilder.toggleColor
+     */
+    fun toggleColor(toggleColor: Brush): RadioBoxColorValuesBuilder =
+        toggleColor(toggleColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти бордера [toggleColor]
+     * @see RadioBoxColorValuesBuilder.toggleColor
+     */
+    fun toggleColor(toggleColor: StatefulValue<Brush>): RadioBoxColorValuesBuilder
 
     /**
      * Устанавливает цвет иконки [toggleIconColor]
      * @see RadioBoxColorValuesBuilder.toggleIconColor
      */
-    fun toggleIconColor(toggleIconColor: InteractiveColor): RadioBoxColorValuesBuilder
+    fun toggleIconColor(toggleIconColor: InteractiveColor): RadioBoxColorValuesBuilder =
+        toggleIconColor(toggleIconColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет иконки [toggleIconColor]
      * @see RadioBoxColorValuesBuilder.toggleIconColor
      */
     fun toggleIconColor(toggleIconColor: Color): RadioBoxColorValuesBuilder =
-        toggleIconColor(toggleIconColor.asInteractive())
+        toggleIconColor(toggleIconColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет фона [backgroundColor]
+     * Устанавливает кисть иконки [toggleIconColor]
+     * @see RadioBoxColorValuesBuilder.toggleIconColor
+     */
+    fun toggleIconColor(toggleIconColor: Brush): RadioBoxColorValuesBuilder =
+        toggleIconColor(toggleIconColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти иконки [toggleIconColor]
+     * @see RadioBoxColorValuesBuilder.toggleIconColor
+     */
+    fun toggleIconColor(toggleIconColor: StatefulValue<Brush>): RadioBoxColorValuesBuilder
+
+    /**
+     * Устанавливает кисти фона [backgroundColor]
      * @see RadioBoxColorValues.backgroundColor
      */
     fun backgroundColor(backgroundColor: StatefulValue<Brush>): RadioBoxColorValuesBuilder
@@ -477,7 +632,7 @@ interface RadioBoxColorValuesBuilder {
         backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет фона [backgroundColor]
+     * Устанавливает кисть фона [backgroundColor]
      * @see RadioBoxColorValuesBuilder.backgroundColor
      */
     fun backgroundColor(backgroundColor: Brush): RadioBoxColorValuesBuilder =
@@ -488,7 +643,7 @@ interface RadioBoxColorValuesBuilder {
      * @see RadioBoxColorValuesBuilder.backgroundColor
      */
     fun backgroundColor(backgroundColor: Color): RadioBoxColorValuesBuilder =
-        backgroundColor(backgroundColor.asBrush())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Возвращает экземпляр [RadioBoxColors]
@@ -527,37 +682,79 @@ interface RadioBoxDimensionValues {
     /**
      * Ширина тоггла
      */
+    @Deprecated("Use toggleWidthValues", ReplaceWith("toggleTtoggleWidthValueshumbBrush"))
     val toggleWidth: Dp
+
+    /**
+     * Ширина тоггла
+     */
+    val toggleWidthValues: StatefulValue<Dp>
 
     /**
      * Высота тоггла
      */
+    @Deprecated("Use toggleHeightValues", ReplaceWith("toggleHeightValues"))
     val toggleHeight: Dp
+
+    /**
+     * Высота тоггла
+     */
+    val toggleHeightValues: StatefulValue<Dp>
 
     /**
      * Отступ вокруг тоггла
      */
+    @Deprecated("Use togglePaddingValues", ReplaceWith("togglePaddingValues"))
     val togglePadding: Dp
+
+    /**
+     * Отступ вокруг тоггла
+     */
+    val togglePaddingValues: StatefulValue<Dp>
 
     /**
      * Высота иконки
      */
+    @Deprecated("Use toggleIconHeightValues", ReplaceWith("toggleIconHeightValues"))
     val toggleIconHeight: Dp
+
+    /**
+     * Высота иконки
+     */
+    val toggleIconHeightValues: StatefulValue<Dp>
 
     /**
      * Ширина иконки
      */
+    @Deprecated("Use toggleIconWidthValues", ReplaceWith("toggleIconWidthValues"))
     val toggleIconWidth: Dp
+
+    /**
+     * Ширина иконки
+     */
+    val toggleIconWidthValues: StatefulValue<Dp>
 
     /**
      * Отступ текста
      */
+    @Deprecated("Use textPaddingValues", ReplaceWith("textPaddingValues"))
     val textPadding: Dp
+
+    /**
+     * Отступ текста
+     */
+    val textPaddingValues: StatefulValue<Dp>
 
     /**
      * Отступ между лэйблом и описанием
      */
+    @Deprecated("Use descriptionPaddingValues", ReplaceWith("descriptionPaddingValues"))
     val descriptionPadding: Dp
+
+    /**
+     * Отступ между лэйблом и описанием
+     */
+    val descriptionPaddingValues: StatefulValue<Dp>
 
     /**
      * Толщина бордера
@@ -572,22 +769,46 @@ interface RadioBoxDimensionValues {
     /**
      * Отступ сверху
      */
+    @Deprecated("Use paddingTopValues", ReplaceWith("paddingTopValues"))
     val paddingTop: Dp
+
+    /**
+     * Отступ сверху
+     */
+    val paddingTopValues: StatefulValue<Dp>
 
     /**
      * Отступ вначале
      */
+    @Deprecated("Use paddingStartValues", ReplaceWith("paddingStartValues"))
     val paddingStart: Dp
+
+    /**
+     * Отступ вначале
+     */
+    val paddingStartValues: StatefulValue<Dp>
 
     /**
      * Отступ вконце
      */
+    @Deprecated("Use paddingEndValues", ReplaceWith("paddingEndValues"))
     val paddingEnd: Dp
+
+    /**
+     * Отступ вконце
+     */
+    val paddingEndValues: StatefulValue<Dp>
 
     /**
      * Отступ снизу
      */
+    @Deprecated("Use paddingBottomValues", ReplaceWith("paddingBottomValues"))
     val paddingBottom: Dp
+
+    /**
+     * Отступ снизу
+     */
+    val paddingBottomValues: StatefulValue<Dp>
 
     companion object {
         /**
@@ -605,27 +826,57 @@ interface RadioBoxDimensionsBuilder {
     /**
      * Устанавливает ширину тоггла
      */
-    fun toggleWidth(toggleWidth: Dp): RadioBoxDimensionsBuilder
+    fun toggleWidth(toggleWidth: Dp): RadioBoxDimensionsBuilder =
+        toggleWidth(toggleWidth.asStatefulValue())
+
+    /**
+     * Устанавливает ширину тоггла
+     */
+    fun toggleWidth(toggleWidth: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает высоту тоггла
      */
-    fun toggleHeight(toggleHeight: Dp): RadioBoxDimensionsBuilder
+    fun toggleHeight(toggleHeight: Dp): RadioBoxDimensionsBuilder =
+        toggleHeight(toggleHeight.asStatefulValue())
+
+    /**
+     * Устанавливает высоту тоггла
+     */
+    fun toggleHeight(toggleHeight: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает отступ вокруг тоггла
      */
-    fun togglePadding(togglePadding: Dp): RadioBoxDimensionsBuilder
+    fun togglePadding(togglePadding: Dp): RadioBoxDimensionsBuilder =
+        togglePadding(togglePadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ вокруг тоггла
+     */
+    fun togglePadding(togglePadding: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает высоту иконки
      */
-    fun toggleIconHeight(toggleIconHeight: Dp): RadioBoxDimensionsBuilder
+    fun toggleIconHeight(toggleIconHeight: Dp): RadioBoxDimensionsBuilder =
+        toggleIconHeight(toggleIconHeight.asStatefulValue())
+
+    /**
+     * Устанавливает высоту иконки
+     */
+    fun toggleIconHeight(toggleIconHeight: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает ширину иконки
      */
-    fun toggleIconWidth(toggleIconWidth: Dp): RadioBoxDimensionsBuilder
+    fun toggleIconWidth(toggleIconWidth: Dp): RadioBoxDimensionsBuilder =
+        toggleIconWidth(toggleIconWidth.asStatefulValue())
+
+    /**
+     * Устанавливает ширину иконки
+     */
+    fun toggleIconWidth(toggleIconWidth: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает толщину бордера
@@ -652,32 +903,68 @@ interface RadioBoxDimensionsBuilder {
     /**
      * Устанавливает отступ текста
      */
-    fun textPadding(textPadding: Dp): RadioBoxDimensionsBuilder
+    fun textPadding(textPadding: Dp): RadioBoxDimensionsBuilder =
+        textPadding(textPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ текста
+     */
+    fun textPadding(textPadding: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает отступ между лэйблом и описанием
      */
-    fun descriptionPadding(descriptionPadding: Dp): RadioBoxDimensionsBuilder
+    fun descriptionPadding(descriptionPadding: Dp): RadioBoxDimensionsBuilder =
+        descriptionPadding(descriptionPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ между лэйблом и описанием
+     */
+    fun descriptionPadding(descriptionPadding: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает отступ вначале
      */
-    fun paddingStart(paddingStart: Dp): RadioBoxDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): RadioBoxDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступ вначале
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху
      */
-    fun paddingTop(paddingTop: Dp): RadioBoxDimensionsBuilder
+    fun paddingTop(paddingTop: Dp): RadioBoxDimensionsBuilder =
+        paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает отступ сверху
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает отступ вконце
      */
-    fun paddingEnd(paddingEnd: Dp): RadioBoxDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): RadioBoxDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступ вконце
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Устанавливает отступ снизу
      */
-    fun paddingBottom(paddingBottom: Dp): RadioBoxDimensionsBuilder
+    fun paddingBottom(paddingBottom: Dp): RadioBoxDimensionsBuilder =
+        paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает отступ снизу
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): RadioBoxDimensionsBuilder
 
     /**
      * Возвращает экземпляр [RadioBoxDimensions]
@@ -687,54 +974,85 @@ interface RadioBoxDimensionsBuilder {
 
 @Immutable
 private class DefaultRadioBoxDimensions(
-    override val toggleWidth: Dp,
-    override val toggleHeight: Dp,
-    override val togglePadding: Dp,
-    override val toggleIconHeight: Dp,
-    override val toggleIconWidth: Dp,
     override val toggleBorderWidth: StatefulValue<Dp>,
     override val toggleBorderOffset: StatefulValue<Dp>,
-    override val textPadding: Dp,
-    override val descriptionPadding: Dp,
-    override val paddingTop: Dp,
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
-    override val paddingBottom: Dp,
+    override val toggleWidthValues: StatefulValue<Dp>,
+    override val toggleHeightValues: StatefulValue<Dp>,
+    override val togglePaddingValues: StatefulValue<Dp>,
+    override val toggleIconHeightValues: StatefulValue<Dp>,
+    override val toggleIconWidthValues: StatefulValue<Dp>,
+    override val textPaddingValues: StatefulValue<Dp>,
+    override val descriptionPaddingValues: StatefulValue<Dp>,
+    override val paddingTopValues: StatefulValue<Dp>,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
+    override val paddingBottomValues: StatefulValue<Dp>,
 ) : RadioBoxDimensionValues {
+    @Deprecated("Use toggleWidthValues", ReplaceWith("toggleWidthValues"))
+    override val toggleWidth: Dp = toggleWidthValues.getDefaultValue()
 
+    @Deprecated("Use toggleHeightValues", ReplaceWith("toggleHeightValues"))
+    override val toggleHeight: Dp = toggleHeightValues.getDefaultValue()
+
+    @Deprecated("Use togglePaddingValues", ReplaceWith("togglePaddingValues"))
+    override val togglePadding: Dp = togglePaddingValues.getDefaultValue()
+
+    @Deprecated("Use toggleIconHeightValues", ReplaceWith("toggleIconHeightValues"))
+    override val toggleIconHeight: Dp = toggleIconHeightValues.getDefaultValue()
+
+    @Deprecated("Use toggleIconWidthValues", ReplaceWith("toggleIconWidthValues"))
+    override val toggleIconWidth: Dp = toggleIconWidthValues.getDefaultValue()
+
+    @Deprecated("Use textPaddingValues", ReplaceWith("textPaddingValues"))
+    override val textPadding: Dp = textPaddingValues.getDefaultValue()
+
+    @Deprecated("Use descriptionPaddingValues", ReplaceWith("descriptionPaddingValues"))
+    override val descriptionPadding: Dp = descriptionPaddingValues.getDefaultValue()
+
+    @Deprecated("Use paddingTopValues", ReplaceWith("paddingTopValues"))
+    override val paddingTop: Dp = paddingTopValues.getDefaultValue()
+
+    @Deprecated("Use paddingStartValues", ReplaceWith("paddingStartValues"))
+    override val paddingStart: Dp = paddingStartValues.getDefaultValue()
+
+    @Deprecated("Use paddingEndValues", ReplaceWith("paddingEndValues"))
+    override val paddingEnd: Dp = paddingEndValues.getDefaultValue()
+
+    @Deprecated("Use paddingBottomValues", ReplaceWith("paddingBottomValues"))
+    override val paddingBottom: Dp = paddingBottomValues.getDefaultValue()
     class Builder : RadioBoxDimensionsBuilder {
-        private var toggleWidth: Dp? = null
-        private var toggleHeight: Dp? = null
-        private var togglePadding: Dp? = null
-        private var toggleIconHeight: Dp? = null
-        private var toggleIconWidth: Dp? = null
+        private var toggleWidthValues: StatefulValue<Dp>? = null
+        private var toggleHeightValues: StatefulValue<Dp>? = null
+        private var togglePaddingValues: StatefulValue<Dp>? = null
+        private var toggleIconHeightValues: StatefulValue<Dp>? = null
+        private var toggleIconWidthValues: StatefulValue<Dp>? = null
         private var toggleBorderWidth: StatefulValue<Dp>? = null
         private var toggleBorderOffset: StatefulValue<Dp>? = null
-        private var textPadding: Dp? = null
-        private var descriptionPadding: Dp? = null
-        private var paddingTop: Dp? = null
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
-        private var paddingBottom: Dp? = null
+        private var textPaddingValues: StatefulValue<Dp>? = null
+        private var descriptionPaddingValues: StatefulValue<Dp>? = null
+        private var paddingTopValues: StatefulValue<Dp>? = null
+        private var paddingStartValues: StatefulValue<Dp>? = null
+        private var paddingEndValues: StatefulValue<Dp>? = null
+        private var paddingBottomValues: StatefulValue<Dp>? = null
 
-        override fun toggleWidth(toggleWidth: Dp) = apply {
-            this.toggleWidth = toggleWidth
+        override fun toggleWidth(toggleWidth: StatefulValue<Dp>) = apply {
+            this.toggleWidthValues = toggleWidth
         }
 
-        override fun toggleHeight(toggleHeight: Dp) = apply {
-            this.toggleHeight = toggleHeight
+        override fun toggleHeight(toggleHeight: StatefulValue<Dp>) = apply {
+            this.toggleHeightValues = toggleHeight
         }
 
-        override fun togglePadding(togglePadding: Dp) = apply {
-            this.togglePadding = togglePadding
+        override fun togglePadding(togglePadding: StatefulValue<Dp>) = apply {
+            this.togglePaddingValues = togglePadding
         }
 
-        override fun toggleIconHeight(toggleIconHeight: Dp) = apply {
-            this.toggleIconHeight = toggleIconHeight
+        override fun toggleIconHeight(toggleIconHeight: StatefulValue<Dp>) = apply {
+            this.toggleIconHeightValues = toggleIconHeight
         }
 
-        override fun toggleIconWidth(toggleIconWidth: Dp) = apply {
-            this.toggleIconWidth = toggleIconWidth
+        override fun toggleIconWidth(toggleIconWidth: StatefulValue<Dp>) = apply {
+            this.toggleIconWidthValues = toggleIconWidth
         }
 
         override fun toggleBorderWidth(toggleBorderWidth: StatefulValue<Dp>) = apply {
@@ -745,37 +1063,37 @@ private class DefaultRadioBoxDimensions(
             this.toggleBorderOffset = toggleBorderOffset
         }
 
-        override fun textPadding(textPadding: Dp) = apply {
-            this.textPadding = textPadding
+        override fun textPadding(textPadding: StatefulValue<Dp>) = apply {
+            this.textPaddingValues = textPadding
         }
 
-        override fun descriptionPadding(descriptionPadding: Dp) = apply {
-            this.descriptionPadding = descriptionPadding
+        override fun descriptionPadding(descriptionPadding: StatefulValue<Dp>) = apply {
+            this.descriptionPaddingValues = descriptionPadding
         }
 
-        override fun paddingStart(paddingStart: Dp) = apply {
-            this.paddingStart = paddingStart
+        override fun paddingStart(paddingStart: StatefulValue<Dp>) = apply {
+            this.paddingStartValues = paddingStart
         }
 
-        override fun paddingTop(paddingTop: Dp) = apply {
-            this.paddingTop = paddingTop
+        override fun paddingTop(paddingTop: StatefulValue<Dp>) = apply {
+            this.paddingTopValues = paddingTop
         }
 
-        override fun paddingEnd(paddingEnd: Dp) = apply {
-            this.paddingEnd = paddingEnd
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>) = apply {
+            this.paddingEndValues = paddingEnd
         }
 
-        override fun paddingBottom(paddingBottom: Dp) = apply {
-            this.paddingBottom = paddingBottom
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>) = apply {
+            this.paddingBottomValues = paddingBottom
         }
 
         override fun build(): RadioBoxDimensionValues {
             return DefaultRadioBoxDimensions(
-                toggleWidth = toggleWidth ?: 22.dp,
-                toggleHeight = toggleHeight ?: 22.dp,
-                togglePadding = togglePadding ?: 1.dp,
-                toggleIconHeight = toggleIconHeight ?: 10.dp,
-                toggleIconWidth = toggleIconWidth ?: 10.dp,
+                toggleWidthValues = toggleWidthValues ?: 22.dp.asStatefulValue(),
+                toggleHeightValues = toggleHeightValues ?: 22.dp.asStatefulValue(),
+                togglePaddingValues = togglePaddingValues ?: 1.dp.asStatefulValue(),
+                toggleIconHeightValues = toggleIconHeightValues ?: 10.dp.asStatefulValue(),
+                toggleIconWidthValues = toggleIconWidthValues ?: 10.dp.asStatefulValue(),
                 toggleBorderWidth = toggleBorderWidth ?: 2.dp.asStatefulValue(
                     setOf(InteractiveState.Focused, RadioBoxStates.Checked) to 1.dp,
                     setOf(InteractiveState.Focused) to 2.dp,
@@ -784,12 +1102,12 @@ private class DefaultRadioBoxDimensions(
                     setOf(InteractiveState.Focused, RadioBoxStates.Checked) to 3.dp,
                     setOf(InteractiveState.Focused) to 3.dp,
                 ),
-                textPadding = textPadding ?: 12.dp,
-                descriptionPadding = descriptionPadding ?: 2.dp,
-                paddingStart = this.paddingStart ?: 0.dp,
-                paddingTop = this.paddingTop ?: 0.dp,
-                paddingEnd = this.paddingEnd ?: 0.dp,
-                paddingBottom = this.paddingBottom ?: 0.dp,
+                textPaddingValues = textPaddingValues ?: 12.dp.asStatefulValue(),
+                descriptionPaddingValues = descriptionPaddingValues ?: 2.dp.asStatefulValue(),
+                paddingStartValues = this.paddingStartValues ?: 0.dp.asStatefulValue(),
+                paddingTopValues = this.paddingTopValues ?: 0.dp.asStatefulValue(),
+                paddingEndValues = this.paddingEndValues ?: 0.dp.asStatefulValue(),
+                paddingBottomValues = this.paddingBottomValues ?: 0.dp.asStatefulValue(),
             )
         }
     }
@@ -797,26 +1115,37 @@ private class DefaultRadioBoxDimensions(
 
 @Immutable
 private class DefaultRadioBoxStyle(
-    override val labelStyle: TextStyle,
-    override val descriptionStyle: TextStyle,
     @Deprecated("Use colorValues")
     override val colors: RadioBoxColors,
     override val colorValues: RadioBoxColorValues,
     @Deprecated("Use dimensionValues")
     override val dimensions: RadioBoxDimensions,
     override val dimensionValues: RadioBoxDimensionValues,
-    override val shape: CornerBasedShape,
     override val disableAlpha: Float,
     @Deprecated("Don't use")
     override val animationDuration: Int,
-    override val backgroundShape: Shape,
+    override val labelStyles: StatefulValue<TextStyle>,
+    override val descriptionStyles: StatefulValue<TextStyle>,
+    override val shapes: StatefulValue<CornerBasedShape>,
+    override val backgroundShapes: StatefulValue<Shape>,
 ) : RadioBoxStyle {
 
+    @Deprecated("Use labelStyles", ReplaceWith("labelStyles"))
+    override val labelStyle: TextStyle = labelStyles.getDefaultValue()
+
+    @Deprecated("Use descriptionStyles", ReplaceWith("descriptionStyles"))
+    override val descriptionStyle: TextStyle = descriptionStyles.getDefaultValue()
+
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
+
+    @Deprecated("Use backgroundShapes", ReplaceWith("backgroundShapes"))
+    override val backgroundShape: Shape = backgroundShapes.getDefaultValue()
     class Builder : RadioBoxStyleBuilder {
-        private var shape: CornerBasedShape? = null
-        private var backgroundShape: Shape? = null
-        private var labelStyle: TextStyle? = null
-        private var descriptionStyle: TextStyle? = null
+        private var shapes: StatefulValue<CornerBasedShape>? = null
+        private var backgroundShapes: StatefulValue<Shape>? = null
+        private var labelStyles: StatefulValue<TextStyle>? = null
+        private var descriptionStyles: StatefulValue<TextStyle>? = null
         private var colorsBuilder: RadioBoxColorsBuilder = RadioBoxColors.builder()
         private var colorValuesBuilder: RadioBoxColorValuesBuilder = RadioBoxColorValues.builder()
         private var dimensions: RadioBoxDimensions? = null
@@ -859,12 +1188,12 @@ private class DefaultRadioBoxStyle(
             }
         }
 
-        override fun labelStyle(labelStyle: TextStyle) = apply {
-            this.labelStyle = labelStyle
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>) = apply {
+            this.labelStyles = labelStyle
         }
 
-        override fun descriptionStyle(descriptionStyle: TextStyle) = apply {
-            this.descriptionStyle = descriptionStyle
+        override fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>) = apply {
+            this.descriptionStyles = descriptionStyle
         }
 
         @Deprecated("Use colors with RadioBoxColorValuesBuilder")
@@ -910,26 +1239,26 @@ private class DefaultRadioBoxStyle(
             this.disableAlpha = disableAlpha
         }
 
-        override fun shape(shape: CornerBasedShape) = apply {
-            this.shape = shape
+        override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
+            this.shapes = shape
         }
 
-        override fun backgroundShape(backgroundShape: Shape) = apply {
-            this.backgroundShape = backgroundShape
+        override fun backgroundShape(backgroundShape: StatefulValue<Shape>) = apply {
+            this.backgroundShapes = backgroundShape
         }
 
         override fun style(): RadioBoxStyle {
             return DefaultRadioBoxStyle(
-                shape = shape ?: CircleShape,
-                labelStyle = labelStyle ?: TextStyle.Default,
-                descriptionStyle = descriptionStyle ?: TextStyle.Default,
+                shapes = shapes ?: CircleShape.asStatefulValue(),
+                labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),
+                descriptionStyles = descriptionStyles ?: TextStyle.Default.asStatefulValue(),
                 colors = colorsBuilder.build(),
                 colorValues = mapColors(),
                 dimensions = dimensions ?: RadioBoxDimensions(),
                 dimensionValues = dimensionValuesBuilder.build(),
                 animationDuration = animationDuration ?: 200,
                 disableAlpha = disableAlpha ?: 0.4f,
-                backgroundShape = backgroundShape ?: RectangleShape,
+                backgroundShapes = backgroundShapes ?: RectangleShape.asStatefulValue(),
             )
         }
     }
@@ -937,40 +1266,53 @@ private class DefaultRadioBoxStyle(
 
 @Immutable
 private class DefaultRadioBoxColorValues(
-    override val labelColor: InteractiveColor,
-    override val descriptionColor: InteractiveColor,
-    override val toggleColor: InteractiveColor,
-    override val toggleBorderColor: InteractiveColor,
-    override val toggleIconColor: InteractiveColor,
     override val backgroundColor: StatefulValue<Brush>,
+    override val labelBrush: StatefulValue<Brush>,
+    override val descriptionBrush: StatefulValue<Brush>,
+    override val toggleBrush: StatefulValue<Brush>,
+    override val toggleBorderBrush: StatefulValue<Brush>,
+    override val toggleIconBrush: StatefulValue<Brush>,
 ) : RadioBoxColorValues {
+    @Deprecated("Use labelBrush", ReplaceWith("labelBrush"))
+    override val labelColor: InteractiveColor = Color.Transparent.asInteractive()
 
+    @Deprecated("Use descriptionBrush", ReplaceWith("descriptionBrush"))
+    override val descriptionColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("Use toggleBrush", ReplaceWith("toggleBrush"))
+    override val toggleColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("Use toggleBorderBrush", ReplaceWith("toggleBorderBrush"))
+    override val toggleBorderColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("Use toggleIconBrush", ReplaceWith("toggleIconBrush"))
+    override val toggleIconColor: InteractiveColor = Color.Transparent.asInteractive()
     class Builder : RadioBoxColorValuesBuilder {
-        private var labelColor: InteractiveColor? = null
-        private var descriptionColor: InteractiveColor? = null
-        private var toggleColor: InteractiveColor? = null
-        private var toggleBorderColor: InteractiveColor? = null
-        private var toggleIconColor: InteractiveColor? = null
+        private var labelBrush: StatefulValue<Brush>? = null
+        private var descriptionBrush: StatefulValue<Brush>? = null
+        private var toggleBrush: StatefulValue<Brush>? = null
+        private var toggleBorderBrush: StatefulValue<Brush>? = null
+        private var toggleIconBrush: StatefulValue<Brush>? = null
         private var backgroundColor: StatefulValue<Brush>? = null
 
-        override fun labelColor(labelColor: InteractiveColor) = apply {
-            this.labelColor = labelColor
+        override fun labelColor(labelColor: StatefulValue<Brush>) = apply {
+            this.labelBrush = labelColor
         }
 
-        override fun descriptionColor(descriptionColor: InteractiveColor) = apply {
-            this.descriptionColor = descriptionColor
+        override fun descriptionColor(descriptionColor: StatefulValue<Brush>) = apply {
+            this.descriptionBrush = descriptionColor
         }
 
-        override fun toggleBorderColor(toggleBorderColor: InteractiveColor) = apply {
-            this.toggleBorderColor = toggleBorderColor
+        override fun toggleBorderColor(toggleBorderColor: StatefulValue<Brush>) = apply {
+            this.toggleBorderBrush = toggleBorderColor
         }
 
-        override fun toggleColor(toggleColor: InteractiveColor) = apply {
-            this.toggleColor = toggleColor
+        override fun toggleColor(toggleColor: StatefulValue<Brush>) = apply {
+            this.toggleBrush = toggleColor
         }
 
-        override fun toggleIconColor(toggleIconColor: InteractiveColor) = apply {
-            this.toggleIconColor = toggleIconColor
+        override fun toggleIconColor(toggleIconColor: StatefulValue<Brush>) = apply {
+            this.toggleIconBrush = toggleIconColor
         }
 
         override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
@@ -979,20 +1321,18 @@ private class DefaultRadioBoxColorValues(
 
         override fun build(): RadioBoxColorValues {
             return DefaultRadioBoxColorValues(
-                labelColor = labelColor ?: Color.Black.asInteractive(),
-                descriptionColor = descriptionColor ?: Color.Black.asInteractive(),
-                toggleColor = toggleColor ?: Color.Transparent
-                    .asInteractive(
-                        setOf(RadioBoxStates.Checked) to Color.Green,
-                        setOf(InteractiveState.Focused, RadioBoxStates.Checked) to Color.Green,
-                    ),
-                toggleIconColor = toggleIconColor ?: Color.White.asInteractive(),
-                toggleBorderColor = toggleBorderColor ?: Color.Gray
-                    .asInteractive(
-                        setOf(InteractiveState.Focused) to Color.Green,
-                        setOf(InteractiveState.Focused, RadioBoxStates.Checked) to Color.Green,
-                        setOf(RadioBoxStates.Checked) to Color.Green,
-                    ),
+                labelBrush = labelBrush ?: Color.Black.asStatefulBrush(),
+                descriptionBrush = descriptionBrush ?: Color.Black.asStatefulBrush(),
+                toggleBrush = toggleBrush ?: Color.Transparent.asStatefulBrush(
+                    setOf(RadioBoxStates.Checked) to Color.Green,
+                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to Color.Green,
+                ),
+                toggleIconBrush = toggleIconBrush ?: Color.White.asStatefulBrush(),
+                toggleBorderBrush = toggleBorderBrush ?: Color.Gray.asStatefulBrush(
+                    setOf(InteractiveState.Focused) to Color.Green,
+                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to Color.Green,
+                    setOf(RadioBoxStates.Checked) to Color.Green,
+                ),
                 backgroundColor = backgroundColor ?: Color.Transparent.asBrush().asStatefulValue(),
             )
         }

@@ -8,6 +8,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.colorspace.ColorSpace
 import androidx.compose.ui.graphics.colorspace.ColorSpaces
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.transform
 import com.sdds.compose.uikit.internal.common.asBrush
@@ -32,6 +33,19 @@ fun Color.asStatefulBrush(): StatefulValue<Brush> = asBrush().asStatefulValue()
  */
 fun StatefulValue<Color>.asStatefulBrush(): StatefulValue<Brush> =
     transform { it.asBrush() }
+
+/**
+ * Создает [Brush] из текущего цвета и позволяет более гибко определить дополнитнльные цвета для состояний
+ * @receiver [Color] текущий цвет
+ * @param colorStates цвета для каждого стейта
+ */
+fun Color.asStatefulBrush(vararg colorStates: Pair<Set<ValueState>, Color>): StatefulValue<Brush> {
+    return StatefulValue(
+        states = colorStates.map { it.first },
+        values = colorStates.map { it.second.asBrush() },
+        defaultValue = this.asBrush(),
+    )
+}
 
 /**
  * Конвертер [SolidColor] в векторное представление для анимации.
