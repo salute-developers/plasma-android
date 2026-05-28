@@ -475,6 +475,12 @@ object SddsServComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.AiHeader,
+                mapOf(
+                    "AiHeader" to SddsServAiHeaderVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.SelectItem,
                 mapOf(
                     "SelectItemSingleNormal" to SddsServSelectItemSingleNormalVariationsCompose,

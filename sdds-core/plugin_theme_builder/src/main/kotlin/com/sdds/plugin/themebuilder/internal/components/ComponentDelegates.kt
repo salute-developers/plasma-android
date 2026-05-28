@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.components
 
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.aiheader.AiHeaderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.answer.AiAnswerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.autocomplete.AutoCompleteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarConfigDelegate
@@ -76,6 +77,7 @@ internal val componentDelegates by unsafeLazy {
     mapOf<String, ComponentConfigDelegate<*>>(
         "avatar" to AvatarConfigDelegate(),
         "ai-answer" to AiAnswerConfigDelegate(),
+        "ai-header" to AiHeaderConfigDelegate(),
         "avatar-group" to AvatarGroupConfigDelegate(),
         "text-field" to TextFieldConfigDelegate(),
         "text-area" to TextAreaConfigDelegate(),

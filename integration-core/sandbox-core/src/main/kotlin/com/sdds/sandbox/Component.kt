@@ -145,6 +145,7 @@ data class ComponentKey(
         val File = ComponentKey(CoreComponentName.FILE)
         val FormItem = ComponentKey(CoreComponentName.FORM_ITEM)
         val Editable = ComponentKey(CoreComponentName.EDITABLE)
+        val AiHeader = ComponentKey(CoreComponentName.AI_HEADER)
     }
 }
 
@@ -254,6 +255,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     FILE,
     FORM_ITEM,
     EDITABLE,
+    AI_HEADER,
     ;
 
     val displayName: String = displayName ?: this.name
@@ -353,6 +355,7 @@ private fun CoreComponentName.group(): ComponentGroup {
 
         CoreComponentName.NAVIGATION_BAR,
         CoreComponentName.COLLAPSING_NAVIGATION_BAR,
+        CoreComponentName.AI_HEADER,
         -> CoreComponentGroup.NAVIGATION
 
         CoreComponentName.FLOW -> CoreComponentGroup.LAYOUT
