@@ -12,6 +12,7 @@ import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.core.view.WindowCompat
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.sdds.compose.uikit.LocalAccordionStyle
+import com.sdds.compose.uikit.LocalAiHeaderStyle
 import com.sdds.compose.uikit.LocalAutocompleteStyle
 import com.sdds.compose.uikit.LocalAvatarGroupStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
@@ -74,6 +75,9 @@ import com.sdds.serv.styles.accordion.AccordionSolidActionStart
 import com.sdds.serv.styles.accordion.H3
 import com.sdds.serv.styles.aianswer.AiAnswer
 import com.sdds.serv.styles.aianswer.M
+import com.sdds.serv.styles.aiheader.AiHeader
+import com.sdds.serv.styles.aiheader.Default
+import com.sdds.serv.styles.aiheader.M
 import com.sdds.serv.styles.autocomplete.AutocompleteNormal
 import com.sdds.serv.styles.autocomplete.M
 import com.sdds.serv.styles.avatar.Avatar
@@ -316,6 +320,7 @@ fun ThemeSetup(
             LocalToolBarStyle provides ToolBarHorizontal.M.style(),
             LocalTooltipStyle provides Tooltip.M.style(),
             LocalAiAnswerStyle provides AiAnswer.M.style(),
+            LocalAiHeaderStyle provides AiHeader.M.Default.style(),
         ) {
             content()
         }

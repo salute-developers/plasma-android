@@ -154,6 +154,12 @@ private val AiHeaderStyleBuilder.invariantProps: AiHeaderStyleBuilder
     @Composable
     get() = this
         .colors {
+            titleColor(
+                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(),
+            )
+            subtitleColor(
+                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(),
+            )
             dividerColor(
                 SolidColor(SddsServTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(),
             )

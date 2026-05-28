@@ -30,7 +30,9 @@ internal class AiHeaderConfigDelegate : ComponentConfigDelegate<AiHeaderConfig>(
         deps: StyleGeneratorDependencies,
         component: Component,
     ) = AiHeaderComposeVariationGenerator(
-        iconButtonStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.$ICON_BUTTON_PACKAGE_SUFFIX",
+        iconButtonStylesPackage = "${deps.packageResolver.getPackage(
+            TargetPackage.STYLES,
+        )}.$ICON_BUTTON_PACKAGE_SUFFIX",
         themeClassName = deps.themeClassName,
         themePackage = deps.packageResolver.getPackage(TargetPackage.THEME),
         dimensionsConfig = deps.dimensionsConfig,
