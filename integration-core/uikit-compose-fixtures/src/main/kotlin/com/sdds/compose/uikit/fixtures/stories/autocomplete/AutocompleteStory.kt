@@ -14,8 +14,10 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -99,7 +101,7 @@ object AutocompleteStory : ComposeBaseStory<AutocompleteUiState, AutocompleteSty
             var text by remember { mutableStateOf(TextFieldValue()) }
             val filteredList =
                 remember {
-                    mutableListOf<String>().apply {
+                    mutableStateListOf<String>().apply {
                         addAll(
                             AutocompleteSuggestions.filterSuggestions(text.text),
                         )
@@ -242,7 +244,7 @@ private fun LazyListScope.listContent(
     filteredList: List<String>,
     onClick: (String) -> Unit,
 ) {
-    items(filteredList.size) { index ->
+    items(filteredList) { item ->
         ListItem(
             modifier = Modifier
                 .fillMaxWidth()
@@ -250,9 +252,9 @@ private fun LazyListScope.listContent(
                     indication = null,
                     interactionSource = remember { MutableInteractionSource() },
                 ) {
-                    onClick.invoke(filteredList[index])
+                    onClick.invoke(item)
                 },
-            text = filteredList[index],
+            text = item,
         )
     }
 }
