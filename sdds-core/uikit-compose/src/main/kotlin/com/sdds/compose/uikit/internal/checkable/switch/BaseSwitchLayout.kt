@@ -8,7 +8,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -41,15 +41,17 @@ internal fun BaseSwitchLayout(
     switch: @Composable () -> Unit,
     label: (@Composable () -> Unit)?,
     description: (@Composable () -> Unit)?,
-    verticalSpacing: Dp,
-    horizontalSpacing: Dp,
+    verticalSpacing: State<Dp>,
+    horizontalSpacing: State<Dp>,
     modifier: Modifier = Modifier,
 ) {
+    val vSpacing = verticalSpacing.value
+    val hSpacing = horizontalSpacing.value
     val measurePolicy = with(LocalDensity.current) {
-        remember(verticalSpacing, horizontalSpacing) {
+        remember(vSpacing, hSpacing) {
             BaseSwitchMeasurePolicy(
-                verticalSpacing = verticalSpacing.roundToPx(),
-                horizontalSpacing = horizontalSpacing.roundToPx(),
+                verticalSpacing = vSpacing.roundToPx(),
+                horizontalSpacing = hSpacing.roundToPx(),
             )
         }
     }
@@ -83,7 +85,7 @@ internal fun BaseSwitchLayout(
 internal fun switchText(
     value: String?,
     textStyle: TextStyle,
-    color: State<Color>,
+    color: State<Brush>,
     maxLines: Int,
 ): @Composable (() -> Unit)? =
     if (value != null) {

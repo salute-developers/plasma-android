@@ -1,13 +1,11 @@
 package com.sdds.compose.uikit.internal.checkable.switch
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
@@ -16,7 +14,14 @@ import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.SwitchDimensionValues
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
+import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.switcher.SwitchMotionStyle
+import com.sdds.compose.uikit.motion.components.switcher.rememberSwitchMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
 
 @Composable
 internal fun BaseSwitch(
@@ -26,11 +31,18 @@ internal fun BaseSwitch(
     style: SwitchStyle = LocalSwitchStyle.current,
     labelContent: (@Composable () -> Unit)? = null,
     descriptionContent: (@Composable () -> Unit)? = null,
-    animationDuration: Int = style.animationDurationMillis,
+    animationDuration: Int = Int.MIN_VALUE,
     enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<SwitchMotionStyle> = rememberSwitchMotion(),
 ) {
-    val stateSet = remember(active) { if (active) setOf(SwitchStates.Checked) else emptySet() }
+    SideEffect {
+        motion.context.semanticStateSource.set(
+            SwitchStates.Checked,
+            active,
+        )
+    }
+
+    val interactionSource = motion.context.interactionSource
     val toggleableModifier =
         if (onActiveChanged != null) {
             Modifier.toggleable(
@@ -44,53 +56,71 @@ internal fun BaseSwitch(
         } else {
             Modifier
         }
-    val backgroundColor by style.colorValues.backgroundColor.colorForInteractionAsState(interactionSource, stateSet)
-    val paddings = style.dimensionValues.getPaddings()
+    val backgroundColor = style.colorValues.backgroundBrush.getBrushAsState(
+        motion.context,
+        motion.style.backgroundColor,
+    )
+    val horizontal = style.dimensionValues.textPaddingValues.getValueAsState(motion.context)
+    val vertical = style.dimensionValues.descriptionPaddingValues.getValueAsState(motion.context)
+    val paddings = style.dimensionValues.getPaddings(motion)
     BaseSwitchLayout(
         modifier = modifier
             .then(toggleableModifier)
-            .background(backgroundColor, style.shape)
+            .backgroundBrush(
+                { backgroundColor.value },
+                style.shapes.getValue(interactionSource),
+            )
             .padding(paddings)
             .graphicsLayer { alpha = if (enabled) 1f else style.disableAlpha },
         switch = {
             SwitchToggle(
                 active = active,
-                thumbShape = style.toggleThumbShape,
-                trackShape = style.toggleTrackShape,
+                thumbShape = style.toggleThumbShapes.getValue(interactionSource),
+                trackShape = style.toggleTrackShapes.getValue(interactionSource),
                 colors = style.colorValues,
                 dimensions = style.dimensionValues,
                 animationDuration = animationDuration,
-                interactionSource = interactionSource,
+                motion = motion,
             )
         },
         label = labelContent?.let { content ->
             {
-                val labelColor = style.colorValues.labelColor
-                    .colorForInteractionAsState(interactionSource, stateSet)
-                ProvideTextStyle(style.labelStyles.getValue(interactionSource), color = { labelColor.value }, content)
+                val color = style.colorValues.labelBrush.getBrushAsState(motion.context, motion.style.labelColor)
+                val style by style.labelStyles.getTextStyleAsState(motion.context, motion.style.labelStyle)
+                ProvideTextStyle(style, brush = { color.value }, content)
             }
         },
         description = descriptionContent?.let { content ->
             {
-                val descriptionColor = style.colorValues.descriptionColor
-                    .colorForInteractionAsState(interactionSource, stateSet)
-                ProvideTextStyle(
-                    style.descriptionStyles.getValue(interactionSource),
-                    color = { descriptionColor.value },
-                    content,
+                val color = style.colorValues.descriptionBrush.getBrushAsState(
+                    motion.context,
+                    motion.style.descriptionColor,
                 )
+                val style by style.descriptionStyles.getTextStyleAsState(
+                    motion.context,
+                    motion.style.descriptionStyle,
+                )
+                ProvideTextStyle(style, brush = { color.value }, content)
             }
         },
-        verticalSpacing = style.dimensionValues.descriptionPadding,
-        horizontalSpacing = style.dimensionValues.textPadding,
+        verticalSpacing = vertical,
+        horizontalSpacing = horizontal,
     )
 }
 
-private fun SwitchDimensionValues.getPaddings(): PaddingValues {
+@Composable
+private fun SwitchDimensionValues.getPaddings(
+    motion: Motion<SwitchMotionStyle>,
+): PaddingValues {
+    val interactionSource = motion.context.interactionSource
+    val start by paddingStartValues.getValueAsState(interactionSource)
+    val top by paddingTopValues.getValueAsState(interactionSource)
+    val end by paddingEndValues.getValueAsState(interactionSource)
+    val bottom by paddingBottomValues.getValueAsState(interactionSource)
     return PaddingValues(
-        start = paddingStart,
-        top = paddingTop,
-        end = paddingEnd,
-        bottom = paddingBottom,
+        start = start,
+        top = top,
+        end = end,
+        bottom = bottom,
     )
 }

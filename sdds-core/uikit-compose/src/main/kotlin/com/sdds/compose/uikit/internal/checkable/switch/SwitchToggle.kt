@@ -1,9 +1,7 @@
 package com.sdds.compose.uikit.internal.checkable.switch
 
-import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.interaction.InteractionSource
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
@@ -16,8 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.CacheDrawScope
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Fill
@@ -27,8 +26,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.SwitchColorValues
 import com.sdds.compose.uikit.SwitchDimensionValues
 import com.sdds.compose.uikit.SwitchStates
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.lerp
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.changes
+import com.sdds.compose.uikit.motion.components.switcher.SwitchMotionStyle
+import com.sdds.compose.uikit.motion.components.switcher.rememberSwitchMotion
+import com.sdds.compose.uikit.motion.finite
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getFloatAsState
+import com.sdds.compose.uikit.motion.transition
 
 /**
  * Базовый компонент Switch
@@ -38,7 +48,7 @@ import com.sdds.compose.uikit.internal.lerp
  * @param dimensions размеры и отступы
  * @param animationDuration длительность анимации
  * @param modifier модификатор
- * @param interactionSource [InteractionSource]
+ * @param motion объект анимаций
  */
 @Composable
 internal fun SwitchToggle(
@@ -49,32 +59,46 @@ internal fun SwitchToggle(
     colors: SwitchColorValues,
     dimensions: SwitchDimensionValues,
     animationDuration: Int,
-    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<SwitchMotionStyle> = rememberSwitchMotion(),
 ) {
-    val stateSet = remember(active) { if (active) setOf(SwitchStates.Checked) else emptySet() }
-    val trackColor = colors.toggleTrackColor.colorForInteractionAsState(interactionSource, stateSet)
-    val trackBorderColor = colors.toggleTrackBorderColor.colorForInteractionAsState(interactionSource, stateSet)
-    val thumbColor = colors.toggleThumbColor.colorForInteractionAsState(interactionSource, stateSet)
-    val thumbPosition by animateFloatAsState(
-        targetValue = if (active) 1f else 0f,
-        animationSpec = tween(durationMillis = animationDuration),
-        label = "thumbPosition",
+    val transitionMotion = remember(animationDuration) {
+        if (animationDuration == Int.MIN_VALUE) {
+            motion.style.thumbPositionTransition
+        } else {
+            thumpPositionTransitionMotion(animationDuration)
+        }
+    }
+    val trackColor = colors.toggleTrackBrush.getBrushAsState(
+        motion.context,
+        motion.style.toggleTrackColor,
     )
-    val toggleWidth = dimensions.toggleThumbWidths.getValueAsState(interactionSource, stateSet)
-    val toggleHeight = dimensions.toggleThumbHeights.getValueAsState(interactionSource, stateSet)
-    val toggleThumbPadding = dimensions.toggleThumbPaddings.getValueAsState(interactionSource, stateSet)
-    val toggleTrackBorderWidth = dimensions.toggleTrackBorderWidth.getValueAsState(interactionSource, stateSet)
+    val trackBorderColor = colors.toggleTrackBorderBrush.getBrushAsState(
+        motion.context,
+        motion.style.toggleBorderColor,
+    )
+    val thumbColor = colors.toggleThumbBrush.getBrushAsState(
+        motion.context,
+        motion.style.toggleThumbColor,
+    )
 
+    val thumbPosition = progress.getFloatAsState(motion.context, transitionMotion)
+    val toggleWidth = dimensions.toggleThumbWidths.getValueAsState(motion.context)
+    val toggleHeight = dimensions.toggleThumbHeights.getValueAsState(motion.context)
+    val toggleThumbPadding = dimensions.toggleThumbPaddings.getValueAsState(motion.context)
+    val toggleTrackBorderWidth = dimensions.toggleTrackBorderWidth.getValueAsState(motion.context)
+
+    val trackWidth by dimensions.toggleTrackWidthValues.getValueAsState(motion.context)
+    val trackHeight by dimensions.toggleTrackHeightValues.getValueAsState(motion.context)
     Box(
         modifier = modifier
-            .requiredWidth(dimensions.toggleTrackWidth)
-            .requiredHeight(dimensions.toggleTrackHeight)
+            .requiredWidth(trackWidth)
+            .requiredHeight(trackHeight)
             .drawWithCache {
                 val strokeWidth = toggleTrackBorderWidth.value.toPx()
                 val trackOutline = createOutline(
                     shape = trackShape,
-                    widthPx = dimensions.toggleTrackWidth.toPx() - strokeWidth * 2,
-                    heightPx = dimensions.toggleTrackHeight.toPx() - strokeWidth * 2,
+                    widthPx = trackWidth.toPx() - strokeWidth * 2,
+                    heightPx = trackHeight.toPx() - strokeWidth * 2,
                 )
                 val thumbOutline = createOutline(
                     shape = thumbShape,
@@ -90,7 +114,7 @@ internal fun SwitchToggle(
                     drawThumb(
                         thumbOutline = thumbOutline,
                         thumbColor = thumbColor.value,
-                        thumbPosition = thumbPosition,
+                        thumbPosition = thumbPosition.value,
                         toggleThumbPadding = toggleThumbPadding.value.toPx(),
                         toggleThumbWidth = toggleWidth.value.toPx(),
                         toggleThumbHeight = toggleHeight.value.toPx(),
@@ -117,19 +141,23 @@ private fun CacheDrawScope.createOutline(
 
 private fun DrawScope.drawTrack(
     trackOutline: Outline,
-    trackColor: Color,
-    trackBorderColor: Color,
+    trackColor: Brush,
+    trackBorderColor: Brush,
     trackBorderStroke: Stroke,
 ) {
     drawOutline(
         outline = trackOutline,
-        color = trackColor,
+        brush = trackColor,
         style = Fill,
     )
-    if (trackBorderColor.alpha != 0f) {
+    val shouldDraw = when (trackBorderColor) {
+        is SolidColor -> trackBorderColor.value.alpha != 0f
+        else -> true
+    }
+    if (shouldDraw) {
         drawOutline(
             outline = trackOutline,
-            color = trackBorderColor,
+            brush = trackBorderColor,
             style = trackBorderStroke,
         )
     }
@@ -137,7 +165,7 @@ private fun DrawScope.drawTrack(
 
 private fun DrawScope.drawThumb(
     thumbOutline: Outline,
-    thumbColor: Color,
+    thumbColor: Brush,
     thumbPosition: Float,
     toggleThumbPadding: Float,
     toggleThumbWidth: Float,
@@ -156,10 +184,22 @@ private fun DrawScope.drawThumb(
     ) {
         drawOutline(
             outline = thumbOutline,
-            color = thumbColor,
+            brush = thumbColor,
             style = Fill,
         )
     }
+}
+
+private val progress: StatefulValue<Float> = 0f.asStatefulValue(setOf(SwitchStates.Checked) to 1f)
+
+private fun thumpPositionTransitionMotion(durationMillis: Int) = transition<Float>(
+    label = "SwitchFloatTransition",
+) {
+    segment {
+        condition { state -> state changes SwitchStates.Checked }
+    } changesWith { finite(tween(durationMillis)) }
+
+    segment {} changesWith { finite(snap()) }
 }
 
 @Composable
