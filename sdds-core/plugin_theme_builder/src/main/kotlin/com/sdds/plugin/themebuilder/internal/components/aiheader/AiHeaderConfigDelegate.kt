@@ -14,6 +14,7 @@ import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 private const val ICON_BUTTON_PACKAGE_SUFFIX = "iconbutton"
+private const val AI_HEADER_STYLE_PACKAGE = "com.sdds.compose.uikit.ai"
 
 internal class AiHeaderConfigDelegate : ComponentConfigDelegate<AiHeaderConfig>() {
 
@@ -44,5 +45,6 @@ internal class AiHeaderConfigDelegate : ComponentConfigDelegate<AiHeaderConfig>(
         componentName = component.styleName.techToSnakeCase(),
         styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+        componentStylePackage = AI_HEADER_STYLE_PACKAGE,
     )
 }

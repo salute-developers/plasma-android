@@ -1,4 +1,4 @@
-## ADDED Requirements
+## MODIFIED Requirements
 
 ### Requirement: AiHeaderStyle SHALL define component appearance
 `sdds-core/uikit-compose` SHALL содержать `@Stable interface AiHeaderStyle : Style` с полями: `shape: StatefulValue<Shape>`, `titleStyles: StatefulValue<TextStyle>`, `subtitleStyles: StatefulValue<TextStyle>`, `colors: AiHeaderColors`, `dimensions: AiHeaderDimensions`, `startButtonStyle: ButtonStyle`, `endButtonStyle: ButtonStyle`. Companion object MUST предоставлять `fun builder(): AiHeaderStyleBuilder`.
@@ -15,17 +15,6 @@
 - **WHEN** вызывается `AiHeaderStyle.builder().style()` без явного задания `shape`
 - **THEN** `shape.getDefaultValue()` MUST возвращать `RoundedCornerShape(0)`
 
-### Requirement: AiHeaderColors SHALL use StatefulValue\<Brush\> for all colors
-`@Stable interface AiHeaderColors` SHALL содержать только `StatefulValue<Brush>` поля: `backgroundBrush`, `titleBrush`, `subtitleBrush`, `dividerBrush`. `Color` и `InteractiveColor` MUST NOT использоваться напрямую.
-
-#### Scenario: Цвет фона через brush
-- **WHEN** `AiHeaderColors.backgroundBrush` задан как `SolidColor(color).asStatefulValue()`
-- **THEN** компонент MUST применять этот brush как фон
-
-#### Scenario: Все brush-поля задаются через билдер
-- **WHEN** вызываются `backgroundBrush(Color)`, `titleBrush(Color)`, `subtitleBrush(Color)`, `dividerBrush(Color)` в `AiHeaderColorsBuilder`
-- **THEN** каждый MUST конвертироваться в `StatefulValue<Brush>` через `asStatefulBrush()`
-
 ### Requirement: AiHeaderColorsBuilder SHALL provide Color, Brush, InteractiveColor and StatefulValue overloads
 `interface AiHeaderColorsBuilder` SHALL предоставлять для каждого из четырёх цветов (`backgroundColor`, `titleColor`, `subtitleColor`, `dividerColor`) четыре перегрузки: `fun xColor(Color)`, `fun xColor(InteractiveColor)`, `fun xColor(Brush)`, `fun xColor(StatefulValue<Brush>)`. Перегрузки с `Color`, `InteractiveColor` и `Brush` MUST быть default-методами, делегирующими к `StatefulValue<Brush>` перегрузке.
 
@@ -41,23 +30,7 @@
 - **WHEN** вызывается `backgroundColor(color.asInteractive(pressed = pressedColor))`
 - **THEN** `AiHeaderColors.backgroundBrush.isStateful()` MUST возвращать `true`
 
-### Requirement: AiHeaderDimensions SHALL define all spacing and size properties
-`@Stable interface AiHeaderDimensions` SHALL содержать: `paddingStart`, `paddingEnd`, `paddingTop`, `paddingBottom`, `textPaddingStart`, `textPaddingEnd`, `textPaddingTop`, `textPaddingBottom`, `subtitlePadding`, `dividerThickness` — все типа `Dp`.
-
-#### Scenario: subtitlePadding доступен из dimensions
-- **WHEN** получен экземпляр `AiHeaderDimensions`
-- **THEN** `subtitlePadding` MUST возвращать `Dp` без NPE
-
-#### Scenario: dividerThickness используется при отрисовке линии
-- **WHEN** `hasDivider = true`
-- **THEN** `strokeWidth` в `drawLine` MUST равняться `dimensions.dividerThickness.toPx()`
-
-### Requirement: AiHeaderStyleBuilder SHALL build complete style
-`interface AiHeaderStyleBuilder : StyleBuilder<AiHeaderStyle>` SHALL предоставлять методы для установки всех полей `AiHeaderStyle`. `@Composable fun colors(builder)` и `@Composable fun dimensions(builder)` MUST принимать builder-лямбды. Метод `style()` MUST возвращать корректный `AiHeaderStyle`.
-
-#### Scenario: Builder собирает стиль с кастомными кнопками
-- **WHEN** вызывается `AiHeaderStyle.builder().startButtonStyle(myStyle).style()`
-- **THEN** `result.startButtonStyle` MUST равняться `myStyle`
+## ADDED Requirements
 
 ### Requirement: AiHeaderStyleBuilder SHALL support StatefulValue\<Shape\> and Shape overloads
 `interface AiHeaderStyleBuilder` SHALL предоставлять два метода для установки формы: `fun shape(shape: StatefulValue<Shape>): AiHeaderStyleBuilder` (абстрактный) и `fun shape(shape: Shape): AiHeaderStyleBuilder` (default-реализация, делегирующая к `shape(shape.asStatefulValue())`). Компонент `AiHeader` MUST резолвить текущую форму через `style.shape.getValueAsState(motion.context)` и передавать её в `backgroundBrush`.
@@ -73,24 +46,3 @@
 #### Scenario: Обратная совместимость — существующий вызов shape(Shape) компилируется
 - **WHEN** код вызывает `builder.shape(someShape)` где `someShape: Shape`
 - **THEN** код MUST компилироваться без ошибок и продолжать работать корректно
-
-### Requirement: LocalAiHeaderStyle SHALL provide default style via CompositionLocal
-`val LocalAiHeaderStyle` SHALL быть `compositionLocalOf { AiHeaderStyle.builder().style() }`. `AiHeader` MUST использовать `LocalAiHeaderStyle.current` как дефолтный стиль.
-
-#### Scenario: CompositionLocal провайдит стиль
-- **WHEN** `AiHeader` используется без явного параметра `style`
-- **THEN** стиль MUST браться из `LocalAiHeaderStyle.current`
-
-### Requirement: AiHeaderMotionStyle SHALL define motion properties for animated values
-`@Stable interface AiHeaderMotionStyle : MotionStyle` SHALL содержать `MotionProperty<Brush>` для `titleColor`, `subtitleColor`, `backgroundColor`, `dividerColor` и `MotionProperty<TextStyle>` для `titleStyle`, `subtitleStyle`. Companion object MUST предоставлять `fun builder(): AiHeaderMotionStyleBuilder`.
-
-#### Scenario: noMotion() используется как дефолт
-- **WHEN** вызывается `AiHeaderMotionStyle.builder().style()`
-- **THEN** все `MotionProperty` MUST быть `noMotion()` — без анимации по умолчанию
-
-### Requirement: LocalAiHeaderMotionStyle and rememberAiHeaderMotion SHALL integrate with Motion API
-SHALL существовать `val LocalAiHeaderMotionStyle = compositionLocalOf { AiHeaderMotionStyle.builder().style() }` и `@Composable fun rememberAiHeaderMotion(style, motionContext): Motion<AiHeaderMotionStyle>` по образцу `rememberCellMotion`.
-
-#### Scenario: rememberAiHeaderMotion возвращает Motion
-- **WHEN** вызывается `rememberAiHeaderMotion(motionContext = rememberMotionContext(interactionSource))`
-- **THEN** MUST возвращаться `Motion<AiHeaderMotionStyle>` без исключений

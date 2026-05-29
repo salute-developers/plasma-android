@@ -8,13 +8,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
-import com.sdds.compose.uikit.AiHeader
-import com.sdds.compose.uikit.AiHeaderStyle
-import com.sdds.compose.uikit.AiHeaderTitleAlignment
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.ai.AiHeader
+import com.sdds.compose.uikit.ai.AiHeaderStyle
+import com.sdds.compose.uikit.ai.AiHeaderTitleAlignment
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.docs.DocSample
+import com.sdds.icons.R
 
 @Composable
 @DocSample(needScreenshot = true)
@@ -45,10 +47,12 @@ fun AiHeader_WithButtons() {
     composableCodeSnippet {
         AiHeader(
             modifier = Modifier.fillMaxWidth(),
-            hasStartButton = true,
-            hasEndButton = true,
-            onStartButtonClick = { /* handle */ },
-            onEndButtonClick = { /* handle */ },
+            startContent = {
+                IconButton(iconRes = R.drawable.ic_panel_sidebar_l_outline_24, onClick = { /* handle */ })
+            },
+            endContent = {
+                IconButton(iconRes = R.drawable.ic_close_24, onClick = { /* handle */ })
+            },
             titleContent = { Text(text = "Заголовок") },
             subtitleContent = { Text(text = "Подзаголовок") },
         )
@@ -62,8 +66,12 @@ fun AiHeader_TitleAlignment() {
         AiHeader(
             modifier = Modifier.fillMaxWidth(),
             titleAlignment = AiHeaderTitleAlignment.Center,
-            hasStartButton = true,
-            hasEndButton = true,
+            startContent = {
+                IconButton(iconRes = R.drawable.ic_panel_sidebar_l_outline_24, onClick = {})
+            },
+            endContent = {
+                IconButton(iconRes = R.drawable.ic_close_24, onClick = {})
+            },
             titleContent = { Text(text = "Заголовок") },
             subtitleContent = { Text(text = "Подзаголовок") },
         )
@@ -77,8 +85,12 @@ fun AiHeader_WithDivider() {
         AiHeader(
             modifier = Modifier.fillMaxWidth(),
             hasDivider = true,
-            hasStartButton = true,
-            hasEndButton = true,
+            startContent = {
+                IconButton(iconRes = R.drawable.ic_panel_sidebar_l_outline_24, onClick = {})
+            },
+            endContent = {
+                IconButton(iconRes = R.drawable.ic_close_24, onClick = {})
+            },
             titleContent = { Text(text = "Заголовок") },
             subtitleContent = { Text(text = "Подзаголовок") },
         )
@@ -114,20 +126,8 @@ fun AiHeader_Style() {
             .startButtonStyle(
                 placeholder(ButtonStyle.iconButtonBuilder().style(), "/** Стиль кнопки слева */"),
             )
-            .startButtonIcon(
-                placeholder(
-                    com.sdds.icons.R.drawable.ic_panel_sidebar_l_outline_16,
-                    "/** Ресурс иконки кнопки слева */",
-                ),
-            )
             .endButtonStyle(
                 placeholder(ButtonStyle.iconButtonBuilder().style(), "/** Стиль кнопки справа */"),
-            )
-            .endButtonIcon(
-                placeholder(
-                    com.sdds.icons.R.drawable.ic_close_16,
-                    "/** Ресурс иконки кнопки справа */",
-                ),
             )
             .style()
     }

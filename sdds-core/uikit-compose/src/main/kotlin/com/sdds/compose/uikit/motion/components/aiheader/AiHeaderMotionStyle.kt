@@ -17,7 +17,7 @@ import com.sdds.compose.uikit.motion.noMotion
 val LocalAiHeaderMotionStyle = compositionLocalOf { AiHeaderMotionStyle.builder().style() }
 
 /**
- * Описывает анимационные (motion) свойства для компонента [com.sdds.compose.uikit.AiHeader].
+ * Описывает анимационные (motion) свойства для компонента [com.sdds.compose.uikit.ai.AiHeader].
  */
 @Stable
 interface AiHeaderMotionStyle : MotionStyle {

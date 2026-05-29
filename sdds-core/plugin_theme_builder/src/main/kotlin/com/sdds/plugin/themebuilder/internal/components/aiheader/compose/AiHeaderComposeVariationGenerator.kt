@@ -21,6 +21,7 @@ internal class AiHeaderComposeVariationGenerator(
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
     styleBuilderName: String,
+    componentStylePackage: String,
 ) : ComposeVariationGenerator<AiHeaderProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -33,6 +34,7 @@ internal class AiHeaderComposeVariationGenerator(
     outputLocation = outputLocation,
     componentName = componentName,
     styleBuilderName = styleBuilderName,
+    componentStylePackage = componentStylePackage,
 ) {
 
     override val componentStyleName: String = "AiHeaderStyle"
@@ -53,8 +55,6 @@ internal class AiHeaderComposeVariationGenerator(
         dimensionsCall(props, variationId),
         startButtonStyleCall(props, ktFileBuilder),
         endButtonStyleCall(props, ktFileBuilder),
-        startButtonIconCall(props),
-        endButtonIconCall(props),
     )
 
     private fun shapeCall(props: AiHeaderProperties, variationId: String): String? {
@@ -67,14 +67,6 @@ internal class AiHeaderComposeVariationGenerator(
 
     private fun subtitleStyleCall(props: AiHeaderProperties): String? {
         return props.subtitleStyle?.let { getTypography("subtitleStyle", it) }
-    }
-
-    private fun startButtonIconCall(props: AiHeaderProperties): String? {
-        return props.startButtonIcon?.let { getIconAsDrawableRes("startButtonIcon", it) }
-    }
-
-    private fun endButtonIconCall(props: AiHeaderProperties): String? {
-        return props.endButtonIcon?.let { getIconAsDrawableRes("endButtonIcon", it) }
     }
 
     private fun startButtonStyleCall(

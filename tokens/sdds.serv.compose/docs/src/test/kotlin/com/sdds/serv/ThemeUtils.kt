@@ -12,7 +12,6 @@ import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.core.view.WindowCompat
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.sdds.compose.uikit.LocalAccordionStyle
-import com.sdds.compose.uikit.LocalAiHeaderStyle
 import com.sdds.compose.uikit.LocalAutocompleteStyle
 import com.sdds.compose.uikit.LocalAvatarGroupStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
@@ -70,6 +69,7 @@ import com.sdds.compose.uikit.LocalToastStyle
 import com.sdds.compose.uikit.LocalToolBarStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
 import com.sdds.compose.uikit.ai.LocalAiAnswerStyle
+import com.sdds.compose.uikit.ai.LocalAiHeaderStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.accordion.AccordionSolidActionStart
 import com.sdds.serv.styles.accordion.H3

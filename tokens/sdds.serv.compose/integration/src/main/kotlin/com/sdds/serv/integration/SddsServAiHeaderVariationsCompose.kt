@@ -11,7 +11,7 @@ package com.sdds.serv.integration
 
 import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
-import com.sdds.compose.uikit.AiHeaderStyle
+import com.sdds.compose.uikit.ai.AiHeaderStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sandbox.Property
 import com.sdds.serv.styles.aiheader.AiHeader

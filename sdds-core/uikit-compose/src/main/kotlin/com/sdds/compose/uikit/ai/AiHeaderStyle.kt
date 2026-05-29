@@ -1,6 +1,5 @@
-package com.sdds.compose.uikit
+package com.sdds.compose.uikit.ai
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -13,7 +12,10 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.iconButtonBuilder
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
@@ -34,7 +36,7 @@ interface AiHeaderStyle : Style {
     /**
      * Форма компонента
      */
-    val shape: Shape
+    val shape: StatefulValue<Shape>
 
     /**
      * Стили заголовка
@@ -62,21 +64,9 @@ interface AiHeaderStyle : Style {
     val startButtonStyle: ButtonStyle
 
     /**
-     * Иконка кнопки слева
-     */
-    @get:DrawableRes
-    val startButtonIcon: Int?
-
-    /**
      * Стиль кнопки справа
      */
     val endButtonStyle: ButtonStyle
-
-    /**
-     * Иконка кнопки справа
-     */
-    @get:DrawableRes
-    val endButtonIcon: Int?
 
     companion object {
         /**
@@ -94,7 +84,12 @@ interface AiHeaderStyleBuilder : StyleBuilder<AiHeaderStyle> {
     /**
      * Устанавливает форму компонента
      */
-    fun shape(shape: Shape): AiHeaderStyleBuilder
+    fun shape(shape: StatefulValue<Shape>): AiHeaderStyleBuilder
+
+    /**
+     * Устанавливает форму компонента
+     */
+    fun shape(shape: Shape): AiHeaderStyleBuilder = shape(shape.asStatefulValue())
 
     /**
      * Устанавливает стиль заголовка
@@ -136,44 +131,30 @@ interface AiHeaderStyleBuilder : StyleBuilder<AiHeaderStyle> {
     fun startButtonStyle(startButtonStyle: ButtonStyle): AiHeaderStyleBuilder
 
     /**
-     * Устанавливает иконку кнопки слева
-     */
-    fun startButtonIcon(@DrawableRes startButtonIcon: Int?): AiHeaderStyleBuilder
-
-    /**
      * Устанавливает стиль кнопки справа
      */
     fun endButtonStyle(endButtonStyle: ButtonStyle): AiHeaderStyleBuilder
-
-    /**
-     * Устанавливает иконку кнопки справа
-     */
-    fun endButtonIcon(@DrawableRes endButtonIcon: Int?): AiHeaderStyleBuilder
 }
 
 @Immutable
 private data class DefaultAiHeaderStyle(
-    override val shape: Shape,
+    override val shape: StatefulValue<Shape>,
     override val titleStyles: StatefulValue<TextStyle>,
     override val subtitleStyles: StatefulValue<TextStyle>,
     override val colors: AiHeaderColors,
     override val dimensions: AiHeaderDimensions,
     override val startButtonStyle: ButtonStyle,
-    @DrawableRes override val startButtonIcon: Int?,
     override val endButtonStyle: ButtonStyle,
-    @DrawableRes override val endButtonIcon: Int?,
 ) : AiHeaderStyle {
 
     class Builder : AiHeaderStyleBuilder {
-        private var shape: Shape? = null
+        private var shape: StatefulValue<Shape>? = null
         private var titleStyle: StatefulValue<TextStyle>? = null
         private var subtitleStyle: StatefulValue<TextStyle>? = null
         private var colorsBuilder: AiHeaderColorsBuilder = AiHeaderColors.builder()
         private var dimensionsBuilder: AiHeaderDimensionsBuilder = AiHeaderDimensions.builder()
         private var startButtonStyle: ButtonStyle? = null
-        private var startButtonIcon: Int? = null
         private var endButtonStyle: ButtonStyle? = null
-        private var endButtonIcon: Int? = null
 
         override fun titleStyle(titleStyle: StatefulValue<TextStyle>) = apply {
             this.titleStyle = titleStyle
@@ -193,7 +174,7 @@ private data class DefaultAiHeaderStyle(
             dimensionsBuilder.builder()
         }
 
-        override fun shape(shape: Shape) = apply {
+        override fun shape(shape: StatefulValue<Shape>) = apply {
             this.shape = shape
         }
 
@@ -201,28 +182,18 @@ private data class DefaultAiHeaderStyle(
             this.startButtonStyle = startButtonStyle
         }
 
-        override fun startButtonIcon(startButtonIcon: Int?) = apply {
-            this.startButtonIcon = startButtonIcon
-        }
-
         override fun endButtonStyle(endButtonStyle: ButtonStyle) = apply {
             this.endButtonStyle = endButtonStyle
         }
 
-        override fun endButtonIcon(endButtonIcon: Int?) = apply {
-            this.endButtonIcon = endButtonIcon
-        }
-
         override fun style(): AiHeaderStyle = DefaultAiHeaderStyle(
-            shape = shape ?: RoundedCornerShape(0),
+            shape = shape ?: RoundedCornerShape(0).asStatefulValue(),
             titleStyles = titleStyle ?: TextStyle.Default.asStatefulValue(),
             subtitleStyles = subtitleStyle ?: TextStyle.Default.asStatefulValue(),
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
             startButtonStyle = startButtonStyle ?: ButtonStyle.iconButtonBuilder().style(),
-            startButtonIcon = startButtonIcon,
             endButtonStyle = endButtonStyle ?: ButtonStyle.iconButtonBuilder().style(),
-            endButtonIcon = endButtonIcon,
         )
     }
 }
@@ -273,6 +244,12 @@ interface AiHeaderColorsBuilder {
         backgroundColor(SolidColor(color).asStatefulValue())
 
     /**
+     * Устанавливает интерактивный цвет фона
+     */
+    fun backgroundColor(color: InteractiveColor): AiHeaderColorsBuilder =
+        backgroundColor(color.asStatefulBrush())
+
+    /**
      * Устанавливает кисть фона
      */
     fun backgroundColor(brush: Brush): AiHeaderColorsBuilder =
@@ -287,6 +264,12 @@ interface AiHeaderColorsBuilder {
      * Устанавливает цвет заголовка
      */
     fun titleColor(color: Color): AiHeaderColorsBuilder =
+        titleColor(color.asStatefulBrush())
+
+    /**
+     * Устанавливает интерактивный цвет заголовка
+     */
+    fun titleColor(color: InteractiveColor): AiHeaderColorsBuilder =
         titleColor(color.asStatefulBrush())
 
     /**
@@ -307,6 +290,12 @@ interface AiHeaderColorsBuilder {
         subtitleColor(color.asStatefulBrush())
 
     /**
+     * Устанавливает интерактивный цвет подзаголовка
+     */
+    fun subtitleColor(color: InteractiveColor): AiHeaderColorsBuilder =
+        subtitleColor(color.asStatefulBrush())
+
+    /**
      * Устанавливает кисть подзаголовка
      */
     fun subtitleColor(brush: Brush): AiHeaderColorsBuilder =
@@ -321,6 +310,12 @@ interface AiHeaderColorsBuilder {
      * Устанавливает цвет разделителя
      */
     fun dividerColor(color: Color): AiHeaderColorsBuilder =
+        dividerColor(color.asStatefulBrush())
+
+    /**
+     * Устанавливает интерактивный цвет разделителя
+     */
+    fun dividerColor(color: InteractiveColor): AiHeaderColorsBuilder =
         dividerColor(color.asStatefulBrush())
 
     /**

@@ -11,8 +11,8 @@
 package com.sdds.serv.styles.aiheader
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.AiHeaderStyle
-import com.sdds.compose.uikit.AiHeaderStyleBuilder
+import com.sdds.compose.uikit.ai.AiHeaderStyle
+import com.sdds.compose.uikit.ai.AiHeaderStyleBuilder
 import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import kotlin.String

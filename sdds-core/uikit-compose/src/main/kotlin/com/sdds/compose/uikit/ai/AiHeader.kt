@@ -1,4 +1,4 @@
-package com.sdds.compose.uikit
+package com.sdds.compose.uikit.ai
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
@@ -7,13 +7,18 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.text.style.TextAlign
+import com.sdds.compose.uikit.LocalIconButtonStyle
+import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.aiheader.AiHeaderMotionStyle
 import com.sdds.compose.uikit.motion.components.aiheader.rememberAiHeaderMotion
@@ -24,22 +29,19 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
 /**
  * Компонент шапки для AI-интерфейсов.
  *
- * Содержит две опциональные кнопки [IconButton] по краям и текстовый блок
- * с [titleContent] и [subtitleContent] между ними. Иконки и стили кнопок берутся из [style].
- * Все элементы выровнены по верхнему краю.
+ * Содержит два опциональных слота [startContent] и [endContent] по краям и текстовый блок
+ * с [titleContent] и [subtitleContent] между ними. Внутри слотов стиль кнопки провайдится
+ * через [LocalIconButtonStyle] из [AiHeaderStyle.startButtonStyle] / [AiHeaderStyle.endButtonStyle].
  *
  * @param modifier модификатор
  * @param style стиль компонента [AiHeaderStyle]
  * @param motion объект анимаций
  * @param hasDivider отображение разделителя по нижнему краю компонента
  * @param titleAlignment горизонтальное выравнивание текстового блока [AiHeaderTitleAlignment]
- * @param hasStartButton показывать ли кнопку слева; иконка берётся из [AiHeaderStyle.startButtonIcon]
- * @param hasEndButton показывать ли кнопку справа; иконка берётся из [AiHeaderStyle.endButtonIcon]
- * @param onStartButtonClick обработчик нажатия кнопки слева
- * @param onEndButtonClick обработчик нажатия кнопки справа
+ * @param startContent слот для содержимого слева; стиль кнопки провайдится через [LocalIconButtonStyle]
+ * @param endContent слот для содержимого справа; стиль кнопки провайдится через [LocalIconButtonStyle]
  * @param titleContent слот заголовка
  * @param subtitleContent слот подзаголовка; если `null`, отступ между заголовком и подзаголовком не добавляется
- * @param interactionSource источник взаимодействий
  */
 @Composable
 fun AiHeader(
@@ -50,16 +52,14 @@ fun AiHeader(
     ),
     hasDivider: Boolean = false,
     titleAlignment: AiHeaderTitleAlignment = AiHeaderTitleAlignment.Start,
-    hasStartButton: Boolean = false,
-    hasEndButton: Boolean = false,
-    onStartButtonClick: () -> Unit = {},
-    onEndButtonClick: () -> Unit = {},
+    startContent: (@Composable () -> Unit)? = null,
+    endContent: (@Composable () -> Unit)? = null,
     titleContent: (@Composable () -> Unit)? = null,
     subtitleContent: (@Composable () -> Unit)? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val dimensions = style.dimensions
 
+    val shape = style.shape.getValueAsState(motion.context)
     val backgroundBrushState = style.colors.backgroundBrush.getBrushAsState(
         motion.context,
         motion.style.backgroundColor,
@@ -73,7 +73,7 @@ fun AiHeader(
         modifier = modifier
             .backgroundBrush(
                 brushProducer = { backgroundBrushState.value },
-                shape = style.shape,
+                shape = shape.value,
             )
             .drawBehind {
                 if (hasDivider) {
@@ -93,13 +93,9 @@ fun AiHeader(
             ),
         verticalAlignment = Alignment.Top,
     ) {
-        if (hasStartButton) {
-            style.startButtonIcon?.let { iconRes ->
-                IconButton(
-                    iconRes = iconRes,
-                    style = style.startButtonStyle,
-                    onClick = onStartButtonClick,
-                )
+        startContent?.let {
+            CompositionLocalProvider(LocalIconButtonStyle provides style.startButtonStyle) {
+                it()
             }
         }
 
@@ -156,13 +152,9 @@ fun AiHeader(
             }
         }
 
-        if (hasEndButton) {
-            style.endButtonIcon?.let { iconRes ->
-                IconButton(
-                    iconRes = iconRes,
-                    style = style.endButtonStyle,
-                    onClick = onEndButtonClick,
-                )
+        endContent?.let {
+            CompositionLocalProvider(LocalIconButtonStyle provides style.endButtonStyle) {
+                it()
             }
         }
     }
@@ -188,9 +180,9 @@ enum class AiHeaderTitleAlignment {
     End,
 }
 
-private fun AiHeaderTitleAlignment.toTextAlign(): androidx.compose.ui.text.style.TextAlign =
+private fun AiHeaderTitleAlignment.toTextAlign(): TextAlign =
     when (this) {
-        AiHeaderTitleAlignment.Start -> androidx.compose.ui.text.style.TextAlign.Start
-        AiHeaderTitleAlignment.Center -> androidx.compose.ui.text.style.TextAlign.Center
-        AiHeaderTitleAlignment.End -> androidx.compose.ui.text.style.TextAlign.End
+        AiHeaderTitleAlignment.Start -> TextAlign.Start
+        AiHeaderTitleAlignment.Center -> TextAlign.Center
+        AiHeaderTitleAlignment.End -> TextAlign.End
     }

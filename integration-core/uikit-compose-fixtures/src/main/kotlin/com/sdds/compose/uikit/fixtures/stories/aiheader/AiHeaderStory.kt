@@ -5,10 +5,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.sdds.compose.sandbox.ComposeBaseStory
-import com.sdds.compose.uikit.AiHeader
-import com.sdds.compose.uikit.AiHeaderStyle
-import com.sdds.compose.uikit.AiHeaderTitleAlignment
+import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.ai.AiHeader
+import com.sdds.compose.uikit.ai.AiHeaderStyle
+import com.sdds.compose.uikit.ai.AiHeaderTitleAlignment
 import com.sdds.compose.uikit.fixtures.stories.AiHeaderUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AiHeaderUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -49,8 +50,16 @@ object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
             style = style,
             hasDivider = state.hasDivider,
             titleAlignment = state.titleAlignment,
-            hasStartButton = state.hasStartButton,
-            hasEndButton = state.hasEndButton,
+            startContent = if (state.hasStartButton) {
+                { IconButton(iconRes = com.sdds.icons.R.drawable.ic_panel_sidebar_l_outline_24, onClick = {}) }
+            } else {
+                null
+            },
+            endContent = if (state.hasEndButton) {
+                { IconButton(iconRes = com.sdds.icons.R.drawable.ic_close_24, onClick = {}) }
+            } else {
+                null
+            },
             titleContent = {
                 Text(text = state.title)
             },
@@ -67,8 +76,12 @@ object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
         AiHeader(
             modifier = Modifier.fillMaxWidth(),
             style = style,
-            hasStartButton = true,
-            hasEndButton = true,
+            startContent = {
+                IconButton(iconRes = com.sdds.icons.R.drawable.ic_panel_sidebar_l_outline_24, onClick = {})
+            },
+            endContent = {
+                IconButton(iconRes = com.sdds.icons.R.drawable.ic_close_24, onClick = {})
+            },
             titleContent = { Text(text = "Title") },
             subtitleContent = { Text(text = "Subtitle") },
         )
