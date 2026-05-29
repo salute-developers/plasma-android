@@ -72,6 +72,12 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
             disclosureIconColor(
                 PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
+            contentStartColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            contentEndColor(
+                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
 
 public val ListItem.S: WrapperListItemS

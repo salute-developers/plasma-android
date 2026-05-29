@@ -10,6 +10,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorProducer
 import androidx.compose.ui.res.stringResource
@@ -42,6 +43,243 @@ val LocalTextColorProducer = compositionLocalOf<ColorProducer?>(structuralEquali
  * CompositionLocal, содержащий [BrushProducer] для [Text]
  */
 val LocalTextBrushProducer = compositionLocalOf<BrushProducer?>(structuralEqualityPolicy()) { null }
+
+/**
+ * Текст
+ *
+ * @param source источник текст
+ * @param textColor цвет текста
+ * @param modifier модификатор текста
+ * @param style стиль текста
+ * @param onTextLayout колбэк, сообщающий о том, что новый лэйаут текста расчитан
+ * @param overflow режим переполнения текста
+ * @param softWrap должен ли текст разрываться при мягких разрывах строк
+ * @param maxLines максимальное количество строк
+ * @param inlineContent словарь хранит composables, которые заменяют определенные диапазоны текста.
+ * Он используется для вставки composables в текстовый layout. См. [InlineTextContent]
+
+ */
+@NonRestartableComposable
+@Composable
+fun Text(
+    source: TextSource,
+    textColor: Color,
+    modifier: Modifier = Modifier,
+    style: TextStyle = LocalTextStyle.current,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    overflow: TextOverflow = LocalTextBehaviour.current.overflow,
+    softWrap: Boolean = LocalTextBehaviour.current.softWrap,
+    maxLines: Int = LocalTextBehaviour.current.maxLines,
+    inlineContent: Map<String, InlineTextContent> = mapOf(),
+) {
+    val brush = remember(textColor) { textColor.asBrush() }
+    BaseText(
+        source = source,
+        modifier = modifier,
+        style = style,
+        onTextLayout = onTextLayout,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        inlineContent = inlineContent,
+        brushProducer = { brush },
+    )
+}
+
+/**
+ * Текст
+ *
+ * @param source источник текст
+ * @param brush кисть для текста
+ * @param modifier модификатор текста
+ * @param style стиль текста
+ * @param onTextLayout колбэк, сообщающий о том, что новый лэйаут текста расчитан
+ * @param overflow режим переполнения текста
+ * @param softWrap должен ли текст разрываться при мягких разрывах строк
+ * @param maxLines максимальное количество строк
+ * @param inlineContent словарь хранит composables, которые заменяют определенные диапазоны текста.
+ * Он используется для вставки composables в текстовый layout. См. [InlineTextContent]
+
+ */
+@NonRestartableComposable
+@Composable
+fun Text(
+    source: TextSource,
+    textBrush: Brush,
+    modifier: Modifier = Modifier,
+    style: TextStyle = LocalTextStyle.current,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    overflow: TextOverflow = LocalTextBehaviour.current.overflow,
+    softWrap: Boolean = LocalTextBehaviour.current.softWrap,
+    maxLines: Int = LocalTextBehaviour.current.maxLines,
+    inlineContent: Map<String, InlineTextContent> = mapOf(),
+) {
+    BaseText(
+        source = source,
+        modifier = modifier,
+        style = style,
+        onTextLayout = onTextLayout,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        inlineContent = inlineContent,
+        brushProducer = { textBrush },
+    )
+}
+
+/**
+ * Текст
+ *
+ * @param text текст
+ * @param color цвет текста
+ * @param modifier модификатор текста
+ * @param style стиль текста
+ * @param onTextLayout колбэк, сообщающий о том, что новый лэйаут текста расчитан
+ * @param overflow режим переполнения текста
+ * @param softWrap должен ли текст разрываться при мягких разрывах строк
+ * @param maxLines максимальное количество строк
+
+ */
+@NonRestartableComposable
+@Composable
+fun Text(
+    text: String,
+    textColor: Color,
+    modifier: Modifier = Modifier,
+    style: TextStyle = LocalTextStyle.current,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    overflow: TextOverflow = LocalTextBehaviour.current.overflow,
+    softWrap: Boolean = LocalTextBehaviour.current.softWrap,
+    maxLines: Int = LocalTextBehaviour.current.maxLines,
+) {
+    Text(
+        source = stringSource(text),
+        textColor = textColor,
+        modifier = modifier,
+        style = style,
+        onTextLayout = onTextLayout,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+    )
+}
+
+/**
+ * Текст
+ *
+ * @param text текст
+ * @param brush кисть для текста (приоритетней над [color])
+ * @param modifier модификатор текста
+ * @param style стиль текста
+ * @param onTextLayout колбэк, сообщающий о том, что новый лэйаут текста расчитан
+ * @param overflow режим переполнения текста
+ * @param softWrap должен ли текст разрываться при мягких разрывах строк
+ * @param maxLines максимальное количество строк
+ */
+@NonRestartableComposable
+@Composable
+fun Text(
+    text: String,
+    textBrush: Brush,
+    modifier: Modifier = Modifier,
+    style: TextStyle = LocalTextStyle.current,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    overflow: TextOverflow = LocalTextBehaviour.current.overflow,
+    softWrap: Boolean = LocalTextBehaviour.current.softWrap,
+    maxLines: Int = LocalTextBehaviour.current.maxLines,
+) {
+    Text(
+        source = stringSource(text),
+        textBrush = textBrush,
+        modifier = modifier,
+        style = style,
+        onTextLayout = onTextLayout,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+    )
+}
+
+/**
+ * Текст
+ *
+ * @param text текст
+ * @param modifier модификатор текста
+ * @param style стиль текста
+ * @param onTextLayout колбэк, сообщающий о том, что новый лэйаут текста расчитан
+ * @param overflow режим переполнения текста
+ * @param softWrap должен ли текст разрываться при мягких разрывах строк
+ * @param maxLines максимальное количество строк
+ * @param inlineContent словарь хранит composables, которые заменяют определенные диапазоны текста.
+ * Он используется для вставки composables в текстовый layout. См. [InlineTextContent]
+ * @param color цвет текста
+ * @param brush кисть для текста (приоритетней над [color])
+ */
+@NonRestartableComposable
+@Composable
+fun Text(
+    text: AnnotatedString,
+    textBrush: Brush,
+    modifier: Modifier = Modifier,
+    style: TextStyle = LocalTextStyle.current,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    overflow: TextOverflow = LocalTextBehaviour.current.overflow,
+    softWrap: Boolean = LocalTextBehaviour.current.softWrap,
+    maxLines: Int = LocalTextBehaviour.current.maxLines,
+    inlineContent: Map<String, InlineTextContent> = mapOf(),
+) {
+    Text(
+        source = annotatedStringSource(text),
+        textBrush = textBrush,
+        modifier = modifier,
+        style = style,
+        onTextLayout = onTextLayout,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        inlineContent = inlineContent,
+    )
+}
+
+/**
+ * Текст
+ *
+ * @param text текст
+ * @param color цвет текста
+ * @param modifier модификатор текста
+ * @param style стиль текста
+ * @param onTextLayout колбэк, сообщающий о том, что новый лэйаут текста расчитан
+ * @param overflow режим переполнения текста
+ * @param softWrap должен ли текст разрываться при мягких разрывах строк
+ * @param maxLines максимальное количество строк
+ * @param inlineContent словарь хранит composables, которые заменяют определенные диапазоны текста.
+ * Он используется для вставки composables в текстовый layout. См. [InlineTextContent]
+ */
+@NonRestartableComposable
+@Composable
+fun Text(
+    text: AnnotatedString,
+    textColor: Color,
+    modifier: Modifier = Modifier,
+    style: TextStyle = LocalTextStyle.current,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    overflow: TextOverflow = LocalTextBehaviour.current.overflow,
+    softWrap: Boolean = LocalTextBehaviour.current.softWrap,
+    maxLines: Int = LocalTextBehaviour.current.maxLines,
+    inlineContent: Map<String, InlineTextContent> = mapOf(),
+) {
+    Text(
+        source = annotatedStringSource(text),
+        textColor = textColor,
+        modifier = modifier,
+        style = style,
+        onTextLayout = onTextLayout,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        inlineContent = inlineContent,
+    )
+}
 
 /**
  * Текст

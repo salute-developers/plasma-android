@@ -78,9 +78,9 @@ internal fun BaseCell(
                         modifier = Modifier.layoutId("StartContent"),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        val iconTint = style.colors.titleBrush.getBrushAsState(
+                        val iconTint = style.colors.contentStartColor.getBrushAsState(
                             motion.context,
-                            motion.style.titleColor,
+                            motion.style.contentStartColor,
                         )
                         CompositionLocalProvider(LocalTintBrushProducer provides { iconTint.value }) {
                             startContent()
@@ -111,9 +111,9 @@ internal fun BaseCell(
                                 .getValueAsState(motion.context)
                             Spacer(Modifier.width(contentPaddingEnd))
                         }
-                        val iconTint = style.colors.titleBrush.getBrushAsState(
+                        val iconTint = style.colors.contentEndColor.getBrushAsState(
                             motion.context,
-                            motion.style.titleColor,
+                            motion.style.contentEndColor,
                         )
                         CompositionLocalProvider(LocalTintBrushProducer provides { iconTint.value }) {
                             endContent?.invoke(this)

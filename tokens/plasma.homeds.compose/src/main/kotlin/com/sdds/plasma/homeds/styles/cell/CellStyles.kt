@@ -96,6 +96,12 @@ private val CellStyleBuilder.invariantProps: CellStyleBuilder
             disclosureIconColor(
                 PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
+            contentStartColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            contentEndColor(
+                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
 
 public val Cell.L: WrapperCellL

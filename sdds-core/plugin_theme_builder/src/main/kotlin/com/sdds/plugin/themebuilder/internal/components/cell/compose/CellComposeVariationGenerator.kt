@@ -161,6 +161,12 @@ internal class CellComposeVariationGenerator(
                 props.disclosureIconColor?.let {
                     appendLine(getColor("disclosureIconColor", it))
                 }
+                props.contentStartColor?.let {
+                    appendLine(getColor("contentStartColor", it))
+                }
+                props.contentEndColor?.let {
+                    appendLine(getColor("contentEndColor", it))
+                }
                 append("}")
             }
         } else {
@@ -173,7 +179,9 @@ internal class CellComposeVariationGenerator(
             titleColor != null ||
             subtitleColor != null ||
             disclosureIconColor != null ||
-            disclosureTextColor != null
+            disclosureTextColor != null ||
+            contentStartColor != null ||
+            contentEndColor != null
     }
 
     private fun labelStyleCall(props: CellProperties): String? {

@@ -39,11 +39,16 @@ fun Icon(
     contentScale: ContentScale = ContentScale.Fit,
     brush: BrushProducer? = LocalTintBrushProducer.current,
 ) {
+    val brushProducer = if (tint == LocalTint.current) {
+        brush ?: BrushProducer { tint.asBrush() }
+    } else {
+        BrushProducer { tint.asBrush() }
+    }
     BaseIcon(
         source = { painter },
         contentDescription = contentDescription,
         modifier = modifier,
-        brushProducer = brush ?: BrushProducer { tint.asBrush() },
+        brushProducer = brushProducer,
         contentScale = contentScale,
     )
 }

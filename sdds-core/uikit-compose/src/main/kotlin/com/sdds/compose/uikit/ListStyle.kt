@@ -396,19 +396,19 @@ private class DefaultListDimensions(
 
 ) : ListDimensions {
     @Deprecated("use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
-    override val paddingStart: Dp = 0.dp
+    override val paddingStart: Dp = paddingStartValues.getDefaultValue()
 
     @Deprecated("use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
-    override val paddingEnd: Dp = 0.dp
+    override val paddingEnd: Dp = paddingEndValues.getDefaultValue()
 
     @Deprecated("use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
-    override val paddingTop: Dp = 0.dp
+    override val paddingTop: Dp = paddingTopValues.getDefaultValue()
 
     @Deprecated("use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
-    override val paddingBottom: Dp = 0.dp
+    override val paddingBottom: Dp = paddingBottomValues.getDefaultValue()
 
     @Deprecated("use gapValues", replaceWith = ReplaceWith("gapValues"))
-    override val gap: Dp = Dp.Unspecified
+    override val gap: Dp = gapValues.getDefaultValue()
 
     class Builder : ListDimensionsBuilder {
         private var paddingStartValues: StatefulValue<Dp>? = null

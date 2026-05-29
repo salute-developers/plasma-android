@@ -577,6 +577,16 @@ interface CellColors {
      */
     val disclosureIconBrush: StatefulValue<Brush>
 
+    /**
+     * Кисть контента в начале
+     */
+    val contentStartColor: StatefulValue<Brush>
+
+    /**
+     * Кисть контента в конце
+     */
+    val contentEndColor: StatefulValue<Brush>
+
     companion object {
 
         /**
@@ -707,6 +717,52 @@ interface CellColorsBuilder {
     fun disclosureIconColor(brush: StatefulValue<Brush>): CellColorsBuilder
 
     /**
+     * Устанавливает цвет контента в начале
+     */
+    fun contentStartColor(contentStartColor: Color): CellColorsBuilder =
+        contentStartColor(contentStartColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет контента в начале
+     */
+    fun contentStartColor(contentStartColor: InteractiveColor): CellColorsBuilder =
+        contentStartColor(contentStartColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента в начале
+     */
+    fun contentStartColor(brush: Brush): CellColorsBuilder =
+        contentStartColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти контента в начале
+     */
+    fun contentStartColor(brush: StatefulValue<Brush>): CellColorsBuilder
+
+    /**
+     * Устанавливает цвет контента в конце
+     */
+    fun contentEndColor(contentEndColor: Color): CellColorsBuilder =
+        contentEndColor(contentEndColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет контента в конце
+     */
+    fun contentEndColor(contentEndColor: InteractiveColor): CellColorsBuilder =
+        contentEndColor(contentEndColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента в конце
+     */
+    fun contentEndColor(brush: Brush): CellColorsBuilder =
+        contentEndColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти контента в конце
+     */
+    fun contentEndColor(brush: StatefulValue<Brush>): CellColorsBuilder
+
+    /**
      * Возвращает [CellColors]
      */
     fun build(): CellColors
@@ -719,6 +775,8 @@ private class DefaultCellColors(
     override val subtitleBrush: StatefulValue<Brush>,
     override val disclosureTextBrush: StatefulValue<Brush>,
     override val disclosureIconBrush: StatefulValue<Brush>,
+    override val contentStartColor: StatefulValue<Brush>,
+    override val contentEndColor: StatefulValue<Brush>,
 ) : CellColors {
     @Deprecated(
         "Use titleBrush",
@@ -756,6 +814,8 @@ private class DefaultCellColors(
         private var subtitleColor: StatefulValue<Brush>? = null
         private var disclosureTextColor: StatefulValue<Brush>? = null
         private var disclosureIconColor: StatefulValue<Brush>? = null
+        private var contentStartColor: StatefulValue<Brush>? = null
+        private var contentEndColor: StatefulValue<Brush>? = null
 
         override fun titleColor(brush: StatefulValue<Brush>) = apply {
             this.titleColor = brush
@@ -777,13 +837,24 @@ private class DefaultCellColors(
             this.disclosureIconColor = brush
         }
 
+        override fun contentStartColor(brush: StatefulValue<Brush>) = apply {
+            this.contentStartColor = brush
+        }
+
+        override fun contentEndColor(brush: StatefulValue<Brush>) = apply {
+            this.contentEndColor = brush
+        }
+
         override fun build(): CellColors {
+            val defaultTitleBrush = titleColor ?: Color.Black.asStatefulBrush()
             return DefaultCellColors(
-                titleBrush = titleColor ?: Color.Black.asStatefulBrush(),
+                titleBrush = defaultTitleBrush,
                 labelBrush = labelColor ?: Color.Black.asStatefulBrush(),
                 subtitleBrush = subtitleColor ?: Color.Black.asStatefulBrush(),
                 disclosureTextBrush = disclosureTextColor ?: Color.Black.asStatefulBrush(),
                 disclosureIconBrush = disclosureIconColor ?: Color.Black.asStatefulBrush(),
+                contentStartColor = contentStartColor ?: defaultTitleBrush,
+                contentEndColor = contentEndColor ?: defaultTitleBrush,
             )
         }
     }
