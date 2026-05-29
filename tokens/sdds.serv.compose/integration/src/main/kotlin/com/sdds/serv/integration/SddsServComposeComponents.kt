@@ -56,6 +56,7 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.IconButton,
                 mapOf(
                     "IconButton" to SddsServIconButtonVariationsCompose,
+                    "AiHeaderEmbeddedIconButton" to SddsServAiHeaderEmbeddedIconButtonVariationsCompose,
                     "EmbeddedIconButton" to SddsServEmbeddedIconButtonVariationsCompose,
                 ),
             ),

@@ -355,10 +355,11 @@ private fun CoreComponentName.group(): ComponentGroup {
 
         CoreComponentName.NAVIGATION_BAR,
         CoreComponentName.COLLAPSING_NAVIGATION_BAR,
-        CoreComponentName.AI_HEADER,
         -> CoreComponentGroup.NAVIGATION
 
         CoreComponentName.FLOW -> CoreComponentGroup.LAYOUT
-        CoreComponentName.AI_ANSWER -> CoreComponentGroup.AI_KIT
+        CoreComponentName.AI_HEADER,
+        CoreComponentName.AI_ANSWER
+        -> CoreComponentGroup.AI_KIT
     }.let { ComponentGroup(it.displayName, it.ordinal) }
 }

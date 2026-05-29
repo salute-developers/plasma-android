@@ -145,6 +145,34 @@ public enum class IconButtonStyles(
     IconButtonXxsPilledDark("IconButton.Xxs.Pilled.Dark"),
     IconButtonXxsPilledBlack("IconButton.Xxs.Pilled.Black"),
     IconButtonXxsPilledWhite("IconButton.Xxs.Pilled.White"),
+    AiHeaderEmbeddedIconButtonXlDefault("AiHeaderEmbeddedIconButton.Xl.Default"),
+    AiHeaderEmbeddedIconButtonXlSecondary("AiHeaderEmbeddedIconButton.Xl.Secondary"),
+    AiHeaderEmbeddedIconButtonXlAccent("AiHeaderEmbeddedIconButton.Xl.Accent"),
+    AiHeaderEmbeddedIconButtonXlPositive("AiHeaderEmbeddedIconButton.Xl.Positive"),
+    AiHeaderEmbeddedIconButtonXlNegative("AiHeaderEmbeddedIconButton.Xl.Negative"),
+    AiHeaderEmbeddedIconButtonXlWarning("AiHeaderEmbeddedIconButton.Xl.Warning"),
+    AiHeaderEmbeddedIconButtonXlInfo("AiHeaderEmbeddedIconButton.Xl.Info"),
+    AiHeaderEmbeddedIconButtonLDefault("AiHeaderEmbeddedIconButton.L.Default"),
+    AiHeaderEmbeddedIconButtonLSecondary("AiHeaderEmbeddedIconButton.L.Secondary"),
+    AiHeaderEmbeddedIconButtonLAccent("AiHeaderEmbeddedIconButton.L.Accent"),
+    AiHeaderEmbeddedIconButtonLPositive("AiHeaderEmbeddedIconButton.L.Positive"),
+    AiHeaderEmbeddedIconButtonLNegative("AiHeaderEmbeddedIconButton.L.Negative"),
+    AiHeaderEmbeddedIconButtonLWarning("AiHeaderEmbeddedIconButton.L.Warning"),
+    AiHeaderEmbeddedIconButtonLInfo("AiHeaderEmbeddedIconButton.L.Info"),
+    AiHeaderEmbeddedIconButtonMDefault("AiHeaderEmbeddedIconButton.M.Default"),
+    AiHeaderEmbeddedIconButtonMSecondary("AiHeaderEmbeddedIconButton.M.Secondary"),
+    AiHeaderEmbeddedIconButtonMAccent("AiHeaderEmbeddedIconButton.M.Accent"),
+    AiHeaderEmbeddedIconButtonMPositive("AiHeaderEmbeddedIconButton.M.Positive"),
+    AiHeaderEmbeddedIconButtonMNegative("AiHeaderEmbeddedIconButton.M.Negative"),
+    AiHeaderEmbeddedIconButtonMWarning("AiHeaderEmbeddedIconButton.M.Warning"),
+    AiHeaderEmbeddedIconButtonMInfo("AiHeaderEmbeddedIconButton.M.Info"),
+    AiHeaderEmbeddedIconButtonSDefault("AiHeaderEmbeddedIconButton.S.Default"),
+    AiHeaderEmbeddedIconButtonSSecondary("AiHeaderEmbeddedIconButton.S.Secondary"),
+    AiHeaderEmbeddedIconButtonSAccent("AiHeaderEmbeddedIconButton.S.Accent"),
+    AiHeaderEmbeddedIconButtonSPositive("AiHeaderEmbeddedIconButton.S.Positive"),
+    AiHeaderEmbeddedIconButtonSNegative("AiHeaderEmbeddedIconButton.S.Negative"),
+    AiHeaderEmbeddedIconButtonSWarning("AiHeaderEmbeddedIconButton.S.Warning"),
+    AiHeaderEmbeddedIconButtonSInfo("AiHeaderEmbeddedIconButton.S.Info"),
     EmbeddedIconButtonLDefault("EmbeddedIconButton.L.Default"),
     EmbeddedIconButtonLSecondary("EmbeddedIconButton.L.Secondary"),
     EmbeddedIconButtonLAccent("EmbeddedIconButton.L.Accent"),
@@ -179,6 +207,11 @@ public enum class IconButtonStyles(
      * Typed API для подбора стиля icon-button
      */
     public object Default
+
+    /**
+     * Typed API для подбора стиля ai-header-embedded-icon-button
+     */
+    public object AiHeaderEmbeddedIconButton
 
     /**
      * Typed API для подбора стиля embedded-icon-button
@@ -220,6 +253,30 @@ public enum class IconButtonDefaultView {
     Dark,
     Black,
     White,
+}
+
+/**
+ * Возможные значения свойства size для ai-header-embedded-icon-button
+ */
+public enum class AiHeaderEmbeddedIconButtonSize {
+    Xl,
+    L,
+    M,
+    S,
+}
+
+/**
+ * Возможные значения свойства view для ai-header-embedded-icon-button
+ */
+public enum class AiHeaderEmbeddedIconButtonView {
+    Default,
+    Secondary,
+    Accent,
+    Positive,
+    Negative,
+    Warning,
+    Clear,
+    Info,
 }
 
 /**
@@ -372,6 +429,40 @@ public fun IconButtonStyles.style(modify: @Composable IconButtonStyleBuilder.() 
         IconButtonStyles.IconButtonXxsPilledDark -> IconButton.Xxs.Pilled.Dark
         IconButtonStyles.IconButtonXxsPilledBlack -> IconButton.Xxs.Pilled.Black
         IconButtonStyles.IconButtonXxsPilledWhite -> IconButton.Xxs.Pilled.White
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlDefault -> AiHeaderEmbeddedIconButton.Xl.Default
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlSecondary ->
+            AiHeaderEmbeddedIconButton.Xl.Secondary
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlAccent -> AiHeaderEmbeddedIconButton.Xl.Accent
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlPositive ->
+            AiHeaderEmbeddedIconButton.Xl.Positive
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlNegative ->
+            AiHeaderEmbeddedIconButton.Xl.Negative
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlWarning -> AiHeaderEmbeddedIconButton.Xl.Warning
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlInfo -> AiHeaderEmbeddedIconButton.Xl.Info
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLDefault -> AiHeaderEmbeddedIconButton.L.Default
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLSecondary ->
+            AiHeaderEmbeddedIconButton.L.Secondary
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLAccent -> AiHeaderEmbeddedIconButton.L.Accent
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLPositive -> AiHeaderEmbeddedIconButton.L.Positive
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLNegative -> AiHeaderEmbeddedIconButton.L.Negative
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLWarning -> AiHeaderEmbeddedIconButton.L.Warning
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLInfo -> AiHeaderEmbeddedIconButton.L.Info
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMDefault -> AiHeaderEmbeddedIconButton.M.Default
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMSecondary ->
+            AiHeaderEmbeddedIconButton.M.Secondary
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMAccent -> AiHeaderEmbeddedIconButton.M.Accent
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMPositive -> AiHeaderEmbeddedIconButton.M.Positive
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMNegative -> AiHeaderEmbeddedIconButton.M.Negative
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMWarning -> AiHeaderEmbeddedIconButton.M.Warning
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMInfo -> AiHeaderEmbeddedIconButton.M.Info
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSDefault -> AiHeaderEmbeddedIconButton.S.Default
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSSecondary ->
+            AiHeaderEmbeddedIconButton.S.Secondary
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSAccent -> AiHeaderEmbeddedIconButton.S.Accent
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSPositive -> AiHeaderEmbeddedIconButton.S.Positive
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSNegative -> AiHeaderEmbeddedIconButton.S.Negative
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSWarning -> AiHeaderEmbeddedIconButton.S.Warning
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSInfo -> AiHeaderEmbeddedIconButton.S.Info
         IconButtonStyles.EmbeddedIconButtonLDefault -> EmbeddedIconButton.L.Default
         IconButtonStyles.EmbeddedIconButtonLSecondary -> EmbeddedIconButton.L.Secondary
         IconButtonStyles.EmbeddedIconButtonLAccent -> EmbeddedIconButton.L.Accent
@@ -665,6 +756,84 @@ public fun IconButtonStyles.Default.style(
     view: IconButtonDefaultView = IconButtonDefaultView.Default,
     modify: @Composable IconButtonStyleBuilder.() -> Unit = {},
 ): ButtonStyle = resolve(size, shape, view).style(modify)
+
+/**
+ * Возвращает экземпляр [IconButtonStyles] для ai-header-embedded-icon-button
+ */
+public fun IconButtonStyles.AiHeaderEmbeddedIconButton.resolve(
+    size: AiHeaderEmbeddedIconButtonSize =
+        AiHeaderEmbeddedIconButtonSize.M,
+    view: AiHeaderEmbeddedIconButtonView =
+        AiHeaderEmbeddedIconButtonView.Default,
+): IconButtonStyles = when {
+    size == AiHeaderEmbeddedIconButtonSize.Xl && view == AiHeaderEmbeddedIconButtonView.Default ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlDefault
+    size == AiHeaderEmbeddedIconButtonSize.Xl && view == AiHeaderEmbeddedIconButtonView.Secondary ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlSecondary
+    size == AiHeaderEmbeddedIconButtonSize.Xl && view == AiHeaderEmbeddedIconButtonView.Accent ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlAccent
+    size == AiHeaderEmbeddedIconButtonSize.Xl && view == AiHeaderEmbeddedIconButtonView.Positive ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlPositive
+    size == AiHeaderEmbeddedIconButtonSize.Xl && view == AiHeaderEmbeddedIconButtonView.Negative ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlNegative
+    size == AiHeaderEmbeddedIconButtonSize.Xl && view == AiHeaderEmbeddedIconButtonView.Warning ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlWarning
+    size == AiHeaderEmbeddedIconButtonSize.Xl && view == AiHeaderEmbeddedIconButtonView.Info ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonXlInfo
+    size == AiHeaderEmbeddedIconButtonSize.L && view == AiHeaderEmbeddedIconButtonView.Default ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLDefault
+    size == AiHeaderEmbeddedIconButtonSize.L && view == AiHeaderEmbeddedIconButtonView.Secondary ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLSecondary
+    size == AiHeaderEmbeddedIconButtonSize.L && view == AiHeaderEmbeddedIconButtonView.Accent ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLAccent
+    size == AiHeaderEmbeddedIconButtonSize.L && view == AiHeaderEmbeddedIconButtonView.Positive ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLPositive
+    size == AiHeaderEmbeddedIconButtonSize.L && view == AiHeaderEmbeddedIconButtonView.Negative ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLNegative
+    size == AiHeaderEmbeddedIconButtonSize.L && view == AiHeaderEmbeddedIconButtonView.Warning ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLWarning
+    size == AiHeaderEmbeddedIconButtonSize.L && view == AiHeaderEmbeddedIconButtonView.Info ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonLInfo
+    size == AiHeaderEmbeddedIconButtonSize.M && view == AiHeaderEmbeddedIconButtonView.Default ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMDefault
+    size == AiHeaderEmbeddedIconButtonSize.M && view == AiHeaderEmbeddedIconButtonView.Secondary ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMSecondary
+    size == AiHeaderEmbeddedIconButtonSize.M && view == AiHeaderEmbeddedIconButtonView.Accent ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMAccent
+    size == AiHeaderEmbeddedIconButtonSize.M && view == AiHeaderEmbeddedIconButtonView.Positive ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMPositive
+    size == AiHeaderEmbeddedIconButtonSize.M && view == AiHeaderEmbeddedIconButtonView.Negative ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMNegative
+    size == AiHeaderEmbeddedIconButtonSize.M && view == AiHeaderEmbeddedIconButtonView.Warning ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMWarning
+    size == AiHeaderEmbeddedIconButtonSize.M && view == AiHeaderEmbeddedIconButtonView.Info ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonMInfo
+    size == AiHeaderEmbeddedIconButtonSize.S && view == AiHeaderEmbeddedIconButtonView.Default ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSDefault
+    size == AiHeaderEmbeddedIconButtonSize.S && view == AiHeaderEmbeddedIconButtonView.Secondary ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSSecondary
+    size == AiHeaderEmbeddedIconButtonSize.S && view == AiHeaderEmbeddedIconButtonView.Accent ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSAccent
+    size == AiHeaderEmbeddedIconButtonSize.S && view == AiHeaderEmbeddedIconButtonView.Positive ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSPositive
+    size == AiHeaderEmbeddedIconButtonSize.S && view == AiHeaderEmbeddedIconButtonView.Negative ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSNegative
+    size == AiHeaderEmbeddedIconButtonSize.S && view == AiHeaderEmbeddedIconButtonView.Warning ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSWarning
+    size == AiHeaderEmbeddedIconButtonSize.S && view == AiHeaderEmbeddedIconButtonView.Info ->
+        IconButtonStyles.AiHeaderEmbeddedIconButtonSInfo
+    else -> error("Unsupported ai-header-embedded-icon-button style combination")
+}
+
+/**
+ * Возвращает [ButtonStyle] для ai-header-embedded-icon-button
+ */
+@Composable
+public fun IconButtonStyles.AiHeaderEmbeddedIconButton.style(
+    size: AiHeaderEmbeddedIconButtonSize = AiHeaderEmbeddedIconButtonSize.M,
+    view: AiHeaderEmbeddedIconButtonView = AiHeaderEmbeddedIconButtonView.Default,
+    modify: @Composable IconButtonStyleBuilder.() -> Unit = {},
+): ButtonStyle = resolve(size, view).style(modify)
 
 /**
  * Возвращает экземпляр [IconButtonStyles] для embedded-icon-button

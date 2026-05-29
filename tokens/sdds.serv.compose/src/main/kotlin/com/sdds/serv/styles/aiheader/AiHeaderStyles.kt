@@ -16,12 +16,12 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.serv.styles.iconbutton.EmbeddedIconButton
+import com.sdds.serv.styles.iconbutton.AiHeaderEmbeddedIconButton
 import com.sdds.serv.styles.iconbutton.L
 import com.sdds.serv.styles.iconbutton.M
 import com.sdds.serv.styles.iconbutton.S
 import com.sdds.serv.styles.iconbutton.Secondary
-import com.sdds.serv.styles.iconbutton.Xs
+import com.sdds.serv.styles.iconbutton.Xl
 import com.sdds.serv.theme.SddsServTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -184,8 +184,8 @@ public val AiHeader.Xs: WrapperAiHeaderXs
             textPaddingBottom(9.0.dp)
             subtitlePadding(4.0.dp)
         }
-        .startButtonStyle(EmbeddedIconButton.Xs.Secondary.style())
-        .endButtonStyle(EmbeddedIconButton.Xs.Secondary.style())
+        .startButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
+        .endButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
         .wrap(::WrapperAiHeaderXs)
 
 public val AiHeader.S: WrapperAiHeaderS
@@ -204,8 +204,8 @@ public val AiHeader.S: WrapperAiHeaderS
             textPaddingBottom(7.0.dp)
             subtitlePadding(4.0.dp)
         }
-        .startButtonStyle(EmbeddedIconButton.Xs.Secondary.style())
-        .endButtonStyle(EmbeddedIconButton.Xs.Secondary.style())
+        .startButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
+        .endButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
         .wrap(::WrapperAiHeaderS)
 
 public val AiHeader.M: WrapperAiHeaderM
@@ -224,8 +224,8 @@ public val AiHeader.M: WrapperAiHeaderM
             textPaddingBottom(10.0.dp)
             subtitlePadding(6.0.dp)
         }
-        .startButtonStyle(EmbeddedIconButton.S.Secondary.style())
-        .endButtonStyle(EmbeddedIconButton.S.Secondary.style())
+        .startButtonStyle(AiHeaderEmbeddedIconButton.M.Secondary.style())
+        .endButtonStyle(AiHeaderEmbeddedIconButton.M.Secondary.style())
         .wrap(::WrapperAiHeaderM)
 
 public val AiHeader.L: WrapperAiHeaderL
@@ -244,8 +244,8 @@ public val AiHeader.L: WrapperAiHeaderL
             textPaddingBottom(13.0.dp)
             subtitlePadding(8.0.dp)
         }
-        .startButtonStyle(EmbeddedIconButton.M.Secondary.style())
-        .endButtonStyle(EmbeddedIconButton.M.Secondary.style())
+        .startButtonStyle(AiHeaderEmbeddedIconButton.L.Secondary.style())
+        .endButtonStyle(AiHeaderEmbeddedIconButton.L.Secondary.style())
         .wrap(::WrapperAiHeaderL)
 
 public val AiHeader.Xl: WrapperAiHeaderXl
@@ -264,8 +264,8 @@ public val AiHeader.Xl: WrapperAiHeaderXl
             textPaddingBottom(17.0.dp)
             subtitlePadding(8.0.dp)
         }
-        .startButtonStyle(EmbeddedIconButton.L.Secondary.style())
-        .endButtonStyle(EmbeddedIconButton.L.Secondary.style())
+        .startButtonStyle(AiHeaderEmbeddedIconButton.Xl.Secondary.style())
+        .endButtonStyle(AiHeaderEmbeddedIconButton.Xl.Secondary.style())
         .wrap(::WrapperAiHeaderXl)
 
 public val AiHeader.H5: WrapperAiHeaderH5
@@ -284,8 +284,8 @@ public val AiHeader.H5: WrapperAiHeaderH5
             textPaddingBottom(4.0.dp)
             subtitlePadding(4.0.dp)
         }
-        .startButtonStyle(EmbeddedIconButton.Xs.Secondary.style())
-        .endButtonStyle(EmbeddedIconButton.Xs.Secondary.style())
+        .startButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
+        .endButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
         .wrap(::WrapperAiHeaderH5)
 
 public val AiHeader.H4: WrapperAiHeaderH4
@@ -306,8 +306,8 @@ public val AiHeader.H4: WrapperAiHeaderH4
             textPaddingBottom(7.0.dp)
             subtitlePadding(6.0.dp)
         }
-        .startButtonStyle(EmbeddedIconButton.S.Secondary.style())
-        .endButtonStyle(EmbeddedIconButton.S.Secondary.style())
+        .startButtonStyle(AiHeaderEmbeddedIconButton.M.Secondary.style())
+        .endButtonStyle(AiHeaderEmbeddedIconButton.M.Secondary.style())
         .wrap(::WrapperAiHeaderH4)
 
 public val AiHeader.H3: WrapperAiHeaderH3
@@ -328,8 +328,8 @@ public val AiHeader.H3: WrapperAiHeaderH3
             textPaddingBottom(9.0.dp)
             subtitlePadding(8.0.dp)
         }
-        .startButtonStyle(EmbeddedIconButton.M.Secondary.style())
-        .endButtonStyle(EmbeddedIconButton.M.Secondary.style())
+        .startButtonStyle(AiHeaderEmbeddedIconButton.L.Secondary.style())
+        .endButtonStyle(AiHeaderEmbeddedIconButton.L.Secondary.style())
         .wrap(::WrapperAiHeaderH3)
 
 public val AiHeader.H2: WrapperAiHeaderH2
@@ -348,6 +348,6 @@ public val AiHeader.H2: WrapperAiHeaderH2
             textPaddingBottom(10.0.dp)
             subtitlePadding(8.0.dp)
         }
-        .startButtonStyle(EmbeddedIconButton.L.Secondary.style())
-        .endButtonStyle(EmbeddedIconButton.L.Secondary.style())
+        .startButtonStyle(AiHeaderEmbeddedIconButton.Xl.Secondary.style())
+        .endButtonStyle(AiHeaderEmbeddedIconButton.Xl.Secondary.style())
         .wrap(::WrapperAiHeaderH2)
