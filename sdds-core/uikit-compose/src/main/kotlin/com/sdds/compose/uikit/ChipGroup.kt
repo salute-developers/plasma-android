@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -63,9 +64,8 @@ fun ChipGroup(
     ) {
         FlowRowLayout(
             modifier = modifier,
-            horizontalSpacing = style.dimensions.gap,
-            verticalSpacing = style.dimensions.lineSpacing,
-            mode = FlowRowLayout.Mode.Wrap,
+            horizontalArrangement = Arrangement.spacedBy(style.dimensions.gap),
+            verticalArrangement = Arrangement.spacedBy(style.dimensions.lineSpacing),
             content = content,
         )
     }

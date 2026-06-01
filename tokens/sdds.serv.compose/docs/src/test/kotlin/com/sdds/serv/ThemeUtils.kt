@@ -68,9 +68,12 @@ import com.sdds.compose.uikit.LocalTextSkeletonStyle
 import com.sdds.compose.uikit.LocalToastStyle
 import com.sdds.compose.uikit.LocalToolBarStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
+import com.sdds.compose.uikit.ai.LocalAiAnswerStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.accordion.AccordionSolidActionStart
 import com.sdds.serv.styles.accordion.H3
+import com.sdds.serv.styles.aianswer.AiAnswer
+import com.sdds.serv.styles.aianswer.M
 import com.sdds.serv.styles.autocomplete.AutocompleteNormal
 import com.sdds.serv.styles.autocomplete.M
 import com.sdds.serv.styles.avatar.Avatar
@@ -312,6 +315,7 @@ fun ThemeSetup(
             LocalToastStyle provides Toast.Rounded.Default.style(),
             LocalToolBarStyle provides ToolBarHorizontal.M.style(),
             LocalTooltipStyle provides Tooltip.M.style(),
+            LocalAiAnswerStyle provides AiAnswer.M.style(),
         ) {
             content()
         }

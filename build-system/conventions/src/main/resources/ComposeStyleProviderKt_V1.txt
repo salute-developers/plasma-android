@@ -1,7 +1,7 @@
 package ${{ packageName }}
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.${{ coreStyleClass }}
+import ${{ coreStyleClassImport }}
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import ${{ themePackageName }}.styles.${{ componentPackage }}.${{ styleName }}
