@@ -58,7 +58,7 @@ data class ComponentKey(
 
         val Avatar = ComponentKey(CoreComponentName.AVATAR)
         val AvatarGroup = ComponentKey(CoreComponentName.AVATAR_GROUP)
-        val Answer = ComponentKey(CoreComponentName.ANSWER)
+        val AiAnswer = ComponentKey(CoreComponentName.AI_ANSWER)
 
         val Badge = ComponentKey(CoreComponentName.BADGE)
         val IconBadge = ComponentKey(CoreComponentName.ICON_BADGE)
@@ -159,7 +159,7 @@ private enum class CoreComponentGroup(val displayName: String) {
 }
 
 private enum class CoreComponentName(displayName: String? = null) {
-    ANSWER,
+    AI_ANSWER,
 
     AVATAR,
     AVATAR_GROUP,
@@ -356,6 +356,6 @@ private fun CoreComponentName.group(): ComponentGroup {
         -> CoreComponentGroup.NAVIGATION
 
         CoreComponentName.FLOW -> CoreComponentGroup.LAYOUT
-        CoreComponentName.ANSWER -> CoreComponentGroup.AI_KIT
+        CoreComponentName.AI_ANSWER -> CoreComponentGroup.AI_KIT
     }.let { ComponentGroup(it.displayName, it.ordinal) }
 }

@@ -13,19 +13,19 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.NoteStyle
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.ai.Answer
-import com.sdds.compose.uikit.ai.AnswerError
-import com.sdds.compose.uikit.ai.AnswerLoading
-import com.sdds.compose.uikit.ai.AnswerState
-import com.sdds.compose.uikit.ai.AnswerStyle
+import com.sdds.compose.uikit.ai.AiAnswer
+import com.sdds.compose.uikit.ai.AiAnswerError
+import com.sdds.compose.uikit.ai.AiAnswerLoading
+import com.sdds.compose.uikit.ai.AiAnswerState
+import com.sdds.compose.uikit.ai.AiAnswerStyle
 import com.sdds.docs.DocSample
 import com.sdds.icons.R
 
 @Composable
 @DocSample(needScreenshot = true)
-fun Answer_Default() {
+fun AiAnswer_Default() {
     composableCodeSnippet {
-        Answer(
+        AiAnswer(
             title = { Text("Ответ ассистента") },
             content = {
                 Text("SDDS Compose позволяет собрать ответ из обычных composable-слотов.")
@@ -48,12 +48,12 @@ fun Answer_Default() {
 
 @Composable
 @DocSample(needScreenshot = false)
-fun Answer_LoadingCustom() {
+fun AiAnswer_LoadingCustom() {
     composableCodeSnippet {
-        Answer(
-            state = AnswerState.Loading,
+        AiAnswer(
+            state = AiAnswerState.Loading,
             loading = {
-                AnswerLoading(text = { Text("Ищем подходящий ответ") })
+                AiAnswerLoading(text = { Text("Ищем подходящий ответ") })
             },
         )
     }
@@ -61,12 +61,12 @@ fun Answer_LoadingCustom() {
 
 @Composable
 @DocSample(needScreenshot = false)
-fun Answer_ErrorCustom() {
+fun AiAnswer_ErrorCustom() {
     composableCodeSnippet {
-        Answer(
-            state = AnswerState.Error,
+        AiAnswer(
+            state = AiAnswerState.Error,
             error = {
-                AnswerError(
+                AiAnswerError(
                     title = { Text("Ответ недоступен") },
                     text = { Text("Попробуйте изменить запрос.") },
                 )
@@ -77,9 +77,9 @@ fun Answer_ErrorCustom() {
 
 @Composable
 @DocSample(needScreenshot = false)
-fun Answer_Style() {
+fun AiAnswer_Style() {
     composableCodeSnippet {
-        AnswerStyle.builder()
+        AiAnswerStyle.builder()
             .colors {
                 background(Color.Transparent)
                 titleColor(Color.Black)

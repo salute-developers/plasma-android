@@ -18,7 +18,7 @@ import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerPropertie
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class AnswerProperties(
+internal data class AiAnswerProperties(
     val backgroundColor: Color? = null,
     val titleColor: Color? = null,
     val contentColor: Color? = null,
@@ -42,7 +42,7 @@ internal data class AnswerProperties(
 ) : PropertyOwner {
     @Suppress("CyclomaticComplexMethod")
     override fun merge(parent: PropertyOwner): PropertyOwner {
-        val otherProps = parent as? AnswerProperties ?: return this
+        val otherProps = parent as? AiAnswerProperties ?: return this
         return copy(
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             titleColor = titleColor ?: otherProps.titleColor,
@@ -69,27 +69,27 @@ internal data class AnswerProperties(
 }
 
 @Serializable
-internal data class AnswerView(
-    override val props: AnswerProperties,
+internal data class AiAnswerView(
+    override val props: AiAnswerProperties,
     override val binding: List<Binding>? = null,
-) : ViewVariation<AnswerProperties> {
-    override fun merge(parent: ViewVariation<AnswerProperties>): ViewVariation<AnswerProperties> =
-        copy(props = props.merge(parent.props) as AnswerProperties, binding = binding ?: parent.binding)
+) : ViewVariation<AiAnswerProperties> {
+    override fun merge(parent: ViewVariation<AiAnswerProperties>): ViewVariation<AiAnswerProperties> =
+        copy(props = props.merge(parent.props) as AiAnswerProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
-internal data class AnswerVariation(
+internal data class AiAnswerVariation(
     override val id: String,
     override val parent: String? = null,
     override val binding: List<Binding>? = null,
-    override val view: Map<String, AnswerView> = emptyMap(),
-    override val props: AnswerProperties,
-) : ChildVariation<AnswerProperties>
+    override val view: Map<String, AiAnswerView> = emptyMap(),
+    override val props: AiAnswerProperties,
+) : ChildVariation<AiAnswerProperties>
 
 @Serializable
-internal data class AnswerConfig(
-    override val view: Map<String, AnswerView> = emptyMap(),
-    override val props: AnswerProperties,
-    override val variations: List<AnswerVariation> = emptyList(),
+internal data class AiAnswerConfig(
+    override val view: Map<String, AiAnswerView> = emptyMap(),
+    override val props: AiAnswerProperties,
+    override val variations: List<AiAnswerVariation> = emptyList(),
     override val bindings: List<Bindings> = emptyList(),
-) : Config<AnswerProperties>, ComponentConfig
+) : Config<AiAnswerProperties>, ComponentConfig

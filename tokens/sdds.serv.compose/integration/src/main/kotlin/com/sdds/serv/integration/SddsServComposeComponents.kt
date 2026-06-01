@@ -484,9 +484,9 @@ object SddsServComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
-                ComponentKey.Answer,
+                ComponentKey.AiAnswer,
                 mapOf(
-                    "Answer" to SddsServAnswerVariationsCompose,
+                    "AiAnswer" to SddsServAiAnswerVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

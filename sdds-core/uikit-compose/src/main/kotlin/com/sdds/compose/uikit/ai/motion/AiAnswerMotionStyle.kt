@@ -6,24 +6,24 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
-import com.sdds.compose.uikit.ai.Answer
+import com.sdds.compose.uikit.ai.AiAnswer
 import com.sdds.compose.uikit.motion.MotionProperty
 import com.sdds.compose.uikit.motion.MotionStyle
 import com.sdds.compose.uikit.motion.MotionStyleBuilder
 import com.sdds.compose.uikit.motion.noMotion
 
 /**
- * CompositionLocal, предоставляющий текущий [AnswerMotionStyle].
+ * CompositionLocal, предоставляющий текущий [AiAnswerMotionStyle].
  */
-val LocalAnswerMotionStyle = compositionLocalOf {
-    AnswerMotionStyle.builder().style()
+val LocalAiAnswerMotionStyle = compositionLocalOf {
+    AiAnswerMotionStyle.builder().style()
 }
 
 /**
- * Motion-стиль компонента [Answer].
+ * Motion-стиль компонента [AiAnswer].
  */
 @Stable
-interface AnswerMotionStyle : MotionStyle {
+interface AiAnswerMotionStyle : MotionStyle {
     /**
      * Анимация фона.
      */
@@ -101,94 +101,94 @@ interface AnswerMotionStyle : MotionStyle {
 
     companion object {
         /**
-         * Возвращает builder для [AnswerMotionStyle].
+         * Возвращает builder для [AiAnswerMotionStyle].
          */
-        fun builder(): AnswerMotionStyleBuilder = DefaultAnswerMotionStyle.Builder()
+        fun builder(): AiAnswerMotionStyleBuilder = DefaultAiAnswerMotionStyle.Builder()
     }
 }
 
 /**
- * Builder [AnswerMotionStyle].
+ * Builder [AiAnswerMotionStyle].
  */
-interface AnswerMotionStyleBuilder : MotionStyleBuilder<AnswerMotionStyle> {
+interface AiAnswerMotionStyleBuilder : MotionStyleBuilder<AiAnswerMotionStyle> {
     /**
      * Устанавливает анимацию фона.
      */
-    fun background(background: MotionProperty<Brush>): AnswerMotionStyleBuilder
+    fun background(background: MotionProperty<Brush>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию цвета title.
      */
-    fun titleColor(titleColor: MotionProperty<Brush>): AnswerMotionStyleBuilder
+    fun titleColor(titleColor: MotionProperty<Brush>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию цвета основного контента.
      */
-    fun contentColor(contentColor: MotionProperty<Brush>): AnswerMotionStyleBuilder
+    fun contentColor(contentColor: MotionProperty<Brush>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию цвета loading-текста.
      */
-    fun loadingTextColor(loadingTextColor: MotionProperty<Brush>): AnswerMotionStyleBuilder
+    fun loadingTextColor(loadingTextColor: MotionProperty<Brush>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию стиля title.
      */
-    fun titleStyle(titleStyle: MotionProperty<TextStyle>): AnswerMotionStyleBuilder
+    fun titleStyle(titleStyle: MotionProperty<TextStyle>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию стиля основного контента.
      */
-    fun contentStyle(contentStyle: MotionProperty<TextStyle>): AnswerMotionStyleBuilder
+    fun contentStyle(contentStyle: MotionProperty<TextStyle>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию стиля loading-текста.
      */
-    fun loadingTextStyle(loadingTextStyle: MotionProperty<TextStyle>): AnswerMotionStyleBuilder
+    fun loadingTextStyle(loadingTextStyle: MotionProperty<TextStyle>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию отступа слева.
      */
-    fun paddingStart(paddingStart: MotionProperty<Dp>): AnswerMotionStyleBuilder
+    fun paddingStart(paddingStart: MotionProperty<Dp>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию отступа справа.
      */
-    fun paddingEnd(paddingEnd: MotionProperty<Dp>): AnswerMotionStyleBuilder
+    fun paddingEnd(paddingEnd: MotionProperty<Dp>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию отступа сверху.
      */
-    fun paddingTop(paddingTop: MotionProperty<Dp>): AnswerMotionStyleBuilder
+    fun paddingTop(paddingTop: MotionProperty<Dp>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию отступа снизу.
      */
-    fun paddingBottom(paddingBottom: MotionProperty<Dp>): AnswerMotionStyleBuilder
+    fun paddingBottom(paddingBottom: MotionProperty<Dp>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию отступа между title и content.
      */
-    fun contentGap(contentGap: MotionProperty<Dp>): AnswerMotionStyleBuilder
+    fun contentGap(contentGap: MotionProperty<Dp>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию отступа между content и actions.
      */
-    fun actionsGap(actionsGap: MotionProperty<Dp>): AnswerMotionStyleBuilder
+    fun actionsGap(actionsGap: MotionProperty<Dp>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию отступа между actions и suggestions.
      */
-    fun suggestionsGap(suggestionsGap: MotionProperty<Dp>): AnswerMotionStyleBuilder
+    fun suggestionsGap(suggestionsGap: MotionProperty<Dp>): AiAnswerMotionStyleBuilder
 
     /**
      * Устанавливает анимацию отступа между spinner и loading-текстом.
      */
-    fun loadingGap(loadingGap: MotionProperty<Dp>): AnswerMotionStyleBuilder
+    fun loadingGap(loadingGap: MotionProperty<Dp>): AiAnswerMotionStyleBuilder
 }
 
 @Immutable
-private data class DefaultAnswerMotionStyle(
+private data class DefaultAiAnswerMotionStyle(
     override val background: MotionProperty<Brush>,
     override val titleColor: MotionProperty<Brush>,
     override val contentColor: MotionProperty<Brush>,
@@ -204,8 +204,8 @@ private data class DefaultAnswerMotionStyle(
     override val actionsGap: MotionProperty<Dp>,
     override val suggestionsGap: MotionProperty<Dp>,
     override val loadingGap: MotionProperty<Dp>,
-) : AnswerMotionStyle {
-    class Builder : AnswerMotionStyleBuilder {
+) : AiAnswerMotionStyle {
+    class Builder : AiAnswerMotionStyleBuilder {
         private var background: MotionProperty<Brush>? = null
         private var titleColor: MotionProperty<Brush>? = null
         private var contentColor: MotionProperty<Brush>? = null
@@ -283,8 +283,8 @@ private data class DefaultAnswerMotionStyle(
         }
 
         @Suppress("CyclomaticComplexMethod")
-        override fun style(): AnswerMotionStyle {
-            return DefaultAnswerMotionStyle(
+        override fun style(): AiAnswerMotionStyle {
+            return DefaultAiAnswerMotionStyle(
                 background = background ?: noMotion(),
                 titleColor = titleColor ?: noMotion(),
                 contentColor = contentColor ?: noMotion(),

@@ -9478,6 +9478,519 @@
       {
          "key": "icon-button",
          "coreName": "IconButton",
+         "styleName": "AiHeaderEmbeddedIconButton",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "m"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "accent",
+                  "positive",
+                  "negative",
+                  "warning",
+                  "clear",
+                  "info"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.iconbutton",
+            "stylesClassName": "IconButtonStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonStyles",
+            "receiverClassName": "IconButtonStyles.AiHeaderEmbeddedIconButton",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.iconbutton.IconButtonStyles.AiHeaderEmbeddedIconButton",
+            "returnTypeName": "ButtonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+            "modifyReceiverTypeName": "IconButtonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconButtonStyleBuilder",
+            "holderName": "AiHeaderEmbeddedIconButton",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiHeaderEmbeddedIconButtonSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.AiHeaderEmbeddedIconButtonSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiHeaderEmbeddedIconButtonView",
+                  "typeQualifiedName": "com.sdds.serv.styles.iconbutton.AiHeaderEmbeddedIconButtonView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "clear",
+                        "codeName": "Clear"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl.default",
+               "composeReference": "AiHeaderEmbeddedIconButton.Xl.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "AiHeaderEmbeddedIconButton.Xl.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "AiHeaderEmbeddedIconButton.Xl.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "AiHeaderEmbeddedIconButton.Xl.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "AiHeaderEmbeddedIconButton.Xl.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "AiHeaderEmbeddedIconButton.Xl.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xl.info",
+               "composeReference": "AiHeaderEmbeddedIconButton.Xl.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "l.default",
+               "composeReference": "AiHeaderEmbeddedIconButton.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "AiHeaderEmbeddedIconButton.L.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "AiHeaderEmbeddedIconButton.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "AiHeaderEmbeddedIconButton.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "AiHeaderEmbeddedIconButton.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "AiHeaderEmbeddedIconButton.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "AiHeaderEmbeddedIconButton.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "AiHeaderEmbeddedIconButton.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "AiHeaderEmbeddedIconButton.M.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "AiHeaderEmbeddedIconButton.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "AiHeaderEmbeddedIconButton.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "AiHeaderEmbeddedIconButton.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "AiHeaderEmbeddedIconButton.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "AiHeaderEmbeddedIconButton.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "AiHeaderEmbeddedIconButton.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "AiHeaderEmbeddedIconButton.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "AiHeaderEmbeddedIconButton.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "AiHeaderEmbeddedIconButton.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "AiHeaderEmbeddedIconButton.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "AiHeaderEmbeddedIconButton.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "AiHeaderEmbeddedIconButton.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "icon-button",
+         "coreName": "IconButton",
          "styleName": "EmbeddedIconButton",
          "props": [
             {
@@ -60945,9 +61458,9 @@
          ]
       },
       {
-         "key": "answer",
-         "coreName": "Answer",
-         "styleName": "Answer",
+         "key": "ai-answer",
+         "coreName": "AiAnswer",
+         "styleName": "AiAnswer",
          "props": [
             {
                "name": "size",
@@ -60962,22 +61475,22 @@
             }
          ],
          "styleApi": {
-            "packageName": "com.sdds.serv.styles.answer",
-            "stylesClassName": "AnswerStyles",
-            "stylesClassQualifiedName": "com.sdds.serv.styles.answer.AnswerStyles",
-            "receiverClassName": "AnswerStyles.Companion",
-            "receiverClassQualifiedName": "com.sdds.serv.styles.answer.AnswerStyles.Companion",
-            "returnTypeName": "AnswerStyle",
-            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AnswerStyle",
-            "modifyReceiverTypeName": "AnswerStyleBuilder",
-            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AnswerStyleBuilder",
+            "packageName": "com.sdds.serv.styles.aianswer",
+            "stylesClassName": "AiAnswerStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.aianswer.AiAnswerStyles",
+            "receiverClassName": "AiAnswerStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.aianswer.AiAnswerStyles.Companion",
+            "returnTypeName": "AiAnswerStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AiAnswerStyle",
+            "modifyReceiverTypeName": "AiAnswerStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AiAnswerStyleBuilder",
             "params": [
                {
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "AnswerSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.answer.AnswerSize",
+                  "typeName": "AiAnswerSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.aianswer.AiAnswerSize",
                   "defaultValue": {
                      "value": "m",
                      "codeName": "M"
@@ -61010,7 +61523,7 @@
          "variations": [
             {
                "name": "xl",
-               "composeReference": "Answer.Xl",
+               "composeReference": "AiAnswer.Xl",
                "props": [
                   {
                      "name": "size",
@@ -61020,7 +61533,7 @@
             },
             {
                "name": "l",
-               "composeReference": "Answer.L",
+               "composeReference": "AiAnswer.L",
                "props": [
                   {
                      "name": "size",
@@ -61030,7 +61543,7 @@
             },
             {
                "name": "m",
-               "composeReference": "Answer.M",
+               "composeReference": "AiAnswer.M",
                "props": [
                   {
                      "name": "size",
@@ -61040,7 +61553,7 @@
             },
             {
                "name": "s",
-               "composeReference": "Answer.S",
+               "composeReference": "AiAnswer.S",
                "props": [
                   {
                      "name": "size",
@@ -61050,7 +61563,7 @@
             },
             {
                "name": "xs",
-               "composeReference": "Answer.Xs",
+               "composeReference": "AiAnswer.Xs",
                "props": [
                   {
                      "name": "size",

@@ -11,13 +11,13 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.ai.Answer
-import com.sdds.compose.uikit.ai.AnswerError
-import com.sdds.compose.uikit.ai.AnswerLoading
-import com.sdds.compose.uikit.ai.AnswerState
-import com.sdds.compose.uikit.ai.AnswerStyle
-import com.sdds.compose.uikit.fixtures.stories.AnswerUiStatePropertiesProducer
-import com.sdds.compose.uikit.fixtures.stories.AnswerUiStateTransformer
+import com.sdds.compose.uikit.ai.AiAnswer
+import com.sdds.compose.uikit.ai.AiAnswerError
+import com.sdds.compose.uikit.ai.AiAnswerLoading
+import com.sdds.compose.uikit.ai.AiAnswerState
+import com.sdds.compose.uikit.ai.AiAnswerStyle
+import com.sdds.compose.uikit.fixtures.stories.AiAnswerUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.AiAnswerUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
@@ -25,10 +25,10 @@ import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
 
 @StoryUiState
-data class AnswerUiState(
+data class AiAnswerUiState(
     override val variant: String = "",
     override val appearance: String = "",
-    val state: AnswerState = AnswerState.Default,
+    val state: AiAnswerState = AiAnswerState.Default,
     val title: String = "Заголовок ответа",
     val errorText: String = "Произошла ошибка",
     val errorSubtitle: String = "Не удалось получить ответ. Попробуйте ещё раз.",
@@ -43,37 +43,37 @@ data class AnswerUiState(
 }
 
 @Story
-object AnswerStory : ComposeBaseStory<AnswerUiState, AnswerStyle>(
-    ComponentKey.Answer,
-    AnswerUiState(),
-    AnswerUiStatePropertiesProducer,
-    AnswerUiStateTransformer,
+object AiAnswerStory : ComposeBaseStory<AiAnswerUiState, AiAnswerStyle>(
+    ComponentKey.AiAnswer,
+    AiAnswerUiState(),
+    AiAnswerUiStatePropertiesProducer,
+    AiAnswerUiStateTransformer,
 ) {
     @Composable
     override fun BoxScope.Content(
-        style: AnswerStyle,
-        state: AnswerUiState,
+        style: AiAnswerStyle,
+        state: AiAnswerUiState,
     ) {
-        AnswerStoryContent(style = style, state = state)
+        AiAnswerStoryContent(style = style, state = state)
     }
 
     @Composable
     override fun Preview(
-        style: AnswerStyle,
+        style: AiAnswerStyle,
         key: ComponentKey,
     ) {
         Box(modifier = Modifier.padding(16.dp)) {
-            AnswerStoryContent(style = style, state = defaultState)
+            AiAnswerStoryContent(style = style, state = defaultState)
         }
     }
 }
 
 @Composable
-private fun AnswerStoryContent(
-    style: AnswerStyle,
-    state: AnswerUiState,
+private fun AiAnswerStoryContent(
+    style: AiAnswerStyle,
+    state: AiAnswerUiState,
 ) {
-    Answer(
+    AiAnswer(
         style = style,
         state = state.state,
         title = if (state.title.isNotBlank()) {
@@ -83,7 +83,7 @@ private fun AnswerStoryContent(
         },
         content = { Text("Это содержимое ответа. Здесь может быть любой composable.") },
         error = {
-            AnswerError(
+            AiAnswerError(
                 title = { Text(state.errorText) },
                 text = if (state.errorSubtitle.isNotBlank()) {
                     { Text(state.errorSubtitle) }
@@ -93,16 +93,16 @@ private fun AnswerStoryContent(
             )
         },
         loading = {
-            AnswerLoading(
+            AiAnswerLoading(
                 text = { Text(state.loadingTitle) },
             )
         },
         actionsStart = if (state.hasActionsStart) {
             {
-                button { AnswerActionIconButton(iconRes = R.drawable.ic_copy_outline_24) }
-                button { AnswerActionIconButton(iconRes = R.drawable.ic_like_outline_24) }
-                button { AnswerActionIconButton(iconRes = R.drawable.ic_dislike_outline_24) }
-                button { AnswerActionIconButton(iconRes = R.drawable.ic_repeat_outline_24) }
+                button { AiAnswerActionIconButton(iconRes = R.drawable.ic_copy_outline_24) }
+                button { AiAnswerActionIconButton(iconRes = R.drawable.ic_like_outline_24) }
+                button { AiAnswerActionIconButton(iconRes = R.drawable.ic_dislike_outline_24) }
+                button { AiAnswerActionIconButton(iconRes = R.drawable.ic_repeat_outline_24) }
             }
         } else {
             null
@@ -127,7 +127,7 @@ private fun AnswerStoryContent(
 }
 
 @Composable
-private fun AnswerActionIconButton(
+private fun AiAnswerActionIconButton(
     iconRes: Int,
 ) {
     IconButton(

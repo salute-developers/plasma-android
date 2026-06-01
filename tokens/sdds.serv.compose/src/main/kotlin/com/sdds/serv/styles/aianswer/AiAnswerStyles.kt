@@ -5,13 +5,13 @@
     "ktlint:standard:max-line-length",
 )
 
-package com.sdds.serv.styles.answer
+package com.sdds.serv.styles.aianswer
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.ai.AnswerStyle
-import com.sdds.compose.uikit.ai.AnswerStyleBuilder
+import com.sdds.compose.uikit.ai.AiAnswerStyle
+import com.sdds.compose.uikit.ai.AiAnswerStyleBuilder
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -45,49 +45,49 @@ import kotlin.jvm.JvmName
 /**
  * Базовый интерфейс для всех оберток этого стиля
  */
-public interface WrapperAnswer : BuilderWrapper<AnswerStyle, AnswerStyleBuilder>
+public interface WrapperAiAnswer : BuilderWrapper<AiAnswerStyle, AiAnswerStyleBuilder>
 
 /**
  * Обертка для вариации Xl
  */
 @JvmInline
-public value class WrapperAnswerXl(
-    public override val builder: AnswerStyleBuilder,
-) : WrapperAnswer
+public value class WrapperAiAnswerXl(
+    public override val builder: AiAnswerStyleBuilder,
+) : WrapperAiAnswer
 
 /**
  * Обертка для вариации L
  */
 @JvmInline
-public value class WrapperAnswerL(
-    public override val builder: AnswerStyleBuilder,
-) : WrapperAnswer
+public value class WrapperAiAnswerL(
+    public override val builder: AiAnswerStyleBuilder,
+) : WrapperAiAnswer
 
 /**
  * Обертка для вариации M
  */
 @JvmInline
-public value class WrapperAnswerM(
-    public override val builder: AnswerStyleBuilder,
-) : WrapperAnswer
+public value class WrapperAiAnswerM(
+    public override val builder: AiAnswerStyleBuilder,
+) : WrapperAiAnswer
 
 /**
  * Обертка для вариации S
  */
 @JvmInline
-public value class WrapperAnswerS(
-    public override val builder: AnswerStyleBuilder,
-) : WrapperAnswer
+public value class WrapperAiAnswerS(
+    public override val builder: AiAnswerStyleBuilder,
+) : WrapperAiAnswer
 
 /**
  * Обертка для вариации Xs
  */
 @JvmInline
-public value class WrapperAnswerXs(
-    public override val builder: AnswerStyleBuilder,
-) : WrapperAnswer
+public value class WrapperAiAnswerXs(
+    public override val builder: AiAnswerStyleBuilder,
+) : WrapperAiAnswer
 
-private val AnswerStyleBuilder.invariantProps: AnswerStyleBuilder
+private val AiAnswerStyleBuilder.invariantProps: AiAnswerStyleBuilder
     @Composable
     get() = this
         .colors {
@@ -111,10 +111,10 @@ private val AnswerStyleBuilder.invariantProps: AnswerStyleBuilder
             paddingBottom(0.0.dp)
         }
 
-public val Answer.Xl: WrapperAnswerXl
+public val AiAnswer.Xl: WrapperAiAnswerXl
     @Composable
-    @JvmName("WrapperAnswerXl")
-    get() = AnswerStyle.builder(this)
+    @JvmName("WrapperAiAnswerXl")
+    get() = AiAnswerStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH3Normal)
         .loadingTextStyle(SddsServTheme.typography.bodyLNormal)
@@ -129,12 +129,12 @@ public val Answer.Xl: WrapperAnswerXl
         .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.M.style())
         .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.L.style())
         .suggestionsChipGroupStyle(AiAnswerChipGroup.L.style())
-        .wrap(::WrapperAnswerXl)
+        .wrap(::WrapperAiAnswerXl)
 
-public val Answer.L: WrapperAnswerL
+public val AiAnswer.L: WrapperAiAnswerL
     @Composable
-    @JvmName("WrapperAnswerL")
-    get() = AnswerStyle.builder(this)
+    @JvmName("WrapperAiAnswerL")
+    get() = AiAnswerStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH3Normal)
         .loadingTextStyle(SddsServTheme.typography.bodyLNormal)
@@ -149,12 +149,12 @@ public val Answer.L: WrapperAnswerL
         .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.M.style())
         .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.S.style())
         .suggestionsChipGroupStyle(AiAnswerChipGroup.M.style())
-        .wrap(::WrapperAnswerL)
+        .wrap(::WrapperAiAnswerL)
 
-public val Answer.M: WrapperAnswerM
+public val AiAnswer.M: WrapperAiAnswerM
     @Composable
-    @JvmName("WrapperAnswerM")
-    get() = AnswerStyle.builder(this)
+    @JvmName("WrapperAiAnswerM")
+    get() = AiAnswerStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH4Normal)
         .loadingTextStyle(SddsServTheme.typography.bodyMNormal)
@@ -169,12 +169,12 @@ public val Answer.M: WrapperAnswerM
         .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.M.style())
         .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.S.style())
         .suggestionsChipGroupStyle(AiAnswerChipGroup.S.style())
-        .wrap(::WrapperAnswerM)
+        .wrap(::WrapperAiAnswerM)
 
-public val Answer.S: WrapperAnswerS
+public val AiAnswer.S: WrapperAiAnswerS
     @Composable
-    @JvmName("WrapperAnswerS")
-    get() = AnswerStyle.builder(this)
+    @JvmName("WrapperAiAnswerS")
+    get() = AiAnswerStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH5Normal)
         .loadingTextStyle(SddsServTheme.typography.bodySNormal)
@@ -189,12 +189,12 @@ public val Answer.S: WrapperAnswerS
         .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.S.style())
         .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.Xs.style())
         .suggestionsChipGroupStyle(AiAnswerChipGroup.Xs.style())
-        .wrap(::WrapperAnswerS)
+        .wrap(::WrapperAiAnswerS)
 
-public val Answer.Xs: WrapperAnswerXs
+public val AiAnswer.Xs: WrapperAiAnswerXs
     @Composable
-    @JvmName("WrapperAnswerXs")
-    get() = AnswerStyle.builder(this)
+    @JvmName("WrapperAiAnswerXs")
+    get() = AiAnswerStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH5Normal)
         .loadingTextStyle(SddsServTheme.typography.bodySNormal)
@@ -209,4 +209,4 @@ public val Answer.Xs: WrapperAnswerXs
         .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.S.style())
         .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.Xs.style())
         .suggestionsChipGroupStyle(AiAnswerChipGroup.Xs.style())
-        .wrap(::WrapperAnswerXs)
+        .wrap(::WrapperAiAnswerXs)

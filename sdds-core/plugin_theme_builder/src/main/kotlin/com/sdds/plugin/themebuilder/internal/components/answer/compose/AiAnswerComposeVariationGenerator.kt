@@ -2,13 +2,13 @@ package com.sdds.plugin.themebuilder.internal.components.answer.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.components.answer.AnswerProperties
+import com.sdds.plugin.themebuilder.internal.components.answer.AiAnswerProperties
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
-internal class AnswerComposeVariationGenerator(
+internal class AiAnswerComposeVariationGenerator(
     private val noteStylesPackage: String,
     private val spinnerStylesPackage: String,
     private val buttonGroupStylesPackage: String,
@@ -24,7 +24,7 @@ internal class AnswerComposeVariationGenerator(
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
     styleBuilderName: String,
-) : ComposeVariationGenerator<AnswerProperties>(
+) : ComposeVariationGenerator<AiAnswerProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
     dimensionsConfig = dimensionsConfig,
@@ -38,24 +38,24 @@ internal class AnswerComposeVariationGenerator(
     styleBuilderName = styleBuilderName,
     componentStylePackage = "com.sdds.compose.uikit.ai",
 ) {
-    override val componentStyleName: String = "AnswerStyle"
+    override val componentStyleName: String = "AiAnswerStyle"
 
     override fun KtFileBuilder.onAddImports() {
         addImport("androidx.compose.ui.graphics", listOf("SolidColor"))
-        addImport("com.sdds.compose.uikit.ai", listOf("AnswerState"))
+        addImport("com.sdds.compose.uikit.ai", listOf("AiAnswerState"))
     }
 
     override fun getCustomState(state: String): String {
         return when (state) {
-            "default" -> "AnswerState.Default"
-            "error", "negative" -> "AnswerState.Error"
-            "loading" -> "AnswerState.Loading"
-            else -> throw IllegalStateException("Unknown state $state for Answer")
+            "default" -> "AiAnswerState.Default"
+            "error", "negative" -> "AiAnswerState.Error"
+            "loading" -> "AiAnswerState.Loading"
+            else -> throw IllegalStateException("Unknown state $state for AiAnswer")
         }
     }
 
     override fun propsToBuilderCalls(
-        props: AnswerProperties,
+        props: AiAnswerProperties,
         ktFileBuilder: KtFileBuilder,
         variationId: String,
     ): List<String> {
@@ -73,16 +73,16 @@ internal class AnswerComposeVariationGenerator(
         )
     }
 
-    private fun titleStyleCall(props: AnswerProperties): String? =
+    private fun titleStyleCall(props: AiAnswerProperties): String? =
         props.titleStyle?.let { getTypography("titleStyle", it) }
 
-    private fun contentStyleCall(props: AnswerProperties): String? =
+    private fun contentStyleCall(props: AiAnswerProperties): String? =
         props.contentStyle?.let { getTypography("contentStyle", it) }
 
-    private fun loadingTextStyleCall(props: AnswerProperties): String? =
+    private fun loadingTextStyleCall(props: AiAnswerProperties): String? =
         props.loadingTextStyle?.let { getTypography("loadingTextStyle", it) }
 
-    private fun colorsCall(props: AnswerProperties): String? {
+    private fun colorsCall(props: AiAnswerProperties): String? {
         return if (props.hasColors()) {
             buildString {
                 appendLine(".colors {")
@@ -98,7 +98,7 @@ internal class AnswerComposeVariationGenerator(
     }
 
     private fun dimensionsCall(
-        props: AnswerProperties,
+        props: AiAnswerProperties,
         variationId: String,
     ): String? {
         return if (props.hasDimensions()) {
@@ -119,19 +119,19 @@ internal class AnswerComposeVariationGenerator(
         }
     }
 
-    private fun noteStyleCall(props: AnswerProperties, ktFileBuilder: KtFileBuilder): String? {
+    private fun noteStyleCall(props: AiAnswerProperties, ktFileBuilder: KtFileBuilder): String? {
         return props.noteStyle?.let {
             ".noteStyle(${it.value.getComponentStyle(ktFileBuilder, noteStylesPackage)}.style())"
         }
     }
 
-    private fun loadingSpinnerStyleCall(props: AnswerProperties, ktFileBuilder: KtFileBuilder): String? {
+    private fun loadingSpinnerStyleCall(props: AiAnswerProperties, ktFileBuilder: KtFileBuilder): String? {
         return props.loadingSpinnerStyle?.let {
             ".loadingSpinnerStyle(${it.value.getComponentStyle(ktFileBuilder, spinnerStylesPackage)}.style())"
         }
     }
 
-    private fun actionsStartButtonGroupStyleCall(props: AnswerProperties, ktFileBuilder: KtFileBuilder): String? {
+    private fun actionsStartButtonGroupStyleCall(props: AiAnswerProperties, ktFileBuilder: KtFileBuilder): String? {
         return props.actionsStartButtonGroupStyle?.let {
             ".actionsStartButtonGroupStyle(${
                 it.value.getComponentStyle(ktFileBuilder, buttonGroupStylesPackage)
@@ -139,7 +139,7 @@ internal class AnswerComposeVariationGenerator(
         }
     }
 
-    private fun actionsEndButtonGroupStyleCall(props: AnswerProperties, ktFileBuilder: KtFileBuilder): String? {
+    private fun actionsEndButtonGroupStyleCall(props: AiAnswerProperties, ktFileBuilder: KtFileBuilder): String? {
         return props.actionsEndButtonGroupStyle?.let {
             ".actionsEndButtonGroupStyle(${
                 it.value.getComponentStyle(ktFileBuilder, buttonGroupStylesPackage)
@@ -147,20 +147,20 @@ internal class AnswerComposeVariationGenerator(
         }
     }
 
-    private fun suggestionsChipGroupStyleCall(props: AnswerProperties, ktFileBuilder: KtFileBuilder): String? {
+    private fun suggestionsChipGroupStyleCall(props: AiAnswerProperties, ktFileBuilder: KtFileBuilder): String? {
         return props.suggestionsChipGroupStyle?.let {
             ".suggestionsChipGroupStyle(${it.value.getComponentStyle(ktFileBuilder, chipGroupStylesPackage)}.style())"
         }
     }
 
-    private fun AnswerProperties.hasColors(): Boolean {
+    private fun AiAnswerProperties.hasColors(): Boolean {
         return backgroundColor != null ||
             titleColor != null ||
             contentColor != null ||
             loadingTextColor != null
     }
 
-    private fun AnswerProperties.hasDimensions(): Boolean {
+    private fun AiAnswerProperties.hasDimensions(): Boolean {
         return paddingStart != null ||
             paddingEnd != null ||
             paddingTop != null ||

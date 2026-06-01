@@ -24,26 +24,26 @@ import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
 /**
- * CompositionLocal, предоставляющий текущий [AnswerStyle].
+ * CompositionLocal, предоставляющий текущий [AiAnswerStyle].
  */
-val LocalAnswerStyle = compositionLocalOf(structuralEqualityPolicy()) {
-    AnswerStyle.builder().style()
+val LocalAiAnswerStyle = compositionLocalOf(structuralEqualityPolicy()) {
+    AiAnswerStyle.builder().style()
 }
 
 /**
- * Стиль компонента [Answer].
+ * Стиль компонента [AiAnswer].
  */
 @Stable
-interface AnswerStyle : Style {
+interface AiAnswerStyle : Style {
     /**
      * Цвета компонента.
      */
-    val colors: AnswerColors
+    val colors: AiAnswerColors
 
     /**
      * Размеры и отступы компонента.
      */
-    val dimensions: AnswerDimensions
+    val dimensions: AiAnswerDimensions
 
     /**
      * Стиль текста title.
@@ -87,17 +87,17 @@ interface AnswerStyle : Style {
 
     companion object {
         /**
-         * Возвращает builder для [AnswerStyle].
+         * Возвращает builder для [AiAnswerStyle].
          */
-        fun builder(receiver: Any? = null): AnswerStyleBuilder = DefaultAnswerStyle.Builder(receiver)
+        fun builder(receiver: Any? = null): AiAnswerStyleBuilder = DefaultAiAnswerStyle.Builder(receiver)
     }
 }
 
 /**
- * Цвета компонента [Answer].
+ * Цвета компонента [AiAnswer].
  */
 @Stable
-interface AnswerColors {
+interface AiAnswerColors {
     /**
      * Фон контейнера.
      */
@@ -120,10 +120,10 @@ interface AnswerColors {
 }
 
 /**
- * Размеры компонента [Answer].
+ * Размеры компонента [AiAnswer].
  */
 @Stable
-interface AnswerDimensions {
+interface AiAnswerDimensions {
     /**
      * Отступ слева.
      */
@@ -166,263 +166,263 @@ interface AnswerDimensions {
 }
 
 /**
- * Builder [AnswerStyle].
+ * Builder [AiAnswerStyle].
  */
-interface AnswerStyleBuilder : StyleBuilder<AnswerStyle> {
+interface AiAnswerStyleBuilder : StyleBuilder<AiAnswerStyle> {
     /**
      * Устанавливает цвета компонента.
      */
     @Composable
-    fun colors(builder: @Composable AnswerColorsBuilder.() -> Unit): AnswerStyleBuilder
+    fun colors(builder: @Composable AiAnswerColorsBuilder.() -> Unit): AiAnswerStyleBuilder
 
     /**
      * Устанавливает размеры компонента.
      */
     @Composable
-    fun dimensions(builder: @Composable AnswerDimensionsBuilder.() -> Unit): AnswerStyleBuilder
+    fun dimensions(builder: @Composable AiAnswerDimensionsBuilder.() -> Unit): AiAnswerStyleBuilder
 
     /**
      * Устанавливает стиль title.
      */
-    fun titleStyle(titleStyle: TextStyle): AnswerStyleBuilder = titleStyle(titleStyle.asStatefulValue())
+    fun titleStyle(titleStyle: TextStyle): AiAnswerStyleBuilder = titleStyle(titleStyle.asStatefulValue())
 
     /**
      * Устанавливает stateful стиль title.
      */
-    fun titleStyle(titleStyle: StatefulValue<TextStyle>): AnswerStyleBuilder
+    fun titleStyle(titleStyle: StatefulValue<TextStyle>): AiAnswerStyleBuilder
 
     /**
      * Устанавливает стиль основного контента.
      */
-    fun contentStyle(contentStyle: TextStyle): AnswerStyleBuilder = contentStyle(contentStyle.asStatefulValue())
+    fun contentStyle(contentStyle: TextStyle): AiAnswerStyleBuilder = contentStyle(contentStyle.asStatefulValue())
 
     /**
      * Устанавливает stateful стиль основного контента.
      */
-    fun contentStyle(contentStyle: StatefulValue<TextStyle>): AnswerStyleBuilder
+    fun contentStyle(contentStyle: StatefulValue<TextStyle>): AiAnswerStyleBuilder
 
     /**
      * Устанавливает стиль loading-текста.
      */
-    fun loadingTextStyle(loadingTextStyle: TextStyle): AnswerStyleBuilder =
+    fun loadingTextStyle(loadingTextStyle: TextStyle): AiAnswerStyleBuilder =
         loadingTextStyle(loadingTextStyle.asStatefulValue())
 
     /**
      * Устанавливает stateful стиль loading-текста.
      */
-    fun loadingTextStyle(loadingTextStyle: StatefulValue<TextStyle>): AnswerStyleBuilder
+    fun loadingTextStyle(loadingTextStyle: StatefulValue<TextStyle>): AiAnswerStyleBuilder
 
     /**
      * Устанавливает стиль Note для error-состояния.
      */
-    fun noteStyle(noteStyle: NoteStyle): AnswerStyleBuilder
+    fun noteStyle(noteStyle: NoteStyle): AiAnswerStyleBuilder
 
     /**
      * Устанавливает стиль Spinner для loading-состояния.
      */
-    fun loadingSpinnerStyle(loadingSpinnerStyle: SpinnerStyle): AnswerStyleBuilder
+    fun loadingSpinnerStyle(loadingSpinnerStyle: SpinnerStyle): AiAnswerStyleBuilder
 
     /**
      * Устанавливает стиль стартового [com.sdds.compose.uikit.ButtonGroup].
      */
-    fun actionsStartButtonGroupStyle(actionsStartButtonGroupStyle: ButtonGroupStyle): AnswerStyleBuilder
+    fun actionsStartButtonGroupStyle(actionsStartButtonGroupStyle: ButtonGroupStyle): AiAnswerStyleBuilder
 
     /**
      * Устанавливает стиль конечного [com.sdds.compose.uikit.ButtonGroup].
      */
-    fun actionsEndButtonGroupStyle(actionsEndButtonGroupStyle: ButtonGroupStyle): AnswerStyleBuilder
+    fun actionsEndButtonGroupStyle(actionsEndButtonGroupStyle: ButtonGroupStyle): AiAnswerStyleBuilder
 
     /**
      * Устанавливает стиль [com.sdds.compose.uikit.ChipGroup] для suggestions.
      */
-    fun suggestionsChipGroupStyle(suggestionsChipGroupStyle: ChipGroupStyle): AnswerStyleBuilder
+    fun suggestionsChipGroupStyle(suggestionsChipGroupStyle: ChipGroupStyle): AiAnswerStyleBuilder
 }
 
 /**
- * Builder цветов [Answer].
+ * Builder цветов [AiAnswer].
  */
-interface AnswerColorsBuilder {
+interface AiAnswerColorsBuilder {
     /**
      * Устанавливает фон.
      */
-    fun background(background: StatefulValue<Brush>): AnswerColorsBuilder
-
-    /**
-     * Устанавливает фон.
-     */
-    fun background(background: Brush): AnswerColorsBuilder = background(background.asStatefulValue())
+    fun background(background: StatefulValue<Brush>): AiAnswerColorsBuilder
 
     /**
      * Устанавливает фон.
      */
-    fun background(background: Color): AnswerColorsBuilder = background(background.asStatefulBrush())
+    fun background(background: Brush): AiAnswerColorsBuilder = background(background.asStatefulValue())
 
     /**
      * Устанавливает фон.
      */
-    fun background(background: InteractiveColor): AnswerColorsBuilder = background(background.asStatefulBrush())
+    fun background(background: Color): AiAnswerColorsBuilder = background(background.asStatefulBrush())
+
+    /**
+     * Устанавливает фон.
+     */
+    fun background(background: InteractiveColor): AiAnswerColorsBuilder = background(background.asStatefulBrush())
 
     /**
      * Устанавливает цвет title.
      */
-    fun titleColor(title: StatefulValue<Brush>): AnswerColorsBuilder
+    fun titleColor(title: StatefulValue<Brush>): AiAnswerColorsBuilder
 
     /**
      * Устанавливает цвет title.
      */
-    fun titleColor(title: Brush): AnswerColorsBuilder = titleColor(title.asStatefulValue())
+    fun titleColor(title: Brush): AiAnswerColorsBuilder = titleColor(title.asStatefulValue())
 
     /**
      * Устанавливает цвет title.
      */
-    fun titleColor(title: Color): AnswerColorsBuilder = titleColor(title.asInteractive())
+    fun titleColor(title: Color): AiAnswerColorsBuilder = titleColor(title.asInteractive())
 
     /**
      * Устанавливает цвет title.
      */
-    fun titleColor(title: InteractiveColor): AnswerColorsBuilder = titleColor(title.asStatefulBrush())
+    fun titleColor(title: InteractiveColor): AiAnswerColorsBuilder = titleColor(title.asStatefulBrush())
 
     /**
      * Устанавливает цвет основного контента.
      */
-    fun contentColor(content: StatefulValue<Brush>): AnswerColorsBuilder
+    fun contentColor(content: StatefulValue<Brush>): AiAnswerColorsBuilder
 
     /**
      * Устанавливает цвет основного контента.
      */
-    fun contentColor(content: Brush): AnswerColorsBuilder = contentColor(content.asStatefulValue())
+    fun contentColor(content: Brush): AiAnswerColorsBuilder = contentColor(content.asStatefulValue())
 
     /**
      * Устанавливает цвет основного контента.
      */
-    fun contentColor(content: Color): AnswerColorsBuilder = contentColor(content.asInteractive())
+    fun contentColor(content: Color): AiAnswerColorsBuilder = contentColor(content.asInteractive())
 
     /**
      * Устанавливает цвет основного контента.
      */
-    fun contentColor(content: InteractiveColor): AnswerColorsBuilder = contentColor(content.asStatefulBrush())
+    fun contentColor(content: InteractiveColor): AiAnswerColorsBuilder = contentColor(content.asStatefulBrush())
 
     /**
      * Устанавливает цвет loading-текста.
      */
-    fun loadingTextColor(loadingText: StatefulValue<Brush>): AnswerColorsBuilder
+    fun loadingTextColor(loadingText: StatefulValue<Brush>): AiAnswerColorsBuilder
 
     /**
      * Устанавливает цвет loading-текста.
      */
-    fun loadingTextColor(loadingText: Brush): AnswerColorsBuilder = loadingTextColor(loadingText.asStatefulValue())
+    fun loadingTextColor(loadingText: Brush): AiAnswerColorsBuilder = loadingTextColor(loadingText.asStatefulValue())
 
     /**
      * Устанавливает цвет loading-текста.
      */
-    fun loadingTextColor(loadingText: Color): AnswerColorsBuilder = loadingTextColor(loadingText.asInteractive())
+    fun loadingTextColor(loadingText: Color): AiAnswerColorsBuilder = loadingTextColor(loadingText.asInteractive())
 
     /**
      * Устанавливает цвет loading-текста.
      */
-    fun loadingTextColor(loadingText: InteractiveColor): AnswerColorsBuilder =
+    fun loadingTextColor(loadingText: InteractiveColor): AiAnswerColorsBuilder =
         loadingTextColor(loadingText.asStatefulBrush())
 
     /**
      * Возвращает готовые цвета.
      */
-    fun build(): AnswerColors
+    fun build(): AiAnswerColors
 }
 
 /**
- * Builder размеров [Answer].
+ * Builder размеров [AiAnswer].
  */
-interface AnswerDimensionsBuilder {
+interface AiAnswerDimensionsBuilder {
     /**
      * Устанавливает отступ слева.
      */
-    fun paddingStart(paddingStart: StatefulValue<Dp>): AnswerDimensionsBuilder
+    fun paddingStart(paddingStart: StatefulValue<Dp>): AiAnswerDimensionsBuilder
 
     /**
      * Устанавливает отступ слева.
      */
-    fun paddingStart(paddingStart: Dp): AnswerDimensionsBuilder = paddingStart(paddingStart.asStatefulValue())
+    fun paddingStart(paddingStart: Dp): AiAnswerDimensionsBuilder = paddingStart(paddingStart.asStatefulValue())
 
     /**
      * Устанавливает отступ справа.
      */
-    fun paddingEnd(paddingEnd: StatefulValue<Dp>): AnswerDimensionsBuilder
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): AiAnswerDimensionsBuilder
 
     /**
      * Устанавливает отступ справа.
      */
-    fun paddingEnd(paddingEnd: Dp): AnswerDimensionsBuilder = paddingEnd(paddingEnd.asStatefulValue())
+    fun paddingEnd(paddingEnd: Dp): AiAnswerDimensionsBuilder = paddingEnd(paddingEnd.asStatefulValue())
 
     /**
      * Устанавливает отступ сверху.
      */
-    fun paddingTop(paddingTop: StatefulValue<Dp>): AnswerDimensionsBuilder
+    fun paddingTop(paddingTop: StatefulValue<Dp>): AiAnswerDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху.
      */
-    fun paddingTop(paddingTop: Dp): AnswerDimensionsBuilder = paddingTop(paddingTop.asStatefulValue())
+    fun paddingTop(paddingTop: Dp): AiAnswerDimensionsBuilder = paddingTop(paddingTop.asStatefulValue())
 
     /**
      * Устанавливает отступ снизу.
      */
-    fun paddingBottom(paddingBottom: StatefulValue<Dp>): AnswerDimensionsBuilder
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): AiAnswerDimensionsBuilder
 
     /**
      * Устанавливает отступ снизу.
      */
-    fun paddingBottom(paddingBottom: Dp): AnswerDimensionsBuilder = paddingBottom(paddingBottom.asStatefulValue())
+    fun paddingBottom(paddingBottom: Dp): AiAnswerDimensionsBuilder = paddingBottom(paddingBottom.asStatefulValue())
 
     /**
      * Устанавливает отступ между title и content.
      */
-    fun contentGap(contentGap: StatefulValue<Dp>): AnswerDimensionsBuilder
+    fun contentGap(contentGap: StatefulValue<Dp>): AiAnswerDimensionsBuilder
 
     /**
      * Устанавливает отступ между title и content.
      */
-    fun contentGap(contentGap: Dp): AnswerDimensionsBuilder = contentGap(contentGap.asStatefulValue())
+    fun contentGap(contentGap: Dp): AiAnswerDimensionsBuilder = contentGap(contentGap.asStatefulValue())
 
     /**
      * Устанавливает отступ между content и actions.
      */
-    fun actionsGap(actionsGap: StatefulValue<Dp>): AnswerDimensionsBuilder
+    fun actionsGap(actionsGap: StatefulValue<Dp>): AiAnswerDimensionsBuilder
 
     /**
      * Устанавливает отступ между content и actions.
      */
-    fun actionsGap(actionsGap: Dp): AnswerDimensionsBuilder = actionsGap(actionsGap.asStatefulValue())
+    fun actionsGap(actionsGap: Dp): AiAnswerDimensionsBuilder = actionsGap(actionsGap.asStatefulValue())
 
     /**
      * Устанавливает отступ между actions и suggestions.
      */
-    fun suggestionsGap(suggestionsGap: StatefulValue<Dp>): AnswerDimensionsBuilder
+    fun suggestionsGap(suggestionsGap: StatefulValue<Dp>): AiAnswerDimensionsBuilder
 
     /**
      * Устанавливает отступ между actions и suggestions.
      */
-    fun suggestionsGap(suggestionsGap: Dp): AnswerDimensionsBuilder = suggestionsGap(suggestionsGap.asStatefulValue())
+    fun suggestionsGap(suggestionsGap: Dp): AiAnswerDimensionsBuilder = suggestionsGap(suggestionsGap.asStatefulValue())
 
     /**
      * Устанавливает отступ между spinner и loading-текстом.
      */
-    fun loadingGap(loadingGap: StatefulValue<Dp>): AnswerDimensionsBuilder
+    fun loadingGap(loadingGap: StatefulValue<Dp>): AiAnswerDimensionsBuilder
 
     /**
      * Устанавливает отступ между spinner и loading-текстом.
      */
-    fun loadingGap(loadingGap: Dp): AnswerDimensionsBuilder = loadingGap(loadingGap.asStatefulValue())
+    fun loadingGap(loadingGap: Dp): AiAnswerDimensionsBuilder = loadingGap(loadingGap.asStatefulValue())
 
     /**
      * Возвращает готовые размеры.
      */
-    fun build(): AnswerDimensions
+    fun build(): AiAnswerDimensions
 }
 
 @Immutable
-private data class DefaultAnswerStyle(
-    override val colors: AnswerColors,
-    override val dimensions: AnswerDimensions,
+private data class DefaultAiAnswerStyle(
+    override val colors: AiAnswerColors,
+    override val dimensions: AiAnswerDimensions,
     override val titleStyle: StatefulValue<TextStyle>,
     override val contentStyle: StatefulValue<TextStyle>,
     override val loadingTextStyle: StatefulValue<TextStyle>,
@@ -431,10 +431,10 @@ private data class DefaultAnswerStyle(
     override val actionsStartButtonGroupStyle: ButtonGroupStyle,
     override val actionsEndButtonGroupStyle: ButtonGroupStyle,
     override val suggestionsChipGroupStyle: ChipGroupStyle,
-) : AnswerStyle {
-    class Builder(receiver: Any?) : AnswerStyleBuilder {
-        private var colorsBuilder: AnswerColorsBuilder = DefaultAnswerColors.Builder()
-        private var dimensionsBuilder: AnswerDimensionsBuilder = DefaultAnswerDimensions.Builder()
+) : AiAnswerStyle {
+    class Builder(receiver: Any?) : AiAnswerStyleBuilder {
+        private var colorsBuilder: AiAnswerColorsBuilder = DefaultAiAnswerColors.Builder()
+        private var dimensionsBuilder: AiAnswerDimensionsBuilder = DefaultAiAnswerDimensions.Builder()
         private var titleStyle: StatefulValue<TextStyle>? = null
         private var contentStyle: StatefulValue<TextStyle>? = null
         private var loadingTextStyle: StatefulValue<TextStyle>? = null
@@ -445,12 +445,12 @@ private data class DefaultAnswerStyle(
         private var suggestionsChipGroupStyle: ChipGroupStyle? = null
 
         @Composable
-        override fun colors(builder: @Composable AnswerColorsBuilder.() -> Unit) = apply {
+        override fun colors(builder: @Composable AiAnswerColorsBuilder.() -> Unit) = apply {
             colorsBuilder.builder()
         }
 
         @Composable
-        override fun dimensions(builder: @Composable AnswerDimensionsBuilder.() -> Unit) = apply {
+        override fun dimensions(builder: @Composable AiAnswerDimensionsBuilder.() -> Unit) = apply {
             dimensionsBuilder.builder()
         }
 
@@ -486,8 +486,8 @@ private data class DefaultAnswerStyle(
             this.suggestionsChipGroupStyle = suggestionsChipGroupStyle
         }
 
-        override fun style(): AnswerStyle {
-            return DefaultAnswerStyle(
+        override fun style(): AiAnswerStyle {
+            return DefaultAiAnswerStyle(
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 titleStyle = titleStyle ?: TextStyle.Default.asStatefulValue(),
@@ -504,13 +504,13 @@ private data class DefaultAnswerStyle(
 }
 
 @Immutable
-private data class DefaultAnswerColors(
+private data class DefaultAiAnswerColors(
     override val background: StatefulValue<Brush>,
     override val title: StatefulValue<Brush>,
     override val content: StatefulValue<Brush>,
     override val loadingText: StatefulValue<Brush>,
-) : AnswerColors {
-    class Builder : AnswerColorsBuilder {
+) : AiAnswerColors {
+    class Builder : AiAnswerColorsBuilder {
         private var background: StatefulValue<Brush>? = null
         private var title: StatefulValue<Brush>? = null
         private var content: StatefulValue<Brush>? = null
@@ -532,8 +532,8 @@ private data class DefaultAnswerColors(
             this.loadingText = loadingText
         }
 
-        override fun build(): AnswerColors {
-            return DefaultAnswerColors(
+        override fun build(): AiAnswerColors {
+            return DefaultAiAnswerColors(
                 background = background ?: Color.Transparent.asStatefulBrush(),
                 title = title ?: Color.Black.asStatefulBrush(),
                 content = content ?: Color.Black.asStatefulBrush(),
@@ -544,7 +544,7 @@ private data class DefaultAnswerColors(
 }
 
 @Immutable
-private data class DefaultAnswerDimensions(
+private data class DefaultAiAnswerDimensions(
     override val paddingStart: StatefulValue<Dp>,
     override val paddingEnd: StatefulValue<Dp>,
     override val paddingTop: StatefulValue<Dp>,
@@ -553,8 +553,8 @@ private data class DefaultAnswerDimensions(
     override val actionsGap: StatefulValue<Dp>,
     override val suggestionsGap: StatefulValue<Dp>,
     override val loadingGap: StatefulValue<Dp>,
-) : AnswerDimensions {
-    class Builder : AnswerDimensionsBuilder {
+) : AiAnswerDimensions {
+    class Builder : AiAnswerDimensionsBuilder {
         private var paddingStart: StatefulValue<Dp>? = null
         private var paddingEnd: StatefulValue<Dp>? = null
         private var paddingTop: StatefulValue<Dp>? = null
@@ -596,8 +596,8 @@ private data class DefaultAnswerDimensions(
             this.loadingGap = loadingGap
         }
 
-        override fun build(): AnswerDimensions {
-            return DefaultAnswerDimensions(
+        override fun build(): AiAnswerDimensions {
+            return DefaultAiAnswerDimensions(
                 paddingStart = paddingStart ?: 0.dp.asStatefulValue(),
                 paddingEnd = paddingEnd ?: 0.dp.asStatefulValue(),
                 paddingTop = paddingTop ?: 0.dp.asStatefulValue(),

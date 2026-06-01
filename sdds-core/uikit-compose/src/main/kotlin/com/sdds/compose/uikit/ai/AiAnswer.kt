@@ -3,19 +3,19 @@ package com.sdds.compose.uikit.ai
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.ButtonGroupScope
-import com.sdds.compose.uikit.ai.motion.AnswerMotionStyle
-import com.sdds.compose.uikit.ai.motion.rememberAnswerMotion
+import com.sdds.compose.uikit.ai.motion.AiAnswerMotionStyle
+import com.sdds.compose.uikit.ai.motion.rememberAiAnswerMotion
 import com.sdds.compose.uikit.interactions.ValueState
-import com.sdds.compose.uikit.internal.ai.AnswerContent
-import com.sdds.compose.uikit.internal.ai.AnswerError
-import com.sdds.compose.uikit.internal.ai.AnswerLoading
+import com.sdds.compose.uikit.internal.ai.AiAnswerContent
+import com.sdds.compose.uikit.internal.ai.AiAnswerError
+import com.sdds.compose.uikit.internal.ai.AiAnswerLoading
 import com.sdds.compose.uikit.internal.common.FlowRowScope
 import com.sdds.compose.uikit.motion.Motion
 
 /**
- * Семантическое состояние [Answer].
+ * Семантическое состояние [AiAnswer].
  */
-enum class AnswerState : ValueState {
+enum class AiAnswerState : ValueState {
     /**
      * Обычное состояние ответа.
      */
@@ -33,79 +33,79 @@ enum class AnswerState : ValueState {
 }
 
 /**
- * Scope для custom error-контента [Answer].
+ * Scope для custom error-контента [AiAnswer].
  */
-interface AnswerErrorScope {
+interface AiAnswerErrorScope {
     /**
-     * Текущее состояние [Answer].
+     * Текущее состояние [AiAnswer].
      */
-    val state: AnswerState
+    val state: AiAnswerState
 
     /**
-     * Текущий стиль [Answer].
+     * Текущий стиль [AiAnswer].
      */
-    val style: AnswerStyle
+    val style: AiAnswerStyle
 
     /**
-     * Текущие motion-настройки [Answer].
+     * Текущие motion-настройки [AiAnswer].
      */
-    val motion: Motion<AnswerMotionStyle>
+    val motion: Motion<AiAnswerMotionStyle>
 }
 
 /**
- * Scope для custom loading-контента [Answer].
+ * Scope для custom loading-контента [AiAnswer].
  */
-interface AnswerLoadingScope {
+interface AiAnswerLoadingScope {
     /**
-     * Текущее состояние [Answer].
+     * Текущее состояние [AiAnswer].
      */
-    val state: AnswerState
+    val state: AiAnswerState
 
     /**
-     * Текущий стиль [Answer].
+     * Текущий стиль [AiAnswer].
      */
-    val style: AnswerStyle
+    val style: AiAnswerStyle
 
     /**
-     * Текущие motion-настройки [Answer].
+     * Текущие motion-настройки [AiAnswer].
      */
-    val motion: Motion<AnswerMotionStyle>
+    val motion: Motion<AiAnswerMotionStyle>
 }
 
 /**
  * Компонент для отображения LLM-ответа, загрузки или ошибки.
  *
- * [Answer] не парсит markdown, citations, streaming chunks и не владеет data model ответа.
+ * [AiAnswer] не парсит markdown, citations, streaming chunks и не владеет data model ответа.
  * Потребитель передаёт нужный renderer через [content], действия через [actionsStart]/[actionsEnd],
  * а suggestions через [suggestions].
  *
  * @param modifier модификатор.
  * @param state семантическое состояние компонента.
- * @param title optional title-slot для [AnswerState.Default].
- * @param content optional content-slot для [AnswerState.Default].
+ * @param title optional title-slot для [AiAnswerState.Default].
+ * @param content optional content-slot для [AiAnswerState.Default].
  * @param actionsStart стартовые действия внутри отдельного [com.sdds.compose.uikit.ButtonGroup].
  * @param actionsEnd конечные действия внутри отдельного [com.sdds.compose.uikit.ButtonGroup].
  * @param suggestions suggestions внутри [com.sdds.compose.uikit.ChipGroup].
- * @param loading custom loading-slot; при отсутствии используется [AnswerLoading].
- * @param error custom error-slot; при отсутствии используется [AnswerError].
+ * @param loading custom loading-slot; при отсутствии используется [AiAnswerLoading].
+ * @param error custom error-slot; при отсутствии используется [AiAnswerError].
  * @param style стиль компонента.
  * @param motion motion компонента.
  */
 @Composable
-fun Answer(
+fun AiAnswer(
     modifier: Modifier = Modifier,
-    style: AnswerStyle = LocalAnswerStyle.current,
-    state: AnswerState = AnswerState.Default,
+    style: AiAnswerStyle = LocalAiAnswerStyle.current,
+    state: AiAnswerState = AiAnswerState.Default,
     title: (@Composable () -> Unit)? = null,
     content: (@Composable () -> Unit)? = null,
     actionsStart: (ButtonGroupScope.() -> Unit)? = null,
     actionsEnd: (ButtonGroupScope.() -> Unit)? = null,
     suggestions: (@Composable FlowRowScope.() -> Unit)? = null,
-    loading: (@Composable AnswerLoadingScope.() -> Unit)? = null,
-    error: (@Composable AnswerErrorScope.() -> Unit)? = null,
-    motion: Motion<AnswerMotionStyle> = rememberAnswerMotion(state = state),
+    loading: (@Composable AiAnswerLoadingScope.() -> Unit)? = null,
+    error: (@Composable AiAnswerErrorScope.() -> Unit)? = null,
+    motion: Motion<AiAnswerMotionStyle> = rememberAiAnswerMotion(state = state),
 ) {
-    AnswerContent(
+    AiAnswerContent(
         modifier = modifier,
         state = state,
         title = title,
@@ -121,19 +121,19 @@ fun Answer(
 }
 
 /**
- * Рендерит default Note-based error-контент для [Answer].
+ * Рендерит default Note-based error-контент для [AiAnswer].
  *
  * @param title слот заголовка ошибки.
  * @param modifier модификатор.
  * @param text слот текста ошибки.
  */
 @Composable
-fun AnswerErrorScope.AnswerError(
+fun AiAnswerErrorScope.AiAnswerError(
     title: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     text: (@Composable () -> Unit)? = null,
 ) {
-    AnswerError(
+    AiAnswerError(
         modifier = modifier,
         title = title,
         text = text,
@@ -142,17 +142,17 @@ fun AnswerErrorScope.AnswerError(
 }
 
 /**
- * Рендерит default Spinner-based loading-контент для [Answer].
+ * Рендерит default Spinner-based loading-контент для [AiAnswer].
  *
  * @param text слот loading-текста.
  * @param modifier модификатор.
  */
 @Composable
-fun AnswerLoadingScope.AnswerLoading(
+fun AiAnswerLoadingScope.AiAnswerLoading(
     text: @Composable () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    AnswerLoading(
+    AiAnswerLoading(
         modifier = modifier,
         text = text,
         style = style,

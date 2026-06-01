@@ -28,11 +28,11 @@ import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.Note
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Spinner
-import com.sdds.compose.uikit.ai.AnswerErrorScope
-import com.sdds.compose.uikit.ai.AnswerLoadingScope
-import com.sdds.compose.uikit.ai.AnswerState
-import com.sdds.compose.uikit.ai.AnswerStyle
-import com.sdds.compose.uikit.ai.motion.AnswerMotionStyle
+import com.sdds.compose.uikit.ai.AiAnswerErrorScope
+import com.sdds.compose.uikit.ai.AiAnswerLoadingScope
+import com.sdds.compose.uikit.ai.AiAnswerState
+import com.sdds.compose.uikit.ai.AiAnswerStyle
+import com.sdds.compose.uikit.ai.motion.AiAnswerMotionStyle
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.internal.common.FlowRowScope
 import com.sdds.compose.uikit.internal.common.LocalFlowRowMaxItemsInEachRow
@@ -44,18 +44,18 @@ import com.sdds.compose.uikit.motion.getDpAsState
 import com.sdds.compose.uikit.motion.getTextStyleAsState
 
 @Composable
-internal fun AnswerContent(
+internal fun AiAnswerContent(
     modifier: Modifier,
-    state: AnswerState,
+    state: AiAnswerState,
     title: (@Composable () -> Unit)?,
     content: (@Composable () -> Unit)?,
     actionsStart: (ButtonGroupScope.() -> Unit)?,
     actionsEnd: (ButtonGroupScope.() -> Unit)?,
     suggestions: (@Composable FlowRowScope.() -> Unit)?,
-    loading: (@Composable AnswerLoadingScope.() -> Unit)?,
-    error: (@Composable AnswerErrorScope.() -> Unit)?,
-    style: AnswerStyle,
-    motion: Motion<AnswerMotionStyle>,
+    loading: (@Composable AiAnswerLoadingScope.() -> Unit)?,
+    error: (@Composable AiAnswerErrorScope.() -> Unit)?,
+    style: AiAnswerStyle,
+    motion: Motion<AiAnswerMotionStyle>,
 ) {
     val background = style.colors.background.getBrushAsState(motion.context, motion.style.background)
     val paddingStart = style.dimensions.paddingStart.getDpAsState(motion.context, motion.style.paddingStart)
@@ -74,7 +74,7 @@ internal fun AnswerContent(
             ),
     ) {
         when (state) {
-            AnswerState.Default -> AnswerDefaultContent(
+            AiAnswerState.Default -> AiAnswerDefaultContent(
                 title = title,
                 content = content,
                 actionsStart = actionsStart,
@@ -84,13 +84,13 @@ internal fun AnswerContent(
                 motion = motion,
             )
 
-            AnswerState.Loading -> {
-                val scope = remember(state, style, motion) { DefaultAnswerLoadingScope(state, style, motion) }
+            AiAnswerState.Loading -> {
+                val scope = remember(state, style, motion) { DefaultAiAnswerLoadingScope(state, style, motion) }
                 loading?.invoke(scope)
             }
 
-            AnswerState.Error -> {
-                val scope = remember(state, style, motion) { DefaultAnswerErrorScope(state, style, motion) }
+            AiAnswerState.Error -> {
+                val scope = remember(state, style, motion) { DefaultAiAnswerErrorScope(state, style, motion) }
                 error?.invoke(scope)
             }
         }
@@ -98,14 +98,14 @@ internal fun AnswerContent(
 }
 
 @Composable
-private fun AnswerDefaultContent(
+private fun AiAnswerDefaultContent(
     title: (@Composable () -> Unit)?,
     content: (@Composable () -> Unit)?,
     actionsStart: (ButtonGroupScope.() -> Unit)?,
     actionsEnd: (ButtonGroupScope.() -> Unit)?,
     suggestions: (@Composable FlowRowScope.() -> Unit)?,
-    style: AnswerStyle,
-    motion: Motion<AnswerMotionStyle>,
+    style: AiAnswerStyle,
+    motion: Motion<AiAnswerMotionStyle>,
 ) {
     val contentGap = style.dimensions.contentGap.getDpAsState(motion.context, motion.style.contentGap)
     val actionsGap = style.dimensions.actionsGap.getDpAsState(motion.context, motion.style.actionsGap)
@@ -121,7 +121,7 @@ private fun AnswerDefaultContent(
             actionsGap.value,
             suggestionsGap.value,
         ) {
-            AnswerDefaultMeasurePolicy(
+            AiAnswerDefaultMeasurePolicy(
                 contentGap = contentGap.value,
                 actionsGap = actionsGap.value,
                 suggestionsGap = suggestionsGap.value,
@@ -129,14 +129,14 @@ private fun AnswerDefaultContent(
         },
         content = {
             title?.let {
-                Box(Modifier.layoutId(ANSWER_TITLE_ID)) {
+                Box(Modifier.layoutId(AI_ANSWER_TITLE_ID)) {
                     ProvideTextStyle(titleStyle, brush = { titleColor.value }) {
                         it()
                     }
                 }
             }
             content?.let {
-                Box(Modifier.layoutId(ANSWER_CONTENT_ID)) {
+                Box(Modifier.layoutId(AI_ANSWER_CONTENT_ID)) {
                     ProvideTextStyle(contentStyle, brush = { contentColor.value }) {
                         it()
                     }
@@ -144,12 +144,12 @@ private fun AnswerDefaultContent(
             }
             if (actionsStart != null || actionsEnd != null) {
                 actionsStart?.let {
-                    Box(Modifier.layoutId(ANSWER_ACTIONS_START_ID)) {
+                    Box(Modifier.layoutId(AI_ANSWER_ACTIONS_START_ID)) {
                         ButtonGroup(style = style.actionsStartButtonGroupStyle, content = it)
                     }
                 }
                 actionsEnd?.let {
-                    Box(Modifier.layoutId(ANSWER_ACTIONS_END_ID)) {
+                    Box(Modifier.layoutId(AI_ANSWER_ACTIONS_END_ID)) {
                         ButtonGroup(style = style.actionsEndButtonGroupStyle, content = it)
                     }
                 }
@@ -158,7 +158,7 @@ private fun AnswerDefaultContent(
                 CompositionLocalProvider(
                     LocalFlowRowMaxItemsInEachRow provides 1,
                 ) {
-                    Box(Modifier.layoutId(ANSWER_SUGGESTIONS_ID)) {
+                    Box(Modifier.layoutId(AI_ANSWER_SUGGESTIONS_ID)) {
                         ChipGroup(style = style.suggestionsChipGroupStyle, content = it)
                     }
                 }
@@ -167,7 +167,7 @@ private fun AnswerDefaultContent(
     )
 }
 
-private class AnswerDefaultMeasurePolicy(
+private class AiAnswerDefaultMeasurePolicy(
     private val contentGap: Dp,
     private val actionsGap: Dp,
     private val suggestionsGap: Dp,
@@ -202,13 +202,13 @@ private class AnswerDefaultMeasurePolicy(
 
     private fun List<Measurable>.measureAnswerPlaceables(
         constraints: Constraints,
-    ): AnswerPlaceables {
-        return AnswerPlaceables(
-            title = findByLayoutId(ANSWER_TITLE_ID)?.measure(constraints),
-            content = findByLayoutId(ANSWER_CONTENT_ID)?.measure(constraints),
-            actionsStart = findByLayoutId(ANSWER_ACTIONS_START_ID)?.measure(constraints),
-            actionsEnd = findByLayoutId(ANSWER_ACTIONS_END_ID)?.measure(constraints),
-            suggestions = findByLayoutId(ANSWER_SUGGESTIONS_ID)?.measure(constraints),
+    ): AiAnswerPlaceables {
+        return AiAnswerPlaceables(
+            title = findByLayoutId(AI_ANSWER_TITLE_ID)?.measure(constraints),
+            content = findByLayoutId(AI_ANSWER_CONTENT_ID)?.measure(constraints),
+            actionsStart = findByLayoutId(AI_ANSWER_ACTIONS_START_ID)?.measure(constraints),
+            actionsEnd = findByLayoutId(AI_ANSWER_ACTIONS_END_ID)?.measure(constraints),
+            suggestions = findByLayoutId(AI_ANSWER_SUGGESTIONS_ID)?.measure(constraints),
         )
     }
 
@@ -216,7 +216,7 @@ private class AnswerDefaultMeasurePolicy(
         return find { it.layoutId == layoutId }
     }
 
-    private fun AnswerPlaceables.maxWidth(): Int {
+    private fun AiAnswerPlaceables.maxWidth(): Int {
         return maxOf(
             title.widthOrZero(),
             content.widthOrZero(),
@@ -225,27 +225,27 @@ private class AnswerDefaultMeasurePolicy(
         )
     }
 
-    private fun AnswerPlaceables.contentHeight(
+    private fun AiAnswerPlaceables.contentHeight(
         contentGap: Int,
         actionsGap: Int,
         suggestionsGap: Int,
     ): Int {
         return buildList {
-            title?.let { add(AnswerContentSection(height = it.height)) }
-            content?.let { add(AnswerContentSection(height = it.height, gap = contentGap)) }
-            if (hasActions) add(AnswerContentSection(height = actionsHeight, gap = actionsGap))
-            suggestions?.let { add(AnswerContentSection(height = it.height, gap = suggestionsGap)) }
+            title?.let { add(AiAnswerContentSection(height = it.height)) }
+            content?.let { add(AiAnswerContentSection(height = it.height, gap = contentGap)) }
+            if (hasActions) add(AiAnswerContentSection(height = actionsHeight, gap = actionsGap))
+            suggestions?.let { add(AiAnswerContentSection(height = it.height, gap = suggestionsGap)) }
         }.totalHeight()
     }
 
-    private fun List<AnswerContentSection>.totalHeight(): Int {
+    private fun List<AiAnswerContentSection>.totalHeight(): Int {
         return fold(0) { height, section ->
             height + section.height + section.gap.takeIf { height > 0 }.orEmpty()
         }
     }
 
     private fun Placeable.PlacementScope.place(
-        placeables: AnswerPlaceables,
+        placeables: AiAnswerPlaceables,
         layoutWidth: Int,
         contentGap: Int,
         actionsGap: Int,
@@ -270,7 +270,7 @@ private class AnswerDefaultMeasurePolicy(
     }
 
     private fun Placeable.PlacementScope.placeActions(
-        placeables: AnswerPlaceables,
+        placeables: AiAnswerPlaceables,
         y: Int,
         layoutWidth: Int,
         gap: Int,
@@ -306,7 +306,7 @@ private class AnswerDefaultMeasurePolicy(
     private fun Int?.orEmpty(): Int = this ?: 0
 }
 
-private data class AnswerPlaceables(
+private data class AiAnswerPlaceables(
     val title: Placeable?,
     val content: Placeable?,
     val actionsStart: Placeable?,
@@ -318,17 +318,17 @@ private data class AnswerPlaceables(
     val hasActions: Boolean = actionsStart != null || actionsEnd != null
 }
 
-private data class AnswerContentSection(
+private data class AiAnswerContentSection(
     val height: Int,
     val gap: Int = 0,
 )
 
 @Composable
-internal fun AnswerError(
+internal fun AiAnswerError(
     title: @Composable () -> Unit,
     modifier: Modifier,
     text: (@Composable () -> Unit)?,
-    style: AnswerStyle,
+    style: AiAnswerStyle,
 ) {
     Note(
         modifier = modifier,
@@ -339,11 +339,11 @@ internal fun AnswerError(
 }
 
 @Composable
-internal fun AnswerLoading(
+internal fun AiAnswerLoading(
     modifier: Modifier,
     text: (@Composable () -> Unit)?,
-    style: AnswerStyle,
-    motion: Motion<AnswerMotionStyle>,
+    style: AiAnswerStyle,
+    motion: Motion<AiAnswerMotionStyle>,
 ) {
     val loadingGap = style.dimensions.loadingGap.getDpAsState(motion.context, motion.style.loadingGap)
     Row(
@@ -368,20 +368,20 @@ internal fun AnswerLoading(
     }
 }
 
-private class DefaultAnswerErrorScope(
-    override val state: AnswerState,
-    override val style: AnswerStyle,
-    override val motion: Motion<AnswerMotionStyle>,
-) : AnswerErrorScope
+private class DefaultAiAnswerErrorScope(
+    override val state: AiAnswerState,
+    override val style: AiAnswerStyle,
+    override val motion: Motion<AiAnswerMotionStyle>,
+) : AiAnswerErrorScope
 
-private class DefaultAnswerLoadingScope(
-    override val state: AnswerState,
-    override val style: AnswerStyle,
-    override val motion: Motion<AnswerMotionStyle>,
-) : AnswerLoadingScope
+private class DefaultAiAnswerLoadingScope(
+    override val state: AiAnswerState,
+    override val style: AiAnswerStyle,
+    override val motion: Motion<AiAnswerMotionStyle>,
+) : AiAnswerLoadingScope
 
-private const val ANSWER_TITLE_ID = "Title"
-private const val ANSWER_CONTENT_ID = "Content"
-private const val ANSWER_ACTIONS_START_ID = "ActionsStart"
-private const val ANSWER_ACTIONS_END_ID = "ActionsEnd"
-private const val ANSWER_SUGGESTIONS_ID = "Suggestions"
+private const val AI_ANSWER_TITLE_ID = "Title"
+private const val AI_ANSWER_CONTENT_ID = "Content"
+private const val AI_ANSWER_ACTIONS_START_ID = "ActionsStart"
+private const val AI_ANSWER_ACTIONS_END_ID = "ActionsEnd"
+private const val AI_ANSWER_SUGGESTIONS_ID = "Suggestions"
