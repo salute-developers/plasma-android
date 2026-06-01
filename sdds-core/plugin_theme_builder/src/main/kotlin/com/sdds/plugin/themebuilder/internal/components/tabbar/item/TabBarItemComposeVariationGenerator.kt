@@ -154,6 +154,12 @@ internal class TabBarItemComposeVariationGenerator(
                 props.minHeight?.let {
                     appendDimension("min_height", it, variationId)
                 }
+                props.extraOffsetX?.let {
+                    appendDimension("extra_offset_x", it, variationId)
+                }
+                props.extraOffsetY?.let {
+                    appendDimension("extra_offset_y", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -168,7 +174,9 @@ internal class TabBarItemComposeVariationGenerator(
             paddingBottom != null ||
             labelPadding != null ||
             iconSize != null ||
-            minHeight != null
+            minHeight != null ||
+            extraOffsetX != null ||
+            extraOffsetY != null
     }
 
     private fun TabBarItemProperties.hasColors() =

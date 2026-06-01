@@ -1,5 +1,10 @@
 package com.sdds.compose.uikit.fixtures.samples.tabbar
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -11,7 +16,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
@@ -25,10 +29,13 @@ import com.sdds.compose.uikit.TabBarItem
 import com.sdds.compose.uikit.TabBarItemStyle
 import com.sdds.compose.uikit.TabBarLabelPlacement
 import com.sdds.compose.uikit.TabBarStyle
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.badgeBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.shadow.ShadowAppearance
+import com.sdds.icons.R
 import com.sdds.docs.DocSample
 
 @Composable
@@ -40,11 +47,28 @@ fun TabBar_Simple() {
         TabBar {
             repeat(3) { index ->
                 tabItem {
+                    val isSelected = index == selectedIndex
                     TabBarItem(
-                        isSelected = index == selectedIndex,
-                        defaultIcon = com.sdds.icons.R.drawable.ic_smile_outline_36,
-                        selectedIcon = com.sdds.icons.R.drawable.ic_smile_fill_36,
-                        label = "Label",
+                        isSelected = isSelected,
+                        icon = {
+                            AnimatedContent(
+                                targetState = isSelected,
+                                transitionSpec = {
+                                    fadeIn(tween(200))
+                                        .togetherWith(fadeOut(tween(200)))
+                                },
+                            ) {
+                                val iconSource = resourceImageSource(
+                                    if (it) {
+                                        getIconSelected(index)
+                                    } else {
+                                        getIcon(index)
+                                    },
+                                )
+                                Icon(source = iconSource, contentDescription = "")
+                            }
+                        },
+                        labelContent = { Text(getTitle(index)) },
                         onClick = {
                             selectedIndex = index
                         },
@@ -64,12 +88,16 @@ fun TabBar_WithCounter() {
         TabBar {
             repeat(3) { index ->
                 tabItem {
+                    val isSelected = index == selectedIndex
                     TabBarItem(
-                        isSelected = index == selectedIndex,
-                        defaultIcon = com.sdds.icons.R.drawable.ic_smile_outline_36,
-                        selectedIcon = com.sdds.icons.R.drawable.ic_smile_fill_36,
-                        label = "Label",
-                        extra = { Counter(count = "3") },
+                        isSelected = isSelected,
+                        icon = { TabIcon(index, isSelected) },
+                        labelContent = { Text(getTitle(index)) },
+                        extra = if (index == 2) {
+                            { Counter(count = "3") }
+                        } else {
+                            null
+                        },
                         onClick = {
                             selectedIndex = index
                         },
@@ -88,11 +116,11 @@ fun TabBar_CustomItem() {
 
         TabBar {
             tabItem {
+                val isSelected = selectedIndex == 0
                 TabBarItem(
-                    isSelected = selectedIndex == 0,
-                    defaultIcon = com.sdds.icons.R.drawable.ic_home_alt_outline_36,
-                    selectedIcon = com.sdds.icons.R.drawable.ic_home_alt_fill_36,
-                    label = "Tab 0",
+                    isSelected = isSelected,
+                    icon = { TabIcon(0, isSelected) },
+                    labelContent = { Text(getTitle(0)) },
                     onClick = { selectedIndex = 0 },
                 )
             }
@@ -101,16 +129,16 @@ fun TabBar_CustomItem() {
                     modifier = Modifier
                         .size(36.dp)
                         .clickable { selectedIndex = 1 },
-                    painter = painterResource(com.sdds.icons.R.drawable.ic_sb_36),
+                    source = resourceImageSource(R.drawable.ic_sb_36),
                     contentDescription = null,
                 )
             }
             tabItem {
+                val isSelected = selectedIndex == 2
                 TabBarItem(
-                    isSelected = selectedIndex == 2,
-                    defaultIcon = com.sdds.icons.R.drawable.ic_profile_outline_36,
-                    selectedIcon = com.sdds.icons.R.drawable.ic_profile_fill_36,
-                    label = "Tab 2",
+                    isSelected = isSelected,
+                    icon = { TabIcon(2, isSelected) },
+                    labelContent = { Text(getTitle(2)) },
                     onClick = { selectedIndex = 2 },
                 )
             }
@@ -157,19 +185,19 @@ fun TabBarItem_Style() {
             .labelPlacement(TabBarLabelPlacement.Bottom)
             .colors {
                 backgroundColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asStatefulValue(
+                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Selected)
                             to placeholder(Color.White, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 labelColor(
-                    placeholder(Color.LightGray, "/** Токен цвета */").asStatefulValue(
+                    placeholder(Color.LightGray, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Selected)
                             to placeholder(Color.White, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 iconColor(
-                    placeholder(Color.Gray, "/** Токен цвета */").asStatefulValue(
+                    placeholder(Color.Gray, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Selected)
                             to placeholder(Color.Black, "/** Цвет в состоянии selected */"),
                     ),
@@ -191,5 +219,55 @@ fun TabBarItem_Style() {
                 ),
             )
             .style()
+    }
+}
+
+private fun getTitle(index: Int): String {
+    return when (index) {
+        0 -> "Почта"
+        1 -> "Календарь"
+        2 -> "Встречи"
+        3 -> "Чаты"
+        else -> "Label"
+    }
+}
+
+private fun getIcon(index: Int): Int {
+    return when (index) {
+        0 -> R.drawable.ic_mail_outline_24
+        1 -> R.drawable.ic_calendar_outline_24
+        2 -> R.drawable.ic_call_outline_24
+        3 -> R.drawable.ic_chat_outline_24
+        else -> R.drawable.ic_settings_outline_24
+    }
+}
+
+private fun getIconSelected(index: Int): Int {
+    return when (index) {
+        0 -> R.drawable.ic_mail_fill_24
+        1 -> R.drawable.ic_calendar_fill_24
+        2 -> R.drawable.ic_call_fill_24
+        3 -> R.drawable.ic_chat_fill_24
+        else -> R.drawable.ic_settings_fill_24
+    }
+}
+
+@Composable
+private fun TabIcon(index: Int, isSelected: Boolean) {
+    AnimatedContent(
+        targetState = isSelected,
+        transitionSpec = {
+            fadeIn(tween(200))
+                .togetherWith(fadeOut(tween(200)))
+        },
+    ) {
+        val iconSource = resourceImageSource(
+            if (it) {
+                getIconSelected(index)
+            } else {
+                getIcon(index)
+            },
+        )
+        Icon(source = iconSource, contentDescription = "")
     }
 }

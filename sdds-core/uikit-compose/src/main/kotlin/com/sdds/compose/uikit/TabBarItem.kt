@@ -1,38 +1,64 @@
 package com.sdds.compose.uikit
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.interactions.getValue
-import com.sdds.compose.uikit.internal.clickableWithoutIndication
-import com.sdds.compose.uikit.internal.common.StyledText
+import com.sdds.compose.uikit.internal.tabbar.BaseTabBarItem
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.tabbar.TabBarItemMotionStyle
+import com.sdds.compose.uikit.motion.components.tabbar.rememberTabBarItemMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
+
+/**
+ * Элемент [TabBar]
+ *
+ * @param icon слот иконки
+ * @param modifier модификатор
+ * @param isSelected выбран ли элемент
+ * @param onClick обработчик нажатия
+ * @param onClickLabel accessibility текст при клике на компонент
+ * @param style стиль компонента
+ * @param labelContent слот лэйбла
+ * @param extra дополнительный контент в правом верхнем углу иконки
+ * @param motion объект анимаций
+ */
+@Composable
+fun TabBarItem(
+    icon: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    isSelected: Boolean = false,
+    onClick: (() -> Unit)? = null,
+    onClickLabel: String? = null,
+    style: TabBarItemStyle = LocalTabBarItemStyle.current,
+    labelContent: (@Composable () -> Unit)? = null,
+    extra: (@Composable () -> Unit)? = null,
+    motion: Motion<TabBarItemMotionStyle> = rememberTabBarItemMotion(),
+) {
+    BaseTabBarItem(
+        icon = icon,
+        modifier = modifier,
+        isSelected = isSelected,
+        onClick = onClick,
+        onClickLabel = onClickLabel,
+        style = style,
+        labelContent = labelContent,
+        extra = extra,
+        motion = motion,
+    )
+}
 
 /**
  * Элемент [TabBar]
@@ -59,54 +85,26 @@ fun TabBarItem(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     extra: (@Composable () -> Unit)? = null,
 ) {
-    val stateSet =
-        remember(isSelected) { if (isSelected) setOf(InteractiveState.Selected) else emptySet() }
-    val backgroundColor = style.colors.backgroundColor.getValue(interactionSource, stateSet)
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
-            .then(
-                onClick?.let {
-                    Modifier.clickableWithoutIndication { it.invoke() }
-                } ?: Modifier,
-            )
-            .defaultMinSize(minHeight = style.dimensions.minHeight)
-            .fillMaxWidth()
-            .background(backgroundColor, shape = style.shape)
-            .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-                top = style.dimensions.paddingTop,
-                bottom = style.dimensions.paddingBottom,
-            ),
-    ) {
-        Box(
-            contentAlignment = Alignment.Center,
-        ) {
-            val iconColor = style.colors.iconColor.getValue(interactionSource, stateSet)
-            CompositionLocalProvider(LocalTint provides iconColor) {
-                Box(
-                    modifier = Modifier
-                        .size(style.dimensions.iconSize)
-                        .defaultMinSize(
-                            style.dimensions.iconSize,
-                            style.dimensions.iconSize,
-                        ),
-                ) {
-                    if (isSelected) selectedIcon.invoke() else defaultIcon.invoke()
-                }
-            }
-            extra?.let { TabBarItemExtra(it, style) }
-        }
-        if (!label.isNullOrEmpty() && style.labelPlacement != TabBarLabelPlacement.None) {
-            StyledText(
-                modifier = Modifier.padding(top = style.dimensions.labelPadding),
-                text = label,
-                textStyle = style.labelStyle,
-                textColor = style.colors.labelColor.getValue(interactionSource, stateSet),
-            )
-        }
+    val motionInteractionSource = remember(interactionSource) {
+        interactionSource as? MutableInteractionSource ?: MutableInteractionSource()
     }
+    val motion = rememberTabBarItemMotion(motionContext = rememberMotionContext(motionInteractionSource))
+    TabBarItem(
+        icon = { if (isSelected) selectedIcon() else defaultIcon() },
+        modifier = modifier,
+        isSelected = isSelected,
+        onClick = onClick,
+        style = style,
+        labelContent = label?.takeIf { it.isNotEmpty() }?.let { labelText ->
+            {
+                val labelColor = style.colors.label.getBrushAsState(motion.context, motion.style.labelColor)
+                val labelStyle by style.labelStyleValue.getTextStyleAsState(motion.context, motion.style.labelStyle)
+                Text(labelText, style = labelStyle, brush = { labelColor.value })
+            }
+        },
+        extra = extra,
+        motion = motion,
+    )
 }
 
 /**
@@ -133,26 +131,30 @@ fun TabBarItem(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     extra: (@Composable () -> Unit)? = null,
 ) {
+    val motionInteractionSource = remember(interactionSource) {
+        interactionSource as? MutableInteractionSource ?: MutableInteractionSource()
+    }
+    val motion = rememberTabBarItemMotion(motionContext = rememberMotionContext(motionInteractionSource))
     TabBarItem(
+        icon = {
+            Icon(
+                painter = painterResource(if (isSelected) selectedIcon else defaultIcon),
+                contentDescription = "",
+            )
+        },
         modifier = modifier,
         onClick = onClick,
         isSelected = isSelected,
         style = style,
-        defaultIcon = {
-            Icon(
-                painter = painterResource(defaultIcon),
-                contentDescription = "",
-            )
+        labelContent = label?.takeIf { it.isNotEmpty() }?.let { labelText ->
+            {
+                val labelColor = style.colors.label.getBrushAsState(motion.context, motion.style.labelColor)
+                val labelStyle by style.labelStyleValue.getTextStyleAsState(motion.context, motion.style.labelStyle)
+                Text(labelText, style = labelStyle, brush = { labelColor.value })
+            }
         },
-        selectedIcon = {
-            Icon(
-                painter = painterResource(selectedIcon),
-                contentDescription = "",
-            )
-        },
-        label = label,
-        interactionSource = interactionSource,
         extra = extra,
+        motion = motion,
     )
 }
 
@@ -170,34 +172,6 @@ enum class TabBarLabelPlacement {
      * Лэйбл снизу
      */
     Bottom,
-}
-
-@Composable
-private fun BoxScope.TabBarItemExtra(
-    extra: @Composable () -> Unit,
-    style: TabBarItemStyle,
-) {
-    var size by remember { mutableStateOf(IntSize.Zero) }
-    Box(
-        modifier = Modifier
-            .onSizeChanged { size = it }
-            .alpha(if (size != IntSize.Zero) 1f else 0f)
-            .align(Alignment.TopEnd)
-            .offset {
-                IntOffset(
-                    x = size.width / 2,
-                    y = -size.height / 2,
-                )
-            },
-    ) {
-        CompositionLocalProvider(
-            LocalBadgeStyle provides style.badgeStyle,
-            LocalCounterStyle provides style.counterStyle,
-            LocalIndicatorStyle provides style.indicatorStyle,
-        ) {
-            extra()
-        }
-    }
 }
 
 @Composable
