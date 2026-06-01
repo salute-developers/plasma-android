@@ -69,8 +69,8 @@ internal class ListItemComposeVariationGenerator(
         return props.gravity?.let {
             val enumValue = when {
                 it.value.equals("bottom", ignoreCase = true) -> "Bottom"
-                it.value.equals("center", ignoreCase = true) -> "Center"
-                else -> "Top"
+                it.value.equals("top", ignoreCase = true) -> "Top"
+                else -> "Center"
             }
             ".gravity(CellGravity.$enumValue)"
         }
@@ -166,6 +166,8 @@ internal class ListItemComposeVariationGenerator(
     private fun ListItemProperties.hasColors(): Boolean {
         return backgroundColor != null ||
             titleColor != null ||
+            labelColor != null ||
+            subtitleColor != null ||
             disclosureIconColor != null ||
             contentStartColor != null ||
             contentEndColor != null

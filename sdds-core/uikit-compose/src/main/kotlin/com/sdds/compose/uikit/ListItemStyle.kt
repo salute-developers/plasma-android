@@ -408,7 +408,7 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
     fun disclosureTextStyle(disclosureStyle: StatefulValue<TextStyle>): ListItemStyleBuilder
 
     /**
-     * Устанавливет выравнивание содержимого по вериткализали
+     * Устанавливает выравнивание содержимого по вертикали
      */
     fun gravity(gravity: CellGravity): ListItemStyleBuilder
 }
