@@ -38,10 +38,12 @@ internal class WheelComposeVariationGenerator(
     override val componentStyleName: String = "WheelStyle"
 
     override fun KtFileBuilder.onAddImports() {
+        addImport("androidx.compose.ui.graphics", listOf("SolidColor"))
         addImport(
             "com.sdds.compose.uikit",
             listOf(
                 "WheelAlignment",
+                "TextAfterMode",
             ),
         )
     }
@@ -59,7 +61,10 @@ internal class WheelComposeVariationGenerator(
         itemAlignmentCall(props),
         wheelCountCall(props),
         visibleItemsCountCall(props),
+        textAfterModeCall(props),
         dividerStyleCall(props, ktFileBuilder),
+        itemSelectorEnabledCall(props),
+        itemSelectorShapeCall(props, variationId),
         colorsCall(props),
         dimensionsCall(props, variationId),
     )
@@ -128,6 +133,9 @@ internal class WheelComposeVariationGenerator(
                 props.separatorColor?.let {
                     appendLine(getColor("separatorColor", it))
                 }
+                props.itemSelectorColor?.let {
+                    appendLine(getGradientOrWrappedColor("itemSelectorColor", it))
+                }
                 append("}")
             }
         } else {
@@ -169,6 +177,18 @@ internal class WheelComposeVariationGenerator(
                 props.itemMinSpacing?.let {
                     appendDimension("item_min_spacing", it, variationId)
                 }
+                props.itemSelectorPaddingTop?.let {
+                    appendDimension("item_selector_padding_top", it, variationId)
+                }
+                props.itemSelectorPaddingBottom?.let {
+                    appendDimension("item_selector_padding_bottom", it, variationId)
+                }
+                props.itemSelectorPaddingStart?.let {
+                    appendDimension("item_selector_padding_start", it, variationId)
+                }
+                props.itemSelectorPaddingEnd?.let {
+                    appendDimension("item_selector_padding_end", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -181,7 +201,11 @@ internal class WheelComposeVariationGenerator(
         return itemTextAfterPadding != null ||
             descriptionPadding != null ||
             separatorSpacing != null ||
-            itemMinSpacing != null
+            itemMinSpacing != null ||
+            itemSelectorPaddingTop != null ||
+            itemSelectorPaddingBottom != null ||
+            itemSelectorPaddingStart != null ||
+            itemSelectorPaddingEnd != null
     }
 
     private fun WheelProperties.hasColors() =
@@ -190,7 +214,8 @@ internal class WheelComposeVariationGenerator(
             itemTextColor != null ||
             itemTextAfterColor != null ||
             descriptionColor != null ||
-            separatorColor != null
+            separatorColor != null ||
+            itemSelectorColor != null
 
     private fun itemAlignmentCall(props: WheelProperties): String? {
         return props.itemAlignment?.let {
@@ -202,6 +227,28 @@ internal class WheelComposeVariationGenerator(
                 else -> "Center"
             }
             ".itemAlignment(WheelAlignment.$enumValue)"
+        }
+    }
+
+    private fun itemSelectorEnabledCall(props: WheelProperties): String? {
+        return props.itemSelectorEnabled?.let {
+            ".itemSelectorEnabled(${it.value})"
+        }
+    }
+
+    private fun itemSelectorShapeCall(props: WheelProperties, variationId: String): String? {
+        return props.itemSelectorShape?.let {
+            getShape(it, variationId, "itemSelectorShape")
+        }
+    }
+
+    private fun textAfterModeCall(props: WheelProperties): String? {
+        return props.textAfterMode?.let {
+            val enumValue = when {
+                it.value.equals("static", ignoreCase = true) -> "Static"
+                else -> "EachItem"
+            }
+            ".textAfterMode(TextAfterMode.$enumValue)"
         }
     }
 }

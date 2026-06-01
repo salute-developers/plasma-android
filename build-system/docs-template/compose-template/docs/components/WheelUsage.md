@@ -46,6 +46,26 @@ title: Wheel
 // @sample: com/sdds/compose/uikit/fixtures/samples/wheel/Wheel_Style.kt
 ```
 
+## Индикатор выбранного элемента
+
+Компонент поддерживает отображение прямоугольного индикатора, выделяющего центральный (выбранный) элемент. Индикатор рисуется под всеми колёсами как единый прямоугольник, охватывающий всю группу.
+
+Индикатор настраивается через `WheelStyle` и включается флагом `itemSelectorEnabled`:
+
+```kotlin
+WheelStyle.builder()
+    .itemSelectorEnabled(true)
+    .itemSelectorShape(RoundedCornerShape(8.dp))
+    .colors {
+        itemSelectorColor(Color(0x1A0066FF))
+    }
+    .dimensions {
+        itemSelectorPaddingTop(2.dp)
+        itemSelectorPaddingBottom(2.dp)
+    }
+    .style()
+```
+
 ## WheelConstraints
 
 Ограничение колёс по ширине.
