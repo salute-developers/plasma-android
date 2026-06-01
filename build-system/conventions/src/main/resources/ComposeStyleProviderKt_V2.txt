@@ -11,7 +11,7 @@ package ${{ packageName }}
 
 import androidx.compose.runtime.Composable
 import com.sdds.sandbox.Property
-import com.sdds.compose.uikit.${{ coreStyleClass }}
+import ${{ coreStyleClassImport }}
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference

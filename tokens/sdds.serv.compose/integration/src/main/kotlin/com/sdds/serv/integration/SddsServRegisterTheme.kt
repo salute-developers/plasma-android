@@ -27,7 +27,7 @@ fun SandboxActivity.registerTheme(componentProvider: ComponentProvider = Compone
                 colors = if (isDark) darkSddsServColors() else lightSddsServColors(),
                 gradients = if (isDark) darkSddsServGradients() else lightSddsServGradients(),
             ) {
-                it.invoke()
+                it()
             }
         },
         subthemes = mapOf(

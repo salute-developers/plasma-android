@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -11,6 +13,7 @@ import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.TabBarStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.sandbox.Property
 import com.sdds.serv.styles.tabbar.Accent
 import com.sdds.serv.styles.tabbar.Default
 import com.sdds.serv.styles.tabbar.L
@@ -18,21 +21,65 @@ import com.sdds.serv.styles.tabbar.M
 import com.sdds.serv.styles.tabbar.Secondary
 import com.sdds.serv.styles.tabbar.Shadow
 import com.sdds.serv.styles.tabbar.TabBarIslandHasLabelSolid
+import com.sdds.serv.styles.tabbar.TabBarIslandHasLabelSolidSize
+import com.sdds.serv.styles.tabbar.TabBarIslandHasLabelSolidView
+import com.sdds.serv.styles.tabbar.TabBarStyles
+import com.sdds.serv.styles.tabbar.resolve
 
 internal object SddsServTabBarIslandHasLabelSolidVariationsCompose : ComposeStyleProvider<TabBarStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "M", variants = listOf("M", "L")),
+            Property.BooleanProperty(name = "hasShadow", value = false),
+            Property.SingleChoiceProperty(
+                name = "view",
+                value = "Default",
+                variants = listOf("Default", "Secondary", "Accent"),
+            ),
+        )
+
     override val variations: Map<String, ComposeStyleReference<TabBarStyle>> =
         mapOf(
-            "M.Default" to ComposeStyleReference { TabBarIslandHasLabelSolid.M.Default.style() },
-            "M.Secondary" to ComposeStyleReference { TabBarIslandHasLabelSolid.M.Secondary.style() },
-            "M.Accent" to ComposeStyleReference { TabBarIslandHasLabelSolid.M.Accent.style() },
-            "M.Shadow.Default" to ComposeStyleReference { TabBarIslandHasLabelSolid.M.Shadow.Default.style() },
-            "M.Shadow.Secondary" to ComposeStyleReference { TabBarIslandHasLabelSolid.M.Shadow.Secondary.style() },
-            "M.Shadow.Accent" to ComposeStyleReference { TabBarIslandHasLabelSolid.M.Shadow.Accent.style() },
-            "L.Default" to ComposeStyleReference { TabBarIslandHasLabelSolid.L.Default.style() },
-            "L.Secondary" to ComposeStyleReference { TabBarIslandHasLabelSolid.L.Secondary.style() },
-            "L.Accent" to ComposeStyleReference { TabBarIslandHasLabelSolid.L.Accent.style() },
-            "L.Shadow.Default" to ComposeStyleReference { TabBarIslandHasLabelSolid.L.Shadow.Default.style() },
-            "L.Shadow.Secondary" to ComposeStyleReference { TabBarIslandHasLabelSolid.L.Shadow.Secondary.style() },
-            "L.Shadow.Accent" to ComposeStyleReference { TabBarIslandHasLabelSolid.L.Shadow.Accent.style() },
+            "TabBarIslandHasLabelSolid.M.Default" to ComposeStyleReference { TabBarIslandHasLabelSolid.M.Default.style() },
+            "TabBarIslandHasLabelSolid.M.Secondary" to ComposeStyleReference { TabBarIslandHasLabelSolid.M.Secondary.style() },
+            "TabBarIslandHasLabelSolid.M.Accent" to ComposeStyleReference { TabBarIslandHasLabelSolid.M.Accent.style() },
+            "TabBarIslandHasLabelSolid.M.Shadow.Default" to ComposeStyleReference {
+                TabBarIslandHasLabelSolid.M.Shadow.Default.style()
+            },
+            "TabBarIslandHasLabelSolid.M.Shadow.Secondary" to ComposeStyleReference {
+                TabBarIslandHasLabelSolid.M.Shadow.Secondary.style()
+            },
+            "TabBarIslandHasLabelSolid.M.Shadow.Accent" to ComposeStyleReference {
+                TabBarIslandHasLabelSolid.M.Shadow.Accent.style()
+            },
+            "TabBarIslandHasLabelSolid.L.Default" to ComposeStyleReference { TabBarIslandHasLabelSolid.L.Default.style() },
+            "TabBarIslandHasLabelSolid.L.Secondary" to ComposeStyleReference { TabBarIslandHasLabelSolid.L.Secondary.style() },
+            "TabBarIslandHasLabelSolid.L.Accent" to ComposeStyleReference { TabBarIslandHasLabelSolid.L.Accent.style() },
+            "TabBarIslandHasLabelSolid.L.Shadow.Default" to ComposeStyleReference {
+                TabBarIslandHasLabelSolid.L.Shadow.Default.style()
+            },
+            "TabBarIslandHasLabelSolid.L.Shadow.Secondary" to ComposeStyleReference {
+                TabBarIslandHasLabelSolid.L.Shadow.Secondary.style()
+            },
+            "TabBarIslandHasLabelSolid.L.Shadow.Accent" to ComposeStyleReference {
+                TabBarIslandHasLabelSolid.L.Shadow.Accent.style()
+            },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return TabBarStyles.IslandHasLabelSolid.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "M" -> TabBarIslandHasLabelSolidSize.M
+                "L" -> TabBarIslandHasLabelSolidSize.L
+                else -> TabBarIslandHasLabelSolidSize.M
+            },
+            hasShadow = booleanBindingValue(bindings, "hasShadow", false),
+            view = when (bindings["view"]?.toString()) {
+                "Default" -> TabBarIslandHasLabelSolidView.Default
+                "Secondary" -> TabBarIslandHasLabelSolidView.Secondary
+                "Accent" -> TabBarIslandHasLabelSolidView.Accent
+                else -> TabBarIslandHasLabelSolidView.Default
+            },
+        ).key
+    }
 }

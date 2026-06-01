@@ -55,6 +55,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     componentName: String,
     styleBuilderName: String? = null,
     private val styleBuilderFactoryFunName: String = "builder",
+    private val componentStylePackage: String = "com.sdds.compose.uikit",
 ) : ComponentStyleGenerator<Config<PO>> {
 
     private val componentXmlPrefix: String = componentName
@@ -69,14 +70,14 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private val styleBuilderType: ClassName by unsafeLazy {
         ktFileBuilder.getInternalClassType(
             className = styleBuilderName ?: "${camelComponentName}StyleBuilder",
-            classPackage = "com.sdds.compose.uikit",
+            classPackage = componentStylePackage,
         )
     }
 
     private val styleType: ClassName by unsafeLazy {
         ktFileBuilder.getInternalClassType(
             className = componentStyleName,
-            classPackage = "com.sdds.compose.uikit",
+            classPackage = componentStylePackage,
         )
     }
 
