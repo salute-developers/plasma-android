@@ -383,52 +383,52 @@ interface AiHeaderDimensions {
     /**
      * Внешний отступ слева
      */
-    val paddingStart: Dp
+    val paddingStart: StatefulValue<Dp>
 
     /**
      * Внешний отступ справа
      */
-    val paddingEnd: Dp
+    val paddingEnd: StatefulValue<Dp>
 
     /**
      * Внешний отступ сверху
      */
-    val paddingTop: Dp
+    val paddingTop: StatefulValue<Dp>
 
     /**
      * Внешний отступ снизу
      */
-    val paddingBottom: Dp
+    val paddingBottom: StatefulValue<Dp>
 
     /**
      * Внутренний отступ текстового блока слева
      */
-    val textPaddingStart: Dp
+    val textPaddingStart: StatefulValue<Dp>
 
     /**
      * Внутренний отступ текстового блока справа
      */
-    val textPaddingEnd: Dp
+    val textPaddingEnd: StatefulValue<Dp>
 
     /**
      * Внутренний отступ текстового блока сверху
      */
-    val textPaddingTop: Dp
+    val textPaddingTop: StatefulValue<Dp>
 
     /**
      * Внутренний отступ текстового блока снизу
      */
-    val textPaddingBottom: Dp
+    val textPaddingBottom: StatefulValue<Dp>
 
     /**
      * Отступ между заголовком и подзаголовком
      */
-    val subtitlePadding: Dp
+    val subtitlePadding: StatefulValue<Dp>
 
     /**
      * Толщина линии разделителя
      */
-    val dividerThickness: Dp
+    val dividerThickness: StatefulValue<Dp>
 
     companion object {
         /**
@@ -446,52 +446,112 @@ interface AiHeaderDimensionsBuilder {
     /**
      * Устанавливает внешний отступ слева
      */
-    fun paddingStart(paddingStart: Dp): AiHeaderDimensionsBuilder
+    fun paddingStart(paddingStart: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает внешний отступ слева; shorthand через [asStatefulValue]
+     */
+    fun paddingStart(paddingStart: Dp): AiHeaderDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
 
     /**
      * Устанавливает внешний отступ справа
      */
-    fun paddingEnd(paddingEnd: Dp): AiHeaderDimensionsBuilder
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает внешний отступ справа; shorthand через [asStatefulValue]
+     */
+    fun paddingEnd(paddingEnd: Dp): AiHeaderDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
 
     /**
      * Устанавливает внешний отступ сверху
      */
-    fun paddingTop(paddingTop: Dp): AiHeaderDimensionsBuilder
+    fun paddingTop(paddingTop: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает внешний отступ сверху; shorthand через [asStatefulValue]
+     */
+    fun paddingTop(paddingTop: Dp): AiHeaderDimensionsBuilder =
+        paddingTop(paddingTop.asStatefulValue())
 
     /**
      * Устанавливает внешний отступ снизу
      */
-    fun paddingBottom(paddingBottom: Dp): AiHeaderDimensionsBuilder
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает внешний отступ снизу; shorthand через [asStatefulValue]
+     */
+    fun paddingBottom(paddingBottom: Dp): AiHeaderDimensionsBuilder =
+        paddingBottom(paddingBottom.asStatefulValue())
 
     /**
      * Устанавливает внутренний отступ текстового блока слева
      */
-    fun textPaddingStart(textPaddingStart: Dp): AiHeaderDimensionsBuilder
+    fun textPaddingStart(textPaddingStart: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает внутренний отступ текстового блока слева; shorthand через [asStatefulValue]
+     */
+    fun textPaddingStart(textPaddingStart: Dp): AiHeaderDimensionsBuilder =
+        textPaddingStart(textPaddingStart.asStatefulValue())
 
     /**
      * Устанавливает внутренний отступ текстового блока справа
      */
-    fun textPaddingEnd(textPaddingEnd: Dp): AiHeaderDimensionsBuilder
+    fun textPaddingEnd(textPaddingEnd: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает внутренний отступ текстового блока справа; shorthand через [asStatefulValue]
+     */
+    fun textPaddingEnd(textPaddingEnd: Dp): AiHeaderDimensionsBuilder =
+        textPaddingEnd(textPaddingEnd.asStatefulValue())
 
     /**
      * Устанавливает внутренний отступ текстового блока сверху
      */
-    fun textPaddingTop(textPaddingTop: Dp): AiHeaderDimensionsBuilder
+    fun textPaddingTop(textPaddingTop: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает внутренний отступ текстового блока сверху; shorthand через [asStatefulValue]
+     */
+    fun textPaddingTop(textPaddingTop: Dp): AiHeaderDimensionsBuilder =
+        textPaddingTop(textPaddingTop.asStatefulValue())
 
     /**
      * Устанавливает внутренний отступ текстового блока снизу
      */
-    fun textPaddingBottom(textPaddingBottom: Dp): AiHeaderDimensionsBuilder
+    fun textPaddingBottom(textPaddingBottom: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает внутренний отступ текстового блока снизу; shorthand через [asStatefulValue]
+     */
+    fun textPaddingBottom(textPaddingBottom: Dp): AiHeaderDimensionsBuilder =
+        textPaddingBottom(textPaddingBottom.asStatefulValue())
 
     /**
      * Устанавливает отступ между заголовком и подзаголовком
      */
-    fun subtitlePadding(subtitlePadding: Dp): AiHeaderDimensionsBuilder
+    fun subtitlePadding(subtitlePadding: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает отступ между заголовком и подзаголовком; shorthand через [asStatefulValue]
+     */
+    fun subtitlePadding(subtitlePadding: Dp): AiHeaderDimensionsBuilder =
+        subtitlePadding(subtitlePadding.asStatefulValue())
 
     /**
      * Устанавливает толщину линии разделителя
      */
-    fun dividerThickness(dividerThickness: Dp): AiHeaderDimensionsBuilder
+    fun dividerThickness(dividerThickness: StatefulValue<Dp>): AiHeaderDimensionsBuilder
+
+    /**
+     * Устанавливает толщину линии разделителя; shorthand через [asStatefulValue]
+     */
+    fun dividerThickness(dividerThickness: Dp): AiHeaderDimensionsBuilder =
+        dividerThickness(dividerThickness.asStatefulValue())
 
     /**
      * Создаёт экземпляр [AiHeaderDimensions]
@@ -501,52 +561,64 @@ interface AiHeaderDimensionsBuilder {
 
 @Immutable
 private data class DefaultAiHeaderDimensions(
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
-    override val paddingTop: Dp,
-    override val paddingBottom: Dp,
-    override val textPaddingStart: Dp,
-    override val textPaddingEnd: Dp,
-    override val textPaddingTop: Dp,
-    override val textPaddingBottom: Dp,
-    override val subtitlePadding: Dp,
-    override val dividerThickness: Dp,
+    override val paddingStart: StatefulValue<Dp>,
+    override val paddingEnd: StatefulValue<Dp>,
+    override val paddingTop: StatefulValue<Dp>,
+    override val paddingBottom: StatefulValue<Dp>,
+    override val textPaddingStart: StatefulValue<Dp>,
+    override val textPaddingEnd: StatefulValue<Dp>,
+    override val textPaddingTop: StatefulValue<Dp>,
+    override val textPaddingBottom: StatefulValue<Dp>,
+    override val subtitlePadding: StatefulValue<Dp>,
+    override val dividerThickness: StatefulValue<Dp>,
 ) : AiHeaderDimensions {
 
     class Builder : AiHeaderDimensionsBuilder {
-        private var paddingStart: Dp = 0.dp
-        private var paddingEnd: Dp = 0.dp
-        private var paddingTop: Dp = 0.dp
-        private var paddingBottom: Dp = 0.dp
-        private var textPaddingStart: Dp = 0.dp
-        private var textPaddingEnd: Dp = 0.dp
-        private var textPaddingTop: Dp = 0.dp
-        private var textPaddingBottom: Dp = 0.dp
-        private var subtitlePadding: Dp = 0.dp
-        private var dividerThickness: Dp = 1.dp
+        private var paddingStart: StatefulValue<Dp>? = null
+        private var paddingEnd: StatefulValue<Dp>? = null
+        private var paddingTop: StatefulValue<Dp>? = null
+        private var paddingBottom: StatefulValue<Dp>? = null
+        private var textPaddingStart: StatefulValue<Dp>? = null
+        private var textPaddingEnd: StatefulValue<Dp>? = null
+        private var textPaddingTop: StatefulValue<Dp>? = null
+        private var textPaddingBottom: StatefulValue<Dp>? = null
+        private var subtitlePadding: StatefulValue<Dp>? = null
+        private var dividerThickness: StatefulValue<Dp>? = null
 
-        override fun paddingStart(paddingStart: Dp) = apply { this.paddingStart = paddingStart }
-        override fun paddingEnd(paddingEnd: Dp) = apply { this.paddingEnd = paddingEnd }
-        override fun paddingTop(paddingTop: Dp) = apply { this.paddingTop = paddingTop }
-        override fun paddingBottom(paddingBottom: Dp) = apply { this.paddingBottom = paddingBottom }
-        override fun textPaddingStart(textPaddingStart: Dp) = apply { this.textPaddingStart = textPaddingStart }
-        override fun textPaddingEnd(textPaddingEnd: Dp) = apply { this.textPaddingEnd = textPaddingEnd }
-        override fun textPaddingTop(textPaddingTop: Dp) = apply { this.textPaddingTop = textPaddingTop }
-        override fun textPaddingBottom(textPaddingBottom: Dp) = apply { this.textPaddingBottom = textPaddingBottom }
-        override fun subtitlePadding(subtitlePadding: Dp) = apply { this.subtitlePadding = subtitlePadding }
-        override fun dividerThickness(dividerThickness: Dp) = apply { this.dividerThickness = dividerThickness }
+        override fun paddingStart(paddingStart: StatefulValue<Dp>) = apply { this.paddingStart = paddingStart }
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>) = apply { this.paddingEnd = paddingEnd }
+        override fun paddingTop(paddingTop: StatefulValue<Dp>) = apply { this.paddingTop = paddingTop }
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>) = apply { this.paddingBottom = paddingBottom }
+        override fun textPaddingStart(textPaddingStart: StatefulValue<Dp>) = apply {
+            this.textPaddingStart = textPaddingStart
+        }
+        override fun textPaddingEnd(textPaddingEnd: StatefulValue<Dp>) = apply {
+            this.textPaddingEnd = textPaddingEnd
+        }
+        override fun textPaddingTop(textPaddingTop: StatefulValue<Dp>) = apply {
+            this.textPaddingTop = textPaddingTop
+        }
+        override fun textPaddingBottom(textPaddingBottom: StatefulValue<Dp>) = apply {
+            this.textPaddingBottom = textPaddingBottom
+        }
+        override fun subtitlePadding(subtitlePadding: StatefulValue<Dp>) = apply {
+            this.subtitlePadding = subtitlePadding
+        }
+        override fun dividerThickness(dividerThickness: StatefulValue<Dp>) = apply {
+            this.dividerThickness = dividerThickness
+        }
 
         override fun build(): AiHeaderDimensions = DefaultAiHeaderDimensions(
-            paddingStart = paddingStart,
-            paddingEnd = paddingEnd,
-            paddingTop = paddingTop,
-            paddingBottom = paddingBottom,
-            textPaddingStart = textPaddingStart,
-            textPaddingEnd = textPaddingEnd,
-            textPaddingTop = textPaddingTop,
-            textPaddingBottom = textPaddingBottom,
-            subtitlePadding = subtitlePadding,
-            dividerThickness = dividerThickness,
+            paddingStart = paddingStart ?: 0.dp.asStatefulValue(),
+            paddingEnd = paddingEnd ?: 0.dp.asStatefulValue(),
+            paddingTop = paddingTop ?: 0.dp.asStatefulValue(),
+            paddingBottom = paddingBottom ?: 0.dp.asStatefulValue(),
+            textPaddingStart = textPaddingStart ?: 0.dp.asStatefulValue(),
+            textPaddingEnd = textPaddingEnd ?: 0.dp.asStatefulValue(),
+            textPaddingTop = textPaddingTop ?: 0.dp.asStatefulValue(),
+            textPaddingBottom = textPaddingBottom ?: 0.dp.asStatefulValue(),
+            subtitlePadding = subtitlePadding ?: 0.dp.asStatefulValue(),
+            dividerThickness = dividerThickness ?: 1.dp.asStatefulValue(),
         )
     }
 }

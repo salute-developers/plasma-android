@@ -23,6 +23,7 @@ import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.aiheader.AiHeaderMotionStyle
 import com.sdds.compose.uikit.motion.components.aiheader.rememberAiHeaderMotion
 import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getDpAsState
 import com.sdds.compose.uikit.motion.getTextStyleAsState
 import com.sdds.compose.uikit.motion.rememberMotionContext
 
@@ -37,11 +38,11 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
  * @param style стиль компонента [AiHeaderStyle]
  * @param motion объект анимаций
  * @param hasDivider отображение разделителя по нижнему краю компонента
- * @param titleAlignment горизонтальное выравнивание текстового блока [AiHeaderTitleAlignment]
  * @param startContent слот для содержимого слева; стиль кнопки провайдится через [LocalIconButtonStyle]
  * @param endContent слот для содержимого справа; стиль кнопки провайдится через [LocalIconButtonStyle]
  * @param titleContent слот заголовка
  * @param subtitleContent слот подзаголовка; если `null`, отступ между заголовком и подзаголовком не добавляется
+ * @param titleAlignment горизонтальное выравнивание текстового блока [AiHeaderTitleAlignment]
  */
 @Composable
 fun AiHeader(
@@ -51,14 +52,12 @@ fun AiHeader(
         motionContext = rememberMotionContext(remember { MutableInteractionSource() }),
     ),
     hasDivider: Boolean = false,
-    titleAlignment: AiHeaderTitleAlignment = AiHeaderTitleAlignment.Start,
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     titleContent: (@Composable () -> Unit)? = null,
     subtitleContent: (@Composable () -> Unit)? = null,
+    titleAlignment: AiHeaderTitleAlignment = AiHeaderTitleAlignment.Start,
 ) {
-    val dimensions = style.dimensions
-
     val shape = style.shape.getValueAsState(motion.context)
     val backgroundBrushState = style.colors.backgroundBrush.getBrushAsState(
         motion.context,
@@ -67,6 +66,35 @@ fun AiHeader(
     val dividerBrushState = style.colors.dividerBrush.getBrushAsState(
         motion.context,
         motion.style.dividerColor,
+    )
+
+    val paddingStart by style.dimensions.paddingStart.getDpAsState(motion.context, motion.style.paddingStart)
+    val paddingEnd by style.dimensions.paddingEnd.getDpAsState(motion.context, motion.style.paddingEnd)
+    val paddingTop by style.dimensions.paddingTop.getDpAsState(motion.context, motion.style.paddingTop)
+    val paddingBottom by style.dimensions.paddingBottom.getDpAsState(motion.context, motion.style.paddingBottom)
+    val textPaddingStart by style.dimensions.textPaddingStart.getDpAsState(
+        motion.context,
+        motion.style.textPaddingStart,
+    )
+    val textPaddingEnd by style.dimensions.textPaddingEnd.getDpAsState(
+        motion.context,
+        motion.style.textPaddingEnd,
+    )
+    val textPaddingTop by style.dimensions.textPaddingTop.getDpAsState(
+        motion.context,
+        motion.style.textPaddingTop,
+    )
+    val textPaddingBottom by style.dimensions.textPaddingBottom.getDpAsState(
+        motion.context,
+        motion.style.textPaddingBottom,
+    )
+    val subtitlePadding by style.dimensions.subtitlePadding.getDpAsState(
+        motion.context,
+        motion.style.subtitlePadding,
+    )
+    val dividerThickness by style.dimensions.dividerThickness.getDpAsState(
+        motion.context,
+        motion.style.dividerThickness,
     )
 
     Row(
@@ -81,15 +109,15 @@ fun AiHeader(
                         brush = dividerBrushState.value,
                         start = Offset(0f, size.height),
                         end = Offset(size.width, size.height),
-                        strokeWidth = dimensions.dividerThickness.toPx(),
+                        strokeWidth = dividerThickness.toPx(),
                     )
                 }
             }
             .padding(
-                start = dimensions.paddingStart,
-                end = dimensions.paddingEnd,
-                top = dimensions.paddingTop,
-                bottom = dimensions.paddingBottom,
+                start = paddingStart,
+                end = paddingEnd,
+                top = paddingTop,
+                bottom = paddingBottom,
             ),
         verticalAlignment = Alignment.Top,
     ) {
@@ -109,10 +137,10 @@ fun AiHeader(
             modifier = Modifier
                 .weight(1f)
                 .padding(
-                    start = dimensions.textPaddingStart,
-                    end = dimensions.textPaddingEnd,
-                    top = dimensions.textPaddingTop,
-                    bottom = dimensions.textPaddingBottom,
+                    start = textPaddingStart,
+                    end = textPaddingEnd,
+                    top = textPaddingTop,
+                    bottom = textPaddingBottom,
                 ),
             horizontalAlignment = textColumnAlignment,
         ) {
@@ -134,7 +162,7 @@ fun AiHeader(
             }
 
             subtitleContent?.let {
-                Spacer(modifier = Modifier.height(dimensions.subtitlePadding))
+                Spacer(modifier = Modifier.height(subtitlePadding))
                 val subtitleColor = style.colors.subtitleBrush.getBrushAsState(
                     motion.context,
                     motion.style.subtitleColor,
