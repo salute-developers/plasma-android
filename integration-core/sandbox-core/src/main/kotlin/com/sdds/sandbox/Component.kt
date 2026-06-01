@@ -359,7 +359,7 @@ private fun CoreComponentName.group(): ComponentGroup {
 
         CoreComponentName.FLOW -> CoreComponentGroup.LAYOUT
         CoreComponentName.AI_HEADER,
-        CoreComponentName.AI_ANSWER
+        CoreComponentName.AI_ANSWER,
         -> CoreComponentGroup.AI_KIT
     }.let { ComponentGroup(it.displayName, it.ordinal) }
 }
