@@ -194,7 +194,7 @@ public val AiHeader.S: WrapperAiHeaderS
     get() = AiHeaderStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.bodySBold)
-        .subtitleStyle(SddsServTheme.typography.bodySNormal)
+        .subtitleStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
             paddingTop(6.0.dp)
             paddingBottom(6.0.dp)
@@ -214,7 +214,7 @@ public val AiHeader.M: WrapperAiHeaderM
     get() = AiHeaderStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.bodyMBold)
-        .subtitleStyle(SddsServTheme.typography.bodyMNormal)
+        .subtitleStyle(SddsServTheme.typography.bodySNormal)
         .dimensions {
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
@@ -234,7 +234,7 @@ public val AiHeader.L: WrapperAiHeaderL
     get() = AiHeaderStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.bodyLBold)
-        .subtitleStyle(SddsServTheme.typography.bodyLNormal)
+        .subtitleStyle(SddsServTheme.typography.bodyMNormal)
         .dimensions {
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
@@ -254,7 +254,7 @@ public val AiHeader.Xl: WrapperAiHeaderXl
     get() = AiHeaderStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.bodyLBold)
-        .subtitleStyle(SddsServTheme.typography.bodyLNormal)
+        .subtitleStyle(SddsServTheme.typography.bodyMNormal)
         .dimensions {
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
@@ -316,7 +316,7 @@ public val AiHeader.H3: WrapperAiHeaderH3
     get() = AiHeaderStyle.builder(this)
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH3Bold)
-        .subtitleStyle(SddsServTheme.typography.bodyMNormal)
+        .subtitleStyle(SddsServTheme.typography.bodyLNormal)
         .dimensions {
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
