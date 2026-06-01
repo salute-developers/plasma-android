@@ -9,6 +9,7 @@ package com.sdds.plasma.homeds.styles.listitem
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.CellGravity
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -52,6 +53,7 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
                 PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
             )
         }
+        .gravity(CellGravity.Top)
 
 public val ListNumberedItem.S: WrapperListNumberedItemS
     @Composable

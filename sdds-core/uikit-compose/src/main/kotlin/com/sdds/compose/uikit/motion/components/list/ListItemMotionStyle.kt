@@ -93,6 +93,16 @@ interface ListItemMotionStyleBuilder : CellMotionStyleBuilder {
      */
     override fun disclosureIconColor(color: MotionProperty<Brush>): ListItemMotionStyleBuilder
 
+    /**
+     * Устанавливает анимационное свойство цвета контента в начале.
+     */
+    override fun contentStartColor(color: MotionProperty<Brush>): ListItemMotionStyleBuilder
+
+    /**
+     * Устанавливает анимационное свойство цвета контента в конце.
+     */
+    override fun contentEndColor(color: MotionProperty<Brush>): ListItemMotionStyleBuilder
+
     override fun style(): ListItemMotionStyle
 }
 
@@ -107,6 +117,8 @@ private class ListItemMotionStyleImpl(
     override val disclosureTextColor: MotionProperty<Brush>,
     override val disclosureTextStyle: MotionProperty<TextStyle>,
     override val disclosureIconColor: MotionProperty<Brush>,
+    override val contentStartColor: MotionProperty<Brush>,
+    override val contentEndColor: MotionProperty<Brush>,
     override val backgroundColor: MotionProperty<Brush>,
 ) : ListItemMotionStyle {
 
@@ -116,6 +128,8 @@ private class ListItemMotionStyleImpl(
         private var subtitleColor: MotionProperty<Brush>? = null
         private var disclosureTextColor: MotionProperty<Brush>? = null
         private var disclosureIconColor: MotionProperty<Brush>? = null
+        private var contentStartColor: MotionProperty<Brush>? = null
+        private var contentEndColor: MotionProperty<Brush>? = null
         private var labelStyle: MotionProperty<TextStyle>? = null
         private var titleStyle: MotionProperty<TextStyle>? = null
         private var subtitleStyle: MotionProperty<TextStyle>? = null
@@ -162,6 +176,14 @@ private class ListItemMotionStyleImpl(
             this.disclosureIconColor = color
         }
 
+        override fun contentStartColor(color: MotionProperty<Brush>): ListItemMotionStyleBuilder = apply {
+            this.contentStartColor = color
+        }
+
+        override fun contentEndColor(color: MotionProperty<Brush>): ListItemMotionStyleBuilder = apply {
+            this.contentEndColor = color
+        }
+
         override fun style(): ListItemMotionStyle {
             return ListItemMotionStyleImpl(
                 labelColor = labelColor ?: noMotion(),
@@ -173,6 +195,8 @@ private class ListItemMotionStyleImpl(
                 disclosureTextColor = disclosureTextColor ?: noMotion(),
                 disclosureTextStyle = disclosureTextStyle ?: noMotion(),
                 disclosureIconColor = disclosureIconColor ?: noMotion(),
+                contentStartColor = contentStartColor ?: noMotion(),
+                contentEndColor = contentEndColor ?: noMotion(),
                 backgroundColor = backgroundColor ?: noMotion(),
             )
         }

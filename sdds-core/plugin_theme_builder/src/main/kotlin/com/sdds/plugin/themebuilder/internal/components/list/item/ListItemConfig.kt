@@ -12,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
+import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterProperties
 import kotlinx.serialization.Serializable
@@ -24,6 +25,8 @@ internal data class ListItemProperties(
     val subtitleColor: Color? = null,
     val labelColor: Color? = null,
     val disclosureIconColor: Color? = null,
+    val contentStartColor: Color? = null,
+    val contentEndColor: Color? = null,
     val contentPaddingEnd: Dimension? = null,
     val contentPaddingStart: Dimension? = null,
     val titleStyle: Typography? = null,
@@ -36,6 +39,7 @@ internal data class ListItemProperties(
     val paddingBottom: Dimension? = null,
     val height: Dimension? = null,
     val counterStyle: ComponentStyle<CounterProperties>? = null,
+    val gravity: Value? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -47,6 +51,8 @@ internal data class ListItemProperties(
             subtitleColor = subtitleColor ?: otherProps.subtitleColor,
             labelColor = labelColor ?: otherProps.labelColor,
             disclosureIconColor = disclosureIconColor ?: otherProps.disclosureIconColor,
+            contentStartColor = contentStartColor ?: otherProps.contentStartColor,
+            contentEndColor = contentEndColor ?: otherProps.contentEndColor,
             contentPaddingEnd = contentPaddingEnd ?: otherProps.contentPaddingEnd,
             contentPaddingStart = contentPaddingStart ?: otherProps.contentPaddingStart,
             titleStyle = titleStyle ?: otherProps.titleStyle,
@@ -59,6 +65,7 @@ internal data class ListItemProperties(
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
             height = height ?: otherProps.height,
             counterStyle = counterStyle ?: otherProps.counterStyle,
+            gravity = gravity ?: otherProps.gravity,
         )
     }
 }

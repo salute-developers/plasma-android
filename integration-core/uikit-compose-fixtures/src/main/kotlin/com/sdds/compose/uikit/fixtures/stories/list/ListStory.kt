@@ -39,6 +39,7 @@ data class ListUiState(
     val amount: Int = 3,
     val hasDivider: Boolean = false,
     val startContent: ListItemStartContent = ListItemStartContent.IconSize24,
+    val endContent: ListItemEndContent = ListItemEndContent.IconSize24,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
@@ -50,6 +51,13 @@ enum class ListItemStartContent {
     IconSize24,
     IconSize36,
     Counter,
+    None,
+}
+
+enum class ListItemEndContent {
+    IconSize24,
+    IconSize36,
+    None,
 }
 
 @Story
@@ -77,9 +85,18 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
                             .fillMaxWidth()
                             .focusable(interactionSource = interactionSource),
                         startContent = getStartContent(it, state.startContent),
+                        endContent = getEndContent(state.endContent),
                         titleContent = { Text("${state.title} $it") },
-                        labelContent = { Text("${state.label} $it") },
-                        subtitleContent = { Text("${state.subtitle} $it") },
+                        labelContent = if (state.label.isNotBlank()) {
+                            { Text("${state.label} $it") }
+                        } else {
+                            null
+                        },
+                        subtitleContent = if (state.subtitle.isNotBlank()) {
+                            { Text("${state.subtitle} $it") }
+                        } else {
+                            null
+                        },
                         disclosureEnabled = state.hasDisclosure,
                         interactionSource = interactionSource,
                     )
@@ -122,20 +139,58 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
 private fun getStartContent(
     itemIndex: Int,
     startContent: ListItemStartContent,
-): (@Composable RowScope.() -> Unit) {
-    return {
-        when (startContent) {
-            ListItemStartContent.IconSize24 -> Icon(
-                painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_24),
-                contentDescription = "",
-            )
-
-            ListItemStartContent.IconSize36 -> Icon(
-                painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_36),
-                contentDescription = "",
-            )
-
-            ListItemStartContent.Counter -> Counter(count = itemIndex.toString())
+): (@Composable RowScope.() -> Unit)? {
+    return when (startContent) {
+        ListItemStartContent.IconSize24 -> {
+            {
+                Icon(
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_24),
+                    contentDescription = "",
+                )
+            }
         }
+
+        ListItemStartContent.IconSize36 -> {
+            {
+                Icon(
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_36),
+                    contentDescription = "",
+                )
+            }
+        }
+
+        ListItemStartContent.Counter -> {
+            {
+                Counter(count = itemIndex.toString())
+            }
+        }
+
+        else -> null
+    }
+}
+
+private fun getEndContent(
+    endContent: ListItemEndContent,
+): (@Composable RowScope.() -> Unit)? {
+    return when (endContent) {
+        ListItemEndContent.IconSize24 -> {
+            {
+                Icon(
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_24),
+                    contentDescription = "",
+                )
+            }
+        }
+
+        ListItemEndContent.IconSize36 -> {
+            {
+                Icon(
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_36),
+                    contentDescription = "",
+                )
+            }
+        }
+
+        else -> null
     }
 }

@@ -136,6 +136,11 @@ interface ListItemStyle : Style {
      */
     val counterStyle: CounterStyle?
 
+    /**
+     * Режим выравнивания контента по вертикали
+     */
+    val gravity: CellGravity
+
     companion object {
         /**
          * Возвращает экземпляр [ListItemStyleBuilder]
@@ -162,6 +167,7 @@ private data class DefaultListItemStyle(
     override val counterStyle: CounterStyle?,
     override val disclosureTextStyle: StatefulValue<TextStyle>,
     override val shapes: StatefulValue<Shape>,
+    override val gravity: CellGravity,
 ) : ListItemStyle {
 
     @Deprecated("Use titleStyles", replaceWith = ReplaceWith("titleStyles"))
@@ -192,6 +198,7 @@ private data class DefaultListItemStyle(
         private var radioBoxStyle: RadioBoxStyle? = null
         private var switchStyle: SwitchStyle? = null
         private var counterStyle: CounterStyle? = null
+        private var gravity: CellGravity? = null
 
         override fun shape(shape: StatefulValue<Shape>) = apply {
             this.shapes = shape
@@ -266,6 +273,10 @@ private data class DefaultListItemStyle(
             this.disclosureStyle = disclosureStyle
         }
 
+        override fun gravity(gravity: CellGravity) = apply {
+            this.gravity = gravity
+        }
+
         override fun style(): ListItemStyle {
             return DefaultListItemStyle(
                 shapes = shapes ?: RectangleShape.asStatefulValue(),
@@ -283,6 +294,7 @@ private data class DefaultListItemStyle(
                 switchStyle = switchStyle,
                 counterStyle = counterStyle,
                 disclosureTextStyle = disclosureStyle ?: TextStyle.Default.asStatefulValue(),
+                gravity = gravity ?: CellGravity.Center,
             )
         }
     }
@@ -394,6 +406,11 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
      * Устанавливает стиль disclosure
      */
     fun disclosureTextStyle(disclosureStyle: StatefulValue<TextStyle>): ListItemStyleBuilder
+
+    /**
+     * Устанавливает выравнивание содержимого по вертикали
+     */
+    fun gravity(gravity: CellGravity): ListItemStyleBuilder
 }
 
 /**
@@ -730,6 +747,16 @@ interface ListItemColors {
      */
     val disclosureTextBrush: StatefulValue<Brush>
 
+    /**
+     * Кисть контента в начале
+     */
+    val contentStartColor: StatefulValue<Brush>
+
+    /**
+     * Кисть контента в конце
+     */
+    val contentEndColor: StatefulValue<Brush>
+
     companion object {
 
         /**
@@ -883,6 +910,52 @@ interface ListItemColorsBuilder {
     fun disclosureTextColor(disclosureTextBrush: StatefulValue<Brush>): ListItemColorsBuilder
 
     /**
+     * Устанавливает цвет контента в начале
+     */
+    fun contentStartColor(contentStartColor: Color): ListItemColorsBuilder =
+        contentStartColor(contentStartColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет контента в начале
+     */
+    fun contentStartColor(contentStartColor: InteractiveColor): ListItemColorsBuilder =
+        contentStartColor(contentStartColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента в начале
+     */
+    fun contentStartColor(contentStartBrush: Brush): ListItemColorsBuilder =
+        contentStartColor(contentStartBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти контента в начале
+     */
+    fun contentStartColor(contentStartBrush: StatefulValue<Brush>): ListItemColorsBuilder
+
+    /**
+     * Устанавливает цвет контента в конце
+     */
+    fun contentEndColor(contentEndColor: Color): ListItemColorsBuilder =
+        contentEndColor(contentEndColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет контента в конце
+     */
+    fun contentEndColor(contentEndColor: InteractiveColor): ListItemColorsBuilder =
+        contentEndColor(contentEndColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента в конце
+     */
+    fun contentEndColor(contentEndBrush: Brush): ListItemColorsBuilder =
+        contentEndColor(contentEndBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисти контента в конце
+     */
+    fun contentEndColor(contentEndBrush: StatefulValue<Brush>): ListItemColorsBuilder
+
+    /**
      * Возвращает [ListItemColors]
      */
     fun build(): ListItemColors
@@ -896,6 +969,8 @@ private class DefaultListItemColors(
     override val subtitleBrush: StatefulValue<Brush>,
     override val labelBrush: StatefulValue<Brush>,
     override val disclosureTextBrush: StatefulValue<Brush>,
+    override val contentStartColor: StatefulValue<Brush>,
+    override val contentEndColor: StatefulValue<Brush>,
 
 ) : ListItemColors {
     @Deprecated("use titleBrush", replaceWith = ReplaceWith("titleBrush"))
@@ -923,6 +998,8 @@ private class DefaultListItemColors(
         private var backgroundBrush: StatefulValue<Brush>? = null
         private var disclosureIconBrush: StatefulValue<Brush>? = null
         private var disclosureTextBrush: StatefulValue<Brush>? = null
+        private var contentStartBrush: StatefulValue<Brush>? = null
+        private var contentEndBrush: StatefulValue<Brush>? = null
 
         override fun backgroundColor(backgroundBrush: StatefulValue<Brush>): ListItemColorsBuilder = apply {
             this.backgroundBrush = backgroundBrush
@@ -948,14 +1025,25 @@ private class DefaultListItemColors(
             this.disclosureTextBrush = disclosureTextBrush
         }
 
+        override fun contentStartColor(contentStartBrush: StatefulValue<Brush>): ListItemColorsBuilder = apply {
+            this.contentStartBrush = contentStartBrush
+        }
+
+        override fun contentEndColor(contentEndBrush: StatefulValue<Brush>): ListItemColorsBuilder = apply {
+            this.contentEndBrush = contentEndBrush
+        }
+
         override fun build(): ListItemColors {
+            val defaultTitleBrush = titleBrush ?: Color.Black.asStatefulBrush()
             return DefaultListItemColors(
-                titleBrush = titleBrush ?: Color.Black.asStatefulBrush(),
+                titleBrush = defaultTitleBrush,
                 subtitleBrush = subtitleBrush ?: Color.LightGray.asStatefulBrush(),
                 labelBrush = labelBrush ?: Color.LightGray.asStatefulBrush(),
                 backgroundBrush = backgroundBrush ?: Color.Transparent.asStatefulBrush(),
                 disclosureIconBrush = disclosureIconBrush ?: Color.Black.asStatefulBrush(),
                 disclosureTextBrush = disclosureTextBrush ?: Color.Black.asStatefulBrush(),
+                contentStartColor = contentStartBrush ?: defaultTitleBrush,
+                contentEndColor = contentEndBrush ?: defaultTitleBrush,
             )
         }
     }

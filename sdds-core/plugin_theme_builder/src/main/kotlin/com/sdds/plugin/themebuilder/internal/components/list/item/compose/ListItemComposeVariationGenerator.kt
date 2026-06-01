@@ -37,6 +37,10 @@ internal class ListItemComposeVariationGenerator(
 
     override val componentStyleName: String = "ListItemStyle"
 
+    override fun KtFileBuilder.onAddImports() {
+        addImport("com.sdds.compose.uikit", listOf("CellGravity"))
+    }
+
     override fun propsToBuilderCalls(
         props: ListItemProperties,
         ktFileBuilder: KtFileBuilder,
@@ -51,12 +55,24 @@ internal class ListItemComposeVariationGenerator(
             colorsCall(props),
             dimensionsCall(props, variationId),
             counterStyleCall(props, ktFileBuilder),
+            gravityCall(props),
         )
     }
 
     private fun shapeCall(props: ListItemProperties, variationId: String): String? {
         return props.shape?.let {
             getShape(it, variationId)
+        }
+    }
+
+    private fun gravityCall(props: ListItemProperties): String? {
+        return props.gravity?.let {
+            val enumValue = when {
+                it.value.equals("bottom", ignoreCase = true) -> "Bottom"
+                it.value.equals("top", ignoreCase = true) -> "Top"
+                else -> "Center"
+            }
+            ".gravity(CellGravity.$enumValue)"
         }
     }
 
@@ -134,6 +150,12 @@ internal class ListItemComposeVariationGenerator(
                 props.disclosureIconColor?.let {
                     appendLine(getColor("disclosureIconColor", it))
                 }
+                props.contentStartColor?.let {
+                    appendLine(getColor("contentStartColor", it))
+                }
+                props.contentEndColor?.let {
+                    appendLine(getColor("contentEndColor", it))
+                }
                 append("}")
             }
         } else {
@@ -144,7 +166,11 @@ internal class ListItemComposeVariationGenerator(
     private fun ListItemProperties.hasColors(): Boolean {
         return backgroundColor != null ||
             titleColor != null ||
-            disclosureIconColor != null
+            labelColor != null ||
+            subtitleColor != null ||
+            disclosureIconColor != null ||
+            contentStartColor != null ||
+            contentEndColor != null
     }
 
     private fun titleStyleCall(props: ListItemProperties): String? {

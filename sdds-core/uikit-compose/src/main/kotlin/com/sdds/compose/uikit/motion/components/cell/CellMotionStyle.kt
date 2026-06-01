@@ -69,6 +69,16 @@ interface CellMotionStyle : MotionStyle {
      */
     val disclosureIconColor: MotionProperty<Brush>
 
+    /**
+     * Анимационное свойство цвета контента в начале Cell.
+     */
+    val contentStartColor: MotionProperty<Brush>
+
+    /**
+     * Анимационное свойство цвета контента в конце Cell.
+     */
+    val contentEndColor: MotionProperty<Brush>
+
     companion object {
         /**
          * Создает билдер для построения [CellMotionStyle].
@@ -127,6 +137,16 @@ interface CellMotionStyleBuilder : MotionStyleBuilder<CellMotionStyle> {
      * Устанавливает анимационное свойство цвета иконки disclosure.
      */
     fun disclosureIconColor(color: MotionProperty<Brush>): CellMotionStyleBuilder
+
+    /**
+     * Устанавливает анимационное свойство цвета контента в начале.
+     */
+    fun contentStartColor(color: MotionProperty<Brush>): CellMotionStyleBuilder
+
+    /**
+     * Устанавливает анимационное свойство цвета контента в конце.
+     */
+    fun contentEndColor(color: MotionProperty<Brush>): CellMotionStyleBuilder
 }
 
 @Immutable
@@ -140,6 +160,8 @@ private class CellMotionStyleImpl(
     override val disclosureTextColor: MotionProperty<Brush>,
     override val disclosureTextStyle: MotionProperty<TextStyle>,
     override val disclosureIconColor: MotionProperty<Brush>,
+    override val contentStartColor: MotionProperty<Brush>,
+    override val contentEndColor: MotionProperty<Brush>,
 ) : CellMotionStyle {
 
     class Builder : CellMotionStyleBuilder {
@@ -148,6 +170,8 @@ private class CellMotionStyleImpl(
         private var subtitleColor: MotionProperty<Brush>? = null
         private var disclosureTextColor: MotionProperty<Brush>? = null
         private var disclosureIconColor: MotionProperty<Brush>? = null
+        private var contentStartColor: MotionProperty<Brush>? = null
+        private var contentEndColor: MotionProperty<Brush>? = null
         private var labelStyle: MotionProperty<TextStyle>? = null
         private var titleStyle: MotionProperty<TextStyle>? = null
         private var subtitleStyle: MotionProperty<TextStyle>? = null
@@ -189,6 +213,14 @@ private class CellMotionStyleImpl(
             this.disclosureIconColor = color
         }
 
+        override fun contentStartColor(color: MotionProperty<Brush>): CellMotionStyleBuilder = apply {
+            this.contentStartColor = color
+        }
+
+        override fun contentEndColor(color: MotionProperty<Brush>): CellMotionStyleBuilder = apply {
+            this.contentEndColor = color
+        }
+
         override fun style(): CellMotionStyle {
             return CellMotionStyleImpl(
                 labelColor = labelColor ?: noMotion(),
@@ -200,6 +232,8 @@ private class CellMotionStyleImpl(
                 disclosureTextColor = disclosureTextColor ?: noMotion(),
                 disclosureTextStyle = disclosureTextStyle ?: noMotion(),
                 disclosureIconColor = disclosureIconColor ?: noMotion(),
+                contentStartColor = contentStartColor ?: noMotion(),
+                contentEndColor = contentEndColor ?: noMotion(),
             )
         }
     }

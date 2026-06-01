@@ -114,7 +114,7 @@ fun ListItem(
         titleContent = titleContent,
         subtitleContent = subtitleContent,
         labelContent = labelContent,
-        gravity = CellGravity.Center,
+        gravity = style.gravity,
         disclosureContent = disclosureContent.takeIf { disclosureEnabled },
         startContent = startContent,
         endContent = endContent,
@@ -170,7 +170,7 @@ fun ListItem(
         title = AnnotatedString(text),
         subtitle = subtitle?.let { AnnotatedString(it) } ?: AnnotatedString(""),
         label = label?.let { AnnotatedString(it) } ?: AnnotatedString(""),
-        gravity = CellGravity.Center,
+        gravity = style.gravity,
         disclosureContentEnabled = disclosureEnabled,
         disclosureIconRes = disclosureIconRes,
         startContent = startContent,
@@ -290,7 +290,7 @@ fun ListItem(
                 bottom = style.dimensions.paddingBottom,
             ),
         title = AnnotatedString(title),
-        gravity = CellGravity.Center,
+        gravity = style.gravity,
         disclosureEnabled = disclosureEnabled,
         disclosureIcon = disclosureIcon,
         interactionSource = interactionSource,
@@ -311,6 +311,8 @@ private fun ListItemStyle.toCellStyle(): CellStyle {
             labelColor(colors.labelBrush)
             disclosureIconColor(colors.disclosureIconBrush)
             disclosureTextColor(colors.disclosureTextBrush)
+            contentStartColor(colors.contentStartColor)
+            contentEndColor(colors.contentEndColor)
         }
         dimensions {
             contentPaddingEnd(dimensions.contentPaddingEndValues)

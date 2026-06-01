@@ -21,14 +21,15 @@ import com.sdds.compose.uikit.graphics.brush.asBrush
 import com.sdds.compose.uikit.internal.icon.BaseIcon
 
 /**
- * Иконка. Рисует предоставленный [painter]
+ * Иконка. Рисует предоставленный [painter].
+ * Если [tint] явно задан, то он имеет приоритет над [brush]
  *
  * @param painter экземпляр [Painter]
  * @param contentDescription описание содержимого контента
  * @param modifier модификатор
  * @param tint цвет иконки
  * @param contentScale правило скейлинга
- * @param brush поставщик кисти для отрисовки иконки. Имеет приоритет над [tint]
+ * @param brush поставщик кисти для отрисовки иконки.
  */
 @Composable
 fun Icon(
@@ -39,24 +40,30 @@ fun Icon(
     contentScale: ContentScale = ContentScale.Fit,
     brush: BrushProducer? = LocalTintBrushProducer.current,
 ) {
+    val brushProducer = if (tint == LocalTint.current) {
+        brush ?: BrushProducer { tint.asBrush() }
+    } else {
+        BrushProducer { tint.asBrush() }
+    }
     BaseIcon(
         source = { painter },
         contentDescription = contentDescription,
         modifier = modifier,
-        brushProducer = brush ?: BrushProducer { tint.asBrush() },
+        brushProducer = brushProducer,
         contentScale = contentScale,
     )
 }
 
 /**
- * Иконка. Рисует предоставленный [imageVector]
+ * Иконка. Рисует предоставленный [imageVector].
+ * Если [tint] явно задан, то он имеет приоритет над [brush]
  *
  * @param imageVector экземпляр [ImageVector]
  * @param contentDescription описание содержимого контента
  * @param modifier модификатор
  * @param tint цвет иконки
  * @param contentScale правило скейлинга
- * @param brush поставщик кисти для отрисовки иконки. Имеет приоритет над [tint]
+ * @param brush поставщик кисти для отрисовки иконки.
  */
 @Composable
 @NonRestartableComposable
@@ -79,14 +86,15 @@ fun Icon(
 }
 
 /**
- * Иконка. Рисует предоставленный [bitmap]
+ * Иконка. Рисует предоставленный [bitmap].
+ * Если [tint] явно задан, то он имеет приоритет над [brush]
  *
  * @param bitmap экземпляр [ImageBitmap]
  * @param contentDescription описание содержимого контента
  * @param modifier модификатор
  * @param tint цвет иконки
  * @param contentScale правило скейлинга
- * @param brush поставщик кисти для отрисовки иконки. Имеет приоритет над [tint]
+ * @param brush поставщик кисти для отрисовки иконки.
  */
 @Composable
 @NonRestartableComposable
@@ -110,7 +118,7 @@ fun Icon(
 }
 
 /**
- * Иконка. Рисует предоставленный [source] с использованием [fillStyleProducer].
+ * Иконка. Рисует предоставленный [source] с использованием [brush].
  *
  * @param source источник изображения
  * @param contentDescription описание содержимого контента
