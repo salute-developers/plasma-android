@@ -162,6 +162,9 @@ fun ListCounterDisclosure(style: ListStyle) {
     }
 }
 
+/**
+ * List icon text
+ */
 @Composable
 fun ListColorIconText(style: ListStyle) {
     List(style = style) {
@@ -187,7 +190,7 @@ fun ListColorIconText(style: ListStyle) {
                         "Title",
                         textBrush = Brush.linearGradient(
                             colors = listOf(Color(0xFF11994A), Color(0xFFff5757)),
-                        )
+                        ),
                     )
                 },
                 labelContent = { Text("Label", textColor = Color.Cyan) },
@@ -200,7 +203,7 @@ fun ListColorIconText(style: ListStyle) {
                             Brush.linearGradient(
                                 colors = listOf(Color(0xFF11994A), Color(0xFFff5757)),
                             )
-                        }
+                        },
                     )
                 },
                 disclosureEnabled = false,
@@ -210,6 +213,9 @@ fun ListColorIconText(style: ListStyle) {
     }
 }
 
+/**
+ * List with long title
+ */
 @Composable
 fun ListLongTitleContentCounter(style: ListStyle) {
     List(style = style) {
@@ -230,10 +236,10 @@ fun ListLongTitleContentCounter(style: ListStyle) {
                 titleContent = {
                     Text(
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
-                                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
-                                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris " +
-                                "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor " +
-                                "in reprehenderit in voluptate velit esse cillum dolore",
+                            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+                            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris " +
+                            "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor " +
+                            "in reprehenderit in voluptate velit esse cillum dolore",
                     )
                 },
                 labelContent = { Text("Label") },
