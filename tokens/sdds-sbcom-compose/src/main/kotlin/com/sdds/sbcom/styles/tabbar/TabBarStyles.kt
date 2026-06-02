@@ -55,7 +55,7 @@ public val TabBar.Default: WrapperTabBarDefault
             contentPaddingEnd(4.0.dp)
             contentPaddingTop(4.0.dp)
             contentPaddingBottom(4.0.dp)
-            itemSpacing(-(12.0).dp)
+            itemSpacing(-12.0.dp)
         }
         .tabBarItemStyle(TabBarItem.Default.style())
         .wrap(::WrapperTabBarDefault)

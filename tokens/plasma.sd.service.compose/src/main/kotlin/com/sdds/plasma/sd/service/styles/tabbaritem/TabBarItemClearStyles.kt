@@ -156,6 +156,8 @@ public val TabBarItemClear.M: WrapperTabBarItemClearM
             paddingBottom(12.0.dp)
             iconSize(24.0.dp)
             minHeight(48.0.dp)
+            extraOffsetX(16.0.dp)
+            extraOffsetY(-8.0.dp)
         }
         .indicatorStyle(Indicator.M.Negative.style())
         .counterStyle(Counter.Xs.Negative.style())
@@ -185,6 +187,8 @@ public val TabBarItemClear.L: WrapperTabBarItemClearL
             paddingBottom(14.0.dp)
             iconSize(36.0.dp)
             minHeight(64.0.dp)
+            extraOffsetX(26.0.dp)
+            extraOffsetY(-10.0.dp)
         }
         .indicatorStyle(Indicator.L.Negative.style())
         .counterStyle(Counter.S.Negative.style())

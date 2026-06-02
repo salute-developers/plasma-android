@@ -35,8 +35,8 @@ import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.shadow.ShadowAppearance
-import com.sdds.icons.R
 import com.sdds.docs.DocSample
+import com.sdds.icons.R
 
 @Composable
 @DocSample(needScreenshot = true)

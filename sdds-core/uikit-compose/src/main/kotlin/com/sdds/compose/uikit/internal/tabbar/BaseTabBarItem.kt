@@ -140,7 +140,9 @@ private fun BoxScope.TabBarItemExtra(
     style: TabBarItemStyle,
     motion: Motion<TabBarItemMotionStyle>,
 ) {
-    BoxWithConstraints {
+    BoxWithConstraints(
+        modifier = Modifier.align(Alignment.TopStart),
+    ) {
         val boxScope = this
         val extraSize = remember { mutableStateOf(IntSize.Zero) }
         val extraOffsetX = style.dimensions.extraOffsetX.getDpAsState(
@@ -153,7 +155,6 @@ private fun BoxScope.TabBarItemExtra(
         )
         Box(
             modifier = Modifier
-                .align(Alignment.TopStart)
                 .onSizeChanged {
                     extraSize.value = it
                 }

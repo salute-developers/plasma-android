@@ -722,8 +722,8 @@ private data class DefaultTabBarItemDimensions(
             labelPaddingValue = labelPadding ?: 0.dp.asStatefulValue(),
             iconSizeValue = iconSize ?: 32.dp.asStatefulValue(),
             minHeightValue = minHeight ?: 48.dp.asStatefulValue(),
-            extraOffsetX = extraOffsetX ?: Dp.Unspecified.asStatefulValue(),
-            extraOffsetY = extraOffsetY ?: Dp.Unspecified.asStatefulValue(),
+            extraOffsetX = extraOffsetX ?: 0.dp.asStatefulValue(),
+            extraOffsetY = extraOffsetY ?: 0.dp.asStatefulValue(),
         )
     }
 }

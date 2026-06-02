@@ -241,8 +241,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "IndicatorAvatarIndicatorSize",
-                  "typeQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorAvatarIndicatorSize",
+                  "typeName": "AvatarIndicatorSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.indicator.AvatarIndicatorSize",
                   "defaultValue": {
                      "value": "size-14",
                      "codeName": "Size14"
