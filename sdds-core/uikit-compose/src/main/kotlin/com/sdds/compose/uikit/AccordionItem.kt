@@ -30,6 +30,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.InteractiveColor
 
 /**
@@ -110,7 +112,7 @@ fun AccordionItem(
                 shape = style.shape,
             )
             .clickable(
-                indication = null,
+                indication = LocalIndication.current.maybeShapeable(style.shape),
                 interactionSource = interactionSource,
             ) { onClick.invoke() },
     ) {

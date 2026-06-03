@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.SemanticStateSource
 import com.sdds.compose.uikit.interactions.getValue
@@ -259,7 +260,7 @@ private fun BoxScope.CloseIcon(
             .align(Alignment.TopEnd)
             .clickable(
                 interactionSource = closeInteractionSource,
-                indication = null,
+                indication = LocalIndication.current,
             ) { onClose?.invoke() },
         painter = painterResource(closeIconRes),
         contentDescription = "",

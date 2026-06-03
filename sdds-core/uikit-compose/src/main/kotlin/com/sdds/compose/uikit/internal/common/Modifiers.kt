@@ -7,6 +7,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,6 +32,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.IndicatorMode
+import com.sdds.compose.uikit.graphics.maybeShapeable
 
 /**
  * Модификатор, позволяющий дизэйблить Composable (менять альфу и игнорировать ввод).
@@ -82,6 +84,7 @@ internal fun Modifier.enable(
  * @param interactionSource источник взаимодействий
  */
 @Stable
+@Composable
 internal fun Modifier.surface(
     shape: Shape = RoundedCornerShape(25),
     backgroundColor: () -> Brush = { SolidColor(Color.Transparent) },
@@ -96,7 +99,7 @@ internal fun Modifier.surface(
     val clickableOrFocusableModifier = onClick?.let {
         Modifier.clickable(
             interactionSource = interactionSource,
-            indication = indication,
+            indication = indication.maybeShapeable(shape),
             enabled = enabled,
             role = role,
             onClickLabel = onClickLabel,
@@ -125,6 +128,7 @@ internal fun Modifier.surface(
  * @param enabled включен ли компонент
  * @param interactionSource источник взаимодействий
  */
+@Composable
 internal fun Modifier.surface(
     value: Boolean,
     onValueChange: ((Boolean) -> Unit)? = null,
@@ -140,7 +144,7 @@ internal fun Modifier.surface(
         Modifier.toggleable(
             value = value,
             interactionSource = interactionSource,
-            indication = indication,
+            indication = indication.maybeShapeable(shape),
             enabled = enabled,
             role = role,
             onValueChange = onValueChange,

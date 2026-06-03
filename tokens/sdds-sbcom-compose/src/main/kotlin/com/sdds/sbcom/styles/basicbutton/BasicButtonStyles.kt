@@ -145,40 +145,30 @@ public val WrapperBasicButtonView.ModePrimary: WrapperBasicButtonTerminate
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryHover,
                 ),
@@ -193,32 +183,24 @@ public val WrapperBasicButtonView.ModeAccentFilled: WrapperBasicButtonTerminate
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
@@ -236,40 +218,30 @@ public val WrapperBasicButtonView.ModeAccentWhite: WrapperBasicButtonTerminate
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
@@ -293,16 +265,12 @@ public val WrapperBasicButtonView.ModeAccentGrey: WrapperBasicButtonTerminate
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentSecondaryHover,
                 ),
@@ -317,40 +285,30 @@ public val WrapperBasicButtonView.ModeDangerTint: WrapperBasicButtonTerminate
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultTransparentNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentNegativeHover,
                 ),
@@ -401,8 +359,6 @@ public val WrapperBasicButtonSize48BgNoView.ModeAccentGrey: WrapperBasicButtonTe
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
@@ -421,32 +377,24 @@ public val WrapperBasicButtonSize48BgNoView.ModeDangerTint: WrapperBasicButtonTe
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
@@ -465,40 +413,30 @@ public val WrapperBasicButtonSize48BgNoView.ModePrimary: WrapperBasicButtonTermi
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryHover,
                 ),
@@ -514,32 +452,24 @@ public val WrapperBasicButtonSize48BgNoView.ModeAccentFilled: WrapperBasicButton
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
@@ -558,40 +488,30 @@ public val WrapperBasicButtonSize48BgNoView.ModeAccentWhite: WrapperBasicButtonT
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
@@ -642,8 +562,6 @@ public val WrapperBasicButtonSize40BgNoView.ModeAccentGrey: WrapperBasicButtonTe
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
@@ -662,32 +580,24 @@ public val WrapperBasicButtonSize40BgNoView.ModeDangerTint: WrapperBasicButtonTe
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
@@ -706,40 +616,30 @@ public val WrapperBasicButtonSize40BgNoView.ModePrimary: WrapperBasicButtonTermi
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryHover,
                 ),
@@ -755,32 +655,24 @@ public val WrapperBasicButtonSize40BgNoView.ModeAccentFilled: WrapperBasicButton
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
@@ -799,40 +691,30 @@ public val WrapperBasicButtonSize40BgNoView.ModeAccentWhite: WrapperBasicButtonT
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
@@ -883,8 +765,6 @@ public val WrapperBasicButtonSize32BgNoView.ModeAccentGrey: WrapperBasicButtonTe
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
@@ -903,32 +783,24 @@ public val WrapperBasicButtonSize32BgNoView.ModeDangerTint: WrapperBasicButtonTe
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
@@ -947,40 +819,30 @@ public val WrapperBasicButtonSize32BgNoView.ModePrimary: WrapperBasicButtonTermi
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryHover,
                 ),
@@ -996,32 +858,24 @@ public val WrapperBasicButtonSize32BgNoView.ModeAccentFilled: WrapperBasicButton
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
@@ -1040,40 +894,30 @@ public val WrapperBasicButtonSize32BgNoView.ModeAccentWhite: WrapperBasicButtonT
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
@@ -1124,8 +968,6 @@ public val WrapperBasicButtonSize24BgNoView.ModeAccentGrey: WrapperBasicButtonTe
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
@@ -1144,32 +986,24 @@ public val WrapperBasicButtonSize24BgNoView.ModeDangerTint: WrapperBasicButtonTe
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultNegativeActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
@@ -1188,40 +1022,30 @@ public val WrapperBasicButtonSize24BgNoView.ModePrimary: WrapperBasicButtonTermi
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultSolidPrimaryHover,
                 ),
@@ -1237,32 +1061,24 @@ public val WrapperBasicButtonSize24BgNoView.ModeAccentFilled: WrapperBasicButton
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkSecondaryHover,
                 ),
@@ -1281,40 +1097,30 @@ public val WrapperBasicButtonSize24BgNoView.ModeAccentWhite: WrapperBasicButtonT
         .colors {
             spinnerColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             iconColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             valueColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
                 SddsSbComTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),

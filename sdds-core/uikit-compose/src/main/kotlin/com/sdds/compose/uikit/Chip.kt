@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.semantics.Role
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
@@ -41,7 +42,7 @@ fun Chip(
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     enabled: Boolean = true,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {
@@ -106,7 +107,7 @@ fun Chip(
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     enabled: Boolean = true,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     semanticStateSource: MutableSemanticStateSource = remember { MutableSemanticStateSource() },
 ) {

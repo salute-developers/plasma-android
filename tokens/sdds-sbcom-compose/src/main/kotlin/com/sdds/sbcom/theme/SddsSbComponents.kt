@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalDropdownMenuStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
+import com.sdds.compose.uikit.LocalListStyle
 import com.sdds.compose.uikit.LocalLoaderStyle
 import com.sdds.compose.uikit.LocalModalBottomSheetStyle
 import com.sdds.compose.uikit.LocalModalStyle
@@ -30,10 +31,12 @@ import com.sdds.compose.uikit.LocalTabBarStyle
 import com.sdds.compose.uikit.LocalTabsStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.motion.components.navigationdrawer.LocalNavigationDrawerItemMotionStyle
 import com.sdds.compose.uikit.motion.components.navigationdrawer.LocalNavigationDrawerMotionStyle
 import com.sdds.compose.uikit.motion.components.tabbar.LocalTabBarItemMotionStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.sbcom.motion.indication.rememberRippleIndication
 import com.sdds.sbcom.motion.navigationdrawer.NavigationDrawerMotion
 import com.sdds.sbcom.motion.navigationdraweritem.NavigationDrawerItemMotionStyle
 import com.sdds.sbcom.motion.tabbaritem.TabBarItemMotionStyle
@@ -69,6 +72,8 @@ import com.sdds.sbcom.styles.iconbutton.ModeAccentFilled
 import com.sdds.sbcom.styles.iconbutton.Size40
 import com.sdds.sbcom.styles.indicator.Indicator
 import com.sdds.sbcom.styles.indicator.StateSuccess
+import com.sdds.sbcom.styles.list.Default
+import com.sdds.sbcom.styles.list.List
 import com.sdds.sbcom.styles.loader.Loader
 import com.sdds.sbcom.styles.loader.ModeColorPrimary
 import com.sdds.sbcom.styles.loader.Size40
@@ -99,6 +104,7 @@ import com.sdds.sbcom.styles.textfield.Default
 import com.sdds.sbcom.styles.textfield.TextField
 import com.sdds.sbcom.styles.tooltip.Default
 import com.sdds.sbcom.styles.tooltip.Tooltip
+import androidx.compose.foundation.LocalIndication as FoundationIndication
 
 @Composable
 internal fun DefaultComponents(
@@ -133,6 +139,7 @@ internal fun DefaultComponents(
         LocalSegmentStyle provides Segment.Default.style(),
         LocalTabsStyle provides TabsFolder.Default.style(),
         LocalNavigationDrawerStyle provides NavigationDrawer.Default.style(),
+        LocalListStyle provides List.Default.style(),
     ) {
         DefaultMotion {
             content()
@@ -144,10 +151,13 @@ internal fun DefaultComponents(
 private fun DefaultMotion(
     content: @Composable () -> Unit,
 ) {
+    val indication = rememberRippleIndication()
     CompositionLocalProvider(
         LocalNavigationDrawerMotionStyle provides NavigationDrawerMotion,
         LocalNavigationDrawerItemMotionStyle provides NavigationDrawerItemMotionStyle,
         LocalTabBarItemMotionStyle provides TabBarItemMotionStyle,
+        FoundationIndication provides indication,
+        LocalIndication provides indication,
     ) {
         content()
     }

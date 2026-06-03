@@ -48,8 +48,6 @@ public val RadioBox.Default: WrapperRadioBoxDefault
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentAccent.multiplyAlpha(0.08f),
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
                     setOf(InteractiveState.Focused)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
                 ),

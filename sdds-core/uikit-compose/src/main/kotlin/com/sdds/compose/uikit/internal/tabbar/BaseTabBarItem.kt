@@ -34,7 +34,9 @@ import com.sdds.compose.uikit.TabBar
 import com.sdds.compose.uikit.TabBarItemStyle
 import com.sdds.compose.uikit.TabBarLabelPlacement
 import com.sdds.compose.uikit.TextBehaviour
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.brush.BrushProducer
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.motion.Motion
@@ -90,7 +92,7 @@ internal fun BaseTabBarItem(
                 onClick?.let {
                     Modifier.clickable(
                         interactionSource = motion.context.interactionSource,
-                        indication = null,
+                        indication = LocalIndication.current.maybeShapeable(shape.value),
                         onClickLabel = onClickLabel,
                         role = Role.Tab,
                     ) { it.invoke() }

@@ -27,6 +27,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.navigationbar.NavigationBarLayout
@@ -396,7 +397,7 @@ private fun StartContent(
                     .padding(end = padding)
                     .clickable(
                         interactionSource = iconInteraction,
-                        indication = null,
+                        indication = LocalIndication.current,
                         onClick = onBackPressed,
                     ),
                 painter = painterResource(it),
