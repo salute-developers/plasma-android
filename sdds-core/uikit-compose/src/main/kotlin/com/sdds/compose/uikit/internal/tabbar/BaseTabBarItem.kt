@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
@@ -27,10 +28,12 @@ import com.sdds.compose.uikit.LocalIconDefaultSize
 import com.sdds.compose.uikit.LocalIndicatorStyle
 import com.sdds.compose.uikit.LocalTabBarItemStyle
 import com.sdds.compose.uikit.LocalTintBrushProducer
+import com.sdds.compose.uikit.ProvideTextBehaviour
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.TabBar
 import com.sdds.compose.uikit.TabBarItemStyle
 import com.sdds.compose.uikit.TabBarLabelPlacement
+import com.sdds.compose.uikit.TextBehaviour
 import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.interactions.selection
@@ -125,9 +128,11 @@ internal fun BaseTabBarItem(
             }
         }
         if (labelContent != null && style.labelPlacement != TabBarLabelPlacement.None) {
-            ProvideTextStyle(labelStyle.value, brush = BrushProducer { labelColor.value }) {
-                Box(modifier = Modifier.padding(top = labelPadding.value)) {
-                    labelContent()
+            ProvideTextBehaviour(TextBehaviour(overflow = TextOverflow.Ellipsis, maxLines = 1)) {
+                ProvideTextStyle(labelStyle.value, brush = BrushProducer { labelColor.value }) {
+                    Box(modifier = Modifier.padding(top = labelPadding.value)) {
+                        labelContent()
+                    }
                 }
             }
         }
