@@ -65,6 +65,7 @@ internal fun ScenarioScaffold(
                             modifier = Modifier.testTag(check.testTag),
                         )
                     },
+                    disclosureEnabled = false,
                 )
             }
         }
