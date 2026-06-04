@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
 internal class AiHeaderComposeVariationGenerator(
     private val iconButtonStylesPackage: String,
+    private val buttonGroupStylesPackage: String,
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -55,6 +56,8 @@ internal class AiHeaderComposeVariationGenerator(
         dimensionsCall(props, variationId),
         startButtonStyleCall(props, ktFileBuilder),
         endButtonStyleCall(props, ktFileBuilder),
+        startButtonGroupStyleCall(props, ktFileBuilder),
+        endButtonGroupStyleCall(props, ktFileBuilder),
     )
 
     private fun shapeCall(props: AiHeaderProperties, variationId: String): String? {
@@ -80,6 +83,17 @@ internal class AiHeaderComposeVariationGenerator(
         }
     }
 
+    private fun startButtonGroupStyleCall(
+        props: AiHeaderProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.startButtonGroupStyle?.let {
+            ".startButtonGroupStyle(${
+                it.value.getComponentStyle(ktFileBuilder, buttonGroupStylesPackage)
+            }.style())"
+        }
+    }
+
     private fun endButtonStyleCall(
         props: AiHeaderProperties,
         ktFileBuilder: KtFileBuilder,
@@ -87,6 +101,17 @@ internal class AiHeaderComposeVariationGenerator(
         return props.endButtonStyle?.let {
             ".endButtonStyle(${
                 it.value.getComponentStyle(ktFileBuilder, iconButtonStylesPackage)
+            }.style())"
+        }
+    }
+
+    private fun endButtonGroupStyleCall(
+        props: AiHeaderProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.endButtonGroupStyle?.let {
+            ".endButtonGroupStyle(${
+                it.value.getComponentStyle(ktFileBuilder, buttonGroupStylesPackage)
             }.style())"
         }
     }

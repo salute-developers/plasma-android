@@ -16,6 +16,11 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.serv.styles.buttongroup.AiHeaderEmbeddedIconButtonGroup
+import com.sdds.serv.styles.buttongroup.L
+import com.sdds.serv.styles.buttongroup.M
+import com.sdds.serv.styles.buttongroup.S
+import com.sdds.serv.styles.buttongroup.Xl
 import com.sdds.serv.styles.iconbutton.AiHeaderEmbeddedIconButton
 import com.sdds.serv.styles.iconbutton.L
 import com.sdds.serv.styles.iconbutton.M
@@ -186,6 +191,8 @@ public val AiHeader.Xs: WrapperAiHeaderXs
         }
         .startButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
         .endButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
+        .startButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.S.style())
+        .endButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.S.style())
         .wrap(::WrapperAiHeaderXs)
 
 public val AiHeader.S: WrapperAiHeaderS
@@ -206,6 +213,8 @@ public val AiHeader.S: WrapperAiHeaderS
         }
         .startButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
         .endButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
+        .startButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.S.style())
+        .endButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.S.style())
         .wrap(::WrapperAiHeaderS)
 
 public val AiHeader.M: WrapperAiHeaderM
@@ -226,6 +235,8 @@ public val AiHeader.M: WrapperAiHeaderM
         }
         .startButtonStyle(AiHeaderEmbeddedIconButton.M.Secondary.style())
         .endButtonStyle(AiHeaderEmbeddedIconButton.M.Secondary.style())
+        .startButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.M.style())
+        .endButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.M.style())
         .wrap(::WrapperAiHeaderM)
 
 public val AiHeader.L: WrapperAiHeaderL
@@ -246,6 +257,8 @@ public val AiHeader.L: WrapperAiHeaderL
         }
         .startButtonStyle(AiHeaderEmbeddedIconButton.L.Secondary.style())
         .endButtonStyle(AiHeaderEmbeddedIconButton.L.Secondary.style())
+        .startButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.L.style())
+        .endButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.L.style())
         .wrap(::WrapperAiHeaderL)
 
 public val AiHeader.Xl: WrapperAiHeaderXl
@@ -266,6 +279,8 @@ public val AiHeader.Xl: WrapperAiHeaderXl
         }
         .startButtonStyle(AiHeaderEmbeddedIconButton.Xl.Secondary.style())
         .endButtonStyle(AiHeaderEmbeddedIconButton.Xl.Secondary.style())
+        .startButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.Xl.style())
+        .endButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.Xl.style())
         .wrap(::WrapperAiHeaderXl)
 
 public val AiHeader.H5: WrapperAiHeaderH5
@@ -286,6 +301,8 @@ public val AiHeader.H5: WrapperAiHeaderH5
         }
         .startButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
         .endButtonStyle(AiHeaderEmbeddedIconButton.S.Secondary.style())
+        .startButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.S.style())
+        .endButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.S.style())
         .wrap(::WrapperAiHeaderH5)
 
 public val AiHeader.H4: WrapperAiHeaderH4
@@ -308,6 +325,8 @@ public val AiHeader.H4: WrapperAiHeaderH4
         }
         .startButtonStyle(AiHeaderEmbeddedIconButton.M.Secondary.style())
         .endButtonStyle(AiHeaderEmbeddedIconButton.M.Secondary.style())
+        .startButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.M.style())
+        .endButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.M.style())
         .wrap(::WrapperAiHeaderH4)
 
 public val AiHeader.H3: WrapperAiHeaderH3
@@ -330,6 +349,8 @@ public val AiHeader.H3: WrapperAiHeaderH3
         }
         .startButtonStyle(AiHeaderEmbeddedIconButton.L.Secondary.style())
         .endButtonStyle(AiHeaderEmbeddedIconButton.L.Secondary.style())
+        .startButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.L.style())
+        .endButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.L.style())
         .wrap(::WrapperAiHeaderH3)
 
 public val AiHeader.H2: WrapperAiHeaderH2
@@ -350,4 +371,6 @@ public val AiHeader.H2: WrapperAiHeaderH2
         }
         .startButtonStyle(AiHeaderEmbeddedIconButton.Xl.Secondary.style())
         .endButtonStyle(AiHeaderEmbeddedIconButton.Xl.Secondary.style())
+        .startButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.Xl.style())
+        .endButtonGroupStyle(AiHeaderEmbeddedIconButtonGroup.Xl.style())
         .wrap(::WrapperAiHeaderH2)

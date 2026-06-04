@@ -14,6 +14,7 @@ import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 private const val ICON_BUTTON_PACKAGE_SUFFIX = "iconbutton"
+private const val BUTTON_GROUP_PACKAGE_SUFFIX = "buttongroup"
 private const val AI_HEADER_STYLE_PACKAGE = "com.sdds.compose.uikit.ai"
 
 internal class AiHeaderConfigDelegate : ComponentConfigDelegate<AiHeaderConfig>() {
@@ -34,6 +35,9 @@ internal class AiHeaderConfigDelegate : ComponentConfigDelegate<AiHeaderConfig>(
         iconButtonStylesPackage = "${deps.packageResolver.getPackage(
             TargetPackage.STYLES,
         )}.$ICON_BUTTON_PACKAGE_SUFFIX",
+        buttonGroupStylesPackage = "${deps.packageResolver.getPackage(
+            TargetPackage.STYLES,
+        )}.$BUTTON_GROUP_PACKAGE_SUFFIX",
         themeClassName = deps.themeClassName,
         themePackage = deps.packageResolver.getPackage(TargetPackage.THEME),
         dimensionsConfig = deps.dimensionsConfig,

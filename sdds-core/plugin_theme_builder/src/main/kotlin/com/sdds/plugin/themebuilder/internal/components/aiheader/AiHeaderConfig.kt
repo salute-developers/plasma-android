@@ -13,6 +13,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonProperties
+import com.sdds.plugin.themebuilder.internal.components.buttongroup.ButtonGroupProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -35,7 +36,9 @@ internal data class AiHeaderProperties(
     val paddingTop: Dimension? = null,
     val paddingBottom: Dimension? = null,
     val startButtonStyle: ComponentStyle<ButtonProperties>? = null,
+    val startButtonGroupStyle: ComponentStyle<ButtonGroupProperties>? = null,
     val endButtonStyle: ComponentStyle<ButtonProperties>? = null,
+    val endButtonGroupStyle: ComponentStyle<ButtonGroupProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -60,7 +63,9 @@ internal data class AiHeaderProperties(
             paddingTop = paddingTop ?: otherProps.paddingTop,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
             startButtonStyle = startButtonStyle ?: otherProps.startButtonStyle,
+            startButtonGroupStyle = startButtonGroupStyle ?: otherProps.startButtonGroupStyle,
             endButtonStyle = endButtonStyle ?: otherProps.endButtonStyle,
+            endButtonGroupStyle = endButtonGroupStyle ?: otherProps.endButtonGroupStyle,
         )
     }
 }

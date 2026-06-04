@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.text.style.TextAlign
+import com.sdds.compose.uikit.LocalButtonGroupStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.graphics.backgroundBrush
@@ -30,16 +31,16 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
 /**
  * Компонент шапки для AI-интерфейсов.
  *
- * Содержит два опциональных слота [startContent] и [endContent] по краям и текстовый блок
+ * Содержит два опциональных слота [actionBefore] и [actionAfter] по краям и текстовый блок
  * с [titleContent] и [subtitleContent] между ними. Внутри слотов стиль кнопки провайдится
  * через [LocalIconButtonStyle] из [AiHeaderStyle.startButtonStyle] / [AiHeaderStyle.endButtonStyle].
  *
  * @param modifier модификатор
  * @param style стиль компонента [AiHeaderStyle]
  * @param motion объект анимаций
- * @param hasDivider отображение разделителя по нижнему краю компонента
- * @param startContent слот для содержимого слева; стиль кнопки провайдится через [LocalIconButtonStyle]
- * @param endContent слот для содержимого справа; стиль кнопки провайдится через [LocalIconButtonStyle]
+ * @param separationType тип разделителя по нижнему краю компонента [AiHeaderSeparationType]
+ * @param actionBefore слот для содержимого слева; стиль кнопки провайдится через [LocalIconButtonStyle]; стиль группы кнопок — через [LocalButtonGroupStyle]
+ * @param actionAfter слот для содержимого справа; стиль кнопки провайдится через [LocalIconButtonStyle]; стиль группы кнопок — через [LocalButtonGroupStyle]
  * @param titleContent слот заголовка
  * @param subtitleContent слот подзаголовка; если `null`, отступ между заголовком и подзаголовком не добавляется
  * @param titleAlignment горизонтальное выравнивание текстового блока [AiHeaderTitleAlignment]
@@ -51,9 +52,9 @@ fun AiHeader(
     motion: Motion<AiHeaderMotionStyle> = rememberAiHeaderMotion(
         motionContext = rememberMotionContext(remember { MutableInteractionSource() }),
     ),
-    hasDivider: Boolean = false,
-    startContent: (@Composable () -> Unit)? = null,
-    endContent: (@Composable () -> Unit)? = null,
+    separationType: AiHeaderSeparationType = AiHeaderSeparationType.None,
+    actionBefore: (@Composable () -> Unit)? = null,
+    actionAfter: (@Composable () -> Unit)? = null,
     titleContent: (@Composable () -> Unit)? = null,
     subtitleContent: (@Composable () -> Unit)? = null,
     titleAlignment: AiHeaderTitleAlignment = AiHeaderTitleAlignment.Start,
@@ -104,7 +105,7 @@ fun AiHeader(
                 shape = shape.value,
             )
             .drawBehind {
-                if (hasDivider) {
+                if (separationType == AiHeaderSeparationType.Divider) {
                     drawLine(
                         brush = dividerBrushState.value,
                         start = Offset(0f, size.height),
@@ -121,8 +122,11 @@ fun AiHeader(
             ),
         verticalAlignment = Alignment.Top,
     ) {
-        startContent?.let {
-            CompositionLocalProvider(LocalIconButtonStyle provides style.startButtonStyle) {
+        actionBefore?.let {
+            CompositionLocalProvider(
+                LocalIconButtonStyle provides style.startButtonStyle,
+                LocalButtonGroupStyle provides style.startButtonGroupStyle,
+            ) {
                 it()
             }
         }
@@ -180,12 +184,31 @@ fun AiHeader(
             }
         }
 
-        endContent?.let {
-            CompositionLocalProvider(LocalIconButtonStyle provides style.endButtonStyle) {
+        actionAfter?.let {
+            CompositionLocalProvider(
+                LocalIconButtonStyle provides style.endButtonStyle,
+                LocalButtonGroupStyle provides style.endButtonGroupStyle,
+            ) {
                 it()
             }
         }
     }
+}
+
+/**
+ * Тип разделителя по нижнему краю [AiHeader].
+ */
+enum class AiHeaderSeparationType {
+
+    /**
+     * Горизонтальная линия
+     */
+    Divider,
+
+    /**
+     * Разделитель отсутствует
+     */
+    None,
 }
 
 /**

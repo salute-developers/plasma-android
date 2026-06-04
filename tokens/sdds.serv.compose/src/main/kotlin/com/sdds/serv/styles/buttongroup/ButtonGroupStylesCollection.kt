@@ -127,6 +127,10 @@ public enum class ButtonGroupStyles(
     IconButtonGroupLNoGapDefault("IconButtonGroup.L.NoGap.Default"),
     IconButtonGroupLNoGapPilled("IconButtonGroup.L.NoGap.Pilled"),
     IconButtonGroupLNoGapSegmented("IconButtonGroup.L.NoGap.Segmented"),
+    AiHeaderEmbeddedIconButtonGroupS("AiHeaderEmbeddedIconButtonGroup.S"),
+    AiHeaderEmbeddedIconButtonGroupM("AiHeaderEmbeddedIconButtonGroup.M"),
+    AiHeaderEmbeddedIconButtonGroupL("AiHeaderEmbeddedIconButtonGroup.L"),
+    AiHeaderEmbeddedIconButtonGroupXl("AiHeaderEmbeddedIconButtonGroup.Xl"),
     EmbeddedIconButtonGroupXs("EmbeddedIconButtonGroup.Xs"),
     EmbeddedIconButtonGroupXsWide("EmbeddedIconButtonGroup.Xs.Wide"),
     EmbeddedIconButtonGroupXsDense("EmbeddedIconButtonGroup.Xs.Dense"),
@@ -162,6 +166,11 @@ public enum class ButtonGroupStyles(
      * Typed API для подбора стиля icon-button-group
      */
     public object IconButtonGroup
+
+    /**
+     * Typed API для подбора стиля ai-header-embedded-icon-button-group
+     */
+    public object AiHeaderEmbeddedIconButtonGroup
 
     /**
      * Typed API для подбора стиля embedded-icon-button-group
@@ -233,6 +242,16 @@ public enum class IconButtonGroupShape {
     Default,
     Pilled,
     Segmented,
+}
+
+/**
+ * Возможные значения свойства size для ai-header-embedded-icon-button-group
+ */
+public enum class AiHeaderEmbeddedIconButtonGroupSize {
+    S,
+    M,
+    L,
+    Xl,
 }
 
 /**
@@ -382,6 +401,10 @@ public fun ButtonGroupStyles.style(modify: @Composable ButtonGroupStyleBuilder.(
         ButtonGroupStyles.IconButtonGroupLNoGapDefault -> IconButtonGroup.L.NoGap.Default
         ButtonGroupStyles.IconButtonGroupLNoGapPilled -> IconButtonGroup.L.NoGap.Pilled
         ButtonGroupStyles.IconButtonGroupLNoGapSegmented -> IconButtonGroup.L.NoGap.Segmented
+        ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroupS -> AiHeaderEmbeddedIconButtonGroup.S
+        ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroupM -> AiHeaderEmbeddedIconButtonGroup.M
+        ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroupL -> AiHeaderEmbeddedIconButtonGroup.L
+        ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroupXl -> AiHeaderEmbeddedIconButtonGroup.Xl
         ButtonGroupStyles.EmbeddedIconButtonGroupXs -> EmbeddedIconButtonGroup.Xs
         ButtonGroupStyles.EmbeddedIconButtonGroupXsWide -> EmbeddedIconButtonGroup.Xs.Wide
         ButtonGroupStyles.EmbeddedIconButtonGroupXsDense -> EmbeddedIconButtonGroup.Xs.Dense
@@ -648,6 +671,35 @@ public fun ButtonGroupStyles.IconButtonGroup.style(
     shape: IconButtonGroupShape = IconButtonGroupShape.Default,
     modify: @Composable ButtonGroupStyleBuilder.() -> Unit = {},
 ): ButtonGroupStyle = resolve(size, gap, shape).style(modify)
+
+/**
+ * Возвращает экземпляр [ButtonGroupStyles] для ai-header-embedded-icon-button-group
+ */
+public fun ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroup.resolve(
+    size: AiHeaderEmbeddedIconButtonGroupSize =
+        AiHeaderEmbeddedIconButtonGroupSize.M,
+): ButtonGroupStyles = when {
+    size == AiHeaderEmbeddedIconButtonGroupSize.S ->
+        ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroupS
+    size == AiHeaderEmbeddedIconButtonGroupSize.M ->
+        ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroupM
+    size == AiHeaderEmbeddedIconButtonGroupSize.L ->
+        ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroupL
+    size == AiHeaderEmbeddedIconButtonGroupSize.Xl ->
+        ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroupXl
+    else -> error("Unsupported ai-header-embedded-icon-button-group style combination")
+}
+
+/**
+ * Возвращает [ButtonGroupStyle] для ai-header-embedded-icon-button-group
+ */
+@Composable
+public fun ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroup.style(
+    size: AiHeaderEmbeddedIconButtonGroupSize =
+        AiHeaderEmbeddedIconButtonGroupSize.M,
+    modify: @Composable
+    ButtonGroupStyleBuilder.() -> Unit = {},
+): ButtonGroupStyle = resolve(size).style(modify)
 
 /**
  * Возвращает экземпляр [ButtonGroupStyles] для embedded-icon-button-group

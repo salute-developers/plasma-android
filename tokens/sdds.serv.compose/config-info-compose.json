@@ -48398,6 +48398,108 @@
       {
          "key": "button-group",
          "coreName": "ButtonGroup",
+         "styleName": "AiHeaderEmbeddedIconButtonGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "s",
+                  "m",
+                  "l",
+                  "xl"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "AiHeaderEmbeddedIconButtonGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiHeaderEmbeddedIconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiHeaderEmbeddedIconButtonGroupSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "s",
+               "composeReference": "AiHeaderEmbeddedIconButtonGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiHeaderEmbeddedIconButtonGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiHeaderEmbeddedIconButtonGroup.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "xl",
+               "composeReference": "AiHeaderEmbeddedIconButtonGroup.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
          "styleName": "EmbeddedIconButtonGroup",
          "props": [
             {

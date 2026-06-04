@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.iconButtonBuilder
@@ -67,6 +68,16 @@ interface AiHeaderStyle : Style {
      * Стиль кнопки справа
      */
     val endButtonStyle: ButtonStyle
+
+    /**
+     * Стиль группы кнопок слева
+     */
+    val startButtonGroupStyle: ButtonGroupStyle
+
+    /**
+     * Стиль группы кнопок справа
+     */
+    val endButtonGroupStyle: ButtonGroupStyle
 
     companion object {
         /**
@@ -134,6 +145,16 @@ interface AiHeaderStyleBuilder : StyleBuilder<AiHeaderStyle> {
      * Устанавливает стиль кнопки справа
      */
     fun endButtonStyle(endButtonStyle: ButtonStyle): AiHeaderStyleBuilder
+
+    /**
+     * Устанавливает стиль группы кнопок слева
+     */
+    fun startButtonGroupStyle(startButtonGroupStyle: ButtonGroupStyle): AiHeaderStyleBuilder
+
+    /**
+     * Устанавливает стиль группы кнопок справа
+     */
+    fun endButtonGroupStyle(endButtonGroupStyle: ButtonGroupStyle): AiHeaderStyleBuilder
 }
 
 @Immutable
@@ -145,6 +166,8 @@ private data class DefaultAiHeaderStyle(
     override val dimensions: AiHeaderDimensions,
     override val startButtonStyle: ButtonStyle,
     override val endButtonStyle: ButtonStyle,
+    override val startButtonGroupStyle: ButtonGroupStyle,
+    override val endButtonGroupStyle: ButtonGroupStyle,
 ) : AiHeaderStyle {
 
     class Builder : AiHeaderStyleBuilder {
@@ -155,6 +178,8 @@ private data class DefaultAiHeaderStyle(
         private var dimensionsBuilder: AiHeaderDimensionsBuilder = AiHeaderDimensions.builder()
         private var startButtonStyle: ButtonStyle? = null
         private var endButtonStyle: ButtonStyle? = null
+        private var startButtonGroupStyle: ButtonGroupStyle? = null
+        private var endButtonGroupStyle: ButtonGroupStyle? = null
 
         override fun titleStyle(titleStyle: StatefulValue<TextStyle>) = apply {
             this.titleStyle = titleStyle
@@ -186,6 +211,14 @@ private data class DefaultAiHeaderStyle(
             this.endButtonStyle = endButtonStyle
         }
 
+        override fun startButtonGroupStyle(startButtonGroupStyle: ButtonGroupStyle) = apply {
+            this.startButtonGroupStyle = startButtonGroupStyle
+        }
+
+        override fun endButtonGroupStyle(endButtonGroupStyle: ButtonGroupStyle) = apply {
+            this.endButtonGroupStyle = endButtonGroupStyle
+        }
+
         override fun style(): AiHeaderStyle = DefaultAiHeaderStyle(
             shape = shape ?: RoundedCornerShape(0).asStatefulValue(),
             titleStyles = titleStyle ?: TextStyle.Default.asStatefulValue(),
@@ -194,6 +227,8 @@ private data class DefaultAiHeaderStyle(
             dimensions = dimensionsBuilder.build(),
             startButtonStyle = startButtonStyle ?: ButtonStyle.iconButtonBuilder().style(),
             endButtonStyle = endButtonStyle ?: ButtonStyle.iconButtonBuilder().style(),
+            startButtonGroupStyle = startButtonGroupStyle ?: ButtonGroupStyle.builder().style(),
+            endButtonGroupStyle = endButtonGroupStyle ?: ButtonGroupStyle.builder().style(),
         )
     }
 }

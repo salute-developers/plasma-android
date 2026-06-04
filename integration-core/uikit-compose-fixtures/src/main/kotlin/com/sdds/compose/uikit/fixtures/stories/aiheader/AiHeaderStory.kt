@@ -5,9 +5,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.sdds.compose.sandbox.ComposeBaseStory
+import com.sdds.compose.uikit.ButtonGroup
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.ai.AiHeader
+import com.sdds.compose.uikit.ai.AiHeaderSeparationType
 import com.sdds.compose.uikit.ai.AiHeaderStyle
 import com.sdds.compose.uikit.ai.AiHeaderTitleAlignment
 import com.sdds.compose.uikit.fixtures.stories.AiHeaderUiStatePropertiesProducer
@@ -17,16 +19,18 @@ import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
 
+enum class AiHeaderTitleAlign { Start, Center }
+
 @StoryUiState
 data class AiHeaderUiState(
     override val variant: String = "",
     override val appearance: String = "",
     val title: String = "Title",
     val subtitle: String = "Subtitle",
-    val hasDivider: Boolean = false,
-    val titleAlignment: AiHeaderTitleAlignment = AiHeaderTitleAlignment.Start,
-    val hasStartButton: Boolean = true,
-    val hasEndButton: Boolean = true,
+    val separationType: AiHeaderSeparationType = AiHeaderSeparationType.None,
+    val titleAlign: AiHeaderTitleAlign = AiHeaderTitleAlign.Start,
+    val hasActionBefore: Boolean = true,
+    val hasActionAfter: Boolean = true,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
@@ -48,14 +52,26 @@ object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
         AiHeader(
             modifier = Modifier.fillMaxWidth(),
             style = style,
-            hasDivider = state.hasDivider,
-            titleAlignment = state.titleAlignment,
-            startContent = if (state.hasStartButton) {
-                { IconButton(iconRes = com.sdds.icons.R.drawable.ic_panel_sidebar_l_outline_24, onClick = {}) }
+            separationType = state.separationType,
+            titleAlignment = when (state.titleAlign) {
+                AiHeaderTitleAlign.Start -> AiHeaderTitleAlignment.Start
+                AiHeaderTitleAlign.Center -> AiHeaderTitleAlignment.Center
+            },
+            actionBefore = if (state.hasActionBefore) {
+                {
+                    ButtonGroup {
+                        button {
+                            IconButton(iconRes = com.sdds.icons.R.drawable.ic_panel_sidebar_l_outline_24, onClick = {})
+                        }
+                        button {
+                            IconButton(iconRes = com.sdds.icons.R.drawable.ic_ai_outline_24, onClick = {})
+                        }
+                    }
+                }
             } else {
                 null
             },
-            endContent = if (state.hasEndButton) {
+            actionAfter = if (state.hasActionAfter) {
                 { IconButton(iconRes = com.sdds.icons.R.drawable.ic_close_24, onClick = {}) }
             } else {
                 null
@@ -76,10 +92,10 @@ object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
         AiHeader(
             modifier = Modifier.fillMaxWidth(),
             style = style,
-            startContent = {
+            actionBefore = {
                 IconButton(iconRes = com.sdds.icons.R.drawable.ic_panel_sidebar_l_outline_24, onClick = {})
             },
-            endContent = {
+            actionAfter = {
                 IconButton(iconRes = com.sdds.icons.R.drawable.ic_close_24, onClick = {})
             },
             titleContent = { Text(text = "Title") },

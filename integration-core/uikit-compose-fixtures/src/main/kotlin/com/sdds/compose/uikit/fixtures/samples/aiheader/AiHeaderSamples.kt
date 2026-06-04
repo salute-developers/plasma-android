@@ -12,6 +12,7 @@ import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.ai.AiHeader
+import com.sdds.compose.uikit.ai.AiHeaderSeparationType
 import com.sdds.compose.uikit.ai.AiHeaderStyle
 import com.sdds.compose.uikit.ai.AiHeaderTitleAlignment
 import com.sdds.compose.uikit.iconButtonBuilder
@@ -47,10 +48,10 @@ fun AiHeader_WithButtons() {
     composableCodeSnippet {
         AiHeader(
             modifier = Modifier.fillMaxWidth(),
-            startContent = {
+            actionBefore = {
                 IconButton(iconRes = R.drawable.ic_panel_sidebar_l_outline_24, onClick = { /* handle */ })
             },
-            endContent = {
+            actionAfter = {
                 IconButton(iconRes = R.drawable.ic_close_24, onClick = { /* handle */ })
             },
             titleContent = { Text(text = "Заголовок") },
@@ -66,10 +67,10 @@ fun AiHeader_TitleAlignment() {
         AiHeader(
             modifier = Modifier.fillMaxWidth(),
             titleAlignment = AiHeaderTitleAlignment.Center,
-            startContent = {
+            actionBefore = {
                 IconButton(iconRes = R.drawable.ic_panel_sidebar_l_outline_24, onClick = {})
             },
-            endContent = {
+            actionAfter = {
                 IconButton(iconRes = R.drawable.ic_close_24, onClick = {})
             },
             titleContent = { Text(text = "Заголовок") },
@@ -84,11 +85,11 @@ fun AiHeader_WithDivider() {
     composableCodeSnippet {
         AiHeader(
             modifier = Modifier.fillMaxWidth(),
-            hasDivider = true,
-            startContent = {
+            separationType = AiHeaderSeparationType.Divider,
+            actionBefore = {
                 IconButton(iconRes = R.drawable.ic_panel_sidebar_l_outline_24, onClick = {})
             },
-            endContent = {
+            actionAfter = {
                 IconButton(iconRes = R.drawable.ic_close_24, onClick = {})
             },
             titleContent = { Text(text = "Заголовок") },
