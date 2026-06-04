@@ -15,6 +15,7 @@ import androidx.compose.ui.test.performKeyInput
 import androidx.compose.ui.test.pressKey
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.sdds.playground.integrationtest.sandbox.AppActivity
+import com.sdds.playground.integrationtest.testtags.FocusSelectorScaleTags
 import com.sdds.playground.integrationtest.testtags.FocusSelectorTags
 
 @OptIn(ExperimentalTestApi::class)
@@ -243,6 +244,26 @@ internal class FocusSelectorPage(
 
     fun checkTabsClearFocusPassed() = apply {
         composeTestRule.onNodeWithTag(FocusSelectorTags.check(12))
+            .assertTextContains("PASS", substring = true)
+    }
+
+    fun checkChipGroupFocusScalePassed() = apply {
+        composeTestRule.onNodeWithTag(FocusSelectorScaleTags.check(1))
+            .assertTextContains("PASS", substring = true)
+    }
+
+    fun checkChipGroupClearFocusPassed() = apply {
+        composeTestRule.onNodeWithTag(FocusSelectorTags.check(2))
+            .assertTextContains("PASS", substring = true)
+    }
+
+    fun checkTextFieldFocusScalePassed() = apply {
+        composeTestRule.onNodeWithTag(FocusSelectorScaleTags.check(3))
+            .assertTextContains("PASS", substring = true)
+    }
+
+    fun checkTextFieldClearFocusScalePassed() = apply {
+        composeTestRule.onNodeWithTag(FocusSelectorTags.check(4))
             .assertTextContains("PASS", substring = true)
     }
 
