@@ -32,9 +32,11 @@ import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
 import com.sdds.compose.uikit.motion.components.navigationdrawer.LocalNavigationDrawerItemMotionStyle
 import com.sdds.compose.uikit.motion.components.navigationdrawer.LocalNavigationDrawerMotionStyle
+import com.sdds.compose.uikit.motion.components.tabbar.LocalTabBarItemMotionStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.motion.navigationdrawer.NavigationDrawerMotion
 import com.sdds.sbcom.motion.navigationdraweritem.NavigationDrawerItemMotionStyle
+import com.sdds.sbcom.motion.tabbaritem.TabBarItemMotionStyle
 import com.sdds.sbcom.styles.avatar.Avatar
 import com.sdds.sbcom.styles.avatar.Size36
 import com.sdds.sbcom.styles.basicbutton.BasicButton
@@ -145,6 +147,7 @@ private fun DefaultMotion(
     CompositionLocalProvider(
         LocalNavigationDrawerMotionStyle provides NavigationDrawerMotion,
         LocalNavigationDrawerItemMotionStyle provides NavigationDrawerItemMotionStyle,
+        LocalTabBarItemMotionStyle provides TabBarItemMotionStyle,
     ) {
         content()
     }

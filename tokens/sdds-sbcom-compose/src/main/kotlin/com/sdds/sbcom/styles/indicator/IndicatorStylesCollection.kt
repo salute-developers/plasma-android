@@ -51,7 +51,7 @@ public enum class IndicatorStyles(
 /**
  * Возможные значения свойства size для avatar-indicator
  */
-public enum class IndicatorAvatarIndicatorSize {
+public enum class AvatarIndicatorSize {
     Size14,
     Size12,
     Size10,
@@ -94,14 +94,14 @@ public fun IndicatorStyles.style(modify: @Composable IndicatorStyleBuilder.() ->
  * Возвращает экземпляр [IndicatorStyles] для avatar-indicator
  */
 public fun IndicatorStyles.AvatarIndicator.resolve(
-    size: IndicatorAvatarIndicatorSize =
-        IndicatorAvatarIndicatorSize.Size14,
+    size: AvatarIndicatorSize =
+        AvatarIndicatorSize.Size14,
 ): IndicatorStyles = when {
-    size == IndicatorAvatarIndicatorSize.Size14 -> IndicatorStyles.AvatarIndicatorSize14
-    size == IndicatorAvatarIndicatorSize.Size12 -> IndicatorStyles.AvatarIndicatorSize12
-    size == IndicatorAvatarIndicatorSize.Size10 -> IndicatorStyles.AvatarIndicatorSize10
-    size == IndicatorAvatarIndicatorSize.Size8 -> IndicatorStyles.AvatarIndicatorSize8
-    size == IndicatorAvatarIndicatorSize.Size6 -> IndicatorStyles.AvatarIndicatorSize6
+    size == AvatarIndicatorSize.Size14 -> IndicatorStyles.AvatarIndicatorSize14
+    size == AvatarIndicatorSize.Size12 -> IndicatorStyles.AvatarIndicatorSize12
+    size == AvatarIndicatorSize.Size10 -> IndicatorStyles.AvatarIndicatorSize10
+    size == AvatarIndicatorSize.Size8 -> IndicatorStyles.AvatarIndicatorSize8
+    size == AvatarIndicatorSize.Size6 -> IndicatorStyles.AvatarIndicatorSize6
     else -> error("Unsupported avatar-indicator style combination")
 }
 
@@ -110,10 +110,9 @@ public fun IndicatorStyles.AvatarIndicator.resolve(
  */
 @Composable
 public fun IndicatorStyles.AvatarIndicator.style(
-    size: IndicatorAvatarIndicatorSize =
-        IndicatorAvatarIndicatorSize.Size14,
-    modify: @Composable IndicatorStyleBuilder.() -> Unit =
-        {},
+    size: AvatarIndicatorSize =
+        AvatarIndicatorSize.Size14,
+    modify: @Composable IndicatorStyleBuilder.() -> Unit = {},
 ): IndicatorStyle = resolve(size).style(modify)
 
 /**
