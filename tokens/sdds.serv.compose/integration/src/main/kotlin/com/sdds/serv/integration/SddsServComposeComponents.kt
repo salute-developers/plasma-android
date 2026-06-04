@@ -56,6 +56,7 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.IconButton,
                 mapOf(
                     "IconButton" to SddsServIconButtonVariationsCompose,
+                    "AiHeaderEmbeddedIconButton" to SddsServAiHeaderEmbeddedIconButtonVariationsCompose,
                     "EmbeddedIconButton" to SddsServEmbeddedIconButtonVariationsCompose,
                 ),
             ),
@@ -472,6 +473,12 @@ object SddsServComposeComponents : ComponentProvider() {
                     "SelectSingleTight" to SddsServSelectSingleTightVariationsCompose,
                     "SelectMultipleNormal" to SddsServSelectMultipleNormalVariationsCompose,
                     "SelectMultipleTight" to SddsServSelectMultipleTightVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.AiHeader,
+                mapOf(
+                    "AiHeader" to SddsServAiHeaderVariationsCompose,
                 ),
             ),
             Component(

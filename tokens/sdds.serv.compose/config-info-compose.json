@@ -48398,6 +48398,108 @@
       {
          "key": "button-group",
          "coreName": "ButtonGroup",
+         "styleName": "AiHeaderEmbeddedIconButtonGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "s",
+                  "m",
+                  "l",
+                  "xl"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles.AiHeaderEmbeddedIconButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "AiHeaderEmbeddedIconButtonGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiHeaderEmbeddedIconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiHeaderEmbeddedIconButtonGroupSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "s",
+               "composeReference": "AiHeaderEmbeddedIconButtonGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiHeaderEmbeddedIconButtonGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiHeaderEmbeddedIconButtonGroup.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "xl",
+               "composeReference": "AiHeaderEmbeddedIconButtonGroup.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
          "styleName": "EmbeddedIconButtonGroup",
          "props": [
             {
@@ -60984,6 +61086,504 @@
                   {
                      "name": "size",
                      "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "ai-header",
+         "coreName": "AiHeader",
+         "styleName": "AiHeader",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l",
+                  "xl",
+                  "h5",
+                  "h4",
+                  "h3",
+                  "h2"
+               ],
+               "defaultValue": "xs"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "clear"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.aiheader",
+            "stylesClassName": "AiHeaderStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.aiheader.AiHeaderStyles",
+            "receiverClassName": "AiHeaderStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.aiheader.AiHeaderStyles.Companion",
+            "returnTypeName": "AiHeaderStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AiHeaderStyle",
+            "modifyReceiverTypeName": "AiHeaderStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AiHeaderStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiHeaderSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiheader.AiHeaderSize",
+                  "defaultValue": {
+                     "value": "xs",
+                     "codeName": "Xs"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "h5",
+                        "codeName": "H5"
+                     },
+                     {
+                        "value": "h4",
+                        "codeName": "H4"
+                     },
+                     {
+                        "value": "h3",
+                        "codeName": "H3"
+                     },
+                     {
+                        "value": "h2",
+                        "codeName": "H2"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiHeaderView",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiheader.AiHeaderView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "clear",
+                        "codeName": "Clear"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs.default",
+               "composeReference": "AiHeader.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "AiHeader.Xs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.clear",
+               "composeReference": "AiHeader.Xs.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "AiHeader.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "AiHeader.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.clear",
+               "composeReference": "AiHeader.S.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "AiHeader.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "AiHeader.M.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.clear",
+               "composeReference": "AiHeader.M.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "l.default",
+               "composeReference": "AiHeader.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "AiHeader.L.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.clear",
+               "composeReference": "AiHeader.L.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "xl.default",
+               "composeReference": "AiHeader.Xl.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "AiHeader.Xl.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.clear",
+               "composeReference": "AiHeader.Xl.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "h5.default",
+               "composeReference": "AiHeader.H5.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h5"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "h5.secondary",
+               "composeReference": "AiHeader.H5.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h5"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "h5.clear",
+               "composeReference": "AiHeader.H5.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h5"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "h4.default",
+               "composeReference": "AiHeader.H4.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h4"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "h4.secondary",
+               "composeReference": "AiHeader.H4.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h4"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "h4.clear",
+               "composeReference": "AiHeader.H4.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h4"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "h3.default",
+               "composeReference": "AiHeader.H3.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h3"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "h3.secondary",
+               "composeReference": "AiHeader.H3.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h3"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "h3.clear",
+               "composeReference": "AiHeader.H3.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h3"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "h2.default",
+               "composeReference": "AiHeader.H2.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h2"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "h2.secondary",
+               "composeReference": "AiHeader.H2.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h2"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "h2.clear",
+               "composeReference": "AiHeader.H2.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h2"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
                   }
                ]
             }
