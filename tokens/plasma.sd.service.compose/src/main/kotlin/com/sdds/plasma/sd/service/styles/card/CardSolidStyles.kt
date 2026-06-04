@@ -8,11 +8,12 @@
 package com.sdds.plasma.sd.service.styles.card
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.CardStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -54,7 +55,7 @@ private val CardStyleBuilder.invariantProps: CardStyleBuilder
     get() = this
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive(),
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
             )
         }
 

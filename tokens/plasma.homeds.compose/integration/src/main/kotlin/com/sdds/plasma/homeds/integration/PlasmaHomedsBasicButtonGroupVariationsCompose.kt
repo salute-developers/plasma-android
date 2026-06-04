@@ -14,9 +14,9 @@ import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.buttongroup.BasicButtonGroup
-import com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupBasicButtonGroupGap
-import com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupBasicButtonGroupShape
-import com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupBasicButtonGroupSize
+import com.sdds.plasma.homeds.styles.buttongroup.BasicButtonGroupGap
+import com.sdds.plasma.homeds.styles.buttongroup.BasicButtonGroupShape
+import com.sdds.plasma.homeds.styles.buttongroup.BasicButtonGroupSize
 import com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupStyles
 import com.sdds.plasma.homeds.styles.buttongroup.Default
 import com.sdds.plasma.homeds.styles.buttongroup.Dense
@@ -74,21 +74,21 @@ internal object PlasmaHomedsBasicButtonGroupVariationsCompose : ComposeStyleProv
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return ButtonGroupStyles.BasicButtonGroup.resolve(
             size = when (bindings["size"]?.toString()) {
-                "Xs" -> ButtonGroupBasicButtonGroupSize.Xs
-                "S" -> ButtonGroupBasicButtonGroupSize.S
-                "M" -> ButtonGroupBasicButtonGroupSize.M
-                else -> ButtonGroupBasicButtonGroupSize.Xs
+                "Xs" -> BasicButtonGroupSize.Xs
+                "S" -> BasicButtonGroupSize.S
+                "M" -> BasicButtonGroupSize.M
+                else -> BasicButtonGroupSize.Xs
             },
             gap = when (bindings["gap"]?.toString()) {
-                "None" -> ButtonGroupBasicButtonGroupGap.None
-                "Wide" -> ButtonGroupBasicButtonGroupGap.Wide
-                "Dense" -> ButtonGroupBasicButtonGroupGap.Dense
-                else -> ButtonGroupBasicButtonGroupGap.None
+                "None" -> BasicButtonGroupGap.None
+                "Wide" -> BasicButtonGroupGap.Wide
+                "Dense" -> BasicButtonGroupGap.Dense
+                else -> BasicButtonGroupGap.None
             },
             shape = when (bindings["shape"]?.toString()) {
-                "Default" -> ButtonGroupBasicButtonGroupShape.Default
-                "Segmented" -> ButtonGroupBasicButtonGroupShape.Segmented
-                else -> ButtonGroupBasicButtonGroupShape.Default
+                "Default" -> BasicButtonGroupShape.Default
+                "Segmented" -> BasicButtonGroupShape.Segmented
+                else -> BasicButtonGroupShape.Default
             },
         ).key
     }

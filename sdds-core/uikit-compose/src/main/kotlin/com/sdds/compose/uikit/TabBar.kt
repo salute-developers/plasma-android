@@ -23,15 +23,127 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathOperation
 import androidx.compose.ui.graphics.addOutline
-import androidx.compose.ui.graphics.isUnspecified
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.graphics.rememberBlurStyle
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.background
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.tabbar.TabBarMotionStyle
+import com.sdds.compose.uikit.motion.components.tabbar.rememberTabBarMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getDpAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 import com.sdds.compose.uikit.shadow.shadow
+
+/**
+ * Компонент для навигации между разделами интерфейса
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param interactionSource источник взаимодействий
+ * @param motion объект анимаций
+ * @param content контент.
+ * Для добавления элементов в контент используется функция TabBarScope.tabItem()
+ */
+@Composable
+fun TabBar(
+    motion: Motion<TabBarMotionStyle>,
+    modifier: Modifier = Modifier,
+    style: TabBarStyle = LocalTabBarStyle.current,
+    content: TabBarScope.() -> Unit,
+) {
+    val backgroundColor = style.colors.background.getBrushAsState(motion.context, motion.style.background)
+    val backgroundBlurTint = style.colors.blurTint.getBrushAsState(motion.context, motion.style.background)
+    val topShape = style.topShapeValue.getValueAsState(motion.context)
+    val bottomShape = style.bottomShapeValue.getValueAsState(motion.context)
+    val shadow = style.shadowValue.getValueAsState(motion.context)
+    val paddingStart = style.dimensions.paddingStartValue.getDpAsState(motion.context, motion.style.paddingStart)
+    val paddingEnd = style.dimensions.paddingEndValue.getDpAsState(motion.context, motion.style.paddingEnd)
+    val paddingTop = style.dimensions.paddingTopValue.getDpAsState(motion.context, motion.style.paddingTop)
+    val paddingBottom = style.dimensions.paddingBottomValue.getDpAsState(motion.context, motion.style.paddingBottom)
+    val contentPaddingStart = style.dimensions.contentPaddingStartValue.getDpAsState(
+        motion.context,
+        motion.style.contentPaddingStart,
+    )
+    val contentPaddingEnd = style.dimensions.contentPaddingEndValue.getDpAsState(
+        motion.context,
+        motion.style.contentPaddingEnd,
+    )
+    val contentPaddingTop = style.dimensions.contentPaddingTopValue.getDpAsState(
+        motion.context,
+        motion.style.contentPaddingTop,
+    )
+    val contentPaddingBottom = style.dimensions.contentPaddingBottomValue.getDpAsState(
+        motion.context,
+        motion.style.contentPaddingBottom,
+    )
+    val itemSpacing = style.dimensions.itemSpacingValue.getDpAsState(motion.context, motion.style.itemSpacing)
+    val dividerThickness = style.dimensions.dividerThicknessValue.getDpAsState(
+        motion.context,
+        motion.style.dividerThickness,
+    )
+    val backgroundBlurRadius = style.dimensions.backgroundBlurRadiusValue.getDpAsState(
+        motion.context,
+        motion.style.backgroundBlurRadius,
+    )
+    val dividerColor = style.colors.divider.getBrushAsState(motion.context, motion.style.divider)
+    val shape = remember(topShape.value, bottomShape.value) {
+        if (topShape.value == bottomShape.value) {
+            topShape.value
+        } else {
+            RoundedCornerShape(
+                topStart = topShape.value.topStart,
+                topEnd = topShape.value.topEnd,
+                bottomStart = bottomShape.value.bottomStart,
+                bottomEnd = bottomShape.value.bottomEnd,
+            )
+        }
+    }
+    val blurStyle = rememberBlurStyle(
+        shape = shape,
+        blurRadius = backgroundBlurRadius.value,
+        fallbackBackground = backgroundColor.value,
+        tintBrush = backgroundBlurTint.value,
+    )
+    Row(
+        modifier = Modifier
+            .padding(
+                start = paddingStart.value,
+                end = paddingEnd.value,
+                top = maxOf(paddingTop.value, dividerThickness.value),
+                bottom = paddingBottom.value,
+            )
+            .shadow(shadow.value)
+            .then(modifier)
+            .background(blurStyle)
+            .drawDivider(
+                shape = shape,
+                dividerBrush = dividerColor.value,
+                dividerThickness = dividerThickness.value,
+            )
+            .padding(
+                start = contentPaddingStart.value,
+                end = contentPaddingEnd.value,
+                top = contentPaddingTop.value,
+                bottom = contentPaddingBottom.value,
+            ),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(itemSpacing.value),
+    ) {
+        val scope = remember { TabBarScopeImpl() }
+        scope.content()
+        scope.tabs.forEach { item ->
+            TabBarItemContainer(
+                item = item,
+                style = style.tabBarItemStyle,
+            )
+        }
+        scope.reset()
+    }
+}
 
 /**
  * Компонент для навигации между разделами интерфейса
@@ -49,61 +161,17 @@ fun TabBar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     content: TabBarScope.() -> Unit,
 ) {
-    val backgroundColor = style.colors.background.getValue(interactionSource)
-    val backgroundBlurTint = style.colors.backgroundBlurTint.colorForInteraction(interactionSource)
-    val shape = remember(style.topShape, style.bottomShape) {
-        if (style.topShape == style.bottomShape) {
-            style.topShape
-        } else {
-            RoundedCornerShape(
-                topStart = style.topShape.topStart,
-                topEnd = style.topShape.topEnd,
-                bottomStart = style.bottomShape.bottomStart,
-                bottomEnd = style.bottomShape.bottomEnd,
-            )
-        }
+    val motionInteractionSource = remember(interactionSource) {
+        interactionSource as? MutableInteractionSource ?: MutableInteractionSource()
     }
-    val blurStyle = rememberBlurStyle(
-        shape = shape,
-        blurRadius = style.dimensions.backgroundBlurRadius,
-        tint = backgroundBlurTint,
-        fallbackBackground = backgroundColor,
+    TabBar(
+        motion = rememberTabBarMotion(
+            motionContext = rememberMotionContext(motionInteractionSource),
+        ),
+        modifier = modifier,
+        style = style,
+        content = content,
     )
-    Row(
-        modifier = Modifier
-            .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-                top = maxOf(style.dimensions.paddingTop, style.dimensions.dividerThickness),
-                bottom = style.dimensions.paddingBottom,
-            )
-            .shadow(style.shadow)
-            .then(modifier)
-            .background(blurStyle)
-            .drawDivider(
-                shape = shape,
-                dividerColor = style.colors.dividerColor.colorForInteraction(interactionSource),
-                dividerThickness = style.dimensions.dividerThickness,
-            )
-            .padding(
-                start = style.dimensions.contentPaddingStart,
-                end = style.dimensions.contentPaddingEnd,
-                top = style.dimensions.contentPaddingTop,
-                bottom = style.dimensions.contentPaddingBottom,
-            ),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(style.dimensions.itemSpacing),
-    ) {
-        val scope = remember { TabBarScopeImpl() }
-        scope.content()
-        scope.tabs.forEach { item ->
-            TabBarItemContainer(
-                item = item,
-                style = style.tabBarItemStyle,
-            )
-        }
-        scope.reset()
-    }
 }
 
 @Composable
@@ -128,9 +196,9 @@ private fun RowScope.TabBarItemContainer(
 private fun Modifier.drawDivider(
     shape: CornerBasedShape,
     dividerThickness: Dp,
-    dividerColor: Color,
+    dividerBrush: androidx.compose.ui.graphics.Brush,
 ): Modifier {
-    val isDividerPresented = !(dividerColor.isUnspecified || dividerThickness == 0.dp)
+    val isDividerPresented = dividerThickness != 0.dp
     return if (isDividerPresented) {
         this.drawWithCache {
             val shapeOutline = shape.createOutline(size, layoutDirection, this)
@@ -141,7 +209,7 @@ private fun Modifier.drawDivider(
             }
             pathWithOffset.op(pathWithOffset, path, PathOperation.Difference)
             onDrawBehind {
-                drawPath(pathWithOffset, dividerColor)
+                drawPath(pathWithOffset, dividerBrush)
             }
         }
     } else {

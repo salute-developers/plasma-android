@@ -15,7 +15,7 @@ import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sandbox.Property
 import com.sdds.sbcom.styles.indicator.AvatarIndicator
-import com.sdds.sbcom.styles.indicator.IndicatorAvatarIndicatorSize
+import com.sdds.sbcom.styles.indicator.AvatarIndicatorSize
 import com.sdds.sbcom.styles.indicator.IndicatorStyles
 import com.sdds.sbcom.styles.indicator.Size10
 import com.sdds.sbcom.styles.indicator.Size12
@@ -46,12 +46,12 @@ internal object SddsSbcomAvatarIndicatorVariationsCompose : ComposeStyleProvider
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return IndicatorStyles.AvatarIndicator.resolve(
             size = when (bindings["size"]?.toString()) {
-                "Size14" -> IndicatorAvatarIndicatorSize.Size14
-                "Size12" -> IndicatorAvatarIndicatorSize.Size12
-                "Size10" -> IndicatorAvatarIndicatorSize.Size10
-                "Size8" -> IndicatorAvatarIndicatorSize.Size8
-                "Size6" -> IndicatorAvatarIndicatorSize.Size6
-                else -> IndicatorAvatarIndicatorSize.Size14
+                "Size14" -> AvatarIndicatorSize.Size14
+                "Size12" -> AvatarIndicatorSize.Size12
+                "Size10" -> AvatarIndicatorSize.Size10
+                "Size8" -> AvatarIndicatorSize.Size8
+                "Size6" -> AvatarIndicatorSize.Size6
+                else -> AvatarIndicatorSize.Size14
             },
         ).key
     }
