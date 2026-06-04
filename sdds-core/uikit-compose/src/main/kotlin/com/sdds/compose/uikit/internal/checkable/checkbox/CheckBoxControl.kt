@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.CacheDrawScope
@@ -39,7 +40,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CheckBoxColorValues
 import com.sdds.compose.uikit.CheckBoxDimensionValues
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.lerp
 import com.sdds.compose.uikit.motion.Motion
@@ -65,7 +66,7 @@ internal fun CheckBoxControl(
     dimensions: CheckBoxDimensionValues,
     colors: CheckBoxColorValues,
     animationDuration: Int,
-    shape: CornerBasedShape,
+    shape: StatefulValue<CornerBasedShape>,
     icons: CheckBoxIcons?,
     motion: Motion<CheckBoxMotionStyle>,
 ) {
@@ -94,6 +95,7 @@ internal fun CheckBoxControl(
     ) {
         checkCenterGravitationShiftFraction(it)
     }
+    val currentShape by shape.getValueAsState(motion.context)
     val toggleBorderWidth = dimensions.toggleBorderWidth.getValueAsState(motion.context)
     val toggleBorderOffset = dimensions.toggleBorderOffset.getValueAsState(motion.context)
     val toggleIconWidth = dimensions.toggleIconWidth.getValueAsState(motion.context)
@@ -103,18 +105,22 @@ internal fun CheckBoxControl(
     val borderColor = colors.toggleBorderBrush.getBrushAsState(motion.context, motion.style.toggleBorderColor)
     val iconColor = colors.toggleIconBrush.getBrushAsState(motion.context, motion.style.toggleIconColor)
 
+    val requireWidth by dimensions.toggleWidthValues.getValueAsState(motion.context)
+    val requiredHeight by dimensions.toggleHeightValues.getValueAsState(motion.context)
+    val paddings by dimensions.togglePaddingValues.getValueAsState(motion.context)
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .wrapContentSize(Alignment.Center)
-            .requiredWidth(dimensions.toggleWidthValues.getValue(motion.context.interactionSource))
-            .requiredHeight(dimensions.toggleHeightValues.getValue(motion.context.interactionSource))
-            .padding(dimensions.togglePaddingValues.getValue(motion.context.interactionSource))
+            .requiredWidth(requireWidth)
+            .requiredHeight(requiredHeight)
+            .padding(paddings)
             .drawWithCache {
                 val checkCache = CheckDrawingCache()
-                val toggleOutline = createToggleOutline(shape)
+                val toggleOutline = createToggleOutline(currentShape)
                 val toggleBorderOutline =
-                    createBorderOutline(shape, toggleBorderWidth, toggleBorderOffset)
+                    createBorderOutline(currentShape, toggleBorderWidth, toggleBorderOffset)
 
                 onDrawBehind {
                     translate(

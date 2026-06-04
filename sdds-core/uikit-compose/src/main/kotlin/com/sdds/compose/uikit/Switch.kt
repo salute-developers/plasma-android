@@ -197,8 +197,8 @@ fun Switch(
         switch = {
             SwitchToggle(
                 active = active,
-                thumbShape = style.toggleThumbShapes.getValue(interactionSource),
-                trackShape = style.toggleTrackShapes.getValue(interactionSource),
+                thumbShape = style.toggleThumbShapes,
+                trackShape = style.toggleTrackShapes,
                 colors = colorValues,
                 dimensions = dimensionValues,
                 animationDuration = animationDuration,

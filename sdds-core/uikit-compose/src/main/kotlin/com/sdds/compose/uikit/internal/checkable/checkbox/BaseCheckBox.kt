@@ -16,7 +16,6 @@ import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.graphics.backgroundBrush
-import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.checkable.BaseCheckableLayout
@@ -38,7 +37,7 @@ internal fun BaseCheckBox(
     motion: Motion<CheckBoxMotionStyle> = rememberCheckBoxMotion(),
 ) {
     SideEffect {
-        motion.context.semanticStateSource.clear()
+        motion.context.semanticStateSource.remove(CheckBoxStates.Checked, CheckBoxStates.Indeterminate)
         when (state) {
             ToggleableState.On -> motion.context.semanticStateSource.add(CheckBoxStates.Checked)
             ToggleableState.Indeterminate -> motion.context.semanticStateSource.add(CheckBoxStates.Indeterminate)
@@ -71,14 +70,14 @@ internal fun BaseCheckBox(
             .then(clickableModifier)
             .backgroundBrush(
                 { background.value },
-                style.backgroundShapes.getValue(motion.context.interactionSource),
+                style.backgroundShapes.getValueAsState(motion.context).value,
             )
             .padding(style.dimensionValues.getContentPaddings(motion))
             .graphicsLayer { alpha = if (enabled) 1f else 0.4f },
         control = {
             CheckBoxControl(
                 state = state,
-                shape = style.shapes.getValue(motion.context.interactionSource),
+                shape = style.shapes,
                 colors = style.colorValues,
                 dimensions = style.dimensionValues,
                 animationDuration = style.animationDuration,
@@ -112,10 +111,8 @@ internal fun BaseCheckBox(
                 ProvideTextStyle(style, brush = { descriptionColor.value }, content)
             }
         },
-        verticalSpacing = style.dimensionValues.descriptionPaddingValues.getValueAsState(
-            motion.context.interactionSource,
-        ),
-        horizontalSpacing = style.dimensionValues.textPaddingValues.getValueAsState(motion.context.interactionSource),
+        verticalSpacing = style.dimensionValues.descriptionPaddingValues.getValueAsState(motion.context),
+        horizontalSpacing = style.dimensionValues.textPaddingValues.getValueAsState(motion.context),
     )
 }
 
@@ -123,8 +120,8 @@ internal fun BaseCheckBox(
 private fun CheckBoxDimensionValues.getContentPaddings(
     motion: Motion<CheckBoxMotionStyle>,
 ) = PaddingValues(
-    paddingStartValues.getValue(motion.context.interactionSource),
-    paddingTopValues.getValue(motion.context.interactionSource),
-    paddingEndValues.getValue(motion.context.interactionSource),
-    paddingBottomValues.getValue(motion.context.interactionSource),
+    paddingStartValues.getValueAsState(motion.context).value,
+    paddingTopValues.getValueAsState(motion.context).value,
+    paddingEndValues.getValueAsState(motion.context).value,
+    paddingBottomValues.getValueAsState(motion.context).value,
 )

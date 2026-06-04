@@ -54,8 +54,8 @@ import com.sdds.compose.uikit.motion.transition
 internal fun SwitchToggle(
     active: Boolean,
     modifier: Modifier = Modifier,
-    trackShape: CornerBasedShape = CircleShape,
-    thumbShape: CornerBasedShape = CircleShape,
+    trackShape: StatefulValue<CornerBasedShape>,
+    thumbShape: StatefulValue<CornerBasedShape>,
     colors: SwitchColorValues,
     dimensions: SwitchDimensionValues,
     animationDuration: Int,
@@ -85,23 +85,25 @@ internal fun SwitchToggle(
     val toggleWidth = dimensions.toggleThumbWidths.getValueAsState(motion.context)
     val toggleHeight = dimensions.toggleThumbHeights.getValueAsState(motion.context)
     val toggleThumbPadding = dimensions.toggleThumbPaddings.getValueAsState(motion.context)
-    val toggleTrackBorderWidth = dimensions.toggleTrackBorderWidth.getValueAsState(motion.context)
-
+    val toggleTrackBorderWidth by dimensions.toggleTrackBorderWidth.getValueAsState(motion.context)
     val trackWidth by dimensions.toggleTrackWidthValues.getValueAsState(motion.context)
     val trackHeight by dimensions.toggleTrackHeightValues.getValueAsState(motion.context)
+    val currentTrackShape by trackShape.getValueAsState(motion.context)
+    val currentThumbShape by thumbShape.getValueAsState(motion.context)
+
     Box(
         modifier = modifier
             .requiredWidth(trackWidth)
             .requiredHeight(trackHeight)
             .drawWithCache {
-                val strokeWidth = toggleTrackBorderWidth.value.toPx()
+                val strokeWidth = toggleTrackBorderWidth.toPx()
                 val trackOutline = createOutline(
-                    shape = trackShape,
+                    shape = currentTrackShape,
                     widthPx = trackWidth.toPx() - strokeWidth * 2,
                     heightPx = trackHeight.toPx() - strokeWidth * 2,
                 )
                 val thumbOutline = createOutline(
-                    shape = thumbShape,
+                    shape = currentThumbShape,
                     widthPx = toggleWidth.value.toPx(),
                     heightPx = toggleHeight.value.toPx(),
                 )
@@ -212,5 +214,7 @@ private fun SwitchTogglePreview() {
             .builder()
             .build(),
         animationDuration = 100,
+        trackShape = CircleShape.asStatefulValue(),
+        thumbShape = CircleShape.asStatefulValue(),
     )
 }

@@ -14,13 +14,13 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.CacheDrawScope
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawOutline
@@ -107,18 +107,22 @@ internal fun RadioBoxControl(
     val toggleColor = colors.toggleBrush.getBrushAsState(motion.context, motion.style.toggleColor)
     val borderColor = colors.toggleBorderBrush.getBrushAsState(motion.context, motion.style.toggleBorderColor)
     val iconColor = colors.toggleIconBrush.getBrushAsState(motion.context, motion.style.toggleIconColor)
-    val currentShape = shape.getValueAsState(motion.context)
+    val currentShape by shape.getValueAsState(motion.context)
+
+    val requiredWidth by dimensions.toggleWidthValues.getValueAsState(motion.context)
+    val requiredHeight by dimensions.toggleHeightValues.getValueAsState(motion.context)
+    val paddings by dimensions.togglePaddingValues.getValueAsState(motion.context)
 
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .wrapContentSize(Alignment.Center)
-            .requiredWidth(dimensions.toggleWidthValues.getValueAsState(motion.context).value)
-            .requiredHeight(dimensions.toggleHeightValues.getValueAsState(motion.context).value)
-            .padding(dimensions.togglePaddingValues.getValueAsState(motion.context).value)
+            .requiredWidth(requiredWidth)
+            .requiredHeight(requiredHeight)
+            .padding(paddings)
             .drawWithCache {
-                val toggleOutline = createToggleOutline(currentShape.value)
-                val toggleBorderOutline = createBorderOutline(currentShape.value, toggleBorderWidth, toggleBorderOffset)
+                val toggleOutline = createToggleOutline(currentShape)
+                val toggleBorderOutline = createBorderOutline(currentShape, toggleBorderWidth, toggleBorderOffset)
                 val toggleIconOutline = createIconOutline(CircleShape, iconWidth, iconHeight, iconContent)
 
                 onDrawBehind {
@@ -237,17 +241,7 @@ private fun CacheDrawScope.createIconOutline(
 private val progress: StatefulValue<Float> = 0f.asStatefulValue(setOf(RadioBoxStates.Checked) to 1f)
 
 private fun dpTransitionMotion(durationMillis: Int) = transition<Dp>(
-    label = "SwitchFloatTransition",
-) {
-    segment {
-        condition { state -> state changes SwitchStates.Checked }
-    } changesWith { finite(tween(durationMillis)) }
-
-    segment {} changesWith { finite(snap()) }
-}
-
-private fun brushTransitionMotion(durationMillis: Int) = transition<Brush>(
-    label = "SwitchFloatTransition",
+    label = "RadioBoxDpTransition",
 ) {
     segment {
         condition { state -> state changes SwitchStates.Checked }

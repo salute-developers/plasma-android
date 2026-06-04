@@ -42,7 +42,6 @@ internal fun BaseSwitch(
         )
     }
 
-    val interactionSource = motion.context.interactionSource
     val toggleableModifier =
         if (onActiveChanged != null) {
             Modifier.toggleable(
@@ -50,7 +49,7 @@ internal fun BaseSwitch(
                 onValueChange = onActiveChanged,
                 enabled = enabled,
                 role = Role.Switch,
-                interactionSource = interactionSource,
+                interactionSource = motion.context.interactionSource,
                 indication = null,
             )
         } else {
@@ -62,21 +61,20 @@ internal fun BaseSwitch(
     )
     val horizontal = style.dimensionValues.textPaddingValues.getValueAsState(motion.context)
     val vertical = style.dimensionValues.descriptionPaddingValues.getValueAsState(motion.context)
-    val paddings = style.dimensionValues.getPaddings(motion)
     BaseSwitchLayout(
         modifier = modifier
             .then(toggleableModifier)
             .backgroundBrush(
                 { backgroundColor.value },
-                style.shapes.getValue(interactionSource),
+                style.shapes.getValueAsState(motion.context).value,
             )
-            .padding(paddings)
+            .padding(style.dimensionValues.getPaddings(motion))
             .graphicsLayer { alpha = if (enabled) 1f else style.disableAlpha },
         switch = {
             SwitchToggle(
                 active = active,
-                thumbShape = style.toggleThumbShapes.getValue(interactionSource),
-                trackShape = style.toggleTrackShapes.getValue(interactionSource),
+                thumbShape = style.toggleThumbShapes,
+                trackShape = style.toggleTrackShapes,
                 colors = style.colorValues,
                 dimensions = style.dimensionValues,
                 animationDuration = animationDuration,
@@ -111,16 +109,9 @@ internal fun BaseSwitch(
 @Composable
 private fun SwitchDimensionValues.getPaddings(
     motion: Motion<SwitchMotionStyle>,
-): PaddingValues {
-    val interactionSource = motion.context.interactionSource
-    val start by paddingStartValues.getValueAsState(interactionSource)
-    val top by paddingTopValues.getValueAsState(interactionSource)
-    val end by paddingEndValues.getValueAsState(interactionSource)
-    val bottom by paddingBottomValues.getValueAsState(interactionSource)
-    return PaddingValues(
-        start = start,
-        top = top,
-        end = end,
-        bottom = bottom,
-    )
-}
+) = PaddingValues(
+    paddingStartValues.getValueAsState(motion.context).value,
+    paddingTopValues.getValueAsState(motion.context).value,
+    paddingEndValues.getValueAsState(motion.context).value,
+    paddingBottomValues.getValueAsState(motion.context).value,
+)
