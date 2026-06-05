@@ -13,7 +13,7 @@ internal object IntegrationScenarioRegistry {
             id = "focus-scale-tabs",
             title = "Фокус-scale",
             description = "Чипы и текстовое поле могут получать scale и сбрасывать состояние " +
-                    "focus scale на изолированных вкладках.",
+                "focus scale на изолированных вкладках.",
             category = ScenarioCategory.Input,
             screen = { FocusSelectorScaleScenarioScreen() },
         ),
