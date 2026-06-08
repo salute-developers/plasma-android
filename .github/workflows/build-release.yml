@@ -22,11 +22,17 @@ jobs:
     needs: detect_changes
     if: ${{ join(fromJson(needs.detect_changes.outputs.changed_tokens)) != '' }}
     uses: ./.github/workflows/build-token-apps-common.yml
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
     secrets: inherit
     with:
       modules: ${{ needs.detect_changes.outputs.changed_tokens }}
       ref: ${{ github.head_ref }}
       release: true
+      codeql: true
 
   create_comment:
     name: Attach APK comment
