@@ -69,7 +69,10 @@ private val DummyInteractionSource = object : MutableInteractionSource {
 }
 
 internal fun Modifier.clickableWithoutIndication(onClick: () -> Unit): Modifier =
-    this.clickable(indication = null, interactionSource = DummyInteractionSource) { onClick.invoke() }
+    this.clickable(
+        indication = null,
+        interactionSource = DummyInteractionSource,
+    ) { onClick.invoke() }
 
 internal object DefaultVerticalArrangement : Arrangement.Vertical {
     override fun Density.arrange(
