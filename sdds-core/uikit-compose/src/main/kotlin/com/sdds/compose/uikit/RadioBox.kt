@@ -16,7 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.internal.DefaultVerticalArrangement
 import com.sdds.compose.uikit.internal.checkable.radiobox.BaseRadioBox
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.radiobox.RadioBoxMotionStyle
+import com.sdds.compose.uikit.motion.components.radiobox.rememberRadioBoxMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент RadioBox
@@ -28,6 +34,7 @@ import com.sdds.compose.uikit.internal.checkable.radiobox.BaseRadioBox
  * @param description описание
  * @param enabled включен ли компонент
  * @param interactionSource источник событий
+ * @param motion объект анимаций
  */
 @Composable
 @NonRestartableComposable
@@ -39,8 +46,11 @@ fun RadioBox(
     label: String? = null,
     description: String? = null,
     enabled: Boolean = true,
-    animationDuration: Int = style.animationDuration,
+    animationDuration: Int = Int.MIN_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<RadioBoxMotionStyle> = rememberRadioBoxMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseRadioBox(
         checked = checked,
@@ -49,7 +59,7 @@ fun RadioBox(
         onClick = onClick,
         enabled = enabled,
         animationDuration = animationDuration,
-        interactionSource = interactionSource,
+        motion = motion,
         labelContent = label?.let {
             {
                 Text(it)
@@ -73,6 +83,7 @@ fun RadioBox(
  * @param descriptionContent контент для описания
  * @param enabled включен ли компонент
  * @param interactionSource источник событий
+ * @param motion объект анимаций
  */
 @Composable
 @NonRestartableComposable
@@ -84,8 +95,11 @@ fun RadioBox(
     onClick: (() -> Unit)? = null,
     descriptionContent: (@Composable () -> Unit)? = null,
     enabled: Boolean = true,
-    animationDuration: Int = style.animationDuration,
+    animationDuration: Int = Int.MIN_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<RadioBoxMotionStyle> = rememberRadioBoxMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseRadioBox(
         checked = checked,
@@ -96,7 +110,7 @@ fun RadioBox(
         labelContent = labelContent,
         descriptionContent = descriptionContent,
         animationDuration = animationDuration,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -123,15 +137,21 @@ enum class RadioBoxStates : ValueState {
 fun <T : Any> RadioBoxGroup(
     modifier: Modifier = Modifier,
     style: RadioBoxGroupStyle = LocalRadioBoxGroupStyle.current,
-    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(style.dimensions.itemSpacing),
+    verticalArrangement: Arrangement.Vertical = DefaultVerticalArrangement,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     default: T? = null,
     content: @Composable RadioBoxGroupScope.(selection: MutableState<T?>) -> Unit,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val resolvedArrangement = if (verticalArrangement == DefaultVerticalArrangement) {
+        Arrangement.spacedBy(style.dimensions.itemSpacingValues.getValue(interactionSource))
+    } else {
+        verticalArrangement
+    }
     val selection = remember { mutableStateOf(default) }
     Column(
         modifier = modifier,
-        verticalArrangement = verticalArrangement,
+        verticalArrangement = resolvedArrangement,
         horizontalAlignment = horizontalAlignment,
     ) {
         CompositionLocalProvider(LocalRadioBoxStyle provides style.radioBoxStyle) {
@@ -152,13 +172,19 @@ fun <T : Any> RadioBoxGroup(
 fun RadioBoxGroup(
     modifier: Modifier = Modifier,
     style: RadioBoxGroupStyle = LocalRadioBoxGroupStyle.current,
-    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(style.dimensions.itemSpacing),
+    verticalArrangement: Arrangement.Vertical = DefaultVerticalArrangement,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val resolvedArrangement = if (verticalArrangement == DefaultVerticalArrangement) {
+        Arrangement.spacedBy(style.dimensions.itemSpacingValues.getValue(interactionSource))
+    } else {
+        verticalArrangement
+    }
     Column(
         modifier = modifier,
-        verticalArrangement = verticalArrangement,
+        verticalArrangement = resolvedArrangement,
         horizontalAlignment = horizontalAlignment,
     ) {
         CompositionLocalProvider(LocalRadioBoxStyle provides style.radioBoxStyle) {

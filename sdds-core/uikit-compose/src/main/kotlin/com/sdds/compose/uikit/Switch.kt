@@ -5,8 +5,10 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
@@ -15,15 +17,22 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.checkable.switch.BaseSwitch
 import com.sdds.compose.uikit.internal.checkable.switch.BaseSwitchLayout
 import com.sdds.compose.uikit.internal.checkable.switch.SwitchToggle
 import com.sdds.compose.uikit.internal.checkable.switch.switchText
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.switcher.SwitchMotionStyle
+import com.sdds.compose.uikit.motion.components.switcher.rememberSwitchMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент Switch (переключатель)
@@ -38,6 +47,7 @@ import com.sdds.compose.uikit.internal.checkable.switch.switchText
  * @param animationDuration длительность анимации
  * @param enabled доступен ли переключатель
  * @param interactionSource источник взамодействий
+ * @param motion объект анимаций
  */
 @Composable
 fun Switch(
@@ -49,9 +59,12 @@ fun Switch(
     style: SwitchStyle = LocalSwitchStyle.current,
     labelMaxLines: Int = Int.MAX_VALUE,
     descriptionMaxLines: Int = Int.MAX_VALUE,
-    animationDuration: Int = style.animationDurationMillis,
+    animationDuration: Int = Int.MIN_VALUE,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<SwitchMotionStyle> = rememberSwitchMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseSwitch(
         active = active,
@@ -70,7 +83,7 @@ fun Switch(
         style = style,
         animationDuration = animationDuration,
         enabled = enabled,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -85,6 +98,7 @@ fun Switch(
  * @param animationDuration длительность анимации
  * @param enabled доступен ли переключатель
  * @param interactionSource источник взамодействий
+ * @param motion объект анимаций
  */
 @Composable
 @NonRestartableComposable
@@ -95,9 +109,12 @@ fun Switch(
     onActiveChanged: ((Boolean) -> Unit)? = null,
     style: SwitchStyle = LocalSwitchStyle.current,
     descriptionContent: (@Composable () -> Unit)? = null,
-    animationDuration: Int = style.animationDurationMillis,
+    animationDuration: Int = Int.MIN_VALUE,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<SwitchMotionStyle> = rememberSwitchMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseSwitch(
         active = active,
@@ -108,7 +125,7 @@ fun Switch(
         style = style,
         animationDuration = animationDuration,
         enabled = enabled,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -149,7 +166,13 @@ fun Switch(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val stateSet = remember(active) { if (active) setOf(SwitchStates.Checked) else emptySet() }
+    val motion = rememberSwitchMotion()
+    SideEffect {
+        motion.context.semanticStateSource.set(
+            SwitchStates.Checked,
+            active,
+        )
+    }
     val colorValues = colors.toColorValues()
     val dimensionValues = dimensions.toDimensionValues()
     val toggleableModifier =
@@ -165,8 +188,8 @@ fun Switch(
         } else {
             Modifier
         }
-    val labelColor = colorValues.labelColor.colorForInteractionAsState(interactionSource, stateSet)
-    val descriptionColor = colorValues.descriptionColor.colorForInteractionAsState(interactionSource, stateSet)
+    val labelColor = colorValues.labelBrush.getValueAsState(motion.context)
+    val descriptionColor = colorValues.descriptionBrush.getValueAsState(motion.context)
     BaseSwitchLayout(
         modifier = modifier
             .then(toggleableModifier)
@@ -174,12 +197,12 @@ fun Switch(
         switch = {
             SwitchToggle(
                 active = active,
-                thumbShape = style.toggleThumbShape,
-                trackShape = style.toggleTrackShape,
+                thumbShape = style.toggleThumbShapes,
+                trackShape = style.toggleTrackShapes,
                 colors = colorValues,
                 dimensions = dimensionValues,
                 animationDuration = animationDuration,
-                interactionSource = interactionSource,
+                motion = motion,
             )
         },
         label = switchText(
@@ -194,51 +217,110 @@ fun Switch(
             maxLines = descriptionMaxLines,
             color = descriptionColor,
         ),
-        verticalSpacing = dimensionValues.descriptionPadding,
-        horizontalSpacing = dimensionValues.textPadding,
+        verticalSpacing = dimensionValues.descriptionPaddingValues.getValueAsState(motion.context),
+        horizontalSpacing = dimensionValues.textPaddingValues.getValueAsState(motion.context),
     )
 }
 
 private fun SwitchDimensions.toDimensionValues(): SwitchDimensionValues {
     return object : SwitchDimensionValues {
-        override val toggleTrackWidth: Dp = this@toDimensionValues.toggleWidth
-        override val toggleTrackHeight: Dp = this@toDimensionValues.toggleHeight
-        override val toggleThumbWidths: StatefulValue<Dp> = this@toDimensionValues.thumbDiameter.asStatefulValue()
+        override val toggleTrackWidthValues: StatefulValue<Dp> =
+            this@toDimensionValues.toggleWidth.asStatefulValue()
 
-        @Deprecated("Use toggleThumbWidth", replaceWith = ReplaceWith("toggleThumbWidths"))
+        @Deprecated("Use toggleTrackWidthValues", replaceWith = ReplaceWith("toggleTrackWidthValues"))
+        override val toggleTrackWidth: Dp = toggleTrackWidthValues.getDefaultValue()
+
+        override val toggleTrackHeightValues: StatefulValue<Dp> =
+            this@toDimensionValues.toggleHeight.asStatefulValue()
+
+        @Deprecated("Use toggleTrackHeightValues", replaceWith = ReplaceWith("toggleTrackHeightValues"))
+        override val toggleTrackHeight: Dp = toggleTrackHeightValues.getDefaultValue()
+
+        override val toggleThumbWidths: StatefulValue<Dp> =
+            this@toDimensionValues.thumbDiameter.asStatefulValue()
+
+        @Deprecated("Use toggleThumbWidths", replaceWith = ReplaceWith("toggleThumbWidths"))
         override val toggleThumbWidth: Dp = toggleThumbWidths.getDefaultValue()
-        override val toggleThumbHeights: StatefulValue<Dp> = this@toDimensionValues.thumbDiameter.asStatefulValue()
+
+        override val toggleThumbHeights: StatefulValue<Dp> =
+            this@toDimensionValues.thumbDiameter.asStatefulValue()
 
         @Deprecated("Use toggleThumbHeights", replaceWith = ReplaceWith("toggleThumbHeights"))
         override val toggleThumbHeight: Dp = toggleThumbHeights.getDefaultValue()
+
         override val toggleThumbPaddings: StatefulValue<Dp> = 2.dp.asStatefulValue()
 
         @Deprecated("Use toggleThumbPaddings", replaceWith = ReplaceWith("toggleThumbPaddings"))
         override val toggleThumbPadding: Dp = toggleThumbPaddings.getDefaultValue()
-        override val textPadding: Dp = this@toDimensionValues.horizontalSpacing
-        override val descriptionPadding: Dp = this@toDimensionValues.verticalSpacing
-        override val paddingTop: Dp = 0.dp
-        override val paddingStart: Dp = 0.dp
-        override val paddingEnd: Dp = 0.dp
-        override val paddingBottom: Dp = 0.dp
+
+        override val textPaddingValues: StatefulValue<Dp> =
+            this@toDimensionValues.horizontalSpacing.asStatefulValue()
+
+        @Deprecated("Use textPaddingValues", replaceWith = ReplaceWith("textPaddingValues"))
+        override val textPadding: Dp = textPaddingValues.getDefaultValue()
+
+        override val descriptionPaddingValues: StatefulValue<Dp> =
+            this@toDimensionValues.verticalSpacing.asStatefulValue()
+
+        @Deprecated("Use descriptionPaddingValues", replaceWith = ReplaceWith("descriptionPaddingValues"))
+        override val descriptionPadding: Dp = descriptionPaddingValues.getDefaultValue()
+
+        override val paddingTopValues: StatefulValue<Dp> = 0.dp.asStatefulValue()
+
+        @Deprecated("Use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
+        override val paddingTop: Dp = paddingTopValues.getDefaultValue()
+
+        override val paddingStartValues: StatefulValue<Dp> = 0.dp.asStatefulValue()
+
+        @Deprecated("Use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
+        override val paddingStart: Dp = paddingStartValues.getDefaultValue()
+
+        override val paddingEndValues: StatefulValue<Dp> = 0.dp.asStatefulValue()
+
+        @Deprecated("Use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
+        override val paddingEnd: Dp = paddingEndValues.getDefaultValue()
+
+        override val paddingBottomValues: StatefulValue<Dp> = 0.dp.asStatefulValue()
+
+        @Deprecated("Use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
+        override val paddingBottom: Dp = paddingBottomValues.getDefaultValue()
+
         override val toggleTrackBorderWidth: StatefulValue<Dp> = 0.dp.asStatefulValue()
     }
 }
 
 private fun SwitchColors.toColorValues(): SwitchColorValues {
     return object : SwitchColorValues {
-        override val labelColor: InteractiveColor =
-            this@toColorValues.labelColor.asInteractive()
-        override val descriptionColor: InteractiveColor =
-            this@toColorValues.labelColor.asInteractive()
-        override val toggleThumbColor: InteractiveColor =
-            this@toColorValues.thumbColor.asInteractive()
+        override val labelBrush: StatefulValue<Brush> = this@toColorValues.labelColor.asStatefulBrush()
+
+        @Deprecated("Use labelBrush", replaceWith = ReplaceWith("labelBrush"))
+        override val labelColor: InteractiveColor = this@toColorValues.labelColor.asInteractive()
+
+        override val descriptionBrush: StatefulValue<Brush> = this@toColorValues.labelColor.asStatefulBrush()
+
+        @Deprecated("Use descriptionBrush", replaceWith = ReplaceWith("descriptionBrush"))
+        override val descriptionColor: InteractiveColor = this@toColorValues.labelColor.asInteractive()
+
+        override val toggleThumbBrush: StatefulValue<Brush> = this@toColorValues.thumbColor.asStatefulBrush()
+
+        @Deprecated("Use toggleThumbBrush", replaceWith = ReplaceWith("toggleThumbBrush"))
+        override val toggleThumbColor: InteractiveColor = this@toColorValues.thumbColor.asInteractive()
+
+        override val toggleTrackBrush: StatefulValue<Brush> = this@toColorValues.inactiveTrackColor
+            .asStatefulBrush(setOf(SwitchStates.Checked) to this@toColorValues.activeTrackColor)
+
+        @Deprecated("Use toggleTrackBrush", replaceWith = ReplaceWith("toggleTrackBrush"))
         override val toggleTrackColor: InteractiveColor = this@toColorValues.inactiveTrackColor
-            .asInteractive(
-                setOf(SwitchStates.Checked) to this@toColorValues.activeTrackColor,
-            )
-        override val toggleTrackBorderColor: InteractiveColor =
-            Color.Transparent.asInteractive()
+            .asInteractive(setOf(SwitchStates.Checked) to this@toColorValues.activeTrackColor)
+
+        override val toggleTrackBorderBrush: StatefulValue<Brush> = Color.Transparent.asStatefulBrush()
+
+        @Deprecated("Use toggleTrackBorderBrush", replaceWith = ReplaceWith("toggleTrackBorderBrush"))
+        override val toggleTrackBorderColor: InteractiveColor = Color.Transparent.asInteractive()
+
+        override val backgroundBrush: StatefulValue<Brush> = Color.Transparent.asStatefulBrush()
+
+        @Deprecated("Use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
         override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
     }
 }
