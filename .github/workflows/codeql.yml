@@ -19,6 +19,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  detect_changes:
+    name: Detect changes
+    if: ${{ github.event_name == 'pull_request' }}
+    uses: ./.github/workflows/detect-changes.yml
+    with:
+      includeTokensSubmodules: true
+
   analyze-actions:
     name: Analyze GitHub Actions
     runs-on: ubuntu-latest
@@ -57,6 +64,8 @@ jobs:
 
   analyze-android:
     name: Analyze Android Kotlin
+    needs: detect_changes
+    if: ${{ github.event_name == 'pull_request' && needs.detect_changes.outputs.changed != '' && needs.detect_changes.outputs.changed != '[]' }}
     runs-on: ubuntu-latest
     permissions:
       security-events: write
@@ -68,11 +77,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Prepare Android environment
+        uses: ./.github/actions/prepare-android-env
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
         with:
           languages: java-kotlin
-          build-mode: none
+          build-mode: manual
           config: |
             paths:
               - 'build-system'
@@ -86,6 +98,9 @@ jobs:
               - '**/.gradle/**'
               - '**/build/generated/**'
               - '**/src/**/generated/**'
+
+      - name: Compile changed modules
+        run: ./.github/scripts/run_task.sh assemble '${{ needs.detect_changes.outputs.changed }}' --continue --no-build-cache --rerun-tasks --no-daemon
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4
