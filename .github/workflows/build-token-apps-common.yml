@@ -85,10 +85,12 @@ jobs:
           if [[ "${{ inputs.release }}" == "true" ]]; then
             build_type="release"
           fi
+          codeql_category="${module//:/-}"
           artifact_name="sandbox-${module//:/_}-${build_type}-apk"
           metadata_name="sandbox-${module//:/_}-${build_type}-metadata"
           echo "MODULE_PATH=$safe_path/app" >> $GITHUB_ENV
           echo "SAFE_MODULE=$module" >> $GITHUB_ENV
+          echo "CODEQL_MODULE_CATEGORY=$codeql_category" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=$artifact_name" >> $GITHUB_ENV
           echo "METADATA_ARTIFACT_NAME=$metadata_name" >> $GITHUB_ENV
           echo "BUILD_TYPE=$build_type" >> $GITHUB_ENV
@@ -160,8 +162,28 @@ jobs:
           name: ${{ env.METADATA_ARTIFACT_NAME }}
           path: artifact-metadata/artifact.json
 
+      - name: Stop Gradle daemons before CodeQL
+        if: inputs.codeql
+        run: ./gradlew --stop
+
       - name: Perform CodeQL Analysis
         if: inputs.codeql
+        timeout-minutes: 20
         uses: github/codeql-action/analyze@v4
         with:
-          category: '/language:java-kotlin/module:${{ matrix.module }}/release:${{ inputs.release }}'
+          category: '/language:java-kotlin/module:${{ env.CODEQL_MODULE_CATEGORY }}/build:${{ env.BUILD_TYPE }}'
+          upload-database: false
+          threads: 2
+          ram: 6000
+
+      - name: Upload CodeQL diagnostics
+        if: failure() && inputs.codeql
+        uses: actions/upload-artifact@v4
+        with:
+          name: codeql-diagnostics-${{ env.CODEQL_MODULE_CATEGORY }}-${{ env.BUILD_TYPE }}
+          if-no-files-found: ignore
+          path: |
+            /home/runner/work/_temp/codeql_databases/java/log/**
+            /home/runner/work/_temp/codeql_databases/java/diagnostic/**
+            /home/runner/work/_temp/codeql_databases/log/**
+            /home/runner/work/_temp/codeql_databases/diagnostic/**
