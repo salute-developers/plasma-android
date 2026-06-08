@@ -21,6 +21,11 @@ on:
         description: 'Собирать release APK, иначе debug'
         required: false
         default: false
+      codeql:
+        type: boolean
+        description: 'Запустить CodeQL анализ во время сборки APK'
+        required: false
+        default: false
 
 jobs:
   build:
@@ -39,6 +44,26 @@ jobs:
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-android-env
+
+      - name: Initialize CodeQL
+        if: inputs.codeql
+        uses: github/codeql-action/init@v4
+        with:
+          languages: java-kotlin
+          build-mode: manual
+          config: |
+            paths:
+              - 'build-system'
+              - 'integration-core'
+              - 'playground'
+              - 'sdds-core'
+              - 'third-party/sdds-haze'
+              - 'tokens'
+            paths-ignore:
+              - '**/build/**'
+              - '**/.gradle/**'
+              - '**/build/generated/**'
+              - '**/src/**/generated/**'
 
       - name: Extract branch name
         id: extract_branch
@@ -134,3 +159,9 @@ jobs:
         with:
           name: ${{ env.METADATA_ARTIFACT_NAME }}
           path: artifact-metadata/artifact.json
+
+      - name: Perform CodeQL Analysis
+        if: inputs.codeql
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: '/language:java-kotlin/module:${{ matrix.module }}/release:${{ inputs.release }}'
