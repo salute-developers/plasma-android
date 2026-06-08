@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.surface
@@ -48,7 +49,7 @@ fun Card(
     style: CardStyle = LocalCardStyle.current,
     onClick: () -> Unit = {},
     enabled: Boolean = true,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     focusSelectorMode: FocusSelectorMode = LocalFocusSelectorMode.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: (@Composable () -> Unit),
@@ -85,7 +86,7 @@ fun Card(
     style: CardStyle = LocalCardStyle.current,
     onClick: () -> Unit = {},
     enabled: Boolean = true,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     focusSelectorSettings: FocusSelectorSettings,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: (@Composable () -> Unit),
@@ -142,7 +143,7 @@ fun Card(
     style: CardStyle = LocalCardStyle.current,
     onClick: () -> Unit = {},
     enabled: Boolean = true,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
     contentFocusSelectorSettings: FocusSelectorSettings = FocusSelectorSettings.None,
     orientation: CardOrientation = CardOrientation.Vertical,
@@ -223,7 +224,7 @@ fun Card(
     style: CardStyle = LocalCardStyle.current,
     onClick: () -> Unit = {},
     enabled: Boolean = true,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
     contentFocusSelectorSettings: FocusSelectorSettings = FocusSelectorSettings.None,
     orientation: CardOrientation = CardOrientation.Vertical,

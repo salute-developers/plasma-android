@@ -15,7 +15,9 @@ import com.sdds.compose.uikit.CheckBoxStates
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.ProvideTextStyle
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.checkable.BaseCheckableLayout
@@ -45,10 +47,11 @@ internal fun BaseCheckBox(
         }
     }
 
+    val backgroundShape by style.backgroundShapes.getValueAsState(motion.context)
     val clickableModifier = if (enabled && onClick != null) {
         Modifier.clickable(
             interactionSource = motion.context.interactionSource,
-            indication = null,
+            indication = LocalIndication.current.maybeShapeable(backgroundShape),
             role = Role.Checkbox,
             onClick = onClick,
         )
@@ -70,7 +73,7 @@ internal fun BaseCheckBox(
             .then(clickableModifier)
             .backgroundBrush(
                 { background.value },
-                style.backgroundShapes.getValueAsState(motion.context).value,
+                backgroundShape,
             )
             .padding(style.dimensionValues.getContentPaddings(motion))
             .graphicsLayer { alpha = if (enabled) 1f else 0.4f },

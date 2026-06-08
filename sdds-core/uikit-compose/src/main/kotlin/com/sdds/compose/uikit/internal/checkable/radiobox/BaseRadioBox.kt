@@ -12,7 +12,9 @@ import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.RadioBoxDimensionValues
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.checkable.BaseCheckableLayout
@@ -34,10 +36,11 @@ internal fun BaseRadioBox(
     animationDuration: Int = style.animationDuration,
     motion: Motion<RadioBoxMotionStyle> = rememberRadioBoxMotion(),
 ) {
+    val backgroundShape by style.backgroundShapes.getValueAsState(motion.context)
     val clickableModifier = if (enabled && onClick != null) {
         Modifier.clickable(
             interactionSource = motion.context.interactionSource,
-            indication = null,
+            indication = LocalIndication.current.maybeShapeable(backgroundShape),
             role = Role.RadioButton,
             onClick = onClick,
         )
@@ -59,7 +62,7 @@ internal fun BaseRadioBox(
             .then(clickableModifier)
             .backgroundBrush(
                 { background.value },
-                style.backgroundShapes.getValueAsState(motion.context).value,
+                backgroundShape,
             )
             .padding(style.dimensionValues.getContentPaddings(motion))
             .graphicsLayer { alpha = if (enabled) 1f else 0.4f },

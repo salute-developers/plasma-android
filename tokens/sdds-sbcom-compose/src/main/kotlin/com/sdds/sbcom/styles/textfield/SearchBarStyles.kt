@@ -65,8 +65,6 @@ public val SearchBar.Default: WrapperSearchBarDefault
             )
             endContentColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),

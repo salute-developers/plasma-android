@@ -29,7 +29,6 @@ import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.RadioBoxColorValues
 import com.sdds.compose.uikit.RadioBoxDimensionValues
 import com.sdds.compose.uikit.RadioBoxStates
@@ -95,13 +94,6 @@ internal fun RadioBoxControl(
     val iconHeight = dimensions.toggleIconHeightValues.getDpAsState(motion.context, heightMotionProperty)
     val progress = progress.getFloatAsState(motion.context, motion.style.toggleIconAlphaTransition)
 
-    val iconXTranslate = remember {
-        if (checked) 0.dp else iconWidth.value / 2
-    }
-    val iconYTranslate = remember {
-        if (checked) 0.dp else iconHeight.value / 2
-    }
-
     val toggleBorderWidth = dimensions.toggleBorderWidth.getValueAsState(motion.context)
     val toggleBorderOffset = dimensions.toggleBorderOffset.getValueAsState(motion.context)
     val toggleColor = colors.toggleBrush.getBrushAsState(motion.context, motion.style.toggleColor)
@@ -139,8 +131,8 @@ internal fun RadioBoxControl(
                     drawOutline(toggleOutline, toggleColor.value, style = Fill)
                     toggleIconOutline?.let {
                         translate(
-                            left = getIconHorizontalTranslate(iconWidth) + iconXTranslate.toPx(),
-                            top = getIconVerticalTranslate(iconHeight) + iconYTranslate.toPx(),
+                            left = getIconHorizontalTranslate(iconWidth),
+                            top = getIconVerticalTranslate(iconHeight),
                         ) {
                             drawOutline(
                                 outline = toggleIconOutline,

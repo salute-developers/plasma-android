@@ -25,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
@@ -32,7 +33,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.interactions.selection
@@ -116,7 +119,7 @@ fun NavigationDrawerItem(
                     .sizeIn(minHeight = minHeight.value)
                     .bringIntoViewRequester(bringIntoViewRequester)
                     .selection(selected, motion.context.semanticStateSource)
-                    .navigationDrawerItemClickable(enabled, onClick, onClickLabel, interactionSource)
+                    .navigationDrawerItemClickable(enabled, onClick, onClickLabel, interactionSource, shape.value)
                     .fillMaxWidth()
                     .then(modifier)
                     .navigationDrawerItemBounds(registryKey, registry)
@@ -271,16 +274,18 @@ private fun RowScope.NavigationDrawerItemEndContent(
     }
 }
 
+@Composable
 private fun Modifier.navigationDrawerItemClickable(
     enabled: Boolean,
     onClick: (() -> Unit)?,
     onClickLabel: String?,
     interactionSource: MutableInteractionSource,
+    shape: Shape,
 ): Modifier {
     if (!enabled || onClick == null) return this
     return clickable(
         interactionSource = interactionSource,
-        indication = null,
+        indication = LocalIndication.current.maybeShapeable(shape),
         onClickLabel = onClickLabel,
         role = Role.Tab,
         onClick = onClick,

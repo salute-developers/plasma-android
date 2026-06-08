@@ -51,6 +51,7 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextAfterMode
 import com.sdds.compose.uikit.WheelItemData
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import kotlinx.coroutines.CoroutineScope
@@ -607,7 +608,7 @@ private fun TopControl(
             .testTag("top_control")
             .clickable(
                 interactionSource = upInteractionSource,
-                indication = null,
+                indication = LocalIndication.current,
             ) {
                 coroutineScope.launch {
                     state.animateScrollToItem(
@@ -634,7 +635,7 @@ private fun BottomControl(
             .testTag("bottom_control")
             .clickable(
                 interactionSource = downInteractionSource,
-                indication = null,
+                indication = LocalIndication.current,
             ) {
                 coroutineScope.launch {
                     state.animateScrollToItem((state.firstVisibleItemIndex + 1))

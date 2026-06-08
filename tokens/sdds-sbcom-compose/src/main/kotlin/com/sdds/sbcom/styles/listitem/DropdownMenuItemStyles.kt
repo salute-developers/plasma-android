@@ -54,8 +54,6 @@ public val DropdownMenuItem.Default: WrapperDropdownMenuItemDefault
                         to SddsSbComTheme.colors.surfaceDefaultTransparentPrimary,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentPrimary,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentSecondary,
                 ),
             )
             disclosureIconColor(

@@ -51,15 +51,8 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
         .colors {
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSbComTheme.colors.surfaceDefaultAccent,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryHover,
                     setOf(InteractiveState.Selected)
@@ -68,15 +61,8 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
             )
             contentStartColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                     setOf(InteractiveState.Selected)
@@ -85,15 +71,8 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
             )
             contentEndColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                     setOf(InteractiveState.Selected)
@@ -102,15 +81,8 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                     setOf(InteractiveState.Selected)

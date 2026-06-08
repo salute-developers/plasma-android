@@ -43,6 +43,7 @@ import com.sdds.compose.uikit.TabsClip
 import com.sdds.compose.uikit.TabsOrientation
 import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.internal.tabs.Tabs.DISABLE_ALPHA
 import com.sdds.compose.uikit.internal.tabs.Tabs.DIVIDER_LAYOUT_ID
@@ -229,7 +230,7 @@ private fun DropdownIfNeed(
                         ListItem(
                             modifier = Modifier
                                 .clickable(
-                                    indication = null,
+                                    indication = LocalIndication.current,
                                     interactionSource = interactionSource,
                                 ) {
                                     onTabClicked?.invoke(i)
@@ -266,7 +267,7 @@ private fun StartControl(
                 .graphicsLayer { alpha = if (!scrollState.isStart()) nonTransparentAlpha else 0f }
                 .clickable(
                     enabled = enabled,
-                    indication = null,
+                    indication = LocalIndication.current,
                     interactionSource = remember { MutableInteractionSource() },
                 ) {
                     coroutineScope.launch {
@@ -304,7 +305,7 @@ private fun EndControl(
                 .graphicsLayer { alpha = if (!scrollState.isEnd()) nonTransparentAlpha else 0f }
                 .clickable(
                     enabled = enabled,
-                    indication = null,
+                    indication = LocalIndication.current,
                     interactionSource = remember { MutableInteractionSource() },
                 ) {
                     coroutineScope.launch {

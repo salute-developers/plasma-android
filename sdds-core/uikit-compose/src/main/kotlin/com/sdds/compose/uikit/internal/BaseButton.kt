@@ -42,6 +42,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextBehaviour
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
@@ -65,7 +66,7 @@ internal fun BaseButton(
     style: ButtonStyle,
     enabled: Boolean = true,
     loading: Boolean = false,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     motion: Motion<ButtonMotionStyle> = rememberButtonMotion(),
     needPaddingCompensation: Boolean = false,
     spacing: ButtonSpacing = ButtonSpacing.Packed,

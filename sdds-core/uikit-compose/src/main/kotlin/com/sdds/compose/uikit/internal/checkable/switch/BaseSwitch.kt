@@ -14,7 +14,9 @@ import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.SwitchDimensionValues
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.motion.Motion
@@ -41,7 +43,7 @@ internal fun BaseSwitch(
             active,
         )
     }
-
+    val backgroundShape by style.shapes.getValueAsState(motion.context)
     val toggleableModifier =
         if (onActiveChanged != null) {
             Modifier.toggleable(
@@ -50,7 +52,7 @@ internal fun BaseSwitch(
                 enabled = enabled,
                 role = Role.Switch,
                 interactionSource = motion.context.interactionSource,
-                indication = null,
+                indication = LocalIndication.current.maybeShapeable(backgroundShape),
             )
         } else {
             Modifier
@@ -66,7 +68,7 @@ internal fun BaseSwitch(
             .then(toggleableModifier)
             .backgroundBrush(
                 { backgroundColor.value },
-                style.shapes.getValueAsState(motion.context).value,
+                backgroundShape,
             )
             .padding(style.dimensionValues.getPaddings(motion))
             .graphicsLayer { alpha = if (enabled) 1f else style.disableAlpha },
