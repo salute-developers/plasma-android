@@ -19,6 +19,7 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.modal.BaseModalBottomSheet
 import com.sdds.compose.uikit.internal.modal.BottomSheetState
@@ -250,8 +251,6 @@ private class BottomSheetMeasurePolicy(
         measurables: List<Measurable>,
         constraints: Constraints,
     ): MeasureResult {
-        val layoutWidth = constraints.maxWidth
-        var layoutHeight = constraints.maxHeight
         val looseConstraints = constraints.copy(minHeight = 0, minWidth = 0)
 
         val header = measurables.find { it.layoutId == HEADER }
@@ -263,19 +262,22 @@ private class BottomSheetMeasurePolicy(
 
         val headerHeight = headerPlaceable.heightOrZero()
         val footerHeight = footerPlaceable.heightOrZero()
-        val bodyConstraints =
-            looseConstraints.copy(maxHeight = layoutHeight - headerHeight - footerHeight)
+        val bodyConstraints = looseConstraints.offset(vertical = -headerHeight - footerHeight)
 
         val bodyPlaceable = body?.measure(bodyConstraints)
         val bodyHeight = bodyPlaceable.heightOrZero()
-        if (fitContent) layoutHeight = bodyHeight + headerHeight + footerHeight
+        val layoutHeight = if (fitContent) {
+            (bodyHeight + headerHeight + footerHeight).coerceAtMost(constraints.maxHeight)
+        } else {
+            constraints.maxHeight
+        }
         return layout(
-            width = layoutWidth,
+            width = constraints.maxWidth,
             height = layoutHeight,
         ) {
             headerPlaceable?.placeRelative(0, 0)
             bodyPlaceable?.placeRelative(0, headerHeight)
-            footerPlaceable?.placeRelative(0, constraints.maxHeight - footerHeight)
+            footerPlaceable?.placeRelative(0, layoutHeight - footerHeight)
         }
     }
 }
