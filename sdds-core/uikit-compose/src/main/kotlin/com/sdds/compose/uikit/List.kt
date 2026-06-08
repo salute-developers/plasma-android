@@ -16,13 +16,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.internal.DefaultVerticalArrangement
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.list.ListMotionStyle
 import com.sdds.compose.uikit.motion.components.list.rememberListMotion
@@ -168,14 +168,6 @@ private fun ListDimensions.getContentPaddings(
 )
 
 private val UnspecifiedPaddingValues = PaddingValues(0.dp)
-
-private object DefaultVerticalArrangement : Arrangement.Vertical {
-    override fun Density.arrange(
-        totalSize: Int,
-        sizes: IntArray,
-        outPositions: IntArray,
-    ) = Unit
-}
 
 @Preview(showBackground = true)
 @Composable

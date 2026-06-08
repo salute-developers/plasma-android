@@ -4,6 +4,7 @@ package com.sdds.compose.uikit.internal.checkable
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,15 +36,17 @@ internal fun BaseCheckableLayout(
     control: @Composable () -> Unit,
     label: (@Composable () -> Unit)?,
     description: (@Composable () -> Unit)?,
-    verticalSpacing: Dp,
-    horizontalSpacing: Dp,
+    verticalSpacing: State<Dp>,
+    horizontalSpacing: State<Dp>,
     modifier: Modifier = Modifier,
 ) {
+    val vSpacing = verticalSpacing.value
+    val hSpacing = horizontalSpacing.value
     val measurePolicy = with(LocalDensity.current) {
-        remember(verticalSpacing, horizontalSpacing) {
+        remember(vSpacing, hSpacing) {
             BaseCheckableMeasurePolicy(
-                verticalSpacing = verticalSpacing.roundToPx(),
-                horizontalSpacing = horizontalSpacing.roundToPx(),
+                verticalSpacing = vSpacing.roundToPx(),
+                horizontalSpacing = hSpacing.roundToPx(),
             )
         }
     }
