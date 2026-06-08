@@ -65,8 +65,16 @@ public val RadioBox.Default: WrapperRadioBoxDefault
         .dimensionValues {
             toggleWidth(24.0.dp)
             toggleHeight(24.0.dp)
-            toggleIconHeight(10.0.dp)
-            toggleIconWidth(10.0.dp)
+            toggleIconHeight(
+                0.0.dp.asStatefulValue(
+                    setOf(RadioBoxStates.Checked) to 10.0.dp,
+                ),
+            )
+            toggleIconWidth(
+                0.0.dp.asStatefulValue(
+                    setOf(RadioBoxStates.Checked) to 10.0.dp,
+                ),
+            )
             toggleBorderOffset(0.0.dp)
             toggleBorderWidth(
                 2.0.dp.asStatefulValue(
