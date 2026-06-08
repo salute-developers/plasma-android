@@ -1,0 +1,102 @@
+name: 'CodeQL'
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - feature/*
+      - release/*
+      - hotfix/*
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze-actions:
+    name: Analyze GitHub Actions
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: actions
+          config: |
+            paths:
+              - '.github/actions'
+              - '.github/workflows'
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: '/language:actions'
+          output: sarif-results
+
+      - name: Upload SARIF
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sarif-actions
+          path: sarif-results
+          retention-days: 14
+
+  analyze-android:
+    name: Analyze Android Kotlin
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: java-kotlin
+          build-mode: none
+          config: |
+            paths:
+              - 'build-system'
+              - 'integration-core'
+              - 'playground'
+              - 'sdds-core'
+              - 'third-party/sdds-haze'
+              - 'tokens'
+            paths-ignore:
+              - '**/build/**'
+              - '**/.gradle/**'
+              - '**/build/generated/**'
+              - '**/src/**/generated/**'
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: '/language:java-kotlin'
+          output: sarif-results
+
+      - name: Upload SARIF
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sarif-java-kotlin
+          path: sarif-results
+          retention-days: 14
