@@ -1,0 +1,121 @@
+name: 'CodeQL'
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - feature/*
+      - release/*
+      - hotfix/*
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze-actions:
+    name: Analyze GitHub Actions
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: actions
+          config: |
+            paths:
+              - '.github/actions'
+              - '.github/workflows'
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: '/language:actions'
+          output: sarif-results
+
+      - name: Upload SARIF
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sarif-actions
+          path: sarif-results
+          retention-days: 14
+
+  analyze-android-baseline:
+    name: Analyze Android Kotlin baseline
+    if: ${{ github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare Android environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: java-kotlin
+          build-mode: manual
+          config: |
+            paths:
+              - 'build-system'
+              - 'integration-core'
+              - 'sdds-core'
+              - 'tokens'
+            paths-ignore:
+              - '**/build/**'
+              - '**/.gradle/**'
+              - '**/build/generated/**'
+              - '**/src/**/generated/**'
+              - 'tokens/*/src/main/kotlin/**/tokens/**'
+              - 'tokens/*/src/main/kotlin/**/styles/**'
+              - 'tokens/*/src/main/kotlin/**/theme/**'
+              - 'third-party/sdds-haze'
+              - 'playground'
+
+      - name: Build baseline app
+        run: ./gradlew :tokens:sdds.serv.compose:app:assembleDebug -PbranchName=${GITHUB_REF_NAME}
+
+      - name: Stop Gradle daemons before CodeQL
+        run: ./gradlew --stop
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: '/language:java-kotlin/baseline:sdds-serv-compose'
+          upload-database: false
+          threads: 2
+          ram: 6000
+
+      - name: Upload CodeQL diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: codeql-diagnostics-baseline
+          if-no-files-found: ignore
+          path: |
+            /home/runner/work/_temp/codeql_databases/java/log/**
+            /home/runner/work/_temp/codeql_databases/java/diagnostic/**
+            /home/runner/work/_temp/codeql_databases/log/**
+            /home/runner/work/_temp/codeql_databases/diagnostic/**
