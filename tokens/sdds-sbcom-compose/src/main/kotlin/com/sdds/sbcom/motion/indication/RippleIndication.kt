@@ -27,9 +27,7 @@ import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.node.DelegatableNode
 import androidx.compose.ui.node.DrawModifierNode
 import androidx.compose.ui.node.invalidateDraw
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.graphics.ShapeableIndication
 import com.sdds.sbcom.theme.SddsSbComTheme
 import kotlinx.coroutines.Job
@@ -45,7 +43,8 @@ import kotlinx.coroutines.launch
  * компонента остаётся не обрезанным, а обрезается только слой рипла.
  *
  * По умолчанию риппл соответствует motion-спецификации SddsSbCom:
- * размер 1000x1000 dp, максимальная opacity 12%, blur 40% от размера, scale 0% -> 100% за 150 ms,
+ * размер 1000x1000 dp, максимальная opacity 12%, blur 40% от радиуса риппла,
+ * scale 0% -> 100% за 150 ms,
  * opacity 0% -> 12% за 100 ms и fade-out до 0% за 150 ms после завершения press.
  *
  * @param color цвет риппла.
@@ -62,9 +61,9 @@ import kotlinx.coroutines.launch
 class RippleIndication(
     private val color: Color,
     private val shape: Shape = RectangleShape,
-    private val rippleSize: Dp = DefaultRippleSize,
+    private val rippleSize: RippleSize = DefaultRippleSize,
     private val maxAlpha: Float = DEFAULT_MAX_RIPPLE_ALPHA,
-    private val blurRadius: Dp = DefaultBlurRadius,
+    private val blurRadius: BlurRadius = DefaultBlurRadius,
     private val scaleAnimationSpec: AnimationSpec<Float> = DefaultScaleAnimationSpec,
     private val opacityFadeInAnimationSpec: AnimationSpec<Float> = DefaultOpacityFadeInAnimationSpec,
     private val opacityFadeOutAnimationSpec: AnimationSpec<Float> = DefaultOpacityFadeOutAnimationSpec,
@@ -141,6 +140,51 @@ enum class DrawOrder {
 }
 
 /**
+ * Размер риппла.
+ */
+@Stable
+sealed interface RippleSize {
+
+    /**
+     * Фиксированный размер риппла.
+     *
+     * @param value размер риппла.
+     */
+    data class Dp(val value: androidx.compose.ui.unit.Dp) : RippleSize
+
+    /**
+     * Размер риппла равен большей стороне области рисования.
+     */
+    data object MaxDimension : RippleSize
+
+    /**
+     * Размер риппла равен меньшей стороне области рисования.
+     */
+    data object MinDimension : RippleSize
+}
+
+/**
+ * Радиус blur для риппла.
+ */
+@Stable
+sealed interface BlurRadius {
+
+    /**
+     * Фиксированный радиус blur.
+     *
+     * @param value радиус blur.
+     */
+    data class Dp(val value: androidx.compose.ui.unit.Dp) : BlurRadius
+
+    /**
+     * Радиус blur как доля от итогового радиуса риппла.
+     *
+     * @param value доля от радиуса риппла, где `1f` соответствует 100%.
+     */
+    data class Percent(val value: Float) : BlurRadius
+}
+
+/**
  * Возвращает [RippleIndication] с параметрами SddsSbCom.
  *
  * [shape] ограничивает только слой риппла и не клипает сам composable. Это позволяет использовать
@@ -158,11 +202,11 @@ enum class DrawOrder {
  */
 @Composable
 fun rememberRippleIndication(
-    color: Color = SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
+    color: Color = SddsSbComTheme.colors.surfaceDefaultTransparentPrimary,
     shape: Shape = RectangleShape,
-    rippleSize: Dp = DefaultRippleSize,
+    rippleSize: RippleSize = DefaultRippleSize,
     maxAlpha: Float = DEFAULT_MAX_RIPPLE_ALPHA,
-    blurRadius: Dp = DefaultBlurRadius,
+    blurRadius: BlurRadius = DefaultBlurRadius,
     scaleAnimationSpec: AnimationSpec<Float> = DefaultScaleAnimationSpec,
     opacityFadeInAnimationSpec: AnimationSpec<Float> = DefaultOpacityFadeInAnimationSpec,
     opacityFadeOutAnimationSpec: AnimationSpec<Float> = DefaultOpacityFadeOutAnimationSpec,
@@ -195,9 +239,9 @@ private class RippleIndicationNode(
     private val interactionSource: InteractionSource,
     private val color: Color,
     private val shape: Shape,
-    private val rippleSize: Dp,
+    private val rippleSize: RippleSize,
     private val maxAlpha: Float,
-    private val blurRadius: Dp,
+    private val blurRadius: BlurRadius,
     private val scaleAnimationSpec: AnimationSpec<Float>,
     private val opacityFadeInAnimationSpec: AnimationSpec<Float>,
     private val opacityFadeOutAnimationSpec: AnimationSpec<Float>,
@@ -253,8 +297,9 @@ private class RippleIndicationNode(
     private fun ContentDrawScope.drawRipple() {
         if (scale.value == 0f || alpha.value == 0f) return
 
-        val rippleRadiusPx = rippleSize.toPx() / 2f
-        val blurRadiusPx = blurRadius.toPx()
+        val rippleSizePx = resolveRippleSizePx()
+        val rippleRadiusPx = rippleSizePx / 2f
+        val blurRadiusPx = resolveBlurRadiusPx(rippleRadiusPx)
         clipRipple(shape) {
             withTransform(
                 transformBlock = {
@@ -375,11 +420,24 @@ private class RippleIndicationNode(
         cachedBlurMaskFilter = filter
         return filter
     }
+
+    private fun ContentDrawScope.resolveRippleSizePx(): Float =
+        when (val value = rippleSize) {
+            is RippleSize.Dp -> value.value.toPx()
+            RippleSize.MaxDimension -> size.maxDimension
+            RippleSize.MinDimension -> size.minDimension
+        }
+
+    private fun ContentDrawScope.resolveBlurRadiusPx(rippleRadiusPx: Float): Float =
+        when (val value = blurRadius) {
+            is BlurRadius.Dp -> value.value.toPx()
+            is BlurRadius.Percent -> rippleRadiusPx * value.value
+        }
 }
 
-private val DefaultRippleSize = 1000.dp
-private val DefaultBlurRadius = 400.dp
-private const val DEFAULT_MAX_RIPPLE_ALPHA = 0.12f
+private val DefaultRippleSize = RippleSize.MaxDimension
+private val DefaultBlurRadius = BlurRadius.Percent(0.4f)
+private const val DEFAULT_MAX_RIPPLE_ALPHA = 0.04f
 private val DefaultScaleAnimationSpec = tween<Float>(durationMillis = 150)
 private val DefaultOpacityFadeInAnimationSpec = tween<Float>(durationMillis = 100)
 private val DefaultOpacityFadeOutAnimationSpec = tween<Float>(durationMillis = 150)

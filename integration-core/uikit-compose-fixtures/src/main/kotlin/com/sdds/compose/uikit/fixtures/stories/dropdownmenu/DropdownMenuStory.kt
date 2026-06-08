@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit.fixtures.stories.dropdownmenu
 
 import android.util.Log
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -20,6 +21,7 @@ import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.LocalButtonStyle
+import com.sdds.compose.uikit.LocalListItemStyle
 import com.sdds.compose.uikit.ModalDropdownMenu
 import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.PopoverPlacement
@@ -30,6 +32,7 @@ import com.sdds.compose.uikit.fixtures.stories.DropdownMenuUiStatePropertiesProd
 import com.sdds.compose.uikit.fixtures.stories.DropdownMenuUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.popover.TriggerPlacement
 import com.sdds.compose.uikit.fixtures.stories.popover.toAlignment
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
@@ -131,10 +134,12 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
         List(modifier = Modifier.widthIn(0.dp, 200.dp)) {
             items(state.amount) {
                 val interactionSource = remember { MutableInteractionSource() }
+                val listItemStyle = LocalListItemStyle.current
                 ListItem(
                     modifier = Modifier
                         .clickable(
-                            indication = null,
+                            indication = LocalIndication.current
+                                .maybeShapeable(listItemStyle.shapes.getDefaultValue()),
                             interactionSource = interactionSource,
                         ) {
                             Log.d(

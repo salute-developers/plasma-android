@@ -5,12 +5,14 @@ import android.graphics.Color
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.core.view.WindowCompat
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.sbcom.theme.SddsSbComTheme
 import com.sdds.sbcom.theme.darkSddsSbComColors
 import com.sdds.sbcom.theme.darkSddsSbComGradients
@@ -50,7 +52,9 @@ fun ThemeSetup(
     SddsSbComTheme(
         colors = colorScheme,
         gradients = if (darkTheme) DarkGradients else LightGradients,
-        content = content,
+        content = {
+            CompositionLocalProvider(LocalIndication provides null, content)
+        },
     )
 }
 
