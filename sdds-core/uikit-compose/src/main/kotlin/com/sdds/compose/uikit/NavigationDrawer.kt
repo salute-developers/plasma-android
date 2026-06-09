@@ -27,6 +27,8 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
+import com.sdds.api.info.compose.ConfigName
+import com.sdds.api.info.compose.StateSetInfo
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.ValueState
@@ -46,15 +48,18 @@ import kotlinx.coroutines.launch
 /**
  * Текущее или целевое состояние [NavigationDrawer].
  */
+@StateSetInfo(components = ["NavigationDrawerItem", "NavigationDrawer"])
 enum class NavigationDrawerValue : ValueState {
     /**
      * NavigationDrawer отображается в развёрнутом состоянии.
      */
+    @ConfigName(configName = "expanded")
     Expanded,
 
     /**
      * NavigationDrawer отображается как видимый интерактивный rail.
      */
+    @ConfigName(configName = "collapsed")
     Collapsed,
 }
 

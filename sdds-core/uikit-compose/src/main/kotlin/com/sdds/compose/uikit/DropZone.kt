@@ -17,6 +17,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ConfigName
+import com.sdds.api.info.compose.StateSetInfo
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.interactions.setExclusiveEnum
@@ -74,6 +76,7 @@ enum class DropZoneBorderType {
 /**
  * Семантические состояния [DropZone].
  */
+@StateSetInfo
 enum class DropZoneState : ValueState {
 
     /**
@@ -89,6 +92,7 @@ enum class DropZoneState : ValueState {
     /**
      * DropZone находится в активизированном состоянии, когда dragging content находится над ним.
      */
+    @ConfigName(configName = "dragging-over")
     DraggingOver,
 }
 

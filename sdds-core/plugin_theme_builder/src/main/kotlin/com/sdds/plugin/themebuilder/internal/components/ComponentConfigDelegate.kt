@@ -23,7 +23,7 @@ internal abstract class ComponentConfigDelegate<C : Config<out PropertyOwner>> :
         component: Component,
     ): ComponentStyleGenerator<C>?
 
-    fun generateComposeStyles(
+    open fun generateComposeStyles(
         file: File,
         deps: StyleGeneratorDependencies,
         component: Component,
@@ -33,7 +33,7 @@ internal abstract class ComponentConfigDelegate<C : Config<out PropertyOwner>> :
         return generateCompose(config, deps, component)
     }
 
-    fun generateViewSystemStyles(
+    open fun generateViewSystemStyles(
         file: File,
         deps: StyleGeneratorDependencies,
         component: Component,

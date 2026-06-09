@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.transform
@@ -84,6 +85,7 @@ interface CollapsingNavigationBarStyle : Style {
 /**
  * Билдер стиля [CollapsingNavigationBarStyle]
  */
+@ApiInfo
 interface CollapsingNavigationBarStyleBuilder : StyleBuilder<CollapsingNavigationBarStyle> {
 
     /**
@@ -99,7 +101,7 @@ interface CollapsingNavigationBarStyleBuilder : StyleBuilder<CollapsingNavigatio
     /**
      * Устанавливает иконку кнопки назад [backIcon]
      */
-    fun backIcon(backIcon: Int?): CollapsingNavigationBarStyleBuilder
+    fun backIcon(@DrawableRes backIcon: Int?): CollapsingNavigationBarStyleBuilder
 
     /**
      * Устанавливает форму нижних углов [bottomShape]

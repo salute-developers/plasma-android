@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.StateSetInfo
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -328,6 +329,7 @@ private fun SwitchColors.toColorValues(): SwitchColorValues {
 /**
  * Состояния Switch
  */
+@StateSetInfo(components = ["Switch"])
 enum class SwitchStates : ValueState {
     /**
      * Switch включен

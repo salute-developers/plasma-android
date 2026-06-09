@@ -56,6 +56,35 @@ class ShadowPropertyMapperTest {
         )
     }
 
+    @Test
+    fun `возвращает shadow с кастомным stateEnum`() {
+        val underTest = ShadowPropertyMapper(
+            stateEnum = StateEnum(
+                qualifiedName = "com.test.CardState",
+                simpleName = "CardState",
+                values = listOf(EnumValueInfo(name = "Elevated", configName = "elevated")),
+            ),
+            themeClassName = "TestTheme",
+        )
+
+        val builderCall = underTest.map(
+            meta = shadowParam("shadow"),
+            tokenValue = Shadow(
+                value = "soft.card",
+                states = listOf(
+                    StringState(state = listOf("elevated"), value = "hard.card"),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "shadow(TestTheme.shadows.softCard.asStatefulValue(" +
+                "setOf(CardState.Elevated) to TestTheme.shadows.hardCard))",
+            builderCall,
+        )
+    }
+
     private fun shadowParam(methodName: String) = ShadowPropertyMeta(
         id = "",
         methodName = methodName,

@@ -9,6 +9,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ConfigName
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
@@ -57,6 +59,7 @@ interface CodeInputStyle : Style {
 /**
  * Билдер стиля компонента
  */
+@ApiInfo
 interface CodeInputStyleBuilder : StyleBuilder<CodeInputStyle> {
     /**
      * Устанавливает стиль кода [codeStyle]
@@ -325,6 +328,7 @@ interface CodeInputDimensionsBuilder {
     /**
      * Устанавливает размер круга [circleSize]
      */
+    @ConfigName(configName = "dotSize")
     fun circleSize(circleSize: StatefulValue<Dp>): CodeInputDimensionsBuilder
 
     /**

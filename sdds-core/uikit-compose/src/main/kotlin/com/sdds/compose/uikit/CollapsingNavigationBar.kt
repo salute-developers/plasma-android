@@ -25,6 +25,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import com.sdds.api.info.compose.StateSetInfo
 import com.sdds.compose.uikit.CollapsingNavigationBarState.Companion.Saver
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.navigationbar.BaseCollapsingNavBar
@@ -102,8 +103,11 @@ fun CollapsingNavigationBar(
 /**
  * Состояния [CollapsingNavigationBar]
  */
+@StateSetInfo(components = ["CollapsingNavigationBar"])
 enum class CollapsingNavigationBarStates : ValueState {
-    Collapsed, Expanded
+    Collapsed,
+
+    Expanded,
 }
 
 /**

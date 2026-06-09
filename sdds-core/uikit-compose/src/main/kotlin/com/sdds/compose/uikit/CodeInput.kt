@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.sdds.api.info.compose.StateSetInfo
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.isEnabled
 import com.sdds.compose.uikit.interactions.ValueState
@@ -114,6 +115,7 @@ fun CodeInput(
 /**
  * Состояния [CodeInput]
  */
+@StateSetInfo(components = ["CodeInput", "CodeField"])
 enum class CodeInputStates : ValueState {
 
     /**

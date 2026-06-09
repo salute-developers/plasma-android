@@ -145,9 +145,9 @@ class DimensionPropertyMapperTest {
         assertEquals(
             "boxPadding(dimensionResource(R.dimen.test_box_padding_s)" +
                 ".asStatefulValue(" +
-                "setOf(InteractiveState.Pressed) to dimensionResource(R.dimen.test_box_padding_s_pressed), " +
+                "setOf(InteractiveState.Pressed) to dimensionResource(R.dimen.test_box_padding_s_0), " +
                 "setOf(InteractiveState.Pressed, InteractiveState.Hovered) " +
-                "to dimensionResource(R.dimen.test_box_padding_s_pressed_hovered)))",
+                "to dimensionResource(R.dimen.test_box_padding_s_1)))",
             builderCall,
         )
 
@@ -162,7 +162,7 @@ class DimensionPropertyMapperTest {
 
             dimensAggregator.addDimen(
                 match {
-                    it.name == "test_box_padding_s_pressed" &&
+                    it.name == "test_box_padding_s_0" &&
                         it.value == 8f &&
                         it.type == DimenData.Type.DP
                 },
@@ -170,10 +170,84 @@ class DimensionPropertyMapperTest {
 
             dimensAggregator.addDimen(
                 match {
-                    it.name == "test_box_padding_s_pressed_hovered" &&
+                    it.name == "test_box_padding_s_1" &&
                         it.value == 6f &&
                         it.type == DimenData.Type.DP
                 },
+            )
+        }
+    }
+
+    @Test
+    fun `возвращает dp значение с кастомным stateEnum без ресурсов`() {
+        val underTest = DimensionPropertyMapper(
+            componentName = "testComponent",
+            dimensAggregator = mockk(relaxed = true),
+            dimensionsConfig = DimensionsConfig(fromResources = false, multiplier = 1f),
+            resourceReferenceProvider = mockk(relaxed = true),
+            componentXmlPrefix = "test",
+            stateEnum = StateEnum(
+                qualifiedName = "com.test.SliderState",
+                simpleName = "SliderState",
+                values = listOf(EnumValueInfo(name = "Dragging", configName = "dragging")),
+            ),
+        )
+
+        val builderCall = underTest.map(
+            meta = dimensionParam(methodName = "trackWidth", id = "trackWidth"),
+            tokenValue = Dimension(
+                value = 10f,
+                states = listOf(FloatState(state = listOf("dragging"), value = 16f)),
+            ),
+            variationId = "m",
+        )
+
+        assertEquals(
+            "trackWidth(10.0.dp.asStatefulValue(setOf(SliderState.Dragging) to 16.0.dp))",
+            builderCall,
+        )
+    }
+
+    @Test
+    fun `возвращает dp значение без суффикса если variationId совпадает с componentName в CamelCase`() {
+        val underTest = mapper(
+            dimensionsConfig = DimensionsConfig(fromResources = false, multiplier = 1f),
+        )
+
+        // componentName = "testComponent", camelComponentName = "TestComponent"
+        val builderCall = underTest.map(
+            meta = dimensionParam(methodName = "boxPadding", id = "boxPadding"),
+            tokenValue = Dimension(8f),
+            variationId = "TestComponent",
+        )
+
+        assertEquals("boxPadding(8.0.dp)", builderCall)
+    }
+
+    @Test
+    fun `ресурс не имеет суффикса когда variationId совпадает с componentName`() {
+        val dimensAggregator = mockk<DimensAggregator>(relaxed = true)
+        val resourceReferenceProvider = mockk<ResourceReferenceProvider>()
+        every { resourceReferenceProvider.dimenR(any()) } answers {
+            "R.dimen.${firstArg<DimenData>().name}"
+        }
+
+        val underTest = mapper(
+            dimensionsConfig = DimensionsConfig(fromResources = true, multiplier = 1f),
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+        )
+
+        val builderCall = underTest.map(
+            meta = dimensionParam(methodName = "boxPadding", id = "boxPadding"),
+            tokenValue = Dimension(8f),
+            variationId = "TestComponent",
+        )
+
+        assertEquals("boxPadding(dimensionResource(R.dimen.test_box_padding))", builderCall)
+        verify {
+            dimensAggregator.addDimen(
+                DimenData(name = "test_box_padding", value = 8f, type = DimenData.Type.DP),
             )
         }
     }

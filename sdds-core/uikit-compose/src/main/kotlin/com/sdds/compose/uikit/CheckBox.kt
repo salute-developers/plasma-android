@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.StateSetInfo
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.checkable.checkbox.BaseCheckBox
 import com.sdds.compose.uikit.motion.Motion
@@ -148,6 +149,7 @@ fun CheckBox(
 /**
  * Состояния CheckBox
  */
+@StateSetInfo(components = ["CheckBox"])
 enum class CheckBoxStates : ValueState {
     /**
      * CheckBox выбран

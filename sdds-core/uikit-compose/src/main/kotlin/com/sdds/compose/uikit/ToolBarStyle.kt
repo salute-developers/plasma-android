@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ConfigName
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.shadow.ShadowAppearance
@@ -68,6 +70,7 @@ interface ToolBarStyle : Style {
 /**
  * Билдер стиля [ToolBarStyle]
  */
+@ApiInfo
 interface ToolBarStyleBuilder : StyleBuilder<ToolBarStyle> {
 
     /**
@@ -282,6 +285,7 @@ interface ToolBarDimensionsBuilder {
     /**
      * Устанавливает отступ между слотами [sectionPadding]
      */
+    @ConfigName(configName = "slotPadding")
     fun sectionPadding(sectionPadding: Dp): ToolBarDimensionsBuilder
 
     /**

@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.components.autocomplete.AutoComplet
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.group.AvatarGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.components.bottomsheet.BottomSheetConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate.ButtonType
@@ -73,89 +74,137 @@ import com.sdds.plugin.themebuilder.internal.components.toast.ToastConfigDelegat
 import com.sdds.plugin.themebuilder.internal.components.toolbar.ToolBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tooltip.TooltipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.wheel.WheelConfigDelegate
-import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import org.gradle.kotlin.dsl.provideDelegate
+import com.sdds.plugin.themebuilder.internal.universal.ComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.HybridComponentConfigDelegate
+import com.sdds.plugin.themebuilder.internal.universal.UniversalComponentConfigDelegate
+import org.gradle.api.logging.Logging
 
-internal val componentDelegates by unsafeLazy {
-    mapOf<String, ComponentConfigDelegate<*>>(
-        "avatar" to AvatarConfigDelegate(),
-        "ai-answer" to AiAnswerConfigDelegate(),
-        "ai-header" to AiHeaderConfigDelegate(),
-        "avatar-group" to AvatarGroupConfigDelegate(),
-        "text-field" to TextFieldConfigDelegate(),
-        "text-area" to TextAreaConfigDelegate(),
-        "segment" to SegmentConfigDelegate(),
-        "segment-item" to SegmentItemConfigDelegate(),
-        "indicator" to IndicatorConfigDelegate(),
-        "divider" to DividerConfigDelegate(),
-        "counter" to CounterConfigDelegate(),
-        "check-box" to CheckBoxConfigDelegate(),
-        "check-box-group" to CheckBoxGroupConfigDelegate(),
-        "cell" to CellConfigDelegate(),
-        "card" to CardConfigDelegate(),
-        "basic-button" to ButtonConfigDelegate(ButtonType.Basic),
-        "icon-button" to ButtonConfigDelegate(ButtonType.Icon),
-        "link-button" to ButtonConfigDelegate(ButtonType.Link),
-        "badge" to BadgeConfigDelegate(),
-        "icon-badge" to BadgeConfigDelegate(),
-        "bottom-sheet" to BottomSheetConfigDelegate(),
-        "chip" to ChipConfigDelegate(),
-        "chip-group" to ChipGroupConfigDelegate(),
-        "radio-box" to RadioBoxConfigDelegate(),
-        "radio-box-group" to RadioBoxGroupConfigDelegate(),
-        "circular-progress-bar" to CircularProgressConfigDelegate(),
-        "check-box" to CheckBoxConfigDelegate(),
-        "check-box-group" to CheckBoxGroupConfigDelegate(),
-        "progress-bar" to ProgressBarConfigDelegate(),
-        "switch" to SwitchConfigDelegate(),
-        "popover" to PopoverConfigDelegate(),
-        "tooltip" to TooltipConfigDelegate(),
-        "overlay" to OverlayConfigDelegate(),
-        "toast" to ToastConfigDelegate(),
-        "modal" to ModalConfigDelegate(),
-        "note" to NoteConfigDelegate(),
-        "note-compact" to NoteConfigDelegate(),
-        "notification" to NotificationConfigDelegate(),
-        "notification-content" to NotificationContentConfigDelegate(),
-        "rect-skeleton" to RectSkeletonConfigDelegate(),
-        "spinner" to SpinnerConfigDelegate(),
-        "slider" to SliderConfigDelegate(),
-        "list" to ListConfigDelegate(),
-        "list-item" to ListItemConfigDelegate(),
-        "dropdown-menu" to DropdownMenuConfigDelegate(),
-        "text-skeleton" to TextSkeletonConfigDelegate(),
-        "accordion-item" to AccordionItemConfigDelegate(),
-        "accordion" to AccordionConfigDelegate(),
-        "wheel" to WheelConfigDelegate(),
-        "scroll-bar" to ScrollBarConfigDelegate(),
-        "image" to ImageConfigDelegate(),
-        "button-group" to ButtonGroupConfigDelegate(),
-        "tab-bar-item" to TabBarItemConfigDelegate(),
-        "tab-bar" to TabBarConfigDelegate(),
-        "loader" to LoaderConfigDelegate(),
-        "drawer" to DrawerConfigDelegate(),
-        "code-input" to CodeInputConfigDelegate(),
-        "code-field" to CodeFieldConfigDelegate(),
-        "drawer" to DrawerConfigDelegate(),
-        "tabs" to TabsConfigDelegate(),
-        "tab-item" to TabItemConfigDelegate(TabItemComponent.TabItem),
-        "icon-tab-item" to TabItemConfigDelegate(TabItemComponent.IconTabItem),
-        "tool-bar" to ToolBarConfigDelegate(),
-        "navigation-bar" to NavigationBarConfigDelegate(),
-        "navigation-drawer" to NavigationDrawerConfigDelegate(),
-        "navigation-drawer-item" to NavigationDrawerItemConfigDelegate(),
-        "collapsing-navigation-bar" to CollapsingNavigationBarConfigDelegate(),
-        "pagination-dots" to PaginationDotsConfigDelegate(),
-        "carousel" to CarouselConfigDelegate(),
-        "dropdown-empty-state" to EmptyStateConfigDelegate(),
-        "autocomplete" to AutoCompleteConfigDelegate(),
-        "file" to FileConfigDelegate(),
-        "form-item" to FormItemConfigDelegate(),
-        "editable" to EditableConfigDelegate(),
-        "select-item" to SelectItemConfigDelegate(),
-        "select" to SelectConfigDelegate(),
-        "drop-zone" to DropZoneConfigDelegate(),
-        "combo-box" to ComboBoxConfigDelegate(),
-        "splitter" to SplitterConfigDelegate(),
-    )
+internal fun componentDelegates(allMeta: List<ComponentMeta>, allComponents: List<Component> = emptyList()) =
+    ComponentDelegatesScope(allMeta, allComponents).run {
+        mapOf(
+            "avatar" to universal("Avatar") { AvatarConfigDelegate() },
+            "ai-answer" to universal("AiAnswer") { AiAnswerConfigDelegate() },
+            "ai-header" to universal("AiHeader") { AiHeaderConfigDelegate() },
+            "avatar-group" to universal("AvatarGroup") { AvatarGroupConfigDelegate() },
+            "text-field" to universal("TextField") { TextFieldConfigDelegate() },
+            "text-area" to universal("TextArea") { TextAreaConfigDelegate() },
+            "segment" to universal("Segment") { SegmentConfigDelegate() },
+            "segment-item" to universal("SegmentItem") { SegmentItemConfigDelegate() },
+            "indicator" to universal("Indicator") { IndicatorConfigDelegate() },
+            "divider" to universal("Divider") { DividerConfigDelegate() },
+            "counter" to universal("Counter") { CounterConfigDelegate() },
+            "check-box" to universal("CheckBox") { CheckBoxConfigDelegate() },
+            "check-box-group" to universal("CheckBoxGroup") { CheckBoxGroupConfigDelegate() },
+            "cell" to universal("Cell") { CellConfigDelegate() },
+            "card" to universal("Card") { CardConfigDelegate() },
+            "basic-button" to universal("BasicButton") {
+                ButtonConfigDelegate(ButtonType.Basic)
+            },
+            "icon-button" to universal("IconButton") { ButtonConfigDelegate(ButtonType.Icon) },
+            "link-button" to universal("LinkButton") { ButtonConfigDelegate(ButtonType.Link) },
+            "badge" to universal("Badge") { BadgeConfigDelegate() },
+            "icon-badge" to universal("IconBadge") { BadgeConfigDelegate() },
+            "bottom-sheet" to universal("ModalBottomSheet") { BottomSheetConfigDelegate() },
+            "chip" to universal("Chip") { ChipConfigDelegate() },
+            "chip-group" to universal("ChipGroup") { ChipGroupConfigDelegate() },
+            "radio-box" to universal("RadioBox") { RadioBoxConfigDelegate() },
+            "radio-box-group" to universal("RadioBoxGroup") { RadioBoxGroupConfigDelegate() },
+            "circular-progress-bar" to universal("CircularProgressBar") {
+                CircularProgressConfigDelegate()
+            },
+            "progress-bar" to universal("ProgressBar") { ProgressBarConfigDelegate() },
+            "switch" to universal("Switch") { SwitchConfigDelegate() },
+            "popover" to universal("Popover") { PopoverConfigDelegate() },
+            "tooltip" to universal("Tooltip") { TooltipConfigDelegate() },
+            "overlay" to universal("Overlay") { OverlayConfigDelegate() },
+            "toast" to universal("Toast") { ToastConfigDelegate() },
+            "modal" to universal("Modal") { ModalConfigDelegate() },
+            "note" to universal("Note") { NoteConfigDelegate() },
+            "note-compact" to universal("NoteCompact") { NoteConfigDelegate() },
+            "notification" to universal("Notification") { NotificationConfigDelegate() },
+            "notification-content" to universal("NotificationContent") {
+                NotificationContentConfigDelegate()
+            },
+            "rect-skeleton" to universal("RectSkeleton") { RectSkeletonConfigDelegate() },
+            "spinner" to universal("Spinner") { SpinnerConfigDelegate() },
+            "slider" to universal("Slider") { SliderConfigDelegate() },
+            "list" to universal("List") { ListConfigDelegate() },
+            "list-item" to universal("ListItem") { ListItemConfigDelegate() },
+            "dropdown-menu" to universal("DropdownMenu") { DropdownMenuConfigDelegate() },
+            "text-skeleton" to universal("TextSkeleton") { TextSkeletonConfigDelegate() },
+            "accordion-item" to universal("AccordionItem") { AccordionItemConfigDelegate() },
+            "accordion" to universal("Accordion") { AccordionConfigDelegate() },
+            "wheel" to universal("Wheel") { WheelConfigDelegate() },
+            "scroll-bar" to universal("ScrollBar") { ScrollBarConfigDelegate() },
+            "image" to universal("Image") { ImageConfigDelegate() },
+            "button-group" to universal("ButtonGroup") { ButtonGroupConfigDelegate() },
+            "tab-bar-item" to universal("TabBarItem") { TabBarItemConfigDelegate() },
+            "tab-bar" to universal("TabBar") { TabBarConfigDelegate() },
+            "loader" to universal("Loader") { LoaderConfigDelegate() },
+            "drawer" to universal("Drawer") { DrawerConfigDelegate() },
+            "code-input" to universal("CodeInput") { CodeInputConfigDelegate() },
+            "code-field" to universal("CodeField") { CodeFieldConfigDelegate() },
+            "tabs" to universal("Tabs") { TabsConfigDelegate() },
+            "tab-item" to universal("TabItem") {
+                TabItemConfigDelegate(TabItemComponent.TabItem)
+            },
+            "icon-tab-item" to universal("IconTabItem") {
+                TabItemConfigDelegate(TabItemComponent.IconTabItem)
+            },
+            "tool-bar" to universal("ToolBar") { ToolBarConfigDelegate() },
+            "navigation-bar" to universal("NavigationBar") { NavigationBarConfigDelegate() },
+            "navigation-drawer" to universal("NavigationDrawer") { NavigationDrawerConfigDelegate() },
+            "navigation-drawer-item" to universal("NavigationDrawerItem") {
+                NavigationDrawerItemConfigDelegate()
+            },
+            "collapsing-navigation-bar" to universal("CollapsingNavigationBar") {
+                CollapsingNavigationBarConfigDelegate()
+            },
+            "pagination-dots" to universal("PaginationDots") {
+                PaginationDotsConfigDelegate()
+            },
+            "carousel" to universal("Carousel") { CarouselConfigDelegate() },
+            "dropdown-empty-state" to universal("DropdownEmptyState") {
+                EmptyStateConfigDelegate()
+            },
+            "autocomplete" to universal("Autocomplete") { AutoCompleteConfigDelegate() },
+            "file" to universal("File") { FileConfigDelegate() },
+            "form-item" to universal("FormItem") { FormItemConfigDelegate() },
+            "editable" to universal("Editable") { EditableConfigDelegate() },
+            "select-item" to universal("SelectItem") { SelectItemConfigDelegate() },
+            "select" to universal("Select") { SelectConfigDelegate() },
+            "combo-box" to universal("ComboBox") { ComboBoxConfigDelegate() },
+            "drop-zone" to universal("DropZone") { DropZoneConfigDelegate() },
+            "splitter" to universal("DropZone") { SplitterConfigDelegate() },
+        )
+    }
+
+private val logger = Logging.getLogger("ComponentDelegates")
+
+private class ComponentDelegatesScope(
+    private val allMeta: List<ComponentMeta>,
+    private val allComponents: List<Component>,
+) {
+    fun universal(componentName: String): ComponentConfigDelegate<*> {
+        val meta = allMeta.firstOrNull { it.componentName == componentName }
+            ?: error("[$componentName] ComponentMeta not found. Make sure @ApiInfo is set on the StyleBuilder.")
+        return UniversalComponentConfigDelegate(meta, allMeta, allComponents)
+    }
+
+    fun <F : ComponentConfigDelegate<*>> universal(
+        componentName: String,
+        fallback: () -> F,
+    ): ComponentConfigDelegate<*> {
+        val meta = allMeta.firstOrNull { it.componentName == componentName }
+        val fallbackDelegate = fallback()
+        return if (meta != null) {
+            HybridComponentConfigDelegate(
+                UniversalComponentConfigDelegate(meta, allMeta, allComponents),
+                fallbackDelegate,
+            )
+        } else {
+            logger.warn("[$componentName] ComponentMeta not found, using legacy fallback delegate")
+            fallbackDelegate
+        }
+    }
 }

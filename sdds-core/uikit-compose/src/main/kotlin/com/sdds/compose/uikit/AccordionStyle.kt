@@ -6,6 +6,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -82,6 +83,7 @@ private data class DefaultAccordionStyle(
 /**
  * Билдер стиля [AccordionStyle]
  */
+@ApiInfo
 interface AccordionStyleBuilder : StyleBuilder<AccordionStyle> {
 
     /**
