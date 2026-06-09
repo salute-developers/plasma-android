@@ -53,7 +53,6 @@ import kotlin.math.abs
  * @param interactionSource источник взаимодействий
  * @param action дополнительный контент для взаимодейстивия с компонентом
  */
-@Suppress("LongMethod")
 @Composable
 fun Note(
     modifier: Modifier = Modifier,
