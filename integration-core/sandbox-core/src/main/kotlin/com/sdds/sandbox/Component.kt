@@ -146,6 +146,7 @@ data class ComponentKey(
         val File = ComponentKey(CoreComponentName.FILE)
         val FormItem = ComponentKey(CoreComponentName.FORM_ITEM)
         val Editable = ComponentKey(CoreComponentName.EDITABLE)
+        val DropZone = ComponentKey(CoreComponentName.DROP_ZONE)
         val AiHeader = ComponentKey(CoreComponentName.AI_HEADER)
     }
 }
@@ -258,6 +259,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     FORM_ITEM,
     EDITABLE,
     AI_HEADER,
+    DROP_ZONE,
     ;
 
     val displayName: String = displayName ?: this.name
@@ -329,6 +331,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.FILE,
         CoreComponentName.FORM_ITEM,
         CoreComponentName.EDITABLE,
+        CoreComponentName.DROP_ZONE,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponentName.DROPDOWN_MENU,

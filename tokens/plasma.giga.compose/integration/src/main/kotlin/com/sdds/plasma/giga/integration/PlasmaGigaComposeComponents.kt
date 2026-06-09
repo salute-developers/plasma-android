@@ -368,5 +368,11 @@ object PlasmaGigaComposeComponents : ComponentProvider() {
                     "DropdownEmptyState" to PlasmaGigaDropdownEmptyStateVariationsCompose,
                 ),
             ),
+            Component(
+                ComponentKey.DropZone,
+                mapOf(
+                    "DropZone" to PlasmaGigaDropZoneVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

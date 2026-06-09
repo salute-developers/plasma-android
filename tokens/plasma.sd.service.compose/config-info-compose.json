@@ -47173,6 +47173,28 @@
                ]
             }
          ]
+      },
+      {
+         "key": "drop-zone",
+         "coreName": "DropZone",
+         "styleName": "DropZone",
+         "styleApi": {
+            "packageName": "com.sdds.plasma.sd.service.styles.dropzone",
+            "stylesClassName": "DropZoneStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.sd.service.styles.dropzone.DropZoneStyles",
+            "receiverClassName": "DropZoneStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.plasma.sd.service.styles.dropzone.DropZoneStyles.Companion",
+            "returnTypeName": "DropZoneStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.DropZoneStyle",
+            "modifyReceiverTypeName": "DropZoneStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.DropZoneStyleBuilder"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "DropZone.Default"
+            }
+         ]
       }
    ]
 }

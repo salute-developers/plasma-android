@@ -28,6 +28,7 @@ import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDel
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.dropzone.DropZoneConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.editable.EditableConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.emptystate.EmptyStateConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.file.FileConfigDelegate
@@ -152,6 +153,7 @@ internal val componentDelegates by unsafeLazy {
         "editable" to EditableConfigDelegate(),
         "select-item" to SelectItemConfigDelegate(),
         "select" to SelectConfigDelegate(),
+        "drop-zone" to DropZoneConfigDelegate(),
         "combo-box" to ComboBoxConfigDelegate(),
     )
 }

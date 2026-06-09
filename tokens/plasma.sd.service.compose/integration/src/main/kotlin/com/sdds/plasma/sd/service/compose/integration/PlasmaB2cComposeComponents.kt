@@ -401,5 +401,11 @@ object PlasmaB2cComposeComponents : ComponentProvider() {
                     "FileLinearProgress" to PlasmaB2cFileLinearProgressVariationsCompose,
                 ),
             ),
+            Component(
+                ComponentKey.DropZone,
+                mapOf(
+                    "DropZone" to PlasmaB2cDropZoneVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }
