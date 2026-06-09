@@ -76,6 +76,7 @@ fun SandboxTheme(
             window.statusBarColor = Color.TRANSPARENT
             window.navigationBarColor = Color.TRANSPARENT
             window.decorView.setBackgroundColor(colorScheme.backgroundDefaultPrimary.toArgb())
+            WindowCompat.setDecorFitsSystemWindows(window, false)
             WindowCompat.getInsetsController(window, view).apply {
                 isAppearanceLightStatusBars = !darkTheme
                 isAppearanceLightNavigationBars = !darkTheme

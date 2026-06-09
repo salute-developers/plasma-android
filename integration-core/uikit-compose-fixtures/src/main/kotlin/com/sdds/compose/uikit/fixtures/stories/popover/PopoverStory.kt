@@ -3,6 +3,7 @@ package com.sdds.compose.uikit.fixtures.stories.popover
 import android.util.Log
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,6 +20,7 @@ import com.sdds.compose.uikit.Popover
 import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.PopoverPlacement
 import com.sdds.compose.uikit.PopoverPlacementMode
+import com.sdds.compose.uikit.PopoverPositionStrategy
 import com.sdds.compose.uikit.PopoverStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TriggerInfo
@@ -38,6 +40,7 @@ data class PopoverUiState(
     val alignment: PopoverAlignment = PopoverAlignment.Start,
     val placement: PopoverPlacement = PopoverPlacement.Top,
     val placementMode: PopoverPlacementMode = PopoverPlacementMode.Loose,
+    val positionStrategy: PopoverPositionStrategy = PopoverPositionStrategy.Recalculate,
     val triggerCentered: Boolean = false,
     val tailEnabled: Boolean = true,
     val autoHide: Boolean = false,
@@ -104,8 +107,10 @@ object PopoverStory : ComposeBaseStory<PopoverUiState, PopoverStyle>(
         Popover(
             show = showPopover.value,
             triggerInfo = triggerInfo.value,
+            safeAreaPadding = PaddingValues(0.dp),
             placement = state.placement,
             placementMode = state.placementMode,
+            positionStrategy = state.positionStrategy,
             triggerCentered = state.triggerCentered,
             alignment = state.alignment,
             style = style,
