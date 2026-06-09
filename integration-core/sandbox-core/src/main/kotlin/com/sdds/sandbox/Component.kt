@@ -93,6 +93,7 @@ data class ComponentKey(
 
         val Segment = ComponentKey(CoreComponentName.SEGMENT)
         val SegmentItem = ComponentKey(CoreComponentName.SEGMENT_ITEM)
+        val ComboBox = ComponentKey(CoreComponentName.COMBO_BOX)
         val Select = ComponentKey(CoreComponentName.SELECT)
         val SelectItem = ComponentKey(CoreComponentName.SELECT_ITEM)
 
@@ -204,6 +205,7 @@ private enum class CoreComponentName(displayName: String? = null) {
 
     SEGMENT,
     SEGMENT_ITEM,
+    COMBO_BOX,
     SELECT,
     SELECT_ITEM,
 
@@ -316,6 +318,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.TEXT_AREA,
         CoreComponentName.SEGMENT,
         CoreComponentName.SEGMENT_ITEM,
+        CoreComponentName.COMBO_BOX,
         CoreComponentName.SELECT,
         CoreComponentName.SELECT_ITEM,
         CoreComponentName.SWITCH,

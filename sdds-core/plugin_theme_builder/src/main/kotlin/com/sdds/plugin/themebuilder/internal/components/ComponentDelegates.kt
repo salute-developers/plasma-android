@@ -23,6 +23,7 @@ import com.sdds.plugin.themebuilder.internal.components.circularprogress.Circula
 import com.sdds.plugin.themebuilder.internal.components.codefield.CodeFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.codeinput.CodeInputConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.collapsingnavigationbar.CollapsingNavigationBarConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.combobox.ComboBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
@@ -151,5 +152,6 @@ internal val componentDelegates by unsafeLazy {
         "editable" to EditableConfigDelegate(),
         "select-item" to SelectItemConfigDelegate(),
         "select" to SelectConfigDelegate(),
+        "combo-box" to ComboBoxConfigDelegate(),
     )
 }

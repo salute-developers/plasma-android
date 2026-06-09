@@ -533,7 +533,7 @@ private fun BoxScope.ScrollBarContent(scrollState: LazyListState?, style: Dropdo
             modifier = Modifier
                 .padding(
                     top = style.dimensions.scrollBarPaddingTop,
-                    bottom = style.dimensions.scrollBarPaddingTop,
+                    bottom = style.dimensions.scrollBarPaddingBottom,
                 )
                 .align(Alignment.CenterEnd),
             style = style.scrollBarStyle,

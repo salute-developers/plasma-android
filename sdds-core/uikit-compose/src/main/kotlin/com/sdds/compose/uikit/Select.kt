@@ -11,17 +11,17 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.DropdownProperties.Height
 import com.sdds.compose.uikit.DropdownProperties.Width
+import com.sdds.compose.uikit.internal.toDp
 
 /**
  * Компонент выбора (Select) для Compose UI, предоставляющий функциональность выпадающего списка.
@@ -227,13 +227,6 @@ internal val LocalSelectState = compositionLocalOf { SelectState() }
 
 private object SelectScopeImpl : SelectScope
 
-@Composable
-private fun Int.toDp(): Dp {
-    return with(LocalDensity.current) {
-        this@toDp.toDp()
-    }
-}
-
 private val DefaultDropdownProperties = DropdownProperties(
     popupProperties = PopupProperties(
         clippingEnabled = false,
@@ -274,16 +267,22 @@ private class SelectMultipleDataStateManager<T>(
     private val valueInitializer: (T) -> Boolean = { false },
 ) : SelectDataStateManager<T> {
 
-    override val selectedItems: List<T>
-        get() = _checkboxStates.filter { it.value }.keys.toList()
     private val _checkboxStates = mutableStateMapOf<T, Boolean>()
         .apply { putAll(data.associateWith(valueInitializer)) }
+
+    private val _selectedOrdered = mutableStateListOf<T>()
+        .apply { addAll(data.filter(valueInitializer)) }
+
+    override val selectedItems: List<T>
+        get() = _selectedOrdered.toList()
 
     override fun isSelected(item: T): Boolean {
         return _checkboxStates[item] ?: false
     }
 
     override fun onItemPressed(item: T) {
-        _checkboxStates[item]?.let { _checkboxStates[item] = !it }
+        val current = _checkboxStates[item] ?: return
+        _checkboxStates[item] = !current
+        if (!current) _selectedOrdered.add(item) else _selectedOrdered.remove(item)
     }
 }
