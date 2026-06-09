@@ -505,5 +505,11 @@ object SddsServComposeComponents : ComponentProvider() {
                     "AiAnswer" to SddsServAiAnswerVariationsCompose,
                 ),
             ),
+            Component(
+                ComponentKey.DropZone,
+                mapOf(
+                    "DropZone" to SddsServDropZoneVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

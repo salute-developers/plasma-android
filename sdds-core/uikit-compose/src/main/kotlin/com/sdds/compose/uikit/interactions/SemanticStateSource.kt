@@ -152,3 +152,21 @@ private class MutableSemanticStateSourceImpl(
         _states.value = transform(_states.value)
     }
 }
+
+/**
+ * Заменяет все состояния типа [T] в текущем наборе семантических состояний
+ * на указанное состояние [state].
+ *
+ * Все значения enum-а [T] удаляются из текущего набора, после чего добавляется
+ * переданное состояние [state].
+ *
+ * Позволяет использовать enum-классы для описания взаимоисключающих семантических
+ * состояний без необходимости ручной передачи состояний, которые требуется исключить.
+ *
+ * @param state новое состояние типа [T]
+ */
+inline fun <reified T> MutableSemanticStateSource.setExclusiveEnum(state: T) where T : Enum<T>, T : ValueState {
+    update {
+        (it - enumValues<T>().toSet()) + state
+    }
+}
