@@ -167,8 +167,8 @@ private val NoteStyleBuilder.invariantProps: NoteStyleBuilder
                 PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
             )
         }
-        .titleStyle(PlasmaHomeDsTheme.typography.textSBold)
-        .textStyle(PlasmaHomeDsTheme.typography.textSNormal)
+        .titleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
+        .textStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .dimensions {
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
@@ -211,7 +211,7 @@ public val Note.ContentBeforeFixed: WrapperNoteContentBeforeFixed
     @JvmName("WrapperNoteContentBeforeFixed")
     get() = NoteStyle.builder(this)
         .invariantProps
-        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Top)
+        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
         .dimensions {
             iconSize(16.0.dp)
             contentBeforeEndMargin(8.0.dp)
