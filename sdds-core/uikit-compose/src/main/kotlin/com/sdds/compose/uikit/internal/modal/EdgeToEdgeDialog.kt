@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit.internal.modal
 
+import android.graphics.Color
 import android.os.Build
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -78,6 +79,9 @@ private fun ConfigureWindow(
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
             if (edgeToEdge) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
+                window.statusBarColor = Color.TRANSPARENT
+                window.navigationBarColor = Color.TRANSPARENT
+
                 WindowCompat.getInsetsController(window, localView).apply {
                     isAppearanceLightNavigationBars = lightAppearance
                     isAppearanceLightStatusBars = lightAppearance

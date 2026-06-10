@@ -6,6 +6,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -21,6 +22,8 @@ import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.popover.BasePopover
 import com.sdds.compose.uikit.internal.popover.DefaultPopupProperties
+import com.sdds.compose.uikit.motion.components.popover.rememberPopoverMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент Tooltip.
@@ -83,7 +86,10 @@ fun Tooltip(
         popupProperties = popupProperties,
         enterTransition = enterTransition,
         exitTransition = exitTransition,
-        interactionSource = interactionSource,
+        motion = rememberPopoverMotion(
+            motionContext = rememberMotionContext(interactionSource),
+        ),
+        safeAreaPadding = PaddingValues(0.dp),
     ) {
         Row(
             modifier = modifier.padding(

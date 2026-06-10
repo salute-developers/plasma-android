@@ -49,3 +49,32 @@ title: DropdownMenu
 ## PopoverPlacementMode
 
 см. [PopoverPlacementMode](PopoverUsage.md#popoverplacementmode)
+
+## PopoverPositionStrategy
+
+см. [PopoverPositionStrategy](PopoverUsage.md#popoverpositionstrategy)
+
+`PopoverPositionStrategy.KeepInitial` удобно использовать, если содержимое DropdownMenu меняется после открытия,
+например при переходе с короткого списка на длинный, но позиция меню должна остаться исходной.
+
+```kotlin
+DropdownMenu(
+    opened = opened,
+    triggerInfo = triggerInfo.value,
+    positionStrategy = PopoverPositionStrategy.KeepInitial,
+)
+```
+
+## SafeAreaPadding
+
+см. [SafeAreaPadding](PopoverUsage.md#safeareapadding)
+
+`safeAreaPadding` задает дополнительные отступы от краев доступной области экрана, внутри которой располагается DropdownMenu.
+
+```kotlin
+DropdownMenu(
+    opened = opened,
+    triggerInfo = triggerInfo.value,
+    safeAreaPadding = PaddingValues(16.dp),
+)
+```
