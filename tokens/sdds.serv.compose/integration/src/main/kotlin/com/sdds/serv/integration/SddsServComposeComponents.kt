@@ -512,5 +512,11 @@ object SddsServComposeComponents : ComponentProvider() {
                     "DropZone" to SddsServDropZoneVariationsCompose,
                 ),
             ),
+            Component(
+                ComponentKey.Splitter,
+                mapOf(
+                    "Splitter" to SddsServSplitterVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

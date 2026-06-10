@@ -59,6 +59,7 @@ import com.sdds.plugin.themebuilder.internal.components.select.SelectConfigDeleg
 import com.sdds.plugin.themebuilder.internal.components.select.SelectItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.slider.SliderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.splitter.SplitterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tabbar.TabBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tabbar.item.TabBarItemConfigDelegate
@@ -155,5 +156,6 @@ internal val componentDelegates by unsafeLazy {
         "select" to SelectConfigDelegate(),
         "drop-zone" to DropZoneConfigDelegate(),
         "combo-box" to ComboBoxConfigDelegate(),
+        "splitter" to SplitterConfigDelegate(),
     )
 }

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawOutline
@@ -29,9 +31,13 @@ import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.wheel.BaseWheel
 import com.sdds.compose.uikit.internal.wheel.WheelItemAlignment
+import com.sdds.compose.uikit.motion.components.divider.rememberDividerMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
 
 /**
  * Вертикальное колесо выбора.
@@ -68,12 +74,19 @@ fun Wheel(
     onItemSelected: (wheel: Int, item: Int) -> Unit = { _, _ -> },
     onSetData: (Int) -> WheelDataSet,
 ) {
+    val dividerMotion = rememberDividerMotion()
     val textMeasurer = rememberTextMeasurer()
     var labelOffsetFromCenter by remember { mutableFloatStateOf(0f) }
     var wheelItemHeight by remember { mutableIntStateOf(0) }
     val separatorTextStyle = style.itemTextStyle
         .copy(style.colors.separatorColor.colorForInteraction(interactionSource))
-    val dividerColor = style.dividerStyle.color.backgroundColor.colorForInteraction(interactionSource)
+    val dividerColor = style.dividerStyle.color.backgroundBrush.getBrushAsState(
+        dividerMotion.context,
+        dividerMotion.style.backgroundColor,
+    )
+    val dividerThickness = style.dividerStyle.dimensions.thicknessValues.getValueAsState(
+        dividerMotion.context,
+    )
     val separatorColor = style.colors.separatorColor.colorForInteraction(interactionSource)
 
     val selectorBrush = style.colors.itemSelectorBrush.getValue(interactionSource)
@@ -116,6 +129,7 @@ fun Wheel(
                 style = style,
                 wheelSeparator = wheelSeparator,
                 dividerColor = dividerColor,
+                dividerThickness = dividerThickness,
                 separatorColor = separatorColor,
                 textMeasurer = textMeasurer,
                 separatorTextStyle = separatorTextStyle,
@@ -281,7 +295,8 @@ private fun WheelLayout(
 private fun WheelSeparatorBox(
     style: WheelStyle,
     wheelSeparator: WheelSeparator,
-    dividerColor: Color,
+    dividerColor: State<Brush>,
+    dividerThickness: State<Dp>,
     separatorColor: Color,
     textMeasurer: TextMeasurer,
     separatorTextStyle: TextStyle,
@@ -295,6 +310,7 @@ private fun WheelSeparatorBox(
                 style = style,
                 wheelSeparator = wheelSeparator,
                 dividerColor = dividerColor,
+                dividerThickness = dividerThickness,
                 separatorColor = separatorColor,
                 textMeasurer = textMeasurer,
                 separatorTextStyle = separatorTextStyle,
@@ -351,7 +367,8 @@ private fun getBaseWheelAlignment(
 private fun Modifier.drawSeparator(
     style: WheelStyle,
     wheelSeparator: WheelSeparator,
-    dividerColor: Color,
+    dividerColor: State<Brush>,
+    dividerThickness: State<Dp>,
     separatorColor: Color,
     textMeasurer: TextMeasurer,
     separatorTextStyle: TextStyle,
@@ -362,11 +379,11 @@ private fun Modifier.drawSeparator(
         when (wheelSeparator) {
             WheelSeparator.Divider -> {
                 drawLine(
-                    color = dividerColor,
+                    brush = dividerColor.value,
                     start = Offset(separatorCenter, 0f),
                     end = Offset(separatorCenter, size.height),
                     cap = StrokeCap.Round,
-                    strokeWidth = style.dividerStyle.dimensions.thickness.toPx(),
+                    strokeWidth = dividerThickness.value.toPx(),
                 )
             }
 

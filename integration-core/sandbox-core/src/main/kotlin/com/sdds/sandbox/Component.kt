@@ -148,6 +148,7 @@ data class ComponentKey(
         val Editable = ComponentKey(CoreComponentName.EDITABLE)
         val DropZone = ComponentKey(CoreComponentName.DROP_ZONE)
         val AiHeader = ComponentKey(CoreComponentName.AI_HEADER)
+        val Splitter = ComponentKey(CoreComponentName.SPLITTER)
     }
 }
 
@@ -260,6 +261,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     EDITABLE,
     AI_HEADER,
     DROP_ZONE,
+    SPLITTER,
     ;
 
     val displayName: String = displayName ?: this.name
@@ -304,6 +306,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.NOTE_COMPACT,
         CoreComponentName.PAGINATION_DOTS,
         CoreComponentName.DROPDOWN_EMPTY_STATE,
+        CoreComponentName.SPLITTER,
         -> CoreComponentGroup.DATA_DISPLAY
 
         CoreComponentName.BASIC_BUTTON,

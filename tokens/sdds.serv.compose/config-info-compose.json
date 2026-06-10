@@ -62679,6 +62679,28 @@
                "composeReference": "DropZone.Default"
             }
          ]
+      },
+      {
+         "key": "splitter",
+         "coreName": "Splitter",
+         "styleName": "Splitter",
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.splitter",
+            "stylesClassName": "SplitterStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.splitter.SplitterStyles",
+            "receiverClassName": "SplitterStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.splitter.SplitterStyles.Companion",
+            "returnTypeName": "SplitterStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.SplitterStyle",
+            "modifyReceiverTypeName": "SplitterStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.SplitterStyleBuilder"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Splitter.Default"
+            }
+         ]
       }
    ]
 }
