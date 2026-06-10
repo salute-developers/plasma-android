@@ -27,6 +27,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.CacheDrawScope
@@ -120,11 +121,12 @@ internal fun BasePopover(
     val shadowPaddingsPx = ShadowPaddings.fromPaddingValues(shadowPaddingValues)
     val triggerInfoValue = triggerInfo()
     val safeAreaPaddingsPx = SafeAreaPaddings.fromPaddingValues(safeAreaPadding)
+    val dismissInProgress = rememberUpdatedState(!show && popoverVisible)
     val positionProvider = rememberPopoverPositionProvider(
         placement = placement,
         placementMode = placementMode,
         positionStrategy = positionStrategy,
-        show = show,
+        dismissInProgress = { dismissInProgress.value },
         triggerCentered = triggerCentered,
         tailAlignment = alignment,
         offset = offset.px,
@@ -182,14 +184,17 @@ internal fun BasePopover(
 
     if (popoverVisible) {
         val constraints = recalculatedConstraints
-        val resizeModifier = if (constraints != null && (clipHeight || clipWidth)) {
-            with(LocalDensity.current) {
-                Modifier
-                    .widthIn(max = constraints.width.toDp())
-                    .heightIn(max = constraints.height.toDp())
+        var resizeModifier: Modifier = Modifier
+        val canClip = placementMode != PopoverPlacementMode.Strict
+        if (constraints != null && canClip && clipWidth) {
+            resizeModifier = with(LocalDensity.current) {
+                resizeModifier.widthIn(max = constraints.width.toDp())
             }
-        } else {
-            Modifier
+        }
+        if (constraints != null && canClip && clipHeight) {
+            resizeModifier = with(LocalDensity.current) {
+                resizeModifier.heightIn(max = constraints.height.toDp())
+            }
         }
         val ignoreContentTapModifier = Modifier
             .pointerInput(Unit) {
@@ -487,7 +492,7 @@ private fun rememberPopoverPositionProvider(
     placement: PopoverPlacement,
     placementMode: PopoverPlacementMode,
     positionStrategy: PopoverPositionStrategy,
-    show: Boolean,
+    dismissInProgress: () -> Boolean,
     triggerCentered: Boolean,
     tailAlignment: PopoverAlignment,
     triggerInfo: TriggerInfo,
@@ -511,7 +516,6 @@ private fun rememberPopoverPositionProvider(
     placement,
     placementMode,
     positionStrategy,
-    show,
     triggerCentered,
     tailAlignment,
     triggerInfo,
@@ -531,6 +535,7 @@ private fun rememberPopoverPositionProvider(
         placement,
         placementMode,
         positionStrategy,
+        dismissInProgress,
         triggerCentered,
         tailAlignment,
         triggerInfoProvider,
@@ -556,6 +561,7 @@ private class PopoverPositionProvider(
     private val placement: PopoverPlacement,
     private val placementMode: PopoverPlacementMode,
     private val positionStrategy: PopoverPositionStrategy,
+    private val dismissInProgress: () -> Boolean,
     private val triggerCentered: Boolean,
     private val tailAlignment: PopoverAlignment,
     private val triggerInfoProvider: () -> TriggerInfo,
@@ -582,6 +588,7 @@ private class PopoverPositionProvider(
     var innerTailAlignment = tailAlignment
         private set
     private var initialPositionState: InitialPositionState? = null
+    private var lastPositionState: InitialPositionState? = null
 
     private fun reset() {
         innerPlacement = placement
@@ -623,6 +630,11 @@ private class PopoverPositionProvider(
         popupContentSize: IntSize,
     ): IntOffset {
         reset()
+        lastPositionState.takeIf { dismissInProgress() }?.let { state ->
+            innerPlacement = state.placement
+            innerTailAlignment = state.tailAlignment
+            return state.position
+        }
         val triggerInfo = triggerInfoProvider()
         val triggerScaleFactor = triggerInfo.focusScaleFactor
         val isAnchorBoundsTrigger = anchorBounds.isSameSizeAs(triggerInfo.size)
@@ -710,6 +722,11 @@ private class PopoverPositionProvider(
                 tailAlignment = innerTailAlignment,
             )
         }
+        lastPositionState = InitialPositionState(
+            position = actualPopupPosition,
+            placement = innerPlacement,
+            tailAlignment = innerTailAlignment,
+        )
 
         recalculatePopupSizeIfNeed(
             contentSize,
