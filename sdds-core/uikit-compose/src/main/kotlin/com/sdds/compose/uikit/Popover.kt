@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import android.view.ViewTreeObserver
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.fadeIn
@@ -7,10 +8,14 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.focus.onFocusChanged
@@ -19,6 +24,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.HorizontalAlignmentLine
+import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.layout.boundsInWindow
 import androidx.compose.ui.layout.layout
@@ -290,6 +296,40 @@ fun Modifier.popoverTrigger(
     return composed {
         val currentScaleFactor = LocalFocusSelectorSettings.current.scale.scaleFactor
         val hostView = LocalView.current
+        var coordinates by remember { mutableStateOf<LayoutCoordinates?>(null) }
+        fun updateTriggerBounds(layoutCoordinates: LayoutCoordinates) {
+            val positionInWindow = layoutCoordinates.positionInWindow().round()
+            val visibleBoundsInWindow = layoutCoordinates.boundsInWindow()
+            val hostLocation = IntArray(2)
+            hostView.rootView.getLocationOnScreen(hostLocation)
+            val updatedTriggerInfo = triggerInfo.value.copy(
+                size = layoutCoordinates.size,
+                positionInRoot = positionInWindow,
+                positionInScreen = IntOffset(
+                    x = hostLocation[0] + positionInWindow.x,
+                    y = hostLocation[1] + positionInWindow.y,
+                ),
+                cutoutShape = shape,
+                cutoutPaddings = cutoutPaddings,
+                visibleBoundsInScreen = visibleBoundsInWindow.toScreenRect(hostLocation),
+            )
+            if (updatedTriggerInfo != triggerInfo.value) {
+                triggerInfo.value = updatedTriggerInfo
+            }
+        }
+        DisposableEffect(hostView.rootView, coordinates) {
+            val listener = ViewTreeObserver.OnPreDrawListener {
+                coordinates?.takeIf { it.isAttached }?.let(::updateTriggerBounds)
+                true
+            }
+            hostView.rootView.viewTreeObserver.addOnPreDrawListener(listener)
+            onDispose {
+                val observer = hostView.rootView.viewTreeObserver
+                if (observer.isAlive) {
+                    observer.removeOnPreDrawListener(listener)
+                }
+            }
+        }
         layout { measurable, constraints ->
             val placeable = measurable.measure(constraints)
             triggerInfo.value = triggerInfo.value.copy(
@@ -302,21 +342,8 @@ fun Modifier.popoverTrigger(
                 placeable.placeRelative(IntOffset.Zero)
             }
         }.onGloballyPositioned {
-            val positionInWindow = it.positionInWindow().round()
-            val visibleBoundsInWindow = it.boundsInWindow()
-            val hostLocation = IntArray(2)
-            hostView.rootView.getLocationOnScreen(hostLocation)
-            triggerInfo.value = triggerInfo.value.copy(
-                size = it.size,
-                positionInRoot = positionInWindow,
-                positionInScreen = IntOffset(
-                    x = hostLocation[0] + positionInWindow.x,
-                    y = hostLocation[1] + positionInWindow.y,
-                ),
-                cutoutShape = shape,
-                cutoutPaddings = cutoutPaddings,
-                visibleBoundsInScreen = visibleBoundsInWindow.toScreenRect(hostLocation),
-            )
+            coordinates = it
+            updateTriggerBounds(it)
         }.onFocusChanged {
             val scaleFactor = if (it.isFocused) {
                 currentScaleFactor

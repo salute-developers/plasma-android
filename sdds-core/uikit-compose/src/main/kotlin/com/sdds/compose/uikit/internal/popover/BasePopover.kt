@@ -115,7 +115,6 @@ internal fun BasePopover(
     val backgroundColor = colors.backgroundColor.getValue(motion.context.interactionSource)
     var recalculatedConstraints by remember { mutableStateOf<IntSize?>(null) }
     var popoverContentSize by remember { mutableStateOf(IntSize.Zero) }
-    var maxPopupContentSize by remember { mutableStateOf(IntSize.Zero) }
 
     val shadowPaddingValues = shadow.getShadowSafePaddings()
     val shadowPaddingsPx = ShadowPaddings.fromPaddingValues(shadowPaddingValues)
@@ -142,14 +141,7 @@ internal fun BasePopover(
         clipHeight = clipHeight,
         clipWidth = clipWidth,
         popoverContentSize = { popoverContentSize },
-        maxPopupContentSize = { maxPopupContentSize },
         clippedConstraints = { recalculatedConstraints },
-        onPopupContentSizeChanged = { contentSize ->
-            val updatedContentSize = maxPopupContentSize.maxOf(contentSize)
-            if (updatedContentSize != maxPopupContentSize) {
-                maxPopupContentSize = updatedContentSize
-            }
-        },
         onContentSizeChanged = { constraints ->
             if (clipHeight && constraints.height == 0) {
                 return@rememberPopoverPositionProvider
@@ -169,7 +161,7 @@ internal fun BasePopover(
         if (!popoverVisible) {
             recalculatedConstraints = null
             popoverContentSize = IntSize.Zero
-            maxPopupContentSize = IntSize.Zero
+            positionProvider.resetContentSize()
         }
     }
 
@@ -508,9 +500,7 @@ private fun rememberPopoverPositionProvider(
     clipHeight: Boolean,
     clipWidth: Boolean,
     popoverContentSize: () -> IntSize,
-    maxPopupContentSize: () -> IntSize,
     clippedConstraints: () -> IntSize?,
-    onPopupContentSizeChanged: (IntSize) -> Unit,
     onContentSizeChanged: (IntSize) -> Unit,
 ): PopoverPositionProvider = remember(
     placement,
@@ -550,9 +540,7 @@ private fun rememberPopoverPositionProvider(
         clipHeight,
         clipWidth,
         popoverContentSize,
-        maxPopupContentSize,
         clippedConstraints,
-        onPopupContentSizeChanged,
         onContentSizeChanged,
     )
 }
@@ -576,9 +564,7 @@ private class PopoverPositionProvider(
     private val clipHeight: Boolean,
     private val clipWidth: Boolean,
     private val popoverContentSize: () -> IntSize,
-    private val maxPopupContentSize: () -> IntSize,
     private val clippedConstraints: () -> IntSize?,
-    private val onPopupContentSizeChanged: (IntSize) -> Unit,
     private val onContentSizeChanged: (IntSize) -> Unit,
 ) : PopupPositionProvider {
 
@@ -589,6 +575,11 @@ private class PopoverPositionProvider(
         private set
     private var initialPositionState: InitialPositionState? = null
     private var lastPositionState: InitialPositionState? = null
+    private var maxPopupContentSize: IntSize = IntSize.Zero
+
+    fun resetContentSize() {
+        maxPopupContentSize = IntSize.Zero
+    }
 
     private fun reset() {
         innerPlacement = placement
@@ -649,13 +640,13 @@ private class PopoverPositionProvider(
             triggerInfo.positionInRoot
         }
         val measuredContentSize = popoverContentSize().takeIf { it != IntSize.Zero } ?: popupContentSize
+        maxPopupContentSize = maxPopupContentSize.maxOf(measuredContentSize)
         val clippedConstraints = clippedConstraints()
         val contentSize = measuredContentSize.withClippedAxes(
-            maxSize = maxPopupContentSize(),
+            maxSize = maxPopupContentSize,
             clippedConstraints = clippedConstraints,
             clipHeight = clipHeight,
         )
-        onPopupContentSizeChanged(measuredContentSize)
         val scaledTriggerSize = triggerSize.calculateScaledSize(triggerScaleFactor)
         val desiredPopupPosition = calculatePopupPosition(
             triggerPositionInRoot = triggerPositionInRoot,

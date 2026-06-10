@@ -114,7 +114,8 @@ object AutocompleteStory : ComposeBaseStory<AutocompleteUiState, AutocompleteSty
                         captionText = "Введите имя Алексей",
                         onValueChange = {
                             text = it
-                            showDropdown = AutocompleteSuggestions.filterSuggestions(it.text).isNotEmpty() || state.withEmptyState
+                            showDropdown = AutocompleteSuggestions.filterSuggestions(it.text).isNotEmpty() ||
+                                state.withEmptyState
                         },
                         endContent = {
                             Icon(
