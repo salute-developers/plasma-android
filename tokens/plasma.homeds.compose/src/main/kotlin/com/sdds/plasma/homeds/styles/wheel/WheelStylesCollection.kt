@@ -30,6 +30,11 @@ public enum class WheelStyles(
     WheelH1CenterAlign("Wheel.H1.CenterAlign"),
     WheelH1LeftAlign("Wheel.H1.LeftAlign"),
     WheelH1MixedAlign("Wheel.H1.MixedAlign"),
+    WheelH4("Wheel.H4"),
+    WheelH4RightAlign("Wheel.H4.RightAlign"),
+    WheelH4CenterAlign("Wheel.H4.CenterAlign"),
+    WheelH4LeftAlign("Wheel.H4.LeftAlign"),
+    WheelH4MixedAlign("Wheel.H4.MixedAlign"),
     ;
 
     /**
@@ -43,6 +48,7 @@ public enum class WheelStyles(
  */
 public enum class WheelSize {
     H1,
+    H4,
 }
 
 /**
@@ -66,6 +72,11 @@ public fun WheelStyles.style(modify: @Composable WheelStyleBuilder.() -> Unit = 
         WheelStyles.WheelH1CenterAlign -> Wheel.H1.CenterAlign
         WheelStyles.WheelH1LeftAlign -> Wheel.H1.LeftAlign
         WheelStyles.WheelH1MixedAlign -> Wheel.H1.MixedAlign
+        WheelStyles.WheelH4 -> Wheel.H4
+        WheelStyles.WheelH4RightAlign -> Wheel.H4.RightAlign
+        WheelStyles.WheelH4CenterAlign -> Wheel.H4.CenterAlign
+        WheelStyles.WheelH4LeftAlign -> Wheel.H4.LeftAlign
+        WheelStyles.WheelH4MixedAlign -> Wheel.H4.MixedAlign
     }
     return builder.modify(modify).style()
 }
@@ -74,15 +85,20 @@ public fun WheelStyles.style(modify: @Composable WheelStyleBuilder.() -> Unit = 
  * Возвращает экземпляр [WheelStyles] для wheel
  */
 public fun WheelStyles.Companion.resolve(
-    size: WheelSize = WheelSize.H1,
+    size: WheelSize = WheelSize.H4,
     alignment: WheelAlignment =
-        WheelAlignment.Left,
+        WheelAlignment.Center,
 ): WheelStyles = when {
     size == WheelSize.H1 && alignment == WheelAlignment.Right -> WheelStyles.WheelH1RightAlign
     size == WheelSize.H1 && alignment == WheelAlignment.Center -> WheelStyles.WheelH1CenterAlign
     size == WheelSize.H1 && alignment == WheelAlignment.Left -> WheelStyles.WheelH1LeftAlign
     size == WheelSize.H1 && alignment == WheelAlignment.Mixed -> WheelStyles.WheelH1MixedAlign
+    size == WheelSize.H4 && alignment == WheelAlignment.Right -> WheelStyles.WheelH4RightAlign
+    size == WheelSize.H4 && alignment == WheelAlignment.Center -> WheelStyles.WheelH4CenterAlign
+    size == WheelSize.H4 && alignment == WheelAlignment.Left -> WheelStyles.WheelH4LeftAlign
+    size == WheelSize.H4 && alignment == WheelAlignment.Mixed -> WheelStyles.WheelH4MixedAlign
     size == WheelSize.H1 -> WheelStyles.WheelH1
+    size == WheelSize.H4 -> WheelStyles.WheelH4
     else -> error("Unsupported wheel style combination")
 }
 
@@ -91,7 +107,7 @@ public fun WheelStyles.Companion.resolve(
  */
 @Composable
 public fun WheelStyles.Companion.style(
-    size: WheelSize = WheelSize.H1,
-    alignment: WheelAlignment = WheelAlignment.Left,
+    size: WheelSize = WheelSize.H4,
+    alignment: WheelAlignment = WheelAlignment.Center,
     modify: @Composable WheelStyleBuilder.() -> Unit = {},
 ): WheelStyle = resolve(size, alignment).style(modify)

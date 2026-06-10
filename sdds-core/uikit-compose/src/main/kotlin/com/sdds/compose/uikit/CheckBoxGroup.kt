@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import com.sdds.compose.uikit.interactions.getValue
 
 /**
  * Компонент [CheckBoxGroup]
@@ -28,16 +30,17 @@ fun CheckBoxGroup(
     content: CheckboxGroupScope.() -> Unit,
 ) {
     val scope = remember { CheckboxGroupScopeImpl() }
+    val interactionSource = remember { MutableInteractionSource() }
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(style.dimensions.itemSpacing),
+        verticalArrangement = Arrangement.spacedBy(style.dimensions.itemSpacingValues.getValue(interactionSource)),
     ) {
         CompositionLocalProvider(LocalCheckBoxStyle provides style.checkBoxStyle) {
             scope.content()
             val rootCheckBoxContent = scope.rootCheckbox
             val childModifier = if (rootCheckBoxContent != null) {
                 CheckBoxGroupItemScopeImpl.rootCheckBoxContent()
-                Modifier.padding(start = style.dimensions.itemOffset)
+                Modifier.padding(start = style.dimensions.itemOffsetValues.getValue(interactionSource))
             } else {
                 Modifier
             }

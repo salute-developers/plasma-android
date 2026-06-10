@@ -73,6 +73,8 @@ public val TabBarItem.Default: WrapperTabBarItemDefault
             paddingBottom(5.0.dp)
             iconSize(24.0.dp)
             minHeight(48.0.dp)
+            extraOffsetX(12.0.dp)
+            extraOffsetY(-2.0.dp)
         }
         .indicatorStyle(Indicator.StateDanger.style())
         .counterStyle(TabBarCounter.Default.style())

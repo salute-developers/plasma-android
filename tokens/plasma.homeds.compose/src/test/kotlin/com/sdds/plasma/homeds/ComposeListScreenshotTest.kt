@@ -6,10 +6,14 @@ import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.testcases.ListAmountThreeHasDisclosure
 import com.sdds.compose.uikit.fixtures.testcases.ListAmountThreeNoDisclosure
 import com.sdds.compose.uikit.fixtures.testcases.ListAmountTwenty
+import com.sdds.compose.uikit.fixtures.testcases.ListColorIconText
+import com.sdds.compose.uikit.fixtures.testcases.ListLongTitleContentCounter
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.list.HasBackground
 import com.sdds.plasma.homeds.styles.list.HasItemBackground
 import com.sdds.plasma.homeds.styles.list.List
+import com.sdds.plasma.homeds.styles.list.ListNumbered
+import com.sdds.plasma.homeds.styles.list.M
 import com.sdds.plasma.homeds.styles.list.NoBackground
 import com.sdds.plasma.homeds.styles.list.S
 import org.junit.Test
@@ -64,6 +68,20 @@ class ComposeListScreenshotTest(
     fun testListSHasBackground() {
         composeTestRule.content {
             ListAmountThreeHasDisclosure(List.S.HasBackground.style())
+        }
+    }
+
+    @Test
+    fun testListIconTextColor() {
+        composeTestRule.content {
+            ListColorIconText(List.M.NoBackground.style())
+        }
+    }
+
+    @Test
+    fun testListMNumbered() {
+        composeTestRule.content {
+            ListLongTitleContentCounter(ListNumbered.M.style())
         }
     }
 }

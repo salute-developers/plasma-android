@@ -58,6 +58,7 @@ data class ComponentKey(
 
         val Avatar = ComponentKey(CoreComponentName.AVATAR)
         val AvatarGroup = ComponentKey(CoreComponentName.AVATAR_GROUP)
+        val AiAnswer = ComponentKey(CoreComponentName.AI_ANSWER)
 
         val Badge = ComponentKey(CoreComponentName.BADGE)
         val IconBadge = ComponentKey(CoreComponentName.ICON_BADGE)
@@ -92,6 +93,7 @@ data class ComponentKey(
 
         val Segment = ComponentKey(CoreComponentName.SEGMENT)
         val SegmentItem = ComponentKey(CoreComponentName.SEGMENT_ITEM)
+        val ComboBox = ComponentKey(CoreComponentName.COMBO_BOX)
         val Select = ComponentKey(CoreComponentName.SELECT)
         val SelectItem = ComponentKey(CoreComponentName.SELECT_ITEM)
 
@@ -144,6 +146,8 @@ data class ComponentKey(
         val File = ComponentKey(CoreComponentName.FILE)
         val FormItem = ComponentKey(CoreComponentName.FORM_ITEM)
         val Editable = ComponentKey(CoreComponentName.EDITABLE)
+        val DropZone = ComponentKey(CoreComponentName.DROP_ZONE)
+        val AiHeader = ComponentKey(CoreComponentName.AI_HEADER)
     }
 }
 
@@ -153,9 +157,13 @@ private enum class CoreComponentGroup(val displayName: String) {
     NAVIGATION("Navigation"),
     OVERLAY("Overlay"),
     LAYOUT("Layout"),
+
+    AI_KIT("AI Kit"),
 }
 
 private enum class CoreComponentName(displayName: String? = null) {
+    AI_ANSWER,
+
     AVATAR,
     AVATAR_GROUP,
 
@@ -198,6 +206,7 @@ private enum class CoreComponentName(displayName: String? = null) {
 
     SEGMENT,
     SEGMENT_ITEM,
+    COMBO_BOX,
     SELECT,
     SELECT_ITEM,
 
@@ -249,6 +258,8 @@ private enum class CoreComponentName(displayName: String? = null) {
     FILE,
     FORM_ITEM,
     EDITABLE,
+    AI_HEADER,
+    DROP_ZONE,
     ;
 
     val displayName: String = displayName ?: this.name
@@ -309,6 +320,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.TEXT_AREA,
         CoreComponentName.SEGMENT,
         CoreComponentName.SEGMENT_ITEM,
+        CoreComponentName.COMBO_BOX,
         CoreComponentName.SELECT,
         CoreComponentName.SELECT_ITEM,
         CoreComponentName.SWITCH,
@@ -319,6 +331,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.FILE,
         CoreComponentName.FORM_ITEM,
         CoreComponentName.EDITABLE,
+        CoreComponentName.DROP_ZONE,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponentName.DROPDOWN_MENU,
@@ -351,5 +364,8 @@ private fun CoreComponentName.group(): ComponentGroup {
         -> CoreComponentGroup.NAVIGATION
 
         CoreComponentName.FLOW -> CoreComponentGroup.LAYOUT
+        CoreComponentName.AI_HEADER,
+        CoreComponentName.AI_ANSWER,
+        -> CoreComponentGroup.AI_KIT
     }.let { ComponentGroup(it.displayName, it.ordinal) }
 }

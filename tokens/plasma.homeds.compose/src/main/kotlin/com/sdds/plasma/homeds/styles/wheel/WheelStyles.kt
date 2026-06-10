@@ -8,12 +8,15 @@
 package com.sdds.plasma.homeds.styles.wheel
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.TextAfterMode
 import com.sdds.compose.uikit.WheelAlignment
 import com.sdds.compose.uikit.WheelStyle
 import com.sdds.compose.uikit.WheelStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -69,6 +72,46 @@ public value class WrapperWheelH1MixedAlign(
     public override val builder: WheelStyleBuilder,
 ) : WrapperWheel
 
+/**
+ * Обертка для вариации H4
+ */
+@JvmInline
+public value class WrapperWheelH4(
+    public override val builder: WheelStyleBuilder,
+) : WrapperWheel
+
+/**
+ * Обертка для вариации H4RightAlign
+ */
+@JvmInline
+public value class WrapperWheelH4RightAlign(
+    public override val builder: WheelStyleBuilder,
+) : WrapperWheel
+
+/**
+ * Обертка для вариации H4CenterAlign
+ */
+@JvmInline
+public value class WrapperWheelH4CenterAlign(
+    public override val builder: WheelStyleBuilder,
+) : WrapperWheel
+
+/**
+ * Обертка для вариации H4LeftAlign
+ */
+@JvmInline
+public value class WrapperWheelH4LeftAlign(
+    public override val builder: WheelStyleBuilder,
+) : WrapperWheel
+
+/**
+ * Обертка для вариации H4MixedAlign
+ */
+@JvmInline
+public value class WrapperWheelH4MixedAlign(
+    public override val builder: WheelStyleBuilder,
+) : WrapperWheel
+
 private val WheelStyleBuilder.invariantProps: WheelStyleBuilder
     @Composable
     get() = this
@@ -80,9 +123,6 @@ private val WheelStyleBuilder.invariantProps: WheelStyleBuilder
         .colors {
             itemTextColor(
                 PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            itemTextAfterColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
             descriptionColor(
                 PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -112,6 +152,11 @@ public val Wheel.H1: WrapperWheelH1
         .itemTextStyle(PlasmaHomeDsTheme.typography.headerH1Bold)
         .itemTextAfterStyle(PlasmaHomeDsTheme.typography.headerH1Bold)
         .descriptionStyle(PlasmaHomeDsTheme.typography.bodySBold)
+        .colors {
+            itemTextAfterColor(
+                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+        }
         .dimensions {
             itemTextAfterPadding(2.0.dp)
             descriptionPadding(8.0.dp)
@@ -147,3 +192,62 @@ public val WrapperWheelH1.MixedAlign: WrapperWheelH1MixedAlign
     get() = builder
         .itemAlignment(WheelAlignment.Mixed)
         .wrap(::WrapperWheelH1MixedAlign)
+
+public val Wheel.H4: WrapperWheelH4
+    @Composable
+    @JvmName("WrapperWheelH4")
+    get() = WheelStyle.builder(this)
+        .invariantProps
+        .itemTextStyle(PlasmaHomeDsTheme.typography.headerH4Bold)
+        .itemTextAfterStyle(PlasmaHomeDsTheme.typography.headerH4Bold)
+        .descriptionStyle(PlasmaHomeDsTheme.typography.bodySBold)
+        .textAfterMode(TextAfterMode.Static)
+        .itemSelectorEnabled(true)
+        .itemSelectorShape(PlasmaHomeDsTheme.shapes.roundXl)
+        .colors {
+            itemTextAfterColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            itemSelectorColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue(),
+            )
+        }
+        .dimensions {
+            itemTextAfterPadding(2.0.dp)
+            descriptionPadding(6.0.dp)
+            separatorSpacing(24.0.dp)
+            itemMinSpacing(32.0.dp)
+            itemSelectorPaddingTop(16.0.dp)
+            itemSelectorPaddingBottom(16.0.dp)
+            itemSelectorPaddingStart(0.0.dp)
+            itemSelectorPaddingEnd(0.0.dp)
+        }
+        .wrap(::WrapperWheelH4)
+
+public val WrapperWheelH4.RightAlign: WrapperWheelH4RightAlign
+    @Composable
+    @JvmName("WrapperWheelH4RightAlign")
+    get() = builder
+        .itemAlignment(WheelAlignment.End)
+        .wrap(::WrapperWheelH4RightAlign)
+
+public val WrapperWheelH4.CenterAlign: WrapperWheelH4CenterAlign
+    @Composable
+    @JvmName("WrapperWheelH4CenterAlign")
+    get() = builder
+        .itemAlignment(WheelAlignment.Center)
+        .wrap(::WrapperWheelH4CenterAlign)
+
+public val WrapperWheelH4.LeftAlign: WrapperWheelH4LeftAlign
+    @Composable
+    @JvmName("WrapperWheelH4LeftAlign")
+    get() = builder
+        .itemAlignment(WheelAlignment.Start)
+        .wrap(::WrapperWheelH4LeftAlign)
+
+public val WrapperWheelH4.MixedAlign: WrapperWheelH4MixedAlign
+    @Composable
+    @JvmName("WrapperWheelH4MixedAlign")
+    get() = builder
+        .itemAlignment(WheelAlignment.Mixed)
+        .wrap(::WrapperWheelH4MixedAlign)

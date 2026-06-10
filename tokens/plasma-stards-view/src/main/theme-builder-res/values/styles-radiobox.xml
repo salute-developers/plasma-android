@@ -14,8 +14,8 @@
     </style>
     <style name="Sdkit.StarDs.Components.RadioBox.L">
         <item name="sd_toggleBorderWidth">@xml/sdkit_radio_box_l_toggle_border_width</item>
-        <item name="sd_toggleIconWidth">@dimen/sdkit_radio_box_l_toggle_icon_width</item>
-        <item name="sd_toggleIconHeight">@dimen/sdkit_radio_box_l_toggle_icon_height</item>
+        <item name="sd_toggleIconWidth">@xml/sdkit_radio_box_l_toggle_icon_width</item>
+        <item name="sd_toggleIconHeight">@xml/sdkit_radio_box_l_toggle_icon_height</item>
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
         <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
         <item name="sd_buttonPadding">@dimen/sdkit_radio_box_l_button_padding</item>
@@ -29,8 +29,8 @@
     </style>
     <style name="Sdkit.StarDs.Components.RadioBox.M">
         <item name="sd_toggleBorderWidth">@xml/sdkit_radio_box_m_toggle_border_width</item>
-        <item name="sd_toggleIconWidth">@dimen/sdkit_radio_box_m_toggle_icon_width</item>
-        <item name="sd_toggleIconHeight">@dimen/sdkit_radio_box_m_toggle_icon_height</item>
+        <item name="sd_toggleIconWidth">@xml/sdkit_radio_box_m_toggle_icon_width</item>
+        <item name="sd_toggleIconHeight">@xml/sdkit_radio_box_m_toggle_icon_height</item>
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
         <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
         <item name="sd_buttonPadding">@dimen/sdkit_radio_box_m_button_padding</item>
@@ -44,8 +44,8 @@
     </style>
     <style name="Sdkit.StarDs.Components.RadioBox.S">
         <item name="sd_toggleBorderWidth">@xml/sdkit_radio_box_s_toggle_border_width</item>
-        <item name="sd_toggleIconWidth">@dimen/sdkit_radio_box_s_toggle_icon_width</item>
-        <item name="sd_toggleIconHeight">@dimen/sdkit_radio_box_s_toggle_icon_height</item>
+        <item name="sd_toggleIconWidth">@xml/sdkit_radio_box_s_toggle_icon_width</item>
+        <item name="sd_toggleIconHeight">@xml/sdkit_radio_box_s_toggle_icon_height</item>
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
         <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
         <item name="sd_buttonPadding">@dimen/sdkit_radio_box_s_button_padding</item>

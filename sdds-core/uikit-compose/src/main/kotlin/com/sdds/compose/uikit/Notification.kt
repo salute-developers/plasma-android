@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.tooling.preview.Preview
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.shadow.shadow
 
@@ -67,7 +68,7 @@ fun Notification(
                     .align(style.closeAlignment.alignment)
                     .clickable(
                         interactionSource = closeInteractionSource,
-                        indication = null,
+                        indication = LocalIndication.current,
                     ) { onClose?.invoke() },
                 painter = closeIcon,
                 contentDescription = "",

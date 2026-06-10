@@ -1,5 +1,6 @@
 package com.sdds.playground.integrationtest.scenarios.catalog
 
+import FocusSelectorScaleScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.focus.FocusSelectorScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.login.LoginFormScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.popup.ModalScenarioScreen
@@ -8,6 +9,14 @@ import com.sdds.playground.integrationtest.scenarios.popup.TooltipScenarioScreen
 
 internal object IntegrationScenarioRegistry {
     val scenarios: List<IntegrationScenario> = listOf(
+        IntegrationScenario(
+            id = "focus-scale-tabs",
+            title = "Фокус-scale",
+            description = "Чипы и текстовое поле могут получать scale и сбрасывать состояние " +
+                "focus scale на изолированных вкладках.",
+            category = ScenarioCategory.Input,
+            screen = { FocusSelectorScaleScenarioScreen() },
+        ),
         IntegrationScenario(
             id = "focus-selector-tabs",
             title = "Фокус-селектор",

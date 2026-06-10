@@ -12,12 +12,12 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.DropdownProperties.Height
 import com.sdds.compose.uikit.DropdownProperties.Width
+import com.sdds.compose.uikit.internal.toDp
 
 /**
  * Поле ввода с возможностью подстановки значения из предварительно заполненного выпадающего списка по мере ввода данных
@@ -136,12 +136,5 @@ data class DropdownProperties(
          * Ширина [DropdownMenu] имеет определенное значение [width]
          */
         data class Exactly(val width: Dp = 240.dp) : Width()
-    }
-}
-
-@Composable
-private fun Int.toDp(): Dp {
-    return with(LocalDensity.current) {
-        this@toDp.toDp()
     }
 }

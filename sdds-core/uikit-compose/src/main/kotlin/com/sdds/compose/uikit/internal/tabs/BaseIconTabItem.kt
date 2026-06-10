@@ -20,7 +20,9 @@ import com.sdds.compose.uikit.LocalIconDefaultSize
 import com.sdds.compose.uikit.LocalTabItemStyle
 import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.TabItemStyle
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.motion.Motion
@@ -48,7 +50,7 @@ internal fun BaseIconTabItem(
     val clickableModifier = if (enabled && onClick != null) {
         Modifier.clickable(
             interactionSource = motion.context.interactionSource,
-            indication = null,
+            indication = LocalIndication.current.maybeShapeable(style.shape),
             onClickLabel = onClickLabel,
             role = Role.Tab,
             onClick = onClick,

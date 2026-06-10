@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.BaseButton
 import com.sdds.compose.uikit.internal.ButtonIcon
@@ -55,7 +56,7 @@ fun IconButton(
     style: ButtonStyle = LocalIconButtonStyle.current,
     enabled: Boolean = true,
     loading: Boolean = false,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClickLabel: String? = null,
     onClick: () -> Unit,
@@ -103,7 +104,7 @@ fun IconButton(
     style: ButtonStyle = LocalIconButtonStyle.current,
     enabled: Boolean = true,
     loading: Boolean = false,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     onClickLabel: String? = null,
     onClick: () -> Unit,
 ) {
@@ -154,7 +155,7 @@ fun IconButton(
     style: ButtonStyle = LocalIconButtonStyle.current,
     enabled: Boolean = true,
     loading: Boolean = false,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClickLabel: String? = null,
     motion: Motion<IconButtonMotionStyle> = rememberIconButtonMotion(
@@ -208,7 +209,7 @@ fun LinkButton(
     icons: ButtonIcons? = null,
     enabled: Boolean = true,
     loading: Boolean = false,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClick: () -> Unit,
     onClickLabel: String? = null,
@@ -256,7 +257,7 @@ fun IconButton(
     style: ButtonStyle = LocalIconButtonStyle.current,
     enabled: Boolean = true,
     loading: Boolean = false,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClickLabel: String? = null,
 ) {
@@ -299,7 +300,7 @@ fun IconButton(
     style: ButtonStyle = LocalIconButtonStyle.current,
     enabled: Boolean = true,
     loading: Boolean = false,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     iconContentDescription: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClickLabel: String? = null,
@@ -358,7 +359,7 @@ fun Button(
     icons: ButtonIcons? = null,
     enabled: Boolean = true,
     loading: Boolean = false,
-    indication: Indication? = null,
+    indication: Indication? = LocalIndication.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClickLabel: String? = null,
     motion: Motion<ButtonMotionStyle> = rememberButtonMotion(

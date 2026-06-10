@@ -1,0 +1,200 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
+package com.sdkit.star.designsystem.styles.cell
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.dimensionResource
+import com.sdds.compose.uikit.CellStyle
+import com.sdds.compose.uikit.CellStyleBuilder
+import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.style
+import com.sdds.compose.uikit.style.wrap
+import com.sdkit.star.designsystem.compose.R
+import com.sdkit.star.designsystem.styles.avatar.Avatar
+import com.sdkit.star.designsystem.styles.avatar.L
+import com.sdkit.star.designsystem.styles.avatar.M
+import com.sdkit.star.designsystem.styles.avatar.S
+import com.sdkit.star.designsystem.styles.checkbox.CheckBox
+import com.sdkit.star.designsystem.styles.checkbox.Default
+import com.sdkit.star.designsystem.styles.checkbox.M
+import com.sdkit.star.designsystem.styles.checkbox.S
+import com.sdkit.star.designsystem.styles.iconbutton.IconButton
+import com.sdkit.star.designsystem.styles.iconbutton.L
+import com.sdkit.star.designsystem.styles.iconbutton.M
+import com.sdkit.star.designsystem.styles.iconbutton.S
+import com.sdkit.star.designsystem.styles.iconbutton.Xs
+import com.sdkit.star.designsystem.styles.radiobox.M
+import com.sdkit.star.designsystem.styles.radiobox.RadioBox
+import com.sdkit.star.designsystem.styles.radiobox.S
+import com.sdkit.star.designsystem.styles.switcher.L
+import com.sdkit.star.designsystem.styles.switcher.M
+import com.sdkit.star.designsystem.styles.switcher.S
+import com.sdkit.star.designsystem.styles.switcher.Switch
+import com.sdkit.star.designsystem.theme.StarDsTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
+
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
+public interface WrapperCellSelect : BuilderWrapper<CellStyle, CellStyleBuilder>
+
+/**
+ * Обертка для вариации L
+ */
+@JvmInline
+public value class WrapperCellSelectL(
+    public override val builder: CellStyleBuilder,
+) : WrapperCellSelect
+
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperCellSelectM(
+    public override val builder: CellStyleBuilder,
+) : WrapperCellSelect
+
+/**
+ * Обертка для вариации S
+ */
+@JvmInline
+public value class WrapperCellSelectS(
+    public override val builder: CellStyleBuilder,
+) : WrapperCellSelect
+
+/**
+ * Обертка для вариации Xs
+ */
+@JvmInline
+public value class WrapperCellSelectXs(
+    public override val builder: CellStyleBuilder,
+) : WrapperCellSelect
+
+private val CellStyleBuilder.invariantProps: CellStyleBuilder
+    @Composable
+    get() = this
+        .colors {
+            labelColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInverseSecondary,
+                ),
+            )
+            titleColor(
+                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInversePrimary,
+                ),
+            )
+            subtitleColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInverseSecondary,
+                ),
+            )
+            disclosureTextColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInverseSecondary,
+                ),
+            )
+            disclosureIconColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInverseSecondary,
+                ),
+            )
+        }
+
+public val CellSelect.L: WrapperCellSelectL
+    @Composable
+    @JvmName("WrapperCellSelectL")
+    get() = CellStyle.builder(this)
+        .invariantProps
+        .labelStyle(StarDsTheme.typography.bodyMNormal)
+        .titleStyle(StarDsTheme.typography.bodyLNormal)
+        .subtitleStyle(StarDsTheme.typography.bodyMNormal)
+        .disclosureTextStyle(StarDsTheme.typography.bodyMNormal)
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .dimensions {
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_l))
+            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_l))
+        }
+        .avatarStyle(Avatar.L.style())
+        .iconButtonStyle(IconButton.L.style())
+        .checkBoxStyle(CheckBox.M.Default.style())
+        .radioBoxStyle(RadioBox.M.style())
+        .switchStyle(Switch.L.style())
+        .wrap(::WrapperCellSelectL)
+
+public val CellSelect.M: WrapperCellSelectM
+    @Composable
+    @JvmName("WrapperCellSelectM")
+    get() = CellStyle.builder(this)
+        .invariantProps
+        .labelStyle(StarDsTheme.typography.bodySNormal)
+        .titleStyle(StarDsTheme.typography.bodyMNormal)
+        .subtitleStyle(StarDsTheme.typography.bodySNormal)
+        .disclosureTextStyle(StarDsTheme.typography.bodySNormal)
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .dimensions {
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_m))
+            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_m))
+        }
+        .avatarStyle(Avatar.M.style())
+        .iconButtonStyle(IconButton.M.style())
+        .checkBoxStyle(CheckBox.M.Default.style())
+        .radioBoxStyle(RadioBox.M.style())
+        .switchStyle(Switch.M.style())
+        .wrap(::WrapperCellSelectM)
+
+public val CellSelect.S: WrapperCellSelectS
+    @Composable
+    @JvmName("WrapperCellSelectS")
+    get() = CellStyle.builder(this)
+        .invariantProps
+        .labelStyle(StarDsTheme.typography.bodyXsNormal)
+        .titleStyle(StarDsTheme.typography.bodySNormal)
+        .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
+        .disclosureTextStyle(StarDsTheme.typography.bodyXsNormal)
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .dimensions {
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_s))
+            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_s))
+        }
+        .avatarStyle(Avatar.S.style())
+        .iconButtonStyle(IconButton.S.style())
+        .checkBoxStyle(CheckBox.S.Default.style())
+        .radioBoxStyle(RadioBox.S.style())
+        .switchStyle(Switch.S.style())
+        .wrap(::WrapperCellSelectS)
+
+public val CellSelect.Xs: WrapperCellSelectXs
+    @Composable
+    @JvmName("WrapperCellSelectXs")
+    get() = CellStyle.builder(this)
+        .invariantProps
+        .labelStyle(StarDsTheme.typography.bodyXsNormal)
+        .titleStyle(StarDsTheme.typography.bodyXsNormal)
+        .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
+        .disclosureTextStyle(StarDsTheme.typography.bodyXsNormal)
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .dimensions {
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_xs))
+            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_xs))
+        }
+        .avatarStyle(Avatar.S.style())
+        .iconButtonStyle(IconButton.Xs.style())
+        .checkBoxStyle(CheckBox.S.Default.style())
+        .radioBoxStyle(RadioBox.S.style())
+        .switchStyle(Switch.S.style())
+        .wrap(::WrapperCellSelectXs)

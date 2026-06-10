@@ -17,6 +17,8 @@ import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.popoverTrigger
 
 @Composable
@@ -47,7 +49,7 @@ internal fun TabItemDisclosure(
                 )
                 .clickable(
                     enabled = enabled,
-                    indication = null,
+                    indication = LocalIndication.current.maybeShapeable(style.tabItemStyle.shape),
                     interactionSource = interactionSource,
                 ) {
                     onClick.invoke()

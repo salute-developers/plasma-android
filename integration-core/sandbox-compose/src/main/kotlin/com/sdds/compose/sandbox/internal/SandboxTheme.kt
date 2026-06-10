@@ -27,6 +27,9 @@ import com.sdds.compose.sandbox.styles.iconbutton.Clear
 import com.sdds.compose.sandbox.styles.iconbutton.IconButton
 import com.sdds.compose.sandbox.styles.iconbutton.Pilled
 import com.sdds.compose.sandbox.styles.iconbutton.Xs
+import com.sdds.compose.sandbox.styles.spinner.Default
+import com.sdds.compose.sandbox.styles.spinner.Spinner
+import com.sdds.compose.sandbox.styles.spinner.Xs
 import com.sdds.compose.sandbox.styles.switcher.M
 import com.sdds.compose.sandbox.styles.switcher.S
 import com.sdds.compose.sandbox.styles.switcher.Switch
@@ -41,6 +44,7 @@ import com.sdds.compose.sandbox.theme.lightSddsSandboxColors
 import com.sdds.compose.sandbox.theme.lightSddsSandboxGradients
 import com.sdds.compose.uikit.LocalButtonStyle
 import com.sdds.compose.uikit.LocalDrawerStyle
+import com.sdds.compose.uikit.LocalSpinnerStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.interactions.InteractiveState
@@ -72,6 +76,7 @@ fun SandboxTheme(
             window.statusBarColor = Color.TRANSPARENT
             window.navigationBarColor = Color.TRANSPARENT
             window.decorView.setBackgroundColor(colorScheme.backgroundDefaultPrimary.toArgb())
+            WindowCompat.setDecorFitsSystemWindows(window, false)
             WindowCompat.getInsetsController(window, view).apply {
                 isAppearanceLightStatusBars = !darkTheme
                 isAppearanceLightNavigationBars = !darkTheme
@@ -92,6 +97,7 @@ fun SandboxTheme(
                 ),
                 LocalButtonStyle provides BasicButton.M.Default.style(),
                 LocalSwitchStyle provides Switch.S.style(),
+                LocalSpinnerStyle provides Spinner.Xs.Default.style(),
                 LocalSandboxStyle provides SandboxStyle.create(
                     drawerBackgroundColor = colorScheme.surfaceDefaultSolidSecondary,
                     sheetBackgroundColor = colorScheme.surfaceDefaultSolidCard,

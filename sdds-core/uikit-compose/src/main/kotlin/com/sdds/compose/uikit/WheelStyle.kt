@@ -4,12 +4,19 @@ import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -81,6 +88,21 @@ interface WheelStyle : Style {
      */
     val dividerStyle: DividerStyle
 
+    /**
+     * Режим отображения дополнительного текста
+     */
+    val textAfterMode: TextAfterMode
+
+    /**
+     * Включён ли индикатор выбранного элемента
+     */
+    val itemSelectorEnabled: Boolean
+
+    /**
+     * Форма индикатора выбранного элемента
+     */
+    val itemSelectorShape: StatefulValue<Shape>
+
     companion object {
         /**
          * Возвращает экземпляр [WheelStyleBuilder]
@@ -140,6 +162,26 @@ interface WheelStyleBuilder : StyleBuilder<WheelStyle> {
     fun dividerStyle(dividerStyle: DividerStyle): WheelStyleBuilder
 
     /**
+     * Устанавливает режим отображения дополнительного текста [textAfterMode]
+     */
+    fun textAfterMode(mode: TextAfterMode): WheelStyleBuilder
+
+    /**
+     * Включает или выключает индикатор выбранного элемента
+     */
+    fun itemSelectorEnabled(enabled: Boolean): WheelStyleBuilder
+
+    /**
+     * Устанавливает форму индикатора выбранного элемента
+     */
+    fun itemSelectorShape(shape: StatefulValue<Shape>): WheelStyleBuilder
+
+    /**
+     * Устанавливает форму индикатора выбранного элемента
+     */
+    fun itemSelectorShape(shape: Shape): WheelStyleBuilder = itemSelectorShape(shape.asStatefulValue())
+
+    /**
      * Устанавливает цвета компонента при помощи [builder].
      */
     @Composable
@@ -164,6 +206,9 @@ private class DefaultWheelStyle(
     override val controlIconUp: Int?,
     override val controlIconDown: Int?,
     override val dividerStyle: DividerStyle,
+    override val textAfterMode: TextAfterMode,
+    override val itemSelectorEnabled: Boolean,
+    override val itemSelectorShape: StatefulValue<Shape>,
 ) : WheelStyle {
 
     class Builder : WheelStyleBuilder {
@@ -178,6 +223,9 @@ private class DefaultWheelStyle(
         private var controlIconUp: Int? = null
         private var controlIconDown: Int? = null
         private var dividerStyle: DividerStyle? = null
+        private var textAfterMode: TextAfterMode? = null
+        private var itemSelectorEnabled: Boolean? = null
+        private var itemSelectorShape: StatefulValue<Shape>? = null
 
         override fun itemTextStyle(itemTextStyle: TextStyle) = apply {
             this.itemTextStyle = itemTextStyle
@@ -215,6 +263,18 @@ private class DefaultWheelStyle(
             this.dividerStyle = dividerStyle
         }
 
+        override fun textAfterMode(mode: TextAfterMode) = apply {
+            this.textAfterMode = mode
+        }
+
+        override fun itemSelectorEnabled(enabled: Boolean) = apply {
+            this.itemSelectorEnabled = enabled
+        }
+
+        override fun itemSelectorShape(shape: StatefulValue<Shape>) = apply {
+            this.itemSelectorShape = shape
+        }
+
         @Composable
         override fun colors(builder: @Composable (WheelColorsBuilder.() -> Unit)) = apply {
             this.colorsBuilder.builder()
@@ -239,6 +299,9 @@ private class DefaultWheelStyle(
                 controlIconUp = controlIconUp,
                 controlIconDown = controlIconDown,
                 dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
+                textAfterMode = textAfterMode ?: TextAfterMode.EachItem,
+                itemSelectorEnabled = itemSelectorEnabled ?: false,
+                itemSelectorShape = itemSelectorShape ?: RectangleShape.asStatefulValue(),
             )
         }
     }
@@ -279,6 +342,11 @@ interface WheelColors {
      * Цвет разделителя
      */
     val separatorColor: InteractiveColor
+
+    /**
+     * Кисть индикатора выбранного элемента
+     */
+    val itemSelectorBrush: StatefulValue<Brush>
 
     companion object {
 
@@ -360,6 +428,29 @@ interface WheelColorsBuilder {
     fun separatorColor(separatorColor: InteractiveColor): WheelColorsBuilder
 
     /**
+     * Устанавливает кисть индикатора выбранного элемента [itemSelectorBrush].
+     */
+    fun itemSelectorColor(brush: StatefulValue<Brush>): WheelColorsBuilder
+
+    /**
+     * Устанавливает кисть индикатора выбранного элемента [itemSelectorBrush].
+     */
+    fun itemSelectorColor(brush: Brush): WheelColorsBuilder =
+        itemSelectorColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисть индикатора выбранного элемента [itemSelectorBrush].
+     */
+    fun itemSelectorColor(color: Color): WheelColorsBuilder =
+        itemSelectorColor(color.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть индикатора выбранного элемента [itemSelectorBrush].
+     */
+    fun itemSelectorColor(color: InteractiveColor): WheelColorsBuilder =
+        itemSelectorColor(color.asStatefulBrush())
+
+    /**
      * Создает экземпляр [WheelColors]
      */
     fun build(): WheelColors
@@ -373,6 +464,7 @@ private data class DefaultWheelColors(
     override val controlIconUpColor: InteractiveColor,
     override val controlIconDownColor: InteractiveColor,
     override val separatorColor: InteractiveColor,
+    override val itemSelectorBrush: StatefulValue<Brush>,
 ) : WheelColors {
 
     class Builder : WheelColorsBuilder {
@@ -382,6 +474,7 @@ private data class DefaultWheelColors(
         private var controlIconUpColor: InteractiveColor? = null
         private var controlIconDownColor: InteractiveColor? = null
         private var separatorColor: InteractiveColor? = null
+        private var itemSelectorBrush: StatefulValue<Brush>? = null
 
         override fun itemTextColor(itemTextColor: InteractiveColor) = apply {
             this.itemTextColor = itemTextColor
@@ -407,6 +500,10 @@ private data class DefaultWheelColors(
             this.separatorColor = separatorColor
         }
 
+        override fun itemSelectorColor(brush: StatefulValue<Brush>) = apply {
+            this.itemSelectorBrush = brush
+        }
+
         override fun build(): WheelColors {
             return DefaultWheelColors(
                 itemTextColor = itemTextColor ?: Color.Black.asInteractive(),
@@ -415,6 +512,7 @@ private data class DefaultWheelColors(
                 controlIconUpColor = controlIconUpColor ?: Color.DarkGray.asInteractive(),
                 controlIconDownColor = controlIconDownColor ?: Color.DarkGray.asInteractive(),
                 separatorColor = separatorColor ?: Color.Black.asInteractive(),
+                itemSelectorBrush = itemSelectorBrush ?: Color.Transparent.asStatefulBrush(),
             )
         }
     }
@@ -445,6 +543,26 @@ interface WheelDimensions {
      * Расстояние между элементами в колесе
      */
     val itemMinSpacing: Dp
+
+    /**
+     * Верхний отступ индикатора выбранного элемента
+     */
+    val itemSelectorPaddingTop: StatefulValue<Dp>
+
+    /**
+     * Нижний отступ индикатора выбранного элемента
+     */
+    val itemSelectorPaddingBottom: StatefulValue<Dp>
+
+    /**
+     * Начальный отступ индикатора выбранного элемента
+     */
+    val itemSelectorPaddingStart: StatefulValue<Dp>
+
+    /**
+     * Конечный отступ индикатора выбранного элемента
+     */
+    val itemSelectorPaddingEnd: StatefulValue<Dp>
 
     companion object {
         /**
@@ -479,6 +597,50 @@ interface WheelDimensionsBuilder {
     fun itemMinSpacing(itemMinSpacing: Dp): WheelDimensionsBuilder
 
     /**
+     * Устанавливает верхний отступ индикатора выбранного элемента
+     */
+    fun itemSelectorPaddingTop(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+
+    /**
+     * Устанавливает верхний отступ индикатора выбранного элемента
+     */
+    fun itemSelectorPaddingTop(padding: Dp): WheelDimensionsBuilder =
+        itemSelectorPaddingTop(padding.asStatefulValue())
+
+    /**
+     * Устанавливает нижний отступ индикатора выбранного элемента
+     */
+    fun itemSelectorPaddingBottom(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+
+    /**
+     * Устанавливает нижний отступ индикатора выбранного элемента
+     */
+    fun itemSelectorPaddingBottom(padding: Dp): WheelDimensionsBuilder =
+        itemSelectorPaddingBottom(padding.asStatefulValue())
+
+    /**
+     * Устанавливает начальный отступ индикатора выбранного элемента
+     */
+    fun itemSelectorPaddingStart(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+
+    /**
+     * Устанавливает начальный отступ индикатора выбранного элемента
+     */
+    fun itemSelectorPaddingStart(padding: Dp): WheelDimensionsBuilder =
+        itemSelectorPaddingStart(padding.asStatefulValue())
+
+    /**
+     * Устанавливает конечный отступ индикатора выбранного элемента
+     */
+    fun itemSelectorPaddingEnd(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+
+    /**
+     * Устанавливает конечный отступ индикатора выбранного элемента
+     */
+    fun itemSelectorPaddingEnd(padding: Dp): WheelDimensionsBuilder =
+        itemSelectorPaddingEnd(padding.asStatefulValue())
+
+    /**
      * Создает экземпляр [WheelDimensions]
      */
     fun build(): WheelDimensions
@@ -489,6 +651,10 @@ private class DefaultWheelDimensions(
     override val descriptionPadding: Dp,
     override val separatorSpacing: Dp,
     override val itemMinSpacing: Dp,
+    override val itemSelectorPaddingTop: StatefulValue<Dp>,
+    override val itemSelectorPaddingBottom: StatefulValue<Dp>,
+    override val itemSelectorPaddingStart: StatefulValue<Dp>,
+    override val itemSelectorPaddingEnd: StatefulValue<Dp>,
 ) : WheelDimensions {
 
     class Builder : WheelDimensionsBuilder {
@@ -497,6 +663,10 @@ private class DefaultWheelDimensions(
         private var descriptionPadding: Dp? = null
         private var separatorSpacing: Dp? = null
         private var itemMinSpacing: Dp? = null
+        private var itemSelectorPaddingTop: StatefulValue<Dp>? = null
+        private var itemSelectorPaddingBottom: StatefulValue<Dp>? = null
+        private var itemSelectorPaddingStart: StatefulValue<Dp>? = null
+        private var itemSelectorPaddingEnd: StatefulValue<Dp>? = null
 
         override fun itemTextAfterPadding(itemTextAfterPadding: Dp) = apply {
             this.itemTextAfterPadding = itemTextAfterPadding
@@ -514,12 +684,33 @@ private class DefaultWheelDimensions(
             this.itemMinSpacing = itemMinSpacing
         }
 
+        override fun itemSelectorPaddingTop(padding: StatefulValue<Dp>) = apply {
+            this.itemSelectorPaddingTop = padding
+        }
+
+        override fun itemSelectorPaddingBottom(padding: StatefulValue<Dp>) = apply {
+            this.itemSelectorPaddingBottom = padding
+        }
+
+        override fun itemSelectorPaddingStart(padding: StatefulValue<Dp>) = apply {
+            this.itemSelectorPaddingStart = padding
+        }
+
+        override fun itemSelectorPaddingEnd(padding: StatefulValue<Dp>) = apply {
+            this.itemSelectorPaddingEnd = padding
+        }
+
         override fun build(): WheelDimensions {
+            val zeroPadding = 0.dp.asStatefulValue()
             return DefaultWheelDimensions(
                 itemTextAfterPadding = itemTextAfterPadding ?: 2.dp,
                 descriptionPadding = descriptionPadding ?: 2.dp,
                 separatorSpacing = separatorSpacing ?: 20.dp,
                 itemMinSpacing = itemMinSpacing ?: 4.dp,
+                itemSelectorPaddingTop = itemSelectorPaddingTop ?: zeroPadding,
+                itemSelectorPaddingBottom = itemSelectorPaddingBottom ?: zeroPadding,
+                itemSelectorPaddingStart = itemSelectorPaddingStart ?: zeroPadding,
+                itemSelectorPaddingEnd = itemSelectorPaddingEnd ?: zeroPadding,
             )
         }
     }

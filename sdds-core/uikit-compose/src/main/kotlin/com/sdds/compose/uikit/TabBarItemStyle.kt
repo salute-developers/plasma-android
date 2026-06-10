@@ -5,13 +5,19 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -30,7 +36,13 @@ interface TabBarItemStyle : Style {
     /**
      * Стиль лэйбла
      */
+    @Deprecated("Use labelStyleValue instead")
     val labelStyle: TextStyle
+
+    /**
+     * Стиль лэйбла с поддержкой состояний
+     */
+    val labelStyleValue: StatefulValue<TextStyle>
 
     /**
      * Размещение лэйбла
@@ -40,7 +52,13 @@ interface TabBarItemStyle : Style {
     /**
      * Форма компонента
      */
+    @Deprecated("Use shapeValue instead")
     val shape: Shape
+
+    /**
+     * Форма компонента с поддержкой состояний
+     */
+    val shapeValue: StatefulValue<Shape>
 
     /**
      * Цвета компонента
@@ -83,12 +101,22 @@ interface TabBarItemStyleBuilder : StyleBuilder<TabBarItemStyle> {
     /**
      * Устанавливает форму [shape]
      */
-    fun shape(shape: Shape): TabBarItemStyleBuilder
+    fun shape(shape: StatefulValue<Shape>): TabBarItemStyleBuilder
+
+    /**
+     * Устанавливает форму [shape]
+     */
+    fun shape(shape: Shape): TabBarItemStyleBuilder = shape(shape.asStatefulValue())
 
     /**
      * Устанавливает стиль текста лэйбла [labelStyle]
      */
-    fun labelStyle(labelStyle: TextStyle): TabBarItemStyleBuilder
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): TabBarItemStyleBuilder
+
+    /**
+     * Устанавливает стиль текста лэйбла [labelStyle]
+     */
+    fun labelStyle(labelStyle: TextStyle): TabBarItemStyleBuilder = labelStyle(labelStyle.asStatefulValue())
 
     /**
      * Устанавливает размещение лэйбла [labelPlacement]
@@ -124,8 +152,8 @@ interface TabBarItemStyleBuilder : StyleBuilder<TabBarItemStyle> {
 }
 
 private data class DefaultTabBarItemStyle(
-    override val labelStyle: TextStyle,
-    override val shape: Shape,
+    override val labelStyleValue: StatefulValue<TextStyle>,
+    override val shapeValue: StatefulValue<Shape>,
     override val colors: TabBarItemColors,
     override val dimensions: TabBarItemDimensions,
     override val counterStyle: CounterStyle,
@@ -133,9 +161,15 @@ private data class DefaultTabBarItemStyle(
     override val indicatorStyle: IndicatorStyle,
     override val labelPlacement: TabBarLabelPlacement,
 ) : TabBarItemStyle {
+    @Deprecated("Use labelStyleValue instead")
+    override val labelStyle: TextStyle = labelStyleValue.getDefaultValue()
+
+    @Deprecated("Use shapeValue instead")
+    override val shape: Shape = shapeValue.getDefaultValue()
+
     class Builder : TabBarItemStyleBuilder {
-        private var labelStyle: TextStyle? = null
-        private var shape: Shape? = null
+        private var labelStyle: StatefulValue<TextStyle>? = null
+        private var shape: StatefulValue<Shape>? = null
         private val colorsBuilder: TabBarItemColorsBuilder = TabBarItemColors.builder()
         private val dimensionsBuilder: TabBarItemDimensionsBuilder = TabBarItemDimensions.builder()
         private var counterStyle: CounterStyle? = null
@@ -143,9 +177,9 @@ private data class DefaultTabBarItemStyle(
         private var indicatorStyle: IndicatorStyle? = null
         private var labelPlacement: TabBarLabelPlacement? = null
 
-        override fun shape(shape: Shape): TabBarItemStyleBuilder = apply { this.shape = shape }
+        override fun shape(shape: StatefulValue<Shape>): TabBarItemStyleBuilder = apply { this.shape = shape }
 
-        override fun labelStyle(labelStyle: TextStyle): TabBarItemStyleBuilder = apply {
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>): TabBarItemStyleBuilder = apply {
             this.labelStyle = labelStyle
         }
 
@@ -174,8 +208,8 @@ private data class DefaultTabBarItemStyle(
         }
 
         override fun style(): TabBarItemStyle = DefaultTabBarItemStyle(
-            shape = shape ?: RectangleShape,
-            labelStyle = labelStyle ?: TextStyle.Default,
+            shapeValue = shape ?: RectangleShape.asStatefulValue(),
+            labelStyleValue = labelStyle ?: TextStyle.Default.asStatefulValue(),
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
             counterStyle = counterStyle ?: CounterStyle.builder().style(),
@@ -194,17 +228,35 @@ interface TabBarItemColors {
     /**
      * Цвет фона
      */
-    val backgroundColor: StatefulValue<Color>
+    @Deprecated("Use background instead")
+    val backgroundColor: InteractiveColor
+
+    /**
+     * Цвет фона
+     */
+    val background: StatefulValue<Brush>
 
     /**
      * Цвет лэйбла
      */
-    val labelColor: StatefulValue<Color>
+    @Deprecated("Use label instead")
+    val labelColor: InteractiveColor
+
+    /**
+     * Цвет лэйбла
+     */
+    val label: StatefulValue<Brush>
 
     /**
      * Цвет иконки
      */
-    val iconColor: StatefulValue<Color>
+    @Deprecated("Use icon instead")
+    val iconColor: InteractiveColor
+
+    /**
+     * Цвет иконки
+     */
+    val icon: StatefulValue<Brush>
 
     companion object {
         /**
@@ -221,35 +273,110 @@ interface TabBarItemColorsBuilder {
     /**
      * Устанавливает цвет фона [backgroundColor]
      */
-    fun backgroundColor(backgroundColor: StatefulValue<Color>): TabBarItemColorsBuilder
+    fun backgroundColor(backgroundColor: InteractiveColor): TabBarItemColorsBuilder =
+        background(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона [backgroundColor]
      */
     fun backgroundColor(backgroundColor: Color): TabBarItemColorsBuilder =
-        backgroundColor(backgroundColor.asStatefulValue())
+        backgroundColor(backgroundColor.asInteractive())
+
+    /**
+     * Устанавливает цвет фона [backgroundColor]
+     */
+    @Deprecated(
+        message = "Use backgroundColor(InteractiveColor) instead",
+        replaceWith = ReplaceWith(
+            expression = "backgroundColor(backgroundColor.getDefaultValue().asInteractive())",
+            imports = ["com.sdds.compose.uikit.interactions.asInteractive"],
+        ),
+    )
+    fun backgroundColor(backgroundColor: StatefulValue<Color>): TabBarItemColorsBuilder =
+        background(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает фон [background].
+     */
+    fun background(background: Brush): TabBarItemColorsBuilder =
+        background(background.asStatefulValue())
+
+    /**
+     * Устанавливает фон [background].
+     */
+    fun background(background: StatefulValue<Brush>): TabBarItemColorsBuilder
 
     /**
      * Устанавливает цвет лэйбла [labelColor]
      */
-    fun labelColor(labelColor: StatefulValue<Color>): TabBarItemColorsBuilder
+    fun labelColor(labelColor: InteractiveColor): TabBarItemColorsBuilder =
+        label(labelColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет лэйбла [labelColor]
      */
     fun labelColor(labelColor: Color): TabBarItemColorsBuilder =
-        labelColor(labelColor.asStatefulValue())
+        labelColor(labelColor.asInteractive())
+
+    /**
+     * Устанавливает цвет лэйбла [labelColor]
+     */
+    @Deprecated(
+        message = "Use labelColor(InteractiveColor) instead",
+        replaceWith = ReplaceWith(
+            expression = "labelColor(labelColor.getDefaultValue().asInteractive())",
+            imports = ["com.sdds.compose.uikit.interactions.asInteractive"],
+        ),
+    )
+    fun labelColor(labelColor: StatefulValue<Color>): TabBarItemColorsBuilder =
+        label(labelColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет лэйбла [label].
+     */
+    fun label(label: Brush): TabBarItemColorsBuilder =
+        label(label.asStatefulValue())
+
+    /**
+     * Устанавливает цвет лэйбла [label].
+     */
+    fun label(label: StatefulValue<Brush>): TabBarItemColorsBuilder
 
     /**
      * Устанавливает цвет иконки [iconColor]
      */
-    fun iconColor(iconColor: StatefulValue<Color>): TabBarItemColorsBuilder
+    fun iconColor(iconColor: InteractiveColor): TabBarItemColorsBuilder =
+        icon(iconColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет иконки [iconColor]
      */
     fun iconColor(iconColor: Color): TabBarItemColorsBuilder =
-        iconColor(iconColor.asStatefulValue())
+        iconColor(iconColor.asInteractive())
+
+    /**
+     * Устанавливает цвет иконки [iconColor]
+     */
+    @Deprecated(
+        message = "Use iconColor(InteractiveColor) instead",
+        replaceWith = ReplaceWith(
+            expression = "iconColor(iconColor.getDefaultValue().asInteractive())",
+            imports = ["com.sdds.compose.uikit.interactions.asInteractive"],
+        ),
+    )
+    fun iconColor(iconColor: StatefulValue<Color>): TabBarItemColorsBuilder =
+        icon(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет иконки [icon].
+     */
+    fun icon(icon: Brush): TabBarItemColorsBuilder =
+        icon(icon.asStatefulValue())
+
+    /**
+     * Устанавливает цвет иконки [icon].
+     */
+    fun icon(icon: StatefulValue<Brush>): TabBarItemColorsBuilder
 
     /**
      * Вернёт [TabBarItemColors]
@@ -258,34 +385,52 @@ interface TabBarItemColorsBuilder {
 }
 
 private data class DefaultTabBarItemColors(
-    override val backgroundColor: StatefulValue<Color>,
-    override val labelColor: StatefulValue<Color>,
-    override val iconColor: StatefulValue<Color>,
+    @Deprecated("Use background instead")
+    override val backgroundColor: InteractiveColor,
+    @Deprecated("Use label instead")
+    override val labelColor: InteractiveColor,
+    @Deprecated("Use icon instead")
+    override val iconColor: InteractiveColor,
+    override val background: StatefulValue<Brush>,
+    override val label: StatefulValue<Brush>,
+    override val icon: StatefulValue<Brush>,
 ) : TabBarItemColors {
     class Builder : TabBarItemColorsBuilder {
-        private var backgroundColor: StatefulValue<Color>? = null
+        private var background: StatefulValue<Brush>? = null
 
-        private var labelColor: StatefulValue<Color>? = null
+        private var label: StatefulValue<Brush>? = null
 
-        private var iconColor: StatefulValue<Color>? = null
+        private var icon: StatefulValue<Brush>? = null
 
-        override fun backgroundColor(backgroundColor: StatefulValue<Color>): TabBarItemColorsBuilder =
-            apply { this.backgroundColor = backgroundColor }
+        override fun background(background: StatefulValue<Brush>): TabBarItemColorsBuilder =
+            apply { this.background = background }
 
-        override fun labelColor(labelColor: StatefulValue<Color>): TabBarItemColorsBuilder = apply {
-            this.labelColor = labelColor
+        override fun label(label: StatefulValue<Brush>): TabBarItemColorsBuilder = apply {
+            this.label = label
         }
 
-        override fun iconColor(iconColor: StatefulValue<Color>): TabBarItemColorsBuilder = apply {
-            this.iconColor = iconColor
+        override fun icon(icon: StatefulValue<Brush>): TabBarItemColorsBuilder = apply {
+            this.icon = icon
         }
 
-        override fun build(): TabBarItemColors = DefaultTabBarItemColors(
-            backgroundColor = backgroundColor ?: Color.White.asStatefulValue(),
-            labelColor = labelColor ?: Color.Black.asStatefulValue(),
-            iconColor = iconColor ?: Color.Black.asStatefulValue(),
-        )
+        override fun build(): TabBarItemColors {
+            val background = background ?: Color.White.asStatefulBrush()
+            val label = label ?: Color.Black.asStatefulBrush()
+            val icon = icon ?: Color.Black.asStatefulBrush()
+            return DefaultTabBarItemColors(
+                backgroundColor = background.defaultInteractiveColor(),
+                labelColor = label.defaultInteractiveColor(),
+                iconColor = icon.defaultInteractiveColor(),
+                background = background,
+                label = label,
+                icon = icon,
+            )
+        }
     }
+}
+
+private fun StatefulValue<Brush>.defaultInteractiveColor(): InteractiveColor {
+    return ((getDefaultValue() as? SolidColor)?.value ?: Color.Unspecified).asInteractive()
 }
 
 /**
@@ -296,37 +441,89 @@ interface TabBarItemDimensions {
     /**
      * Отступ в начале
      */
+    @Deprecated("Use paddingStartValue instead")
     val paddingStart: Dp
+
+    /**
+     * Отступ в начале с поддержкой состояний
+     */
+    val paddingStartValue: StatefulValue<Dp>
 
     /**
      * Отступ в конце
      */
+    @Deprecated("Use paddingEndValue instead")
     val paddingEnd: Dp
+
+    /**
+     * Отступ в конце с поддержкой состояний
+     */
+    val paddingEndValue: StatefulValue<Dp>
 
     /**
      * Отступ сверху
      */
+    @Deprecated("Use paddingTopValue instead")
     val paddingTop: Dp
+
+    /**
+     * Отступ сверху с поддержкой состояний
+     */
+    val paddingTopValue: StatefulValue<Dp>
 
     /**
      * Отступ снизу
      */
+    @Deprecated("Use paddingBottomValue instead")
     val paddingBottom: Dp
+
+    /**
+     * Отступ снизу с поддержкой состояний
+     */
+    val paddingBottomValue: StatefulValue<Dp>
 
     /**
      * Отступ лэйбла
      */
+    @Deprecated("Use labelPaddingValue instead")
     val labelPadding: Dp
+
+    /**
+     * Отступ лэйбла с поддержкой состояний
+     */
+    val labelPaddingValue: StatefulValue<Dp>
 
     /**
      * Размер иконки
      */
+    @Deprecated("Use iconSizeValue instead")
     val iconSize: Dp
+
+    /**
+     * Размер иконки с поддержкой состояний
+     */
+    val iconSizeValue: StatefulValue<Dp>
 
     /**
      * Минимальная высота элемента
      */
+    @Deprecated("Use minHeightValue instead")
     val minHeight: Dp
+
+    /**
+     * Минимальная высота элемента с поддержкой состояний
+     */
+    val minHeightValue: StatefulValue<Dp>
+
+    /**
+     * Горизонтальное смещение extra-слота
+     */
+    val extraOffsetX: StatefulValue<Dp>
+
+    /**
+     * Вертикальное смещение extra-слота
+     */
+    val extraOffsetY: StatefulValue<Dp>
 
     companion object {
         /**
@@ -343,37 +540,94 @@ interface TabBarItemDimensionsBuilder {
     /**
      * Устанавливает отступ в начале [paddingStart]
      */
-    fun paddingStart(paddingStart: Dp): TabBarItemDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): TabBarItemDimensionsBuilder = paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в начале [paddingStart]
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): TabBarItemDimensionsBuilder
 
     /**
      * Устанавливает отступ в конце [paddingEnd]
      */
-    fun paddingEnd(paddingEnd: Dp): TabBarItemDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): TabBarItemDimensionsBuilder = paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в конце [paddingEnd]
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): TabBarItemDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху [paddingTop]
      */
-    fun paddingTop(paddingTop: Dp): TabBarItemDimensionsBuilder
+    fun paddingTop(paddingTop: Dp): TabBarItemDimensionsBuilder = paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает отступ сверху [paddingTop]
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): TabBarItemDimensionsBuilder
 
     /**
      * Устанавливает отступ снизу [paddingBottom]
      */
-    fun paddingBottom(paddingBottom: Dp): TabBarItemDimensionsBuilder
+    fun paddingBottom(paddingBottom: Dp): TabBarItemDimensionsBuilder = paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает отступ снизу [paddingBottom]
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): TabBarItemDimensionsBuilder
 
     /**
      * Устанавливает отступ лэйбла [labelPadding]
      */
-    fun labelPadding(labelPadding: Dp): TabBarItemDimensionsBuilder
+    fun labelPadding(labelPadding: Dp): TabBarItemDimensionsBuilder = labelPadding(labelPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ лэйбла [labelPadding]
+     */
+    fun labelPadding(labelPadding: StatefulValue<Dp>): TabBarItemDimensionsBuilder
 
     /**
      * Устанавливает размер иконки [iconSize]
      */
-    fun iconSize(iconSize: Dp): TabBarItemDimensionsBuilder
+    fun iconSize(iconSize: Dp): TabBarItemDimensionsBuilder = iconSize(iconSize.asStatefulValue())
+
+    /**
+     * Устанавливает размер иконки [iconSize]
+     */
+    fun iconSize(iconSize: StatefulValue<Dp>): TabBarItemDimensionsBuilder
 
     /**
      * Устанавливает минимальную высоту элемента [minHeight]
      */
-    fun minHeight(minHeight: Dp): TabBarItemDimensionsBuilder
+    fun minHeight(minHeight: Dp): TabBarItemDimensionsBuilder = minHeight(minHeight.asStatefulValue())
+
+    /**
+     * Устанавливает минимальную высоту элемента [minHeight]
+     */
+    fun minHeight(minHeight: StatefulValue<Dp>): TabBarItemDimensionsBuilder
+
+    /**
+     * Устанавливает горизонтальное смещение extra-слота [extraOffsetX]
+     */
+    fun extraOffsetX(extraOffsetX: Dp): TabBarItemDimensionsBuilder =
+        extraOffsetX(extraOffsetX.asStatefulValue())
+
+    /**
+     * Устанавливает горизонтальное смещение extra-слота [extraOffsetX]
+     */
+    fun extraOffsetX(extraOffsetX: StatefulValue<Dp>): TabBarItemDimensionsBuilder
+
+    /**
+     * Устанавливает вертикальное смещение extra-слота [extraOffsetY]
+     */
+    fun extraOffsetY(extraOffsetY: Dp): TabBarItemDimensionsBuilder =
+        extraOffsetY(extraOffsetY.asStatefulValue())
+
+    /**
+     * Устанавливает вертикальное смещение extra-слота [extraOffsetY]
+     */
+    fun extraOffsetY(extraOffsetY: StatefulValue<Dp>): TabBarItemDimensionsBuilder
 
     /**
      * Вернёт [TabBarItemDimensions]
@@ -382,59 +636,94 @@ interface TabBarItemDimensionsBuilder {
 }
 
 private data class DefaultTabBarItemDimensions(
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
-    override val paddingTop: Dp,
-    override val paddingBottom: Dp,
-    override val labelPadding: Dp,
-    override val iconSize: Dp,
-    override val minHeight: Dp,
+    override val paddingStartValue: StatefulValue<Dp>,
+    override val paddingEndValue: StatefulValue<Dp>,
+    override val paddingTopValue: StatefulValue<Dp>,
+    override val paddingBottomValue: StatefulValue<Dp>,
+    override val labelPaddingValue: StatefulValue<Dp>,
+    override val iconSizeValue: StatefulValue<Dp>,
+    override val minHeightValue: StatefulValue<Dp>,
+    override val extraOffsetX: StatefulValue<Dp>,
+    override val extraOffsetY: StatefulValue<Dp>,
 ) : TabBarItemDimensions {
-    class Builder : TabBarItemDimensionsBuilder {
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
-        private var paddingTop: Dp? = null
-        private var paddingBottom: Dp? = null
-        private var labelPadding: Dp? = null
-        private var iconSize: Dp? = null
-        private var minHeight: Dp? = null
+    @Deprecated("Use paddingStartValue instead")
+    override val paddingStart: Dp = paddingStartValue.getDefaultValue()
 
-        override fun paddingStart(paddingStart: Dp): TabBarItemDimensionsBuilder = apply {
+    @Deprecated("Use paddingEndValue instead")
+    override val paddingEnd: Dp = paddingEndValue.getDefaultValue()
+
+    @Deprecated("Use paddingTopValue instead")
+    override val paddingTop: Dp = paddingTopValue.getDefaultValue()
+
+    @Deprecated("Use paddingBottomValue instead")
+    override val paddingBottom: Dp = paddingBottomValue.getDefaultValue()
+
+    @Deprecated("Use labelPaddingValue instead")
+    override val labelPadding: Dp = labelPaddingValue.getDefaultValue()
+
+    @Deprecated("Use iconSizeValue instead")
+    override val iconSize: Dp = iconSizeValue.getDefaultValue()
+
+    @Deprecated("Use minHeightValue instead")
+    override val minHeight: Dp = minHeightValue.getDefaultValue()
+
+    class Builder : TabBarItemDimensionsBuilder {
+        private var paddingStart: StatefulValue<Dp>? = null
+        private var paddingEnd: StatefulValue<Dp>? = null
+        private var paddingTop: StatefulValue<Dp>? = null
+        private var paddingBottom: StatefulValue<Dp>? = null
+        private var labelPadding: StatefulValue<Dp>? = null
+        private var iconSize: StatefulValue<Dp>? = null
+        private var minHeight: StatefulValue<Dp>? = null
+        private var extraOffsetX: StatefulValue<Dp>? = null
+        private var extraOffsetY: StatefulValue<Dp>? = null
+
+        override fun paddingStart(paddingStart: StatefulValue<Dp>): TabBarItemDimensionsBuilder = apply {
             this.paddingStart = paddingStart
         }
 
-        override fun paddingEnd(paddingEnd: Dp): TabBarItemDimensionsBuilder = apply {
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>): TabBarItemDimensionsBuilder = apply {
             this.paddingEnd = paddingEnd
         }
 
-        override fun paddingTop(paddingTop: Dp): TabBarItemDimensionsBuilder = apply {
+        override fun paddingTop(paddingTop: StatefulValue<Dp>): TabBarItemDimensionsBuilder = apply {
             this.paddingTop = paddingTop
         }
 
-        override fun paddingBottom(paddingBottom: Dp): TabBarItemDimensionsBuilder = apply {
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>): TabBarItemDimensionsBuilder = apply {
             this.paddingBottom = paddingBottom
         }
 
-        override fun labelPadding(labelPadding: Dp): TabBarItemDimensionsBuilder = apply {
+        override fun labelPadding(labelPadding: StatefulValue<Dp>): TabBarItemDimensionsBuilder = apply {
             this.labelPadding = labelPadding
         }
 
-        override fun iconSize(iconSize: Dp): TabBarItemDimensionsBuilder = apply {
+        override fun iconSize(iconSize: StatefulValue<Dp>): TabBarItemDimensionsBuilder = apply {
             this.iconSize = iconSize
         }
 
-        override fun minHeight(minHeight: Dp): TabBarItemDimensionsBuilder = apply {
+        override fun minHeight(minHeight: StatefulValue<Dp>): TabBarItemDimensionsBuilder = apply {
             this.minHeight = minHeight
         }
 
+        override fun extraOffsetX(extraOffsetX: StatefulValue<Dp>): TabBarItemDimensionsBuilder = apply {
+            this.extraOffsetX = extraOffsetX
+        }
+
+        override fun extraOffsetY(extraOffsetY: StatefulValue<Dp>): TabBarItemDimensionsBuilder = apply {
+            this.extraOffsetY = extraOffsetY
+        }
+
         override fun build(): TabBarItemDimensions = DefaultTabBarItemDimensions(
-            paddingStart = paddingStart ?: 0.dp,
-            paddingEnd = paddingEnd ?: 0.dp,
-            paddingTop = paddingTop ?: 0.dp,
-            paddingBottom = paddingBottom ?: 0.dp,
-            labelPadding = labelPadding ?: 0.dp,
-            iconSize = iconSize ?: 32.dp,
-            minHeight = minHeight ?: 48.dp,
+            paddingStartValue = paddingStart ?: 0.dp.asStatefulValue(),
+            paddingEndValue = paddingEnd ?: 0.dp.asStatefulValue(),
+            paddingTopValue = paddingTop ?: 0.dp.asStatefulValue(),
+            paddingBottomValue = paddingBottom ?: 0.dp.asStatefulValue(),
+            labelPaddingValue = labelPadding ?: 0.dp.asStatefulValue(),
+            iconSizeValue = iconSize ?: 32.dp.asStatefulValue(),
+            minHeightValue = minHeight ?: 48.dp.asStatefulValue(),
+            extraOffsetX = extraOffsetX ?: 0.dp.asStatefulValue(),
+            extraOffsetY = extraOffsetY ?: 0.dp.asStatefulValue(),
         )
     }
 }

@@ -7,6 +7,8 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -58,7 +60,13 @@ interface RadioBoxGroupDimensions {
     /**
      * Расстояние между элементами
      */
+    @Deprecated("Use itemSpacingValues", ReplaceWith("itemSpacingValues"))
     val itemSpacing: Dp
+
+    /**
+     * Расстояние между элементами
+     */
+    val itemSpacingValues: StatefulValue<Dp>
 
     companion object {
 
@@ -77,7 +85,13 @@ interface RadioBoxGroupDimensionsBuilder {
     /**
      * Устанавливает расстояние между элементами [itemSpacing]
      */
-    fun itemSpacing(itemSpacing: Dp): RadioBoxGroupDimensionsBuilder
+    fun itemSpacing(itemSpacing: Dp): RadioBoxGroupDimensionsBuilder =
+        itemSpacing(itemSpacing.asStatefulValue())
+
+    /**
+     * Устанавливает расстояние между элементами [itemSpacing]
+     */
+    fun itemSpacing(itemSpacing: StatefulValue<Dp>): RadioBoxGroupDimensionsBuilder
 
     /**
      * Создаёт экземпляр [RadioBoxGroupDimensions]
@@ -87,19 +101,20 @@ interface RadioBoxGroupDimensionsBuilder {
 
 @Immutable
 private class DefaultRadioBoxGroupDimensions(
-    override val itemSpacing: Dp,
+    override val itemSpacingValues: StatefulValue<Dp>,
 ) : RadioBoxGroupDimensions {
-
+    @Deprecated("Use itemSpacingValues", ReplaceWith("itemSpacingValues"))
+    override val itemSpacing: Dp = itemSpacingValues.getDefaultValue()
     class Builder : RadioBoxGroupDimensionsBuilder {
-        private var itemSpacing: Dp? = null
+        private var itemSpacingValues: StatefulValue<Dp>? = null
 
-        override fun itemSpacing(itemSpacing: Dp) = apply {
-            this.itemSpacing = itemSpacing
+        override fun itemSpacing(itemSpacing: StatefulValue<Dp>) = apply {
+            this.itemSpacingValues = itemSpacing
         }
 
         override fun build(): RadioBoxGroupDimensions {
             return DefaultRadioBoxGroupDimensions(
-                itemSpacing = itemSpacing ?: DefaultArrangementSize,
+                itemSpacingValues = itemSpacingValues ?: DefaultArrangementSize.asStatefulValue(),
             )
         }
     }

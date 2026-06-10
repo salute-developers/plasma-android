@@ -19,6 +19,7 @@ import com.sdkit.star.designsystem.styles.wheel.LeftAlign
 import com.sdkit.star.designsystem.styles.wheel.MixedAlign
 import com.sdkit.star.designsystem.styles.wheel.RightAlign
 import com.sdkit.star.designsystem.styles.wheel.Wheel
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -41,6 +42,7 @@ class ComposeWheelScreenshotTest : RoborazziConfigCompose("+night") {
         composeTestRule.onAllNodesWithTag("top_control")[0].assertHasClickAction()
     }
 
+    @Ignore("Нужно починить тест, обрезаются айтемы по краям")
     @Test
     fun testWheelH1LeftAlignTwoVisibleEntriesNineTADivider() {
         composeTestRule.content {

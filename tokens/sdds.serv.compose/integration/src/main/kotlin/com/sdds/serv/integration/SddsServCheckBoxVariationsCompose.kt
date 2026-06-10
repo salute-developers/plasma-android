@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -11,21 +13,48 @@ import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.sandbox.Property
 import com.sdds.serv.styles.checkbox.CheckBox
+import com.sdds.serv.styles.checkbox.CheckBoxSize
+import com.sdds.serv.styles.checkbox.CheckBoxStyles
+import com.sdds.serv.styles.checkbox.CheckBoxView
 import com.sdds.serv.styles.checkbox.Default
 import com.sdds.serv.styles.checkbox.L
 import com.sdds.serv.styles.checkbox.M
 import com.sdds.serv.styles.checkbox.Negative
 import com.sdds.serv.styles.checkbox.S
+import com.sdds.serv.styles.checkbox.resolve
 
 internal object SddsServCheckBoxVariationsCompose : ComposeStyleProvider<CheckBoxStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "L", variants = listOf("L", "M", "S")),
+            Property.SingleChoiceProperty(name = "view", value = "Default", variants = listOf("Default", "Negative")),
+        )
+
     override val variations: Map<String, ComposeStyleReference<CheckBoxStyle>> =
         mapOf(
-            "L.Default" to ComposeStyleReference { CheckBox.L.Default.style() },
-            "L.Negative" to ComposeStyleReference { CheckBox.L.Negative.style() },
-            "M.Default" to ComposeStyleReference { CheckBox.M.Default.style() },
-            "M.Negative" to ComposeStyleReference { CheckBox.M.Negative.style() },
-            "S.Default" to ComposeStyleReference { CheckBox.S.Default.style() },
-            "S.Negative" to ComposeStyleReference { CheckBox.S.Negative.style() },
+            "CheckBox.L.Default" to ComposeStyleReference { CheckBox.L.Default.style() },
+            "CheckBox.L.Negative" to ComposeStyleReference { CheckBox.L.Negative.style() },
+            "CheckBox.M.Default" to ComposeStyleReference { CheckBox.M.Default.style() },
+            "CheckBox.M.Negative" to ComposeStyleReference { CheckBox.M.Negative.style() },
+            "CheckBox.S.Default" to ComposeStyleReference { CheckBox.S.Default.style() },
+            "CheckBox.S.Negative" to ComposeStyleReference { CheckBox.S.Negative.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return CheckBoxStyles.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "L" -> CheckBoxSize.L
+                "M" -> CheckBoxSize.M
+                "S" -> CheckBoxSize.S
+                else -> CheckBoxSize.L
+            },
+            view = when (bindings["view"]?.toString()) {
+                "Default" -> CheckBoxView.Default
+                "Negative" -> CheckBoxView.Negative
+                else -> CheckBoxView.Default
+            },
+        ).key
+    }
 }

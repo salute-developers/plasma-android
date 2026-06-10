@@ -60,6 +60,7 @@ import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBarScrollBehavior
 import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.ProvideTextStyle
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.rememberNavBarShape
@@ -277,7 +278,7 @@ private fun StartContent(
                     .padding(end = padding)
                     .clickable(
                         interactionSource = iconInteraction,
-                        indication = null,
+                        indication = LocalIndication.current,
                         onClick = onBackPressed,
                     ),
                 painter = painterResource(it),

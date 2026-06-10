@@ -35,6 +35,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.graphicsLayer
@@ -75,6 +76,8 @@ import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.fs.isDisabled
 import com.sdds.compose.uikit.fs.isEnabled
+import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
 import com.sdds.compose.uikit.internal.common.drawIndicator
@@ -257,7 +260,7 @@ internal fun BaseTextField(
     BasicTextField(
         modifier = modifier
             .then(activatableModifier)
-            .textFieldClickable(enabled, fakeTextField, onDecorationBoxClicked, interactionSource)
+            .textFieldClickable(enabled, fakeTextField, onDecorationBoxClicked, interactionSource, style.shape)
             .testTag("textField"),
         value = value,
         onValueChange = onValueChange,
@@ -495,17 +498,19 @@ private suspend fun scrollToCaret(
     }
 }
 
+@Composable
 private fun Modifier.textFieldClickable(
     enabled: Boolean,
     fakeTextField: Boolean,
     onDecorationBoxClicked: (() -> Unit)?,
     interactionSource: MutableInteractionSource,
+    shape: Shape,
 ): Modifier {
     return if (fakeTextField && onDecorationBoxClicked != null) {
         this
             .clickable(
                 enabled = enabled,
-                indication = null,
+                indication = LocalIndication.current.maybeShapeable(shape),
                 interactionSource = interactionSource,
             ) { onDecorationBoxClicked() }
     } else {

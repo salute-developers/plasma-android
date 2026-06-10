@@ -68,12 +68,14 @@ interface PropertiesOwner {
 inline fun <reified E : Enum<E>> enumProperty(
     name: String,
     value: E,
+    enabled: Boolean = true,
 ): Property.SingleChoiceProperty {
     val values = enumValues<E>()
     return Property.SingleChoiceProperty(
         name,
         value.name,
         values.map { it.name }.toList(),
+        enabled,
     )
 }
 
@@ -104,6 +106,11 @@ sealed class Property<Value> {
     abstract val value: Value
 
     /**
+     * Включено ли отображение свойства в Story
+     */
+    abstract val enabled: Boolean
+
+    /**
      * Свойство с выбором одного значения из предопределенного списка.
      *
      * Используется для свойств, которые могут принимать ограниченный набор
@@ -117,6 +124,7 @@ sealed class Property<Value> {
         override val name: String,
         override val value: String,
         val variants: List<String>,
+        override val enabled: Boolean = true,
     ) : Property<String>()
 
     /**
@@ -130,6 +138,7 @@ sealed class Property<Value> {
     data class BooleanProperty(
         override val name: String,
         override val value: Boolean,
+        override val enabled: Boolean = true,
     ) : Property<Boolean>()
 
     /**
@@ -143,6 +152,7 @@ sealed class Property<Value> {
     data class StringProperty(
         override val name: String,
         override val value: String,
+        override val enabled: Boolean = true,
     ) : Property<String>()
 
     /**
@@ -156,6 +166,7 @@ sealed class Property<Value> {
     data class IntProperty(
         override val name: String,
         override val value: Int,
+        override val enabled: Boolean = true,
     ) : Property<Int>()
 
     /**
@@ -169,6 +180,7 @@ sealed class Property<Value> {
     data class FloatProperty(
         override val name: String,
         override val value: Float,
+        override val enabled: Boolean = true,
     ) : Property<Float>()
 }
 

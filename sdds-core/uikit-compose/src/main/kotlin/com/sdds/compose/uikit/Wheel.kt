@@ -3,27 +3,33 @@ package com.sdds.compose.uikit
 import android.util.Log
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredWidthIn
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawOutline
+import androidx.compose.ui.graphics.drawscope.withTransform
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.Constraints
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.wheel.BaseWheel
 import com.sdds.compose.uikit.internal.wheel.WheelItemAlignment
 
@@ -47,7 +53,6 @@ import com.sdds.compose.uikit.internal.wheel.WheelItemAlignment
  * В параметре лямбды доступен индекс колеса, начиная с 0.
  * Лямбда должна вернуть набор данных [WheelDataSet], необходимый для конфигурации каждого колеса.
  */
-@Suppress("UnusedBoxWithConstraintsScope")
 @Composable
 fun Wheel(
     modifier: Modifier = Modifier,
@@ -65,92 +70,49 @@ fun Wheel(
 ) {
     val textMeasurer = rememberTextMeasurer()
     var labelOffsetFromCenter by remember { mutableFloatStateOf(0f) }
+    var wheelItemHeight by remember { mutableIntStateOf(0) }
     val separatorTextStyle = style.itemTextStyle
         .copy(style.colors.separatorColor.colorForInteraction(interactionSource))
     val dividerColor = style.dividerStyle.color.backgroundColor.colorForInteraction(interactionSource)
     val separatorColor = style.colors.separatorColor.colorForInteraction(interactionSource)
 
-    BoxWithConstraints(modifier) {
-        Row {
-            repeat(wheelCount) { wheelIndex ->
-                val data = onSetData(wheelIndex)
-                BaseWheel(
-                    modifier = Modifier
-                        .separatorModifier(
-                            wheelIndex = wheelIndex,
-                            style = style,
-                            wheelSeparator = wheelSeparator,
-                            dividerColor = dividerColor,
-                            separatorColor = separatorColor,
-                            textMeasurer = textMeasurer,
-                            separatorTextStyle = separatorTextStyle,
-                            labelOffsetFromCenter = labelOffsetFromCenter,
-                        )
-                        .constraintsModifier(
-                            maxWidth = this@BoxWithConstraints.maxWidth,
-                            style = style,
-                            wheelCount = wheelCount,
-                            wheelConstraints = wheelConstraints,
-                        ),
-                    items = data.dataSet,
-                    description = data.description,
-                    textStyle = style.itemTextStyle,
-                    textAfterStyle = style.itemTextAfterStyle,
-                    descriptionStyle = style.descriptionStyle,
-                    textAfterPadding = style.dimensions.itemTextAfterPadding,
-                    descriptionPadding = style.dimensions.descriptionPadding,
-                    itemSpacing = style.dimensions.itemMinSpacing,
-                    textColor = style.colors.itemTextColor,
-                    textAfterColor = style.colors.itemTextAfterColor,
-                    descriptionColor = style.colors.descriptionColor,
-                    iconUpColor = style.colors.controlIconUpColor,
-                    iconDownColor = style.colors.controlIconDownColor,
-                    alignment = getBaseWheelAlignment(alignment, wheelIndex, wheelCount),
-                    dataEdgePlacement = dataEdgePlacement,
-                    initialIndex = data.initialIndex,
-                    visibleItemsCount = visibleItemsCount,
-                    onItemSelected = { index ->
-                        onItemSelected.invoke(wheelIndex, index)
-                    },
-                    onLabelPositionCalculated = { labelOffsetFromCenter = it },
-                    interactionSource = interactionSource,
-                    iconUp = style.controlIconUp,
-                    iconDown = style.controlIconDown,
-                    hasControls = hasControls,
-                )
+    val selectorBrush = style.colors.itemSelectorBrush.getValue(interactionSource)
+    val selectorShape = style.itemSelectorShape.getValue(interactionSource)
+    val selectorPaddingTopPx = style.dimensions.itemSelectorPaddingTop.getValue(interactionSource)
+    val selectorPaddingBottomPx = style.dimensions.itemSelectorPaddingBottom.getValue(interactionSource)
+    val selectorPaddingStartPx = style.dimensions.itemSelectorPaddingStart.getValue(interactionSource)
+    val selectorPaddingEndPx = style.dimensions.itemSelectorPaddingEnd.getValue(interactionSource)
+    val itemSpacingPx = style.dimensions.itemMinSpacing
+
+    WheelLayout(
+        modifier = modifier.drawBehind {
+            if (!style.itemSelectorEnabled || wheelItemHeight == 0) return@drawBehind
+            val selectorHeightPx = (
+                wheelItemHeight +
+                    selectorPaddingTopPx.toPx() + selectorPaddingBottomPx.toPx() -
+                    itemSpacingPx.toPx()
+                ).coerceAtLeast(0f)
+            if (selectorHeightPx == 0f) return@drawBehind
+            val selectorLeft = -selectorPaddingStartPx.toPx()
+            val selectorWidth = (
+                size.width + selectorPaddingStartPx.toPx() + selectorPaddingEndPx.toPx()
+                ).coerceAtLeast(0f)
+            val selectorTop = (size.height - selectorHeightPx) / 2f
+            val outline = selectorShape.createOutline(
+                size = Size(selectorWidth, selectorHeightPx),
+                layoutDirection = layoutDirection,
+                density = this,
+            )
+            withTransform({ translate(selectorLeft, selectorTop) }) {
+                drawOutline(outline, selectorBrush)
             }
-        }
-    }
-}
-
-private fun Modifier.constraintsModifier(
-    maxWidth: Dp,
-    style: WheelStyle,
-    wheelCount: Int,
-    wheelConstraints: WheelConstraints,
-): Modifier {
-    val maxItemWidth =
-        (maxWidth - (style.dimensions.separatorSpacing * (wheelCount - 1))) / wheelCount
-    return when (wheelConstraints) {
-        WheelConstraints.Strict -> this.requiredWidthIn(max = maxItemWidth)
-        else -> this
-    }
-}
-
-private fun Modifier.separatorModifier(
-    wheelIndex: Int,
-    style: WheelStyle,
-    wheelSeparator: WheelSeparator,
-    dividerColor: Color,
-    separatorColor: Color,
-    textMeasurer: TextMeasurer,
-    separatorTextStyle: TextStyle,
-    labelOffsetFromCenter: Float,
-): Modifier {
-    return if (wheelIndex > 0) {
-        this
-            .padding(start = style.dimensions.separatorSpacing)
-            .drawSeparator(
+        },
+        wheelCount = wheelCount,
+        style = style,
+        alignment = alignment,
+        wheelConstraints = wheelConstraints,
+        wheelSeparatorContent = {
+            WheelSeparatorBox(
                 style = style,
                 wheelSeparator = wheelSeparator,
                 dividerColor = dividerColor,
@@ -159,9 +121,210 @@ private fun Modifier.separatorModifier(
                 separatorTextStyle = separatorTextStyle,
                 labelOffsetFromCenter = labelOffsetFromCenter,
             )
-    } else {
-        this
+        },
+    ) { wheelIndex ->
+        val data = onSetData(wheelIndex)
+        BaseWheel(
+            items = data.dataSet,
+            description = data.description,
+            textStyle = style.itemTextStyle,
+            textAfterStyle = style.itemTextAfterStyle,
+            descriptionStyle = style.descriptionStyle,
+            textAfterPadding = style.dimensions.itemTextAfterPadding,
+            descriptionPadding = style.dimensions.descriptionPadding,
+            itemSpacing = style.dimensions.itemMinSpacing,
+            textColor = style.colors.itemTextColor,
+            textAfterColor = style.colors.itemTextAfterColor,
+            descriptionColor = style.colors.descriptionColor,
+            iconUpColor = style.colors.controlIconUpColor,
+            iconDownColor = style.colors.controlIconDownColor,
+            alignment = getBaseWheelAlignment(alignment, wheelIndex, wheelCount),
+            dataEdgePlacement = dataEdgePlacement,
+            initialIndex = data.initialIndex,
+            visibleItemsCount = visibleItemsCount,
+            textAfterMode = style.textAfterMode,
+            staticTextAfter = data.staticTextAfter,
+            onItemSelected = { index ->
+                onItemSelected.invoke(wheelIndex, index)
+            },
+            onLabelPositionCalculated = { labelOffsetFromCenter = it },
+            onItemHeightCalculated = { wheelItemHeight = it },
+            interactionSource = interactionSource,
+            iconUp = style.controlIconUp,
+            iconDown = style.controlIconDown,
+            hasControls = hasControls,
+        )
     }
+}
+
+@Composable
+private fun WheelLayout(
+    modifier: Modifier,
+    wheelCount: Int,
+    style: WheelStyle,
+    alignment: WheelAlignment,
+    wheelConstraints: WheelConstraints,
+    wheelSeparatorContent: @Composable () -> Unit,
+    wheelContent: @Composable (wheelIndex: Int) -> Unit,
+) {
+    val separatorId = remember { WheelLayoutId.Separator }
+    Layout(
+        content = {
+            repeat(wheelCount) { wheelIndex ->
+                if (wheelIndex > 0) {
+                    Box(
+                        modifier = Modifier.layoutId(separatorId),
+                        propagateMinConstraints = true,
+                    ) {
+                        wheelSeparatorContent()
+                    }
+                }
+                Box(
+                    modifier = Modifier.layoutId(WheelLayoutId.Wheel(wheelIndex)),
+                    propagateMinConstraints = true,
+                ) {
+                    wheelContent(wheelIndex)
+                }
+            }
+        },
+        modifier = modifier,
+    ) { measurables, constraints ->
+        val stretchWheels = constraints.hasFixedWidth
+        val separatorWidth = style.dimensions.separatorSpacing.roundToPx()
+        val separatorsWidth = separatorWidth * (wheelCount - 1).coerceAtLeast(0)
+        val maxWheelsWidth = (constraints.maxWidth - separatorsWidth).coerceAtLeast(0)
+        val maxStrictWheelWidth = if (constraints.hasBoundedWidth && wheelCount > 0) {
+            maxWheelsWidth / wheelCount
+        } else {
+            Constraints.Infinity
+        }
+        val wheelMeasurables = measurables.filter { it.layoutId is WheelLayoutId.Wheel }
+        val separatorMeasurables = measurables.filter { it.layoutId == separatorId }
+        val stretchWheelCount = if (stretchWheels) {
+            (0 until wheelCount).count { wheelIndex ->
+                shouldStretchWheel(
+                    alignment = alignment,
+                    wheelIndex = wheelIndex,
+                    wheelCount = wheelCount,
+                )
+            }
+        } else {
+            0
+        }
+
+        val compactWheelPlaceables = wheelMeasurables
+            .filterNot { measurable ->
+                val wheelIndex = (measurable.layoutId as WheelLayoutId.Wheel).index
+                stretchWheels && shouldStretchWheel(alignment, wheelIndex, wheelCount)
+            }
+            .associate { measurable ->
+                val wheelIndex = (measurable.layoutId as WheelLayoutId.Wheel).index
+                val wheelConstraints = constraints.compactWheelConstraints(
+                    maxStrictWheelWidth = maxStrictWheelWidth,
+                    wheelConstraints = wheelConstraints,
+                )
+                wheelIndex to measurable.measure(wheelConstraints)
+            }
+        val compactWheelsWidth = compactWheelPlaceables.values.sumOf { it.width }
+        val stretchWheelWidth = if (stretchWheelCount > 0) {
+            ((constraints.maxWidth - separatorsWidth - compactWheelsWidth) / stretchWheelCount)
+                .coerceAtLeast(0)
+        } else {
+            0
+        }
+        val stretchWheelPlaceables = wheelMeasurables
+            .filter { measurable ->
+                val wheelIndex = (measurable.layoutId as WheelLayoutId.Wheel).index
+                stretchWheels && shouldStretchWheel(alignment, wheelIndex, wheelCount)
+            }
+            .associate { measurable ->
+                val wheelIndex = (measurable.layoutId as WheelLayoutId.Wheel).index
+                wheelIndex to measurable.measure(
+                    constraints.copy(
+                        minWidth = stretchWheelWidth,
+                        maxWidth = stretchWheelWidth,
+                        minHeight = 0,
+                    ),
+                )
+            }
+        val wheelPlaceables = compactWheelPlaceables + stretchWheelPlaceables
+        val wheelsWidth = wheelPlaceables.values.sumOf { it.width }
+        val contentWidth = wheelsWidth + separatorsWidth
+        val layoutWidth = if (stretchWheels) constraints.maxWidth else contentWidth
+        val layoutHeight = wheelPlaceables.values.maxOfOrNull { it.height } ?: 0
+        val separatorPlaceables = separatorMeasurables.map {
+            it.measure(Constraints.fixed(separatorWidth, layoutHeight))
+        }
+
+        layout(
+            width = layoutWidth.coerceIn(constraints.minWidth, constraints.maxWidth),
+            height = layoutHeight.coerceIn(constraints.minHeight, constraints.maxHeight),
+        ) {
+            var xPosition = 0
+            var separatorIndex = 0
+            repeat(wheelCount) { wheelIndex ->
+                if (wheelIndex > 0) {
+                    separatorPlaceables[separatorIndex].place(xPosition, 0)
+                    xPosition += separatorWidth
+                    separatorIndex += 1
+                }
+                wheelPlaceables[wheelIndex]?.let { placeable ->
+                    placeable.place(xPosition, 0)
+                    xPosition += placeable.width
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun WheelSeparatorBox(
+    style: WheelStyle,
+    wheelSeparator: WheelSeparator,
+    dividerColor: Color,
+    separatorColor: Color,
+    textMeasurer: TextMeasurer,
+    separatorTextStyle: TextStyle,
+    labelOffsetFromCenter: Float,
+) {
+    Box(
+        modifier = Modifier
+            .width(style.dimensions.separatorSpacing)
+            .fillMaxHeight()
+            .drawSeparator(
+                style = style,
+                wheelSeparator = wheelSeparator,
+                dividerColor = dividerColor,
+                separatorColor = separatorColor,
+                textMeasurer = textMeasurer,
+                separatorTextStyle = separatorTextStyle,
+                labelOffsetFromCenter = labelOffsetFromCenter,
+            ),
+    )
+}
+
+private sealed interface WheelLayoutId {
+    data class Wheel(val index: Int) : WheelLayoutId
+    data object Separator : WheelLayoutId
+}
+
+private fun Constraints.compactWheelConstraints(
+    maxStrictWheelWidth: Int,
+    wheelConstraints: WheelConstraints,
+): Constraints {
+    val resolvedMaxWidth = when (wheelConstraints) {
+        WheelConstraints.Strict -> maxStrictWheelWidth
+        WheelConstraints.Loose -> maxWidth
+    }
+    return copy(minWidth = 0, maxWidth = resolvedMaxWidth, minHeight = 0)
+}
+
+private fun shouldStretchWheel(
+    alignment: WheelAlignment,
+    wheelIndex: Int,
+    wheelCount: Int,
+): Boolean {
+    return alignment != WheelAlignment.Mixed || wheelIndex == 0 || wheelIndex == wheelCount - 1
 }
 
 private fun getBaseWheelAlignment(
@@ -200,8 +363,8 @@ private fun Modifier.drawSeparator(
             WheelSeparator.Divider -> {
                 drawLine(
                     color = dividerColor,
-                    start = Offset(-separatorCenter, 0f),
-                    end = Offset(-separatorCenter, size.height),
+                    start = Offset(separatorCenter, 0f),
+                    end = Offset(separatorCenter, size.height),
                     cap = StrokeCap.Round,
                     strokeWidth = style.dividerStyle.dimensions.thickness.toPx(),
                 )
@@ -214,7 +377,7 @@ private fun Modifier.drawSeparator(
                     textLayoutResult = textLayoutResult,
                     color = separatorColor,
                     topLeft = Offset(
-                        -separatorCenter - textLayoutResult.size.width / 2f,
+                        separatorCenter - textLayoutResult.size.width / 2f,
                         center.y + labelOffsetFromCenter,
                     ),
                 )
@@ -223,6 +386,23 @@ private fun Modifier.drawSeparator(
             WheelSeparator.None -> {}
         }
     }
+}
+
+/**
+ * Режим отображения дополнительного текста.
+ * [EachItem] использует [WheelItemData.textAfter], [Static] использует [WheelDataSet.staticTextAfter].
+ */
+enum class TextAfterMode {
+    /**
+     * Дополнительный текст отображается у каждого элемента и прокручивается вместе с ним
+     */
+    EachItem,
+
+    /**
+     * Дополнительный текст отображается статично рядом с центральным (выбранным) элементом;
+     * при прокрутке колеса элементы движутся, а суффикс остаётся неподвижным
+     */
+    Static,
 }
 
 /**
@@ -308,13 +488,15 @@ enum class WheelSeparator {
  * @property dataSet основной набор данных
  * @property description описание
  * @property initialIndex начальный индекс
+ * @property staticTextAfter статичный дополнительный текст, общий для всех элементов колеса
  *
  */
 @Immutable
-data class WheelDataSet(
+data class WheelDataSet @JvmOverloads constructor(
     val dataSet: List<WheelItemData>,
     val description: String? = null,
     val initialIndex: Int = 0,
+    val staticTextAfter: String? = null,
 )
 
 /**

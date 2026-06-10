@@ -81,8 +81,8 @@ public val NavigationBarInternalPage.Default: WrapperNavigationBarInternalPageDe
             )
         }
         .dimensions {
-            paddingStart(16.0.dp)
-            paddingEnd(16.0.dp)
+            paddingStart(24.0.dp)
+            paddingEnd(24.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
             backIconMargin(4.0.dp)

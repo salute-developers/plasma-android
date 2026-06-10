@@ -199,6 +199,7 @@ private fun PropertiesListSection(
 ) {
     if (properties.isEmpty()) return
     val interactionSource = remember { MutableInteractionSource() }
+    val visibleProps = remember(properties) { properties.filter { it.enabled } }
     Column(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(style.spaceBetweenProperties),
@@ -213,8 +214,8 @@ private fun PropertiesListSection(
             color = { sectionHeaderColor.value },
         )
 
-        repeat(properties.size) {
-            when (val property = properties[it]) {
+        repeat(visibleProps.size) {
+            when (val property = visibleProps[it]) {
                 is Property.BooleanProperty ->
                     SwitchPropertyListItem(
                         style = style,

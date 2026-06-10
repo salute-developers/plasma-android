@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import androidx.compose.ui.unit.offset
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
@@ -308,7 +309,7 @@ private fun getHintIcon(
                     .height(style.dimensions.hintHeight)
                     .popoverTrigger(hintTriggerInfo)
                     .clickable(
-                        indication = null,
+                        indication = LocalIndication.current,
                         interactionSource = remember { MutableInteractionSource() },
                     ) { onHintPressed?.invoke() },
             )

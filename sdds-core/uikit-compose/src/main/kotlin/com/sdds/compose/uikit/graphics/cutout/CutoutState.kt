@@ -16,8 +16,11 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawOutline
+import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.boundsInRoot
@@ -138,19 +141,18 @@ fun Modifier.cutoutTarget(
                         layoutDirection = layoutDirection,
                         density = this,
                     )
-                    withTransform(
-                        transformBlock = {
-                            translate(
-                                left = paddedBounds.left,
-                                top = paddedBounds.top,
-                            )
-                        },
-                    ) {
-                        drawOutline(
-                            outline = outline,
-                            color = Color.Transparent,
-                            blendMode = BlendMode.Clear,
-                        )
+                    val clipBounds = registration.spec.clipBoundsInRoot?.toTargetRect(targetBounds)
+                    if (clipBounds != null) {
+                        clipRect(
+                            left = clipBounds.left,
+                            top = clipBounds.top,
+                            right = clipBounds.right,
+                            bottom = clipBounds.bottom,
+                        ) {
+                            drawCutoutOutline(paddedBounds, outline)
+                        }
+                    } else {
+                        drawCutoutOutline(paddedBounds, outline)
                     }
                 }
             }
@@ -185,12 +187,32 @@ fun Modifier.cutout(
     padding: PaddingValues = PaddingValues(horizontal = 3.dp, vertical = 3.dp),
     enabled: Boolean = true,
     state: CutoutState? = null,
+): Modifier = cutout(
+    shape = shape,
+    padding = padding,
+    enabled = enabled,
+    state = state,
+    clipBoundsInRoot = null,
+)
+
+internal fun Modifier.cutout(
+    shape: Shape,
+    padding: PaddingValues,
+    enabled: Boolean,
+    state: CutoutState?,
+    clipBoundsInRoot: Rect?,
 ): Modifier = composed {
     if (!enabled) return@composed this
     val resolvedState = (state ?: LocalCutoutState.current) as? CutoutStateImpl ?: return@composed this
     val registrationId = remember { Any() }
     var coordinates by remember { mutableStateOf<LayoutCoordinates?>(null) }
-    val spec = remember(shape, padding) { CutoutSpec(shape = shape, padding = padding) }
+    val spec = remember(shape, padding, clipBoundsInRoot) {
+        CutoutSpec(
+            shape = shape,
+            padding = padding,
+            clipBoundsInRoot = clipBoundsInRoot,
+        )
+    }
 
     androidx.compose.runtime.DisposableEffect(resolvedState, registrationId) {
         onDispose {
@@ -213,6 +235,7 @@ private val LocalCutoutState = androidx.compose.runtime.compositionLocalOf<Cutou
 private data class CutoutSpec(
     val shape: Shape,
     val padding: PaddingValues,
+    val clipBoundsInRoot: Rect?,
 )
 
 private data class CutoutRegistration(
@@ -251,3 +274,30 @@ private fun Rect.toTargetRect(
     right = right - targetBounds.left + paddingRight,
     bottom = bottom - targetBounds.top + paddingBottom,
 )
+
+private fun Rect.toTargetRect(targetBounds: Rect): Rect = Rect(
+    left = left - targetBounds.left,
+    top = top - targetBounds.top,
+    right = right - targetBounds.left,
+    bottom = bottom - targetBounds.top,
+)
+
+private fun DrawScope.drawCutoutOutline(
+    bounds: Rect,
+    outline: Outline,
+) {
+    withTransform(
+        transformBlock = {
+            translate(
+                left = bounds.left,
+                top = bounds.top,
+            )
+        },
+    ) {
+        drawOutline(
+            outline = outline,
+            color = Color.Transparent,
+            blendMode = BlendMode.Clear,
+        )
+    }
+}

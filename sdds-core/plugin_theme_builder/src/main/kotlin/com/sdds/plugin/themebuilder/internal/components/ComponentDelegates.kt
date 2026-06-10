@@ -2,6 +2,8 @@ package com.sdds.plugin.themebuilder.internal.components
 
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.aiheader.AiHeaderConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.answer.AiAnswerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.autocomplete.AutoCompleteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.group.AvatarGroupConfigDelegate
@@ -21,10 +23,12 @@ import com.sdds.plugin.themebuilder.internal.components.circularprogress.Circula
 import com.sdds.plugin.themebuilder.internal.components.codefield.CodeFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.codeinput.CodeInputConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.collapsingnavigationbar.CollapsingNavigationBarConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.combobox.ComboBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.dropzone.DropZoneConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.editable.EditableConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.emptystate.EmptyStateConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.file.FileConfigDelegate
@@ -74,6 +78,8 @@ import org.gradle.kotlin.dsl.provideDelegate
 internal val componentDelegates by unsafeLazy {
     mapOf<String, ComponentConfigDelegate<*>>(
         "avatar" to AvatarConfigDelegate(),
+        "ai-answer" to AiAnswerConfigDelegate(),
+        "ai-header" to AiHeaderConfigDelegate(),
         "avatar-group" to AvatarGroupConfigDelegate(),
         "text-field" to TextFieldConfigDelegate(),
         "text-area" to TextAreaConfigDelegate(),
@@ -147,5 +153,7 @@ internal val componentDelegates by unsafeLazy {
         "editable" to EditableConfigDelegate(),
         "select-item" to SelectItemConfigDelegate(),
         "select" to SelectConfigDelegate(),
+        "drop-zone" to DropZoneConfigDelegate(),
+        "combo-box" to ComboBoxConfigDelegate(),
     )
 }

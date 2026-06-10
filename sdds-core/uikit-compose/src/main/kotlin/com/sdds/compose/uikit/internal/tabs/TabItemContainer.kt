@@ -15,6 +15,8 @@ import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.maybeShapeable
 
 @Composable
 internal fun TabItemContainer(
@@ -35,7 +37,7 @@ internal fun TabItemContainer(
     ) {
         val clickableModifier = if (enabled && onClick != null) {
             Modifier.clickable(
-                indication = null,
+                indication = LocalIndication.current.maybeShapeable(tabItemStyle.shape),
                 interactionSource = interactionSource,
                 onClick = onClick,
             )

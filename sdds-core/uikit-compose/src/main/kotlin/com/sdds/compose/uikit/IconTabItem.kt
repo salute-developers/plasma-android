@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.internal.tabs.BaseIconTabItem
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.tabs.TabItemMotionStyle
@@ -118,7 +119,7 @@ private fun actionContent(
     return {
         Icon(
             modifier = Modifier.clickable(
-                indication = null,
+                indication = LocalIndication.current,
                 interactionSource = null,
                 onClick = onActionClicked,
             ),

@@ -8156,8 +8156,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupBasicButtonGroupSize",
-                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupBasicButtonGroupSize",
+                  "typeName": "BasicButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.BasicButtonGroupSize",
                   "defaultValue": {
                      "value": "xs",
                      "codeName": "Xs"
@@ -8181,8 +8181,8 @@
                   "name": "gap",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupBasicButtonGroupGap",
-                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupBasicButtonGroupGap",
+                  "typeName": "BasicButtonGroupGap",
+                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.BasicButtonGroupGap",
                   "defaultValue": {
                      "value": "none",
                      "codeName": "None"
@@ -8206,8 +8206,8 @@
                   "name": "shape",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupBasicButtonGroupShape",
-                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupBasicButtonGroupShape",
+                  "typeName": "BasicButtonGroupShape",
+                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.BasicButtonGroupShape",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -8757,8 +8757,8 @@
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupIconButtonGroupSize",
-                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupIconButtonGroupSize",
+                  "typeName": "IconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.IconButtonGroupSize",
                   "defaultValue": {
                      "value": "xs",
                      "codeName": "Xs"
@@ -8786,8 +8786,8 @@
                   "name": "gap",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupIconButtonGroupGap",
-                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupIconButtonGroupGap",
+                  "typeName": "IconButtonGroupGap",
+                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.IconButtonGroupGap",
                   "defaultValue": {
                      "value": "wide",
                      "codeName": "Wide"
@@ -8811,8 +8811,8 @@
                   "name": "shape",
                   "type": "enum",
                   "required": false,
-                  "typeName": "ButtonGroupIconButtonGroupShape",
-                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.ButtonGroupIconButtonGroupShape",
+                  "typeName": "IconButtonGroupShape",
+                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.buttongroup.IconButtonGroupShape",
                   "defaultValue": {
                      "value": "pilled",
                      "codeName": "Pilled"
@@ -15570,9 +15570,10 @@
             {
                "name": "size",
                "values": [
-                  "h1"
+                  "h1",
+                  "h4"
                ],
-               "defaultValue": "h1"
+               "defaultValue": "h4"
             },
             {
                "name": "alignment",
@@ -15582,7 +15583,7 @@
                   "center",
                   "mixed"
                ],
-               "defaultValue": "left"
+               "defaultValue": "center"
             }
          ],
          "styleApi": {
@@ -15603,13 +15604,17 @@
                   "typeName": "WheelSize",
                   "typeQualifiedName": "com.sdds.plasma.homeds.styles.wheel.WheelSize",
                   "defaultValue": {
-                     "value": "h1",
-                     "codeName": "H1"
+                     "value": "h4",
+                     "codeName": "H4"
                   },
                   "values": [
                      {
                         "value": "h1",
                         "codeName": "H1"
+                     },
+                     {
+                        "value": "h4",
+                        "codeName": "H4"
                      }
                   ]
                },
@@ -15620,8 +15625,8 @@
                   "typeName": "WheelAlignment",
                   "typeQualifiedName": "com.sdds.plasma.homeds.styles.wheel.WheelAlignment",
                   "defaultValue": {
-                     "value": "left",
-                     "codeName": "Left"
+                     "value": "center",
+                     "codeName": "Center"
                   },
                   "values": [
                      {
@@ -15704,6 +15709,72 @@
                   {
                      "name": "size",
                      "value": "h1"
+                  },
+                  {
+                     "name": "alignment",
+                     "value": "mixed"
+                  }
+               ]
+            },
+            {
+               "name": "h4",
+               "composeReference": "Wheel.H4",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h4"
+                  }
+               ]
+            },
+            {
+               "name": "h4.right-align",
+               "composeReference": "Wheel.H4.RightAlign",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h4"
+                  },
+                  {
+                     "name": "alignment",
+                     "value": "right"
+                  }
+               ]
+            },
+            {
+               "name": "h4.center-align",
+               "composeReference": "Wheel.H4.CenterAlign",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h4"
+                  },
+                  {
+                     "name": "alignment",
+                     "value": "center"
+                  }
+               ]
+            },
+            {
+               "name": "h4.left-align",
+               "composeReference": "Wheel.H4.LeftAlign",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h4"
+                  },
+                  {
+                     "name": "alignment",
+                     "value": "left"
+                  }
+               ]
+            },
+            {
+               "name": "h4.mixed-align",
+               "composeReference": "Wheel.H4.MixedAlign",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "h4"
                   },
                   {
                      "name": "alignment",

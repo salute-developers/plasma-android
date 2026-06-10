@@ -8,12 +8,9 @@ import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
@@ -35,12 +32,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
@@ -49,7 +49,9 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.DataEdgePlacement
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.TextAfterMode
 import com.sdds.compose.uikit.WheelItemData
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import kotlinx.coroutines.CoroutineScope
@@ -81,12 +83,15 @@ internal fun BaseWheel(
     dataEdgePlacement: DataEdgePlacement,
     initialIndex: Int,
     visibleItemsCount: Int,
+    textAfterMode: TextAfterMode = TextAfterMode.EachItem,
+    staticTextAfter: String? = null,
     @DrawableRes
     iconUp: Int? = null,
     @DrawableRes
     iconDown: Int? = null,
     onItemSelected: (Int) -> Unit = {},
     onLabelPositionCalculated: ((Float) -> Unit)? = null,
+    onItemHeightCalculated: ((Int) -> Unit)? = null,
     interactionSource: InteractionSource,
 ) {
     require(visibleItemsCount % 2 == 1) { "visibleItemsCount must be odd" }
@@ -95,84 +100,94 @@ internal fun BaseWheel(
     val state: LazyListState = rememberLazyListState(initialIndex)
     val middleIndex = visibleItemsCount / 2
     val extendedList = rememberExtendedList(items, dataEdgePlacement, middleIndex)
-    val mostWideItem = rememberMostWideItem(items)
-    var selectedIndex by remember { mutableIntStateOf(middleIndex) }
 
     LaunchedEffect(state.firstVisibleItemIndex) {
-        selectedIndex = state.firstVisibleItemIndex + middleIndex
+        val selectedIndex = state.firstVisibleItemIndex + middleIndex
         if (selectedIndex in extendedList.indices) {
-            onItemSelected(selectedIndex)
+            val dataIndex = when (dataEdgePlacement) {
+                DataEdgePlacement.WheelCenter -> selectedIndex - middleIndex
+                DataEdgePlacement.WheelEdge -> selectedIndex
+            }
+            if (dataIndex in items.indices) {
+                onItemSelected(dataIndex)
+            }
         }
     }
 
+    val textMeasurer = rememberTextMeasurer()
     val maxDistanceFromCenter by remember { derivedStateOf { state.layoutInfo.viewportSize.height / 2f } }
     var itemHeight by remember(visibleItemsCount, description) { mutableIntStateOf(0) }
     var descriptionHeight by remember(description, descriptionStyle) { mutableIntStateOf(0) }
+    val staticTextAfterText = remember(items, staticTextAfter) {
+        staticTextAfter ?: items.firstOrNull { it.textAfter.isNotEmpty() }?.textAfter
+    }
     val scaledWheelHeight = rememberCalculatedWheelHeight(itemHeight, descriptionHeight, visibleItemsCount)
     val labelOffsetFromCenter =
         calculateLabelOffset(scaledWheelHeight, itemHeight, itemSpacing.toPx())
     onLabelPositionCalculated?.invoke(labelOffsetFromCenter)
+    onItemHeightCalculated?.invoke(itemHeight)
 
-    Column(modifier = modifier) {
-        if (hasControls && iconUp != null && iconDown != null) {
-            TopControl(alignment, iconUp, iconUpColor, state, coroutineScope)
+    SubcomposeLayout(
+        modifier = modifier,
+    ) { constraints ->
+        fun measureDescriptionProbe(): Placeable? {
+            return subcompose(WheelSubcomposeSlot.DescriptionProbe) {
+                if (!description.isNullOrEmpty()) {
+                    Description(
+                        text = description,
+                        descriptionPadding = descriptionPadding,
+                        style = descriptionStyle,
+                        interactionSource = interactionSource,
+                    )
+                }
+            }
+                .firstOrNull()
+                ?.measure(constraints.probeConstraints())
         }
 
-        Box(
-            modifier = Modifier
-                .height(scaledWheelHeight.toDp())
-                .debugBorder(Color.Blue)
-                .graphicsLayer { clip = true },
-            contentAlignment = alignment.getBoxContentAlignment(),
-        ) {
-            SubcomposeLayout { constraints ->
-                // measure description
-                if (descriptionHeight == 0 && extendedList.isNotEmpty()) {
-                    val descriptionPlaceable = subcompose("description") {
-                        if (!description.isNullOrEmpty()) {
-                            Description(
-                                text = description,
-                                descriptionPadding = descriptionPadding,
-                                style = descriptionStyle,
-                                interactionSource = interactionSource,
-                            )
-                        }
-                    }
-                        .firstOrNull()
-                        ?.measure(constraints.copy(maxHeight = Constraints.Infinity))
-                    descriptionHeight = descriptionPlaceable?.height ?: 0
-                }
+        fun measureItemProbe(): WheelItemProbe {
+            if (extendedList.isEmpty()) return WheelItemProbe()
 
-                // measure item
-                var itemWidth = 0
-                if (extendedList.isNotEmpty()) {
-                    val itemPlaceable = subcompose("item") {
-                        Item(
-                            title = mostWideItem.text,
-                            textAfter = mostWideItem.textAfter,
-                            description = description,
-                            descriptionPadding = descriptionPadding,
-                            textAfterPadding = textAfterPadding,
-                            textStyle = textStyle,
-                            textAfterStyle = textAfterStyle,
-                            descriptionStyle = descriptionStyle,
-                            textColor = textColor,
-                            textAfterColor = textAfterColor,
-                            alignment = alignment,
-                            itemSpacing = itemSpacing,
-                            interactionSource = interactionSource,
-                        )
-                    }[0].measure(constraints.copy(maxHeight = Constraints.Infinity))
-                    itemHeight = itemPlaceable.height
-                    itemWidth = itemPlaceable.width
-                }
+            val mostWideItem = findMostWideItem(
+                items = extendedList,
+                textAfterMode = textAfterMode,
+                textAfterPadding = textAfterPadding.roundToPx(),
+                textStyle = textStyle,
+                textAfterStyle = textAfterStyle,
+                measureText = { text, style -> textMeasurer.measure(text, style).size.width },
+            )
+            val placeable = subcompose(WheelSubcomposeSlot.ItemProbe) {
+                Item(
+                    title = mostWideItem.text,
+                    textAfter = if (textAfterMode == TextAfterMode.Static) null else mostWideItem.textAfter,
+                    description = description,
+                    descriptionPadding = descriptionPadding,
+                    textAfterPadding = textAfterPadding,
+                    textStyle = textStyle,
+                    textAfterStyle = textAfterStyle,
+                    descriptionStyle = descriptionStyle,
+                    textColor = textColor,
+                    textAfterColor = textAfterColor,
+                    alignment = alignment,
+                    itemSpacing = itemSpacing,
+                    interactionSource = interactionSource,
+                )
+            }[0].measure(constraints.probeConstraints())
+            return WheelItemProbe(width = placeable.width, height = placeable.height)
+        }
 
-                // measure lazyColumn using itemHeight && itemWidth ^
-                val lazyColumnPlaceable = subcompose("lazy_column") {
+        fun measureViewport(width: Int, staticEndPadding: Dp): Placeable {
+            val viewportHeight = scaledWheelHeight.roundToInt().coerceAtLeast(0)
+            return subcompose(WheelSubcomposeSlot.LazyColumn) {
+                WheelViewport(
+                    height = viewportHeight.toDp(),
+                    alignment = alignment,
+                ) {
                     LazyColumn(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .requiredHeight(itemHeight.toDp() * visibleItemsCount),
+                            .requiredHeight(itemHeight.toDp() * visibleItemsCount)
+                            .padding(end = staticEndPadding),
                         state = state,
                         horizontalAlignment = alignment.getListAlignment(),
                         flingBehavior = rememberSnapFlingBehavior(lazyListState = state),
@@ -195,7 +210,7 @@ internal fun BaseWheel(
                                     distance
                                 }
                             }
-                            val factor = distanceFromCenter / maxDistanceFromCenter
+                            val factor = calculateDistanceFactor(distanceFromCenter, maxDistanceFromCenter)
                             val isEmptyItem = dataEdgePlacement == DataEdgePlacement.WheelCenter &&
                                 (index < middleIndex || index > extendedList.lastIndex - middleIndex)
                             val alpha = if (isEmptyItem) 0f else getAlphaByDistanceFactor(factor)
@@ -233,7 +248,11 @@ internal fun BaseWheel(
                                     .debugBorder(Color.Red),
                                 title = extendedList[index].text,
                                 description = description,
-                                textAfter = extendedList[index].textAfter,
+                                textAfter = if (textAfterMode == TextAfterMode.Static) {
+                                    null
+                                } else {
+                                    extendedList[index].textAfter
+                                },
                                 descriptionOffset = translation?.itemTitleTranslationY ?: 0f,
                                 descriptionPadding = descriptionPadding,
                                 descriptionStyle = descriptionStyle,
@@ -248,36 +267,326 @@ internal fun BaseWheel(
                             )
                         }
                     }
-                }[0].measure(constraints.copy(maxWidth = itemWidth))
+                }
+            }[0].measure(
+                constraints.copy(
+                    minWidth = width,
+                    maxWidth = width,
+                    minHeight = 0,
+                    maxHeight = viewportHeight,
+                ),
+            )
+        }
 
-                layout(lazyColumnPlaceable.width, lazyColumnPlaceable.height) {
-                    lazyColumnPlaceable.place(0, 0)
+        fun measureDescriptionOverlay(): Placeable? {
+            return subcompose(WheelSubcomposeSlot.DescriptionOverlay) {
+                if (!description.isNullOrEmpty()) {
+                    Description(
+                        text = description,
+                        descriptionColor = descriptionColor,
+                        style = descriptionStyle,
+                        interactionSource = interactionSource,
+                    )
                 }
             }
+                .firstOrNull()
+                ?.measure(constraints.unconstrainedMin())
+        }
 
-            if (!description.isNullOrEmpty()) {
-                Description(
-                    modifier = Modifier
-                        .offset(
-                            y = with(LocalDensity.current) {
-                                val descriptionTextHeight =
-                                    descriptionHeight - descriptionPadding.toPx()
-                                (itemHeight / 2f - descriptionTextHeight / 2f).toDp() - itemSpacing / 2
-                            },
-                        ),
-                    text = description,
-                    descriptionColor = descriptionColor,
-                    style = descriptionStyle,
-                    interactionSource = interactionSource,
-                )
+        fun measureStaticTextAfter(): Placeable? {
+            return subcompose(WheelSubcomposeSlot.StaticTextAfter) {
+                if (textAfterMode == TextAfterMode.Static && !staticTextAfterText.isNullOrEmpty()) {
+                    val staticColor = textAfterColor.colorForInteraction(interactionSource)
+                    Text(
+                        text = staticTextAfterText,
+                        style = textAfterStyle.copy(staticColor),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
+                .firstOrNull()
+                ?.measure(constraints.unconstrainedMin())
+        }
+
+        fun measureControl(
+            slot: WheelSubcomposeSlot,
+            maxWidth: Int,
+            content: @Composable () -> Unit,
+        ): Placeable? {
+            return subcompose(slot, content)
+                .firstOrNull()
+                ?.measure(constraints.copy(minWidth = 0, maxWidth = maxWidth, minHeight = 0))
+        }
+
+        if (descriptionHeight == 0 && extendedList.isNotEmpty()) {
+            descriptionHeight = measureDescriptionProbe()?.height ?: 0
+        }
+
+        val itemProbe = measureItemProbe()
+        if (extendedList.isNotEmpty()) {
+            itemHeight = itemProbe.height
+        }
+
+        val staticTextAfterWidthPx = staticTextAfterText
+            ?.takeIf { textAfterMode == TextAfterMode.Static && it.isNotEmpty() }
+            ?.let { textMeasurer.measure(it, textAfterStyle).size.width }
+            ?: 0
+        val maxItemTextWidthPx = if (textAfterMode == TextAfterMode.Static) {
+            calculateMaxItemTextWidth(
+                items = items,
+                textStyle = textStyle,
+                measureText = { text, style -> textMeasurer.measure(text, style).size.width },
+            )
+        } else {
+            0
+        }
+        val staticEndPaddingDp = calculateStaticEndPadding(
+            staticTextAfterWidth = staticTextAfterWidthPx,
+            textAfterPadding = textAfterPadding.roundToPx(),
+            textAfterMode = textAfterMode,
+            alignment = alignment,
+        ).toDp()
+        val lazyColumnWidth = calculateLazyColumnWidth(
+            constraints = constraints,
+            itemWidth = itemProbe.width,
+            staticTextAfterWidth = staticTextAfterWidthPx,
+            textAfterPadding = textAfterPadding.roundToPx(),
+            textAfterMode = textAfterMode,
+            alignment = alignment,
+        )
+        val staticTextAfterOffsetXPx = calculateStaticTextAfterOffset(
+            lazyColumnWidth = lazyColumnWidth,
+            maxItemTextWidth = maxItemTextWidthPx,
+            staticTextAfterWidth = staticTextAfterWidthPx,
+            textAfterPadding = textAfterPadding.roundToPx(),
+            textAfterMode = textAfterMode,
+            alignment = alignment,
+        )
+
+        val viewportPlaceable = measureViewport(lazyColumnWidth, staticEndPaddingDp)
+        val viewportHeight = viewportPlaceable.height
+        val descriptionPlaceable = measureDescriptionOverlay()
+        val staticTextAfterPlaceable = measureStaticTextAfter()
+        val topControlPlaceable = measureControl(WheelSubcomposeSlot.TopControl, lazyColumnWidth) {
+            if (hasControls && iconUp != null && iconDown != null) {
+                TopControl(iconUp, iconUpColor, state, coroutineScope)
+            }
+        }
+        val bottomControlPlaceable = measureControl(WheelSubcomposeSlot.BottomControl, lazyColumnWidth) {
+            if (hasControls && iconUp != null && iconDown != null) {
+                BottomControl(iconDown, iconDownColor, state, coroutineScope)
             }
         }
 
-        if (hasControls && iconUp != null && iconDown != null) {
-            BottomControl(alignment, iconDown, iconDownColor, state, coroutineScope)
+        val topControlHeight = topControlPlaceable?.height ?: 0
+        val layoutHeight = topControlHeight + viewportHeight + (bottomControlPlaceable?.height ?: 0)
+
+        layout(
+            width = lazyColumnWidth.coerceIn(constraints.minWidth, constraints.maxWidth),
+            height = layoutHeight.coerceIn(constraints.minHeight, constraints.maxHeight),
+        ) {
+            topControlPlaceable?.place(
+                x = alignment.getHorizontalOffset(lazyColumnWidth, topControlPlaceable.width),
+                y = 0,
+            )
+            viewportPlaceable.place(0, topControlHeight)
+            descriptionPlaceable?.place(
+                x = alignment.getBoxContentHorizontalOffset(lazyColumnWidth, descriptionPlaceable.width),
+                y = topControlHeight +
+                    calculateCenterOffset(viewportHeight, descriptionPlaceable.height) +
+                    calculateDescriptionOverlayOffset(
+                        itemHeight = itemHeight,
+                        descriptionHeight = descriptionHeight,
+                        descriptionPadding = descriptionPadding.toPx(),
+                        itemSpacing = itemSpacing.toPx(),
+                    ),
+            )
+            staticTextAfterPlaceable?.place(
+                x = staticTextAfterOffsetXPx,
+                y = topControlHeight + calculateSelectedLabelTopOffset(
+                    viewportHeight = viewportHeight,
+                    itemHeight = itemHeight,
+                    visibleItemsCount = visibleItemsCount,
+                    selectedItemIndex = middleIndex,
+                    itemSpacing = (itemSpacing / 2).roundToPx(),
+                ),
+            )
+            bottomControlPlaceable?.place(
+                x = alignment.getHorizontalOffset(lazyColumnWidth, bottomControlPlaceable.width),
+                y = topControlHeight + viewportHeight,
+            )
         }
     }
 }
+
+private enum class WheelSubcomposeSlot {
+    DescriptionProbe,
+    ItemProbe,
+    LazyColumn,
+    DescriptionOverlay,
+    StaticTextAfter,
+    TopControl,
+    BottomControl,
+}
+
+@Immutable
+private data class WheelItemProbe(
+    val width: Int = 0,
+    val height: Int = 0,
+)
+
+@Composable
+private fun WheelViewport(
+    height: Dp,
+    alignment: WheelItemAlignment,
+    content: @Composable () -> Unit,
+) {
+    Layout(
+        modifier = Modifier
+            .requiredHeight(height)
+            .debugBorder(Color.Blue)
+            .graphicsLayer { clip = true },
+        content = content,
+    ) { measurables, constraints ->
+        val placeable = measurables.firstOrNull()?.measure(
+            constraints.copy(minHeight = 0),
+        )
+        val layoutWidth = constraints.maxWidth
+        val layoutHeight = constraints.maxHeight
+
+        layout(layoutWidth, layoutHeight) {
+            placeable?.place(
+                x = alignment.getHorizontalOffset(layoutWidth, placeable.width),
+                y = calculateCenterOffset(layoutHeight, placeable.height),
+            )
+        }
+    }
+}
+
+private fun calculateCenterOffset(parentSize: Int, childSize: Int): Int =
+    ((parentSize - childSize) / 2f).roundToInt()
+
+private fun calculateSelectedLabelTopOffset(
+    viewportHeight: Int,
+    itemHeight: Int,
+    visibleItemsCount: Int,
+    selectedItemIndex: Int,
+    itemSpacing: Int,
+): Int {
+    if (itemHeight == 0) return 0
+    val lazyColumnHeight = itemHeight * visibleItemsCount
+    return calculateCenterOffset(viewportHeight, lazyColumnHeight) +
+        selectedItemIndex * itemHeight +
+        itemSpacing
+}
+
+private fun Constraints.probeConstraints(): Constraints =
+    copy(
+        minWidth = 0,
+        minHeight = 0,
+        maxHeight = Constraints.Infinity,
+    )
+
+private fun Constraints.unconstrainedMin(): Constraints =
+    copy(
+        minWidth = 0,
+        minHeight = 0,
+    )
+
+private fun findMostWideItem(
+    items: List<WheelItemData>,
+    textAfterMode: TextAfterMode,
+    textAfterPadding: Int,
+    textStyle: TextStyle,
+    textAfterStyle: TextStyle,
+    measureText: (String, TextStyle) -> Int,
+): WheelItemData {
+    return if (textAfterMode == TextAfterMode.Static) {
+        items.maxBy { data ->
+            measureText(data.text, textStyle)
+        }
+    } else {
+        items.maxBy { data ->
+            measureText(data.text, textStyle) +
+                measureText(data.textAfter, textAfterStyle) +
+                if (data.text.isNotEmpty() && data.textAfter.isNotEmpty()) {
+                    textAfterPadding
+                } else {
+                    0
+                }
+        }
+    }
+}
+
+private fun calculateMaxItemTextWidth(
+    items: List<WheelItemData>,
+    textStyle: TextStyle,
+    measureText: (String, TextStyle) -> Int,
+): Int {
+    return items.maxOfOrNull { data -> measureText(data.text, textStyle) } ?: 0
+}
+
+private fun calculateStaticEndPadding(
+    staticTextAfterWidth: Int,
+    textAfterPadding: Int,
+    textAfterMode: TextAfterMode,
+    alignment: WheelItemAlignment,
+): Int {
+    return if (
+        textAfterMode == TextAfterMode.Static &&
+        staticTextAfterWidth > 0 &&
+        alignment == WheelItemAlignment.End
+    ) {
+        staticTextAfterWidth + textAfterPadding
+    } else {
+        0
+    }
+}
+
+private fun calculateLazyColumnWidth(
+    constraints: Constraints,
+    itemWidth: Int,
+    staticTextAfterWidth: Int,
+    textAfterPadding: Int,
+    textAfterMode: TextAfterMode,
+    alignment: WheelItemAlignment,
+): Int {
+    if (constraints.hasFixedWidth) return constraints.maxWidth
+    if (textAfterMode != TextAfterMode.Static || staticTextAfterWidth == 0) return itemWidth
+
+    val textAfterExtra = staticTextAfterWidth + textAfterPadding
+    val base = itemWidth + textAfterExtra
+    // Center: items are centered in the column, so the overlay overflows by
+    // (P + T) / 2 on the right unless we add an equal margin on the left.
+    return if (alignment == WheelItemAlignment.Center) base + textAfterExtra else base
+}
+
+private fun calculateStaticTextAfterOffset(
+    lazyColumnWidth: Int,
+    maxItemTextWidth: Int,
+    staticTextAfterWidth: Int,
+    textAfterPadding: Int,
+    textAfterMode: TextAfterMode,
+    alignment: WheelItemAlignment,
+): Int {
+    if (textAfterMode != TextAfterMode.Static || staticTextAfterWidth == 0) return 0
+    return when (alignment) {
+        WheelItemAlignment.Start -> maxItemTextWidth + textAfterPadding
+        WheelItemAlignment.Center -> (lazyColumnWidth + maxItemTextWidth) / 2 + textAfterPadding
+        WheelItemAlignment.End -> lazyColumnWidth - staticTextAfterWidth
+    }
+}
+
+private fun calculateDistanceFactor(
+    distanceFromCenter: Float,
+    maxDistanceFromCenter: Float,
+): Float =
+    if (maxDistanceFromCenter > 0f) {
+        distanceFromCenter / maxDistanceFromCenter
+    } else {
+        0f
+    }
 
 /**
  * Выравнивание колеса
@@ -287,8 +596,7 @@ internal enum class WheelItemAlignment {
 }
 
 @Composable
-private fun ColumnScope.TopControl(
-    alignment: WheelItemAlignment,
+private fun TopControl(
     @DrawableRes icon: Int,
     color: InteractiveColor,
     state: LazyListState,
@@ -298,10 +606,9 @@ private fun ColumnScope.TopControl(
     Icon(
         modifier = Modifier
             .testTag("top_control")
-            .align(alignment.getButtonAlignment())
             .clickable(
                 interactionSource = upInteractionSource,
-                indication = null,
+                indication = LocalIndication.current,
             ) {
                 coroutineScope.launch {
                     state.animateScrollToItem(
@@ -316,8 +623,7 @@ private fun ColumnScope.TopControl(
 }
 
 @Composable
-private fun ColumnScope.BottomControl(
-    alignment: WheelItemAlignment,
+private fun BottomControl(
     @DrawableRes icon: Int,
     color: InteractiveColor,
     state: LazyListState,
@@ -327,10 +633,9 @@ private fun ColumnScope.BottomControl(
     Icon(
         modifier = Modifier
             .testTag("bottom_control")
-            .align(alignment.getButtonAlignment())
             .clickable(
                 interactionSource = downInteractionSource,
-                indication = null,
+                indication = LocalIndication.current,
             ) {
                 coroutineScope.launch {
                     state.animateScrollToItem((state.firstVisibleItemIndex + 1))
@@ -378,6 +683,16 @@ private fun calculateLabelOffset(
     } else {
         0f
     }
+
+private fun calculateDescriptionOverlayOffset(
+    itemHeight: Int,
+    descriptionHeight: Int,
+    descriptionPadding: Float,
+    itemSpacing: Float,
+): Int {
+    val descriptionTextHeight = descriptionHeight - descriptionPadding
+    return (itemHeight / 2f - descriptionTextHeight / 2f - itemSpacing / 2f).roundToInt()
+}
 
 @Composable
 private fun Item(
@@ -470,27 +785,27 @@ private fun Float.toDp() = with(LocalDensity.current) { toDp() }
 @Composable
 private fun Dp.toPx() = with(LocalDensity.current) { toPx() }
 
-private fun WheelItemAlignment.getBoxContentAlignment(): Alignment {
-    return when (this) {
-        WheelItemAlignment.Start -> Alignment.CenterStart
-        WheelItemAlignment.Center -> Alignment.Center
-        WheelItemAlignment.End -> Alignment.CenterEnd
-    }
-}
-
-private fun WheelItemAlignment.getButtonAlignment(): Alignment.Horizontal {
-    return when (this) {
-        WheelItemAlignment.Start -> Alignment.Start
-        WheelItemAlignment.Center -> Alignment.CenterHorizontally
-        WheelItemAlignment.End -> Alignment.End
-    }
-}
-
 private fun WheelItemAlignment.getListAlignment(): Alignment.Horizontal {
     return when (this) {
         WheelItemAlignment.Start -> Alignment.Start
         WheelItemAlignment.Center -> Alignment.CenterHorizontally
         WheelItemAlignment.End -> Alignment.End
+    }
+}
+
+private fun WheelItemAlignment.getHorizontalOffset(parentWidth: Int, childWidth: Int): Int {
+    return when (this) {
+        WheelItemAlignment.Start -> 0
+        WheelItemAlignment.Center -> (parentWidth - childWidth) / 2
+        WheelItemAlignment.End -> parentWidth - childWidth
+    }
+}
+
+private fun WheelItemAlignment.getBoxContentHorizontalOffset(parentWidth: Int, childWidth: Int): Int {
+    return when (this) {
+        WheelItemAlignment.Start -> 0
+        WheelItemAlignment.Center -> calculateCenterOffset(parentWidth, childWidth)
+        WheelItemAlignment.End -> parentWidth - childWidth
     }
 }
 
@@ -586,6 +901,7 @@ private fun calculateWheelHeight(
     descriptionHeight: Int,
     visibleCount: Int,
 ): Float {
+    if (itemHeight == 0) return 0f
     val maxDist = visibleCount * itemHeight / 2f
     var estimateHeight = 0f
     var childrenCenter = itemHeight / 2f
@@ -617,6 +933,7 @@ private fun getItemHeightForDistance(
 }
 
 private fun getDistanceFactor(distance: Float, maxDist: Float): Float {
+    if (maxDist == 0f) return 0f
     val absDistance = abs(distance)
     return (absDistance / maxDist).coerceAtMost(1.5f)
 }
@@ -666,6 +983,45 @@ private fun BaseWheelPreview() {
         },
         interactionSource = remember { MutableInteractionSource() },
         hasControls = true,
+    )
+}
+
+@Composable
+@Preview(showBackground = true)
+private fun BaseWheelStaticTextAfterPreview() {
+    BaseWheel(
+        items = listOf(
+            WheelItemData("12"),
+            WheelItemData("2"),
+            WheelItemData("3"),
+            WheelItemData("10"),
+            WheelItemData("11"),
+            WheelItemData("12"),
+            WheelItemData("23"),
+        ),
+        description = null,
+        textStyle = TextStyle(),
+        textAfterStyle = TextStyle(),
+        descriptionStyle = TextStyle(),
+        textAfterPadding = 4.dp,
+        descriptionPadding = 4.dp,
+        itemSpacing = 8.dp,
+        textColor = Color.DarkGray.asInteractive(),
+        textAfterColor = Color.Gray.asInteractive(),
+        descriptionColor = Color.Gray.asInteractive(),
+        iconUpColor = Color.Black.asInteractive(),
+        iconDownColor = Color.Black.asInteractive(),
+        alignment = WheelItemAlignment.Start,
+        dataEdgePlacement = DataEdgePlacement.WheelCenter,
+        initialIndex = 0,
+        visibleItemsCount = 5,
+        textAfterMode = TextAfterMode.Static,
+        staticTextAfter = "ч",
+        onItemSelected = { index ->
+            println("Selected at index $index")
+        },
+        interactionSource = remember { MutableInteractionSource() },
+        hasControls = false,
     )
 }
 

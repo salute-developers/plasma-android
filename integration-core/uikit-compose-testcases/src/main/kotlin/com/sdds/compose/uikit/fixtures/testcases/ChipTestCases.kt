@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.ChipGroupOverflowMode
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.Icon
@@ -104,7 +103,6 @@ fun ChipDisabled(style: ChipStyle) {
 fun ChipGroupSizeLDense(style: ChipGroupStyle) {
     ChipGroup(
         style = style,
-        overflowMode = ChipGroupOverflowMode.Unlimited,
         content = {
             repeat(5) {
                 Chip(
@@ -124,7 +122,6 @@ fun ChipGroupSizeLDense(style: ChipGroupStyle) {
 fun ChipGroupSizeMSecondaryWideWrapped(style: ChipGroupStyle) {
     ChipGroup(
         style = style,
-        overflowMode = ChipGroupOverflowMode.Wrap,
         content = {
             repeat(20) {
                 Chip(
@@ -144,7 +141,6 @@ fun ChipGroupSizeMSecondaryWideWrapped(style: ChipGroupStyle) {
 fun ChipGroupSizeSAccentDense(style: ChipGroupStyle) {
     ChipGroup(
         style = style,
-        overflowMode = ChipGroupOverflowMode.Scrollable,
         content = {
             repeat(10) {
                 Chip(
@@ -164,7 +160,6 @@ fun ChipGroupSizeSAccentDense(style: ChipGroupStyle) {
 fun ChipGroupSizeXsDefault(style: ChipGroupStyle) {
     ChipGroup(
         style = style,
-        overflowMode = ChipGroupOverflowMode.Unlimited,
         content = {
             repeat(5) {
                 Chip(

@@ -27,7 +27,9 @@ android {
 themeBuilder {
     themeSource(name = themeName, version = themeVersion, alias = themeAlias)
     componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
-    compose()
+    compose {
+        componentsMetaStyleClass(true)
+    }
     ktPackage(ktPackage = "com.sdds.serv")
     mode(THEME)
     autoGenerate(false)

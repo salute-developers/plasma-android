@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit.fixtures.stories.list
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
@@ -23,6 +24,7 @@ import com.sdds.compose.uikit.fixtures.stories.ListUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ListUiStateTransformer
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -83,6 +85,11 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
                     ListItem(
                         modifier = Modifier
                             .fillMaxWidth()
+                            .clickable(
+                                interactionSource = interactionSource,
+                                indication = LocalIndication.current,
+                                onClick = {},
+                            )
                             .focusable(interactionSource = interactionSource),
                         startContent = getStartContent(it, state.startContent),
                         endContent = getEndContent(state.endContent),

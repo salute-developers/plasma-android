@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit.fixtures.stories.wheel
 
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.sdds.compose.sandbox.ComposeBaseStory
@@ -21,9 +22,10 @@ import com.sdds.sandbox.UiState
  *
  * @property variant Вариант отображения.
  * @property itemLabel Заголовок элемента.
- * @property itemTextAfter Текст после значения.
+ * @property textAfter Текст после значения.
  * @property description Описание колеса.
  * @property hasControls Флаг отображения кнопок управления.
+ * @property fillMaxWidth Заполнить максимальную ширину.
  * @property wheelCount Количество колес.
  * @property visibleItemsCount Количество видимых элементов.
  * @property separatorType Тип разделителя между элементами.
@@ -33,12 +35,13 @@ data class WheelUiState(
     override val variant: String = "",
     override val appearance: String = "",
     val itemLabel: String = "Label",
-    val itemTextAfter: String = "",
+    val textAfter: String = "TA",
     val description: String = "",
     val hasControls: Boolean = true,
     val wheelCount: Int = 2,
     val visibleItemsCount: Int = 3,
     val separatorType: WheelSeparator = WheelSeparator.Dots,
+    val fillMaxWidth: Boolean = true,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
@@ -59,7 +62,7 @@ object WheelStory : ComposeBaseStory<WheelUiState, WheelStyle>(
         state: WheelUiState,
     ) {
         Wheel(
-            modifier = Modifier,
+            modifier = if (state.fillMaxWidth) Modifier.fillMaxWidth() else Modifier,
             style = style,
             hasControls = state.hasControls,
             wheelCount = state.wheelCount,
@@ -72,11 +75,12 @@ object WheelStory : ComposeBaseStory<WheelUiState, WheelStyle>(
             WheelDataSet(
                 dataSet = List(30) {
                     WheelItemData(
-                        text = state.itemLabel,
-                        textAfter = state.itemTextAfter,
+                        text = "${state.itemLabel}$it",
+                        textAfter = state.textAfter,
                     )
                 },
                 description = state.description,
+                staticTextAfter = state.textAfter,
             )
         }
     }
@@ -94,11 +98,8 @@ object WheelStory : ComposeBaseStory<WheelUiState, WheelStyle>(
             wheelSeparator = WheelSeparator.None,
         ) { wheelIndex ->
             WheelDataSet(
-                List(20) {
-                    WheelItemData(
-                        "Label",
-                        "TA",
-                    )
+                dataSet = List(20) {
+                    WheelItemData("Label")
                 },
             )
         }

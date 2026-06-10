@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.internal.tabs.BaseTabItem
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.tabs.LocalTabItemMotionStyle
@@ -133,7 +134,7 @@ fun TabItem(
                     painter = painterResource(id = actionIcon),
                     contentDescription = "",
                     modifier = Modifier.clickable(
-                        indication = null,
+                        indication = LocalIndication.current,
                         interactionSource = remember { MutableInteractionSource() },
                         onClick = onActionClicked,
                     ),

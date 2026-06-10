@@ -30,6 +30,7 @@ import com.sdds.compose.uikit.DrawerAlignment.Bottom
 import com.sdds.compose.uikit.DrawerAlignment.End
 import com.sdds.compose.uikit.DrawerAlignment.Start
 import com.sdds.compose.uikit.DrawerAlignment.Top
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.internal.drawer.DrawerContent
 import com.sdds.compose.uikit.internal.drawer.DrawerLayout
@@ -306,7 +307,7 @@ private fun getDefaultCloseIcon(
             Icon(
                 modifier = Modifier.clickable(
                     interactionSource = interactionSource,
-                    indication = null,
+                    indication = LocalIndication.current,
                     onClick = onClose,
                 ),
                 painter = painterResource(closeIconRes),

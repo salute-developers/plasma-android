@@ -56,6 +56,8 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.IconButton,
                 mapOf(
                     "IconButton" to SddsServIconButtonVariationsCompose,
+                    "AiHeaderEmbeddedIconButton" to SddsServAiHeaderEmbeddedIconButtonVariationsCompose,
+                    "EmbeddedIconButton" to SddsServEmbeddedIconButtonVariationsCompose,
                 ),
             ),
             Component(
@@ -109,6 +111,7 @@ object SddsServComposeComponents : ComponentProvider() {
                     "ChipGroupWide" to SddsServChipGroupWideVariationsCompose,
                     "EmbeddedChipGroupDense" to SddsServEmbeddedChipGroupDenseVariationsCompose,
                     "EmbeddedChipGroupWide" to SddsServEmbeddedChipGroupWideVariationsCompose,
+                    "AiAnswerChipGroup" to SddsServAiAnswerChipGroupVariationsCompose,
                 ),
             ),
             Component(
@@ -340,6 +343,9 @@ object SddsServComposeComponents : ComponentProvider() {
                 mapOf(
                     "BasicButtonGroup" to SddsServBasicButtonGroupVariationsCompose,
                     "IconButtonGroup" to SddsServIconButtonGroupVariationsCompose,
+                    "EmbeddedIconButtonGroup" to SddsServEmbeddedIconButtonGroupVariationsCompose,
+                    "AiAnswerIconButtonGroup" to SddsServAiAnswerIconButtonGroupVariationsCompose,
+                    "AiAnswerBasicButtonGroup" to SddsServAiAnswerBasicButtonGroupVariationsCompose,
                 ),
             ),
             Component(
@@ -470,12 +476,39 @@ object SddsServComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.AiHeader,
+                mapOf(
+                    "AiHeader" to SddsServAiHeaderVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.ComboBox,
+                mapOf(
+                    "ComboBoxSingleNormal" to SddsServComboBoxSingleNormalVariationsCompose,
+                    "ComboBoxSingleTight" to SddsServComboBoxSingleTightVariationsCompose,
+                    "ComboBoxMultipleNormal" to SddsServComboBoxMultipleNormalVariationsCompose,
+                    "ComboBoxMultipleTight" to SddsServComboBoxMultipleTightVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.SelectItem,
                 mapOf(
                     "SelectItemSingleNormal" to SddsServSelectItemSingleNormalVariationsCompose,
                     "SelectItemSingleTight" to SddsServSelectItemSingleTightVariationsCompose,
                     "SelectItemMultipleNormal" to SddsServSelectItemMultipleNormalVariationsCompose,
                     "SelectItemMultipleTight" to SddsServSelectItemMultipleTightVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.AiAnswer,
+                mapOf(
+                    "AiAnswer" to SddsServAiAnswerVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.DropZone,
+                mapOf(
+                    "DropZone" to SddsServDropZoneVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

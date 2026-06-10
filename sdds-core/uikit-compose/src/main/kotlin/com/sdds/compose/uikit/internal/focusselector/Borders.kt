@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.PathMeasure
 import androidx.compose.ui.graphics.PathOperation
 import androidx.compose.ui.graphics.Shape
@@ -36,6 +37,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.fs.FocusSelectorBorder
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 
 @Immutable
 internal object FocusSelectorBorderNone : FocusSelectorBorder {
@@ -228,6 +230,31 @@ internal data class FocusSelectorGradientAnimatedBorder(
 }
 
 /**
+ * Интерфейс для описания статичного бордера.
+ */
+internal sealed interface BorderType {
+    /**
+     * Бордер не отображается.
+     */
+    data object None : BorderType
+
+    /**
+     * Бордер в виде сплошной линии.
+     */
+    data object Solid : BorderType
+
+    /**
+     * Бордер в виде пунктирной линии.
+     * @param dashWidth ширина прерывистых линий
+     * @param dashGap интревал прерывистой линии
+     */
+    data class Dashed(
+        val dashWidth: Dp,
+        val dashGap: Dp,
+    ) : BorderType
+}
+
+/**
  * Рисует бордер вокруг [shape].
  * Поддерживается только Rounded форма.
  */
@@ -376,3 +403,55 @@ private fun CornerRadius.shrink(value: Float): CornerRadius = CornerRadius(
     (this.x - value).coerceAtLeast(0f),
     (this.y - value).coerceAtLeast(0f),
 )
+
+/**
+ * Рисует бордер вокруг [shape].
+ * Поддерживается бордер в виде пунктирной линии.
+ */
+internal fun Modifier.permanentBorder(
+    shape: Shape,
+    brush: BrushProducer,
+    strokeWidth: Dp,
+    strokeInsets: Dp = 0.dp,
+    borderType: BorderType = BorderType.Solid,
+): Modifier {
+    if (borderType == BorderType.None) return this
+    return drawWithCache {
+        val strokeWidthPx = strokeWidth.toPx()
+        val halfStrokeWidthPx = strokeWidthPx / 2f
+        val strokeInsetsPx = strokeInsets.toPx() - strokeWidthPx
+        val pathSize = pathSize(strokeInsetsPx, halfStrokeWidthPx)
+        val outline = shape.createOutline(pathSize, layoutDirection, this)
+        val stroke = when (borderType) {
+            is BorderType.Dashed -> {
+                Stroke(
+                    width = strokeWidthPx,
+                    pathEffect = PathEffect.dashPathEffect(
+                        intervals = floatArrayOf(
+                            borderType.dashWidth.toPx(),
+                            borderType.dashGap.toPx(),
+                        ),
+                    ),
+                )
+            }
+            else -> {
+                Stroke(width = strokeWidthPx)
+            }
+        }
+        val offset = strokeInsetsPx + halfStrokeWidthPx
+
+        onDrawWithContent {
+            drawContent()
+            translate(
+                left = -offset,
+                top = -offset,
+            ) {
+                drawOutline(
+                    outline = outline,
+                    brush = brush.invoke(),
+                    style = stroke,
+                )
+            }
+        }
+    }
+}

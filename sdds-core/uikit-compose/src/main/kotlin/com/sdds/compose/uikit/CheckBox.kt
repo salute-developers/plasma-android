@@ -11,6 +11,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.checkable.checkbox.BaseCheckBox
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.checkbox.CheckBoxMotionStyle
+import com.sdds.compose.uikit.motion.components.checkbox.rememberCheckBoxMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент CheckBox
@@ -22,6 +26,7 @@ import com.sdds.compose.uikit.internal.checkable.checkbox.BaseCheckBox
  * @param label лейбл
  * @param description описание
  * @param interactionSource источник событий
+ * @param motion объект анимаций
  */
 @Composable
 @NonRestartableComposable
@@ -34,6 +39,9 @@ fun CheckBox(
     label: String? = null,
     description: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CheckBoxMotionStyle> = rememberCheckBoxMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     CheckBox(
         state = ToggleableState(checked),
@@ -61,6 +69,7 @@ fun CheckBox(
  * @param description описание
  * @param enabled включен ли компонент
  * @param interactionSource источник событий
+ * @param motion объект анимаций
  */
 @Composable
 @NonRestartableComposable
@@ -73,6 +82,9 @@ fun CheckBox(
     label: String? = null,
     description: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CheckBoxMotionStyle> = rememberCheckBoxMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseCheckBox(
         state = state,
@@ -90,7 +102,7 @@ fun CheckBox(
                 Text(description)
             }
         },
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -104,6 +116,7 @@ fun CheckBox(
  * @param enabled включен ли компонент
  * @param descriptionContent описание
  * @param interactionSource источник событий
+ * @param motion объект анимаций
  */
 @Composable
 @NonRestartableComposable
@@ -116,6 +129,9 @@ fun CheckBox(
     enabled: Boolean = true,
     descriptionContent: (@Composable () -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CheckBoxMotionStyle> = rememberCheckBoxMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseCheckBox(
         state = state,
@@ -125,7 +141,7 @@ fun CheckBox(
         enabled = enabled,
         labelContent = labelContent,
         descriptionContent = descriptionContent,
-        interactionSource = interactionSource,
+        motion = motion,
     )
 }
 

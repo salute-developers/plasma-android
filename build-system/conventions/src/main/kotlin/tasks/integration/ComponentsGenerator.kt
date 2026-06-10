@@ -26,6 +26,7 @@ internal data class VariationInfo(
 internal data class StyleApiInfo(
     val stylesClassName: String = "",
     val receiverClassName: String = "",
+    val returnTypeQualifiedName: String = "",
     val params: List<StyleApiParam> = emptyList(),
 )
 
@@ -259,7 +260,8 @@ internal class ComposeComponentsGenerator(
                 "bindingImports" to bindingImports,
                 "bindingsDeclaration" to bindingsDeclaration,
                 "bindingStyleDeclaration" to bindingStyleDeclaration,
-                "coreStyleClass" to getCoreStyleClass(component)
+                "coreStyleClass" to getCoreStyleClass(component),
+                "coreStyleClassImport" to getCoreStyleClassImport(component),
             )
         )
 
@@ -289,6 +291,13 @@ internal class ComposeComponentsGenerator(
 
             else -> "${component.coreName}Style"
         }
+    }
+
+    private fun getCoreStyleClassImport(component: Component): String {
+        return component.styleApi
+            ?.returnTypeQualifiedName
+            ?.takeIf(String::isNotBlank)
+            ?: "com.sdds.compose.uikit.${getCoreStyleClass(component)}"
     }
 
     private fun getBindingImports(component: Component): String {

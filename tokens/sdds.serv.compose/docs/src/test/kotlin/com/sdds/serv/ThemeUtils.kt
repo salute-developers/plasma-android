@@ -27,6 +27,7 @@ import com.sdds.compose.uikit.LocalChipStyle
 import com.sdds.compose.uikit.LocalCircularProgressBarStyle
 import com.sdds.compose.uikit.LocalCodeFieldStyle
 import com.sdds.compose.uikit.LocalCodeInputStyle
+import com.sdds.compose.uikit.LocalComboBoxStyle
 import com.sdds.compose.uikit.LocalCounterStyle
 import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalDrawerStyle
@@ -68,9 +69,16 @@ import com.sdds.compose.uikit.LocalTextSkeletonStyle
 import com.sdds.compose.uikit.LocalToastStyle
 import com.sdds.compose.uikit.LocalToolBarStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
+import com.sdds.compose.uikit.ai.LocalAiAnswerStyle
+import com.sdds.compose.uikit.ai.LocalAiHeaderStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.accordion.AccordionSolidActionStart
 import com.sdds.serv.styles.accordion.H3
+import com.sdds.serv.styles.aianswer.AiAnswer
+import com.sdds.serv.styles.aianswer.M
+import com.sdds.serv.styles.aiheader.AiHeader
+import com.sdds.serv.styles.aiheader.Default
+import com.sdds.serv.styles.aiheader.M
 import com.sdds.serv.styles.autocomplete.AutocompleteNormal
 import com.sdds.serv.styles.autocomplete.M
 import com.sdds.serv.styles.avatar.Avatar
@@ -111,6 +119,8 @@ import com.sdds.serv.styles.codefield.CodeField
 import com.sdds.serv.styles.codefield.M
 import com.sdds.serv.styles.codeinput.CodeInput
 import com.sdds.serv.styles.codeinput.M
+import com.sdds.serv.styles.combobox.ComboBoxMultipleNormal
+import com.sdds.serv.styles.combobox.M
 import com.sdds.serv.styles.counter.Counter
 import com.sdds.serv.styles.counter.Default
 import com.sdds.serv.styles.counter.M
@@ -312,6 +322,9 @@ fun ThemeSetup(
             LocalToastStyle provides Toast.Rounded.Default.style(),
             LocalToolBarStyle provides ToolBarHorizontal.M.style(),
             LocalTooltipStyle provides Tooltip.M.style(),
+            LocalAiAnswerStyle provides AiAnswer.M.style(),
+            LocalAiHeaderStyle provides AiHeader.M.Default.style(),
+            LocalComboBoxStyle provides ComboBoxMultipleNormal.M.style(),
         ) {
             content()
         }

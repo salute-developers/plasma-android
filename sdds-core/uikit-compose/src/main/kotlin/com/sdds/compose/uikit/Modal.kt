@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.window.DialogProperties
+import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.clickableWithoutIndication
 import com.sdds.compose.uikit.internal.heightOrZero
@@ -334,7 +335,7 @@ private fun BoxScope.IconClose(
             .defaultMinSize(size, size)
             .align(Alignment.TopEnd)
             .clickable(
-                indication = null,
+                indication = LocalIndication.current,
                 interactionSource = closeInteractionSource,
             ) { onDismissRequest.invoke() },
         painter = closeIcon,
