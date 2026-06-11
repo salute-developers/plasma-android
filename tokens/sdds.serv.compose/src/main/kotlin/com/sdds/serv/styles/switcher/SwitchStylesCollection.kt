@@ -52,6 +52,7 @@ public enum class SwitchSize {
  * Возможные значения свойства toggle-size для switch
  */
 public enum class SwitchToggleSize {
+    L,
     S,
 }
 
@@ -76,14 +77,14 @@ public fun SwitchStyles.style(modify: @Composable SwitchStyleBuilder.() -> Unit 
  */
 public fun SwitchStyles.Companion.resolve(
     size: SwitchSize = SwitchSize.L,
-    toggleSize: SwitchToggleSize = SwitchToggleSize.S,
+    toggleSize: SwitchToggleSize = SwitchToggleSize.L,
 ): SwitchStyles = when {
+    size == SwitchSize.L && toggleSize == SwitchToggleSize.L -> SwitchStyles.SwitchL
     size == SwitchSize.L && toggleSize == SwitchToggleSize.S -> SwitchStyles.SwitchLToggleS
+    size == SwitchSize.M && toggleSize == SwitchToggleSize.L -> SwitchStyles.SwitchM
     size == SwitchSize.M && toggleSize == SwitchToggleSize.S -> SwitchStyles.SwitchMToggleS
+    size == SwitchSize.S && toggleSize == SwitchToggleSize.L -> SwitchStyles.SwitchS
     size == SwitchSize.S && toggleSize == SwitchToggleSize.S -> SwitchStyles.SwitchSToggleS
-    size == SwitchSize.L -> SwitchStyles.SwitchL
-    size == SwitchSize.M -> SwitchStyles.SwitchM
-    size == SwitchSize.S -> SwitchStyles.SwitchS
     else -> error("Unsupported switch style combination")
 }
 
@@ -93,6 +94,6 @@ public fun SwitchStyles.Companion.resolve(
 @Composable
 public fun SwitchStyles.Companion.style(
     size: SwitchSize = SwitchSize.L,
-    toggleSize: SwitchToggleSize = SwitchToggleSize.S,
+    toggleSize: SwitchToggleSize = SwitchToggleSize.L,
     modify: @Composable SwitchStyleBuilder.() -> Unit = {},
 ): SwitchStyle = resolve(size, toggleSize).style(modify)

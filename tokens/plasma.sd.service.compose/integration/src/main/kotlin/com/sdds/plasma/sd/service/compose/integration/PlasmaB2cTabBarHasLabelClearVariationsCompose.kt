@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -20,45 +22,106 @@ import com.sdds.plasma.sd.service.styles.tabbar.Rounded
 import com.sdds.plasma.sd.service.styles.tabbar.Secondary
 import com.sdds.plasma.sd.service.styles.tabbar.Shadow
 import com.sdds.plasma.sd.service.styles.tabbar.TabBarHasLabelClear
+import com.sdds.plasma.sd.service.styles.tabbar.TabBarHasLabelClearSize
+import com.sdds.plasma.sd.service.styles.tabbar.TabBarHasLabelClearView
+import com.sdds.plasma.sd.service.styles.tabbar.TabBarStyles
+import com.sdds.plasma.sd.service.styles.tabbar.resolve
+import com.sdds.sandbox.Property
 
 internal object PlasmaB2cTabBarHasLabelClearVariationsCompose : ComposeStyleProvider<TabBarStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "M", variants = listOf("M", "L")),
+            Property.BooleanProperty(name = "hasShadow", value = false),
+            Property.BooleanProperty(name = "rounded", value = false),
+            Property.BooleanProperty(name = "divider", value = false),
+            Property.SingleChoiceProperty(
+                name = "view",
+                value = "Default",
+                variants = listOf("Default", "Secondary", "Accent"),
+            ),
+        )
+
     override val variations: Map<String, ComposeStyleReference<TabBarStyle>> =
         mapOf(
-            "M.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Default.style() },
-            "M.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Secondary.style() },
-            "M.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Accent.style() },
-            "M.Rounded.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Rounded.Default.style() },
-            "M.Rounded.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Rounded.Secondary.style() },
-            "M.Rounded.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Rounded.Accent.style() },
-            "M.Shadow.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Shadow.Default.style() },
-            "M.Shadow.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Shadow.Secondary.style() },
-            "M.Shadow.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Shadow.Accent.style() },
-            "M.Shadow.Rounded.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Shadow.Rounded.Default.style() },
-            "M.Shadow.Rounded.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Shadow.Rounded.Secondary.style() },
-            "M.Shadow.Rounded.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Shadow.Rounded.Accent.style() },
-            "M.Divider.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Divider.Default.style() },
-            "M.Divider.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Divider.Secondary.style() },
-            "M.Divider.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Divider.Accent.style() },
-            "M.Divider.Rounded.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Divider.Rounded.Default.style() },
-            "M.Divider.Rounded.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Divider.Rounded.Secondary.style() },
-            "M.Divider.Rounded.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Divider.Rounded.Accent.style() },
-            "L.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Default.style() },
-            "L.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Secondary.style() },
-            "L.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Accent.style() },
-            "L.Rounded.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Rounded.Default.style() },
-            "L.Rounded.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Rounded.Secondary.style() },
-            "L.Rounded.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Rounded.Accent.style() },
-            "L.Shadow.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Shadow.Default.style() },
-            "L.Shadow.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Shadow.Secondary.style() },
-            "L.Shadow.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Shadow.Accent.style() },
-            "L.Shadow.Rounded.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Shadow.Rounded.Default.style() },
-            "L.Shadow.Rounded.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Shadow.Rounded.Secondary.style() },
-            "L.Shadow.Rounded.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Shadow.Rounded.Accent.style() },
-            "L.Divider.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Divider.Default.style() },
-            "L.Divider.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Divider.Secondary.style() },
-            "L.Divider.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Divider.Accent.style() },
-            "L.Divider.Rounded.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Divider.Rounded.Default.style() },
-            "L.Divider.Rounded.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Divider.Rounded.Secondary.style() },
-            "L.Divider.Rounded.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Divider.Rounded.Accent.style() },
+            "TabBarHasLabelClear.M.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Default.style() },
+            "TabBarHasLabelClear.M.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Secondary.style() },
+            "TabBarHasLabelClear.M.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Accent.style() },
+            "TabBarHasLabelClear.M.Rounded.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Rounded.Default.style() },
+            "TabBarHasLabelClear.M.Rounded.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Rounded.Secondary.style() },
+            "TabBarHasLabelClear.M.Rounded.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Rounded.Accent.style() },
+            "TabBarHasLabelClear.M.Shadow.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Shadow.Default.style() },
+            "TabBarHasLabelClear.M.Shadow.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Shadow.Secondary.style() },
+            "TabBarHasLabelClear.M.Shadow.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Shadow.Accent.style() },
+            "TabBarHasLabelClear.M.Shadow.Rounded.Default" to ComposeStyleReference {
+                TabBarHasLabelClear.M.Shadow.Rounded.Default.style()
+            },
+            "TabBarHasLabelClear.M.Shadow.Rounded.Secondary" to ComposeStyleReference {
+                TabBarHasLabelClear.M.Shadow.Rounded.Secondary.style()
+            },
+            "TabBarHasLabelClear.M.Shadow.Rounded.Accent" to ComposeStyleReference {
+                TabBarHasLabelClear.M.Shadow.Rounded.Accent.style()
+            },
+            "TabBarHasLabelClear.M.Divider.Default" to ComposeStyleReference { TabBarHasLabelClear.M.Divider.Default.style() },
+            "TabBarHasLabelClear.M.Divider.Secondary" to ComposeStyleReference { TabBarHasLabelClear.M.Divider.Secondary.style() },
+            "TabBarHasLabelClear.M.Divider.Accent" to ComposeStyleReference { TabBarHasLabelClear.M.Divider.Accent.style() },
+            "TabBarHasLabelClear.M.Divider.Rounded.Default" to ComposeStyleReference {
+                TabBarHasLabelClear.M.Divider.Rounded.Default.style()
+            },
+            "TabBarHasLabelClear.M.Divider.Rounded.Secondary" to ComposeStyleReference {
+                TabBarHasLabelClear.M.Divider.Rounded.Secondary.style()
+            },
+            "TabBarHasLabelClear.M.Divider.Rounded.Accent" to ComposeStyleReference {
+                TabBarHasLabelClear.M.Divider.Rounded.Accent.style()
+            },
+            "TabBarHasLabelClear.L.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Default.style() },
+            "TabBarHasLabelClear.L.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Secondary.style() },
+            "TabBarHasLabelClear.L.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Accent.style() },
+            "TabBarHasLabelClear.L.Rounded.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Rounded.Default.style() },
+            "TabBarHasLabelClear.L.Rounded.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Rounded.Secondary.style() },
+            "TabBarHasLabelClear.L.Rounded.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Rounded.Accent.style() },
+            "TabBarHasLabelClear.L.Shadow.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Shadow.Default.style() },
+            "TabBarHasLabelClear.L.Shadow.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Shadow.Secondary.style() },
+            "TabBarHasLabelClear.L.Shadow.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Shadow.Accent.style() },
+            "TabBarHasLabelClear.L.Shadow.Rounded.Default" to ComposeStyleReference {
+                TabBarHasLabelClear.L.Shadow.Rounded.Default.style()
+            },
+            "TabBarHasLabelClear.L.Shadow.Rounded.Secondary" to ComposeStyleReference {
+                TabBarHasLabelClear.L.Shadow.Rounded.Secondary.style()
+            },
+            "TabBarHasLabelClear.L.Shadow.Rounded.Accent" to ComposeStyleReference {
+                TabBarHasLabelClear.L.Shadow.Rounded.Accent.style()
+            },
+            "TabBarHasLabelClear.L.Divider.Default" to ComposeStyleReference { TabBarHasLabelClear.L.Divider.Default.style() },
+            "TabBarHasLabelClear.L.Divider.Secondary" to ComposeStyleReference { TabBarHasLabelClear.L.Divider.Secondary.style() },
+            "TabBarHasLabelClear.L.Divider.Accent" to ComposeStyleReference { TabBarHasLabelClear.L.Divider.Accent.style() },
+            "TabBarHasLabelClear.L.Divider.Rounded.Default" to ComposeStyleReference {
+                TabBarHasLabelClear.L.Divider.Rounded.Default.style()
+            },
+            "TabBarHasLabelClear.L.Divider.Rounded.Secondary" to ComposeStyleReference {
+                TabBarHasLabelClear.L.Divider.Rounded.Secondary.style()
+            },
+            "TabBarHasLabelClear.L.Divider.Rounded.Accent" to ComposeStyleReference {
+                TabBarHasLabelClear.L.Divider.Rounded.Accent.style()
+            },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return TabBarStyles.HasLabelClear.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "M" -> TabBarHasLabelClearSize.M
+                "L" -> TabBarHasLabelClearSize.L
+                else -> TabBarHasLabelClearSize.M
+            },
+            hasShadow = booleanBindingValue(bindings, "hasShadow", false),
+            rounded = booleanBindingValue(bindings, "rounded", false),
+            divider = booleanBindingValue(bindings, "divider", false),
+            view = when (bindings["view"]?.toString()) {
+                "Default" -> TabBarHasLabelClearView.Default
+                "Secondary" -> TabBarHasLabelClearView.Secondary
+                "Accent" -> TabBarHasLabelClearView.Accent
+                else -> TabBarHasLabelClearView.Default
+            },
+        ).key
+    }
 }

@@ -343,6 +343,7 @@ object SddsServComposeComponents : ComponentProvider() {
                 mapOf(
                     "BasicButtonGroup" to SddsServBasicButtonGroupVariationsCompose,
                     "IconButtonGroup" to SddsServIconButtonGroupVariationsCompose,
+                    "AiHeaderEmbeddedIconButtonGroup" to SddsServAiHeaderEmbeddedIconButtonGroupVariationsCompose,
                     "EmbeddedIconButtonGroup" to SddsServEmbeddedIconButtonGroupVariationsCompose,
                     "AiAnswerIconButtonGroup" to SddsServAiAnswerIconButtonGroupVariationsCompose,
                     "AiAnswerBasicButtonGroup" to SddsServAiAnswerBasicButtonGroupVariationsCompose,
@@ -476,18 +477,18 @@ object SddsServComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
-                ComponentKey.AiHeader,
-                mapOf(
-                    "AiHeader" to SddsServAiHeaderVariationsCompose,
-                ),
-            ),
-            Component(
                 ComponentKey.ComboBox,
                 mapOf(
                     "ComboBoxSingleNormal" to SddsServComboBoxSingleNormalVariationsCompose,
                     "ComboBoxSingleTight" to SddsServComboBoxSingleTightVariationsCompose,
                     "ComboBoxMultipleNormal" to SddsServComboBoxMultipleNormalVariationsCompose,
                     "ComboBoxMultipleTight" to SddsServComboBoxMultipleTightVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.AiHeader,
+                mapOf(
+                    "AiHeader" to SddsServAiHeaderVariationsCompose,
                 ),
             ),
             Component(

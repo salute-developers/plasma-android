@@ -19957,9 +19957,10 @@
             {
                "name": "toggle-size",
                "values": [
+                  "l",
                   "s"
                ],
-               "defaultValue": "s"
+               "defaultValue": "l"
             }
          ],
          "styleApi": {
@@ -20005,10 +20006,14 @@
                   "typeName": "SwitchToggleSize",
                   "typeQualifiedName": "com.sdds.serv.styles.switcher.SwitchToggleSize",
                   "defaultValue": {
-                     "value": "s",
-                     "codeName": "S"
+                     "value": "l",
+                     "codeName": "L"
                   },
                   "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
                      {
                         "value": "s",
                         "codeName": "S"
@@ -20024,6 +20029,10 @@
                "props": [
                   {
                      "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "toggle-size",
                      "value": "l"
                   }
                ]
@@ -20049,6 +20058,10 @@
                   {
                      "name": "size",
                      "value": "m"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "l"
                   }
                ]
             },
@@ -20073,6 +20086,10 @@
                   {
                      "name": "size",
                      "value": "s"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "l"
                   }
                ]
             },

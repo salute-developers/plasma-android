@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -13,6 +15,10 @@ import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.styles.chip.Accent
 import com.sdds.plasma.giga.styles.chip.Chip
+import com.sdds.plasma.giga.styles.chip.ChipDefaultShape
+import com.sdds.plasma.giga.styles.chip.ChipDefaultSize
+import com.sdds.plasma.giga.styles.chip.ChipDefaultView
+import com.sdds.plasma.giga.styles.chip.ChipStyles
 import com.sdds.plasma.giga.styles.chip.Default
 import com.sdds.plasma.giga.styles.chip.L
 import com.sdds.plasma.giga.styles.chip.M
@@ -23,57 +29,96 @@ import com.sdds.plasma.giga.styles.chip.S
 import com.sdds.plasma.giga.styles.chip.Secondary
 import com.sdds.plasma.giga.styles.chip.Warning
 import com.sdds.plasma.giga.styles.chip.Xs
+import com.sdds.plasma.giga.styles.chip.resolve
+import com.sdds.sandbox.Property
 
 internal object PlasmaGigaChipVariationsCompose : ComposeStyleProvider<ChipStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "L", variants = listOf("L", "M", "S", "Xs")),
+            Property.SingleChoiceProperty(name = "shape", value = "Default", variants = listOf("Default", "Pilled")),
+            Property.SingleChoiceProperty(
+                name = "view",
+                value = "Default",
+                variants = listOf("Default", "Accent", "Negative", "Positive", "Secondary", "Warning"),
+            ),
+        )
+
     override val variations: Map<String, ComposeStyleReference<ChipStyle>> =
         mapOf(
-            "L.Default" to ComposeStyleReference { Chip.L.Default.style() },
-            "L.Accent" to ComposeStyleReference { Chip.L.Accent.style() },
-            "L.Negative" to ComposeStyleReference { Chip.L.Negative.style() },
-            "L.Positive" to ComposeStyleReference { Chip.L.Positive.style() },
-            "L.Secondary" to ComposeStyleReference { Chip.L.Secondary.style() },
-            "L.Warning" to ComposeStyleReference { Chip.L.Warning.style() },
-            "L.Pilled.Default" to ComposeStyleReference { Chip.L.Pilled.Default.style() },
-            "L.Pilled.Accent" to ComposeStyleReference { Chip.L.Pilled.Accent.style() },
-            "L.Pilled.Negative" to ComposeStyleReference { Chip.L.Pilled.Negative.style() },
-            "L.Pilled.Positive" to ComposeStyleReference { Chip.L.Pilled.Positive.style() },
-            "L.Pilled.Secondary" to ComposeStyleReference { Chip.L.Pilled.Secondary.style() },
-            "L.Pilled.Warning" to ComposeStyleReference { Chip.L.Pilled.Warning.style() },
-            "M.Default" to ComposeStyleReference { Chip.M.Default.style() },
-            "M.Accent" to ComposeStyleReference { Chip.M.Accent.style() },
-            "M.Negative" to ComposeStyleReference { Chip.M.Negative.style() },
-            "M.Positive" to ComposeStyleReference { Chip.M.Positive.style() },
-            "M.Secondary" to ComposeStyleReference { Chip.M.Secondary.style() },
-            "M.Warning" to ComposeStyleReference { Chip.M.Warning.style() },
-            "M.Pilled.Default" to ComposeStyleReference { Chip.M.Pilled.Default.style() },
-            "M.Pilled.Accent" to ComposeStyleReference { Chip.M.Pilled.Accent.style() },
-            "M.Pilled.Negative" to ComposeStyleReference { Chip.M.Pilled.Negative.style() },
-            "M.Pilled.Positive" to ComposeStyleReference { Chip.M.Pilled.Positive.style() },
-            "M.Pilled.Secondary" to ComposeStyleReference { Chip.M.Pilled.Secondary.style() },
-            "M.Pilled.Warning" to ComposeStyleReference { Chip.M.Pilled.Warning.style() },
-            "S.Default" to ComposeStyleReference { Chip.S.Default.style() },
-            "S.Accent" to ComposeStyleReference { Chip.S.Accent.style() },
-            "S.Negative" to ComposeStyleReference { Chip.S.Negative.style() },
-            "S.Positive" to ComposeStyleReference { Chip.S.Positive.style() },
-            "S.Secondary" to ComposeStyleReference { Chip.S.Secondary.style() },
-            "S.Warning" to ComposeStyleReference { Chip.S.Warning.style() },
-            "S.Pilled.Default" to ComposeStyleReference { Chip.S.Pilled.Default.style() },
-            "S.Pilled.Accent" to ComposeStyleReference { Chip.S.Pilled.Accent.style() },
-            "S.Pilled.Negative" to ComposeStyleReference { Chip.S.Pilled.Negative.style() },
-            "S.Pilled.Positive" to ComposeStyleReference { Chip.S.Pilled.Positive.style() },
-            "S.Pilled.Secondary" to ComposeStyleReference { Chip.S.Pilled.Secondary.style() },
-            "S.Pilled.Warning" to ComposeStyleReference { Chip.S.Pilled.Warning.style() },
-            "Xs.Default" to ComposeStyleReference { Chip.Xs.Default.style() },
-            "Xs.Accent" to ComposeStyleReference { Chip.Xs.Accent.style() },
-            "Xs.Negative" to ComposeStyleReference { Chip.Xs.Negative.style() },
-            "Xs.Positive" to ComposeStyleReference { Chip.Xs.Positive.style() },
-            "Xs.Secondary" to ComposeStyleReference { Chip.Xs.Secondary.style() },
-            "Xs.Warning" to ComposeStyleReference { Chip.Xs.Warning.style() },
-            "Xs.Pilled.Default" to ComposeStyleReference { Chip.Xs.Pilled.Default.style() },
-            "Xs.Pilled.Accent" to ComposeStyleReference { Chip.Xs.Pilled.Accent.style() },
-            "Xs.Pilled.Negative" to ComposeStyleReference { Chip.Xs.Pilled.Negative.style() },
-            "Xs.Pilled.Positive" to ComposeStyleReference { Chip.Xs.Pilled.Positive.style() },
-            "Xs.Pilled.Secondary" to ComposeStyleReference { Chip.Xs.Pilled.Secondary.style() },
-            "Xs.Pilled.Warning" to ComposeStyleReference { Chip.Xs.Pilled.Warning.style() },
+            "Chip.L.Default" to ComposeStyleReference { Chip.L.Default.style() },
+            "Chip.L.Accent" to ComposeStyleReference { Chip.L.Accent.style() },
+            "Chip.L.Negative" to ComposeStyleReference { Chip.L.Negative.style() },
+            "Chip.L.Positive" to ComposeStyleReference { Chip.L.Positive.style() },
+            "Chip.L.Secondary" to ComposeStyleReference { Chip.L.Secondary.style() },
+            "Chip.L.Warning" to ComposeStyleReference { Chip.L.Warning.style() },
+            "Chip.L.Pilled.Default" to ComposeStyleReference { Chip.L.Pilled.Default.style() },
+            "Chip.L.Pilled.Accent" to ComposeStyleReference { Chip.L.Pilled.Accent.style() },
+            "Chip.L.Pilled.Negative" to ComposeStyleReference { Chip.L.Pilled.Negative.style() },
+            "Chip.L.Pilled.Positive" to ComposeStyleReference { Chip.L.Pilled.Positive.style() },
+            "Chip.L.Pilled.Secondary" to ComposeStyleReference { Chip.L.Pilled.Secondary.style() },
+            "Chip.L.Pilled.Warning" to ComposeStyleReference { Chip.L.Pilled.Warning.style() },
+            "Chip.M.Default" to ComposeStyleReference { Chip.M.Default.style() },
+            "Chip.M.Accent" to ComposeStyleReference { Chip.M.Accent.style() },
+            "Chip.M.Negative" to ComposeStyleReference { Chip.M.Negative.style() },
+            "Chip.M.Positive" to ComposeStyleReference { Chip.M.Positive.style() },
+            "Chip.M.Secondary" to ComposeStyleReference { Chip.M.Secondary.style() },
+            "Chip.M.Warning" to ComposeStyleReference { Chip.M.Warning.style() },
+            "Chip.M.Pilled.Default" to ComposeStyleReference { Chip.M.Pilled.Default.style() },
+            "Chip.M.Pilled.Accent" to ComposeStyleReference { Chip.M.Pilled.Accent.style() },
+            "Chip.M.Pilled.Negative" to ComposeStyleReference { Chip.M.Pilled.Negative.style() },
+            "Chip.M.Pilled.Positive" to ComposeStyleReference { Chip.M.Pilled.Positive.style() },
+            "Chip.M.Pilled.Secondary" to ComposeStyleReference { Chip.M.Pilled.Secondary.style() },
+            "Chip.M.Pilled.Warning" to ComposeStyleReference { Chip.M.Pilled.Warning.style() },
+            "Chip.S.Default" to ComposeStyleReference { Chip.S.Default.style() },
+            "Chip.S.Accent" to ComposeStyleReference { Chip.S.Accent.style() },
+            "Chip.S.Negative" to ComposeStyleReference { Chip.S.Negative.style() },
+            "Chip.S.Positive" to ComposeStyleReference { Chip.S.Positive.style() },
+            "Chip.S.Secondary" to ComposeStyleReference { Chip.S.Secondary.style() },
+            "Chip.S.Warning" to ComposeStyleReference { Chip.S.Warning.style() },
+            "Chip.S.Pilled.Default" to ComposeStyleReference { Chip.S.Pilled.Default.style() },
+            "Chip.S.Pilled.Accent" to ComposeStyleReference { Chip.S.Pilled.Accent.style() },
+            "Chip.S.Pilled.Negative" to ComposeStyleReference { Chip.S.Pilled.Negative.style() },
+            "Chip.S.Pilled.Positive" to ComposeStyleReference { Chip.S.Pilled.Positive.style() },
+            "Chip.S.Pilled.Secondary" to ComposeStyleReference { Chip.S.Pilled.Secondary.style() },
+            "Chip.S.Pilled.Warning" to ComposeStyleReference { Chip.S.Pilled.Warning.style() },
+            "Chip.Xs.Default" to ComposeStyleReference { Chip.Xs.Default.style() },
+            "Chip.Xs.Accent" to ComposeStyleReference { Chip.Xs.Accent.style() },
+            "Chip.Xs.Negative" to ComposeStyleReference { Chip.Xs.Negative.style() },
+            "Chip.Xs.Positive" to ComposeStyleReference { Chip.Xs.Positive.style() },
+            "Chip.Xs.Secondary" to ComposeStyleReference { Chip.Xs.Secondary.style() },
+            "Chip.Xs.Warning" to ComposeStyleReference { Chip.Xs.Warning.style() },
+            "Chip.Xs.Pilled.Default" to ComposeStyleReference { Chip.Xs.Pilled.Default.style() },
+            "Chip.Xs.Pilled.Accent" to ComposeStyleReference { Chip.Xs.Pilled.Accent.style() },
+            "Chip.Xs.Pilled.Negative" to ComposeStyleReference { Chip.Xs.Pilled.Negative.style() },
+            "Chip.Xs.Pilled.Positive" to ComposeStyleReference { Chip.Xs.Pilled.Positive.style() },
+            "Chip.Xs.Pilled.Secondary" to ComposeStyleReference { Chip.Xs.Pilled.Secondary.style() },
+            "Chip.Xs.Pilled.Warning" to ComposeStyleReference { Chip.Xs.Pilled.Warning.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return ChipStyles.Default.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "L" -> ChipDefaultSize.L
+                "M" -> ChipDefaultSize.M
+                "S" -> ChipDefaultSize.S
+                "Xs" -> ChipDefaultSize.Xs
+                else -> ChipDefaultSize.L
+            },
+            shape = when (bindings["shape"]?.toString()) {
+                "Default" -> ChipDefaultShape.Default
+                "Pilled" -> ChipDefaultShape.Pilled
+                else -> ChipDefaultShape.Default
+            },
+            view = when (bindings["view"]?.toString()) {
+                "Default" -> ChipDefaultView.Default
+                "Accent" -> ChipDefaultView.Accent
+                "Negative" -> ChipDefaultView.Negative
+                "Positive" -> ChipDefaultView.Positive
+                "Secondary" -> ChipDefaultView.Secondary
+                "Warning" -> ChipDefaultView.Warning
+                else -> ChipDefaultView.Default
+            },
+        ).key
+    }
 }

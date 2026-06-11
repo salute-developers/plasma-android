@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.plasma.sd.service.styles.modal.Default
 import com.sdds.plasma.sd.service.styles.modal.Modal
 
 internal object PlasmaB2cModalVariationsCompose : ComposeStyleProvider<ModalStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<ModalStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Modal.Default.style() },
+            "Modal.Default" to ComposeStyleReference { Modal.Default.style() },
         )
 }
