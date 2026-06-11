@@ -79,7 +79,7 @@ import androidx.compose.ui.unit.offset as constraintsOffset
 internal fun BaseDropdownMenu(
     opened: Boolean,
     onDismissRequest: () -> Unit,
-    triggerInfo: TriggerInfo,
+    triggerInfo: () -> TriggerInfo,
     modifier: Modifier = Modifier,
     style: DropdownMenuStyle,
     clipHeight: Boolean,
@@ -144,7 +144,7 @@ internal fun BaseDropdownMenu(
     BasePopover(
         show = opened,
         onDismissRequest = onDismissRequest,
-        triggerInfo = { triggerInfo },
+        triggerInfo = triggerInfo,
         colors = style.colors.toPopoverColors(),
         dimensions = style.dimensions.toPopoverDimensions(offset),
         shape = style.shape,
@@ -220,7 +220,7 @@ internal fun BaseModalDropdownMenu(
         BaseDropdownMenu(
             opened = opened,
             onDismissRequest = onDismissRequest,
-            triggerInfo = triggerInfo.asDialogTriggerInfo(),
+            triggerInfo = { triggerInfo.asDialogTriggerInfo() },
             modifier = modifier,
             style = style,
             clipHeight = clipHeight,
