@@ -118,7 +118,6 @@ internal fun BasePopover(
 
     val shadowPaddingValues = shadow.getShadowSafePaddings()
     val shadowPaddingsPx = ShadowPaddings.fromPaddingValues(shadowPaddingValues)
-    val triggerInfoValue = triggerInfo()
     val safeAreaPaddingsPx = SafeAreaPaddings.fromPaddingValues(safeAreaPadding)
     val dismissInProgress = rememberUpdatedState(!show && popoverVisible)
     val positionProvider = rememberPopoverPositionProvider(
@@ -132,7 +131,6 @@ internal fun BasePopover(
         tailPadding = tailPadding.px,
         tailWidth = tailWidth.px,
         shadowPaddings = shadowPaddingsPx,
-        triggerInfo = triggerInfoValue,
         safeAreaPaddings = safeAreaPaddingsPx,
         systemBarsInsets = SystemBarsInsets.fromWindowInsets(),
         triggerInfoProvider = triggerInfo,
@@ -161,7 +159,7 @@ internal fun BasePopover(
         if (!popoverVisible) {
             recalculatedConstraints = null
             popoverContentSize = IntSize.Zero
-            positionProvider.resetContentSize()
+            positionProvider.resetTransientState()
         }
     }
 
@@ -487,7 +485,6 @@ private fun rememberPopoverPositionProvider(
     dismissInProgress: () -> Boolean,
     triggerCentered: Boolean,
     tailAlignment: PopoverAlignment,
-    triggerInfo: TriggerInfo,
     triggerInfoProvider: () -> TriggerInfo,
     offset: Int,
     tailPadding: Int,
@@ -502,33 +499,16 @@ private fun rememberPopoverPositionProvider(
     popoverContentSize: () -> IntSize,
     clippedConstraints: () -> IntSize?,
     onContentSizeChanged: (IntSize) -> Unit,
-): PopoverPositionProvider = remember(
-    placement,
-    placementMode,
-    positionStrategy,
-    triggerCentered,
-    tailAlignment,
-    triggerInfo,
-    triggerInfoProvider,
-    offset,
-    tailPadding,
-    tailWidth,
-    shadowPaddings,
-    safeAreaPaddings,
-    systemBarsInsets,
-    keyboardHeight,
-    rootViewHeight,
-    clipHeight,
-    clipWidth,
-) {
-    PopoverPositionProvider(
+): PopoverPositionProvider {
+    // Лямбда не входит в ключи remember: чтение triggerInfo происходит в calculatePosition,
+    // где Popup наблюдает snapshot-чтения и сам пересчитывает позицию без рекомпозиции.
+    val currentTriggerInfoProvider = rememberUpdatedState(triggerInfoProvider)
+    return remember(
         placement,
         placementMode,
         positionStrategy,
-        dismissInProgress,
         triggerCentered,
         tailAlignment,
-        triggerInfoProvider,
         offset,
         tailPadding,
         tailWidth,
@@ -539,10 +519,30 @@ private fun rememberPopoverPositionProvider(
         rootViewHeight,
         clipHeight,
         clipWidth,
-        popoverContentSize,
-        clippedConstraints,
-        onContentSizeChanged,
-    )
+    ) {
+        PopoverPositionProvider(
+            placement,
+            placementMode,
+            positionStrategy,
+            dismissInProgress,
+            triggerCentered,
+            tailAlignment,
+            { currentTriggerInfoProvider.value.invoke() },
+            offset,
+            tailPadding,
+            tailWidth,
+            shadowPaddings,
+            safeAreaPaddings,
+            systemBarsInsets,
+            keyboardHeight,
+            rootViewHeight,
+            clipHeight,
+            clipWidth,
+            popoverContentSize,
+            clippedConstraints,
+            onContentSizeChanged,
+        )
+    }
 }
 
 private class PopoverPositionProvider(
@@ -577,8 +577,12 @@ private class PopoverPositionProvider(
     private var lastPositionState: InitialPositionState? = null
     private var maxPopupContentSize: IntSize = IntSize.Zero
 
-    fun resetContentSize() {
+    // Провайдер переживает циклы открытия/закрытия, поэтому при скрытии нужно сбрасывать
+    // не только размер контента, но и зафиксированные позиции (KeepInitial, dismiss).
+    fun resetTransientState() {
         maxPopupContentSize = IntSize.Zero
+        initialPositionState = null
+        lastPositionState = null
     }
 
     private fun reset() {
