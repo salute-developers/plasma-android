@@ -11,14 +11,14 @@ import kotlin.Suppress
  */
 public object FontTokens {
     /**
+     * fontFamily body
+     */
+    public val body: FontFamily = FontFamily.Default
+
+    /**
      * fontFamily display
      */
     public val display: FontFamily = FontFamily.Default
-
-    /**
-     * fontFamily text
-     */
-    public val text: FontFamily = FontFamily.Default
 
     /**
      * fontFamily header
@@ -26,7 +26,7 @@ public object FontTokens {
     public val `header`: FontFamily = FontFamily.Default
 
     /**
-     * fontFamily body
+     * fontFamily text
      */
-    public val body: FontFamily = FontFamily.Default
+    public val text: FontFamily = FontFamily.Default
 }
