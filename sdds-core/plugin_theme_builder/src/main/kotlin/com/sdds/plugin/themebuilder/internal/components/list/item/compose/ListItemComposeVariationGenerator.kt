@@ -51,6 +51,7 @@ internal class ListItemComposeVariationGenerator(
             titleStyleCall(props),
             subtitleStyleCall(props),
             labelStyleCall(props),
+            disclosureStyleCall(props),
             disclosureIconCall(props),
             colorsCall(props),
             dimensionsCall(props, variationId),
@@ -150,6 +151,9 @@ internal class ListItemComposeVariationGenerator(
                 props.disclosureIconColor?.let {
                     appendLine(getColor("disclosureIconColor", it))
                 }
+                props.disclosureTextColor?.let {
+                    appendLine(getColor("disclosureTextColor", it))
+                }
                 props.contentStartColor?.let {
                     appendLine(getColor("contentStartColor", it))
                 }
@@ -170,7 +174,8 @@ internal class ListItemComposeVariationGenerator(
             subtitleColor != null ||
             disclosureIconColor != null ||
             contentStartColor != null ||
-            contentEndColor != null
+            contentEndColor != null ||
+            disclosureTextColor != null
     }
 
     private fun titleStyleCall(props: ListItemProperties): String? {
@@ -188,6 +193,12 @@ internal class ListItemComposeVariationGenerator(
     private fun labelStyleCall(props: ListItemProperties): String? {
         return props.labelStyle?.let {
             getTypography("labelStyle", it)
+        }
+    }
+
+    private fun disclosureStyleCall(props: ListItemProperties): String? {
+        return props.disclosureStyle?.let {
+            getTypography("disclosureTextStyle", it)
         }
     }
 

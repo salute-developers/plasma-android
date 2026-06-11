@@ -18,6 +18,7 @@ import com.sdds.compose.uikit.Divider
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
+import com.sdds.compose.uikit.ListItemDisclosure
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.stories.ListUiStatePropertiesProducer
@@ -25,6 +26,8 @@ import com.sdds.compose.uikit.fixtures.stories.ListUiStateTransformer
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.motion.components.list.rememberListItemMotion
+import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -82,7 +85,9 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
 
                 /* Обертка в Box нужна для удобства проверки размеров элементов */
                 Box {
+                    val listItemMotion = rememberListItemMotion()
                     ListItem(
+                        motion = listItemMotion,
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable(
@@ -104,8 +109,19 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
                         } else {
                             null
                         },
+                        disclosureContent = {
+                            ListItemDisclosure(
+                                motion = listItemMotion,
+                                icon = {
+                                    Icon(
+                                        painter = painterResource(R.drawable.ic_disclosure_right_outline_24),
+                                        contentDescription = "",
+                                    )
+                                },
+                                text = { Text("Disclosure") },
+                            )
+                        },
                         disclosureEnabled = state.hasDisclosure,
-                        interactionSource = interactionSource,
                     )
                 }
                 if (state.hasDivider) {

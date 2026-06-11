@@ -72,6 +72,9 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
             disclosureIconColor(
                 PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
+            disclosureTextColor(
+                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             contentStartColor(
                 PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
             )
@@ -88,6 +91,7 @@ public val ListItem.S: WrapperListItemS
         .titleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
+        .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(12.0.dp)
@@ -126,6 +130,7 @@ public val ListItem.M: WrapperListItemM
         .titleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .labelStyle(PlasmaHomeDsTheme.typography.bodySNormal)
+        .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(12.0.dp)

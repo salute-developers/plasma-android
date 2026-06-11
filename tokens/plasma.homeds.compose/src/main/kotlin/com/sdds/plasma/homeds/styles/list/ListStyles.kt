@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.ListStyleBuilder
-import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -141,7 +140,7 @@ public val WrapperListS.HasBackground: WrapperListSHasBackground
                 PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
             )
         }
-        .shape(PlasmaHomeDsTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
+        .shape(PlasmaHomeDsTheme.shapes.roundXl)
         .wrap(::WrapperListSHasBackground)
 
 public val List.M: WrapperListM
@@ -184,5 +183,5 @@ public val WrapperListM.HasBackground: WrapperListMHasBackground
                 PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
             )
         }
-        .shape(PlasmaHomeDsTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
+        .shape(PlasmaHomeDsTheme.shapes.roundXl)
         .wrap(::WrapperListMHasBackground)
