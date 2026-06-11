@@ -66,12 +66,12 @@ internal class DrawerStateImpl(
         }
 
     override suspend fun open() {
-        if (isOpen || targetValue == DrawerValue.Opened) return
+        if (targetValue == DrawerValue.Opened) return
         anchoredDraggableState.animateTo(DrawerValue.Opened)
     }
 
     override suspend fun close() {
-        if (isClosed || targetValue == DrawerValue.Closed) return
+        if (targetValue == DrawerValue.Closed) return
         anchoredDraggableState.animateTo(DrawerValue.Closed)
     }
 
