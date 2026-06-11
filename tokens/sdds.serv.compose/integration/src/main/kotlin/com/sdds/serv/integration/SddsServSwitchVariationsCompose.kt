@@ -28,7 +28,7 @@ internal object SddsServSwitchVariationsCompose : ComposeStyleProvider<SwitchSty
     override val bindings: Set<Property<*>> =
         setOf(
             Property.SingleChoiceProperty(name = "size", value = "L", variants = listOf("L", "M", "S")),
-            Property.SingleChoiceProperty(name = "toggleSize", value = "S", variants = listOf("S")),
+            Property.SingleChoiceProperty(name = "toggleSize", value = "L", variants = listOf("L", "S")),
         )
 
     override val variations: Map<String, ComposeStyleReference<SwitchStyle>> =
@@ -50,8 +50,9 @@ internal object SddsServSwitchVariationsCompose : ComposeStyleProvider<SwitchSty
                 else -> SwitchSize.L
             },
             toggleSize = when (bindings["toggleSize"]?.toString()) {
+                "L" -> SwitchToggleSize.L
                 "S" -> SwitchToggleSize.S
-                else -> SwitchToggleSize.S
+                else -> SwitchToggleSize.L
             },
         ).key
     }

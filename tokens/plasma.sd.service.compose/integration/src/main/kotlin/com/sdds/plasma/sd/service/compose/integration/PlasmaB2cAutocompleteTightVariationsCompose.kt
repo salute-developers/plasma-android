@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -11,20 +13,42 @@ import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.AutocompleteStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.sd.service.styles.autocomplete.AutocompleteStyles
 import com.sdds.plasma.sd.service.styles.autocomplete.AutocompleteTight
+import com.sdds.plasma.sd.service.styles.autocomplete.AutocompleteTightSize
 import com.sdds.plasma.sd.service.styles.autocomplete.L
 import com.sdds.plasma.sd.service.styles.autocomplete.M
 import com.sdds.plasma.sd.service.styles.autocomplete.S
 import com.sdds.plasma.sd.service.styles.autocomplete.Xl
 import com.sdds.plasma.sd.service.styles.autocomplete.Xs
+import com.sdds.plasma.sd.service.styles.autocomplete.resolve
+import com.sdds.sandbox.Property
 
 internal object PlasmaB2cAutocompleteTightVariationsCompose : ComposeStyleProvider<AutocompleteStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "Xl", variants = listOf("Xl", "L", "M", "S", "Xs")),
+        )
+
     override val variations: Map<String, ComposeStyleReference<AutocompleteStyle>> =
         mapOf(
-            "Xl" to ComposeStyleReference { AutocompleteTight.Xl.style() },
-            "L" to ComposeStyleReference { AutocompleteTight.L.style() },
-            "M" to ComposeStyleReference { AutocompleteTight.M.style() },
-            "S" to ComposeStyleReference { AutocompleteTight.S.style() },
-            "Xs" to ComposeStyleReference { AutocompleteTight.Xs.style() },
+            "AutocompleteTight.Xl" to ComposeStyleReference { AutocompleteTight.Xl.style() },
+            "AutocompleteTight.L" to ComposeStyleReference { AutocompleteTight.L.style() },
+            "AutocompleteTight.M" to ComposeStyleReference { AutocompleteTight.M.style() },
+            "AutocompleteTight.S" to ComposeStyleReference { AutocompleteTight.S.style() },
+            "AutocompleteTight.Xs" to ComposeStyleReference { AutocompleteTight.Xs.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return AutocompleteStyles.Tight.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "Xl" -> AutocompleteTightSize.Xl
+                "L" -> AutocompleteTightSize.L
+                "M" -> AutocompleteTightSize.M
+                "S" -> AutocompleteTightSize.S
+                "Xs" -> AutocompleteTightSize.Xs
+                else -> AutocompleteTightSize.Xl
+            },
+        ).key
+    }
 }
