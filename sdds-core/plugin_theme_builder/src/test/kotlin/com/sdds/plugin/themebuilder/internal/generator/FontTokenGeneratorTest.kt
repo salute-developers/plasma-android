@@ -128,6 +128,37 @@ class FontTokenGeneratorTest {
         )
     }
 
+    @Test
+    fun `FontGenerator использует FontFamily Default для compose при useDefaultFonts`() {
+        val input = getResourceAsText("inputs/test-font-input.json")
+        val fontTokens = Serializer.meta.decodeFromString<List<FontToken>>(input)
+        val outputKt = ByteArrayOutputStream()
+        val generator = FontTokenGenerator(
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            outputResDir = mockOutputResDir,
+            target = ThemeBuilderTarget.COMPOSE,
+            xmlFontFamilyBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),
+            fontDownloaderFactory = mockDownloaderFactory,
+            ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
+            namespace = "com.test",
+            resPrefix = "thmbldr",
+            fontTokenValues = mapOf(Tenant.Default to emptyMap()),
+            fontsAggregator = FontsAggregator(),
+            dimensionsConfig = DimensionsConfig(),
+            useDefaultFonts = true,
+        )
+
+        fontTokens.forEach { token ->
+            generator.addToken(token)
+        }
+        generator.generate()
+
+        Assert.assertTrue(outputKt.toString().contains("public val display: FontFamily = FontFamily.Default"))
+        Assert.assertTrue(outputKt.toString().contains("public val text: FontFamily = FontFamily.Default"))
+        Assert.assertFalse(outputKt.toString().contains("Font("))
+        Assert.assertFalse(outputKt.toString().contains("R.font"))
+    }
+
     private companion object {
         val fontTokenValues = mapOf(
             Tenant.Default to mapOf(

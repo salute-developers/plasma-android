@@ -1,8 +1,11 @@
 package com.sdds.plugin.themebuilder
 
+import java.io.File
+
 internal data class ThemeBuilderSources(
     val baseAlias: String = "",
     val sources: List<ThemeBuilderSource>,
+    val paletteFile: File? = null,
 )
 
 /**
@@ -25,6 +28,15 @@ internal sealed class ThemeBuilderSource(val themeName: String, val tenant: Stri
      */
     data class Url(
         val url: String,
+        val name: String,
+        val suffix: String,
+    ) : ThemeBuilderSource(name, suffix)
+
+    /**
+     * Способ получения темы из локальной tenant-директории DSBuilder.
+     */
+    data class LocalDirectory(
+        val directory: File,
         val name: String,
         val suffix: String,
     ) : ThemeBuilderSource(name, suffix)
@@ -52,5 +64,14 @@ internal sealed class ThemeBuilderSource(val themeName: String, val tenant: Stri
             name: String = DEFAULT_THEME_NAME,
             suffix: String = "",
         ): ThemeBuilderSource = Url(url, name, suffix)
+
+        /**
+         * Позволяет указать локальную tenant-директорию DSBuilder.
+         */
+        fun withLocalDirectory(
+            directory: File,
+            name: String,
+            suffix: String = "",
+        ): ThemeBuilderSource = LocalDirectory(directory, name, suffix)
     }
 }

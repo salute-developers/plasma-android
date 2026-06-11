@@ -193,6 +193,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     @get:Input
     abstract val ignoreDisabledTokens: Property<Boolean>
 
+    /**
+     * Использовать дефолтные compose-шрифты вместо значений из android_fontFamily.json.
+     */
+    @get:Input
+    abstract val useDefaultFonts: Property<Boolean>
+
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
     private val fontsAggregator by unsafeLazy { FontsAggregator() }
     private val packageResolver by unsafeLazy { PackageResolver(packageName.get()) }
@@ -225,6 +231,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             dimensionsConfig = dimensionsConfig.get(),
             packageResolver = packageResolver,
             defaultThemeTypography = defaultThemeTypography.get(),
+            useDefaultFonts = useDefaultFonts.get(),
         )
     }
 

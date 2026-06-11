@@ -28,6 +28,7 @@ open class ThemeBuilderExtension {
     internal var defaultThemeTypography = DefaultThemeTypography.DYNAMIC
     internal var componentsMetaStyleClass: Boolean = false
     internal var ignoreDisabledTokens: Boolean = false
+    internal var useDefaultFonts: Boolean = false
 
     /**
      * Временный способ установки любого url для конфигов компонентов
@@ -122,13 +123,13 @@ open class ThemeBuilderExtension {
         )
     }
 
-    internal fun getThemeSources(): ThemeBuilderSources {
+    internal fun getThemeSourcesOrNull(): ThemeBuilderSources? {
         val themeSrc = themeSource
         val themeSrcs = themeSources
         return when {
             themeSrc != null -> ThemeBuilderSources(baseAlias = themeSrc.themeName, sources = listOf(themeSrc))
             themeSrcs != null && themeSrcs.sources.isNotEmpty() -> themeSrcs
-            else -> throw ThemeBuilderException("themeSource(s) must be set")
+            else -> null
         }
     }
 
@@ -220,6 +221,14 @@ open class ThemeBuilderExtension {
      */
     fun ignoreDisabledTokens(ignore: Boolean) {
         this.ignoreDisabledTokens = ignore
+    }
+
+    /**
+     * Если [use] == true, то compose-токены FontFamily будут генерироваться как FontFamily.Default.
+     * View system продолжит использовать значения из android_fontFamily.json.
+     */
+    fun useDefaultFonts(use: Boolean) {
+        this.useDefaultFonts = use
     }
 
     private fun updateTarget(newTarget: ThemeBuilderTarget) {
