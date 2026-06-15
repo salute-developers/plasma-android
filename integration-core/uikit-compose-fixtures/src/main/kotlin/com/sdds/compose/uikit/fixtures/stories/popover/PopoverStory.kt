@@ -101,7 +101,7 @@ object PopoverStory : ComposeBaseStory<PopoverUiState, PopoverStyle>(
             modifier = Modifier
                 .align(state.triggerPlacement.toAlignment())
                 .popoverTrigger(triggerInfo),
-            label = "show",
+            label = "show popover",
             onClick = { showPopover.value = true },
         )
         Popover(
