@@ -311,7 +311,7 @@ private fun View.enablePassthroughTouch(decorViewProvider: () -> View?) {
 @Suppress("ClickableViewAccessibility")
 private fun Window.ensureCorrect(position: OverlayPosition, isFocusable: Boolean) {
     setLayout(
-        WindowManager.LayoutParams.WRAP_CONTENT,
+        WindowManager.LayoutParams.MATCH_PARENT,
         WindowManager.LayoutParams.WRAP_CONTENT,
     )
     setGravity(position.toGravity())
