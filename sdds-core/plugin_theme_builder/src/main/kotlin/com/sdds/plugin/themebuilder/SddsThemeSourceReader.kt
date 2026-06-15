@@ -17,12 +17,10 @@ internal class SddsThemeSourceReader(
         val config = json.decodeFromString(SddsConfig.serializer(), configFile.readText())
         validateTenants(config)
         val paletteFile = config.paletteFile(projectDir)
-        validatePaletteFile(paletteFile)
 
         val sources = config.tenants.mapIndexed { index, tenant ->
             val tenantName = tenant.publicName
             val tenantDirectory = tenant.directory(projectDir)
-            validateRequiredFiles(tenantDirectory)
             ThemeBuilderSource.withLocalDirectory(
                 directory = tenantDirectory,
                 name = tenantName,
@@ -50,26 +48,6 @@ internal class SddsThemeSourceReader(
     private fun validateTenants(config: SddsConfig) {
         if (config.tenants.isEmpty()) {
             throw ThemeBuilderException("$CONFIG_PATH must contain at least one tenant")
-        }
-    }
-
-    private fun validatePaletteFile(paletteFile: File) {
-        if (!paletteFile.isFile) {
-            throw ThemeBuilderException("Required palette file is missing: ${paletteFile.path}")
-        }
-    }
-
-    private fun validateRequiredFiles(tenantDirectory: File) {
-        val metaFile = tenantDirectory.resolve(META_JSON_NAME)
-        if (!metaFile.isFile) {
-            throw ThemeBuilderException("Required theme file is missing: ${metaFile.path}")
-        }
-
-        TOKEN_FILE_NAMES.forEach { fileName ->
-            val tokenFile = tenantDirectory.resolve("android/$fileName")
-            if (!tokenFile.isFile) {
-                throw ThemeBuilderException("Required theme file is missing: ${tokenFile.path}")
-            }
         }
     }
 
@@ -103,17 +81,6 @@ internal class SddsThemeSourceReader(
         const val SDDS_DIR = ".sdds"
         const val CONFIG_PATH = "$SDDS_DIR/config.json"
         const val DEFAULT_PALETTE_PATH = "$SDDS_DIR/tenants/palette.json"
-        const val META_JSON_NAME = "meta.json"
-
-        val TOKEN_FILE_NAMES = listOf(
-            "android_color.json",
-            "android_gradient.json",
-            "android_typography.json",
-            "android_fontFamily.json",
-            "android_shape.json",
-            "android_shadow.json",
-            "android_spacing.json",
-        )
 
         val json = Json {
             ignoreUnknownKeys = true

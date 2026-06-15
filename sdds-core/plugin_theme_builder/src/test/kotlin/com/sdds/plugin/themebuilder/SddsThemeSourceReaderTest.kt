@@ -142,7 +142,7 @@ class SddsThemeSourceReaderTest {
     }
 
     @Test
-    fun `reader fails when required file is missing`() {
+    fun `reader resolves tenant directory when required files are missing`() {
         val projectDir = temporaryFolder.root
         createConfig(
             projectDir,
@@ -157,18 +157,14 @@ class SddsThemeSourceReaderTest {
             """.trimIndent(),
         )
         val tenantDir = projectDir.resolve(".sdds/base")
-        createTenantFiles(tenantDir)
-        tenantDir.resolve("android/android_shape.json").delete()
 
-        val error = assertFailsWithThemeBuilderException {
-            SddsThemeSourceReader(projectDir).read()
-        }
+        val result = SddsThemeSourceReader(projectDir).read()
 
-        assertTrue(error.message.orEmpty().contains(tenantDir.resolve("android/android_shape.json").path))
+        assertEquals(listOf(tenantDir), result.sources.map { (it as ThemeBuilderSource.LocalDirectory).directory })
     }
 
     @Test
-    fun `reader fails when palette file is missing`() {
+    fun `reader resolves palette path when palette file is missing`() {
         val projectDir = temporaryFolder.root
         createConfig(
             projectDir,
@@ -185,11 +181,9 @@ class SddsThemeSourceReaderTest {
         )
         createTenantFiles(projectDir.resolve(".sdds/base"))
 
-        val error = assertFailsWithThemeBuilderException {
-            SddsThemeSourceReader(projectDir).read()
-        }
+        val result = SddsThemeSourceReader(projectDir).read()
 
-        assertTrue(error.message.orEmpty().contains(projectDir.resolve("missing/palette.json").path))
+        assertEquals(projectDir.resolve("missing/palette.json"), result.paletteFile)
     }
 
     private fun createConfig(projectDir: File, content: String) {
