@@ -157,6 +157,10 @@ internal fun BasePopover(
         placement = positionProvider.innerPlacement,
     )
 
+    SideEffect {
+        positionProvider.updateContentPlacement(positionProvider.innerPlacement)
+    }
+
     LaunchedEffect(popoverVisible) {
         if (!popoverVisible) {
             recalculatedConstraints = null
@@ -579,6 +583,7 @@ private class PopoverPositionProvider(
 ) : PopupPositionProvider {
 
     private var popoverOffsetWhenTriggerCentered: Offset = Offset.Zero
+    private var contentPlacement = placement
     var innerPlacement = placement
         private set
     var innerTailAlignment = tailAlignment
@@ -599,6 +604,10 @@ private class PopoverPositionProvider(
         innerPlacement = placement
         innerTailAlignment = tailAlignment
         popoverOffsetWhenTriggerCentered = Offset.Zero
+    }
+
+    fun updateContentPlacement(placement: PopoverPlacement) {
+        contentPlacement = placement
     }
 
     private fun alignmentLineOffset(): Int {
@@ -634,7 +643,7 @@ private class PopoverPositionProvider(
         layoutDirection: LayoutDirection,
         popupContentSize: IntSize,
     ): IntOffset {
-        val contentPlacement = innerPlacement
+        val currentContentPlacement = contentPlacement
         reset()
         lastPositionState.takeIf { dismissInProgress() }?.let { state ->
             innerPlacement = state.placement
@@ -663,7 +672,7 @@ private class PopoverPositionProvider(
             clipHeight = clipHeight,
         )
         val scaledTriggerSize = triggerSize.calculateScaledSize(triggerScaleFactor)
-        val popupSizeForPosition = contentSize.forCurrentTailPlacement(contentPlacement)
+        val popupSizeForPosition = contentSize.forCurrentTailPlacement(currentContentPlacement)
         val desiredPopupPosition = calculatePopupPosition(
             triggerPositionInRoot = triggerPositionInRoot,
             popupContentSize = popupSizeForPosition,
@@ -686,7 +695,7 @@ private class PopoverPositionProvider(
                     desiredPopupPosition
                         .tryToCorrectPlacement(
                             popupSize = contentSize,
-                            contentPlacement = contentPlacement,
+                            contentPlacement = currentContentPlacement,
                             windowBounds = availableWindowBounds,
                             triggerPositionInRoot = triggerPositionInRoot,
                             triggerSize = scaledTriggerSize,
