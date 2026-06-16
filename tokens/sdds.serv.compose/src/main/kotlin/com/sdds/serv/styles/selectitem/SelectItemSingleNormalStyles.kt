@@ -77,12 +77,10 @@ public value class WrapperSelectItemSingleNormalXs(
 private val SelectItemStyleBuilder.invariantProps: SelectItemStyleBuilder
     @Composable
     get() = this
-        .disableAlpha(0.4f)
         .itemType(SelectItemType.Single)
+        .disableAlpha(0.4f)
         .colors {
-            iconColor(
-                SddsServTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultAccent.asInteractive())
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Focused)
@@ -100,12 +98,12 @@ public val SelectItemSingleNormal.Xl: WrapperSelectItemSingleNormalXl
         .icon(com.sdds.icons.R.drawable.ic_done_24)
         .cellStyle(Cell.L.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(8.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(18.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
-            controlMargin(8.0.dp)
-            controlSize(24.0.dp)
             height(64.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalXl)
@@ -119,12 +117,12 @@ public val SelectItemSingleNormal.L: WrapperSelectItemSingleNormalL
         .icon(com.sdds.icons.R.drawable.ic_done_24)
         .cellStyle(Cell.L.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(6.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
-            controlMargin(6.0.dp)
-            controlSize(24.0.dp)
             height(56.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalL)
@@ -138,12 +136,12 @@ public val SelectItemSingleNormal.M: WrapperSelectItemSingleNormalM
         .icon(com.sdds.icons.R.drawable.ic_done_24)
         .cellStyle(Cell.M.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(6.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
-            controlMargin(6.0.dp)
-            controlSize(24.0.dp)
             height(48.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalM)
@@ -157,12 +155,12 @@ public val SelectItemSingleNormal.S: WrapperSelectItemSingleNormalS
         .icon(com.sdds.icons.R.drawable.ic_done_24)
         .cellStyle(Cell.S.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(6.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            controlMargin(6.0.dp)
-            controlSize(24.0.dp)
             height(40.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalS)
@@ -176,12 +174,12 @@ public val SelectItemSingleNormal.Xs: WrapperSelectItemSingleNormalXs
         .icon(com.sdds.icons.R.drawable.ic_done_16)
         .cellStyle(Cell.Xs.style())
         .dimensions {
+            controlSize(16.0.dp)
+            controlMargin(4.0.dp)
             paddingStart(6.0.dp)
             paddingEnd(8.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            controlMargin(4.0.dp)
-            controlSize(16.0.dp)
             height(32.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalXs)

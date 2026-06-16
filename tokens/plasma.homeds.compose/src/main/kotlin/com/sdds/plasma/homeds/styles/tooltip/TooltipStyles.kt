@@ -48,15 +48,9 @@ private val TooltipStyleBuilder.invariantProps: TooltipStyleBuilder
     get() = this
         .shadow(PlasmaHomeDsTheme.shadows.downHardM)
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            textColor(
-                SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue(),
-            )
-            contentStartColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            textColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            contentStartColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
             contentStartSize(16.0.dp)
@@ -70,15 +64,15 @@ public val Tooltip.M: WrapperTooltipM
         .shape(PlasmaHomeDsTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .textStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .dimensions {
+            offset(8.0.dp)
+            tailWidth(20.0.dp)
+            tailHeight(8.0.dp)
+            tailPadding(10.0.dp)
             contentStartPadding(6.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
-            offset(8.0.dp)
-            tailWidth(20.0.dp)
-            tailHeight(8.0.dp)
-            tailPadding(10.0.dp)
         }
         .wrap(::WrapperTooltipM)
 
@@ -90,14 +84,14 @@ public val Tooltip.S: WrapperTooltipS
         .shape(PlasmaHomeDsTheme.shapes.roundS)
         .textStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .dimensions {
+            offset(6.0.dp)
+            tailWidth(14.0.dp)
+            tailHeight(6.0.dp)
+            tailPadding(9.0.dp)
             contentStartPadding(4.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            offset(6.0.dp)
-            tailWidth(14.0.dp)
-            tailHeight(6.0.dp)
-            tailPadding(9.0.dp)
         }
         .wrap(::WrapperTooltipS)

@@ -9,6 +9,7 @@ package com.sdds.serv.styles.iconbutton
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButtonStyleBuilder
@@ -16,6 +17,7 @@ import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -144,28 +146,28 @@ public val WrapperIconButtonView.Default: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceDefaultSolidDefaultHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textInversePrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -175,28 +177,28 @@ public val WrapperIconButtonView.Secondary: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -206,28 +208,28 @@ public val WrapperIconButtonView.Accent: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceDefaultAccentHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultAccentHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -237,28 +239,28 @@ public val WrapperIconButtonView.Positive: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceDefaultPositive).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultPositiveActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceDefaultPositiveHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -268,28 +270,28 @@ public val WrapperIconButtonView.Negative: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceDefaultNegativeHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -299,28 +301,28 @@ public val WrapperIconButtonView.Warning: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceDefaultWarning).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceDefaultWarningHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultWarningHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -330,28 +332,28 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -361,28 +363,28 @@ public val WrapperIconButtonView.Dark: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceOnLightTransparentDeepActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceOnLightTransparentDeepHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceOnLightTransparentDeepActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceOnLightTransparentDeepHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -392,28 +394,28 @@ public val WrapperIconButtonView.Black: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceOnLightSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceOnLightSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceOnLightSolidDefaultHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceOnLightSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceOnLightSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -423,28 +425,28 @@ public val WrapperIconButtonView.White: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsServTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.surfaceOnDarkSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.surfaceOnDarkSolidDefaultHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsServTheme.colors.textOnLightPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsServTheme.colors.textOnLightPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textOnLightPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsServTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnLightPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsServTheme.colors.textOnLightPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnLightPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceOnDarkSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnLightPrimaryHover,
                 ),
             )
         }
@@ -453,8 +455,8 @@ public val WrapperIconButtonView.White: WrapperIconButtonTerminate
 private val IconButtonStyleBuilder.invariantProps: IconButtonStyleBuilder
     @Composable
     get() = this
-        .loadingAlpha(0.0f)
         .disableAlpha(0.4f)
+        .loadingAlpha(0.0f)
 
 public val IconButton.Xl: WrapperIconButtonXl
     @Composable

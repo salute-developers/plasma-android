@@ -130,85 +130,81 @@ public value class WrapperTabItemDefaultXsVertical(
 private val TabItemStyleBuilder.invariantProps: TabItemStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .colors {
             labelColor(
                 SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultTertiary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultTertiaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultTertiaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultTertiaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultTertiaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultSecondary,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                 ),
             )
             actionColor(
                 SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
-        .disableAlpha(0.4f)
 
 public val TabItemDefault.L: WrapperTabItemDefaultL
     @Composable
@@ -217,6 +213,8 @@ public val TabItemDefault.L: WrapperTabItemDefaultL
         .invariantProps
         .labelStyle(SddsServTheme.typography.bodyLBold)
         .valueStyle(SddsServTheme.typography.bodyLBold)
+        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .counterStyle(Counter.S.Accent.style())
         .dimensions {
             minHeight(56.0.dp)
             startContentSize(24.0.dp)
@@ -225,8 +223,6 @@ public val TabItemDefault.L: WrapperTabItemDefaultL
             valuePadding(8.0.dp)
             actionPadding(10.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperTabItemDefaultL)
 
 public val WrapperTabItemDefaultL.Horizontal: WrapperTabItemDefaultLHorizontal
@@ -256,6 +252,8 @@ public val TabItemDefault.M: WrapperTabItemDefaultM
         .invariantProps
         .labelStyle(SddsServTheme.typography.bodyMBold)
         .valueStyle(SddsServTheme.typography.bodyMBold)
+        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .counterStyle(Counter.Xs.Accent.style())
         .dimensions {
             minHeight(48.0.dp)
             startContentSize(24.0.dp)
@@ -265,8 +263,6 @@ public val TabItemDefault.M: WrapperTabItemDefaultM
             valuePadding(6.0.dp)
             actionPadding(8.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperTabItemDefaultM)
 
 public val WrapperTabItemDefaultM.Horizontal: WrapperTabItemDefaultMHorizontal
@@ -296,6 +292,8 @@ public val TabItemDefault.S: WrapperTabItemDefaultS
         .invariantProps
         .labelStyle(SddsServTheme.typography.bodySBold)
         .valueStyle(SddsServTheme.typography.bodySBold)
+        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .counterStyle(Counter.Xs.Accent.style())
         .dimensions {
             minHeight(40.0.dp)
             startContentSize(24.0.dp)
@@ -305,8 +303,6 @@ public val TabItemDefault.S: WrapperTabItemDefaultS
             valuePadding(4.0.dp)
             actionPadding(6.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperTabItemDefaultS)
 
 public val WrapperTabItemDefaultS.Horizontal: WrapperTabItemDefaultSHorizontal
@@ -336,6 +332,8 @@ public val TabItemDefault.Xs: WrapperTabItemDefaultXs
         .invariantProps
         .labelStyle(SddsServTheme.typography.bodyXsBold)
         .valueStyle(SddsServTheme.typography.bodyXsBold)
+        .actionIcon(com.sdds.icons.R.drawable.ic_close_16)
+        .counterStyle(Counter.Xxs.Accent.style())
         .dimensions {
             minHeight(32.0.dp)
             startContentSize(16.0.dp)
@@ -345,8 +343,6 @@ public val TabItemDefault.Xs: WrapperTabItemDefaultXs
             valuePadding(4.0.dp)
             actionPadding(4.0.dp)
         }
-        .counterStyle(Counter.Xxs.Accent.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_16)
         .wrap(::WrapperTabItemDefaultXs)
 
 public val WrapperTabItemDefaultXs.Horizontal: WrapperTabItemDefaultXsHorizontal

@@ -8,12 +8,12 @@
 package com.sdkit.star.designsystem.styles.listitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -64,36 +64,36 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
     @Composable
     get() = this
         .colors {
-            titleColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+            backgroundColor(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInversePrimary,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Activated) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary),
+                ),
+            )
+            titleColor(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Focused)
+                        to SolidColor(StarDsTheme.colors.textInversePrimary),
                 ),
             )
             subtitleColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
                 ),
             )
             labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseSecondary,
-                ),
-            )
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(InteractiveState.Activated)
-                        to StarDsTheme.colors.surfaceDefaultTransparentSecondary,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
                 ),
             )
             disclosureIconColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
                 ),
             )
         }
@@ -111,7 +111,8 @@ public val ListItem.L: WrapperListItemL
         )
         .titleStyle(
             StarDsTheme.typography.bodyLNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyLBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodyLBold,
             ),
         )
         .subtitleStyle(StarDsTheme.typography.bodyMNormal)
@@ -119,12 +120,12 @@ public val ListItem.L: WrapperListItemL
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_l))
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_l))
-            height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_l))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_start_l))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_end_l))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_top_l))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_bottom_l))
+            height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_l))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_l))
         }
         .wrap(::WrapperListItemL)
 
@@ -141,7 +142,8 @@ public val ListItem.M: WrapperListItemM
         )
         .titleStyle(
             StarDsTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyMBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodyMBold,
             ),
         )
         .subtitleStyle(StarDsTheme.typography.bodySNormal)
@@ -149,12 +151,12 @@ public val ListItem.M: WrapperListItemM
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_m))
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_m))
-            height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_m))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_start_m))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_end_m))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_top_m))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_bottom_m))
+            height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_m))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_m))
         }
         .wrap(::WrapperListItemM)
 
@@ -166,7 +168,8 @@ public val ListItem.S: WrapperListItemS
         .shape(StarDsTheme.shapes.roundM)
         .titleStyle(
             StarDsTheme.typography.bodySNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodySBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodySBold,
             ),
         )
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
@@ -174,12 +177,12 @@ public val ListItem.S: WrapperListItemS
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_s))
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_s))
-            height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_s))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_start_s))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_end_s))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_top_s))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_bottom_s))
+            height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_s))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_s))
         }
         .wrap(::WrapperListItemS)
 
@@ -196,7 +199,8 @@ public val ListItem.Xs: WrapperListItemXs
         )
         .titleStyle(
             StarDsTheme.typography.bodyXsNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyXsBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodyXsBold,
             ),
         )
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
@@ -204,11 +208,11 @@ public val ListItem.Xs: WrapperListItemXs
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_xs))
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_xs))
-            height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_xs))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_start_xs))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_end_xs))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_top_xs))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_list_item_padding_bottom_xs))
+            height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_xs))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_start_xs))
         }
         .wrap(::WrapperListItemXs)

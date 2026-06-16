@@ -35,23 +35,18 @@ public val RectSkeleton.Default: WrapperRectSkeletonTerminate
     @Composable
     get() = RectSkeletonStyle.builder(this)
         .invariantProps
-        .gradient(
-            PlasmaSdServiceTheme.gradients.surfaceDefaultSkeletonGradient.asLayered().asStatefulValue(),
-        )
+        .gradient(PlasmaSdServiceTheme.gradients.surfaceDefaultSkeletonGradient.asLayered().asStatefulValue())
         .wrap(::WrapperRectSkeletonTerminate)
 
 public val RectSkeleton.Lighter: WrapperRectSkeletonTerminate
     @Composable
     get() = RectSkeletonStyle.builder(this)
         .invariantProps
-        .gradient(
-
-            PlasmaSdServiceTheme.gradients.surfaceDefaultSkeletonDeepGradient.asLayered().asStatefulValue(),
-        )
+        .gradient(PlasmaSdServiceTheme.gradients.surfaceDefaultSkeletonDeepGradient.asLayered().asStatefulValue())
         .wrap(::WrapperRectSkeletonTerminate)
 
 private val RectSkeletonStyleBuilder.invariantProps: RectSkeletonStyleBuilder
     @Composable
     get() = this
         .shape(PlasmaSdServiceTheme.shapes.roundM)
-        .duration(5000.0.toInt())
+        .duration(5000)

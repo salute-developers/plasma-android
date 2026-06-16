@@ -9,12 +9,12 @@ package com.sdkit.star.designsystem.styles.radiobox
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.RadioBoxStates
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RadioBoxStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -56,48 +56,39 @@ public value class WrapperRadioBoxS(
 private val RadioBoxStyleBuilder.invariantProps: RadioBoxStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .shape(CircleShape)
         .colorValues {
-            labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+            labelColor(SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            toggleBorderColor(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Focused)
+                        to SolidColor(StarDsTheme.colors.outlineDefaultAccentMain),
+                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to
+                        SolidColor(StarDsTheme.colors.outlineDefaultAccentMain),
+                    setOf(RadioBoxStates.Checked)
+                        to SolidColor(StarDsTheme.colors.outlineDefaultClear),
+                ),
             )
             toggleColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(RadioBoxStates.Checked)
-                        to StarDsTheme.colors.surfaceDefaultAccentMain,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultAccentMain),
                 ),
             )
-            toggleIconColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            toggleBorderColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.outlineDefaultAccentMain,
-                    setOf(
-                        InteractiveState.Focused,
-                        RadioBoxStates.Checked,
-                    )
-                        to StarDsTheme.colors.outlineDefaultAccentMain,
-                    setOf(RadioBoxStates.Checked)
-                        to StarDsTheme.colors.outlineDefaultClear,
-                ),
-            )
+            toggleIconColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .dimensionValues {
             toggleBorderOffset(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_offset).asStatefulValue(
-                    setOf(InteractiveState.Focused) to
-                        dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_offset_0),
+                    setOf(InteractiveState.Focused)
+                        to dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_offset_0),
                     setOf(InteractiveState.Focused, RadioBoxStates.Checked) to
                         dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_offset_1),
                 ),
             )
         }
-        .disableAlpha(0.4f)
 
 public val RadioBox.L: WrapperRadioBoxL
     @Composable
@@ -109,25 +100,28 @@ public val RadioBox.L: WrapperRadioBoxL
         .dimensionValues {
             toggleWidth(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_width_l))
             toggleHeight(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_height_l))
+            togglePadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_padding_l))
             toggleIconHeight(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_l).asStatefulValue(
-                    setOf(RadioBoxStates.Checked) to
-                        dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_l_0),
+                    setOf(RadioBoxStates.Checked)
+                        to dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_l_0),
                 ),
             )
             toggleIconWidth(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_l).asStatefulValue(
-                    setOf(RadioBoxStates.Checked) to
-                        dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_l_0),
+                    setOf(RadioBoxStates.Checked)
+                        to dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_l_0),
                 ),
             )
             toggleBorderWidth(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_width_l).asStatefulValue(
-                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to
+                    setOf(
+                        InteractiveState.Focused,
+                        RadioBoxStates.Checked,
+                    ) to
                         dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_width_l_0),
                 ),
             )
-            togglePadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_padding_l))
             textPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_text_padding_l))
             descriptionPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_description_padding_l))
         }
@@ -143,25 +137,28 @@ public val RadioBox.M: WrapperRadioBoxM
         .dimensionValues {
             toggleWidth(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_width_m))
             toggleHeight(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_height_m))
+            togglePadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_padding_m))
             toggleIconHeight(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_m).asStatefulValue(
-                    setOf(RadioBoxStates.Checked) to
-                        dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_m_0),
+                    setOf(RadioBoxStates.Checked)
+                        to dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_m_0),
                 ),
             )
             toggleIconWidth(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_m).asStatefulValue(
-                    setOf(RadioBoxStates.Checked) to
-                        dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_m_0),
+                    setOf(RadioBoxStates.Checked)
+                        to dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_m_0),
                 ),
             )
             toggleBorderWidth(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_width_m).asStatefulValue(
-                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to
+                    setOf(
+                        InteractiveState.Focused,
+                        RadioBoxStates.Checked,
+                    ) to
                         dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_width_m_0),
                 ),
             )
-            togglePadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_padding_m))
             textPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_text_padding_m))
             descriptionPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_description_padding_m))
         }
@@ -177,25 +174,28 @@ public val RadioBox.S: WrapperRadioBoxS
         .dimensionValues {
             toggleWidth(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_width_s))
             toggleHeight(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_height_s))
+            togglePadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_padding_s))
             toggleIconHeight(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_s).asStatefulValue(
-                    setOf(RadioBoxStates.Checked) to
-                        dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_s_0),
+                    setOf(RadioBoxStates.Checked)
+                        to dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_s_0),
                 ),
             )
             toggleIconWidth(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_s).asStatefulValue(
-                    setOf(RadioBoxStates.Checked) to
-                        dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_s_0),
+                    setOf(RadioBoxStates.Checked)
+                        to dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_s_0),
                 ),
             )
             toggleBorderWidth(
                 dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_width_s).asStatefulValue(
-                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to
+                    setOf(
+                        InteractiveState.Focused,
+                        RadioBoxStates.Checked,
+                    ) to
                         dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_width_s_0),
                 ),
             )
-            togglePadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_padding_s))
             textPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_text_padding_s))
             descriptionPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_description_padding_s))
         }

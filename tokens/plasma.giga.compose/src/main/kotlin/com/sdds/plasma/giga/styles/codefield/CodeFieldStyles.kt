@@ -69,28 +69,26 @@ private val CodeFieldStyleBuilder.invariantProps: CodeFieldStyleBuilder
                         to PlasmaGigaTheme.colors.textDefaultNegative,
                 ),
             )
-            captionColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(CodeInputStates.Error)
-                        to PlasmaGigaTheme.colors.textDefaultNegative,
-                ),
-            )
+            cursorColor(PlasmaGigaTheme.colors.textDefaultAccent.asStatefulValue())
             dotColor(
                 PlasmaGigaTheme.colors.surfaceDefaultSolidDefault.asStatefulValue(
                     setOf(CodeInputStates.Error)
                         to PlasmaGigaTheme.colors.surfaceDefaultNegative,
                 ),
             )
+            captionColor(
+                PlasmaGigaTheme.colors.textDefaultSecondary.asStatefulValue(
+                    setOf(CodeInputStates.Error)
+                        to PlasmaGigaTheme.colors.textDefaultNegative,
+                ),
+            )
             backgroundColor(
                 PlasmaGigaTheme.colors.surfaceDefaultTransparentPrimary.asStatefulValue(
                     setOf(CodeInputStates.Error)
                         to PlasmaGigaTheme.colors.surfaceDefaultTransparentNegative,
-                    setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary,
+                    setOf(InteractiveState.Activated) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary,
                 ),
-            )
-            cursorColor(
-                PlasmaGigaTheme.colors.textDefaultAccent.asStatefulValue(),
             )
         }
         .dimensions {
@@ -107,9 +105,9 @@ public val CodeField.L: WrapperCodeFieldL
         .valueStyle(PlasmaGigaTheme.typography.bodyLBold)
         .captionStyle(PlasmaGigaTheme.typography.bodySNormal)
         .dimensions {
-            dotSize(10.0.dp)
             height(56.0.dp)
             width(44.0.dp)
+            dotSize(10.0.dp)
             captionSpacing(14.0.dp)
         }
         .wrap(::WrapperCodeFieldL)
@@ -131,9 +129,9 @@ public val CodeField.M: WrapperCodeFieldM
         .valueStyle(PlasmaGigaTheme.typography.bodyMBold)
         .captionStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
-            dotSize(8.0.dp)
             height(48.0.dp)
             width(38.0.dp)
+            dotSize(8.0.dp)
             captionSpacing(12.0.dp)
         }
         .wrap(::WrapperCodeFieldM)

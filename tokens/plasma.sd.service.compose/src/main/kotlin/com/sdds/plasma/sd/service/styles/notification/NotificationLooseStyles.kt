@@ -10,6 +10,7 @@ package com.sdds.plasma.sd.service.styles.notification
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.NotificationCloseAlignment
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.NotificationStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -60,13 +61,10 @@ private val NotificationStyleBuilder.invariantProps: NotificationStyleBuilder
     @Composable
     get() = this
         .notificationContentStyle(NotificationContent.NoButtonStretch.Default.style())
+        .closeAlignment(NotificationCloseAlignment.TopEnd)
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            closeColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            closeColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
         }
 
 public val NotificationLoose.L: WrapperNotificationLooseL
@@ -76,11 +74,11 @@ public val NotificationLoose.L: WrapperNotificationLooseL
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .dimensions {
+            closeSize(24.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
-            closeSize(24.0.dp)
         }
         .wrap(::WrapperNotificationLooseL)
 
@@ -91,11 +89,11 @@ public val NotificationLoose.M: WrapperNotificationLooseM
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .dimensions {
+            closeSize(16.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
-            closeSize(16.0.dp)
         }
         .wrap(::WrapperNotificationLooseM)
 
@@ -106,10 +104,10 @@ public val NotificationLoose.S: WrapperNotificationLooseS
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .dimensions {
+            closeSize(16.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
-            closeSize(16.0.dp)
         }
         .wrap(::WrapperNotificationLooseS)

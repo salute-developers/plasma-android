@@ -25,6 +25,13 @@ object SddsServComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.Indicator,
+                mapOf(
+                    "AvatarIndicator" to SddsServAvatarIndicatorVariationsCompose,
+                    "Indicator" to SddsServIndicatorVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.AvatarGroup,
                 mapOf(
                     "AvatarGroup" to SddsServAvatarGroupVariationsCompose,
@@ -118,18 +125,13 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.Counter,
                 mapOf(
                     "Counter" to SddsServCounterVariationsCompose,
+                    "SegmentItemCounter" to SddsServSegmentItemCounterVariationsCompose,
                 ),
             ),
             Component(
                 ComponentKey.Divider,
                 mapOf(
                     "Divider" to SddsServDividerVariationsCompose,
-                ),
-            ),
-            Component(
-                ComponentKey.Indicator,
-                mapOf(
-                    "Indicator" to SddsServIndicatorVariationsCompose,
                 ),
             ),
             Component(

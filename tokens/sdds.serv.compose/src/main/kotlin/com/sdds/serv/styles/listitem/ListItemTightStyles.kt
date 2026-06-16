@@ -8,12 +8,13 @@
 package com.sdds.serv.styles.listitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -70,24 +71,16 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
     @Composable
     get() = this
         .colors {
-            titleColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            subtitleColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            labelColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary),
                 ),
             )
-            disclosureIconColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            titleColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+            subtitleColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
+            disclosureIconColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
         }
 
 public val ListItemTight.Xl: WrapperListItemTightXl
@@ -102,12 +95,12 @@ public val ListItemTight.Xl: WrapperListItemTightXl
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
-            contentPaddingStart(8.0.dp)
-            height(56.0.dp)
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
+            height(56.0.dp)
+            contentPaddingStart(8.0.dp)
         }
         .wrap(::WrapperListItemTightXl)
 
@@ -123,12 +116,12 @@ public val ListItemTight.L: WrapperListItemTightL
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
-            contentPaddingStart(8.0.dp)
-            height(48.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
+            height(48.0.dp)
+            contentPaddingStart(8.0.dp)
         }
         .wrap(::WrapperListItemTightL)
 
@@ -144,12 +137,12 @@ public val ListItemTight.M: WrapperListItemTightM
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
-            contentPaddingStart(8.0.dp)
-            height(40.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
+            height(40.0.dp)
+            contentPaddingStart(8.0.dp)
         }
         .wrap(::WrapperListItemTightM)
 
@@ -165,12 +158,12 @@ public val ListItemTight.S: WrapperListItemTightS
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
-            contentPaddingStart(6.0.dp)
-            height(32.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(7.0.dp)
             paddingBottom(7.0.dp)
+            height(32.0.dp)
+            contentPaddingStart(6.0.dp)
         }
         .wrap(::WrapperListItemTightS)
 
@@ -186,11 +179,11 @@ public val ListItemTight.Xs: WrapperListItemTightXs
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
-            contentPaddingStart(6.0.dp)
-            height(24.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
             paddingTop(4.0.dp)
             paddingBottom(4.0.dp)
+            height(24.0.dp)
+            contentPaddingStart(6.0.dp)
         }
         .wrap(::WrapperListItemTightXs)

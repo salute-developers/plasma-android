@@ -38,9 +38,7 @@ public val FormItem.Default: WrapperFormItemTerminate
     get() = FormItemStyle.builder(this)
         .invariantProps
         .colors {
-            captionColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            captionColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperFormItemTerminate)
 
@@ -49,9 +47,7 @@ public val FormItem.Positive: WrapperFormItemTerminate
     get() = FormItemStyle.builder(this)
         .invariantProps
         .colors {
-            captionColor(
-                PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            captionColor(PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive())
         }
         .wrap(::WrapperFormItemTerminate)
 
@@ -60,9 +56,7 @@ public val FormItem.Negative: WrapperFormItemTerminate
     get() = FormItemStyle.builder(this)
         .invariantProps
         .colors {
-            captionColor(
-                PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            captionColor(PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive())
         }
         .wrap(::WrapperFormItemTerminate)
 
@@ -71,9 +65,7 @@ public val FormItem.Warning: WrapperFormItemTerminate
     get() = FormItemStyle.builder(this)
         .invariantProps
         .colors {
-            captionColor(
-                PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            captionColor(PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive())
         }
         .wrap(::WrapperFormItemTerminate)
 
@@ -81,38 +73,28 @@ private val FormItemStyleBuilder.invariantProps: FormItemStyleBuilder
     @Composable
     get() = this
         .disableAlpha(0.4f)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
-        .titleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
-        .captionStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
-        .titleCaptionStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
-        .counterStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .titlePlacement(FormTitlePlacement.None)
         .topTextAlignment(FormTextAlignment.Center)
         .bottomTextAlignment(FormTextAlignment.Center)
+        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .titleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
+        .titleCaptionStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
+        .captionStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
+        .counterStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .colors {
-            hintColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            optionalColor(
-                PlasmaHomeDsTheme.colors.textDefaultTertiary.asInteractive(),
-            )
-            titleCaptionColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            titleColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            counterColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            optionalColor(PlasmaHomeDsTheme.colors.textDefaultTertiary.asInteractive())
+            titleCaptionColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            counterColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            hintColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
-            hintHeight(14.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(4.0.dp)
             titleBlockSpacing(4.0.dp)
             titleCaptionPadding(4.0.dp)
             captionPadding(4.0.dp)
             counterPadding(4.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(14.0.dp)
         }

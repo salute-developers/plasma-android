@@ -31,7 +31,9 @@ themeBuilder {
         name(themeAlias)
     }
     componentSource(name = componentsName, componentsVersion, themeAlias)
-    compose()
+    compose {
+        componentsMetaStyleClass(true)
+    }
     ktPackage("com.sdkit.star.designsystem")
     resourcesPrefix(prefix = themeResPrefix)
     outputLocation(OutputLocation.SRC)

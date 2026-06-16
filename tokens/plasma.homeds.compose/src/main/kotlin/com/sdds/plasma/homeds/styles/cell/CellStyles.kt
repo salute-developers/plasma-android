@@ -8,10 +8,11 @@
 package com.sdds.plasma.homeds.styles.cell
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -81,27 +82,13 @@ private val CellStyleBuilder.invariantProps: CellStyleBuilder
     @Composable
     get() = this
         .colors {
-            labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            titleColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            subtitleColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            disclosureTextColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            disclosureIconColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            contentStartColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            contentEndColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            titleColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            subtitleColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            disclosureTextColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            disclosureIconColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            contentStartColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            contentEndColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
         }
 
 public val Cell.L: WrapperCellL
@@ -114,15 +101,15 @@ public val Cell.L: WrapperCellL
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .dimensions {
-            contentPaddingStart(8.0.dp)
-            contentPaddingEnd(8.0.dp)
-        }
         .avatarStyle(Avatar.L.style())
         .iconButtonStyle(IconButton.L.Clear.style())
         .checkBoxStyle(CheckBox.M.Default.style())
         .radioBoxStyle(RadioBox.M.style())
         .switchStyle(Switch.L.style())
+        .dimensions {
+            contentPaddingStart(8.0.dp)
+            contentPaddingEnd(8.0.dp)
+        }
         .wrap(::WrapperCellL)
 
 public val Cell.M: WrapperCellM
@@ -135,15 +122,15 @@ public val Cell.M: WrapperCellM
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .dimensions {
-            contentPaddingStart(8.0.dp)
-            contentPaddingEnd(8.0.dp)
-        }
         .avatarStyle(Avatar.M.style())
         .iconButtonStyle(IconButton.M.Clear.style())
         .checkBoxStyle(CheckBox.M.Default.style())
         .radioBoxStyle(RadioBox.M.style())
         .switchStyle(Switch.M.style())
+        .dimensions {
+            contentPaddingStart(8.0.dp)
+            contentPaddingEnd(8.0.dp)
+        }
         .wrap(::WrapperCellM)
 
 public val Cell.S: WrapperCellS
@@ -156,15 +143,15 @@ public val Cell.S: WrapperCellS
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .dimensions {
-            contentPaddingStart(6.0.dp)
-            contentPaddingEnd(6.0.dp)
-        }
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.S.Clear.style())
         .checkBoxStyle(CheckBox.S.Default.style())
         .radioBoxStyle(RadioBox.S.style())
         .switchStyle(Switch.S.style())
+        .dimensions {
+            contentPaddingStart(6.0.dp)
+            contentPaddingEnd(6.0.dp)
+        }
         .wrap(::WrapperCellS)
 
 public val Cell.Xs: WrapperCellXs
@@ -177,13 +164,13 @@ public val Cell.Xs: WrapperCellXs
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
-        .dimensions {
-            contentPaddingStart(6.0.dp)
-            contentPaddingEnd(6.0.dp)
-        }
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.S.Clear.style())
         .checkBoxStyle(CheckBox.S.Default.style())
         .radioBoxStyle(RadioBox.S.style())
         .switchStyle(Switch.S.style())
+        .dimensions {
+            contentPaddingStart(6.0.dp)
+            contentPaddingEnd(6.0.dp)
+        }
         .wrap(::WrapperCellXs)

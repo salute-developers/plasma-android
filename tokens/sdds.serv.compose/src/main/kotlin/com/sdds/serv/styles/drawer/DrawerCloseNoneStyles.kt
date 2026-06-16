@@ -46,16 +46,12 @@ public value class WrapperDrawerCloseNoneMHasShadow(
 private val DrawerStyleBuilder.invariantProps: DrawerStyleBuilder
     @Composable
     get() = this
-        .colors {
-            background(
-                SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            closeIconColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-        }
         .closeIconRes(com.sdds.icons.R.drawable.ic_close_24)
         .closeIconPlacement(CloseIconPlacement.None)
+        .colors {
+            background(SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            closeIconColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+        }
 
 public val DrawerCloseNone.M: WrapperDrawerCloseNoneM
     @Composable

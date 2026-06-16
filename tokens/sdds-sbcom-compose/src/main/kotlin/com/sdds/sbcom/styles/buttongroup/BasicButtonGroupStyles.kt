@@ -41,8 +41,8 @@ public val BasicButtonGroup.Default: WrapperBasicButtonGroupDefault
     get() = ButtonGroupStyle.builder(this)
         .internalShape(CircleShape)
         .externalShape(CircleShape)
+        .buttonStyle(BasicButton.Size40.ModeAccentGrey.style())
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(BasicButton.Size40.ModeAccentGrey.style())
         .wrap(::WrapperBasicButtonGroupDefault)

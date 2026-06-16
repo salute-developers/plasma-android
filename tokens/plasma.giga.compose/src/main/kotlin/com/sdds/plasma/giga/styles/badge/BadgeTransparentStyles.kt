@@ -9,11 +9,12 @@ package com.sdds.plasma.giga.styles.badge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.BadgeStyleBuilder
 import com.sdds.compose.uikit.badgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -110,18 +111,10 @@ public val WrapperBadgeTransparentView.Default: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            endContentColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
+            endContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -129,18 +122,10 @@ public val WrapperBadgeTransparentView.Accent: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            endContentColor(
-                PlasmaGigaTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue())
+            endContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -148,18 +133,10 @@ public val WrapperBadgeTransparentView.Negative: WrapperBadgeTransparentTerminat
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentNegative.asInteractive(),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            endContentColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue())
+            endContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -167,18 +144,10 @@ public val WrapperBadgeTransparentView.Positive: WrapperBadgeTransparentTerminat
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentPositive.asInteractive(),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            endContentColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPositive).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPositive).asStatefulValue())
+            endContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -186,18 +155,10 @@ public val WrapperBadgeTransparentView.Warning: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentWarning.asInteractive(),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            endContentColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue())
+            endContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -205,18 +166,10 @@ public val WrapperBadgeTransparentView.Dark: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceOnLightTransparentDeep.asInteractive(),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -224,18 +177,10 @@ public val WrapperBadgeTransparentView.Light: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceOnDarkTransparentSecondary.asInteractive(),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceOnDarkTransparentSecondary).asStatefulValue())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -252,8 +197,8 @@ public val BadgeTransparent.L: WrapperBadgeTransparentL
         .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
         .dimensions {
             height(28.0.dp)
-            startContentSize(16.0.dp)
             endContentSize(16.0.dp)
+            startContentSize(16.0.dp)
             startContentMargin(4.0.dp)
             endContentMargin(4.0.dp)
             startPadding(11.0.dp)
@@ -277,8 +222,8 @@ public val BadgeTransparent.M: WrapperBadgeTransparentM
         .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
             height(24.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(3.0.dp)
             endContentMargin(3.0.dp)
             startPadding(9.0.dp)
@@ -302,8 +247,8 @@ public val BadgeTransparent.S: WrapperBadgeTransparentS
         .labelStyle(PlasmaGigaTheme.typography.bodyXxsNormal)
         .dimensions {
             height(20.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(7.0.dp)
@@ -327,8 +272,8 @@ public val BadgeTransparent.Xs: WrapperBadgeTransparentXs
         .labelStyle(PlasmaGigaTheme.typography.bodyXxsNormal)
         .dimensions {
             height(16.0.dp)
-            startContentSize(10.0.dp)
             endContentSize(10.0.dp)
+            startContentSize(10.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(4.0.dp)

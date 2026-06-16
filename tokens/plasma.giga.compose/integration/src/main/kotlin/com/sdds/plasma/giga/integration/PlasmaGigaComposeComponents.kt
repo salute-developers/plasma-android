@@ -25,6 +25,13 @@ object PlasmaGigaComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.Indicator,
+                mapOf(
+                    "AvatarIndicator" to PlasmaGigaAvatarIndicatorVariationsCompose,
+                    "Indicator" to PlasmaGigaIndicatorVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.AvatarGroup,
                 mapOf(
                     "AvatarGroup" to PlasmaGigaAvatarGroupVariationsCompose,
@@ -115,18 +122,13 @@ object PlasmaGigaComposeComponents : ComponentProvider() {
                 ComponentKey.Counter,
                 mapOf(
                     "Counter" to PlasmaGigaCounterVariationsCompose,
+                    "SegmentItemCounter" to PlasmaGigaSegmentItemCounterVariationsCompose,
                 ),
             ),
             Component(
                 ComponentKey.Divider,
                 mapOf(
                     "Divider" to PlasmaGigaDividerVariationsCompose,
-                ),
-            ),
-            Component(
-                ComponentKey.Indicator,
-                mapOf(
-                    "Indicator" to PlasmaGigaIndicatorVariationsCompose,
                 ),
             ),
             Component(

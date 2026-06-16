@@ -44,27 +44,19 @@ public val NavigationDrawer.Default: WrapperNavigationDrawerDefault
     get() = NavigationDrawerStyle.builder(this)
         .shape(SddsSbComTheme.shapes.roundXl)
         .shadow(SddsSbComTheme.shadows.downSoftS)
+        .itemStyle(NavigationDrawerItem.Default.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue(),
-            )
-            selectorColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue())
+            selectorColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue())
         }
         .dimensions {
-            width(
-                80.0.dp.asStatefulValue(
-                    setOf(NavigationDrawerValue.Expanded) to 200.0.dp,
-                ),
-            )
-            paddingStart(12.0.dp)
-            paddingEnd(12.0.dp)
+            width(80.0.dp.asStatefulValue(setOf(NavigationDrawerValue.Expanded) to 200.0.dp))
             paddingTop(10.0.dp)
             paddingBottom(10.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(12.0.dp)
             itemSpacing(16.0.dp)
             headerSpacing(10.0.dp)
             footerSpacing(10.0.dp)
         }
-        .itemStyle(NavigationDrawerItem.Default.style())
         .wrap(::WrapperNavigationDrawerDefault)

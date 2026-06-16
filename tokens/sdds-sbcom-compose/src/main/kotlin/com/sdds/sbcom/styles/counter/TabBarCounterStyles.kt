@@ -40,16 +40,12 @@ public val TabBarCounter.Default: WrapperTabBarCounterDefault
         .shape(CircleShape)
         .textStyle(SddsSbComTheme.typography.bodySNormal)
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SddsSbComTheme.colors.surfaceDefaultNegative.asInteractive())
+            textColor(SddsSbComTheme.colors.textOnDarkPrimary.asInteractive())
         }
         .dimensions {
-            minHeight(18.0.dp)
             minWidth(18.0.dp)
+            minHeight(18.0.dp)
             paddingStart(5.0.dp)
             paddingEnd(5.0.dp)
         }

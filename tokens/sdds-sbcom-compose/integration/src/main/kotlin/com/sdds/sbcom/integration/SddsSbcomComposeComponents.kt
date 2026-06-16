@@ -28,6 +28,7 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 ComponentKey.Indicator,
                 mapOf(
                     "AvatarIndicator" to SddsSbcomAvatarIndicatorVariationsCompose,
+                    "AvatarIndicator" to SddsSbcomAvatarIndicatorVariationsCompose,
                     "Indicator" to SddsSbcomIndicatorVariationsCompose,
                 ),
             ),

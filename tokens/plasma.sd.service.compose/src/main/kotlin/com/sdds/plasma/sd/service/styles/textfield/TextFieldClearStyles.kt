@@ -393,22 +393,15 @@ public value class WrapperTextFieldClearXlInnerLabelRequiredEnd(
 public val WrapperTextFieldClearView.Default: WrapperTextFieldClearTerminate
     @Composable
     get() = builder
-        .singleLine(true)
         .colors {
-            valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+            valueColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            captionColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
             placeholderColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Activated)
                         to PlasmaSdServiceTheme.colors.textDefaultTertiary,
                 ),
-            )
-            startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            captionColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
             )
             dividerColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
@@ -422,30 +415,29 @@ public val WrapperTextFieldClearView.Default: WrapperTextFieldClearTerminate
 public val WrapperTextFieldClearView.Success: WrapperTextFieldClearTerminate
     @Composable
     get() = builder
-        .singleLine(true)
         .colors {
-            valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Activated)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                ),
-            )
-            placeholderColor(
-                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Activated)
-                        to PlasmaSdServiceTheme.colors.textDefaultTertiary,
-                ),
-            )
             startContentColor(
                 PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondary,
                 ),
             )
+            valueColor(
+                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
+                ),
+            )
             captionColor(
                 PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                ),
+            )
+            placeholderColor(
+                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to PlasmaSdServiceTheme.colors.textDefaultTertiary,
                 ),
             )
             dividerColor(
@@ -460,30 +452,29 @@ public val WrapperTextFieldClearView.Success: WrapperTextFieldClearTerminate
 public val WrapperTextFieldClearView.Warning: WrapperTextFieldClearTerminate
     @Composable
     get() = builder
-        .singleLine(true)
         .colors {
-            valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Activated)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                ),
-            )
-            placeholderColor(
-                PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Activated)
-                        to PlasmaSdServiceTheme.colors.textDefaultTertiary,
-                ),
-            )
             startContentColor(
                 PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondary,
                 ),
             )
+            valueColor(
+                PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
+                ),
+            )
             captionColor(
                 PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                ),
+            )
+            placeholderColor(
+                PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to PlasmaSdServiceTheme.colors.textDefaultTertiary,
                 ),
             )
             dividerColor(
@@ -498,30 +489,29 @@ public val WrapperTextFieldClearView.Warning: WrapperTextFieldClearTerminate
 public val WrapperTextFieldClearView.Error: WrapperTextFieldClearTerminate
     @Composable
     get() = builder
-        .singleLine(true)
         .colors {
-            valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Activated)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                ),
-            )
-            placeholderColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Activated)
-                        to PlasmaSdServiceTheme.colors.textDefaultTertiary,
-                ),
-            )
             startContentColor(
                 PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondary,
                 ),
             )
+            valueColor(
+                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
+                ),
+            )
             captionColor(
                 PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                ),
+            )
+            placeholderColor(
+                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to PlasmaSdServiceTheme.colors.textDefaultTertiary,
                 ),
             )
             dividerColor(
@@ -536,6 +526,10 @@ public val WrapperTextFieldClearView.Error: WrapperTextFieldClearTerminate
 private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
+        .captionPlacement(TextFieldHelperTextPlacement.Outer)
+        .counterPlacement(TextFieldHelperTextPlacement.Outer)
+        .captionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .counterStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .singleLine(true)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
@@ -547,55 +541,29 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             chipsPaddingStart(0.0.dp)
             chipsPaddingEnd(0.0.dp)
         }
-        .captionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .counterStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .captionPlacement(TextFieldHelperTextPlacement.Outer)
-        .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {
-            optionalColor(
-                PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive(),
-            )
-            valueColorReadOnly(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            placeholderColorReadOnly(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            startContentColorReadOnly(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent.asInteractive())
+            startContentColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             endContentColorReadOnly(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
             )
-            captionColorReadOnly(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            counterColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            cursorColor(
-                PlasmaSdServiceTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            dividerColorReadOnly(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
-            prefixColor(
-                PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive(),
-            )
-            suffixColor(
-                PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive(),
-            )
+            valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            captionColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+            optionalColor(PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive())
+            counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+            placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+            dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+            indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive())
+            prefixColor(PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive())
+            suffixColor(PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive())
         }
 
 public val TextFieldClear.Xs: WrapperTextFieldClearXs
@@ -603,30 +571,30 @@ public val TextFieldClear.Xs: WrapperTextFieldClearXs
     @JvmName("WrapperTextFieldClearXs")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .placeholderStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
         .dimensions {
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
-            boxMinHeight(32.0.dp)
-            alignmentLineHeight(32.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
+            boxMinHeight(32.0.dp)
+            alignmentLineHeight(32.0.dp)
             startContentSize(16.0.dp)
             endContentSize(16.0.dp)
         }
-        .valueStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .prefixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .suffixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .placeholderStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearXs)
 
 public val WrapperTextFieldClearXs.RequiredStart: WrapperTextFieldClearXsRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearXsRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -634,14 +602,13 @@ public val WrapperTextFieldClearXs.RequiredStart: WrapperTextFieldClearXsRequire
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearXsRequiredStart)
 
 public val WrapperTextFieldClearXs.RequiredEnd: WrapperTextFieldClearXsRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearXsRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -649,26 +616,22 @@ public val WrapperTextFieldClearXs.RequiredEnd: WrapperTextFieldClearXsRequiredE
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearXsRequiredEnd)
 
 public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearXsOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
             labelPadding(2.0.dp)
         }
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldClearXsOuterLabel)
 
@@ -677,7 +640,7 @@ public val WrapperTextFieldClearXsOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextFieldClearXsOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -685,7 +648,6 @@ public val WrapperTextFieldClearXsOuterLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearXsOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearXsOuterLabel.RequiredEnd:
@@ -693,7 +655,7 @@ public val WrapperTextFieldClearXsOuterLabel.RequiredEnd:
     @Composable
     @JvmName("WrapperTextFieldClearXsOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -701,7 +663,6 @@ public val WrapperTextFieldClearXsOuterLabel.RequiredEnd:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearXsOuterLabelRequiredEnd)
 
 public val TextFieldClear.S: WrapperTextFieldClearS
@@ -709,30 +670,30 @@ public val TextFieldClear.S: WrapperTextFieldClearS
     @JvmName("WrapperTextFieldClearS")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.S.Secondary.style())
         .dimensions {
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
-            boxMinHeight(40.0.dp)
-            alignmentLineHeight(40.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(6.0.dp)
+            boxMinHeight(40.0.dp)
+            alignmentLineHeight(40.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
         }
-        .valueStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .prefixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .suffixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.S.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearS)
 
 public val WrapperTextFieldClearS.RequiredStart: WrapperTextFieldClearSRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearSRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -740,14 +701,13 @@ public val WrapperTextFieldClearS.RequiredStart: WrapperTextFieldClearSRequiredS
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearSRequiredStart)
 
 public val WrapperTextFieldClearS.RequiredEnd: WrapperTextFieldClearSRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearSRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -755,24 +715,20 @@ public val WrapperTextFieldClearS.RequiredEnd: WrapperTextFieldClearSRequiredEnd
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearSRequiredEnd)
 
 public val WrapperTextFieldClearS.OuterLabel: WrapperTextFieldClearSOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearSOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .optionalStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .dimensions {
             labelPadding(4.0.dp)
         }
-        .labelStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .optionalStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldClearSOuterLabel)
 
@@ -781,7 +737,7 @@ public val WrapperTextFieldClearSOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextFieldClearSOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -789,14 +745,13 @@ public val WrapperTextFieldClearSOuterLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearSOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearSOuterLabel.RequiredEnd: WrapperTextFieldClearSOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearSOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -804,26 +759,22 @@ public val WrapperTextFieldClearSOuterLabel.RequiredEnd: WrapperTextFieldClearSO
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearSOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearS.InnerLabel: WrapperTextFieldClearSInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearSInnerLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(4.0.dp)
             boxPaddingBottom(4.0.dp)
             labelPadding(0.0.dp)
         }
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextFieldClearSInnerLabel)
 
@@ -832,7 +783,7 @@ public val WrapperTextFieldClearSInnerLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextFieldClearSInnerLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -840,14 +791,13 @@ public val WrapperTextFieldClearSInnerLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearSInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearSInnerLabel.RequiredEnd: WrapperTextFieldClearSInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearSInnerLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -855,7 +805,6 @@ public val WrapperTextFieldClearSInnerLabel.RequiredEnd: WrapperTextFieldClearSI
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearSInnerLabelRequiredEnd)
 
 public val TextFieldClear.M: WrapperTextFieldClearM
@@ -863,30 +812,30 @@ public val TextFieldClear.M: WrapperTextFieldClearM
     @JvmName("WrapperTextFieldClearM")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.M.Secondary.style())
         .dimensions {
             boxPaddingTop(12.0.dp)
             boxPaddingBottom(12.0.dp)
-            boxMinHeight(48.0.dp)
-            alignmentLineHeight(48.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(8.0.dp)
+            boxMinHeight(48.0.dp)
+            alignmentLineHeight(48.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
         }
-        .valueStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .prefixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .suffixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.M.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearM)
 
 public val WrapperTextFieldClearM.RequiredStart: WrapperTextFieldClearMRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearMRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -894,14 +843,13 @@ public val WrapperTextFieldClearM.RequiredStart: WrapperTextFieldClearMRequiredS
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearMRequiredStart)
 
 public val WrapperTextFieldClearM.RequiredEnd: WrapperTextFieldClearMRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearMRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -909,24 +857,20 @@ public val WrapperTextFieldClearM.RequiredEnd: WrapperTextFieldClearMRequiredEnd
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearMRequiredEnd)
 
 public val WrapperTextFieldClearM.OuterLabel: WrapperTextFieldClearMOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearMOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .optionalStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .dimensions {
             labelPadding(4.0.dp)
         }
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .optionalStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldClearMOuterLabel)
 
@@ -935,7 +879,7 @@ public val WrapperTextFieldClearMOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextFieldClearMOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -943,14 +887,13 @@ public val WrapperTextFieldClearMOuterLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearMOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearMOuterLabel.RequiredEnd: WrapperTextFieldClearMOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearMOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -958,26 +901,22 @@ public val WrapperTextFieldClearMOuterLabel.RequiredEnd: WrapperTextFieldClearMO
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearMOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearM.InnerLabel: WrapperTextFieldClearMInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearMInnerLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(6.0.dp)
             boxPaddingBottom(6.0.dp)
             labelPadding(2.0.dp)
         }
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextFieldClearMInnerLabel)
 
@@ -986,7 +925,7 @@ public val WrapperTextFieldClearMInnerLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextFieldClearMInnerLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -994,14 +933,13 @@ public val WrapperTextFieldClearMInnerLabel.RequiredStart:
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearMInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearMInnerLabel.RequiredEnd: WrapperTextFieldClearMInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearMInnerLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1009,7 +947,6 @@ public val WrapperTextFieldClearMInnerLabel.RequiredEnd: WrapperTextFieldClearMI
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearMInnerLabelRequiredEnd)
 
 public val TextFieldClear.L: WrapperTextFieldClearL
@@ -1017,30 +954,30 @@ public val TextFieldClear.L: WrapperTextFieldClearL
     @JvmName("WrapperTextFieldClearL")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
         .dimensions {
             boxPaddingTop(16.0.dp)
             boxPaddingBottom(16.0.dp)
-            boxMinHeight(56.0.dp)
-            alignmentLineHeight(56.0.dp)
             startContentPadding(8.0.dp)
             endContentPadding(10.0.dp)
+            boxMinHeight(56.0.dp)
+            alignmentLineHeight(56.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
         }
-        .valueStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .prefixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .suffixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearL)
 
 public val WrapperTextFieldClearL.RequiredStart: WrapperTextFieldClearLRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearLRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1048,14 +985,13 @@ public val WrapperTextFieldClearL.RequiredStart: WrapperTextFieldClearLRequiredS
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearLRequiredStart)
 
 public val WrapperTextFieldClearL.RequiredEnd: WrapperTextFieldClearLRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearLRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1063,24 +999,20 @@ public val WrapperTextFieldClearL.RequiredEnd: WrapperTextFieldClearLRequiredEnd
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearLRequiredEnd)
 
 public val WrapperTextFieldClearL.OuterLabel: WrapperTextFieldClearLOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearLOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .optionalStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .dimensions {
             labelPadding(4.0.dp)
         }
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .optionalStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldClearLOuterLabel)
 
@@ -1089,7 +1021,7 @@ public val WrapperTextFieldClearLOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextFieldClearLOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1097,14 +1029,13 @@ public val WrapperTextFieldClearLOuterLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearLOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearLOuterLabel.RequiredEnd: WrapperTextFieldClearLOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearLOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -1112,26 +1043,22 @@ public val WrapperTextFieldClearLOuterLabel.RequiredEnd: WrapperTextFieldClearLO
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearLOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearL.InnerLabel: WrapperTextFieldClearLInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearLInnerLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(9.0.dp)
             boxPaddingBottom(9.0.dp)
             labelPadding(2.0.dp)
         }
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextFieldClearLInnerLabel)
 
@@ -1140,7 +1067,7 @@ public val WrapperTextFieldClearLInnerLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextFieldClearLInnerLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1148,14 +1075,13 @@ public val WrapperTextFieldClearLInnerLabel.RequiredStart:
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearLInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearLInnerLabel.RequiredEnd: WrapperTextFieldClearLInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearLInnerLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1163,7 +1089,6 @@ public val WrapperTextFieldClearLInnerLabel.RequiredEnd: WrapperTextFieldClearLI
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearLInnerLabelRequiredEnd)
 
 public val TextFieldClear.Xl: WrapperTextFieldClearXl
@@ -1171,30 +1096,30 @@ public val TextFieldClear.Xl: WrapperTextFieldClearXl
     @JvmName("WrapperTextFieldClearXl")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.Xl.Secondary.style())
         .dimensions {
             boxPaddingTop(20.0.dp)
             boxPaddingBottom(20.0.dp)
-            boxMinHeight(64.0.dp)
-            alignmentLineHeight(64.0.dp)
             startContentPadding(8.0.dp)
             endContentPadding(10.0.dp)
+            boxMinHeight(64.0.dp)
+            alignmentLineHeight(64.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
         }
-        .valueStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .prefixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .suffixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.Xl.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearXl)
 
 public val WrapperTextFieldClearXl.RequiredStart: WrapperTextFieldClearXlRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearXlRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1202,14 +1127,13 @@ public val WrapperTextFieldClearXl.RequiredStart: WrapperTextFieldClearXlRequire
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearXlRequiredStart)
 
 public val WrapperTextFieldClearXl.RequiredEnd: WrapperTextFieldClearXlRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearXlRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1217,24 +1141,20 @@ public val WrapperTextFieldClearXl.RequiredEnd: WrapperTextFieldClearXlRequiredE
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearXlRequiredEnd)
 
 public val WrapperTextFieldClearXl.OuterLabel: WrapperTextFieldClearXlOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearXlOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .optionalStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .dimensions {
             labelPadding(4.0.dp)
         }
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .optionalStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldClearXlOuterLabel)
 
@@ -1243,7 +1163,7 @@ public val WrapperTextFieldClearXlOuterLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextFieldClearXlOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1251,7 +1171,6 @@ public val WrapperTextFieldClearXlOuterLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearXlOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearXlOuterLabel.RequiredEnd:
@@ -1259,7 +1178,7 @@ public val WrapperTextFieldClearXlOuterLabel.RequiredEnd:
     @Composable
     @JvmName("WrapperTextFieldClearXlOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -1267,26 +1186,22 @@ public val WrapperTextFieldClearXlOuterLabel.RequiredEnd:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearXlOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearXl.InnerLabel: WrapperTextFieldClearXlInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearXlInnerLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(13.0.dp)
             boxPaddingBottom(13.0.dp)
             labelPadding(2.0.dp)
         }
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextFieldClearXlInnerLabel)
 
@@ -1295,7 +1210,7 @@ public val WrapperTextFieldClearXlInnerLabel.RequiredStart:
     @Composable
     @JvmName("WrapperTextFieldClearXlInnerLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1303,7 +1218,6 @@ public val WrapperTextFieldClearXlInnerLabel.RequiredStart:
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearXlInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearXlInnerLabel.RequiredEnd:
@@ -1311,7 +1225,7 @@ public val WrapperTextFieldClearXlInnerLabel.RequiredEnd:
     @Composable
     @JvmName("WrapperTextFieldClearXlInnerLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1319,5 +1233,4 @@ public val WrapperTextFieldClearXlInnerLabel.RequiredEnd:
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearXlInnerLabelRequiredEnd)

@@ -63,8 +63,8 @@ public value class WrapperPaginationDotsHorizontalSActiveTypeLine(
 private val PaginationDotsStyleBuilder.invariantProps: PaginationDotsStyleBuilder
     @Composable
     get() = this
-        .orientation(PaginationDotsOrientation.Horizontal)
         .edgeShrinkFactor(0.3f)
+        .orientation(PaginationDotsOrientation.Horizontal)
         .colors {
             dotBackgroundColor(
                 StarDsTheme.colors.surfaceDefaultTransparentSecondary.asStatefulValue(
@@ -99,7 +99,8 @@ public val WrapperPaginationDotsHorizontalM.ActiveTypeLine:
                 dimensionResource(
                     R.dimen.sdkit_cmp_pagination_dots_horizontal_dot_width_m_active_type_line,
                 ).asStatefulValue(
-                    setOf(InteractiveState.Activated) to
+                    setOf(InteractiveState.Activated)
+                        to
                         dimensionResource(R.dimen.sdkit_cmp_pagination_dots_horizontal_dot_width_m_active_type_line_0),
                 ),
             )
@@ -128,7 +129,8 @@ public val WrapperPaginationDotsHorizontalS.ActiveTypeLine:
                 dimensionResource(
                     R.dimen.sdkit_cmp_pagination_dots_horizontal_dot_width_s_active_type_line,
                 ).asStatefulValue(
-                    setOf(InteractiveState.Activated) to
+                    setOf(InteractiveState.Activated)
+                        to
                         dimensionResource(R.dimen.sdkit_cmp_pagination_dots_horizontal_dot_width_s_active_type_line_0),
                 ),
             )

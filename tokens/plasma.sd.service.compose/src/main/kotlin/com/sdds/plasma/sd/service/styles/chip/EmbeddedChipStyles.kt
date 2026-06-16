@@ -90,8 +90,16 @@ public val WrapperEmbeddedChipView.Default: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
+            labelColor(
+                PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             contentStartColor(
@@ -106,16 +114,8 @@ public val WrapperEmbeddedChipView.Default: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.textInverseSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
                 ),
             )
         }
@@ -129,8 +129,16 @@ public val WrapperEmbeddedChipView.Accent: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
+            labelColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentStartColor(
@@ -145,16 +153,8 @@ public val WrapperEmbeddedChipView.Accent: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
         }
@@ -168,8 +168,16 @@ public val WrapperEmbeddedChipView.Negative: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultNegativeHover,
+                ),
+            )
+            labelColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultNegativeHover,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentStartColor(
@@ -184,16 +192,8 @@ public val WrapperEmbeddedChipView.Negative: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
         }
@@ -207,8 +207,16 @@ public val WrapperEmbeddedChipView.Positive: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultPositiveHover,
+                ),
+            )
+            labelColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultPositiveHover,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentStartColor(
@@ -223,16 +231,8 @@ public val WrapperEmbeddedChipView.Positive: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
         }
@@ -246,8 +246,16 @@ public val WrapperEmbeddedChipView.Secondary: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             contentStartColor(
@@ -262,16 +270,8 @@ public val WrapperEmbeddedChipView.Secondary: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
                 ),
             )
         }
@@ -285,8 +285,16 @@ public val WrapperEmbeddedChipView.Warning: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultWarningHover,
+                ),
+            )
+            labelColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultWarningHover,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentStartColor(
@@ -301,16 +309,8 @@ public val WrapperEmbeddedChipView.Warning: WrapperEmbeddedChipTerminate
                 PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
         }
@@ -330,12 +330,12 @@ public val EmbeddedChip.Xl: WrapperEmbeddedChipXl
         .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .dimensions {
             height(52.0.dp)
-            paddingStart(16.0.dp)
-            paddingEnd(12.0.dp)
-            contentStartPadding(6.0.dp)
-            contentEndPadding(6.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(6.0.dp)
+            contentEndPadding(6.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(12.0.dp)
         }
         .wrap(::WrapperEmbeddedChipXl)
 
@@ -348,12 +348,12 @@ public val EmbeddedChip.L: WrapperEmbeddedChipL
         .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .dimensions {
             height(44.0.dp)
-            paddingStart(14.0.dp)
-            paddingEnd(12.0.dp)
-            contentStartPadding(8.0.dp)
-            contentEndPadding(8.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(8.0.dp)
+            contentEndPadding(8.0.dp)
+            paddingStart(14.0.dp)
+            paddingEnd(12.0.dp)
         }
         .wrap(::WrapperEmbeddedChipL)
 
@@ -366,12 +366,12 @@ public val EmbeddedChip.M: WrapperEmbeddedChipM
         .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .dimensions {
             height(36.0.dp)
-            paddingStart(12.0.dp)
-            paddingEnd(10.0.dp)
-            contentStartPadding(6.0.dp)
-            contentEndPadding(6.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(6.0.dp)
+            contentEndPadding(6.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(10.0.dp)
         }
         .wrap(::WrapperEmbeddedChipM)
 
@@ -384,12 +384,12 @@ public val EmbeddedChip.S: WrapperEmbeddedChipS
         .labelStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .dimensions {
             height(28.0.dp)
-            paddingStart(10.0.dp)
-            paddingEnd(8.0.dp)
-            contentStartPadding(4.0.dp)
-            contentEndPadding(4.0.dp)
             contentStartSize(16.0.dp)
             contentEndSize(16.0.dp)
+            contentStartPadding(4.0.dp)
+            contentEndPadding(4.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(8.0.dp)
         }
         .wrap(::WrapperEmbeddedChipS)
 
@@ -402,11 +402,11 @@ public val EmbeddedChip.Xs: WrapperEmbeddedChipXs
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .dimensions {
             height(20.0.dp)
-            paddingStart(6.0.dp)
-            paddingEnd(6.0.dp)
-            contentStartPadding(2.0.dp)
-            contentEndPadding(2.0.dp)
             contentStartSize(12.0.dp)
             contentEndSize(12.0.dp)
+            contentStartPadding(2.0.dp)
+            contentEndPadding(2.0.dp)
+            paddingStart(6.0.dp)
+            paddingEnd(6.0.dp)
         }
         .wrap(::WrapperEmbeddedChipXs)

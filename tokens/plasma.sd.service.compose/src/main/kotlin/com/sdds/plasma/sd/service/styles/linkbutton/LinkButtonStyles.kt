@@ -8,11 +8,13 @@
 package com.sdds.plasma.sd.service.styles.linkbutton
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.linkButtonBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -94,23 +96,23 @@ public val WrapperLinkButtonView.Default: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
-            spinnerColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+            labelColor(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
-            labelColor(
+            spinnerColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
@@ -125,28 +127,28 @@ public val WrapperLinkButtonView.Secondary: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
+            labelColor(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
                 ),
             )
         }
@@ -156,23 +158,23 @@ public val WrapperLinkButtonView.Accent: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
-            spinnerColor(
-                PlasmaSdServiceTheme.colors.textDefaultAccent.asInteractive(
+            labelColor(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultAccent).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultAccentHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultAccentHover),
                 ),
             )
             iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultAccent.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultAccent).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultAccentHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultAccentHover),
                 ),
             )
-            labelColor(
+            spinnerColor(
                 PlasmaSdServiceTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textDefaultAccentActive,
@@ -187,28 +189,28 @@ public val WrapperLinkButtonView.Positive: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
+            labelColor(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPositive).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPositiveActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPositiveHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPositive).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPositiveActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPositiveHover),
+                ),
+            )
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPositiveHover,
-                ),
-            )
-            iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPositiveHover,
-                ),
-            )
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultPositiveHover,
                 ),
             )
         }
@@ -218,28 +220,28 @@ public val WrapperLinkButtonView.Negative: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
+            labelColor(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeHover),
+                ),
+            )
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeHover,
-                ),
-            )
-            iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeHover,
-                ),
-            )
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultNegativeHover,
                 ),
             )
         }
@@ -249,23 +251,23 @@ public val WrapperLinkButtonView.Warning: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
-            spinnerColor(
-                PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
+            labelColor(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultWarningHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultWarningHover),
                 ),
             )
             iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultWarningHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultWarningHover),
                 ),
             )
-            labelColor(
+            spinnerColor(
                 PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.textDefaultWarningActive,
@@ -279,13 +281,11 @@ public val WrapperLinkButtonView.Warning: WrapperLinkButtonTerminate
 private val LinkButtonStyleBuilder.invariantProps: LinkButtonStyleBuilder
     @Composable
     get() = this
-        .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-        }
-        .loadingAlpha(0.06f)
         .disableAlpha(0.4f)
+        .loadingAlpha(0.06f)
+        .colors {
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue())
+        }
 
 public val LinkButton.Xl: WrapperLinkButtonXl
     @Composable

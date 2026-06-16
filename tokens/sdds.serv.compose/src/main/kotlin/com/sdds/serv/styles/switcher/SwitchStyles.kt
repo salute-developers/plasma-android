@@ -9,11 +9,12 @@ package com.sdds.serv.styles.switcher
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -79,27 +80,19 @@ private val SwitchStyleBuilder.invariantProps: SwitchStyleBuilder
     get() = this
         .toggleTrackShape(CircleShape)
         .toggleThumbShape(CircleShape)
+        .disableAlpha(0.4f)
         .colorValues {
-            labelColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
+            toggleThumbColor(SolidColor(SddsServTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
             toggleTrackColor(
-                SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(SwitchStates.Checked)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultAccent),
                 ),
             )
-            toggleTrackBorderColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-            toggleThumbColor(
-                SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
+            toggleTrackBorderColor(SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
-        .disableAlpha(0.4f)
 
 public val Switch.L: WrapperSwitchL
     @Composable

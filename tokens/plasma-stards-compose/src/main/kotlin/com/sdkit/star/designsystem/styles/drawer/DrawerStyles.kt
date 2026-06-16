@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.CloseIconPlacement
 import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DrawerStyleBuilder
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -47,13 +48,13 @@ public value class WrapperDrawerNoBackground(
 private val DrawerStyleBuilder.invariantProps: DrawerStyleBuilder
     @Composable
     get() = this
+        .closeIconPlacement(CloseIconPlacement.None)
         .dimensions {
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_drawer_padding_start))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_drawer_padding_end))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_drawer_padding_top))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_drawer_padding_bottom))
         }
-        .closeIconPlacement(CloseIconPlacement.None)
 
 public val Drawer.HasBackground: WrapperDrawerHasBackground
     @Composable
@@ -67,12 +68,11 @@ public val Drawer.HasBackground: WrapperDrawerHasBackground
             ),
         )
         .colors {
-            background(
-                SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
+            background(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+            strokeColor(StarDsTheme.colors.outlineDefaultTransparentPrimary.asInteractive())
         }
         .dimensions {
-            strokeWidth(dimensionResource(R.dimen.sdkit_cmp_drawer_stroke_width_has_background))
+            strokeWidth(dimensionResource(R.dimen.sdkit_cmp_drawer_stroke_size_has_background))
         }
         .wrap(::WrapperDrawerHasBackground)
 
@@ -82,8 +82,6 @@ public val Drawer.NoBackground: WrapperDrawerNoBackground
     get() = DrawerStyle.builder(this)
         .invariantProps
         .colors {
-            background(
-                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(),
-            )
+            background(SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
         .wrap(::WrapperDrawerNoBackground)

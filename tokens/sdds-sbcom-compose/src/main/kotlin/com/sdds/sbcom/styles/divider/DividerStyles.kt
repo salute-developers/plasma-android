@@ -39,9 +39,7 @@ public val Divider.Default: WrapperDividerDefault
     get() = DividerStyle.builder(this)
         .shape(CircleShape)
         .color {
-            backgroundColor(
-                SddsSbComTheme.colors.outlineDefaultDefault.asInteractive(),
-            )
+            backgroundColor(SddsSbComTheme.colors.outlineDefaultDefault.asInteractive())
         }
         .dimensions {
             thickness(1.0.dp)

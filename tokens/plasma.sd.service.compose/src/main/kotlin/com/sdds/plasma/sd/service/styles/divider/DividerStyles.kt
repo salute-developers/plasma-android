@@ -39,9 +39,7 @@ public val Divider.Default: WrapperDividerDefault
     get() = DividerStyle.builder(this)
         .shape(CircleShape)
         .color {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-            )
+            backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive())
         }
         .dimensions {
             thickness(1.0.dp)

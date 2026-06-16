@@ -120,28 +120,28 @@ public val WrapperChipView.Default: WrapperChipTerminate
                         to StarDsTheme.colors.surfaceDefaultSolidDefaultHover,
                 ),
             )
+            labelColor(
+                StarDsTheme.colors.textInversePrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StarDsTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textInversePrimaryHover,
+                ),
+            )
             contentStartColor(
                 StarDsTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textInversePrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textInversePrimaryHover,
                 ),
             )
             contentEndColor(
                 StarDsTheme.colors.textInverseSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textInverseSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            labelColor(
-                StarDsTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textInversePrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textInverseSecondaryHover,
                 ),
             )
         }
@@ -155,32 +155,32 @@ public val WrapperChipView.Accent: WrapperChipTerminate
                 StarDsTheme.colors.surfaceDefaultAccentMain.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.surfaceDefaultAccentMainActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultAccentMainHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultAccentMainHover,
+                ),
+            )
+            labelColor(
+                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentStartColor(
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentEndColor(
                 StarDsTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
         }
@@ -194,32 +194,32 @@ public val WrapperChipView.Negative: WrapperChipTerminate
                 StarDsTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultNegativeHover,
+                ),
+            )
+            labelColor(
+                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentStartColor(
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentEndColor(
                 StarDsTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
         }
@@ -233,32 +233,32 @@ public val WrapperChipView.Positive: WrapperChipTerminate
                 StarDsTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultPositiveHover,
+                ),
+            )
+            labelColor(
+                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentStartColor(
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentEndColor(
                 StarDsTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
         }
@@ -272,32 +272,32 @@ public val WrapperChipView.Secondary: WrapperChipTerminate
                 StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
-                ),
-            )
-            contentStartColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
                 ),
             )
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+            contentStartColor(
+                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StarDsTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+            contentEndColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StarDsTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textDefaultSecondaryHover,
                 ),
             )
         }
@@ -311,32 +311,32 @@ public val WrapperChipView.Warning: WrapperChipTerminate
                 StarDsTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultWarningHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultWarningHover,
+                ),
+            )
+            labelColor(
+                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentStartColor(
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             contentEndColor(
                 StarDsTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
         }
@@ -356,12 +356,12 @@ public val Chip.L: WrapperChipL
         .labelStyle(StarDsTheme.typography.bodyLNormal)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_chip_height_l))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_chip_padding_start_l))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_chip_padding_end_l))
-            contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_padding_l))
-            contentEndPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_padding_l))
             contentStartSize(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_size_l))
             contentEndSize(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_size_l))
+            contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_padding_l))
+            contentEndPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_padding_l))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_chip_padding_start_l))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_chip_padding_end_l))
         }
         .wrap(::WrapperChipL)
 
@@ -386,12 +386,12 @@ public val Chip.M: WrapperChipM
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_chip_height_m))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_chip_padding_start_m))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_chip_padding_end_m))
-            contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_padding_m))
-            contentEndPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_padding_m))
             contentStartSize(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_size_m))
             contentEndSize(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_size_m))
+            contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_padding_m))
+            contentEndPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_padding_m))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_chip_padding_start_m))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_chip_padding_end_m))
         }
         .wrap(::WrapperChipM)
 
@@ -411,12 +411,12 @@ public val Chip.S: WrapperChipS
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_chip_height_s))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_chip_padding_start_s))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_chip_padding_end_s))
-            contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_padding_s))
-            contentEndPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_padding_s))
             contentStartSize(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_size_s))
             contentEndSize(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_size_s))
+            contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_padding_s))
+            contentEndPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_padding_s))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_chip_padding_start_s))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_chip_padding_end_s))
         }
         .wrap(::WrapperChipS)
 
@@ -436,12 +436,12 @@ public val Chip.Xs: WrapperChipXs
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_chip_height_xs))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_chip_padding_start_xs))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_chip_padding_end_xs))
-            contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_padding_xs))
-            contentEndPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_padding_xs))
             contentStartSize(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_size_xs))
             contentEndSize(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_size_xs))
+            contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_start_padding_xs))
+            contentEndPadding(dimensionResource(R.dimen.sdkit_cmp_chip_content_end_padding_xs))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_chip_padding_start_xs))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_chip_padding_end_xs))
         }
         .wrap(::WrapperChipXs)
 

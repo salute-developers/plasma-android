@@ -8,12 +8,12 @@
 package com.sdds.serv.styles.checkbox
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CheckBoxStates
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.CheckBoxStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -71,34 +71,31 @@ public val WrapperCheckBoxView.Default: WrapperCheckBoxTerminate
     @Composable
     get() = builder
         .colorValues {
-            toggleColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(CheckBoxStates.Checked)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(CheckBoxStates.Indeterminate)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
-                ),
-            )
-            toggleIconColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
             toggleBorderColor(
-                SddsServTheme.colors.outlineDefaultTransparentTertiary.asInteractive(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
-                        to SddsServTheme.colors.outlineDefaultAccent,
+                SolidColor(SddsServTheme.colors.outlineDefaultTransparentTertiary).asStatefulValue(
                     setOf(
                         InteractiveState.Focused,
-                        CheckBoxStates.Indeterminate,
-                    )
-                        to SddsServTheme.colors.outlineDefaultAccent,
+                        CheckBoxStates.Checked,
+                    ) to SolidColor(SddsServTheme.colors.outlineDefaultAccent),
+                    setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsServTheme.colors.outlineDefaultAccent),
                     setOf(InteractiveState.Focused)
-                        to SddsServTheme.colors.outlineDefaultAccent,
+                        to SolidColor(SddsServTheme.colors.outlineDefaultAccent),
                     setOf(CheckBoxStates.Checked)
-                        to SddsServTheme.colors.outlineDefaultClear,
-                    setOf(CheckBoxStates.Indeterminate)
-                        to SddsServTheme.colors.outlineDefaultClear,
+                        to SolidColor(SddsServTheme.colors.outlineDefaultClear),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsServTheme.colors.outlineDefaultClear),
                 ),
             )
+            toggleColor(
+                SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(CheckBoxStates.Checked)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultAccent),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsServTheme.colors.surfaceDefaultAccent),
+                ),
+            )
+            toggleIconColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperCheckBoxTerminate)
 
@@ -106,97 +103,82 @@ public val WrapperCheckBoxView.Negative: WrapperCheckBoxTerminate
     @Composable
     get() = builder
         .colorValues {
-            toggleColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(CheckBoxStates.Checked)
-                        to SddsServTheme.colors.surfaceDefaultNegative,
-                    setOf(CheckBoxStates.Indeterminate)
-                        to SddsServTheme.colors.surfaceDefaultNegative,
-                ),
-            )
-            toggleIconColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
             toggleBorderColor(
-                SddsServTheme.colors.outlineDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
-                        to SddsServTheme.colors.outlineDefaultNegative,
+                SolidColor(SddsServTheme.colors.outlineDefaultNegative).asStatefulValue(
                     setOf(
                         InteractiveState.Focused,
-                        CheckBoxStates.Indeterminate,
-                    )
-                        to SddsServTheme.colors.outlineDefaultNegative,
+                        CheckBoxStates.Checked,
+                    ) to SolidColor(SddsServTheme.colors.outlineDefaultNegative),
+                    setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsServTheme.colors.outlineDefaultNegative),
                     setOf(InteractiveState.Focused)
-                        to SddsServTheme.colors.outlineDefaultNegative,
-                    setOf(CheckBoxStates.Checked)
-                        to SddsServTheme.colors.outlineDefaultClear,
-                    setOf(CheckBoxStates.Indeterminate)
-                        to SddsServTheme.colors.outlineDefaultClear,
+                        to SolidColor(SddsServTheme.colors.outlineDefaultNegative),
+                    setOf(CheckBoxStates.Checked) to SolidColor(SddsServTheme.colors.outlineDefaultClear),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsServTheme.colors.outlineDefaultClear),
                 ),
             )
+            toggleColor(
+                SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(CheckBoxStates.Checked)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultNegative),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsServTheme.colors.surfaceDefaultNegative),
+                ),
+            )
+            toggleIconColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperCheckBoxTerminate)
 
 private val CheckBoxStyleBuilder.invariantProps: CheckBoxStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .colorValues {
-            labelColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .dimensionValues {
             toggleBorderOffset(
                 0.0.dp.asStatefulValue(
                     setOf(InteractiveState.Focused) to 3.0.dp,
-                    setOf(
-                        InteractiveState.Focused,
-                        CheckBoxStates.Checked,
-                    ) to 3.0.dp,
-                    setOf(
-                        InteractiveState.Focused,
-                        CheckBoxStates.Indeterminate,
-                    ) to 3.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Checked) to 3.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to 3.0.dp,
                 ),
             )
         }
-        .disableAlpha(0.4f)
 
 public val CheckBox.L: WrapperCheckBoxL
     @Composable
     @JvmName("WrapperCheckBoxL")
     get() = CheckBoxStyle.builder(this)
         .invariantProps
-        .shape(SddsServTheme.shapes.roundXs)
         .labelStyle(SddsServTheme.typography.bodyLNormal)
         .descriptionStyle(SddsServTheme.typography.bodyMNormal)
+        .shape(SddsServTheme.shapes.roundXs)
         .dimensionValues {
             toggleWidth(24.0.dp)
             toggleHeight(24.0.dp)
+            togglePadding(2.0.dp)
             toggleIconHeight(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 6.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        2.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 2.0.dp,
                 ),
             )
             toggleIconWidth(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 9.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        12.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 12.0.dp,
                 ),
             )
             toggleBorderWidth(
                 2.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked) to 1.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
+                        to 1.0.dp,
                     setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to 1.0.dp,
                 ),
             )
-            togglePadding(2.0.dp)
             textPadding(12.0.dp)
             descriptionPadding(2.0.dp)
         }
@@ -207,33 +189,32 @@ public val CheckBox.M: WrapperCheckBoxM
     @JvmName("WrapperCheckBoxM")
     get() = CheckBoxStyle.builder(this)
         .invariantProps
-        .shape(SddsServTheme.shapes.roundXs)
         .labelStyle(SddsServTheme.typography.bodyMNormal)
         .descriptionStyle(SddsServTheme.typography.bodySNormal)
+        .shape(SddsServTheme.shapes.roundXs)
         .dimensionValues {
             toggleWidth(24.0.dp)
             toggleHeight(24.0.dp)
+            togglePadding(2.0.dp)
             toggleIconHeight(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 6.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        2.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 2.0.dp,
                 ),
             )
             toggleIconWidth(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 9.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        12.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 12.0.dp,
                 ),
             )
             toggleBorderWidth(
                 2.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked) to 1.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
+                        to 1.0.dp,
                     setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to 1.0.dp,
                 ),
             )
-            togglePadding(2.0.dp)
             textPadding(12.0.dp)
             descriptionPadding(2.0.dp)
         }
@@ -244,33 +225,32 @@ public val CheckBox.S: WrapperCheckBoxS
     @JvmName("WrapperCheckBoxS")
     get() = CheckBoxStyle.builder(this)
         .invariantProps
-        .shape(SddsServTheme.shapes.roundXxs)
         .labelStyle(SddsServTheme.typography.bodySNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
+        .shape(SddsServTheme.shapes.roundXxs)
         .dimensionValues {
             toggleWidth(16.0.dp)
             toggleHeight(16.0.dp)
+            togglePadding(1.0.dp)
             toggleIconHeight(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 4.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        2.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 2.0.dp,
                 ),
             )
             toggleIconWidth(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 6.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        8.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 8.0.dp,
                 ),
             )
             toggleBorderWidth(
                 1.5.dp.asStatefulValue(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked) to 1.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
+                        to 1.0.dp,
                     setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to 1.0.dp,
                 ),
             )
-            togglePadding(1.0.dp)
             textPadding(8.0.dp)
             descriptionPadding(2.0.dp)
         }

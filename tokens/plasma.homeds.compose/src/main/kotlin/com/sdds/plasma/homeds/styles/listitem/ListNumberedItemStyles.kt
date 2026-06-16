@@ -8,11 +8,12 @@
 package com.sdds.plasma.homeds.styles.listitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CellGravity
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -48,12 +49,10 @@ public value class WrapperListNumberedItemM(
 private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
     @Composable
     get() = this
-        .colors {
-            titleColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-        }
         .gravity(CellGravity.Top)
+        .colors {
+            titleColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+        }
 
 public val ListNumberedItem.S: WrapperListNumberedItemS
     @Composable
@@ -62,14 +61,14 @@ public val ListNumberedItem.S: WrapperListNumberedItemS
         .invariantProps
         .titleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
+        .counterStyle(Counter.S.Secondary.style())
         .dimensions {
-            contentPaddingStart(6.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
             paddingTop(0.0.dp)
             paddingBottom(0.0.dp)
+            contentPaddingStart(6.0.dp)
         }
-        .counterStyle(Counter.S.Secondary.style())
         .wrap(::WrapperListNumberedItemS)
 
 public val ListNumberedItem.M: WrapperListNumberedItemM
@@ -79,12 +78,12 @@ public val ListNumberedItem.M: WrapperListNumberedItemM
         .invariantProps
         .titleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
+        .counterStyle(Counter.S.Secondary.style())
         .dimensions {
-            contentPaddingStart(6.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
             paddingTop(0.0.dp)
             paddingBottom(0.0.dp)
+            contentPaddingStart(6.0.dp)
         }
-        .counterStyle(Counter.S.Secondary.style())
         .wrap(::WrapperListNumberedItemM)

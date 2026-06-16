@@ -10,6 +10,7 @@ package com.sdkit.star.designsystem.styles.notification
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
+import com.sdds.compose.uikit.NotificationCloseAlignment
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.NotificationStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -61,13 +62,10 @@ private val NotificationStyleBuilder.invariantProps: NotificationStyleBuilder
     @Composable
     get() = this
         .notificationContentStyle(NotificationContent.ButtonStretch.Default.style())
+        .closeAlignment(NotificationCloseAlignment.TopEnd)
         .colors {
-            backgroundColor(
-                SolidColor(StarDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            closeColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            closeColor(StarDsTheme.colors.textDefaultSecondary.asInteractive())
         }
 
 public val NotificationCompact.L: WrapperNotificationCompactL
@@ -77,11 +75,11 @@ public val NotificationCompact.L: WrapperNotificationCompactL
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .dimensions {
+            closeSize(dimensionResource(R.dimen.sdkit_cmp_notification_compact_close_size_l))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_start_l))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_end_l))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_top_l))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_bottom_l))
-            closeSize(dimensionResource(R.dimen.sdkit_cmp_notification_compact_close_size_l))
         }
         .wrap(::WrapperNotificationCompactL)
 
@@ -97,11 +95,11 @@ public val NotificationCompact.M: WrapperNotificationCompactM
             ),
         )
         .dimensions {
+            closeSize(dimensionResource(R.dimen.sdkit_cmp_notification_compact_close_size_m))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_start_m))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_end_m))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_top_m))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_bottom_m))
-            closeSize(dimensionResource(R.dimen.sdkit_cmp_notification_compact_close_size_m))
         }
         .wrap(::WrapperNotificationCompactM)
 
@@ -112,10 +110,10 @@ public val NotificationCompact.S: WrapperNotificationCompactS
         .invariantProps
         .shape(StarDsTheme.shapes.roundS)
         .dimensions {
+            closeSize(dimensionResource(R.dimen.sdkit_cmp_notification_compact_close_size_s))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_start_s))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_end_s))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_top_s))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_notification_compact_padding_bottom_s))
-            closeSize(dimensionResource(R.dimen.sdkit_cmp_notification_compact_close_size_s))
         }
         .wrap(::WrapperNotificationCompactS)

@@ -9,11 +9,12 @@ package com.sdds.serv.styles.badge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.BadgeStyleBuilder
 import com.sdds.compose.uikit.badgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -110,15 +111,9 @@ public val WrapperBadgeClearView.Default: WrapperBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            labelColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeClearTerminate)
 
@@ -126,15 +121,9 @@ public val WrapperBadgeClearView.Accent: WrapperBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            labelColor(
-                SddsServTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textDefaultAccent).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperBadgeClearTerminate)
 
@@ -142,15 +131,9 @@ public val WrapperBadgeClearView.Negative: WrapperBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            labelColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperBadgeClearTerminate)
 
@@ -158,15 +141,9 @@ public val WrapperBadgeClearView.Positive: WrapperBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            labelColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultPositive).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textDefaultPositive).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperBadgeClearTerminate)
 
@@ -174,15 +151,9 @@ public val WrapperBadgeClearView.Warning: WrapperBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            labelColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultWarning).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textDefaultWarning).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperBadgeClearTerminate)
 
@@ -190,15 +161,9 @@ public val WrapperBadgeClearView.Dark: WrapperBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            labelColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeClearTerminate)
 
@@ -206,15 +171,9 @@ public val WrapperBadgeClearView.Light: WrapperBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            labelColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeClearTerminate)
 
@@ -222,9 +181,7 @@ private val BadgeStyleBuilder.invariantProps: BadgeStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
 
 public val BadgeClear.L: WrapperBadgeClearL
@@ -236,8 +193,8 @@ public val BadgeClear.L: WrapperBadgeClearL
         .labelStyle(SddsServTheme.typography.bodySNormal)
         .dimensions {
             height(28.0.dp)
-            startContentSize(16.0.dp)
             endContentSize(16.0.dp)
+            startContentSize(16.0.dp)
             startContentMargin(4.0.dp)
             endContentMargin(4.0.dp)
             startPadding(11.0.dp)
@@ -261,8 +218,8 @@ public val BadgeClear.M: WrapperBadgeClearM
         .labelStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
             height(24.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(3.0.dp)
             endContentMargin(3.0.dp)
             startPadding(9.0.dp)
@@ -286,8 +243,8 @@ public val BadgeClear.S: WrapperBadgeClearS
         .labelStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
             height(20.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(7.0.dp)
@@ -311,8 +268,8 @@ public val BadgeClear.Xs: WrapperBadgeClearXs
         .labelStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
             height(16.0.dp)
-            startContentSize(10.0.dp)
             endContentSize(10.0.dp)
+            startContentSize(10.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(4.0.dp)

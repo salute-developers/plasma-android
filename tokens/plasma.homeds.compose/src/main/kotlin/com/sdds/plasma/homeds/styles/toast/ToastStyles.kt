@@ -39,9 +39,7 @@ public val Toast.Default: WrapperToastTerminate
     get() = ToastStyle.builder(this)
         .invariantProps
         .colors {
-            contentStartColor(
-                PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(),
-            )
+            contentStartColor(PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -50,9 +48,7 @@ public val Toast.Positive: WrapperToastTerminate
     get() = ToastStyle.builder(this)
         .invariantProps
         .colors {
-            contentStartColor(
-                PlasmaHomeDsTheme.colors.textInversePositive.asInteractive(),
-            )
+            contentStartColor(PlasmaHomeDsTheme.colors.textInversePositive.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -61,9 +57,7 @@ public val Toast.Negative: WrapperToastTerminate
     get() = ToastStyle.builder(this)
         .invariantProps
         .colors {
-            contentStartColor(
-                PlasmaHomeDsTheme.colors.textInverseNegative.asInteractive(),
-            )
+            contentStartColor(PlasmaHomeDsTheme.colors.textInverseNegative.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -73,20 +67,14 @@ private val ToastStyleBuilder.invariantProps: ToastStyleBuilder
         .shape(CircleShape)
         .textStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(),
-            )
-            textColor(
-                PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(),
-            )
-            contentEndColor(
-                PlasmaHomeDsTheme.colors.textInverseSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            textColor(PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive())
+            contentEndColor(PlasmaHomeDsTheme.colors.textInverseSecondary.asInteractive())
         }
         .dimensions {
             contentStartSize(16.0.dp)
-            contentEndSize(16.0.dp)
             contentStartPadding(6.0.dp)
+            contentEndSize(16.0.dp)
             contentEndPadding(6.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)

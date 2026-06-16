@@ -9,11 +9,12 @@ package com.sdds.plasma.sd.service.styles.switcher
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -79,27 +80,19 @@ private val SwitchStyleBuilder.invariantProps: SwitchStyleBuilder
     get() = this
         .toggleTrackShape(CircleShape)
         .toggleThumbShape(CircleShape)
+        .disableAlpha(0.4f)
         .colorValues {
-            labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue())
+            toggleThumbColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
             toggleTrackColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(SwitchStates.Checked)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent),
                 ),
             )
-            toggleTrackBorderColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-            toggleThumbColor(
-                PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
+            toggleTrackBorderColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
-        .disableAlpha(0.4f)
 
 public val Switch.L: WrapperSwitchL
     @Composable

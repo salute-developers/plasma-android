@@ -91,8 +91,8 @@ public val ComboBoxSingleTight.Xl: WrapperComboBoxSingleTightXl
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.Xl.Default.style())
-        .selectItemStyle(SelectItemSingleTight.Xl.style())
         .dropdownStyle(DropdownMenuTight.Xl.style())
+        .selectItemStyle(SelectItemSingleTight.Xl.style())
         .wrap(::WrapperComboBoxSingleTightXl)
 
 public val ComboBoxSingleTight.L: WrapperComboBoxSingleTightL
@@ -101,8 +101,8 @@ public val ComboBoxSingleTight.L: WrapperComboBoxSingleTightL
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.L.Default.style())
-        .selectItemStyle(SelectItemSingleTight.L.style())
         .dropdownStyle(DropdownMenuTight.L.style())
+        .selectItemStyle(SelectItemSingleTight.L.style())
         .wrap(::WrapperComboBoxSingleTightL)
 
 public val ComboBoxSingleTight.M: WrapperComboBoxSingleTightM
@@ -111,8 +111,8 @@ public val ComboBoxSingleTight.M: WrapperComboBoxSingleTightM
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.M.Default.style())
-        .selectItemStyle(SelectItemSingleTight.M.style())
         .dropdownStyle(DropdownMenuTight.M.style())
+        .selectItemStyle(SelectItemSingleTight.M.style())
         .wrap(::WrapperComboBoxSingleTightM)
 
 public val ComboBoxSingleTight.S: WrapperComboBoxSingleTightS
@@ -121,8 +121,8 @@ public val ComboBoxSingleTight.S: WrapperComboBoxSingleTightS
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.S.Default.style())
-        .selectItemStyle(SelectItemSingleTight.S.style())
         .dropdownStyle(DropdownMenuTight.S.style())
+        .selectItemStyle(SelectItemSingleTight.S.style())
         .wrap(::WrapperComboBoxSingleTightS)
 
 public val ComboBoxSingleTight.Xs: WrapperComboBoxSingleTightXs
@@ -131,6 +131,6 @@ public val ComboBoxSingleTight.Xs: WrapperComboBoxSingleTightXs
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.Xs.Default.style())
-        .selectItemStyle(SelectItemSingleTight.Xs.style())
         .dropdownStyle(DropdownMenuTight.Xs.style())
+        .selectItemStyle(SelectItemSingleTight.Xs.style())
         .wrap(::WrapperComboBoxSingleTightXs)

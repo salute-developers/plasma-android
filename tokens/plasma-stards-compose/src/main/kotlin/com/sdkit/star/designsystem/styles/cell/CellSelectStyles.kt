@@ -8,11 +8,12 @@
 package com.sdkit.star.designsystem.styles.cell
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -83,34 +84,34 @@ private val CellStyleBuilder.invariantProps: CellStyleBuilder
     @Composable
     get() = this
         .colors {
-            labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+            titleColor(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to SolidColor(StarDsTheme.colors.textInversePrimary),
                 ),
             )
-            titleColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+            labelColor(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInversePrimary,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
                 ),
             )
             subtitleColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
                 ),
             )
             disclosureTextColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
                 ),
             )
             disclosureIconColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
                 ),
             )
         }
@@ -125,15 +126,15 @@ public val CellSelect.L: WrapperCellSelectL
         .subtitleStyle(StarDsTheme.typography.bodyMNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .dimensions {
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_l))
-            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_l))
-        }
         .avatarStyle(Avatar.L.style())
         .iconButtonStyle(IconButton.L.style())
         .checkBoxStyle(CheckBox.M.Default.style())
         .radioBoxStyle(RadioBox.M.style())
         .switchStyle(Switch.L.style())
+        .dimensions {
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_l))
+            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_l))
+        }
         .wrap(::WrapperCellSelectL)
 
 public val CellSelect.M: WrapperCellSelectM
@@ -146,15 +147,15 @@ public val CellSelect.M: WrapperCellSelectM
         .subtitleStyle(StarDsTheme.typography.bodySNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .dimensions {
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_m))
-            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_m))
-        }
         .avatarStyle(Avatar.M.style())
         .iconButtonStyle(IconButton.M.style())
         .checkBoxStyle(CheckBox.M.Default.style())
         .radioBoxStyle(RadioBox.M.style())
         .switchStyle(Switch.M.style())
+        .dimensions {
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_m))
+            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_m))
+        }
         .wrap(::WrapperCellSelectM)
 
 public val CellSelect.S: WrapperCellSelectS
@@ -167,15 +168,15 @@ public val CellSelect.S: WrapperCellSelectS
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
-        .dimensions {
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_s))
-            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_s))
-        }
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.S.style())
         .checkBoxStyle(CheckBox.S.Default.style())
         .radioBoxStyle(RadioBox.S.style())
         .switchStyle(Switch.S.style())
+        .dimensions {
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_s))
+            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_s))
+        }
         .wrap(::WrapperCellSelectS)
 
 public val CellSelect.Xs: WrapperCellSelectXs
@@ -188,13 +189,13 @@ public val CellSelect.Xs: WrapperCellSelectXs
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
-        .dimensions {
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_xs))
-            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_xs))
-        }
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.Xs.style())
         .checkBoxStyle(CheckBox.S.Default.style())
         .radioBoxStyle(RadioBox.S.style())
         .switchStyle(Switch.S.style())
+        .dimensions {
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_start_xs))
+            contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_select_content_padding_end_xs))
+        }
         .wrap(::WrapperCellSelectXs)

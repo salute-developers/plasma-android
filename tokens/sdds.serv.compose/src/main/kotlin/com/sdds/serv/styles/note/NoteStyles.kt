@@ -218,12 +218,8 @@ public val WrapperNoteView.Default: WrapperNoteTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -231,12 +227,8 @@ public val WrapperNoteView.Positive: WrapperNoteTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -244,12 +236,8 @@ public val WrapperNoteView.Negative: WrapperNoteTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -257,12 +245,8 @@ public val WrapperNoteView.Warning: WrapperNoteTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -270,12 +254,8 @@ public val WrapperNoteView.Info: WrapperNoteTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -283,15 +263,9 @@ private val NoteStyleBuilder.invariantProps: NoteStyleBuilder
     @Composable
     get() = this
         .colors {
-            closeColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            titleColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            textColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            titleColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            closeColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
 
 public val WrapperNoteLView.Default: WrapperNoteTerminate
@@ -300,12 +274,8 @@ public val WrapperNoteLView.Default: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -315,12 +285,8 @@ public val WrapperNoteLView.Positive: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -330,12 +296,8 @@ public val WrapperNoteLView.Negative: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Negative.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -345,12 +307,8 @@ public val WrapperNoteLView.Warning: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Warning.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -360,12 +318,8 @@ public val WrapperNoteLView.Info: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Info.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -379,17 +333,17 @@ public val Note.L: WrapperNoteL
         .titleStyle(SddsServTheme.typography.textLBold)
         .textStyle(SddsServTheme.typography.textLNormal)
         .dimensions {
+            iconSize(24.0.dp)
+            closeTopMargin(0.0.dp)
+            closeEndMargin(0.0.dp)
+            contentBeforeEndMargin(12.0.dp)
+            textTopMargin(4.0.dp)
+            actionTopMargin(0.0.dp)
             paddingStart(28.0.dp)
             paddingEnd(28.0.dp)
             paddingTop(24.0.dp)
             paddingBottom(7.0.dp)
-            iconSize(24.0.dp)
-            closeTopMargin(0.0.dp)
-            contentBeforeEndMargin(12.0.dp)
-            textTopMargin(4.0.dp)
             titlePaddingEnd(0.0.dp)
-            closeEndMargin(0.0.dp)
-            actionTopMargin(0.0.dp)
         }
         .wrap(::WrapperNoteL)
 
@@ -401,8 +355,8 @@ public val WrapperNoteL.HasClose: WrapperNoteLHasClose
         .dimensions {
             closeSize(24.0.dp)
             closeTopMargin(16.0.dp)
-            titlePaddingEnd(30.0.dp)
             closeEndMargin(16.0.dp)
+            titlePaddingEnd(30.0.dp)
         }
         .wrap(::WrapperNoteLHasClose)
 
@@ -427,9 +381,9 @@ public val WrapperNoteL.HasCloseContentScalable: WrapperNoteLHasCloseContentScal
             closeSize(24.0.dp)
             iconSize(0.0.dp)
             closeTopMargin(16.0.dp)
+            closeEndMargin(16.0.dp)
             contentBeforeEndMargin(16.0.dp)
             titlePaddingEnd(30.0.dp)
-            closeEndMargin(16.0.dp)
         }
         .wrap(::WrapperNoteLHasCloseContentScalable)
 
@@ -439,12 +393,8 @@ public val WrapperNoteMView.Default: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -454,12 +404,8 @@ public val WrapperNoteMView.Positive: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -469,12 +415,8 @@ public val WrapperNoteMView.Negative: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Negative.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -484,12 +426,8 @@ public val WrapperNoteMView.Warning: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Warning.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -499,12 +437,8 @@ public val WrapperNoteMView.Info: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Info.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -518,17 +452,17 @@ public val Note.M: WrapperNoteM
         .titleStyle(SddsServTheme.typography.textMBold)
         .textStyle(SddsServTheme.typography.textMNormal)
         .dimensions {
+            iconSize(24.0.dp)
+            closeTopMargin(0.0.dp)
+            closeEndMargin(0.0.dp)
+            contentBeforeEndMargin(10.0.dp)
+            textTopMargin(2.0.dp)
+            actionTopMargin(0.0.dp)
             paddingStart(24.0.dp)
             paddingEnd(24.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(8.0.dp)
-            iconSize(24.0.dp)
-            closeTopMargin(0.0.dp)
-            contentBeforeEndMargin(10.0.dp)
-            textTopMargin(2.0.dp)
             titlePaddingEnd(0.0.dp)
-            closeEndMargin(0.0.dp)
-            actionTopMargin(0.0.dp)
         }
         .wrap(::WrapperNoteM)
 
@@ -540,8 +474,8 @@ public val WrapperNoteM.HasClose: WrapperNoteMHasClose
         .dimensions {
             closeSize(24.0.dp)
             closeTopMargin(12.0.dp)
-            titlePaddingEnd(28.0.dp)
             closeEndMargin(12.0.dp)
+            titlePaddingEnd(28.0.dp)
         }
         .wrap(::WrapperNoteMHasClose)
 
@@ -566,9 +500,9 @@ public val WrapperNoteM.HasCloseContentScalable: WrapperNoteMHasCloseContentScal
             closeSize(24.0.dp)
             iconSize(0.0.dp)
             closeTopMargin(12.0.dp)
+            closeEndMargin(12.0.dp)
             contentBeforeEndMargin(12.0.dp)
             titlePaddingEnd(28.0.dp)
-            closeEndMargin(12.0.dp)
         }
         .wrap(::WrapperNoteMHasCloseContentScalable)
 
@@ -578,12 +512,8 @@ public val WrapperNoteSView.Default: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -593,12 +523,8 @@ public val WrapperNoteSView.Positive: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -608,12 +534,8 @@ public val WrapperNoteSView.Negative: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Negative.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -623,12 +545,8 @@ public val WrapperNoteSView.Warning: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Warning.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -638,12 +556,8 @@ public val WrapperNoteSView.Info: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Info.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -657,17 +571,17 @@ public val Note.S: WrapperNoteS
         .titleStyle(SddsServTheme.typography.textMBold)
         .textStyle(SddsServTheme.typography.textMNormal)
         .dimensions {
+            iconSize(16.0.dp)
+            closeTopMargin(0.0.dp)
+            closeEndMargin(0.0.dp)
+            contentBeforeEndMargin(8.0.dp)
+            textTopMargin(2.0.dp)
+            actionTopMargin(0.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(5.0.dp)
-            iconSize(16.0.dp)
-            closeTopMargin(0.0.dp)
-            contentBeforeEndMargin(8.0.dp)
-            textTopMargin(2.0.dp)
             titlePaddingEnd(0.0.dp)
-            closeEndMargin(0.0.dp)
-            actionTopMargin(0.0.dp)
         }
         .wrap(::WrapperNoteS)
 
@@ -679,8 +593,8 @@ public val WrapperNoteS.HasClose: WrapperNoteSHasClose
         .dimensions {
             closeSize(24.0.dp)
             closeTopMargin(10.0.dp)
-            titlePaddingEnd(26.0.dp)
             closeEndMargin(10.0.dp)
+            titlePaddingEnd(26.0.dp)
         }
         .wrap(::WrapperNoteSHasClose)
 
@@ -705,9 +619,9 @@ public val WrapperNoteS.HasCloseContentScalable: WrapperNoteSHasCloseContentScal
             closeSize(24.0.dp)
             iconSize(0.0.dp)
             closeTopMargin(10.0.dp)
+            closeEndMargin(10.0.dp)
             contentBeforeEndMargin(12.0.dp)
             titlePaddingEnd(26.0.dp)
-            closeEndMargin(10.0.dp)
         }
         .wrap(::WrapperNoteSHasCloseContentScalable)
 
@@ -717,12 +631,8 @@ public val WrapperNoteXsView.Default: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -732,12 +642,8 @@ public val WrapperNoteXsView.Positive: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -747,12 +653,8 @@ public val WrapperNoteXsView.Negative: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Negative.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -762,12 +664,8 @@ public val WrapperNoteXsView.Warning: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Warning.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -777,12 +675,8 @@ public val WrapperNoteXsView.Info: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Info.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsServTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -796,17 +690,17 @@ public val Note.Xs: WrapperNoteXs
         .titleStyle(SddsServTheme.typography.textMBold)
         .textStyle(SddsServTheme.typography.textMNormal)
         .dimensions {
+            iconSize(16.0.dp)
+            closeTopMargin(0.0.dp)
+            closeEndMargin(0.0.dp)
+            contentBeforeEndMargin(6.0.dp)
+            textTopMargin(2.0.dp)
+            actionTopMargin(0.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(3.0.dp)
-            iconSize(16.0.dp)
-            closeTopMargin(0.0.dp)
-            contentBeforeEndMargin(6.0.dp)
-            textTopMargin(2.0.dp)
             titlePaddingEnd(0.0.dp)
-            closeEndMargin(0.0.dp)
-            actionTopMargin(0.0.dp)
         }
         .wrap(::WrapperNoteXs)
 
@@ -818,8 +712,8 @@ public val WrapperNoteXs.HasClose: WrapperNoteXsHasClose
         .dimensions {
             closeSize(16.0.dp)
             closeTopMargin(10.0.dp)
-            titlePaddingEnd(24.0.dp)
             closeEndMargin(10.0.dp)
+            titlePaddingEnd(24.0.dp)
         }
         .wrap(::WrapperNoteXsHasClose)
 
@@ -844,8 +738,8 @@ public val WrapperNoteXs.HasCloseContentScalable: WrapperNoteXsHasCloseContentSc
             closeSize(16.0.dp)
             iconSize(0.0.dp)
             closeTopMargin(10.0.dp)
+            closeEndMargin(10.0.dp)
             contentBeforeEndMargin(8.0.dp)
             titlePaddingEnd(24.0.dp)
-            closeEndMargin(10.0.dp)
         }
         .wrap(::WrapperNoteXsHasCloseContentScalable)

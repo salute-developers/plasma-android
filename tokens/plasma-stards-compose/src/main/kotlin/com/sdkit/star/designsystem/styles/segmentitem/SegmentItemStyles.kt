@@ -134,94 +134,74 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to StarDsTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to StarDsTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to StarDsTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.textInversePrimaryHover,
+                    ) to StarDsTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        StarDsTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to StarDsTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to StarDsTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to StarDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to StarDsTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        StarDsTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to StarDsTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.textInversePrimaryHover,
+                    ) to StarDsTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        StarDsTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to StarDsTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.textInversePrimaryHover,
+                    ) to StarDsTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        StarDsTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -231,88 +211,74 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to StarDsTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to StarDsTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to StarDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
+                    ) to StarDsTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        StarDsTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to StarDsTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to StarDsTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to StarDsTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to StarDsTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        StarDsTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
+                    ) to StarDsTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        StarDsTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
+                    ) to StarDsTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -335,18 +301,18 @@ public val SegmentItem.Xl: WrapperSegmentItemXl
         )
         .labelStyle(StarDsTheme.typography.bodyLBold)
         .valueStyle(StarDsTheme.typography.bodyLBold)
+        .counterStyle(Counter.S.Accent.style())
         .dimensions {
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_xl))
             minHeight(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_height_xl))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_xl))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_start_xl))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_end_xl))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_padding_xl))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_padding_xl))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_icon_margin_xl))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_counter_margin_xl))
+            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_xl))
             startContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_size_xl))
             endContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_size_xl))
-            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_xl))
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemXl)
 
 public val WrapperSegmentItemXl.Pilled: WrapperSegmentItemXlPilled
@@ -374,18 +340,18 @@ public val SegmentItem.L: WrapperSegmentItemL
         )
         .labelStyle(StarDsTheme.typography.bodyLBold)
         .valueStyle(StarDsTheme.typography.bodyLBold)
+        .counterStyle(Counter.S.Accent.style())
         .dimensions {
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_l))
             minHeight(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_height_l))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_l))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_start_l))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_end_l))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_padding_l))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_padding_l))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_icon_margin_l))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_counter_margin_l))
+            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_l))
             startContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_size_l))
             endContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_size_l))
-            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_l))
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemL)
 
 public val WrapperSegmentItemL.Pilled: WrapperSegmentItemLPilled
@@ -413,18 +379,18 @@ public val SegmentItem.M: WrapperSegmentItemM
         )
         .labelStyle(StarDsTheme.typography.bodyMBold)
         .valueStyle(StarDsTheme.typography.bodyMBold)
+        .counterStyle(Counter.Xs.Accent.style())
         .dimensions {
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_m))
             minHeight(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_height_m))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_m))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_start_m))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_end_m))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_padding_m))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_padding_m))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_icon_margin_m))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_counter_margin_m))
+            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_m))
             startContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_size_m))
             endContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_size_m))
-            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_m))
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemM)
 
 public val WrapperSegmentItemM.Pilled: WrapperSegmentItemMPilled
@@ -452,18 +418,18 @@ public val SegmentItem.S: WrapperSegmentItemS
         )
         .labelStyle(StarDsTheme.typography.bodySBold)
         .valueStyle(StarDsTheme.typography.bodySBold)
+        .counterStyle(Counter.Xs.Accent.style())
         .dimensions {
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_s))
             minHeight(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_height_s))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_s))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_start_s))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_end_s))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_padding_s))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_padding_s))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_icon_margin_s))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_counter_margin_s))
+            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_s))
             startContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_size_s))
             endContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_size_s))
-            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_s))
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemS)
 
 public val WrapperSegmentItemS.Pilled: WrapperSegmentItemSPilled
@@ -491,18 +457,18 @@ public val SegmentItem.Xs: WrapperSegmentItemXs
         )
         .labelStyle(StarDsTheme.typography.bodyXsBold)
         .valueStyle(StarDsTheme.typography.bodyXsBold)
+        .counterStyle(Counter.Xxs.Accent.style())
         .dimensions {
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_xs))
             minHeight(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_height_xs))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_segment_item_min_width_xs))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_start_xs))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_segment_item_padding_end_xs))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_padding_xs))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_padding_xs))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_icon_margin_xs))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_segment_item_counter_margin_xs))
+            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_xs))
             startContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_start_content_size_xs))
             endContentSize(dimensionResource(R.dimen.sdkit_cmp_segment_item_end_content_size_xs))
-            valueMargin(dimensionResource(R.dimen.sdkit_cmp_segment_item_value_margin_xs))
         }
-        .counterStyle(Counter.Xxs.Accent.style())
         .wrap(::WrapperSegmentItemXs)
 
 public val WrapperSegmentItemXs.Pilled: WrapperSegmentItemXsPilled

@@ -90,16 +90,16 @@ public val WrapperCounterView.Default: WrapperCounterTerminate
                 PlasmaGigaTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
                 ),
             )
             textColor(
                 PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -113,16 +113,16 @@ public val WrapperCounterView.Accent: WrapperCounterTerminate
                 PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             textColor(
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -144,8 +144,8 @@ public val WrapperCounterView.Positive: WrapperCounterTerminate
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -167,8 +167,8 @@ public val WrapperCounterView.Warning: WrapperCounterTerminate
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -190,8 +190,8 @@ public val WrapperCounterView.Negative: WrapperCounterTerminate
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -205,16 +205,16 @@ public val WrapperCounterView.Black: WrapperCounterTerminate
                 PlasmaGigaTheme.colors.surfaceOnLightSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceOnLightSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceOnLightSolidDefaultHover,
                 ),
             )
             textColor(
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -228,16 +228,16 @@ public val WrapperCounterView.White: WrapperCounterTerminate
                 PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceOnDarkSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
             )
             textColor(
                 PlasmaGigaTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnLightPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnLightPrimaryHover,
                 ),
             )
         }
@@ -255,8 +255,8 @@ public val Counter.L: WrapperCounterL
         .invariantProps
         .textStyle(PlasmaGigaTheme.typography.bodySNormal)
         .dimensions {
-            minHeight(28.0.dp)
             minWidth(28.0.dp)
+            minHeight(28.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(10.0.dp)
         }
@@ -269,8 +269,8 @@ public val Counter.M: WrapperCounterM
         .invariantProps
         .textStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
-            minHeight(24.0.dp)
             minWidth(24.0.dp)
+            minHeight(24.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
         }
@@ -283,8 +283,8 @@ public val Counter.S: WrapperCounterS
         .invariantProps
         .textStyle(PlasmaGigaTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(20.0.dp)
             minWidth(20.0.dp)
+            minHeight(20.0.dp)
             paddingStart(6.0.dp)
             paddingEnd(6.0.dp)
         }
@@ -297,8 +297,8 @@ public val Counter.Xs: WrapperCounterXs
         .invariantProps
         .textStyle(PlasmaGigaTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(16.0.dp)
             minWidth(16.0.dp)
+            minHeight(16.0.dp)
             paddingStart(4.0.dp)
             paddingEnd(4.0.dp)
         }
@@ -311,8 +311,8 @@ public val Counter.Xxs: WrapperCounterXxs
         .invariantProps
         .textStyle(PlasmaGigaTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(12.0.dp)
             minWidth(12.0.dp)
+            minHeight(12.0.dp)
             paddingStart(2.0.dp)
             paddingEnd(2.0.dp)
         }

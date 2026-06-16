@@ -131,16 +131,24 @@ public val WrapperChipView.Default: WrapperChipTerminate
                 PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
+            labelColor(
+                PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textInversePrimaryHover,
                 ),
             )
             contentStartColor(
                 PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textInversePrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textInversePrimaryHover,
                 ),
             )
             contentEndColor(
@@ -149,14 +157,6 @@ public val WrapperChipView.Default: WrapperChipTerminate
                         to PlasmaHomeDsTheme.colors.textInverseSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to PlasmaHomeDsTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -170,16 +170,24 @@ public val WrapperChipView.Secondary: WrapperChipTerminate
                 PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             contentStartColor(
                 PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             contentEndColor(
@@ -188,14 +196,6 @@ public val WrapperChipView.Secondary: WrapperChipTerminate
                         to PlasmaHomeDsTheme.colors.textDefaultSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to PlasmaHomeDsTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -215,12 +215,12 @@ public val Chip.L: WrapperChipL
         .labelStyle(PlasmaHomeDsTheme.typography.bodyLNormal)
         .dimensions {
             height(48.0.dp)
-            paddingStart(16.0.dp)
-            paddingEnd(16.0.dp)
-            contentStartPadding(8.0.dp)
-            contentEndPadding(8.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(8.0.dp)
+            contentEndPadding(8.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
         }
         .wrap(::WrapperChipL)
 
@@ -240,12 +240,12 @@ public val Chip.M: WrapperChipM
         .labelStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .dimensions {
             height(40.0.dp)
-            paddingStart(14.0.dp)
-            paddingEnd(14.0.dp)
-            contentStartPadding(6.0.dp)
-            contentEndPadding(6.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(6.0.dp)
+            contentEndPadding(6.0.dp)
+            paddingStart(14.0.dp)
+            paddingEnd(14.0.dp)
         }
         .wrap(::WrapperChipM)
 
@@ -265,12 +265,12 @@ public val Chip.S: WrapperChipS
         .labelStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .dimensions {
             height(32.0.dp)
-            paddingStart(12.0.dp)
-            paddingEnd(12.0.dp)
-            contentStartPadding(4.0.dp)
-            contentEndPadding(4.0.dp)
             contentStartSize(16.0.dp)
             contentEndSize(16.0.dp)
+            contentStartPadding(4.0.dp)
+            contentEndPadding(4.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(12.0.dp)
         }
         .wrap(::WrapperChipS)
 
@@ -290,12 +290,12 @@ public val Chip.Xs: WrapperChipXs
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .dimensions {
             height(24.0.dp)
-            paddingStart(10.0.dp)
-            paddingEnd(10.0.dp)
-            contentStartPadding(4.0.dp)
-            contentEndPadding(4.0.dp)
             contentStartSize(12.0.dp)
             contentEndSize(12.0.dp)
+            contentStartPadding(4.0.dp)
+            contentEndPadding(4.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(10.0.dp)
         }
         .wrap(::WrapperChipXs)
 
@@ -315,12 +315,12 @@ public val Chip.Xxs: WrapperChipXxs
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXxsNormal)
         .dimensions {
             height(20.0.dp)
-            paddingStart(8.0.dp)
-            paddingEnd(8.0.dp)
-            contentStartPadding(2.0.dp)
-            contentEndPadding(2.0.dp)
             contentStartSize(12.0.dp)
             contentEndSize(12.0.dp)
+            contentStartPadding(2.0.dp)
+            contentEndPadding(2.0.dp)
+            paddingStart(8.0.dp)
+            paddingEnd(8.0.dp)
         }
         .wrap(::WrapperChipXxs)
 

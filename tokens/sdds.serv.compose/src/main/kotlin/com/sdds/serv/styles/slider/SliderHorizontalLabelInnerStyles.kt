@@ -156,9 +156,7 @@ public val WrapperSliderHorizontalLabelInnerView.Default: WrapperSliderHorizonta
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsServTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
             thumbStrokeColor(
                 SolidColor(SddsServTheme.colors.outlineDefaultSolidSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
@@ -172,9 +170,7 @@ public val WrapperSliderHorizontalLabelInnerView.Accent: WrapperSliderHorizontal
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SddsServTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsServTheme.colors.surfaceDefaultAccent).asStatefulValue())
             thumbStrokeColor(
                 SolidColor(SddsServTheme.colors.outlineDefaultSolidSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
@@ -189,11 +185,8 @@ public val WrapperSliderHorizontalLabelInnerView.Gradient:
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SddsServTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue(),
-            )
+            indicatorColor(SddsServTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue())
             thumbStrokeColor(
-
                 listOf(singleColor(SddsServTheme.colors.outlineDefaultSolidSecondary)).asLayered().asStatefulValue(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.gradients.surfaceDefaultAccentGradient.asLayered(),
@@ -207,29 +200,19 @@ private val SliderStyleBuilder.invariantProps: SliderStyleBuilder
     get() = this
         .tooltipStyle(Tooltip.S.style())
         .orientation(SliderOrientation.Horizontal)
-        .titleAlignment(TitleAlignment.End)
-        .labelAlignment(LabelAlignment.Center)
         .slideDirection(SlideDirection.Normal)
+        .labelAlignment(LabelAlignment.Center)
         .valuePlacement(ValuePlacement.Top)
+        .titleAlignment(TitleAlignment.End)
         .shape(CircleShape)
         .indicatorShape(CircleShape)
         .thumbShape(CircleShape)
         .colors {
-            thumbColor(
-                SddsServTheme.colors.surfaceOnLightSolidCard.asInteractive(),
-            )
-            trackColor(
-                SddsServTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            limitLabelColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            thumbColor(SddsServTheme.colors.surfaceOnLightSolidCard.asInteractive())
+            trackColor(SddsServTheme.colors.surfaceDefaultSolidTertiary.asInteractive())
+            iconColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            titleColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            limitLabelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
             trackThickness(4.0.dp)
@@ -242,10 +225,10 @@ public val SliderHorizontalLabelInner.L: WrapperSliderHorizontalLabelInnerL
     @JvmName("WrapperSliderHorizontalLabelInnerL")
     get() = SliderStyle.builder(this)
         .invariantProps
+        .limitLabelAlignment(LimitLabelAlignment.End)
+        .alignment(SliderAlignment.Start)
         .titleStyle(SddsServTheme.typography.bodyLNormal)
         .limitLabelStyle(SddsServTheme.typography.bodySNormal)
-        .alignment(SliderAlignment.Start)
-        .limitLabelAlignment(LimitLabelAlignment.End)
         .dimensions {
             thumbSize(20.0.dp)
             iconSize(24.0.dp)
@@ -287,10 +270,10 @@ public val SliderHorizontalLabelInner.M: WrapperSliderHorizontalLabelInnerM
     @JvmName("WrapperSliderHorizontalLabelInnerM")
     get() = SliderStyle.builder(this)
         .invariantProps
+        .limitLabelAlignment(LimitLabelAlignment.End)
+        .alignment(SliderAlignment.Start)
         .titleStyle(SddsServTheme.typography.bodyMNormal)
         .limitLabelStyle(SddsServTheme.typography.bodySNormal)
-        .alignment(SliderAlignment.Start)
-        .limitLabelAlignment(LimitLabelAlignment.End)
         .dimensions {
             thumbSize(20.0.dp)
             iconSize(24.0.dp)
@@ -332,10 +315,10 @@ public val SliderHorizontalLabelInner.S: WrapperSliderHorizontalLabelInnerS
     @JvmName("WrapperSliderHorizontalLabelInnerS")
     get() = SliderStyle.builder(this)
         .invariantProps
+        .limitLabelAlignment(LimitLabelAlignment.End)
+        .alignment(SliderAlignment.Start)
         .titleStyle(SddsServTheme.typography.bodySNormal)
         .limitLabelStyle(SddsServTheme.typography.bodyXsNormal)
-        .alignment(SliderAlignment.Start)
-        .limitLabelAlignment(LimitLabelAlignment.End)
         .dimensions {
             thumbSize(20.0.dp)
             iconSize(16.0.dp)

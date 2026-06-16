@@ -25,6 +25,13 @@ object PlasmaHomedsComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.Indicator,
+                mapOf(
+                    "AvatarIndicator" to PlasmaHomedsAvatarIndicatorVariationsCompose,
+                    "Indicator" to PlasmaHomedsIndicatorVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.AvatarGroup,
                 mapOf(
                     "AvatarGroup" to PlasmaHomedsAvatarGroupVariationsCompose,
@@ -162,12 +169,6 @@ object PlasmaHomedsComposeComponents : ComponentProvider() {
                 ComponentKey.Divider,
                 mapOf(
                     "Divider" to PlasmaHomedsDividerVariationsCompose,
-                ),
-            ),
-            Component(
-                ComponentKey.Indicator,
-                mapOf(
-                    "Indicator" to PlasmaHomedsIndicatorVariationsCompose,
                 ),
             ),
             Component(

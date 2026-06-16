@@ -117,12 +117,8 @@ private val DropdownEmptyStateStyleBuilder.invariantProps: DropdownEmptyStateSty
     @Composable
     get() = this
         .colors {
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            descriptionColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
         }
 
 public val DropdownEmptyState.Xs: WrapperDropdownEmptyStateXs
@@ -132,11 +128,11 @@ public val DropdownEmptyState.Xs: WrapperDropdownEmptyStateXs
         .invariantProps
         .descriptionStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
-            paddingStart(10.0.dp)
-            paddingEnd(10.0.dp)
+            descriptionPadding(4.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
-            descriptionPadding(4.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(10.0.dp)
         }
         .wrap(::WrapperDropdownEmptyStateXs)
 
@@ -144,11 +140,11 @@ public val WrapperDropdownEmptyStateXs.HasButton: WrapperDropdownEmptyStateXsHas
     @Composable
     @JvmName("WrapperDropdownEmptyStateXsHasButton")
     get() = builder
+        .buttonStyle(BasicButton.Xs.Clear.style())
         .dimensions {
             paddingTop(16.0.dp)
             paddingBottom(9.0.dp)
         }
-        .buttonStyle(BasicButton.Xs.Clear.style())
         .wrap(::WrapperDropdownEmptyStateXsHasButton)
 
 public val DropdownEmptyState.S: WrapperDropdownEmptyStateS
@@ -158,11 +154,11 @@ public val DropdownEmptyState.S: WrapperDropdownEmptyStateS
         .invariantProps
         .descriptionStyle(PlasmaGigaTheme.typography.bodySNormal)
         .dimensions {
-            paddingStart(14.0.dp)
-            paddingEnd(14.0.dp)
+            descriptionPadding(4.0.dp)
             paddingTop(22.0.dp)
             paddingBottom(22.0.dp)
-            descriptionPadding(4.0.dp)
+            paddingStart(14.0.dp)
+            paddingEnd(14.0.dp)
         }
         .wrap(::WrapperDropdownEmptyStateS)
 
@@ -170,11 +166,11 @@ public val WrapperDropdownEmptyStateS.HasButton: WrapperDropdownEmptyStateSHasBu
     @Composable
     @JvmName("WrapperDropdownEmptyStateSHasButton")
     get() = builder
+        .buttonStyle(BasicButton.S.Clear.style())
         .dimensions {
             paddingTop(22.0.dp)
             paddingBottom(11.0.dp)
         }
-        .buttonStyle(BasicButton.S.Clear.style())
         .wrap(::WrapperDropdownEmptyStateSHasButton)
 
 public val DropdownEmptyState.M: WrapperDropdownEmptyStateM
@@ -184,11 +180,11 @@ public val DropdownEmptyState.M: WrapperDropdownEmptyStateM
         .invariantProps
         .descriptionStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .dimensions {
-            paddingStart(16.0.dp)
-            paddingEnd(16.0.dp)
+            descriptionPadding(6.0.dp)
             paddingTop(26.0.dp)
             paddingBottom(26.0.dp)
-            descriptionPadding(6.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
         }
         .wrap(::WrapperDropdownEmptyStateM)
 
@@ -196,11 +192,11 @@ public val WrapperDropdownEmptyStateM.HasButton: WrapperDropdownEmptyStateMHasBu
     @Composable
     @JvmName("WrapperDropdownEmptyStateMHasButton")
     get() = builder
+        .buttonStyle(BasicButton.M.Clear.style())
         .dimensions {
             paddingTop(26.0.dp)
             paddingBottom(14.0.dp)
         }
-        .buttonStyle(BasicButton.M.Clear.style())
         .wrap(::WrapperDropdownEmptyStateMHasButton)
 
 public val DropdownEmptyState.L: WrapperDropdownEmptyStateL
@@ -210,11 +206,11 @@ public val DropdownEmptyState.L: WrapperDropdownEmptyStateL
         .invariantProps
         .descriptionStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .dimensions {
-            paddingStart(16.0.dp)
-            paddingEnd(16.0.dp)
+            descriptionPadding(8.0.dp)
             paddingTop(32.0.dp)
             paddingBottom(32.0.dp)
-            descriptionPadding(8.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
         }
         .wrap(::WrapperDropdownEmptyStateL)
 
@@ -222,11 +218,11 @@ public val WrapperDropdownEmptyStateL.HasButton: WrapperDropdownEmptyStateLHasBu
     @Composable
     @JvmName("WrapperDropdownEmptyStateLHasButton")
     get() = builder
+        .buttonStyle(BasicButton.L.Clear.style())
         .dimensions {
             paddingTop(32.0.dp)
             paddingBottom(17.0.dp)
         }
-        .buttonStyle(BasicButton.L.Clear.style())
         .wrap(::WrapperDropdownEmptyStateLHasButton)
 
 public val DropdownEmptyState.Xl: WrapperDropdownEmptyStateXl
@@ -236,11 +232,11 @@ public val DropdownEmptyState.Xl: WrapperDropdownEmptyStateXl
         .invariantProps
         .descriptionStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .dimensions {
-            paddingStart(18.0.dp)
-            paddingEnd(18.0.dp)
+            descriptionPadding(12.0.dp)
             paddingTop(32.0.dp)
             paddingBottom(32.0.dp)
-            descriptionPadding(12.0.dp)
+            paddingStart(18.0.dp)
+            paddingEnd(18.0.dp)
         }
         .wrap(::WrapperDropdownEmptyStateXl)
 
@@ -248,9 +244,9 @@ public val WrapperDropdownEmptyStateXl.HasButton: WrapperDropdownEmptyStateXlHas
     @Composable
     @JvmName("WrapperDropdownEmptyStateXlHasButton")
     get() = builder
+        .buttonStyle(BasicButton.Xl.Clear.style())
         .dimensions {
             paddingTop(32.0.dp)
             paddingBottom(12.0.dp)
         }
-        .buttonStyle(BasicButton.Xl.Clear.style())
         .wrap(::WrapperDropdownEmptyStateXlHasButton)

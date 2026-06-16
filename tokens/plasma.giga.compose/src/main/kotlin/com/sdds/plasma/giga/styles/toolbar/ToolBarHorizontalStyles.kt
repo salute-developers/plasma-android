@@ -100,9 +100,7 @@ private val ToolBarStyleBuilder.invariantProps: ToolBarStyleBuilder
         .dividerStyle(Divider.Default.style())
         .orientation(ToolBarOrientation.Horizontal)
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
 
 public val ToolBarHorizontal.L: WrapperToolBarHorizontalL

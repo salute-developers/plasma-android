@@ -99,8 +99,8 @@ public val SelectSingleNormal.Xl: WrapperSelectSingleNormalXl
         .invariantProps
         .textFieldStyle(TextField.Xl.Default.style())
         .buttonStyle(BasicButton.Xl.Secondary.style())
-        .selectItemStyle(SelectItemSingleNormal.Xl.style())
         .dropdownStyle(DropdownMenuNormal.Xl.style())
+        .selectItemStyle(SelectItemSingleNormal.Xl.style())
         .wrap(::WrapperSelectSingleNormalXl)
 
 public val SelectSingleNormal.L: WrapperSelectSingleNormalL
@@ -110,8 +110,8 @@ public val SelectSingleNormal.L: WrapperSelectSingleNormalL
         .invariantProps
         .textFieldStyle(TextField.L.Default.style())
         .buttonStyle(BasicButton.L.Secondary.style())
-        .selectItemStyle(SelectItemSingleNormal.L.style())
         .dropdownStyle(DropdownMenuNormal.L.style())
+        .selectItemStyle(SelectItemSingleNormal.L.style())
         .wrap(::WrapperSelectSingleNormalL)
 
 public val SelectSingleNormal.M: WrapperSelectSingleNormalM
@@ -121,8 +121,8 @@ public val SelectSingleNormal.M: WrapperSelectSingleNormalM
         .invariantProps
         .textFieldStyle(TextField.M.Default.style())
         .buttonStyle(BasicButton.M.Secondary.style())
-        .selectItemStyle(SelectItemSingleNormal.M.style())
         .dropdownStyle(DropdownMenuNormal.M.style())
+        .selectItemStyle(SelectItemSingleNormal.M.style())
         .wrap(::WrapperSelectSingleNormalM)
 
 public val SelectSingleNormal.S: WrapperSelectSingleNormalS
@@ -132,8 +132,8 @@ public val SelectSingleNormal.S: WrapperSelectSingleNormalS
         .invariantProps
         .textFieldStyle(TextField.S.Default.style())
         .buttonStyle(BasicButton.S.Secondary.style())
-        .selectItemStyle(SelectItemSingleNormal.S.style())
         .dropdownStyle(DropdownMenuNormal.S.style())
+        .selectItemStyle(SelectItemSingleNormal.S.style())
         .wrap(::WrapperSelectSingleNormalS)
 
 public val SelectSingleNormal.Xs: WrapperSelectSingleNormalXs
@@ -143,6 +143,6 @@ public val SelectSingleNormal.Xs: WrapperSelectSingleNormalXs
         .invariantProps
         .textFieldStyle(TextField.Xs.Default.style())
         .buttonStyle(BasicButton.Xs.Secondary.style())
-        .selectItemStyle(SelectItemSingleNormal.Xs.style())
         .dropdownStyle(DropdownMenuNormal.Xs.style())
+        .selectItemStyle(SelectItemSingleNormal.Xs.style())
         .wrap(::WrapperSelectSingleNormalXs)

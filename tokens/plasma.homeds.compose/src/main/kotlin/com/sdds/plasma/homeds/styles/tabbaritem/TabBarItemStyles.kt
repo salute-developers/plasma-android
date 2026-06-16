@@ -13,7 +13,7 @@ import com.sdds.compose.uikit.TabBarItemStyle
 import com.sdds.compose.uikit.TabBarItemStyleBuilder
 import com.sdds.compose.uikit.TabBarLabelPlacement
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -47,18 +47,18 @@ public val TabBarItem.Default: WrapperTabBarItemDefault
     get() = TabBarItemStyle.builder(this)
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXxsBold)
         .labelPlacement(TabBarLabelPlacement.Bottom)
+        .counterStyle(Counter.Xs.Negative.style())
+        .indicatorStyle(Indicator.M.Negative.style())
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultClear.asStatefulValue(),
-            )
+            backgroundColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive())
             labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asStatefulValue(
+                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaHomeDsTheme.colors.textDefaultPrimary,
                 ),
             )
             iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asStatefulValue(
+                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaHomeDsTheme.colors.textDefaultPrimary,
                 ),
@@ -73,6 +73,4 @@ public val TabBarItem.Default: WrapperTabBarItemDefault
             extraOffsetX(16.0.dp)
             extraOffsetY(-8.0.dp)
         }
-        .indicatorStyle(Indicator.M.Negative.style())
-        .counterStyle(Counter.Xs.Negative.style())
         .wrap(::WrapperTabBarItemDefault)

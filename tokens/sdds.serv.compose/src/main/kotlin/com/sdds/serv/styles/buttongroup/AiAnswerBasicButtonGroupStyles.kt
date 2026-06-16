@@ -74,10 +74,10 @@ public val AiAnswerBasicButtonGroup.Xs: WrapperAiAnswerBasicButtonGroupXs
         .invariantProps
         .internalShape(SddsServTheme.shapes.roundXs)
         .externalShape(SddsServTheme.shapes.roundXs)
+        .buttonStyle(BasicButton.Xs.Secondary.style())
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(BasicButton.Xs.Secondary.style())
         .wrap(::WrapperAiAnswerBasicButtonGroupXs)
 
 public val AiAnswerBasicButtonGroup.S: WrapperAiAnswerBasicButtonGroupS
@@ -87,10 +87,10 @@ public val AiAnswerBasicButtonGroup.S: WrapperAiAnswerBasicButtonGroupS
         .invariantProps
         .internalShape(SddsServTheme.shapes.roundS)
         .externalShape(SddsServTheme.shapes.roundS)
+        .buttonStyle(BasicButton.S.Secondary.style())
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(BasicButton.S.Secondary.style())
         .wrap(::WrapperAiAnswerBasicButtonGroupS)
 
 public val AiAnswerBasicButtonGroup.M: WrapperAiAnswerBasicButtonGroupM
@@ -100,10 +100,10 @@ public val AiAnswerBasicButtonGroup.M: WrapperAiAnswerBasicButtonGroupM
         .invariantProps
         .internalShape(SddsServTheme.shapes.roundM)
         .externalShape(SddsServTheme.shapes.roundM)
+        .buttonStyle(BasicButton.M.Secondary.style())
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(BasicButton.M.Secondary.style())
         .wrap(::WrapperAiAnswerBasicButtonGroupM)
 
 public val AiAnswerBasicButtonGroup.L: WrapperAiAnswerBasicButtonGroupL
@@ -113,8 +113,8 @@ public val AiAnswerBasicButtonGroup.L: WrapperAiAnswerBasicButtonGroupL
         .invariantProps
         .internalShape(SddsServTheme.shapes.roundM)
         .externalShape(SddsServTheme.shapes.roundM)
+        .buttonStyle(BasicButton.L.Secondary.style())
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(BasicButton.L.Secondary.style())
         .wrap(::WrapperAiAnswerBasicButtonGroupL)

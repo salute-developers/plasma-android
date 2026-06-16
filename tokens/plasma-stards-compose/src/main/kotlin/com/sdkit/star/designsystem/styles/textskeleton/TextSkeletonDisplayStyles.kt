@@ -53,10 +53,8 @@ private val TextSkeletonStyleBuilder.invariantProps: TextSkeletonStyleBuilder
     @Composable
     get() = this
         .shape(StarDsTheme.shapes.roundM)
-        .duration(700.0.toInt())
-        .gradient(
-            SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-        )
+        .gradient(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+        .duration(700)
 
 public val TextSkeletonDisplay.L: WrapperTextSkeletonDisplayL
     @Composable

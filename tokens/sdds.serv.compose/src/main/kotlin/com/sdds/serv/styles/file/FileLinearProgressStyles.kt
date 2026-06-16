@@ -123,8 +123,8 @@ public val WrapperFileLinearProgressView.Default: WrapperFileLinearProgressTermi
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -138,8 +138,8 @@ public val WrapperFileLinearProgressView.Negative: WrapperFileLinearProgressTerm
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -155,16 +155,16 @@ private val FileStyleBuilder.invariantProps: FileStyleBuilder
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultPrimaryActive,
                 ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultPrimaryActive,
                 ),
             )
         }
@@ -183,8 +183,8 @@ public val WrapperFileLinearProgressXsView.Default: WrapperFileLinearProgressTer
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -200,8 +200,8 @@ public val WrapperFileLinearProgressXsView.Negative: WrapperFileLinearProgressTe
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -212,9 +212,9 @@ public val FileLinearProgress.Xs: WrapperFileLinearProgressXs
     @JvmName("WrapperFileLinearProgressXs")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.Xs.Clear.style())
         .labelStyle(SddsServTheme.typography.bodyXsNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.Xs.Clear.style())
         .dimensions {
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
@@ -231,8 +231,8 @@ public val WrapperFileLinearProgressSView.Default: WrapperFileLinearProgressTerm
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -248,8 +248,8 @@ public val WrapperFileLinearProgressSView.Negative: WrapperFileLinearProgressTer
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -260,9 +260,9 @@ public val FileLinearProgress.S: WrapperFileLinearProgressS
     @JvmName("WrapperFileLinearProgressS")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.S.Clear.style())
         .labelStyle(SddsServTheme.typography.bodySNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(8.0.dp)
             endContentPadding(8.0.dp)
@@ -279,8 +279,8 @@ public val WrapperFileLinearProgressMView.Default: WrapperFileLinearProgressTerm
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -296,8 +296,8 @@ public val WrapperFileLinearProgressMView.Negative: WrapperFileLinearProgressTer
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -308,9 +308,9 @@ public val FileLinearProgress.M: WrapperFileLinearProgressM
     @JvmName("WrapperFileLinearProgressM")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.S.Clear.style())
         .labelStyle(SddsServTheme.typography.bodyMNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(10.0.dp)
             endContentPadding(10.0.dp)
@@ -327,8 +327,8 @@ public val WrapperFileLinearProgressLView.Default: WrapperFileLinearProgressTerm
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -344,8 +344,8 @@ public val WrapperFileLinearProgressLView.Negative: WrapperFileLinearProgressTer
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -356,9 +356,9 @@ public val FileLinearProgress.L: WrapperFileLinearProgressL
     @JvmName("WrapperFileLinearProgressL")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.S.Clear.style())
         .labelStyle(SddsServTheme.typography.bodyLNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(12.0.dp)
             endContentPadding(12.0.dp)

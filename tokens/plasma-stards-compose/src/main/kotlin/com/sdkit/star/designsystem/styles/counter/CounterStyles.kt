@@ -97,10 +97,10 @@ public val WrapperCounterView.Default: WrapperCounterTerminate
             )
             textColor(
                 StarDsTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textInversePrimaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -114,16 +114,16 @@ public val WrapperCounterView.Accent: WrapperCounterTerminate
                 StarDsTheme.colors.surfaceDefaultAccentMain.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.surfaceDefaultAccentMainActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultAccentMainHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultAccentMainHover,
                 ),
             )
             textColor(
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -137,16 +137,16 @@ public val WrapperCounterView.Positive: WrapperCounterTerminate
                 StarDsTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultPositiveHover,
                 ),
             )
             textColor(
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -160,16 +160,16 @@ public val WrapperCounterView.Warning: WrapperCounterTerminate
                 StarDsTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultWarningHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultWarningHover,
                 ),
             )
             textColor(
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -183,16 +183,16 @@ public val WrapperCounterView.Negative: WrapperCounterTerminate
                 StarDsTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to StarDsTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.surfaceDefaultNegativeHover,
                 ),
             )
             textColor(
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -212,10 +212,10 @@ public val WrapperCounterView.Black: WrapperCounterTerminate
             )
             textColor(
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -235,10 +235,10 @@ public val WrapperCounterView.White: WrapperCounterTerminate
             )
             textColor(
                 StarDsTheme.colors.textOnLightPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textOnLightPrimaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textOnLightPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textOnLightPrimaryHover,
                 ),
             )
         }
@@ -256,10 +256,10 @@ public val Counter.L: WrapperCounterL
         .invariantProps
         .textStyle(StarDsTheme.typography.bodySNormal)
         .dimensions {
-            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_minHeight_l))
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_minWidth_l))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_paddingStart_l))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_paddingEnd_l))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_min_width_l))
+            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_min_height_l))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_padding_left_l))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_padding_right_l))
         }
         .wrap(::WrapperCounterL)
 
@@ -270,10 +270,10 @@ public val Counter.M: WrapperCounterM
         .invariantProps
         .textStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
-            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_minHeight_m))
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_minWidth_m))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_paddingStart_m))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_paddingEnd_m))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_min_width_m))
+            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_min_height_m))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_padding_left_m))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_padding_right_m))
         }
         .wrap(::WrapperCounterM)
 
@@ -284,10 +284,10 @@ public val Counter.S: WrapperCounterS
         .invariantProps
         .textStyle(StarDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_minHeight_s))
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_minWidth_s))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_paddingStart_s))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_paddingEnd_s))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_min_width_s))
+            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_min_height_s))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_padding_left_s))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_padding_right_s))
         }
         .wrap(::WrapperCounterS)
 
@@ -298,10 +298,10 @@ public val Counter.Xs: WrapperCounterXs
         .invariantProps
         .textStyle(StarDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_minHeight_xs))
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_minWidth_xs))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_paddingStart_xs))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_paddingEnd_xs))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_min_width_xs))
+            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_min_height_xs))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_padding_left_xs))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_padding_right_xs))
         }
         .wrap(::WrapperCounterXs)
 
@@ -312,9 +312,9 @@ public val Counter.Xxs: WrapperCounterXxs
         .invariantProps
         .textStyle(StarDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_minHeight_xxs))
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_minWidth_xxs))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_paddingStart_xxs))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_paddingEnd_xxs))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_counter_min_width_xxs))
+            minHeight(dimensionResource(R.dimen.sdkit_cmp_counter_min_height_xxs))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_counter_padding_left_xxs))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_counter_padding_right_xxs))
         }
         .wrap(::WrapperCounterXxs)

@@ -63,9 +63,7 @@ public val WrapperToastView.Default: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            contentStartColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -73,9 +71,7 @@ public val WrapperToastView.Positive: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            contentStartColor(PlasmaGigaTheme.colors.textDefaultPositive.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -83,9 +79,7 @@ public val WrapperToastView.Negative: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            contentStartColor(PlasmaGigaTheme.colors.textDefaultNegative.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -94,20 +88,14 @@ private val ToastStyleBuilder.invariantProps: ToastStyleBuilder
     get() = this
         .textStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            textColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            contentEndColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            textColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            contentEndColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
             contentStartSize(16.0.dp)
-            contentEndSize(16.0.dp)
             contentStartPadding(6.0.dp)
+            contentEndSize(16.0.dp)
             contentEndPadding(8.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(12.0.dp)

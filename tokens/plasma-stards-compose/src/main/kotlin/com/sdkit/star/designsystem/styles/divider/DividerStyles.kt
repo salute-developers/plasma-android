@@ -40,9 +40,7 @@ public val Divider.Default: WrapperDividerDefault
     get() = DividerStyle.builder(this)
         .shape(CircleShape)
         .color {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-            )
+            backgroundColor(StarDsTheme.colors.surfaceDefaultTransparentTertiary.asInteractive())
         }
         .dimensions {
             thickness(dimensionResource(R.dimen.sdkit_cmp_divider_thickness_Default))

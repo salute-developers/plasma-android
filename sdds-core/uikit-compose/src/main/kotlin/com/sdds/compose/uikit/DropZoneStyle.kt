@@ -11,6 +11,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ConfigName
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.InteractiveState
@@ -219,6 +220,7 @@ interface DropZoneColorsBuilder {
      * Устанавливает кисти [background] фона компонента.
      * @see DropZoneColors.background
      */
+    @ConfigName(configName = "backgroundColor")
     fun background(background: StatefulValue<Brush>): DropZoneColorsBuilder
 
     /**
@@ -226,6 +228,7 @@ interface DropZoneColorsBuilder {
      * @see DropZoneColorsBuilder.background
      * @see InteractiveColor
      */
+    @ConfigName(configName = "backgroundColor")
     fun background(background: InteractiveColor): DropZoneColorsBuilder =
         background(background.asStatefulBrush())
 
@@ -233,6 +236,7 @@ interface DropZoneColorsBuilder {
      * Устанавливает цвет [background] фона компонента.
      * @see DropZoneColorsBuilder.background
      */
+    @ConfigName(configName = "backgroundColor")
     fun background(background: Color): DropZoneColorsBuilder =
         background(background.asStatefulBrush())
 
@@ -240,6 +244,7 @@ interface DropZoneColorsBuilder {
      * Устанавливает кисть [background] фона компонента.
      * @see DropZoneColorsBuilder.background
      */
+    @ConfigName(configName = "backgroundColor")
     fun background(background: Brush): DropZoneColorsBuilder =
         background(background.asStatefulValue())
 

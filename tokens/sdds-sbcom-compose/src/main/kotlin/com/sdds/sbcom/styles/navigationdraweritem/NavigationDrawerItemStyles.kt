@@ -14,7 +14,6 @@ import com.sdds.compose.uikit.NavigationDrawerItemStyle
 import com.sdds.compose.uikit.NavigationDrawerItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -45,16 +44,15 @@ public val NavigationDrawerItem.Default: WrapperNavigationDrawerItemDefault
     @Composable
     @JvmName("WrapperNavigationDrawerItemDefault")
     get() = NavigationDrawerItemStyle.builder(this)
-        .shape(SddsSbComTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
         .titleStyle(SddsSbComTheme.typography.bodyMNormal)
+        .counterStyle(Counter.Danger.MuteNo.style())
+        .shape(SddsSbComTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
         .colors {
-            backgroundColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
             titleColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.textDefaultAccent,
+                        to SolidColor(SddsSbComTheme.colors.textDefaultAccent),
                 ),
             )
             iconColor(
@@ -76,5 +74,4 @@ public val NavigationDrawerItem.Default: WrapperNavigationDrawerItemDefault
             contentPaddingStart(8.0.dp)
             contentPaddingEnd(8.0.dp)
         }
-        .counterStyle(Counter.Danger.MuteNo.style())
         .wrap(::WrapperNavigationDrawerItemDefault)

@@ -99,24 +99,16 @@ private val CardStyleBuilder.invariantProps: CardStyleBuilder
         .titleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear).asStatefulValue(),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue(),
-            )
-            subtitleColor(
-                SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue(),
-            )
+            labelColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            titleColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            subtitleColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
         .dimensions {
-            paddingTop(0.0.dp)
-            paddingBottom(0.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
+            paddingTop(0.0.dp)
+            paddingBottom(0.0.dp)
             mainAxisGap(8.0.dp)
             subtitleGap(2.0.dp)
         }
@@ -127,10 +119,10 @@ public val Card.Xl: WrapperCardXl
     get() = CardStyle.builder(this)
         .invariantProps
         .dimensions {
-            contentPaddingTop(0.0.dp)
-            contentPaddingBottom(0.0.dp)
             contentPaddingStart(0.0.dp)
             contentPaddingEnd(0.0.dp)
+            contentPaddingTop(0.0.dp)
+            contentPaddingBottom(0.0.dp)
             contentMinWidth(219.0.dp)
             contentMinHeight(128.0.dp)
             contentMaxWidth(219.0.dp)
@@ -154,10 +146,10 @@ public val Card.L: WrapperCardL
     get() = CardStyle.builder(this)
         .invariantProps
         .dimensions {
-            contentPaddingTop(0.0.dp)
-            contentPaddingBottom(0.0.dp)
             contentPaddingStart(0.0.dp)
             contentPaddingEnd(0.0.dp)
+            contentPaddingTop(0.0.dp)
+            contentPaddingBottom(0.0.dp)
             contentMinWidth(104.0.dp)
             contentMinHeight(104.0.dp)
             contentMaxWidth(104.0.dp)
@@ -181,10 +173,10 @@ public val Card.M: WrapperCardM
     get() = CardStyle.builder(this)
         .invariantProps
         .dimensions {
-            contentPaddingTop(0.0.dp)
-            contentPaddingBottom(0.0.dp)
             contentPaddingStart(0.0.dp)
             contentPaddingEnd(0.0.dp)
+            contentPaddingTop(0.0.dp)
+            contentPaddingBottom(0.0.dp)
             contentMinWidth(104.0.dp)
             contentMinHeight(80.0.dp)
             contentMaxWidth(104.0.dp)
@@ -208,10 +200,10 @@ public val Card.S: WrapperCardS
     get() = CardStyle.builder(this)
         .invariantProps
         .dimensions {
-            contentPaddingTop(0.0.dp)
-            contentPaddingBottom(0.0.dp)
             contentPaddingStart(0.0.dp)
             contentPaddingEnd(0.0.dp)
+            contentPaddingTop(0.0.dp)
+            contentPaddingBottom(0.0.dp)
             contentMinWidth(104.0.dp)
             contentMinHeight(56.0.dp)
             contentMaxWidth(104.0.dp)

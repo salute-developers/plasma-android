@@ -9,13 +9,13 @@ package com.sdkit.star.designsystem.styles.switcher
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -83,35 +83,31 @@ private val SwitchStyleBuilder.invariantProps: SwitchStyleBuilder
     get() = this
         .toggleTrackShape(CircleShape)
         .toggleThumbShape(CircleShape)
+        .disableAlpha(0.4f)
         .colorValues {
             labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInversePrimary,
+                        to SolidColor(StarDsTheme.colors.textInversePrimary),
                 ),
             )
             descriptionColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
                 ),
             )
+            toggleThumbColor(SolidColor(StarDsTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
             toggleTrackColor(
-                StarDsTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(SwitchStates.Checked)
-                        to StarDsTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultAccent),
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceInverseTransparentTertiary,
+                        to SolidColor(StarDsTheme.colors.surfaceInverseTransparentTertiary),
                 ),
             )
-            toggleTrackBorderColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-            toggleThumbColor(
-                StarDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
+            toggleTrackBorderColor(SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
-        .disableAlpha(0.4f)
 
 public val Switch.L: WrapperSwitchL
     @Composable
@@ -120,12 +116,14 @@ public val Switch.L: WrapperSwitchL
         .invariantProps
         .labelStyle(
             StarDsTheme.typography.bodyLNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyLBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodyLBold,
             ),
         )
         .descriptionStyle(
             StarDsTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyMBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodyMBold,
             ),
         )
         .dimensionValues {
@@ -143,19 +141,19 @@ public val WrapperSwitchL.HasBackground: WrapperSwitchLHasBackground
     @JvmName("WrapperSwitchLHasBackground")
     get() = builder
         .shape(StarDsTheme.shapes.roundL)
-        .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
-                ),
-            )
-        }
         .dimensionValues {
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_switch_padding_start_l_has_background))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_switch_padding_top_l_has_background))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_switch_padding_end_l_has_background))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_switch_padding_bottom_l_has_background))
+        }
+        .colorValues {
+            backgroundColor(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(InteractiveState.Focused)
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault),
+                ),
+            )
         }
         .wrap(::WrapperSwitchLHasBackground)
 
@@ -166,12 +164,14 @@ public val Switch.M: WrapperSwitchM
         .invariantProps
         .labelStyle(
             StarDsTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyMBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodyMBold,
             ),
         )
         .descriptionStyle(
             StarDsTheme.typography.bodySNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodySBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodySBold,
             ),
         )
         .dimensionValues {
@@ -194,19 +194,19 @@ public val WrapperSwitchM.HasBackground: WrapperSwitchMHasBackground
                 dimensionResource(R.dimen.sdkit_cmp_switch_shapeAdjustment_m_has_background),
             ),
         )
-        .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
-                ),
-            )
-        }
         .dimensionValues {
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_switch_padding_start_m_has_background))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_switch_padding_top_m_has_background))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_switch_padding_end_m_has_background))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_switch_padding_bottom_m_has_background))
+        }
+        .colorValues {
+            backgroundColor(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(InteractiveState.Focused)
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault),
+                ),
+            )
         }
         .wrap(::WrapperSwitchMHasBackground)
 
@@ -217,12 +217,14 @@ public val Switch.S: WrapperSwitchS
         .invariantProps
         .labelStyle(
             StarDsTheme.typography.bodySNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodySBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodySBold,
             ),
         )
         .descriptionStyle(
             StarDsTheme.typography.bodyXsNormal.asStatefulValue(
-                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyXsBold,
+                setOf(InteractiveState.Focused)
+                    to StarDsTheme.typography.bodyXsBold,
             ),
         )
         .dimensionValues {
@@ -240,18 +242,18 @@ public val WrapperSwitchS.HasBackground: WrapperSwitchSHasBackground
     @JvmName("WrapperSwitchSHasBackground")
     get() = builder
         .shape(StarDsTheme.shapes.roundM)
-        .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
-                ),
-            )
-        }
         .dimensionValues {
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_switch_padding_start_s_has_background))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_switch_padding_top_s_has_background))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_switch_padding_end_s_has_background))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_switch_padding_bottom_s_has_background))
+        }
+        .colorValues {
+            backgroundColor(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(InteractiveState.Focused)
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault),
+                ),
+            )
         }
         .wrap(::WrapperSwitchSHasBackground)

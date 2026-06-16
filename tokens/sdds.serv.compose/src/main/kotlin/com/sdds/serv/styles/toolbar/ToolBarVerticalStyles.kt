@@ -100,9 +100,7 @@ private val ToolBarStyleBuilder.invariantProps: ToolBarStyleBuilder
         .dividerStyle(Divider.Default.style())
         .orientation(ToolBarOrientation.Vertical)
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
 
 public val ToolBarVertical.L: WrapperToolBarVerticalL

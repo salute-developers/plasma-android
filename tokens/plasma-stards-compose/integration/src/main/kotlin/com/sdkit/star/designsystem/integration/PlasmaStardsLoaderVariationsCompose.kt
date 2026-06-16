@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdkit.star.designsystem.styles.loader.Default
 import com.sdkit.star.designsystem.styles.loader.Loader
 
 internal object PlasmaStardsLoaderVariationsCompose : ComposeStyleProvider<LoaderStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<LoaderStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Loader.Default.style() },
+            "Loader.Default" to ComposeStyleReference { Loader.Default.style() },
         )
 }

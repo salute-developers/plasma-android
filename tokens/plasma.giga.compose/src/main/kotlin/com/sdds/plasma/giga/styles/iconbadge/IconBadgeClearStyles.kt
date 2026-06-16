@@ -9,11 +9,12 @@ package com.sdds.plasma.giga.styles.iconbadge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
 import com.sdds.compose.uikit.iconBadgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -110,9 +111,7 @@ public val WrapperIconBadgeClearView.Default: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeClearTerminate)
 
@@ -120,9 +119,7 @@ public val WrapperIconBadgeClearView.Accent: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeClearTerminate)
 
@@ -130,9 +127,7 @@ public val WrapperIconBadgeClearView.Negative: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeClearTerminate)
 
@@ -140,9 +135,7 @@ public val WrapperIconBadgeClearView.Positive: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeClearTerminate)
 
@@ -150,9 +143,7 @@ public val WrapperIconBadgeClearView.Warning: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeClearTerminate)
 
@@ -160,9 +151,7 @@ public val WrapperIconBadgeClearView.Dark: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            startContentColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeClearTerminate)
 
@@ -170,9 +159,7 @@ public val WrapperIconBadgeClearView.Light: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            startContentColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeClearTerminate)
 
@@ -180,9 +167,7 @@ private val IconBadgeStyleBuilder.invariantProps: IconBadgeStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
 
 public val IconBadgeClear.L: WrapperIconBadgeClearL

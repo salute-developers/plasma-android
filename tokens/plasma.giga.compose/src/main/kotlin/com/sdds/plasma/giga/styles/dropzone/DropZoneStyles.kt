@@ -16,7 +16,6 @@ import com.sdds.compose.uikit.DropZoneState
 import com.sdds.compose.uikit.DropZoneStyle
 import com.sdds.compose.uikit.DropZoneStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -46,8 +45,12 @@ public val DropZone.Default: WrapperDropZoneDefault
     @JvmName("WrapperDropZoneDefault")
     get() = DropZoneStyle.builder(this)
         .shape(PlasmaGigaTheme.shapes.roundXl)
-        .borderType(DropZoneBorderType.Dashes)
         .iconPlacement(DropZoneIconPlacement.Top)
+        .borderType(DropZoneBorderType.Dashes)
+        .titleStyle(PlasmaGigaTheme.typography.headerH4Bold)
+        .descriptionStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .disableAlpha(0.4f)
+        .overlayStyle(Overlay.Default.style())
         .colors {
             background(
                 SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue(
@@ -55,21 +58,15 @@ public val DropZone.Default: WrapperDropZoneDefault
                         to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCardHover),
                 ),
             )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive(),
-            )
+            titleColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary).asStatefulValue())
+            iconColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
             borderColor(
-                PlasmaGigaTheme.colors.outlineDefaultSolidSecondary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.outlineDefaultSolidSecondary).asStatefulValue(
                     setOf(DropZoneState.DraggingOver)
-                        to PlasmaGigaTheme.colors.outlineDefaultAccent,
-                    setOf(InteractiveState.Focused)
-                        to PlasmaGigaTheme.colors.outlineDefaultSolidSecondaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.outlineDefaultAccent),
+                    setOf(InteractiveState.Focused) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultSolidSecondaryHover),
                 ),
             )
         }
@@ -78,15 +75,11 @@ public val DropZone.Default: WrapperDropZoneDefault
             paddingEnd(24.0.dp)
             paddingTop(24.0.dp)
             paddingBottom(24.0.dp)
-            iconSize(24.0.dp)
             borderThickness(1.0.dp)
-            borderDashWidth(6.0.dp)
-            borderDashGap(8.0.dp)
+            borderDashWidth(8.0.dp)
+            borderDashGap(6.0.dp)
+            iconSize(24.0.dp)
             iconPadding(8.0.dp)
             gap(12.0.dp)
         }
-        .disableAlpha(0.4f)
-        .overlayStyle(Overlay.Default.style())
-        .titleStyle(PlasmaGigaTheme.typography.headerH4Bold)
-        .descriptionStyle(PlasmaGigaTheme.typography.bodySNormal)
         .wrap(::WrapperDropZoneDefault)

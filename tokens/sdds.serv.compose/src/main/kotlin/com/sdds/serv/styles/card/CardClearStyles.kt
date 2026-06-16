@@ -54,9 +54,7 @@ private val CardStyleBuilder.invariantProps: CardStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
 
 public val CardClear.L: WrapperCardClearL
@@ -67,10 +65,10 @@ public val CardClear.L: WrapperCardClearL
         .shape(SddsServTheme.shapes.roundL)
         .contentShape(SddsServTheme.shapes.roundL)
         .dimensions {
-            paddingTop(0.0.dp)
-            paddingBottom(0.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
+            paddingTop(0.0.dp)
+            paddingBottom(0.0.dp)
         }
         .wrap(::WrapperCardClearL)
 
@@ -82,10 +80,10 @@ public val CardClear.M: WrapperCardClearM
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .contentShape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .dimensions {
-            paddingTop(0.0.dp)
-            paddingBottom(0.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
+            paddingTop(0.0.dp)
+            paddingBottom(0.0.dp)
         }
         .wrap(::WrapperCardClearM)
 
@@ -97,9 +95,9 @@ public val CardClear.S: WrapperCardClearS
         .shape(SddsServTheme.shapes.roundM)
         .contentShape(SddsServTheme.shapes.roundM)
         .dimensions {
-            paddingTop(0.0.dp)
-            paddingBottom(0.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
+            paddingTop(0.0.dp)
+            paddingBottom(0.0.dp)
         }
         .wrap(::WrapperCardClearS)

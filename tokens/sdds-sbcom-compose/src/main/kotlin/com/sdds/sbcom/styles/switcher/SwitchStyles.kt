@@ -9,11 +9,11 @@ package com.sdds.sbcom.styles.switcher
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -41,57 +41,37 @@ public val Switch.Default: WrapperSwitchDefault
     get() = SwitchStyle.builder(this)
         .toggleTrackShape(CircleShape)
         .toggleThumbShape(CircleShape)
-        .colorValues {
-            labelColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                SddsSbComTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            toggleTrackColor(
-                SddsSbComTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                    setOf(SwitchStates.Checked)
-                        to SddsSbComTheme.colors.surfaceDefaultAccent,
-                ),
-            )
-            toggleTrackBorderColor(
-                SddsSbComTheme.colors.outlineDefaultTransparentPrimary.asInteractive(
-                    setOf(SwitchStates.Checked)
-                        to SddsSbComTheme.colors.outlineDefaultClear,
-                ),
-            )
-            toggleThumbColor(
-                SddsSbComTheme.colors.outlineDefaultTransparentPrimary.asInteractive(
-                    setOf(SwitchStates.Checked)
-                        to SddsSbComTheme.colors.surfaceOnDarkSolidDefault,
-                ),
-            )
-        }
+        .disableAlpha(0.4f)
         .dimensionValues {
             toggleTrackWidth(52.0.dp)
             toggleTrackHeight(32.0.dp)
-            toggleThumbWidth(
-                16.0.dp.asStatefulValue(
-                    setOf(SwitchStates.Checked) to 24.0.dp,
-                ),
-            )
-            toggleThumbHeight(
-                16.0.dp.asStatefulValue(
-                    setOf(SwitchStates.Checked) to 24.0.dp,
-                ),
-            )
-            toggleThumbPadding(
-                8.0.dp.asStatefulValue(
-                    setOf(SwitchStates.Checked) to 4.0.dp,
-                ),
-            )
+            toggleThumbWidth(16.0.dp.asStatefulValue(setOf(SwitchStates.Checked) to 24.0.dp))
+            toggleThumbHeight(16.0.dp.asStatefulValue(setOf(SwitchStates.Checked) to 24.0.dp))
+            toggleThumbPadding(8.0.dp.asStatefulValue(setOf(SwitchStates.Checked) to 4.0.dp))
             textPadding(12.0.dp)
             descriptionPadding(4.0.dp)
-            toggleTrackBorderWidth(
-                1.5.dp.asStatefulValue(
-                    setOf(SwitchStates.Checked) to 0.0.dp,
+            toggleTrackBorderWidth(1.5.dp.asStatefulValue(setOf(SwitchStates.Checked) to 0.0.dp))
+        }
+        .colorValues {
+            labelColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            toggleThumbColor(
+                SolidColor(SddsSbComTheme.colors.outlineDefaultTransparentPrimary).asStatefulValue(
+                    setOf(SwitchStates.Checked)
+                        to SolidColor(SddsSbComTheme.colors.surfaceOnDarkSolidDefault),
+                ),
+            )
+            toggleTrackColor(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
+                    setOf(SwitchStates.Checked)
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent),
+                ),
+            )
+            toggleTrackBorderColor(
+                SolidColor(SddsSbComTheme.colors.outlineDefaultTransparentPrimary).asStatefulValue(
+                    setOf(SwitchStates.Checked)
+                        to SolidColor(SddsSbComTheme.colors.outlineDefaultClear),
                 ),
             )
         }
-        .disableAlpha(0.4f)
         .wrap(::WrapperSwitchDefault)

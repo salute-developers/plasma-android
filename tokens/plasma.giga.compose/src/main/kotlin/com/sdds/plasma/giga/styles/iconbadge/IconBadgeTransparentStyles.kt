@@ -9,11 +9,12 @@ package com.sdds.plasma.giga.styles.iconbadge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
 import com.sdds.compose.uikit.iconBadgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -110,12 +111,8 @@ public val WrapperIconBadgeTransparentView.Default: WrapperIconBadgeTransparentT
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -123,12 +120,8 @@ public val WrapperIconBadgeTransparentView.Accent: WrapperIconBadgeTransparentTe
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -136,12 +129,8 @@ public val WrapperIconBadgeTransparentView.Negative: WrapperIconBadgeTransparent
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentNegative.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -149,12 +138,8 @@ public val WrapperIconBadgeTransparentView.Positive: WrapperIconBadgeTransparent
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentPositive.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -162,12 +147,8 @@ public val WrapperIconBadgeTransparentView.Warning: WrapperIconBadgeTransparentT
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentWarning.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -175,12 +156,8 @@ public val WrapperIconBadgeTransparentView.Dark: WrapperIconBadgeTransparentTerm
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceOnLightTransparentDeep.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -188,12 +165,8 @@ public val WrapperIconBadgeTransparentView.Light: WrapperIconBadgeTransparentTer
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceOnDarkTransparentSecondary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceOnDarkTransparentSecondary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 

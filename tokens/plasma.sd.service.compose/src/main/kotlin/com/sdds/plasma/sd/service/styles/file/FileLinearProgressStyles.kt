@@ -123,8 +123,8 @@ public val WrapperFileLinearProgressView.Default: WrapperFileLinearProgressTermi
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -183,8 +183,8 @@ public val WrapperFileLinearProgressXsView.Default: WrapperFileLinearProgressTer
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -212,9 +212,9 @@ public val FileLinearProgress.Xs: WrapperFileLinearProgressXs
     @JvmName("WrapperFileLinearProgressXs")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.Xs.Clear.style())
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.Xs.Clear.style())
         .dimensions {
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
@@ -231,8 +231,8 @@ public val WrapperFileLinearProgressSView.Default: WrapperFileLinearProgressTerm
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -260,9 +260,9 @@ public val FileLinearProgress.S: WrapperFileLinearProgressS
     @JvmName("WrapperFileLinearProgressS")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.S.Clear.style())
         .labelStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(8.0.dp)
             endContentPadding(8.0.dp)
@@ -279,8 +279,8 @@ public val WrapperFileLinearProgressMView.Default: WrapperFileLinearProgressTerm
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -308,9 +308,9 @@ public val FileLinearProgress.M: WrapperFileLinearProgressM
     @JvmName("WrapperFileLinearProgressM")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.S.Clear.style())
         .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(10.0.dp)
             endContentPadding(10.0.dp)
@@ -327,8 +327,8 @@ public val WrapperFileLinearProgressLView.Default: WrapperFileLinearProgressTerm
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -356,9 +356,9 @@ public val FileLinearProgress.L: WrapperFileLinearProgressL
     @JvmName("WrapperFileLinearProgressL")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.S.Clear.style())
         .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(12.0.dp)
             endContentPadding(12.0.dp)
