@@ -46,6 +46,7 @@ import com.sdds.compose.uikit.LocalRectSkeletonStyle
 import com.sdds.compose.uikit.LocalScrollBarStyle
 import com.sdds.compose.uikit.LocalSegmentItemStyle
 import com.sdds.compose.uikit.LocalSegmentStyle
+import com.sdds.compose.uikit.LocalSelectStyle
 import com.sdds.compose.uikit.LocalSpinnerStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
@@ -139,6 +140,8 @@ import com.sdkit.star.designsystem.styles.segment.Segment
 import com.sdkit.star.designsystem.styles.segmentitem.M
 import com.sdkit.star.designsystem.styles.segmentitem.Primary
 import com.sdkit.star.designsystem.styles.segmentitem.SegmentItem
+import com.sdkit.star.designsystem.styles.select.M
+import com.sdkit.star.designsystem.styles.select.Select
 import com.sdkit.star.designsystem.styles.spinner.Default
 import com.sdkit.star.designsystem.styles.spinner.M
 import com.sdkit.star.designsystem.styles.spinner.Spinner
@@ -235,6 +238,7 @@ fun ThemeSetup(
             LocalScrollBarStyle provides ScrollBar.M.style(),
             LocalSegmentItemStyle provides SegmentItem.M.Primary.style(),
             LocalSegmentStyle provides Segment.M.Primary.style(),
+            LocalSelectStyle provides Select.M.style(),
             LocalSpinnerStyle provides Spinner.M.Default.style(),
             LocalSwitchStyle provides Switch.M.style(),
             LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
