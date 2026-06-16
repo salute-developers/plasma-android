@@ -760,7 +760,8 @@ private class PopoverPositionProvider(
     }
 
     private fun IntSize.forCurrentTailPlacement(contentPlacement: PopoverPlacement): IntSize {
-        if (!tailEnabled || contentPlacement.isHorizontalTail() == innerPlacement.isHorizontalTail()) {
+        val shouldCorrectSize = tailEnabled && positionStrategy == PopoverPositionStrategy.KeepInitial
+        if (!shouldCorrectSize || contentPlacement.isHorizontalTail() == innerPlacement.isHorizontalTail()) {
             return this
         }
         return if (innerPlacement.isHorizontalTail()) {
