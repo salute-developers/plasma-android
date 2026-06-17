@@ -411,7 +411,7 @@ sealed class AvatarPlaceholder {
 /**
  * Пользовательский статус
  */
-@ApiStateSet(components = ["Avatar", "Indicator"])
+@ApiStateSet(components = ["Avatar", "Indicator", "Badge", "Counter"])
 enum class AvatarStatus : ValueState {
     /**
      * Статус не отображается
