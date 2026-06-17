@@ -56,7 +56,11 @@ public val Splitter.Default: WrapperSplitterDefault
             )
         }
         .dimensions {
-            dividerThickness(2.0.dp)
+            dividerThickness(
+                1.0.dp.asStatefulValue(
+                    setOf(InteractiveState.Pressed) to 2.0.dp,
+                ),
+            )
             handleThickness(1.0.dp)
             handleStartPadding(
                 3.0.dp.asStatefulValue(
