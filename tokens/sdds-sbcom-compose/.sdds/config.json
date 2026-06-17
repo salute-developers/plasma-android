@@ -1,0 +1,21 @@
+{
+    "projectId": "5230e75f-dab3-4303-8ac2-da39ecf61d31",
+    "designSystemId": "e5c13a4f-88f1-498a-8d6c-1d2e398b5476",
+    "credential": {
+        "type": "env",
+        "name": "DSBUILDER_SBCOM_KEY"
+    },
+    "tenants": [
+        {
+            "id": "7503e9cd-7d76-48ce-b293-75b6b3573cd6",
+            "designSystemId": "e5c13a4f-88f1-498a-8d6c-1d2e398b5476",
+            "name": "sdds_sbcom_default",
+            "description": null,
+            "directoryPath": ".sdds/tenants/sdds_sbcom_default",
+            "alias": "SddsSbCom",
+            "createdAt": "2026-04-16T08:27:54.689Z",
+            "updatedAt": "2026-04-16T08:27:54.689Z"
+        }
+    ],
+    "palettePath": ".sdds/tenants/palette.json"
+}

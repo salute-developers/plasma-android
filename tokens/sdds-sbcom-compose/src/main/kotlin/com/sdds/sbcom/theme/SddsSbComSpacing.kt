@@ -18,6 +18,10 @@ public data class SddsSbComSpacing(
      */
     public val spacing16x: Dp = 0.dp,
     /**
+     * spacing 0x
+     */
+    public val spacing0x: Dp = 0.dp,
+    /**
      * spacing 10x
      */
     public val spacing10x: Dp = 0.dp,
@@ -25,6 +29,10 @@ public data class SddsSbComSpacing(
      * spacing 12x
      */
     public val spacing12x: Dp = 0.dp,
+    /**
+     * spacing 20x
+     */
+    public val spacing20x: Dp = 0.dp,
     /**
      * spacing 2x
      */
@@ -34,13 +42,13 @@ public data class SddsSbComSpacing(
      */
     public val spacing3x: Dp = 0.dp,
     /**
-     * spacing 0x
-     */
-    public val spacing0x: Dp = 0.dp,
-    /**
      * spacing 40x
      */
     public val spacing40x: Dp = 0.dp,
+    /**
+     * spacing 4x
+     */
+    public val spacing4x: Dp = 0.dp,
     /**
      * spacing 60x
      */
@@ -50,13 +58,13 @@ public data class SddsSbComSpacing(
      */
     public val spacing8x: Dp = 0.dp,
     /**
-     * spacing 4x
+     * spacing 1x
      */
-    public val spacing4x: Dp = 0.dp,
+    public val spacing1x: Dp = 0.dp,
     /**
-     * spacing 20x
+     * spacing 24x
      */
-    public val spacing20x: Dp = 0.dp,
+    public val spacing24x: Dp = 0.dp,
     /**
      * spacing 32x
      */
@@ -65,14 +73,6 @@ public data class SddsSbComSpacing(
      * spacing 6x
      */
     public val spacing6x: Dp = 0.dp,
-    /**
-     * spacing 1x
-     */
-    public val spacing1x: Dp = 0.dp,
-    /**
-     * spacing 24x
-     */
-    public val spacing24x: Dp = 0.dp,
 )
 
 internal val LocalSddsSbComSpacing: ProvidableCompositionLocal<SddsSbComSpacing> =
@@ -85,18 +85,18 @@ internal val LocalSddsSbComSpacing: ProvidableCompositionLocal<SddsSbComSpacing>
  */
 public fun defaultSddsSbComSpacing(): SddsSbComSpacing = SddsSbComSpacing(
     spacing16x = SpacingTokens.spacing16x,
+    spacing0x = SpacingTokens.spacing0x,
     spacing10x = SpacingTokens.spacing10x,
     spacing12x = SpacingTokens.spacing12x,
+    spacing20x = SpacingTokens.spacing20x,
     spacing2x = SpacingTokens.spacing2x,
     spacing3x = SpacingTokens.spacing3x,
-    spacing0x = SpacingTokens.spacing0x,
     spacing40x = SpacingTokens.spacing40x,
+    spacing4x = SpacingTokens.spacing4x,
     spacing60x = SpacingTokens.spacing60x,
     spacing8x = SpacingTokens.spacing8x,
-    spacing4x = SpacingTokens.spacing4x,
-    spacing20x = SpacingTokens.spacing20x,
-    spacing32x = SpacingTokens.spacing32x,
-    spacing6x = SpacingTokens.spacing6x,
     spacing1x = SpacingTokens.spacing1x,
     spacing24x = SpacingTokens.spacing24x,
+    spacing32x = SpacingTokens.spacing32x,
+    spacing6x = SpacingTokens.spacing6x,
 )

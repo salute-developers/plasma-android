@@ -193,6 +193,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     @get:Input
     abstract val ignoreDisabledTokens: Property<Boolean>
 
+    /**
+     * Использовать дефолтные compose-шрифты вместо значений из android_fontFamily.json.
+     */
+    @get:Input
+    abstract val useDefaultFonts: Property<Boolean>
+
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
     private val fontsAggregator by unsafeLazy { FontsAggregator() }
     private val packageResolver by unsafeLazy { PackageResolver(packageName.get()) }
@@ -225,6 +231,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             dimensionsConfig = dimensionsConfig.get(),
             packageResolver = packageResolver,
             defaultThemeTypography = defaultThemeTypography.get(),
+            useDefaultFonts = useDefaultFonts.get(),
         )
     }
 
@@ -407,7 +414,8 @@ abstract class GenerateThemeTask : DefaultTask() {
     )
 
     private fun decodeMeta(): Theme =
-        metaFile.get().asFile.decode<Theme>(Serializer.meta)
+        requireThemeFile(metaFile.get().asFile)
+            .decode<Theme>(Serializer.meta)
             .let { theme ->
                 if (ignoreDisabledTokens.get()) {
                     theme.copy(tokens = theme.tokens.filter { it.enabled })
@@ -418,42 +426,53 @@ abstract class GenerateThemeTask : DefaultTask() {
             .also { logger.debug("decoded base $it") }
 
     private fun colors(file: File): Map<String, String> {
-        return file.decode<Map<String, String>>()
+        return requireThemeFile(file).decode<Map<String, String>>()
             .also { logger.debug("decoded colors $it") }
     }
 
     private fun shapes(file: File): Map<String, ShapeTokenValue> {
-        return file.decode<Map<String, ShapeTokenValue>>()
+        return requireThemeFile(file).decode<Map<String, ShapeTokenValue>>()
             .also { logger.debug("decoded shapes $it") }
     }
 
     private fun gradients(file: File): Map<String, List<GradientTokenValue>> {
-        return file.decode<Map<String, List<GradientTokenValue>>>()
+        return requireThemeFile(file).decode<Map<String, List<GradientTokenValue>>>()
             .also { logger.debug("decoded gradients $it") }
     }
 
     private fun shadows(file: File): Map<String, List<ShadowTokenValue>> {
-        return file.decode<Map<String, List<ShadowTokenValue>>>()
+        return requireThemeFile(file).decode<Map<String, List<ShadowTokenValue>>>()
             .also { logger.debug("decoded shadows $it") }
     }
 
     private fun spacing(file: File): Map<String, SpacingTokenValue> {
-        return file.decode<Map<String, SpacingTokenValue>>()
+        return requireThemeFile(file).decode<Map<String, SpacingTokenValue>>()
             .also { logger.debug("decoded spacing $it") }
     }
 
     private fun typography(file: File): Map<String, TypographyTokenValue> {
-        return file.decode<Map<String, TypographyTokenValue>>()
+        return requireThemeFile(file).decode<Map<String, TypographyTokenValue>>()
             .also { logger.debug("decoded typography $it") }
     }
 
     private fun fonts(file: File): Map<String, FontTokenValue> {
-        return file.decode<Map<String, FontTokenValue>>()
+        return requireThemeFile(file).decode<Map<String, FontTokenValue>>()
             .also { logger.debug("decoded fonts $it") }
     }
 
+    private fun requireThemeFile(file: File): File {
+        if (!file.isFile) {
+            throw ThemeBuilderException("Required theme file is missing: ${file.path}")
+        }
+        return file
+    }
+
     private val palette by unsafeLazy {
-        paletteFile.get().asFile.decode<Map<String, Map<String, String>>>()
+        val file = paletteFile.get().asFile
+        if (!file.isFile) {
+            throw ThemeBuilderException("Required palette file is missing: ${file.path}")
+        }
+        file.decode<Map<String, Map<String, String>>>()
             .also { logger.debug("decoded palette $it") }
     }
 }

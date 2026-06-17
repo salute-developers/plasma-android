@@ -26,33 +26,33 @@ public data class SddsSbComShapes(
      */
     public val round5xl: CornerBasedShape = RoundedCornerShape(0),
     /**
-     * borderRadius s
+     * borderRadius l
      */
-    public val roundS: CornerBasedShape = RoundedCornerShape(0),
+    public val roundL: CornerBasedShape = RoundedCornerShape(0),
     /**
      * borderRadius m
      */
     public val roundM: CornerBasedShape = RoundedCornerShape(0),
     /**
-     * borderRadius l
+     * borderRadius s
      */
-    public val roundL: CornerBasedShape = RoundedCornerShape(0),
-    /**
-     * borderRadius xxs
-     */
-    public val roundXxs: CornerBasedShape = RoundedCornerShape(0),
+    public val roundS: CornerBasedShape = RoundedCornerShape(0),
     /**
      * borderRadius xl
      */
     public val roundXl: CornerBasedShape = RoundedCornerShape(0),
     /**
-     * borderRadius xxl
+     * borderRadius xxs
      */
-    public val roundXxl: CornerBasedShape = RoundedCornerShape(0),
+    public val roundXxs: CornerBasedShape = RoundedCornerShape(0),
     /**
      * borderRadius xs
      */
     public val roundXs: CornerBasedShape = RoundedCornerShape(0),
+    /**
+     * borderRadius xxl
+     */
+    public val roundXxl: CornerBasedShape = RoundedCornerShape(0),
     /**
      * borderRadius circle
      */
@@ -71,12 +71,12 @@ public fun defaultSddsSbComShapes(): SddsSbComShapes = SddsSbComShapes(
     round4xl = RoundShapeTokens.Round4xl,
     round3xl = RoundShapeTokens.Round3xl,
     round5xl = RoundShapeTokens.Round5xl,
-    roundS = RoundShapeTokens.RoundS,
-    roundM = RoundShapeTokens.RoundM,
     roundL = RoundShapeTokens.RoundL,
-    roundXxs = RoundShapeTokens.RoundXxs,
+    roundM = RoundShapeTokens.RoundM,
+    roundS = RoundShapeTokens.RoundS,
     roundXl = RoundShapeTokens.RoundXl,
-    roundXxl = RoundShapeTokens.RoundXxl,
+    roundXxs = RoundShapeTokens.RoundXxs,
     roundXs = RoundShapeTokens.RoundXs,
+    roundXxl = RoundShapeTokens.RoundXxl,
     roundCircle = RoundShapeTokens.RoundCircle,
 )

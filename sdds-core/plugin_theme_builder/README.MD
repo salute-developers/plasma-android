@@ -51,7 +51,7 @@ themeBuilder {
 ```
 </details>
 <br>
-Минимальная настройка должна содержать источник темы themeSource и один из целевых фреймворков view | compose.
+Минимальная настройка должна содержать источник темы `themeSource` или локальный `.sdds/config.json` и один из целевых фреймворков view | compose.
 
 ## Конфигурация
 
@@ -69,6 +69,45 @@ themeSource(name = "stylesSalute", version = "0.1.0")
 ```
 ```kotlin
 themeSource(url = "https://example.com/themes/theme.zip")
+```
+</details>
+
+#### `.sdds/config.json`
+Если `themeSource` или `themeSources` не заданы явно, плагин использует `.sdds/config.json` как fallback-источник темы. Такой формат подходит для модулей, где DSBuilder уже выгрузил theme data в локальную директорию `.sdds/`.
+
+Плагин читает массив `tenants` и для каждого tenant использует `alias`, если он задан, иначе `name`. Если у tenant есть `directoryPath`, файлы темы читаются из этой директории относительно модуля. Если `directoryPath` отсутствует, используется путь `.sdds/<tenant.name>`.
+
+Каждая tenant-директория должна содержать:
+- `meta.json`
+- `android/android_color.json`
+- `android/android_gradient.json`
+- `android/android_typography.json`
+- `android/android_fontFamily.json`
+- `android/android_shape.json`
+- `android/android_shadow.json`
+- `android/android_spacing.json`
+
+Первый tenant из `.sdds/config.json` используется как внутренняя база `Tenant.Default`: в `GenerateThemeTask` он передается с пустым tenant suffix. Остальные tenants передаются с suffix `alias ?: name`.
+
+Локальный `.sdds` source заменяет загрузку theme zip и palette: для него не создаются `fetchTheme*`, `unpackThemeFiles*` и `fetchPalette` tasks. Палитра читается из `palettePath` в `.sdds/config.json`, а если поле не задано, из `.sdds/tenants/palette.json`. Для явно заданных `themeSource` или `themeSources` палитра по-прежнему скачивается из `paletteUrl`.
+
+<details>
+<summary>Пример .sdds/config.json</summary>
+
+```json
+{
+  "tenants": [
+    {
+      "name": "sdds_default",
+      "alias": "Default",
+      "directoryPath": ".sdds/sdds_default"
+    },
+    {
+      "name": "sdds_partner",
+      "directoryPath": ".sdds/sdds_partner"
+    }
+  ]
+}
 ```
 </details>
 
@@ -161,4 +200,3 @@ paletteUrl(url = "https://example.com/themes/color-palette.json")
 Плагин скачает архив с темой из источника, указанного в `themeSource` и сгенерирует токены/темы под указанные фреймворки. По пути `your_module/build/generated/` должны появиться папки:
 - `your_module/build/generated/theme-builder` - Kotlin-файлы темы. Может содержать токены и тему для compose, а также токены градиентов для view.
 - `your_module/build/generated/theme-builder-res` - ресурсы темы. Содержит токены и темы для view, а также ресурсы шрифтов для compose.
-
