@@ -6,8 +6,8 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.motion.MotionProperty
-import com.sdds.compose.uikit.motion.components.icontext.IconTextMotionStyle
-import com.sdds.compose.uikit.motion.components.icontext.IconTextMotionStyleBuilder
+import com.sdds.compose.uikit.motion.components.common.IconTextMotionStyle
+import com.sdds.compose.uikit.motion.components.common.IconTextMotionStyleBuilder
 import com.sdds.compose.uikit.motion.noMotion
 
 /**

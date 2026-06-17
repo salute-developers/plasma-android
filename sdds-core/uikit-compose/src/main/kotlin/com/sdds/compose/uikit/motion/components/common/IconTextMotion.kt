@@ -1,4 +1,4 @@
-package com.sdds.compose.uikit.motion.components.icontext
+package com.sdds.compose.uikit.motion.components.common
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
@@ -8,7 +8,7 @@ import com.sdds.compose.uikit.motion.rememberMotion
 import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
- * Создает [Motion] для BaseIconText
+ * Создает [com.sdds.compose.uikit.motion.Motion] для BaseIconText
  * @param motionContext контекст анимации
  * @param style стиль анимации BaseIconText
  */

@@ -1,4 +1,4 @@
-package com.sdds.compose.uikit.motion.components.badge
+package com.sdds.compose.uikit.motion.components.chip
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -11,82 +11,82 @@ import com.sdds.compose.uikit.motion.components.common.IconTextMotionStyleBuilde
 import com.sdds.compose.uikit.motion.noMotion
 
 /**
- * CompositionLocal, предоставляющий текущий [BadgeMotionStyle].
- * Используется для доступа к анимационным свойствам Badge внутри Compose-иерархии.
+ * CompositionLocal, предоставляющий текущий [ChipMotionStyle].
+ * Используется для доступа к анимационным свойствам Chip внутри Compose-иерархии.
  */
-val LocalBadgeMotionStyle = compositionLocalOf { BadgeMotionStyle.builder().style() }
+val LocalChipMotionStyle = compositionLocalOf { ChipMotionStyle.builder().style() }
 
 /**
- * Описывает анимационные (motion) свойства для элемента Badge.
+ * Описывает анимационные (motion) свойства для элемента Chip.
  * Содержит набор [MotionProperty], определяющих поведение цветов и вложенных компонентов
  * при различных состояниях (например, выбран, нажат и т.д.).
  */
 @Stable
-interface BadgeMotionStyle : IconTextMotionStyle {
+interface ChipMotionStyle : IconTextMotionStyle {
 
     /**
-     * Анимационное свойство цвета фона Badge.
+     * Анимационное свойство цвета фона Chip.
      */
     val backgroundColor: MotionProperty<Brush>
 
     companion object {
         /**
-         * Создает билдер для построения [BadgeMotionStyle].
+         * Создает билдер для построения [ChipMotionStyle].
          */
-        fun builder(): BadgeMotionStyleBuilder = BadgeMotionStyleImpl.Builder()
+        fun builder(): ChipMotionStyleBuilder = ChipMotionStyleImpl.Builder()
     }
 }
 
 /**
- * Билдер для поэтапной конфигурации [BadgeMotionStyle].
+ * Билдер для поэтапной конфигурации [ChipMotionStyle].
  */
 @Stable
-interface BadgeMotionStyleBuilder : IconTextMotionStyleBuilder {
+interface ChipMotionStyleBuilder : IconTextMotionStyleBuilder {
 
     /**
      * Устанавливает анимационное свойство цвета фона.
      */
-    fun backgroundColor(background: MotionProperty<Brush>): BadgeMotionStyleBuilder
+    fun backgroundColor(background: MotionProperty<Brush>): ChipMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство цвета label.
      */
-    override fun labelColor(label: MotionProperty<Brush>): BadgeMotionStyleBuilder
+    override fun labelColor(label: MotionProperty<Brush>): ChipMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство стиля label.
      */
-    override fun labelStyle(label: MotionProperty<TextStyle>): BadgeMotionStyleBuilder
+    override fun labelStyle(label: MotionProperty<TextStyle>): ChipMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство цвета начального контента.
      */
-    override fun contentColor(content: MotionProperty<Brush>): BadgeMotionStyleBuilder
+    override fun contentColor(content: MotionProperty<Brush>): ChipMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство цвета начального контента.
      */
-    override fun startContentColor(startContent: MotionProperty<Brush>): BadgeMotionStyleBuilder
+    override fun startContentColor(startContent: MotionProperty<Brush>): ChipMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство цвета конечного контента.
      */
-    override fun endContentColor(endContent: MotionProperty<Brush>): BadgeMotionStyleBuilder
+    override fun endContentColor(endContent: MotionProperty<Brush>): ChipMotionStyleBuilder
 
-    override fun style(): BadgeMotionStyle
+    override fun style(): ChipMotionStyle
 }
 
 @Immutable
-private class BadgeMotionStyleImpl(
+private class ChipMotionStyleImpl(
     override val backgroundColor: MotionProperty<Brush>,
     override val labelColor: MotionProperty<Brush>,
     override val contentColor: MotionProperty<Brush>,
     override val startContentColor: MotionProperty<Brush>,
     override val endContentColor: MotionProperty<Brush>,
     override val labelStyle: MotionProperty<TextStyle>,
-) : BadgeMotionStyle {
+) : ChipMotionStyle {
 
-    class Builder : BadgeMotionStyleBuilder {
+    class Builder : ChipMotionStyleBuilder {
         private var background: MotionProperty<Brush>? = null
         private var label: MotionProperty<Brush>? = null
         private var content: MotionProperty<Brush>? = null
@@ -94,32 +94,32 @@ private class BadgeMotionStyleImpl(
         private var endContent: MotionProperty<Brush>? = null
         private var labelStyle: MotionProperty<TextStyle>? = null
 
-        override fun backgroundColor(background: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
+        override fun backgroundColor(background: MotionProperty<Brush>): ChipMotionStyleBuilder = apply {
             this.background = background
         }
 
-        override fun labelColor(label: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
+        override fun labelColor(label: MotionProperty<Brush>): ChipMotionStyleBuilder = apply {
             this.label = label
         }
 
-        override fun labelStyle(label: MotionProperty<TextStyle>): BadgeMotionStyleBuilder = apply {
+        override fun labelStyle(label: MotionProperty<TextStyle>): ChipMotionStyleBuilder = apply {
             this.labelStyle = label
         }
 
-        override fun contentColor(content: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
+        override fun contentColor(content: MotionProperty<Brush>): ChipMotionStyleBuilder = apply {
             this.content = content
         }
 
-        override fun startContentColor(startContent: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
+        override fun startContentColor(startContent: MotionProperty<Brush>): ChipMotionStyleBuilder = apply {
             this.startContent = startContent
         }
 
-        override fun endContentColor(endContent: MotionProperty<Brush>): BadgeMotionStyleBuilder = apply {
+        override fun endContentColor(endContent: MotionProperty<Brush>): ChipMotionStyleBuilder = apply {
             this.endContent = endContent
         }
 
-        override fun style(): BadgeMotionStyle {
-            return BadgeMotionStyleImpl(
+        override fun style(): ChipMotionStyle {
+            return ChipMotionStyleImpl(
                 backgroundColor = background ?: noMotion(),
                 labelColor = label ?: noMotion(),
                 contentColor = content ?: noMotion(),

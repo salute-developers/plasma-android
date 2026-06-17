@@ -38,8 +38,8 @@ import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.motion.Motion
-import com.sdds.compose.uikit.motion.components.icontext.IconTextMotionStyle
-import com.sdds.compose.uikit.motion.components.icontext.rememberIconTextMotion
+import com.sdds.compose.uikit.motion.components.common.IconTextMotionStyle
+import com.sdds.compose.uikit.motion.components.common.rememberIconTextMotion
 import com.sdds.compose.uikit.motion.getBrushAsState
 import com.sdds.compose.uikit.motion.getTextStyleAsState
 import com.sdds.compose.uikit.motion.rememberMotionContext

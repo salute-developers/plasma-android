@@ -1,4 +1,4 @@
-package com.sdds.compose.uikit.motion.components.icontext
+package com.sdds.compose.uikit.motion.components.common
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -18,7 +18,7 @@ internal val LocalIconTextMotionStyle = compositionLocalOf { IconTextMotionStyle
 
 /**
  * Описывает анимационные (motion) свойства для элемента IconText.
- * Содержит набор [MotionProperty], определяющих поведение цветов и вложенных компонентов
+ * Содержит набор [com.sdds.compose.uikit.motion.MotionProperty], определяющих поведение цветов и вложенных компонентов
  * при различных состояниях (например, выбран, нажат и т.д.).
  */
 @Stable
