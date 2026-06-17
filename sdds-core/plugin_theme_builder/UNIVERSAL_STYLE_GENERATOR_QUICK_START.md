@@ -21,14 +21,14 @@ interface ExampleStyleBuilder : StyleBuilder<ExampleStyle>
 Имя компонента будет выведено автоматически: `ExampleStyleBuilder` -> `Example`.
 
 3. Сопоставьте методы билдера с ключами `props` в JSON-конфиге. Если имена
-   различаются, добавьте `@ConfigName`:
+   различаются, добавьте `@ApiName`:
 
 ```kotlin
-@ConfigName(configName = "labelStyle")
+@ApiName(name = "labelStyle")
 fun textStyle(textStyle: TextStyle): ExampleStyleBuilder
 ```
 
-Одинаковый `@ConfigName` должен стоять на всех перегрузках одного свойства.
+Одинаковый `@ApiName` должен стоять на всех перегрузках одного свойства.
 
 4. При необходимости настройте `@ApiInfo`:
 
@@ -45,10 +45,10 @@ fun textStyle(textStyle: TextStyle): ExampleStyleBuilder
 
 Параметры можно комбинировать в одной аннотации.
 
-5. Для кастомных состояний пометьте enum аннотацией `@StateSetInfo`:
+5. Для кастомных состояний пометьте enum аннотацией `@ApiStateSet`:
 
 ```kotlin
-@StateSetInfo(components = ["Avatar", "Indicator"])
+@ApiStateSet(components = ["Avatar", "Indicator"])
 enum class AvatarStatus : ValueState {
     None,
     Active,
@@ -56,7 +56,7 @@ enum class AvatarStatus : ValueState {
 }
 ```
 
-Для отличающегося имени состояния в конфиге используйте `@ConfigName` на enum
+Для отличающегося имени состояния в конфиге используйте `@ApiName` на enum
 entry.
 
 6. Проверьте типы параметров методов билдера:
@@ -121,7 +121,7 @@ entry.
 Проверьте:
 
 - совпадает ли имя метода с ключом в `props`;
-- указан ли правильный `@ConfigName`;
+- указан ли правильный `@ApiName`;
 - поддерживается ли тип первого параметра;
 - не помечен ли метод `@Deprecated`;
 - присутствует ли свойство в текущей или родительской вариации.

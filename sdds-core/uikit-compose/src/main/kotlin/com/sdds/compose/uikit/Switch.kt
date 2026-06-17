@@ -17,14 +17,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.api.info.compose.StateSetInfo
+import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
-import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.checkable.switch.BaseSwitch
 import com.sdds.compose.uikit.internal.checkable.switch.BaseSwitchLayout
@@ -329,7 +328,7 @@ private fun SwitchColors.toColorValues(): SwitchColorValues {
 /**
  * Состояния Switch
  */
-@StateSetInfo(components = ["Switch"])
+@ApiStateSet(components = ["Switch"])
 enum class SwitchStates : ValueState {
     /**
      * Switch включен

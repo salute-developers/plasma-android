@@ -210,7 +210,7 @@ class ApiInfoProcessor(
 
                     EnumValueInfo(
                         name = name,
-                        configName = enumEntry.configNameAnnotation().ifBlank { name },
+                        configName = enumEntry.apiNameAnnotation().ifBlank { name },
                     )
                 }
                 .toList(),
@@ -225,10 +225,10 @@ class ApiInfoProcessor(
             ?.let { (it.value as? List<*>)?.filterIsInstance<String>()?.filter { s -> s.isNotBlank() } }
             .orEmpty()
 
-    private fun KSClassDeclaration.configNameAnnotation(): String =
+    private fun KSClassDeclaration.apiNameAnnotation(): String =
         annotations
             .firstOrNull { it.hasQualifiedName(CONFIG_NAME_ANNOTATION) }
-            ?.argumentValue<String>("configName")
+            ?.argumentValue<String>("name")
             .orEmpty()
 
     private fun KSClassDeclaration.defaultComponentNameFromStateEnum(): String =
@@ -358,7 +358,7 @@ class ApiInfoProcessor(
     private fun KSFunctionDeclaration.propertyName(): String? =
         annotations
             .firstOrNull { it.hasQualifiedName(CONFIG_NAME_ANNOTATION) }
-            ?.argumentValue<String>("configName")
+            ?.argumentValue<String>("name")
             ?.takeIf { it.isNotBlank() }
 
     private fun extractEnumValues(paramType: KSType): List<EnumValueInfo> =
@@ -368,7 +368,7 @@ class ApiInfoProcessor(
             ?.filter { it.classKind == ClassKind.ENUM_ENTRY }
             ?.map { enumEntry ->
                 val name = enumEntry.simpleName.asString()
-                val configName = enumEntry.configNameAnnotation().ifBlank { name }
+                val configName = enumEntry.apiNameAnnotation().ifBlank { name }
                 EnumValueInfo(name = name, configName = configName)
             }
             ?.toList()
@@ -446,8 +446,8 @@ class ApiInfoProcessor(
         private const val STATEFUL_VALUE = "com.sdds.compose.uikit.interactions.StatefulValue"
         private const val STYLE_BUILDER = "com.sdds.compose.uikit.style.StyleBuilder"
         private const val API_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiInfo"
-        private const val STATE_SET_INFO_ANNOTATION = "com.sdds.api.info.compose.StateSetInfo"
-        private const val CONFIG_NAME_ANNOTATION = "com.sdds.api.info.compose.ConfigName"
+        private const val STATE_SET_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiStateSet"
+        private const val CONFIG_NAME_ANNOTATION = "com.sdds.api.info.compose.ApiName"
         private const val DRAWABLE_RES = "androidx.annotation.DrawableRes"
         private const val GROUP_ROOT = "root"
         private val SKIP_METHODS = setOf("equals", "hashCode", "toString", "style", "build")

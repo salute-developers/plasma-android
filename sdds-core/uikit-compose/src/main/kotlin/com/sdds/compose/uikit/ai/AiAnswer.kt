@@ -2,8 +2,8 @@ package com.sdds.compose.uikit.ai
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.sdds.api.info.compose.ConfigName
-import com.sdds.api.info.compose.StateSetInfo
+import com.sdds.api.info.compose.ApiName
+import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.ButtonGroupScope
 import com.sdds.compose.uikit.ai.motion.AiAnswerMotionStyle
 import com.sdds.compose.uikit.ai.motion.rememberAiAnswerMotion
@@ -17,24 +17,24 @@ import com.sdds.compose.uikit.motion.Motion
 /**
  * Семантическое состояние [AiAnswer].
  */
-@StateSetInfo(components = ["AiAnswer"])
+@ApiStateSet(components = ["AiAnswer"])
 enum class AiAnswerState : ValueState {
     /**
      * Обычное состояние ответа.
      */
-    @ConfigName(configName = "default")
+    @ApiName(name = "default")
     Default,
 
     /**
      * Состояние ошибки.
      */
-    @ConfigName(configName = "error")
+    @ApiName(name = "error")
     Error,
 
     /**
      * Состояние загрузки.
      */
-    @ConfigName(configName = "loading")
+    @ApiName(name = "loading")
     Loading,
 }
 

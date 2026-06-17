@@ -164,16 +164,16 @@ fun colors(builder: ExampleColorsBuilder.() -> Unit): ExampleStyleBuilder
 Пример из `AvatarColorsBuilder`:
 
 ```kotlin
-@ConfigName(configName = "background")
+@ApiName(name = "background")
 fun backgroundColor(backgroundColor: Color): AvatarColorsBuilder = this
 
-@ConfigName(configName = "background")
+@ApiName(name = "background")
 fun backgroundColor(backgroundColor: Brush): AvatarColorsBuilder = this
 
-@ConfigName(configName = "background")
+@ApiName(name = "background")
 fun backgroundColor(backgroundColor: InteractiveColor): AvatarColorsBuilder = this
 
-@ConfigName(configName = "background")
+@ApiName(name = "background")
 fun backgroundColor(backgroundColor: StatefulValue<Brush>): AvatarColorsBuilder = this
 ```
 
@@ -234,48 +234,48 @@ interface BasicButtonStyleBuilder : StyleBuilder<ButtonStyle>
 
 Так оформлены `BasicButton`, `IconButton`, `LinkButton`, `Badge` и `IconBadge`.
 
-### `@ConfigName`
+### `@ApiName`
 
 По умолчанию ключ конфига равен имени метода. Если API и конфиг используют разные
 имена, пометьте метод:
 
 ```kotlin
-@ConfigName(configName = "labelStyle")
+@ApiName(name = "labelStyle")
 fun textStyle(textStyle: TextStyle): CounterStyleBuilder
 ```
 
 Другие примеры из UIKit:
 
 ```kotlin
-@ConfigName(configName = "paddingLeft")
+@ApiName(name = "paddingLeft")
 fun paddingStart(paddingStart: Dp): CounterDimensionsBuilder
 
-@ConfigName(configName = "closedIcon")
+@ApiName(name = "closedIcon")
 fun iconClosed(@DrawableRes iconClosed: Int?): AccordionItemStyleBuilder
 
-@ConfigName(configName = "trackShape")
+@ApiName(name = "trackShape")
 fun shape(shape: CornerBasedShape): SliderStyleBuilder
 ```
 
-Если у свойства есть перегрузки, одинаковый `@ConfigName` нужно поставить на
+Если у свойства есть перегрузки, одинаковый `@ApiName` нужно поставить на
 каждую участвующую перегрузку.
 
-`@ConfigName` также поддерживается для enum-значений:
+`@ApiName` также поддерживается для enum-значений:
 
 ```kotlin
 enum class NavigationBarTextPlacement {
-    @ConfigName(configName = "text-inlined")
+    @ApiName(name = "text-inlined")
     Inline,
     Bottom,
 }
 ```
 
-### `@StateSetInfo`
+### `@ApiStateSet`
 
 Если значения свойств зависят от кастомного состояния компонента, пометьте enum:
 
 ```kotlin
-@StateSetInfo(components = ["Avatar", "Indicator"])
+@ApiStateSet(components = ["Avatar", "Indicator"])
 enum class AvatarStatus : ValueState {
     None,
     Active,
@@ -286,12 +286,12 @@ enum class AvatarStatus : ValueState {
 Если `components` не указан, имя компонента выводится из имени enum удалением
 суффикса `StateSet`, `States` или `State`.
 
-Для отличающихся имен state в конфиге используйте `@ConfigName` на enum entry:
+Для отличающихся имен state в конфиге используйте `@ApiName` на enum entry:
 
 ```kotlin
-@StateSetInfo(components = ["Editable"])
+@ApiStateSet(components = ["Editable"])
 enum class EditableState : ValueState {
-    @ConfigName(configName = "readonly")
+    @ApiName(name = "readonly")
     ReadOnly,
 }
 ```
@@ -301,11 +301,11 @@ enum class EditableState : ValueState {
 1. Реализуйте `ComponentStyle`, его companion factory и `StyleBuilder`.
 2. Добавьте `@ApiInfo` на основной интерфейс `StyleBuilder`.
 3. Проверьте соответствие имен методов ключам `props`; расхождения оформите через
-   `@ConfigName`.
+   `@ApiName`.
 4. Для специальной factory-функции задайте `builderFunName`.
 5. Для общего билдера задайте `components`, для специального пакета —
    `packageName`.
-6. Для кастомных состояний добавьте `@StateSetInfo`.
+6. Для кастомных состояний добавьте `@ApiStateSet`.
 7. Убедитесь, что каждый параметр имеет поддерживаемый тип и что иконки помечены
    `@DrawableRes`.
 8. Зарегистрируйте компонент в `ComponentDelegates.kt`. Это единственная запись,
@@ -387,7 +387,7 @@ sdds/api/uikit-api-meta.json
 `uikit-api-meta.json` в UIKit-зависимости Theme Builder.
 
 **Свойство отсутствует в сгенерированном стиле.**
-Проверьте имя ключа, `@ConfigName`, тип первого параметра и отсутствие
+Проверьте имя ключа, `@ApiName`, тип первого параметра и отсутствие
 `@Deprecated` на методе.
 
 **Иконка распознана как обычный `Int`.**

@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
-import com.sdds.api.info.compose.ConfigName
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -150,7 +150,7 @@ interface DrawerStyleBuilder : StyleBuilder<DrawerStyle> {
      *
      * @param closeIconRes ID ресурса иконки.
      */
-    @ConfigName(configName = "closeIcon")
+    @ApiName(name = "closeIcon")
     fun closeIconRes(@DrawableRes closeIconRes: Int): DrawerStyleBuilder
 
     /**
@@ -193,7 +193,7 @@ interface DrawerColorsBuilder {
      * @see DrawerColorsBuilder.backgroundColor
      * @see DrawerColors.background
      */
-    @ConfigName(configName = "backgroundColor")
+    @ApiName(name = "backgroundColor")
     fun background(background: StatefulValue<Brush>): DrawerColorsBuilder
 
     /**
@@ -201,7 +201,7 @@ interface DrawerColorsBuilder {
      * @see DrawerColorsBuilder.backgroundColor
      * @see DrawerColors.background
      */
-    @ConfigName(configName = "backgroundColor")
+    @ApiName(name = "backgroundColor")
     fun background(background: Brush): DrawerColorsBuilder =
         background(background.asStatefulValue())
 
@@ -225,7 +225,7 @@ interface DrawerColorsBuilder {
      * @see DrawerColors.closeIconColor
      * @see InteractiveColor
      */
-    @ConfigName(configName = "closeColor")
+    @ApiName(name = "closeColor")
     fun closeIconColor(closeIconColor: InteractiveColor): DrawerColorsBuilder
 
     /**
@@ -233,7 +233,7 @@ interface DrawerColorsBuilder {
      * @see DrawerColorsBuilder.backgroundColor
      * @see DrawerColors.background
      */
-    @ConfigName(configName = "closeColor")
+    @ApiName(name = "closeColor")
     fun closeIconColor(closeIconColor: Color): DrawerColorsBuilder =
         closeIconColor(closeIconColor.asInteractive())
 
@@ -314,7 +314,7 @@ interface DrawerDimensionsBuilder {
     /**
      * Устанавливает толщину бордера
      */
-    @ConfigName(configName = "strokeSize")
+    @ApiName(name = "strokeSize")
     fun strokeWidth(width: Dp): DrawerDimensionsBuilder
 
     /**

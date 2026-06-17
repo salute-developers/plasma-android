@@ -27,7 +27,7 @@ annotation class ApiInfo(
  */
 @Target(allowedTargets = [AnnotationTarget.CLASS])
 @Retention
-annotation class StateSetInfo(val components: Array<String> = [])
+annotation class ApiStateSet(val components: Array<String> = [])
 
 /**
  * Аннотация для указания альтернативного имени в конфиге компонента.
@@ -36,8 +36,8 @@ annotation class StateSetInfo(val components: Array<String> = [])
  * - значений enum'ов (CLASS/PROPERTY) — когда имя Kotlin-значения отличается от имени в конфиге
  * - методов билдеров (FUNCTION) — когда имя функции отличается от имени свойства в конфиге
  *
- * @param configName альтернативное имя, используемое в конфиге компонента
+ * @param name альтернативное имя, используемое в конфиге компонента
  */
 @Target(allowedTargets = [AnnotationTarget.CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION])
 @Retention
-annotation class ConfigName(val configName: String)
+annotation class ApiName(val name: String)

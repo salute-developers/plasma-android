@@ -27,8 +27,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.api.info.compose.ConfigName
-import com.sdds.api.info.compose.StateSetInfo
+import com.sdds.api.info.compose.ApiName
+import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.ValueState
@@ -238,12 +238,12 @@ enum class NavBarCenterAlignmentStrategy {
 /**
  * Расположение текста
  */
-@StateSetInfo(components = ["NavigationBar"])
+@ApiStateSet(components = ["NavigationBar"])
 enum class NavigationBarTextPlacement : ValueState {
     /**
      * Внутри основного блока
      */
-    @ConfigName(configName = "text-inlined")
+    @ApiName(name = "text-inlined")
     Inline,
 
     /**

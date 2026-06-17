@@ -41,7 +41,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.api.info.compose.StateSetInfo
+import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.graphics.cutout.ProvideCutoutState
 import com.sdds.compose.uikit.graphics.cutout.cutoutTarget
 import com.sdds.compose.uikit.graphics.cutout.rememberCutoutState
@@ -411,7 +411,7 @@ sealed class AvatarPlaceholder {
 /**
  * Пользовательский статус
  */
-@StateSetInfo(components = ["Avatar", "Indicator"])
+@ApiStateSet(components = ["Avatar", "Indicator"])
 enum class AvatarStatus : ValueState {
     /**
      * Статус не отображается

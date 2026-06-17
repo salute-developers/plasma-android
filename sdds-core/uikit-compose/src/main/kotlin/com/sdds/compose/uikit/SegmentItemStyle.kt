@@ -11,7 +11,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
-import com.sdds.api.info.compose.ConfigName
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.Style
@@ -430,13 +430,13 @@ interface SegmentItemDimensionsBuilder {
     /**
      * Устанавливает отступ контента в начале
      */
-    @ConfigName(configName = "iconMargin")
+    @ApiName(name = "iconMargin")
     fun startContentPadding(startContentPadding: Dp): SegmentItemDimensionsBuilder
 
     /**
      * Устанавливает отступ контента в конце
      */
-    @ConfigName(configName = "counterMargin")
+    @ApiName(name = "counterMargin")
     fun endContentPadding(endContentPadding: Dp): SegmentItemDimensionsBuilder
 
     /**

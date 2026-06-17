@@ -35,8 +35,8 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.offset
-import com.sdds.api.info.compose.ConfigName
-import com.sdds.api.info.compose.StateSetInfo
+import com.sdds.api.info.compose.ApiName
+import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.EditableMeasurePolicy.Companion.FIELD_ID
 import com.sdds.compose.uikit.EditableMeasurePolicy.Companion.ICON_ID
 import com.sdds.compose.uikit.interactions.ValueState
@@ -248,9 +248,9 @@ enum class EditableIconPlacement {
 /**
  * Состояния комопнента [Editable]
  */
-@StateSetInfo(components = ["Editable"])
+@ApiStateSet(components = ["Editable"])
 enum class EditableStates : ValueState {
-    @ConfigName(configName = "readonly")
+    @ApiName(name = "readonly")
     ReadOnly,
 }
 

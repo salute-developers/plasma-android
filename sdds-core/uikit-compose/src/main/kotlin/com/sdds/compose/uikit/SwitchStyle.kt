@@ -17,7 +17,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
-import com.sdds.api.info.compose.ConfigName
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -856,14 +856,14 @@ interface SwitchDimensionValuesBuilder {
     /**
      * Устанавливает горизонтальный отступ до подвижной части
      */
-    @ConfigName("togglePadding")
+    @ApiName("togglePadding")
     fun toggleThumbPadding(toggleThumbPadding: Dp): SwitchDimensionValuesBuilder =
         toggleThumbPadding(toggleThumbPadding.asStatefulValue())
 
     /**
      * Устанавливает горизонтальный отступ до подвижной части
      */
-    @ConfigName("togglePadding")
+    @ApiName("togglePadding")
     fun toggleThumbPadding(toggleThumbPadding: StatefulValue<Dp>): SwitchDimensionValuesBuilder
 
     /**

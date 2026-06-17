@@ -11,7 +11,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
-import com.sdds.api.info.compose.ConfigName
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -549,7 +549,7 @@ interface TextFieldDimensionsBuilder {
     /**
      * Устанавливает высоту первой строки контента
      */
-    @ConfigName(configName = "alignmentMinHeight")
+    @ApiName(name = "alignmentMinHeight")
     fun alignmentLineHeight(alignmentLineHeight: Dp): TextFieldDimensionsBuilder
 
     /**
@@ -596,13 +596,13 @@ interface TextFieldIndicatorDimensionsBuilder {
     /**
      * Устанавливает горизонтальный отступ индикатора
      */
-    @ConfigName(configName = "indicatorOffsetX")
+    @ApiName(name = "indicatorOffsetX")
     fun horizontalPadding(horizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
 
     /**
      * Устанавливает вертикальный отступ индикатора
      */
-    @ConfigName(configName = "indicatorOffsetY")
+    @ApiName(name = "indicatorOffsetY")
     fun verticalPadding(verticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
 
     /**
