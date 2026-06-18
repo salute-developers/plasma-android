@@ -45,15 +45,11 @@ public value class WrapperScrollBarM(
 private val ScrollBarStyleBuilder.invariantProps: ScrollBarStyleBuilder
     @Composable
     get() = this
-        .hoverExpandFactor(2.0f)
         .shape(CircleShape)
+        .hoverExpandFactor(2.0f)
         .colors {
-            thumbColor(
-                StarDsTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
-            )
-            trackColor(
-                StarDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            thumbColor(StarDsTheme.colors.surfaceDefaultSolidTertiary.asInteractive())
+            trackColor(StarDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
         }
 
 public val ScrollBar.S: WrapperScrollBarS

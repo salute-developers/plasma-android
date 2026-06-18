@@ -9,11 +9,11 @@ package com.sdds.sbcom.styles.chip
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -48,57 +48,65 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
     get() = this
         .shape(CircleShape)
         .labelStyle(SddsSbComTheme.typography.bodyMNormal)
+        .disableAlpha(0.4f)
         .colors {
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccent,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.surfaceDefaultAccent,
-                ),
-            )
-            contentStartColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.textOnDarkPrimary,
-                ),
-            )
-            contentEndColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.textOnDarkPrimary,
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent),
                 ),
             )
             labelColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.textOnDarkPrimary,
+                SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to SolidColor(SddsSbComTheme.colors.textOnDarkPrimaryHover),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSbComTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(SddsSbComTheme.colors.textOnDarkPrimary),
+                ),
+            )
+            contentStartColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to SolidColor(SddsSbComTheme.colors.textOnDarkPrimaryHover),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSbComTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(SddsSbComTheme.colors.textOnDarkPrimary),
+                ),
+            )
+            contentEndColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to SolidColor(SddsSbComTheme.colors.textOnDarkPrimaryHover),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSbComTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(SddsSbComTheme.colors.textOnDarkPrimary),
                 ),
             )
         }
         .dimensions {
             height(26.0.dp)
-            paddingEnd(8.0.dp)
-            contentStartPadding(3.0.dp)
-            contentEndPadding(3.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(3.0.dp)
+            contentEndPadding(3.0.dp)
+            paddingEnd(8.0.dp)
         }
-        .disableAlpha(0.4f)
 
 public val Chip.ChipSlotPadding: WrapperChipChipSlotPadding
     @Composable
@@ -106,11 +114,7 @@ public val Chip.ChipSlotPadding: WrapperChipChipSlotPadding
     get() = ChipStyle.builder(this)
         .invariantProps
         .dimensions {
-            paddingStart(
-                8.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Selected) to 1.0.dp,
-                ),
-            )
+            paddingStart(8.0.dp.asStatefulValue(setOf(InteractiveState.Selected) to 1.0.dp))
         }
         .wrap(::WrapperChipChipSlotPadding)
 

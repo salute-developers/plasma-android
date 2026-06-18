@@ -89,10 +89,10 @@ private val DropdownMenuStyleBuilder.invariantProps: DropdownMenuStyleBuilder
     @Composable
     get() = this
         .shadow(SddsServTheme.shadows.downHardM)
+        .dividerStyle(Divider.Default.style())
+        .scrollBarStyle(ScrollBar.S.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
         .dimensions {
             offset(8.0.dp)
@@ -101,8 +101,6 @@ private val DropdownMenuStyleBuilder.invariantProps: DropdownMenuStyleBuilder
             paddingTop(2.0.dp)
             paddingBottom(2.0.dp)
         }
-        .dividerStyle(Divider.Default.style())
-        .scrollBarStyle(ScrollBar.S.style())
 
 public val DropdownMenuNormal.Xl: WrapperDropdownMenuNormalXl
     @Composable
@@ -110,13 +108,13 @@ public val DropdownMenuNormal.Xl: WrapperDropdownMenuNormalXl
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundL)
+        .listStyle(DropdownMenuListNormal.Xl.style())
+        .emptyStateStyle(DropdownEmptyState.Xl.HasButton.style())
         .dimensions {
             width(200.0.dp)
             scrollBarPaddingTop(10.0.dp)
             scrollBarPaddingBottom(12.0.dp)
         }
-        .listStyle(DropdownMenuListNormal.Xl.style())
-        .emptyStateStyle(DropdownEmptyState.Xl.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalXl)
 
 public val DropdownMenuNormal.L: WrapperDropdownMenuNormalL
@@ -125,13 +123,13 @@ public val DropdownMenuNormal.L: WrapperDropdownMenuNormalL
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
+        .listStyle(DropdownMenuListNormal.L.style())
+        .emptyStateStyle(DropdownEmptyState.L.HasButton.style())
         .dimensions {
             width(200.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
-        .listStyle(DropdownMenuListNormal.L.style())
-        .emptyStateStyle(DropdownEmptyState.L.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalL)
 
 public val DropdownMenuNormal.M: WrapperDropdownMenuNormalM
@@ -140,13 +138,13 @@ public val DropdownMenuNormal.M: WrapperDropdownMenuNormalM
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundM)
+        .listStyle(DropdownMenuListNormal.M.style())
+        .emptyStateStyle(DropdownEmptyState.M.HasButton.style())
         .dimensions {
             width(200.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
-        .listStyle(DropdownMenuListNormal.M.style())
-        .emptyStateStyle(DropdownEmptyState.M.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalM)
 
 public val DropdownMenuNormal.S: WrapperDropdownMenuNormalS
@@ -155,13 +153,13 @@ public val DropdownMenuNormal.S: WrapperDropdownMenuNormalS
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .listStyle(DropdownMenuListNormal.S.style())
+        .emptyStateStyle(DropdownEmptyState.S.HasButton.style())
         .dimensions {
             width(160.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
-        .listStyle(DropdownMenuListNormal.S.style())
-        .emptyStateStyle(DropdownEmptyState.S.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalS)
 
 public val DropdownMenuNormal.Xs: WrapperDropdownMenuNormalXs
@@ -170,11 +168,11 @@ public val DropdownMenuNormal.Xs: WrapperDropdownMenuNormalXs
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundS)
+        .listStyle(DropdownMenuListNormal.Xs.style())
+        .emptyStateStyle(DropdownEmptyState.Xs.HasButton.style())
         .dimensions {
             width(160.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
-        .listStyle(DropdownMenuListNormal.Xs.style())
-        .emptyStateStyle(DropdownEmptyState.Xs.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalXs)

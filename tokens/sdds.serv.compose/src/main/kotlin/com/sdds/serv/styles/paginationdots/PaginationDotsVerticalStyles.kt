@@ -62,8 +62,8 @@ public value class WrapperPaginationDotsVerticalSActiveTypeLine(
 private val PaginationDotsStyleBuilder.invariantProps: PaginationDotsStyleBuilder
     @Composable
     get() = this
-        .orientation(PaginationDotsOrientation.Vertical)
         .edgeShrinkFactor(0.3f)
+        .orientation(PaginationDotsOrientation.Vertical)
         .colors {
             dotBackgroundColor(
                 SddsServTheme.colors.surfaceDefaultTransparentSecondary.asStatefulValue(
@@ -94,11 +94,7 @@ public val WrapperPaginationDotsVerticalM.ActiveTypeLine:
     @JvmName("WrapperPaginationDotsVerticalMActiveTypeLine")
     get() = builder
         .dimensions {
-            dotHeight(
-                12.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Activated) to 48.0.dp,
-                ),
-            )
+            dotHeight(12.0.dp.asStatefulValue(setOf(InteractiveState.Activated) to 48.0.dp))
         }
         .wrap(::WrapperPaginationDotsVerticalMActiveTypeLine)
 
@@ -120,10 +116,6 @@ public val WrapperPaginationDotsVerticalS.ActiveTypeLine:
     @JvmName("WrapperPaginationDotsVerticalSActiveTypeLine")
     get() = builder
         .dimensions {
-            dotHeight(
-                8.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Activated) to 32.0.dp,
-                ),
-            )
+            dotHeight(8.0.dp.asStatefulValue(setOf(InteractiveState.Activated) to 32.0.dp))
         }
         .wrap(::WrapperPaginationDotsVerticalSActiveTypeLine)

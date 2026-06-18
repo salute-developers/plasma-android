@@ -13,6 +13,8 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -119,6 +121,7 @@ interface SliderStyle : Style {
 /**
  * Билдер стиля компонента
  */
+@ApiInfo
 interface SliderStyleBuilder : StyleBuilder<SliderStyle> {
     /**
      * Устанавливает стиль компонента Tooltip
@@ -153,6 +156,7 @@ interface SliderStyleBuilder : StyleBuilder<SliderStyle> {
     /**
      * Устанавливает расположение текста в лэйбле
      */
+    @ApiName(name = "textAlignment")
     fun titleAlignment(titleAlignment: TitleAlignment): SliderStyleBuilder
 
     /**
@@ -163,6 +167,7 @@ interface SliderStyleBuilder : StyleBuilder<SliderStyle> {
     /**
      * Устанавливает форму трэка
      */
+    @ApiName(name = "trackShape")
     fun shape(shape: CornerBasedShape): SliderStyleBuilder
 
     /**

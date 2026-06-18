@@ -81,49 +81,34 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
         .textStyle(SddsServTheme.typography.bodyLBold)
         .titleStyle(
             SddsServTheme.typography.headerH2Normal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to SddsServTheme.typography.bodyMNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to SddsServTheme.typography.bodyMNormal,
             ),
         )
         .descriptionStyle(
             SddsServTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    SddsServTheme.typography.bodyXsNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to SddsServTheme.typography.bodyXsNormal,
             ),
         )
         .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
         .colors {
-            backIconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            textColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            actionStartColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            actionEndColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backIconColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            actionStartColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            actionEndColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            titleColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            descriptionColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            backIconMargin(4.0.dp)
+            textBlockTopMargin(16.0.dp)
+            horizontalSpacing(16.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
-            backIconMargin(4.0.dp)
-            textBlockTopMargin(16.0.dp)
-            horizontalSpacing(16.0.dp)
-            descriptionPadding(
-                12.0.dp.asStatefulValue(
-                    setOf(NavigationBarTextPlacement.Inline) to 4.0.dp,
-                ),
-            )
+            descriptionPadding(12.0.dp.asStatefulValue(setOf(NavigationBarTextPlacement.Inline) to 4.0.dp))
         }
 
 public val NavigationBarInternalPage.NoBackground: WrapperNavigationBarInternalPageNoBackground
@@ -132,9 +117,7 @@ public val NavigationBarInternalPage.NoBackground: WrapperNavigationBarInternalP
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(SddsServTheme.colors.surfaceDefaultClear.asInteractive())
         }
         .wrap(::WrapperNavigationBarInternalPageNoBackground)
 
@@ -152,9 +135,7 @@ public val NavigationBarInternalPage.HasBackground: WrapperNavigationBarInternal
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
+            backgroundColor(SddsServTheme.colors.surfaceDefaultSolidCard.asInteractive())
         }
         .wrap(::WrapperNavigationBarInternalPageHasBackground)
 

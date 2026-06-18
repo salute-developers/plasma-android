@@ -41,18 +41,14 @@ public val Modal.Default: WrapperModalDefault
         .shape(PlasmaGigaTheme.shapes.roundXl)
         .shadow(PlasmaGigaTheme.shadows.downSoftL)
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            closeColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            closeColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            closeSize(24.0.dp)
             paddingStart(32.0.dp)
             paddingEnd(32.0.dp)
             paddingTop(32.0.dp)
             paddingBottom(32.0.dp)
-            closeSize(24.0.dp)
         }
         .wrap(::WrapperModalDefault)

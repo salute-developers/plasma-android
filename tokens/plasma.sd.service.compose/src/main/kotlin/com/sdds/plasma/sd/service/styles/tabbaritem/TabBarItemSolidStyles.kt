@@ -13,7 +13,7 @@ import com.sdds.compose.uikit.TabBarItemStyle
 import com.sdds.compose.uikit.TabBarItemStyleBuilder
 import com.sdds.compose.uikit.TabBarLabelPlacement
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -88,19 +88,19 @@ public val WrapperTabBarItemSolidView.Default: WrapperTabBarItemSolidTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asStatefulValue(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asStatefulValue(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaSdServiceTheme.colors.textInversePrimary,
                 ),
             )
             iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asStatefulValue(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaSdServiceTheme.colors.textInversePrimary,
                 ),
@@ -113,19 +113,19 @@ public val WrapperTabBarItemSolidView.Accent: WrapperTabBarItemSolidTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asStatefulValue(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentAccent,
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asStatefulValue(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaSdServiceTheme.colors.textDefaultAccent,
                 ),
             )
             iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asStatefulValue(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaSdServiceTheme.colors.textDefaultAccent,
                 ),
@@ -138,19 +138,19 @@ public val WrapperTabBarItemSolidView.Secondary: WrapperTabBarItemSolidTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asStatefulValue(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asStatefulValue(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaSdServiceTheme.colors.textDefaultPrimary,
                 ),
             )
             iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asStatefulValue(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to PlasmaSdServiceTheme.colors.textDefaultPrimary,
                 ),
@@ -170,6 +170,8 @@ public val TabBarItemSolid.M: WrapperTabBarItemSolidM
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundL)
         .labelPlacement(TabBarLabelPlacement.None)
+        .counterStyle(Counter.Xs.Negative.style())
+        .indicatorStyle(Indicator.M.Negative.style())
         .dimensions {
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
@@ -178,8 +180,6 @@ public val TabBarItemSolid.M: WrapperTabBarItemSolidM
             extraOffsetX(16.0.dp)
             extraOffsetY(-8.0.dp)
         }
-        .indicatorStyle(Indicator.M.Negative.style())
-        .counterStyle(Counter.Xs.Negative.style())
         .wrap(::WrapperTabBarItemSolidM)
 
 public val WrapperTabBarItemSolidM.Label: WrapperTabBarItemSolidMLabel
@@ -201,6 +201,8 @@ public val TabBarItemSolid.L: WrapperTabBarItemSolidL
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundL)
         .labelPlacement(TabBarLabelPlacement.None)
+        .counterStyle(Counter.S.Negative.style())
+        .indicatorStyle(Indicator.L.Negative.style())
         .dimensions {
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
@@ -209,8 +211,6 @@ public val TabBarItemSolid.L: WrapperTabBarItemSolidL
             extraOffsetX(26.0.dp)
             extraOffsetY(-10.0.dp)
         }
-        .indicatorStyle(Indicator.L.Negative.style())
-        .counterStyle(Counter.S.Negative.style())
         .wrap(::WrapperTabBarItemSolidL)
 
 public val WrapperTabBarItemSolidL.Label: WrapperTabBarItemSolidLLabel

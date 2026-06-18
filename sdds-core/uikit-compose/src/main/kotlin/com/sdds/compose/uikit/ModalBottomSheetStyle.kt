@@ -8,6 +8,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.shadow.ShadowAppearance
@@ -76,6 +77,7 @@ interface ModalBottomSheetStyle : Style {
 /**
  * Builder стиля [ModalBottomSheetStyle]
  */
+@ApiInfo
 interface ModalBottomSheetStyleBuilder : StyleBuilder<ModalBottomSheetStyle> {
 
     /**

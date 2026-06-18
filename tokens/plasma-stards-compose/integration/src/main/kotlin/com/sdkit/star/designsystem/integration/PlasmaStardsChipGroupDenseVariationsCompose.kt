@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -11,8 +13,13 @@ import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.sandbox.Property
 import com.sdkit.star.designsystem.styles.chipgroup.Accent
 import com.sdkit.star.designsystem.styles.chipgroup.ChipGroupDense
+import com.sdkit.star.designsystem.styles.chipgroup.ChipGroupDenseShape
+import com.sdkit.star.designsystem.styles.chipgroup.ChipGroupDenseSize
+import com.sdkit.star.designsystem.styles.chipgroup.ChipGroupDenseView
+import com.sdkit.star.designsystem.styles.chipgroup.ChipGroupStyles
 import com.sdkit.star.designsystem.styles.chipgroup.Default
 import com.sdkit.star.designsystem.styles.chipgroup.L
 import com.sdkit.star.designsystem.styles.chipgroup.M
@@ -23,57 +30,95 @@ import com.sdkit.star.designsystem.styles.chipgroup.S
 import com.sdkit.star.designsystem.styles.chipgroup.Secondary
 import com.sdkit.star.designsystem.styles.chipgroup.Warning
 import com.sdkit.star.designsystem.styles.chipgroup.Xs
+import com.sdkit.star.designsystem.styles.chipgroup.resolve
 
 internal object PlasmaStardsChipGroupDenseVariationsCompose : ComposeStyleProvider<ChipGroupStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "L", variants = listOf("L", "M", "S", "Xs")),
+            Property.SingleChoiceProperty(name = "shape", value = "Default", variants = listOf("Default", "Pilled")),
+            Property.SingleChoiceProperty(
+                name = "view",
+                value = "Default",
+                variants = listOf("Default", "Accent", "Negative", "Positive", "Secondary", "Warning"),
+            ),
+        )
+
     override val variations: Map<String, ComposeStyleReference<ChipGroupStyle>> =
         mapOf(
-            "L.Default" to ComposeStyleReference { ChipGroupDense.L.Default.style() },
-            "L.Accent" to ComposeStyleReference { ChipGroupDense.L.Accent.style() },
-            "L.Negative" to ComposeStyleReference { ChipGroupDense.L.Negative.style() },
-            "L.Positive" to ComposeStyleReference { ChipGroupDense.L.Positive.style() },
-            "L.Secondary" to ComposeStyleReference { ChipGroupDense.L.Secondary.style() },
-            "L.Warning" to ComposeStyleReference { ChipGroupDense.L.Warning.style() },
-            "L.Pilled.Default" to ComposeStyleReference { ChipGroupDense.L.Pilled.Default.style() },
-            "L.Pilled.Accent" to ComposeStyleReference { ChipGroupDense.L.Pilled.Accent.style() },
-            "L.Pilled.Negative" to ComposeStyleReference { ChipGroupDense.L.Pilled.Negative.style() },
-            "L.Pilled.Positive" to ComposeStyleReference { ChipGroupDense.L.Pilled.Positive.style() },
-            "L.Pilled.Secondary" to ComposeStyleReference { ChipGroupDense.L.Pilled.Secondary.style() },
-            "L.Pilled.Warning" to ComposeStyleReference { ChipGroupDense.L.Pilled.Warning.style() },
-            "M.Default" to ComposeStyleReference { ChipGroupDense.M.Default.style() },
-            "M.Accent" to ComposeStyleReference { ChipGroupDense.M.Accent.style() },
-            "M.Negative" to ComposeStyleReference { ChipGroupDense.M.Negative.style() },
-            "M.Positive" to ComposeStyleReference { ChipGroupDense.M.Positive.style() },
-            "M.Secondary" to ComposeStyleReference { ChipGroupDense.M.Secondary.style() },
-            "M.Warning" to ComposeStyleReference { ChipGroupDense.M.Warning.style() },
-            "M.Pilled.Default" to ComposeStyleReference { ChipGroupDense.M.Pilled.Default.style() },
-            "M.Pilled.Accent" to ComposeStyleReference { ChipGroupDense.M.Pilled.Accent.style() },
-            "M.Pilled.Negative" to ComposeStyleReference { ChipGroupDense.M.Pilled.Negative.style() },
-            "M.Pilled.Positive" to ComposeStyleReference { ChipGroupDense.M.Pilled.Positive.style() },
-            "M.Pilled.Secondary" to ComposeStyleReference { ChipGroupDense.M.Pilled.Secondary.style() },
-            "M.Pilled.Warning" to ComposeStyleReference { ChipGroupDense.M.Pilled.Warning.style() },
-            "S.Default" to ComposeStyleReference { ChipGroupDense.S.Default.style() },
-            "S.Accent" to ComposeStyleReference { ChipGroupDense.S.Accent.style() },
-            "S.Negative" to ComposeStyleReference { ChipGroupDense.S.Negative.style() },
-            "S.Positive" to ComposeStyleReference { ChipGroupDense.S.Positive.style() },
-            "S.Secondary" to ComposeStyleReference { ChipGroupDense.S.Secondary.style() },
-            "S.Warning" to ComposeStyleReference { ChipGroupDense.S.Warning.style() },
-            "S.Pilled.Default" to ComposeStyleReference { ChipGroupDense.S.Pilled.Default.style() },
-            "S.Pilled.Accent" to ComposeStyleReference { ChipGroupDense.S.Pilled.Accent.style() },
-            "S.Pilled.Negative" to ComposeStyleReference { ChipGroupDense.S.Pilled.Negative.style() },
-            "S.Pilled.Positive" to ComposeStyleReference { ChipGroupDense.S.Pilled.Positive.style() },
-            "S.Pilled.Secondary" to ComposeStyleReference { ChipGroupDense.S.Pilled.Secondary.style() },
-            "S.Pilled.Warning" to ComposeStyleReference { ChipGroupDense.S.Pilled.Warning.style() },
-            "Xs.Default" to ComposeStyleReference { ChipGroupDense.Xs.Default.style() },
-            "Xs.Accent" to ComposeStyleReference { ChipGroupDense.Xs.Accent.style() },
-            "Xs.Negative" to ComposeStyleReference { ChipGroupDense.Xs.Negative.style() },
-            "Xs.Positive" to ComposeStyleReference { ChipGroupDense.Xs.Positive.style() },
-            "Xs.Secondary" to ComposeStyleReference { ChipGroupDense.Xs.Secondary.style() },
-            "Xs.Warning" to ComposeStyleReference { ChipGroupDense.Xs.Warning.style() },
-            "Xs.Pilled.Default" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Default.style() },
-            "Xs.Pilled.Accent" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Accent.style() },
-            "Xs.Pilled.Negative" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Negative.style() },
-            "Xs.Pilled.Positive" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Positive.style() },
-            "Xs.Pilled.Secondary" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Secondary.style() },
-            "Xs.Pilled.Warning" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Warning.style() },
+            "ChipGroupDense.L.Default" to ComposeStyleReference { ChipGroupDense.L.Default.style() },
+            "ChipGroupDense.L.Accent" to ComposeStyleReference { ChipGroupDense.L.Accent.style() },
+            "ChipGroupDense.L.Negative" to ComposeStyleReference { ChipGroupDense.L.Negative.style() },
+            "ChipGroupDense.L.Positive" to ComposeStyleReference { ChipGroupDense.L.Positive.style() },
+            "ChipGroupDense.L.Secondary" to ComposeStyleReference { ChipGroupDense.L.Secondary.style() },
+            "ChipGroupDense.L.Warning" to ComposeStyleReference { ChipGroupDense.L.Warning.style() },
+            "ChipGroupDense.L.Pilled.Default" to ComposeStyleReference { ChipGroupDense.L.Pilled.Default.style() },
+            "ChipGroupDense.L.Pilled.Accent" to ComposeStyleReference { ChipGroupDense.L.Pilled.Accent.style() },
+            "ChipGroupDense.L.Pilled.Negative" to ComposeStyleReference { ChipGroupDense.L.Pilled.Negative.style() },
+            "ChipGroupDense.L.Pilled.Positive" to ComposeStyleReference { ChipGroupDense.L.Pilled.Positive.style() },
+            "ChipGroupDense.L.Pilled.Secondary" to ComposeStyleReference { ChipGroupDense.L.Pilled.Secondary.style() },
+            "ChipGroupDense.L.Pilled.Warning" to ComposeStyleReference { ChipGroupDense.L.Pilled.Warning.style() },
+            "ChipGroupDense.M.Default" to ComposeStyleReference { ChipGroupDense.M.Default.style() },
+            "ChipGroupDense.M.Accent" to ComposeStyleReference { ChipGroupDense.M.Accent.style() },
+            "ChipGroupDense.M.Negative" to ComposeStyleReference { ChipGroupDense.M.Negative.style() },
+            "ChipGroupDense.M.Positive" to ComposeStyleReference { ChipGroupDense.M.Positive.style() },
+            "ChipGroupDense.M.Secondary" to ComposeStyleReference { ChipGroupDense.M.Secondary.style() },
+            "ChipGroupDense.M.Warning" to ComposeStyleReference { ChipGroupDense.M.Warning.style() },
+            "ChipGroupDense.M.Pilled.Default" to ComposeStyleReference { ChipGroupDense.M.Pilled.Default.style() },
+            "ChipGroupDense.M.Pilled.Accent" to ComposeStyleReference { ChipGroupDense.M.Pilled.Accent.style() },
+            "ChipGroupDense.M.Pilled.Negative" to ComposeStyleReference { ChipGroupDense.M.Pilled.Negative.style() },
+            "ChipGroupDense.M.Pilled.Positive" to ComposeStyleReference { ChipGroupDense.M.Pilled.Positive.style() },
+            "ChipGroupDense.M.Pilled.Secondary" to ComposeStyleReference { ChipGroupDense.M.Pilled.Secondary.style() },
+            "ChipGroupDense.M.Pilled.Warning" to ComposeStyleReference { ChipGroupDense.M.Pilled.Warning.style() },
+            "ChipGroupDense.S.Default" to ComposeStyleReference { ChipGroupDense.S.Default.style() },
+            "ChipGroupDense.S.Accent" to ComposeStyleReference { ChipGroupDense.S.Accent.style() },
+            "ChipGroupDense.S.Negative" to ComposeStyleReference { ChipGroupDense.S.Negative.style() },
+            "ChipGroupDense.S.Positive" to ComposeStyleReference { ChipGroupDense.S.Positive.style() },
+            "ChipGroupDense.S.Secondary" to ComposeStyleReference { ChipGroupDense.S.Secondary.style() },
+            "ChipGroupDense.S.Warning" to ComposeStyleReference { ChipGroupDense.S.Warning.style() },
+            "ChipGroupDense.S.Pilled.Default" to ComposeStyleReference { ChipGroupDense.S.Pilled.Default.style() },
+            "ChipGroupDense.S.Pilled.Accent" to ComposeStyleReference { ChipGroupDense.S.Pilled.Accent.style() },
+            "ChipGroupDense.S.Pilled.Negative" to ComposeStyleReference { ChipGroupDense.S.Pilled.Negative.style() },
+            "ChipGroupDense.S.Pilled.Positive" to ComposeStyleReference { ChipGroupDense.S.Pilled.Positive.style() },
+            "ChipGroupDense.S.Pilled.Secondary" to ComposeStyleReference { ChipGroupDense.S.Pilled.Secondary.style() },
+            "ChipGroupDense.S.Pilled.Warning" to ComposeStyleReference { ChipGroupDense.S.Pilled.Warning.style() },
+            "ChipGroupDense.Xs.Default" to ComposeStyleReference { ChipGroupDense.Xs.Default.style() },
+            "ChipGroupDense.Xs.Accent" to ComposeStyleReference { ChipGroupDense.Xs.Accent.style() },
+            "ChipGroupDense.Xs.Negative" to ComposeStyleReference { ChipGroupDense.Xs.Negative.style() },
+            "ChipGroupDense.Xs.Positive" to ComposeStyleReference { ChipGroupDense.Xs.Positive.style() },
+            "ChipGroupDense.Xs.Secondary" to ComposeStyleReference { ChipGroupDense.Xs.Secondary.style() },
+            "ChipGroupDense.Xs.Warning" to ComposeStyleReference { ChipGroupDense.Xs.Warning.style() },
+            "ChipGroupDense.Xs.Pilled.Default" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Default.style() },
+            "ChipGroupDense.Xs.Pilled.Accent" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Accent.style() },
+            "ChipGroupDense.Xs.Pilled.Negative" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Negative.style() },
+            "ChipGroupDense.Xs.Pilled.Positive" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Positive.style() },
+            "ChipGroupDense.Xs.Pilled.Secondary" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Secondary.style() },
+            "ChipGroupDense.Xs.Pilled.Warning" to ComposeStyleReference { ChipGroupDense.Xs.Pilled.Warning.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return ChipGroupStyles.Dense.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "L" -> ChipGroupDenseSize.L
+                "M" -> ChipGroupDenseSize.M
+                "S" -> ChipGroupDenseSize.S
+                "Xs" -> ChipGroupDenseSize.Xs
+                else -> ChipGroupDenseSize.L
+            },
+            shape = when (bindings["shape"]?.toString()) {
+                "Default" -> ChipGroupDenseShape.Default
+                "Pilled" -> ChipGroupDenseShape.Pilled
+                else -> ChipGroupDenseShape.Default
+            },
+            view = when (bindings["view"]?.toString()) {
+                "Default" -> ChipGroupDenseView.Default
+                "Accent" -> ChipGroupDenseView.Accent
+                "Negative" -> ChipGroupDenseView.Negative
+                "Positive" -> ChipGroupDenseView.Positive
+                "Secondary" -> ChipGroupDenseView.Secondary
+                "Warning" -> ChipGroupDenseView.Warning
+                else -> ChipGroupDenseView.Default
+            },
+        ).key
+    }
 }

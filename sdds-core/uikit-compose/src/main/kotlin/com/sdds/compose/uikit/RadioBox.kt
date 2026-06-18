@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.DefaultVerticalArrangement
@@ -117,6 +118,7 @@ fun RadioBox(
 /**
  * Состояния RadioBox
  */
+@ApiStateSet(components = ["RadioBox"])
 enum class RadioBoxStates : ValueState {
     /**
      * Radiobox выбран

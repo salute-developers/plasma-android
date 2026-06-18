@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
@@ -58,6 +59,7 @@ interface TextSkeletonStyle : Style {
 /**
  * Билдер стиля [TextSkeletonStyle]
  */
+@ApiInfo
 interface TextSkeletonStyleBuilder : StyleBuilder<TextSkeletonStyle> {
 
     /**

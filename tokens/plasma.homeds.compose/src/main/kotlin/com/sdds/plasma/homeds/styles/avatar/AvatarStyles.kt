@@ -10,15 +10,12 @@ package com.sdds.plasma.homeds.styles.avatar
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.AvatarStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.graphics.asLayered
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.styles.badge.Accent
@@ -33,7 +30,7 @@ import com.sdds.plasma.homeds.styles.counter.Negative
 import com.sdds.plasma.homeds.styles.counter.S
 import com.sdds.plasma.homeds.styles.counter.Xs
 import com.sdds.plasma.homeds.styles.counter.Xxs
-import com.sdds.plasma.homeds.styles.indicator.Indicator
+import com.sdds.plasma.homeds.styles.indicator.AvatarIndicator
 import com.sdds.plasma.homeds.styles.indicator.L
 import com.sdds.plasma.homeds.styles.indicator.M
 import com.sdds.plasma.homeds.styles.indicator.S
@@ -116,12 +113,8 @@ private val AvatarStyleBuilder.invariantProps: AvatarStyleBuilder
     get() = this
         .shape(CircleShape)
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.gradients.surfaceDefaultAccentGradient.asLayered(0.2f).asStatefulValue(),
-            )
-            textColor(
-                PlasmaHomeDsTheme.gradients.textDefaultAccentGradient.asLayered().asStatefulValue(),
-            )
+            textColor(PlasmaHomeDsTheme.gradients.textDefaultAccentGradient.asLayered().asStatefulValue())
+            backgroundColor(PlasmaHomeDsTheme.gradients.surfaceDefaultAccentGradient.asLayered(0.2f).asStatefulValue())
         }
 
 public val Avatar.Xxl: WrapperAvatarXxl
@@ -129,28 +122,16 @@ public val Avatar.Xxl: WrapperAvatarXxl
     @JvmName("WrapperAvatarXxl")
     get() = AvatarStyle.builder(this)
         .invariantProps
-        .dimensions {
-            width(88.0.dp)
-            height(88.0.dp)
-            statusOffsetX(1.0.dp)
-            statusOffsetY(7.0.dp)
-        }
         .textStyle(PlasmaHomeDsTheme.typography.headerH2Bold)
+        .statusStyle(AvatarIndicator.L.style())
         .badgeStyle(BadgeSolid.L.Pilled.Accent.style())
         .counterStyle(Counter.L.Negative.style())
-        .statusStyle(
-            Indicator.L.modify {
-                color {
-                    backgroundColor(
-                        PlasmaHomeDsTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to PlasmaHomeDsTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
+        .dimensions {
+            statusOffsetX(1.0.dp)
+            statusOffsetY(7.0.dp)
+            width(88.0.dp)
+            height(88.0.dp)
+        }
         .wrap(::WrapperAvatarXxl)
 
 public val WrapperAvatarXxl.Pilled: WrapperAvatarXxlPilled
@@ -162,19 +143,6 @@ public val WrapperAvatarXxl.Pilled: WrapperAvatarXxlPilled
             statusOffsetX(0.0.dp)
             statusOffsetY(0.0.dp)
         }
-        .statusStyle(
-            Indicator.L.modify {
-                color {
-                    backgroundColor(
-                        PlasmaHomeDsTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to PlasmaHomeDsTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarXxlPilled)
 
 public val Avatar.L: WrapperAvatarL
@@ -182,28 +150,16 @@ public val Avatar.L: WrapperAvatarL
     @JvmName("WrapperAvatarL")
     get() = AvatarStyle.builder(this)
         .invariantProps
-        .dimensions {
-            width(48.0.dp)
-            height(48.0.dp)
-            statusOffsetX(1.0.dp)
-            statusOffsetY(3.0.dp)
-        }
         .textStyle(PlasmaHomeDsTheme.typography.headerH4Bold)
+        .statusStyle(AvatarIndicator.M.style())
         .badgeStyle(BadgeSolid.S.Pilled.Accent.style())
         .counterStyle(Counter.S.Negative.style())
-        .statusStyle(
-            Indicator.M.modify {
-                color {
-                    backgroundColor(
-                        PlasmaHomeDsTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to PlasmaHomeDsTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
+        .dimensions {
+            statusOffsetX(1.0.dp)
+            statusOffsetY(3.0.dp)
+            width(48.0.dp)
+            height(48.0.dp)
+        }
         .wrap(::WrapperAvatarL)
 
 public val WrapperAvatarL.Pilled: WrapperAvatarLPilled
@@ -215,19 +171,6 @@ public val WrapperAvatarL.Pilled: WrapperAvatarLPilled
             statusOffsetX(0.0.dp)
             statusOffsetY(0.0.dp)
         }
-        .statusStyle(
-            Indicator.M.modify {
-                color {
-                    backgroundColor(
-                        PlasmaHomeDsTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to PlasmaHomeDsTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarLPilled)
 
 public val Avatar.M: WrapperAvatarM
@@ -235,28 +178,16 @@ public val Avatar.M: WrapperAvatarM
     @JvmName("WrapperAvatarM")
     get() = AvatarStyle.builder(this)
         .invariantProps
-        .dimensions {
-            width(36.0.dp)
-            height(36.0.dp)
-            statusOffsetX(0.0.dp)
-            statusOffsetY(2.0.dp)
-        }
         .textStyle(PlasmaHomeDsTheme.typography.bodySBold)
+        .statusStyle(AvatarIndicator.M.style())
         .badgeStyle(BadgeSolid.Xs.Pilled.Accent.style())
         .counterStyle(Counter.Xs.Negative.style())
-        .statusStyle(
-            Indicator.M.modify {
-                color {
-                    backgroundColor(
-                        PlasmaHomeDsTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to PlasmaHomeDsTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
+        .dimensions {
+            statusOffsetX(0.0.dp)
+            statusOffsetY(2.0.dp)
+            width(36.0.dp)
+            height(36.0.dp)
+        }
         .wrap(::WrapperAvatarM)
 
 public val WrapperAvatarM.Pilled: WrapperAvatarMPilled
@@ -268,19 +199,6 @@ public val WrapperAvatarM.Pilled: WrapperAvatarMPilled
             statusOffsetX(0.0.dp)
             statusOffsetY(0.0.dp)
         }
-        .statusStyle(
-            Indicator.M.modify {
-                color {
-                    backgroundColor(
-                        PlasmaHomeDsTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to PlasmaHomeDsTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarMPilled)
 
 public val Avatar.S: WrapperAvatarS
@@ -288,27 +206,15 @@ public val Avatar.S: WrapperAvatarS
     @JvmName("WrapperAvatarS")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(PlasmaHomeDsTheme.typography.bodyXxsBold)
+        .statusStyle(AvatarIndicator.S.style())
+        .counterStyle(Counter.Xxs.Negative.style())
         .dimensions {
-            width(24.0.dp)
-            height(24.0.dp)
             statusOffsetX(0.0.dp)
             statusOffsetY(0.0.dp)
+            width(24.0.dp)
+            height(24.0.dp)
         }
-        .textStyle(PlasmaHomeDsTheme.typography.bodyXxsBold)
-        .counterStyle(Counter.Xxs.Negative.style())
-        .statusStyle(
-            Indicator.S.modify {
-                color {
-                    backgroundColor(
-                        PlasmaHomeDsTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to PlasmaHomeDsTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarS)
 
 public val WrapperAvatarS.Pilled: WrapperAvatarSPilled
@@ -316,17 +222,4 @@ public val WrapperAvatarS.Pilled: WrapperAvatarSPilled
     @JvmName("WrapperAvatarSPilled")
     get() = builder
         .shape(PlasmaHomeDsTheme.shapes.roundS)
-        .statusStyle(
-            Indicator.S.modify {
-                color {
-                    backgroundColor(
-                        PlasmaHomeDsTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to PlasmaHomeDsTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSPilled)

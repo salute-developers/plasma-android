@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdkit.star.designsystem.styles.divider.Default
 import com.sdkit.star.designsystem.styles.divider.Divider
 
 internal object PlasmaStardsDividerVariationsCompose : ComposeStyleProvider<DividerStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<DividerStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Divider.Default.style() },
+            "Divider.Default" to ComposeStyleReference { Divider.Default.style() },
         )
 }

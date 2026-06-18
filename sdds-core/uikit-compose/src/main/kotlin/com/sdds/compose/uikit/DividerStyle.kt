@@ -9,6 +9,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -66,6 +67,7 @@ interface DividerStyle : Style {
  * Builder стиля [Divider].
  */
 @Stable
+@ApiInfo
 interface DividerStyleBuilder : StyleBuilder<DividerStyle> {
 
     /**

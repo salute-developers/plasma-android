@@ -89,10 +89,10 @@ private val DropdownMenuStyleBuilder.invariantProps: DropdownMenuStyleBuilder
     @Composable
     get() = this
         .shadow(PlasmaGigaTheme.shadows.downHardM)
+        .dividerStyle(Divider.Default.style())
+        .scrollBarStyle(ScrollBar.S.style())
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
         .dimensions {
             offset(8.0.dp)
@@ -101,8 +101,6 @@ private val DropdownMenuStyleBuilder.invariantProps: DropdownMenuStyleBuilder
             paddingTop(2.0.dp)
             paddingBottom(2.0.dp)
         }
-        .dividerStyle(Divider.Default.style())
-        .scrollBarStyle(ScrollBar.S.style())
 
 public val DropdownMenuTight.Xl: WrapperDropdownMenuTightXl
     @Composable
@@ -110,13 +108,13 @@ public val DropdownMenuTight.Xl: WrapperDropdownMenuTightXl
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundL)
+        .listStyle(DropdownMenuListTight.Xl.style())
+        .emptyStateStyle(DropdownEmptyState.Xl.HasButton.style())
         .dimensions {
             width(200.0.dp)
             scrollBarPaddingTop(10.0.dp)
             scrollBarPaddingBottom(12.0.dp)
         }
-        .listStyle(DropdownMenuListTight.Xl.style())
-        .emptyStateStyle(DropdownEmptyState.Xl.HasButton.style())
         .wrap(::WrapperDropdownMenuTightXl)
 
 public val DropdownMenuTight.L: WrapperDropdownMenuTightL
@@ -125,13 +123,13 @@ public val DropdownMenuTight.L: WrapperDropdownMenuTightL
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
+        .listStyle(DropdownMenuListTight.L.style())
+        .emptyStateStyle(DropdownEmptyState.L.HasButton.style())
         .dimensions {
             width(200.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
-        .listStyle(DropdownMenuListTight.L.style())
-        .emptyStateStyle(DropdownEmptyState.L.HasButton.style())
         .wrap(::WrapperDropdownMenuTightL)
 
 public val DropdownMenuTight.M: WrapperDropdownMenuTightM
@@ -140,13 +138,13 @@ public val DropdownMenuTight.M: WrapperDropdownMenuTightM
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM)
+        .listStyle(DropdownMenuListTight.M.style())
+        .emptyStateStyle(DropdownEmptyState.M.HasButton.style())
         .dimensions {
             width(200.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
-        .listStyle(DropdownMenuListTight.M.style())
-        .emptyStateStyle(DropdownEmptyState.M.HasButton.style())
         .wrap(::WrapperDropdownMenuTightM)
 
 public val DropdownMenuTight.S: WrapperDropdownMenuTightS
@@ -155,13 +153,13 @@ public val DropdownMenuTight.S: WrapperDropdownMenuTightS
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .listStyle(DropdownMenuListTight.S.style())
+        .emptyStateStyle(DropdownEmptyState.S.HasButton.style())
         .dimensions {
             width(160.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
-        .listStyle(DropdownMenuListTight.S.style())
-        .emptyStateStyle(DropdownEmptyState.S.HasButton.style())
         .wrap(::WrapperDropdownMenuTightS)
 
 public val DropdownMenuTight.Xs: WrapperDropdownMenuTightXs
@@ -170,11 +168,11 @@ public val DropdownMenuTight.Xs: WrapperDropdownMenuTightXs
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundS)
+        .listStyle(DropdownMenuListTight.Xs.style())
+        .emptyStateStyle(DropdownEmptyState.Xs.HasButton.style())
         .dimensions {
             width(160.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
-        .listStyle(DropdownMenuListTight.Xs.style())
-        .emptyStateStyle(DropdownEmptyState.Xs.HasButton.style())
         .wrap(::WrapperDropdownMenuTightXs)

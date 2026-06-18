@@ -46,16 +46,12 @@ public value class WrapperDrawerCloseInnerMHasShadow(
 private val DrawerStyleBuilder.invariantProps: DrawerStyleBuilder
     @Composable
     get() = this
-        .colors {
-            background(
-                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            closeIconColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-        }
         .closeIconRes(com.sdds.icons.R.drawable.ic_close_24)
         .closeIconPlacement(CloseIconPlacement.Inner)
+        .colors {
+            background(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            closeIconColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+        }
 
 public val DrawerCloseInner.M: WrapperDrawerCloseInnerM
     @Composable

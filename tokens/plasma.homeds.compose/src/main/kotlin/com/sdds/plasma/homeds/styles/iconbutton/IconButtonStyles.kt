@@ -9,12 +9,14 @@ package com.sdds.plasma.homeds.styles.iconbutton
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -79,28 +81,28 @@ public val WrapperIconButtonView.Default: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textInversePrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaHomeDsTheme.colors.surfaceInverseSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceInverseSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceInverseSolidDefaultHover,
-                ),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceInverseSolidDefaultHover,
                 ),
             )
         }
@@ -110,28 +112,28 @@ public val WrapperIconButtonView.Secondary: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
-                ),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
                 ),
             )
         }
@@ -141,28 +143,28 @@ public val WrapperIconButtonView.Dark: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
-                ),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
                 ),
             )
         }
@@ -172,28 +174,28 @@ public val WrapperIconButtonView.Negative: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegativeHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
-                ),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
             )
         }
@@ -203,28 +205,28 @@ public val WrapperIconButtonView.Warning: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultWarning).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultWarningHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
-                ),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultWarningHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
             )
         }
@@ -234,28 +236,28 @@ public val WrapperIconButtonView.Accent: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultAccentHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
-                ),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
             )
         }
@@ -265,28 +267,28 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
-                ),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
                 ),
             )
         }
@@ -296,8 +298,8 @@ private val IconButtonStyleBuilder.invariantProps: IconButtonStyleBuilder
     @Composable
     get() = this
         .shape(CircleShape)
-        .loadingAlpha(0.0f)
         .disableAlpha(0.4f)
+        .loadingAlpha(0.0f)
 
 public val IconButton.L: WrapperIconButtonL
     @Composable

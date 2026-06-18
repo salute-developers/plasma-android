@@ -136,22 +136,22 @@ public value class WrapperIconTabsXsHorizontal(
 private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
     @Composable
     get() = this
+        .dividerStyle(Divider.Default.style())
+        .dividerEnabled(true)
+        .indicatorEnabled(true)
+        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_dots_horizontal_outline_24)
         .colors {
-            indicatorColor(
-                SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            overflowNextIconColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            overflowPrevIconColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            indicatorColor(SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive())
+            overflowNextIconColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            overflowPrevIconColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             disclosureColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultPrimaryActive,
                 ),
             )
         }
@@ -159,12 +159,6 @@ private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
             indicatorThickness(2.0.dp)
             minSpacing(0.0.dp)
         }
-        .dividerStyle(Divider.Default.style())
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_dots_horizontal_outline_24)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
-        .dividerEnabled(true)
-        .indicatorEnabled(true)
 
 public val IconTabs.L: WrapperIconTabsL
     @Composable
@@ -180,9 +174,9 @@ public val WrapperIconTabsL.Vertical: WrapperIconTabsLVertical
     @Composable
     @JvmName("WrapperIconTabsLVertical")
     get() = builder
+        .orientation(TabsOrientation.Vertical)
         .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
         .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
-        .orientation(TabsOrientation.Vertical)
         .wrap(::WrapperIconTabsLVertical)
 
 public val WrapperIconTabsL.Horizontal: WrapperIconTabsLHorizontal
@@ -206,9 +200,9 @@ public val WrapperIconTabsM.Vertical: WrapperIconTabsMVertical
     @Composable
     @JvmName("WrapperIconTabsMVertical")
     get() = builder
+        .orientation(TabsOrientation.Vertical)
         .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
         .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
-        .orientation(TabsOrientation.Vertical)
         .wrap(::WrapperIconTabsMVertical)
 
 public val WrapperIconTabsM.Horizontal: WrapperIconTabsMHorizontal
@@ -232,9 +226,9 @@ public val WrapperIconTabsS.Vertical: WrapperIconTabsSVertical
     @Composable
     @JvmName("WrapperIconTabsSVertical")
     get() = builder
+        .orientation(TabsOrientation.Vertical)
         .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
         .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
-        .orientation(TabsOrientation.Vertical)
         .wrap(::WrapperIconTabsSVertical)
 
 public val WrapperIconTabsS.Horizontal: WrapperIconTabsSHorizontal
@@ -258,9 +252,9 @@ public val WrapperIconTabsXs.Vertical: WrapperIconTabsXsVertical
     @Composable
     @JvmName("WrapperIconTabsXsVertical")
     get() = builder
+        .orientation(TabsOrientation.Vertical)
         .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
         .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
-        .orientation(TabsOrientation.Vertical)
         .wrap(::WrapperIconTabsXsVertical)
 
 public val WrapperIconTabsXs.Horizontal: WrapperIconTabsXsHorizontal

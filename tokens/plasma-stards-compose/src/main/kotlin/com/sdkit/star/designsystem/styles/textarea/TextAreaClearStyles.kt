@@ -13,6 +13,7 @@ import com.sdds.compose.uikit.TextFieldHelperTextPlacement
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
+import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.multiplyAlpha
@@ -136,24 +137,21 @@ public value class WrapperTextAreaClearLInnerLabel(
 public val WrapperTextAreaClearView.Default: WrapperTextAreaClearTerminate
     @Composable
     get() = builder
-        .singleLine(false)
         .colors {
-            valueColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            placeholderColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
-                ),
-            )
             startContentColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textDefaultPrimary,
                 ),
             )
+            valueColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
             captionColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                ),
+            )
+            placeholderColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textDefaultPrimary,
@@ -165,38 +163,37 @@ public val WrapperTextAreaClearView.Default: WrapperTextAreaClearTerminate
 public val WrapperTextAreaClearView.Error: WrapperTextAreaClearTerminate
     @Composable
     get() = builder
-        .singleLine(false)
         .colors {
-            valueColor(
-                StarDsTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated)
-                        to StarDsTheme.colors.textDefaultPrimary,
-                ),
-            )
-            placeholderColor(
-                StarDsTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated)
-                        to StarDsTheme.colors.textDefaultSecondary,
-                ),
-            )
             startContentColor(
                 StarDsTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated)
-                        to StarDsTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Activated) to
+                        StarDsTheme.colors.textDefaultSecondary,
+                ),
+            )
+            valueColor(
+                StarDsTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Activated) to
+                        StarDsTheme.colors.textDefaultPrimary,
                 ),
             )
             captionColor(
                 StarDsTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated)
-                        to StarDsTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Activated) to
+                        StarDsTheme.colors.textDefaultSecondary,
+                ),
+            )
+            placeholderColor(
+                StarDsTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Activated) to
+                        StarDsTheme.colors.textDefaultSecondary,
                 ),
             )
         }
@@ -205,6 +202,10 @@ public val WrapperTextAreaClearView.Error: WrapperTextAreaClearTerminate
 private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
+        .captionPlacement(TextFieldHelperTextPlacement.Outer)
+        .counterPlacement(TextFieldHelperTextPlacement.Outer)
+        .captionStyle(StarDsTheme.typography.bodyXsNormal)
+        .counterStyle(StarDsTheme.typography.bodyXsNormal)
         .singleLine(false)
         .dimensions {
             boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_start))
@@ -212,60 +213,34 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_optional_padding))
             helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_helper_text_padding))
         }
-        .captionStyle(StarDsTheme.typography.bodyXsNormal)
-        .counterStyle(StarDsTheme.typography.bodyXsNormal)
-        .captionPlacement(TextFieldHelperTextPlacement.Outer)
-        .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {
-            optionalColor(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(),
-            )
-            valueColorReadOnly(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            placeholderColorReadOnly(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            indicatorColor(
-                StarDsTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            startContentColorReadOnly(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            cursorColor(StarDsTheme.colors.textDefaultAccentMain.asInteractive())
+            startContentColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textDefaultSecondaryHover,
                 ),
             )
-            endContentColorReadOnly(
-                StarDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
-            )
-            captionColorReadOnly(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            endContentColorReadOnly(StarDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
+            valueColorReadOnly(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            captionColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
+            optionalColor(StarDsTheme.colors.textDefaultTertiary.asInteractive())
             counterColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textDefaultPrimary,
                 ),
             )
-            counterColorReadOnly(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            cursorColor(
-                StarDsTheme.colors.textDefaultAccentMain.asInteractive(),
-            )
-            dividerColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-            dividerColorReadOnly(
-                StarDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            counterColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
+            placeholderColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
+            dividerColor(StarDsTheme.colors.surfaceDefaultClear.asInteractive())
+            dividerColorReadOnly(StarDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+            indicatorColor(StarDsTheme.colors.surfaceDefaultNegative.asInteractive())
             prefixColor(
                 StarDsTheme.colors.textDefaultTertiary.asInteractive(
                     setOf(InteractiveState.Focused)
@@ -278,12 +253,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to StarDsTheme.colors.textDefaultPrimary,
                 ),
             )
-            prefixColorReadOnly(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(),
-            )
-            suffixColorReadOnly(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(),
-            )
+            prefixColorReadOnly(StarDsTheme.colors.textDefaultTertiary.asInteractive())
+            suffixColorReadOnly(StarDsTheme.colors.textDefaultTertiary.asInteractive())
         }
 
 public val TextAreaClear.Xs: WrapperTextAreaClearXs
@@ -291,41 +262,38 @@ public val TextAreaClear.Xs: WrapperTextAreaClearXs
     @JvmName("WrapperTextAreaClearXs")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(StarDsTheme.typography.bodyXsNormal)
+        .placeholderStyle(StarDsTheme.typography.bodyXsNormal)
+        .prefixStyle(StarDsTheme.typography.bodyXsNormal)
+        .suffixStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_top_xs))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_bottom_xs))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_min_height_xs))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_alignment_line_height_xs))
             startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_start_content_padding_xs))
             endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_end_content_padding_xs))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_min_height_xs))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_alignment_min_height_xs))
             startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_start_content_size_xs))
             endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_end_content_size_xs))
         }
-        .valueStyle(StarDsTheme.typography.bodyXsNormal)
-        .prefixStyle(StarDsTheme.typography.bodyXsNormal)
-        .suffixStyle(StarDsTheme.typography.bodyXsNormal)
-        .placeholderStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaClearXs)
 
 public val WrapperTextAreaClearXs.OuterLabel: WrapperTextAreaClearXsOuterLabel
     @Composable
     @JvmName("WrapperTextAreaClearXsOuterLabel")
     get() = builder
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(StarDsTheme.typography.bodyXsNormal)
+        .optionalStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_top_xs_outer_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_bottom_xs_outer_label))
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_xs_outer_label))
         }
-        .labelStyle(StarDsTheme.typography.bodyXsNormal)
-        .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextAreaClearXsOuterLabel)
 
@@ -334,39 +302,36 @@ public val TextAreaClear.S: WrapperTextAreaClearS
     @JvmName("WrapperTextAreaClearS")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(StarDsTheme.typography.bodySNormal)
+        .placeholderStyle(StarDsTheme.typography.bodySNormal)
+        .prefixStyle(StarDsTheme.typography.bodySNormal)
+        .suffixStyle(StarDsTheme.typography.bodySNormal)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_top_s))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_bottom_s))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_min_height_s))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_alignment_line_height_s))
             startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_start_content_padding_s))
             endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_end_content_padding_s))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_min_height_s))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_alignment_min_height_s))
             startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_start_content_size_s))
             endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_end_content_size_s))
         }
-        .valueStyle(StarDsTheme.typography.bodySNormal)
-        .prefixStyle(StarDsTheme.typography.bodySNormal)
-        .suffixStyle(StarDsTheme.typography.bodySNormal)
-        .placeholderStyle(StarDsTheme.typography.bodySNormal)
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaClearS)
 
 public val WrapperTextAreaClearS.OuterLabel: WrapperTextAreaClearSOuterLabel
     @Composable
     @JvmName("WrapperTextAreaClearSOuterLabel")
     get() = builder
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(StarDsTheme.typography.bodySNormal)
+        .optionalStyle(StarDsTheme.typography.bodySNormal)
         .dimensions {
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_s_outer_label))
         }
-        .labelStyle(StarDsTheme.typography.bodySNormal)
-        .optionalStyle(StarDsTheme.typography.bodySNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextAreaClearSOuterLabel)
 
@@ -374,15 +339,14 @@ public val WrapperTextAreaClearS.InnerLabel: WrapperTextAreaClearSInnerLabel
     @Composable
     @JvmName("WrapperTextAreaClearSInnerLabel")
     get() = builder
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(StarDsTheme.typography.bodyXsNormal)
+        .optionalStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_top_s_inner_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_bottom_s_inner_label))
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_s_inner_label))
         }
-        .labelStyle(StarDsTheme.typography.bodyXsNormal)
-        .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
@@ -404,39 +368,36 @@ public val TextAreaClear.M: WrapperTextAreaClearM
     @JvmName("WrapperTextAreaClearM")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(StarDsTheme.typography.bodyMNormal)
+        .placeholderStyle(StarDsTheme.typography.bodyMNormal)
+        .prefixStyle(StarDsTheme.typography.bodyMNormal)
+        .suffixStyle(StarDsTheme.typography.bodyMNormal)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_top_m))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_bottom_m))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_min_height_m))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_alignment_line_height_m))
             startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_start_content_padding_m))
             endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_end_content_padding_m))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_min_height_m))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_alignment_min_height_m))
             startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_start_content_size_m))
             endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_end_content_size_m))
         }
-        .valueStyle(StarDsTheme.typography.bodyMNormal)
-        .prefixStyle(StarDsTheme.typography.bodyMNormal)
-        .suffixStyle(StarDsTheme.typography.bodyMNormal)
-        .placeholderStyle(StarDsTheme.typography.bodyMNormal)
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaClearM)
 
 public val WrapperTextAreaClearM.OuterLabel: WrapperTextAreaClearMOuterLabel
     @Composable
     @JvmName("WrapperTextAreaClearMOuterLabel")
     get() = builder
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(StarDsTheme.typography.bodyMNormal)
+        .optionalStyle(StarDsTheme.typography.bodyMNormal)
         .dimensions {
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_m_outer_label))
         }
-        .labelStyle(StarDsTheme.typography.bodyMNormal)
-        .optionalStyle(StarDsTheme.typography.bodyMNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextAreaClearMOuterLabel)
 
@@ -444,15 +405,14 @@ public val WrapperTextAreaClearM.InnerLabel: WrapperTextAreaClearMInnerLabel
     @Composable
     @JvmName("WrapperTextAreaClearMInnerLabel")
     get() = builder
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(StarDsTheme.typography.bodyXsNormal)
+        .optionalStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_top_m_inner_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_bottom_m_inner_label))
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_m_inner_label))
         }
-        .labelStyle(StarDsTheme.typography.bodyXsNormal)
-        .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
@@ -474,39 +434,36 @@ public val TextAreaClear.L: WrapperTextAreaClearL
     @JvmName("WrapperTextAreaClearL")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(StarDsTheme.typography.bodyLNormal)
+        .placeholderStyle(StarDsTheme.typography.bodyLNormal)
+        .prefixStyle(StarDsTheme.typography.bodyLNormal)
+        .suffixStyle(StarDsTheme.typography.bodyLNormal)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_top_l))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_bottom_l))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_min_height_l))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_alignment_line_height_l))
             startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_start_content_padding_l))
             endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_end_content_padding_l))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_min_height_l))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_alignment_min_height_l))
             startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_start_content_size_l))
             endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_end_content_size_l))
         }
-        .valueStyle(StarDsTheme.typography.bodyLNormal)
-        .prefixStyle(StarDsTheme.typography.bodyLNormal)
-        .suffixStyle(StarDsTheme.typography.bodyLNormal)
-        .placeholderStyle(StarDsTheme.typography.bodyLNormal)
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaClearL)
 
 public val WrapperTextAreaClearL.OuterLabel: WrapperTextAreaClearLOuterLabel
     @Composable
     @JvmName("WrapperTextAreaClearLOuterLabel")
     get() = builder
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(StarDsTheme.typography.bodyLNormal)
+        .optionalStyle(StarDsTheme.typography.bodyLNormal)
         .dimensions {
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_l_outer_label))
         }
-        .labelStyle(StarDsTheme.typography.bodyLNormal)
-        .optionalStyle(StarDsTheme.typography.bodyLNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextAreaClearLOuterLabel)
 
@@ -514,15 +471,14 @@ public val WrapperTextAreaClearL.InnerLabel: WrapperTextAreaClearLInnerLabel
     @Composable
     @JvmName("WrapperTextAreaClearLInnerLabel")
     get() = builder
-        .singleLine(false)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(StarDsTheme.typography.bodyXsNormal)
+        .optionalStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_top_l_inner_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_bottom_l_inner_label))
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_l_inner_label))
         }
-        .labelStyle(StarDsTheme.typography.bodyXsNormal)
-        .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(

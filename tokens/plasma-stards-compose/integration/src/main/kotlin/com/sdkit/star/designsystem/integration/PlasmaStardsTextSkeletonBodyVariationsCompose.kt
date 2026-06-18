@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -11,20 +13,42 @@ import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.TextSkeletonStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.sandbox.Property
 import com.sdkit.star.designsystem.styles.textskeleton.L
 import com.sdkit.star.designsystem.styles.textskeleton.M
 import com.sdkit.star.designsystem.styles.textskeleton.S
 import com.sdkit.star.designsystem.styles.textskeleton.TextSkeletonBody
+import com.sdkit.star.designsystem.styles.textskeleton.TextSkeletonBodySize
+import com.sdkit.star.designsystem.styles.textskeleton.TextSkeletonStyles
 import com.sdkit.star.designsystem.styles.textskeleton.Xs
 import com.sdkit.star.designsystem.styles.textskeleton.Xxs
+import com.sdkit.star.designsystem.styles.textskeleton.resolve
 
 internal object PlasmaStardsTextSkeletonBodyVariationsCompose : ComposeStyleProvider<TextSkeletonStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "L", variants = listOf("L", "M", "S", "Xs", "Xxs")),
+        )
+
     override val variations: Map<String, ComposeStyleReference<TextSkeletonStyle>> =
         mapOf(
-            "L" to ComposeStyleReference { TextSkeletonBody.L.style() },
-            "M" to ComposeStyleReference { TextSkeletonBody.M.style() },
-            "S" to ComposeStyleReference { TextSkeletonBody.S.style() },
-            "Xs" to ComposeStyleReference { TextSkeletonBody.Xs.style() },
-            "Xxs" to ComposeStyleReference { TextSkeletonBody.Xxs.style() },
+            "TextSkeletonBody.L" to ComposeStyleReference { TextSkeletonBody.L.style() },
+            "TextSkeletonBody.M" to ComposeStyleReference { TextSkeletonBody.M.style() },
+            "TextSkeletonBody.S" to ComposeStyleReference { TextSkeletonBody.S.style() },
+            "TextSkeletonBody.Xs" to ComposeStyleReference { TextSkeletonBody.Xs.style() },
+            "TextSkeletonBody.Xxs" to ComposeStyleReference { TextSkeletonBody.Xxs.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return TextSkeletonStyles.Body.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "L" -> TextSkeletonBodySize.L
+                "M" -> TextSkeletonBodySize.M
+                "S" -> TextSkeletonBodySize.S
+                "Xs" -> TextSkeletonBodySize.Xs
+                "Xxs" -> TextSkeletonBodySize.Xxs
+                else -> TextSkeletonBodySize.L
+            },
+        ).key
+    }
 }

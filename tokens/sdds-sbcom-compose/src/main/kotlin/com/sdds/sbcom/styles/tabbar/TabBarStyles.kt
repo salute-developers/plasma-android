@@ -9,10 +9,11 @@ package com.sdds.sbcom.styles.tabbar
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TabBarStyle
 import com.sdds.compose.uikit.TabBarStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -43,10 +44,9 @@ public val TabBar.Default: WrapperTabBarDefault
         .topShape(CircleShape)
         .bottomShape(CircleShape)
         .shadow(SddsSbComTheme.shadows.upSoftM)
+        .tabBarItemStyle(TabBarItem.Default.style())
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue())
         }
         .dimensions {
             paddingStart(8.0.dp)
@@ -57,5 +57,4 @@ public val TabBar.Default: WrapperTabBarDefault
             contentPaddingBottom(4.0.dp)
             itemSpacing(-12.0.dp)
         }
-        .tabBarItemStyle(TabBarItem.Default.style())
         .wrap(::WrapperTabBarDefault)

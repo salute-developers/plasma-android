@@ -9,11 +9,12 @@ package com.sdds.serv.styles.badge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.BadgeStyleBuilder
 import com.sdds.compose.uikit.badgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -110,18 +111,10 @@ public val WrapperBadgeSolidView.Default: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            labelColor(
-                SddsServTheme.colors.textInversePrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textInversePrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textInversePrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            labelColor(SolidColor(SddsServTheme.colors.textInversePrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textInversePrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textInversePrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -129,18 +122,10 @@ public val WrapperBadgeSolidView.Accent: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
-            labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultAccent).asStatefulValue())
+            labelColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -148,18 +133,10 @@ public val WrapperBadgeSolidView.Negative: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            labelColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -167,18 +144,10 @@ public val WrapperBadgeSolidView.Positive: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
-            labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultPositive).asStatefulValue())
+            labelColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -186,18 +155,10 @@ public val WrapperBadgeSolidView.Warning: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
-            labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultWarning).asStatefulValue())
+            labelColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -205,18 +166,10 @@ public val WrapperBadgeSolidView.Dark: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceOnLightSolidDefault.asInteractive(),
-            )
-            labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceOnLightSolidDefault).asStatefulValue())
+            labelColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -224,18 +177,10 @@ public val WrapperBadgeSolidView.Light: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
-            labelColor(
-                SddsServTheme.colors.textOnLightPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsServTheme.colors.textOnLightPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsServTheme.colors.textOnLightPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
+            labelColor(SolidColor(SddsServTheme.colors.textOnLightPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsServTheme.colors.textOnLightPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsServTheme.colors.textOnLightPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -252,8 +197,8 @@ public val BadgeSolid.L: WrapperBadgeSolidL
         .labelStyle(SddsServTheme.typography.bodySNormal)
         .dimensions {
             height(28.0.dp)
-            startContentSize(16.0.dp)
             endContentSize(16.0.dp)
+            startContentSize(16.0.dp)
             startContentMargin(4.0.dp)
             endContentMargin(4.0.dp)
             startPadding(11.0.dp)
@@ -277,8 +222,8 @@ public val BadgeSolid.M: WrapperBadgeSolidM
         .labelStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
             height(24.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(3.0.dp)
             endContentMargin(3.0.dp)
             startPadding(9.0.dp)
@@ -302,8 +247,8 @@ public val BadgeSolid.S: WrapperBadgeSolidS
         .labelStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
             height(20.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(7.0.dp)
@@ -327,8 +272,8 @@ public val BadgeSolid.Xs: WrapperBadgeSolidXs
         .labelStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
             height(16.0.dp)
-            startContentSize(10.0.dp)
             endContentSize(10.0.dp)
+            startContentSize(10.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(4.0.dp)

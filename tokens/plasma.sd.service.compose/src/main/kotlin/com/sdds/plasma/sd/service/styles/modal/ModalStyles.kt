@@ -43,20 +43,16 @@ public val Modal.Default: WrapperModalDefault
     get() = ModalStyle.builder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundXl)
         .shadow(PlasmaSdServiceTheme.shadows.downSoftL)
+        .overlayStyle(Overlay.Default.style())
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            closeColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            closeColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            closeSize(24.0.dp)
             paddingStart(32.0.dp)
             paddingEnd(32.0.dp)
             paddingTop(32.0.dp)
             paddingBottom(32.0.dp)
-            closeSize(24.0.dp)
         }
-        .overlayStyle(Overlay.Default.style())
         .wrap(::WrapperModalDefault)

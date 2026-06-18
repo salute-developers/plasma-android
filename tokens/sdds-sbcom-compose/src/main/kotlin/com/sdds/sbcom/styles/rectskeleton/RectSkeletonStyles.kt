@@ -45,16 +45,14 @@ private val RectSkeletonStyleBuilder.invariantProps: RectSkeletonStyleBuilder
     @Composable
     get() = this
         .shape(SddsSbComTheme.shapes.roundM)
-        .duration(1000.0.toInt())
+        .duration(1000)
 
 public val RectSkeleton.Default: WrapperRectSkeletonDefault
     @Composable
     @JvmName("WrapperRectSkeletonDefault")
     get() = RectSkeletonStyle.builder(this)
         .invariantProps
-        .gradient(
-            SddsSbComTheme.gradients.surfaceDefaultSkeletonGradient.asLayered().asStatefulValue(),
-        )
+        .gradient(SddsSbComTheme.gradients.surfaceDefaultSkeletonGradient.asLayered().asStatefulValue())
         .wrap(::WrapperRectSkeletonDefault)
 
 public val RectSkeleton.Pulse: WrapperRectSkeletonPulse
@@ -62,7 +60,5 @@ public val RectSkeleton.Pulse: WrapperRectSkeletonPulse
     @JvmName("WrapperRectSkeletonPulse")
     get() = RectSkeletonStyle.builder(this)
         .invariantProps
-        .gradient(
-            SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(),
-        )
+        .gradient(SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
         .wrap(::WrapperRectSkeletonPulse)

@@ -91,8 +91,8 @@ public val ComboBoxMultipleNormal.Xl: WrapperComboBoxMultipleNormalXl
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.Xl.Default.style())
-        .selectItemStyle(SelectItemMultipleNormal.Xl.style())
         .dropdownStyle(DropdownMenuNormal.Xl.style())
+        .selectItemStyle(SelectItemMultipleNormal.Xl.style())
         .wrap(::WrapperComboBoxMultipleNormalXl)
 
 public val ComboBoxMultipleNormal.L: WrapperComboBoxMultipleNormalL
@@ -101,8 +101,8 @@ public val ComboBoxMultipleNormal.L: WrapperComboBoxMultipleNormalL
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.L.Default.style())
-        .selectItemStyle(SelectItemMultipleNormal.L.style())
         .dropdownStyle(DropdownMenuNormal.L.style())
+        .selectItemStyle(SelectItemMultipleNormal.L.style())
         .wrap(::WrapperComboBoxMultipleNormalL)
 
 public val ComboBoxMultipleNormal.M: WrapperComboBoxMultipleNormalM
@@ -111,8 +111,8 @@ public val ComboBoxMultipleNormal.M: WrapperComboBoxMultipleNormalM
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.M.Default.style())
-        .selectItemStyle(SelectItemMultipleNormal.M.style())
         .dropdownStyle(DropdownMenuNormal.M.style())
+        .selectItemStyle(SelectItemMultipleNormal.M.style())
         .wrap(::WrapperComboBoxMultipleNormalM)
 
 public val ComboBoxMultipleNormal.S: WrapperComboBoxMultipleNormalS
@@ -121,8 +121,8 @@ public val ComboBoxMultipleNormal.S: WrapperComboBoxMultipleNormalS
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.S.Default.style())
-        .selectItemStyle(SelectItemMultipleNormal.S.style())
         .dropdownStyle(DropdownMenuNormal.S.style())
+        .selectItemStyle(SelectItemMultipleNormal.S.style())
         .wrap(::WrapperComboBoxMultipleNormalS)
 
 public val ComboBoxMultipleNormal.Xs: WrapperComboBoxMultipleNormalXs
@@ -131,6 +131,6 @@ public val ComboBoxMultipleNormal.Xs: WrapperComboBoxMultipleNormalXs
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.Xs.Default.style())
-        .selectItemStyle(SelectItemMultipleNormal.Xs.style())
         .dropdownStyle(DropdownMenuNormal.Xs.style())
+        .selectItemStyle(SelectItemMultipleNormal.Xs.style())
         .wrap(::WrapperComboBoxMultipleNormalXs)

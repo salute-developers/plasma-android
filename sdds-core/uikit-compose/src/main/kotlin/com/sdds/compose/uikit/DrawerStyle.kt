@@ -13,6 +13,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -110,6 +112,7 @@ interface DrawerColors {
 /**
  * Билдер для [DrawerStyle].
  */
+@ApiInfo
 interface DrawerStyleBuilder : StyleBuilder<DrawerStyle> {
 
     /**
@@ -147,6 +150,7 @@ interface DrawerStyleBuilder : StyleBuilder<DrawerStyle> {
      *
      * @param closeIconRes ID ресурса иконки.
      */
+    @ApiName(name = "closeIcon")
     fun closeIconRes(@DrawableRes closeIconRes: Int): DrawerStyleBuilder
 
     /**
@@ -189,6 +193,7 @@ interface DrawerColorsBuilder {
      * @see DrawerColorsBuilder.backgroundColor
      * @see DrawerColors.background
      */
+    @ApiName(name = "backgroundColor")
     fun background(background: StatefulValue<Brush>): DrawerColorsBuilder
 
     /**
@@ -196,6 +201,7 @@ interface DrawerColorsBuilder {
      * @see DrawerColorsBuilder.backgroundColor
      * @see DrawerColors.background
      */
+    @ApiName(name = "backgroundColor")
     fun background(background: Brush): DrawerColorsBuilder =
         background(background.asStatefulValue())
 
@@ -219,6 +225,7 @@ interface DrawerColorsBuilder {
      * @see DrawerColors.closeIconColor
      * @see InteractiveColor
      */
+    @ApiName(name = "closeColor")
     fun closeIconColor(closeIconColor: InteractiveColor): DrawerColorsBuilder
 
     /**
@@ -226,6 +233,7 @@ interface DrawerColorsBuilder {
      * @see DrawerColorsBuilder.backgroundColor
      * @see DrawerColors.background
      */
+    @ApiName(name = "closeColor")
     fun closeIconColor(closeIconColor: Color): DrawerColorsBuilder =
         closeIconColor(closeIconColor.asInteractive())
 
@@ -306,6 +314,7 @@ interface DrawerDimensionsBuilder {
     /**
      * Устанавливает толщину бордера
      */
+    @ApiName(name = "strokeSize")
     fun strokeWidth(width: Dp): DrawerDimensionsBuilder
 
     /**

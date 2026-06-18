@@ -5,6 +5,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.internal.AvatarDefaults
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -50,6 +51,7 @@ interface AvatarGroupStyle : Style {
  * Builder для [AvatarStyle]
  */
 @Stable
+@ApiInfo
 interface AvatarGroupStyleBuilder : StyleBuilder<AvatarGroupStyle> {
 
     /**

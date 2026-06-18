@@ -10,14 +10,11 @@ package com.sdds.serv.styles.avatar
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.AvatarStyleBuilder
 import com.sdds.compose.uikit.graphics.asLayered
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.styles.badge.Accent
@@ -32,7 +29,7 @@ import com.sdds.serv.styles.counter.Negative
 import com.sdds.serv.styles.counter.S
 import com.sdds.serv.styles.counter.Xs
 import com.sdds.serv.styles.counter.Xxs
-import com.sdds.serv.styles.indicator.Indicator
+import com.sdds.serv.styles.indicator.AvatarIndicator
 import com.sdds.serv.styles.indicator.L
 import com.sdds.serv.styles.indicator.M
 import com.sdds.serv.styles.indicator.S
@@ -83,12 +80,8 @@ private val AvatarStyleBuilder.invariantProps: AvatarStyleBuilder
     get() = this
         .shape(CircleShape)
         .colors {
-            backgroundColor(
-                SddsServTheme.gradients.surfaceDefaultAccentGradient.asLayered(0.2f).asStatefulValue(),
-            )
-            textColor(
-                SddsServTheme.gradients.textDefaultAccentGradient.asLayered().asStatefulValue(),
-            )
+            textColor(SddsServTheme.gradients.textDefaultAccentGradient.asLayered().asStatefulValue())
+            backgroundColor(SddsServTheme.gradients.surfaceDefaultAccentGradient.asLayered(0.2f).asStatefulValue())
         }
 
 public val Avatar.Xxl: WrapperAvatarXxl
@@ -96,28 +89,16 @@ public val Avatar.Xxl: WrapperAvatarXxl
     @JvmName("WrapperAvatarXxl")
     get() = AvatarStyle.builder(this)
         .invariantProps
-        .dimensions {
-            width(88.0.dp)
-            height(88.0.dp)
-            statusOffsetX(1.0.dp)
-            statusOffsetY(7.0.dp)
-        }
         .textStyle(SddsServTheme.typography.headerH2Bold)
+        .statusStyle(AvatarIndicator.L.style())
         .badgeStyle(BadgeSolid.L.Pilled.Accent.style())
         .counterStyle(Counter.L.Negative.style())
-        .statusStyle(
-            Indicator.L.modify {
-                color {
-                    backgroundColor(
-                        SddsServTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsServTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
+        .dimensions {
+            statusOffsetX(1.0.dp)
+            statusOffsetY(7.0.dp)
+            width(88.0.dp)
+            height(88.0.dp)
+        }
         .wrap(::WrapperAvatarXxl)
 
 public val Avatar.L: WrapperAvatarL
@@ -125,28 +106,16 @@ public val Avatar.L: WrapperAvatarL
     @JvmName("WrapperAvatarL")
     get() = AvatarStyle.builder(this)
         .invariantProps
-        .dimensions {
-            width(48.0.dp)
-            height(48.0.dp)
-            statusOffsetX(1.0.dp)
-            statusOffsetY(3.0.dp)
-        }
         .textStyle(SddsServTheme.typography.headerH4Bold)
+        .statusStyle(AvatarIndicator.M.style())
         .badgeStyle(BadgeSolid.S.Pilled.Accent.style())
         .counterStyle(Counter.S.Negative.style())
-        .statusStyle(
-            Indicator.M.modify {
-                color {
-                    backgroundColor(
-                        SddsServTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsServTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
+        .dimensions {
+            statusOffsetX(1.0.dp)
+            statusOffsetY(3.0.dp)
+            width(48.0.dp)
+            height(48.0.dp)
+        }
         .wrap(::WrapperAvatarL)
 
 public val Avatar.M: WrapperAvatarM
@@ -154,28 +123,16 @@ public val Avatar.M: WrapperAvatarM
     @JvmName("WrapperAvatarM")
     get() = AvatarStyle.builder(this)
         .invariantProps
-        .dimensions {
-            width(36.0.dp)
-            height(36.0.dp)
-            statusOffsetX(0.0.dp)
-            statusOffsetY(2.0.dp)
-        }
         .textStyle(SddsServTheme.typography.bodySBold)
+        .statusStyle(AvatarIndicator.M.style())
         .badgeStyle(BadgeSolid.Xs.Pilled.Accent.style())
         .counterStyle(Counter.Xs.Negative.style())
-        .statusStyle(
-            Indicator.M.modify {
-                color {
-                    backgroundColor(
-                        SddsServTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsServTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
+        .dimensions {
+            statusOffsetX(0.0.dp)
+            statusOffsetY(2.0.dp)
+            width(36.0.dp)
+            height(36.0.dp)
+        }
         .wrap(::WrapperAvatarM)
 
 public val Avatar.S: WrapperAvatarS
@@ -183,25 +140,13 @@ public val Avatar.S: WrapperAvatarS
     @JvmName("WrapperAvatarS")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsServTheme.typography.bodyXxsBold)
+        .statusStyle(AvatarIndicator.S.style())
+        .counterStyle(Counter.Xxs.Negative.style())
         .dimensions {
-            width(24.0.dp)
-            height(24.0.dp)
             statusOffsetX(0.0.dp)
             statusOffsetY(0.0.dp)
+            width(24.0.dp)
+            height(24.0.dp)
         }
-        .textStyle(SddsServTheme.typography.bodyXxsBold)
-        .counterStyle(Counter.Xxs.Negative.style())
-        .statusStyle(
-            Indicator.S.modify {
-                color {
-                    backgroundColor(
-                        SddsServTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsServTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarS)

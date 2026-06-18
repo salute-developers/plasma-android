@@ -38,8 +38,8 @@ public val IconButtonGroup.Default: WrapperIconButtonGroupDefault
     @Composable
     @JvmName("WrapperIconButtonGroupDefault")
     get() = ButtonGroupStyle.builder(this)
+        .buttonStyle(IconButton.Size40.ModeAccentGrey.style())
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(IconButton.Size40.ModeAccentGrey.style())
         .wrap(::WrapperIconButtonGroupDefault)

@@ -101,15 +101,9 @@ public val WrapperNotificationContentView.Default: WrapperNotificationContentTer
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            textColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            titleColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -117,15 +111,9 @@ public val WrapperNotificationContentView.Positive: WrapperNotificationContentTe
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            textColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            titleColor(PlasmaGigaTheme.colors.textDefaultPositive.asInteractive())
+            textColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(PlasmaGigaTheme.colors.textDefaultPositive.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -133,15 +121,9 @@ public val WrapperNotificationContentView.Negative: WrapperNotificationContentTe
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            textColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            titleColor(PlasmaGigaTheme.colors.textDefaultNegative.asInteractive())
+            textColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(PlasmaGigaTheme.colors.textDefaultNegative.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -149,15 +131,9 @@ public val WrapperNotificationContentView.Warning: WrapperNotificationContentTer
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            textColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            titleColor(PlasmaGigaTheme.colors.textDefaultWarning.asInteractive())
+            textColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(PlasmaGigaTheme.colors.textDefaultWarning.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -165,15 +141,9 @@ public val WrapperNotificationContentView.Info: WrapperNotificationContentTermin
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                PlasmaGigaTheme.colors.textDefaultInfo.asInteractive(),
-            )
-            textColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            titleColor(PlasmaGigaTheme.colors.textDefaultInfo.asInteractive())
+            textColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(PlasmaGigaTheme.colors.textDefaultInfo.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -195,8 +165,8 @@ public val NotificationContent.ButtonStretch: WrapperNotificationContentButtonSt
     @JvmName("WrapperNotificationContentButtonStretch")
     get() = NotificationContentStyle.builder(this)
         .invariantProps
-        .buttonLayout(NotificationContentButtonLayout.Stretch)
         .buttonGroupStyle(BasicButtonGroup.Xs.Dense.Default.style())
+        .buttonLayout(NotificationContentButtonLayout.Stretch)
         .dimensions {
             contentStartPadding(4.0.dp)
             contentTopPadding(2.0.dp)
@@ -234,8 +204,8 @@ public val NotificationContent.NoButtonStretch: WrapperNotificationContentNoButt
     @JvmName("WrapperNotificationContentNoButtonStretch")
     get() = NotificationContentStyle.builder(this)
         .invariantProps
-        .buttonLayout(NotificationContentButtonLayout.Normal)
         .buttonGroupStyle(BasicButtonGroup.Xxs.Dense.Default.style())
+        .buttonLayout(NotificationContentButtonLayout.Normal)
         .dimensions {
             contentTopPadding(4.0.dp)
             textBoxStartPadding(2.0.dp)

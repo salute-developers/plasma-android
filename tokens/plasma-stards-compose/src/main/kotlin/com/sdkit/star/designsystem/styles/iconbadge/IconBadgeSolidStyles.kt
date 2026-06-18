@@ -9,11 +9,12 @@ package com.sdkit.star.designsystem.styles.iconbadge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
 import com.sdds.compose.uikit.iconBadgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
@@ -111,12 +112,8 @@ public val WrapperIconBadgeSolidView.Default: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textInversePrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textInversePrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -124,12 +121,8 @@ public val WrapperIconBadgeSolidView.Accent: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultAccentMain.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultAccentMain).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -137,12 +130,8 @@ public val WrapperIconBadgeSolidView.Negative: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -150,12 +139,8 @@ public val WrapperIconBadgeSolidView.Positive: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultPositive).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -163,12 +148,8 @@ public val WrapperIconBadgeSolidView.Warning: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultWarning).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -176,12 +157,8 @@ public val WrapperIconBadgeSolidView.Dark: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceOnLightSolidDefault.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceOnLightSolidDefault).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -189,12 +166,8 @@ public val WrapperIconBadgeSolidView.Light: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnLightPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnLightPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -210,9 +183,9 @@ public val IconBadgeSolid.L: WrapperIconBadgeSolidL
         .shape(StarDsTheme.shapes.roundS)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_height_l))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startContentSize_l))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startPadding_l))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_endPadding_l))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_start_content_size_l))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_start_padding_l))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_end_padding_l))
         }
         .wrap(::WrapperIconBadgeSolidL)
 
@@ -231,9 +204,9 @@ public val IconBadgeSolid.M: WrapperIconBadgeSolidM
         .shape(StarDsTheme.shapes.roundXs)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_height_m))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startContentSize_m))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startPadding_m))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_endPadding_m))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_start_content_size_m))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_start_padding_m))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_end_padding_m))
         }
         .wrap(::WrapperIconBadgeSolidM)
 
@@ -252,9 +225,9 @@ public val IconBadgeSolid.S: WrapperIconBadgeSolidS
         .shape(StarDsTheme.shapes.roundXs)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_height_s))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startContentSize_s))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startPadding_s))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_endPadding_s))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_start_content_size_s))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_start_padding_s))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_end_padding_s))
         }
         .wrap(::WrapperIconBadgeSolidS)
 
@@ -273,9 +246,9 @@ public val IconBadgeSolid.Xs: WrapperIconBadgeSolidXs
         .shape(StarDsTheme.shapes.roundXxs)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_height_xs))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startContentSize_xs))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startPadding_xs))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_endPadding_xs))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_start_content_size_xs))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_start_padding_xs))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_end_padding_xs))
         }
         .wrap(::WrapperIconBadgeSolidXs)
 

@@ -94,22 +94,14 @@ public value class WrapperAccordionItemSolidActionEndH5(
 private val AccordionItemStyleBuilder.invariantProps: AccordionItemStyleBuilder
     @Composable
     get() = this
-        .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
-            titleColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            contentTextColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-        }
-        .iconPlacement(AccordionIconPlacement.End)
         .iconRotation(90.0f)
+        .iconPlacement(AccordionIconPlacement.End)
+        .colors {
+            backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive())
+            titleColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            contentTextColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+        }
 
 public val AccordionItemSolidActionEnd.Xs: WrapperAccordionItemSolidActionEndXs
     @Composable
@@ -119,18 +111,18 @@ public val AccordionItemSolidActionEnd.Xs: WrapperAccordionItemSolidActionEndXs
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .dimensions {
-            contentPaddingStart(12.0.dp)
-            contentPaddingEnd(12.0.dp)
-            contentPaddingBottom(10.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
+            contentPaddingStart(12.0.dp)
+            contentPaddingEnd(12.0.dp)
+            contentPaddingBottom(10.0.dp)
             iconPadding(10.0.dp)
         }
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .wrap(::WrapperAccordionItemSolidActionEndXs)
 
 public val AccordionItemSolidActionEnd.S: WrapperAccordionItemSolidActionEndS
@@ -141,18 +133,18 @@ public val AccordionItemSolidActionEnd.S: WrapperAccordionItemSolidActionEndS
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.bodySBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .dimensions {
-            contentPaddingStart(14.0.dp)
-            contentPaddingEnd(14.0.dp)
-            contentPaddingBottom(12.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
+            contentPaddingStart(14.0.dp)
+            contentPaddingEnd(14.0.dp)
+            contentPaddingBottom(12.0.dp)
             iconPadding(12.0.dp)
         }
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .wrap(::WrapperAccordionItemSolidActionEndS)
 
 public val AccordionItemSolidActionEnd.M: WrapperAccordionItemSolidActionEndM
@@ -163,18 +155,18 @@ public val AccordionItemSolidActionEnd.M: WrapperAccordionItemSolidActionEndM
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyMBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .dimensions {
-            contentPaddingStart(18.0.dp)
-            contentPaddingEnd(18.0.dp)
-            contentPaddingBottom(16.0.dp)
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
+            contentPaddingStart(18.0.dp)
+            contentPaddingEnd(18.0.dp)
+            contentPaddingBottom(16.0.dp)
             iconPadding(14.0.dp)
         }
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .wrap(::WrapperAccordionItemSolidActionEndM)
 
 public val AccordionItemSolidActionEnd.L: WrapperAccordionItemSolidActionEndL
@@ -185,18 +177,18 @@ public val AccordionItemSolidActionEnd.L: WrapperAccordionItemSolidActionEndL
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.bodyLBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .dimensions {
-            contentPaddingStart(20.0.dp)
-            contentPaddingEnd(20.0.dp)
-            contentPaddingBottom(18.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             paddingTop(17.0.dp)
             paddingBottom(17.0.dp)
+            contentPaddingStart(20.0.dp)
+            contentPaddingEnd(20.0.dp)
+            contentPaddingBottom(18.0.dp)
             iconPadding(16.0.dp)
         }
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .wrap(::WrapperAccordionItemSolidActionEndL)
 
 public val AccordionItemSolidActionEnd.H2: WrapperAccordionItemSolidActionEndH2
@@ -207,18 +199,18 @@ public val AccordionItemSolidActionEnd.H2: WrapperAccordionItemSolidActionEndH2
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.headerH2Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .iconClosed(com.sdds.icons.R.drawable.ic_plus_24)
+        .iconOpened(com.sdds.icons.R.drawable.ic_minus_24)
         .dimensions {
-            contentPaddingStart(20.0.dp)
-            contentPaddingEnd(20.0.dp)
-            contentPaddingBottom(20.0.dp)
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
+            contentPaddingStart(20.0.dp)
+            contentPaddingEnd(20.0.dp)
+            contentPaddingBottom(20.0.dp)
             iconPadding(16.0.dp)
         }
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_24)
         .wrap(::WrapperAccordionItemSolidActionEndH2)
 
 public val AccordionItemSolidActionEnd.H3: WrapperAccordionItemSolidActionEndH3
@@ -229,18 +221,18 @@ public val AccordionItemSolidActionEnd.H3: WrapperAccordionItemSolidActionEndH3
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .titleStyle(PlasmaSdServiceTheme.typography.headerH3Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .iconClosed(com.sdds.icons.R.drawable.ic_plus_24)
+        .iconOpened(com.sdds.icons.R.drawable.ic_minus_24)
         .dimensions {
-            contentPaddingStart(18.0.dp)
-            contentPaddingEnd(18.0.dp)
-            contentPaddingBottom(18.0.dp)
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
+            contentPaddingStart(18.0.dp)
+            contentPaddingEnd(18.0.dp)
+            contentPaddingBottom(18.0.dp)
             iconPadding(14.0.dp)
         }
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_24)
         .wrap(::WrapperAccordionItemSolidActionEndH3)
 
 public val AccordionItemSolidActionEnd.H4: WrapperAccordionItemSolidActionEndH4
@@ -251,18 +243,18 @@ public val AccordionItemSolidActionEnd.H4: WrapperAccordionItemSolidActionEndH4
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.headerH4Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .dimensions {
-            contentPaddingStart(14.0.dp)
-            contentPaddingEnd(14.0.dp)
-            contentPaddingBottom(14.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
+            contentPaddingStart(14.0.dp)
+            contentPaddingEnd(14.0.dp)
+            contentPaddingBottom(14.0.dp)
             iconPadding(12.0.dp)
         }
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .wrap(::WrapperAccordionItemSolidActionEndH4)
 
 public val AccordionItemSolidActionEnd.H5: WrapperAccordionItemSolidActionEndH5
@@ -273,16 +265,16 @@ public val AccordionItemSolidActionEnd.H5: WrapperAccordionItemSolidActionEndH5
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .titleStyle(PlasmaSdServiceTheme.typography.headerH5Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .dimensions {
-            contentPaddingStart(12.0.dp)
-            contentPaddingEnd(12.0.dp)
-            contentPaddingBottom(12.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
+            contentPaddingStart(12.0.dp)
+            contentPaddingEnd(12.0.dp)
+            contentPaddingBottom(12.0.dp)
             iconPadding(10.0.dp)
         }
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
         .wrap(::WrapperAccordionItemSolidActionEndH5)

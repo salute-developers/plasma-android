@@ -37,8 +37,6 @@ public val RectSkeleton.Default: WrapperRectSkeletonDefault
     @JvmName("WrapperRectSkeletonDefault")
     get() = RectSkeletonStyle.builder(this)
         .shape(StarDsTheme.shapes.roundM)
-        .duration(700.0.toInt())
-        .gradient(
-            SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-        )
+        .gradient(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+        .duration(700)
         .wrap(::WrapperRectSkeletonDefault)

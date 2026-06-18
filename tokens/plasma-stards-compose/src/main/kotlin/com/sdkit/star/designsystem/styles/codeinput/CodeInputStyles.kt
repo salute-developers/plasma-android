@@ -56,8 +56,8 @@ private val CodeInputStyleBuilder.invariantProps: CodeInputStyleBuilder
         .colors {
             codeColor(
                 StarDsTheme.colors.textDefaultPrimary.asStatefulValue(
-                    setOf(CodeInputStates.Error)
-                        to StarDsTheme.colors.textDefaultNegative,
+                    setOf(CodeInputStates.Error) to
+                        StarDsTheme.colors.textDefaultNegative,
                 ),
             )
             captionColor(
@@ -66,18 +66,18 @@ private val CodeInputStyleBuilder.invariantProps: CodeInputStyleBuilder
                         to StarDsTheme.colors.textDefaultNegative,
                 ),
             )
-            fillColor(
-                StarDsTheme.colors.surfaceDefaultSolidDefault.asStatefulValue(
-                    setOf(CodeInputStates.Error)
-                        to StarDsTheme.colors.surfaceDefaultNegative,
-                ),
-            )
             strokeColor(
                 StarDsTheme.colors.outlineDefaultSolidDefault.asStatefulValue(
                     setOf(CodeInputStates.Error)
                         to StarDsTheme.colors.outlineDefaultNegative,
-                    setOf(CodeInputStates.Focused)
-                        to StarDsTheme.colors.outlineDefaultAccentMain,
+                    setOf(CodeInputStates.Focused) to
+                        StarDsTheme.colors.outlineDefaultAccentMain,
+                ),
+            )
+            fillColor(
+                StarDsTheme.colors.surfaceDefaultSolidDefault.asStatefulValue(
+                    setOf(CodeInputStates.Error)
+                        to StarDsTheme.colors.surfaceDefaultNegative,
                 ),
             )
         }
@@ -91,9 +91,9 @@ public val CodeInput.S: WrapperCodeInputS
         .captionStyle(StarDsTheme.typography.headerH5Normal)
         .dimensions {
             circleSize(
-                dimensionResource(R.dimen.sdkit_cmp_code_input_circle_size_s).asStatefulValue(
-                    setOf(CodeInputStates.Focused) to
-                        dimensionResource(R.dimen.sdkit_cmp_code_input_circle_size_s_0),
+                dimensionResource(R.dimen.sdkit_cmp_code_input_dot_size_s).asStatefulValue(
+                    setOf(CodeInputStates.Focused)
+                        to dimensionResource(R.dimen.sdkit_cmp_code_input_dot_size_s_0),
                 ),
             )
             strokeWidth(dimensionResource(R.dimen.sdkit_cmp_code_input_stroke_width_s))
@@ -114,9 +114,9 @@ public val CodeInput.M: WrapperCodeInputM
         .captionStyle(StarDsTheme.typography.headerH4Normal)
         .dimensions {
             circleSize(
-                dimensionResource(R.dimen.sdkit_cmp_code_input_circle_size_m).asStatefulValue(
-                    setOf(CodeInputStates.Focused) to
-                        dimensionResource(R.dimen.sdkit_cmp_code_input_circle_size_m_0),
+                dimensionResource(R.dimen.sdkit_cmp_code_input_dot_size_m).asStatefulValue(
+                    setOf(CodeInputStates.Focused)
+                        to dimensionResource(R.dimen.sdkit_cmp_code_input_dot_size_m_0),
                 ),
             )
             strokeWidth(dimensionResource(R.dimen.sdkit_cmp_code_input_stroke_width_m))
@@ -137,9 +137,9 @@ public val CodeInput.L: WrapperCodeInputL
         .captionStyle(StarDsTheme.typography.headerH3Normal)
         .dimensions {
             circleSize(
-                dimensionResource(R.dimen.sdkit_cmp_code_input_circle_size_l).asStatefulValue(
-                    setOf(CodeInputStates.Focused) to
-                        dimensionResource(R.dimen.sdkit_cmp_code_input_circle_size_l_0),
+                dimensionResource(R.dimen.sdkit_cmp_code_input_dot_size_l).asStatefulValue(
+                    setOf(CodeInputStates.Focused)
+                        to dimensionResource(R.dimen.sdkit_cmp_code_input_dot_size_l_0),
                 ),
             )
             strokeWidth(dimensionResource(R.dimen.sdkit_cmp_code_input_stroke_width_l))

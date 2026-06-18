@@ -25,6 +25,9 @@ import kotlin.Unit
 public enum class IndicatorStyles(
     public val key: String,
 ) {
+    AvatarIndicatorL("AvatarIndicator.L"),
+    AvatarIndicatorM("AvatarIndicator.M"),
+    AvatarIndicatorS("AvatarIndicator.S"),
     IndicatorLDefault("Indicator.L.Default"),
     IndicatorLAccent("Indicator.L.Accent"),
     IndicatorLInactive("Indicator.L.Inactive"),
@@ -52,15 +55,29 @@ public enum class IndicatorStyles(
     ;
 
     /**
+     * Typed API для подбора стиля avatar-indicator
+     */
+    public object AvatarIndicator
+
+    /**
      * Typed API для подбора стиля indicator
      */
-    public companion object
+    public object Default
+}
+
+/**
+ * Возможные значения свойства size для avatar-indicator
+ */
+public enum class AvatarIndicatorSize {
+    L,
+    M,
+    S,
 }
 
 /**
  * Возможные значения свойства size для indicator
  */
-public enum class IndicatorSize {
+public enum class IndicatorDefaultSize {
     L,
     M,
     S,
@@ -69,7 +86,7 @@ public enum class IndicatorSize {
 /**
  * Возможные значения свойства view для indicator
  */
-public enum class IndicatorView {
+public enum class IndicatorDefaultView {
     Default,
     Accent,
     Inactive,
@@ -86,6 +103,9 @@ public enum class IndicatorView {
 @Composable
 public fun IndicatorStyles.style(modify: @Composable IndicatorStyleBuilder.() -> Unit = {}): IndicatorStyle {
     val builder = when (this) {
+        IndicatorStyles.AvatarIndicatorL -> AvatarIndicator.L
+        IndicatorStyles.AvatarIndicatorM -> AvatarIndicator.M
+        IndicatorStyles.AvatarIndicatorS -> AvatarIndicator.S
         IndicatorStyles.IndicatorLDefault -> Indicator.L.Default
         IndicatorStyles.IndicatorLAccent -> Indicator.L.Accent
         IndicatorStyles.IndicatorLInactive -> Indicator.L.Inactive
@@ -115,36 +135,83 @@ public fun IndicatorStyles.style(modify: @Composable IndicatorStyleBuilder.() ->
 }
 
 /**
+ * Возвращает экземпляр [IndicatorStyles] для avatar-indicator
+ */
+public fun IndicatorStyles.AvatarIndicator.resolve(
+    size: AvatarIndicatorSize =
+        AvatarIndicatorSize.L,
+): IndicatorStyles = when {
+    size == AvatarIndicatorSize.L -> IndicatorStyles.AvatarIndicatorL
+    size == AvatarIndicatorSize.M -> IndicatorStyles.AvatarIndicatorM
+    size == AvatarIndicatorSize.S -> IndicatorStyles.AvatarIndicatorS
+    else -> error("Unsupported avatar-indicator style combination")
+}
+
+/**
+ * Возвращает [IndicatorStyle] для avatar-indicator
+ */
+@Composable
+public fun IndicatorStyles.AvatarIndicator.style(
+    size: AvatarIndicatorSize = AvatarIndicatorSize.L,
+    modify: @Composable IndicatorStyleBuilder.() -> Unit = {},
+): IndicatorStyle =
+    resolve(size).style(modify)
+
+/**
  * Возвращает экземпляр [IndicatorStyles] для indicator
  */
-public fun IndicatorStyles.Companion.resolve(
-    size: IndicatorSize = IndicatorSize.L,
-    view: IndicatorView = IndicatorView.Default,
+public fun IndicatorStyles.Default.resolve(
+    size: IndicatorDefaultSize = IndicatorDefaultSize.L,
+    view: IndicatorDefaultView = IndicatorDefaultView.Default,
 ): IndicatorStyles = when {
-    size == IndicatorSize.L && view == IndicatorView.Default -> IndicatorStyles.IndicatorLDefault
-    size == IndicatorSize.L && view == IndicatorView.Accent -> IndicatorStyles.IndicatorLAccent
-    size == IndicatorSize.L && view == IndicatorView.Inactive -> IndicatorStyles.IndicatorLInactive
-    size == IndicatorSize.L && view == IndicatorView.Positive -> IndicatorStyles.IndicatorLPositive
-    size == IndicatorSize.L && view == IndicatorView.Warning -> IndicatorStyles.IndicatorLWarning
-    size == IndicatorSize.L && view == IndicatorView.Negative -> IndicatorStyles.IndicatorLNegative
-    size == IndicatorSize.L && view == IndicatorView.Black -> IndicatorStyles.IndicatorLBlack
-    size == IndicatorSize.L && view == IndicatorView.White -> IndicatorStyles.IndicatorLWhite
-    size == IndicatorSize.M && view == IndicatorView.Default -> IndicatorStyles.IndicatorMDefault
-    size == IndicatorSize.M && view == IndicatorView.Accent -> IndicatorStyles.IndicatorMAccent
-    size == IndicatorSize.M && view == IndicatorView.Inactive -> IndicatorStyles.IndicatorMInactive
-    size == IndicatorSize.M && view == IndicatorView.Positive -> IndicatorStyles.IndicatorMPositive
-    size == IndicatorSize.M && view == IndicatorView.Warning -> IndicatorStyles.IndicatorMWarning
-    size == IndicatorSize.M && view == IndicatorView.Negative -> IndicatorStyles.IndicatorMNegative
-    size == IndicatorSize.M && view == IndicatorView.Black -> IndicatorStyles.IndicatorMBlack
-    size == IndicatorSize.M && view == IndicatorView.White -> IndicatorStyles.IndicatorMWhite
-    size == IndicatorSize.S && view == IndicatorView.Default -> IndicatorStyles.IndicatorSDefault
-    size == IndicatorSize.S && view == IndicatorView.Accent -> IndicatorStyles.IndicatorSAccent
-    size == IndicatorSize.S && view == IndicatorView.Inactive -> IndicatorStyles.IndicatorSInactive
-    size == IndicatorSize.S && view == IndicatorView.Positive -> IndicatorStyles.IndicatorSPositive
-    size == IndicatorSize.S && view == IndicatorView.Warning -> IndicatorStyles.IndicatorSWarning
-    size == IndicatorSize.S && view == IndicatorView.Negative -> IndicatorStyles.IndicatorSNegative
-    size == IndicatorSize.S && view == IndicatorView.Black -> IndicatorStyles.IndicatorSBlack
-    size == IndicatorSize.S && view == IndicatorView.White -> IndicatorStyles.IndicatorSWhite
+    size == IndicatorDefaultSize.L && view == IndicatorDefaultView.Default ->
+        IndicatorStyles.IndicatorLDefault
+    size == IndicatorDefaultSize.L && view == IndicatorDefaultView.Accent ->
+        IndicatorStyles.IndicatorLAccent
+    size == IndicatorDefaultSize.L && view == IndicatorDefaultView.Inactive ->
+        IndicatorStyles.IndicatorLInactive
+    size == IndicatorDefaultSize.L && view == IndicatorDefaultView.Positive ->
+        IndicatorStyles.IndicatorLPositive
+    size == IndicatorDefaultSize.L && view == IndicatorDefaultView.Warning ->
+        IndicatorStyles.IndicatorLWarning
+    size == IndicatorDefaultSize.L && view == IndicatorDefaultView.Negative ->
+        IndicatorStyles.IndicatorLNegative
+    size == IndicatorDefaultSize.L && view == IndicatorDefaultView.Black ->
+        IndicatorStyles.IndicatorLBlack
+    size == IndicatorDefaultSize.L && view == IndicatorDefaultView.White ->
+        IndicatorStyles.IndicatorLWhite
+    size == IndicatorDefaultSize.M && view == IndicatorDefaultView.Default ->
+        IndicatorStyles.IndicatorMDefault
+    size == IndicatorDefaultSize.M && view == IndicatorDefaultView.Accent ->
+        IndicatorStyles.IndicatorMAccent
+    size == IndicatorDefaultSize.M && view == IndicatorDefaultView.Inactive ->
+        IndicatorStyles.IndicatorMInactive
+    size == IndicatorDefaultSize.M && view == IndicatorDefaultView.Positive ->
+        IndicatorStyles.IndicatorMPositive
+    size == IndicatorDefaultSize.M && view == IndicatorDefaultView.Warning ->
+        IndicatorStyles.IndicatorMWarning
+    size == IndicatorDefaultSize.M && view == IndicatorDefaultView.Negative ->
+        IndicatorStyles.IndicatorMNegative
+    size == IndicatorDefaultSize.M && view == IndicatorDefaultView.Black ->
+        IndicatorStyles.IndicatorMBlack
+    size == IndicatorDefaultSize.M && view == IndicatorDefaultView.White ->
+        IndicatorStyles.IndicatorMWhite
+    size == IndicatorDefaultSize.S && view == IndicatorDefaultView.Default ->
+        IndicatorStyles.IndicatorSDefault
+    size == IndicatorDefaultSize.S && view == IndicatorDefaultView.Accent ->
+        IndicatorStyles.IndicatorSAccent
+    size == IndicatorDefaultSize.S && view == IndicatorDefaultView.Inactive ->
+        IndicatorStyles.IndicatorSInactive
+    size == IndicatorDefaultSize.S && view == IndicatorDefaultView.Positive ->
+        IndicatorStyles.IndicatorSPositive
+    size == IndicatorDefaultSize.S && view == IndicatorDefaultView.Warning ->
+        IndicatorStyles.IndicatorSWarning
+    size == IndicatorDefaultSize.S && view == IndicatorDefaultView.Negative ->
+        IndicatorStyles.IndicatorSNegative
+    size == IndicatorDefaultSize.S && view == IndicatorDefaultView.Black ->
+        IndicatorStyles.IndicatorSBlack
+    size == IndicatorDefaultSize.S && view == IndicatorDefaultView.White ->
+        IndicatorStyles.IndicatorSWhite
     else -> error("Unsupported indicator style combination")
 }
 
@@ -152,8 +219,8 @@ public fun IndicatorStyles.Companion.resolve(
  * Возвращает [IndicatorStyle] для indicator
  */
 @Composable
-public fun IndicatorStyles.Companion.style(
-    size: IndicatorSize = IndicatorSize.L,
-    view: IndicatorView = IndicatorView.Default,
+public fun IndicatorStyles.Default.style(
+    size: IndicatorDefaultSize = IndicatorDefaultSize.L,
+    view: IndicatorDefaultView = IndicatorDefaultView.Default,
     modify: @Composable IndicatorStyleBuilder.() -> Unit = {},
 ): IndicatorStyle = resolve(size, view).style(modify)

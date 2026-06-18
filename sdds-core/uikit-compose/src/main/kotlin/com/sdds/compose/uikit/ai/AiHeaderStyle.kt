@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
@@ -90,6 +91,7 @@ interface AiHeaderStyle : Style {
 /**
  * Билдер стиля [AiHeaderStyle]
  */
+@ApiInfo
 interface AiHeaderStyleBuilder : StyleBuilder<AiHeaderStyle> {
 
     /**

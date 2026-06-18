@@ -9,6 +9,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -62,6 +63,7 @@ interface ButtonGroupStyle : Style {
 /**
  * Билдер стиля компонента
  */
+@ApiInfo
 interface ButtonGroupStyleBuilder : StyleBuilder<ButtonGroupStyle> {
     /**
      * Устанавливает форму внутренних скруглений

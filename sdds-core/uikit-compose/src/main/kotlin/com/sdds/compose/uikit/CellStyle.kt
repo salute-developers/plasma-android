@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -286,6 +287,7 @@ private data class DefaultCellStyle(
 /**
  * Билдер стиля [CellStyle]
  */
+@ApiInfo
 interface CellStyleBuilder : StyleBuilder<CellStyle> {
 
     /**

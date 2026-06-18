@@ -25,6 +25,13 @@ object PlasmaStardsComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.Indicator,
+                mapOf(
+                    "AvatarIndicator" to PlasmaStardsAvatarIndicatorVariationsCompose,
+                    "Indicator" to PlasmaStardsIndicatorVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.AvatarGroup,
                 mapOf(
                     "AvatarGroup" to PlasmaStardsAvatarGroupVariationsCompose,
@@ -60,6 +67,7 @@ object PlasmaStardsComposeComponents : ComponentProvider() {
                 ComponentKey.Cell,
                 mapOf(
                     "Cell" to PlasmaStardsCellVariationsCompose,
+                    "CellSelect" to PlasmaStardsCellSelectVariationsCompose,
                 ),
             ),
             Component(
@@ -94,15 +102,21 @@ object PlasmaStardsComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
-                ComponentKey.Indicator,
-                mapOf(
-                    "Indicator" to PlasmaStardsIndicatorVariationsCompose,
-                ),
-            ),
-            Component(
                 ComponentKey.Overlay,
                 mapOf(
                     "Overlay" to PlasmaStardsOverlayVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.Select,
+                mapOf(
+                    "Select" to PlasmaStardsSelectVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.SelectItem,
+                mapOf(
+                    "SelectItem" to PlasmaStardsSelectItemVariationsCompose,
                 ),
             ),
             Component(

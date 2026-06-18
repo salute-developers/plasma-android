@@ -13,7 +13,7 @@ import com.sdds.compose.uikit.TabBarItemStyle
 import com.sdds.compose.uikit.TabBarItemStyleBuilder
 import com.sdds.compose.uikit.TabBarLabelPlacement
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -88,13 +88,13 @@ public val WrapperTabBarItemClearView.Default: WrapperTabBarItemClearTerminate
     get() = builder
         .colors {
             labelColor(
-                SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to SddsServTheme.colors.textDefaultPrimary,
                 ),
             )
             iconColor(
-                SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to SddsServTheme.colors.textDefaultPrimary,
                 ),
@@ -107,13 +107,13 @@ public val WrapperTabBarItemClearView.Accent: WrapperTabBarItemClearTerminate
     get() = builder
         .colors {
             labelColor(
-                SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to SddsServTheme.colors.textDefaultAccent,
                 ),
             )
             iconColor(
-                SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to SddsServTheme.colors.textDefaultAccent,
                 ),
@@ -125,12 +125,8 @@ public val WrapperTabBarItemClearView.Secondary: WrapperTabBarItemClearTerminate
     @Composable
     get() = builder
         .colors {
-            labelColor(
-                SddsServTheme.colors.textDefaultSecondary.asStatefulValue(),
-            )
-            iconColor(
-                SddsServTheme.colors.textDefaultSecondary.asStatefulValue(),
-            )
+            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            iconColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTabBarItemClearTerminate)
 
@@ -139,9 +135,7 @@ private val TabBarItemStyleBuilder.invariantProps: TabBarItemStyleBuilder
     get() = this
         .labelStyle(SddsServTheme.typography.bodyXxsBold)
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asStatefulValue(),
-            )
+            backgroundColor(SddsServTheme.colors.surfaceDefaultClear.asInteractive())
         }
 
 public val TabBarItemClear.M: WrapperTabBarItemClearM
@@ -151,6 +145,8 @@ public val TabBarItemClear.M: WrapperTabBarItemClearM
         .invariantProps
         .shape(SddsServTheme.shapes.roundL)
         .labelPlacement(TabBarLabelPlacement.None)
+        .counterStyle(Counter.Xs.Negative.style())
+        .indicatorStyle(Indicator.M.Negative.style())
         .dimensions {
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
@@ -159,8 +155,6 @@ public val TabBarItemClear.M: WrapperTabBarItemClearM
             extraOffsetX(16.0.dp)
             extraOffsetY(-8.0.dp)
         }
-        .indicatorStyle(Indicator.M.Negative.style())
-        .counterStyle(Counter.Xs.Negative.style())
         .wrap(::WrapperTabBarItemClearM)
 
 public val WrapperTabBarItemClearM.Label: WrapperTabBarItemClearMLabel
@@ -182,6 +176,8 @@ public val TabBarItemClear.L: WrapperTabBarItemClearL
         .invariantProps
         .shape(SddsServTheme.shapes.roundL)
         .labelPlacement(TabBarLabelPlacement.None)
+        .counterStyle(Counter.S.Negative.style())
+        .indicatorStyle(Indicator.L.Negative.style())
         .dimensions {
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
@@ -190,8 +186,6 @@ public val TabBarItemClear.L: WrapperTabBarItemClearL
             extraOffsetX(26.0.dp)
             extraOffsetY(-10.0.dp)
         }
-        .indicatorStyle(Indicator.L.Negative.style())
-        .counterStyle(Counter.S.Negative.style())
         .wrap(::WrapperTabBarItemClearL)
 
 public val WrapperTabBarItemClearL.Label: WrapperTabBarItemClearLLabel

@@ -9,11 +9,12 @@ package com.sdkit.star.designsystem.styles.badge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.BadgeStyleBuilder
 import com.sdds.compose.uikit.badgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
@@ -111,18 +112,10 @@ public val WrapperBadgeSolidView.Default: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            labelColor(
-                StarDsTheme.colors.textInversePrimary.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textInversePrimary.asInteractive(),
-            )
-            endContentColor(
-                StarDsTheme.colors.textInversePrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            labelColor(SolidColor(StarDsTheme.colors.textInversePrimary).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textInversePrimary).asStatefulValue())
+            endContentColor(SolidColor(StarDsTheme.colors.textInversePrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -130,18 +123,10 @@ public val WrapperBadgeSolidView.Accent: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultAccentMain.asInteractive(),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultAccentMain).asStatefulValue())
+            labelColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -149,18 +134,10 @@ public val WrapperBadgeSolidView.Negative: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            labelColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -168,18 +145,10 @@ public val WrapperBadgeSolidView.Positive: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultPositive).asStatefulValue())
+            labelColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -187,18 +156,10 @@ public val WrapperBadgeSolidView.Warning: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultWarning).asStatefulValue())
+            labelColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -206,18 +167,10 @@ public val WrapperBadgeSolidView.Dark: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceOnLightSolidDefault.asInteractive(),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceOnLightSolidDefault).asStatefulValue())
+            labelColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -225,18 +178,10 @@ public val WrapperBadgeSolidView.Light: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                StarDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
-            labelColor(
-                StarDsTheme.colors.textOnLightPrimary.asInteractive(),
-            )
-            startContentColor(
-                StarDsTheme.colors.textOnLightPrimary.asInteractive(),
-            )
-            endContentColor(
-                StarDsTheme.colors.textOnLightPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
+            labelColor(SolidColor(StarDsTheme.colors.textOnLightPrimary).asStatefulValue())
+            startContentColor(SolidColor(StarDsTheme.colors.textOnLightPrimary).asStatefulValue())
+            endContentColor(SolidColor(StarDsTheme.colors.textOnLightPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeSolidTerminate)
 
@@ -253,12 +198,12 @@ public val BadgeSolid.L: WrapperBadgeSolidL
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_badge_solid_height_l))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentSize_l))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentSize_l))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentMargin_l))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentMargin_l))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startPadding_l))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endPadding_l))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_content_size_l))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_content_size_l))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_content_margin_l))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_content_margin_l))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_padding_l))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_padding_l))
         }
         .wrap(::WrapperBadgeSolidL)
 
@@ -278,12 +223,12 @@ public val BadgeSolid.M: WrapperBadgeSolidM
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_badge_solid_height_m))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentSize_m))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentSize_m))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentMargin_m))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentMargin_m))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startPadding_m))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endPadding_m))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_content_size_m))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_content_size_m))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_content_margin_m))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_content_margin_m))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_padding_m))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_padding_m))
         }
         .wrap(::WrapperBadgeSolidM)
 
@@ -303,12 +248,12 @@ public val BadgeSolid.S: WrapperBadgeSolidS
         .labelStyle(StarDsTheme.typography.bodyXxsNormal)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_badge_solid_height_s))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentSize_s))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentSize_s))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentMargin_s))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentMargin_s))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startPadding_s))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endPadding_s))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_content_size_s))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_content_size_s))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_content_margin_s))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_content_margin_s))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_padding_s))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_padding_s))
         }
         .wrap(::WrapperBadgeSolidS)
 
@@ -328,12 +273,12 @@ public val BadgeSolid.Xs: WrapperBadgeSolidXs
         .labelStyle(StarDsTheme.typography.bodyXxsNormal)
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_badge_solid_height_xs))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentSize_xs))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentSize_xs))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentMargin_xs))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentMargin_xs))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startPadding_xs))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endPadding_xs))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_content_size_xs))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_content_size_xs))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_content_margin_xs))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_content_margin_xs))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_start_padding_xs))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_end_padding_xs))
         }
         .wrap(::WrapperBadgeSolidXs)
 

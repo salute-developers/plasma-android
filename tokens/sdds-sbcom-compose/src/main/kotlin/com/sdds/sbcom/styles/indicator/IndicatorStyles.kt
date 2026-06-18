@@ -9,10 +9,11 @@ package com.sdds.sbcom.styles.indicator
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.IndicatorStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -37,9 +38,7 @@ public val Indicator.StateSuccess: WrapperIndicatorTerminate
     get() = IndicatorStyle.builder(this)
         .invariantProps
         .color {
-            backgroundColor(
-                SddsSbComTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -48,9 +47,7 @@ public val Indicator.StateGlobalWhite: WrapperIndicatorTerminate
     get() = IndicatorStyle.builder(this)
         .invariantProps
         .color {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -59,9 +56,7 @@ public val Indicator.StateMute: WrapperIndicatorTerminate
     get() = IndicatorStyle.builder(this)
         .invariantProps
         .color {
-            backgroundColor(
-                SddsSbComTheme.colors.textDefaultParagraph.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.textDefaultParagraph).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -70,9 +65,7 @@ public val Indicator.StateDanger: WrapperIndicatorTerminate
     get() = IndicatorStyle.builder(this)
         .invariantProps
         .color {
-            backgroundColor(
-                SddsSbComTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -81,9 +74,7 @@ public val Indicator.StateWarning: WrapperIndicatorTerminate
     get() = IndicatorStyle.builder(this)
         .invariantProps
         .color {
-            backgroundColor(
-                SddsSbComTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.textDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 

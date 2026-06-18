@@ -90,8 +90,8 @@ public val WrapperCounterView.Default: WrapperCounterTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
                 ),
             )
             textColor(
@@ -113,8 +113,8 @@ public val WrapperCounterView.Accent: WrapperCounterTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             textColor(
@@ -136,8 +136,8 @@ public val WrapperCounterView.Positive: WrapperCounterTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultPositiveHover,
                 ),
             )
             textColor(
@@ -159,8 +159,8 @@ public val WrapperCounterView.Warning: WrapperCounterTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultWarningHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultWarningHover,
                 ),
             )
             textColor(
@@ -182,8 +182,8 @@ public val WrapperCounterView.Negative: WrapperCounterTerminate
                 PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultNegativeHover,
                 ),
             )
             textColor(
@@ -205,8 +205,8 @@ public val WrapperCounterView.Black: WrapperCounterTerminate
                 PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultHover,
                 ),
             )
             textColor(
@@ -228,8 +228,8 @@ public val WrapperCounterView.White: WrapperCounterTerminate
                 PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
             )
             textColor(
@@ -255,8 +255,8 @@ public val Counter.L: WrapperCounterL
         .invariantProps
         .textStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .dimensions {
-            minHeight(28.0.dp)
             minWidth(28.0.dp)
+            minHeight(28.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(10.0.dp)
         }
@@ -269,8 +269,8 @@ public val Counter.M: WrapperCounterM
         .invariantProps
         .textStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .dimensions {
-            minHeight(24.0.dp)
             minWidth(24.0.dp)
+            minHeight(24.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
         }
@@ -283,8 +283,8 @@ public val Counter.S: WrapperCounterS
         .invariantProps
         .textStyle(PlasmaSdServiceTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(20.0.dp)
             minWidth(20.0.dp)
+            minHeight(20.0.dp)
             paddingStart(6.0.dp)
             paddingEnd(6.0.dp)
         }
@@ -297,8 +297,8 @@ public val Counter.Xs: WrapperCounterXs
         .invariantProps
         .textStyle(PlasmaSdServiceTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(16.0.dp)
             minWidth(16.0.dp)
+            minHeight(16.0.dp)
             paddingStart(4.0.dp)
             paddingEnd(4.0.dp)
         }
@@ -311,8 +311,8 @@ public val Counter.Xxs: WrapperCounterXxs
         .invariantProps
         .textStyle(PlasmaSdServiceTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(12.0.dp)
             minWidth(12.0.dp)
+            minHeight(12.0.dp)
             paddingStart(2.0.dp)
             paddingEnd(2.0.dp)
         }

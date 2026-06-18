@@ -16,12 +16,12 @@ import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.styles.counter.Accent
-import com.sdds.serv.styles.counter.Counter
+import com.sdds.serv.styles.counter.Default
 import com.sdds.serv.styles.counter.S
+import com.sdds.serv.styles.counter.SegmentItemCounter
 import com.sdds.serv.styles.counter.Xs
 import com.sdds.serv.styles.counter.Xxs
 import com.sdds.serv.theme.SddsServTheme
@@ -174,94 +174,74 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsServTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -271,88 +251,74 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -362,94 +328,74 @@ public val WrapperSegmentItemView.Accent: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -463,116 +409,79 @@ public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemXlViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.S.Accent.style())
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.S.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
@@ -580,94 +489,74 @@ public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXlViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsServTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -678,88 +567,74 @@ public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXlViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -773,18 +648,18 @@ public val SegmentItem.Xl: WrapperSegmentItemXl
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = 0.0.dp))
         .labelStyle(SddsServTheme.typography.bodyLBold)
         .valueStyle(SddsServTheme.typography.bodyLBold)
+        .counterStyle(SegmentItemCounter.S.Default.style())
         .dimensions {
-            minWidth(110.0.dp)
             minHeight(64.0.dp)
+            minWidth(110.0.dp)
             paddingStart(28.0.dp)
             paddingEnd(28.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
+            valueMargin(6.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(6.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemXl)
 
 public val WrapperSegmentItemXl.Pilled: WrapperSegmentItemXlPilled
@@ -803,116 +678,79 @@ public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemLViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.S.Accent.style())
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.S.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
@@ -920,94 +758,74 @@ public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemLViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsServTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1018,88 +836,74 @@ public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemLViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1113,18 +917,18 @@ public val SegmentItem.L: WrapperSegmentItemL
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .labelStyle(SddsServTheme.typography.bodyLBold)
         .valueStyle(SddsServTheme.typography.bodyLBold)
+        .counterStyle(SegmentItemCounter.S.Default.style())
         .dimensions {
-            minWidth(102.0.dp)
             minHeight(56.0.dp)
+            minWidth(102.0.dp)
             paddingStart(24.0.dp)
             paddingEnd(24.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
+            valueMargin(6.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(6.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemL)
 
 public val WrapperSegmentItemL.Pilled: WrapperSegmentItemLPilled
@@ -1143,116 +947,79 @@ public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemMViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.Xs.Accent.style())
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
@@ -1260,94 +1027,74 @@ public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemMViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsServTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1358,88 +1105,74 @@ public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemMViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1453,18 +1186,18 @@ public val SegmentItem.M: WrapperSegmentItemM
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = 0.0.dp))
         .labelStyle(SddsServTheme.typography.bodyMBold)
         .valueStyle(SddsServTheme.typography.bodyMBold)
+        .counterStyle(SegmentItemCounter.Xs.Default.style())
         .dimensions {
-            minWidth(88.0.dp)
             minHeight(48.0.dp)
+            minWidth(88.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
+            valueMargin(4.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(4.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemM)
 
 public val WrapperSegmentItemM.Pilled: WrapperSegmentItemMPilled
@@ -1483,116 +1216,79 @@ public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemSViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.Xs.Accent.style())
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
@@ -1600,94 +1296,74 @@ public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemSViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsServTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1698,88 +1374,74 @@ public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemSViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1793,18 +1455,18 @@ public val SegmentItem.S: WrapperSegmentItemS
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .labelStyle(SddsServTheme.typography.bodySBold)
         .valueStyle(SddsServTheme.typography.bodySBold)
+        .counterStyle(SegmentItemCounter.Xs.Default.style())
         .dimensions {
-            minWidth(75.0.dp)
             minHeight(40.0.dp)
+            minWidth(75.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             startContentPadding(2.0.dp)
             endContentPadding(2.0.dp)
+            valueMargin(2.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(2.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemS)
 
 public val WrapperSegmentItemS.Pilled: WrapperSegmentItemSPilled
@@ -1823,116 +1485,79 @@ public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemXsViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.Xxs.Accent.style())
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xxs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsServTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
@@ -1940,94 +1565,74 @@ public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXsViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsServTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    ) to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -2038,88 +1643,74 @@ public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXsViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsServTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -2133,18 +1724,18 @@ public val SegmentItem.Xs: WrapperSegmentItemXs
         .shape(SddsServTheme.shapes.roundS.adjustBy(all = 0.0.dp))
         .labelStyle(SddsServTheme.typography.bodyXsBold)
         .valueStyle(SddsServTheme.typography.bodyXsBold)
+        .counterStyle(SegmentItemCounter.Xxs.Default.style())
         .dimensions {
-            minWidth(61.0.dp)
             minHeight(32.0.dp)
+            minWidth(61.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             startContentPadding(2.0.dp)
             endContentPadding(2.0.dp)
+            valueMargin(2.0.dp)
             startContentSize(16.0.dp)
             endContentSize(16.0.dp)
-            valueMargin(2.0.dp)
         }
-        .counterStyle(Counter.Xxs.Accent.style())
         .wrap(::WrapperSegmentItemXs)
 
 public val WrapperSegmentItemXs.Pilled: WrapperSegmentItemXsPilled

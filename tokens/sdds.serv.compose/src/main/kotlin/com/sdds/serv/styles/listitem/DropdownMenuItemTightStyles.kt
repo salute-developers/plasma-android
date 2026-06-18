@@ -8,12 +8,13 @@
 package com.sdds.serv.styles.listitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -86,9 +87,7 @@ public val WrapperDropdownMenuItemTightView.Default: WrapperDropdownMenuItemTigh
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            titleColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperDropdownMenuItemTightTerminate)
 
@@ -96,9 +95,7 @@ public val WrapperDropdownMenuItemTightView.Positive: WrapperDropdownMenuItemTig
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            titleColor(SolidColor(SddsServTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperDropdownMenuItemTightTerminate)
 
@@ -106,9 +103,7 @@ public val WrapperDropdownMenuItemTightView.Negative: WrapperDropdownMenuItemTig
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            titleColor(SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperDropdownMenuItemTightTerminate)
 
@@ -117,14 +112,12 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
     get() = this
         .colors {
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary),
                 ),
             )
-            disclosureIconColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            disclosureIconColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
         }
 
 public val DropdownMenuItemTight.Xl: WrapperDropdownMenuItemTightXl
@@ -137,12 +130,12 @@ public val DropdownMenuItemTight.Xl: WrapperDropdownMenuItemTightXl
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
-            contentPaddingStart(8.0.dp)
-            height(56.0.dp)
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
+            height(56.0.dp)
+            contentPaddingStart(8.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemTightXl)
 
@@ -156,12 +149,12 @@ public val DropdownMenuItemTight.L: WrapperDropdownMenuItemTightL
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
-            contentPaddingStart(8.0.dp)
-            height(48.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
+            height(48.0.dp)
+            contentPaddingStart(8.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemTightL)
 
@@ -175,12 +168,12 @@ public val DropdownMenuItemTight.M: WrapperDropdownMenuItemTightM
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
-            contentPaddingStart(8.0.dp)
-            height(40.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
+            height(40.0.dp)
+            contentPaddingStart(8.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemTightM)
 
@@ -194,12 +187,12 @@ public val DropdownMenuItemTight.S: WrapperDropdownMenuItemTightS
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
-            contentPaddingStart(6.0.dp)
-            height(32.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(7.0.dp)
             paddingBottom(7.0.dp)
+            height(32.0.dp)
+            contentPaddingStart(6.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemTightS)
 
@@ -213,11 +206,11 @@ public val DropdownMenuItemTight.Xs: WrapperDropdownMenuItemTightXs
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
-            contentPaddingStart(6.0.dp)
-            height(24.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
             paddingTop(4.0.dp)
             paddingBottom(4.0.dp)
+            height(24.0.dp)
+            contentPaddingStart(6.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemTightXs)

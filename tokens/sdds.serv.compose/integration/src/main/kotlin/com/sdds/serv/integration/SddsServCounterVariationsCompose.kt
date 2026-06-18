@@ -17,9 +17,9 @@ import com.sdds.sandbox.Property
 import com.sdds.serv.styles.counter.Accent
 import com.sdds.serv.styles.counter.Black
 import com.sdds.serv.styles.counter.Counter
-import com.sdds.serv.styles.counter.CounterSize
+import com.sdds.serv.styles.counter.CounterDefaultSize
+import com.sdds.serv.styles.counter.CounterDefaultView
 import com.sdds.serv.styles.counter.CounterStyles
-import com.sdds.serv.styles.counter.CounterView
 import com.sdds.serv.styles.counter.Default
 import com.sdds.serv.styles.counter.L
 import com.sdds.serv.styles.counter.M
@@ -83,24 +83,24 @@ internal object SddsServCounterVariationsCompose : ComposeStyleProvider<CounterS
         )
 
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
-        return CounterStyles.resolve(
+        return CounterStyles.Default.resolve(
             size = when (bindings["size"]?.toString()) {
-                "L" -> CounterSize.L
-                "M" -> CounterSize.M
-                "S" -> CounterSize.S
-                "Xs" -> CounterSize.Xs
-                "Xxs" -> CounterSize.Xxs
-                else -> CounterSize.L
+                "L" -> CounterDefaultSize.L
+                "M" -> CounterDefaultSize.M
+                "S" -> CounterDefaultSize.S
+                "Xs" -> CounterDefaultSize.Xs
+                "Xxs" -> CounterDefaultSize.Xxs
+                else -> CounterDefaultSize.L
             },
             view = when (bindings["view"]?.toString()) {
-                "Default" -> CounterView.Default
-                "Accent" -> CounterView.Accent
-                "Positive" -> CounterView.Positive
-                "Warning" -> CounterView.Warning
-                "Negative" -> CounterView.Negative
-                "Black" -> CounterView.Black
-                "White" -> CounterView.White
-                else -> CounterView.Default
+                "Default" -> CounterDefaultView.Default
+                "Accent" -> CounterDefaultView.Accent
+                "Positive" -> CounterDefaultView.Positive
+                "Warning" -> CounterDefaultView.Warning
+                "Negative" -> CounterDefaultView.Negative
+                "Black" -> CounterDefaultView.Black
+                "White" -> CounterDefaultView.White
+                else -> CounterDefaultView.Default
             },
         ).key
     }

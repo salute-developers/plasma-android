@@ -209,9 +209,7 @@ private val SegmentStyleBuilder.invariantProps: SegmentStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
+            backgroundColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive())
         }
 
 public val WrapperSegmentXlView.Primary: WrapperSegmentTerminate

@@ -16,6 +16,8 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.graphics.asLayered
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -98,6 +100,7 @@ interface AvatarStyle : Style {
 /**
  * Builder для [AvatarStyle]
  */
+@ApiInfo
 interface AvatarStyleBuilder : StyleBuilder<AvatarStyle> {
 
     /**
@@ -291,30 +294,35 @@ interface AvatarColorsBuilder {
      * Устанавливает цвет фона [backgroundColor]
      * @see AvatarColors.backgroundColor
      */
+    @ApiName(name = "background")
     fun backgroundColor(backgroundColor: Color): AvatarColorsBuilder = this
 
     /**
      * Устанавливает цвет фона [backgroundColor]
      * @see AvatarColors.backgroundColor
      */
+    @ApiName(name = "background")
     fun backgroundColor(backgroundColor: Brush): AvatarColorsBuilder = this
 
     /**
      * Устанавливает цвет фона [backgroundColor]
      * @see AvatarColors.backgroundColor
      */
+    @ApiName(name = "background")
     fun backgroundColor(backgroundColor: List<Brush>): AvatarColorsBuilder = this
 
     /**
      * Устанавливает цвет фона [backgroundColor]
      * @see AvatarColors.backgroundColor
      */
+    @ApiName(name = "background")
     fun backgroundColor(backgroundColor: InteractiveColor): AvatarColorsBuilder = this
 
     /**
      * Устанавливает цвет фона [backgroundColor]
      * @see AvatarColors.backgroundColor
      */
+    @ApiName(name = "background")
     fun backgroundColor(backgroundColor: StatefulValue<Brush>): AvatarColorsBuilder = this
 
     /**

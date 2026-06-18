@@ -37,15 +37,11 @@ public val ScrollBar.Default: WrapperScrollBarDefault
     @Composable
     @JvmName("WrapperScrollBarDefault")
     get() = ScrollBarStyle.builder(this)
-        .hoverExpandFactor(1.0f)
         .shape(CircleShape)
+        .hoverExpandFactor(1.0f)
         .colors {
-            thumbColor(
-                SddsSbComTheme.colors.outlineDefaultTransparentPrimary.asInteractive(),
-            )
-            trackColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            thumbColor(SddsSbComTheme.colors.outlineDefaultTransparentPrimary.asInteractive())
+            trackColor(SddsSbComTheme.colors.surfaceDefaultClear.asInteractive())
         }
         .dimensions {
             width(4.0.dp)

@@ -82,13 +82,11 @@ private val DropdownMenuStyleBuilder.invariantProps: DropdownMenuStyleBuilder
     @Composable
     get() = this
         .shadow(StarDsTheme.shadows.downSoftS)
+        .dividerStyle(Divider.Default.style())
+        .scrollBarStyle(ScrollBar.S.style())
         .colors {
-            backgroundColor(
-                SolidColor(StarDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            strokeColor(
-                SolidColor(StarDsTheme.colors.outlineDefaultTransparentPrimary).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            strokeColor(SolidColor(StarDsTheme.colors.outlineDefaultTransparentPrimary).asStatefulValue())
         }
         .dimensions {
             offset(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_offset))
@@ -98,8 +96,6 @@ private val DropdownMenuStyleBuilder.invariantProps: DropdownMenuStyleBuilder
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_padding_top))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_padding_bottom))
         }
-        .dividerStyle(Divider.Default.style())
-        .scrollBarStyle(ScrollBar.S.style())
 
 public val DropdownMenu.Xl: WrapperDropdownMenuXl
     @Composable
@@ -107,12 +103,12 @@ public val DropdownMenu.Xl: WrapperDropdownMenuXl
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundL)
+        .listStyle(DropdownMenuList.Xl.style())
         .dimensions {
             width(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_width_xl))
             scrollBarPaddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_top_xl))
             scrollBarPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_bottom_xl))
         }
-        .listStyle(DropdownMenuList.Xl.style())
         .wrap(::WrapperDropdownMenuXl)
 
 public val DropdownMenu.L: WrapperDropdownMenuL
@@ -126,12 +122,12 @@ public val DropdownMenu.L: WrapperDropdownMenuL
                 dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_shapeAdjustment_l),
             ),
         )
+        .listStyle(DropdownMenuList.L.style())
         .dimensions {
             width(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_width_l))
             scrollBarPaddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_top_l))
             scrollBarPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_bottom_l))
         }
-        .listStyle(DropdownMenuList.L.style())
         .wrap(::WrapperDropdownMenuL)
 
 public val DropdownMenu.M: WrapperDropdownMenuM
@@ -140,12 +136,12 @@ public val DropdownMenu.M: WrapperDropdownMenuM
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
+        .listStyle(DropdownMenuList.M.style())
         .dimensions {
             width(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_width_m))
             scrollBarPaddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_top_m))
             scrollBarPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_bottom_m))
         }
-        .listStyle(DropdownMenuList.M.style())
         .wrap(::WrapperDropdownMenuM)
 
 public val DropdownMenu.S: WrapperDropdownMenuS
@@ -159,12 +155,12 @@ public val DropdownMenu.S: WrapperDropdownMenuS
                 dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_shapeAdjustment_s),
             ),
         )
+        .listStyle(DropdownMenuList.S.style())
         .dimensions {
             width(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_width_s))
             scrollBarPaddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_top_s))
             scrollBarPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_bottom_s))
         }
-        .listStyle(DropdownMenuList.S.style())
         .wrap(::WrapperDropdownMenuS)
 
 public val DropdownMenu.Xs: WrapperDropdownMenuXs
@@ -173,10 +169,10 @@ public val DropdownMenu.Xs: WrapperDropdownMenuXs
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundS)
+        .listStyle(DropdownMenuList.Xs.style())
         .dimensions {
             width(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_width_xs))
             scrollBarPaddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_top_xs))
             scrollBarPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_scroll_bar_padding_bottom_xs))
         }
-        .listStyle(DropdownMenuList.Xs.style())
         .wrap(::WrapperDropdownMenuXs)

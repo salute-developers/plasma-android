@@ -13,6 +13,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.Style
@@ -114,6 +116,7 @@ interface TabsStyle : Style {
 /**
  * Билдер стиля [TabsStyle]
  */
+@ApiInfo
 interface TabsStyleBuilder : StyleBuilder<TabsStyle> {
 
     /**
@@ -532,21 +535,25 @@ interface TabsDimensionsBuilder {
     /**
      * Устанавливает отступ вначале
      */
+    @ApiName("paddingStart")
     fun contentPaddingStart(paddingStart: Dp): TabsDimensionsBuilder
 
     /**
      * Устанавливает отступ вначале
      */
+    @ApiName("paddingEnd")
     fun contentPaddingEnd(paddingEnd: Dp): TabsDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху
      */
+    @ApiName("paddingTop")
     fun contentPaddingTop(paddingTop: Dp): TabsDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху
      */
+    @ApiName("paddingBottom")
     fun contentPaddingBottom(paddingBottom: Dp): TabsDimensionsBuilder
 
     /**

@@ -8,11 +8,13 @@
 package com.sdds.plasma.giga.styles.linkbutton
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.linkButtonBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -94,28 +96,28 @@ public val WrapperLinkButtonView.Default: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -125,28 +127,28 @@ public val WrapperLinkButtonView.Secondary: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultSecondaryHover,
                 ),
             )
         }
@@ -156,28 +158,28 @@ public val WrapperLinkButtonView.Accent: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultAccentHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultAccentHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultAccentHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultAccentHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultAccentHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultAccentHover,
                 ),
             )
         }
@@ -187,28 +189,28 @@ public val WrapperLinkButtonView.Positive: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPositive).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPositiveActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPositiveHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPositive).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPositiveActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPositiveHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPositiveHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPositiveHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPositiveHover,
                 ),
             )
         }
@@ -218,28 +220,28 @@ public val WrapperLinkButtonView.Negative: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultNegativeHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultNegativeHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultNegativeHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultNegativeHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultNegativeHover,
                 ),
             )
         }
@@ -249,28 +251,28 @@ public val WrapperLinkButtonView.Warning: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultWarningHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultWarningHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultWarningHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultWarningHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultWarningHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultWarningHover,
                 ),
             )
         }
@@ -279,13 +281,11 @@ public val WrapperLinkButtonView.Warning: WrapperLinkButtonTerminate
 private val LinkButtonStyleBuilder.invariantProps: LinkButtonStyleBuilder
     @Composable
     get() = this
-        .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-        }
-        .loadingAlpha(0.06f)
         .disableAlpha(0.4f)
+        .loadingAlpha(0.06f)
+        .colors {
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultClear).asStatefulValue())
+        }
 
 public val LinkButton.Xl: WrapperLinkButtonXl
     @Composable

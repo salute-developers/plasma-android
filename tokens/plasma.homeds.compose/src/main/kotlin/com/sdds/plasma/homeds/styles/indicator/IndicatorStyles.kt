@@ -9,10 +9,11 @@ package com.sdds.plasma.homeds.styles.indicator
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.IndicatorStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -69,9 +70,7 @@ public val WrapperIndicatorView.Default: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -79,9 +78,7 @@ public val WrapperIndicatorView.Accent: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -89,9 +86,7 @@ public val WrapperIndicatorView.Inactive: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidTertiary).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -99,9 +94,7 @@ public val WrapperIndicatorView.Positive: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -109,9 +102,7 @@ public val WrapperIndicatorView.Warning: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -119,9 +110,7 @@ public val WrapperIndicatorView.Negative: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -129,9 +118,7 @@ public val WrapperIndicatorView.Dark: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceOnLightTransparentDeep.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -139,9 +126,7 @@ public val WrapperIndicatorView.Black: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceOnLightSolidDefault.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceOnLightSolidDefault).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -149,9 +134,7 @@ public val WrapperIndicatorView.White: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 

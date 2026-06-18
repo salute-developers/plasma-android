@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -88,6 +89,7 @@ interface NavigationBarStyle : Style {
 /**
  * Билдер стиля [NavigationBarStyle]
  */
+@ApiInfo
 interface NavigationBarStyleBuilder : StyleBuilder<NavigationBarStyle> {
 
     /**
@@ -120,7 +122,7 @@ interface NavigationBarStyleBuilder : StyleBuilder<NavigationBarStyle> {
     /**
      * Устанавливает иконку кнопки назад [backIcon]
      */
-    fun backIcon(backIcon: Int?): NavigationBarStyleBuilder
+    fun backIcon(@DrawableRes backIcon: Int?): NavigationBarStyleBuilder
 
     /**
      * Устанавливает форму нижних углов [bottomShape]

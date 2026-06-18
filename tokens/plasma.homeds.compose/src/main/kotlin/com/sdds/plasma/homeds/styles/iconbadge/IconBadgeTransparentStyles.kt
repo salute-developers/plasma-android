@@ -9,11 +9,12 @@ package com.sdds.plasma.homeds.styles.iconbadge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
 import com.sdds.compose.uikit.iconBadgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -110,12 +111,8 @@ public val WrapperIconBadgeTransparentView.Default: WrapperIconBadgeTransparentT
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -123,12 +120,8 @@ public val WrapperIconBadgeTransparentView.Accent: WrapperIconBadgeTransparentTe
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -136,12 +129,8 @@ public val WrapperIconBadgeTransparentView.Negative: WrapperIconBadgeTransparent
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentNegative.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -149,12 +138,8 @@ public val WrapperIconBadgeTransparentView.Positive: WrapperIconBadgeTransparent
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPositive.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -162,12 +147,8 @@ public val WrapperIconBadgeTransparentView.Warning: WrapperIconBadgeTransparentT
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentWarning.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -175,12 +156,8 @@ public val WrapperIconBadgeTransparentView.Dark: WrapperIconBadgeTransparentTerm
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceOnLightTransparentDeep.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -188,12 +165,8 @@ public val WrapperIconBadgeTransparentView.Light: WrapperIconBadgeTransparentTer
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceOnDarkTransparentSecondary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceOnDarkTransparentSecondary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 

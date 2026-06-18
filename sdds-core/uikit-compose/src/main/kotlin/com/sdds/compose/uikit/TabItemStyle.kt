@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
@@ -94,6 +95,7 @@ interface TabItemStyle : Style {
 /**
  * Билдер стиля [TabItemStyle]
  */
+@ApiInfo(components = ["TabItem", "IconTabItem"])
 interface TabItemStyleBuilder : StyleBuilder<TabItemStyle> {
 
     /**

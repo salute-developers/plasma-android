@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -146,6 +147,7 @@ interface NavigationDrawerDimensions {
 /**
  * Builder [NavigationDrawerStyle].
  */
+@ApiInfo
 interface NavigationDrawerStyleBuilder : StyleBuilder<NavigationDrawerStyle> {
     /**
      * Устанавливает форму контейнера.

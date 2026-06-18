@@ -91,8 +91,8 @@ public val ComboBoxMultipleTight.Xl: WrapperComboBoxMultipleTightXl
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.Xl.Default.style())
-        .selectItemStyle(SelectItemMultipleTight.Xl.style())
         .dropdownStyle(DropdownMenuTight.Xl.style())
+        .selectItemStyle(SelectItemMultipleTight.Xl.style())
         .wrap(::WrapperComboBoxMultipleTightXl)
 
 public val ComboBoxMultipleTight.L: WrapperComboBoxMultipleTightL
@@ -101,8 +101,8 @@ public val ComboBoxMultipleTight.L: WrapperComboBoxMultipleTightL
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.L.Default.style())
-        .selectItemStyle(SelectItemMultipleTight.L.style())
         .dropdownStyle(DropdownMenuTight.L.style())
+        .selectItemStyle(SelectItemMultipleTight.L.style())
         .wrap(::WrapperComboBoxMultipleTightL)
 
 public val ComboBoxMultipleTight.M: WrapperComboBoxMultipleTightM
@@ -111,8 +111,8 @@ public val ComboBoxMultipleTight.M: WrapperComboBoxMultipleTightM
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.M.Default.style())
-        .selectItemStyle(SelectItemMultipleTight.M.style())
         .dropdownStyle(DropdownMenuTight.M.style())
+        .selectItemStyle(SelectItemMultipleTight.M.style())
         .wrap(::WrapperComboBoxMultipleTightM)
 
 public val ComboBoxMultipleTight.S: WrapperComboBoxMultipleTightS
@@ -121,8 +121,8 @@ public val ComboBoxMultipleTight.S: WrapperComboBoxMultipleTightS
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.S.Default.style())
-        .selectItemStyle(SelectItemMultipleTight.S.style())
         .dropdownStyle(DropdownMenuTight.S.style())
+        .selectItemStyle(SelectItemMultipleTight.S.style())
         .wrap(::WrapperComboBoxMultipleTightS)
 
 public val ComboBoxMultipleTight.Xs: WrapperComboBoxMultipleTightXs
@@ -131,6 +131,6 @@ public val ComboBoxMultipleTight.Xs: WrapperComboBoxMultipleTightXs
     get() = ComboBoxStyle.builder(this)
         .invariantProps
         .textFieldStyle(TextField.Xs.Default.style())
-        .selectItemStyle(SelectItemMultipleTight.Xs.style())
         .dropdownStyle(DropdownMenuTight.Xs.style())
+        .selectItemStyle(SelectItemMultipleTight.Xs.style())
         .wrap(::WrapperComboBoxMultipleTightXs)

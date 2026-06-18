@@ -87,12 +87,8 @@ public val WrapperNoteView.Default: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondary).asStatefulValue(),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -101,12 +97,8 @@ public val WrapperNoteView.Positive: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultPositiveMinor).asStatefulValue(),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultPositiveMinor).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -115,12 +107,8 @@ public val WrapperNoteView.Negative: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Negative.style())
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegativeMinor).asStatefulValue(),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegativeMinor).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -129,12 +117,8 @@ public val WrapperNoteView.Warning: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Warning.style())
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultWarningMinor).asStatefulValue(),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultWarningMinor).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -143,12 +127,8 @@ public val WrapperNoteView.Info: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Info.style())
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultInfoMinor).asStatefulValue(),
-            )
-            iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(PlasmaHomeDsTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultInfoMinor).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
 
@@ -156,29 +136,23 @@ private val NoteStyleBuilder.invariantProps: NoteStyleBuilder
     @Composable
     get() = this
         .shape(PlasmaHomeDsTheme.shapes.roundXl)
-        .colors {
-            closeColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            titleColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            textColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-        }
         .titleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .textStyle(PlasmaHomeDsTheme.typography.bodySNormal)
+        .colors {
+            titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            closeColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+        }
         .dimensions {
+            closeTopMargin(0.0.dp)
+            closeEndMargin(0.0.dp)
+            textTopMargin(2.0.dp)
+            actionTopMargin(0.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(5.0.dp)
-            closeTopMargin(0.0.dp)
-            textTopMargin(2.0.dp)
             titlePaddingEnd(0.0.dp)
-            closeEndMargin(0.0.dp)
-            actionTopMargin(0.0.dp)
         }
 
 public val Note.ContentBeforeScalable: WrapperNoteContentBeforeScalable
@@ -201,8 +175,8 @@ public val WrapperNoteContentBeforeScalable.HasClose: WrapperNoteContentBeforeSc
         .dimensions {
             closeSize(24.0.dp)
             closeTopMargin(10.0.dp)
-            titlePaddingEnd(26.0.dp)
             closeEndMargin(10.0.dp)
+            titlePaddingEnd(26.0.dp)
         }
         .wrap(::WrapperNoteContentBeforeScalableHasClose)
 
@@ -226,7 +200,7 @@ public val WrapperNoteContentBeforeFixed.HasClose: WrapperNoteContentBeforeFixed
         .dimensions {
             closeSize(24.0.dp)
             closeTopMargin(10.0.dp)
-            titlePaddingEnd(26.0.dp)
             closeEndMargin(10.0.dp)
+            titlePaddingEnd(26.0.dp)
         }
         .wrap(::WrapperNoteContentBeforeFixedHasClose)

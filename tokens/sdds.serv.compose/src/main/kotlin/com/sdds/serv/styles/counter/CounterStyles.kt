@@ -90,16 +90,16 @@ public val WrapperCounterView.Default: WrapperCounterTerminate
                 SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
                 ),
             )
             textColor(
                 SddsServTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textInversePrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -113,16 +113,16 @@ public val WrapperCounterView.Accent: WrapperCounterTerminate
                 SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultAccentHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
             textColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -136,16 +136,16 @@ public val WrapperCounterView.Positive: WrapperCounterTerminate
                 SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultPositiveHover,
                 ),
             )
             textColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -159,16 +159,16 @@ public val WrapperCounterView.Warning: WrapperCounterTerminate
                 SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultWarningHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultWarningHover,
                 ),
             )
             textColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -182,16 +182,16 @@ public val WrapperCounterView.Negative: WrapperCounterTerminate
                 SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceDefaultNegativeHover,
                 ),
             )
             textColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -205,16 +205,16 @@ public val WrapperCounterView.Black: WrapperCounterTerminate
                 SddsServTheme.colors.surfaceOnLightSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceOnLightSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.surfaceOnLightSolidDefaultHover,
                 ),
             )
             textColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -236,8 +236,8 @@ public val WrapperCounterView.White: WrapperCounterTerminate
                 SddsServTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsServTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textOnLightPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textOnLightPrimaryHover,
                 ),
             )
         }
@@ -255,8 +255,8 @@ public val Counter.L: WrapperCounterL
         .invariantProps
         .textStyle(SddsServTheme.typography.bodySNormal)
         .dimensions {
-            minHeight(28.0.dp)
             minWidth(28.0.dp)
+            minHeight(28.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(10.0.dp)
         }
@@ -269,8 +269,8 @@ public val Counter.M: WrapperCounterM
         .invariantProps
         .textStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
-            minHeight(24.0.dp)
             minWidth(24.0.dp)
+            minHeight(24.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
         }
@@ -283,8 +283,8 @@ public val Counter.S: WrapperCounterS
         .invariantProps
         .textStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(20.0.dp)
             minWidth(20.0.dp)
+            minHeight(20.0.dp)
             paddingStart(6.0.dp)
             paddingEnd(6.0.dp)
         }
@@ -297,8 +297,8 @@ public val Counter.Xs: WrapperCounterXs
         .invariantProps
         .textStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(16.0.dp)
             minWidth(16.0.dp)
+            minHeight(16.0.dp)
             paddingStart(4.0.dp)
             paddingEnd(4.0.dp)
         }
@@ -311,8 +311,8 @@ public val Counter.Xxs: WrapperCounterXxs
         .invariantProps
         .textStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(12.0.dp)
             minWidth(12.0.dp)
+            minHeight(12.0.dp)
             paddingStart(2.0.dp)
             paddingEnd(2.0.dp)
         }

@@ -6,6 +6,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
@@ -52,6 +53,7 @@ interface ChipGroupStyle : Style {
  * Builder для [ChipGroupStyle]
  */
 @Stable
+@ApiInfo
 interface ChipGroupStyleBuilder : StyleBuilder<ChipGroupStyle> {
 
     /**

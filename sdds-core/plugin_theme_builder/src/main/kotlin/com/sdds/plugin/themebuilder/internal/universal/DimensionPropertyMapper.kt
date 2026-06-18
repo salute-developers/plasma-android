@@ -9,13 +9,17 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.camelToSnakeCase
 
 internal class DimensionPropertyMapper(
-    private val componentName: String,
+    componentName: String,
     private val dimensAggregator: DimensAggregator,
     private val dimensionsConfig: DimensionsConfig,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val componentXmlPrefix: String,
     stateEnum: StateEnum?,
 ) : PropertyMapper<Float, DimensionPropertyMeta, FloatState, Dimension>(stateEnum) {
+
+    private val camelComponentName: String = componentName
+        .split(".", "-", "_")
+        .joinToString("") { seg -> seg.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() } }
 
     override fun map(
         meta: DimensionPropertyMeta,
@@ -44,8 +48,9 @@ internal class DimensionPropertyMapper(
     ): String {
         return if (dimensionsConfig.fromResources) {
             val snakeCaseName = meta.id.camelToSnakeCase()
+            val suffix = if (resSuffix.isEmpty()) "" else "_$resSuffix"
             val dimenData = DimenData(
-                name = "${componentXmlPrefix}_${snakeCaseName}_$resSuffix",
+                name = "${componentXmlPrefix}_${snakeCaseName}$suffix",
                 value = value,
                 type = DimenData.Type.DP,
             )
@@ -56,7 +61,12 @@ internal class DimensionPropertyMapper(
         }
     }
 
+    override fun buildResSuffix(variationId: String, states: List<String>, stateIndex: Int): String {
+        val prefix = if (variationId.isNotBlank()) "${variationId}_" else ""
+        return "$prefix$stateIndex"
+    }
+
     private fun getVariationSuffix(variationId: String): String {
-        return if (variationId == componentName) "" else variationId
+        return if (variationId == camelComponentName) "" else variationId
     }
 }

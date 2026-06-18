@@ -12,6 +12,7 @@ import com.google.devtools.ksp.symbol.ClassKind
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSAnnotation
 import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.google.devtools.ksp.symbol.KSFile
 import com.google.devtools.ksp.symbol.KSFunctionDeclaration
 import com.google.devtools.ksp.symbol.KSType
 import com.google.devtools.ksp.symbol.KSValueParameter
@@ -61,6 +62,7 @@ class ApiInfoProcessor(
         COLOR,
         TYPOGRAPHY,
         DIMENSION,
+        SHADOW,
         COMPONENT_STYLE,
         FLOAT,
         INTEGER,
@@ -71,6 +73,7 @@ class ApiInfoProcessor(
     }
 
     private val components = mutableListOf<ComponentMeta>()
+    private val sourceFiles = linkedSetOf<KSFile>()
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
         val stateEnumsByComponent = collectStateEnumsByComponent(resolver)
@@ -80,10 +83,11 @@ class ApiInfoProcessor(
             .filterIsInstance<KSClassDeclaration>()
             .filter { it.classKind == ClassKind.INTERFACE }
             .forEach { classDeclaration ->
+                classDeclaration.containingFile?.let(sourceFiles::add)
                 processStyleBuilder(
                     classDeclaration = classDeclaration,
                     stateEnumsByComponent = stateEnumsByComponent,
-                )?.let { components.add(it) }
+                ).let { components.addAll(it) }
             }
 
         return emptyList()
@@ -93,7 +97,7 @@ class ApiInfoProcessor(
     override fun finish() {
         if (components.isEmpty()) return
         val json = Json { prettyPrint = true }
-        val allSourceFiles = components.mapNotNull { it.sourceFile }.toTypedArray()
+        val allSourceFiles = sourceFiles.toTypedArray()
         try {
             codeGenerator.createNewFile(
                 dependencies = Dependencies(aggregating = true, *allSourceFiles),
@@ -111,9 +115,33 @@ class ApiInfoProcessor(
     private fun processStyleBuilder(
         classDeclaration: KSClassDeclaration,
         stateEnumsByComponent: Map<String, StateEnum>,
-    ): ComponentMeta? {
-        val qualifiedName = classDeclaration.qualifiedName?.asString() ?: return null
-        val componentName = extractComponentName(classDeclaration.simpleName.asString())
+    ): List<ComponentMeta> {
+        val qualifiedName = classDeclaration.qualifiedName?.asString() ?: return emptyList()
+
+        val apiInfoAnnotation = classDeclaration.annotations
+            .firstOrNull { it.hasQualifiedName(API_INFO_ANNOTATION) }
+
+        val explicitComponents: List<String> = (
+            apiInfoAnnotation
+                ?.arguments
+                ?.firstOrNull { it.name?.asString() == "components" }
+                ?.value as? List<*>
+            )
+            ?.filterIsInstance<String>()
+            ?.filter { it.isNotBlank() }
+            .orEmpty()
+
+        val packageName: String = apiInfoAnnotation
+            ?.argumentValue<String>("packageName")
+            .orEmpty()
+
+        val builderFunName: String = apiInfoAnnotation
+            ?.argumentValue<String>("builderFunName")
+            .orEmpty()
+
+        val componentNames = explicitComponents.ifEmpty {
+            listOf(extractComponentName(classDeclaration.simpleName.asString()))
+        }
 
         val collectedTypes = linkedSetOf<String>()
         val params = mutableListOf<ParameterMeta>()
@@ -134,14 +162,21 @@ class ApiInfoProcessor(
                 }
             }
 
-        return ComponentMeta(
-            componentName = componentName,
-            qualifiedName = qualifiedName,
-            resolvedTypes = collectedTypes.sorted(),
-            stateEnum = stateEnumsByComponent[componentName],
-            params = params,
-            sourceFile = classDeclaration.containingFile,
-        )
+        val resolvedTypes = collectedTypes.sorted()
+        val styleQualifiedName = classDeclaration.styleBuilderTypeArgQualifiedName()
+        return componentNames.map { componentName ->
+            ComponentMeta(
+                componentName = componentName,
+                qualifiedName = qualifiedName,
+                resolvedTypes = resolvedTypes,
+                stateEnum = stateEnumsByComponent[componentName],
+                params = params,
+                packageName = packageName,
+                styleQualifiedName = styleQualifiedName,
+                builderFunName = builderFunName,
+                sourceFile = classDeclaration.containingFile,
+            )
+        }
     }
 
     private fun collectStateEnumsByComponent(resolver: Resolver): Map<String, StateEnum> =
@@ -149,6 +184,7 @@ class ApiInfoProcessor(
             .getSymbolsWithAnnotation(STATE_SET_INFO_ANNOTATION)
             .filterIsInstance<KSClassDeclaration>()
             .filter { it.classKind == ClassKind.ENUM_CLASS }
+            .onEach { it.containingFile?.let(sourceFiles::add) }
             .flatMap { enumDeclaration ->
                 val stateEnum = enumDeclaration.toStateEnum()
 
@@ -174,7 +210,7 @@ class ApiInfoProcessor(
 
                     EnumValueInfo(
                         name = name,
-                        configName = enumEntry.stateConfigName().ifBlank { name },
+                        configName = enumEntry.apiNameAnnotation().ifBlank { name },
                     )
                 }
                 .toList(),
@@ -184,16 +220,15 @@ class ApiInfoProcessor(
     private fun KSClassDeclaration.stateSetComponentNames(): List<String> =
         annotations
             .firstOrNull { it.hasQualifiedName(STATE_SET_INFO_ANNOTATION) }
-            ?.argumentValue<String>("components")
+            ?.arguments
+            ?.firstOrNull { it.name?.asString() == "components" }
+            ?.let { (it.value as? List<*>)?.filterIsInstance<String>()?.filter { s -> s.isNotBlank() } }
             .orEmpty()
-            .split(",", ";", "|", " ")
-            .map { it.trim() }
-            .filter { it.isNotBlank() }
 
-    private fun KSClassDeclaration.stateConfigName(): String =
+    private fun KSClassDeclaration.apiNameAnnotation(): String =
         annotations
-            .firstOrNull { it.hasQualifiedName(STATE_INFO_ANNOTATION) }
-            ?.argumentValue<String>("configName")
+            .firstOrNull { it.hasQualifiedName(CONFIG_NAME_ANNOTATION) }
+            ?.argumentValue<String>("name")
             .orEmpty()
 
     private fun KSClassDeclaration.defaultComponentNameFromStateEnum(): String =
@@ -201,6 +236,19 @@ class ApiInfoProcessor(
             .removeSuffix("StateSet")
             .removeSuffix("States")
             .removeSuffix("State")
+
+    private fun KSClassDeclaration.styleBuilderTypeArgQualifiedName(): String =
+        superTypes
+            .map { it.resolve() }
+            .firstOrNull { it.declaration.qualifiedName?.asString() == STYLE_BUILDER }
+            ?.arguments
+            ?.firstOrNull()
+            ?.type
+            ?.resolve()
+            ?.declaration
+            ?.qualifiedName
+            ?.asString()
+            .orEmpty()
 
     private fun KSAnnotation.hasQualifiedName(qualifiedName: String): Boolean =
         annotationType.resolve()
@@ -301,6 +349,7 @@ class ApiInfoProcessor(
             paramName = paramName,
             paramQualifiedType = actualQualifiedName,
             paramSimpleType = actualSimpleName,
+            valueQualifiedType = effectiveQualifiedName,
             group = group,
             values = if (type == ParameterType.VALUE) extractEnumValues(effectiveParamType) else emptyList(),
         )
@@ -308,22 +357,20 @@ class ApiInfoProcessor(
 
     private fun KSFunctionDeclaration.propertyName(): String? =
         annotations
-            .firstOrNull {
-                it.annotationType.resolve()
-                    .declaration
-                    .qualifiedName
-                    ?.asString() == "com.sdds.api.info.compose.Property"
-            }
-            ?.arguments
-            ?.firstOrNull { it.name?.asString() == "name" }
-            ?.value as? String
+            .firstOrNull { it.hasQualifiedName(CONFIG_NAME_ANNOTATION) }
+            ?.argumentValue<String>("name")
+            ?.takeIf { it.isNotBlank() }
 
-    private fun extractEnumValues(paramType: KSType): List<String> =
+    private fun extractEnumValues(paramType: KSType): List<EnumValueInfo> =
         (paramType.declaration as? KSClassDeclaration)
             ?.declarations
             ?.filterIsInstance<KSClassDeclaration>()
             ?.filter { it.classKind == ClassKind.ENUM_ENTRY }
-            ?.map { it.simpleName.asString() }
+            ?.map { enumEntry ->
+                val name = enumEntry.simpleName.asString()
+                val configName = enumEntry.apiNameAnnotation().ifBlank { name }
+                EnumValueInfo(name = name, configName = configName)
+            }
             ?.toList()
             ?: emptyList()
 
@@ -340,10 +387,26 @@ class ApiInfoProcessor(
         COLOR_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.COLOR
         TYPOGRAPHY_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.TYPOGRAPHY
         DIMENSION_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.DIMENSION
+        SHADOW_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.SHADOW
         qualifiedName == "kotlin.Float" -> ParameterType.FLOAT
         qualifiedName == "kotlin.Boolean" -> ParameterType.BOOLEAN
         qualifiedName == "kotlin.Int" -> ParameterType.INTEGER
+        qualifiedName.startsWith("kotlin.collections.List") -> classifyListType(paramType)
         else -> ParameterType.UNKNOWN
+    }
+
+    private fun classifyListType(paramType: KSType): ParameterType {
+        val argSimpleName = paramType.arguments.firstOrNull()
+            ?.type?.resolve()?.declaration?.simpleName?.asString()
+            .orEmpty()
+        return when {
+            COLOR_KEYWORDS.any { argSimpleName.contains(it) } -> ParameterType.COLOR
+            SHAPE_KEYWORDS.any { argSimpleName.contains(it) } -> ParameterType.SHAPE
+            TYPOGRAPHY_KEYWORDS.any { argSimpleName.contains(it) } -> ParameterType.TYPOGRAPHY
+            SHADOW_KEYWORDS.any { argSimpleName.contains(it) } -> ParameterType.SHADOW
+            DIMENSION_KEYWORDS.any { argSimpleName.contains(it) } -> ParameterType.DIMENSION
+            else -> ParameterType.UNKNOWN
+        }
     }
 
     private fun KSType.isExtensionFunctionType(): Boolean =
@@ -381,15 +444,17 @@ class ApiInfoProcessor(
 
     companion object {
         private const val STATEFUL_VALUE = "com.sdds.compose.uikit.interactions.StatefulValue"
+        private const val STYLE_BUILDER = "com.sdds.compose.uikit.style.StyleBuilder"
         private const val API_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiInfo"
-        private const val STATE_SET_INFO_ANNOTATION = "com.sdds.api.info.compose.StateSetInfo"
-        private const val STATE_INFO_ANNOTATION = "com.sdds.api.info.compose.StateInfo"
+        private const val STATE_SET_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiStateSet"
+        private const val CONFIG_NAME_ANNOTATION = "com.sdds.api.info.compose.ApiName"
         private const val DRAWABLE_RES = "androidx.annotation.DrawableRes"
         private const val GROUP_ROOT = "root"
         private val SKIP_METHODS = setOf("equals", "hashCode", "toString", "style", "build")
         private val SHAPE_KEYWORDS = setOf("Shape")
         private val COLOR_KEYWORDS = setOf("Color", "Brush", "InteractiveColor")
         private val TYPOGRAPHY_KEYWORDS = setOf("TextStyle", "Typography", "Font")
+        private val SHADOW_KEYWORDS = setOf("Shadow")
         private val DIMENSION_KEYWORDS =
             setOf("Dp", "Dimension", "Padding", "Size", "Width", "Height", "Radius", "Diameter")
     }

@@ -8,11 +8,12 @@
 package com.sdds.plasma.giga.styles.tabbar
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TabBarStyle
 import com.sdds.compose.uikit.TabBarStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -94,9 +95,7 @@ private val TabBarStyleBuilder.invariantProps: TabBarStyleBuilder
         .topShape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = 2.0.dp))
         .bottomShape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = 2.0.dp))
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
         .dimensions {
             paddingStart(8.0.dp)

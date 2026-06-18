@@ -9,11 +9,11 @@ package com.sdkit.star.designsystem.styles.progressbar
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.ProgressBarStyleBuilder
 import com.sdds.compose.uikit.graphics.asLayered
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -40,12 +40,8 @@ public val ProgressBar.Default: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                StarDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
+            indicatorColor(SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -54,12 +50,8 @@ public val ProgressBar.Secondary: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                StarDsTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-            )
+            indicatorColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -68,12 +60,8 @@ public val ProgressBar.Accent: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                StarDsTheme.colors.surfaceDefaultAccentMain.asInteractive(),
-            )
+            indicatorColor(SolidColor(StarDsTheme.colors.surfaceDefaultAccentMain).asStatefulValue())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -82,12 +70,8 @@ public val ProgressBar.Gradient: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                StarDsTheme.gradients.surfaceDefaultGradientMain.asLayered().asStatefulValue(),
-            )
+            indicatorColor(StarDsTheme.gradients.surfaceDefaultGradientMain.asLayered().asStatefulValue())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -96,12 +80,8 @@ public val ProgressBar.Info: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                StarDsTheme.colors.surfaceDefaultInfo.asInteractive(),
-            )
+            indicatorColor(SolidColor(StarDsTheme.colors.surfaceDefaultInfo).asStatefulValue())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -110,12 +90,8 @@ public val ProgressBar.Negative: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                StarDsTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
+            indicatorColor(SolidColor(StarDsTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -124,12 +100,8 @@ public val ProgressBar.Positive: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                StarDsTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
+            indicatorColor(SolidColor(StarDsTheme.colors.surfaceDefaultPositive).asStatefulValue())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -138,12 +110,8 @@ public val ProgressBar.Warning: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                StarDsTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
+            indicatorColor(SolidColor(StarDsTheme.colors.surfaceDefaultWarning).asStatefulValue())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 

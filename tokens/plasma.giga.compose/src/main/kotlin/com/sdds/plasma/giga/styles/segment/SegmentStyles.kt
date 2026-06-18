@@ -210,17 +210,15 @@ public value class WrapperSegmentXsPilled(
 private val SegmentStyleBuilder.invariantProps: SegmentStyleBuilder
     @Composable
     get() = this
+        .dividerStyle(Divider.Default.style())
         .colors {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
+            backgroundColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive())
         }
         .dimensions {
-            gap(2.0.dp)
             dividerPaddingStart(8.0.dp)
             dividerPaddingEnd(8.0.dp)
+            gap(2.0.dp)
         }
-        .dividerStyle(Divider.Default.style())
 
 public val WrapperSegmentXlView.Primary: WrapperSegmentTerminate
     @Composable

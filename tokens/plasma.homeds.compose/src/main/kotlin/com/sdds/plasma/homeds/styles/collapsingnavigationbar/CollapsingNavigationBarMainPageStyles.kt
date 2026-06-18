@@ -44,45 +44,36 @@ public val CollapsingNavigationBarMainPage.Default: WrapperCollapsingNavigationB
     get() = CollapsingNavigationBarStyle.builder(this)
         .titleStyle(
             PlasmaHomeDsTheme.typography.headerH2Normal.asStatefulValue(
-                setOf(CollapsingNavigationBarStates.Collapsed) to
-                    PlasmaHomeDsTheme.typography.bodyMNormal,
+                setOf(CollapsingNavigationBarStates.Collapsed)
+                    to PlasmaHomeDsTheme.typography.bodyMNormal,
             ),
         )
         .descriptionStyle(
             PlasmaHomeDsTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(CollapsingNavigationBarStates.Collapsed) to
-                    PlasmaHomeDsTheme.typography.bodyXsNormal,
+                setOf(CollapsingNavigationBarStates.Collapsed)
+                    to PlasmaHomeDsTheme.typography.bodyXsNormal,
             ),
         )
+        .actionButtonStyle(IconButton.S.Secondary.style())
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultClear.asStatefulValue(),
-            )
-            titleColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asStatefulValue(),
-            )
-            descriptionColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asStatefulValue(),
-            )
-            actionStartColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asStatefulValue(),
-            )
-            actionEndColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asStatefulValue(),
-            )
+            backgroundColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear.asStatefulValue())
+            actionStartColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asStatefulValue())
+            actionEndColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asStatefulValue())
+            titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asStatefulValue())
+            descriptionColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asStatefulValue())
         }
         .dimensions {
+            textBlockTopMargin(16.0.dp)
+            horizontalSpacing(8.0.dp)
             paddingStart(24.0.dp)
             paddingEnd(24.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            textBlockTopMargin(16.0.dp)
-            horizontalSpacing(8.0.dp)
             descriptionPadding(
                 12.0.dp.asStatefulValue(
-                    setOf(CollapsingNavigationBarStates.Collapsed) to 4.0.dp,
+                    setOf(CollapsingNavigationBarStates.Collapsed) to
+                        4.0.dp,
                 ),
             )
         }
-        .actionButtonStyle(IconButton.S.Secondary.style())
         .wrap(::WrapperCollapsingNavigationBarMainPageDefault)

@@ -9,11 +9,12 @@ package com.sdds.sbcom.styles.iconbadge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
 import com.sdds.compose.uikit.iconBadgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -38,12 +39,8 @@ public val Mention.MuteNo: WrapperMentionTerminate
     get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
-            startContentColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(SddsSbComTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperMentionTerminate)
 
@@ -52,12 +49,8 @@ public val Mention.MuteYes: WrapperMentionTerminate
     get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.textDefaultParagraph.asInteractive(),
-            )
-            startContentColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.textDefaultParagraph).asStatefulValue())
+            startContentColor(SolidColor(SddsSbComTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperMentionTerminate)
 

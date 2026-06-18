@@ -81,50 +81,34 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
         .textStyle(PlasmaSdServiceTheme.typography.bodyLBold)
         .titleStyle(
             PlasmaSdServiceTheme.typography.headerH2Normal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    PlasmaSdServiceTheme.typography.bodyMNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to PlasmaSdServiceTheme.typography.bodyMNormal,
             ),
         )
         .descriptionStyle(
             PlasmaSdServiceTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    PlasmaSdServiceTheme.typography.bodyXsNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to PlasmaSdServiceTheme.typography.bodyXsNormal,
             ),
         )
         .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
         .colors {
-            backIconColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            textColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            actionStartColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            actionEndColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backIconColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            actionStartColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            actionEndColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            titleColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            descriptionColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            backIconMargin(4.0.dp)
+            textBlockTopMargin(16.0.dp)
+            horizontalSpacing(16.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
-            backIconMargin(4.0.dp)
-            textBlockTopMargin(16.0.dp)
-            horizontalSpacing(16.0.dp)
-            descriptionPadding(
-                12.0.dp.asStatefulValue(
-                    setOf(NavigationBarTextPlacement.Inline) to 4.0.dp,
-                ),
-            )
+            descriptionPadding(12.0.dp.asStatefulValue(setOf(NavigationBarTextPlacement.Inline) to 4.0.dp))
         }
 
 public val NavigationBarInternalPage.NoBackground: WrapperNavigationBarInternalPageNoBackground
@@ -133,9 +117,7 @@ public val NavigationBarInternalPage.NoBackground: WrapperNavigationBarInternalP
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive())
         }
         .wrap(::WrapperNavigationBarInternalPageNoBackground)
 
@@ -153,9 +135,7 @@ public val NavigationBarInternalPage.HasBackground: WrapperNavigationBarInternal
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
+            backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive())
         }
         .wrap(::WrapperNavigationBarInternalPageHasBackground)
 

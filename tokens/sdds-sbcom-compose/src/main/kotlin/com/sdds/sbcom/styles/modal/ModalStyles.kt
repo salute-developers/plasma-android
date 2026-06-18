@@ -42,10 +42,9 @@ public val Modal.Default: WrapperModalDefault
     @JvmName("WrapperModalDefault")
     get() = ModalStyle.builder(this)
         .shape(SddsSbComTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
+        .overlayStyle(Overlay.Default.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
         .dimensions {
             paddingStart(24.0.dp)
@@ -53,5 +52,4 @@ public val Modal.Default: WrapperModalDefault
             paddingTop(24.0.dp)
             paddingBottom(20.0.dp)
         }
-        .overlayStyle(Overlay.Default.style())
         .wrap(::WrapperModalDefault)

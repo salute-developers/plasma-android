@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
@@ -69,6 +70,7 @@ interface CodeFieldStyle : Style {
 /**
  * Билдер стиля компонента
  */
+@ApiInfo
 interface CodeFieldStyleBuilder : StyleBuilder<CodeFieldStyle> {
     /**
      * Устанавливает форму элемента [itemShape]

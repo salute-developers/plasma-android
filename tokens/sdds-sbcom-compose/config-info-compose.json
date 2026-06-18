@@ -328,6 +328,123 @@
       {
          "key": "indicator",
          "coreName": "Indicator",
+         "styleName": "AvatarIndicator",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-14",
+                  "size-12",
+                  "size-10",
+                  "size-8",
+                  "size-6"
+               ],
+               "defaultValue": "size-14"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.AvatarIndicator",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorStyles.AvatarIndicator",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "AvatarIndicator",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AvatarIndicatorSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.indicator.AvatarIndicatorSize",
+                  "defaultValue": {
+                     "value": "size-14",
+                     "codeName": "Size14"
+                  },
+                  "values": [
+                     {
+                        "value": "size-14",
+                        "codeName": "Size14"
+                     },
+                     {
+                        "value": "size-12",
+                        "codeName": "Size12"
+                     },
+                     {
+                        "value": "size-10",
+                        "codeName": "Size10"
+                     },
+                     {
+                        "value": "size-8",
+                        "codeName": "Size8"
+                     },
+                     {
+                        "value": "size-6",
+                        "codeName": "Size6"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "size-14",
+               "composeReference": "AvatarIndicator.Size14",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-14"
+                  }
+               ]
+            },
+            {
+               "name": "size-12",
+               "composeReference": "AvatarIndicator.Size12",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-12"
+                  }
+               ]
+            },
+            {
+               "name": "size-10",
+               "composeReference": "AvatarIndicator.Size10",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-10"
+                  }
+               ]
+            },
+            {
+               "name": "size-8",
+               "composeReference": "AvatarIndicator.Size8",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-8"
+                  }
+               ]
+            },
+            {
+               "name": "size-6",
+               "composeReference": "AvatarIndicator.Size6",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-6"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "indicator",
+         "coreName": "Indicator",
          "styleName": "Indicator",
          "props": [
             {

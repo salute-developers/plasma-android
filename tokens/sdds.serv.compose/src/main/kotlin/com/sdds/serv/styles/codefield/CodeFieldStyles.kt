@@ -69,28 +69,26 @@ private val CodeFieldStyleBuilder.invariantProps: CodeFieldStyleBuilder
                         to SddsServTheme.colors.textDefaultNegative,
                 ),
             )
-            captionColor(
-                SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(CodeInputStates.Error)
-                        to SddsServTheme.colors.textDefaultNegative,
-                ),
-            )
+            cursorColor(SddsServTheme.colors.textDefaultAccent.asStatefulValue())
             dotColor(
                 SddsServTheme.colors.surfaceDefaultSolidDefault.asStatefulValue(
                     setOf(CodeInputStates.Error)
                         to SddsServTheme.colors.surfaceDefaultNegative,
                 ),
             )
+            captionColor(
+                SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
+                    setOf(CodeInputStates.Error)
+                        to SddsServTheme.colors.textDefaultNegative,
+                ),
+            )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultSolidPrimary.asStatefulValue(
                     setOf(CodeInputStates.Error)
                         to SddsServTheme.colors.surfaceDefaultTransparentNegative,
-                    setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                    setOf(InteractiveState.Activated) to
+                        SddsServTheme.colors.surfaceDefaultTransparentSecondary,
                 ),
-            )
-            cursorColor(
-                SddsServTheme.colors.textDefaultAccent.asStatefulValue(),
             )
         }
         .dimensions {
@@ -107,9 +105,9 @@ public val CodeField.L: WrapperCodeFieldL
         .valueStyle(SddsServTheme.typography.bodyLBold)
         .captionStyle(SddsServTheme.typography.bodySNormal)
         .dimensions {
-            dotSize(10.0.dp)
             height(56.0.dp)
             width(44.0.dp)
+            dotSize(10.0.dp)
             captionSpacing(14.0.dp)
         }
         .wrap(::WrapperCodeFieldL)
@@ -131,9 +129,9 @@ public val CodeField.M: WrapperCodeFieldM
         .valueStyle(SddsServTheme.typography.bodyMBold)
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
-            dotSize(8.0.dp)
             height(48.0.dp)
             width(38.0.dp)
+            dotSize(8.0.dp)
             captionSpacing(12.0.dp)
         }
         .wrap(::WrapperCodeFieldM)

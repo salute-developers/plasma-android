@@ -9,12 +9,12 @@ package com.sdds.sbcom.styles.radiobox
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.RadioBoxStates
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RadioBoxStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
@@ -41,51 +41,39 @@ public val RadioBox.Default: WrapperRadioBoxDefault
     @Composable
     @JvmName("WrapperRadioBoxDefault")
     get() = RadioBoxStyle.builder(this)
+        .disableAlpha(0.4f)
         .shape(CircleShape)
         .backgroundShape(CircleShape)
         .colorValues {
+            toggleBorderColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue())
+            toggleColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            toggleIconColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue())
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent.multiplyAlpha(0.08f),
-                    setOf(InteractiveState.Focused)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
+                        to
+                        SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentAccent.multiplyAlpha(0.08f)),
+                    setOf(InteractiveState.Focused) to
+                        SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentAccent),
                 ),
-            )
-            toggleColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-            toggleIconColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
-            toggleBorderColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
             )
         }
         .dimensionValues {
             toggleWidth(24.0.dp)
             toggleHeight(24.0.dp)
-            toggleIconHeight(
-                0.0.dp.asStatefulValue(
-                    setOf(RadioBoxStates.Checked) to 10.0.dp,
-                ),
-            )
-            toggleIconWidth(
-                0.0.dp.asStatefulValue(
-                    setOf(RadioBoxStates.Checked) to 10.0.dp,
+            togglePadding(2.0.dp)
+            toggleIconHeight(0.0.dp.asStatefulValue(setOf(RadioBoxStates.Checked) to 10.0.dp))
+            toggleIconWidth(0.0.dp.asStatefulValue(setOf(RadioBoxStates.Checked) to 10.0.dp))
+            toggleBorderWidth(
+                2.0.dp.asStatefulValue(
+                    setOf(InteractiveState.Focused, RadioBoxStates.Checked)
+                        to 1.0.dp,
                 ),
             )
             toggleBorderOffset(0.0.dp)
-            toggleBorderWidth(
-                2.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to 1.0.dp,
-                ),
-            )
-            togglePadding(2.0.dp)
             paddingStart(10.0.dp)
-            paddingEnd(10.0.dp)
             paddingTop(10.0.dp)
+            paddingEnd(10.0.dp)
             paddingBottom(10.0.dp)
         }
-        .disableAlpha(0.4f)
         .wrap(::WrapperRadioBoxDefault)

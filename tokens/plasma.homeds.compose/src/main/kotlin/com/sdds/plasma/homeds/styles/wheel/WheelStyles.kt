@@ -115,18 +115,14 @@ public value class WrapperWheelH4MixedAlign(
 private val WheelStyleBuilder.invariantProps: WheelStyleBuilder
     @Composable
     get() = this
-        .controlIconUp(com.sdds.icons.R.drawable.ic_disclosure_up_outline_36)
-        .controlIconDown(com.sdds.icons.R.drawable.ic_disclosure_down_outline_36)
         .wheelCount(3)
         .visibleItemsCount(3)
+        .controlIconUp(com.sdds.icons.R.drawable.ic_disclosure_up_outline_36)
+        .controlIconDown(com.sdds.icons.R.drawable.ic_disclosure_down_outline_36)
         .dividerStyle(Divider.Default.style())
         .colors {
-            itemTextColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            itemTextColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            descriptionColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
             controlIconUpColor(
                 PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Focused)
@@ -139,9 +135,7 @@ private val WheelStyleBuilder.invariantProps: WheelStyleBuilder
                         to PlasmaHomeDsTheme.colors.textDefaultPrimary,
                 ),
             )
-            separatorColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            separatorColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
         }
 
 public val Wheel.H1: WrapperWheelH1
@@ -153,9 +147,7 @@ public val Wheel.H1: WrapperWheelH1
         .itemTextAfterStyle(PlasmaHomeDsTheme.typography.headerH1Bold)
         .descriptionStyle(PlasmaHomeDsTheme.typography.bodySBold)
         .colors {
-            itemTextAfterColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            itemTextAfterColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
             itemTextAfterPadding(2.0.dp)
@@ -205,12 +197,8 @@ public val Wheel.H4: WrapperWheelH4
         .itemSelectorEnabled(true)
         .itemSelectorShape(PlasmaHomeDsTheme.shapes.roundXl)
         .colors {
-            itemTextAfterColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            itemSelectorColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue(),
-            )
+            itemTextAfterColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            itemSelectorColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue())
         }
         .dimensions {
             itemTextAfterPadding(2.0.dp)

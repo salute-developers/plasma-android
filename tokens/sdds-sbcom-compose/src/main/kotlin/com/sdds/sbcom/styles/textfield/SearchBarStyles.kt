@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
+import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
@@ -39,41 +40,33 @@ public val SearchBar.Default: WrapperSearchBarDefault
     @Composable
     @JvmName("WrapperSearchBarDefault")
     get() = TextFieldStyle.builder(this)
-        .singleLine(true)
         .shape(CircleShape)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(SddsSbComTheme.typography.bodyLNormal)
+        .placeholderStyle(SddsSbComTheme.typography.bodyLNormal)
         .dimensions {
             boxPaddingStart(16.0.dp)
             boxPaddingEnd(16.0.dp)
             boxPaddingTop(16.0.dp)
             boxPaddingBottom(16.0.dp)
-            boxMinHeight(56.0.dp)
-            alignmentLineHeight(56.0.dp)
             startContentPadding(16.0.dp)
             endContentPadding(16.0.dp)
+            boxMinHeight(56.0.dp)
+            alignmentLineHeight(56.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
         }
-        .valueStyle(SddsSbComTheme.typography.bodyLNormal)
-        .placeholderStyle(SddsSbComTheme.typography.bodyLNormal)
-        .labelPlacement(TextFieldLabelPlacement.None)
         .colors {
-            valueColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            cursorColor(SddsSbComTheme.colors.textDefaultAccent.asInteractive())
+            startContentColor(SddsSbComTheme.colors.textDefaultPrimary.asInteractive())
             endContentColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultPrimaryHover,
                 ),
             )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
-            cursorColor(
-                SddsSbComTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            valueColor(SddsSbComTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SddsSbComTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
         }
         .wrap(::WrapperSearchBarDefault)

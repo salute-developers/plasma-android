@@ -54,9 +54,7 @@ private val CardStyleBuilder.invariantProps: CardStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultClear).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
 
 public val CardClear.L: WrapperCardClearL
@@ -67,10 +65,10 @@ public val CardClear.L: WrapperCardClearL
         .shape(PlasmaGigaTheme.shapes.roundL)
         .contentShape(PlasmaGigaTheme.shapes.roundL)
         .dimensions {
-            paddingTop(0.0.dp)
-            paddingBottom(0.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
+            paddingTop(0.0.dp)
+            paddingBottom(0.0.dp)
         }
         .wrap(::WrapperCardClearL)
 
@@ -82,10 +80,10 @@ public val CardClear.M: WrapperCardClearM
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .contentShape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .dimensions {
-            paddingTop(0.0.dp)
-            paddingBottom(0.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
+            paddingTop(0.0.dp)
+            paddingBottom(0.0.dp)
         }
         .wrap(::WrapperCardClearM)
 
@@ -97,9 +95,9 @@ public val CardClear.S: WrapperCardClearS
         .shape(PlasmaGigaTheme.shapes.roundM)
         .contentShape(PlasmaGigaTheme.shapes.roundM)
         .dimensions {
-            paddingTop(0.0.dp)
-            paddingBottom(0.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
+            paddingTop(0.0.dp)
+            paddingBottom(0.0.dp)
         }
         .wrap(::WrapperCardClearS)

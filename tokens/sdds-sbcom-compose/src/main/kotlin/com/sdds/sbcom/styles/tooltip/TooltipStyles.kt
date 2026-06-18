@@ -39,29 +39,23 @@ public val Tooltip.Default: WrapperTooltipDefault
     @JvmName("WrapperTooltipDefault")
     get() = TooltipStyle.builder(this)
         .shape(SddsSbComTheme.shapes.roundXxs)
-        .textStyle(SddsSbComTheme.typography.bodySNormal)
         .shadow(SddsSbComTheme.shadows.downHardM)
+        .textStyle(SddsSbComTheme.typography.bodySNormal)
         .colors {
-            backgroundColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(),
-            )
-            textColor(
-                SolidColor(SddsSbComTheme.colors.textInversePrimary).asStatefulValue(),
-            )
-            contentStartColor(
-                SddsSbComTheme.colors.textInversePrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            textColor(SolidColor(SddsSbComTheme.colors.textInversePrimary).asStatefulValue())
+            contentStartColor(SddsSbComTheme.colors.textInversePrimary.asInteractive())
         }
         .dimensions {
+            offset(8.0.dp)
+            tailWidth(20.0.dp)
+            tailHeight(8.0.dp)
+            tailPadding(10.0.dp)
             contentStartSize(16.0.dp)
             contentStartPadding(6.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
             paddingTop(4.0.dp)
             paddingBottom(4.0.dp)
-            offset(8.0.dp)
-            tailWidth(20.0.dp)
-            tailHeight(8.0.dp)
-            tailPadding(10.0.dp)
         }
         .wrap(::WrapperTooltipDefault)

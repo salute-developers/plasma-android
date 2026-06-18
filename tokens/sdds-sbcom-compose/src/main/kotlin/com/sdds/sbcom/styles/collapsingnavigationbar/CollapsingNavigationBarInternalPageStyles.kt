@@ -45,46 +45,34 @@ public val CollapsingNavigationBarInternalPage.Default:
     get() = CollapsingNavigationBarStyle.builder(this)
         .titleStyle(
             SddsSbComTheme.typography.headerH1Normal.asStatefulValue(
-                setOf(CollapsingNavigationBarStates.Collapsed) to
-                    SddsSbComTheme.typography.headerH2Medium,
+                setOf(CollapsingNavigationBarStates.Collapsed)
+                    to SddsSbComTheme.typography.headerH2Medium,
             ),
         )
         .descriptionStyle(
             SddsSbComTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(CollapsingNavigationBarStates.Collapsed) to
-                    SddsSbComTheme.typography.bodyXsMedium,
+                setOf(CollapsingNavigationBarStates.Collapsed)
+                    to SddsSbComTheme.typography.bodyXsMedium,
             ),
         )
         .backIcon(com.sdds.icons.R.drawable.ic_arrow_left_24)
+        .actionButtonStyle(IconButtonClear.M.Accent.style())
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asStatefulValue(),
-            )
-            backIconColor(
-                SddsSbComTheme.colors.textDefaultAccent.asStatefulValue(),
-            )
-            titleColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asStatefulValue(),
-            )
-            descriptionColor(
-                SddsSbComTheme.colors.textDefaultSecondary.asStatefulValue(),
-            )
-            actionStartColor(
-                SddsSbComTheme.colors.textDefaultAccent.asStatefulValue(),
-            )
-            actionEndColor(
-                SddsSbComTheme.colors.textDefaultAccent.asStatefulValue(),
-            )
+            backgroundColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asStatefulValue())
+            backIconColor(SddsSbComTheme.colors.textDefaultAccent.asStatefulValue())
+            actionStartColor(SddsSbComTheme.colors.textDefaultAccent.asStatefulValue())
+            actionEndColor(SddsSbComTheme.colors.textDefaultAccent.asStatefulValue())
+            titleColor(SddsSbComTheme.colors.textDefaultPrimary.asStatefulValue())
+            descriptionColor(SddsSbComTheme.colors.textDefaultSecondary.asStatefulValue())
         }
         .dimensions {
+            backIconMargin(16.0.dp)
+            textBlockTopMargin(0.0.dp)
+            horizontalSpacing(4.0.dp)
             paddingStart(4.0.dp)
             paddingEnd(4.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            backIconMargin(16.0.dp)
-            textBlockTopMargin(0.0.dp)
-            horizontalSpacing(4.0.dp)
             descriptionPadding(0.0.dp)
         }
-        .actionButtonStyle(IconButtonClear.M.Accent.style())
         .wrap(::WrapperCollapsingNavigationBarInternalPageDefault)

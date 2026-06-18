@@ -65,60 +65,60 @@ public value class WrapperIconTabItemXs(
 private val TabItemStyleBuilder.invariantProps: TabItemStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .colors {
             startContentColor(
                 SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                 ),
             )
             endContentColor(
                 SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                        InteractiveState.Pressed,
+                    ) to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsServTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsServTheme.colors.textDefaultPrimary,
                 ),
             )
             actionColor(
                 SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
         .dimensions {
             counterPadding(0.0.dp)
         }
-        .disableAlpha(0.4f)
 
 public val IconTabItem.L: WrapperIconTabItemL
     @Composable
     @JvmName("WrapperIconTabItemL")
     get() = TabItemStyle.builder(this)
         .invariantProps
+        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .counterStyle(Counter.Xs.Negative.style())
         .dimensions {
             minHeight(56.0.dp)
             paddingStart(18.0.dp)
@@ -129,8 +129,6 @@ public val IconTabItem.L: WrapperIconTabItemL
             counterOffsetX(8.0.dp)
             counterOffsetY(8.0.dp)
         }
-        .counterStyle(Counter.Xs.Negative.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperIconTabItemL)
 
 public val IconTabItem.M: WrapperIconTabItemM
@@ -138,6 +136,8 @@ public val IconTabItem.M: WrapperIconTabItemM
     @JvmName("WrapperIconTabItemM")
     get() = TabItemStyle.builder(this)
         .invariantProps
+        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .counterStyle(Counter.Xs.Negative.style())
         .dimensions {
             minHeight(48.0.dp)
             paddingStart(14.0.dp)
@@ -149,8 +149,6 @@ public val IconTabItem.M: WrapperIconTabItemM
             counterOffsetX(8.0.dp)
             counterOffsetY(8.0.dp)
         }
-        .counterStyle(Counter.Xs.Negative.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperIconTabItemM)
 
 public val IconTabItem.S: WrapperIconTabItemS
@@ -158,6 +156,8 @@ public val IconTabItem.S: WrapperIconTabItemS
     @JvmName("WrapperIconTabItemS")
     get() = TabItemStyle.builder(this)
         .invariantProps
+        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .counterStyle(Counter.Xxs.Negative.style())
         .dimensions {
             minHeight(40.0.dp)
             paddingStart(10.0.dp)
@@ -169,8 +169,6 @@ public val IconTabItem.S: WrapperIconTabItemS
             counterOffsetX(6.0.dp)
             counterOffsetY(6.0.dp)
         }
-        .counterStyle(Counter.Xxs.Negative.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperIconTabItemS)
 
 public val IconTabItem.Xs: WrapperIconTabItemXs
@@ -178,6 +176,8 @@ public val IconTabItem.Xs: WrapperIconTabItemXs
     @JvmName("WrapperIconTabItemXs")
     get() = TabItemStyle.builder(this)
         .invariantProps
+        .actionIcon(com.sdds.icons.R.drawable.ic_close_16)
+        .counterStyle(Counter.Xxs.Negative.style())
         .dimensions {
             minHeight(32.0.dp)
             paddingStart(10.0.dp)
@@ -189,6 +189,4 @@ public val IconTabItem.Xs: WrapperIconTabItemXs
             counterOffsetX(6.0.dp)
             counterOffsetY(6.0.dp)
         }
-        .counterStyle(Counter.Xxs.Negative.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_16)
         .wrap(::WrapperIconTabItemXs)

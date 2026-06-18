@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -26,6 +28,7 @@ val LocalCounterStyle = compositionLocalOf { CounterStyle.builder().style() }
 /**
  * Builder стиля [Counter]
  */
+@ApiInfo
 interface CounterStyleBuilder : StyleBuilder<CounterStyle> {
 
     /**
@@ -61,6 +64,7 @@ interface CounterStyleBuilder : StyleBuilder<CounterStyle> {
      * Устанавливает стиль основного текста компонента [textStyle]
      * @see CounterStyle.textStyle
      */
+    @ApiName(name = "labelStyle")
     fun textStyle(textStyle: TextStyle): CounterStyleBuilder =
         textStyle(textStyle.asStatefulValue())
 
@@ -68,6 +72,7 @@ interface CounterStyleBuilder : StyleBuilder<CounterStyle> {
      * Устанавливает стили основного текста компонента [textStyle]
      * @see CounterStyle.textStyle
      */
+    @ApiName(name = "labelStyle")
     fun textStyle(textStyle: StatefulValue<TextStyle>): CounterStyleBuilder
 }
 
@@ -173,23 +178,27 @@ interface CounterDimensionsBuilder {
     /**
      * Устанавливает отступ слева
      */
+    @ApiName(name = "paddingLeft")
     fun paddingStart(pStart: Dp): CounterDimensionsBuilder =
         paddingStart(pStart.asStatefulValue())
 
     /**
      * Устанавливает отступ слева
      */
+    @ApiName(name = "paddingLeft")
     fun paddingStart(pStart: StatefulValue<Dp>): CounterDimensionsBuilder
 
     /**
      * Устанавливает отступ справа
      */
+    @ApiName(name = "paddingRight")
     fun paddingEnd(pEnd: Dp): CounterDimensionsBuilder =
         paddingEnd(pEnd.asStatefulValue())
 
     /**
      * Устанавливает отступ справа
      */
+    @ApiName(name = "paddingRight")
     fun paddingEnd(pEnd: StatefulValue<Dp>): CounterDimensionsBuilder
 
     /**

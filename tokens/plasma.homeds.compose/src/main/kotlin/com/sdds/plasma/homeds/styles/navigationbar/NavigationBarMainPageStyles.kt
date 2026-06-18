@@ -46,48 +46,32 @@ public val NavigationBarMainPage.Default: WrapperNavigationBarMainPageDefault
         .textStyle(PlasmaHomeDsTheme.typography.headerH5Normal)
         .titleStyle(
             PlasmaHomeDsTheme.typography.headerH2Normal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    PlasmaHomeDsTheme.typography.bodyMNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to PlasmaHomeDsTheme.typography.bodyMNormal,
             ),
         )
         .descriptionStyle(
             PlasmaHomeDsTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    PlasmaHomeDsTheme.typography.bodyXsNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to PlasmaHomeDsTheme.typography.bodyXsNormal,
             ),
         )
+        .actionButtonStyle(IconButton.S.Secondary.style())
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-            textColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            actionStartColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            actionEndColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backgroundColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive())
+            actionStartColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            actionEndColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            descriptionColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            textBlockTopMargin(16.0.dp)
+            horizontalSpacing(8.0.dp)
             paddingStart(24.0.dp)
             paddingEnd(24.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            textBlockTopMargin(16.0.dp)
-            horizontalSpacing(8.0.dp)
-            descriptionPadding(
-                12.0.dp.asStatefulValue(
-                    setOf(NavigationBarTextPlacement.Inline) to 4.0.dp,
-                ),
-            )
+            descriptionPadding(12.0.dp.asStatefulValue(setOf(NavigationBarTextPlacement.Inline) to 4.0.dp))
         }
-        .actionButtonStyle(IconButton.S.Secondary.style())
         .wrap(::WrapperNavigationBarMainPageDefault)

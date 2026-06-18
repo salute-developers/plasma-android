@@ -9,15 +9,13 @@ package com.sdds.sbcom.styles.avatar
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.AvatarStyleBuilder
 import com.sdds.compose.uikit.graphics.asLayered
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.styles.iconbadge.Size14
@@ -133,30 +131,27 @@ private val AvatarStyleBuilder.invariantProps: AvatarStyleBuilder
     @Composable
     get() = this
         .shape(CircleShape)
+        .statusCutoutEnabled(true)
+        .colors {
+            textColor(SolidColor(SddsSbComTheme.colors.textOnDarkPrimary).asStatefulValue())
+            backgroundColor(
+                SddsSbComTheme.gradients.personasDefaultBlueSurfaceAccentGradient.asLayered().asStatefulValue(),
+            )
+        }
         .dimensions {
             statusCutoutPadding(3.0.dp)
         }
-        .colors {
-            backgroundColor(
-
-                SddsSbComTheme.gradients.personasDefaultBlueSurfaceAccentGradient.asLayered().asStatefulValue(),
-            )
-            textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-        }
-        .statusCutoutEnabled(true)
 
 public val Avatar.Size180: WrapperAvatarSize180
     @Composable
     @JvmName("WrapperAvatarSize180")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.headerHXxlMedium)
         .dimensions {
             width(180.0.dp)
             height(180.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerHXxlMedium)
         .wrap(::WrapperAvatarSize180)
 
 public val Avatar.Size100: WrapperAvatarSize100
@@ -164,11 +159,11 @@ public val Avatar.Size100: WrapperAvatarSize100
     @JvmName("WrapperAvatarSize100")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.headerHXlMedium)
         .dimensions {
             width(100.0.dp)
             height(100.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerHXlMedium)
         .wrap(::WrapperAvatarSize100)
 
 public val Avatar.Size72: WrapperAvatarSize72
@@ -176,27 +171,15 @@ public val Avatar.Size72: WrapperAvatarSize72
     @JvmName("WrapperAvatarSize72")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.headerH1Medium)
+        .statusStyle(AvatarIndicator.Size14.style())
+        .iconBadgeStyle(VoiceChatBadge.Size20.style())
         .dimensions {
-            width(72.0.dp)
-            height(72.0.dp)
             statusOffsetX(4.0.dp)
             statusOffsetY(4.0.dp)
+            width(72.0.dp)
+            height(72.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH1Medium)
-        .iconBadgeStyle(VoiceChatBadge.Size20.style())
-        .statusStyle(
-            AvatarIndicator.Size14.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccent,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSize72)
 
 public val Avatar.Size64: WrapperAvatarSize64
@@ -204,27 +187,15 @@ public val Avatar.Size64: WrapperAvatarSize64
     @JvmName("WrapperAvatarSize64")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.headerH1Medium)
+        .statusStyle(AvatarIndicator.Size12.style())
+        .iconBadgeStyle(VoiceChatBadge.Size20.style())
         .dimensions {
-            width(64.0.dp)
-            height(64.0.dp)
             statusOffsetX(3.0.dp)
             statusOffsetY(3.0.dp)
+            width(64.0.dp)
+            height(64.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH1Medium)
-        .iconBadgeStyle(VoiceChatBadge.Size20.style())
-        .statusStyle(
-            AvatarIndicator.Size12.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccent,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSize64)
 
 public val Avatar.Size56: WrapperAvatarSize56
@@ -232,27 +203,15 @@ public val Avatar.Size56: WrapperAvatarSize56
     @JvmName("WrapperAvatarSize56")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.headerH2Medium)
+        .statusStyle(AvatarIndicator.Size10.style())
+        .iconBadgeStyle(VoiceChatBadge.Size20.style())
         .dimensions {
-            width(56.0.dp)
-            height(56.0.dp)
             statusOffsetX(4.0.dp)
             statusOffsetY(4.0.dp)
+            width(56.0.dp)
+            height(56.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH2Medium)
-        .iconBadgeStyle(VoiceChatBadge.Size20.style())
-        .statusStyle(
-            AvatarIndicator.Size10.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccent,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSize56)
 
 public val Avatar.Size44: WrapperAvatarSize44
@@ -260,27 +219,15 @@ public val Avatar.Size44: WrapperAvatarSize44
     @JvmName("WrapperAvatarSize44")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.headerH3Medium)
+        .statusStyle(AvatarIndicator.Size8.style())
+        .iconBadgeStyle(VoiceChatBadge.Size18.style())
         .dimensions {
-            width(44.0.dp)
-            height(44.0.dp)
             statusOffsetX(3.0.dp)
             statusOffsetY(3.0.dp)
+            width(44.0.dp)
+            height(44.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH3Medium)
-        .iconBadgeStyle(VoiceChatBadge.Size18.style())
-        .statusStyle(
-            AvatarIndicator.Size8.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccent,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSize44)
 
 public val Avatar.Size40: WrapperAvatarSize40
@@ -288,27 +235,15 @@ public val Avatar.Size40: WrapperAvatarSize40
     @JvmName("WrapperAvatarSize40")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.headerH4Medium)
+        .statusStyle(AvatarIndicator.Size8.style())
+        .iconBadgeStyle(VoiceChatBadge.Size16.style())
         .dimensions {
-            width(40.0.dp)
-            height(40.0.dp)
             statusOffsetX(2.0.dp)
             statusOffsetY(2.0.dp)
+            width(40.0.dp)
+            height(40.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH4Medium)
-        .iconBadgeStyle(VoiceChatBadge.Size16.style())
-        .statusStyle(
-            AvatarIndicator.Size8.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccent,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSize40)
 
 public val Avatar.Size36: WrapperAvatarSize36
@@ -316,27 +251,15 @@ public val Avatar.Size36: WrapperAvatarSize36
     @JvmName("WrapperAvatarSize36")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.bodyLMedium)
+        .statusStyle(AvatarIndicator.Size6.style())
+        .iconBadgeStyle(VoiceChatBadge.Size14.style())
         .dimensions {
-            width(36.0.dp)
-            height(36.0.dp)
             statusOffsetX(2.0.dp)
             statusOffsetY(2.0.dp)
+            width(36.0.dp)
+            height(36.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.bodyLMedium)
-        .iconBadgeStyle(VoiceChatBadge.Size14.style())
-        .statusStyle(
-            AvatarIndicator.Size6.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccent,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSize36)
 
 public val Avatar.Size32: WrapperAvatarSize32
@@ -344,27 +267,15 @@ public val Avatar.Size32: WrapperAvatarSize32
     @JvmName("WrapperAvatarSize32")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.bodySMedium)
+        .statusStyle(AvatarIndicator.Size6.style())
+        .iconBadgeStyle(VoiceChatBadge.Size14.style())
         .dimensions {
-            width(32.0.dp)
-            height(32.0.dp)
             statusOffsetX(1.0.dp)
             statusOffsetY(1.0.dp)
+            width(32.0.dp)
+            height(32.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.bodySMedium)
-        .iconBadgeStyle(VoiceChatBadge.Size14.style())
-        .statusStyle(
-            AvatarIndicator.Size6.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultAccent,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSize32)
 
 public val Avatar.Size26: WrapperAvatarSize26
@@ -372,11 +283,11 @@ public val Avatar.Size26: WrapperAvatarSize26
     @JvmName("WrapperAvatarSize26")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.bodyXxsMedium)
         .dimensions {
             width(26.0.dp)
             height(26.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.bodyXxsMedium)
         .wrap(::WrapperAvatarSize26)
 
 public val Avatar.Size24: WrapperAvatarSize24
@@ -384,9 +295,9 @@ public val Avatar.Size24: WrapperAvatarSize24
     @JvmName("WrapperAvatarSize24")
     get() = AvatarStyle.builder(this)
         .invariantProps
+        .textStyle(SddsSbComTheme.typography.bodyXxsMedium)
         .dimensions {
             width(24.0.dp)
             height(24.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.bodyXxsMedium)
         .wrap(::WrapperAvatarSize24)

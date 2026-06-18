@@ -11,6 +11,9 @@ internal data class ComponentMeta(
     val resolvedTypes: List<String>,
     val params: List<ParameterMeta>,
     val stateEnum: StateEnum?,
+    val packageName: String = "",
+    val styleQualifiedName: String = "",
+    val builderFunName: String = "",
     @Transient
     val sourceFile: KSFile? = null,
 )
@@ -23,8 +26,9 @@ internal data class ParameterMeta(
     val paramName: String,
     val paramQualifiedType: String,
     val paramSimpleType: String,
+    val valueQualifiedType: String,
     val group: String,
-    val values: List<String> = emptyList(),
+    val values: List<EnumValueInfo> = emptyList(),
 )
 
 @Serializable

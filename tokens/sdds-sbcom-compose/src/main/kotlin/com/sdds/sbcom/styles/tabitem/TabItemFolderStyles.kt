@@ -42,15 +42,16 @@ public val TabItemFolder.Default: WrapperTabItemFolderDefault
     @JvmName("WrapperTabItemFolderDefault")
     get() = TabItemStyle.builder(this)
         .shape(CircleShape)
+        .disableAlpha(0.4f)
         .labelStyle(
             SddsSbComTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(InteractiveState.Selected) to SddsSbComTheme.typography.bodyMMedium,
+                setOf(InteractiveState.Selected)
+                    to SddsSbComTheme.typography.bodyMMedium,
             ),
         )
+        .counterStyle(TabItemFolderCounter.Default.style())
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asStatefulValue(),
-            )
+            backgroundColor(SddsSbComTheme.colors.surfaceDefaultClear.asStatefulValue())
             labelColor(
                 SddsSbComTheme.colors.textDefaultParagraph.asStatefulValue(
                     setOf(InteractiveState.Selected)
@@ -78,6 +79,4 @@ public val TabItemFolder.Default: WrapperTabItemFolderDefault
             endContentSize(16.0.dp)
             counterPadding(4.0.dp)
         }
-        .counterStyle(TabItemFolderCounter.Default.style())
-        .disableAlpha(0.4f)
         .wrap(::WrapperTabItemFolderDefault)

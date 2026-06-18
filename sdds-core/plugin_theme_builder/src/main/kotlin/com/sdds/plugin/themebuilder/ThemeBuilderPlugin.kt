@@ -85,7 +85,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             )
 
             val fetchComponentsTask = registerFetchAndUnzipComponents(extension, componentsZip)
-            fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it) }
+            fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it, readUikitApiMetaTask) }
         }
     }
 
@@ -94,6 +94,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         UikitApiMetaTask::class.java,
     ) {
         group = TASK_GROUP
+        outputFile.set(layout.buildDirectory.file("$COMPONENTS_PATH/uikit-api-meta.json"))
     }
 
     private fun TaskProvider<UikitApiMetaTask>.configureUikitApiMetaTask(compileClasspath: Configuration) {
@@ -170,6 +171,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun Project.registerGenerateComponentsTask(
         extension: ThemeBuilderExtension,
         fetchComponentsTask: TaskProvider<Copy>,
+        readUikitApiMetaTask: TaskProvider<UikitApiMetaTask>,
     ) {
         val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
             group = TASK_GROUP
@@ -186,8 +188,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
             namespace.set(getProjectNameSpace())
             target.set(extension.target)
             componentsMetaStyleClass.set(extension.componentsMetaStyleClass)
+            uikitApiMetaFile.set(readUikitApiMetaTask.flatMap { it.outputFile })
         }
-        task.dependsOn(fetchComponentsTask)
+        task.dependsOn(fetchComponentsTask, readUikitApiMetaTask)
     }
 
     private fun Project.registerThemeBuilder(

@@ -16,9 +16,9 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.counter.Accent
 import com.sdds.plasma.sd.service.styles.counter.Black
 import com.sdds.plasma.sd.service.styles.counter.Counter
-import com.sdds.plasma.sd.service.styles.counter.CounterSize
+import com.sdds.plasma.sd.service.styles.counter.CounterDefaultSize
+import com.sdds.plasma.sd.service.styles.counter.CounterDefaultView
 import com.sdds.plasma.sd.service.styles.counter.CounterStyles
-import com.sdds.plasma.sd.service.styles.counter.CounterView
 import com.sdds.plasma.sd.service.styles.counter.Default
 import com.sdds.plasma.sd.service.styles.counter.L
 import com.sdds.plasma.sd.service.styles.counter.M
@@ -83,24 +83,24 @@ internal object PlasmaB2cCounterVariationsCompose : ComposeStyleProvider<Counter
         )
 
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
-        return CounterStyles.resolve(
+        return CounterStyles.Default.resolve(
             size = when (bindings["size"]?.toString()) {
-                "L" -> CounterSize.L
-                "M" -> CounterSize.M
-                "S" -> CounterSize.S
-                "Xs" -> CounterSize.Xs
-                "Xxs" -> CounterSize.Xxs
-                else -> CounterSize.L
+                "L" -> CounterDefaultSize.L
+                "M" -> CounterDefaultSize.M
+                "S" -> CounterDefaultSize.S
+                "Xs" -> CounterDefaultSize.Xs
+                "Xxs" -> CounterDefaultSize.Xxs
+                else -> CounterDefaultSize.L
             },
             view = when (bindings["view"]?.toString()) {
-                "Default" -> CounterView.Default
-                "Accent" -> CounterView.Accent
-                "Positive" -> CounterView.Positive
-                "Warning" -> CounterView.Warning
-                "Negative" -> CounterView.Negative
-                "Black" -> CounterView.Black
-                "White" -> CounterView.White
-                else -> CounterView.Default
+                "Default" -> CounterDefaultView.Default
+                "Accent" -> CounterDefaultView.Accent
+                "Positive" -> CounterDefaultView.Positive
+                "Warning" -> CounterDefaultView.Warning
+                "Negative" -> CounterDefaultView.Negative
+                "Black" -> CounterDefaultView.Black
+                "White" -> CounterDefaultView.White
+                else -> CounterDefaultView.Default
             },
         ).key
     }
