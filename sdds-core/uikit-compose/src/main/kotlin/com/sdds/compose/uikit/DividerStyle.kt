@@ -6,10 +6,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -28,7 +33,14 @@ interface DividerStyle : Style {
      * Форма [Divider]
      *  @see CornerBasedShape
      */
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
     val shape: CornerBasedShape
+
+    /**
+     * Формы [Divider]
+     *  @see CornerBasedShape
+     */
+    val shapes: StatefulValue<CornerBasedShape>
 
     /**
      * Цвета компонента
@@ -58,9 +70,16 @@ interface DividerStyleBuilder : StyleBuilder<DividerStyle> {
 
     /**
      * Устанавливает форму компонента [shape]
-     * @see DividerStyle.shape
+     * @see DividerStyleBuilder.shape
      */
-    fun shape(shape: CornerBasedShape): DividerStyleBuilder
+    fun shape(shape: CornerBasedShape): DividerStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает форму компонента [shape]
+     * @see DividerStyle.shapes
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): DividerStyleBuilder
 
     /**
      * Устанавливает цвет компонента при помощи [builder].
@@ -85,7 +104,13 @@ interface DividerColor {
     /**
      * Цвет фона [Divider]
      */
+    @Deprecated("Use backgroundBrush", ReplaceWith("backgroundBrush"))
     val backgroundColor: InteractiveColor
+
+    /**
+     * Кисти фона [Divider]
+     */
+    val backgroundBrush: StatefulValue<Brush>
 }
 
 /**
@@ -97,7 +122,13 @@ interface DividerDimensions {
     /**
      * Толщина [Divider]
      */
+    @Deprecated("Use thicknessValues", ReplaceWith("thicknessValues"))
     val thickness: Dp
+
+    /**
+     * Толщина [Divider]
+     */
+    val thicknessValues: StatefulValue<Dp>
 }
 
 /**
@@ -107,15 +138,30 @@ interface DividerDimensions {
 interface DividerColorBuilder {
     /**
      * Устанавливает цвет [backgroundColor] фона компонента.
-     * @see DividerColor.backgroundColor
+     * @see DividerColorBuilder.backgroundColor
      */
-    fun backgroundColor(backgroundColor: Color): DividerColorBuilder
+    fun backgroundColor(backgroundColor: Color): DividerColorBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет [backgroundColor] фона компонента.
-     * @see DividerColor.backgroundColor
+     * @see DividerColorBuilder.backgroundColor
      */
-    fun backgroundColor(backgroundColor: InteractiveColor): DividerColorBuilder
+    fun backgroundColor(backgroundColor: InteractiveColor): DividerColorBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [backgroundColor] фона компонента.
+     * @see DividerColorBuilder.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Brush): DividerColorBuilder =
+        backgroundColor(backgroundColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет [backgroundColor] фона компонента.
+     * @see DividerColor.backgroundBrush
+     */
+    fun backgroundColor(backgroundColor: StatefulValue<Brush>): DividerColorBuilder
 
     /**
      * Создает экземпляр [DividerColor]
@@ -138,9 +184,15 @@ interface DividerColorBuilder {
 interface DividerDimensionsBuilder {
 
     /**
-     * Устанавливает высоту кнопки
+     * Устанавливает толщину разделительной линии
      */
-    fun thickness(thickness: Dp): DividerDimensionsBuilder
+    fun thickness(thickness: Dp): DividerDimensionsBuilder =
+        thickness(thickness.asStatefulValue())
+
+    /**
+     * Устанавливает толщину разделительной линии
+     */
+    fun thickness(thickness: StatefulValue<Dp>): DividerDimensionsBuilder
 
     /**
      * Возвращает [DividerDimensions]
@@ -158,20 +210,24 @@ interface DividerDimensionsBuilder {
 
 @Immutable
 internal class DefaultDividerStyle(
-    override val shape: CornerBasedShape,
     override val color: DividerColor,
     override val dimensions: DividerDimensions,
-) : DividerStyle
+    override val shapes: StatefulValue<CornerBasedShape>,
+) : DividerStyle {
+
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
+}
 
 @Stable
 private class DividerStyleBuilderImpl(override val receiver: Any?) : DividerStyleBuilder {
-    private var shape: CornerBasedShape? = null
+    private var shapes: StatefulValue<CornerBasedShape>? = null
     private var colorBuilder: DividerColorBuilder = DividerColorBuilder.builder()
     private var dimensionsBuilder: DividerDimensionsBuilder =
         DividerDimensionsBuilder.builder()
 
-    override fun shape(shape: CornerBasedShape) = apply {
-        this.shape = shape
+    override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
+        this.shapes = shape
     }
 
     @Composable
@@ -188,7 +244,7 @@ private class DividerStyleBuilderImpl(override val receiver: Any?) : DividerStyl
 
     override fun style(): DividerStyle {
         return DefaultDividerStyle(
-            shape = shape ?: CircleShape,
+            shapes = shapes ?: CircleShape.asStatefulValue(),
             color = colorBuilder.build(),
             dimensions = dimensionsBuilder.build(),
         )
@@ -197,39 +253,43 @@ private class DividerStyleBuilderImpl(override val receiver: Any?) : DividerStyl
 
 @Immutable
 private class DefaultDividerColor(
-    override val backgroundColor: InteractiveColor,
+    override val backgroundBrush: StatefulValue<Brush>,
 ) : DividerColor {
+
+    @Deprecated("Use backgroundBrush", ReplaceWith("backgroundBrush"))
+    override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
+
     class Builder : DividerColorBuilder {
 
-        private var backgroundColor: InteractiveColor? = null
+        private var backgroundBrush: StatefulValue<Brush>? = null
 
-        override fun backgroundColor(backgroundColor: Color): DividerColorBuilder {
-            return backgroundColor(backgroundColor.asInteractive())
-        }
-
-        override fun backgroundColor(backgroundColor: InteractiveColor): DividerColorBuilder = apply {
-            this.backgroundColor = backgroundColor
+        override fun backgroundColor(backgroundColor: StatefulValue<Brush>): DividerColorBuilder = apply {
+            this.backgroundBrush = backgroundColor
         }
 
         override fun build(): DividerColor = DefaultDividerColor(
-            backgroundColor = backgroundColor ?: Color.Black.asInteractive(),
+            backgroundBrush = backgroundBrush ?: Color.Black.asStatefulBrush(),
         )
     }
 }
 
 @Immutable
 private class DefaultDividerDimensions(
-    override val thickness: Dp,
+    override val thicknessValues: StatefulValue<Dp>,
 ) : DividerDimensions {
-    class Builder : DividerDimensionsBuilder {
-        private var thickness: Dp? = null
 
-        override fun thickness(thickness: Dp): DividerDimensionsBuilder = apply {
-            this.thickness = thickness
+    @Deprecated("Use thicknessValues", ReplaceWith("thicknessValues"))
+    override val thickness: Dp = thicknessValues.getDefaultValue()
+
+    class Builder : DividerDimensionsBuilder {
+        private var thicknessValues: StatefulValue<Dp>? = null
+
+        override fun thickness(thickness: StatefulValue<Dp>): DividerDimensionsBuilder = apply {
+            this.thicknessValues = thickness
         }
 
         override fun build(): DividerDimensions = DefaultDividerDimensions(
-            thickness = thickness ?: Dp.Hairline,
+            thicknessValues = thicknessValues ?: Dp.Hairline.asStatefulValue(),
         )
     }
 }
