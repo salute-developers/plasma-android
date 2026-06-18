@@ -9,12 +9,13 @@ package com.sdds.plasma.sd.service.styles.chip
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -112,35 +113,35 @@ public val WrapperChipView.Default: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             contentStartColor(
-                PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             contentEndColor(
-                PlasmaSdServiceTheme.colors.textInverseSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryHover),
                 ),
             )
         }
@@ -151,35 +152,35 @@ public val WrapperChipView.Accent: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -190,35 +191,35 @@ public val WrapperChipView.Negative: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultNegativeHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegativeHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -229,35 +230,35 @@ public val WrapperChipView.Positive: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultPositive).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultPositiveHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultPositiveHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -268,35 +269,35 @@ public val WrapperChipView.Secondary: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             contentStartColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             contentEndColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                 ),
             )
         }
@@ -307,35 +308,35 @@ public val WrapperChipView.Warning: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultWarningHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultWarningHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }

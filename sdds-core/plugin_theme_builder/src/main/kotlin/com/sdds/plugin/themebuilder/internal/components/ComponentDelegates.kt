@@ -175,7 +175,7 @@ internal fun componentDelegates(allMeta: List<ComponentMeta>, allComponents: Lis
             "select" to universal("Select") { SelectConfigDelegate() },
             "combo-box" to universal("ComboBox") { ComboBoxConfigDelegate() },
             "drop-zone" to universal("DropZone") { DropZoneConfigDelegate() },
-            "splitter" to universal("DropZone") { SplitterConfigDelegate() },
+            "splitter" to universal("Splitter") { SplitterConfigDelegate() },
         )
     }
 

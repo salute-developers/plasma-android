@@ -9,12 +9,12 @@ package com.sdds.serv.styles.splitter
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SplitterOrientation
 import com.sdds.compose.uikit.SplitterStyle
 import com.sdds.compose.uikit.SplitterStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -43,46 +43,26 @@ public val Splitter.Default: WrapperSplitterDefault
         .handleShape(CircleShape)
         .color {
             dividerColor(
-                SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultAccent),
                 ),
             )
             handleColor(
-                SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultAccent),
                 ),
             )
         }
         .dimensions {
-            dividerThickness(
-                1.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Pressed) to 2.0.dp,
-                ),
-            )
+            dividerThickness(1.0.dp.asStatefulValue(setOf(InteractiveState.Pressed) to 2.0.dp))
             handleThickness(1.0.dp)
-            handleStartPadding(
-                3.0.dp.asStatefulValue(
-                    setOf(SplitterOrientation.Vertical) to 3.5.dp,
-                ),
-            )
-            handleEndPadding(
-                3.0.dp.asStatefulValue(
-                    setOf(SplitterOrientation.Vertical) to 3.5.dp,
-                ),
-            )
-            handleTopPadding(
-                3.5.dp.asStatefulValue(
-                    setOf(SplitterOrientation.Vertical) to 3.0.dp,
-                ),
-            )
-            handleBottomPadding(
-                3.5.dp.asStatefulValue(
-                    setOf(SplitterOrientation.Vertical) to 3.0.dp,
-                ),
-            )
-            handleSpacer(5.0.dp)
             gap(22.0.dp)
+            handleStartPadding(3.0.dp.asStatefulValue(setOf(SplitterOrientation.Vertical) to 3.5.dp))
+            handleTopPadding(3.5.dp.asStatefulValue(setOf(SplitterOrientation.Vertical) to 3.0.dp))
+            handleEndPadding(3.0.dp.asStatefulValue(setOf(SplitterOrientation.Vertical) to 3.5.dp))
+            handleBottomPadding(3.5.dp.asStatefulValue(setOf(SplitterOrientation.Vertical) to 3.0.dp))
+            handleSpacer(5.0.dp)
         }
         .wrap(::WrapperSplitterDefault)

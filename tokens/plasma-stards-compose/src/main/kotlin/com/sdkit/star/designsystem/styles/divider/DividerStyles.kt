@@ -9,10 +9,11 @@ package com.sdkit.star.designsystem.styles.divider
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DividerStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
@@ -40,7 +41,7 @@ public val Divider.Default: WrapperDividerDefault
     get() = DividerStyle.builder(this)
         .shape(CircleShape)
         .color {
-            backgroundColor(StarDsTheme.colors.surfaceDefaultTransparentTertiary.asInteractive())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
         }
         .dimensions {
             thickness(dimensionResource(R.dimen.sdkit_cmp_divider_thickness_Default))

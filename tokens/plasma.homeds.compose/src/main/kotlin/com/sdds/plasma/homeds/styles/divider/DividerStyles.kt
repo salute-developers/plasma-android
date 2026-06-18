@@ -9,10 +9,11 @@ package com.sdds.plasma.homeds.styles.divider
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DividerStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -39,7 +40,7 @@ public val Divider.Default: WrapperDividerDefault
     get() = DividerStyle.builder(this)
         .shape(CircleShape)
         .color {
-            backgroundColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentTertiary.asInteractive())
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
         }
         .dimensions {
             thickness(1.0.dp)

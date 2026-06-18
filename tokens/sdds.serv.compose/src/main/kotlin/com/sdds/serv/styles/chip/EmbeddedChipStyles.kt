@@ -8,12 +8,13 @@
 package com.sdds.serv.styles.chip
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -87,35 +88,35 @@ public val WrapperEmbeddedChipView.Default: WrapperEmbeddedChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(SddsServTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                SddsServTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textInversePrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textInversePrimaryHover,
+                        SolidColor(SddsServTheme.colors.textInversePrimaryHover),
                 ),
             )
             contentStartColor(
-                SddsServTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textInversePrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textInversePrimaryHover,
+                        SolidColor(SddsServTheme.colors.textInversePrimaryHover),
                 ),
             )
             contentEndColor(
-                SddsServTheme.colors.textInverseSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textInverseSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textInverseSecondaryActive,
+                        to SolidColor(SddsServTheme.colors.textInverseSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textInverseSecondaryHover,
+                        SolidColor(SddsServTheme.colors.textInverseSecondaryHover),
                 ),
             )
         }
@@ -126,35 +127,35 @@ public val WrapperEmbeddedChipView.Accent: WrapperEmbeddedChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultAccent).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultAccentActive,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultAccentActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.surfaceDefaultAccentHover,
+                        SolidColor(SddsServTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                SddsServTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -165,35 +166,35 @@ public val WrapperEmbeddedChipView.Negative: WrapperEmbeddedChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultNegativeActive,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultNegativeActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.surfaceDefaultNegativeHover,
+                        SolidColor(SddsServTheme.colors.surfaceDefaultNegativeHover),
                 ),
             )
             labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                SddsServTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -204,35 +205,35 @@ public val WrapperEmbeddedChipView.Positive: WrapperEmbeddedChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultPositive).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultPositiveActive,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultPositiveActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.surfaceDefaultPositiveHover,
+                        SolidColor(SddsServTheme.colors.surfaceDefaultPositiveHover),
                 ),
             )
             labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                SddsServTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -243,35 +244,35 @@ public val WrapperEmbeddedChipView.Secondary: WrapperEmbeddedChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                        SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover),
                 ),
             )
             labelColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             contentStartColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             contentEndColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(SddsServTheme.colors.textDefaultSecondaryHover),
                 ),
             )
         }
@@ -282,35 +283,35 @@ public val WrapperEmbeddedChipView.Warning: WrapperEmbeddedChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultWarningActive,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultWarningActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.surfaceDefaultWarningHover,
+                        SolidColor(SddsServTheme.colors.surfaceDefaultWarningHover),
                 ),
             )
             labelColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                SddsServTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                SddsServTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(SddsServTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(SddsServTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }

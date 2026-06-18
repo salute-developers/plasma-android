@@ -9,12 +9,13 @@ package com.sdkit.star.designsystem.styles.chip
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
@@ -113,35 +114,35 @@ public val WrapperChipView.Default: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                StarDsTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textInversePrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textInversePrimaryHover,
+                        SolidColor(StarDsTheme.colors.textInversePrimaryHover),
                 ),
             )
             contentStartColor(
-                StarDsTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textInversePrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textInversePrimaryHover,
+                        SolidColor(StarDsTheme.colors.textInversePrimaryHover),
                 ),
             )
             contentEndColor(
-                StarDsTheme.colors.textInverseSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textInverseSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textInverseSecondaryActive,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textInverseSecondaryHover,
+                        SolidColor(StarDsTheme.colors.textInverseSecondaryHover),
                 ),
             )
         }
@@ -152,35 +153,35 @@ public val WrapperChipView.Accent: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultAccentMain.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultAccentMain).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.surfaceDefaultAccentMainActive,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultAccentMainActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.surfaceDefaultAccentMainHover,
+                        SolidColor(StarDsTheme.colors.surfaceDefaultAccentMainHover),
                 ),
             )
             labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed) to
-                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(StarDsTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                StarDsTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(StarDsTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -191,35 +192,35 @@ public val WrapperChipView.Negative: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultNegative.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.surfaceDefaultNegativeActive,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultNegativeActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.surfaceDefaultNegativeHover,
+                        SolidColor(StarDsTheme.colors.surfaceDefaultNegativeHover),
                 ),
             )
             labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed) to
-                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(StarDsTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                StarDsTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(StarDsTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -230,35 +231,35 @@ public val WrapperChipView.Positive: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultPositive.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultPositive).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.surfaceDefaultPositiveActive,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultPositiveActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.surfaceDefaultPositiveHover,
+                        SolidColor(StarDsTheme.colors.surfaceDefaultPositiveHover),
                 ),
             )
             labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed) to
-                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(StarDsTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                StarDsTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(StarDsTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -269,35 +270,35 @@ public val WrapperChipView.Secondary: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover),
                 ),
             )
             labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             contentStartColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             contentEndColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultSecondaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(StarDsTheme.colors.textDefaultSecondaryHover),
                 ),
             )
         }
@@ -308,35 +309,35 @@ public val WrapperChipView.Warning: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultWarning.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.surfaceDefaultWarningActive,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultWarningActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.surfaceDefaultWarningHover,
+                        SolidColor(StarDsTheme.colors.surfaceDefaultWarningHover),
                 ),
             )
             labelColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed) to
-                        StarDsTheme.colors.textOnDarkPrimaryActive,
+                SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(StarDsTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentStartColor(
-                StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             contentEndColor(
-                StarDsTheme.colors.textOnDarkSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textOnDarkSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textOnDarkSecondaryActive,
+                        to SolidColor(StarDsTheme.colors.textOnDarkSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(StarDsTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }

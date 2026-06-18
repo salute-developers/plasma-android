@@ -66,7 +66,18 @@ internal abstract class PropertyMapper<
 
     protected fun String.toCamelCase(): String {
         val segments = split(".", "-", "_")
-        return segments.joinToString("") { it.capitalized() }
+        val result = StringBuilder()
+        for (i in segments.indices) {
+            val seg = segments[i]
+            val prev = segments.getOrNull(i - 1)
+            if (seg.all { it.isDigit() } && prev != null && prev.all { it.isDigit() }) {
+                result.append("x")
+                result.append(seg)
+            } else {
+                result.append(seg.capitalized())
+            }
+        }
+        return result.toString()
     }
 
     private fun StatefulType.getAsInteractiveParameters(

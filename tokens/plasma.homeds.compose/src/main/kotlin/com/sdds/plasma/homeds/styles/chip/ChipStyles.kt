@@ -9,12 +9,13 @@ package com.sdds.plasma.homeds.styles.chip
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -128,35 +129,35 @@ public val WrapperChipView.Default: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive,
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaHomeDsTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaHomeDsTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaHomeDsTheme.colors.textInversePrimaryHover),
                 ),
             )
             contentStartColor(
-                PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaHomeDsTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaHomeDsTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaHomeDsTheme.colors.textInversePrimaryHover),
                 ),
             )
             contentEndColor(
-                PlasmaHomeDsTheme.colors.textInverseSecondary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.textInverseSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textInverseSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textInverseSecondaryHover,
+                        to SolidColor(PlasmaHomeDsTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textInverseSecondaryHover),
                 ),
             )
         }
@@ -167,35 +168,35 @@ public val WrapperChipView.Secondary: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover),
                 ),
             )
             labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             contentStartColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             contentEndColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondaryHover),
                 ),
             )
         }
