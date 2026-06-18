@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.fixtures.testcases.PopoverMDefaultLooseTopEnd
 import com.sdds.compose.uikit.fixtures.testcases.PopoverMDefaultStrictBottomEndTopStart
 import com.sdds.compose.uikit.fixtures.testcases.PopoverSAccentStrictBottomStartTopCenter
 import com.sdds.compose.uikit.fixtures.testcases.PopoverSDefaultLooseEndBottomStart
+import com.sdds.compose.uikit.fixtures.testcases.PopoverStrictClippedPlacementEndAlignmentEnd
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.basicbutton.BasicButton
 import com.sdds.sbcom.styles.basicbutton.ModePrimary
@@ -161,5 +162,17 @@ class ComposePopoverScreenshotTest(
         composeTestRule.onNodeWithText("Show").performClick()
         composeTestRule.waitForIdle()
         captureScreenRoboImage()
+    }
+
+    @Test
+    fun testPopoverStrictClippedPlacementEndAlignmentEnd() {
+        composeTestRule.content {
+            PopoverStrictClippedPlacementEndAlignmentEnd(
+                Popover.Default.style(),
+                BasicButton.Size32.ModePrimary.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
     }
 }
