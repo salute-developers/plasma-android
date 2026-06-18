@@ -149,6 +149,7 @@ data class ComponentKey(
         val DropZone = ComponentKey(CoreComponentName.DROP_ZONE)
         val AiHeader = ComponentKey(CoreComponentName.AI_HEADER)
         val Splitter = ComponentKey(CoreComponentName.SPLITTER)
+        val AiInput = ComponentKey(CoreComponentName.AI_INPUT)
     }
 }
 
@@ -260,6 +261,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     FORM_ITEM,
     EDITABLE,
     AI_HEADER,
+    AI_INPUT,
     DROP_ZONE,
     SPLITTER,
     ;
@@ -369,6 +371,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.FLOW -> CoreComponentGroup.LAYOUT
         CoreComponentName.AI_HEADER,
         CoreComponentName.AI_ANSWER,
+        CoreComponentName.AI_INPUT,
         -> CoreComponentGroup.AI_KIT
     }.let { ComponentGroup(it.displayName, it.ordinal) }
 }

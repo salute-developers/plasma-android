@@ -49348,6 +49348,992 @@
          ]
       },
       {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "AiInputIconButtonGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l"
+               ],
+               "defaultValue": "xs"
+            },
+            {
+               "name": "gap",
+               "values": [
+                  "wide",
+                  "dense",
+                  "none"
+               ],
+               "defaultValue": "wide"
+            },
+            {
+               "name": "shape",
+               "values": [
+                  "default",
+                  "pilled",
+                  "segmented"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.AiInputIconButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles.AiInputIconButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "AiInputIconButtonGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputIconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiInputIconButtonGroupSize",
+                  "defaultValue": {
+                     "value": "xs",
+                     "codeName": "Xs"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     }
+                  ]
+               },
+               {
+                  "name": "gap",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputIconButtonGroupGap",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiInputIconButtonGroupGap",
+                  "defaultValue": {
+                     "value": "wide",
+                     "codeName": "Wide"
+                  },
+                  "values": [
+                     {
+                        "value": "wide",
+                        "codeName": "Wide"
+                     },
+                     {
+                        "value": "dense",
+                        "codeName": "Dense"
+                     },
+                     {
+                        "value": "none",
+                        "codeName": "None"
+                     }
+                  ]
+               },
+               {
+                  "name": "shape",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputIconButtonGroupShape",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiInputIconButtonGroupShape",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "pilled",
+                        "codeName": "Pilled"
+                     },
+                     {
+                        "value": "segmented",
+                        "codeName": "Segmented"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "AiInputIconButtonGroup.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            },
+            {
+               "name": "xs.wide",
+               "composeReference": "AiInputIconButtonGroup.Xs.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "xs.wide.default",
+               "composeReference": "AiInputIconButtonGroup.Xs.Wide.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.wide.pilled",
+               "composeReference": "AiInputIconButtonGroup.Xs.Wide.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "xs.wide.segmented",
+               "composeReference": "AiInputIconButtonGroup.Xs.Wide.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dense",
+               "composeReference": "AiInputIconButtonGroup.Xs.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dense.default",
+               "composeReference": "AiInputIconButtonGroup.Xs.Dense.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dense.pilled",
+               "composeReference": "AiInputIconButtonGroup.Xs.Dense.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dense.segmented",
+               "composeReference": "AiInputIconButtonGroup.Xs.Dense.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "xs.no-gap",
+               "composeReference": "AiInputIconButtonGroup.Xs.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "xs.no-gap.default",
+               "composeReference": "AiInputIconButtonGroup.Xs.NoGap.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.no-gap.pilled",
+               "composeReference": "AiInputIconButtonGroup.Xs.NoGap.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "xs.no-gap.segmented",
+               "composeReference": "AiInputIconButtonGroup.Xs.NoGap.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiInputIconButtonGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "s.wide",
+               "composeReference": "AiInputIconButtonGroup.S.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "s.wide.default",
+               "composeReference": "AiInputIconButtonGroup.S.Wide.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.wide.pilled",
+               "composeReference": "AiInputIconButtonGroup.S.Wide.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "s.wide.segmented",
+               "composeReference": "AiInputIconButtonGroup.S.Wide.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "s.dense",
+               "composeReference": "AiInputIconButtonGroup.S.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "s.dense.default",
+               "composeReference": "AiInputIconButtonGroup.S.Dense.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.dense.pilled",
+               "composeReference": "AiInputIconButtonGroup.S.Dense.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "s.dense.segmented",
+               "composeReference": "AiInputIconButtonGroup.S.Dense.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "s.no-gap",
+               "composeReference": "AiInputIconButtonGroup.S.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "s.no-gap.default",
+               "composeReference": "AiInputIconButtonGroup.S.NoGap.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.no-gap.pilled",
+               "composeReference": "AiInputIconButtonGroup.S.NoGap.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "s.no-gap.segmented",
+               "composeReference": "AiInputIconButtonGroup.S.NoGap.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiInputIconButtonGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "m.wide",
+               "composeReference": "AiInputIconButtonGroup.M.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "m.wide.default",
+               "composeReference": "AiInputIconButtonGroup.M.Wide.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.wide.pilled",
+               "composeReference": "AiInputIconButtonGroup.M.Wide.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "m.wide.segmented",
+               "composeReference": "AiInputIconButtonGroup.M.Wide.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "m.dense",
+               "composeReference": "AiInputIconButtonGroup.M.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "m.dense.default",
+               "composeReference": "AiInputIconButtonGroup.M.Dense.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.dense.pilled",
+               "composeReference": "AiInputIconButtonGroup.M.Dense.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "m.dense.segmented",
+               "composeReference": "AiInputIconButtonGroup.M.Dense.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-gap",
+               "composeReference": "AiInputIconButtonGroup.M.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-gap.default",
+               "composeReference": "AiInputIconButtonGroup.M.NoGap.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-gap.pilled",
+               "composeReference": "AiInputIconButtonGroup.M.NoGap.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-gap.segmented",
+               "composeReference": "AiInputIconButtonGroup.M.NoGap.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiInputIconButtonGroup.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "l.wide",
+               "composeReference": "AiInputIconButtonGroup.L.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "l.wide.default",
+               "composeReference": "AiInputIconButtonGroup.L.Wide.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.wide.pilled",
+               "composeReference": "AiInputIconButtonGroup.L.Wide.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "l.wide.segmented",
+               "composeReference": "AiInputIconButtonGroup.L.Wide.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "l.dense",
+               "composeReference": "AiInputIconButtonGroup.L.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "l.dense.default",
+               "composeReference": "AiInputIconButtonGroup.L.Dense.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.dense.pilled",
+               "composeReference": "AiInputIconButtonGroup.L.Dense.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "l.dense.segmented",
+               "composeReference": "AiInputIconButtonGroup.L.Dense.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "l.no-gap",
+               "composeReference": "AiInputIconButtonGroup.L.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "l.no-gap.default",
+               "composeReference": "AiInputIconButtonGroup.L.NoGap.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.no-gap.pilled",
+               "composeReference": "AiInputIconButtonGroup.L.NoGap.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "l.no-gap.segmented",
+               "composeReference": "AiInputIconButtonGroup.L.NoGap.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "tab-bar",
          "coreName": "TabBar",
          "styleName": "TabBarHasLabelClear",
@@ -57631,6 +58617,209 @@
          ]
       },
       {
+         "key": "file",
+         "coreName": "File",
+         "styleName": "AiInputFileCircularProgress",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l"
+               ],
+               "defaultValue": "xs"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "negative"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.file",
+            "stylesClassName": "FileStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.file.FileStyles",
+            "receiverClassName": "FileStyles.AiInputFileCircularProgress",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.file.FileStyles.AiInputFileCircularProgress",
+            "returnTypeName": "FileStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.FileStyle",
+            "modifyReceiverTypeName": "FileStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.FileStyleBuilder",
+            "holderName": "AiInputFileCircularProgress",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputFileCircularProgressSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.file.AiInputFileCircularProgressSize",
+                  "defaultValue": {
+                     "value": "xs",
+                     "codeName": "Xs"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputFileCircularProgressView",
+                  "typeQualifiedName": "com.sdds.serv.styles.file.AiInputFileCircularProgressView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs.default",
+               "composeReference": "AiInputFileCircularProgress.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "AiInputFileCircularProgress.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "AiInputFileCircularProgress.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "AiInputFileCircularProgress.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "AiInputFileCircularProgress.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "AiInputFileCircularProgress.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.default",
+               "composeReference": "AiInputFileCircularProgress.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "AiInputFileCircularProgress.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "form-item",
          "coreName": "FormItem",
          "styleName": "FormItem",
@@ -63024,6 +64213,240 @@
             {
                "name": "Default",
                "composeReference": "Splitter.Default"
+            }
+         ]
+      },
+      {
+         "key": "ai-input",
+         "coreName": "AiInput",
+         "styleName": "AiInputCondensed",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l",
+                  "xl"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.aiinput",
+            "stylesClassName": "AiInputStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.aiinput.AiInputStyles",
+            "receiverClassName": "AiInputStyles.Condensed",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.aiinput.AiInputStyles.Condensed",
+            "returnTypeName": "AiInputStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AiInputStyle",
+            "modifyReceiverTypeName": "AiInputStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AiInputStyleBuilder",
+            "holderName": "Condensed",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputCondensedSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiinput.AiInputCondensedSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "AiInputCondensed.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiInputCondensed.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiInputCondensed.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiInputCondensed.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "xl",
+               "composeReference": "AiInputCondensed.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "ai-input",
+         "coreName": "AiInput",
+         "styleName": "AiInputExtended",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l",
+                  "xl"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.aiinput",
+            "stylesClassName": "AiInputStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.aiinput.AiInputStyles",
+            "receiverClassName": "AiInputStyles.Extended",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.aiinput.AiInputStyles.Extended",
+            "returnTypeName": "AiInputStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AiInputStyle",
+            "modifyReceiverTypeName": "AiInputStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AiInputStyleBuilder",
+            "holderName": "Extended",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputExtendedSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiinput.AiInputExtendedSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "AiInputExtended.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiInputExtended.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiInputExtended.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiInputExtended.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "xl",
+               "composeReference": "AiInputExtended.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
             }
          ]
       }
