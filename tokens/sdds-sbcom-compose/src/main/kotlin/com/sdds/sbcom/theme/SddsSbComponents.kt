@@ -30,6 +30,7 @@ import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTabBarStyle
 import com.sdds.compose.uikit.LocalTabsStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
+import com.sdds.compose.uikit.LocalToolBarStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.motion.components.navigationdrawer.LocalNavigationDrawerItemMotionStyle
@@ -103,6 +104,8 @@ import com.sdds.sbcom.styles.tabs.Default
 import com.sdds.sbcom.styles.tabs.TabsFolder
 import com.sdds.sbcom.styles.textfield.Default
 import com.sdds.sbcom.styles.textfield.TextField
+import com.sdds.sbcom.styles.toolbar.ToolBar
+import com.sdds.sbcom.styles.toolbar.TypeDefault
 import com.sdds.sbcom.styles.tooltip.Default
 import com.sdds.sbcom.styles.tooltip.Tooltip
 import androidx.compose.foundation.LocalIndication as FoundationIndication
@@ -141,6 +144,7 @@ internal fun DefaultComponents(
         LocalTabsStyle provides TabsFolder.Default.style(),
         LocalNavigationDrawerStyle provides NavigationDrawer.Default.style(),
         LocalListStyle provides List.Default.style(),
+        LocalToolBarStyle provides ToolBar.TypeDefault.style(),
     ) {
         DefaultMotion {
             content()
