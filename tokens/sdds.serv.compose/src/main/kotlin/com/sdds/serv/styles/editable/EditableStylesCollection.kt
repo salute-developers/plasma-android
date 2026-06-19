@@ -35,18 +35,28 @@ public enum class EditableStyles(
     EditableBodyS("Editable.BodyS"),
     EditableBodyXs("Editable.BodyXs"),
     EditableBodyXxs("Editable.BodyXxs"),
+    AiUserMessageEditableXl("AiUserMessageEditable.Xl"),
+    AiUserMessageEditableL("AiUserMessageEditable.L"),
+    AiUserMessageEditableM("AiUserMessageEditable.M"),
+    AiUserMessageEditableS("AiUserMessageEditable.S"),
+    AiUserMessageEditableXs("AiUserMessageEditable.Xs"),
     ;
 
     /**
      * Typed API для подбора стиля editable
      */
-    public companion object
+    public object Default
+
+    /**
+     * Typed API для подбора стиля ai-user-message-editable
+     */
+    public object AiUserMessageEditable
 }
 
 /**
  * Возможные значения свойства size для editable
  */
-public enum class EditableSize {
+public enum class EditableDefaultSize {
     H1,
     H2,
     H3,
@@ -57,6 +67,17 @@ public enum class EditableSize {
     BodyS,
     BodyXs,
     BodyXxs,
+}
+
+/**
+ * Возможные значения свойства size для ai-user-message-editable
+ */
+public enum class AiUserMessageEditableSize {
+    Xl,
+    L,
+    M,
+    S,
+    Xs,
 }
 
 /**
@@ -75,6 +96,11 @@ public fun EditableStyles.style(modify: @Composable EditableStyleBuilder.() -> U
         EditableStyles.EditableBodyS -> Editable.BodyS
         EditableStyles.EditableBodyXs -> Editable.BodyXs
         EditableStyles.EditableBodyXxs -> Editable.BodyXxs
+        EditableStyles.AiUserMessageEditableXl -> AiUserMessageEditable.Xl
+        EditableStyles.AiUserMessageEditableL -> AiUserMessageEditable.L
+        EditableStyles.AiUserMessageEditableM -> AiUserMessageEditable.M
+        EditableStyles.AiUserMessageEditableS -> AiUserMessageEditable.S
+        EditableStyles.AiUserMessageEditableXs -> AiUserMessageEditable.Xs
     }
     return builder.modify(modify).style()
 }
@@ -82,27 +108,51 @@ public fun EditableStyles.style(modify: @Composable EditableStyleBuilder.() -> U
 /**
  * Возвращает экземпляр [EditableStyles] для editable
  */
-public fun EditableStyles.Companion.resolve(size: EditableSize = EditableSize.H1): EditableStyles =
-    when {
-        size == EditableSize.H1 -> EditableStyles.EditableH1
-        size == EditableSize.H2 -> EditableStyles.EditableH2
-        size == EditableSize.H3 -> EditableStyles.EditableH3
-        size == EditableSize.H4 -> EditableStyles.EditableH4
-        size == EditableSize.H5 -> EditableStyles.EditableH5
-        size == EditableSize.BodyL -> EditableStyles.EditableBodyL
-        size == EditableSize.BodyM -> EditableStyles.EditableBodyM
-        size == EditableSize.BodyS -> EditableStyles.EditableBodyS
-        size == EditableSize.BodyXs -> EditableStyles.EditableBodyXs
-        size == EditableSize.BodyXxs -> EditableStyles.EditableBodyXxs
-        else -> error("Unsupported editable style combination")
-    }
+public fun EditableStyles.Default.resolve(size: EditableDefaultSize = EditableDefaultSize.H1): EditableStyles = when {
+    size == EditableDefaultSize.H1 -> EditableStyles.EditableH1
+    size == EditableDefaultSize.H2 -> EditableStyles.EditableH2
+    size == EditableDefaultSize.H3 -> EditableStyles.EditableH3
+    size == EditableDefaultSize.H4 -> EditableStyles.EditableH4
+    size == EditableDefaultSize.H5 -> EditableStyles.EditableH5
+    size == EditableDefaultSize.BodyL -> EditableStyles.EditableBodyL
+    size == EditableDefaultSize.BodyM -> EditableStyles.EditableBodyM
+    size == EditableDefaultSize.BodyS -> EditableStyles.EditableBodyS
+    size == EditableDefaultSize.BodyXs -> EditableStyles.EditableBodyXs
+    size == EditableDefaultSize.BodyXxs -> EditableStyles.EditableBodyXxs
+    else -> error("Unsupported editable style combination")
+}
 
 /**
  * Возвращает [EditableStyle] для editable
  */
 @Composable
-public fun EditableStyles.Companion.style(
-    size: EditableSize = EditableSize.H1,
-    modify: @Composable
-    EditableStyleBuilder.() -> Unit = {},
+public fun EditableStyles.Default.style(
+    size: EditableDefaultSize = EditableDefaultSize.H1,
+    modify: @Composable EditableStyleBuilder.() -> Unit = {},
+): EditableStyle =
+    resolve(size).style(modify)
+
+/**
+ * Возвращает экземпляр [EditableStyles] для ai-user-message-editable
+ */
+public fun EditableStyles.AiUserMessageEditable.resolve(
+    size: AiUserMessageEditableSize =
+        AiUserMessageEditableSize.M,
+): EditableStyles = when {
+    size == AiUserMessageEditableSize.Xl -> EditableStyles.AiUserMessageEditableXl
+    size == AiUserMessageEditableSize.L -> EditableStyles.AiUserMessageEditableL
+    size == AiUserMessageEditableSize.M -> EditableStyles.AiUserMessageEditableM
+    size == AiUserMessageEditableSize.S -> EditableStyles.AiUserMessageEditableS
+    size == AiUserMessageEditableSize.Xs -> EditableStyles.AiUserMessageEditableXs
+    else -> error("Unsupported ai-user-message-editable style combination")
+}
+
+/**
+ * Возвращает [EditableStyle] для ai-user-message-editable
+ */
+@Composable
+public fun EditableStyles.AiUserMessageEditable.style(
+    size: AiUserMessageEditableSize =
+        AiUserMessageEditableSize.M,
+    modify: @Composable EditableStyleBuilder.() -> Unit = {},
 ): EditableStyle = resolve(size).style(modify)

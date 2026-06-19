@@ -32,7 +32,7 @@ import com.sdds.compose.uikit.ai.AiAnswerErrorScope
 import com.sdds.compose.uikit.ai.AiAnswerLoadingScope
 import com.sdds.compose.uikit.ai.AiAnswerState
 import com.sdds.compose.uikit.ai.AiAnswerStyle
-import com.sdds.compose.uikit.ai.motion.AiAnswerMotionStyle
+import com.sdds.compose.uikit.ai.motion.aianswer.AiAnswerMotionStyle
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.internal.common.FlowRowScope
 import com.sdds.compose.uikit.internal.common.LocalFlowRowMaxItemsInEachRow

@@ -5,8 +5,8 @@ import androidx.compose.ui.Modifier
 import com.sdds.api.info.compose.ApiName
 import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.ButtonGroupScope
-import com.sdds.compose.uikit.ai.motion.AiAnswerMotionStyle
-import com.sdds.compose.uikit.ai.motion.rememberAiAnswerMotion
+import com.sdds.compose.uikit.ai.motion.aianswer.AiAnswerMotionStyle
+import com.sdds.compose.uikit.ai.motion.aianswer.rememberAiAnswerMotion
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.ai.AiAnswerContent
 import com.sdds.compose.uikit.internal.ai.AiAnswerError
