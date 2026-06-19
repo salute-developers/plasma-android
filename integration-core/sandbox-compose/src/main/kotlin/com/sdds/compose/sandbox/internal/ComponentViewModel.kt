@@ -76,7 +76,6 @@ internal class ComponentViewModel<State : UiState, S : Style>(
         val state = internalUiState.value
         internalUiState.value = when (name) {
             APPEARANCE_PROPERTY_NAME -> state.updateVariant(value?.toString() ?: "", state.variant) as State
-            VARIANT_PROPERTY_NAME -> state.updateVariant(state.appearance, value?.toString() ?: "") as State
             SUBTHEME_PROPERTY_NAME -> {
                 val type = SubTheme.entries.firstOrNull { it.key == value }
                 _subtheme.value = type
@@ -90,6 +89,8 @@ internal class ComponentViewModel<State : UiState, S : Style>(
                         state.appearance,
                         styleProvider.resolveStyleKey(selectedBindings.value),
                     ) as State
+                } else if (name == VARIANT_PROPERTY_NAME) {
+                    state.updateVariant(state.appearance, value?.toString() ?: "") as State
                 } else {
                     stateTransformer.transform(internalUiState.value, name, value ?: "")
                 }

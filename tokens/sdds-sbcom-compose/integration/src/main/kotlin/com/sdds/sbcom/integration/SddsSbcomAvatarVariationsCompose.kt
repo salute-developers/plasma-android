@@ -18,6 +18,8 @@ import com.sdds.sbcom.styles.avatar.Avatar
 import com.sdds.sbcom.styles.avatar.AvatarSize
 import com.sdds.sbcom.styles.avatar.AvatarStyles
 import com.sdds.sbcom.styles.avatar.Size100
+import com.sdds.sbcom.styles.avatar.Size120
+import com.sdds.sbcom.styles.avatar.Size16
 import com.sdds.sbcom.styles.avatar.Size180
 import com.sdds.sbcom.styles.avatar.Size24
 import com.sdds.sbcom.styles.avatar.Size26
@@ -36,13 +38,14 @@ internal object SddsSbcomAvatarVariationsCompose : ComposeStyleProvider<AvatarSt
             Property.SingleChoiceProperty(
                 name = "size",
                 value = "Size72",
-                variants = listOf("Size180", "Size100", "Size72", "Size64", "Size56", "Size44", "Size40", "Size36", "Size32", "Size26", "Size24"),
+                variants = listOf("Size180", "Size120", "Size100", "Size72", "Size64", "Size56", "Size44", "Size40", "Size36", "Size32", "Size26", "Size24", "Size16"),
             ),
         )
 
     override val variations: Map<String, ComposeStyleReference<AvatarStyle>> =
         mapOf(
             "Avatar.Size180" to ComposeStyleReference { Avatar.Size180.style() },
+            "Avatar.Size120" to ComposeStyleReference { Avatar.Size120.style() },
             "Avatar.Size100" to ComposeStyleReference { Avatar.Size100.style() },
             "Avatar.Size72" to ComposeStyleReference { Avatar.Size72.style() },
             "Avatar.Size64" to ComposeStyleReference { Avatar.Size64.style() },
@@ -53,12 +56,14 @@ internal object SddsSbcomAvatarVariationsCompose : ComposeStyleProvider<AvatarSt
             "Avatar.Size32" to ComposeStyleReference { Avatar.Size32.style() },
             "Avatar.Size26" to ComposeStyleReference { Avatar.Size26.style() },
             "Avatar.Size24" to ComposeStyleReference { Avatar.Size24.style() },
+            "Avatar.Size16" to ComposeStyleReference { Avatar.Size16.style() },
         )
 
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
         return AvatarStyles.resolve(
             size = when (bindings["size"]?.toString()) {
                 "Size180" -> AvatarSize.Size180
+                "Size120" -> AvatarSize.Size120
                 "Size100" -> AvatarSize.Size100
                 "Size72" -> AvatarSize.Size72
                 "Size64" -> AvatarSize.Size64
@@ -69,6 +74,7 @@ internal object SddsSbcomAvatarVariationsCompose : ComposeStyleProvider<AvatarSt
                 "Size32" -> AvatarSize.Size32
                 "Size26" -> AvatarSize.Size26
                 "Size24" -> AvatarSize.Size24
+                "Size16" -> AvatarSize.Size16
                 else -> AvatarSize.Size72
             },
         ).key

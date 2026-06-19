@@ -9,7 +9,6 @@ package com.sdds.sbcom.styles.textfield
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.TextFieldHelperTextPlacement
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
@@ -20,76 +19,41 @@ import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 /**
  * Базовый интерфейс для всех оберток этого стиля
  */
-public interface WrapperTextField : BuilderWrapper<TextFieldStyle, TextFieldStyleBuilder>
+public interface WrapperAlternativeField : BuilderWrapper<TextFieldStyle, TextFieldStyleBuilder>
 
 /**
- * Терминальная обертка
+ * Обертка для вариации Default
  */
 @JvmInline
-public value class WrapperTextFieldTerminate(
+public value class WrapperAlternativeFieldDefault(
     public override val builder: TextFieldStyleBuilder,
-) : WrapperTextField
+) : WrapperAlternativeField
 
-public val TextField.Default: WrapperTextFieldTerminate
+public val AlternativeField.Default: WrapperAlternativeFieldDefault
     @Composable
+    @JvmName("WrapperAlternativeFieldDefault")
     get() = TextFieldStyle.builder(this)
-        .invariantProps
-        .colors {
-            labelColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            captionColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            counterColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-        }
-        .wrap(::WrapperTextFieldTerminate)
-
-public val TextField.Success: WrapperTextFieldTerminate
-    @Composable
-    get() = TextFieldStyle.builder(this)
-        .invariantProps
-        .colors {
-            labelColor(SddsSbComTheme.colors.textDefaultPositive.asInteractive())
-            captionColor(SddsSbComTheme.colors.textDefaultPositive.asInteractive())
-            counterColor(SddsSbComTheme.colors.textDefaultPositive.asInteractive())
-        }
-        .wrap(::WrapperTextFieldTerminate)
-
-public val TextField.Error: WrapperTextFieldTerminate
-    @Composable
-    get() = TextFieldStyle.builder(this)
-        .invariantProps
-        .colors {
-            labelColor(SddsSbComTheme.colors.textDefaultNegative.asInteractive())
-            captionColor(SddsSbComTheme.colors.textDefaultNegative.asInteractive())
-            counterColor(SddsSbComTheme.colors.textDefaultNegative.asInteractive())
-        }
-        .wrap(::WrapperTextFieldTerminate)
-
-private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
-    @Composable
-    get() = this
         .shape(SddsSbComTheme.shapes.roundL)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
-        .captionPlacement(TextFieldHelperTextPlacement.Outer)
-        .counterPlacement(TextFieldHelperTextPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .fieldType(TextFieldType.Optional)
-        .labelStyle(SddsSbComTheme.typography.bodyXsNormal)
         .valueStyle(SddsSbComTheme.typography.bodyLNormal)
-        .captionStyle(SddsSbComTheme.typography.bodyXsNormal)
         .counterStyle(SddsSbComTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsSbComTheme.typography.bodyLNormal)
         .singleLine(false)
         .dimensions {
             boxPaddingStart(16.0.dp)
             boxPaddingEnd(16.0.dp)
-            boxPaddingTop(8.0.dp)
-            boxPaddingBottom(8.0.dp)
-            labelPadding(2.0.dp)
-            helperTextPadding(4.0.dp)
-            startContentPadding(4.0.dp)
-            endContentPadding(8.0.dp)
+            boxPaddingTop(14.0.dp)
+            boxPaddingBottom(14.0.dp)
+            labelPadding(0.0.dp)
+            helperTextPadding(0.0.dp)
+            startContentPadding(12.0.dp)
+            endContentPadding(12.0.dp)
             boxMinHeight(52.0.dp)
             alignmentLineHeight(52.0.dp)
             startContentSize(24.0.dp)
@@ -103,7 +67,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             valueColor(SddsSbComTheme.colors.textDefaultPrimary.asInteractive())
             captionColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
             counterColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            backgroundColor(SddsSbComTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+            backgroundColor(SddsSbComTheme.colors.surfaceDefaultClear.asInteractive())
+            dividerColor(SddsSbComTheme.colors.surfaceOnDarkSolidDefault.asInteractive())
         }
         .scrollBar {
             scrollBarThickness(4.0.dp)
@@ -113,3 +78,4 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             scrollBarTrackColor(SddsSbComTheme.colors.surfaceDefaultClear.asInteractive())
             scrollBarThumbColor(SddsSbComTheme.colors.textDefaultTertiary.asInteractive())
         }
+        .wrap(::WrapperAlternativeFieldDefault)

@@ -128,6 +128,7 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 ComponentKey.TextField,
                 mapOf(
                     "TextField" to SddsSbcomTextFieldVariationsCompose,
+                    "AlternativeField" to SddsSbcomAlternativeFieldVariationsCompose,
                     "SearchBar" to SddsSbcomSearchBarVariationsCompose,
                 ),
             ),
@@ -236,6 +237,12 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 ComponentKey.NavigationDrawerItem,
                 mapOf(
                     "NavigationDrawerItem" to SddsSbcomNavigationDrawerItemVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.ToolBar,
+                mapOf(
+                    "ToolBar" to SddsSbcomToolBarVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

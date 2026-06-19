@@ -48,6 +48,14 @@ public value class WrapperAvatarSize180(
 ) : WrapperAvatar
 
 /**
+ * Обертка для вариации Size120
+ */
+@JvmInline
+public value class WrapperAvatarSize120(
+    public override val builder: AvatarStyleBuilder,
+) : WrapperAvatar
+
+/**
  * Обертка для вариации Size100
  */
 @JvmInline
@@ -127,6 +135,14 @@ public value class WrapperAvatarSize24(
     public override val builder: AvatarStyleBuilder,
 ) : WrapperAvatar
 
+/**
+ * Обертка для вариации Size16
+ */
+@JvmInline
+public value class WrapperAvatarSize16(
+    public override val builder: AvatarStyleBuilder,
+) : WrapperAvatar
+
 private val AvatarStyleBuilder.invariantProps: AvatarStyleBuilder
     @Composable
     get() = this
@@ -153,6 +169,18 @@ public val Avatar.Size180: WrapperAvatarSize180
             height(180.0.dp)
         }
         .wrap(::WrapperAvatarSize180)
+
+public val Avatar.Size120: WrapperAvatarSize120
+    @Composable
+    @JvmName("WrapperAvatarSize120")
+    get() = AvatarStyle.builder(this)
+        .invariantProps
+        .textStyle(SddsSbComTheme.typography.headerHXlMedium)
+        .dimensions {
+            width(120.0.dp)
+            height(120.0.dp)
+        }
+        .wrap(::WrapperAvatarSize120)
 
 public val Avatar.Size100: WrapperAvatarSize100
     @Composable
@@ -301,3 +329,15 @@ public val Avatar.Size24: WrapperAvatarSize24
             height(24.0.dp)
         }
         .wrap(::WrapperAvatarSize24)
+
+public val Avatar.Size16: WrapperAvatarSize16
+    @Composable
+    @JvmName("WrapperAvatarSize16")
+    get() = AvatarStyle.builder(this)
+        .invariantProps
+        .textStyle(SddsSbComTheme.typography.bodyXxxsMedium)
+        .dimensions {
+            width(16.0.dp)
+            height(16.0.dp)
+        }
+        .wrap(::WrapperAvatarSize16)

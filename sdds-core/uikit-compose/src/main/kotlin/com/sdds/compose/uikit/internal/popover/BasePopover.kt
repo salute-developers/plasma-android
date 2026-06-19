@@ -996,6 +996,9 @@ private class PopoverPositionProvider(
                 windowBounds = windowBounds,
                 triggerPositionInRoot = triggerPositionInRoot,
                 triggerSize = triggerSize,
+            ).coerceInWindow(
+                popupSize = currentPopupSize,
+                windowBounds = windowBounds,
             )
         }
         for (i in 0 until placement.fallbacks.size) {

@@ -6,10 +6,11 @@ import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.testcases.IndicatorCommon
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.indicator.Indicator
+import com.sdds.sbcom.styles.indicator.Size8
+import com.sdds.sbcom.styles.indicator.StateAccent
 import com.sdds.sbcom.styles.indicator.StateDanger
 import com.sdds.sbcom.styles.indicator.StateGlobalWhite
 import com.sdds.sbcom.styles.indicator.StateMute
-import com.sdds.sbcom.styles.indicator.StateSuccess
 import com.sdds.sbcom.styles.indicator.StateWarning
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -27,35 +28,35 @@ class ComposeIndicatorScreenshotTest(
     @Test
     fun testIndicatorStateSuccess() {
         composeTestRule.content {
-            IndicatorCommon(style = Indicator.StateSuccess.style())
+            IndicatorCommon(style = Indicator.Size8.StateAccent.style())
         }
     }
 
     @Test
     fun testIndicatorStateGlobalWhite() {
         composeTestRule.content {
-            IndicatorCommon(style = Indicator.StateGlobalWhite.style())
+            IndicatorCommon(style = Indicator.Size8.StateGlobalWhite.style())
         }
     }
 
     @Test
     fun testIndicatorStateMute() {
         composeTestRule.content {
-            IndicatorCommon(style = Indicator.StateMute.style())
+            IndicatorCommon(style = Indicator.Size8.StateMute.style())
         }
     }
 
     @Test
     fun testIndicatorStateDanger() {
         composeTestRule.content {
-            IndicatorCommon(style = Indicator.StateDanger.style())
+            IndicatorCommon(style = Indicator.Size8.StateDanger.style())
         }
     }
 
     @Test
     fun testIndicatorStateWarning() {
         composeTestRule.content {
-            IndicatorCommon(style = Indicator.StateWarning.style())
+            IndicatorCommon(style = Indicator.Size8.StateWarning.style())
         }
     }
 }
