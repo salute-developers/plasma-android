@@ -558,21 +558,28 @@ private fun AiInputLayout(
                 sendPlaceable?.height ?: 0,
             )
             val total = (topOffset + rowHeight).coerceIn(constraints.minHeight, boundedMaxHeight)
+            // При фиксированной высоте однострочная зона поля+контролов прибита к НИЗУ компонента
+            // (как и контролы в многострочном режиме), а не «приклеена» к текстовому полю сверху.
+            val rowTop = if (constraints.hasFixedHeight) {
+                (total - rowHeight).coerceAtLeast(topOffset)
+            } else {
+                topOffset
+            }
             layout(width, total) {
                 contentPlaceable?.placeRelative(0, 0)
                 var x = 0
                 startPlaceable?.let {
-                    it.placeRelative(x, topOffset + (rowHeight - it.height) / 2)
+                    it.placeRelative(x, rowTop + (rowHeight - it.height) / 2)
                     x += it.width
                 }
-                fieldPlaceable.placeRelative(x, topOffset + (rowHeight - fieldPlaceable.height) / 2)
+                fieldPlaceable.placeRelative(x, rowTop + (rowHeight - fieldPlaceable.height) / 2)
                 x += fieldPlaceable.width
                 endPlaceable?.let {
-                    it.placeRelative(x, topOffset + (rowHeight - it.height) / 2)
+                    it.placeRelative(x, rowTop + (rowHeight - it.height) / 2)
                     x += it.width
                 }
                 sendPlaceable?.let {
-                    it.placeRelative(x, topOffset + (rowHeight - it.height) / 2)
+                    it.placeRelative(x, rowTop + (rowHeight - it.height) / 2)
                     x += it.width
                 }
             }

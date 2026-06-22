@@ -1,9 +1,11 @@
 package com.sdds.compose.uikit.fixtures.stories.aiinput
 
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -63,10 +65,17 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
             value = textValue,
             onValueChange = { textValue = it },
             modifier = Modifier
-                .then(if (state.autoResize) Modifier else Modifier.height(150.dp)),
+                .then(if (state.autoResize) Modifier else Modifier.height(300.dp)),
             style = style,
             placeholder = if (state.placeholder.isNotEmpty()) {
-                { Text(text = state.placeholder) }
+                {
+                    Text(
+                        text = state.placeholder,
+                        maxLines = 1,
+                        softWrap = false,
+                        modifier = Modifier.horizontalScroll(rememberScrollState()),
+                    )
+                }
             } else {
                 null
             },
@@ -187,7 +196,13 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
             onValueChange = { textValue = it },
             modifier = Modifier.fillMaxWidth(),
             style = style,
-            placeholder = { Text(text = "Введите сообщение") },
+            placeholder = {
+                Text(
+                    text = "Введите сообщение",
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
             startControls = {
                 ButtonGroup {
                     button {
