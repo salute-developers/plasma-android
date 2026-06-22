@@ -22,7 +22,6 @@ import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
-import kotlin.jvm.JvmName
 
 /**
  * Базовый интерфейс для всех оберток этого стиля
@@ -30,23 +29,18 @@ import kotlin.jvm.JvmName
 public interface WrapperCheckBox : BuilderWrapper<CheckBoxStyle, CheckBoxStyleBuilder>
 
 /**
- * Обертка для вариации Default
+ * Терминальная обертка
  */
 @JvmInline
-public value class WrapperCheckBoxDefault(
+public value class WrapperCheckBoxTerminate(
     public override val builder: CheckBoxStyleBuilder,
 ) : WrapperCheckBox
 
-public val CheckBox.Default: WrapperCheckBoxDefault
+public val CheckBox.VariantDefault: WrapperCheckBoxTerminate
     @Composable
-    @JvmName("WrapperCheckBoxDefault")
     get() = CheckBoxStyle.builder(this)
-        .disableAlpha(0.4f)
-        .shape(CircleShape)
-        .backgroundShape(CircleShape)
+        .invariantProps
         .colorValues {
-            labelColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
-            descriptionColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
             toggleBorderColor(
                 SolidColor(SddsSbComTheme.colors.textDefaultParagraph).asStatefulValue(
                     setOf(CheckBoxStates.Checked)
@@ -74,6 +68,51 @@ public val CheckBox.Default: WrapperCheckBoxDefault
                 ),
             )
         }
+        .wrap(::WrapperCheckBoxTerminate)
+
+public val CheckBox.VariantPoll: WrapperCheckBoxTerminate
+    @Composable
+    get() = CheckBoxStyle.builder(this)
+        .invariantProps
+        .colorValues {
+            toggleBorderColor(
+                SolidColor(SddsSbComTheme.colors.outlineOnLightDefault).asStatefulValue(
+                    setOf(CheckBoxStates.Checked)
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultClear),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsSbComTheme.colors.surfaceDefaultClear),
+                ),
+            )
+            toggleColor(
+                SolidColor(SddsSbComTheme.colors.surfaceOnDarkTransparentTertiary).asStatefulValue(
+                    setOf(CheckBoxStates.Checked)
+                        to SolidColor(SddsSbComTheme.colors.surfaceOnLightSolidPrimary),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsSbComTheme.colors.surfaceOnLightSolidPrimary),
+                ),
+            )
+            toggleIconColor(SolidColor(SddsSbComTheme.colors.textOnLightAccent).asStatefulValue())
+            backgroundColor(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.surfaceOnDarkTransparentTertiary),
+                    setOf(InteractiveState.Focused) to
+                        SolidColor(SddsSbComTheme.colors.surfaceOnDarkTransparentTertiary),
+                ),
+            )
+        }
+        .wrap(::WrapperCheckBoxTerminate)
+
+private val CheckBoxStyleBuilder.invariantProps: CheckBoxStyleBuilder
+    @Composable
+    get() = this
+        .disableAlpha(0.4f)
+        .shape(CircleShape)
+        .backgroundShape(CircleShape)
+        .colorValues {
+            labelColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+        }
         .dimensionValues {
             toggleWidth(24.0.dp)
             toggleHeight(24.0.dp)
@@ -97,4 +136,3 @@ public val CheckBox.Default: WrapperCheckBoxDefault
             paddingEnd(9.0.dp)
             paddingBottom(9.0.dp)
         }
-        .wrap(::WrapperCheckBoxDefault)

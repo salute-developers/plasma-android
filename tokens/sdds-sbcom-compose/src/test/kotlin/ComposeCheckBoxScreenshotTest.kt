@@ -9,7 +9,7 @@ import com.sdds.compose.uikit.fixtures.testcases.CheckBoxSizeLNegativeUnchecked
 import com.sdds.compose.uikit.fixtures.testcases.CheckBoxSizeMediumNoLabelAndDesc
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.checkbox.CheckBox
-import com.sdds.sbcom.styles.checkbox.Default
+import com.sdds.sbcom.styles.checkbox.VariantDefault
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -29,14 +29,14 @@ class ComposeCheckBoxScreenshotTest(
     @Test
     fun testCheckBoxDefault() {
         composeTestRule.content {
-            CheckBoxSizeMediumNoLabelAndDesc(style = CheckBox.Default.style())
+            CheckBoxSizeMediumNoLabelAndDesc(style = CheckBox.VariantDefault.style())
         }
     }
 
     @Test
     fun testCheckBoxUnchecked() {
         composeTestRule.content {
-            CheckBoxSizeLNegativeUnchecked(style = CheckBox.Default.style())
+            CheckBoxSizeLNegativeUnchecked(style = CheckBox.VariantDefault.style())
         }
     }
 
@@ -44,7 +44,7 @@ class ComposeCheckBoxScreenshotTest(
     fun testCheckBoxDisabled() {
         composeTestRule.content {
             CheckBox(
-                style = CheckBox.Default.style(),
+                style = CheckBox.VariantDefault.style(),
                 state = ToggleableState.On,
                 enabled = false,
                 onClick = {},
@@ -56,7 +56,7 @@ class ComposeCheckBoxScreenshotTest(
     fun testCheckBoxIndeterminate() {
         composeTestRule.content {
             CheckBox(
-                style = CheckBox.Default.style(),
+                style = CheckBox.VariantDefault.style(),
                 state = ToggleableState.Indeterminate,
                 enabled = true,
                 onClick = {},
@@ -68,7 +68,7 @@ class ComposeCheckBoxScreenshotTest(
     fun testCheckBoxOffDisabled() {
         composeTestRule.content {
             CheckBox(
-                style = CheckBox.Default.style(),
+                style = CheckBox.VariantDefault.style(),
                 state = ToggleableState.Off,
                 enabled = false,
                 onClick = {},

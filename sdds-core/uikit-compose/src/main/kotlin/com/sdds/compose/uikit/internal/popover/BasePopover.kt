@@ -137,7 +137,7 @@ internal fun BasePopover(
         systemBarsInsets = SystemBarsInsets.fromWindowInsets(),
         triggerInfoProvider = triggerInfo,
         keyboardHeight = getKeyboardHeightPx(),
-        rootViewHeight = rootView.height,
+        rootViewSize = IntSize(rootView.width, rootView.height),
         clipHeight = clipHeight,
         clipWidth = clipWidth,
         popoverContentSize = { popoverContentSize },
@@ -501,7 +501,7 @@ private fun rememberPopoverPositionProvider(
     safeAreaPaddings: SafeAreaPaddings,
     systemBarsInsets: SystemBarsInsets,
     keyboardHeight: Int,
-    rootViewHeight: Int,
+    rootViewSize: IntSize,
     clipHeight: Boolean,
     clipWidth: Boolean,
     popoverContentSize: () -> IntSize,
@@ -526,7 +526,7 @@ private fun rememberPopoverPositionProvider(
         safeAreaPaddings,
         systemBarsInsets,
         keyboardHeight,
-        rootViewHeight,
+        rootViewSize,
         clipHeight,
         clipWidth,
     ) {
@@ -547,7 +547,7 @@ private fun rememberPopoverPositionProvider(
             safeAreaPaddings,
             systemBarsInsets,
             keyboardHeight,
-            rootViewHeight,
+            rootViewSize,
             clipHeight,
             clipWidth,
             popoverContentSize,
@@ -574,7 +574,7 @@ private class PopoverPositionProvider(
     private val safeAreaPaddings: SafeAreaPaddings,
     private val systemBarsInsets: SystemBarsInsets,
     private val keyboardHeight: Int,
-    private val rootViewHeight: Int,
+    private val rootViewSize: IntSize,
     private val clipHeight: Boolean,
     private val clipWidth: Boolean,
     private val popoverContentSize: () -> IntSize,
@@ -812,22 +812,26 @@ private class PopoverPositionProvider(
     private fun getAvailableWindowBounds(windowSize: IntSize): WindowBounds {
         val keyboardHeight = if (shouldSubtractKeyboard(windowSize)) keyboardHeight else 0
         val bottomInset = maxOf(systemBarsInsets.bottom, keyboardHeight)
+        val rootWidth = rootViewSize.width.takeIf { it > 0 }
+            ?: (windowSize.width + systemBarsInsets.left + systemBarsInsets.right)
+        val rootHeight = rootViewSize.height.takeIf { it > 0 }
+            ?: (windowSize.height + systemBarsInsets.top + systemBarsInsets.bottom)
         val left = systemBarsInsets.left + safeAreaPaddings.start
         val top = systemBarsInsets.top + safeAreaPaddings.top
         return WindowBounds(
             left = left,
             top = top,
-            right = (windowSize.width - systemBarsInsets.right - safeAreaPaddings.end)
+            right = (rootWidth - systemBarsInsets.right - safeAreaPaddings.end)
                 .coerceAtLeast(left),
-            bottom = (windowSize.height - bottomInset - safeAreaPaddings.bottom)
+            bottom = (rootHeight - bottomInset - safeAreaPaddings.bottom)
                 .coerceAtLeast(top),
         )
     }
 
     private fun shouldSubtractKeyboard(windowSize: IntSize): Boolean {
         if (keyboardHeight <= 0) return false
-        if (rootViewHeight <= 0) return true
-        val imeAdjustedRootHeight = rootViewHeight - keyboardHeight
+        if (rootViewSize.height <= 0) return true
+        val imeAdjustedRootHeight = rootViewSize.height - keyboardHeight
         return windowSize.height > imeAdjustedRootHeight
     }
 
@@ -991,12 +995,15 @@ private class PopoverPositionProvider(
     ): IntOffset {
         val currentPopupSize = popupSize.forCurrentTailPlacement(contentPlacement)
         if (hasEnoughSpaceForPlacement(currentPopupSize, windowBounds)) {
-            return tryToCorrectAlignment(
+            val positionWithNewAlignment = tryToCorrectAlignment(
                 popupSize = currentPopupSize,
                 windowBounds = windowBounds,
                 triggerPositionInRoot = triggerPositionInRoot,
                 triggerSize = triggerSize,
             )
+            if (positionWithNewAlignment.hasEnoughSpace(currentPopupSize, windowBounds)) {
+                return positionWithNewAlignment
+            }
         }
         for (i in 0 until placement.fallbacks.size) {
             innerPlacement = placement.fallbacks[i]

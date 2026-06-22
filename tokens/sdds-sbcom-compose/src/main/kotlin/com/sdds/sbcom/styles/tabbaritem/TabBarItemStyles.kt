@@ -21,6 +21,7 @@ import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.styles.counter.Default
 import com.sdds.sbcom.styles.counter.TabBarCounter
 import com.sdds.sbcom.styles.indicator.Indicator
+import com.sdds.sbcom.styles.indicator.Size6
 import com.sdds.sbcom.styles.indicator.StateDanger
 import com.sdds.sbcom.theme.SddsSbComTheme
 import kotlin.Suppress
@@ -47,7 +48,7 @@ public val TabBarItem.Default: WrapperTabBarItemDefault
         .shape(CircleShape)
         .labelPlacement(TabBarLabelPlacement.Bottom)
         .counterStyle(TabBarCounter.Default.style())
-        .indicatorStyle(Indicator.StateDanger.style())
+        .indicatorStyle(Indicator.Size6.StateDanger.style())
         .colors {
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(

@@ -73,7 +73,7 @@ private val IndicatorStyleBuilder.invariantProps: IndicatorStyleBuilder
         .shape(CircleShape)
         .color {
             backgroundColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                SolidColor(SddsSbComTheme.colors.textDefaultAccent).asStatefulValue(
                     setOf(AvatarStatus.Inactive)
                         to SolidColor(SddsSbComTheme.colors.textDefaultTertiary),
                 ),

@@ -26,6 +26,7 @@ public enum class AvatarStyles(
     public val key: String,
 ) {
     AvatarSize180("Avatar.Size180"),
+    AvatarSize120("Avatar.Size120"),
     AvatarSize100("Avatar.Size100"),
     AvatarSize72("Avatar.Size72"),
     AvatarSize64("Avatar.Size64"),
@@ -36,6 +37,7 @@ public enum class AvatarStyles(
     AvatarSize32("Avatar.Size32"),
     AvatarSize26("Avatar.Size26"),
     AvatarSize24("Avatar.Size24"),
+    AvatarSize16("Avatar.Size16"),
     ;
 
     /**
@@ -49,6 +51,7 @@ public enum class AvatarStyles(
  */
 public enum class AvatarSize {
     Size180,
+    Size120,
     Size100,
     Size72,
     Size64,
@@ -59,6 +62,7 @@ public enum class AvatarSize {
     Size32,
     Size26,
     Size24,
+    Size16,
 }
 
 /**
@@ -68,6 +72,7 @@ public enum class AvatarSize {
 public fun AvatarStyles.style(modify: @Composable AvatarStyleBuilder.() -> Unit = {}): AvatarStyle {
     val builder = when (this) {
         AvatarStyles.AvatarSize180 -> Avatar.Size180
+        AvatarStyles.AvatarSize120 -> Avatar.Size120
         AvatarStyles.AvatarSize100 -> Avatar.Size100
         AvatarStyles.AvatarSize72 -> Avatar.Size72
         AvatarStyles.AvatarSize64 -> Avatar.Size64
@@ -78,6 +83,7 @@ public fun AvatarStyles.style(modify: @Composable AvatarStyleBuilder.() -> Unit 
         AvatarStyles.AvatarSize32 -> Avatar.Size32
         AvatarStyles.AvatarSize26 -> Avatar.Size26
         AvatarStyles.AvatarSize24 -> Avatar.Size24
+        AvatarStyles.AvatarSize16 -> Avatar.Size16
     }
     return builder.modify(modify).style()
 }
@@ -87,6 +93,7 @@ public fun AvatarStyles.style(modify: @Composable AvatarStyleBuilder.() -> Unit 
  */
 public fun AvatarStyles.Companion.resolve(size: AvatarSize = AvatarSize.Size72): AvatarStyles = when {
     size == AvatarSize.Size180 -> AvatarStyles.AvatarSize180
+    size == AvatarSize.Size120 -> AvatarStyles.AvatarSize120
     size == AvatarSize.Size100 -> AvatarStyles.AvatarSize100
     size == AvatarSize.Size72 -> AvatarStyles.AvatarSize72
     size == AvatarSize.Size64 -> AvatarStyles.AvatarSize64
@@ -97,6 +104,7 @@ public fun AvatarStyles.Companion.resolve(size: AvatarSize = AvatarSize.Size72):
     size == AvatarSize.Size32 -> AvatarStyles.AvatarSize32
     size == AvatarSize.Size26 -> AvatarStyles.AvatarSize26
     size == AvatarSize.Size24 -> AvatarStyles.AvatarSize24
+    size == AvatarSize.Size16 -> AvatarStyles.AvatarSize16
     else -> error("Unsupported avatar style combination")
 }
 
