@@ -8,10 +8,13 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.SolidColor
 import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.transform
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -29,7 +32,13 @@ interface RectSkeletonStyle : Style {
     /**
      * Форма компонента
      */
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
     val shape: Shape
+
+    /**
+     * Форма компонента
+     */
+    val shapes: StatefulValue<Shape>
 
     /**
      * Градиент шиммера
@@ -59,7 +68,13 @@ interface RectSkeletonStyleBuilder : StyleBuilder<RectSkeletonStyle> {
     /**
      * Устанавливает форму [shape] компонента
      */
-    fun shape(shape: CornerBasedShape): RectSkeletonStyleBuilder
+    fun shape(shape: CornerBasedShape): RectSkeletonStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает форму [shape] компонента
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): RectSkeletonStyleBuilder
 
     /**
      * Устанавливает градиент [gradient] шиммера
@@ -76,7 +91,13 @@ interface RectSkeletonStyleBuilder : StyleBuilder<RectSkeletonStyle> {
      * Устанавливает градиент [gradient] шиммера
      */
     fun gradient(gradient: Color): RectSkeletonStyleBuilder =
-        gradient(SolidColor(gradient))
+        gradient(gradient.asStatefulBrush())
+
+    /**
+     * Устанавливает градиент [gradient] шиммера
+     */
+    fun gradient(gradient: InteractiveColor): RectSkeletonStyleBuilder =
+        gradient(gradient.asStatefulBrush())
 
     /**
      * Устанавливает время в мс [duration], за которое градиент перемещается через всю ширину компонента
@@ -85,18 +106,21 @@ interface RectSkeletonStyleBuilder : StyleBuilder<RectSkeletonStyle> {
 }
 
 private class DefaultRectSkeletonStyle(
-    override val shape: CornerBasedShape,
     override val gradient: StatefulValue<Brush>,
     override val duration: Int,
+    override val shapes: StatefulValue<Shape>,
 ) : RectSkeletonStyle {
 
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = (shapes.getDefaultValue() as? CornerBasedShape) ?: RoundedCornerShape(15)
+
     class Builder : RectSkeletonStyleBuilder {
-        private var shape: CornerBasedShape? = null
+        private var shapes: StatefulValue<CornerBasedShape>? = null
         private var gradient: StatefulValue<Brush>? = null
         private var duration: Int? = null
 
-        override fun shape(shape: CornerBasedShape) = apply {
-            this.shape = shape
+        override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
+            this.shapes = shape
         }
 
         override fun gradient(gradient: StatefulValue<Brush>) = apply {
@@ -109,7 +133,7 @@ private class DefaultRectSkeletonStyle(
 
         override fun style(): RectSkeletonStyle {
             return DefaultRectSkeletonStyle(
-                shape = shape ?: RoundedCornerShape(15),
+                shapes = shapes?.transform { it } ?: RoundedCornerShape(15).asStatefulValue(),
                 gradient = gradient ?: Brush.linearGradient(
                     0f to Color.Transparent,
                     0.5f to Color.LightGray,

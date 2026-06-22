@@ -15,6 +15,12 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.LineHeightStyle
+import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.internal.UnspecifiedShape
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.skeleton.TextSkeletonMotionStyle
+import com.sdds.compose.uikit.motion.components.skeleton.rememberTextSkeletonMotion
+import com.sdds.compose.uikit.motion.getTextStyleAsState
 import kotlin.random.Random
 
 /**
@@ -40,17 +46,28 @@ fun TextSkeleton(
     modifier: Modifier = Modifier,
     style: TextSkeletonStyle = LocalTextSkeletonStyle.current,
     lineCount: Int = 3,
-    textStyle: TextStyle = style.textStyle,
+    textStyle: TextStyle = UnspecifiedTextStyle,
     lineWidthProvider: SkeletonLineWidthProvider = SkeletonLineWidthProvider.RandomDeviation(),
     duration: Int = style.duration,
     brush: Brush = style.gradient.getDefaultValue(),
-    shape: Shape = style.shape,
+    shape: Shape = UnspecifiedShape,
     transition: InfiniteTransition = rememberInfiniteTransition(),
+    motion: Motion<TextSkeletonMotionStyle> = rememberTextSkeletonMotion(),
 ) {
     if (lineCount < 1) throw IllegalStateException("RectSkeleton: line count must be greater than 0")
-    val textSize = with(LocalDensity.current) { textStyle.fontSize.toDp() }
-    val alignment = remember(textStyle) { textStyle.lineHeightStyle?.alignment.toContentAlignment() }
-    val lineHeight = with(LocalDensity.current) { textStyle.lineHeight.toDp() }
+    val currentShape = if (shape === UnspecifiedShape) {
+        style.shapes.getValueAsState(motion.context).value
+    } else {
+        shape
+    }
+    val currentTextStyle = if (textStyle === UnspecifiedTextStyle) {
+        style.textStyles.getTextStyleAsState(motion.context, motion.style.textStyle).value
+    } else {
+        textStyle
+    }
+    val textSize = with(LocalDensity.current) { currentTextStyle.fontSize.toDp() }
+    val alignment = remember(currentTextStyle) { currentTextStyle.lineHeightStyle?.alignment.toContentAlignment() }
+    val lineHeight = with(LocalDensity.current) { currentTextStyle.lineHeight.toDp() }
     Column(modifier = modifier) {
         for (lineIndex in 0 until lineCount) {
             Box(
@@ -63,8 +80,9 @@ fun TextSkeleton(
                         .fillMaxWidth(fraction = lineWidthProvider.widthFactor(lineIndex, lineCount)),
                     duration = duration,
                     brush = brush,
-                    shape = shape,
+                    shape = currentShape,
                     transition = transition,
+                    motion = motion,
                 )
             }
         }
@@ -126,3 +144,5 @@ private fun LineHeightStyle.Alignment?.toContentAlignment(): Alignment {
         else -> Alignment.Center
     }
 }
+
+private val UnspecifiedTextStyle = TextStyle()

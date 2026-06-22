@@ -10,6 +10,10 @@ import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.layout.Placeable
@@ -90,4 +94,16 @@ internal object DefaultVerticalArrangement : Arrangement.Vertical {
         sizes: IntArray,
         outPositions: IntArray,
     ) = Unit
+}
+
+/**
+ * Используется для передачи в функции как дефолтное значение параметра
+ * типа Shape. Необходимо для понимания, было ли передано какое то значение пользователем.
+ */
+internal object UnspecifiedShape : Shape {
+    override fun createOutline(
+        size: Size,
+        layoutDirection: LayoutDirection,
+        density: Density,
+    ): Outline = Outline.Rectangle(Rect.Zero)
 }
