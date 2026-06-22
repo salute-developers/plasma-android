@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.File
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.ai.AiInput
@@ -68,7 +69,7 @@ fun AiInput_WithContent() {
             modifier = Modifier.fillMaxWidth(),
             placeholder = { Text(text = "Введите сообщение") },
             content = {
-                /* File(...) */
+                File(label = "file.png")
             },
             sendButton = {
                 IconButton(iconRes = R.drawable.ic_arrow_up_24, onClick = { /* handle */ })
