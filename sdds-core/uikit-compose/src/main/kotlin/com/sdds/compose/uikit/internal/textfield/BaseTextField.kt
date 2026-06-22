@@ -48,6 +48,7 @@ import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextLayoutResult
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
@@ -232,11 +233,12 @@ internal fun BaseTextField(
             )
         }
     }
+    val textFieldValue = value.coerceTextRangesInBounds()
 
-    LaunchedEffect(value.text, value.selection, innerTextFieldInfo.value) {
+    LaunchedEffect(textFieldValue.text, textFieldValue.selection, innerTextFieldInfo.value) {
         textLayoutResult?.let { layout ->
             scrollToCaret(
-                value,
+                textFieldValue,
                 layout,
                 horizontalScrollState,
                 verticalScrollState,
@@ -262,7 +264,7 @@ internal fun BaseTextField(
             .then(activatableModifier)
             .textFieldClickable(enabled, fakeTextField, onDecorationBoxClicked, interactionSource, style.shape)
             .testTag("textField"),
-        value = value,
+        value = textFieldValue,
         onValueChange = onValueChange,
         onTextLayout = { textLayoutResult = it },
         enabled = enabled && !fakeTextField,
@@ -310,7 +312,7 @@ internal fun BaseTextField(
                     val innerFieldContent = getInnerFieldContent(
                         fakeTextField = fakeTextField,
                         enabled = enabled,
-                        value = value,
+                        value = textFieldValue,
                         valueStyle = valueStyle,
                         innerTextField = it,
                     )
@@ -361,7 +363,7 @@ internal fun BaseTextField(
                                     Modifier
                                 },
                             ),
-                        value = value.text,
+                        value = textFieldValue.text,
                         textLayoutResult = textLayoutResult,
                         innerTextField = innerFieldContent,
                         interactionSource = innerInteractionSource,
@@ -369,7 +371,7 @@ internal fun BaseTextField(
                             label = finalLabelText,
                             labelPlacement = labelPlacement,
                             isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
-                            value = value,
+                            value = textFieldValue,
                             placeHolderStyle = placeholderStyle,
                             innerLabelStyle = labelStyle,
                             hasChips = chipsContent != null,
@@ -379,7 +381,7 @@ internal fun BaseTextField(
                             fieldType = fieldType,
                             optionalText = finalOptionalText,
                             isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
-                            value = value,
+                            value = textFieldValue,
                             placeHolderStyle = placeholderStyle,
                             innerOptionalStyle = optionalStyle,
                             hasChips = chipsContent != null,
@@ -417,12 +419,12 @@ internal fun BaseTextField(
                         valueTextStyle = valueStyle,
                         innerLabelTextStyle = labelStyle,
                         prefix = textOrNull(
-                            modifier = Modifier.graphicsLayer(alpha = if (value.text.isEmpty()) 0f else 1f),
+                            modifier = Modifier.graphicsLayer(alpha = if (textFieldValue.text.isEmpty()) 0f else 1f),
                             text = prefix,
                             textStyle = prefixStyle,
                         ),
                         suffix = textOrNull(
-                            modifier = Modifier.graphicsLayer(alpha = if (value.text.isEmpty()) 0f else 1f),
+                            modifier = Modifier.graphicsLayer(alpha = if (textFieldValue.text.isEmpty()) 0f else 1f),
                             text = suffix,
                             textStyle = suffixStyle,
                         ),
@@ -461,6 +463,27 @@ private fun Modifier.enableAlpha(enabled: Boolean, enabledAlpha: Float, disabled
     return this.graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
 }
 
+private fun TextFieldValue.coerceTextRangesInBounds(): TextFieldValue {
+    val textLength = text.length
+    val coercedSelection = selection.coerceIn(0, textLength)
+    val coercedComposition = composition?.coerceIn(0, textLength)
+    return if (coercedSelection == selection && coercedComposition == composition) {
+        this
+    } else {
+        copy(
+            selection = coercedSelection,
+            composition = coercedComposition,
+        )
+    }
+}
+
+private fun TextRange.coerceIn(minimumValue: Int, maximumValue: Int): TextRange {
+    return TextRange(
+        start = start.coerceIn(minimumValue, maximumValue),
+        end = end.coerceIn(minimumValue, maximumValue),
+    )
+}
+
 private suspend fun scrollToCaret(
     value: TextFieldValue,
     layout: TextLayoutResult,
@@ -469,8 +492,9 @@ private suspend fun scrollToCaret(
     innerFieldInfo: InnerTextFieldLayoutInfo,
 ) {
     val prefixSize = innerFieldInfo.prefixSize
+    val caretOffset = value.selection.end.coerceIn(0, layout.layoutInput.text.length)
     val cursorRect = layout
-        .getCursorRect(value.selection.end)
+        .getCursorRect(caretOffset)
         .translate(prefixSize.width.toFloat(), 0f)
     horizontalScrollState?.let { scroll ->
         val chipsWidth = innerFieldInfo.chipGroupSize.width
