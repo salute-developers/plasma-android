@@ -89,17 +89,17 @@ fun Wheel(
     )
     val separatorColor = style.colors.separatorColor.colorForInteraction(interactionSource)
 
-    val selectorBrush = style.colors.itemSelectorBrush.getValue(interactionSource)
-    val selectorShape = style.itemSelectorShape.getValue(interactionSource)
-    val selectorPaddingTopPx = style.dimensions.itemSelectorPaddingTop.getValue(interactionSource)
-    val selectorPaddingBottomPx = style.dimensions.itemSelectorPaddingBottom.getValue(interactionSource)
-    val selectorPaddingStartPx = style.dimensions.itemSelectorPaddingStart.getValue(interactionSource)
-    val selectorPaddingEndPx = style.dimensions.itemSelectorPaddingEnd.getValue(interactionSource)
+    val selectorBrush = style.colors.selectionIndicatorBrush.getValue(interactionSource)
+    val selectorShape = style.selectionIndicatorShape.getValue(interactionSource)
+    val selectorPaddingTopPx = style.dimensions.selectionIndicatorPaddingTop.getValue(interactionSource)
+    val selectorPaddingBottomPx = style.dimensions.selectionIndicatorPaddingBottom.getValue(interactionSource)
+    val selectorPaddingStartPx = style.dimensions.selectionIndicatorPaddingStart.getValue(interactionSource)
+    val selectorPaddingEndPx = style.dimensions.selectionIndicatorPaddingEnd.getValue(interactionSource)
     val itemSpacingPx = style.dimensions.itemMinSpacing
 
     WheelLayout(
         modifier = modifier.drawBehind {
-            if (!style.itemSelectorEnabled || wheelItemHeight == 0) return@drawBehind
+            if (!style.selectionIndicatorEnabled || wheelItemHeight == 0) return@drawBehind
             val selectorHeightPx = (
                 wheelItemHeight +
                     selectorPaddingTopPx.toPx() + selectorPaddingBottomPx.toPx() -
