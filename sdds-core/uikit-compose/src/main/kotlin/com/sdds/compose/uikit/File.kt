@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -18,8 +19,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.cell.BaseCell
 
 /**
@@ -82,7 +86,18 @@ fun File(
     actionPlacement: FileActionPlacement = style.actionPlacement,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
-    Column(modifier.width(IntrinsicSize.Max)) {
+    val background = style.colors.backgroundColor.getValueAsState(interactionSource)
+    val shape = style.shape.getValue(interactionSource)
+    val paddings = style.dimensions.getPaddingValues(interactionSource)
+    Column(
+        modifier
+            .backgroundBrush(
+                brushProducer = { background.value },
+                shape = shape,
+            )
+            .padding(paddings)
+            .width(IntrinsicSize.Max),
+    ) {
         BaseCell(
             modifier = Modifier.fillMaxWidth(),
             gravity = CellGravity.Center,
@@ -198,6 +213,16 @@ fun File(
         interactionSource = interactionSource,
     )
 }
+
+@Composable
+private fun FileDimensions.getPaddingValues(
+    interactionSource: InteractionSource,
+): PaddingValues = PaddingValues(
+    start = paddingStart.getValue(interactionSource),
+    top = paddingTop.getValue(interactionSource),
+    end = paddingEnd.getValue(interactionSource),
+    bottom = paddingBottom.getValue(interactionSource),
+)
 
 @Composable
 private fun ColumnScope.BottomContent(

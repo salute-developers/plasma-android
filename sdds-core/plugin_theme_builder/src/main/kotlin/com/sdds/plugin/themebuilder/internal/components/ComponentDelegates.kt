@@ -85,6 +85,7 @@ internal fun componentDelegates(allMeta: List<ComponentMeta>, allComponents: Lis
             "avatar" to universal("Avatar") { AvatarConfigDelegate() },
             "ai-answer" to universal("AiAnswer") { AiAnswerConfigDelegate() },
             "ai-header" to universal("AiHeader") { AiHeaderConfigDelegate() },
+            "ai-input" to universal("AiInput"),
             "avatar-group" to universal("AvatarGroup") { AvatarGroupConfigDelegate() },
             "text-field" to universal("TextField") { TextFieldConfigDelegate() },
             "text-area" to universal("TextArea") { TextAreaConfigDelegate() },

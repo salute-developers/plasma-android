@@ -349,6 +349,7 @@ object SddsServComposeComponents : ComponentProvider() {
                     "EmbeddedIconButtonGroup" to SddsServEmbeddedIconButtonGroupVariationsCompose,
                     "AiAnswerIconButtonGroup" to SddsServAiAnswerIconButtonGroupVariationsCompose,
                     "AiAnswerBasicButtonGroup" to SddsServAiAnswerBasicButtonGroupVariationsCompose,
+                    "AiInputIconButtonGroup" to SddsServAiInputIconButtonGroupVariationsCompose,
                 ),
             ),
             Component(
@@ -455,6 +456,7 @@ object SddsServComposeComponents : ComponentProvider() {
                 mapOf(
                     "FileCircularProgress" to SddsServFileCircularProgressVariationsCompose,
                     "FileLinearProgress" to SddsServFileLinearProgressVariationsCompose,
+                    "AiInputFileCircularProgress" to SddsServAiInputFileCircularProgressVariationsCompose,
                 ),
             ),
             Component(
@@ -518,6 +520,13 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.Splitter,
                 mapOf(
                     "Splitter" to SddsServSplitterVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.AiInput,
+                mapOf(
+                    "AiInputCondensed" to SddsServAiInputCondensedVariationsCompose,
+                    "AiInputExtended" to SddsServAiInputExtendedVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }
