@@ -6,9 +6,18 @@ import com.sdds.playground.integrationtest.scenarios.login.LoginFormScenarioScre
 import com.sdds.playground.integrationtest.scenarios.popup.ModalScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.popup.ToastModalLoginFormScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.popup.TooltipScenarioScreen
+import com.sdds.playground.integrationtest.scenarios.textfield.TextFieldInvalidSelectionScenarioScreen
 
 internal object IntegrationScenarioRegistry {
     val scenarios: List<IntegrationScenario> = listOf(
+        IntegrationScenario(
+            id = "text-field-invalid-selection",
+            title = "Каретка за пределами отображаемого текста",
+            description = "Воспроизводит падение scrollToCaret, когда TextFieldValue изменяется " +
+                "раньше, чем обновляется текстовый layout.",
+            category = ScenarioCategory.Input,
+            screen = { TextFieldInvalidSelectionScenarioScreen() },
+        ),
         IntegrationScenario(
             id = "focus-scale-tabs",
             title = "Фокус-scale",

@@ -1,5 +1,6 @@
 package com.sdds.compose.sandbox.internal
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -85,9 +86,24 @@ internal class ComponentViewModel<State : UiState, S : Style>(
                 val styleProvider = getStyleProvider(state.appearance, theme.value)
                 if (styleProvider?.bindings?.any { it.name == name } == true) {
                     selectedBindings.value += (name to normalizeBindingValue(name, value, styleProvider))
+                    // Не каждая комбинация bindings имеет соответствующий стиль
+                    // (например, size = Xs + labelPlacement = Inner у TextField).
+                    // В этом случае resolveStyleKey бросает исключение — оставляем
+                    // текущую вариацию, чтобы песочница не падала.
+                    val resolvedVariant = runCatching {
+                        styleProvider.resolveStyleKey(selectedBindings.value)
+                    }.getOrElse { error ->
+                        Log.d(
+                            TAG,
+                            "Unsupported style bindings ${selectedBindings.value}, " +
+                                "keeping current variant '${state.variant}'",
+                            error,
+                        )
+                        state.variant
+                    }
                     state.updateVariant(
                         state.appearance,
-                        styleProvider.resolveStyleKey(selectedBindings.value),
+                        resolvedVariant,
                     ) as State
                 } else if (name == VARIANT_PROPERTY_NAME) {
                     state.updateVariant(state.appearance, value?.toString() ?: "") as State
@@ -227,6 +243,7 @@ internal class ComponentViewModel<State : UiState, S : Style>(
     }
 
     private companion object {
+        const val TAG = "ComponentViewModel"
         const val VARIANT_PROPERTY_NAME = "variant"
         const val SUBTHEME_PROPERTY_NAME = "subtheme"
         const val APPEARANCE_PROPERTY_NAME = "appearance"
