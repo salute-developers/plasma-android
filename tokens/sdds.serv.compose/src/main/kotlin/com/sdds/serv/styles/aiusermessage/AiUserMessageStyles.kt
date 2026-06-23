@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.ai.AiUserMessageState
 import com.sdds.compose.uikit.ai.AiUserMessageStyle
 import com.sdds.compose.uikit.ai.AiUserMessageStyleBuilder
 import com.sdds.compose.uikit.interactions.asStatefulValue
@@ -228,7 +229,12 @@ public val WrapperAiUserMessageView.Default: WrapperAiUserMessageTerminate
     @Composable
     get() = builder
         .colors {
-            messageBackground(SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            messageBackground(
+                SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue(
+                    setOf(AiUserMessageState.InEdit)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultSolidTertiary),
+                ),
+            )
         }
         .wrap(::WrapperAiUserMessageTerminate)
 
@@ -236,7 +242,12 @@ public val WrapperAiUserMessageView.Secondary: WrapperAiUserMessageTerminate
     @Composable
     get() = builder
         .colors {
-            messageBackground(SolidColor(SddsServTheme.colors.surfaceDefaultSolidSecondary).asStatefulValue())
+            messageBackground(
+                SolidColor(SddsServTheme.colors.surfaceDefaultSolidSecondary).asStatefulValue(
+                    setOf(AiUserMessageState.InEdit)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultSolidTertiary),
+                ),
+            )
         }
         .wrap(::WrapperAiUserMessageTerminate)
 
@@ -244,7 +255,12 @@ public val WrapperAiUserMessageView.Accent: WrapperAiUserMessageTerminate
     @Composable
     get() = builder
         .colors {
-            messageBackground(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue())
+            messageBackground(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue(
+                    setOf(AiUserMessageState.InEdit)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultSolidTertiary),
+                ),
+            )
         }
         .wrap(::WrapperAiUserMessageTerminate)
 
@@ -252,7 +268,12 @@ public val WrapperAiUserMessageView.Positive: WrapperAiUserMessageTerminate
     @Composable
     get() = builder
         .colors {
-            messageBackground(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
+            messageBackground(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(
+                    setOf(AiUserMessageState.InEdit)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultSolidTertiary),
+                ),
+            )
         }
         .wrap(::WrapperAiUserMessageTerminate)
 
@@ -260,7 +281,12 @@ public val WrapperAiUserMessageView.Negative: WrapperAiUserMessageTerminate
     @Composable
     get() = builder
         .colors {
-            messageBackground(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
+            messageBackground(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(
+                    setOf(AiUserMessageState.InEdit)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultSolidTertiary),
+                ),
+            )
         }
         .wrap(::WrapperAiUserMessageTerminate)
 
@@ -268,7 +294,12 @@ public val WrapperAiUserMessageView.Warning: WrapperAiUserMessageTerminate
     @Composable
     get() = builder
         .colors {
-            messageBackground(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
+            messageBackground(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(
+                    setOf(AiUserMessageState.InEdit)
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultSolidTertiary),
+                ),
+            )
         }
         .wrap(::WrapperAiUserMessageTerminate)
 

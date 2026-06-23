@@ -602,7 +602,9 @@ private data class DefaultAiUserMessageColors(
 
         override fun build(): AiUserMessageColors {
             return DefaultAiUserMessageColors(
-                messageBackground = messageBackground ?: Color.Transparent.asStatefulBrush(),
+                messageBackground = messageBackground ?: Color.Transparent.asStatefulBrush(
+                    setOf(AiUserMessageState.InEdit) to Color.LightGray,
+                ),
                 text = textColor ?: Color.Black.asStatefulBrush(),
                 uploadingBackground = uploadingBackground ?: Color.Transparent.asStatefulBrush(),
             )

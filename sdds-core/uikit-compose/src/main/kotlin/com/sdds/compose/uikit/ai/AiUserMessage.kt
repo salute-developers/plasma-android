@@ -12,6 +12,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -20,6 +21,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.text.TextLayoutResult
+import com.sdds.api.info.compose.ApiName
+import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.ButtonGroup
 import com.sdds.compose.uikit.ButtonGroupScope
 import com.sdds.compose.uikit.Editable
@@ -29,11 +32,11 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.ai.motion.aiusermessage.AiUserMessageMotionStyle
 import com.sdds.compose.uikit.ai.motion.aiusermessage.rememberAiUserMessageMotion
 import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.getBrushAsState
 import com.sdds.compose.uikit.motion.getTextStyleAsState
-import kotlinx.coroutines.android.awaitFrame
 
 /**
  * Компонент AiUserMessage используется для отображения запроса пользователя в ИИ-сценариях.
@@ -67,6 +70,13 @@ fun AiUserMessage(
     onTextLayout: (TextLayoutResult) -> Unit = {},
     motion: Motion<AiUserMessageMotionStyle> = rememberAiUserMessageMotion(),
 ) {
+    SideEffect {
+        motion.context.semanticStateSource.set(
+            AiUserMessageState.InEdit,
+            isInEdit,
+        )
+    }
+    val focusRequester = remember { FocusRequester() }
     val uploadingBackground =
         style.colors.uploadingBackground.getBrushAsState(motion.context, motion.style.uploadingBackground)
     val uploadingShape = style.uploadingShape.getValueAsState(motion.context)
@@ -78,13 +88,6 @@ fun AiUserMessage(
     val uploadingGap by style.dimensions.uploadingGroupGap.getValueAsState(motion.context)
     val uploadingFilesGap by style.dimensions.uploadingFilesGap.getValueAsState(motion.context)
     val titleBrush = style.colors.text.getBrushAsState(motion.context, motion.style.textColor)
-    val focusRequester = remember { FocusRequester() }
-    LaunchedEffect(isInEdit) {
-        if (isInEdit) {
-            awaitFrame()
-            focusRequester.requestFocus()
-        }
-    }
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.End,
@@ -116,6 +119,7 @@ fun AiUserMessage(
                     shape = messageShape.value,
                 )
                 .padding(style.dimensions.getMessagePaddings(motion)),
+            horizontalAlignment = Alignment.End,
             verticalArrangement = Arrangement.spacedBy(editableActionsGap),
         ) {
             if (isInEdit) {
@@ -128,6 +132,9 @@ fun AiUserMessage(
                     keyboardOptions = keyboardOptions,
                     onTextLayout = onTextLayout,
                 )
+                LaunchedEffect(Unit) {
+                    focusRequester.requestFocus()
+                }
                 editableActions?.let {
                     ButtonGroup(style = style.editableActionsButtonGroupStyle, content = it)
                 }
@@ -145,6 +152,25 @@ fun AiUserMessage(
             ButtonGroup(style = style.actionsButtonGroupStyle, content = it)
         }
     }
+}
+
+/**
+ * Семантические состояния [AiUserMessage].
+ */
+@ApiStateSet
+enum class AiUserMessageState : ValueState {
+
+    /**
+     * AiUserMessage находится в состоянии, отображающим введенный текст,
+     * редактирование не поддерживается.
+     */
+    Default,
+
+    /**
+     * AiUserMessage находится в состоянии редактирования текста.
+     */
+    @ApiName(name = "in-edit")
+    InEdit,
 }
 
 @Composable

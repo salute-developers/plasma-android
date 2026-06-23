@@ -350,6 +350,7 @@ object SddsServComposeComponents : ComponentProvider() {
                     "AiAnswerIconButtonGroup" to SddsServAiAnswerIconButtonGroupVariationsCompose,
                     "AiAnswerBasicButtonGroup" to SddsServAiAnswerBasicButtonGroupVariationsCompose,
                     "AiInputIconButtonGroup" to SddsServAiInputIconButtonGroupVariationsCompose,
+                    "AiUserMessageEmbeddedIconButtonGroup" to SddsServAiUserMessageEmbeddedIconButtonGroupVariationsCompose,
                 ),
             ),
             Component(
