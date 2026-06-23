@@ -78,8 +78,8 @@ fun NavigationBarContentBottomStart(style: NavigationBarStyle) {
 fun NavigationBarLongTextContentInlineCenterBottom(style: NavigationBarStyle) {
     NavigationBar(
         style = style,
-        textPlacement = NavigationBarTextPlacement.Bottom,
-        textAlign = NavigationBarTextAlign.Start,
+        textPlacement = NavigationBarTextPlacement.Inline,
+        textAlign = NavigationBarTextAlign.Center,
         contentPlacement = NavigationBarContentPlacement.Bottom,
         textContent = { Text(text = LONG_TEXT) },
         content = { Text(text = LONG_CONTENT) },
@@ -126,12 +126,16 @@ fun NavigationBarLongTextBottomStartInline(style: NavigationBarStyle) {
         contentPlacement = NavigationBarContentPlacement.Inline,
         textContent = { Text(text = LONG_CONTENT) },
         content = { Text(text = "Content") },
-        actionEnd = {
+        actionStart = {
             Row {
                 Icon(
                     painter = painterResource(R.drawable.ic_search_24),
                     contentDescription = "",
                 )
+            }
+        },
+        actionEnd = {
+            Row {
                 Icon(
                     painter = painterResource(R.drawable.ic_menu_24),
                     contentDescription = "",

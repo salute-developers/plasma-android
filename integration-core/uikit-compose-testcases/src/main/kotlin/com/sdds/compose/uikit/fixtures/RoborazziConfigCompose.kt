@@ -9,7 +9,6 @@ import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RoborazziOptions
 import com.github.takahirom.roborazzi.RoborazziRule
-import org.junit.Before
 import org.junit.Rule
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
@@ -27,20 +26,13 @@ open class RoborazziConfigCompose(
 ) {
 
     /**
-     * Коифигурация темной/светлой темы
-     */
-    @Before
-    fun setUpTheme() {
-        RuntimeEnvironment.setQualifiers(theme)
-    }
-
-    /**
      * Правило для регистрации Activity до запуска тестов
      */
     @get:Rule(order = 0)
     val addActivityToRobolectricRule = object : TestWatcher() {
         override fun starting(description: Description?) {
             super.starting(description)
+            RuntimeEnvironment.setQualifiers(theme)
             val appContext: Application = ApplicationProvider.getApplicationContext()
             val activityInfo = ActivityInfo().apply {
                 name = ComponentActivity::class.java.name
