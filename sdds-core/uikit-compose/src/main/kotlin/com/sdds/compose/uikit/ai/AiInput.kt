@@ -520,9 +520,18 @@ private fun AiInputLayout(
                 onTextHeightMeasured(textHeight)
                 regionHeight = available
             } else {
-                val measuredTextHeight = naturalTextHeightPx(width)
+                // Верхний предел высоты текста: при ограниченной высоте (например, Modifier.heightIn(max=))
+                // текст не может вытолкнуть контролы за нижнюю границу — он зажимается ими снизу, а
+                // переполнение уходит во внутренний verticalScroll. Без ограничения (unbounded) предела нет.
+                val maxTextHeight = if (constraints.hasBoundedHeight) {
+                    (boundedMaxHeight - topOffset - controlsHeight).coerceAtLeast(0)
+                } else {
+                    Int.MAX_VALUE
+                }
+                val measuredTextHeight = naturalTextHeightPx(width).coerceAtMost(maxTextHeight)
                 onTextHeightMeasured(measuredTextHeight)
-                textHeight = if (animatedFieldHeight > 0) animatedFieldHeight else measuredTextHeight
+                val animatedHeight = if (animatedFieldHeight > 0) animatedFieldHeight else measuredTextHeight
+                textHeight = animatedHeight.coerceAtMost(maxTextHeight)
                 regionHeight = textHeight + controlsHeight
             }
             // Поле меряется фиксированной конечной высотой — это даёт ограниченный вьюпорт для

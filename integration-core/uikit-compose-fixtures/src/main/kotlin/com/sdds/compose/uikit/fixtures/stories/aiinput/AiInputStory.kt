@@ -3,7 +3,7 @@ package com.sdds.compose.uikit.fixtures.stories.aiinput
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
@@ -37,9 +37,9 @@ data class AiInputUiState(
     override val appearance: String = "",
     val placeholder: String = "Введите сообщение",
     val hasContent: Boolean = false,
-    val hasActionsBefore: Boolean = true,
-    val hasActionsAfter: Boolean = false,
-    val autoResize: Boolean = true,
+    val hasActionBefore: Boolean = true,
+    val hasActionAfter: Boolean = false,
+    val hasMaxHeight: Boolean = true,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState =
         copy(appearance = appearance, variant = variant)
@@ -64,8 +64,7 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
         AiInput(
             value = textValue,
             onValueChange = { textValue = it },
-            modifier = Modifier
-                .then(if (state.autoResize) Modifier else Modifier.height(300.dp)),
+            modifier = if (state.hasMaxHeight) Modifier.heightIn(max = 300.dp) else Modifier,
             style = style,
             placeholder = if (state.placeholder.isNotEmpty()) {
                 {
@@ -120,7 +119,7 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
             } else {
                 null
             },
-            startControls = if (state.hasActionsBefore) {
+            startControls = if (state.hasActionBefore) {
                 {
                     ButtonGroup {
                         button {
@@ -140,7 +139,7 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
             } else {
                 null
             },
-            endControls = if (state.hasActionsAfter) {
+            endControls = if (state.hasActionAfter) {
                 {
                     ButtonGroup {
                         button {

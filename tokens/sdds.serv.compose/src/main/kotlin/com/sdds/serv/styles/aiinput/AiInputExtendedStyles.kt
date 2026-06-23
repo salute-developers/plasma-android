@@ -96,14 +96,14 @@ private val AiInputStyleBuilder.invariantProps: AiInputStyleBuilder
         .mode(AiInputMode.Extended)
         .scrollBarStyle(ScrollBar.S.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue(
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue())
+            inputColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+            placeholderColor(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary),
+                        to SolidColor(SddsServTheme.colors.textDefaultTertiary),
                 ),
             )
-            inputColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
-            placeholderColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
             cursorColor(SolidColor(SddsServTheme.colors.textDefaultAccent).asStatefulValue())
         }
 
