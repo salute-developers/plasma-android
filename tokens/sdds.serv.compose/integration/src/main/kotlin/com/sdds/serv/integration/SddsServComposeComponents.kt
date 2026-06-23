@@ -350,6 +350,7 @@ object SddsServComposeComponents : ComponentProvider() {
                     "AiAnswerIconButtonGroup" to SddsServAiAnswerIconButtonGroupVariationsCompose,
                     "AiAnswerBasicButtonGroup" to SddsServAiAnswerBasicButtonGroupVariationsCompose,
                     "AiInputIconButtonGroup" to SddsServAiInputIconButtonGroupVariationsCompose,
+                    "AiUserMessageEmbeddedIconButtonGroup" to SddsServAiUserMessageEmbeddedIconButtonGroupVariationsCompose,
                 ),
             ),
             Component(
@@ -469,6 +470,7 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.Editable,
                 mapOf(
                     "Editable" to SddsServEditableVariationsCompose,
+                    "AiUserMessageEditable" to SddsServAiUserMessageEditableVariationsCompose,
                 ),
             ),
             Component(
@@ -527,6 +529,12 @@ object SddsServComposeComponents : ComponentProvider() {
                 mapOf(
                     "AiInputCondensed" to SddsServAiInputCondensedVariationsCompose,
                     "AiInputExtended" to SddsServAiInputExtendedVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.AiUserMessage,
+                mapOf(
+                    "AiUserMessage" to SddsServAiUserMessageVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

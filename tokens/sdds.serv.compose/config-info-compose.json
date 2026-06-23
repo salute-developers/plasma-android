@@ -50334,6 +50334,78 @@
          ]
       },
       {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "AiUserMessageEmbeddedIconButtonGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "s",
+                  "m"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "AiUserMessageEmbeddedIconButtonGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageEmbeddedIconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiUserMessageEmbeddedIconButtonGroupSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "s",
+               "composeReference": "AiUserMessageEmbeddedIconButtonGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiUserMessageEmbeddedIconButtonGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "tab-bar",
          "coreName": "TabBar",
          "styleName": "TabBarHasLabelClear",
@@ -61989,19 +62061,20 @@
             "packageName": "com.sdds.serv.styles.editable",
             "stylesClassName": "EditableStyles",
             "stylesClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles",
-            "receiverClassName": "EditableStyles.Companion",
-            "receiverClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles.Companion",
+            "receiverClassName": "EditableStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles.Default",
             "returnTypeName": "EditableStyle",
             "returnTypeQualifiedName": "com.sdds.compose.uikit.EditableStyle",
             "modifyReceiverTypeName": "EditableStyleBuilder",
             "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.EditableStyleBuilder",
+            "holderName": "Default",
             "params": [
                {
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "EditableSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.editable.EditableSize",
+                  "typeName": "EditableDefaultSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.editable.EditableDefaultSize",
                   "defaultValue": {
                      "value": "h1",
                      "codeName": "H1"
@@ -62149,6 +62222,123 @@
                   {
                      "name": "size",
                      "value": "body-xxs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "editable",
+         "coreName": "Editable",
+         "styleName": "AiUserMessageEditable",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.editable",
+            "stylesClassName": "EditableStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles",
+            "receiverClassName": "EditableStyles.AiUserMessageEditable",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles.AiUserMessageEditable",
+            "returnTypeName": "EditableStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.EditableStyle",
+            "modifyReceiverTypeName": "EditableStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.EditableStyleBuilder",
+            "holderName": "AiUserMessageEditable",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageEditableSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.editable.AiUserMessageEditableSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "AiUserMessageEditable.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiUserMessageEditable.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiUserMessageEditable.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiUserMessageEditable.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "AiUserMessageEditable.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
                   }
                ]
             }
@@ -64445,6 +64635,2339 @@
                   {
                      "name": "size",
                      "value": "xl"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "ai-user-message",
+         "coreName": "AiUserMessage",
+         "styleName": "AiUserMessage",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "m"
+            },
+            {
+               "name": "content-type",
+               "values": [
+                  "image",
+                  "file"
+               ],
+               "defaultValue": "image"
+            },
+            {
+               "name": "content-view",
+               "values": [
+                  "default",
+                  "secondary"
+               ],
+               "defaultValue": "default"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "accent",
+                  "positive",
+                  "negative",
+                  "warning"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.aiusermessage",
+            "stylesClassName": "AiUserMessageStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageStyles",
+            "receiverClassName": "AiUserMessageStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageStyles.Companion",
+            "returnTypeName": "AiUserMessageStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AiUserMessageStyle",
+            "modifyReceiverTypeName": "AiUserMessageStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AiUserMessageStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               },
+               {
+                  "name": "contentType",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageContentType",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageContentType",
+                  "defaultValue": {
+                     "value": "image",
+                     "codeName": "Image"
+                  },
+                  "values": [
+                     {
+                        "value": "image",
+                        "codeName": "Image"
+                     },
+                     {
+                        "value": "file",
+                        "codeName": "File"
+                     }
+                  ]
+               },
+               {
+                  "name": "contentView",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageContentView",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageContentView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageView",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl.default",
+               "composeReference": "AiUserMessage.Xl.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "AiUserMessage.Xl.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "AiUserMessage.Xl.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "AiUserMessage.Xl.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "AiUserMessage.Xl.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "AiUserMessage.Xl.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.default",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.default",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.secondary",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.accent",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.positive",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.negative",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.warning",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.default",
+               "composeReference": "AiUserMessage.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "AiUserMessage.L.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "AiUserMessage.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "AiUserMessage.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "AiUserMessage.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "AiUserMessage.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.default",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.default",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.secondary",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.accent",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.positive",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.negative",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.warning",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "AiUserMessage.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "AiUserMessage.M.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "AiUserMessage.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "AiUserMessage.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "AiUserMessage.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "AiUserMessage.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.default",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.default",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.secondary",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.accent",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.positive",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.negative",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.warning",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "AiUserMessage.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "AiUserMessage.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "AiUserMessage.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "AiUserMessage.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "AiUserMessage.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "AiUserMessage.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.default",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.default",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.secondary",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.accent",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.positive",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.negative",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.warning",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "AiUserMessage.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "AiUserMessage.Xs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "AiUserMessage.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "AiUserMessage.Xs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "AiUserMessage.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "AiUserMessage.Xs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.default",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.default",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.secondary",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.accent",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.positive",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.negative",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.warning",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
                   }
                ]
             }

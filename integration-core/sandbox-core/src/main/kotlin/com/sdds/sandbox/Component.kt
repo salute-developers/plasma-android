@@ -150,6 +150,7 @@ data class ComponentKey(
         val AiHeader = ComponentKey(CoreComponentName.AI_HEADER)
         val Splitter = ComponentKey(CoreComponentName.SPLITTER)
         val AiInput = ComponentKey(CoreComponentName.AI_INPUT)
+        val AiUserMessage = ComponentKey(CoreComponentName.AI_USER_MESSAGE)
     }
 }
 
@@ -263,6 +264,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     AI_HEADER,
     AI_INPUT,
     DROP_ZONE,
+    AI_USER_MESSAGE,
     SPLITTER,
     ;
 
@@ -372,6 +374,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.AI_HEADER,
         CoreComponentName.AI_ANSWER,
         CoreComponentName.AI_INPUT,
+        CoreComponentName.AI_USER_MESSAGE,
         -> CoreComponentGroup.AI_KIT
     }.let { ComponentGroup(it.displayName, it.ordinal) }
 }

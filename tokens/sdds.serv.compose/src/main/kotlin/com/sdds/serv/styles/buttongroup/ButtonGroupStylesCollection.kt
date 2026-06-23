@@ -155,6 +155,8 @@ public enum class ButtonGroupStyles(
     AiAnswerBasicButtonGroupS("AiAnswerBasicButtonGroup.S"),
     AiAnswerBasicButtonGroupM("AiAnswerBasicButtonGroup.M"),
     AiAnswerBasicButtonGroupL("AiAnswerBasicButtonGroup.L"),
+    AiUserMessageEmbeddedIconButtonGroupS("AiUserMessageEmbeddedIconButtonGroup.S"),
+    AiUserMessageEmbeddedIconButtonGroupM("AiUserMessageEmbeddedIconButtonGroup.M"),
     AiInputIconButtonGroupXs("AiInputIconButtonGroup.Xs"),
     AiInputIconButtonGroupXsWide("AiInputIconButtonGroup.Xs.Wide"),
     AiInputIconButtonGroupXsWideDefault("AiInputIconButtonGroup.Xs.Wide.Default"),
@@ -238,6 +240,11 @@ public enum class ButtonGroupStyles(
      * Typed API для подбора стиля ai-answer-basic-button-group
      */
     public object AiAnswerBasicButtonGroup
+
+    /**
+     * Typed API для подбора стиля ai-user-message-embedded-icon-button-group
+     */
+    public object AiUserMessageEmbeddedIconButtonGroup
 
     /**
      * Typed API для подбора стиля ai-input-icon-button-group
@@ -348,6 +355,14 @@ public enum class AiAnswerBasicButtonGroupSize {
     S,
     M,
     L,
+}
+
+/**
+ * Возможные значения свойства size для ai-user-message-embedded-icon-button-group
+ */
+public enum class AiUserMessageEmbeddedIconButtonGroupSize {
+    S,
+    M,
 }
 
 /**
@@ -514,6 +529,10 @@ public fun ButtonGroupStyles.style(modify: @Composable ButtonGroupStyleBuilder.(
         ButtonGroupStyles.AiAnswerBasicButtonGroupS -> AiAnswerBasicButtonGroup.S
         ButtonGroupStyles.AiAnswerBasicButtonGroupM -> AiAnswerBasicButtonGroup.M
         ButtonGroupStyles.AiAnswerBasicButtonGroupL -> AiAnswerBasicButtonGroup.L
+        ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroupS ->
+            AiUserMessageEmbeddedIconButtonGroup.S
+        ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroupM ->
+            AiUserMessageEmbeddedIconButtonGroup.M
         ButtonGroupStyles.AiInputIconButtonGroupXs -> AiInputIconButtonGroup.Xs
         ButtonGroupStyles.AiInputIconButtonGroupXsWide -> AiInputIconButtonGroup.Xs.Wide
         ButtonGroupStyles.AiInputIconButtonGroupXsWideDefault ->
@@ -958,6 +977,31 @@ public fun ButtonGroupStyles.AiAnswerBasicButtonGroup.style(
         AiAnswerBasicButtonGroupSize.M,
     modify: @Composable ButtonGroupStyleBuilder.() -> Unit =
         {},
+): ButtonGroupStyle = resolve(size).style(modify)
+
+/**
+ * Возвращает экземпляр [ButtonGroupStyles] для ai-user-message-embedded-icon-button-group
+ */
+public fun ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroup.resolve(
+    size: AiUserMessageEmbeddedIconButtonGroupSize =
+        AiUserMessageEmbeddedIconButtonGroupSize.M,
+): ButtonGroupStyles = when {
+    size == AiUserMessageEmbeddedIconButtonGroupSize.S ->
+        ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroupS
+    size == AiUserMessageEmbeddedIconButtonGroupSize.M ->
+        ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroupM
+    else -> error("Unsupported ai-user-message-embedded-icon-button-group style combination")
+}
+
+/**
+ * Возвращает [ButtonGroupStyle] для ai-user-message-embedded-icon-button-group
+ */
+@Composable
+public fun ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroup.style(
+    size: AiUserMessageEmbeddedIconButtonGroupSize =
+        AiUserMessageEmbeddedIconButtonGroupSize.M,
+    modify: @Composable
+    ButtonGroupStyleBuilder.() -> Unit = {},
 ): ButtonGroupStyle = resolve(size).style(modify)
 
 /**

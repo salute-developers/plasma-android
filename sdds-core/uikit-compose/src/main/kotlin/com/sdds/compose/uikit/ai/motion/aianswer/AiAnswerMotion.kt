@@ -1,4 +1,4 @@
-package com.sdds.compose.uikit.ai.motion
+package com.sdds.compose.uikit.ai.motion.aianswer
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable

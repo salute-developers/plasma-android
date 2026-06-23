@@ -28,7 +28,6 @@ import com.sdds.compose.uikit.SwitchDimensionValues
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
-import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.lerp
 import com.sdds.compose.uikit.motion.Motion
@@ -65,7 +64,7 @@ internal fun SwitchToggle(
         if (animationDuration == Int.MIN_VALUE) {
             motion.style.thumbPositionTransition
         } else {
-            thumpPositionTransitionMotion(animationDuration)
+            thumbPositionTransitionMotion(animationDuration)
         }
     }
     val trackColor = colors.toggleTrackBrush.getBrushAsState(
@@ -194,7 +193,7 @@ private fun DrawScope.drawThumb(
 
 private val progress: StatefulValue<Float> = 0f.asStatefulValue(setOf(SwitchStates.Checked) to 1f)
 
-private fun thumpPositionTransitionMotion(durationMillis: Int) = transition<Float>(
+private fun thumbPositionTransitionMotion(durationMillis: Int) = transition<Float>(
     label = "SwitchFloatTransition",
 ) {
     segment {
