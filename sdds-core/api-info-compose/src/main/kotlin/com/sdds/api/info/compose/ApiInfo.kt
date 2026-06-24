@@ -12,7 +12,7 @@ package com.sdds.api.info.compose
  * Если не указан, используется имя по умолчанию.
  */
 @Target(allowedTargets = [AnnotationTarget.CLASS])
-@Retention
+@Retention(AnnotationRetention.SOURCE)
 annotation class ApiInfo(
     val components: Array<String> = [],
     val packageName: String = "",
@@ -26,7 +26,7 @@ annotation class ApiInfo(
  * Если не указан, имя компонента выводится из имени enum-класса (MyStates → My, MyState → My, MyStateSet → My).
  */
 @Target(allowedTargets = [AnnotationTarget.CLASS])
-@Retention
+@Retention(AnnotationRetention.SOURCE)
 annotation class ApiStateSet(val components: Array<String> = [])
 
 /**
@@ -39,5 +39,5 @@ annotation class ApiStateSet(val components: Array<String> = [])
  * @param name альтернативное имя, используемое в конфиге компонента
  */
 @Target(allowedTargets = [AnnotationTarget.CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION])
-@Retention
+@Retention(AnnotationRetention.SOURCE)
 annotation class ApiName(val name: String)
