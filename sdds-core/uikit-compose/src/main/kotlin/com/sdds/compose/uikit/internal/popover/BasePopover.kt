@@ -21,9 +21,12 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.State
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -115,11 +118,22 @@ internal fun BasePopover(
     val backgroundColor = colors.backgroundColor.getValue(motion.context.interactionSource)
     var recalculatedConstraints by remember { mutableStateOf<IntSize?>(null) }
     var popoverContentSize by remember { mutableStateOf(IntSize.Zero) }
+    val constraintsUpdater = remember(rootView) {
+        DeferredConstraintsUpdater(rootView) { constraints ->
+            if (recalculatedConstraints?.isCloseTo(constraints) != true) {
+                recalculatedConstraints = constraints
+            }
+        }
+    }
 
     val shadowPaddingValues = shadow.getShadowSafePaddings()
     val shadowPaddingsPx = ShadowPaddings.fromPaddingValues(shadowPaddingValues)
     val safeAreaPaddingsPx = SafeAreaPaddings.fromPaddingValues(safeAreaPadding)
     val dismissInProgress = rememberUpdatedState(!show && popoverVisible)
+    val canClip = placementMode != PopoverPlacementMode.Strict
+    val effectiveClipHeight = clipHeight && canClip
+    val effectiveClipWidth = clipWidth && canClip
+    val keyboardHeightState = getKeyboardHeightPx()
     val positionProvider = rememberPopoverPositionProvider(
         placement = placement,
         placementMode = placementMode,
@@ -136,19 +150,17 @@ internal fun BasePopover(
         safeAreaPaddings = safeAreaPaddingsPx,
         systemBarsInsets = SystemBarsInsets.fromWindowInsets(),
         triggerInfoProvider = triggerInfo,
-        keyboardHeight = getKeyboardHeightPx(),
+        keyboardHeight = { keyboardHeightState.value },
         rootViewSize = IntSize(rootView.width, rootView.height),
-        clipHeight = clipHeight,
-        clipWidth = clipWidth,
+        clipHeight = effectiveClipHeight,
+        clipWidth = effectiveClipWidth,
         popoverContentSize = { popoverContentSize },
         clippedConstraints = { recalculatedConstraints },
         onContentSizeChanged = { constraints ->
-            if (clipHeight && constraints.height == 0) {
+            if (effectiveClipHeight && constraints.height == 0) {
                 return@rememberPopoverPositionProvider
             }
-            if (recalculatedConstraints != constraints) {
-                recalculatedConstraints = constraints
-            }
+            constraintsUpdater.request(constraints)
         },
     )
     val tailPaddings = tailCompensationPaddings(
@@ -163,9 +175,15 @@ internal fun BasePopover(
 
     LaunchedEffect(popoverVisible) {
         if (!popoverVisible) {
+            constraintsUpdater.reset()
             recalculatedConstraints = null
             popoverContentSize = IntSize.Zero
             positionProvider.resetTransientState()
+        }
+    }
+    DisposableEffect(constraintsUpdater) {
+        onDispose {
+            constraintsUpdater.reset()
         }
     }
 
@@ -181,13 +199,12 @@ internal fun BasePopover(
     if (popoverVisible) {
         val constraints = recalculatedConstraints
         var resizeModifier: Modifier = Modifier
-        val canClip = placementMode != PopoverPlacementMode.Strict
-        if (constraints != null && canClip && clipWidth) {
+        if (constraints != null && effectiveClipWidth) {
             resizeModifier = with(LocalDensity.current) {
                 resizeModifier.widthIn(max = constraints.width.toDp())
             }
         }
-        if (constraints != null && canClip && clipHeight) {
+        if (constraints != null && effectiveClipHeight) {
             resizeModifier = with(LocalDensity.current) {
                 resizeModifier.heightIn(max = constraints.height.toDp())
             }
@@ -268,6 +285,42 @@ private fun IntSize.maxOf(other: IntSize): IntSize {
     )
 }
 
+private fun IntSize.isCloseTo(other: IntSize, tolerance: Int = 1): Boolean {
+    return abs(width - other.width) <= tolerance &&
+        abs(height - other.height) <= tolerance
+}
+
+private class DeferredConstraintsUpdater(
+    private val view: View,
+    private val apply: (IntSize) -> Unit,
+) {
+    private var pending: IntSize? = null
+    private var scheduled = false
+    private var version = 0
+
+    fun request(value: IntSize) {
+        pending = value
+        if (scheduled) return
+
+        scheduled = true
+        val scheduledVersion = version
+        view.post {
+            if (scheduledVersion != version) return@post
+
+            scheduled = false
+            val constraints = pending ?: return@post
+            pending = null
+            apply(constraints)
+        }
+    }
+
+    fun reset() {
+        version += 1
+        scheduled = false
+        pending = null
+    }
+}
+
 @Suppress("ClickableViewAccessibility")
 private fun View.enablePassthroughTouch(decorView: View) {
     setOnTouchListener { v, event ->
@@ -297,9 +350,12 @@ private fun View.getScreenRect(): android.graphics.Rect {
 }
 
 @Composable
-private fun getKeyboardHeightPx(): Int {
+private fun getKeyboardHeightPx(): State<Int> {
     val windowInsets = WindowInsets.ime
-    return windowInsets.getBottom(LocalDensity.current)
+    val density = LocalDensity.current
+    return remember(windowInsets, density) {
+        derivedStateOf { windowInsets.getBottom(density) }
+    }
 }
 
 internal val DefaultPopupProperties = PopupProperties(
@@ -500,7 +556,7 @@ private fun rememberPopoverPositionProvider(
     shadowPaddings: ShadowPaddings,
     safeAreaPaddings: SafeAreaPaddings,
     systemBarsInsets: SystemBarsInsets,
-    keyboardHeight: Int,
+    keyboardHeight: () -> Int,
     rootViewSize: IntSize,
     clipHeight: Boolean,
     clipWidth: Boolean,
@@ -573,7 +629,7 @@ private class PopoverPositionProvider(
     private val shadowPaddings: ShadowPaddings,
     private val safeAreaPaddings: SafeAreaPaddings,
     private val systemBarsInsets: SystemBarsInsets,
-    private val keyboardHeight: Int,
+    private val keyboardHeight: () -> Int,
     private val rootViewSize: IntSize,
     private val clipHeight: Boolean,
     private val clipWidth: Boolean,
@@ -810,12 +866,23 @@ private class PopoverPositionProvider(
     }
 
     private fun getAvailableWindowBounds(windowSize: IntSize): WindowBounds {
-        val keyboardHeight = if (shouldSubtractKeyboard(windowSize)) keyboardHeight else 0
-        val bottomInset = maxOf(systemBarsInsets.bottom, keyboardHeight)
+        val currentKeyboardHeight = keyboardHeight()
         val rootWidth = rootViewSize.width.takeIf { it > 0 }
             ?: (windowSize.width + systemBarsInsets.left + systemBarsInsets.right)
         val rootHeight = rootViewSize.height.takeIf { it > 0 }
             ?: (windowSize.height + systemBarsInsets.top + systemBarsInsets.bottom)
+        val windowAlreadyAdjustedForIme = currentKeyboardHeight > 0 && windowSize.height < rootHeight
+        val effectiveRootHeight = if (windowAlreadyAdjustedForIme) {
+            windowSize.height
+        } else {
+            rootHeight
+        }
+        val keyboardHeight = if (windowAlreadyAdjustedForIme) {
+            0
+        } else {
+            currentKeyboardHeight
+        }
+        val bottomInset = maxOf(systemBarsInsets.bottom, keyboardHeight)
         val left = systemBarsInsets.left + safeAreaPaddings.start
         val top = systemBarsInsets.top + safeAreaPaddings.top
         return WindowBounds(
@@ -823,16 +890,9 @@ private class PopoverPositionProvider(
             top = top,
             right = (rootWidth - systemBarsInsets.right - safeAreaPaddings.end)
                 .coerceAtLeast(left),
-            bottom = (rootHeight - bottomInset - safeAreaPaddings.bottom)
+            bottom = (effectiveRootHeight - bottomInset - safeAreaPaddings.bottom)
                 .coerceAtLeast(top),
         )
-    }
-
-    private fun shouldSubtractKeyboard(windowSize: IntSize): Boolean {
-        if (keyboardHeight <= 0) return false
-        if (rootViewSize.height <= 0) return true
-        val imeAdjustedRootHeight = rootViewSize.height - keyboardHeight
-        return windowSize.height > imeAdjustedRootHeight
     }
 
     private fun recalculatePopupSizeIfNeed(
