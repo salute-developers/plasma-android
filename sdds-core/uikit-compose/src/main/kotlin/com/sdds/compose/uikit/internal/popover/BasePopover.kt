@@ -308,6 +308,14 @@ internal val DefaultPopupProperties = PopupProperties(
     usePlatformDefaultWidth = true,
 )
 
+// Признак «эпоха ещё не зафиксирована» для предохранителя сходимости clip-ограничений.
+private const val NO_EPOCH = 0
+
+// Максимум различных значений clip-ограничений на одни и те же входные данные (позиция триггера +
+// границы окна). Нормальной сходимости хватает 2–3 шагов; запас нужен на легитимные многошаговые
+// случаи, но он гарантированно обрывает осцилляцию выбора placement до ухода в шторм аллокаций.
+private const val MAX_CONSTRAINT_EMITS = 8
+
 private fun tailCompensationPaddings(
     tailEnabled: Boolean,
     tailHeight: Dp,
@@ -592,12 +600,23 @@ private class PopoverPositionProvider(
     private var lastPositionState: InitialPositionState? = null
     private var maxPopupContentSize: IntSize = IntSize.Zero
 
+    // Предохранитель сходимости обратной связи "позиция ↔ constraints ↔ перемер контента".
+    // Эпоха = неизменные входные данные (позиция триггера + границы окна); пока они те же,
+    // считаем число РАЗЛИЧНЫХ эмитов constraints. Если их больше лимита — выбор placement
+    // осциллирует, и мы замораживаем эмиты, чтобы не уйти в шторм аллокаций (OOM/ANR).
+    private var constraintsEpoch: Int = NO_EPOCH
+    private var constraintEmitCount: Int = 0
+    private var lastEmittedConstraints: IntSize? = null
+
     // Провайдер переживает циклы открытия/закрытия, поэтому при скрытии нужно сбрасывать
     // не только размер контента, но и зафиксированные позиции (KeepInitial, dismiss).
     fun resetTransientState() {
         maxPopupContentSize = IntSize.Zero
         initialPositionState = null
         lastPositionState = null
+        constraintsEpoch = NO_EPOCH
+        constraintEmitCount = 0
+        lastEmittedConstraints = null
     }
 
     private fun reset() {
@@ -812,6 +831,12 @@ private class PopoverPositionProvider(
     private fun getAvailableWindowBounds(windowSize: IntSize): WindowBounds {
         val keyboardHeight = if (shouldSubtractKeyboard(windowSize)) keyboardHeight else 0
         val bottomInset = maxOf(systemBarsInsets.bottom, keyboardHeight)
+        // Границы берём из rootView (полное окно), а не из windowSize (видимый display frame
+        // попапа). Позиции триггера считаются в оконных координатах (positionInWindow), их предел —
+        // rootView.width/height; системные бары и клавиатура вычитаются здесь явно, поэтому база
+        // должна быть полной высотой окна. windowSize уже без системных баров и сжат под IME — его
+        // использование приводило к двойному вычету инсетов. От расходимости обратной связи на этих
+        // границах защищает лимит эмитов constraints в [recalculatePopupSizeIfNeed].
         val rootWidth = rootViewSize.width.takeIf { it > 0 }
             ?: (windowSize.width + systemBarsInsets.left + systemBarsInsets.right)
         val rootHeight = rootViewSize.height.takeIf { it > 0 }
@@ -872,8 +897,41 @@ private class PopoverPositionProvider(
         }
 
         if (clipWidth || clipHeight) {
-            onContentSizeChanged.invoke(IntSize(availablePopupWidth, availablePopupHeight))
+            emitClippedConstraints(
+                newConstraints = IntSize(availablePopupWidth, availablePopupHeight),
+                triggerPositionInRoot = triggerPositionInRoot,
+                availableWindowBounds = availableWindowBounds,
+            )
         }
+    }
+
+    /**
+     * Публикует новые clip-ограничения, но с защитой от расходящейся обратной связи.
+     *
+     * При неизменных входных данных (позиция триггера + границы окна) разрешаем не более
+     * [MAX_CONSTRAINT_EMITS] РАЗЛИЧНЫХ значений constraints. Повторное эмитирование того же значения
+     * не считается и не публикуется (это нормальная стабильная работа). Если же значения продолжают
+     * меняться сверх лимита — значит выбор placement осциллирует на пороге «влезает/не влезает»;
+     * тогда эмиты замораживаются, петля рвётся, и попап остаётся в последнем валидном размере вместо
+     * ухода в бесконечный перерасчёт (см. OOM в getAvailableWindowBounds/calculatePosition).
+     * Когда триггер двигается или меняются границы окна — эпоха сбрасывается и лимит начинается заново.
+     */
+    private fun emitClippedConstraints(
+        newConstraints: IntSize,
+        triggerPositionInRoot: IntOffset,
+        availableWindowBounds: WindowBounds,
+    ) {
+        val epoch = 31 * triggerPositionInRoot.hashCode() + availableWindowBounds.hashCode()
+        if (epoch != constraintsEpoch) {
+            constraintsEpoch = epoch
+            constraintEmitCount = 0
+            lastEmittedConstraints = null
+        }
+        if (newConstraints == lastEmittedConstraints) return
+        if (constraintEmitCount >= MAX_CONSTRAINT_EMITS) return
+        constraintEmitCount++
+        lastEmittedConstraints = newConstraints
+        onContentSizeChanged.invoke(newConstraints)
     }
 
     private fun getStrictClippedAvailableHeight(
@@ -994,16 +1052,18 @@ private class PopoverPositionProvider(
         triggerSize: IntSize,
     ): IntOffset {
         val currentPopupSize = popupSize.forCurrentTailPlacement(contentPlacement)
+        // Если по основному placement хватает места — фиксируем его и только корректируем
+        // выравнивание. Проваливаться в фолбэки здесь нельзя: смена placement меняет ориентацию
+        // tail-паддинга контента (tailCompensationPaddings), из-за чего measuredContentSize
+        // меняется на tailHeight и решение о placement начинает осциллировать между основным и
+        // фолбэком → бесконечная рекомпозиция/перелейаут и ANR.
         if (hasEnoughSpaceForPlacement(currentPopupSize, windowBounds)) {
-            val positionWithNewAlignment = tryToCorrectAlignment(
+            return tryToCorrectAlignment(
                 popupSize = currentPopupSize,
                 windowBounds = windowBounds,
                 triggerPositionInRoot = triggerPositionInRoot,
                 triggerSize = triggerSize,
             )
-            if (positionWithNewAlignment.hasEnoughSpace(currentPopupSize, windowBounds)) {
-                return positionWithNewAlignment
-            }
         }
         for (i in 0 until placement.fallbacks.size) {
             innerPlacement = placement.fallbacks[i]
