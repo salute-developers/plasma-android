@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -41,6 +42,7 @@ interface AutocompleteStyle : Style {
 /**
  * Билдер стиля компонента [Autocomplete]
  */
+@ApiInfo
 interface AutocompleteStyleBuilder : StyleBuilder<AutocompleteStyle> {
     /**
      * Устанавливает стиль текстового поля [textFieldStyle]

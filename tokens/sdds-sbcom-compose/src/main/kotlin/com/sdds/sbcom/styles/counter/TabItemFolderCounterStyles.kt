@@ -47,13 +47,11 @@ public val TabItemFolderCounter.Default: WrapperTabItemFolderCounterDefault
                         to SddsSbComTheme.colors.surfaceDefaultAccent,
                 ),
             )
-            textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            textColor(SddsSbComTheme.colors.textOnDarkPrimary.asInteractive())
         }
         .dimensions {
-            minHeight(18.0.dp)
             minWidth(18.0.dp)
+            minHeight(18.0.dp)
             paddingStart(5.0.dp)
             paddingEnd(5.0.dp)
         }

@@ -9,11 +9,12 @@ package com.sdds.plasma.sd.service.styles.iconbadge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
 import com.sdds.compose.uikit.iconBadgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -110,12 +111,8 @@ public val WrapperIconBadgeSolidView.Default: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            startContentColor(
-                PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            startContentColor(SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -123,12 +120,8 @@ public val WrapperIconBadgeSolidView.Accent: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
-            startContentColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -136,12 +129,8 @@ public val WrapperIconBadgeSolidView.Negative: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            startContentColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            startContentColor(SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -149,12 +138,8 @@ public val WrapperIconBadgeSolidView.Positive: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
-            startContentColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultPositive).asStatefulValue())
+            startContentColor(SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -162,12 +147,8 @@ public val WrapperIconBadgeSolidView.Warning: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
-            startContentColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultWarning).asStatefulValue())
+            startContentColor(SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -175,12 +156,8 @@ public val WrapperIconBadgeSolidView.Dark: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefault.asInteractive(),
-            )
-            startContentColor(
-                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefault).asStatefulValue())
+            startContentColor(SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -188,12 +165,8 @@ public val WrapperIconBadgeSolidView.Light: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
-            startContentColor(
-                PlasmaSdServiceTheme.colors.textOnLightPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
+            startContentColor(SolidColor(PlasmaSdServiceTheme.colors.textOnLightPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 

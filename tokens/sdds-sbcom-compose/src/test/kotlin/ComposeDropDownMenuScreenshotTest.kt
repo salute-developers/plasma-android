@@ -1,5 +1,6 @@
 package com.sdds.sbcom
 
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
@@ -16,6 +17,7 @@ import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXlAmountTenStrictCe
 import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXlHasDisclosureTopStart
 import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXlLooseTopEndDivider
 import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXsStrictCenter
+import com.sdds.compose.uikit.fixtures.testcases.DropdownMenuStrictClippedPlacementStartAlignmentCenter
 import com.sdds.compose.uikit.fixtures.testcases.ModalDropdownDimBackground
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.basicbutton.BasicButton
@@ -174,5 +176,14 @@ class ComposeDropDownMenuScreenshotTest(
         composeTestRule.onNodeWithText("Show DropDownMenu").performClick()
         composeTestRule.waitForIdle()
         captureScreenRoboImage()
+    }
+
+    @Test
+    fun testDropdownMenuStrictClippedPlacementStartAlignmentCenter() {
+        composeTestRule.content {
+            DropdownMenuStrictClippedPlacementStartAlignmentCenter(DropdownMenu.Default.style())
+        }
+        composeTestRule.onNodeWithTag("triggerContent").performClick()
+        composeTestRule.waitForIdle()
     }
 }

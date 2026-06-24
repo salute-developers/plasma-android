@@ -41,14 +41,13 @@ public val TabsFolder.Default: WrapperTabsFolderDefault
     @JvmName("WrapperTabsFolderDefault")
     get() = TabsStyle.builder(this)
         .shape(CircleShape)
+        .tabItemStyle(TabItemFolder.Default.style())
+        .dividerEnabled(false)
+        .indicatorEnabled(true)
         .indicatorShape(CircleShape)
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
-            indicatorColor(
-                SddsSbComTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
+            backgroundColor(SddsSbComTheme.colors.surfaceDefaultSolidCard.asInteractive())
+            indicatorColor(SddsSbComTheme.colors.surfaceDefaultTransparentAccent.asInteractive())
         }
         .dimensions {
             minSpacing(10.0.dp)
@@ -57,7 +56,4 @@ public val TabsFolder.Default: WrapperTabsFolderDefault
             contentPaddingTop(3.0.dp)
             contentPaddingBottom(3.0.dp)
         }
-        .tabItemStyle(TabItemFolder.Default.style())
-        .dividerEnabled(false)
-        .indicatorEnabled(true)
         .wrap(::WrapperTabsFolderDefault)

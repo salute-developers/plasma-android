@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.Style
@@ -74,6 +76,7 @@ interface SegmentItemStyle : Style {
 /**
  * Билдер стиля [SegmentItemStyle]
  */
+@ApiInfo
 interface SegmentItemStyleBuilder : StyleBuilder<SegmentItemStyle> {
 
     /**
@@ -427,11 +430,13 @@ interface SegmentItemDimensionsBuilder {
     /**
      * Устанавливает отступ контента в начале
      */
+    @ApiName(name = "iconMargin")
     fun startContentPadding(startContentPadding: Dp): SegmentItemDimensionsBuilder
 
     /**
      * Устанавливает отступ контента в конце
      */
+    @ApiName(name = "counterMargin")
     fun endContentPadding(endContentPadding: Dp): SegmentItemDimensionsBuilder
 
     /**

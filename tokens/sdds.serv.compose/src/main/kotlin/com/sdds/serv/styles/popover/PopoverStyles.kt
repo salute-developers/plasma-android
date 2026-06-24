@@ -61,9 +61,7 @@ public val WrapperPopoverView.Default: WrapperPopoverTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
         .wrap(::WrapperPopoverTerminate)
 
@@ -71,9 +69,7 @@ public val WrapperPopoverView.Accent: WrapperPopoverTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultAccent).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperPopoverTerminate)
 

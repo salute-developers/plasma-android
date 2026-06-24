@@ -44,15 +44,11 @@ public value class WrapperScrollBarM(
 private val ScrollBarStyleBuilder.invariantProps: ScrollBarStyleBuilder
     @Composable
     get() = this
-        .hoverExpandFactor(2.0f)
         .shape(CircleShape)
+        .hoverExpandFactor(2.0f)
         .colors {
-            thumbColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
-            )
-            trackColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            thumbColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidTertiary.asInteractive())
+            trackColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
         }
 
 public val ScrollBar.S: WrapperScrollBarS

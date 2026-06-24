@@ -45,11 +45,11 @@ public value class WrapperChipGroupChipSlotAvatar(
 private val ChipGroupStyleBuilder.invariantProps: ChipGroupStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .dimensions {
             gap(6.0.dp)
             lineSpacing(6.0.dp)
         }
-        .disableAlpha(0.4f)
 
 public val ChipGroup.ChipSlotPadding: WrapperChipGroupChipSlotPadding
     @Composable

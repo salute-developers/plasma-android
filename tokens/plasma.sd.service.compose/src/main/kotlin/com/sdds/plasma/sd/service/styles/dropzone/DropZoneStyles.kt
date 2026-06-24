@@ -16,7 +16,6 @@ import com.sdds.compose.uikit.DropZoneState
 import com.sdds.compose.uikit.DropZoneStyle
 import com.sdds.compose.uikit.DropZoneStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -46,8 +45,12 @@ public val DropZone.Default: WrapperDropZoneDefault
     @JvmName("WrapperDropZoneDefault")
     get() = DropZoneStyle.builder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundXl)
-        .borderType(DropZoneBorderType.Dashes)
         .iconPlacement(DropZoneIconPlacement.Top)
+        .borderType(DropZoneBorderType.Dashes)
+        .titleStyle(PlasmaSdServiceTheme.typography.headerH4Bold)
+        .descriptionStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .disableAlpha(0.4f)
+        .overlayStyle(Overlay.Default.style())
         .colors {
             background(
                 SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue(
@@ -55,21 +58,15 @@ public val DropZone.Default: WrapperDropZoneDefault
                         to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCardHover),
                 ),
             )
-            iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive(),
-            )
+            titleColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultTertiary).asStatefulValue())
+            iconColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue())
             borderColor(
-                PlasmaSdServiceTheme.colors.outlineDefaultSolidSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.outlineDefaultSolidSecondary).asStatefulValue(
                     setOf(DropZoneState.DraggingOver)
-                        to PlasmaSdServiceTheme.colors.outlineDefaultAccent,
-                    setOf(InteractiveState.Focused)
-                        to PlasmaSdServiceTheme.colors.outlineDefaultSolidSecondaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.outlineDefaultAccent),
+                    setOf(InteractiveState.Focused) to
+                        SolidColor(PlasmaSdServiceTheme.colors.outlineDefaultSolidSecondaryHover),
                 ),
             )
         }
@@ -78,15 +75,11 @@ public val DropZone.Default: WrapperDropZoneDefault
             paddingEnd(24.0.dp)
             paddingTop(24.0.dp)
             paddingBottom(24.0.dp)
-            iconSize(24.0.dp)
             borderThickness(1.0.dp)
-            borderDashWidth(6.0.dp)
-            borderDashGap(8.0.dp)
+            borderDashWidth(8.0.dp)
+            borderDashGap(6.0.dp)
+            iconSize(24.0.dp)
             iconPadding(8.0.dp)
             gap(12.0.dp)
         }
-        .disableAlpha(0.4f)
-        .overlayStyle(Overlay.Default.style())
-        .titleStyle(PlasmaSdServiceTheme.typography.headerH4Bold)
-        .descriptionStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .wrap(::WrapperDropZoneDefault)

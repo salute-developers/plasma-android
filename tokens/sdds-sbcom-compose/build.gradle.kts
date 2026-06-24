@@ -24,7 +24,6 @@ android {
 }
 
 themeBuilder {
-    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
     componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
     compose {
         componentsMetaStyleClass(true)
@@ -34,6 +33,7 @@ themeBuilder {
     outputLocation(SRC)
     autoGenerate(false)
     ignoreDisabledTokens(true)
+    useDefaultFonts(true)
 }
 
 dependencies {

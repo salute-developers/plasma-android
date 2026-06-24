@@ -9,11 +9,12 @@ package com.sdds.plasma.giga.styles.switcher
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -79,27 +80,19 @@ private val SwitchStyleBuilder.invariantProps: SwitchStyleBuilder
     get() = this
         .toggleTrackShape(CircleShape)
         .toggleThumbShape(CircleShape)
+        .disableAlpha(0.4f)
         .colorValues {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
+            toggleThumbColor(SolidColor(PlasmaGigaTheme.colors.surfaceInverseSolidDefault).asStatefulValue())
             toggleTrackColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(SwitchStates.Checked)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent),
                 ),
             )
-            toggleTrackBorderColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-            toggleThumbColor(
-                PlasmaGigaTheme.colors.surfaceInverseSolidDefault.asInteractive(),
-            )
+            toggleTrackBorderColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
-        .disableAlpha(0.4f)
 
 public val Switch.L: WrapperSwitchL
     @Composable

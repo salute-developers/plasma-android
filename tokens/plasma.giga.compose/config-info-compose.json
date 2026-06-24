@@ -104,6 +104,545 @@
          ]
       },
       {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "AvatarIndicator",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.plasma.giga.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.AvatarIndicator",
+            "receiverClassQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorStyles.AvatarIndicator",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "AvatarIndicator",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AvatarIndicatorSize",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.indicator.AvatarIndicatorSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "AvatarIndicator.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AvatarIndicator.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AvatarIndicator.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "Indicator",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "l"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "accent",
+                  "inactive",
+                  "positive",
+                  "warning",
+                  "negative",
+                  "black",
+                  "white"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.plasma.giga.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorStyles.Default",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "Default",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IndicatorDefaultSize",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorDefaultSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IndicatorDefaultView",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorDefaultView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "inactive",
+                        "codeName": "Inactive"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "black",
+                        "codeName": "Black"
+                     },
+                     {
+                        "value": "white",
+                        "codeName": "White"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "Indicator.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "Indicator.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.inactive",
+               "composeReference": "Indicator.L.Inactive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "inactive"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "Indicator.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "Indicator.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "Indicator.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.black",
+               "composeReference": "Indicator.L.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "l.white",
+               "composeReference": "Indicator.L.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "Indicator.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Indicator.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.inactive",
+               "composeReference": "Indicator.M.Inactive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "inactive"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "Indicator.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "Indicator.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "Indicator.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.black",
+               "composeReference": "Indicator.M.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "m.white",
+               "composeReference": "Indicator.M.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Indicator.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Indicator.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.inactive",
+               "composeReference": "Indicator.S.Inactive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "inactive"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "Indicator.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "Indicator.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "Indicator.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.black",
+               "composeReference": "Indicator.S.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "s.white",
+               "composeReference": "Indicator.S.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "avatar-group",
          "coreName": "AvatarGroup",
          "styleName": "AvatarGroup",
@@ -14996,19 +15535,20 @@
             "packageName": "com.sdds.plasma.giga.styles.counter",
             "stylesClassName": "CounterStyles",
             "stylesClassQualifiedName": "com.sdds.plasma.giga.styles.counter.CounterStyles",
-            "receiverClassName": "CounterStyles.Companion",
-            "receiverClassQualifiedName": "com.sdds.plasma.giga.styles.counter.CounterStyles.Companion",
+            "receiverClassName": "CounterStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.plasma.giga.styles.counter.CounterStyles.Default",
             "returnTypeName": "CounterStyle",
             "returnTypeQualifiedName": "com.sdds.compose.uikit.CounterStyle",
             "modifyReceiverTypeName": "CounterStyleBuilder",
             "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CounterStyleBuilder",
+            "holderName": "Default",
             "params": [
                {
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "CounterSize",
-                  "typeQualifiedName": "com.sdds.plasma.giga.styles.counter.CounterSize",
+                  "typeName": "CounterDefaultSize",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.counter.CounterDefaultSize",
                   "defaultValue": {
                      "value": "l",
                      "codeName": "L"
@@ -15040,8 +15580,8 @@
                   "name": "view",
                   "type": "enum",
                   "required": false,
-                  "typeName": "CounterView",
-                  "typeQualifiedName": "com.sdds.plasma.giga.styles.counter.CounterView",
+                  "typeName": "CounterDefaultView",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.counter.CounterDefaultView",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -15573,6 +16113,242 @@
          ]
       },
       {
+         "key": "counter",
+         "coreName": "Counter",
+         "styleName": "SegmentItemCounter",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs",
+                  "xxs"
+               ],
+               "defaultValue": "l"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "accent"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.plasma.giga.styles.counter",
+            "stylesClassName": "CounterStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.giga.styles.counter.CounterStyles",
+            "receiverClassName": "CounterStyles.SegmentItemCounter",
+            "receiverClassQualifiedName": "com.sdds.plasma.giga.styles.counter.CounterStyles.SegmentItemCounter",
+            "returnTypeName": "CounterStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CounterStyle",
+            "modifyReceiverTypeName": "CounterStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CounterStyleBuilder",
+            "holderName": "SegmentItemCounter",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "SegmentItemCounterSize",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.counter.SegmentItemCounterSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "xxs",
+                        "codeName": "Xxs"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "SegmentItemCounterView",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.counter.SegmentItemCounterView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "SegmentItemCounter.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "SegmentItemCounter.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "SegmentItemCounter.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "SegmentItemCounter.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "SegmentItemCounter.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "SegmentItemCounter.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "SegmentItemCounter.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "SegmentItemCounter.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "SegmentItemCounter.Xxs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "SegmentItemCounter.Xxs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "divider",
          "coreName": "Divider",
          "styleName": "Divider",
@@ -15591,457 +16367,6 @@
             {
                "name": "Default",
                "composeReference": "Divider.Default"
-            }
-         ]
-      },
-      {
-         "key": "indicator",
-         "coreName": "Indicator",
-         "styleName": "Indicator",
-         "props": [
-            {
-               "name": "size",
-               "values": [
-                  "l",
-                  "m",
-                  "s"
-               ],
-               "defaultValue": "l"
-            },
-            {
-               "name": "view",
-               "values": [
-                  "default",
-                  "accent",
-                  "inactive",
-                  "positive",
-                  "warning",
-                  "negative",
-                  "black",
-                  "white"
-               ],
-               "defaultValue": "default"
-            }
-         ],
-         "styleApi": {
-            "packageName": "com.sdds.plasma.giga.styles.indicator",
-            "stylesClassName": "IndicatorStyles",
-            "stylesClassQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorStyles",
-            "receiverClassName": "IndicatorStyles.Companion",
-            "receiverClassQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorStyles.Companion",
-            "returnTypeName": "IndicatorStyle",
-            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
-            "modifyReceiverTypeName": "IndicatorStyleBuilder",
-            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
-            "params": [
-               {
-                  "name": "size",
-                  "type": "enum",
-                  "required": false,
-                  "typeName": "IndicatorSize",
-                  "typeQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorSize",
-                  "defaultValue": {
-                     "value": "l",
-                     "codeName": "L"
-                  },
-                  "values": [
-                     {
-                        "value": "l",
-                        "codeName": "L"
-                     },
-                     {
-                        "value": "m",
-                        "codeName": "M"
-                     },
-                     {
-                        "value": "s",
-                        "codeName": "S"
-                     }
-                  ]
-               },
-               {
-                  "name": "view",
-                  "type": "enum",
-                  "required": false,
-                  "typeName": "IndicatorView",
-                  "typeQualifiedName": "com.sdds.plasma.giga.styles.indicator.IndicatorView",
-                  "defaultValue": {
-                     "value": "default",
-                     "codeName": "Default"
-                  },
-                  "values": [
-                     {
-                        "value": "default",
-                        "codeName": "Default"
-                     },
-                     {
-                        "value": "accent",
-                        "codeName": "Accent"
-                     },
-                     {
-                        "value": "inactive",
-                        "codeName": "Inactive"
-                     },
-                     {
-                        "value": "positive",
-                        "codeName": "Positive"
-                     },
-                     {
-                        "value": "warning",
-                        "codeName": "Warning"
-                     },
-                     {
-                        "value": "negative",
-                        "codeName": "Negative"
-                     },
-                     {
-                        "value": "black",
-                        "codeName": "Black"
-                     },
-                     {
-                        "value": "white",
-                        "codeName": "White"
-                     }
-                  ]
-               }
-            ]
-         },
-         "variations": [
-            {
-               "name": "l.default",
-               "composeReference": "Indicator.L.Default",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "default"
-                  }
-               ]
-            },
-            {
-               "name": "l.accent",
-               "composeReference": "Indicator.L.Accent",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "accent"
-                  }
-               ]
-            },
-            {
-               "name": "l.inactive",
-               "composeReference": "Indicator.L.Inactive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "inactive"
-                  }
-               ]
-            },
-            {
-               "name": "l.positive",
-               "composeReference": "Indicator.L.Positive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "positive"
-                  }
-               ]
-            },
-            {
-               "name": "l.warning",
-               "composeReference": "Indicator.L.Warning",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "warning"
-                  }
-               ]
-            },
-            {
-               "name": "l.negative",
-               "composeReference": "Indicator.L.Negative",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "negative"
-                  }
-               ]
-            },
-            {
-               "name": "l.black",
-               "composeReference": "Indicator.L.Black",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "black"
-                  }
-               ]
-            },
-            {
-               "name": "l.white",
-               "composeReference": "Indicator.L.White",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "white"
-                  }
-               ]
-            },
-            {
-               "name": "m.default",
-               "composeReference": "Indicator.M.Default",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "default"
-                  }
-               ]
-            },
-            {
-               "name": "m.accent",
-               "composeReference": "Indicator.M.Accent",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "accent"
-                  }
-               ]
-            },
-            {
-               "name": "m.inactive",
-               "composeReference": "Indicator.M.Inactive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "inactive"
-                  }
-               ]
-            },
-            {
-               "name": "m.positive",
-               "composeReference": "Indicator.M.Positive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "positive"
-                  }
-               ]
-            },
-            {
-               "name": "m.warning",
-               "composeReference": "Indicator.M.Warning",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "warning"
-                  }
-               ]
-            },
-            {
-               "name": "m.negative",
-               "composeReference": "Indicator.M.Negative",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "negative"
-                  }
-               ]
-            },
-            {
-               "name": "m.black",
-               "composeReference": "Indicator.M.Black",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "black"
-                  }
-               ]
-            },
-            {
-               "name": "m.white",
-               "composeReference": "Indicator.M.White",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "white"
-                  }
-               ]
-            },
-            {
-               "name": "s.default",
-               "composeReference": "Indicator.S.Default",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "default"
-                  }
-               ]
-            },
-            {
-               "name": "s.accent",
-               "composeReference": "Indicator.S.Accent",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "accent"
-                  }
-               ]
-            },
-            {
-               "name": "s.inactive",
-               "composeReference": "Indicator.S.Inactive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "inactive"
-                  }
-               ]
-            },
-            {
-               "name": "s.positive",
-               "composeReference": "Indicator.S.Positive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "positive"
-                  }
-               ]
-            },
-            {
-               "name": "s.warning",
-               "composeReference": "Indicator.S.Warning",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "warning"
-                  }
-               ]
-            },
-            {
-               "name": "s.negative",
-               "composeReference": "Indicator.S.Negative",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "negative"
-                  }
-               ]
-            },
-            {
-               "name": "s.black",
-               "composeReference": "Indicator.S.Black",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "black"
-                  }
-               ]
-            },
-            {
-               "name": "s.white",
-               "composeReference": "Indicator.S.White",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "white"
-                  }
-               ]
             }
          ]
       },
@@ -18670,9 +18995,10 @@
             {
                "name": "toggle-size",
                "values": [
+                  "l",
                   "s"
                ],
-               "defaultValue": "s"
+               "defaultValue": "l"
             }
          ],
          "styleApi": {
@@ -18718,10 +19044,14 @@
                   "typeName": "SwitchToggleSize",
                   "typeQualifiedName": "com.sdds.plasma.giga.styles.switcher.SwitchToggleSize",
                   "defaultValue": {
-                     "value": "s",
-                     "codeName": "S"
+                     "value": "l",
+                     "codeName": "L"
                   },
                   "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
                      {
                         "value": "s",
                         "codeName": "S"
@@ -18737,6 +19067,10 @@
                "props": [
                   {
                      "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "toggle-size",
                      "value": "l"
                   }
                ]
@@ -18762,6 +19096,10 @@
                   {
                      "name": "size",
                      "value": "m"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "l"
                   }
                ]
             },
@@ -18786,6 +19124,10 @@
                   {
                      "name": "size",
                      "value": "s"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "l"
                   }
                ]
             },

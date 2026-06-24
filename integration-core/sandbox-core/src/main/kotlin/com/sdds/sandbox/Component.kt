@@ -148,6 +148,9 @@ data class ComponentKey(
         val Editable = ComponentKey(CoreComponentName.EDITABLE)
         val DropZone = ComponentKey(CoreComponentName.DROP_ZONE)
         val AiHeader = ComponentKey(CoreComponentName.AI_HEADER)
+        val Splitter = ComponentKey(CoreComponentName.SPLITTER)
+        val AiInput = ComponentKey(CoreComponentName.AI_INPUT)
+        val AiUserMessage = ComponentKey(CoreComponentName.AI_USER_MESSAGE)
     }
 }
 
@@ -259,7 +262,10 @@ private enum class CoreComponentName(displayName: String? = null) {
     FORM_ITEM,
     EDITABLE,
     AI_HEADER,
+    AI_INPUT,
     DROP_ZONE,
+    AI_USER_MESSAGE,
+    SPLITTER,
     ;
 
     val displayName: String = displayName ?: this.name
@@ -304,6 +310,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.NOTE_COMPACT,
         CoreComponentName.PAGINATION_DOTS,
         CoreComponentName.DROPDOWN_EMPTY_STATE,
+        CoreComponentName.SPLITTER,
         -> CoreComponentGroup.DATA_DISPLAY
 
         CoreComponentName.BASIC_BUTTON,
@@ -366,6 +373,8 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.FLOW -> CoreComponentGroup.LAYOUT
         CoreComponentName.AI_HEADER,
         CoreComponentName.AI_ANSWER,
+        CoreComponentName.AI_INPUT,
+        CoreComponentName.AI_USER_MESSAGE,
         -> CoreComponentGroup.AI_KIT
     }.let { ComponentGroup(it.displayName, it.ordinal) }
 }

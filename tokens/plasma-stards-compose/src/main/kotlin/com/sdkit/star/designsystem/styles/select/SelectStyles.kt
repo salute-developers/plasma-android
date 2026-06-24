@@ -80,8 +80,8 @@ public val Select.L: WrapperSelectL
     get() = SelectStyle.builder(this)
         .invariantProps
         .buttonStyle(BasicButton.L.Default.style())
-        .selectItemStyle(SelectItem.L.style())
         .dropdownStyle(DropdownMenu.L.style())
+        .selectItemStyle(SelectItem.L.style())
         .wrap(::WrapperSelectL)
 
 public val Select.M: WrapperSelectM
@@ -90,8 +90,8 @@ public val Select.M: WrapperSelectM
     get() = SelectStyle.builder(this)
         .invariantProps
         .buttonStyle(BasicButton.M.Default.style())
-        .selectItemStyle(SelectItem.M.style())
         .dropdownStyle(DropdownMenu.M.style())
+        .selectItemStyle(SelectItem.M.style())
         .wrap(::WrapperSelectM)
 
 public val Select.S: WrapperSelectS
@@ -100,8 +100,8 @@ public val Select.S: WrapperSelectS
     get() = SelectStyle.builder(this)
         .invariantProps
         .buttonStyle(BasicButton.S.Default.style())
-        .selectItemStyle(SelectItem.S.style())
         .dropdownStyle(DropdownMenu.S.style())
+        .selectItemStyle(SelectItem.S.style())
         .wrap(::WrapperSelectS)
 
 public val Select.Xs: WrapperSelectXs
@@ -110,6 +110,6 @@ public val Select.Xs: WrapperSelectXs
     get() = SelectStyle.builder(this)
         .invariantProps
         .buttonStyle(BasicButton.Xs.Default.style())
-        .selectItemStyle(SelectItem.Xs.style())
         .dropdownStyle(DropdownMenu.Xs.style())
+        .selectItemStyle(SelectItem.Xs.style())
         .wrap(::WrapperSelectXs)

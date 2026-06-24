@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.slider.BaseSlider
@@ -204,6 +205,7 @@ enum class LabelAlignment {
     /**
      * Расположение блока Label под полосой прогресса
      */
+    @ApiName(name = "end")
     Bottom,
 }
 

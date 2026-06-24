@@ -9,12 +9,14 @@ package com.sdds.plasma.giga.styles.basicbutton
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BasicButtonStyleBuilder
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.basicButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -94,481 +96,481 @@ public value class WrapperBasicButtonXxs(
 public val WrapperBasicButtonView.Default: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInversePrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textInverseSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInverseSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInversePrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textInverseSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
 public val WrapperBasicButtonView.Secondary: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
 public val WrapperBasicButtonView.Accent: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccentHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInversePrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textInverseSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInverseSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInversePrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textInverseSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
 public val WrapperBasicButtonView.Positive: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositive).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositiveActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositiveHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
 public val WrapperBasicButtonView.Negative: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegativeHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
 public val WrapperBasicButtonView.Warning: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultWarning).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultWarningHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultWarningHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
 public val WrapperBasicButtonView.Clear: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.06f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.06f)
         .wrap(::WrapperBasicButtonTerminate)
 
 public val WrapperBasicButtonView.Dark: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceOnLightTransparentDeepActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceOnLightTransparentDeepHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceOnLightTransparentDeepActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceOnLightTransparentDeepHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
 public val WrapperBasicButtonView.Black: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceOnLightSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceOnLightSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceOnLightSolidDefaultHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceOnLightSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceOnLightSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
 public val WrapperBasicButtonView.White: WrapperBasicButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceOnDarkSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceOnDarkSolidDefaultHover),
+                ),
+            )
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnLightPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnLightPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnLightPrimaryHover),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnLightSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnLightSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnLightSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnLightPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnLightPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnLightPrimaryHover),
+                ),
+            )
             spinnerColor(
                 PlasmaGigaTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnLightPrimaryHover,
-                ),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textOnLightPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnLightPrimaryHover,
-                ),
-            )
-            labelColor(
-                PlasmaGigaTheme.colors.textOnLightPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnLightPrimaryHover,
-                ),
-            )
-            valueColor(
-                PlasmaGigaTheme.colors.textOnLightSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnLightSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnLightSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceOnDarkSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textOnLightPrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
 private val BasicButtonStyleBuilder.invariantProps: BasicButtonStyleBuilder

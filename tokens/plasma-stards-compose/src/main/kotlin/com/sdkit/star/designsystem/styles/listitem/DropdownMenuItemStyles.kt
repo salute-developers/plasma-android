@@ -8,12 +8,13 @@
 package com.sdkit.star.designsystem.styles.listitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
@@ -88,9 +89,9 @@ public val WrapperDropdownMenuItemView.Default: WrapperDropdownMenuItemTerminate
     get() = builder
         .colors {
             titleColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInversePrimary,
+                        to SolidColor(StarDsTheme.colors.textInversePrimary),
                 ),
             )
         }
@@ -101,9 +102,9 @@ public val WrapperDropdownMenuItemView.Positive: WrapperDropdownMenuItemTerminat
     get() = builder
         .colors {
             titleColor(
-                StarDsTheme.colors.textDefaultPositive.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPositive).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInversePrimary,
+                        to SolidColor(StarDsTheme.colors.textInversePrimary),
                 ),
             )
         }
@@ -114,9 +115,9 @@ public val WrapperDropdownMenuItemView.Negative: WrapperDropdownMenuItemTerminat
     get() = builder
         .colors {
             titleColor(
-                StarDsTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInversePrimary,
+                        to SolidColor(StarDsTheme.colors.textInversePrimary),
                 ),
             )
         }
@@ -127,15 +128,15 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
     get() = this
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceInverseSolidPrimary,
+                        to SolidColor(StarDsTheme.colors.surfaceInverseSolidPrimary),
                 ),
             )
             disclosureIconColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
                 ),
             )
         }
@@ -150,12 +151,12 @@ public val DropdownMenuItem.Xl: WrapperDropdownMenuItemXl
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_xl))
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_xl))
-            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_xl))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_xl))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_end_xl))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_top_xl))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_bottom_xl))
+            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_xl))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_xl))
         }
         .wrap(::WrapperDropdownMenuItemXl)
 
@@ -174,12 +175,12 @@ public val DropdownMenuItem.L: WrapperDropdownMenuItemL
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_l))
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_l))
-            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_l))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_l))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_end_l))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_top_l))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_bottom_l))
+            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_l))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_l))
         }
         .wrap(::WrapperDropdownMenuItemL)
 
@@ -193,12 +194,12 @@ public val DropdownMenuItem.M: WrapperDropdownMenuItemM
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_m))
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_m))
-            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_m))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_m))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_end_m))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_top_m))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_bottom_m))
+            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_m))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_m))
         }
         .wrap(::WrapperDropdownMenuItemM)
 
@@ -217,12 +218,12 @@ public val DropdownMenuItem.S: WrapperDropdownMenuItemS
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_s))
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_s))
-            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_s))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_s))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_end_s))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_top_s))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_bottom_s))
+            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_s))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_s))
         }
         .wrap(::WrapperDropdownMenuItemS)
 
@@ -236,11 +237,11 @@ public val DropdownMenuItem.Xs: WrapperDropdownMenuItemXs
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_xs))
-            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_xs))
-            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_xs))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_xs))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_end_xs))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_top_xs))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_bottom_xs))
+            height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_xs))
+            contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_start_xs))
         }
         .wrap(::WrapperDropdownMenuItemXs)

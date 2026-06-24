@@ -42,22 +42,18 @@ public val ModalBottomSheet.Default: WrapperModalBottomSheetDefault
     get() = ModalBottomSheetStyle.builder(this)
         .shape(SddsSbComTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
         .handleShape(CircleShape)
+        .handlePlacement(BottomSheetHandlePlacement.Inner)
+        .colors {
+            backgroundColor(SddsSbComTheme.colors.surfaceDefaultSolidCard.asInteractive())
+            handleColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
+        }
         .dimensions {
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
-            handleHeight(4.0.dp)
-            handleWidth(32.0.dp)
             handleOffset(16.0.dp)
+            handleWidth(32.0.dp)
+            handleHeight(4.0.dp)
         }
-        .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
-            handleColor(
-                SddsSbComTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-        }
-        .handlePlacement(BottomSheetHandlePlacement.Inner)
         .wrap(::WrapperModalBottomSheetDefault)

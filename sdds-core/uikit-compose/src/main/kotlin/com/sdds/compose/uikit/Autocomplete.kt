@@ -1,5 +1,7 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -9,6 +11,8 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -17,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.DropdownProperties.Height
 import com.sdds.compose.uikit.DropdownProperties.Width
+import com.sdds.compose.uikit.internal.dropdownmenu.BaseDropdownMenu
 import com.sdds.compose.uikit.internal.toDp
 
 /**
@@ -53,12 +58,15 @@ fun Autocomplete(
         }
     }
     val scrollState = rememberLazyListState()
-    DropdownMenu(
+    // triggerInfo обновляется на каждом кадре при скролле, поэтому в композиции
+    // читаем только ширину через derivedStateOf, а полное значение передаем лямбдой.
+    val triggerWidth by remember { derivedStateOf { triggerInfo.value.size.width } }
+    BaseDropdownMenu(
         offset = 0.dp,
         modifier = Modifier
             .width(
                 when (dropdownProperties.width) {
-                    is Width.TriggerWidth -> triggerInfo.value.size.width.toDp()
+                    is Width.TriggerWidth -> triggerWidth.toDp()
                     is Width.Exactly -> dropdownProperties.width.width
                 },
             )
@@ -72,14 +80,19 @@ fun Autocomplete(
         scrollState = scrollState,
         style = style.dropdownStyle,
         onDismissRequest = onDismissRequest,
-        triggerInfo = triggerInfo.value,
+        triggerInfo = { triggerInfo.value },
         clipWidth = false,
         clipHeight = true,
         placement = dropdownProperties.placement,
         placementMode = dropdownProperties.placementMode,
+        positionStrategy = PopoverPositionStrategy.Recalculate,
+        alignment = PopoverAlignment.Start,
         popupProperties = dropdownProperties.popupProperties,
+        enterTransition = fadeIn(),
+        exitTransition = fadeOut(),
         emptyState = emptyState,
         showEmptyState = showEmptyState,
+        header = null,
         footer = footer,
     ) {
         List(

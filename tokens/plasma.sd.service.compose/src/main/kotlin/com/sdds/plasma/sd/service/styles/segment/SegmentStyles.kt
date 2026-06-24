@@ -209,9 +209,7 @@ private val SegmentStyleBuilder.invariantProps: SegmentStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
+            backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive())
         }
 
 public val WrapperSegmentXlView.Primary: WrapperSegmentTerminate

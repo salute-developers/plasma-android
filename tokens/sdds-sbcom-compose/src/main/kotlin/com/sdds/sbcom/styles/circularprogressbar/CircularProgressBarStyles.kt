@@ -78,9 +78,7 @@ public val WrapperCircularProgressBarView.ModeColorPrimary: WrapperCircularProgr
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -88,9 +86,7 @@ public val WrapperCircularProgressBarView.ModeColorSecondary: WrapperCircularPro
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -98,9 +94,7 @@ public val WrapperCircularProgressBarView.ModeColorGlobalWhite: WrapperCircularP
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -108,9 +102,7 @@ public val WrapperCircularProgressBarView.ModeColorAccent: WrapperCircularProgre
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -118,21 +110,17 @@ public val WrapperCircularProgressBarView.ModeColorDanger: WrapperCircularProgre
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultNegative).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
 private val CircularProgressBarStyleBuilder.invariantProps: CircularProgressBarStyleBuilder
     @Composable
     get() = this
-        .colors {
-            trackColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-        }
         .valueEnabled(true)
+        .colors {
+            trackColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+        }
 
 public val CircularProgressBar.Size40: WrapperCircularProgressBarSize40
     @Composable

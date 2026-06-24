@@ -104,6 +104,592 @@
          ]
       },
       {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "AvatarIndicator",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.AvatarIndicator",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.indicator.IndicatorStyles.AvatarIndicator",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "AvatarIndicator",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AvatarIndicatorSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.indicator.AvatarIndicatorSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "AvatarIndicator.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AvatarIndicator.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AvatarIndicator.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "Indicator",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "l"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "accent",
+                  "inactive",
+                  "positive",
+                  "warning",
+                  "negative",
+                  "dark",
+                  "black",
+                  "white"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.indicator.IndicatorStyles.Default",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "Default",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IndicatorDefaultSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.indicator.IndicatorDefaultSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IndicatorDefaultView",
+                  "typeQualifiedName": "com.sdds.serv.styles.indicator.IndicatorDefaultView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "inactive",
+                        "codeName": "Inactive"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "dark",
+                        "codeName": "Dark"
+                     },
+                     {
+                        "value": "black",
+                        "codeName": "Black"
+                     },
+                     {
+                        "value": "white",
+                        "codeName": "White"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "Indicator.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "Indicator.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.inactive",
+               "composeReference": "Indicator.L.Inactive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "inactive"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "Indicator.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "Indicator.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "Indicator.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.dark",
+               "composeReference": "Indicator.L.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "l.black",
+               "composeReference": "Indicator.L.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "l.white",
+               "composeReference": "Indicator.L.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "Indicator.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Indicator.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.inactive",
+               "composeReference": "Indicator.M.Inactive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "inactive"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "Indicator.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "Indicator.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "Indicator.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.dark",
+               "composeReference": "Indicator.M.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "m.black",
+               "composeReference": "Indicator.M.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "m.white",
+               "composeReference": "Indicator.M.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Indicator.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Indicator.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.inactive",
+               "composeReference": "Indicator.S.Inactive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "inactive"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "Indicator.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "Indicator.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "Indicator.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.dark",
+               "composeReference": "Indicator.S.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "s.black",
+               "composeReference": "Indicator.S.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "s.white",
+               "composeReference": "Indicator.S.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "avatar-group",
          "coreName": "AvatarGroup",
          "styleName": "AvatarGroup",
@@ -16214,19 +16800,20 @@
             "packageName": "com.sdds.serv.styles.counter",
             "stylesClassName": "CounterStyles",
             "stylesClassQualifiedName": "com.sdds.serv.styles.counter.CounterStyles",
-            "receiverClassName": "CounterStyles.Companion",
-            "receiverClassQualifiedName": "com.sdds.serv.styles.counter.CounterStyles.Companion",
+            "receiverClassName": "CounterStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.counter.CounterStyles.Default",
             "returnTypeName": "CounterStyle",
             "returnTypeQualifiedName": "com.sdds.compose.uikit.CounterStyle",
             "modifyReceiverTypeName": "CounterStyleBuilder",
             "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CounterStyleBuilder",
+            "holderName": "Default",
             "params": [
                {
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "CounterSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.counter.CounterSize",
+                  "typeName": "CounterDefaultSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.counter.CounterDefaultSize",
                   "defaultValue": {
                      "value": "l",
                      "codeName": "L"
@@ -16258,8 +16845,8 @@
                   "name": "view",
                   "type": "enum",
                   "required": false,
-                  "typeName": "CounterView",
-                  "typeQualifiedName": "com.sdds.serv.styles.counter.CounterView",
+                  "typeName": "CounterDefaultView",
+                  "typeQualifiedName": "com.sdds.serv.styles.counter.CounterDefaultView",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -16791,6 +17378,242 @@
          ]
       },
       {
+         "key": "counter",
+         "coreName": "Counter",
+         "styleName": "SegmentItemCounter",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs",
+                  "xxs"
+               ],
+               "defaultValue": "l"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "accent"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.counter",
+            "stylesClassName": "CounterStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.counter.CounterStyles",
+            "receiverClassName": "CounterStyles.SegmentItemCounter",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.counter.CounterStyles.SegmentItemCounter",
+            "returnTypeName": "CounterStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CounterStyle",
+            "modifyReceiverTypeName": "CounterStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CounterStyleBuilder",
+            "holderName": "SegmentItemCounter",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "SegmentItemCounterSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.counter.SegmentItemCounterSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "xxs",
+                        "codeName": "Xxs"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "SegmentItemCounterView",
+                  "typeQualifiedName": "com.sdds.serv.styles.counter.SegmentItemCounterView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "SegmentItemCounter.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "SegmentItemCounter.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "SegmentItemCounter.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "SegmentItemCounter.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "SegmentItemCounter.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "SegmentItemCounter.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "SegmentItemCounter.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "SegmentItemCounter.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "SegmentItemCounter.Xxs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "SegmentItemCounter.Xxs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "divider",
          "coreName": "Divider",
          "styleName": "Divider",
@@ -16809,504 +17632,6 @@
             {
                "name": "Default",
                "composeReference": "Divider.Default"
-            }
-         ]
-      },
-      {
-         "key": "indicator",
-         "coreName": "Indicator",
-         "styleName": "Indicator",
-         "props": [
-            {
-               "name": "size",
-               "values": [
-                  "l",
-                  "m",
-                  "s"
-               ],
-               "defaultValue": "l"
-            },
-            {
-               "name": "view",
-               "values": [
-                  "default",
-                  "accent",
-                  "inactive",
-                  "positive",
-                  "warning",
-                  "negative",
-                  "dark",
-                  "black",
-                  "white"
-               ],
-               "defaultValue": "default"
-            }
-         ],
-         "styleApi": {
-            "packageName": "com.sdds.serv.styles.indicator",
-            "stylesClassName": "IndicatorStyles",
-            "stylesClassQualifiedName": "com.sdds.serv.styles.indicator.IndicatorStyles",
-            "receiverClassName": "IndicatorStyles.Companion",
-            "receiverClassQualifiedName": "com.sdds.serv.styles.indicator.IndicatorStyles.Companion",
-            "returnTypeName": "IndicatorStyle",
-            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
-            "modifyReceiverTypeName": "IndicatorStyleBuilder",
-            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
-            "params": [
-               {
-                  "name": "size",
-                  "type": "enum",
-                  "required": false,
-                  "typeName": "IndicatorSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.indicator.IndicatorSize",
-                  "defaultValue": {
-                     "value": "l",
-                     "codeName": "L"
-                  },
-                  "values": [
-                     {
-                        "value": "l",
-                        "codeName": "L"
-                     },
-                     {
-                        "value": "m",
-                        "codeName": "M"
-                     },
-                     {
-                        "value": "s",
-                        "codeName": "S"
-                     }
-                  ]
-               },
-               {
-                  "name": "view",
-                  "type": "enum",
-                  "required": false,
-                  "typeName": "IndicatorView",
-                  "typeQualifiedName": "com.sdds.serv.styles.indicator.IndicatorView",
-                  "defaultValue": {
-                     "value": "default",
-                     "codeName": "Default"
-                  },
-                  "values": [
-                     {
-                        "value": "default",
-                        "codeName": "Default"
-                     },
-                     {
-                        "value": "accent",
-                        "codeName": "Accent"
-                     },
-                     {
-                        "value": "inactive",
-                        "codeName": "Inactive"
-                     },
-                     {
-                        "value": "positive",
-                        "codeName": "Positive"
-                     },
-                     {
-                        "value": "warning",
-                        "codeName": "Warning"
-                     },
-                     {
-                        "value": "negative",
-                        "codeName": "Negative"
-                     },
-                     {
-                        "value": "dark",
-                        "codeName": "Dark"
-                     },
-                     {
-                        "value": "black",
-                        "codeName": "Black"
-                     },
-                     {
-                        "value": "white",
-                        "codeName": "White"
-                     }
-                  ]
-               }
-            ]
-         },
-         "variations": [
-            {
-               "name": "l.default",
-               "composeReference": "Indicator.L.Default",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "default"
-                  }
-               ]
-            },
-            {
-               "name": "l.accent",
-               "composeReference": "Indicator.L.Accent",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "accent"
-                  }
-               ]
-            },
-            {
-               "name": "l.inactive",
-               "composeReference": "Indicator.L.Inactive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "inactive"
-                  }
-               ]
-            },
-            {
-               "name": "l.positive",
-               "composeReference": "Indicator.L.Positive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "positive"
-                  }
-               ]
-            },
-            {
-               "name": "l.warning",
-               "composeReference": "Indicator.L.Warning",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "warning"
-                  }
-               ]
-            },
-            {
-               "name": "l.negative",
-               "composeReference": "Indicator.L.Negative",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "negative"
-                  }
-               ]
-            },
-            {
-               "name": "l.dark",
-               "composeReference": "Indicator.L.Dark",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "dark"
-                  }
-               ]
-            },
-            {
-               "name": "l.black",
-               "composeReference": "Indicator.L.Black",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "black"
-                  }
-               ]
-            },
-            {
-               "name": "l.white",
-               "composeReference": "Indicator.L.White",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "l"
-                  },
-                  {
-                     "name": "view",
-                     "value": "white"
-                  }
-               ]
-            },
-            {
-               "name": "m.default",
-               "composeReference": "Indicator.M.Default",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "default"
-                  }
-               ]
-            },
-            {
-               "name": "m.accent",
-               "composeReference": "Indicator.M.Accent",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "accent"
-                  }
-               ]
-            },
-            {
-               "name": "m.inactive",
-               "composeReference": "Indicator.M.Inactive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "inactive"
-                  }
-               ]
-            },
-            {
-               "name": "m.positive",
-               "composeReference": "Indicator.M.Positive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "positive"
-                  }
-               ]
-            },
-            {
-               "name": "m.warning",
-               "composeReference": "Indicator.M.Warning",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "warning"
-                  }
-               ]
-            },
-            {
-               "name": "m.negative",
-               "composeReference": "Indicator.M.Negative",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "negative"
-                  }
-               ]
-            },
-            {
-               "name": "m.dark",
-               "composeReference": "Indicator.M.Dark",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "dark"
-                  }
-               ]
-            },
-            {
-               "name": "m.black",
-               "composeReference": "Indicator.M.Black",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "black"
-                  }
-               ]
-            },
-            {
-               "name": "m.white",
-               "composeReference": "Indicator.M.White",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "m"
-                  },
-                  {
-                     "name": "view",
-                     "value": "white"
-                  }
-               ]
-            },
-            {
-               "name": "s.default",
-               "composeReference": "Indicator.S.Default",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "default"
-                  }
-               ]
-            },
-            {
-               "name": "s.accent",
-               "composeReference": "Indicator.S.Accent",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "accent"
-                  }
-               ]
-            },
-            {
-               "name": "s.inactive",
-               "composeReference": "Indicator.S.Inactive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "inactive"
-                  }
-               ]
-            },
-            {
-               "name": "s.positive",
-               "composeReference": "Indicator.S.Positive",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "positive"
-                  }
-               ]
-            },
-            {
-               "name": "s.warning",
-               "composeReference": "Indicator.S.Warning",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "warning"
-                  }
-               ]
-            },
-            {
-               "name": "s.negative",
-               "composeReference": "Indicator.S.Negative",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "negative"
-                  }
-               ]
-            },
-            {
-               "name": "s.dark",
-               "composeReference": "Indicator.S.Dark",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "dark"
-                  }
-               ]
-            },
-            {
-               "name": "s.black",
-               "composeReference": "Indicator.S.Black",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "black"
-                  }
-               ]
-            },
-            {
-               "name": "s.white",
-               "composeReference": "Indicator.S.White",
-               "props": [
-                  {
-                     "name": "size",
-                     "value": "s"
-                  },
-                  {
-                     "name": "view",
-                     "value": "white"
-                  }
-               ]
             }
          ]
       },
@@ -19957,9 +20282,10 @@
             {
                "name": "toggle-size",
                "values": [
+                  "l",
                   "s"
                ],
-               "defaultValue": "s"
+               "defaultValue": "l"
             }
          ],
          "styleApi": {
@@ -20005,10 +20331,14 @@
                   "typeName": "SwitchToggleSize",
                   "typeQualifiedName": "com.sdds.serv.styles.switcher.SwitchToggleSize",
                   "defaultValue": {
-                     "value": "s",
-                     "codeName": "S"
+                     "value": "l",
+                     "codeName": "L"
                   },
                   "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
                      {
                         "value": "s",
                         "codeName": "S"
@@ -20024,6 +20354,10 @@
                "props": [
                   {
                      "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "toggle-size",
                      "value": "l"
                   }
                ]
@@ -20049,6 +20383,10 @@
                   {
                      "name": "size",
                      "value": "m"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "l"
                   }
                ]
             },
@@ -20073,6 +20411,10 @@
                   {
                      "name": "size",
                      "value": "s"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "l"
                   }
                ]
             },
@@ -49006,6 +49348,1064 @@
          ]
       },
       {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "AiInputIconButtonGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l"
+               ],
+               "defaultValue": "xs"
+            },
+            {
+               "name": "gap",
+               "values": [
+                  "wide",
+                  "dense",
+                  "none"
+               ],
+               "defaultValue": "wide"
+            },
+            {
+               "name": "shape",
+               "values": [
+                  "default",
+                  "pilled",
+                  "segmented"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.AiInputIconButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles.AiInputIconButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "AiInputIconButtonGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputIconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiInputIconButtonGroupSize",
+                  "defaultValue": {
+                     "value": "xs",
+                     "codeName": "Xs"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     }
+                  ]
+               },
+               {
+                  "name": "gap",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputIconButtonGroupGap",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiInputIconButtonGroupGap",
+                  "defaultValue": {
+                     "value": "wide",
+                     "codeName": "Wide"
+                  },
+                  "values": [
+                     {
+                        "value": "wide",
+                        "codeName": "Wide"
+                     },
+                     {
+                        "value": "dense",
+                        "codeName": "Dense"
+                     },
+                     {
+                        "value": "none",
+                        "codeName": "None"
+                     }
+                  ]
+               },
+               {
+                  "name": "shape",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputIconButtonGroupShape",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiInputIconButtonGroupShape",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "pilled",
+                        "codeName": "Pilled"
+                     },
+                     {
+                        "value": "segmented",
+                        "codeName": "Segmented"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "AiInputIconButtonGroup.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            },
+            {
+               "name": "xs.wide",
+               "composeReference": "AiInputIconButtonGroup.Xs.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "xs.wide.default",
+               "composeReference": "AiInputIconButtonGroup.Xs.Wide.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.wide.pilled",
+               "composeReference": "AiInputIconButtonGroup.Xs.Wide.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "xs.wide.segmented",
+               "composeReference": "AiInputIconButtonGroup.Xs.Wide.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dense",
+               "composeReference": "AiInputIconButtonGroup.Xs.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dense.default",
+               "composeReference": "AiInputIconButtonGroup.Xs.Dense.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dense.pilled",
+               "composeReference": "AiInputIconButtonGroup.Xs.Dense.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dense.segmented",
+               "composeReference": "AiInputIconButtonGroup.Xs.Dense.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "xs.no-gap",
+               "composeReference": "AiInputIconButtonGroup.Xs.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "xs.no-gap.default",
+               "composeReference": "AiInputIconButtonGroup.Xs.NoGap.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.no-gap.pilled",
+               "composeReference": "AiInputIconButtonGroup.Xs.NoGap.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "xs.no-gap.segmented",
+               "composeReference": "AiInputIconButtonGroup.Xs.NoGap.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiInputIconButtonGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "s.wide",
+               "composeReference": "AiInputIconButtonGroup.S.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "s.wide.default",
+               "composeReference": "AiInputIconButtonGroup.S.Wide.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.wide.pilled",
+               "composeReference": "AiInputIconButtonGroup.S.Wide.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "s.wide.segmented",
+               "composeReference": "AiInputIconButtonGroup.S.Wide.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "s.dense",
+               "composeReference": "AiInputIconButtonGroup.S.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "s.dense.default",
+               "composeReference": "AiInputIconButtonGroup.S.Dense.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.dense.pilled",
+               "composeReference": "AiInputIconButtonGroup.S.Dense.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "s.dense.segmented",
+               "composeReference": "AiInputIconButtonGroup.S.Dense.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "s.no-gap",
+               "composeReference": "AiInputIconButtonGroup.S.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "s.no-gap.default",
+               "composeReference": "AiInputIconButtonGroup.S.NoGap.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.no-gap.pilled",
+               "composeReference": "AiInputIconButtonGroup.S.NoGap.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "s.no-gap.segmented",
+               "composeReference": "AiInputIconButtonGroup.S.NoGap.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiInputIconButtonGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "m.wide",
+               "composeReference": "AiInputIconButtonGroup.M.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "m.wide.default",
+               "composeReference": "AiInputIconButtonGroup.M.Wide.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.wide.pilled",
+               "composeReference": "AiInputIconButtonGroup.M.Wide.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "m.wide.segmented",
+               "composeReference": "AiInputIconButtonGroup.M.Wide.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "m.dense",
+               "composeReference": "AiInputIconButtonGroup.M.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "m.dense.default",
+               "composeReference": "AiInputIconButtonGroup.M.Dense.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.dense.pilled",
+               "composeReference": "AiInputIconButtonGroup.M.Dense.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "m.dense.segmented",
+               "composeReference": "AiInputIconButtonGroup.M.Dense.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-gap",
+               "composeReference": "AiInputIconButtonGroup.M.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-gap.default",
+               "composeReference": "AiInputIconButtonGroup.M.NoGap.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-gap.pilled",
+               "composeReference": "AiInputIconButtonGroup.M.NoGap.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "m.no-gap.segmented",
+               "composeReference": "AiInputIconButtonGroup.M.NoGap.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiInputIconButtonGroup.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "l.wide",
+               "composeReference": "AiInputIconButtonGroup.L.Wide",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  }
+               ]
+            },
+            {
+               "name": "l.wide.default",
+               "composeReference": "AiInputIconButtonGroup.L.Wide.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.wide.pilled",
+               "composeReference": "AiInputIconButtonGroup.L.Wide.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "l.wide.segmented",
+               "composeReference": "AiInputIconButtonGroup.L.Wide.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "wide"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "l.dense",
+               "composeReference": "AiInputIconButtonGroup.L.Dense",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  }
+               ]
+            },
+            {
+               "name": "l.dense.default",
+               "composeReference": "AiInputIconButtonGroup.L.Dense.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.dense.pilled",
+               "composeReference": "AiInputIconButtonGroup.L.Dense.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "l.dense.segmented",
+               "composeReference": "AiInputIconButtonGroup.L.Dense.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "dense"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            },
+            {
+               "name": "l.no-gap",
+               "composeReference": "AiInputIconButtonGroup.L.NoGap",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  }
+               ]
+            },
+            {
+               "name": "l.no-gap.default",
+               "composeReference": "AiInputIconButtonGroup.L.NoGap.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.no-gap.pilled",
+               "composeReference": "AiInputIconButtonGroup.L.NoGap.Pilled",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  }
+               ]
+            },
+            {
+               "name": "l.no-gap.segmented",
+               "composeReference": "AiInputIconButtonGroup.L.NoGap.Segmented",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "gap",
+                     "value": "none"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "segmented"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "AiUserMessageEmbeddedIconButtonGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "s",
+                  "m"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.buttongroup",
+            "stylesClassName": "ButtonGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles",
+            "receiverClassName": "ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroup",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.buttongroup.ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroup",
+            "returnTypeName": "ButtonGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyle",
+            "modifyReceiverTypeName": "ButtonGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ButtonGroupStyleBuilder",
+            "holderName": "AiUserMessageEmbeddedIconButtonGroup",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageEmbeddedIconButtonGroupSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.buttongroup.AiUserMessageEmbeddedIconButtonGroupSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "s",
+               "composeReference": "AiUserMessageEmbeddedIconButtonGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiUserMessageEmbeddedIconButtonGroup.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "tab-bar",
          "coreName": "TabBar",
          "styleName": "TabBarHasLabelClear",
@@ -57289,6 +58689,209 @@
          ]
       },
       {
+         "key": "file",
+         "coreName": "File",
+         "styleName": "AiInputFileCircularProgress",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l"
+               ],
+               "defaultValue": "xs"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "negative"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.file",
+            "stylesClassName": "FileStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.file.FileStyles",
+            "receiverClassName": "FileStyles.AiInputFileCircularProgress",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.file.FileStyles.AiInputFileCircularProgress",
+            "returnTypeName": "FileStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.FileStyle",
+            "modifyReceiverTypeName": "FileStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.FileStyleBuilder",
+            "holderName": "AiInputFileCircularProgress",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputFileCircularProgressSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.file.AiInputFileCircularProgressSize",
+                  "defaultValue": {
+                     "value": "xs",
+                     "codeName": "Xs"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputFileCircularProgressView",
+                  "typeQualifiedName": "com.sdds.serv.styles.file.AiInputFileCircularProgressView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs.default",
+               "composeReference": "AiInputFileCircularProgress.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "AiInputFileCircularProgress.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "AiInputFileCircularProgress.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "AiInputFileCircularProgress.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "AiInputFileCircularProgress.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "AiInputFileCircularProgress.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.default",
+               "composeReference": "AiInputFileCircularProgress.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "AiInputFileCircularProgress.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            }
+         ]
+      },
+      {
          "key": "form-item",
          "coreName": "FormItem",
          "styleName": "FormItem",
@@ -60458,19 +62061,20 @@
             "packageName": "com.sdds.serv.styles.editable",
             "stylesClassName": "EditableStyles",
             "stylesClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles",
-            "receiverClassName": "EditableStyles.Companion",
-            "receiverClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles.Companion",
+            "receiverClassName": "EditableStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles.Default",
             "returnTypeName": "EditableStyle",
             "returnTypeQualifiedName": "com.sdds.compose.uikit.EditableStyle",
             "modifyReceiverTypeName": "EditableStyleBuilder",
             "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.EditableStyleBuilder",
+            "holderName": "Default",
             "params": [
                {
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "EditableSize",
-                  "typeQualifiedName": "com.sdds.serv.styles.editable.EditableSize",
+                  "typeName": "EditableDefaultSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.editable.EditableDefaultSize",
                   "defaultValue": {
                      "value": "h1",
                      "codeName": "H1"
@@ -60618,6 +62222,123 @@
                   {
                      "name": "size",
                      "value": "body-xxs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "editable",
+         "coreName": "Editable",
+         "styleName": "AiUserMessageEditable",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.editable",
+            "stylesClassName": "EditableStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles",
+            "receiverClassName": "EditableStyles.AiUserMessageEditable",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.editable.EditableStyles.AiUserMessageEditable",
+            "returnTypeName": "EditableStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.EditableStyle",
+            "modifyReceiverTypeName": "EditableStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.EditableStyleBuilder",
+            "holderName": "AiUserMessageEditable",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageEditableSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.editable.AiUserMessageEditableSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "AiUserMessageEditable.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiUserMessageEditable.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiUserMessageEditable.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiUserMessageEditable.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "AiUserMessageEditable.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
                   }
                ]
             }
@@ -62660,6 +64381,2595 @@
             {
                "name": "Default",
                "composeReference": "DropZone.Default"
+            }
+         ]
+      },
+      {
+         "key": "splitter",
+         "coreName": "Splitter",
+         "styleName": "Splitter",
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.splitter",
+            "stylesClassName": "SplitterStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.splitter.SplitterStyles",
+            "receiverClassName": "SplitterStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.splitter.SplitterStyles.Companion",
+            "returnTypeName": "SplitterStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.SplitterStyle",
+            "modifyReceiverTypeName": "SplitterStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.SplitterStyleBuilder"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Splitter.Default"
+            }
+         ]
+      },
+      {
+         "key": "ai-input",
+         "coreName": "AiInput",
+         "styleName": "AiInputCondensed",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l",
+                  "xl"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.aiinput",
+            "stylesClassName": "AiInputStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.aiinput.AiInputStyles",
+            "receiverClassName": "AiInputStyles.Condensed",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.aiinput.AiInputStyles.Condensed",
+            "returnTypeName": "AiInputStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AiInputStyle",
+            "modifyReceiverTypeName": "AiInputStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AiInputStyleBuilder",
+            "holderName": "Condensed",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputCondensedSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiinput.AiInputCondensedSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "AiInputCondensed.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiInputCondensed.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiInputCondensed.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiInputCondensed.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "xl",
+               "composeReference": "AiInputCondensed.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "ai-input",
+         "coreName": "AiInput",
+         "styleName": "AiInputExtended",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xs",
+                  "s",
+                  "m",
+                  "l",
+                  "xl"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.aiinput",
+            "stylesClassName": "AiInputStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.aiinput.AiInputStyles",
+            "receiverClassName": "AiInputStyles.Extended",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.aiinput.AiInputStyles.Extended",
+            "returnTypeName": "AiInputStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AiInputStyle",
+            "modifyReceiverTypeName": "AiInputStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AiInputStyleBuilder",
+            "holderName": "Extended",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiInputExtendedSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiinput.AiInputExtendedSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "AiInputExtended.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AiInputExtended.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AiInputExtended.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "AiInputExtended.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "xl",
+               "composeReference": "AiInputExtended.Xl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "ai-user-message",
+         "coreName": "AiUserMessage",
+         "styleName": "AiUserMessage",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xl",
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "m"
+            },
+            {
+               "name": "content-type",
+               "values": [
+                  "image",
+                  "file"
+               ],
+               "defaultValue": "image"
+            },
+            {
+               "name": "content-view",
+               "values": [
+                  "default",
+                  "secondary"
+               ],
+               "defaultValue": "default"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "accent",
+                  "positive",
+                  "negative",
+                  "warning"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.serv.styles.aiusermessage",
+            "stylesClassName": "AiUserMessageStyles",
+            "stylesClassQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageStyles",
+            "receiverClassName": "AiUserMessageStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageStyles.Companion",
+            "returnTypeName": "AiUserMessageStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ai.AiUserMessageStyle",
+            "modifyReceiverTypeName": "AiUserMessageStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ai.AiUserMessageStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageSize",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "xl",
+                        "codeName": "Xl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               },
+               {
+                  "name": "contentType",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageContentType",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageContentType",
+                  "defaultValue": {
+                     "value": "image",
+                     "codeName": "Image"
+                  },
+                  "values": [
+                     {
+                        "value": "image",
+                        "codeName": "Image"
+                     },
+                     {
+                        "value": "file",
+                        "codeName": "File"
+                     }
+                  ]
+               },
+               {
+                  "name": "contentView",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageContentView",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageContentView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AiUserMessageView",
+                  "typeQualifiedName": "com.sdds.serv.styles.aiusermessage.AiUserMessageView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xl.default",
+               "composeReference": "AiUserMessage.Xl.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "AiUserMessage.Xl.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "AiUserMessage.Xl.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "AiUserMessage.Xl.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "AiUserMessage.Xl.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "AiUserMessage.Xl.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.default",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.Xl.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.default",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.secondary",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.accent",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.positive",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.negative",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.warning",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xl.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.Xl.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xl"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.default",
+               "composeReference": "AiUserMessage.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "AiUserMessage.L.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "AiUserMessage.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "AiUserMessage.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "AiUserMessage.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "AiUserMessage.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.default",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.L.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.default",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.secondary",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.accent",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.positive",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.negative",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.warning",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.L.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "AiUserMessage.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "AiUserMessage.M.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "AiUserMessage.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "AiUserMessage.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "AiUserMessage.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "AiUserMessage.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.default",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.M.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.default",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.secondary",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.accent",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.positive",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.negative",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.warning",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.M.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "AiUserMessage.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "AiUserMessage.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "AiUserMessage.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "AiUserMessage.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "AiUserMessage.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "AiUserMessage.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.default",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.S.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.default",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.secondary",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.accent",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.positive",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.negative",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.warning",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.S.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "AiUserMessage.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "AiUserMessage.Xs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "AiUserMessage.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "AiUserMessage.Xs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "AiUserMessage.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "AiUserMessage.Xs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.default",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.Xs.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.default",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.secondary",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.accent",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.positive",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.negative",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.warning",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.default",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.secondary",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.accent",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.positive",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.negative",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.content-type-file.content-view-secondary.warning",
+               "composeReference": "AiUserMessage.Xs.ContentTypeFile.ContentViewSecondary.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "content-type",
+                     "value": "file"
+                  },
+                  {
+                     "name": "content-view",
+                     "value": "secondary"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
             }
          ]
       }

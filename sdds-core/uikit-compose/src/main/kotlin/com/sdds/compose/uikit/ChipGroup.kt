@@ -6,9 +6,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.FlowRowLayout
 import com.sdds.compose.uikit.internal.common.FlowRowScope
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент предназначен для группировки chip в строку с возможностью переноса или скролла
@@ -59,13 +62,16 @@ fun ChipGroup(
     style: ChipGroupStyle = LocalChipGroupStyle.current,
     content: @Composable FlowRowScope.() -> Unit,
 ) {
+    val motionContext = rememberMotionContext()
+    val horizontalArrangement by style.dimensions.gapValues.getValueAsState(motionContext)
+    val verticalArrangement by style.dimensions.lineSpacingValues.getValueAsState(motionContext)
     CompositionLocalProvider(
         LocalChipStyle provides style.chipStyle,
     ) {
         FlowRowLayout(
             modifier = modifier,
-            horizontalArrangement = Arrangement.spacedBy(style.dimensions.gap),
-            verticalArrangement = Arrangement.spacedBy(style.dimensions.lineSpacing),
+            horizontalArrangement = Arrangement.spacedBy(horizontalArrangement),
+            verticalArrangement = Arrangement.spacedBy(verticalArrangement),
             content = content,
         )
     }

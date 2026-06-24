@@ -93,19 +93,13 @@ public value class WrapperAccordionItemClearActionEndH5(
 private val AccordionItemStyleBuilder.invariantProps: AccordionItemStyleBuilder
     @Composable
     get() = this
-        .colors {
-            titleColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            contentTextColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-        }
-        .iconPlacement(AccordionIconPlacement.End)
         .iconRotation(90.0f)
+        .iconPlacement(AccordionIconPlacement.End)
+        .colors {
+            titleColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            contentTextColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+        }
 
 public val AccordionItemClearActionEnd.Xs: WrapperAccordionItemClearActionEndXs
     @Composable
@@ -114,14 +108,14 @@ public val AccordionItemClearActionEnd.Xs: WrapperAccordionItemClearActionEndXs
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.bodyXsBold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .dimensions {
-            contentPaddingBottom(8.0.dp)
-            paddingTop(8.0.dp)
-            paddingBottom(8.0.dp)
-            iconPadding(10.0.dp)
-        }
         .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
         .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .dimensions {
+            paddingTop(8.0.dp)
+            paddingBottom(8.0.dp)
+            contentPaddingBottom(8.0.dp)
+            iconPadding(10.0.dp)
+        }
         .wrap(::WrapperAccordionItemClearActionEndXs)
 
 public val AccordionItemClearActionEnd.S: WrapperAccordionItemClearActionEndS
@@ -131,14 +125,14 @@ public val AccordionItemClearActionEnd.S: WrapperAccordionItemClearActionEndS
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.bodySBold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .dimensions {
-            contentPaddingBottom(12.0.dp)
-            paddingTop(11.0.dp)
-            paddingBottom(11.0.dp)
-            iconPadding(12.0.dp)
-        }
         .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
         .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .dimensions {
+            paddingTop(11.0.dp)
+            paddingBottom(11.0.dp)
+            contentPaddingBottom(12.0.dp)
+            iconPadding(12.0.dp)
+        }
         .wrap(::WrapperAccordionItemClearActionEndS)
 
 public val AccordionItemClearActionEnd.M: WrapperAccordionItemClearActionEndM
@@ -148,14 +142,14 @@ public val AccordionItemClearActionEnd.M: WrapperAccordionItemClearActionEndM
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.bodyMBold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .dimensions {
-            contentPaddingBottom(14.0.dp)
-            paddingTop(14.0.dp)
-            paddingBottom(14.0.dp)
-            iconPadding(14.0.dp)
-        }
         .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
         .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .dimensions {
+            paddingTop(14.0.dp)
+            paddingBottom(14.0.dp)
+            contentPaddingBottom(14.0.dp)
+            iconPadding(14.0.dp)
+        }
         .wrap(::WrapperAccordionItemClearActionEndM)
 
 public val AccordionItemClearActionEnd.L: WrapperAccordionItemClearActionEndL
@@ -165,14 +159,14 @@ public val AccordionItemClearActionEnd.L: WrapperAccordionItemClearActionEndL
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.bodyLBold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .dimensions {
-            contentPaddingBottom(16.0.dp)
-            paddingTop(17.0.dp)
-            paddingBottom(17.0.dp)
-            iconPadding(16.0.dp)
-        }
         .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
         .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .dimensions {
+            paddingTop(17.0.dp)
+            paddingBottom(17.0.dp)
+            contentPaddingBottom(16.0.dp)
+            iconPadding(16.0.dp)
+        }
         .wrap(::WrapperAccordionItemClearActionEndL)
 
 public val AccordionItemClearActionEnd.H2: WrapperAccordionItemClearActionEndH2
@@ -182,14 +176,14 @@ public val AccordionItemClearActionEnd.H2: WrapperAccordionItemClearActionEndH2
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.headerH2Bold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .dimensions {
-            contentPaddingBottom(16.0.dp)
-            paddingTop(16.0.dp)
-            paddingBottom(16.0.dp)
-            iconPadding(16.0.dp)
-        }
         .iconClosed(com.sdds.icons.R.drawable.ic_plus_24)
         .iconOpened(com.sdds.icons.R.drawable.ic_minus_24)
+        .dimensions {
+            paddingTop(16.0.dp)
+            paddingBottom(16.0.dp)
+            contentPaddingBottom(16.0.dp)
+            iconPadding(16.0.dp)
+        }
         .wrap(::WrapperAccordionItemClearActionEndH2)
 
 public val AccordionItemClearActionEnd.H3: WrapperAccordionItemClearActionEndH3
@@ -199,14 +193,14 @@ public val AccordionItemClearActionEnd.H3: WrapperAccordionItemClearActionEndH3
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.headerH3Bold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .dimensions {
-            contentPaddingBottom(14.0.dp)
-            paddingTop(14.0.dp)
-            paddingBottom(14.0.dp)
-            iconPadding(14.0.dp)
-        }
         .iconClosed(com.sdds.icons.R.drawable.ic_plus_24)
         .iconOpened(com.sdds.icons.R.drawable.ic_minus_24)
+        .dimensions {
+            paddingTop(14.0.dp)
+            paddingBottom(14.0.dp)
+            contentPaddingBottom(14.0.dp)
+            iconPadding(14.0.dp)
+        }
         .wrap(::WrapperAccordionItemClearActionEndH3)
 
 public val AccordionItemClearActionEnd.H4: WrapperAccordionItemClearActionEndH4
@@ -216,14 +210,14 @@ public val AccordionItemClearActionEnd.H4: WrapperAccordionItemClearActionEndH4
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.headerH4Bold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .dimensions {
-            contentPaddingBottom(12.0.dp)
-            paddingTop(11.0.dp)
-            paddingBottom(11.0.dp)
-            iconPadding(12.0.dp)
-        }
         .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
         .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .dimensions {
+            paddingTop(11.0.dp)
+            paddingBottom(11.0.dp)
+            contentPaddingBottom(12.0.dp)
+            iconPadding(12.0.dp)
+        }
         .wrap(::WrapperAccordionItemClearActionEndH4)
 
 public val AccordionItemClearActionEnd.H5: WrapperAccordionItemClearActionEndH5
@@ -233,12 +227,12 @@ public val AccordionItemClearActionEnd.H5: WrapperAccordionItemClearActionEndH5
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.headerH5Bold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .dimensions {
-            contentPaddingBottom(8.0.dp)
-            paddingTop(8.0.dp)
-            paddingBottom(8.0.dp)
-            iconPadding(10.0.dp)
-        }
         .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
         .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .dimensions {
+            paddingTop(8.0.dp)
+            paddingBottom(8.0.dp)
+            contentPaddingBottom(8.0.dp)
+            iconPadding(10.0.dp)
+        }
         .wrap(::WrapperAccordionItemClearActionEndH5)

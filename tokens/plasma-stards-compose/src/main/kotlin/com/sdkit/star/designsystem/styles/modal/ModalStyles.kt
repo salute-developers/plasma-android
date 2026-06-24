@@ -44,20 +44,16 @@ public val Modal.Default: WrapperModalDefault
     get() = ModalStyle.builder(this)
         .shape(StarDsTheme.shapes.roundXl)
         .shadow(StarDsTheme.shadows.downSoftL)
+        .overlayStyle(Overlay.Default.style())
         .colors {
-            backgroundColor(
-                SolidColor(StarDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            closeColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            closeColor(StarDsTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            closeSize(dimensionResource(R.dimen.sdkit_cmp_modal_close_size_Default))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_modal_padding_start_Default))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_modal_padding_end_Default))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_modal_padding_top_Default))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_modal_padding_bottom_Default))
-            closeSize(dimensionResource(R.dimen.sdkit_cmp_modal_close_size_Default))
         }
-        .overlayStyle(Overlay.Default.style())
         .wrap(::WrapperModalDefault)

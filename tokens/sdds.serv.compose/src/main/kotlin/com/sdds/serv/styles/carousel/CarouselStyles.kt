@@ -50,14 +50,14 @@ public value class WrapperCarouselButtonsPlacementOuter(
 private val CarouselStyleBuilder.invariantProps: CarouselStyleBuilder
     @Composable
     get() = this
-        .prevButtonIcon(com.sdds.icons.R.drawable.ic_chevron_left_24)
-        .nextButtonIcon(com.sdds.icons.R.drawable.ic_chevron_right_24)
         .indicatorStyle(PaginationDotsHorizontal.S.style())
-        .prevButtonStyle(IconButton.S.Pilled.Secondary.style())
         .nextButtonStyle(IconButton.S.Pilled.Secondary.style())
+        .prevButtonStyle(IconButton.S.Pilled.Secondary.style())
+        .nextButtonIcon(com.sdds.icons.R.drawable.ic_chevron_right_24)
+        .prevButtonIcon(com.sdds.icons.R.drawable.ic_chevron_left_24)
         .dimensions {
-            prevButtonPadding(12.0.dp)
             nextButtonPadding(12.0.dp)
+            prevButtonPadding(12.0.dp)
             indicatorPadding(12.0.dp)
         }
 
@@ -66,9 +66,9 @@ public val Carousel.ButtonsPlacementInner: WrapperCarouselButtonsPlacementInner
     @JvmName("WrapperCarouselButtonsPlacementInner")
     get() = CarouselStyle.builder(this)
         .invariantProps
-        .buttonsPlacement(CarouselButtonsPlacement.Inner)
-        .prevButtonStyle(IconButton.S.Pilled.Secondary.style())
         .nextButtonStyle(IconButton.S.Pilled.Secondary.style())
+        .prevButtonStyle(IconButton.S.Pilled.Secondary.style())
+        .buttonsPlacement(CarouselButtonsPlacement.Inner)
         .wrap(::WrapperCarouselButtonsPlacementInner)
 
 public val Carousel.ButtonsPlacementOuter: WrapperCarouselButtonsPlacementOuter
@@ -76,7 +76,7 @@ public val Carousel.ButtonsPlacementOuter: WrapperCarouselButtonsPlacementOuter
     @JvmName("WrapperCarouselButtonsPlacementOuter")
     get() = CarouselStyle.builder(this)
         .invariantProps
-        .buttonsPlacement(CarouselButtonsPlacement.Outer)
-        .prevButtonStyle(IconButton.S.Pilled.Clear.style())
         .nextButtonStyle(IconButton.S.Pilled.Clear.style())
+        .prevButtonStyle(IconButton.S.Pilled.Clear.style())
+        .buttonsPlacement(CarouselButtonsPlacement.Outer)
         .wrap(::WrapperCarouselButtonsPlacementOuter)

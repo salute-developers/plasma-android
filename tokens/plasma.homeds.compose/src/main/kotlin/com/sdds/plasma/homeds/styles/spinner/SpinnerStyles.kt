@@ -8,11 +8,13 @@
 package com.sdds.plasma.homeds.styles.spinner
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SpinnerStrokeCap
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SpinnerStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -86,12 +88,8 @@ public val WrapperSpinnerView.Default: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            endColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            startColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive())
+            endColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -99,13 +97,8 @@ public val WrapperSpinnerView.Secondary: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.multiplyAlpha(0.32f).asInteractive(),
-            )
-            endColor(
-
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.multiplyAlpha(0.32f).asInteractive(),
-            )
+            startColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.multiplyAlpha(0.32f).asInteractive())
+            endColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.multiplyAlpha(0.32f).asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -113,12 +106,8 @@ public val WrapperSpinnerView.Accent: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
-            endColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
+            startColor(PlasmaHomeDsTheme.colors.surfaceDefaultAccent.asInteractive())
+            endColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentAccent.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -126,12 +115,8 @@ public val WrapperSpinnerView.Positive: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
-            endColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPositive.asInteractive(),
-            )
+            startColor(PlasmaHomeDsTheme.colors.surfaceDefaultPositive.asInteractive())
+            endColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPositive.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -139,12 +124,8 @@ public val WrapperSpinnerView.Negative: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            endColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentNegative.asInteractive(),
-            )
+            startColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegative.asInteractive())
+            endColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentNegative.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -152,12 +133,8 @@ public val WrapperSpinnerView.Warning: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
-            endColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentWarning.asInteractive(),
-            )
+            startColor(PlasmaHomeDsTheme.colors.surfaceDefaultWarning.asInteractive())
+            endColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentWarning.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -165,12 +142,8 @@ public val WrapperSpinnerView.Info: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultInfo.asInteractive(),
-            )
-            endColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentInfo.asInteractive(),
-            )
+            startColor(PlasmaHomeDsTheme.colors.surfaceDefaultInfo.asInteractive())
+            endColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentInfo.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -180,9 +153,7 @@ private val SpinnerStyleBuilder.invariantProps: SpinnerStyleBuilder
         .angle(360.0f)
         .strokeCap(SpinnerStrokeCap.Round)
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
 
 public val Spinner.M: WrapperSpinnerM

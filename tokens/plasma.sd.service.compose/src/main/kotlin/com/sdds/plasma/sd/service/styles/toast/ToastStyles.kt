@@ -63,9 +63,7 @@ public val WrapperToastView.Default: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            contentStartColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -73,9 +71,7 @@ public val WrapperToastView.Positive: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(
-                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            contentStartColor(PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -83,9 +79,7 @@ public val WrapperToastView.Negative: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            contentStartColor(PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -94,20 +88,14 @@ private val ToastStyleBuilder.invariantProps: ToastStyleBuilder
     get() = this
         .textStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            textColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            contentEndColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            textColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            contentEndColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
             contentStartSize(16.0.dp)
-            contentEndSize(16.0.dp)
             contentStartPadding(6.0.dp)
+            contentEndSize(16.0.dp)
             contentEndPadding(8.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(12.0.dp)

@@ -9,6 +9,7 @@ package com.sdkit.star.designsystem.styles.iconbutton
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButtonStyleBuilder
@@ -16,6 +17,7 @@ import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
@@ -114,13 +116,13 @@ public val WrapperIconButtonView.Default: WrapperIconButtonTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover),
                 ),
             )
         }
@@ -131,13 +133,13 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover),
                 ),
             )
         }
@@ -146,40 +148,40 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
 private val IconButtonStyleBuilder.invariantProps: IconButtonStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
+                    setOf(InteractiveState.Focused)
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Focused)
+                        to SolidColor(StarDsTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textInversePrimary,
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            iconColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInversePrimary,
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        StarDsTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        StarDsTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
-        .loadingAlpha(0.0f)
-        .disableAlpha(0.4f)
 
 public val IconButton.L: WrapperIconButtonL
     @Composable

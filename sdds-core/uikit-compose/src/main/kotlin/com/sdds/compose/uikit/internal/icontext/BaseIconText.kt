@@ -38,8 +38,8 @@ import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.motion.Motion
-import com.sdds.compose.uikit.motion.components.icontext.IconTextMotionStyle
-import com.sdds.compose.uikit.motion.components.icontext.rememberIconTextMotion
+import com.sdds.compose.uikit.motion.components.common.IconTextMotionStyle
+import com.sdds.compose.uikit.motion.components.common.rememberIconTextMotion
 import com.sdds.compose.uikit.motion.getBrushAsState
 import com.sdds.compose.uikit.motion.getTextStyleAsState
 import com.sdds.compose.uikit.motion.rememberMotionContext
@@ -153,23 +153,24 @@ private class IconTextMeasurePolicy : MeasurePolicy {
         val endContentWidth = endPlaceable.widthOrZero()
         val endContentHeight = endPlaceable.heightOrZero()
 
-        val textConstraints =
-            if (looseConstraints.hasBoundedWidth || looseConstraints.hasFixedWidth) {
-                looseConstraints.copy(
-                    maxWidth = constraints.maxWidth - startContentWidth - endContentWidth,
-                )
-            } else {
-                looseConstraints
-            }
+        val maxTextWidth = (constraints.maxWidth - startContentWidth - endContentWidth)
+            .coerceAtLeast(0)
+        val textConstraints = if (looseConstraints.hasBoundedWidth) {
+            looseConstraints.copy(maxWidth = maxTextWidth)
+        } else {
+            looseConstraints
+        }
         val textPlaceable = textMeasurable?.measure(textConstraints)
         val textContentWidth = textPlaceable.widthOrZero()
         val textContentHeight = textPlaceable.heightOrZero()
         val desiredWidth = startContentWidth + textContentWidth + endContentWidth
         val desireHeight = maxOf(startContentHeight, textContentHeight, endContentHeight)
+        val finalWidth = constraints.constrainWidth(desiredWidth)
         val finalHeight = constraints.constrainHeight(desireHeight)
+        val endContentX = (finalWidth - endContentWidth).coerceAtLeast(0)
 
         return layout(
-            width = constraints.constrainWidth(desiredWidth),
+            width = finalWidth,
             height = finalHeight,
         ) {
             startPlaceable?.let {
@@ -186,7 +187,7 @@ private class IconTextMeasurePolicy : MeasurePolicy {
             }
             endPlaceable?.let {
                 it.placeRelative(
-                    startContentWidth + textContentWidth,
+                    endContentX,
                     Alignment.CenterVertically.align(it.height, finalHeight),
                 )
             }

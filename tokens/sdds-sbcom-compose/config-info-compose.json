@@ -11,6 +11,7 @@
                "name": "size",
                "values": [
                   "size-180",
+                  "size-120",
                   "size-100",
                   "size-72",
                   "size-64",
@@ -20,7 +21,8 @@
                   "size-36",
                   "size-32",
                   "size-26",
-                  "size-24"
+                  "size-24",
+                  "size-16"
                ],
                "defaultValue": "size-72"
             }
@@ -50,6 +52,10 @@
                      {
                         "value": "size-180",
                         "codeName": "Size180"
+                     },
+                     {
+                        "value": "size-120",
+                        "codeName": "Size120"
                      },
                      {
                         "value": "size-100",
@@ -90,6 +96,10 @@
                      {
                         "value": "size-24",
                         "codeName": "Size24"
+                     },
+                     {
+                        "value": "size-16",
+                        "codeName": "Size16"
                      }
                   ]
                }
@@ -103,6 +113,16 @@
                   {
                      "name": "size",
                      "value": "size-180"
+                  }
+               ]
+            },
+            {
+               "name": "size-120",
+               "composeReference": "Avatar.Size120",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-120"
                   }
                ]
             },
@@ -203,6 +223,133 @@
                   {
                      "name": "size",
                      "value": "size-24"
+                  }
+               ]
+            },
+            {
+               "name": "size-16",
+               "composeReference": "Avatar.Size16",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-16"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "AvatarIndicator",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "size-14",
+                  "size-12",
+                  "size-10",
+                  "size-8",
+                  "size-6"
+               ],
+               "defaultValue": "size-14"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.AvatarIndicator",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorStyles.AvatarIndicator",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "AvatarIndicator",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AvatarIndicatorSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.indicator.AvatarIndicatorSize",
+                  "defaultValue": {
+                     "value": "size-14",
+                     "codeName": "Size14"
+                  },
+                  "values": [
+                     {
+                        "value": "size-14",
+                        "codeName": "Size14"
+                     },
+                     {
+                        "value": "size-12",
+                        "codeName": "Size12"
+                     },
+                     {
+                        "value": "size-10",
+                        "codeName": "Size10"
+                     },
+                     {
+                        "value": "size-8",
+                        "codeName": "Size8"
+                     },
+                     {
+                        "value": "size-6",
+                        "codeName": "Size6"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "size-14",
+               "composeReference": "AvatarIndicator.Size14",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-14"
+                  }
+               ]
+            },
+            {
+               "name": "size-12",
+               "composeReference": "AvatarIndicator.Size12",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-12"
+                  }
+               ]
+            },
+            {
+               "name": "size-10",
+               "composeReference": "AvatarIndicator.Size10",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-10"
+                  }
+               ]
+            },
+            {
+               "name": "size-8",
+               "composeReference": "AvatarIndicator.Size8",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-8"
+                  }
+               ]
+            },
+            {
+               "name": "size-6",
+               "composeReference": "AvatarIndicator.Size6",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-6"
                   }
                ]
             }
@@ -333,13 +480,24 @@
             {
                "name": "state",
                "values": [
-                  "success",
+                  "accent",
                   "global-white",
                   "mute",
                   "danger",
                   "warning"
                ],
-               "defaultValue": "success"
+               "defaultValue": "accent"
+            },
+            {
+               "name": "size",
+               "values": [
+                  "size-14",
+                  "size-12",
+                  "size-10",
+                  "size-8",
+                  "size-6"
+               ],
+               "defaultValue": "size-8"
             }
          ],
          "styleApi": {
@@ -361,13 +519,13 @@
                   "typeName": "IndicatorDefaultState",
                   "typeQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorDefaultState",
                   "defaultValue": {
-                     "value": "success",
-                     "codeName": "Success"
+                     "value": "accent",
+                     "codeName": "Accent"
                   },
                   "values": [
                      {
-                        "value": "success",
-                        "codeName": "Success"
+                        "value": "accent",
+                        "codeName": "Accent"
                      },
                      {
                         "value": "global-white",
@@ -386,24 +544,65 @@
                         "codeName": "Warning"
                      }
                   ]
+               },
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IndicatorDefaultSize",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.indicator.IndicatorDefaultSize",
+                  "defaultValue": {
+                     "value": "size-8",
+                     "codeName": "Size8"
+                  },
+                  "values": [
+                     {
+                        "value": "size-14",
+                        "codeName": "Size14"
+                     },
+                     {
+                        "value": "size-12",
+                        "codeName": "Size12"
+                     },
+                     {
+                        "value": "size-10",
+                        "codeName": "Size10"
+                     },
+                     {
+                        "value": "size-8",
+                        "codeName": "Size8"
+                     },
+                     {
+                        "value": "size-6",
+                        "codeName": "Size6"
+                     }
+                  ]
                }
             ]
          },
          "variations": [
             {
-               "name": "state-success",
-               "composeReference": "Indicator.StateSuccess",
+               "name": "size-14.state-accent",
+               "composeReference": "Indicator.Size14.StateAccent",
                "props": [
                   {
+                     "name": "size",
+                     "value": "size-14"
+                  },
+                  {
                      "name": "state",
-                     "value": "success"
+                     "value": "accent"
                   }
                ]
             },
             {
-               "name": "state-global-white",
-               "composeReference": "Indicator.StateGlobalWhite",
+               "name": "size-14.state-global-white",
+               "composeReference": "Indicator.Size14.StateGlobalWhite",
                "props": [
+                  {
+                     "name": "size",
+                     "value": "size-14"
+                  },
                   {
                      "name": "state",
                      "value": "global-white"
@@ -411,9 +610,13 @@
                ]
             },
             {
-               "name": "state-mute",
-               "composeReference": "Indicator.StateMute",
+               "name": "size-14.state-mute",
+               "composeReference": "Indicator.Size14.StateMute",
                "props": [
+                  {
+                     "name": "size",
+                     "value": "size-14"
+                  },
                   {
                      "name": "state",
                      "value": "mute"
@@ -421,9 +624,13 @@
                ]
             },
             {
-               "name": "state-danger",
-               "composeReference": "Indicator.StateDanger",
+               "name": "size-14.state-danger",
+               "composeReference": "Indicator.Size14.StateDanger",
                "props": [
+                  {
+                     "name": "size",
+                     "value": "size-14"
+                  },
                   {
                      "name": "state",
                      "value": "danger"
@@ -431,9 +638,293 @@
                ]
             },
             {
-               "name": "state-warning",
-               "composeReference": "Indicator.StateWarning",
+               "name": "size-14.state-warning",
+               "composeReference": "Indicator.Size14.StateWarning",
                "props": [
+                  {
+                     "name": "size",
+                     "value": "size-14"
+                  },
+                  {
+                     "name": "state",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "size-12.state-accent",
+               "composeReference": "Indicator.Size12.StateAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-12"
+                  },
+                  {
+                     "name": "state",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "size-12.state-global-white",
+               "composeReference": "Indicator.Size12.StateGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-12"
+                  },
+                  {
+                     "name": "state",
+                     "value": "global-white"
+                  }
+               ]
+            },
+            {
+               "name": "size-12.state-mute",
+               "composeReference": "Indicator.Size12.StateMute",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-12"
+                  },
+                  {
+                     "name": "state",
+                     "value": "mute"
+                  }
+               ]
+            },
+            {
+               "name": "size-12.state-danger",
+               "composeReference": "Indicator.Size12.StateDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-12"
+                  },
+                  {
+                     "name": "state",
+                     "value": "danger"
+                  }
+               ]
+            },
+            {
+               "name": "size-12.state-warning",
+               "composeReference": "Indicator.Size12.StateWarning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-12"
+                  },
+                  {
+                     "name": "state",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "size-10.state-accent",
+               "composeReference": "Indicator.Size10.StateAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-10"
+                  },
+                  {
+                     "name": "state",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "size-10.state-global-white",
+               "composeReference": "Indicator.Size10.StateGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-10"
+                  },
+                  {
+                     "name": "state",
+                     "value": "global-white"
+                  }
+               ]
+            },
+            {
+               "name": "size-10.state-mute",
+               "composeReference": "Indicator.Size10.StateMute",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-10"
+                  },
+                  {
+                     "name": "state",
+                     "value": "mute"
+                  }
+               ]
+            },
+            {
+               "name": "size-10.state-danger",
+               "composeReference": "Indicator.Size10.StateDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-10"
+                  },
+                  {
+                     "name": "state",
+                     "value": "danger"
+                  }
+               ]
+            },
+            {
+               "name": "size-10.state-warning",
+               "composeReference": "Indicator.Size10.StateWarning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-10"
+                  },
+                  {
+                     "name": "state",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "size-8.state-accent",
+               "composeReference": "Indicator.Size8.StateAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-8"
+                  },
+                  {
+                     "name": "state",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "size-8.state-global-white",
+               "composeReference": "Indicator.Size8.StateGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-8"
+                  },
+                  {
+                     "name": "state",
+                     "value": "global-white"
+                  }
+               ]
+            },
+            {
+               "name": "size-8.state-mute",
+               "composeReference": "Indicator.Size8.StateMute",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-8"
+                  },
+                  {
+                     "name": "state",
+                     "value": "mute"
+                  }
+               ]
+            },
+            {
+               "name": "size-8.state-danger",
+               "composeReference": "Indicator.Size8.StateDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-8"
+                  },
+                  {
+                     "name": "state",
+                     "value": "danger"
+                  }
+               ]
+            },
+            {
+               "name": "size-8.state-warning",
+               "composeReference": "Indicator.Size8.StateWarning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-8"
+                  },
+                  {
+                     "name": "state",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "size-6.state-accent",
+               "composeReference": "Indicator.Size6.StateAccent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-6"
+                  },
+                  {
+                     "name": "state",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "size-6.state-global-white",
+               "composeReference": "Indicator.Size6.StateGlobalWhite",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-6"
+                  },
+                  {
+                     "name": "state",
+                     "value": "global-white"
+                  }
+               ]
+            },
+            {
+               "name": "size-6.state-mute",
+               "composeReference": "Indicator.Size6.StateMute",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-6"
+                  },
+                  {
+                     "name": "state",
+                     "value": "mute"
+                  }
+               ]
+            },
+            {
+               "name": "size-6.state-danger",
+               "composeReference": "Indicator.Size6.StateDanger",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-6"
+                  },
+                  {
+                     "name": "state",
+                     "value": "danger"
+                  }
+               ]
+            },
+            {
+               "name": "size-6.state-warning",
+               "composeReference": "Indicator.Size6.StateWarning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "size-6"
+                  },
                   {
                      "name": "state",
                      "value": "warning"
@@ -1934,6 +2425,16 @@
          "key": "check-box",
          "coreName": "CheckBox",
          "styleName": "CheckBox",
+         "props": [
+            {
+               "name": "variant",
+               "values": [
+                  "default",
+                  "poll"
+               ],
+               "defaultValue": "default"
+            }
+         ],
          "styleApi": {
             "packageName": "com.sdds.sbcom.styles.checkbox",
             "stylesClassName": "CheckBoxStyles",
@@ -1943,12 +2444,51 @@
             "returnTypeName": "CheckBoxStyle",
             "returnTypeQualifiedName": "com.sdds.compose.uikit.CheckBoxStyle",
             "modifyReceiverTypeName": "CheckBoxStyleBuilder",
-            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CheckBoxStyleBuilder"
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CheckBoxStyleBuilder",
+            "params": [
+               {
+                  "name": "variant",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CheckBoxVariant",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.checkbox.CheckBoxVariant",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "poll",
+                        "codeName": "Poll"
+                     }
+                  ]
+               }
+            ]
          },
          "variations": [
             {
-               "name": "Default",
-               "composeReference": "CheckBox.Default"
+               "name": "variant-default",
+               "composeReference": "CheckBox.VariantDefault",
+               "props": [
+                  {
+                     "name": "variant",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "variant-poll",
+               "composeReference": "CheckBox.VariantPoll",
+               "props": [
+                  {
+                     "name": "variant",
+                     "value": "poll"
+                  }
+               ]
             }
          ]
       },
@@ -3161,6 +3701,16 @@
          "key": "text-field",
          "coreName": "TextField",
          "styleName": "TextField",
+         "props": [
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "success",
+                  "error"
+               ]
+            }
+         ],
          "styleApi": {
             "packageName": "com.sdds.sbcom.styles.textfield",
             "stylesClassName": "TextFieldStyles",
@@ -3171,12 +3721,84 @@
             "returnTypeQualifiedName": "com.sdds.compose.uikit.TextFieldStyle",
             "modifyReceiverTypeName": "TextFieldStyleBuilder",
             "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.TextFieldStyleBuilder",
-            "holderName": "Default"
+            "holderName": "Default",
+            "params": [
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": true,
+                  "typeName": "TextFieldDefaultView",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.textfield.TextFieldDefaultView",
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "success",
+                        "codeName": "Success"
+                     },
+                     {
+                        "value": "error",
+                        "codeName": "Error"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "default",
+               "composeReference": "TextField.Default",
+               "props": [
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "success",
+               "composeReference": "TextField.Success",
+               "props": [
+                  {
+                     "name": "view",
+                     "value": "success"
+                  }
+               ]
+            },
+            {
+               "name": "error",
+               "composeReference": "TextField.Error",
+               "props": [
+                  {
+                     "name": "view",
+                     "value": "error"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "text-field",
+         "coreName": "TextField",
+         "styleName": "AlternativeField",
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.textfield",
+            "stylesClassName": "TextFieldStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.textfield.TextFieldStyles",
+            "receiverClassName": "TextFieldStyles.AlternativeField",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.textfield.TextFieldStyles.AlternativeField",
+            "returnTypeName": "TextFieldStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.TextFieldStyle",
+            "modifyReceiverTypeName": "TextFieldStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.TextFieldStyleBuilder",
+            "holderName": "AlternativeField"
          },
          "variations": [
             {
                "name": "Default",
-               "composeReference": "TextField.Default"
+               "composeReference": "AlternativeField.Default"
             }
          ]
       },
@@ -4234,6 +4856,77 @@
             {
                "name": "Default",
                "composeReference": "NavigationDrawerItem.Default"
+            }
+         ]
+      },
+      {
+         "key": "tool-bar",
+         "coreName": "ToolBar",
+         "styleName": "ToolBar",
+         "props": [
+            {
+               "name": "type",
+               "values": [
+                  "default",
+                  "group"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.sbcom.styles.toolbar",
+            "stylesClassName": "ToolBarStyles",
+            "stylesClassQualifiedName": "com.sdds.sbcom.styles.toolbar.ToolBarStyles",
+            "receiverClassName": "ToolBarStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.sbcom.styles.toolbar.ToolBarStyles.Companion",
+            "returnTypeName": "ToolBarStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ToolBarStyle",
+            "modifyReceiverTypeName": "ToolBarStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ToolBarStyleBuilder",
+            "params": [
+               {
+                  "name": "type",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ToolBarType",
+                  "typeQualifiedName": "com.sdds.sbcom.styles.toolbar.ToolBarType",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "group",
+                        "codeName": "Group"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "type-default",
+               "composeReference": "ToolBar.TypeDefault",
+               "props": [
+                  {
+                     "name": "type",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "type-group",
+               "composeReference": "ToolBar.TypeGroup",
+               "props": [
+                  {
+                     "name": "type",
+                     "value": "group"
+                  }
+               ]
             }
          ]
       }

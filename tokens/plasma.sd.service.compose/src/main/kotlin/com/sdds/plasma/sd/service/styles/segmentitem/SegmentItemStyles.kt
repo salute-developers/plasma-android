@@ -16,12 +16,12 @@ import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.styles.counter.Accent
-import com.sdds.plasma.sd.service.styles.counter.Counter
+import com.sdds.plasma.sd.service.styles.counter.Default
 import com.sdds.plasma.sd.service.styles.counter.S
+import com.sdds.plasma.sd.service.styles.counter.SegmentItemCounter
 import com.sdds.plasma.sd.service.styles.counter.Xs
 import com.sdds.plasma.sd.service.styles.counter.Xxs
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -174,6 +174,21 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -183,46 +198,22 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInverseSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
@@ -234,13 +225,9 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
@@ -252,13 +239,9 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -268,6 +251,18 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -277,46 +272,22 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
@@ -330,8 +301,7 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
@@ -345,8 +315,7 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -356,6 +325,19 @@ public val WrapperSegmentItemView.Accent: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -365,49 +347,22 @@ public val WrapperSegmentItemView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
@@ -419,13 +374,9 @@ public val WrapperSegmentItemView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
@@ -437,13 +388,9 @@ public val WrapperSegmentItemView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -457,7 +404,21 @@ public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemXlViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.S.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -467,49 +428,22 @@ public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
@@ -521,13 +455,9 @@ public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
@@ -539,34 +469,12 @@ public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.S.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
@@ -574,6 +482,21 @@ public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXlViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -583,46 +506,22 @@ public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInverseSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
@@ -634,13 +533,9 @@ public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
@@ -652,13 +547,9 @@ public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -669,6 +560,18 @@ public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXlViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -678,46 +581,22 @@ public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
@@ -731,8 +610,7 @@ public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
@@ -746,8 +624,7 @@ public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -761,18 +638,18 @@ public val SegmentItem.Xl: WrapperSegmentItemXl
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = 0.0.dp))
         .labelStyle(PlasmaSdServiceTheme.typography.bodyLBold)
         .valueStyle(PlasmaSdServiceTheme.typography.bodyLBold)
+        .counterStyle(SegmentItemCounter.S.Default.style())
         .dimensions {
-            minWidth(110.0.dp)
             minHeight(64.0.dp)
+            minWidth(110.0.dp)
             paddingStart(28.0.dp)
             paddingEnd(28.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
+            valueMargin(6.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(6.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemXl)
 
 public val WrapperSegmentItemXl.Pilled: WrapperSegmentItemXlPilled
@@ -791,7 +668,21 @@ public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemLViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.S.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -801,49 +692,22 @@ public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
@@ -855,13 +719,9 @@ public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
@@ -873,34 +733,12 @@ public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.S.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
@@ -908,6 +746,21 @@ public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemLViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -917,46 +770,22 @@ public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInverseSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
@@ -968,13 +797,9 @@ public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
@@ -986,13 +811,9 @@ public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1003,6 +824,18 @@ public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemLViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -1012,46 +845,22 @@ public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
@@ -1065,8 +874,7 @@ public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
@@ -1080,8 +888,7 @@ public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1095,18 +902,18 @@ public val SegmentItem.L: WrapperSegmentItemL
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .labelStyle(PlasmaSdServiceTheme.typography.bodyLBold)
         .valueStyle(PlasmaSdServiceTheme.typography.bodyLBold)
+        .counterStyle(SegmentItemCounter.S.Default.style())
         .dimensions {
-            minWidth(102.0.dp)
             minHeight(56.0.dp)
+            minWidth(102.0.dp)
             paddingStart(24.0.dp)
             paddingEnd(24.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
+            valueMargin(6.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(6.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemL)
 
 public val WrapperSegmentItemL.Pilled: WrapperSegmentItemLPilled
@@ -1125,7 +932,21 @@ public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemMViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.Xs.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -1135,49 +956,22 @@ public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
@@ -1189,13 +983,9 @@ public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
@@ -1207,34 +997,12 @@ public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
@@ -1242,6 +1010,21 @@ public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemMViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -1251,46 +1034,22 @@ public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInverseSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
@@ -1302,13 +1061,9 @@ public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
@@ -1320,13 +1075,9 @@ public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1337,6 +1088,18 @@ public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemMViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -1346,46 +1109,22 @@ public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
@@ -1399,8 +1138,7 @@ public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
@@ -1414,8 +1152,7 @@ public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1429,18 +1166,18 @@ public val SegmentItem.M: WrapperSegmentItemM
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = 0.0.dp))
         .labelStyle(PlasmaSdServiceTheme.typography.bodyMBold)
         .valueStyle(PlasmaSdServiceTheme.typography.bodyMBold)
+        .counterStyle(SegmentItemCounter.Xs.Default.style())
         .dimensions {
-            minWidth(88.0.dp)
             minHeight(48.0.dp)
+            minWidth(88.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
+            valueMargin(4.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(4.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemM)
 
 public val WrapperSegmentItemM.Pilled: WrapperSegmentItemMPilled
@@ -1459,7 +1196,21 @@ public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemSViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.Xs.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -1469,49 +1220,22 @@ public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
@@ -1523,13 +1247,9 @@ public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
@@ -1541,34 +1261,12 @@ public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
@@ -1576,6 +1274,21 @@ public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemSViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -1585,46 +1298,22 @@ public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInverseSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
@@ -1636,13 +1325,9 @@ public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
@@ -1654,13 +1339,9 @@ public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1671,6 +1352,18 @@ public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemSViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -1680,46 +1373,22 @@ public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
@@ -1733,8 +1402,7 @@ public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
@@ -1748,8 +1416,7 @@ public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1763,18 +1430,18 @@ public val SegmentItem.S: WrapperSegmentItemS
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .labelStyle(PlasmaSdServiceTheme.typography.bodySBold)
         .valueStyle(PlasmaSdServiceTheme.typography.bodySBold)
+        .counterStyle(SegmentItemCounter.Xs.Default.style())
         .dimensions {
-            minWidth(75.0.dp)
             minHeight(40.0.dp)
+            minWidth(75.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             startContentPadding(2.0.dp)
             endContentPadding(2.0.dp)
+            valueMargin(2.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(2.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemS)
 
 public val WrapperSegmentItemS.Pilled: WrapperSegmentItemSPilled
@@ -1793,7 +1460,21 @@ public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemXsViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.Xxs.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Hovered,
+                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -1803,49 +1484,22 @@ public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
@@ -1857,13 +1511,9 @@ public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
@@ -1875,34 +1525,12 @@ public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xxs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaSdServiceTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
@@ -1910,6 +1538,21 @@ public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXsViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -1919,46 +1562,22 @@ public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInverseSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
@@ -1970,13 +1589,9 @@ public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
@@ -1988,13 +1603,9 @@ public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -2005,6 +1616,18 @@ public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXsViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -2014,46 +1637,22 @@ public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(InteractiveState.Selected, InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
@@ -2067,8 +1666,7 @@ public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
@@ -2082,8 +1680,7 @@ public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -2097,18 +1694,18 @@ public val SegmentItem.Xs: WrapperSegmentItemXs
         .shape(PlasmaSdServiceTheme.shapes.roundS.adjustBy(all = 0.0.dp))
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
         .valueStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
+        .counterStyle(SegmentItemCounter.Xxs.Default.style())
         .dimensions {
-            minWidth(61.0.dp)
             minHeight(32.0.dp)
+            minWidth(61.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             startContentPadding(2.0.dp)
             endContentPadding(2.0.dp)
+            valueMargin(2.0.dp)
             startContentSize(16.0.dp)
             endContentSize(16.0.dp)
-            valueMargin(2.0.dp)
         }
-        .counterStyle(Counter.Xxs.Accent.style())
         .wrap(::WrapperSegmentItemXs)
 
 public val WrapperSegmentItemXs.Pilled: WrapperSegmentItemXsPilled

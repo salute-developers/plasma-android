@@ -42,9 +42,9 @@ public val AvatarGroup.Size24: WrapperAvatarGroupSize24
     @JvmName("WrapperAvatarGroupSize24")
     get() = AvatarGroupStyle.builder(this)
         .invariantProps
-        .dimensions {
-            itemSpacing(2.0.dp)
-            itemOffset(14.0.dp)
-        }
         .avatarStyle(Avatar.Size24.style())
+        .dimensions {
+            itemOffset(14.0.dp)
+            itemSpacing(2.0.dp)
+        }
         .wrap(::WrapperAvatarGroupSize24)

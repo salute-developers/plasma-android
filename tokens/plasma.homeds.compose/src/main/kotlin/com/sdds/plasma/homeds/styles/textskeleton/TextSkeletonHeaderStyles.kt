@@ -77,10 +77,8 @@ private val TextSkeletonStyleBuilder.invariantProps: TextSkeletonStyleBuilder
     @Composable
     get() = this
         .shape(PlasmaHomeDsTheme.shapes.roundM)
-        .duration(700.0.toInt())
-        .gradient(
-            SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-        )
+        .gradient(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+        .duration(700)
 
 public val TextSkeletonHeader.H1: WrapperTextSkeletonHeaderH1
     @Composable

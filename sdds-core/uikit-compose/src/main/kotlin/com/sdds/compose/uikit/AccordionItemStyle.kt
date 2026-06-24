@@ -12,6 +12,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.Style
@@ -87,6 +89,7 @@ interface AccordionItemStyle : Style {
 /**
  * Билдер стиля компонента
  */
+@ApiInfo
 interface AccordionItemStyleBuilder : StyleBuilder<AccordionItemStyle> {
     /**
      * Устанавливает форму компонента [shape]
@@ -106,11 +109,13 @@ interface AccordionItemStyleBuilder : StyleBuilder<AccordionItemStyle> {
     /**
      * Устанавливает иконку в закрытом состоянии [iconClosed]
      */
+    @ApiName(name = "closedIcon")
     fun iconClosed(@DrawableRes iconClosed: Int?): AccordionItemStyleBuilder
 
     /**
      * Устанавливает иконку в открытом состоянии [iconOpened]
      */
+    @ApiName(name = "openedIcon")
     fun iconOpened(@DrawableRes iconOpened: Int?): AccordionItemStyleBuilder
 
     /**

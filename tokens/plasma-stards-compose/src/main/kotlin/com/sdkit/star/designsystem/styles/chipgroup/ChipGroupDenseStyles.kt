@@ -175,11 +175,11 @@ public value class WrapperChipGroupDenseXsPilled(
 private val ChipGroupStyleBuilder.invariantProps: ChipGroupStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .dimensions {
             gap(dimensionResource(R.dimen.sdkit_cmp_chip_group_dense_gap))
             lineSpacing(dimensionResource(R.dimen.sdkit_cmp_chip_group_dense_line_spacing))
         }
-        .disableAlpha(0.4f)
 
 public val WrapperChipGroupDenseLView.Default: WrapperChipGroupDenseTerminate
     @Composable

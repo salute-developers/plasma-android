@@ -21,9 +21,12 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.State
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -115,13 +118,22 @@ internal fun BasePopover(
     val backgroundColor = colors.backgroundColor.getValue(motion.context.interactionSource)
     var recalculatedConstraints by remember { mutableStateOf<IntSize?>(null) }
     var popoverContentSize by remember { mutableStateOf(IntSize.Zero) }
-    var maxPopupContentSize by remember { mutableStateOf(IntSize.Zero) }
+    val constraintsUpdater = remember(rootView) {
+        DeferredConstraintsUpdater(rootView) { constraints ->
+            if (recalculatedConstraints?.isCloseTo(constraints) != true) {
+                recalculatedConstraints = constraints
+            }
+        }
+    }
 
     val shadowPaddingValues = shadow.getShadowSafePaddings()
     val shadowPaddingsPx = ShadowPaddings.fromPaddingValues(shadowPaddingValues)
-    val triggerInfoValue = triggerInfo()
     val safeAreaPaddingsPx = SafeAreaPaddings.fromPaddingValues(safeAreaPadding)
     val dismissInProgress = rememberUpdatedState(!show && popoverVisible)
+    val canClip = placementMode != PopoverPlacementMode.Strict
+    val effectiveClipHeight = clipHeight && canClip
+    val effectiveClipWidth = clipWidth && canClip
+    val keyboardHeightState = getKeyboardHeightPx()
     val positionProvider = rememberPopoverPositionProvider(
         placement = placement,
         placementMode = placementMode,
@@ -130,33 +142,25 @@ internal fun BasePopover(
         triggerCentered = triggerCentered,
         tailAlignment = alignment,
         offset = offset.px,
+        tailEnabled = tailEnabled,
+        tailHeight = tailHeight.px,
         tailPadding = tailPadding.px,
         tailWidth = tailWidth.px,
         shadowPaddings = shadowPaddingsPx,
-        triggerInfo = triggerInfoValue,
         safeAreaPaddings = safeAreaPaddingsPx,
         systemBarsInsets = SystemBarsInsets.fromWindowInsets(),
         triggerInfoProvider = triggerInfo,
-        keyboardHeight = getKeyboardHeightPx(),
-        rootViewHeight = rootView.height,
-        clipHeight = clipHeight,
-        clipWidth = clipWidth,
+        keyboardHeight = { keyboardHeightState.value },
+        rootViewSize = IntSize(rootView.width, rootView.height),
+        clipHeight = effectiveClipHeight,
+        clipWidth = effectiveClipWidth,
         popoverContentSize = { popoverContentSize },
-        maxPopupContentSize = { maxPopupContentSize },
         clippedConstraints = { recalculatedConstraints },
-        onPopupContentSizeChanged = { contentSize ->
-            val updatedContentSize = maxPopupContentSize.maxOf(contentSize)
-            if (updatedContentSize != maxPopupContentSize) {
-                maxPopupContentSize = updatedContentSize
-            }
-        },
         onContentSizeChanged = { constraints ->
-            if (clipHeight && constraints.height == 0) {
+            if (effectiveClipHeight && constraints.height == 0) {
                 return@rememberPopoverPositionProvider
             }
-            if (recalculatedConstraints != constraints) {
-                recalculatedConstraints = constraints
-            }
+            constraintsUpdater.request(constraints)
         },
     )
     val tailPaddings = tailCompensationPaddings(
@@ -165,11 +169,21 @@ internal fun BasePopover(
         placement = positionProvider.innerPlacement,
     )
 
+    SideEffect {
+        positionProvider.updateContentPlacement(positionProvider.innerPlacement)
+    }
+
     LaunchedEffect(popoverVisible) {
         if (!popoverVisible) {
+            constraintsUpdater.reset()
             recalculatedConstraints = null
             popoverContentSize = IntSize.Zero
-            maxPopupContentSize = IntSize.Zero
+            positionProvider.resetTransientState()
+        }
+    }
+    DisposableEffect(constraintsUpdater) {
+        onDispose {
+            constraintsUpdater.reset()
         }
     }
 
@@ -185,13 +199,12 @@ internal fun BasePopover(
     if (popoverVisible) {
         val constraints = recalculatedConstraints
         var resizeModifier: Modifier = Modifier
-        val canClip = placementMode != PopoverPlacementMode.Strict
-        if (constraints != null && canClip && clipWidth) {
+        if (constraints != null && effectiveClipWidth) {
             resizeModifier = with(LocalDensity.current) {
                 resizeModifier.widthIn(max = constraints.width.toDp())
             }
         }
-        if (constraints != null && canClip && clipHeight) {
+        if (constraints != null && effectiveClipHeight) {
             resizeModifier = with(LocalDensity.current) {
                 resizeModifier.heightIn(max = constraints.height.toDp())
             }
@@ -272,6 +285,42 @@ private fun IntSize.maxOf(other: IntSize): IntSize {
     )
 }
 
+private fun IntSize.isCloseTo(other: IntSize, tolerance: Int = 1): Boolean {
+    return abs(width - other.width) <= tolerance &&
+        abs(height - other.height) <= tolerance
+}
+
+private class DeferredConstraintsUpdater(
+    private val view: View,
+    private val apply: (IntSize) -> Unit,
+) {
+    private var pending: IntSize? = null
+    private var scheduled = false
+    private var version = 0
+
+    fun request(value: IntSize) {
+        pending = value
+        if (scheduled) return
+
+        scheduled = true
+        val scheduledVersion = version
+        view.post {
+            if (scheduledVersion != version) return@post
+
+            scheduled = false
+            val constraints = pending ?: return@post
+            pending = null
+            apply(constraints)
+        }
+    }
+
+    fun reset() {
+        version += 1
+        scheduled = false
+        pending = null
+    }
+}
+
 @Suppress("ClickableViewAccessibility")
 private fun View.enablePassthroughTouch(decorView: View) {
     setOnTouchListener { v, event ->
@@ -301,9 +350,12 @@ private fun View.getScreenRect(): android.graphics.Rect {
 }
 
 @Composable
-private fun getKeyboardHeightPx(): Int {
+private fun getKeyboardHeightPx(): State<Int> {
     val windowInsets = WindowInsets.ime
-    return windowInsets.getBottom(LocalDensity.current)
+    val density = LocalDensity.current
+    return remember(windowInsets, density) {
+        derivedStateOf { windowInsets.getBottom(density) }
+    }
 }
 
 internal val DefaultPopupProperties = PopupProperties(
@@ -495,66 +547,70 @@ private fun rememberPopoverPositionProvider(
     dismissInProgress: () -> Boolean,
     triggerCentered: Boolean,
     tailAlignment: PopoverAlignment,
-    triggerInfo: TriggerInfo,
     triggerInfoProvider: () -> TriggerInfo,
     offset: Int,
+    tailEnabled: Boolean,
+    tailHeight: Int,
     tailPadding: Int,
     tailWidth: Int,
     shadowPaddings: ShadowPaddings,
     safeAreaPaddings: SafeAreaPaddings,
     systemBarsInsets: SystemBarsInsets,
-    keyboardHeight: Int,
-    rootViewHeight: Int,
+    keyboardHeight: () -> Int,
+    rootViewSize: IntSize,
     clipHeight: Boolean,
     clipWidth: Boolean,
     popoverContentSize: () -> IntSize,
-    maxPopupContentSize: () -> IntSize,
     clippedConstraints: () -> IntSize?,
-    onPopupContentSizeChanged: (IntSize) -> Unit,
     onContentSizeChanged: (IntSize) -> Unit,
-): PopoverPositionProvider = remember(
-    placement,
-    placementMode,
-    positionStrategy,
-    triggerCentered,
-    tailAlignment,
-    triggerInfo,
-    triggerInfoProvider,
-    offset,
-    tailPadding,
-    tailWidth,
-    shadowPaddings,
-    safeAreaPaddings,
-    systemBarsInsets,
-    keyboardHeight,
-    rootViewHeight,
-    clipHeight,
-    clipWidth,
-) {
-    PopoverPositionProvider(
+): PopoverPositionProvider {
+    // Лямбда не входит в ключи remember: чтение triggerInfo происходит в calculatePosition,
+    // где Popup наблюдает snapshot-чтения и сам пересчитывает позицию без рекомпозиции.
+    val currentTriggerInfoProvider = rememberUpdatedState(triggerInfoProvider)
+    return remember(
         placement,
         placementMode,
         positionStrategy,
-        dismissInProgress,
         triggerCentered,
         tailAlignment,
-        triggerInfoProvider,
         offset,
+        tailEnabled,
+        tailHeight,
         tailPadding,
         tailWidth,
         shadowPaddings,
         safeAreaPaddings,
         systemBarsInsets,
         keyboardHeight,
-        rootViewHeight,
+        rootViewSize,
         clipHeight,
         clipWidth,
-        popoverContentSize,
-        maxPopupContentSize,
-        clippedConstraints,
-        onPopupContentSizeChanged,
-        onContentSizeChanged,
-    )
+    ) {
+        PopoverPositionProvider(
+            placement,
+            placementMode,
+            positionStrategy,
+            dismissInProgress,
+            triggerCentered,
+            tailAlignment,
+            { currentTriggerInfoProvider.value.invoke() },
+            offset,
+            tailEnabled,
+            tailHeight,
+            tailPadding,
+            tailWidth,
+            shadowPaddings,
+            safeAreaPaddings,
+            systemBarsInsets,
+            keyboardHeight,
+            rootViewSize,
+            clipHeight,
+            clipWidth,
+            popoverContentSize,
+            clippedConstraints,
+            onContentSizeChanged,
+        )
+    }
 }
 
 private class PopoverPositionProvider(
@@ -566,34 +622,48 @@ private class PopoverPositionProvider(
     private val tailAlignment: PopoverAlignment,
     private val triggerInfoProvider: () -> TriggerInfo,
     private val offset: Int,
+    private val tailEnabled: Boolean,
+    private val tailHeight: Int,
     private val tailPadding: Int,
     private val tailWidth: Int,
     private val shadowPaddings: ShadowPaddings,
     private val safeAreaPaddings: SafeAreaPaddings,
     private val systemBarsInsets: SystemBarsInsets,
-    private val keyboardHeight: Int,
-    private val rootViewHeight: Int,
+    private val keyboardHeight: () -> Int,
+    private val rootViewSize: IntSize,
     private val clipHeight: Boolean,
     private val clipWidth: Boolean,
     private val popoverContentSize: () -> IntSize,
-    private val maxPopupContentSize: () -> IntSize,
     private val clippedConstraints: () -> IntSize?,
-    private val onPopupContentSizeChanged: (IntSize) -> Unit,
     private val onContentSizeChanged: (IntSize) -> Unit,
 ) : PopupPositionProvider {
 
     private var popoverOffsetWhenTriggerCentered: Offset = Offset.Zero
+    private var contentPlacement = placement
     var innerPlacement = placement
         private set
     var innerTailAlignment = tailAlignment
         private set
     private var initialPositionState: InitialPositionState? = null
     private var lastPositionState: InitialPositionState? = null
+    private var maxPopupContentSize: IntSize = IntSize.Zero
+
+    // Провайдер переживает циклы открытия/закрытия, поэтому при скрытии нужно сбрасывать
+    // не только размер контента, но и зафиксированные позиции (KeepInitial, dismiss).
+    fun resetTransientState() {
+        maxPopupContentSize = IntSize.Zero
+        initialPositionState = null
+        lastPositionState = null
+    }
 
     private fun reset() {
         innerPlacement = placement
         innerTailAlignment = tailAlignment
         popoverOffsetWhenTriggerCentered = Offset.Zero
+    }
+
+    fun updateContentPlacement(placement: PopoverPlacement) {
+        contentPlacement = placement
     }
 
     private fun alignmentLineOffset(): Int {
@@ -629,6 +699,7 @@ private class PopoverPositionProvider(
         layoutDirection: LayoutDirection,
         popupContentSize: IntSize,
     ): IntOffset {
+        val currentContentPlacement = contentPlacement
         reset()
         lastPositionState.takeIf { dismissInProgress() }?.let { state ->
             innerPlacement = state.placement
@@ -649,17 +720,18 @@ private class PopoverPositionProvider(
             triggerInfo.positionInRoot
         }
         val measuredContentSize = popoverContentSize().takeIf { it != IntSize.Zero } ?: popupContentSize
+        maxPopupContentSize = maxPopupContentSize.maxOf(measuredContentSize)
         val clippedConstraints = clippedConstraints()
         val contentSize = measuredContentSize.withClippedAxes(
-            maxSize = maxPopupContentSize(),
+            maxSize = maxPopupContentSize,
             clippedConstraints = clippedConstraints,
             clipHeight = clipHeight,
         )
-        onPopupContentSizeChanged(measuredContentSize)
         val scaledTriggerSize = triggerSize.calculateScaledSize(triggerScaleFactor)
+        val popupSizeForPosition = contentSize.forCurrentTailPlacement(currentContentPlacement)
         val desiredPopupPosition = calculatePopupPosition(
             triggerPositionInRoot = triggerPositionInRoot,
-            popupContentSize = contentSize,
+            popupContentSize = popupSizeForPosition,
             triggerSize = scaledTriggerSize,
         ) + popoverOffsetWhenTriggerCentered(scaledTriggerSize)
 
@@ -674,11 +746,12 @@ private class PopoverPositionProvider(
 
             PopoverPlacementMode.Loose -> {
                 val shouldRecalculatePosition =
-                    !desiredPopupPosition.hasEnoughSpace(contentSize, availableWindowBounds)
+                    !desiredPopupPosition.hasEnoughSpace(popupSizeForPosition, availableWindowBounds)
                 if (shouldRecalculatePosition) {
                     desiredPopupPosition
                         .tryToCorrectPlacement(
                             popupSize = contentSize,
+                            contentPlacement = currentContentPlacement,
                             windowBounds = availableWindowBounds,
                             triggerPositionInRoot = triggerPositionInRoot,
                             triggerSize = scaledTriggerSize,
@@ -742,6 +815,28 @@ private class PopoverPositionProvider(
         return abs(width - size.width) <= 1 && abs(height - size.height) <= 1
     }
 
+    private fun IntSize.forCurrentTailPlacement(contentPlacement: PopoverPlacement): IntSize {
+        val shouldCorrectSize = tailEnabled && positionStrategy == PopoverPositionStrategy.KeepInitial
+        if (!shouldCorrectSize || contentPlacement.isHorizontalTail() == innerPlacement.isHorizontalTail()) {
+            return this
+        }
+        return if (innerPlacement.isHorizontalTail()) {
+            IntSize(
+                width = width + tailHeight,
+                height = (height - tailHeight).coerceAtLeast(0),
+            )
+        } else {
+            IntSize(
+                width = (width - tailHeight).coerceAtLeast(0),
+                height = height + tailHeight,
+            )
+        }
+    }
+
+    private fun PopoverPlacement.isHorizontalTail(): Boolean {
+        return this == PopoverPlacement.Start || this == PopoverPlacement.End
+    }
+
     private fun IntSize.withClippedAxes(
         maxSize: IntSize,
         clippedConstraints: IntSize?,
@@ -771,25 +866,33 @@ private class PopoverPositionProvider(
     }
 
     private fun getAvailableWindowBounds(windowSize: IntSize): WindowBounds {
-        val keyboardHeight = if (shouldSubtractKeyboard(windowSize)) keyboardHeight else 0
+        val currentKeyboardHeight = keyboardHeight()
+        val rootWidth = rootViewSize.width.takeIf { it > 0 }
+            ?: (windowSize.width + systemBarsInsets.left + systemBarsInsets.right)
+        val rootHeight = rootViewSize.height.takeIf { it > 0 }
+            ?: (windowSize.height + systemBarsInsets.top + systemBarsInsets.bottom)
+        val windowAlreadyAdjustedForIme = currentKeyboardHeight > 0 && windowSize.height < rootHeight
+        val effectiveRootHeight = if (windowAlreadyAdjustedForIme) {
+            windowSize.height
+        } else {
+            rootHeight
+        }
+        val keyboardHeight = if (windowAlreadyAdjustedForIme) {
+            0
+        } else {
+            currentKeyboardHeight
+        }
         val bottomInset = maxOf(systemBarsInsets.bottom, keyboardHeight)
         val left = systemBarsInsets.left + safeAreaPaddings.start
         val top = systemBarsInsets.top + safeAreaPaddings.top
         return WindowBounds(
             left = left,
             top = top,
-            right = (windowSize.width - systemBarsInsets.right - safeAreaPaddings.end)
+            right = (rootWidth - systemBarsInsets.right - safeAreaPaddings.end)
                 .coerceAtLeast(left),
-            bottom = (windowSize.height - bottomInset - safeAreaPaddings.bottom)
+            bottom = (effectiveRootHeight - bottomInset - safeAreaPaddings.bottom)
                 .coerceAtLeast(top),
         )
-    }
-
-    private fun shouldSubtractKeyboard(windowSize: IntSize): Boolean {
-        if (keyboardHeight <= 0) return false
-        if (rootViewHeight <= 0) return true
-        val imeAdjustedRootHeight = rootViewHeight - keyboardHeight
-        return windowSize.height > imeAdjustedRootHeight
     }
 
     private fun recalculatePopupSizeIfNeed(
@@ -945,37 +1048,43 @@ private class PopoverPositionProvider(
     @Suppress("ReturnCount")
     private fun IntOffset.tryToCorrectPlacement(
         popupSize: IntSize,
+        contentPlacement: PopoverPlacement,
         windowBounds: WindowBounds,
         triggerPositionInRoot: IntOffset,
         triggerSize: IntSize,
     ): IntOffset {
-        if (hasEnoughSpaceForPlacement(popupSize, windowBounds)) {
-            return tryToCorrectAlignment(
-                popupSize = popupSize,
+        val currentPopupSize = popupSize.forCurrentTailPlacement(contentPlacement)
+        if (hasEnoughSpaceForPlacement(currentPopupSize, windowBounds)) {
+            val positionWithNewAlignment = tryToCorrectAlignment(
+                popupSize = currentPopupSize,
                 windowBounds = windowBounds,
                 triggerPositionInRoot = triggerPositionInRoot,
                 triggerSize = triggerSize,
             )
+            if (positionWithNewAlignment.hasEnoughSpace(currentPopupSize, windowBounds)) {
+                return positionWithNewAlignment
+            }
         }
         for (i in 0 until placement.fallbacks.size) {
             innerPlacement = placement.fallbacks[i]
+            val candidatePopupSize = popupSize.forCurrentTailPlacement(contentPlacement)
             val newPosition = calculatePopupPosition(
                 triggerPositionInRoot = triggerPositionInRoot,
-                popupContentSize = popupSize,
+                popupContentSize = candidatePopupSize,
                 triggerSize = triggerSize,
             ) + popoverOffsetWhenTriggerCentered(triggerSize)
-            if (newPosition.hasEnoughSpace(popupSize, windowBounds)) {
+            if (newPosition.hasEnoughSpace(candidatePopupSize, windowBounds)) {
                 return newPosition
             } else {
                 val positionWithNewAlignment = newPosition
                     .tryToCorrectAlignment(
-                        popupSize = popupSize,
+                        popupSize = candidatePopupSize,
                         windowBounds = windowBounds,
                         triggerPositionInRoot = triggerPositionInRoot,
                         triggerSize = triggerSize,
                     )
 
-                if (positionWithNewAlignment.hasEnoughSpace(popupSize, windowBounds)) {
+                if (positionWithNewAlignment.hasEnoughSpace(candidatePopupSize, windowBounds)) {
                     return positionWithNewAlignment
                 }
             }
@@ -983,6 +1092,7 @@ private class PopoverPositionProvider(
         return tryToFitInLargestAvailableSpace(
             originalPosition = this,
             popupSize = popupSize,
+            contentPlacement = contentPlacement,
             windowBounds = windowBounds,
             triggerPositionInRoot = triggerPositionInRoot,
             triggerSize = triggerSize,
@@ -993,6 +1103,7 @@ private class PopoverPositionProvider(
     private fun tryToFitInLargestAvailableSpace(
         originalPosition: IntOffset,
         popupSize: IntSize,
+        contentPlacement: PopoverPlacement,
         windowBounds: WindowBounds,
         triggerPositionInRoot: IntOffset,
         triggerSize: IntSize,
@@ -1005,13 +1116,14 @@ private class PopoverPositionProvider(
         placements.forEach { candidatePlacement ->
             innerPlacement = candidatePlacement
             innerTailAlignment = tailAlignment
+            val candidatePopupSize = popupSize.forCurrentTailPlacement(contentPlacement)
             val candidatePosition = calculatePopupPosition(
                 triggerPositionInRoot = triggerPositionInRoot,
-                popupContentSize = popupSize,
+                popupContentSize = candidatePopupSize,
                 triggerSize = triggerSize,
             ) + popoverOffsetWhenTriggerCentered(triggerSize)
             val correctedPosition = candidatePosition.tryToCorrectAlignment(
-                popupSize = popupSize,
+                popupSize = candidatePopupSize,
                 windowBounds = windowBounds,
                 triggerPositionInRoot = triggerPositionInRoot,
                 triggerSize = triggerSize,
@@ -1021,7 +1133,7 @@ private class PopoverPositionProvider(
                 PopoverPlacement.Start,
                 PopoverPlacement.End,
                 -> getAvailableWidth(
-                    popupContentSize = popupSize,
+                    popupContentSize = candidatePopupSize,
                     finalPopupPosition = correctedPosition,
                     availableWindowBounds = windowBounds,
                     triggerPositionInRoot = triggerPositionInRoot,
@@ -1030,7 +1142,7 @@ private class PopoverPositionProvider(
                 PopoverPlacement.Top,
                 PopoverPlacement.Bottom,
                 -> getAvailableHeight(
-                    popupContentSize = popupSize,
+                    popupContentSize = candidatePopupSize,
                     finalPopupPosition = correctedPosition,
                     availableWindowBounds = windowBounds,
                     triggerPositionInRoot = triggerPositionInRoot,

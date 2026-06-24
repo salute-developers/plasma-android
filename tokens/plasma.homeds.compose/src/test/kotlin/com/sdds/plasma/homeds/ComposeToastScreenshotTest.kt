@@ -9,6 +9,7 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
 import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ToastFillMaxWidth
 import com.sdds.compose.uikit.fixtures.testcases.ToastMultiLine
 import com.sdds.compose.uikit.fixtures.testcases.ToastPilledDefaultCenterStart
 import com.sdds.compose.uikit.fixtures.testcases.ToastPilledNegativeCenterHasContentStartEnd
@@ -192,6 +193,18 @@ class ComposeToastScreenshotTest(
         composeTestRule.onNodeWithText("Show").performClick()
         composeTestRule.waitForIdle()
         composeTestRule.onNodeWithText("Toast Text").performTouchInput { swipeLeft() }
+        composeTestRule.waitForIdle()
+    }
+
+    @Test
+    fun testToastFillMaxWidth() {
+        composeTestRule.content {
+            ToastFillMaxWidth(
+                style = Toast.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
         composeTestRule.waitForIdle()
     }
 }

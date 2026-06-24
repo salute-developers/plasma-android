@@ -45,16 +45,24 @@ class ThemeBuilderPlugin : Plugin<Project> {
             readUikitApiMetaTask.configureUikitApiMetaTask(compileClasspath)
 
             project.registerClean(extension)
-            val themeSources = extension.getThemeSources()
-
-            val fetchPaletteTask = registerPaletteFetcher(
-                taskName = "fetchPalette",
-                paletteUrl = extension.paletteUrl,
-                paletteOutput = paletteJson,
-            )
+            val themeSources = ThemeSourceResolver(project.projectDir)
+                .resolve(extension.getThemeSourcesOrNull())
+            val paletteFile = themeSources.paletteFile ?: paletteJson.get().asFile
+            val fetchPaletteTask = if (themeSources.paletteFile == null) {
+                registerPaletteFetcher(
+                    taskName = "fetchPalette",
+                    paletteUrl = extension.paletteUrl,
+                    paletteOutput = paletteJson,
+                )
+            } else {
+                null
+            }
 
             val unzipTasks = mutableListOf<TaskProvider<Copy>>()
             themeSources.sources.forEach { source ->
+                if (source is ThemeBuilderSource.LocalDirectory) {
+                    return@forEach
+                }
                 val tenantId = source.tenant
                 val tenantIdForPath = if (tenantId.isEmpty()) "default" else tenantId.lowercase()
                 val themeZip = project.layout.buildDirectory.file("$THEME_PATH/$tenantIdForPath/theme.zip")
@@ -73,10 +81,11 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 unzipThemeTasks = unzipTasks,
                 dependOnPreBuild = extension.autoGenerate,
                 themeSources = themeSources,
+                paletteFile = paletteFile,
             )
 
             val fetchComponentsTask = registerFetchAndUnzipComponents(extension, componentsZip)
-            fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it) }
+            fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it, readUikitApiMetaTask) }
         }
     }
 
@@ -85,6 +94,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         UikitApiMetaTask::class.java,
     ) {
         group = TASK_GROUP
+        outputFile.set(layout.buildDirectory.file("$COMPONENTS_PATH/uikit-api-meta.json"))
     }
 
     private fun TaskProvider<UikitApiMetaTask>.configureUikitApiMetaTask(compileClasspath: Configuration) {
@@ -139,7 +149,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         themeOutputZip: Provider<RegularFile>,
         source: ThemeBuilderSource,
         themeId: String,
-        fetchPaletteTask: TaskProvider<FetchFileTask>,
+        fetchPaletteTask: TaskProvider<FetchFileTask>?,
     ): TaskProvider<Copy> {
         val themeIdPathToken = if (themeId.isEmpty()) "default" else themeId.lowercase()
 
@@ -161,6 +171,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun Project.registerGenerateComponentsTask(
         extension: ThemeBuilderExtension,
         fetchComponentsTask: TaskProvider<Copy>,
+        readUikitApiMetaTask: TaskProvider<UikitApiMetaTask>,
     ) {
         val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
             group = TASK_GROUP
@@ -177,8 +188,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
             namespace.set(getProjectNameSpace())
             target.set(extension.target)
             componentsMetaStyleClass.set(extension.componentsMetaStyleClass)
+            uikitApiMetaFile.set(readUikitApiMetaTask.flatMap { it.outputFile })
         }
-        task.dependsOn(fetchComponentsTask)
+        task.dependsOn(fetchComponentsTask, readUikitApiMetaTask)
     }
 
     private fun Project.registerThemeBuilder(
@@ -186,43 +198,23 @@ class ThemeBuilderPlugin : Plugin<Project> {
         unzipThemeTasks: List<Any>,
         dependOnPreBuild: Boolean,
         themeSources: ThemeBuilderSources,
+        paletteFile: File,
     ) {
-        val tenants = mutableListOf<String>()
-        val colorFiles = mutableListOf<File>()
-        val gradientFiles = mutableListOf<File>()
-        val typographyFiles = mutableListOf<File>()
-        val fontFiles = mutableListOf<File>()
-        val shapeFiles = mutableListOf<File>()
-        val shadowFiles = mutableListOf<File>()
-        val spacingFiles = mutableListOf<File>()
-
-        themeSources.sources.forEach {
-            val themeId = it.tenant.also(tenants::add)
-            val themeIdPathToken = if (themeId.isEmpty()) "default" else themeId.lowercase()
-            colorFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.COLORS)))
-            gradientFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.GRADIENTS)))
-            typographyFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.TYPOGRAPHY)))
-            fontFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.FONTS)))
-            shapeFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.SHAPES)))
-            shadowFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.SHADOWS)))
-            spacingFiles.add(file(getValueFile(themeIdPathToken, TokenValueFile.SPACING)))
-        }
-
-        logger.warn("themeSources=$themeSources")
+        val themeFiles = getThemeFiles(themeSources)
 
         val generateThemeTask =
             registerThemeGenerator(
                 extension = extension,
-                paletteFileProvider = getPaletteFile(),
-                metaFileProvider = getMetaFile(),
-                tenants = tenants,
-                colorFiles = colorFiles,
-                typographyFiles = typographyFiles,
-                fontFiles = fontFiles,
-                shadowFiles = shadowFiles,
-                spacingFiles = spacingFiles,
-                gradientFiles = gradientFiles,
-                shapeFiles = shapeFiles,
+                paletteFile = paletteFile,
+                metaFile = themeFiles.metaFile,
+                tenants = themeFiles.tenants,
+                colorFiles = themeFiles.colorFiles,
+                typographyFiles = themeFiles.typographyFiles,
+                fontFiles = themeFiles.fontFiles,
+                shadowFiles = themeFiles.shadowFiles,
+                spacingFiles = themeFiles.spacingFiles,
+                gradientFiles = themeFiles.gradientFiles,
+                shapeFiles = themeFiles.shapeFiles,
                 unzipTasks = unzipThemeTasks,
                 themeName = themeSources.baseAlias,
             )
@@ -269,19 +261,64 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 }
                 source.url
             }
+
+            is ThemeBuilderSource.LocalDirectory -> throwLocalSourceUrl(source)
         }
     }
 
-    private fun Project.getPaletteFile(): Provider<RegularFile> {
-        return layout.buildDirectory.file("$THEME_PATH/$PALETTE_JSON_NAME")
+    private fun throwLocalSourceUrl(source: ThemeBuilderSource.LocalDirectory): String {
+        throw GradleException("Local theme source should not be used as remote url: ${source.directory.path}")
     }
 
-    private fun Project.getMetaFile(): Provider<RegularFile> {
-        return layout.buildDirectory.file("${THEME_PATH}default/$META_JSON_NAME")
+    private fun Project.getThemeFiles(themeSources: ThemeBuilderSources): ThemeFiles {
+        val tenants = mutableListOf<String>()
+        val colorFiles = mutableListOf<File>()
+        val gradientFiles = mutableListOf<File>()
+        val typographyFiles = mutableListOf<File>()
+        val fontFiles = mutableListOf<File>()
+        val shapeFiles = mutableListOf<File>()
+        val shadowFiles = mutableListOf<File>()
+        val spacingFiles = mutableListOf<File>()
+        var metaFile: File? = null
+
+        themeSources.sources.forEach { source ->
+            tenants.add(source.tenant)
+            val sourceFiles = getThemeFiles(source)
+            if (metaFile == null) {
+                metaFile = sourceFiles.metaFile
+            }
+            colorFiles.add(sourceFiles.colorFile)
+            gradientFiles.add(sourceFiles.gradientFile)
+            typographyFiles.add(sourceFiles.typographyFile)
+            fontFiles.add(sourceFiles.fontFile)
+            shapeFiles.add(sourceFiles.shapeFile)
+            shadowFiles.add(sourceFiles.shadowFile)
+            spacingFiles.add(sourceFiles.spacingFile)
+        }
+
+        return ThemeFiles(
+            metaFile = requireNotNull(metaFile),
+            tenants = tenants,
+            colorFiles = colorFiles,
+            typographyFiles = typographyFiles,
+            fontFiles = fontFiles,
+            shadowFiles = shadowFiles,
+            spacingFiles = spacingFiles,
+            gradientFiles = gradientFiles,
+            shapeFiles = shapeFiles,
+        )
     }
 
-    private fun Project.getValueFile(themeIdPathToken: String, fileType: TokenValueFile): String {
-        return "build/$THEME_PATH$themeIdPathToken/android/${fileType.fileName}"
+    private fun Project.getThemeFiles(source: ThemeBuilderSource): ThemeSourceFiles {
+        return when (source) {
+            is ThemeBuilderSource.LocalDirectory -> ThemeSourceFiles.fromDirectory(source.directory)
+            is ThemeBuilderSource.NameAndVersion,
+            is ThemeBuilderSource.Url,
+            -> {
+                val themeIdPathToken = if (source.tenant.isEmpty()) "default" else source.tenant.lowercase()
+                ThemeSourceFiles.fromDirectory(file("build/$THEME_PATH$themeIdPathToken"))
+            }
+        }
     }
 
     private fun Project.getComponentConfigFile(fileName: String): Provider<RegularFile> {
@@ -337,8 +374,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
     @Suppress("SpreadOperator")
     private fun Project.registerThemeGenerator(
         extension: ThemeBuilderExtension,
-        paletteFileProvider: Provider<RegularFile>,
-        metaFileProvider: Provider<RegularFile>,
+        paletteFile: File,
+        metaFile: File,
         unzipTasks: List<Any>,
         tenants: List<String>,
         colorFiles: List<File>,
@@ -352,8 +389,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
     ): TaskProvider<GenerateThemeTask> {
         return project.tasks.register<GenerateThemeTask>("generateTheme") {
             group = TASK_GROUP
-            paletteFile.set(paletteFileProvider)
-            metaFile.set(metaFileProvider)
+            this.paletteFile.fileValue(paletteFile)
+            this.metaFile.fileValue(metaFile)
             this.themeTenants.set(tenants)
             this.themeName.set(themeName)
             this.colorFiles.setFrom(colorFiles)
@@ -379,6 +416,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             dimensionsConfig.set(extension.dimensionsConfig)
             defaultThemeTypography.set(extension.defaultThemeTypography)
             ignoreDisabledTokens.set(extension.ignoreDisabledTokens)
+            useDefaultFonts.set(extension.useDefaultFonts)
             dependsOn(*unzipTasks.toTypedArray())
         }
     }
@@ -437,6 +475,46 @@ class ThemeBuilderPlugin : Plugin<Project> {
         SPACING("android_spacing.json"),
         GRADIENTS("android_gradient.json"),
         SHAPES("android_shape.json"),
+    }
+
+    private data class ThemeFiles(
+        val metaFile: File,
+        val tenants: List<String>,
+        val colorFiles: List<File>,
+        val typographyFiles: List<File>,
+        val fontFiles: List<File>,
+        val shadowFiles: List<File>,
+        val spacingFiles: List<File>,
+        val gradientFiles: List<File>,
+        val shapeFiles: List<File>,
+    )
+
+    private data class ThemeSourceFiles(
+        val metaFile: File,
+        val colorFile: File,
+        val typographyFile: File,
+        val fontFile: File,
+        val shadowFile: File,
+        val spacingFile: File,
+        val gradientFile: File,
+        val shapeFile: File,
+    ) {
+        companion object {
+            fun fromDirectory(directory: File): ThemeSourceFiles =
+                ThemeSourceFiles(
+                    metaFile = directory.resolve(META_JSON_NAME),
+                    colorFile = directory.resolveAndroidFile(TokenValueFile.COLORS),
+                    typographyFile = directory.resolveAndroidFile(TokenValueFile.TYPOGRAPHY),
+                    fontFile = directory.resolveAndroidFile(TokenValueFile.FONTS),
+                    shadowFile = directory.resolveAndroidFile(TokenValueFile.SHADOWS),
+                    spacingFile = directory.resolveAndroidFile(TokenValueFile.SPACING),
+                    gradientFile = directory.resolveAndroidFile(TokenValueFile.GRADIENTS),
+                    shapeFile = directory.resolveAndroidFile(TokenValueFile.SHAPES),
+                )
+
+            private fun File.resolveAndroidFile(fileType: TokenValueFile): File =
+                resolve("android/${fileType.fileName}")
+        }
     }
 
     private companion object {

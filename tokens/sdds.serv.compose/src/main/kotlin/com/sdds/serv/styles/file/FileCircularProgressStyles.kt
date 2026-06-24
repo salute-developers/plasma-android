@@ -125,8 +125,8 @@ public val WrapperFileCircularProgressView.Default: WrapperFileCircularProgressT
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -140,8 +140,8 @@ public val WrapperFileCircularProgressView.Negative: WrapperFileCircularProgress
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -157,16 +157,16 @@ private val FileStyleBuilder.invariantProps: FileStyleBuilder
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultPrimaryActive,
                 ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultPrimaryActive,
                 ),
             )
         }
@@ -184,8 +184,8 @@ public val WrapperFileCircularProgressXsView.Default: WrapperFileCircularProgres
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -201,8 +201,8 @@ public val WrapperFileCircularProgressXsView.Negative: WrapperFileCircularProgre
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -213,9 +213,9 @@ public val FileCircularProgress.Xs: WrapperFileCircularProgressXs
     @JvmName("WrapperFileCircularProgressXs")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.Xs.Clear.style())
         .labelStyle(SddsServTheme.typography.bodyXsNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.Xs.Clear.style())
         .dimensions {
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
@@ -232,8 +232,8 @@ public val WrapperFileCircularProgressSView.Default: WrapperFileCircularProgress
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -249,8 +249,8 @@ public val WrapperFileCircularProgressSView.Negative: WrapperFileCircularProgres
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -261,9 +261,9 @@ public val FileCircularProgress.S: WrapperFileCircularProgressS
     @JvmName("WrapperFileCircularProgressS")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.S.Clear.style())
         .labelStyle(SddsServTheme.typography.bodySNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(8.0.dp)
             endContentPadding(8.0.dp)
@@ -280,8 +280,8 @@ public val WrapperFileCircularProgressMView.Default: WrapperFileCircularProgress
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -297,8 +297,8 @@ public val WrapperFileCircularProgressMView.Negative: WrapperFileCircularProgres
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -309,9 +309,9 @@ public val FileCircularProgress.M: WrapperFileCircularProgressM
     @JvmName("WrapperFileCircularProgressM")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.S.Clear.style())
         .labelStyle(SddsServTheme.typography.bodyMNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(10.0.dp)
             endContentPadding(10.0.dp)
@@ -328,8 +328,8 @@ public val WrapperFileCircularProgressLView.Default: WrapperFileCircularProgress
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
@@ -345,8 +345,8 @@ public val WrapperFileCircularProgressLView.Negative: WrapperFileCircularProgres
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsServTheme.colors.textDefaultNegativeActive,
                 ),
             )
         }
@@ -357,9 +357,9 @@ public val FileCircularProgress.L: WrapperFileCircularProgressL
     @JvmName("WrapperFileCircularProgressL")
     get() = FileStyle.builder(this)
         .invariantProps
+        .actionButtonStyle(IconButton.S.Clear.style())
         .labelStyle(SddsServTheme.typography.bodyLNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
-        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(12.0.dp)
             endContentPadding(12.0.dp)

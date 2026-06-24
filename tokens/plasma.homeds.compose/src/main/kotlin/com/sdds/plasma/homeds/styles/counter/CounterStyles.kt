@@ -90,16 +90,16 @@ public val WrapperCounterView.Default: WrapperCounterTerminate
                 PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
                 ),
             )
             textColor(
                 PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textInversePrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -113,16 +113,16 @@ public val WrapperCounterView.Secondary: WrapperCounterTerminate
                 PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
                 ),
             )
             textColor(
                 PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -144,8 +144,8 @@ public val WrapperCounterView.Accent: WrapperCounterTerminate
                 PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -159,16 +159,16 @@ public val WrapperCounterView.Positive: WrapperCounterTerminate
                 PlasmaHomeDsTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceDefaultPositiveHover,
                 ),
             )
             textColor(
                 PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -190,8 +190,8 @@ public val WrapperCounterView.Warning: WrapperCounterTerminate
                 PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -205,16 +205,16 @@ public val WrapperCounterView.Negative: WrapperCounterTerminate
                 PlasmaHomeDsTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceDefaultNegativeHover,
                 ),
             )
             textColor(
                 PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -228,16 +228,16 @@ public val WrapperCounterView.Black: WrapperCounterTerminate
                 PlasmaHomeDsTheme.colors.surfaceOnLightSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceOnLightSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceOnLightSolidDefaultHover,
                 ),
             )
             textColor(
                 PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -251,16 +251,16 @@ public val WrapperCounterView.White: WrapperCounterTerminate
                 PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
             )
             textColor(
                 PlasmaHomeDsTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaHomeDsTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textOnLightPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaHomeDsTheme.colors.textOnLightPrimaryHover,
                 ),
             )
         }
@@ -278,8 +278,8 @@ public val Counter.L: WrapperCounterL
         .invariantProps
         .textStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .dimensions {
-            minHeight(28.0.dp)
             minWidth(28.0.dp)
+            minHeight(28.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(10.0.dp)
         }
@@ -292,8 +292,8 @@ public val Counter.M: WrapperCounterM
         .invariantProps
         .textStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .dimensions {
-            minHeight(24.0.dp)
             minWidth(24.0.dp)
+            minHeight(24.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
         }
@@ -306,8 +306,8 @@ public val Counter.S: WrapperCounterS
         .invariantProps
         .textStyle(PlasmaHomeDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(20.0.dp)
             minWidth(20.0.dp)
+            minHeight(20.0.dp)
             paddingStart(6.0.dp)
             paddingEnd(6.0.dp)
         }
@@ -320,8 +320,8 @@ public val Counter.Xs: WrapperCounterXs
         .invariantProps
         .textStyle(PlasmaHomeDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(16.0.dp)
             minWidth(16.0.dp)
+            minHeight(16.0.dp)
             paddingStart(4.0.dp)
             paddingEnd(4.0.dp)
         }
@@ -334,8 +334,8 @@ public val Counter.Xxs: WrapperCounterXxs
         .invariantProps
         .textStyle(PlasmaHomeDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(12.0.dp)
             minWidth(12.0.dp)
+            minHeight(12.0.dp)
             paddingStart(2.0.dp)
             paddingEnd(2.0.dp)
         }

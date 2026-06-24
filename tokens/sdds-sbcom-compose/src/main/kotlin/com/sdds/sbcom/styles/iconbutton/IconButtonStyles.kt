@@ -9,12 +9,14 @@ package com.sdds.sbcom.styles.iconbutton
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -142,79 +144,79 @@ public value class WrapperIconButtonSize24BgNo(
 public val WrapperIconButtonView.ModeAccentFilled: WrapperIconButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultAccentHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
-                ),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonView.ModeAccentGrey: WrapperIconButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultAccentHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultAccentHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultAccentHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentSecondaryHover,
-                ),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonView.ModeDangerTint: WrapperIconButtonTerminate
     @Composable
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentNegativeHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultNegativeHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultNegativeHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultTransparentNegative.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentNegativeHover,
-                ),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 private val IconButtonStyleBuilder.invariantProps: IconButtonStyleBuilder
@@ -243,75 +245,71 @@ public val WrapperIconButtonSize48BgNoView.ModeAccentGrey: WrapperIconButtonTerm
     @Composable
     @JvmName("WrapperIconButtonSize48BgNoViewModeAccentGrey")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultAccentHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultAccentHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultAccentHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize48BgNoView.ModeDangerTint: WrapperIconButtonTerminate
     @Composable
     @JvmName("WrapperIconButtonSize48BgNoViewModeDangerTint")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultNegativeHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultNegativeHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize48BgNoView.ModeAccentFilled: WrapperIconButtonTerminate
     @Composable
     @JvmName("WrapperIconButtonSize48BgNoViewModeAccentFilled")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultAccentHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
-                ),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize48.BgNo: WrapperIconButtonSize48BgNo
@@ -340,75 +338,71 @@ public val WrapperIconButtonSize40BgNoView.ModeAccentGrey: WrapperIconButtonTerm
     @Composable
     @JvmName("WrapperIconButtonSize40BgNoViewModeAccentGrey")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultAccentHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultAccentHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultAccentHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize40BgNoView.ModeDangerTint: WrapperIconButtonTerminate
     @Composable
     @JvmName("WrapperIconButtonSize40BgNoViewModeDangerTint")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultNegativeHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultNegativeHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize40BgNoView.ModeAccentFilled: WrapperIconButtonTerminate
     @Composable
     @JvmName("WrapperIconButtonSize40BgNoViewModeAccentFilled")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultAccentHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
-                ),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize40.BgNo: WrapperIconButtonSize40BgNo
@@ -437,75 +431,71 @@ public val WrapperIconButtonSize32BgNoView.ModeAccentGrey: WrapperIconButtonTerm
     @Composable
     @JvmName("WrapperIconButtonSize32BgNoViewModeAccentGrey")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultAccentHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultAccentHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultAccentHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize32BgNoView.ModeDangerTint: WrapperIconButtonTerminate
     @Composable
     @JvmName("WrapperIconButtonSize32BgNoViewModeDangerTint")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultNegativeHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultNegativeHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize32BgNoView.ModeAccentFilled: WrapperIconButtonTerminate
     @Composable
     @JvmName("WrapperIconButtonSize32BgNoViewModeAccentFilled")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultAccentHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
-                ),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize32.BgNo: WrapperIconButtonSize32BgNo
@@ -534,75 +524,71 @@ public val WrapperIconButtonSize24BgNoView.ModeAccentGrey: WrapperIconButtonTerm
     @Composable
     @JvmName("WrapperIconButtonSize24BgNoViewModeAccentGrey")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultAccentHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultAccentHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultAccentHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize24BgNoView.ModeDangerTint: WrapperIconButtonTerminate
     @Composable
     @JvmName("WrapperIconButtonSize24BgNoViewModeDangerTint")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textDefaultNegativeHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textDefaultNegativeHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultNegativeHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize24BgNoView.ModeAccentFilled: WrapperIconButtonTerminate
     @Composable
     @JvmName("WrapperIconButtonSize24BgNoViewModeAccentFilled")
     get() = builder
+        .loadingAlpha(0.0f)
         .colors {
+            backgroundColor(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultAccentHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSbComTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(SddsSbComTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
-            iconColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
-                ),
-            )
         }
-        .loadingAlpha(0.0f)
         .wrap(::WrapperIconButtonTerminate)
 
 public val WrapperIconButtonSize24.BgNo: WrapperIconButtonSize24BgNo

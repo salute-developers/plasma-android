@@ -5,6 +5,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -32,9 +33,13 @@ import com.sdds.compose.uikit.overlay.OverlayPosition
 import com.sdds.compose.uikit.overlay.showToast
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
+import com.sdds.sandbox.Property
+import com.sdds.sandbox.PropertyProducer
 import com.sdds.sandbox.Story
+import com.sdds.sandbox.StoryProperty
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
+import com.sdds.sandbox.enumProperty
 
 @StoryUiState
 data class ToastUiState(
@@ -46,11 +51,23 @@ data class ToastUiState(
     val position: OverlayPosition = OverlayPosition.BottomCenter,
     val autoDismiss: Boolean = true,
     val showViaModal: Boolean = false,
+    @StoryProperty(producedBy = ModalGravityProperty::class)
     val modalGravity: ModalGravity = ModalGravity.Center,
+    val fillMaxWidth: Boolean = false,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
+    }
+}
+
+object ModalGravityProperty : PropertyProducer<ToastUiState> {
+    override fun produce(state: ToastUiState): Property<*> {
+        return enumProperty(
+            name = "modalGravity",
+            value = state.modalGravity,
+            enabled = state.showViaModal,
+        )
     }
 }
 
@@ -84,6 +101,7 @@ object ToastStory : ComposeBaseStory<ToastUiState, ToastStyle>(
                             .takeIf { state.autoDismiss },
                     ) {
                         Toast(
+                            modifier = if (state.fillMaxWidth) Modifier.fillMaxWidth() else Modifier,
                             style = style,
                             contentStart = getContentStart(state.hasContentStart),
                             contentEnd = getContentEnd(state.hasContentEnd) {

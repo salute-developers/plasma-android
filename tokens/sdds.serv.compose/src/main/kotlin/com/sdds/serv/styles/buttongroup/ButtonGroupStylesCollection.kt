@@ -155,6 +155,60 @@ public enum class ButtonGroupStyles(
     AiAnswerBasicButtonGroupS("AiAnswerBasicButtonGroup.S"),
     AiAnswerBasicButtonGroupM("AiAnswerBasicButtonGroup.M"),
     AiAnswerBasicButtonGroupL("AiAnswerBasicButtonGroup.L"),
+    AiUserMessageEmbeddedIconButtonGroupS("AiUserMessageEmbeddedIconButtonGroup.S"),
+    AiUserMessageEmbeddedIconButtonGroupM("AiUserMessageEmbeddedIconButtonGroup.M"),
+    AiInputIconButtonGroupXs("AiInputIconButtonGroup.Xs"),
+    AiInputIconButtonGroupXsWide("AiInputIconButtonGroup.Xs.Wide"),
+    AiInputIconButtonGroupXsWideDefault("AiInputIconButtonGroup.Xs.Wide.Default"),
+    AiInputIconButtonGroupXsWidePilled("AiInputIconButtonGroup.Xs.Wide.Pilled"),
+    AiInputIconButtonGroupXsWideSegmented("AiInputIconButtonGroup.Xs.Wide.Segmented"),
+    AiInputIconButtonGroupXsDense("AiInputIconButtonGroup.Xs.Dense"),
+    AiInputIconButtonGroupXsDenseDefault("AiInputIconButtonGroup.Xs.Dense.Default"),
+    AiInputIconButtonGroupXsDensePilled("AiInputIconButtonGroup.Xs.Dense.Pilled"),
+    AiInputIconButtonGroupXsDenseSegmented("AiInputIconButtonGroup.Xs.Dense.Segmented"),
+    AiInputIconButtonGroupXsNoGap("AiInputIconButtonGroup.Xs.NoGap"),
+    AiInputIconButtonGroupXsNoGapDefault("AiInputIconButtonGroup.Xs.NoGap.Default"),
+    AiInputIconButtonGroupXsNoGapPilled("AiInputIconButtonGroup.Xs.NoGap.Pilled"),
+    AiInputIconButtonGroupXsNoGapSegmented("AiInputIconButtonGroup.Xs.NoGap.Segmented"),
+    AiInputIconButtonGroupS("AiInputIconButtonGroup.S"),
+    AiInputIconButtonGroupSWide("AiInputIconButtonGroup.S.Wide"),
+    AiInputIconButtonGroupSWideDefault("AiInputIconButtonGroup.S.Wide.Default"),
+    AiInputIconButtonGroupSWidePilled("AiInputIconButtonGroup.S.Wide.Pilled"),
+    AiInputIconButtonGroupSWideSegmented("AiInputIconButtonGroup.S.Wide.Segmented"),
+    AiInputIconButtonGroupSDense("AiInputIconButtonGroup.S.Dense"),
+    AiInputIconButtonGroupSDenseDefault("AiInputIconButtonGroup.S.Dense.Default"),
+    AiInputIconButtonGroupSDensePilled("AiInputIconButtonGroup.S.Dense.Pilled"),
+    AiInputIconButtonGroupSDenseSegmented("AiInputIconButtonGroup.S.Dense.Segmented"),
+    AiInputIconButtonGroupSNoGap("AiInputIconButtonGroup.S.NoGap"),
+    AiInputIconButtonGroupSNoGapDefault("AiInputIconButtonGroup.S.NoGap.Default"),
+    AiInputIconButtonGroupSNoGapPilled("AiInputIconButtonGroup.S.NoGap.Pilled"),
+    AiInputIconButtonGroupSNoGapSegmented("AiInputIconButtonGroup.S.NoGap.Segmented"),
+    AiInputIconButtonGroupM("AiInputIconButtonGroup.M"),
+    AiInputIconButtonGroupMWide("AiInputIconButtonGroup.M.Wide"),
+    AiInputIconButtonGroupMWideDefault("AiInputIconButtonGroup.M.Wide.Default"),
+    AiInputIconButtonGroupMWidePilled("AiInputIconButtonGroup.M.Wide.Pilled"),
+    AiInputIconButtonGroupMWideSegmented("AiInputIconButtonGroup.M.Wide.Segmented"),
+    AiInputIconButtonGroupMDense("AiInputIconButtonGroup.M.Dense"),
+    AiInputIconButtonGroupMDenseDefault("AiInputIconButtonGroup.M.Dense.Default"),
+    AiInputIconButtonGroupMDensePilled("AiInputIconButtonGroup.M.Dense.Pilled"),
+    AiInputIconButtonGroupMDenseSegmented("AiInputIconButtonGroup.M.Dense.Segmented"),
+    AiInputIconButtonGroupMNoGap("AiInputIconButtonGroup.M.NoGap"),
+    AiInputIconButtonGroupMNoGapDefault("AiInputIconButtonGroup.M.NoGap.Default"),
+    AiInputIconButtonGroupMNoGapPilled("AiInputIconButtonGroup.M.NoGap.Pilled"),
+    AiInputIconButtonGroupMNoGapSegmented("AiInputIconButtonGroup.M.NoGap.Segmented"),
+    AiInputIconButtonGroupL("AiInputIconButtonGroup.L"),
+    AiInputIconButtonGroupLWide("AiInputIconButtonGroup.L.Wide"),
+    AiInputIconButtonGroupLWideDefault("AiInputIconButtonGroup.L.Wide.Default"),
+    AiInputIconButtonGroupLWidePilled("AiInputIconButtonGroup.L.Wide.Pilled"),
+    AiInputIconButtonGroupLWideSegmented("AiInputIconButtonGroup.L.Wide.Segmented"),
+    AiInputIconButtonGroupLDense("AiInputIconButtonGroup.L.Dense"),
+    AiInputIconButtonGroupLDenseDefault("AiInputIconButtonGroup.L.Dense.Default"),
+    AiInputIconButtonGroupLDensePilled("AiInputIconButtonGroup.L.Dense.Pilled"),
+    AiInputIconButtonGroupLDenseSegmented("AiInputIconButtonGroup.L.Dense.Segmented"),
+    AiInputIconButtonGroupLNoGap("AiInputIconButtonGroup.L.NoGap"),
+    AiInputIconButtonGroupLNoGapDefault("AiInputIconButtonGroup.L.NoGap.Default"),
+    AiInputIconButtonGroupLNoGapPilled("AiInputIconButtonGroup.L.NoGap.Pilled"),
+    AiInputIconButtonGroupLNoGapSegmented("AiInputIconButtonGroup.L.NoGap.Segmented"),
     ;
 
     /**
@@ -186,6 +240,16 @@ public enum class ButtonGroupStyles(
      * Typed API для подбора стиля ai-answer-basic-button-group
      */
     public object AiAnswerBasicButtonGroup
+
+    /**
+     * Typed API для подбора стиля ai-user-message-embedded-icon-button-group
+     */
+    public object AiUserMessageEmbeddedIconButtonGroup
+
+    /**
+     * Typed API для подбора стиля ai-input-icon-button-group
+     */
+    public object AiInputIconButtonGroup
 }
 
 /**
@@ -291,6 +355,42 @@ public enum class AiAnswerBasicButtonGroupSize {
     S,
     M,
     L,
+}
+
+/**
+ * Возможные значения свойства size для ai-user-message-embedded-icon-button-group
+ */
+public enum class AiUserMessageEmbeddedIconButtonGroupSize {
+    S,
+    M,
+}
+
+/**
+ * Возможные значения свойства size для ai-input-icon-button-group
+ */
+public enum class AiInputIconButtonGroupSize {
+    Xs,
+    S,
+    M,
+    L,
+}
+
+/**
+ * Возможные значения свойства gap для ai-input-icon-button-group
+ */
+public enum class AiInputIconButtonGroupGap {
+    Wide,
+    Dense,
+    None,
+}
+
+/**
+ * Возможные значения свойства shape для ai-input-icon-button-group
+ */
+public enum class AiInputIconButtonGroupShape {
+    Default,
+    Pilled,
+    Segmented,
 }
 
 /**
@@ -429,6 +529,85 @@ public fun ButtonGroupStyles.style(modify: @Composable ButtonGroupStyleBuilder.(
         ButtonGroupStyles.AiAnswerBasicButtonGroupS -> AiAnswerBasicButtonGroup.S
         ButtonGroupStyles.AiAnswerBasicButtonGroupM -> AiAnswerBasicButtonGroup.M
         ButtonGroupStyles.AiAnswerBasicButtonGroupL -> AiAnswerBasicButtonGroup.L
+        ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroupS ->
+            AiUserMessageEmbeddedIconButtonGroup.S
+        ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroupM ->
+            AiUserMessageEmbeddedIconButtonGroup.M
+        ButtonGroupStyles.AiInputIconButtonGroupXs -> AiInputIconButtonGroup.Xs
+        ButtonGroupStyles.AiInputIconButtonGroupXsWide -> AiInputIconButtonGroup.Xs.Wide
+        ButtonGroupStyles.AiInputIconButtonGroupXsWideDefault ->
+            AiInputIconButtonGroup.Xs.Wide.Default
+        ButtonGroupStyles.AiInputIconButtonGroupXsWidePilled -> AiInputIconButtonGroup.Xs.Wide.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupXsWideSegmented ->
+            AiInputIconButtonGroup.Xs.Wide.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupXsDense -> AiInputIconButtonGroup.Xs.Dense
+        ButtonGroupStyles.AiInputIconButtonGroupXsDenseDefault ->
+            AiInputIconButtonGroup.Xs.Dense.Default
+        ButtonGroupStyles.AiInputIconButtonGroupXsDensePilled ->
+            AiInputIconButtonGroup.Xs.Dense.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupXsDenseSegmented ->
+            AiInputIconButtonGroup.Xs.Dense.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupXsNoGap -> AiInputIconButtonGroup.Xs.NoGap
+        ButtonGroupStyles.AiInputIconButtonGroupXsNoGapDefault ->
+            AiInputIconButtonGroup.Xs.NoGap.Default
+        ButtonGroupStyles.AiInputIconButtonGroupXsNoGapPilled ->
+            AiInputIconButtonGroup.Xs.NoGap.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupXsNoGapSegmented ->
+            AiInputIconButtonGroup.Xs.NoGap.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupS -> AiInputIconButtonGroup.S
+        ButtonGroupStyles.AiInputIconButtonGroupSWide -> AiInputIconButtonGroup.S.Wide
+        ButtonGroupStyles.AiInputIconButtonGroupSWideDefault -> AiInputIconButtonGroup.S.Wide.Default
+        ButtonGroupStyles.AiInputIconButtonGroupSWidePilled -> AiInputIconButtonGroup.S.Wide.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupSWideSegmented ->
+            AiInputIconButtonGroup.S.Wide.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupSDense -> AiInputIconButtonGroup.S.Dense
+        ButtonGroupStyles.AiInputIconButtonGroupSDenseDefault ->
+            AiInputIconButtonGroup.S.Dense.Default
+        ButtonGroupStyles.AiInputIconButtonGroupSDensePilled -> AiInputIconButtonGroup.S.Dense.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupSDenseSegmented ->
+            AiInputIconButtonGroup.S.Dense.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupSNoGap -> AiInputIconButtonGroup.S.NoGap
+        ButtonGroupStyles.AiInputIconButtonGroupSNoGapDefault ->
+            AiInputIconButtonGroup.S.NoGap.Default
+        ButtonGroupStyles.AiInputIconButtonGroupSNoGapPilled -> AiInputIconButtonGroup.S.NoGap.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupSNoGapSegmented ->
+            AiInputIconButtonGroup.S.NoGap.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupM -> AiInputIconButtonGroup.M
+        ButtonGroupStyles.AiInputIconButtonGroupMWide -> AiInputIconButtonGroup.M.Wide
+        ButtonGroupStyles.AiInputIconButtonGroupMWideDefault -> AiInputIconButtonGroup.M.Wide.Default
+        ButtonGroupStyles.AiInputIconButtonGroupMWidePilled -> AiInputIconButtonGroup.M.Wide.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupMWideSegmented ->
+            AiInputIconButtonGroup.M.Wide.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupMDense -> AiInputIconButtonGroup.M.Dense
+        ButtonGroupStyles.AiInputIconButtonGroupMDenseDefault ->
+            AiInputIconButtonGroup.M.Dense.Default
+        ButtonGroupStyles.AiInputIconButtonGroupMDensePilled -> AiInputIconButtonGroup.M.Dense.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupMDenseSegmented ->
+            AiInputIconButtonGroup.M.Dense.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupMNoGap -> AiInputIconButtonGroup.M.NoGap
+        ButtonGroupStyles.AiInputIconButtonGroupMNoGapDefault ->
+            AiInputIconButtonGroup.M.NoGap.Default
+        ButtonGroupStyles.AiInputIconButtonGroupMNoGapPilled -> AiInputIconButtonGroup.M.NoGap.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupMNoGapSegmented ->
+            AiInputIconButtonGroup.M.NoGap.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupL -> AiInputIconButtonGroup.L
+        ButtonGroupStyles.AiInputIconButtonGroupLWide -> AiInputIconButtonGroup.L.Wide
+        ButtonGroupStyles.AiInputIconButtonGroupLWideDefault -> AiInputIconButtonGroup.L.Wide.Default
+        ButtonGroupStyles.AiInputIconButtonGroupLWidePilled -> AiInputIconButtonGroup.L.Wide.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupLWideSegmented ->
+            AiInputIconButtonGroup.L.Wide.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupLDense -> AiInputIconButtonGroup.L.Dense
+        ButtonGroupStyles.AiInputIconButtonGroupLDenseDefault ->
+            AiInputIconButtonGroup.L.Dense.Default
+        ButtonGroupStyles.AiInputIconButtonGroupLDensePilled -> AiInputIconButtonGroup.L.Dense.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupLDenseSegmented ->
+            AiInputIconButtonGroup.L.Dense.Segmented
+        ButtonGroupStyles.AiInputIconButtonGroupLNoGap -> AiInputIconButtonGroup.L.NoGap
+        ButtonGroupStyles.AiInputIconButtonGroupLNoGapDefault ->
+            AiInputIconButtonGroup.L.NoGap.Default
+        ButtonGroupStyles.AiInputIconButtonGroupLNoGapPilled -> AiInputIconButtonGroup.L.NoGap.Pilled
+        ButtonGroupStyles.AiInputIconButtonGroupLNoGapSegmented ->
+            AiInputIconButtonGroup.L.NoGap.Segmented
     }
     return builder.modify(modify).style()
 }
@@ -799,3 +978,164 @@ public fun ButtonGroupStyles.AiAnswerBasicButtonGroup.style(
     modify: @Composable ButtonGroupStyleBuilder.() -> Unit =
         {},
 ): ButtonGroupStyle = resolve(size).style(modify)
+
+/**
+ * Возвращает экземпляр [ButtonGroupStyles] для ai-user-message-embedded-icon-button-group
+ */
+public fun ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroup.resolve(
+    size: AiUserMessageEmbeddedIconButtonGroupSize =
+        AiUserMessageEmbeddedIconButtonGroupSize.M,
+): ButtonGroupStyles = when {
+    size == AiUserMessageEmbeddedIconButtonGroupSize.S ->
+        ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroupS
+    size == AiUserMessageEmbeddedIconButtonGroupSize.M ->
+        ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroupM
+    else -> error("Unsupported ai-user-message-embedded-icon-button-group style combination")
+}
+
+/**
+ * Возвращает [ButtonGroupStyle] для ai-user-message-embedded-icon-button-group
+ */
+@Composable
+public fun ButtonGroupStyles.AiUserMessageEmbeddedIconButtonGroup.style(
+    size: AiUserMessageEmbeddedIconButtonGroupSize =
+        AiUserMessageEmbeddedIconButtonGroupSize.M,
+    modify: @Composable
+    ButtonGroupStyleBuilder.() -> Unit = {},
+): ButtonGroupStyle = resolve(size).style(modify)
+
+/**
+ * Возвращает экземпляр [ButtonGroupStyles] для ai-input-icon-button-group
+ */
+public fun ButtonGroupStyles.AiInputIconButtonGroup.resolve(
+    size: AiInputIconButtonGroupSize = AiInputIconButtonGroupSize.Xs,
+    gap: AiInputIconButtonGroupGap = AiInputIconButtonGroupGap.Wide,
+    shape: AiInputIconButtonGroupShape = AiInputIconButtonGroupShape.Default,
+): ButtonGroupStyles = when {
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupXsWideDefault
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupXsWidePilled
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupXsWideSegmented
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Default ->
+        ButtonGroupStyles.AiInputIconButtonGroupXsDenseDefault
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupXsDensePilled
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupXsDenseSegmented
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Default ->
+        ButtonGroupStyles.AiInputIconButtonGroupXsNoGapDefault
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupXsNoGapPilled
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupXsNoGapSegmented
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupSWideDefault
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupSWidePilled
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupSWideSegmented
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupSDenseDefault
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupSDensePilled
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupSDenseSegmented
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupSNoGapDefault
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupSNoGapPilled
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupSNoGapSegmented
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupMWideDefault
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupMWidePilled
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupMWideSegmented
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupMDenseDefault
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupMDensePilled
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupMDenseSegmented
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupMNoGapDefault
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupMNoGapPilled
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupMNoGapSegmented
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupLWideDefault
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupLWidePilled
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.Wide && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupLWideSegmented
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupLDenseDefault
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupLDensePilled
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.Dense && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupLDenseSegmented
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Default -> ButtonGroupStyles.AiInputIconButtonGroupLNoGapDefault
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Pilled -> ButtonGroupStyles.AiInputIconButtonGroupLNoGapPilled
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.None && shape ==
+        AiInputIconButtonGroupShape.Segmented ->
+        ButtonGroupStyles.AiInputIconButtonGroupLNoGapSegmented
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.Wide ->
+        ButtonGroupStyles.AiInputIconButtonGroupXsWide
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.Dense ->
+        ButtonGroupStyles.AiInputIconButtonGroupXsDense
+    size == AiInputIconButtonGroupSize.Xs && gap == AiInputIconButtonGroupGap.None ->
+        ButtonGroupStyles.AiInputIconButtonGroupXsNoGap
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.Wide ->
+        ButtonGroupStyles.AiInputIconButtonGroupSWide
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.Dense ->
+        ButtonGroupStyles.AiInputIconButtonGroupSDense
+    size == AiInputIconButtonGroupSize.S && gap == AiInputIconButtonGroupGap.None ->
+        ButtonGroupStyles.AiInputIconButtonGroupSNoGap
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.Wide ->
+        ButtonGroupStyles.AiInputIconButtonGroupMWide
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.Dense ->
+        ButtonGroupStyles.AiInputIconButtonGroupMDense
+    size == AiInputIconButtonGroupSize.M && gap == AiInputIconButtonGroupGap.None ->
+        ButtonGroupStyles.AiInputIconButtonGroupMNoGap
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.Wide ->
+        ButtonGroupStyles.AiInputIconButtonGroupLWide
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.Dense ->
+        ButtonGroupStyles.AiInputIconButtonGroupLDense
+    size == AiInputIconButtonGroupSize.L && gap == AiInputIconButtonGroupGap.None ->
+        ButtonGroupStyles.AiInputIconButtonGroupLNoGap
+    size == AiInputIconButtonGroupSize.Xs -> ButtonGroupStyles.AiInputIconButtonGroupXs
+    size == AiInputIconButtonGroupSize.S -> ButtonGroupStyles.AiInputIconButtonGroupS
+    size == AiInputIconButtonGroupSize.M -> ButtonGroupStyles.AiInputIconButtonGroupM
+    size == AiInputIconButtonGroupSize.L -> ButtonGroupStyles.AiInputIconButtonGroupL
+    else -> error("Unsupported ai-input-icon-button-group style combination")
+}
+
+/**
+ * Возвращает [ButtonGroupStyle] для ai-input-icon-button-group
+ */
+@Composable
+public fun ButtonGroupStyles.AiInputIconButtonGroup.style(
+    size: AiInputIconButtonGroupSize = AiInputIconButtonGroupSize.Xs,
+    gap: AiInputIconButtonGroupGap = AiInputIconButtonGroupGap.Wide,
+    shape: AiInputIconButtonGroupShape = AiInputIconButtonGroupShape.Default,
+    modify: @Composable ButtonGroupStyleBuilder.() -> Unit = {},
+): ButtonGroupStyle = resolve(size, gap, shape).style(modify)

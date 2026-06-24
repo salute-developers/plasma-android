@@ -9,11 +9,11 @@ package com.sdds.plasma.giga.styles.progressbar
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.ProgressBarStyleBuilder
 import com.sdds.compose.uikit.graphics.asLayered
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -39,12 +39,8 @@ public val ProgressBar.Default: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaGigaTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
+            indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -53,12 +49,8 @@ public val ProgressBar.Secondary: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-            )
+            indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -67,12 +59,8 @@ public val ProgressBar.Accent: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
+            indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent).asStatefulValue())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -81,12 +69,8 @@ public val ProgressBar.Gradient: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaGigaTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue(),
-            )
+            indicatorColor(PlasmaGigaTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -95,12 +79,8 @@ public val ProgressBar.Info: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaGigaTheme.colors.surfaceDefaultInfo.asInteractive(),
-            )
+            indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultInfo).asStatefulValue())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -109,12 +89,8 @@ public val ProgressBar.Negative: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaGigaTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
+            indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -123,12 +99,8 @@ public val ProgressBar.Positive: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaGigaTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
+            indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositive).asStatefulValue())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -137,12 +109,8 @@ public val ProgressBar.Warning: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaGigaTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
+            indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultWarning).asStatefulValue())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 

@@ -394,11 +394,8 @@ public value class WrapperTextFieldXlInnerLabelRequiredEnd(
 public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
     @Composable
     get() = builder
-        .singleLine(true)
         .colors {
-            captionColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            captionColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
             backgroundColor(
                 PlasmaGigaTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(
                     setOf(InteractiveState.Activated)
@@ -411,7 +408,6 @@ public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
 public val WrapperTextFieldView.Success: WrapperTextFieldTerminate
     @Composable
     get() = builder
-        .singleLine(true)
         .colors {
             captionColor(
                 PlasmaGigaTheme.colors.textDefaultPositive.asInteractive(
@@ -431,7 +427,6 @@ public val WrapperTextFieldView.Success: WrapperTextFieldTerminate
 public val WrapperTextFieldView.Warning: WrapperTextFieldTerminate
     @Composable
     get() = builder
-        .singleLine(true)
         .colors {
             captionColor(
                 PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(
@@ -451,7 +446,6 @@ public val WrapperTextFieldView.Warning: WrapperTextFieldTerminate
 public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
     @Composable
     get() = builder
-        .singleLine(true)
         .colors {
             captionColor(
                 PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(
@@ -471,64 +465,44 @@ public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
 private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
+        .captionPlacement(TextFieldHelperTextPlacement.Outer)
+        .counterPlacement(TextFieldHelperTextPlacement.Outer)
+        .captionStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .counterStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .singleLine(true)
         .dimensions {
             optionalPadding(4.0.dp)
             helperTextPadding(4.0.dp)
             chipsPadding(6.0.dp)
         }
-        .captionStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .counterStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .captionPlacement(TextFieldHelperTextPlacement.Outer)
-        .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {
-            optionalColor(
-                PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive(),
+            cursorColor(PlasmaGigaTheme.colors.textDefaultAccent.asInteractive())
+            startContentColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            endContentColor(
+                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultSecondaryHover,
+                ),
             )
-            valueColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            endContentColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
+            valueColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            captionColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            optionalColor(PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive())
+            counterColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
             placeholderColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Activated)
                         to PlasmaGigaTheme.colors.textDefaultTertiary,
                 ),
             )
-            indicatorColor(
-                PlasmaGigaTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            startContentColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            endContentColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            endContentColorReadOnly(
-                PlasmaGigaTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
-            )
-            captionColorReadOnly(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            counterColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
             backgroundColorReadOnly(
                 PlasmaGigaTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive(),
             )
-            cursorColor(
-                PlasmaGigaTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            prefixColor(
-                PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive(),
-            )
-            suffixColor(
-                PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive(),
-            )
+            indicatorColor(PlasmaGigaTheme.colors.surfaceDefaultNegative.asInteractive())
+            prefixColor(PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive())
+            suffixColor(PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive())
         }
 
 public val TextField.Xs: WrapperTextFieldXs
@@ -536,73 +510,68 @@ public val TextField.Xs: WrapperTextFieldXs
     @JvmName("WrapperTextFieldXs")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
         .shape(PlasmaGigaTheme.shapes.roundS.adjustBy(all = 0.0.dp))
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .placeholderStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .prefixStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .suffixStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
         .dimensions {
             boxPaddingStart(8.0.dp)
             boxPaddingEnd(8.0.dp)
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
-            boxMinHeight(32.0.dp)
-            alignmentLineHeight(32.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
+            boxMinHeight(32.0.dp)
+            alignmentLineHeight(32.0.dp)
             startContentSize(16.0.dp)
             endContentSize(16.0.dp)
         }
-        .valueStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .prefixStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .suffixStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .placeholderStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldXs)
 
 public val WrapperTextFieldXs.RequiredStart: WrapperTextFieldXsRequiredStart
     @Composable
     @JvmName("WrapperTextFieldXsRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldXsRequiredStart)
 
 public val WrapperTextFieldXs.RequiredEnd: WrapperTextFieldXsRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldXsRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldXsRequiredEnd)
 
 public val WrapperTextFieldXs.OuterLabel: WrapperTextFieldXsOuterLabel
     @Composable
     @JvmName("WrapperTextFieldXsOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
             labelPadding(6.0.dp)
         }
-        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldXsOuterLabel)
 
@@ -610,7 +579,7 @@ public val WrapperTextFieldXsOuterLabel.RequiredStart: WrapperTextFieldXsOuterLa
     @Composable
     @JvmName("WrapperTextFieldXsOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -619,14 +588,13 @@ public val WrapperTextFieldXsOuterLabel.RequiredStart: WrapperTextFieldXsOuterLa
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldXsOuterLabelRequiredStart)
 
 public val WrapperTextFieldXsOuterLabel.RequiredEnd: WrapperTextFieldXsOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldXsOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -635,7 +603,6 @@ public val WrapperTextFieldXsOuterLabel.RequiredEnd: WrapperTextFieldXsOuterLabe
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldXsOuterLabelRequiredEnd)
 
 public val TextField.S: WrapperTextFieldS
@@ -643,71 +610,66 @@ public val TextField.S: WrapperTextFieldS
     @JvmName("WrapperTextFieldS")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .placeholderStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .prefixStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .suffixStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.S.Secondary.style())
         .dimensions {
             boxPaddingStart(12.0.dp)
             boxPaddingEnd(12.0.dp)
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
-            boxMinHeight(40.0.dp)
-            alignmentLineHeight(40.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(6.0.dp)
+            boxMinHeight(40.0.dp)
+            alignmentLineHeight(40.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
         }
-        .valueStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .prefixStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .suffixStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .placeholderStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.S.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldS)
 
 public val WrapperTextFieldS.RequiredStart: WrapperTextFieldSRequiredStart
     @Composable
     @JvmName("WrapperTextFieldSRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldSRequiredStart)
 
 public val WrapperTextFieldS.RequiredEnd: WrapperTextFieldSRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldSRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldSRequiredEnd)
 
 public val WrapperTextFieldS.OuterLabel: WrapperTextFieldSOuterLabel
     @Composable
     @JvmName("WrapperTextFieldSOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .optionalStyle(PlasmaGigaTheme.typography.bodySNormal)
         .dimensions {
             labelPadding(8.0.dp)
         }
-        .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .optionalStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldSOuterLabel)
 
@@ -715,7 +677,7 @@ public val WrapperTextFieldSOuterLabel.RequiredStart: WrapperTextFieldSOuterLabe
     @Composable
     @JvmName("WrapperTextFieldSOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -724,14 +686,13 @@ public val WrapperTextFieldSOuterLabel.RequiredStart: WrapperTextFieldSOuterLabe
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldSOuterLabelRequiredStart)
 
 public val WrapperTextFieldSOuterLabel.RequiredEnd: WrapperTextFieldSOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldSOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -740,26 +701,22 @@ public val WrapperTextFieldSOuterLabel.RequiredEnd: WrapperTextFieldSOuterLabelR
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldSOuterLabelRequiredEnd)
 
 public val WrapperTextFieldS.InnerLabel: WrapperTextFieldSInnerLabel
     @Composable
     @JvmName("WrapperTextFieldSInnerLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(4.0.dp)
             boxPaddingBottom(4.0.dp)
             labelPadding(0.0.dp)
         }
-        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextFieldSInnerLabel)
 
@@ -767,28 +724,26 @@ public val WrapperTextFieldSInnerLabel.RequiredStart: WrapperTextFieldSInnerLabe
     @Composable
     @JvmName("WrapperTextFieldSInnerLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldSInnerLabelRequiredStart)
 
 public val WrapperTextFieldSInnerLabel.RequiredEnd: WrapperTextFieldSInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldSInnerLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldSInnerLabelRequiredEnd)
 
 public val TextField.M: WrapperTextFieldM
@@ -796,71 +751,66 @@ public val TextField.M: WrapperTextFieldM
     @JvmName("WrapperTextFieldM")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
         .shape(PlasmaGigaTheme.shapes.roundM)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .placeholderStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .prefixStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .suffixStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.M.Secondary.style())
         .dimensions {
             boxPaddingStart(14.0.dp)
             boxPaddingEnd(14.0.dp)
             boxPaddingTop(12.0.dp)
             boxPaddingBottom(12.0.dp)
-            boxMinHeight(48.0.dp)
-            alignmentLineHeight(48.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(8.0.dp)
+            boxMinHeight(48.0.dp)
+            alignmentLineHeight(48.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
         }
-        .valueStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .prefixStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .suffixStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .placeholderStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.M.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldM)
 
 public val WrapperTextFieldM.RequiredStart: WrapperTextFieldMRequiredStart
     @Composable
     @JvmName("WrapperTextFieldMRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldMRequiredStart)
 
 public val WrapperTextFieldM.RequiredEnd: WrapperTextFieldMRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldMRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldMRequiredEnd)
 
 public val WrapperTextFieldM.OuterLabel: WrapperTextFieldMOuterLabel
     @Composable
     @JvmName("WrapperTextFieldMOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .optionalStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .dimensions {
             labelPadding(10.0.dp)
         }
-        .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .optionalStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldMOuterLabel)
 
@@ -868,7 +818,7 @@ public val WrapperTextFieldMOuterLabel.RequiredStart: WrapperTextFieldMOuterLabe
     @Composable
     @JvmName("WrapperTextFieldMOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -877,14 +827,13 @@ public val WrapperTextFieldMOuterLabel.RequiredStart: WrapperTextFieldMOuterLabe
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldMOuterLabelRequiredStart)
 
 public val WrapperTextFieldMOuterLabel.RequiredEnd: WrapperTextFieldMOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldMOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -893,26 +842,22 @@ public val WrapperTextFieldMOuterLabel.RequiredEnd: WrapperTextFieldMOuterLabelR
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldMOuterLabelRequiredEnd)
 
 public val WrapperTextFieldM.InnerLabel: WrapperTextFieldMInnerLabel
     @Composable
     @JvmName("WrapperTextFieldMInnerLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(6.0.dp)
             boxPaddingBottom(6.0.dp)
             labelPadding(2.0.dp)
         }
-        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextFieldMInnerLabel)
 
@@ -920,28 +865,26 @@ public val WrapperTextFieldMInnerLabel.RequiredStart: WrapperTextFieldMInnerLabe
     @Composable
     @JvmName("WrapperTextFieldMInnerLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldMInnerLabelRequiredStart)
 
 public val WrapperTextFieldMInnerLabel.RequiredEnd: WrapperTextFieldMInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldMInnerLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldMInnerLabelRequiredEnd)
 
 public val TextField.L: WrapperTextFieldL
@@ -949,71 +892,66 @@ public val TextField.L: WrapperTextFieldL
     @JvmName("WrapperTextFieldL")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = 2.0.dp))
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .placeholderStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .prefixStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .suffixStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
         .dimensions {
             boxPaddingStart(16.0.dp)
             boxPaddingEnd(16.0.dp)
             boxPaddingTop(16.0.dp)
             boxPaddingBottom(16.0.dp)
-            boxMinHeight(56.0.dp)
-            alignmentLineHeight(56.0.dp)
             startContentPadding(8.0.dp)
             endContentPadding(10.0.dp)
+            boxMinHeight(56.0.dp)
+            alignmentLineHeight(56.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
         }
-        .valueStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .prefixStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .suffixStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .placeholderStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldL)
 
 public val WrapperTextFieldL.RequiredStart: WrapperTextFieldLRequiredStart
     @Composable
     @JvmName("WrapperTextFieldLRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldLRequiredStart)
 
 public val WrapperTextFieldL.RequiredEnd: WrapperTextFieldLRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldLRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldLRequiredEnd)
 
 public val WrapperTextFieldL.OuterLabel: WrapperTextFieldLOuterLabel
     @Composable
     @JvmName("WrapperTextFieldLOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .optionalStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .dimensions {
             labelPadding(12.0.dp)
         }
-        .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .optionalStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldLOuterLabel)
 
@@ -1021,7 +959,7 @@ public val WrapperTextFieldLOuterLabel.RequiredStart: WrapperTextFieldLOuterLabe
     @Composable
     @JvmName("WrapperTextFieldLOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -1030,14 +968,13 @@ public val WrapperTextFieldLOuterLabel.RequiredStart: WrapperTextFieldLOuterLabe
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldLOuterLabelRequiredStart)
 
 public val WrapperTextFieldLOuterLabel.RequiredEnd: WrapperTextFieldLOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldLOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -1046,26 +983,22 @@ public val WrapperTextFieldLOuterLabel.RequiredEnd: WrapperTextFieldLOuterLabelR
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldLOuterLabelRequiredEnd)
 
 public val WrapperTextFieldL.InnerLabel: WrapperTextFieldLInnerLabel
     @Composable
     @JvmName("WrapperTextFieldLInnerLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(9.0.dp)
             boxPaddingBottom(9.0.dp)
             labelPadding(2.0.dp)
         }
-        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextFieldLInnerLabel)
 
@@ -1073,28 +1006,26 @@ public val WrapperTextFieldLInnerLabel.RequiredStart: WrapperTextFieldLInnerLabe
     @Composable
     @JvmName("WrapperTextFieldLInnerLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldLInnerLabelRequiredStart)
 
 public val WrapperTextFieldLInnerLabel.RequiredEnd: WrapperTextFieldLInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldLInnerLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldLInnerLabelRequiredEnd)
 
 public val TextField.Xl: WrapperTextFieldXl
@@ -1102,71 +1033,66 @@ public val TextField.Xl: WrapperTextFieldXl
     @JvmName("WrapperTextFieldXl")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .singleLine(true)
         .shape(PlasmaGigaTheme.shapes.roundL)
+        .labelPlacement(TextFieldLabelPlacement.None)
+        .fieldType(TextFieldType.Optional)
+        .valueStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .placeholderStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .prefixStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .suffixStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .chipGroupStyle(EmbeddedChipGroupDense.Xl.Secondary.style())
         .dimensions {
             boxPaddingStart(18.0.dp)
             boxPaddingEnd(18.0.dp)
             boxPaddingTop(20.0.dp)
             boxPaddingBottom(20.0.dp)
-            boxMinHeight(64.0.dp)
-            alignmentLineHeight(64.0.dp)
             startContentPadding(8.0.dp)
             endContentPadding(10.0.dp)
+            boxMinHeight(64.0.dp)
+            alignmentLineHeight(64.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
         }
-        .valueStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .prefixStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .suffixStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .placeholderStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.Xl.Secondary.style())
-        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldXl)
 
 public val WrapperTextFieldXl.RequiredStart: WrapperTextFieldXlRequiredStart
     @Composable
     @JvmName("WrapperTextFieldXlRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldXlRequiredStart)
 
 public val WrapperTextFieldXl.RequiredEnd: WrapperTextFieldXlRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldXlRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldXlRequiredEnd)
 
 public val WrapperTextFieldXl.OuterLabel: WrapperTextFieldXlOuterLabel
     @Composable
     @JvmName("WrapperTextFieldXlOuterLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
+        .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .optionalStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .dimensions {
             labelPadding(12.0.dp)
         }
-        .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .optionalStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperTextFieldXlOuterLabel)
 
@@ -1174,7 +1100,7 @@ public val WrapperTextFieldXlOuterLabel.RequiredStart: WrapperTextFieldXlOuterLa
     @Composable
     @JvmName("WrapperTextFieldXlOuterLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -1183,14 +1109,13 @@ public val WrapperTextFieldXlOuterLabel.RequiredStart: WrapperTextFieldXlOuterLa
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldXlOuterLabelRequiredStart)
 
 public val WrapperTextFieldXlOuterLabel.RequiredEnd: WrapperTextFieldXlOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldXlOuterLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             indicatorDimensions {
@@ -1199,26 +1124,22 @@ public val WrapperTextFieldXlOuterLabel.RequiredEnd: WrapperTextFieldXlOuterLabe
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldXlOuterLabelRequiredEnd)
 
 public val WrapperTextFieldXl.InnerLabel: WrapperTextFieldXlInnerLabel
     @Composable
     @JvmName("WrapperTextFieldXlInnerLabel")
     get() = builder
-        .singleLine(true)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
+        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
             boxPaddingTop(13.0.dp)
             boxPaddingBottom(13.0.dp)
             labelPadding(2.0.dp)
         }
-        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
-            labelColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextFieldXlInnerLabel)
 
@@ -1226,26 +1147,24 @@ public val WrapperTextFieldXlInnerLabel.RequiredStart: WrapperTextFieldXlInnerLa
     @Composable
     @JvmName("WrapperTextFieldXlInnerLabelRequiredStart")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredStart)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldXlInnerLabelRequiredStart)
 
 public val WrapperTextFieldXlInnerLabel.RequiredEnd: WrapperTextFieldXlInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldXlInnerLabelRequiredEnd")
     get() = builder
-        .singleLine(true)
+        .fieldType(TextFieldType.RequiredEnd)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Inside)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldXlInnerLabelRequiredEnd)

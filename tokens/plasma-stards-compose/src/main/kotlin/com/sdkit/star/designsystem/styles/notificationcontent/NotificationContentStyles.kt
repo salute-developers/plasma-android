@@ -101,15 +101,9 @@ public val WrapperNotificationContentView.Default: WrapperNotificationContentTer
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            textColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            titleColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -117,15 +111,9 @@ public val WrapperNotificationContentView.Positive: WrapperNotificationContentTe
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                StarDsTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            textColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                StarDsTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            titleColor(StarDsTheme.colors.textDefaultPositive.asInteractive())
+            textColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(StarDsTheme.colors.textDefaultPositive.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -133,15 +121,9 @@ public val WrapperNotificationContentView.Negative: WrapperNotificationContentTe
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                StarDsTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            textColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                StarDsTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            titleColor(StarDsTheme.colors.textDefaultNegative.asInteractive())
+            textColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(StarDsTheme.colors.textDefaultNegative.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -149,15 +131,9 @@ public val WrapperNotificationContentView.Warning: WrapperNotificationContentTer
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                StarDsTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            textColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                StarDsTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            titleColor(StarDsTheme.colors.textDefaultWarning.asInteractive())
+            textColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(StarDsTheme.colors.textDefaultWarning.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -165,15 +141,9 @@ public val WrapperNotificationContentView.Info: WrapperNotificationContentTermin
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                StarDsTheme.colors.textDefaultInfo.asInteractive(),
-            )
-            textColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            iconColor(
-                StarDsTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            titleColor(StarDsTheme.colors.textDefaultInfo.asInteractive())
+            textColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(StarDsTheme.colors.textDefaultInfo.asInteractive())
         }
         .wrap(::WrapperNotificationContentTerminate)
 
@@ -195,8 +165,8 @@ public val NotificationContent.ButtonStretch: WrapperNotificationContentButtonSt
     @JvmName("WrapperNotificationContentButtonStretch")
     get() = NotificationContentStyle.builder(this)
         .invariantProps
-        .buttonLayout(NotificationContentButtonLayout.Stretch)
         .buttonGroupStyle(BasicButtonGroup.Xs.Dense.Default.style())
+        .buttonLayout(NotificationContentButtonLayout.Stretch)
         .dimensions {
             contentStartPadding(
                 dimensionResource(R.dimen.sdkit_cmp_notification_content_content_start_padding_button_stretch),
@@ -252,8 +222,8 @@ public val NotificationContent.NoButtonStretch: WrapperNotificationContentNoButt
     @JvmName("WrapperNotificationContentNoButtonStretch")
     get() = NotificationContentStyle.builder(this)
         .invariantProps
-        .buttonLayout(NotificationContentButtonLayout.Normal)
         .buttonGroupStyle(BasicButtonGroup.Xs.Dense.Default.style())
+        .buttonLayout(NotificationContentButtonLayout.Normal)
         .dimensions {
             contentTopPadding(
                 dimensionResource(R.dimen.sdkit_cmp_notification_content_content_top_padding_no_button_stretch),

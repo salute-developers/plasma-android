@@ -9,12 +9,13 @@ package com.sdds.plasma.giga.styles.chip
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -112,35 +113,35 @@ public val WrapperChipView.Default: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
-                ),
-            )
-            contentStartColor(
-                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            contentEndColor(
-                PlasmaGigaTheme.colors.textInverseSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInversePrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInversePrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(PlasmaGigaTheme.colors.textInverseSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInverseSecondaryHover),
                 ),
             )
         }
@@ -151,35 +152,35 @@ public val WrapperChipView.Accent: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
-                ),
-            )
-            contentStartColor(
-                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            contentEndColor(
-                PlasmaGigaTheme.colors.textInverseSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInversePrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInversePrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(PlasmaGigaTheme.colors.textInverseSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textInverseSecondaryHover),
                 ),
             )
         }
@@ -190,35 +191,35 @@ public val WrapperChipView.Negative: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultNegative.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultNegativeHover,
-                ),
-            )
-            contentStartColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegativeHover),
                 ),
             )
             labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -229,35 +230,35 @@ public val WrapperChipView.Positive: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultPositive.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositive).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultPositiveHover,
-                ),
-            )
-            contentStartColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositiveActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositiveHover),
                 ),
             )
             labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -268,35 +269,35 @@ public val WrapperChipView.Secondary: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover,
-                ),
-            )
-            contentStartColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover),
                 ),
             )
             labelColor(
-                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryHover),
                 ),
             )
         }
@@ -307,35 +308,35 @@ public val WrapperChipView.Warning: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultWarning.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultWarningHover,
-                ),
-            )
-            contentStartColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultWarningHover),
                 ),
             )
             labelColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -355,12 +356,12 @@ public val Chip.L: WrapperChipL
         .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .dimensions {
             height(48.0.dp)
-            paddingStart(16.0.dp)
-            paddingEnd(16.0.dp)
-            contentStartPadding(8.0.dp)
-            contentEndPadding(8.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(8.0.dp)
+            contentEndPadding(8.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
         }
         .wrap(::WrapperChipL)
 
@@ -380,12 +381,12 @@ public val Chip.M: WrapperChipM
         .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .dimensions {
             height(40.0.dp)
-            paddingStart(14.0.dp)
-            paddingEnd(14.0.dp)
-            contentStartPadding(6.0.dp)
-            contentEndPadding(6.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(6.0.dp)
+            contentEndPadding(6.0.dp)
+            paddingStart(14.0.dp)
+            paddingEnd(14.0.dp)
         }
         .wrap(::WrapperChipM)
 
@@ -405,12 +406,12 @@ public val Chip.S: WrapperChipS
         .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
         .dimensions {
             height(32.0.dp)
-            paddingStart(12.0.dp)
-            paddingEnd(12.0.dp)
-            contentStartPadding(4.0.dp)
-            contentEndPadding(4.0.dp)
             contentStartSize(16.0.dp)
             contentEndSize(16.0.dp)
+            contentStartPadding(4.0.dp)
+            contentEndPadding(4.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(12.0.dp)
         }
         .wrap(::WrapperChipS)
 
@@ -430,12 +431,12 @@ public val Chip.Xs: WrapperChipXs
         .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
             height(24.0.dp)
-            paddingStart(10.0.dp)
-            paddingEnd(10.0.dp)
-            contentStartPadding(2.0.dp)
-            contentEndPadding(2.0.dp)
             contentStartSize(12.0.dp)
             contentEndSize(12.0.dp)
+            contentStartPadding(2.0.dp)
+            contentEndPadding(2.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(10.0.dp)
         }
         .wrap(::WrapperChipXs)
 

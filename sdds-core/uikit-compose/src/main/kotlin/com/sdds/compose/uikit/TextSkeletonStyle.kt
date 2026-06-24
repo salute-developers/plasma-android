@@ -8,10 +8,14 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.transform
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -29,7 +33,13 @@ interface TextSkeletonStyle : Style {
     /**
      * Форма элементов компонента
      */
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
     val shape: Shape
+
+    /**
+     * Форма компонента
+     */
+    val shapes: StatefulValue<Shape>
 
     /**
      * Градиент шиммера
@@ -44,7 +54,13 @@ interface TextSkeletonStyle : Style {
     /**
      * Стиль текста
      */
+    @Deprecated("Use textStyles", ReplaceWith("textStyles"))
     val textStyle: TextStyle
+
+    /**
+     * Стиль текста
+     */
+    val textStyles: StatefulValue<TextStyle>
 
     companion object {
         /**
@@ -58,12 +74,19 @@ interface TextSkeletonStyle : Style {
 /**
  * Билдер стиля [TextSkeletonStyle]
  */
+@ApiInfo
 interface TextSkeletonStyleBuilder : StyleBuilder<TextSkeletonStyle> {
 
     /**
      * Устанавливает форму [shape] элементов компонента
      */
-    fun shape(shape: CornerBasedShape): TextSkeletonStyleBuilder
+    fun shape(shape: CornerBasedShape): TextSkeletonStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает форму [shape] элементов компонента
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): TextSkeletonStyleBuilder
 
     /**
      * Устанавливает градиент [gradient] шиммера
@@ -80,7 +103,13 @@ interface TextSkeletonStyleBuilder : StyleBuilder<TextSkeletonStyle> {
      * Устанавливает градиент [gradient] шиммера
      */
     fun gradient(gradient: Color): TextSkeletonStyleBuilder =
-        gradient(SolidColor(gradient))
+        gradient(gradient.asStatefulBrush())
+
+    /**
+     * Устанавливает градиент [gradient] шиммера
+     */
+    fun gradient(gradient: InteractiveColor): TextSkeletonStyleBuilder =
+        gradient(gradient.asStatefulBrush())
 
     /**
      * Устанавливает время в мс [duration], за которое градиент перемещается через всю ширину компонента
@@ -91,24 +120,36 @@ interface TextSkeletonStyleBuilder : StyleBuilder<TextSkeletonStyle> {
      * Устанавливает стиль текста [textStyle]
      * @see TextSkeletonStyle.textStyle
      */
-    fun textStyle(textStyle: TextStyle): TextSkeletonStyleBuilder
+    fun textStyle(textStyle: TextStyle): TextSkeletonStyleBuilder =
+        textStyle(textStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стиль текста [textStyle]
+     * @see TextSkeletonStyle.textStyle
+     */
+    fun textStyle(textStyle: StatefulValue<TextStyle>): TextSkeletonStyleBuilder
 }
 
 private class DefaultTextSkeletonStyle(
-    override val shape: CornerBasedShape,
     override val gradient: StatefulValue<Brush>,
     override val duration: Int,
-    override val textStyle: TextStyle,
+    override val shapes: StatefulValue<Shape>,
+    override val textStyles: StatefulValue<TextStyle>,
 ) : TextSkeletonStyle {
 
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = (shapes.getDefaultValue() as? CornerBasedShape) ?: RoundedCornerShape(15)
+
+    @Deprecated("Use textStyles", ReplaceWith("textStyles"))
+    override val textStyle: TextStyle = textStyles.getDefaultValue()
     class Builder : TextSkeletonStyleBuilder {
-        private var shape: CornerBasedShape? = null
+        private var shapes: StatefulValue<CornerBasedShape>? = null
         private var gradient: StatefulValue<Brush>? = null
         private var duration: Int? = null
-        private var textStyle: TextStyle? = null
+        private var textStyles: StatefulValue<TextStyle>? = null
 
-        override fun shape(shape: CornerBasedShape) = apply {
-            this.shape = shape
+        override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
+            this.shapes = shape
         }
 
         override fun gradient(gradient: StatefulValue<Brush>) = apply {
@@ -119,13 +160,13 @@ private class DefaultTextSkeletonStyle(
             this.duration = duration
         }
 
-        override fun textStyle(textStyle: TextStyle) = apply {
-            this.textStyle = textStyle
+        override fun textStyle(textStyle: StatefulValue<TextStyle>) = apply {
+            this.textStyles = textStyle
         }
 
         override fun style(): TextSkeletonStyle {
             return DefaultTextSkeletonStyle(
-                shape = shape ?: RoundedCornerShape(15),
+                shapes = shapes?.transform { it } ?: RoundedCornerShape(15).asStatefulValue(),
                 gradient = gradient ?: Brush.linearGradient(
                     0f to Color.Transparent,
                     0.5f to Color.LightGray,
@@ -134,7 +175,7 @@ private class DefaultTextSkeletonStyle(
                     end = Offset(Float.POSITIVE_INFINITY, 0f),
                 ).asStatefulValue(),
                 duration = duration ?: 5000,
-                textStyle = textStyle ?: TextStyle.Default,
+                textStyles = textStyles ?: TextStyle.Default.asStatefulValue(),
             )
         }
     }

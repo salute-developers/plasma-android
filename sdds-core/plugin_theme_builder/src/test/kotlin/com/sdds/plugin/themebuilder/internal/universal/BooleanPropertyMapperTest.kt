@@ -43,6 +43,33 @@ class BooleanPropertyMapperTest {
         )
     }
 
+    @Test
+    fun `возвращает вызов билдера с кастомным stateEnum`() {
+        val underTest = BooleanPropertyMapper(
+            stateEnum = StateEnum(
+                qualifiedName = "com.sdds.compose.uikit.SwitchStates",
+                simpleName = "SwitchStates",
+                values = listOf(EnumValueInfo(name = "Checked", configName = "checked")),
+            ),
+        )
+
+        val builderCall = underTest.map(
+            meta = booleanParam(methodName = "enabled"),
+            tokenValue = Value(
+                value = "true",
+                states = listOf(
+                    StringState(state = listOf("checked"), value = "false"),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "enabled(true.asStatefulValue(setOf(SwitchStates.Checked) to false))",
+            builderCall,
+        )
+    }
+
     private fun booleanParam(methodName: String) = BooleanPropertyMeta(
         id = "",
         methodName = methodName,

@@ -86,7 +86,8 @@ public val Image.Ratio1x2: WrapperImageRatio1x2
     @JvmName("WrapperImageRatio1x2")
     get() = ImageStyle.builder(this)
         .invariantProps
-        .ratio(0.5f)
+        .width(1.0f)
+        .height(2.0f)
         .wrap(::WrapperImageRatio1x2)
 
 public val Image.Ratio9x16: WrapperImageRatio9x16
@@ -94,7 +95,8 @@ public val Image.Ratio9x16: WrapperImageRatio9x16
     @JvmName("WrapperImageRatio9x16")
     get() = ImageStyle.builder(this)
         .invariantProps
-        .ratio(0.5625f)
+        .width(9.0f)
+        .height(16.0f)
         .wrap(::WrapperImageRatio9x16)
 
 public val Image.Ratio3x4: WrapperImageRatio3x4
@@ -102,7 +104,8 @@ public val Image.Ratio3x4: WrapperImageRatio3x4
     @JvmName("WrapperImageRatio3x4")
     get() = ImageStyle.builder(this)
         .invariantProps
-        .ratio(0.75f)
+        .width(3.0f)
+        .height(4.0f)
         .wrap(::WrapperImageRatio3x4)
 
 public val Image.Ratio2x1: WrapperImageRatio2x1
@@ -110,7 +113,8 @@ public val Image.Ratio2x1: WrapperImageRatio2x1
     @JvmName("WrapperImageRatio2x1")
     get() = ImageStyle.builder(this)
         .invariantProps
-        .ratio(2.0f)
+        .width(2.0f)
+        .height(1.0f)
         .wrap(::WrapperImageRatio2x1)
 
 public val Image.Ratio16x9: WrapperImageRatio16x9
@@ -118,7 +122,8 @@ public val Image.Ratio16x9: WrapperImageRatio16x9
     @JvmName("WrapperImageRatio16x9")
     get() = ImageStyle.builder(this)
         .invariantProps
-        .ratio(1.7777778f)
+        .width(16.0f)
+        .height(9.0f)
         .wrap(::WrapperImageRatio16x9)
 
 public val Image.Ratio4x3: WrapperImageRatio4x3
@@ -126,7 +131,8 @@ public val Image.Ratio4x3: WrapperImageRatio4x3
     @JvmName("WrapperImageRatio4x3")
     get() = ImageStyle.builder(this)
         .invariantProps
-        .ratio(1.3333334f)
+        .width(4.0f)
+        .height(3.0f)
         .wrap(::WrapperImageRatio4x3)
 
 public val Image.Ratio1x1: WrapperImageRatio1x1
@@ -134,5 +140,6 @@ public val Image.Ratio1x1: WrapperImageRatio1x1
     @JvmName("WrapperImageRatio1x1")
     get() = ImageStyle.builder(this)
         .invariantProps
-        .ratio(1.0f)
+        .width(1.0f)
+        .height(1.0f)
         .wrap(::WrapperImageRatio1x1)

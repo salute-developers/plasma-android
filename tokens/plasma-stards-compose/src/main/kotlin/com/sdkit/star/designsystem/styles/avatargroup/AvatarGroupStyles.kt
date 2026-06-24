@@ -43,9 +43,9 @@ public val AvatarGroup.S: WrapperAvatarGroupS
     @JvmName("WrapperAvatarGroupS")
     get() = AvatarGroupStyle.builder(this)
         .invariantProps
-        .dimensions {
-            itemSpacing(dimensionResource(R.dimen.sdkit_cmp_avatar_group_itemSpacing_s))
-            itemOffset(dimensionResource(R.dimen.sdkit_cmp_avatar_group_itemOffset_s))
-        }
         .avatarStyle(Avatar.S.style())
+        .dimensions {
+            itemOffset(dimensionResource(R.dimen.sdkit_cmp_avatar_group_item_offset_s))
+            itemSpacing(dimensionResource(R.dimen.sdkit_cmp_avatar_group_item_spacing_s))
+        }
         .wrap(::WrapperAvatarGroupS)

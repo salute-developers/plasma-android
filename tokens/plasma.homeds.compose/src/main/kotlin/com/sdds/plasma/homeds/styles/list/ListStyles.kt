@@ -8,11 +8,11 @@
 package com.sdds.plasma.homeds.styles.list
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.ListStyleBuilder
-import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -130,6 +130,7 @@ public val WrapperListS.HasBackground: WrapperListSHasBackground
     @JvmName("WrapperListSHasBackground")
     get() = builder
         .listItemStyle(ListItem.S.style())
+        .shape(PlasmaHomeDsTheme.shapes.roundXl)
         .dimensions {
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
@@ -137,11 +138,8 @@ public val WrapperListS.HasBackground: WrapperListSHasBackground
             paddingBottom(8.0.dp)
         }
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue())
         }
-        .shape(PlasmaHomeDsTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
         .wrap(::WrapperListSHasBackground)
 
 public val List.M: WrapperListM
@@ -173,6 +171,7 @@ public val WrapperListM.HasBackground: WrapperListMHasBackground
     @JvmName("WrapperListMHasBackground")
     get() = builder
         .listItemStyle(ListItem.M.style())
+        .shape(PlasmaHomeDsTheme.shapes.roundXl)
         .dimensions {
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
@@ -180,9 +179,6 @@ public val WrapperListM.HasBackground: WrapperListMHasBackground
             paddingBottom(8.0.dp)
         }
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue())
         }
-        .shape(PlasmaHomeDsTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
         .wrap(::WrapperListMHasBackground)

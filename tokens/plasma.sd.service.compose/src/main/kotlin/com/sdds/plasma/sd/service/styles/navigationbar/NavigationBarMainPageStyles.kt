@@ -81,45 +81,31 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
         .textStyle(PlasmaSdServiceTheme.typography.bodyLBold)
         .titleStyle(
             PlasmaSdServiceTheme.typography.headerH2Normal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    PlasmaSdServiceTheme.typography.bodyMNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to PlasmaSdServiceTheme.typography.bodyMNormal,
             ),
         )
         .descriptionStyle(
             PlasmaSdServiceTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    PlasmaSdServiceTheme.typography.bodyXsNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to PlasmaSdServiceTheme.typography.bodyXsNormal,
             ),
         )
         .colors {
-            textColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            actionStartColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            actionEndColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            actionStartColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            actionEndColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            titleColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            descriptionColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            textBlockTopMargin(16.0.dp)
+            horizontalSpacing(16.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
-            textBlockTopMargin(16.0.dp)
-            horizontalSpacing(16.0.dp)
-            descriptionPadding(
-                12.0.dp.asStatefulValue(
-                    setOf(NavigationBarTextPlacement.Inline) to 4.0.dp,
-                ),
-            )
+            descriptionPadding(12.0.dp.asStatefulValue(setOf(NavigationBarTextPlacement.Inline) to 4.0.dp))
         }
 
 public val NavigationBarMainPage.NoBackground: WrapperNavigationBarMainPageNoBackground
@@ -128,9 +114,7 @@ public val NavigationBarMainPage.NoBackground: WrapperNavigationBarMainPageNoBac
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive())
         }
         .wrap(::WrapperNavigationBarMainPageNoBackground)
 
@@ -148,9 +132,7 @@ public val NavigationBarMainPage.HasBackground: WrapperNavigationBarMainPageHasB
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
+            backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive())
         }
         .wrap(::WrapperNavigationBarMainPageHasBackground)
 

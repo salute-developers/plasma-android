@@ -10,6 +10,9 @@ internal data class ComponentMeta(
     val resolvedTypes: List<String>,
     val stateEnum: StateEnum? = null,
     val params: List<PropertyMeta>,
+    val packageName: String = "",
+    val styleQualifiedName: String = "",
+    val builderFunName: String = "",
 )
 
 @Serializable
@@ -55,6 +58,9 @@ internal data class ColorPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    val valueQualifiedType: String = "",
+    val hasInteractiveColorOverload: Boolean = false,
+    val hasBrushOverload: Boolean = false,
 ) : PropertyMeta
 
 @Serializable
@@ -154,5 +160,16 @@ internal data class ValuePropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
-    val values: List<String>,
+    val values: List<EnumValueInfo>,
+) : PropertyMeta
+
+@Serializable
+@SerialName("unknown")
+internal data class UnknownPropertyMeta(
+    override val id: String,
+    override val methodName: String,
+    override val paramName: String,
+    override val paramQualifiedType: String,
+    override val paramSimpleType: String,
+    override val group: String,
 ) : PropertyMeta

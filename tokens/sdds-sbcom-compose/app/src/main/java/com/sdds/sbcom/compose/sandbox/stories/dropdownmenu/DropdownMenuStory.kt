@@ -127,7 +127,7 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
                         dimBackground = true,
                         scrollState = scrollState,
                         positionStrategy = state.positionStrategy,
-                        safeAreaPadding = PaddingValues(16.dp),
+                        safeAreaPadding = PaddingValues(106.dp),
                     ) {
                         DropdownContent(
                             state = state,
@@ -152,7 +152,7 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
                         clipWidth = true,
                         scrollState = scrollState,
                         positionStrategy = state.positionStrategy,
-                        safeAreaPadding = PaddingValues(16.dp),
+                        safeAreaPadding = PaddingValues(110.dp),
                     ) {
                         DropdownContent(
                             state = state,

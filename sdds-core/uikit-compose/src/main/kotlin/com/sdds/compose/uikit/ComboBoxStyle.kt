@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -54,6 +55,7 @@ interface ComboBoxStyle : Style {
  *
  * @see ComboBoxStyle
  */
+@ApiInfo
 interface ComboBoxStyleBuilder : StyleBuilder<ComboBoxStyle> {
 
     /**

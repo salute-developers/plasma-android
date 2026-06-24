@@ -5,12 +5,20 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -44,6 +52,11 @@ interface FileStyle : Style {
      * Размеры и отступы компонента
      */
     val dimensions: FileDimensions
+
+    /**
+     * Форма компонента
+     */
+    val shape: StatefulValue<Shape>
 
     /**
      * Расположение прогресса [FileProgressPlacement]
@@ -81,6 +94,7 @@ interface FileStyle : Style {
 /**
  * Билдер стиля компонента [File]
  */
+@ApiInfo
 interface FileStyleBuilder : StyleBuilder<FileStyle> {
 
     /**
@@ -97,6 +111,17 @@ interface FileStyleBuilder : StyleBuilder<FileStyle> {
      * Устанавливает стиль встроенного прогресса [circularProgressBarStyle]
      */
     fun circularProgressBarStyle(circularProgressBarStyle: CircularProgressBarStyle): FileStyleBuilder
+
+    /**
+     * Устанавливает форму компонента [shape]
+     */
+    fun shape(shape: Shape): FileStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает форму компонента [shape]
+     */
+    fun shape(shape: StatefulValue<Shape>): FileStyleBuilder
 
     /**
      * Устанавливает расположение прогресса [progressPlacement]
@@ -136,6 +161,7 @@ private data class DefaultFileStyle(
     override val descriptionStyle: TextStyle,
     override val colors: FileColors,
     override val dimensions: FileDimensions,
+    override val shape: StatefulValue<Shape>,
     override val progressPlacement: FileProgressPlacement,
     override val actionPlacement: FileActionPlacement,
     override val actionButtonStyle: ButtonStyle,
@@ -148,6 +174,7 @@ private data class DefaultFileStyle(
         private var actionButtonStyle: ButtonStyle? = null
         private var progressBarStyle: ProgressBarStyle? = null
         private var circularProgressBarStyle: CircularProgressBarStyle? = null
+        private var shape: StatefulValue<Shape>? = null
         private var labelStyle: TextStyle? = null
 
         private var descriptionStyle: TextStyle? = null
@@ -175,6 +202,10 @@ private data class DefaultFileStyle(
             this.actionPlacement = actionPlacement
         }
 
+        override fun shape(shape: StatefulValue<Shape>) = apply {
+            this.shape = shape
+        }
+
         override fun labelStyle(labelStyle: TextStyle): FileStyleBuilder = apply {
             this.labelStyle = labelStyle
         }
@@ -196,6 +227,7 @@ private data class DefaultFileStyle(
             descriptionStyle = descriptionStyle ?: TextStyle.Default,
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
+            shape = shape ?: RectangleShape.asStatefulValue(),
             progressPlacement = progressPlacement ?: FileProgressPlacement.Inner,
             actionPlacement = actionPlacement ?: FileActionPlacement.End,
             actionButtonStyle = actionButtonStyle ?: ButtonStyle.iconButtonBuilder().style(),
@@ -210,6 +242,11 @@ private data class DefaultFileStyle(
  */
 @Immutable
 interface FileColors {
+    /**
+     * Кисть фона компонента
+     */
+    val backgroundColor: StatefulValue<Brush>
+
     /**
      * Цвет основного текста
      */
@@ -237,6 +274,29 @@ interface FileColors {
  * Билдер для [FileColors]
  */
 interface FileColorsBuilder {
+    /**
+     * Устанавливает цвет фона
+     */
+    fun backgroundColor(backgroundColor: Color): FileColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет фона
+     */
+    fun backgroundColor(backgroundColor: InteractiveColor): FileColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть фона
+     */
+    fun backgroundColor(backgroundBrush: Brush): FileColorsBuilder =
+        backgroundColor(backgroundBrush.asStatefulValue())
+
+    /**
+     * Устанавливает кисть фона
+     */
+    fun backgroundColor(backgroundBrush: StatefulValue<Brush>): FileColorsBuilder
+
     /**
      * Устанавливает цвет основного текста [labelColor]
      */
@@ -276,16 +336,22 @@ interface FileColorsBuilder {
 }
 
 private data class DefaultFileColors(
+    override val backgroundColor: StatefulValue<Brush>,
     override val labelColor: InteractiveColor,
     override val descriptionColor: InteractiveColor,
     override val iconColor: InteractiveColor,
 ) : FileColors {
     class Builder : FileColorsBuilder {
+        private var backgroundBrush: StatefulValue<Brush>? = null
+
         private var labelColor: InteractiveColor? = null
 
         private var descriptionColor: InteractiveColor? = null
 
         private var iconColor: InteractiveColor? = null
+
+        override fun backgroundColor(backgroundBrush: StatefulValue<Brush>): FileColorsBuilder =
+            apply { this.backgroundBrush = backgroundBrush }
 
         override fun labelColor(labelColor: InteractiveColor): FileColorsBuilder = apply {
             this.labelColor = labelColor
@@ -299,6 +365,7 @@ private data class DefaultFileColors(
         }
 
         override fun build(): FileColors = DefaultFileColors(
+            backgroundColor = backgroundBrush ?: Color.Transparent.asStatefulBrush(),
             labelColor = labelColor ?: Color.Black.asInteractive(),
             descriptionColor = descriptionColor ?: Color.Black.asInteractive(),
             iconColor = iconColor ?: Color.Black.asInteractive(),
@@ -311,6 +378,26 @@ private data class DefaultFileColors(
  */
 @Immutable
 interface FileDimensions {
+    /**
+     * Внешний отступ компонента в начале
+     */
+    val paddingStart: StatefulValue<Dp>
+
+    /**
+     * Внешний отступ компонента сверху
+     */
+    val paddingTop: StatefulValue<Dp>
+
+    /**
+     * Внешний отступ компонента в конце
+     */
+    val paddingEnd: StatefulValue<Dp>
+
+    /**
+     * Внешний отступ компонента снизу
+     */
+    val paddingBottom: StatefulValue<Dp>
+
     /**
      * Отступ контента в начале
      */
@@ -344,6 +431,50 @@ interface FileDimensions {
  */
 interface FileDimensionsBuilder {
     /**
+     * Устанавливает внешний отступ компонента в начале [paddingStart]
+     */
+    fun paddingStart(paddingStart: Dp): FileDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает внешний отступ компонента в начале [paddingStart]
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): FileDimensionsBuilder
+
+    /**
+     * Устанавливает внешний отступ компонента сверху [paddingTop]
+     */
+    fun paddingTop(paddingTop: Dp): FileDimensionsBuilder =
+        paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает внешний отступ компонента сверху [paddingTop]
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): FileDimensionsBuilder
+
+    /**
+     * Устанавливает внешний отступ компонента в конце [paddingEnd]
+     */
+    fun paddingEnd(paddingEnd: Dp): FileDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает внешний отступ компонента в конце [paddingEnd]
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): FileDimensionsBuilder
+
+    /**
+     * Устанавливает внешний отступ компонента снизу [paddingBottom]
+     */
+    fun paddingBottom(paddingBottom: Dp): FileDimensionsBuilder =
+        paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает внешний отступ компонента снизу [paddingBottom]
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): FileDimensionsBuilder
+
+    /**
      * Устанавливает отступ контента в начале [startContentPadding]
      */
     fun startContentPadding(startContentPadding: Dp): FileDimensionsBuilder
@@ -370,12 +501,24 @@ interface FileDimensionsBuilder {
 }
 
 private data class DefaultFileDimensions(
+    override val paddingStart: StatefulValue<Dp>,
+    override val paddingTop: StatefulValue<Dp>,
+    override val paddingEnd: StatefulValue<Dp>,
+    override val paddingBottom: StatefulValue<Dp>,
     override val startContentPadding: Dp,
     override val endContentPadding: Dp,
     override val bottomContentPadding: Dp,
     override val descriptionPadding: Dp,
 ) : FileDimensions {
     class Builder : FileDimensionsBuilder {
+        private var paddingStart: StatefulValue<Dp>? = null
+
+        private var paddingTop: StatefulValue<Dp>? = null
+
+        private var paddingEnd: StatefulValue<Dp>? = null
+
+        private var paddingBottom: StatefulValue<Dp>? = null
+
         private var startContentPadding: Dp? = null
 
         private var endContentPadding: Dp? = null
@@ -383,6 +526,22 @@ private data class DefaultFileDimensions(
         private var bottomContentPadding: Dp? = null
 
         private var descriptionPadding: Dp? = null
+
+        override fun paddingStart(paddingStart: StatefulValue<Dp>): FileDimensionsBuilder = apply {
+            this.paddingStart = paddingStart
+        }
+
+        override fun paddingTop(paddingTop: StatefulValue<Dp>): FileDimensionsBuilder = apply {
+            this.paddingTop = paddingTop
+        }
+
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>): FileDimensionsBuilder = apply {
+            this.paddingEnd = paddingEnd
+        }
+
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>): FileDimensionsBuilder = apply {
+            this.paddingBottom = paddingBottom
+        }
 
         override fun startContentPadding(startContentPadding: Dp): FileDimensionsBuilder = apply {
             this.startContentPadding = startContentPadding
@@ -400,6 +559,10 @@ private data class DefaultFileDimensions(
         }
 
         override fun build(): FileDimensions = DefaultFileDimensions(
+            paddingStart = paddingStart ?: 0.dp.asStatefulValue(),
+            paddingTop = paddingTop ?: 0.dp.asStatefulValue(),
+            paddingEnd = paddingEnd ?: 0.dp.asStatefulValue(),
+            paddingBottom = paddingBottom ?: 0.dp.asStatefulValue(),
             startContentPadding = startContentPadding ?: 8.dp,
             endContentPadding = endContentPadding ?: 8.dp,
             bottomContentPadding = bottomContentPadding ?: 8.dp,

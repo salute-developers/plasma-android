@@ -17,7 +17,7 @@ internal abstract class PropertyMapper<
     private val customStateValues: Map<String, String> = stateEnum
         ?.values
         ?.associate { value ->
-            value.configName to "${stateEnum.simpleName}.${value.name}"
+            value.configName.lowercase() to "${stateEnum.simpleName}.${value.name}"
         }
         ?: emptyMap()
 
@@ -66,7 +66,18 @@ internal abstract class PropertyMapper<
 
     protected fun String.toCamelCase(): String {
         val segments = split(".", "-", "_")
-        return segments.joinToString("") { it.capitalized() }
+        val result = StringBuilder()
+        for (i in segments.indices) {
+            val seg = segments[i]
+            val prev = segments.getOrNull(i - 1)
+            if (seg.all { it.isDigit() } && prev != null && prev.all { it.isDigit() }) {
+                result.append("x")
+                result.append(seg)
+            } else {
+                result.append(seg.capitalized())
+            }
+        }
+        return result.toString()
     }
 
     private fun StatefulType.getAsInteractiveParameters(
@@ -74,22 +85,25 @@ internal abstract class PropertyMapper<
         variationId: String,
     ): String {
         return states
-            ?.joinToString(separator = ", ") { state ->
+            ?.mapIndexed { index, state ->
                 state.getStateParameter(
                     meta = meta,
                     suffix = buildResSuffix(
                         variationId = variationId,
                         states = state.state,
+                        stateIndex = index,
                     ),
                     token = this,
                 )
             }
+            ?.joinToString(separator = ", ")
             .orEmpty()
     }
 
-    private fun buildResSuffix(
+    protected open fun buildResSuffix(
         variationId: String,
         states: List<String>,
+        stateIndex: Int,
     ): String {
         return buildList {
             if (variationId.isNotBlank()) add(variationId)
@@ -115,7 +129,7 @@ internal abstract class PropertyMapper<
 
     protected fun List<String>.toStateEnums(): String {
         return mapNotNull { state ->
-            customStateValues[state] ?: interactiveStateValues[state]
+            customStateValues[state.lowercase()] ?: interactiveStateValues[state]
         }.joinToString()
     }
 

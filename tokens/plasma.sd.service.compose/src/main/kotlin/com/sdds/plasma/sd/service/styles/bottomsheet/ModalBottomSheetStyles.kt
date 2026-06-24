@@ -41,22 +41,18 @@ public val ModalBottomSheet.Default: WrapperModalBottomSheetDefault
     get() = ModalBottomSheetStyle.builder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundXl)
         .handleShape(CircleShape)
+        .handlePlacement(BottomSheetHandlePlacement.Auto)
+        .colors {
+            backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive())
+            handleColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidTertiary.asInteractive())
+        }
         .dimensions {
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
-            handleHeight(4.0.dp)
-            handleWidth(48.0.dp)
             handleOffset(6.0.dp)
+            handleWidth(48.0.dp)
+            handleHeight(4.0.dp)
         }
-        .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
-            handleColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
-            )
-        }
-        .handlePlacement(BottomSheetHandlePlacement.Auto)
         .wrap(::WrapperModalBottomSheetDefault)

@@ -9,11 +9,11 @@ package com.sdds.plasma.sd.service.styles.progressbar
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.ProgressBarStyleBuilder
 import com.sdds.compose.uikit.graphics.asLayered
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -39,11 +39,9 @@ public val ProgressBar.Default: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
+            indicatorColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
             )
         }
         .wrap(::WrapperProgressBarTerminate)
@@ -53,11 +51,9 @@ public val ProgressBar.Secondary: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
+            indicatorColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
             )
         }
         .wrap(::WrapperProgressBarTerminate)
@@ -67,11 +63,9 @@ public val ProgressBar.Accent: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
+            indicatorColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent).asStatefulValue())
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(),
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
             )
         }
         .wrap(::WrapperProgressBarTerminate)
@@ -81,11 +75,9 @@ public val ProgressBar.Gradient: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
+            indicatorColor(PlasmaSdServiceTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue())
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaSdServiceTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue(),
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
             )
         }
         .wrap(::WrapperProgressBarTerminate)
@@ -95,11 +87,9 @@ public val ProgressBar.Info: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
+            indicatorColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultInfo).asStatefulValue())
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultInfo.asInteractive(),
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
             )
         }
         .wrap(::WrapperProgressBarTerminate)
@@ -109,11 +99,9 @@ public val ProgressBar.Negative: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
+            indicatorColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative).asStatefulValue())
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(),
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
             )
         }
         .wrap(::WrapperProgressBarTerminate)
@@ -123,11 +111,9 @@ public val ProgressBar.Positive: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
+            indicatorColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultPositive).asStatefulValue())
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(),
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
             )
         }
         .wrap(::WrapperProgressBarTerminate)
@@ -137,11 +123,9 @@ public val ProgressBar.Warning: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
+            indicatorColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultWarning).asStatefulValue())
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(),
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
             )
         }
         .wrap(::WrapperProgressBarTerminate)

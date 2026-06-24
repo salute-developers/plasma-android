@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.NoteStyle
@@ -168,6 +170,7 @@ interface AiAnswerDimensions {
 /**
  * Builder [AiAnswerStyle].
  */
+@ApiInfo
 interface AiAnswerStyleBuilder : StyleBuilder<AiAnswerStyle> {
     /**
      * Устанавливает цвета компонента.
@@ -245,21 +248,25 @@ interface AiAnswerColorsBuilder {
     /**
      * Устанавливает фон.
      */
+    @ApiName(name = "backgroundColor")
     fun background(background: StatefulValue<Brush>): AiAnswerColorsBuilder
 
     /**
      * Устанавливает фон.
      */
+    @ApiName(name = "backgroundColor")
     fun background(background: Brush): AiAnswerColorsBuilder = background(background.asStatefulValue())
 
     /**
      * Устанавливает фон.
      */
+    @ApiName(name = "backgroundColor")
     fun background(background: Color): AiAnswerColorsBuilder = background(background.asStatefulBrush())
 
     /**
      * Устанавливает фон.
      */
+    @ApiName(name = "backgroundColor")
     fun background(background: InteractiveColor): AiAnswerColorsBuilder = background(background.asStatefulBrush())
 
     /**

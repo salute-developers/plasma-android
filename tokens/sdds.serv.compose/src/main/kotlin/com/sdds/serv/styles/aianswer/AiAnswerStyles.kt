@@ -91,18 +91,10 @@ private val AiAnswerStyleBuilder.invariantProps: AiAnswerStyleBuilder
     @Composable
     get() = this
         .colors {
-            background(
-                SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue(),
-            )
-            titleColor(
-                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(),
-            )
-            contentColor(
-                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(),
-            )
-            loadingTextColor(
-                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(),
-            )
+            background(SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue())
+            titleColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+            contentColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+            loadingTextColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .dimensions {
             paddingStart(0.0.dp)
@@ -118,17 +110,17 @@ public val AiAnswer.Xl: WrapperAiAnswerXl
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH3Normal)
         .loadingTextStyle(SddsServTheme.typography.bodyLNormal)
+        .noteStyle(Note.L.Negative.style())
+        .loadingSpinnerStyle(Spinner.Xs.Default.style())
+        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.M.style())
+        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.L.style())
+        .suggestionsChipGroupStyle(AiAnswerChipGroup.L.style())
         .dimensions {
             contentGap(30.0.dp)
             actionsGap(20.0.dp)
             suggestionsGap(20.0.dp)
             loadingGap(8.0.dp)
         }
-        .noteStyle(Note.L.Negative.style())
-        .loadingSpinnerStyle(Spinner.Xs.Default.style())
-        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.M.style())
-        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.L.style())
-        .suggestionsChipGroupStyle(AiAnswerChipGroup.L.style())
         .wrap(::WrapperAiAnswerXl)
 
 public val AiAnswer.L: WrapperAiAnswerL
@@ -138,17 +130,17 @@ public val AiAnswer.L: WrapperAiAnswerL
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH3Normal)
         .loadingTextStyle(SddsServTheme.typography.bodyLNormal)
+        .noteStyle(Note.L.Negative.style())
+        .loadingSpinnerStyle(Spinner.Xs.Default.style())
+        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.M.style())
+        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.S.style())
+        .suggestionsChipGroupStyle(AiAnswerChipGroup.M.style())
         .dimensions {
             contentGap(26.0.dp)
             actionsGap(16.0.dp)
             suggestionsGap(20.0.dp)
             loadingGap(8.0.dp)
         }
-        .noteStyle(Note.L.Negative.style())
-        .loadingSpinnerStyle(Spinner.Xs.Default.style())
-        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.M.style())
-        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.S.style())
-        .suggestionsChipGroupStyle(AiAnswerChipGroup.M.style())
         .wrap(::WrapperAiAnswerL)
 
 public val AiAnswer.M: WrapperAiAnswerM
@@ -158,17 +150,17 @@ public val AiAnswer.M: WrapperAiAnswerM
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH4Normal)
         .loadingTextStyle(SddsServTheme.typography.bodyMNormal)
+        .noteStyle(Note.M.Negative.style())
+        .loadingSpinnerStyle(Spinner.Xs.Default.style())
+        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.M.style())
+        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.S.style())
+        .suggestionsChipGroupStyle(AiAnswerChipGroup.S.style())
         .dimensions {
             contentGap(22.0.dp)
             actionsGap(12.0.dp)
             suggestionsGap(20.0.dp)
             loadingGap(8.0.dp)
         }
-        .noteStyle(Note.M.Negative.style())
-        .loadingSpinnerStyle(Spinner.Xs.Default.style())
-        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.M.style())
-        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.S.style())
-        .suggestionsChipGroupStyle(AiAnswerChipGroup.S.style())
         .wrap(::WrapperAiAnswerM)
 
 public val AiAnswer.S: WrapperAiAnswerS
@@ -178,17 +170,17 @@ public val AiAnswer.S: WrapperAiAnswerS
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH5Normal)
         .loadingTextStyle(SddsServTheme.typography.bodySNormal)
+        .noteStyle(Note.S.Negative.style())
+        .loadingSpinnerStyle(Spinner.Xs.Default.style())
+        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.S.style())
+        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.Xs.style())
+        .suggestionsChipGroupStyle(AiAnswerChipGroup.Xs.style())
         .dimensions {
             contentGap(20.0.dp)
             actionsGap(10.0.dp)
             suggestionsGap(16.0.dp)
             loadingGap(8.0.dp)
         }
-        .noteStyle(Note.S.Negative.style())
-        .loadingSpinnerStyle(Spinner.Xs.Default.style())
-        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.S.style())
-        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.Xs.style())
-        .suggestionsChipGroupStyle(AiAnswerChipGroup.Xs.style())
         .wrap(::WrapperAiAnswerS)
 
 public val AiAnswer.Xs: WrapperAiAnswerXs
@@ -198,15 +190,15 @@ public val AiAnswer.Xs: WrapperAiAnswerXs
         .invariantProps
         .titleStyle(SddsServTheme.typography.headerH5Normal)
         .loadingTextStyle(SddsServTheme.typography.bodySNormal)
+        .noteStyle(Note.Xs.Negative.style())
+        .loadingSpinnerStyle(Spinner.Xxs.Default.style())
+        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.S.style())
+        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.Xs.style())
+        .suggestionsChipGroupStyle(AiAnswerChipGroup.Xs.style())
         .dimensions {
             contentGap(18.0.dp)
             actionsGap(8.0.dp)
             suggestionsGap(16.0.dp)
             loadingGap(8.0.dp)
         }
-        .noteStyle(Note.Xs.Negative.style())
-        .loadingSpinnerStyle(Spinner.Xxs.Default.style())
-        .actionsStartButtonGroupStyle(AiAnswerIconButtonGroup.S.style())
-        .actionsEndButtonGroupStyle(AiAnswerBasicButtonGroup.Xs.style())
-        .suggestionsChipGroupStyle(AiAnswerChipGroup.Xs.style())
         .wrap(::WrapperAiAnswerXs)

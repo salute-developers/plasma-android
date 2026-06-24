@@ -60,18 +60,33 @@ public enum class CounterStyles(
     CounterXxsNegative("Counter.Xxs.Negative"),
     CounterXxsBlack("Counter.Xxs.Black"),
     CounterXxsWhite("Counter.Xxs.White"),
+    SegmentItemCounterLDefault("SegmentItemCounter.L.Default"),
+    SegmentItemCounterLAccent("SegmentItemCounter.L.Accent"),
+    SegmentItemCounterMDefault("SegmentItemCounter.M.Default"),
+    SegmentItemCounterMAccent("SegmentItemCounter.M.Accent"),
+    SegmentItemCounterSDefault("SegmentItemCounter.S.Default"),
+    SegmentItemCounterSAccent("SegmentItemCounter.S.Accent"),
+    SegmentItemCounterXsDefault("SegmentItemCounter.Xs.Default"),
+    SegmentItemCounterXsAccent("SegmentItemCounter.Xs.Accent"),
+    SegmentItemCounterXxsDefault("SegmentItemCounter.Xxs.Default"),
+    SegmentItemCounterXxsAccent("SegmentItemCounter.Xxs.Accent"),
     ;
 
     /**
      * Typed API для подбора стиля counter
      */
-    public companion object
+    public object Default
+
+    /**
+     * Typed API для подбора стиля segment-item-counter
+     */
+    public object SegmentItemCounter
 }
 
 /**
  * Возможные значения свойства size для counter
  */
-public enum class CounterSize {
+public enum class CounterDefaultSize {
     L,
     M,
     S,
@@ -82,7 +97,7 @@ public enum class CounterSize {
 /**
  * Возможные значения свойства view для counter
  */
-public enum class CounterView {
+public enum class CounterDefaultView {
     Default,
     Accent,
     Positive,
@@ -90,6 +105,25 @@ public enum class CounterView {
     Negative,
     Black,
     White,
+}
+
+/**
+ * Возможные значения свойства size для segment-item-counter
+ */
+public enum class SegmentItemCounterSize {
+    L,
+    M,
+    S,
+    Xs,
+    Xxs,
+}
+
+/**
+ * Возможные значения свойства view для segment-item-counter
+ */
+public enum class SegmentItemCounterView {
+    Default,
+    Accent,
 }
 
 /**
@@ -133,6 +167,16 @@ public fun CounterStyles.style(modify: @Composable CounterStyleBuilder.() -> Uni
         CounterStyles.CounterXxsNegative -> Counter.Xxs.Negative
         CounterStyles.CounterXxsBlack -> Counter.Xxs.Black
         CounterStyles.CounterXxsWhite -> Counter.Xxs.White
+        CounterStyles.SegmentItemCounterLDefault -> SegmentItemCounter.L.Default
+        CounterStyles.SegmentItemCounterLAccent -> SegmentItemCounter.L.Accent
+        CounterStyles.SegmentItemCounterMDefault -> SegmentItemCounter.M.Default
+        CounterStyles.SegmentItemCounterMAccent -> SegmentItemCounter.M.Accent
+        CounterStyles.SegmentItemCounterSDefault -> SegmentItemCounter.S.Default
+        CounterStyles.SegmentItemCounterSAccent -> SegmentItemCounter.S.Accent
+        CounterStyles.SegmentItemCounterXsDefault -> SegmentItemCounter.Xs.Default
+        CounterStyles.SegmentItemCounterXsAccent -> SegmentItemCounter.Xs.Accent
+        CounterStyles.SegmentItemCounterXxsDefault -> SegmentItemCounter.Xxs.Default
+        CounterStyles.SegmentItemCounterXxsAccent -> SegmentItemCounter.Xxs.Accent
     }
     return builder.modify(modify).style()
 }
@@ -140,46 +184,74 @@ public fun CounterStyles.style(modify: @Composable CounterStyleBuilder.() -> Uni
 /**
  * Возвращает экземпляр [CounterStyles] для counter
  */
-public fun CounterStyles.Companion.resolve(
-    size: CounterSize = CounterSize.L,
-    view: CounterView =
-        CounterView.Default,
+public fun CounterStyles.Default.resolve(
+    size: CounterDefaultSize = CounterDefaultSize.L,
+    view: CounterDefaultView = CounterDefaultView.Default,
 ): CounterStyles = when {
-    size == CounterSize.L && view == CounterView.Default -> CounterStyles.CounterLDefault
-    size == CounterSize.L && view == CounterView.Accent -> CounterStyles.CounterLAccent
-    size == CounterSize.L && view == CounterView.Positive -> CounterStyles.CounterLPositive
-    size == CounterSize.L && view == CounterView.Warning -> CounterStyles.CounterLWarning
-    size == CounterSize.L && view == CounterView.Negative -> CounterStyles.CounterLNegative
-    size == CounterSize.L && view == CounterView.Black -> CounterStyles.CounterLBlack
-    size == CounterSize.L && view == CounterView.White -> CounterStyles.CounterLWhite
-    size == CounterSize.M && view == CounterView.Default -> CounterStyles.CounterMDefault
-    size == CounterSize.M && view == CounterView.Accent -> CounterStyles.CounterMAccent
-    size == CounterSize.M && view == CounterView.Positive -> CounterStyles.CounterMPositive
-    size == CounterSize.M && view == CounterView.Warning -> CounterStyles.CounterMWarning
-    size == CounterSize.M && view == CounterView.Negative -> CounterStyles.CounterMNegative
-    size == CounterSize.M && view == CounterView.Black -> CounterStyles.CounterMBlack
-    size == CounterSize.M && view == CounterView.White -> CounterStyles.CounterMWhite
-    size == CounterSize.S && view == CounterView.Default -> CounterStyles.CounterSDefault
-    size == CounterSize.S && view == CounterView.Accent -> CounterStyles.CounterSAccent
-    size == CounterSize.S && view == CounterView.Positive -> CounterStyles.CounterSPositive
-    size == CounterSize.S && view == CounterView.Warning -> CounterStyles.CounterSWarning
-    size == CounterSize.S && view == CounterView.Negative -> CounterStyles.CounterSNegative
-    size == CounterSize.S && view == CounterView.Black -> CounterStyles.CounterSBlack
-    size == CounterSize.S && view == CounterView.White -> CounterStyles.CounterSWhite
-    size == CounterSize.Xs && view == CounterView.Default -> CounterStyles.CounterXsDefault
-    size == CounterSize.Xs && view == CounterView.Accent -> CounterStyles.CounterXsAccent
-    size == CounterSize.Xs && view == CounterView.Positive -> CounterStyles.CounterXsPositive
-    size == CounterSize.Xs && view == CounterView.Warning -> CounterStyles.CounterXsWarning
-    size == CounterSize.Xs && view == CounterView.Negative -> CounterStyles.CounterXsNegative
-    size == CounterSize.Xs && view == CounterView.Black -> CounterStyles.CounterXsBlack
-    size == CounterSize.Xs && view == CounterView.White -> CounterStyles.CounterXsWhite
-    size == CounterSize.Xxs && view == CounterView.Default -> CounterStyles.CounterXxsDefault
-    size == CounterSize.Xxs && view == CounterView.Accent -> CounterStyles.CounterXxsAccent
-    size == CounterSize.Xxs && view == CounterView.Positive -> CounterStyles.CounterXxsPositive
-    size == CounterSize.Xxs && view == CounterView.Warning -> CounterStyles.CounterXxsWarning
-    size == CounterSize.Xxs && view == CounterView.Negative -> CounterStyles.CounterXxsNegative
-    size == CounterSize.Xxs && view == CounterView.Black -> CounterStyles.CounterXxsBlack
-    size == CounterSize.Xxs && view == CounterView.White -> CounterStyles.CounterXxsWhite
+    size == CounterDefaultSize.L && view == CounterDefaultView.Default ->
+        CounterStyles.CounterLDefault
+    size == CounterDefaultSize.L && view == CounterDefaultView.Accent ->
+        CounterStyles.CounterLAccent
+    size == CounterDefaultSize.L && view == CounterDefaultView.Positive ->
+        CounterStyles.CounterLPositive
+    size == CounterDefaultSize.L && view == CounterDefaultView.Warning ->
+        CounterStyles.CounterLWarning
+    size == CounterDefaultSize.L && view == CounterDefaultView.Negative ->
+        CounterStyles.CounterLNegative
+    size == CounterDefaultSize.L && view == CounterDefaultView.Black -> CounterStyles.CounterLBlack
+    size == CounterDefaultSize.L && view == CounterDefaultView.White -> CounterStyles.CounterLWhite
+    size == CounterDefaultSize.M && view == CounterDefaultView.Default ->
+        CounterStyles.CounterMDefault
+    size == CounterDefaultSize.M && view == CounterDefaultView.Accent ->
+        CounterStyles.CounterMAccent
+    size == CounterDefaultSize.M && view == CounterDefaultView.Positive ->
+        CounterStyles.CounterMPositive
+    size == CounterDefaultSize.M && view == CounterDefaultView.Warning ->
+        CounterStyles.CounterMWarning
+    size == CounterDefaultSize.M && view == CounterDefaultView.Negative ->
+        CounterStyles.CounterMNegative
+    size == CounterDefaultSize.M && view == CounterDefaultView.Black -> CounterStyles.CounterMBlack
+    size == CounterDefaultSize.M && view == CounterDefaultView.White -> CounterStyles.CounterMWhite
+    size == CounterDefaultSize.S && view == CounterDefaultView.Default ->
+        CounterStyles.CounterSDefault
+    size == CounterDefaultSize.S && view == CounterDefaultView.Accent ->
+        CounterStyles.CounterSAccent
+    size == CounterDefaultSize.S && view == CounterDefaultView.Positive ->
+        CounterStyles.CounterSPositive
+    size == CounterDefaultSize.S && view == CounterDefaultView.Warning ->
+        CounterStyles.CounterSWarning
+    size == CounterDefaultSize.S && view == CounterDefaultView.Negative ->
+        CounterStyles.CounterSNegative
+    size == CounterDefaultSize.S && view == CounterDefaultView.Black -> CounterStyles.CounterSBlack
+    size == CounterDefaultSize.S && view == CounterDefaultView.White -> CounterStyles.CounterSWhite
+    size == CounterDefaultSize.Xs && view == CounterDefaultView.Default ->
+        CounterStyles.CounterXsDefault
+    size == CounterDefaultSize.Xs && view == CounterDefaultView.Accent ->
+        CounterStyles.CounterXsAccent
+    size == CounterDefaultSize.Xs && view == CounterDefaultView.Positive ->
+        CounterStyles.CounterXsPositive
+    size == CounterDefaultSize.Xs && view == CounterDefaultView.Warning ->
+        CounterStyles.CounterXsWarning
+    size == CounterDefaultSize.Xs && view == CounterDefaultView.Negative ->
+        CounterStyles.CounterXsNegative
+    size == CounterDefaultSize.Xs && view == CounterDefaultView.Black ->
+        CounterStyles.CounterXsBlack
+    size == CounterDefaultSize.Xs && view == CounterDefaultView.White ->
+        CounterStyles.CounterXsWhite
+    size == CounterDefaultSize.Xxs && view == CounterDefaultView.Default ->
+        CounterStyles.CounterXxsDefault
+    size == CounterDefaultSize.Xxs && view == CounterDefaultView.Accent ->
+        CounterStyles.CounterXxsAccent
+    size == CounterDefaultSize.Xxs && view == CounterDefaultView.Positive ->
+        CounterStyles.CounterXxsPositive
+    size == CounterDefaultSize.Xxs && view == CounterDefaultView.Warning ->
+        CounterStyles.CounterXxsWarning
+    size == CounterDefaultSize.Xxs && view == CounterDefaultView.Negative ->
+        CounterStyles.CounterXxsNegative
+    size == CounterDefaultSize.Xxs && view == CounterDefaultView.Black ->
+        CounterStyles.CounterXxsBlack
+    size == CounterDefaultSize.Xxs && view == CounterDefaultView.White ->
+        CounterStyles.CounterXxsWhite
     else -> error("Unsupported counter style combination")
 }
 
@@ -187,8 +259,49 @@ public fun CounterStyles.Companion.resolve(
  * Возвращает [CounterStyle] для counter
  */
 @Composable
-public fun CounterStyles.Companion.style(
-    size: CounterSize = CounterSize.L,
-    view: CounterView = CounterView.Default,
+public fun CounterStyles.Default.style(
+    size: CounterDefaultSize = CounterDefaultSize.L,
+    view: CounterDefaultView = CounterDefaultView.Default,
+    modify: @Composable CounterStyleBuilder.() -> Unit = {},
+): CounterStyle = resolve(size, view).style(modify)
+
+/**
+ * Возвращает экземпляр [CounterStyles] для segment-item-counter
+ */
+public fun CounterStyles.SegmentItemCounter.resolve(
+    size: SegmentItemCounterSize =
+        SegmentItemCounterSize.L,
+    view: SegmentItemCounterView = SegmentItemCounterView.Default,
+): CounterStyles = when {
+    size == SegmentItemCounterSize.L && view == SegmentItemCounterView.Default ->
+        CounterStyles.SegmentItemCounterLDefault
+    size == SegmentItemCounterSize.L && view == SegmentItemCounterView.Accent ->
+        CounterStyles.SegmentItemCounterLAccent
+    size == SegmentItemCounterSize.M && view == SegmentItemCounterView.Default ->
+        CounterStyles.SegmentItemCounterMDefault
+    size == SegmentItemCounterSize.M && view == SegmentItemCounterView.Accent ->
+        CounterStyles.SegmentItemCounterMAccent
+    size == SegmentItemCounterSize.S && view == SegmentItemCounterView.Default ->
+        CounterStyles.SegmentItemCounterSDefault
+    size == SegmentItemCounterSize.S && view == SegmentItemCounterView.Accent ->
+        CounterStyles.SegmentItemCounterSAccent
+    size == SegmentItemCounterSize.Xs && view == SegmentItemCounterView.Default ->
+        CounterStyles.SegmentItemCounterXsDefault
+    size == SegmentItemCounterSize.Xs && view == SegmentItemCounterView.Accent ->
+        CounterStyles.SegmentItemCounterXsAccent
+    size == SegmentItemCounterSize.Xxs && view == SegmentItemCounterView.Default ->
+        CounterStyles.SegmentItemCounterXxsDefault
+    size == SegmentItemCounterSize.Xxs && view == SegmentItemCounterView.Accent ->
+        CounterStyles.SegmentItemCounterXxsAccent
+    else -> error("Unsupported segment-item-counter style combination")
+}
+
+/**
+ * Возвращает [CounterStyle] для segment-item-counter
+ */
+@Composable
+public fun CounterStyles.SegmentItemCounter.style(
+    size: SegmentItemCounterSize = SegmentItemCounterSize.L,
+    view: SegmentItemCounterView = SegmentItemCounterView.Default,
     modify: @Composable CounterStyleBuilder.() -> Unit = {},
 ): CounterStyle = resolve(size, view).style(modify)

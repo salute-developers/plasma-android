@@ -8,11 +8,12 @@
 package com.sdds.sbcom.styles.listitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -42,31 +43,25 @@ public val DropdownMenuItem.Default: WrapperDropdownMenuItemDefault
         .subtitleStyle(SddsSbComTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .colors {
-            titleColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            subtitleColor(
-                SddsSbComTheme.colors.textDefaultSecondary.asInteractive(),
-            )
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentPrimary,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentPrimary,
+                        to SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentPrimary),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentPrimary),
                 ),
             )
-            disclosureIconColor(
-                SddsSbComTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            titleColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
+            subtitleColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            disclosureIconColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .dimensions {
             contentPaddingEnd(12.0.dp)
-            contentPaddingStart(12.0.dp)
-            height(48.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
+            height(48.0.dp)
+            contentPaddingStart(12.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemDefault)

@@ -48,10 +48,12 @@ public val DropdownMenu.Default: WrapperDropdownMenuDefault
     get() = DropdownMenuStyle.builder(this)
         .shape(SddsSbComTheme.shapes.roundL)
         .shadow(SddsSbComTheme.shadows.downHardM)
+        .listStyle(DropdownMenuList.Default.style())
+        .dividerStyle(Divider.Default.style())
+        .scrollBarStyle(ScrollBar.Default.style())
+        .overlayStyle(Overlay.Default.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue())
         }
         .dimensions {
             width(200.0.dp)
@@ -63,8 +65,4 @@ public val DropdownMenu.Default: WrapperDropdownMenuDefault
             scrollBarPaddingTop(10.0.dp)
             scrollBarPaddingBottom(12.0.dp)
         }
-        .listStyle(DropdownMenuList.Default.style())
-        .dividerStyle(Divider.Default.style())
-        .scrollBarStyle(ScrollBar.Default.style())
-        .overlayStyle(Overlay.Default.style())
         .wrap(::WrapperDropdownMenuDefault)

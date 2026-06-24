@@ -14,6 +14,8 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -303,6 +305,7 @@ private data class DefaultListItemStyle(
 /**
  * Билдер стиля [ListItemStyle]
  */
+@ApiInfo
 interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
 
     /**
@@ -405,7 +408,15 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
     /**
      * Устанавливает стиль disclosure
      */
+    @ApiName("disclosureStyle")
     fun disclosureTextStyle(disclosureStyle: StatefulValue<TextStyle>): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль disclosure
+     */
+    @ApiName("disclosureStyle")
+    fun disclosureTextStyle(disclosureStyle: TextStyle): ListItemStyleBuilder =
+        disclosureTextStyle(disclosureStyle.asStatefulValue())
 
     /**
      * Устанавливает выравнивание содержимого по вертикали

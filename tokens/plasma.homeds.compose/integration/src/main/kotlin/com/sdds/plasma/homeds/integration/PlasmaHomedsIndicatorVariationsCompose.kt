@@ -19,9 +19,9 @@ import com.sdds.plasma.homeds.styles.indicator.Dark
 import com.sdds.plasma.homeds.styles.indicator.Default
 import com.sdds.plasma.homeds.styles.indicator.Inactive
 import com.sdds.plasma.homeds.styles.indicator.Indicator
-import com.sdds.plasma.homeds.styles.indicator.IndicatorSize
+import com.sdds.plasma.homeds.styles.indicator.IndicatorDefaultSize
+import com.sdds.plasma.homeds.styles.indicator.IndicatorDefaultView
 import com.sdds.plasma.homeds.styles.indicator.IndicatorStyles
-import com.sdds.plasma.homeds.styles.indicator.IndicatorView
 import com.sdds.plasma.homeds.styles.indicator.L
 import com.sdds.plasma.homeds.styles.indicator.M
 import com.sdds.plasma.homeds.styles.indicator.Negative
@@ -75,24 +75,24 @@ internal object PlasmaHomedsIndicatorVariationsCompose : ComposeStyleProvider<In
         )
 
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
-        return IndicatorStyles.resolve(
+        return IndicatorStyles.Default.resolve(
             size = when (bindings["size"]?.toString()) {
-                "L" -> IndicatorSize.L
-                "M" -> IndicatorSize.M
-                "S" -> IndicatorSize.S
-                else -> IndicatorSize.L
+                "L" -> IndicatorDefaultSize.L
+                "M" -> IndicatorDefaultSize.M
+                "S" -> IndicatorDefaultSize.S
+                else -> IndicatorDefaultSize.L
             },
             view = when (bindings["view"]?.toString()) {
-                "Default" -> IndicatorView.Default
-                "Accent" -> IndicatorView.Accent
-                "Inactive" -> IndicatorView.Inactive
-                "Positive" -> IndicatorView.Positive
-                "Warning" -> IndicatorView.Warning
-                "Negative" -> IndicatorView.Negative
-                "Dark" -> IndicatorView.Dark
-                "Black" -> IndicatorView.Black
-                "White" -> IndicatorView.White
-                else -> IndicatorView.Default
+                "Default" -> IndicatorDefaultView.Default
+                "Accent" -> IndicatorDefaultView.Accent
+                "Inactive" -> IndicatorDefaultView.Inactive
+                "Positive" -> IndicatorDefaultView.Positive
+                "Warning" -> IndicatorDefaultView.Warning
+                "Negative" -> IndicatorDefaultView.Negative
+                "Dark" -> IndicatorDefaultView.Dark
+                "Black" -> IndicatorDefaultView.Black
+                "White" -> IndicatorDefaultView.White
+                else -> IndicatorDefaultView.Default
             },
         ).key
     }

@@ -157,7 +157,7 @@ fun DropdownMenu(
     BaseDropdownMenu(
         opened = opened,
         onDismissRequest = onDismissRequest,
-        triggerInfo = triggerInfo,
+        triggerInfo = { triggerInfo },
         modifier = modifier,
         style = style,
         clipHeight = clipHeight,
@@ -238,7 +238,7 @@ fun DropdownMenu(
     BaseDropdownMenu(
         opened = opened,
         onDismissRequest = onDismissRequest,
-        triggerInfo = triggerInfo,
+        triggerInfo = { triggerInfo },
         modifier = modifier,
         style = style,
         clipHeight = clipHeight,

@@ -179,13 +179,13 @@ private class SwitchMotionStyleImpl(
                 backgroundColor = backgroundColor ?: noMotion(),
                 labelStyle = labelStyle ?: noMotion(),
                 descriptionStyle = descriptionStyle ?: noMotion(),
-                thumbPositionTransition = ThumpPositionTransitionMotion,
+                thumbPositionTransition = thumbPositionTransition ?: ThumbPositionTransitionMotion,
             )
         }
     }
 }
 
-private val ThumpPositionTransitionMotion = transition<Float>(
+private val ThumbPositionTransitionMotion = transition<Float>(
     label = "SwitchFloatTransition",
 ) {
     segment {

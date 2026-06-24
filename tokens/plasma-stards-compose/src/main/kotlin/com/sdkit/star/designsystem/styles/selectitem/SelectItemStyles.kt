@@ -69,12 +69,10 @@ public value class WrapperSelectItemXs(
 private val SelectItemStyleBuilder.invariantProps: SelectItemStyleBuilder
     @Composable
     get() = this
-        .disableAlpha(0.4f)
         .itemType(SelectItemType.Single)
+        .disableAlpha(0.4f)
         .colors {
-            iconColor(
-                StarDsTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            iconColor(StarDsTheme.colors.textDefaultAccent.asInteractive())
             backgroundColor(
                 StarDsTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Focused)
@@ -92,12 +90,12 @@ public val SelectItem.L: WrapperSelectItemL
         .icon(com.sdds.icons.R.drawable.ic_done_24)
         .cellStyle(CellSelect.L.style())
         .dimensions {
+            controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_l))
+            controlMargin(dimensionResource(R.dimen.sdkit_cmp_select_item_control_margin_l))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_start_l))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_end_l))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_top_l))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_bottom_l))
-            controlMargin(dimensionResource(R.dimen.sdkit_cmp_select_item_control_margin_l))
-            controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_l))
             height(dimensionResource(R.dimen.sdkit_cmp_select_item_height_l))
         }
         .wrap(::WrapperSelectItemL)
@@ -116,12 +114,12 @@ public val SelectItem.M: WrapperSelectItemM
         .icon(com.sdds.icons.R.drawable.ic_done_24)
         .cellStyle(CellSelect.M.style())
         .dimensions {
+            controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_m))
+            controlMargin(dimensionResource(R.dimen.sdkit_cmp_select_item_control_margin_m))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_start_m))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_end_m))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_top_m))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_bottom_m))
-            controlMargin(dimensionResource(R.dimen.sdkit_cmp_select_item_control_margin_m))
-            controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_m))
             height(dimensionResource(R.dimen.sdkit_cmp_select_item_height_m))
         }
         .wrap(::WrapperSelectItemM)
@@ -140,12 +138,12 @@ public val SelectItem.S: WrapperSelectItemS
         .icon(com.sdds.icons.R.drawable.ic_done_24)
         .cellStyle(CellSelect.S.style())
         .dimensions {
+            controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_s))
+            controlMargin(dimensionResource(R.dimen.sdkit_cmp_select_item_control_margin_s))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_start_s))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_end_s))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_top_s))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_bottom_s))
-            controlMargin(dimensionResource(R.dimen.sdkit_cmp_select_item_control_margin_s))
-            controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_s))
             height(dimensionResource(R.dimen.sdkit_cmp_select_item_height_s))
         }
         .wrap(::WrapperSelectItemS)
@@ -164,12 +162,12 @@ public val SelectItem.Xs: WrapperSelectItemXs
         .icon(com.sdds.icons.R.drawable.ic_done_16)
         .cellStyle(CellSelect.Xs.style())
         .dimensions {
+            controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_xs))
+            controlMargin(dimensionResource(R.dimen.sdkit_cmp_select_item_control_margin_xs))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_start_xs))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_end_xs))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_top_xs))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_select_item_padding_bottom_xs))
-            controlMargin(dimensionResource(R.dimen.sdkit_cmp_select_item_control_margin_xs))
-            controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_xs))
             height(dimensionResource(R.dimen.sdkit_cmp_select_item_height_xs))
         }
         .wrap(::WrapperSelectItemXs)

@@ -53,4 +53,38 @@ class IntegerPropertyMapperTest {
             builderCall,
         )
     }
+
+    @Test
+    fun `возвращает вызов билдера с кастомным stateEnum`() {
+        val underTest = IntegerPropertyMapper(
+            stateEnum = StateEnum(
+                qualifiedName = "com.test.ItemState",
+                simpleName = "ItemState",
+                values = listOf(EnumValueInfo(name = "Checked", configName = "checked")),
+            ),
+        )
+
+        val builderCall = underTest.map(
+            meta = IntegerPropertyMeta(
+                id = "",
+                methodName = "count",
+                paramName = "",
+                paramQualifiedType = "",
+                paramSimpleType = "",
+                group = "",
+            ),
+            tokenValue = Value(
+                value = "3",
+                states = listOf(
+                    StringState(state = listOf("checked"), value = "5"),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "count(3.asStatefulValue(setOf(ItemState.Checked) to 5))",
+            builderCall,
+        )
+    }
 }

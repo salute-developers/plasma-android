@@ -61,9 +61,7 @@ public val WrapperPopoverView.Default: WrapperPopoverTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
         .wrap(::WrapperPopoverTerminate)
 
@@ -71,9 +69,7 @@ public val WrapperPopoverView.Accent: WrapperPopoverTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperPopoverTerminate)
 

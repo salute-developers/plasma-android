@@ -9,11 +9,12 @@ package com.sdds.plasma.homeds.styles.badge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.BadgeStyleBuilder
 import com.sdds.compose.uikit.badgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -110,18 +111,10 @@ public val WrapperBadgeTransparentView.Default: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            endContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            endContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -129,18 +122,10 @@ public val WrapperBadgeTransparentView.Accent: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            endContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultAccent).asStatefulValue())
+            endContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -148,18 +133,10 @@ public val WrapperBadgeTransparentView.Negative: WrapperBadgeTransparentTerminat
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentNegative.asInteractive(),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            endContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultNegative).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultNegative).asStatefulValue())
+            endContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -167,18 +144,10 @@ public val WrapperBadgeTransparentView.Positive: WrapperBadgeTransparentTerminat
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPositive.asInteractive(),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            endContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPositive).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPositive).asStatefulValue())
+            endContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -186,18 +155,10 @@ public val WrapperBadgeTransparentView.Warning: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentWarning.asInteractive(),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            endContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultWarning).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultWarning).asStatefulValue())
+            endContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -205,18 +166,10 @@ public val WrapperBadgeTransparentView.Dark: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceOnLightTransparentDeep.asInteractive(),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -224,18 +177,10 @@ public val WrapperBadgeTransparentView.Light: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceOnDarkTransparentSecondary.asInteractive(),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceOnDarkTransparentSecondary).asStatefulValue())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(PlasmaHomeDsTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -252,8 +197,8 @@ public val BadgeTransparent.L: WrapperBadgeTransparentL
         .labelStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .dimensions {
             height(28.0.dp)
-            startContentSize(16.0.dp)
             endContentSize(16.0.dp)
+            startContentSize(16.0.dp)
             startContentMargin(4.0.dp)
             endContentMargin(4.0.dp)
             startPadding(11.0.dp)
@@ -277,8 +222,8 @@ public val BadgeTransparent.M: WrapperBadgeTransparentM
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .dimensions {
             height(24.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(3.0.dp)
             endContentMargin(3.0.dp)
             startPadding(9.0.dp)
@@ -302,8 +247,8 @@ public val BadgeTransparent.S: WrapperBadgeTransparentS
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXxsNormal)
         .dimensions {
             height(20.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(7.0.dp)
@@ -327,8 +272,8 @@ public val BadgeTransparent.Xs: WrapperBadgeTransparentXs
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXxsNormal)
         .dimensions {
             height(16.0.dp)
-            startContentSize(10.0.dp)
             endContentSize(10.0.dp)
+            startContentSize(10.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(4.0.dp)

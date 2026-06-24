@@ -33,6 +33,7 @@ import java.util.Locale
  * @param resPrefix префикс для xml файлов с fontFamily
  * @param fontTokenValues значения токенов шрифтов
  * @param fontsAggregator агрегатор шрифтов
+ * @param useDefaultFonts использовать дефолтные compose-шрифты вместо значений из android_fontFamily.json
  *
  * @author Малышев Александр on 07.03.2024
  */
@@ -48,6 +49,7 @@ internal class FontTokenGenerator(
     private val fontTokenValues: Map<Tenant, Map<String, FontTokenValue>>,
     private val fontsAggregator: FontsAggregator,
     private val dimensionsConfig: DimensionsConfig,
+    private val useDefaultFonts: Boolean = false,
 ) : TokenGenerator<FontToken, String>(target) {
 
     private val rFileImport = ClassName(namespace, "R")
@@ -97,15 +99,19 @@ internal class FontTokenGenerator(
     }
 
     override fun addComposeToken(token: FontToken): Boolean {
-        fontTokenValues[Tenant.Default]?.get(token.name)
-            ?: throw ThemeBuilderException(
-                "Can't find value for font token ${token.name}. " +
-                    "It should be in android_fontFamily.json.",
-            )
+        if (!useDefaultFonts) {
+            fontTokenValues[Tenant.Default]?.get(token.name)
+                ?: throw ThemeBuilderException(
+                    "Can't find value for font token ${token.name}. " +
+                        "It should be in android_fontFamily.json.",
+                )
+        }
         fontTokenValues.forEach { (tenant, values) ->
             val tokenValue = values[token.name]
-            if (tokenValue != null) {
-                FontTokenValidator.validate(tokenValue, token.name)
+            if (useDefaultFonts || tokenValue != null) {
+                if (!useDefaultFonts) {
+                    FontTokenValidator.validate(requireNotNull(tokenValue), token.name)
+                }
                 val objectName = "${FONT_TOKENS_NAME}${tenant.name}"
                 val objectBuilder = rootObjectBuilders.getOrPut(tenant) {
                     ktFileBuilder.rootObject(objectName, FONT_TOKENS_DESC)
@@ -123,6 +129,11 @@ internal class FontTokenGenerator(
 
     override fun generateCompose() {
         super.generateCompose()
+        if (useDefaultFonts) {
+            ktFileBuilder.addImport(KtFileBuilder.TypeFontFamily)
+            ktFileBuilder.build(outputLocation)
+            return
+        }
         ktFileBuilder.addImport(KtFileBuilder.TypeFont)
         ktFileBuilder.addImport(KtFileBuilder.TypeFontFamily)
         ktFileBuilder.addImport(KtFileBuilder.TypeFontStyle)
@@ -138,9 +149,21 @@ internal class FontTokenGenerator(
     private fun TypeSpec.Builder.addFontFamilyToken(
         name: String,
         description: String,
-        tokenValue: FontTokenValue,
+        tokenValue: FontTokenValue?,
     ) {
-        val initializers = tokenValue.fonts.map {
+        if (useDefaultFonts) {
+            with(ktFileBuilder) {
+                appendProperty(
+                    name = name,
+                    typeName = KtFileBuilder.TypeFontFamily,
+                    initializer = "FontFamily.Default",
+                    description = description,
+                )
+            }
+            return
+        }
+        val fontValue = requireNotNull(tokenValue)
+        val initializers = fontValue.fonts.map {
             val fontFile = fontDownloader.download(
                 url = it.link,
                 fontDir = outputResDir.fontDir(),

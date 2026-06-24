@@ -14,13 +14,14 @@ import com.sdds.compose.uikit.TabBarItemStyle
 import com.sdds.compose.uikit.TabBarItemStyleBuilder
 import com.sdds.compose.uikit.TabBarLabelPlacement
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.styles.counter.Default
 import com.sdds.sbcom.styles.counter.TabBarCounter
 import com.sdds.sbcom.styles.indicator.Indicator
+import com.sdds.sbcom.styles.indicator.Size6
 import com.sdds.sbcom.styles.indicator.StateDanger
 import com.sdds.sbcom.theme.SddsSbComTheme
 import kotlin.Suppress
@@ -46,21 +47,23 @@ public val TabBarItem.Default: WrapperTabBarItemDefault
     get() = TabBarItemStyle.builder(this)
         .shape(CircleShape)
         .labelPlacement(TabBarLabelPlacement.Bottom)
+        .counterStyle(TabBarCounter.Default.style())
+        .indicatorStyle(Indicator.Size6.StateDanger.style())
         .colors {
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asStatefulValue(
+                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Selected)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
                 ),
             )
             labelColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asStatefulValue(
+                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to SddsSbComTheme.colors.textDefaultAccent,
                 ),
             )
             iconColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asStatefulValue(
+                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Selected)
                         to SddsSbComTheme.colors.textDefaultAccent,
                 ),
@@ -76,6 +79,4 @@ public val TabBarItem.Default: WrapperTabBarItemDefault
             extraOffsetX(12.0.dp)
             extraOffsetY(-2.0.dp)
         }
-        .indicatorStyle(Indicator.StateDanger.style())
-        .counterStyle(TabBarCounter.Default.style())
         .wrap(::WrapperTabBarItemDefault)

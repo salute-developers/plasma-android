@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -18,21 +20,59 @@ import com.sdds.plasma.sd.service.styles.tabbaritem.Label
 import com.sdds.plasma.sd.service.styles.tabbaritem.M
 import com.sdds.plasma.sd.service.styles.tabbaritem.Secondary
 import com.sdds.plasma.sd.service.styles.tabbaritem.TabBarItemClear
+import com.sdds.plasma.sd.service.styles.tabbaritem.TabBarItemClearLabelPlacement
+import com.sdds.plasma.sd.service.styles.tabbaritem.TabBarItemClearSize
+import com.sdds.plasma.sd.service.styles.tabbaritem.TabBarItemClearView
+import com.sdds.plasma.sd.service.styles.tabbaritem.TabBarItemStyles
+import com.sdds.plasma.sd.service.styles.tabbaritem.resolve
+import com.sdds.sandbox.Property
 
 internal object PlasmaB2cTabBarItemClearVariationsCompose : ComposeStyleProvider<TabBarItemStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "M", variants = listOf("M", "L")),
+            Property.SingleChoiceProperty(name = "labelPlacement", value = "None", variants = listOf("None", "Bottom")),
+            Property.SingleChoiceProperty(
+                name = "view",
+                value = "Default",
+                variants = listOf("Default", "Accent", "Secondary"),
+            ),
+        )
+
     override val variations: Map<String, ComposeStyleReference<TabBarItemStyle>> =
         mapOf(
-            "M.Default" to ComposeStyleReference { TabBarItemClear.M.Default.style() },
-            "M.Accent" to ComposeStyleReference { TabBarItemClear.M.Accent.style() },
-            "M.Secondary" to ComposeStyleReference { TabBarItemClear.M.Secondary.style() },
-            "M.Label.Default" to ComposeStyleReference { TabBarItemClear.M.Label.Default.style() },
-            "M.Label.Accent" to ComposeStyleReference { TabBarItemClear.M.Label.Accent.style() },
-            "M.Label.Secondary" to ComposeStyleReference { TabBarItemClear.M.Label.Secondary.style() },
-            "L.Default" to ComposeStyleReference { TabBarItemClear.L.Default.style() },
-            "L.Accent" to ComposeStyleReference { TabBarItemClear.L.Accent.style() },
-            "L.Secondary" to ComposeStyleReference { TabBarItemClear.L.Secondary.style() },
-            "L.Label.Default" to ComposeStyleReference { TabBarItemClear.L.Label.Default.style() },
-            "L.Label.Accent" to ComposeStyleReference { TabBarItemClear.L.Label.Accent.style() },
-            "L.Label.Secondary" to ComposeStyleReference { TabBarItemClear.L.Label.Secondary.style() },
+            "TabBarItemClear.M.Default" to ComposeStyleReference { TabBarItemClear.M.Default.style() },
+            "TabBarItemClear.M.Accent" to ComposeStyleReference { TabBarItemClear.M.Accent.style() },
+            "TabBarItemClear.M.Secondary" to ComposeStyleReference { TabBarItemClear.M.Secondary.style() },
+            "TabBarItemClear.M.Label.Default" to ComposeStyleReference { TabBarItemClear.M.Label.Default.style() },
+            "TabBarItemClear.M.Label.Accent" to ComposeStyleReference { TabBarItemClear.M.Label.Accent.style() },
+            "TabBarItemClear.M.Label.Secondary" to ComposeStyleReference { TabBarItemClear.M.Label.Secondary.style() },
+            "TabBarItemClear.L.Default" to ComposeStyleReference { TabBarItemClear.L.Default.style() },
+            "TabBarItemClear.L.Accent" to ComposeStyleReference { TabBarItemClear.L.Accent.style() },
+            "TabBarItemClear.L.Secondary" to ComposeStyleReference { TabBarItemClear.L.Secondary.style() },
+            "TabBarItemClear.L.Label.Default" to ComposeStyleReference { TabBarItemClear.L.Label.Default.style() },
+            "TabBarItemClear.L.Label.Accent" to ComposeStyleReference { TabBarItemClear.L.Label.Accent.style() },
+            "TabBarItemClear.L.Label.Secondary" to ComposeStyleReference { TabBarItemClear.L.Label.Secondary.style() },
         )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return TabBarItemStyles.Clear.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "M" -> TabBarItemClearSize.M
+                "L" -> TabBarItemClearSize.L
+                else -> TabBarItemClearSize.M
+            },
+            labelPlacement = when (bindings["labelPlacement"]?.toString()) {
+                "None" -> TabBarItemClearLabelPlacement.None
+                "Bottom" -> TabBarItemClearLabelPlacement.Bottom
+                else -> TabBarItemClearLabelPlacement.None
+            },
+            view = when (bindings["view"]?.toString()) {
+                "Default" -> TabBarItemClearView.Default
+                "Accent" -> TabBarItemClearView.Accent
+                "Secondary" -> TabBarItemClearView.Secondary
+                else -> TabBarItemClearView.Default
+            },
+        ).key
+    }
 }

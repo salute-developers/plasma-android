@@ -20,7 +20,7 @@ import com.sdds.serv.styles.editable.BodyS
 import com.sdds.serv.styles.editable.BodyXs
 import com.sdds.serv.styles.editable.BodyXxs
 import com.sdds.serv.styles.editable.Editable
-import com.sdds.serv.styles.editable.EditableSize
+import com.sdds.serv.styles.editable.EditableDefaultSize
 import com.sdds.serv.styles.editable.EditableStyles
 import com.sdds.serv.styles.editable.H1
 import com.sdds.serv.styles.editable.H2
@@ -54,19 +54,19 @@ internal object SddsServEditableVariationsCompose : ComposeStyleProvider<Editabl
         )
 
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
-        return EditableStyles.resolve(
+        return EditableStyles.Default.resolve(
             size = when (bindings["size"]?.toString()) {
-                "H1" -> EditableSize.H1
-                "H2" -> EditableSize.H2
-                "H3" -> EditableSize.H3
-                "H4" -> EditableSize.H4
-                "H5" -> EditableSize.H5
-                "BodyL" -> EditableSize.BodyL
-                "BodyM" -> EditableSize.BodyM
-                "BodyS" -> EditableSize.BodyS
-                "BodyXs" -> EditableSize.BodyXs
-                "BodyXxs" -> EditableSize.BodyXxs
-                else -> EditableSize.H1
+                "H1" -> EditableDefaultSize.H1
+                "H2" -> EditableDefaultSize.H2
+                "H3" -> EditableDefaultSize.H3
+                "H4" -> EditableDefaultSize.H4
+                "H5" -> EditableDefaultSize.H5
+                "BodyL" -> EditableDefaultSize.BodyL
+                "BodyM" -> EditableDefaultSize.BodyM
+                "BodyS" -> EditableDefaultSize.BodyS
+                "BodyXs" -> EditableDefaultSize.BodyXs
+                "BodyXxs" -> EditableDefaultSize.BodyXxs
+                else -> EditableDefaultSize.H1
             },
         ).key
     }

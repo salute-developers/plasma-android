@@ -6,6 +6,9 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -50,6 +53,7 @@ interface ChipGroupStyle : Style {
  * Builder для [ChipGroupStyle]
  */
 @Stable
+@ApiInfo
 interface ChipGroupStyleBuilder : StyleBuilder<ChipGroupStyle> {
 
     /**
@@ -103,15 +107,28 @@ data class ChipGroupDimensions(
  */
 @Immutable
 interface ChipGroupDimensionValues {
+
     /**
      * Горизонтальный отступ между чипами
      */
+    @Deprecated("Use gapValues", ReplaceWith("gapValues"))
     val gap: Dp
+
+    /**
+     * Горизонтальный отступ между чипами
+     */
+    val gapValues: StatefulValue<Dp>
 
     /**
      * Вертикальный отступ между чипами
      */
+    @Deprecated("Use lineSpacingValues", ReplaceWith("lineSpacingValues"))
     val lineSpacing: Dp
+
+    /**
+     * Вертикальный отступ между чипами
+     */
+    val lineSpacingValues: StatefulValue<Dp>
 
     companion object {
 
@@ -124,26 +141,32 @@ interface ChipGroupDimensionValues {
 
 @Immutable
 private class DefaultChipGroupDimensions(
-    override val gap: Dp,
-    override val lineSpacing: Dp,
+    override val gapValues: StatefulValue<Dp>,
+    override val lineSpacingValues: StatefulValue<Dp>,
 ) : ChipGroupDimensionValues {
 
-    class Builder : ChipGroupDimensionsBuilder {
-        private var gap: Dp? = null
-        private var lineSpacing: Dp? = null
+    @Deprecated("Use gapValues", ReplaceWith("gapValues"))
+    override val gap: Dp = gapValues.getDefaultValue()
 
-        override fun gap(gap: Dp) = apply {
-            this.gap = gap
+    @Deprecated("Use lineSpacingValues", ReplaceWith("lineSpacingValues"))
+    override val lineSpacing: Dp = lineSpacingValues.getDefaultValue()
+
+    class Builder : ChipGroupDimensionsBuilder {
+        private var gapValues: StatefulValue<Dp>? = null
+        private var lineSpacingValues: StatefulValue<Dp>? = null
+
+        override fun gap(gap: StatefulValue<Dp>) = apply {
+            this.gapValues = gap
         }
 
-        override fun lineSpacing(lineSpacing: Dp) = apply {
-            this.lineSpacing = lineSpacing
+        override fun lineSpacing(lineSpacing: StatefulValue<Dp>) = apply {
+            this.lineSpacingValues = lineSpacing
         }
 
         override fun build(): ChipGroupDimensionValues {
             return DefaultChipGroupDimensions(
-                gap = gap ?: 2.dp,
-                lineSpacing = lineSpacing ?: 2.dp,
+                gapValues = gapValues ?: 2.dp.asStatefulValue(),
+                lineSpacingValues = lineSpacingValues ?: 2.dp.asStatefulValue(),
             )
         }
     }
@@ -156,13 +179,29 @@ interface ChipGroupDimensionsBuilder {
 
     /**
      * Устаналивает горизонтальный отступ между чипами [gap]
+     * @see ChipGroupDimensionsBuilder.gap
      */
-    fun gap(gap: Dp): ChipGroupDimensionsBuilder
+    fun gap(gap: Dp): ChipGroupDimensionsBuilder =
+        gap(gap.asStatefulValue())
+
+    /**
+     * Устаналивает горизонтальный отступ между чипами [gap]
+     * @see ChipGroupDimensionValues.gapValues
+     */
+    fun gap(gap: StatefulValue<Dp>): ChipGroupDimensionsBuilder
 
     /**
      * Устаналивает вертикальный отступ между чипами [lineSpacing]
+     * @see ChipGroupDimensionsBuilder.lineSpacing
      */
-    fun lineSpacing(lineSpacing: Dp): ChipGroupDimensionsBuilder
+    fun lineSpacing(lineSpacing: Dp): ChipGroupDimensionsBuilder =
+        lineSpacing(lineSpacing.asStatefulValue())
+
+    /**
+     * Устаналивает вертикальный отступ между чипами [lineSpacing]
+     * @see ChipGroupDimensionValues.lineSpacingValues
+     */
+    fun lineSpacing(lineSpacing: StatefulValue<Dp>): ChipGroupDimensionsBuilder
 
     /**
      * Вернёт экземпляр [ChipGroupDimensionValues]

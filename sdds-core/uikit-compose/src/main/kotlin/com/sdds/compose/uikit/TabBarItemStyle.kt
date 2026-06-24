@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -97,6 +98,7 @@ interface TabBarItemStyle : Style {
 /**
  * Билдер стиля компонента
  */
+@ApiInfo
 interface TabBarItemStyleBuilder : StyleBuilder<TabBarItemStyle> {
     /**
      * Устанавливает форму [shape]

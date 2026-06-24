@@ -40,9 +40,7 @@ public val Popover.Default: WrapperPopoverDefault
         .shape(SddsSbComTheme.shapes.roundM)
         .shadow(SddsSbComTheme.shadows.downHardM)
         .colors {
-            backgroundColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue())
         }
         .dimensions {
             width(182.0.dp)

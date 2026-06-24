@@ -59,9 +59,7 @@ public val Overlay.Default: WrapperOverlayDefault
     get() = OverlayStyle.builder(this)
         .invariantProps
         .color {
-            backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.overlayOnDarkSoft).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.overlayOnDarkSoft).asStatefulValue())
         }
         .wrap(::WrapperOverlayDefault)
 
@@ -71,9 +69,7 @@ public val Overlay.DirectionTop: WrapperOverlayDirectionTop
     get() = OverlayStyle.builder(this)
         .invariantProps
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.gradients.overlayDefaultGradientUp.asLayered().asStatefulValue(),
-            )
+            backgroundColor(PlasmaHomeDsTheme.gradients.overlayDefaultGradientUp.asLayered().asStatefulValue())
         }
         .wrap(::WrapperOverlayDirectionTop)
 
@@ -83,8 +79,6 @@ public val Overlay.DirectionBottom: WrapperOverlayDirectionBottom
     get() = OverlayStyle.builder(this)
         .invariantProps
         .color {
-            backgroundColor(
-                PlasmaHomeDsTheme.gradients.overlayDefaultGradientDown.asLayered().asStatefulValue(),
-            )
+            backgroundColor(PlasmaHomeDsTheme.gradients.overlayDefaultGradientDown.asLayered().asStatefulValue())
         }
         .wrap(::WrapperOverlayDirectionBottom)

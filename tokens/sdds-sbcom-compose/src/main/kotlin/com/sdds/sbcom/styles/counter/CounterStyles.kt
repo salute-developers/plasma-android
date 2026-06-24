@@ -69,12 +69,8 @@ public val WrapperCounterView.MuteNo: WrapperCounterTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
-            textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive())
+            textColor(SddsSbComTheme.colors.textOnDarkPrimary.asInteractive())
         }
         .wrap(::WrapperCounterTerminate)
 
@@ -82,12 +78,8 @@ public val WrapperCounterView.MuteYes: WrapperCounterTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.textDefaultParagraph.asInteractive(),
-            )
-            textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SddsSbComTheme.colors.textDefaultParagraph.asInteractive())
+            textColor(SddsSbComTheme.colors.textOnDarkPrimary.asInteractive())
         }
         .wrap(::WrapperCounterTerminate)
 
@@ -97,8 +89,8 @@ private val CounterStyleBuilder.invariantProps: CounterStyleBuilder
         .shape(CircleShape)
         .textStyle(SddsSbComTheme.typography.bodySNormal)
         .dimensions {
-            minHeight(18.0.dp)
             minWidth(18.0.dp)
+            minHeight(18.0.dp)
             paddingStart(5.0.dp)
             paddingEnd(5.0.dp)
         }
@@ -115,12 +107,8 @@ public val WrapperCounterDangerView.MuteNo: WrapperCounterTerminate
     @JvmName("WrapperCounterDangerViewMuteNo")
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SddsSbComTheme.colors.surfaceDefaultNegative.asInteractive())
+            textColor(SddsSbComTheme.colors.textOnDarkPrimary.asInteractive())
         }
         .wrap(::WrapperCounterTerminate)
 
@@ -129,12 +117,8 @@ public val WrapperCounterDangerView.MuteYes: WrapperCounterTerminate
     @JvmName("WrapperCounterDangerViewMuteYes")
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.textDefaultParagraph.asInteractive(),
-            )
-            textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SddsSbComTheme.colors.textDefaultParagraph.asInteractive())
+            textColor(SddsSbComTheme.colors.textOnDarkPrimary.asInteractive())
         }
         .wrap(::WrapperCounterTerminate)
 

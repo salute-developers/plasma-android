@@ -25,6 +25,13 @@ object SddsServComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.Indicator,
+                mapOf(
+                    "AvatarIndicator" to SddsServAvatarIndicatorVariationsCompose,
+                    "Indicator" to SddsServIndicatorVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.AvatarGroup,
                 mapOf(
                     "AvatarGroup" to SddsServAvatarGroupVariationsCompose,
@@ -118,18 +125,13 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.Counter,
                 mapOf(
                     "Counter" to SddsServCounterVariationsCompose,
+                    "SegmentItemCounter" to SddsServSegmentItemCounterVariationsCompose,
                 ),
             ),
             Component(
                 ComponentKey.Divider,
                 mapOf(
                     "Divider" to SddsServDividerVariationsCompose,
-                ),
-            ),
-            Component(
-                ComponentKey.Indicator,
-                mapOf(
-                    "Indicator" to SddsServIndicatorVariationsCompose,
                 ),
             ),
             Component(
@@ -343,9 +345,12 @@ object SddsServComposeComponents : ComponentProvider() {
                 mapOf(
                     "BasicButtonGroup" to SddsServBasicButtonGroupVariationsCompose,
                     "IconButtonGroup" to SddsServIconButtonGroupVariationsCompose,
+                    "AiHeaderEmbeddedIconButtonGroup" to SddsServAiHeaderEmbeddedIconButtonGroupVariationsCompose,
                     "EmbeddedIconButtonGroup" to SddsServEmbeddedIconButtonGroupVariationsCompose,
                     "AiAnswerIconButtonGroup" to SddsServAiAnswerIconButtonGroupVariationsCompose,
                     "AiAnswerBasicButtonGroup" to SddsServAiAnswerBasicButtonGroupVariationsCompose,
+                    "AiInputIconButtonGroup" to SddsServAiInputIconButtonGroupVariationsCompose,
+                    "AiUserMessageEmbeddedIconButtonGroup" to SddsServAiUserMessageEmbeddedIconButtonGroupVariationsCompose,
                 ),
             ),
             Component(
@@ -452,6 +457,7 @@ object SddsServComposeComponents : ComponentProvider() {
                 mapOf(
                     "FileCircularProgress" to SddsServFileCircularProgressVariationsCompose,
                     "FileLinearProgress" to SddsServFileLinearProgressVariationsCompose,
+                    "AiInputFileCircularProgress" to SddsServAiInputFileCircularProgressVariationsCompose,
                 ),
             ),
             Component(
@@ -464,6 +470,7 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.Editable,
                 mapOf(
                     "Editable" to SddsServEditableVariationsCompose,
+                    "AiUserMessageEditable" to SddsServAiUserMessageEditableVariationsCompose,
                 ),
             ),
             Component(
@@ -476,18 +483,18 @@ object SddsServComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
-                ComponentKey.AiHeader,
-                mapOf(
-                    "AiHeader" to SddsServAiHeaderVariationsCompose,
-                ),
-            ),
-            Component(
                 ComponentKey.ComboBox,
                 mapOf(
                     "ComboBoxSingleNormal" to SddsServComboBoxSingleNormalVariationsCompose,
                     "ComboBoxSingleTight" to SddsServComboBoxSingleTightVariationsCompose,
                     "ComboBoxMultipleNormal" to SddsServComboBoxMultipleNormalVariationsCompose,
                     "ComboBoxMultipleTight" to SddsServComboBoxMultipleTightVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.AiHeader,
+                mapOf(
+                    "AiHeader" to SddsServAiHeaderVariationsCompose,
                 ),
             ),
             Component(
@@ -509,6 +516,25 @@ object SddsServComposeComponents : ComponentProvider() {
                 ComponentKey.DropZone,
                 mapOf(
                     "DropZone" to SddsServDropZoneVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.Splitter,
+                mapOf(
+                    "Splitter" to SddsServSplitterVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.AiInput,
+                mapOf(
+                    "AiInputCondensed" to SddsServAiInputCondensedVariationsCompose,
+                    "AiInputExtended" to SddsServAiInputExtendedVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.AiUserMessage,
+                mapOf(
+                    "AiUserMessage" to SddsServAiUserMessageVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

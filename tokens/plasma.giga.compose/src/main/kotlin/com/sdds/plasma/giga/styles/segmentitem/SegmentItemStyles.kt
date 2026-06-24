@@ -16,12 +16,12 @@ import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.styles.counter.Accent
-import com.sdds.plasma.giga.styles.counter.Counter
+import com.sdds.plasma.giga.styles.counter.Default
 import com.sdds.plasma.giga.styles.counter.S
+import com.sdds.plasma.giga.styles.counter.SegmentItemCounter
 import com.sdds.plasma.giga.styles.counter.Xs
 import com.sdds.plasma.giga.styles.counter.Xxs
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -174,94 +174,74 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -271,88 +251,74 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -362,94 +328,74 @@ public val WrapperSegmentItemView.Accent: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -463,116 +409,79 @@ public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemXlViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.S.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.S.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
@@ -580,94 +489,74 @@ public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXlViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -678,88 +567,74 @@ public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXlViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -773,18 +648,18 @@ public val SegmentItem.Xl: WrapperSegmentItemXl
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = 0.0.dp))
         .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .valueStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .counterStyle(SegmentItemCounter.S.Default.style())
         .dimensions {
-            minWidth(110.0.dp)
             minHeight(64.0.dp)
+            minWidth(110.0.dp)
             paddingStart(28.0.dp)
             paddingEnd(28.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
+            valueMargin(6.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(6.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemXl)
 
 public val WrapperSegmentItemXl.Pilled: WrapperSegmentItemXlPilled
@@ -803,116 +678,79 @@ public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemLViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.S.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.S.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
@@ -920,94 +758,74 @@ public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemLViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1018,88 +836,74 @@ public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemLViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1113,18 +917,18 @@ public val SegmentItem.L: WrapperSegmentItemL
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .valueStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .counterStyle(SegmentItemCounter.S.Default.style())
         .dimensions {
-            minWidth(102.0.dp)
             minHeight(56.0.dp)
+            minWidth(102.0.dp)
             paddingStart(24.0.dp)
             paddingEnd(24.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
+            valueMargin(6.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(6.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemL)
 
 public val WrapperSegmentItemL.Pilled: WrapperSegmentItemLPilled
@@ -1143,116 +947,79 @@ public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemMViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.Xs.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
@@ -1260,94 +1027,74 @@ public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemMViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1358,88 +1105,74 @@ public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemMViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1453,18 +1186,18 @@ public val SegmentItem.M: WrapperSegmentItemM
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = 0.0.dp))
         .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .valueStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .counterStyle(SegmentItemCounter.Xs.Default.style())
         .dimensions {
-            minWidth(88.0.dp)
             minHeight(48.0.dp)
+            minWidth(88.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
+            valueMargin(4.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(4.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemM)
 
 public val WrapperSegmentItemM.Pilled: WrapperSegmentItemMPilled
@@ -1483,116 +1216,79 @@ public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemSViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.Xs.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
@@ -1600,94 +1296,74 @@ public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemSViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1698,88 +1374,74 @@ public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemSViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1793,18 +1455,18 @@ public val SegmentItem.S: WrapperSegmentItemS
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
         .valueStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .counterStyle(SegmentItemCounter.Xs.Default.style())
         .dimensions {
-            minWidth(75.0.dp)
             minHeight(40.0.dp)
+            minWidth(75.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             startContentPadding(2.0.dp)
             endContentPadding(2.0.dp)
+            valueMargin(2.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(2.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemS)
 
 public val WrapperSegmentItemS.Pilled: WrapperSegmentItemSPilled
@@ -1823,116 +1485,79 @@ public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemXsViewAccent")
     get() = builder
+        .counterStyle(SegmentItemCounter.Xxs.Accent.style())
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xxs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to PlasmaGigaTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
@@ -1940,94 +1565,74 @@ public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXsViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInverseSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -2038,88 +1643,74 @@ public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXsViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
                 PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        PlasmaGigaTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                    ) to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -2133,18 +1724,18 @@ public val SegmentItem.Xs: WrapperSegmentItemXs
         .shape(PlasmaGigaTheme.shapes.roundS.adjustBy(all = 0.0.dp))
         .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .valueStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .counterStyle(SegmentItemCounter.Xxs.Default.style())
         .dimensions {
-            minWidth(61.0.dp)
             minHeight(32.0.dp)
+            minWidth(61.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             startContentPadding(2.0.dp)
             endContentPadding(2.0.dp)
+            valueMargin(2.0.dp)
             startContentSize(16.0.dp)
             endContentSize(16.0.dp)
-            valueMargin(2.0.dp)
         }
-        .counterStyle(Counter.Xxs.Accent.style())
         .wrap(::WrapperSegmentItemXs)
 
 public val WrapperSegmentItemXs.Pilled: WrapperSegmentItemXsPilled

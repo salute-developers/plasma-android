@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.plasma.sd.service.styles.overlay.Default
 import com.sdds.plasma.sd.service.styles.overlay.Overlay
 
 internal object PlasmaB2cOverlayVariationsCompose : ComposeStyleProvider<OverlayStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<OverlayStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Overlay.Default.style() },
+            "Overlay.Default" to ComposeStyleReference { Overlay.Default.style() },
         )
 }

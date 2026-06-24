@@ -8,10 +8,11 @@
 package com.sdds.plasma.homeds.styles.listitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -60,24 +61,13 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
     @Composable
     get() = this
         .colors {
-            titleColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            subtitleColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            labelColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            disclosureIconColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            contentStartColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            contentEndColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            titleColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            subtitleColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            disclosureIconColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            disclosureTextColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            contentStartColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            contentEndColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
         }
 
 public val ListItem.S: WrapperListItemS
@@ -89,14 +79,15 @@ public val ListItem.S: WrapperListItemS
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .dimensions {
             contentPaddingEnd(12.0.dp)
-            contentPaddingStart(12.0.dp)
-            height(48.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
+            height(48.0.dp)
+            contentPaddingStart(12.0.dp)
         }
         .wrap(::WrapperListItemS)
 
@@ -106,9 +97,7 @@ public val WrapperListItemS.HasBackground: WrapperListItemSHasBackground
     get() = builder
         .shape(PlasmaHomeDsTheme.shapes.roundXl)
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue())
         }
         .dimensions {
             paddingStart(16.0.dp)
@@ -127,14 +116,15 @@ public val ListItem.M: WrapperListItemM
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .labelStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .dimensions {
             contentPaddingEnd(12.0.dp)
-            contentPaddingStart(12.0.dp)
-            height(48.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
+            height(48.0.dp)
+            contentPaddingStart(12.0.dp)
         }
         .wrap(::WrapperListItemM)
 
@@ -144,9 +134,7 @@ public val WrapperListItemM.HasBackground: WrapperListItemMHasBackground
     get() = builder
         .shape(PlasmaHomeDsTheme.shapes.roundXl)
         .colors {
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue())
         }
         .dimensions {
             paddingStart(16.0.dp)

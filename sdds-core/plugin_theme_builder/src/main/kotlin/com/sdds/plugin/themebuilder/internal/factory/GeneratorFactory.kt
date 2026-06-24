@@ -50,6 +50,7 @@ import java.io.File
  * @param resPrefixConfig конфиг префикса для ресурсов
  * @param viewThemeParents список родительских xml-тем
  * @param themeName название генерируемой темы
+ * @param useDefaultFonts использовать дефолтные compose-шрифты вместо значений из android_fontFamily.json
  *
  * @author Малышев Александр on 12.03.2024
  */
@@ -76,6 +77,7 @@ internal class GeneratorFactory(
     private val dimensionsConfig: DimensionsConfig,
     private val packageResolver: PackageResolver,
     private val defaultThemeTypography: DefaultThemeTypography,
+    private val useDefaultFonts: Boolean,
 ) {
 
     private val outputDir: File by unsafeLazy {
@@ -324,6 +326,7 @@ internal class GeneratorFactory(
             fonts,
             fontsAggregator,
             dimensionsConfig,
+            useDefaultFonts,
         )
     }
 

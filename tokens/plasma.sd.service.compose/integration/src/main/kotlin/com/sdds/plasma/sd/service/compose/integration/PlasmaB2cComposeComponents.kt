@@ -25,6 +25,13 @@ object PlasmaB2cComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.Indicator,
+                mapOf(
+                    "AvatarIndicator" to PlasmaB2cAvatarIndicatorVariationsCompose,
+                    "Indicator" to PlasmaB2cIndicatorVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.AvatarGroup,
                 mapOf(
                     "AvatarGroup" to PlasmaB2cAvatarGroupVariationsCompose,
@@ -115,18 +122,13 @@ object PlasmaB2cComposeComponents : ComponentProvider() {
                 ComponentKey.Counter,
                 mapOf(
                     "Counter" to PlasmaB2cCounterVariationsCompose,
+                    "SegmentItemCounter" to PlasmaB2cSegmentItemCounterVariationsCompose,
                 ),
             ),
             Component(
                 ComponentKey.Divider,
                 mapOf(
                     "Divider" to PlasmaB2cDividerVariationsCompose,
-                ),
-            ),
-            Component(
-                ComponentKey.Indicator,
-                mapOf(
-                    "Indicator" to PlasmaB2cIndicatorVariationsCompose,
                 ),
             ),
             Component(

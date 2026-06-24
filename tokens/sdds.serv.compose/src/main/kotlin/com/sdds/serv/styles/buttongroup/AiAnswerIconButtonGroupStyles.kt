@@ -71,10 +71,10 @@ public val AiAnswerIconButtonGroup.Xs: WrapperAiAnswerIconButtonGroupXs
     @JvmName("WrapperAiAnswerIconButtonGroupXs")
     get() = ButtonGroupStyle.builder(this)
         .invariantProps
+        .buttonStyle(EmbeddedIconButton.Xs.Default.style())
         .dimensions {
             spacing(6.0.dp)
         }
-        .buttonStyle(EmbeddedIconButton.Xs.Default.style())
         .wrap(::WrapperAiAnswerIconButtonGroupXs)
 
 public val AiAnswerIconButtonGroup.S: WrapperAiAnswerIconButtonGroupS
@@ -82,10 +82,10 @@ public val AiAnswerIconButtonGroup.S: WrapperAiAnswerIconButtonGroupS
     @JvmName("WrapperAiAnswerIconButtonGroupS")
     get() = ButtonGroupStyle.builder(this)
         .invariantProps
+        .buttonStyle(EmbeddedIconButton.S.Default.style())
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(EmbeddedIconButton.S.Default.style())
         .wrap(::WrapperAiAnswerIconButtonGroupS)
 
 public val AiAnswerIconButtonGroup.M: WrapperAiAnswerIconButtonGroupM
@@ -93,10 +93,10 @@ public val AiAnswerIconButtonGroup.M: WrapperAiAnswerIconButtonGroupM
     @JvmName("WrapperAiAnswerIconButtonGroupM")
     get() = ButtonGroupStyle.builder(this)
         .invariantProps
+        .buttonStyle(EmbeddedIconButton.M.Default.style())
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(EmbeddedIconButton.M.Default.style())
         .wrap(::WrapperAiAnswerIconButtonGroupM)
 
 public val AiAnswerIconButtonGroup.L: WrapperAiAnswerIconButtonGroupL
@@ -104,8 +104,8 @@ public val AiAnswerIconButtonGroup.L: WrapperAiAnswerIconButtonGroupL
     @JvmName("WrapperAiAnswerIconButtonGroupL")
     get() = ButtonGroupStyle.builder(this)
         .invariantProps
+        .buttonStyle(EmbeddedIconButton.L.Default.style())
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(EmbeddedIconButton.L.Default.style())
         .wrap(::WrapperAiAnswerIconButtonGroupL)

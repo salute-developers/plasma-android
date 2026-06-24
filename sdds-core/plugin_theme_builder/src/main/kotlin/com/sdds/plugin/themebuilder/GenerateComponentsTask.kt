@@ -21,17 +21,22 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.universal.ComponentMeta
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.json.decodeFromStream
 import kotlinx.serialization.json.encodeToStream
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputDirectory
+import org.gradle.api.tasks.InputFile
+import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.kotlin.dsl.provideDelegate
@@ -105,11 +110,21 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     @get:Input
     abstract val componentsMetaStyleClass: Property<Boolean>
 
+    /**
+     * JSON-файл с метаданными компонентов uikit (из uikit-api-meta.json).
+     * Опционален: если не задан, делегаты работают без универсального генератора.
+     */
+    @get:InputFile
+    @get:Optional
+    abstract val uikitApiMetaFile: RegularFileProperty
+
     @TaskAction
     @Suppress("TooGenericExceptionCaught")
     fun generate() {
         val deps = getGeneratorDependencies()
         val componentsDir = componentsDir.get()
+        val allMeta = loadUikitApiMeta()
+        val delegates = componentDelegates(allMeta, metaInfo.components)
         val composeComponents = mutableListOf<ComponentInfo>()
         val viewComponents = mutableListOf<ComponentInfo>()
         metaInfo.components.forEach { component ->
@@ -117,7 +132,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
                 val configFile = componentsDir
                     .file(component.config)
                     .asFile
-                val componentDelegate = componentDelegates[component.componentName]
+                val componentDelegate = delegates[component.componentName]
                 if (deps.target.isComposeOrAll) {
                     val componentInfo = componentDelegate?.generateComposeStyles(
                         file = configFile,
@@ -261,6 +276,15 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             .get()
             .file("$CONFIG_INFO_FILE_NAME-$platformPostfix.json")
             .asFile
+    }
+
+    @OptIn(ExperimentalSerializationApi::class)
+    private fun loadUikitApiMeta(): List<ComponentMeta> {
+        val file = if (uikitApiMetaFile.isPresent) uikitApiMetaFile.get().asFile else return emptyList()
+        if (!file.exists()) return emptyList()
+        return file.inputStream().use { stream ->
+            Serializer.componentConfig.decodeFromStream(stream)
+        }
     }
 
     private val metaInfo: Components by unsafeLazy {

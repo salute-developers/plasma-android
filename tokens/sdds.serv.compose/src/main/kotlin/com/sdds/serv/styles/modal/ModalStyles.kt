@@ -43,20 +43,16 @@ public val Modal.Default: WrapperModalDefault
     get() = ModalStyle.builder(this)
         .shape(SddsServTheme.shapes.roundXl)
         .shadow(SddsServTheme.shadows.downSoftL)
+        .overlayStyle(Overlay.Default.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            closeColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsServTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            closeColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            closeSize(24.0.dp)
             paddingStart(32.0.dp)
             paddingEnd(32.0.dp)
             paddingTop(32.0.dp)
             paddingBottom(32.0.dp)
-            closeSize(24.0.dp)
         }
-        .overlayStyle(Overlay.Default.style())
         .wrap(::WrapperModalDefault)

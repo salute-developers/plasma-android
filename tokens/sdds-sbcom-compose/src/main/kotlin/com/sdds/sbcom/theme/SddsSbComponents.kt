@@ -30,6 +30,7 @@ import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTabBarStyle
 import com.sdds.compose.uikit.LocalTabsStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
+import com.sdds.compose.uikit.LocalToolBarStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.motion.components.navigationdrawer.LocalNavigationDrawerItemMotionStyle
@@ -50,7 +51,7 @@ import com.sdds.sbcom.styles.bottomsheet.ModalBottomSheet
 import com.sdds.sbcom.styles.buttongroup.BasicButtonGroup
 import com.sdds.sbcom.styles.buttongroup.Default
 import com.sdds.sbcom.styles.checkbox.CheckBox
-import com.sdds.sbcom.styles.checkbox.Default
+import com.sdds.sbcom.styles.checkbox.VariantDefault
 import com.sdds.sbcom.styles.chip.Chip
 import com.sdds.sbcom.styles.chip.ChipSlotPadding
 import com.sdds.sbcom.styles.chipgroup.ChipGroup
@@ -71,7 +72,8 @@ import com.sdds.sbcom.styles.iconbutton.IconButton
 import com.sdds.sbcom.styles.iconbutton.ModeAccentFilled
 import com.sdds.sbcom.styles.iconbutton.Size40
 import com.sdds.sbcom.styles.indicator.Indicator
-import com.sdds.sbcom.styles.indicator.StateSuccess
+import com.sdds.sbcom.styles.indicator.Size8
+import com.sdds.sbcom.styles.indicator.StateAccent
 import com.sdds.sbcom.styles.list.Default
 import com.sdds.sbcom.styles.list.List
 import com.sdds.sbcom.styles.loader.Loader
@@ -102,6 +104,8 @@ import com.sdds.sbcom.styles.tabs.Default
 import com.sdds.sbcom.styles.tabs.TabsFolder
 import com.sdds.sbcom.styles.textfield.Default
 import com.sdds.sbcom.styles.textfield.TextField
+import com.sdds.sbcom.styles.toolbar.ToolBar
+import com.sdds.sbcom.styles.toolbar.TypeDefault
 import com.sdds.sbcom.styles.tooltip.Default
 import com.sdds.sbcom.styles.tooltip.Tooltip
 import androidx.compose.foundation.LocalIndication as FoundationIndication
@@ -114,14 +118,14 @@ internal fun DefaultComponents(
         LocalAvatarStyle provides Avatar.Size36.style(),
         LocalButtonGroupStyle provides BasicButtonGroup.Default.style(),
         LocalButtonStyle provides BasicButton.Size40.ModeAccentFilled.style(),
-        LocalCheckBoxStyle provides CheckBox.Default.style(),
+        LocalCheckBoxStyle provides CheckBox.VariantDefault.style(),
         LocalChipGroupStyle provides ChipGroup.ChipSlotPadding.style(),
         LocalChipStyle provides Chip.ChipSlotPadding.style(),
         LocalCircularProgressBarStyle provides CircularProgressBar.Size40.ModeColorPrimary.style(),
         LocalCollapsingNavigationBarStyle provides CollapsingNavigationBarMainPage.Default.style(),
         LocalCounterStyle provides Counter.Mute.MuteNo.style(),
         LocalDividerStyle provides Divider.Default.style(),
-        LocalIndicatorStyle provides Indicator.StateSuccess.style(),
+        LocalIndicatorStyle provides Indicator.Size8.StateAccent.style(),
         LocalLoaderStyle provides Loader.Size40.ModeColorPrimary.style(),
         LocalModalBottomSheetStyle provides ModalBottomSheet.Default.style(),
         LocalOverlayStyle provides Overlay.Default.style(),
@@ -140,6 +144,7 @@ internal fun DefaultComponents(
         LocalTabsStyle provides TabsFolder.Default.style(),
         LocalNavigationDrawerStyle provides NavigationDrawer.Default.style(),
         LocalListStyle provides List.Default.style(),
+        LocalToolBarStyle provides ToolBar.TypeDefault.style(),
     ) {
         DefaultMotion {
             content()

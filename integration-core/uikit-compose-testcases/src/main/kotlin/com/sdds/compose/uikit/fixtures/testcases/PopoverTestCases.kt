@@ -364,6 +364,43 @@ fun PopoverMDefaultLooseStartCenterBottomEnd(style: PopoverStyle, buttonStyle: B
 }
 
 /**
+ * PLASMA-T2698
+ */
+@Composable
+fun PopoverStrictClippedPlacementEndAlignmentEnd(style: PopoverStyle, buttonStyle: ButtonStyle) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        val showPopover = remember { mutableStateOf(false) }
+        val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
+        Button(
+            style = buttonStyle,
+            modifier = Modifier
+                .align(Alignment.Center)
+                .popoverTrigger(triggerInfo),
+            label = "Show",
+            onClick = { showPopover.value = true },
+        )
+        Popover(
+            show = showPopover.value,
+            triggerInfo = triggerInfo.value,
+            placement = PopoverPlacement.End,
+            placementMode = PopoverPlacementMode.StrictClipped,
+            triggerCentered = false,
+            alignment = PopoverAlignment.End,
+            style = style,
+            tailEnabled = false,
+            enterTransition = EnterTransition.None,
+            exitTransition = ExitTransition.None,
+            onDismissRequest = {
+                showPopover.value = false
+            },
+            duration = null,
+        ) {
+            PopoverContent(buttonStyle)
+        }
+    }
+}
+
+/**
  * Контент для Popover
  */
 @Composable

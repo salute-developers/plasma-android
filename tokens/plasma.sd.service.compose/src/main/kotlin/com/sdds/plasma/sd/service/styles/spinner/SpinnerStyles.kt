@@ -8,11 +8,13 @@
 package com.sdds.plasma.sd.service.styles.spinner
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SpinnerStrokeCap
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SpinnerStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -110,12 +112,8 @@ public val WrapperSpinnerView.Default: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            endColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            startColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive())
+            endColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -123,13 +121,8 @@ public val WrapperSpinnerView.Secondary: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.multiplyAlpha(0.32f).asInteractive(),
-            )
-            endColor(
-
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.multiplyAlpha(0.32f).asInteractive(),
-            )
+            startColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.multiplyAlpha(0.32f).asInteractive())
+            endColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.multiplyAlpha(0.32f).asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -137,12 +130,8 @@ public val WrapperSpinnerView.Accent: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
-            endColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
+            startColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive())
+            endColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentAccent.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -150,12 +139,8 @@ public val WrapperSpinnerView.Positive: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
-            endColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPositive.asInteractive(),
-            )
+            startColor(PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive())
+            endColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPositive.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -163,12 +148,8 @@ public val WrapperSpinnerView.Negative: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            endColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentNegative.asInteractive(),
-            )
+            startColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive())
+            endColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentNegative.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -176,12 +157,8 @@ public val WrapperSpinnerView.Warning: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
-            endColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentWarning.asInteractive(),
-            )
+            startColor(PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive())
+            endColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentWarning.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -189,12 +166,8 @@ public val WrapperSpinnerView.Info: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultInfo.asInteractive(),
-            )
-            endColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentInfo.asInteractive(),
-            )
+            startColor(PlasmaSdServiceTheme.colors.surfaceDefaultInfo.asInteractive())
+            endColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentInfo.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -204,9 +177,7 @@ private val SpinnerStyleBuilder.invariantProps: SpinnerStyleBuilder
         .angle(360.0f)
         .strokeCap(SpinnerStrokeCap.Round)
         .colors {
-            backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
 
 public val Spinner.Xxl: WrapperSpinnerXxl

@@ -49,15 +49,9 @@ private val TooltipStyleBuilder.invariantProps: TooltipStyleBuilder
     get() = this
         .shadow(StarDsTheme.shadows.downHardM)
         .colors {
-            backgroundColor(
-                SolidColor(StarDsTheme.colors.surfaceOnDarkSolidSecondary).asStatefulValue(),
-            )
-            textColor(
-                SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue(),
-            )
-            contentStartColor(
-                StarDsTheme.colors.textOnDarkSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceOnDarkSolidSecondary).asStatefulValue())
+            textColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
+            contentStartColor(StarDsTheme.colors.textOnDarkSecondary.asInteractive())
         }
         .dimensions {
             contentStartSize(dimensionResource(R.dimen.sdkit_cmp_tooltip_content_start_size))
@@ -76,15 +70,15 @@ public val Tooltip.M: WrapperTooltipM
         )
         .textStyle(StarDsTheme.typography.bodySNormal)
         .dimensions {
+            offset(dimensionResource(R.dimen.sdkit_cmp_tooltip_offset_m))
+            tailWidth(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_width_m))
+            tailHeight(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_height_m))
+            tailPadding(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_padding_m))
             contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_tooltip_content_start_padding_m))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_tooltip_padding_start_m))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_tooltip_padding_end_m))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_tooltip_padding_top_m))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_tooltip_padding_bottom_m))
-            offset(dimensionResource(R.dimen.sdkit_cmp_tooltip_offset_m))
-            tailWidth(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_width_m))
-            tailHeight(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_height_m))
-            tailPadding(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_padding_m))
         }
         .wrap(::WrapperTooltipM)
 
@@ -96,14 +90,14 @@ public val Tooltip.S: WrapperTooltipS
         .shape(StarDsTheme.shapes.roundS)
         .textStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
+            offset(dimensionResource(R.dimen.sdkit_cmp_tooltip_offset_s))
+            tailWidth(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_width_s))
+            tailHeight(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_height_s))
+            tailPadding(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_padding_s))
             contentStartPadding(dimensionResource(R.dimen.sdkit_cmp_tooltip_content_start_padding_s))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_tooltip_padding_start_s))
             paddingEnd(dimensionResource(R.dimen.sdkit_cmp_tooltip_padding_end_s))
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_tooltip_padding_top_s))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_tooltip_padding_bottom_s))
-            offset(dimensionResource(R.dimen.sdkit_cmp_tooltip_offset_s))
-            tailWidth(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_width_s))
-            tailHeight(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_height_s))
-            tailPadding(dimensionResource(R.dimen.sdkit_cmp_tooltip_tail_padding_s))
         }
         .wrap(::WrapperTooltipS)

@@ -65,11 +65,11 @@ public value class WrapperAiAnswerChipGroupXs(
 private val ChipGroupStyleBuilder.invariantProps: ChipGroupStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .dimensions {
             gap(10.0.dp)
             lineSpacing(10.0.dp)
         }
-        .disableAlpha(0.4f)
 
 public val AiAnswerChipGroup.L: WrapperAiAnswerChipGroupL
     @Composable
