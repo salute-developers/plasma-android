@@ -5,7 +5,12 @@ import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.testcases.IndicatorCommon
 import com.sdds.compose.uikit.style.style
+import com.sdds.sbcom.styles.indicator.AvatarIndicator
 import com.sdds.sbcom.styles.indicator.Indicator
+import com.sdds.sbcom.styles.indicator.Size10
+import com.sdds.sbcom.styles.indicator.Size12
+import com.sdds.sbcom.styles.indicator.Size14
+import com.sdds.sbcom.styles.indicator.Size6
 import com.sdds.sbcom.styles.indicator.Size8
 import com.sdds.sbcom.styles.indicator.StateAccent
 import com.sdds.sbcom.styles.indicator.StateDanger
@@ -57,6 +62,41 @@ class ComposeIndicatorScreenshotTest(
     fun testIndicatorStateWarning() {
         composeTestRule.content {
             IndicatorCommon(style = Indicator.Size8.StateWarning.style())
+        }
+    }
+
+    @Test
+    fun testAvatarIndicatorSize6() {
+        composeTestRule.content {
+            IndicatorCommon(AvatarIndicator.Size6.style())
+        }
+    }
+
+    @Test
+    fun testAvatarIndicatorSize8() {
+        composeTestRule.content {
+            IndicatorCommon(AvatarIndicator.Size8.style())
+        }
+    }
+
+    @Test
+    fun testAvatarIndicatorSize10() {
+        composeTestRule.content {
+            IndicatorCommon(AvatarIndicator.Size10.style())
+        }
+    }
+
+    @Test
+    fun testAvatarIndicatorSize12() {
+        composeTestRule.content {
+            IndicatorCommon(AvatarIndicator.Size12.style())
+        }
+    }
+
+    @Test
+    fun testAvatarIndicatorSize14() {
+        composeTestRule.content {
+            IndicatorCommon(AvatarIndicator.Size14.style())
         }
     }
 }

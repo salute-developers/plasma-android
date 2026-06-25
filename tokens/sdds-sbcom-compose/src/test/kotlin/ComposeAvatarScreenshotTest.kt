@@ -6,8 +6,13 @@ import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.testcases.AvatarContent
 import com.sdds.compose.uikit.fixtures.testcases.AvatarGroupSizeS
 import com.sdds.compose.uikit.fixtures.testcases.AvatarIconBadge
+import com.sdds.compose.uikit.fixtures.testcases.AvatarNoStatus
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.avatar.Avatar
+import com.sdds.sbcom.styles.avatar.Size100
+import com.sdds.sbcom.styles.avatar.Size120
+import com.sdds.sbcom.styles.avatar.Size16
+import com.sdds.sbcom.styles.avatar.Size180
 import com.sdds.sbcom.styles.avatar.Size24
 import com.sdds.sbcom.styles.avatar.Size32
 import com.sdds.sbcom.styles.avatar.Size36
@@ -36,6 +41,27 @@ class ComposeAvatarScreenshotTest(
     /**
      * Запуск скриншот тестов
      */
+    @Test
+    fun testAvatarSize180() {
+        composeTestRule.content {
+            AvatarNoStatus(Avatar.Size180.style())
+        }
+    }
+
+    @Test
+    fun testAvatarSize120() {
+        composeTestRule.content {
+            AvatarNoStatus(Avatar.Size120.style())
+        }
+    }
+
+    @Test
+    fun testAvatarSize100() {
+        composeTestRule.content {
+            AvatarNoStatus(Avatar.Size100.style())
+        }
+    }
+
     @Test
     fun testAvatarSize72() {
         composeTestRule.content {
@@ -92,6 +118,13 @@ class ComposeAvatarScreenshotTest(
     fun testAvatarSize24() {
         composeTestRule.content {
             AvatarContent(style = Avatar.Size24.style())
+        }
+    }
+
+    @Test
+    fun testAvatarSize16() {
+        composeTestRule.content {
+            AvatarNoStatus(style = Avatar.Size16.style())
         }
     }
 

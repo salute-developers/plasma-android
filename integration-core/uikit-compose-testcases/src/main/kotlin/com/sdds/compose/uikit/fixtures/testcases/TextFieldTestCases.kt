@@ -923,6 +923,74 @@ fun TextFieldIconRight(
 }
 
 /**
+ * TextField search bar
+ */
+@Composable
+fun TextFieldSbComSearchBar(
+    style: TextFieldStyle,
+    captionText: String? = null,
+    counterText: String? = null,
+    labelText: String = "",
+) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = captionText,
+        counterText = counterText,
+        labelText = labelText,
+        placeholderText = "Placeholder",
+        optionalText = "",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_shazam_24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * TextField alternative field
+ */
+@Composable
+fun TextFieldAlternativeField(
+    style: TextFieldStyle,
+) {
+    TextFieldSbComSearchBar(
+        style = style,
+        captionText = "Helper",
+        counterText = "0/100",
+
+    )
+}
+
+/**
+ * TextField normal
+ */
+@Composable
+fun TextFieldNormalSbCom(
+    style: TextFieldStyle,
+) {
+    TextFieldSbComSearchBar(
+        style = style,
+        labelText = "Label",
+        captionText = "Helper",
+        counterText = "0/100",
+    )
+}
+
+/**
  * TextField icon right disabled
  */
 @Composable
