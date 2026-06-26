@@ -31,12 +31,14 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.internal.scrollbar.BaseScrollBar.animatedScrollBarAlpha
@@ -90,6 +92,7 @@ internal fun BaseScrollBar(
                     }
                 }
             }
+            .clipToBounds()
             .run { if (hasTrack) background(trackColor, trackShape) else this },
     ) {
         scrollBarThumb.invoke(this)
@@ -182,6 +185,7 @@ private fun BasicScrollBarThumb(
 ) {
     Box(
         modifier = modifier
+            .testTag(SCROLL_BAR_THUMB_TEST_TAG)
             .scrollBarThumbSize(
                 orientation = orientation,
                 thumbWidth = thumbWidth,
@@ -220,7 +224,7 @@ internal object BaseScrollBar {
             val totalContentSize =
                 layoutInfo.totalItemsCount * averageItemSize +
                     layoutInfo.beforeContentPadding + layoutInfo.afterContentPadding
-            val availableTrackSpace = trackLengthPx - thumbLengthPx
+            val availableTrackSpace = max(0f, trackLengthPx - thumbLengthPx)
             val scrolledContentDelta =
                 firstVisibleItemIndex * averageItemSize - firstVisibleItemScrollOffset
             val viewPortMainAxisSize = when (orientation) {
@@ -228,10 +232,12 @@ internal object BaseScrollBar {
                 Orientation.Horizontal -> layoutInfo.viewportSize.width
             }
             val availableScrollContentSpace = totalContentSize - viewPortMainAxisSize
-            val offset = ((scrolledContentDelta / availableScrollContentSpace) * availableTrackSpace).coerceAtMost(
-                availableTrackSpace,
-            )
-            offset
+            if (availableScrollContentSpace <= 0f) {
+                return@derivedStateOf 0f
+            }
+            ((scrolledContentDelta / availableScrollContentSpace) * availableTrackSpace)
+                .orZero()
+                .coerceIn(0f, availableTrackSpace)
         }
     }
 
@@ -240,12 +246,12 @@ internal object BaseScrollBar {
         scrollState: ScrollState,
         trackLengthPx: Float,
         thumbLengthPx: Float,
-    ): State<Float> = remember(thumbLengthPx) {
+    ): State<Float> = remember(thumbLengthPx, trackLengthPx) {
         derivedStateOf {
-            val availableHeight = trackLengthPx - thumbLengthPx
+            val availableHeight = max(0f, trackLengthPx - thumbLengthPx)
             val offset =
                 (scrollState.value.toFloat() / scrollState.maxValue.toFloat()) * availableHeight
-            offset.orZero()
+            offset.orZero().coerceIn(0f, availableHeight)
         }
     }
 
@@ -256,10 +262,10 @@ internal object BaseScrollBar {
         scrollState: ScrollState,
         trackLengthPx: Float,
         thumbMinLengthPx: Float,
-    ): State<Float> = remember {
+    ): State<Float> = remember(trackLengthPx, thumbMinLengthPx) {
         derivedStateOf {
             val visibleRatio = trackLengthPx / (trackLengthPx + scrollState.maxValue)
-            max(thumbMinLengthPx, trackLengthPx * visibleRatio)
+            max(thumbMinLengthPx, trackLengthPx * visibleRatio).coerceAtMost(trackLengthPx)
         }
     }
 
@@ -269,15 +275,17 @@ internal object BaseScrollBar {
         trackLengthPx: Float,
         thumbMinLengthPx: Float,
     ): State<Float> =
-        remember(scrollState.layoutInfo.visibleItemsInfo.isEmpty()) {
+        remember(trackLengthPx, thumbMinLengthPx, scrollState.layoutInfo.visibleItemsInfo.isEmpty()) {
             derivedStateOf {
                 val layoutInfo = scrollState.layoutInfo
-                if (layoutInfo.visibleItemsInfo.isEmpty()) return@derivedStateOf thumbMinLengthPx
+                if (layoutInfo.visibleItemsInfo.isEmpty()) {
+                    return@derivedStateOf thumbMinLengthPx.coerceAtMost(trackLengthPx)
+                }
                 val averageItemSize =
                     layoutInfo.visibleItemsInfo.sumOf { it.size } / layoutInfo.visibleItemsInfo.size
                 val fullContentSize = layoutInfo.totalItemsCount * averageItemSize
                 val visibleRatio = trackLengthPx / fullContentSize.toFloat()
-                max(thumbMinLengthPx, trackLengthPx * visibleRatio)
+                max(thumbMinLengthPx, trackLengthPx * visibleRatio).coerceAtMost(trackLengthPx)
             }
         }
 
@@ -409,3 +417,5 @@ internal object BaseScrollBar {
 
     private const val THUMB_MIN_SIZE_DP = 20
 }
+
+internal const val SCROLL_BAR_THUMB_TEST_TAG = "ScrollBarThumb"
