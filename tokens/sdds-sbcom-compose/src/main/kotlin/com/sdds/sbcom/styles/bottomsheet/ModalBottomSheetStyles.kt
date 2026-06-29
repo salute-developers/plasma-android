@@ -9,12 +9,13 @@ package com.sdds.sbcom.styles.bottomsheet
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BottomSheetHandlePlacement
 import com.sdds.compose.uikit.ModalBottomSheetStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -44,8 +45,8 @@ public val ModalBottomSheet.Default: WrapperModalBottomSheetDefault
         .handleShape(CircleShape)
         .handlePlacement(BottomSheetHandlePlacement.Inner)
         .colors {
-            backgroundColor(SddsSbComTheme.colors.surfaceDefaultSolidCard.asInteractive())
-            handleColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            handleColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .dimensions {
             paddingStart(16.0.dp)

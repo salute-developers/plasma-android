@@ -20,7 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.BottomSheetHandlePlacement
@@ -32,8 +32,10 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.fixtures.stories.BottomSheetUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.BottomSheetUiStateTransformer
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
+import com.sdds.compose.uikit.motion.components.bottomsheet.rememberModalBottomSheetMotion
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -80,8 +82,9 @@ object BottomSheetStory : ComposeBaseStory<BottomSheetUiState, ModalBottomSheetS
             initialValue = BottomSheetValue.Hidden,
             skipHalfExpanded = state.skipHalfExpanded,
         )
+        val motion = rememberModalBottomSheetMotion()
         val interactionSource = remember { MutableInteractionSource() }
-        val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
+        val backgroundColor = style.colors.backgroundBrush.getValueAsState(motion.context).value
         val scope = rememberCoroutineScope()
         val scrollState = rememberScrollState()
         Button(
@@ -222,7 +225,7 @@ private fun SmallBody() {
 }
 
 @Composable
-private fun Header(backgroundColor: Color) {
+private fun Header(backgroundColor: Brush) {
     Box(
         Modifier
             .fillMaxWidth()
@@ -236,7 +239,7 @@ private fun Header(backgroundColor: Color) {
 
 @Composable
 private fun Footer(
-    backgroundColor: Color,
+    backgroundColor: Brush,
     modifier: Modifier = Modifier,
 ) {
     Box(

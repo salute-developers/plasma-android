@@ -1,12 +1,12 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.ZeroCornerSize
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
@@ -24,12 +25,19 @@ import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.offset
+import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.modal.BaseModalBottomSheet
 import com.sdds.compose.uikit.internal.modal.BottomSheetState
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.Hidden
 import com.sdds.compose.uikit.internal.modal.handle
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.bottomsheet.ModalBottomSheetMotionStyle
+import com.sdds.compose.uikit.motion.components.bottomsheet.rememberModalBottomSheetMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 import com.sdds.compose.uikit.shadow.shadow
 
 /**
@@ -54,7 +62,6 @@ import com.sdds.compose.uikit.shadow.shadow
  * @param body основной контент
  */
 @OptIn(ExperimentalFoundationApi::class)
-@Suppress("LongMethod")
 @Composable
 fun ModalBottomSheet(
     modifier: Modifier = Modifier,
@@ -91,8 +98,9 @@ fun ModalBottomSheet(
 /**
  * Компонент ModalBottomSheet
  *
- * @param modifier модификатор
  * @param dimBackground нужно ли затемнять фон
+ * @param fitContent ModalBottomSheet открывается по высоте контента
+ * @param modifier модификатор
  * @param style стиль компонента [ModalBottomSheetStyle]
  * @param sheetState состояние ModalBottomSheet
  * @see [BottomSheetState]
@@ -102,7 +110,6 @@ fun ModalBottomSheet(
  * @see BottomSheetHandlePlacement
  * @param interactionSource источник взаимодействий
  * @param useNativeBlackout использовать нативное затемнение фона вокруг [ModalBottomSheet]
- * @param fitContent ModalBottomSheet открывается по высоте контента
  * @param header заголовок
  * @param footer нижний колонтитул
  * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
@@ -112,7 +119,6 @@ fun ModalBottomSheet(
  * @param body основной контент
  */
 @OptIn(ExperimentalFoundationApi::class)
-@Suppress("LongMethod")
 @Composable
 fun ModalBottomSheet(
     dimBackground: Boolean,
@@ -130,13 +136,82 @@ fun ModalBottomSheet(
     edgeToEdge: Boolean = true,
     body: (@Composable () -> Unit),
 ) {
-    val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
-    val handleColor = style.colors.handleColor.colorForInteraction(interactionSource)
-    val newShape = style.shape.copy(
-        bottomEnd = ZeroCornerSize,
-        bottomStart = ZeroCornerSize,
+    val motion = rememberModalBottomSheetMotion(
+        motionContext = rememberMotionContext(interactionSource),
     )
-    val draggableAreaHeight = style.dimensions.handleHeight + style.dimensions.handleOffset
+    ModalBottomSheet(
+        dimBackground = dimBackground,
+        fitContent = fitContent,
+        motion = motion,
+        modifier = modifier,
+        style = style,
+        sheetState = sheetState,
+        sheetGesturesEnabled = sheetGesturesEnabled,
+        onDismiss = onDismiss,
+        handlePlacement = handlePlacement,
+        useNativeBlackout = useNativeBlackout,
+        header = header,
+        footer = footer,
+        body = body,
+    )
+}
+
+/**
+ * Компонент ModalBottomSheet
+ *
+ * @param dimBackground нужно ли затемнять фон
+ * @param fitContent ModalBottomSheet открывается по высоте контента
+ * @param motion объект анимаций
+ * @param modifier модификатор
+ * @param style стиль компонента [ModalBottomSheetStyle]
+ * @param sheetState состояние ModalBottomSheet
+ * @see [BottomSheetState]
+ * @param sheetGesturesEnabled обработка жестов
+ * @param onDismiss действие при закрытиии ModalBottomSheet
+ * @param handlePlacement расположение ручки (handle)
+ * @see BottomSheetHandlePlacement
+ * @param useNativeBlackout использовать нативное затемнение фона вокруг [ModalBottomSheet]
+ * @param header заголовок
+ * @param footer нижний колонтитул
+ * @param body основной контент
+ * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
+ * (компонент рисуется под navBar и под statusBar)
+ * ModalBottomSheet. Ожидается значение в пределах 0f..1f, где 0f - полностью спрятан,
+ * 1f - полностью открыт.
+ */
+@OptIn(ExperimentalFoundationApi::class)
+@Suppress("LongMethod")
+@Composable
+fun ModalBottomSheet(
+    dimBackground: Boolean,
+    fitContent: Boolean,
+    motion: Motion<ModalBottomSheetMotionStyle>,
+    modifier: Modifier = Modifier,
+    style: ModalBottomSheetStyle = LocalModalBottomSheetStyle.current,
+    sheetState: BottomSheetState = rememberModalBottomSheetState(Hidden),
+    sheetGesturesEnabled: Boolean = true,
+    onDismiss: () -> Unit = {},
+    handlePlacement: BottomSheetHandlePlacement = style.handlePlacement,
+    useNativeBlackout: Boolean = true,
+    header: (@Composable () -> Unit)? = null,
+    footer: (@Composable () -> Unit)? = null,
+    body: (@Composable () -> Unit),
+    edgeToEdge: Boolean = true,
+) {
+    val backgroundColor = style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
+    val handleColor = style.colors.handleBrush.getBrushAsState(motion.context, motion.style.handleColor)
+    val handleShape = style.handleShapes.getValueAsState(motion.context)
+    val handleOffset = style.dimensions.handleOffsetValues.getValueAsState(motion.context)
+    val handleWidth = style.dimensions.handleWidthValues.getValueAsState(motion.context)
+    val handleHeight = style.dimensions.handleHeightValues.getValueAsState(motion.context)
+    val blurRadius = style.dimensions.backgroundBlurRadiusValues.getValueAsState(motion.context)
+    val topShape by style.topShape.getValueAsState(motion.context)
+    val bottomShape by style.bottomShape.getValueAsState(motion.context)
+    val newShape = remember(topShape, bottomShape) { resolveShape(topShape, bottomShape) }
+    val start by style.dimensions.paddingStartValues.getValueAsState(motion.context)
+    val top by style.dimensions.paddingTopValues.getValueAsState(motion.context)
+    val end by style.dimensions.paddingEndValues.getValueAsState(motion.context)
+    val bottom by style.dimensions.paddingBottomValues.getValueAsState(motion.context)
     val layoutState = remember { BottomSheetLayoutState() }
     val measurePolicy = remember(fitContent) { BottomSheetMeasurePolicy(fitContent, layoutState) }
     val shadow = style.shadow?.let {
@@ -146,35 +221,32 @@ fun ModalBottomSheet(
     BaseModalBottomSheet(
         modifier = modifier
             .handle(
-                handleShape = style.handleShape,
-                handleColor = handleColor,
-                handleWidth = style.dimensions.handleWidth,
-                handleHeight = style.dimensions.handleHeight,
-                handleOffset = style.dimensions.handleOffset,
+                handleShape = handleShape,
+                handleColor = { handleColor.value },
+                handleWidth = handleWidth,
+                handleHeight = handleHeight,
+                handleOffset = handleOffset,
                 progressProvider = { (sheetState.progressFromHalfExpandedToExpanded) },
                 handlePlacement = handlePlacement,
             )
-            .background(
-                backgroundColor,
+            .clip(newShape)
+            .backgroundBrush(
+                { backgroundColor.value },
                 newShape,
             )
             .then(shadowModifier)
-            .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-                top = style.dimensions.paddingTop,
-                bottom = style.dimensions.paddingBottom,
-            ),
+            .padding(PaddingValues(start, top, end, bottom)),
         sheetGesturesEnabled = sheetGesturesEnabled,
         bottomSheetState = sheetState,
         onDismiss = onDismiss,
         hasHandle = handlePlacement != BottomSheetHandlePlacement.None,
-        draggableAreaHeight = draggableAreaHeight,
+        handleHeight = handleHeight,
+        handleOffset = handleOffset,
         edgeToEdge = edgeToEdge,
         dimBackground = dimBackground,
         useNativeBlackout = useNativeBlackout,
         overlayStyle = style.overlayStyle,
-        blurRadius = style.dimensions.backgroundBlurRadius,
+        blurRadius = blurRadius,
     ) {
         Layout(
             measurePolicy = measurePolicy,
@@ -209,8 +281,8 @@ fun ModalBottomSheet(
                                         sheetTop = sheetState.requireOffset(),
                                         expandedTop = anchors.minPosition(),
                                         hiddenTop = anchors.positionOf(Hidden),
-                                        topPadding = style.dimensions.paddingTop.roundToPx(),
-                                        bottomPadding = style.dimensions.paddingBottom.roundToPx(),
+                                        topPadding = bottom.roundToPx(),
+                                        bottomPadding = top.roundToPx(),
                                     )
                                 }
                             },
@@ -338,6 +410,14 @@ private class BottomSheetLayoutState {
         return (baseTranslation - dragDelta).coerceIn(-maxTranslation, baseTranslation)
     }
 }
+
+private fun resolveShape(
+    topShape: CornerBasedShape,
+    bottomShape: CornerBasedShape,
+) = topShape.copy(
+    bottomEnd = bottomShape.bottomEnd,
+    bottomStart = bottomShape.bottomStart,
+)
 
 private const val FOOTER = "footer"
 private const val HEADER = "header"

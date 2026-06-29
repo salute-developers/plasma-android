@@ -9,11 +9,12 @@ package com.sdds.plasma.giga.styles.bottomsheet
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BottomSheetHandlePlacement
 import com.sdds.compose.uikit.ModalBottomSheetStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -39,12 +40,12 @@ public val ModalBottomSheet.Default: WrapperModalBottomSheetDefault
     @Composable
     @JvmName("WrapperModalBottomSheetDefault")
     get() = ModalBottomSheetStyle.builder(this)
-        .shape(PlasmaGigaTheme.shapes.roundXl)
+        .topShape(PlasmaGigaTheme.shapes.roundXl)
         .handleShape(CircleShape)
         .handlePlacement(BottomSheetHandlePlacement.Auto)
         .colors {
-            backgroundColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard.asInteractive())
-            handleColor(PlasmaGigaTheme.colors.surfaceDefaultSolidTertiary.asInteractive())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            handleColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidTertiary).asStatefulValue())
         }
         .dimensions {
             paddingStart(16.0.dp)
