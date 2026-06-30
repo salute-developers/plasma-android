@@ -2,6 +2,7 @@ package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -246,6 +247,49 @@ fun WheelCountThreeDescriptionDivider(style: WheelStyle) {
                 ),
                 description = "Description",
                 initialIndex = 1,
+            )
+        }
+    }
+}
+
+/**
+ * PLASMA-T2675
+ */
+@Composable
+fun WheelCountTwoTADescriptionDivider(style: WheelStyle) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+    ) {
+        Wheel(
+            style = style,
+            wheelCount = 2,
+            hasControls = true,
+            visibleItemsCount = 5,
+            wheelSeparator = WheelSeparator.Divider,
+            alignment = WheelAlignment.Center,
+            dataEdgePlacement = DataEdgePlacement.WheelEdge,
+            onItemSelected = { _, _ -> },
+            modifier = Modifier
+                .fillMaxWidth()
+                .semantics(mergeDescendants = false) {
+                    testTag = "wheel"
+                }
+                .align(Alignment.Center),
+        ) { wheelIndex ->
+            WheelDataSet(
+                dataSet = listOf(
+                    WheelItemData("Label$wheelIndex", "TA"),
+                    WheelItemData("Label2", "TA"),
+                    WheelItemData("Label3", "TA"),
+                    WheelItemData("Label4", "TA"),
+                    WheelItemData("Label5", "TA"),
+                    WheelItemData("Label6", "TA"),
+                    WheelItemData("Label7", "TA"),
+                    WheelItemData("Label8", "TA"),
+                    WheelItemData("Label9", "TA"),
+                ),
+                description = "description",
+                initialIndex = 3,
             )
         }
     }
