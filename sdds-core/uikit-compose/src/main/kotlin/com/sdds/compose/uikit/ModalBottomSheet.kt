@@ -8,7 +8,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
@@ -58,7 +62,7 @@ fun ModalBottomSheet(
     sheetState: BottomSheetState = rememberModalBottomSheetState(Hidden),
     sheetGesturesEnabled: Boolean = true,
     onDismiss: () -> Unit = {},
-    handlePlacement: BottomSheetHandlePlacement = BottomSheetHandlePlacement.Auto,
+    handlePlacement: BottomSheetHandlePlacement = style.handlePlacement,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     fitContent: Boolean,
     header: (@Composable () -> Unit)? = null,
@@ -118,7 +122,7 @@ fun ModalBottomSheet(
     sheetState: BottomSheetState = rememberModalBottomSheetState(Hidden),
     sheetGesturesEnabled: Boolean = true,
     onDismiss: () -> Unit = {},
-    handlePlacement: BottomSheetHandlePlacement = BottomSheetHandlePlacement.Auto,
+    handlePlacement: BottomSheetHandlePlacement = style.handlePlacement,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     useNativeBlackout: Boolean = true,
     header: (@Composable () -> Unit)? = null,
@@ -133,7 +137,8 @@ fun ModalBottomSheet(
         bottomStart = ZeroCornerSize,
     )
     val draggableAreaHeight = style.dimensions.handleHeight + style.dimensions.handleOffset
-    val measurePolicy = BottomSheetMeasurePolicy(fitContent)
+    val layoutState = remember { BottomSheetLayoutState() }
+    val measurePolicy = remember(fitContent) { BottomSheetMeasurePolicy(fitContent, layoutState) }
     val shadow = style.shadow?.let {
         Modifier.shadow(it, newShape)
     } ?: Modifier
@@ -198,13 +203,16 @@ fun ModalBottomSheet(
                             .layoutId(FOOTER)
                             .fillMaxWidth()
                             .graphicsLayer {
-                                translationY = -sheetState.requireOffset()
-                                    .coerceAtMost(
-                                        sheetState.anchoredDraggableState
-                                            .anchors.positionOf(Hidden) -
-                                            this.size.height - style.dimensions.paddingBottom.roundToPx() -
-                                            style.dimensions.paddingTop.roundToPx(),
+                                val anchors = sheetState.anchoredDraggableState.anchors
+                                if (anchors.size > 0) {
+                                    translationY = layoutState.footerTranslation(
+                                        sheetTop = sheetState.requireOffset(),
+                                        expandedTop = anchors.minPosition(),
+                                        hiddenTop = anchors.positionOf(Hidden),
+                                        topPadding = style.dimensions.paddingTop.roundToPx(),
+                                        bottomPadding = style.dimensions.paddingBottom.roundToPx(),
                                     )
+                                }
                             },
                         contentAlignment = Alignment.Center,
                     ) {
@@ -246,6 +254,7 @@ enum class BottomSheetHandlePlacement {
 
 private class BottomSheetMeasurePolicy(
     val fitContent: Boolean,
+    val layoutInfo: BottomSheetLayoutState,
 ) : MeasurePolicy {
     override fun MeasureScope.measure(
         measurables: List<Measurable>,
@@ -271,6 +280,7 @@ private class BottomSheetMeasurePolicy(
         } else {
             constraints.maxHeight
         }
+        layoutInfo.update(layoutHeight, footerHeight)
         return layout(
             width = constraints.maxWidth,
             height = layoutHeight,
@@ -279,6 +289,53 @@ private class BottomSheetMeasurePolicy(
             bodyPlaceable?.placeRelative(0, headerHeight)
             footerPlaceable?.placeRelative(0, layoutHeight - footerHeight)
         }
+    }
+}
+
+@Stable
+private class BottomSheetLayoutState {
+
+    /**
+     * Фактическая высота footer после измерения
+     */
+    var footerHeight by mutableIntStateOf(0)
+        private set
+
+    /**
+     * Фактическая высота BottomSheet после измерения
+     */
+    var layoutHeight by mutableIntStateOf(0)
+        private set
+
+    fun update(
+        layoutHeight: Int,
+        footerHeight: Int,
+    ) {
+        if (this.footerHeight != footerHeight) this.footerHeight = footerHeight
+        if (this.layoutHeight != layoutHeight) this.layoutHeight = layoutHeight
+    }
+
+    /**
+     * Вычисляет смещение footer
+     */
+    fun footerTranslation(
+        sheetTop: Float,
+        expandedTop: Float,
+        hiddenTop: Float,
+        topPadding: Int,
+        bottomPadding: Int,
+    ): Float {
+        // максимальное смещение, после которого footer начинает двигаться вместе с BottomSheet
+        val maxTranslation = (layoutHeight - footerHeight).toFloat()
+        // позиция верхней границы footer на экране, когда BottomSheet раскрыт
+        val footerTopWhenExpanded = expandedTop + maxTranslation
+        // позиция, в котрой footer должен быть зафиксирован
+        val desireFooterTop = hiddenTop - footerHeight - topPadding - bottomPadding
+        // базовая компенсация, необходимая для фиксации footer
+        val baseTranslation = desireFooterTop - footerTopWhenExpanded
+        // на сколько BottomSheet сместился относительно expanded
+        val dragDelta = sheetTop - expandedTop
+        return (baseTranslation - dragDelta).coerceIn(-maxTranslation, baseTranslation)
     }
 }
 
