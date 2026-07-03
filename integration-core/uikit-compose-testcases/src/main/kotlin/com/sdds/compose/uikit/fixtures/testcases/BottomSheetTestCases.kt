@@ -248,6 +248,54 @@ fun BottomSheetNoHeaderFooterAuto(
 }
 
 /**
+ * PLASMA-T2768
+ */
+@Composable
+fun BottomSheetHeaderFooterFixedFitContentEdgeToEdge(
+    style: ModalBottomSheetStyle,
+    buttonStyle: ButtonStyle,
+) {
+    val sheetState = rememberModalBottomSheetState(
+        initialValue = BottomSheetValue.Expanded,
+    )
+    Box(modifier = Modifier.fillMaxSize()) {
+        val scope = rememberCoroutineScope()
+        Button(
+            style = buttonStyle,
+            label = "Show",
+            onClick = {
+                scope.launch { sheetState.show() }
+            },
+        )
+        ModalBottomSheet(
+            style = style,
+            sheetState = sheetState,
+            handlePlacement = BottomSheetHandlePlacement.Auto,
+            sheetGesturesEnabled = true,
+            fitContent = true,
+            edgeToEdge = true,
+            dimBackground = true,
+            useNativeBlackout = true,
+            header = { HeaderBottomSheet() },
+            body = {
+                BodyText()
+            },
+            footer = {
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    style = buttonStyle,
+                    label = "Continue",
+                    onClick = {
+                        scope.launch { sheetState.show() }
+                    },
+                )
+            },
+            onDismiss = {},
+        )
+    }
+}
+
+/**
  * BottomSheet HalfExpanded
  */
 @Composable
@@ -369,7 +417,8 @@ fun BottomSheetForSandbox(style: ModalBottomSheetStyle) {
         footer = {},
     ) {
         Column(
-            Modifier.fillMaxWidth()
+            Modifier
+                .fillMaxWidth()
                 .navigationBarsPadding(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
