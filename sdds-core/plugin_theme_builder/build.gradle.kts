@@ -9,6 +9,19 @@ plugins {
     id("convention.detekt")
     id("convention.spotless")
     id("convention.auto-bump")
+    alias(libs.plugins.kover)
+}
+
+kover {
+    reports {
+        filters {
+            excludes {
+                packages("com.sdds.plugin.themebuilder.internal.components",
+                    "com.sdds.plugin.themebuilder.internal.factory"
+                )
+            }
+        }
+    }
 }
 
 group = "io.github.salute-developers"
