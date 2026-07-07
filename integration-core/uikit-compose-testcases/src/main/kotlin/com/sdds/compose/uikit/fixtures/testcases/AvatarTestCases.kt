@@ -53,6 +53,19 @@ fun AvatarSizeM(style: AvatarStyle) {
 }
 
 /**
+ * Avatar no status
+ */
+@Composable
+fun AvatarNoStatus(style: AvatarStyle) {
+    Avatar(
+        style = style,
+        status = AvatarStatus.None,
+        actionEnabled = false,
+        placeholder = AvatarPlaceholder.Name("Michael Scott"),
+    )
+}
+
+/**
  * PLASMA-T1510
  */
 @Composable

@@ -20,4 +20,11 @@ class ModalScrollbarTest {
             .scrollUntilPassedVisible()
             .assertScrollPassedVisible()
     }
+
+    @Test
+    fun test_modal_scroll_thumb() {
+        ModalScrollbarPage(composeTestRule)
+            .scrollThumbUntilPassedVisible()
+            .assertScrollPassedVisible()
+    }
 }

@@ -1,5 +1,6 @@
 package com.sdds.playground.integrationtest.pageobject
 
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.isDisplayed
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
@@ -35,6 +36,25 @@ class ModalScrollbarPage(
             if (isDisplayed) return@repeat
             composeTestRule.onNodeWithTag(ModalTags.FIRST_SCROLL_CONTAINER).performTouchInput {
                 swipeUp()
+            }
+            composeTestRule.waitForIdle()
+        }
+    }
+
+    fun scrollThumbUntilPassedVisible(maxDrags: Int = 3) = apply {
+        repeat(maxDrags) {
+            val isDisplayed = runCatching {
+                composeTestRule.onNodeWithTag("scroll passed").assertIsDisplayed()
+            }.isSuccess
+            if (isDisplayed) return@repeat
+            composeTestRule.onNodeWithTag("ScrollBarThumb").performTouchInput {
+                down(center)
+                advanceEventTime(300)
+                repeat(40) {
+                    moveBy(Offset(x = 0f, y = 40f))
+                    advanceEventTime(50)
+                }
+                up()
             }
             composeTestRule.waitForIdle()
         }
