@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,7 +20,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Overlay
 import com.sdds.compose.uikit.OverlayStyle
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.Hidden
@@ -32,10 +32,16 @@ import kotlin.math.roundToInt
  * @param modifier модификатор
  * @param bottomSheetState состояние ModalBottomSheet
  * @see [BottomSheetState]
+ * @param dimBackground затемнение фона
+ * @param useNativeBlackout будет ли использовано стандартное затемнение
+ * @param overlayStyle стиль накладываемого слоя overlay
  * @param sheetGesturesEnabled обработка жестов
  * @param onDismiss действие при закрытиии ModalBottomSheet
  * @param hasHandle включение ручки (handle)
- * @param draggableAreaHeight область вокруг ручки поддерживающая жесты
+ * @param handleHeight высота ручки
+ * @param handleOffset отступ ручки
+ * @param edgeToEdge включен ли режим от "края до края"
+ * @param blurRadius радиус размытия
  * @param content контент
  */
 @Composable
@@ -49,9 +55,10 @@ internal fun BaseModalBottomSheet(
     sheetGesturesEnabled: Boolean = true,
     onDismiss: () -> Unit = {},
     hasHandle: Boolean = false,
-    draggableAreaHeight: Dp = 10.dp,
+    handleHeight: State<Dp>,
+    handleOffset: State<Dp>,
     edgeToEdge: Boolean = true,
-    blurRadius: Dp = Dp.Unspecified,
+    blurRadius: State<Dp>,
     content: @Composable BoxScope.() -> Unit,
 ) {
     val scope = rememberCoroutineScope()
@@ -67,10 +74,11 @@ internal fun BaseModalBottomSheet(
         }
     }
     if (dialogState == DialogState.Show) {
+        val currentBlurRadius = blurRadius.value
         EdgeToEdgeDialog(
             edgeToEdge = edgeToEdge,
             useNativeBlackout = dimBackground && useNativeBlackout,
-            blurRadius = blurRadius,
+            blurRadius = currentBlurRadius,
             onDismissRequest = {
                 if (bottomSheetState.confirmValueChange(Hidden)) {
                     scope.launch { bottomSheetState.hide() }
@@ -96,6 +104,7 @@ internal fun BaseModalBottomSheet(
                             ),
                     )
                     if (hasHandle) {
+                        val draggableAreaHeight = handleHeight.value + handleOffset.value
                         DraggableHandleArea(
                             sheetState = bottomSheetState,
                             modifier = Modifier
