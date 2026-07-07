@@ -8,6 +8,126 @@ import androidx.compose.ui.graphics.Color
  */
 public object DarkColorTokens {
     /**
+     * dark syntax default syntaxYellow
+     */
+    public val SyntaxDefaultYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * dark syntax default syntaxOrange
+     */
+    public val SyntaxDefaultOrange: Color = Color(0xFFFFB38A)
+
+    /**
+     * dark syntax default syntaxPink
+     */
+    public val SyntaxDefaultPink: Color = Color(0xFFFF4791)
+
+    /**
+     * dark syntax default syntaxSpring
+     */
+    public val SyntaxDefaultSpring: Color = Color(0xFFC5FC5F)
+
+    /**
+     * dark syntax default syntaxSkyBlue
+     */
+    public val SyntaxDefaultSkyBlue: Color = Color(0xFF8AE6FF)
+
+    /**
+     * dark syntax default syntaxRed
+     */
+    public val SyntaxDefaultRed: Color = Color(0xFFFF8F9A)
+
+    /**
+     * dark syntax onDark syntaxYellow
+     */
+    public val SyntaxOnDarkYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * dark syntax onDark syntaxOrange
+     */
+    public val SyntaxOnDarkOrange: Color = Color(0xFFFFB38A)
+
+    /**
+     * dark syntax onDark syntaxPink
+     */
+    public val SyntaxOnDarkPink: Color = Color(0xFFFF4791)
+
+    /**
+     * dark syntax onDark syntaxSpring
+     */
+    public val SyntaxOnDarkSpring: Color = Color(0xFFC5FC5F)
+
+    /**
+     * dark syntax onDark syntaxSkyBlue
+     */
+    public val SyntaxOnDarkSkyBlue: Color = Color(0xFF8AE6FF)
+
+    /**
+     * dark syntax onDark syntaxRed
+     */
+    public val SyntaxOnDarkRed: Color = Color(0xFFFF8F9A)
+
+    /**
+     * dark syntax onLight syntaxYellow
+     */
+    public val SyntaxOnLightYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * dark syntax onLight syntaxOrange
+     */
+    public val SyntaxOnLightOrange: Color = Color(0xFF85380C)
+
+    /**
+     * dark syntax onLight syntaxPink
+     */
+    public val SyntaxOnLightPink: Color = Color(0xFF9B0D46)
+
+    /**
+     * dark syntax onLight syntaxSpring
+     */
+    public val SyntaxOnLightSpring: Color = Color(0xFF629405)
+
+    /**
+     * dark syntax onLight syntaxSkyBlue
+     */
+    public val SyntaxOnLightSkyBlue: Color = Color(0xFF0492B9)
+
+    /**
+     * dark syntax onLight syntaxRed
+     */
+    public val SyntaxOnLightRed: Color = Color(0xFFFF3D51)
+
+    /**
+     * dark syntax inverse syntaxYellow
+     */
+    public val SyntaxInverseYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * dark syntax inverse syntaxOrange
+     */
+    public val SyntaxInverseOrange: Color = Color(0xFF85380C)
+
+    /**
+     * dark syntax inverse syntaxPink
+     */
+    public val SyntaxInversePink: Color = Color(0xFF9B0D46)
+
+    /**
+     * dark syntax inverse syntaxSpring
+     */
+    public val SyntaxInverseSpring: Color = Color(0xFF629405)
+
+    /**
+     * dark syntax inverse syntaxSkyBlue
+     */
+    public val SyntaxInverseSkyBlue: Color = Color(0xFF0492B9)
+
+    /**
+     * dark syntax inverse syntaxRed
+     */
+    public val SyntaxInverseRed: Color = Color(0xFFFF3D51)
+
+    /**
      * Основной цвет текста
      */
     public val TextDefaultPrimary: Color = Color(0xF5FFFFFF)
@@ -1025,17 +1145,17 @@ public object DarkColorTokens {
     /**
      * Основной фон для карточек
      */
-    public val SurfaceDefaultSolidCardHover: Color = Color(0xFF1C1C1C)
+    public val SurfaceDefaultSolidCardHover: Color = Color(0xFF303030)
 
     /**
      * Основной фон для карточек
      */
-    public val SurfaceDefaultSolidCardActive: Color = Color(0xFF121212)
+    public val SurfaceDefaultSolidCardActive: Color = Color(0xFF212121)
 
     /**
      * Основной фон для карточек
      */
-    public val SurfaceDefaultSolidCardBrightness: Color = Color(0xFF262626)
+    public val SurfaceDefaultSolidCardBrightness: Color = Color(0xFF363636)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию
@@ -1090,17 +1210,17 @@ public object DarkColorTokens {
     /**
      * Прозрачный фон для карточек
      */
-    public val SurfaceDefaultTransparentCardHover: Color = Color(0x3DFFFFFF)
+    public val SurfaceDefaultTransparentCardHover: Color = Color(0x1CEBFFFD)
 
     /**
      * Прозрачный фон для карточек
      */
-    public val SurfaceDefaultTransparentCardActive: Color = Color(0x0FFFFFFF)
+    public val SurfaceDefaultTransparentCardActive: Color = Color(0x08EBFFFD)
 
     /**
      * Прозрачный фон для карточек
      */
-    public val SurfaceDefaultTransparentCardBrightness: Color = Color(0x1FFFFFFF)
+    public val SurfaceDefaultTransparentCardBrightness: Color = Color(0x0DEBFFFD)
 
     /**
      * Фон поверхности/контрола без заливки
@@ -1338,19 +1458,9 @@ public object DarkColorTokens {
     public val SurfaceDefaultSolidTertiary: Color = Color(0xFF262626)
 
     /**
-     * Основной фон для карточек
-     */
-    public val SurfaceDefaultSolidCard: Color = Color(0xFF171717)
-
-    /**
      * Непрозрачный фон поверхности/контрола по умолчанию
      */
     public val SurfaceDefaultSolidDefault: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCard: Color = Color(0x1FFFFFFF)
 
     /**
      * Основной прозрачный фон поверхности/контрола
@@ -1438,6 +1548,16 @@ public object DarkColorTokens {
     public val SurfaceDefaultTransparentAccent: Color = Color(0x3352F2C5)
 
     /**
+     * Основной фон для карточек
+     */
+    public val SurfaceDefaultSolidCard: Color = Color(0xFF262626)
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCard: Color = Color(0x0DEDFFFD)
+
+    /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkSolidPrimaryHover: Color = Color(0xFF121212)
@@ -1475,17 +1595,17 @@ public object DarkColorTokens {
     /**
      * Основной фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkSolidCardHover: Color = Color(0xFF1C1C1C)
+    public val SurfaceOnDarkSolidCardHover: Color = Color(0xFF303030)
 
     /**
      * Основной фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkSolidCardActive: Color = Color(0xFF121212)
+    public val SurfaceOnDarkSolidCardActive: Color = Color(0xFF212121)
 
     /**
      * Основной фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkSolidCardBrightness: Color = Color(0xFF262626)
+    public val SurfaceOnDarkSolidCardBrightness: Color = Color(0xFF363636)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
@@ -1540,17 +1660,17 @@ public object DarkColorTokens {
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x3DFFFFFF)
+    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x1CEBFFFD)
 
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x0FFFFFFF)
+    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x08EBFFFD)
 
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x1FFFFFFF)
+    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x0DEBFFFD)
 
     /**
      * Фон поверхности/контрола без заливки на темном фоне
@@ -1778,11 +1898,6 @@ public object DarkColorTokens {
     public val SurfaceOnDarkTransparentInfoActive: Color = Color(0x243F82FD)
 
     /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCard: Color = Color(0xFF171717)
-
-    /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkSolidPrimary: Color = Color(0xFF0D0D0D)
@@ -1801,11 +1916,6 @@ public object DarkColorTokens {
      * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
      */
     public val SurfaceOnDarkSolidDefault: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCard: Color = Color(0x1FFFFFFF)
 
     /**
      * Основной прозрачный фон поверхности/контрола на темном фоне
@@ -1886,6 +1996,16 @@ public object DarkColorTokens {
      * Прозрачный акцентный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkTransparentAccent: Color = Color(0x3352F2FF)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCard: Color = Color(0xFF262626)
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCard: Color = Color(0x0DEDFFFD)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на светлом фоне
@@ -2880,32 +3000,32 @@ public object DarkColorTokens {
     /**
      * Цвет фона паранжи светлый на светлом фоне
      */
-    public val OverlayOnLightSoft: Color = Color(0x8EF9F9F9)
+    public val OverlayOnLightSoft: Color = Color(0x8F080808)
 
     /**
      * Цвет фона паранжи темный на светлом фоне
      */
-    public val OverlayOnLightHard: Color = Color(0xF4F9F9F9)
+    public val OverlayOnLightHard: Color = Color(0xF5080808)
 
     /**
      * Цвет фона паранжи размытый на светлом фоне
      */
-    public val OverlayOnLightBlur: Color = Color(0x47F9F9F9)
+    public val OverlayOnLightBlur: Color = Color(0x47080808)
 
     /**
      * Инвертированный цвет фона паранжи светлый
      */
-    public val OverlayInverseSoft: Color = Color(0x8EF9F9F9)
+    public val OverlayInverseSoft: Color = Color(0x8F080808)
 
     /**
      * Инвертированный цвет фона паранжи темный
      */
-    public val OverlayInverseHard: Color = Color(0xF4F9F9F9)
+    public val OverlayInverseHard: Color = Color(0xF5080808)
 
     /**
      * Инвертированный цвет фона паранжи размытый
      */
-    public val OverlayInverseBlur: Color = Color(0x47F9F9F9)
+    public val OverlayInverseBlur: Color = Color(0x47080808)
 
     /**
      * Основной непрозрачный цвет обводки
@@ -4593,6 +4713,126 @@ public object DarkColorTokens {
  */
 public object LightColorTokens {
     /**
+     * light syntax default syntaxYellow
+     */
+    public val SyntaxDefaultYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * light syntax default syntaxOrange
+     */
+    public val SyntaxDefaultOrange: Color = Color(0xFF85380C)
+
+    /**
+     * light syntax default syntaxPink
+     */
+    public val SyntaxDefaultPink: Color = Color(0xFF9B0D46)
+
+    /**
+     * light syntax default syntaxSpring
+     */
+    public val SyntaxDefaultSpring: Color = Color(0xFF629405)
+
+    /**
+     * light syntax default syntaxSkyBlue
+     */
+    public val SyntaxDefaultSkyBlue: Color = Color(0xFF0492B9)
+
+    /**
+     * light syntax default syntaxRed
+     */
+    public val SyntaxDefaultRed: Color = Color(0xFFFF3D51)
+
+    /**
+     * light syntax onDark syntaxYellow
+     */
+    public val SyntaxOnDarkYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * light syntax onDark syntaxOrange
+     */
+    public val SyntaxOnDarkOrange: Color = Color(0xFFFFB38A)
+
+    /**
+     * light syntax onDark syntaxPink
+     */
+    public val SyntaxOnDarkPink: Color = Color(0xFFFF4791)
+
+    /**
+     * light syntax onDark syntaxSpring
+     */
+    public val SyntaxOnDarkSpring: Color = Color(0xFFC5FC5F)
+
+    /**
+     * light syntax onDark syntaxSkyBlue
+     */
+    public val SyntaxOnDarkSkyBlue: Color = Color(0xFF8AE6FF)
+
+    /**
+     * light syntax onDark syntaxRed
+     */
+    public val SyntaxOnDarkRed: Color = Color(0xFFFF8F9A)
+
+    /**
+     * light syntax onLight syntaxYellow
+     */
+    public val SyntaxOnLightYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * light syntax onLight syntaxOrange
+     */
+    public val SyntaxOnLightOrange: Color = Color(0xFF85380C)
+
+    /**
+     * light syntax onLight syntaxPink
+     */
+    public val SyntaxOnLightPink: Color = Color(0xFF9B0D46)
+
+    /**
+     * light syntax onLight syntaxSpring
+     */
+    public val SyntaxOnLightSpring: Color = Color(0xFF629405)
+
+    /**
+     * light syntax onLight syntaxSkyBlue
+     */
+    public val SyntaxOnLightSkyBlue: Color = Color(0xFF0492B9)
+
+    /**
+     * light syntax onLight syntaxRed
+     */
+    public val SyntaxOnLightRed: Color = Color(0xFFFF3D51)
+
+    /**
+     * light syntax inverse syntaxYellow
+     */
+    public val SyntaxInverseYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * light syntax inverse syntaxOrange
+     */
+    public val SyntaxInverseOrange: Color = Color(0xFFFFB38A)
+
+    /**
+     * light syntax inverse syntaxPink
+     */
+    public val SyntaxInversePink: Color = Color(0xFFFF4791)
+
+    /**
+     * light syntax inverse syntaxSpring
+     */
+    public val SyntaxInverseSpring: Color = Color(0xFFC5FC5F)
+
+    /**
+     * light syntax inverse syntaxSkyBlue
+     */
+    public val SyntaxInverseSkyBlue: Color = Color(0xFF8AE6FF)
+
+    /**
+     * light syntax inverse syntaxRed
+     */
+    public val SyntaxInverseRed: Color = Color(0xFFFF8F9A)
+
+    /**
      * Основной цвет текста
      */
     public val TextDefaultPrimaryHover: Color = Color(0x93080808)
@@ -6060,17 +6300,17 @@ public object LightColorTokens {
     /**
      * Основной фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkSolidCardHover: Color = Color(0xFF363636)
+    public val SurfaceOnDarkSolidCardHover: Color = Color(0xFF303030)
 
     /**
      * Основной фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkSolidCardActive: Color = Color(0xFF0D0D0D)
+    public val SurfaceOnDarkSolidCardActive: Color = Color(0xFF212121)
 
     /**
      * Основной фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkSolidCardBrightness: Color = Color(0xFF262626)
+    public val SurfaceOnDarkSolidCardBrightness: Color = Color(0xFF363636)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
@@ -6125,17 +6365,17 @@ public object LightColorTokens {
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x0AFFFFFF)
+    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x1CEBFFFD)
 
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x29FFFFFF)
+    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x08EBFFFD)
 
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x1FFFFFFF)
+    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x0DEBFFFD)
 
     /**
      * Фон поверхности/контрола без заливки на темном фоне
@@ -6363,11 +6603,6 @@ public object LightColorTokens {
     public val SurfaceOnDarkTransparentInfoActive: Color = Color(0x3D3F82FD)
 
     /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkSolidCard: Color = Color(0xFF171717)
-
-    /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkSolidPrimary: Color = Color(0xFF0D0D0D)
@@ -6386,11 +6621,6 @@ public object LightColorTokens {
      * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
      */
     public val SurfaceOnDarkSolidDefault: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCard: Color = Color(0x1FFFFFFF)
 
     /**
      * Основной прозрачный фон поверхности/контрола на темном фоне
@@ -6471,6 +6701,16 @@ public object LightColorTokens {
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkAccentMinor: Color = Color(0xFF0E5944)
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkSolidCard: Color = Color(0xFF262626)
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCard: Color = Color(0x0DEDFFFD)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на светлом фоне
@@ -6960,17 +7200,17 @@ public object LightColorTokens {
     /**
      * Инвертированный основной фон для карточек
      */
-    public val SurfaceInverseSolidCardHover: Color = Color(0xFF363636)
+    public val SurfaceInverseSolidCardHover: Color = Color(0xFF303030)
 
     /**
      * Инвертированный основной фон для карточек
      */
-    public val SurfaceInverseSolidCardActive: Color = Color(0xFF0D0D0D)
+    public val SurfaceInverseSolidCardActive: Color = Color(0xFF212121)
 
     /**
      * Инвертированный основной фон для карточек
      */
-    public val SurfaceInverseSolidCardBrightness: Color = Color(0xFF262626)
+    public val SurfaceInverseSolidCardBrightness: Color = Color(0xFF363636)
 
     /**
      * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
@@ -7025,17 +7265,17 @@ public object LightColorTokens {
     /**
      * Инвертированный прозрачный фон для карточек
      */
-    public val SurfaceInverseTransparentCardHover: Color = Color(0x0AFFFFFF)
+    public val SurfaceInverseTransparentCardHover: Color = Color(0x1CEBFFFD)
 
     /**
      * Инвертированный прозрачный фон для карточек
      */
-    public val SurfaceInverseTransparentCardActive: Color = Color(0x29FFFFFF)
+    public val SurfaceInverseTransparentCardActive: Color = Color(0x08EBFFFD)
 
     /**
      * Инвертированный прозрачный фон для карточек
      */
-    public val SurfaceInverseTransparentCardBrightness: Color = Color(0x1FFFFFFF)
+    public val SurfaceInverseTransparentCardBrightness: Color = Color(0x0DEBFFFD)
 
     /**
      * Инвертированный фон поверхности/контрола без заливки
@@ -7263,11 +7503,6 @@ public object LightColorTokens {
     public val SurfaceInverseTransparentInfoActive: Color = Color(0x3D3F82FD)
 
     /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCard: Color = Color(0xFF171717)
-
-    /**
      * Инвертированный основной непрозрачный фон поверхности/контрола
      */
     public val SurfaceInverseSolidPrimary: Color = Color(0xFF0D0D0D)
@@ -7286,11 +7521,6 @@ public object LightColorTokens {
      * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
      */
     public val SurfaceInverseSolidDefault: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCard: Color = Color(0x1FFFFFFF)
 
     /**
      * Инвертированный основной прозрачный фон поверхности/контрола
@@ -7373,6 +7603,16 @@ public object LightColorTokens {
     public val SurfaceInverseTransparentAccent: Color = Color(0x3352F2C5)
 
     /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCard: Color = Color(0xFF262626)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCard: Color = Color(0x0DEDFFFD)
+
+    /**
      * Вторичный фон
      */
     public val BackgroundDefaultSecondary: Color = Color(0xFFFFFFFF)
@@ -7435,17 +7675,17 @@ public object LightColorTokens {
     /**
      * Цвет фона паранжи светлый
      */
-    public val OverlayDefaultSoft: Color = Color(0x8EF9F9F9)
+    public val OverlayDefaultSoft: Color = Color(0x8F080808)
 
     /**
      * Цвет фона паранжи темный
      */
-    public val OverlayDefaultHard: Color = Color(0xF4F9F9F9)
+    public val OverlayDefaultHard: Color = Color(0xF5080808)
 
     /**
      * Цвет фона паранжи размытый
      */
-    public val OverlayDefaultBlur: Color = Color(0x47F9F9F9)
+    public val OverlayDefaultBlur: Color = Color(0x47080808)
 
     /**
      * Цвет фона паранжи светлый на темном фоне
@@ -7465,17 +7705,17 @@ public object LightColorTokens {
     /**
      * Цвет фона паранжи светлый на светлом фоне
      */
-    public val OverlayOnLightSoft: Color = Color(0x8EF9F9F9)
+    public val OverlayOnLightSoft: Color = Color(0x8F080808)
 
     /**
      * Цвет фона паранжи темный на светлом фоне
      */
-    public val OverlayOnLightHard: Color = Color(0xF4F9F9F9)
+    public val OverlayOnLightHard: Color = Color(0xF5080808)
 
     /**
      * Цвет фона паранжи размытый на светлом фоне
      */
-    public val OverlayOnLightBlur: Color = Color(0x47F9F9F9)
+    public val OverlayOnLightBlur: Color = Color(0x47080808)
 
     /**
      * Инвертированный цвет фона паранжи светлый

@@ -3,11 +3,9 @@ package com.sdds.plasma.giga.theme.subthemes
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import com.sdds.plasma.giga.theme.LocalPlasmaGigaColors
+import com.sdds.plasma.giga.theme.LocalPlasmaGigaGradients
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
-import com.sdds.plasma.giga.theme.darkPlasmaGigaColors
-import com.sdds.plasma.giga.theme.darkPlasmaGigaGradients
-import com.sdds.plasma.giga.theme.lightPlasmaGigaColors
-import com.sdds.plasma.giga.theme.lightPlasmaGigaGradients
 import kotlin.Boolean
 import kotlin.Unit
 
@@ -20,15 +18,7 @@ public fun PlasmaGigaTheme.Default(
     content: @Composable
     () -> Unit,
 ) {
-    val colors = if (isDark) {
-        darkPlasmaGigaColors()
-    } else {
-        lightPlasmaGigaColors()
-    }
-    val gradients = if (isDark) {
-        darkPlasmaGigaGradients()
-    } else {
-        lightPlasmaGigaGradients()
-    }
-    PlasmaGigaTheme(colors = colors, gradients = gradients, content = content)
+    val currentColors = LocalPlasmaGigaColors.current
+    val currentGradients = LocalPlasmaGigaGradients.current
+    PlasmaGigaTheme(colors = currentColors, gradients = currentGradients, content = content)
 }
