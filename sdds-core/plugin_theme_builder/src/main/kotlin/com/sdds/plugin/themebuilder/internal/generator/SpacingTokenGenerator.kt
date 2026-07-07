@@ -10,10 +10,13 @@ import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.SpacingTokenResult
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
+import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
 import com.sdds.plugin.themebuilder.internal.token.SpacingToken
 import com.sdds.plugin.themebuilder.internal.token.SpacingTokenValue
+import com.sdds.plugin.themebuilder.internal.token.toJson
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decapitalized
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.SpacingTokenValidator
 import com.squareup.kotlinpoet.ClassName
@@ -40,6 +43,7 @@ internal class SpacingTokenGenerator(
     private val spacingTokenValues: Map<Tenant, Map<String, SpacingTokenValue>>,
     private val dimensionsConfig: DimensionsConfig,
     namespace: String,
+    private val themeName: String,
 ) : TokenGenerator<SpacingToken, SpacingTokenResult>(target) {
 
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(SPACING_TOKENS_NAME) }
@@ -58,9 +62,12 @@ internal class SpacingTokenGenerator(
     private val viewTokenDataCollector =
         mutableListOf<SpacingTokenResult.TokenData>()
 
+    private val generatedTokens = mutableListOf<GeneratedTokenInfo>()
+
     override fun collectResult() = SpacingTokenResult(
         composeTokens = composeTokenDataCollectors,
         viewTokens = viewTokenDataCollector,
+        tokenInfo = generatedTokens,
     )
 
     /**
@@ -126,14 +133,23 @@ internal class SpacingTokenGenerator(
                 } else {
                     rootSpacingObject.addSpacingToken(token, tokenValue)
                 }
-                val decapitalizedName = token.ktName.decapitalized()
+                val attrName = token.ktName.decapitalized()
                 val composeTokenDataCollector = composeTokenDataCollectors.getOrPut(tenant) {
                     mutableListOf()
                 }
+                generatedTokens += GeneratedTokenInfo(
+                    type = "spacing",
+                    name = token.name,
+                    reference = token.ktName,
+                    themeReference = "${themeName.snakeToCamelCase()}Theme.spacing.$attrName",
+                    displayName = token.displayName,
+                    description = token.description,
+                    value = tokenValue.toJson(),
+                )
                 composeTokenDataCollector.add(
                     SpacingTokenResult.TokenData(
-                        attrName = decapitalizedName,
-                        tokenRefName = decapitalizedName,
+                        attrName = attrName,
+                        tokenRefName = attrName,
                         description = token.description,
                         tokenObjectName = "${SPACING_TOKENS_NAME}${tenant.name}",
                     ),

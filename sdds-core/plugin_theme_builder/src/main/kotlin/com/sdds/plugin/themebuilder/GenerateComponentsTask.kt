@@ -274,8 +274,10 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         val platformPostfix = target.name.lowercase().replace('_', '-')
         return projectDir
             .get()
+            .dir(".sdds")
             .file("$CONFIG_INFO_FILE_NAME-$platformPostfix.json")
             .asFile
+            .apply { parentFile.mkdirs() }
     }
 
     @OptIn(ExperimentalSerializationApi::class)

@@ -10,16 +10,20 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
+import com.sdds.plugin.themebuilder.internal.token.ColorTokenValue
+import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
 import com.sdds.plugin.themebuilder.internal.token.colorAttrName
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
+import com.sdds.plugin.themebuilder.internal.token.toJson
 import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.HexFormat
 import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.decapitalized
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
-import java.util.Locale
 
 /**
  * Генератор токенов цветов
@@ -41,6 +45,7 @@ internal class ColorTokenGenerator(
     private val colorTokenValues: Map<Tenant, Map<String, String>>,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val palette: Map<String, Map<String, String>>,
+    private val themeName: String,
 ) : TokenGenerator<ColorToken, ColorTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
@@ -71,6 +76,8 @@ internal class ColorTokenGenerator(
     private val viewDarkTokenDataCollector =
         mutableMapOf<String, ColorTokenResult.TokenData.ColorInfo>()
 
+    private val generatedTokens = mutableListOf<GeneratedTokenInfo>()
+
     override fun collectResult() = ColorTokenResult(
         tokens = tokens,
         composeTokens = colorTokenValues.mapValues {
@@ -83,6 +90,7 @@ internal class ColorTokenGenerator(
             light = viewLightTokenDataCollector,
             dark = viewDarkTokenDataCollector,
         ),
+        tokenInfo = generatedTokens,
     )
 
     /**
@@ -121,7 +129,8 @@ internal class ColorTokenGenerator(
             tokenName = token.xmlName,
             value = resolvedColor,
         )
-        token.addViewTokenData(token.colorAttrName(), token.toViewTokenRef(), token.description)
+        val tokenRef = token.toViewTokenRef()
+        token.addViewTokenData(token.colorAttrName(), tokenRef, token.description)
         return true
     }
 
@@ -168,8 +177,18 @@ internal class ColorTokenGenerator(
                         token.description,
                     )
                 }
+                val attrName = token.ktName.decapitalized()
+                generatedTokens += GeneratedTokenInfo(
+                    type = "color",
+                    name = token.name,
+                    reference = token.ktName,
+                    themeReference = "${themeName.snakeToCamelCase()}Theme.colors.$attrName",
+                    displayName = token.displayName,
+                    description = token.description,
+                    value = ColorTokenValue(resolvedColor).toJson(),
+                )
                 token.addComposeTokenData(
-                    token.ktName.decapitalize(Locale.getDefault()),
+                    attrName,
                     token.ktName,
                     token.description,
                     tenant,

@@ -1,17 +1,21 @@
 package com.sdds.plugin.themebuilder.internal.generator.data
 
+import com.sdds.plugin.themebuilder.internal.generator.TokenResult
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
+import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
 
 /**
  * Данные о токенах типографики.
  *
  * @property composeTokens данные о токенах для Compose
  * @property viewTokens данные о токенах для View
+ * @property tokenInfo данные о сгенерированных токенах
  */
 internal data class TypographyTokenResult(
     val composeTokens: Map<Tenant, ComposeTokenData>,
     val viewTokens: ViewTokenData,
-) {
+    override val tokenInfo: List<GeneratedTokenInfo>,
+) : TokenResult {
 
     /**
      * Данные о добавленных токенах для Compose
