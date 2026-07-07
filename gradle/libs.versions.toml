@@ -36,6 +36,7 @@ test-androidX-rules = "1.5.0"
 test-androidX-runner = "1.5.2"
 test-roborazzi = "1.44.0"
 test-assertk = "0.28.1"
+kover = "0.9.8"
 
 kotlinSerialization = "1.4.0"
 kotlinKsp = "2.1.10-1.0.31"
@@ -167,3 +168,4 @@ compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "plugin-co
 metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "plugin-metalava" }
 poko = { id = "dev.drewhamilton.poko", version.ref = "plugin-poko" }
 mavenpublish = { id = "com.vanniktech.maven.publish", version = "plugin-mavenpublish" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
