@@ -132,11 +132,11 @@ class ApiInfoProcessor(
             .orEmpty()
 
         val packageName: String = apiInfoAnnotation
-            ?.argumentValue<String>("packageName")
+            ?.namedArgumentValue<String>("packageName")
             .orEmpty()
 
         val builderFunName: String = apiInfoAnnotation
-            ?.argumentValue<String>("builderFunName")
+            ?.namedArgumentValue<String>("builderFunName")
             .orEmpty()
 
         val componentNames = explicitComponents.ifEmpty {
@@ -263,6 +263,11 @@ class ApiInfoProcessor(
             ?: arguments
                 .firstOrNull()
                 ?.value as? T
+
+    private inline fun <reified T> KSAnnotation.namedArgumentValue(name: String): T? =
+        arguments
+            .firstOrNull { it.name?.asString() == name }
+            ?.value as? T
 
     private fun KSType.unwrapStatefulValue(): KSType =
         if (declaration.qualifiedName?.asString() == STATEFUL_VALUE) {
@@ -436,7 +441,7 @@ class ApiInfoProcessor(
             it.annotationType.resolve()
                 .declaration
                 .qualifiedName
-                ?.asString() == DRAWABLE_RES
+                ?.asString() in DRAWABLE_RES_ANNOTATIONS
         }
 
     private fun extractComponentName(builderName: String) =
@@ -448,7 +453,10 @@ class ApiInfoProcessor(
         private const val API_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiInfo"
         private const val STATE_SET_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiStateSet"
         private const val CONFIG_NAME_ANNOTATION = "com.sdds.api.info.compose.ApiName"
-        private const val DRAWABLE_RES = "androidx.annotation.DrawableRes"
+        private val DRAWABLE_RES_ANNOTATIONS = setOf(
+            "androidx.annotation.DrawableRes",
+            "com.sdds.compose.uikit.annotations.DrawableRes",
+        )
         private const val GROUP_ROOT = "root"
         private val SKIP_METHODS = setOf("equals", "hashCode", "toString", "style", "build")
         private val SHAPE_KEYWORDS = setOf("Shape")

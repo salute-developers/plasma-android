@@ -70,9 +70,11 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+    withVersionCatalogs {
+        compileOptions {
+            sourceCompatibility = JavaVersion.toVersion(versions.global.jvmTarget.get())
+            targetCompatibility = JavaVersion.toVersion(versions.global.jvmTarget.get())
+        }
     }
 
     lint {
@@ -80,17 +82,5 @@ android {
         textReport = false
         sarifReport = false
         htmlReport = true
-    }
-}
-
-withVersionCatalogs {
-    configurations.configureEach {
-        if (name.startsWith("kotlinCompilerPluginClasspath")) {
-            resolutionStrategy.dependencySubstitution {
-                val compilerVersion = versions.androidX.compose.compiler.get()
-                substitute(module("org.jetbrains.compose.compiler:compiler"))
-                    .using(module("androidx.compose.compiler:compiler:$compilerVersion"))
-            }
-        }
     }
 }

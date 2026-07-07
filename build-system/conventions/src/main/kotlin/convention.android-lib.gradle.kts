@@ -28,9 +28,11 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+    withVersionCatalogs {
+        compileOptions {
+            sourceCompatibility = JavaVersion.toVersion(versions.global.jvmTarget.get())
+            targetCompatibility = JavaVersion.toVersion(versions.global.jvmTarget.get())
+        }
     }
 
     lint {
