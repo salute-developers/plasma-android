@@ -55,23 +55,22 @@ internal fun Modifier.handle(
     if (handlePlacement == BottomSheetHandlePlacement.None) {
         this
     } else {
-        val hShape = handleShape.value
-        val hWidth = handleWidth.value
-        val hHeight = handleHeight.value
-        val hOffset = handleOffset.value
         this then Modifier
             .drawWithCache {
-                val verticalOffset = hOffset.roundToPx()
+                val hShape = handleShape.value
+                val hWidth = handleWidth.value
+                val hHeight = handleHeight.value
                 val handleWidthPx = hWidth.roundToPx()
                 val handleHeightPx = hHeight.roundToPx()
-                val outer = -verticalOffset * 2
-                val inner = verticalOffset * 2 + handleHeightPx * 2
                 val outline = hShape.createOutline(
                     Size(handleWidthPx.toFloat(), handleHeightPx.toFloat()),
                     layoutDirection = layoutDirection,
                     density = this,
                 )
                 onDrawWithContent {
+                    val verticalOffset = handleOffset.value.roundToPx()
+                    val outer = -verticalOffset * 2
+                    val inner = verticalOffset * 2 + handleHeightPx * 2
                     val deltaSpace = IntOffset(
                         x = 0,
                         y = when (handlePlacement) {

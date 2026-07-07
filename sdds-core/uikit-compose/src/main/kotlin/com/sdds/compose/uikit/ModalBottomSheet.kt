@@ -57,8 +57,6 @@ import com.sdds.compose.uikit.shadow.shadow
  * @param footer нижний колонтитул
  * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
  * (компонент рисуется под navBar и под statusBar)
- * ModalBottomSheet. Ожидается значение в пределах 0f..1f, где 0f - полностью спрятан,
- * 1f - полностью открыт.
  * @param body основной контент
  */
 @OptIn(ExperimentalFoundationApi::class)
@@ -114,8 +112,6 @@ fun ModalBottomSheet(
  * @param footer нижний колонтитул
  * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
  * (компонент рисуется под navBar и под statusBar)
- * ModalBottomSheet. Ожидается значение в пределах 0f..1f, где 0f - полностью спрятан,
- * 1f - полностью открыт.
  * @param body основной контент
  */
 @OptIn(ExperimentalFoundationApi::class)
@@ -150,6 +146,7 @@ fun ModalBottomSheet(
         onDismiss = onDismiss,
         handlePlacement = handlePlacement,
         useNativeBlackout = useNativeBlackout,
+        edgeToEdge = edgeToEdge,
         header = header,
         footer = footer,
         body = body,
@@ -171,13 +168,11 @@ fun ModalBottomSheet(
  * @param handlePlacement расположение ручки (handle)
  * @see BottomSheetHandlePlacement
  * @param useNativeBlackout использовать нативное затемнение фона вокруг [ModalBottomSheet]
+ * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
  * @param header заголовок
  * @param footer нижний колонтитул
  * @param body основной контент
- * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
  * (компонент рисуется под navBar и под statusBar)
- * ModalBottomSheet. Ожидается значение в пределах 0f..1f, где 0f - полностью спрятан,
- * 1f - полностью открыт.
  */
 @OptIn(ExperimentalFoundationApi::class)
 @Suppress("LongMethod")
@@ -193,10 +188,10 @@ fun ModalBottomSheet(
     onDismiss: () -> Unit = {},
     handlePlacement: BottomSheetHandlePlacement = style.handlePlacement,
     useNativeBlackout: Boolean = true,
+    edgeToEdge: Boolean = true,
     header: (@Composable () -> Unit)? = null,
     footer: (@Composable () -> Unit)? = null,
     body: (@Composable () -> Unit),
-    edgeToEdge: Boolean = true,
 ) {
     val backgroundColor = style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
     val handleColor = style.colors.handleBrush.getBrushAsState(motion.context, motion.style.handleColor)
@@ -281,8 +276,8 @@ fun ModalBottomSheet(
                                         sheetTop = sheetState.requireOffset(),
                                         expandedTop = anchors.minPosition(),
                                         hiddenTop = anchors.positionOf(Hidden),
-                                        topPadding = bottom.roundToPx(),
-                                        bottomPadding = top.roundToPx(),
+                                        topPadding = top.roundToPx(),
+                                        bottomPadding = bottom.roundToPx(),
                                     )
                                 }
                             },
