@@ -60,8 +60,16 @@ interface NoteStyle : Style {
     /**
      * Ресурс иконки close
      */
+    @Deprecated("Use closeIconSource", replaceWith = ReplaceWith("closeIconSource"))
     @get:DrawableRes
     val closeIcon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки close
+     */
+    val closeIconSource: ImageSource?
+        get() = null
 
     /**
      * Цвета компонента
@@ -113,9 +121,19 @@ interface NoteStyleBuilder : StyleBuilder<NoteStyle> {
     fun textStyle(textStyle: TextStyle): NoteStyleBuilder
 
     /**
+     * Устанавливает источник изображения иконки close [closeIcon]
+     */
+    fun closeIcon(closeIcon: ImageSource): NoteStyleBuilder
+
+    /**
      * Устанавливает ресурс иконки close [closeIcon]
      */
-    fun closeIcon(@DrawableRes closeIcon: Int): NoteStyleBuilder
+    @Deprecated(
+        "Use closeIcon with ImageSource",
+        replaceWith = ReplaceWith("closeIcon(closeIcon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun closeIcon(@DrawableRes closeIcon: Int): NoteStyleBuilder = this
 
     /**
      * Устанавливает цвета компонента при помощи [builder].
@@ -138,8 +156,10 @@ private class DefaultNoteStyle(
     override val colors: NoteColors,
     override val dimensions: NoteDimensions,
     override val linkButtonStyle: ButtonStyle,
-    override val closeIcon: Int?,
+    override val closeIconSource: ImageSource?,
 ) : NoteStyle {
+    @Deprecated("Use closeIconSource", replaceWith = ReplaceWith("closeIconSource"))
+    override val closeIcon: Int? = null
 
     class Builder : NoteStyleBuilder {
         private var shape: CornerBasedShape? = null
@@ -149,7 +169,7 @@ private class DefaultNoteStyle(
         private var titleStyle: TextStyle? = null
         private var textStyle: TextStyle? = null
         private var linkButtonStyle: ButtonStyle? = null
-        private var closeIcon: Int? = null
+        private var closeIconSource: ImageSource? = null
 
         override fun shape(shape: CornerBasedShape) = apply {
             this.shape = shape
@@ -171,8 +191,8 @@ private class DefaultNoteStyle(
             this.textStyle = textStyle
         }
 
-        override fun closeIcon(closeIcon: Int) = apply {
-            this.closeIcon = closeIcon
+        override fun closeIcon(closeIcon: ImageSource) = apply {
+            this.closeIconSource = closeIcon
         }
 
         @Composable
@@ -195,7 +215,7 @@ private class DefaultNoteStyle(
                 titleStyle = titleStyle ?: TextStyle.Default,
                 textStyle = textStyle ?: TextStyle.Default,
                 linkButtonStyle = linkButtonStyle ?: ButtonStyle.linkButtonBuilder().style(),
-                closeIcon = closeIcon,
+                closeIconSource = closeIconSource,
             )
         }
     }

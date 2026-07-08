@@ -38,7 +38,6 @@ import com.sdds.compose.uikit.internal.drawer.DrawerStateImpl
 import com.sdds.compose.uikit.internal.drawer.anchorDistance
 import com.sdds.compose.uikit.internal.drawer.calculateFraction
 import com.sdds.compose.uikit.internal.drawer.confirmStateChange
-import com.sdds.compose.uikit.internal.platform.painterResource
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
@@ -129,7 +128,12 @@ fun Drawer(
             interactionSource = interactionSource,
             header = drawerHeader,
             openOnFocus = openOnFocus,
-            closeIcon = getCloseIcon(style.closeIconRes, style.colors.closeIconColor, closeIcon, closeIconPlacement) {
+            closeIcon = getCloseIcon(
+                style.closeIconSource,
+                style.colors.closeIconColor,
+                closeIcon,
+                closeIconPlacement,
+            ) {
                 scope.launch { drawerState.close() }
             },
             closeIconPlacement = closeIconPlacement,
@@ -298,11 +302,11 @@ internal fun DrawerAlignment.isHorizontal(): Boolean {
 }
 
 private fun getDefaultCloseIcon(
-    closeIconRes: Int,
+    closeIconSource: ImageSource?,
     interactionSource: MutableInteractionSource,
     onClose: () -> Unit,
 ): (@Composable () -> Unit)? {
-    return if (closeIconRes != -1) {
+    return closeIconSource?.let {
         {
             Icon(
                 modifier = Modifier.clickable(
@@ -310,17 +314,15 @@ private fun getDefaultCloseIcon(
                     indication = LocalIndication.current,
                     onClick = onClose,
                 ),
-                painter = painterResource(closeIconRes),
+                source = it,
                 contentDescription = "Close",
             )
         }
-    } else {
-        null
     }
 }
 
 private fun getCloseIcon(
-    closeIconRes: Int,
+    closeIconSource: ImageSource?,
     closeIconColor: InteractiveColor,
     closeIcon: @Composable (() -> Unit)?,
     closeIconPlacement: CloseIconPlacement,
@@ -331,7 +333,7 @@ private fun getCloseIcon(
             val interactionSource = remember { MutableInteractionSource() }
             val color by closeIconColor.colorForInteractionAsState(interactionSource)
             CompositionLocalProvider(LocalTintBrushProducer provides { SolidColor(color) }) {
-                closeIcon?.invoke() ?: getDefaultCloseIcon(closeIconRes, interactionSource, onClose)?.invoke()
+                closeIcon?.invoke() ?: getDefaultCloseIcon(closeIconSource, interactionSource, onClose)?.invoke()
             }
         }
     } else {

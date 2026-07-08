@@ -60,9 +60,9 @@ import com.sdds.compose.uikit.NavigationBarScrollBehavior
 import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.getValue
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.rememberNavBarShape
 import com.sdds.compose.uikit.shadow.shadow
 import com.sdds.compose.uikit.toPlatformTextAlign
@@ -251,7 +251,7 @@ private fun startContent(
     actionStart: (@Composable RowScope.() -> Unit)?,
     onBackPressed: () -> Unit,
 ): (@Composable () -> Unit)? {
-    return if (style.backIcon != null || actionStart != null) {
+    return if (style.backIconSource != null || actionStart != null) {
         @Composable { StartContent(style, interactionSource, actionStart, onBackPressed) }
     } else {
         null
@@ -268,7 +268,7 @@ private fun StartContent(
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        style.backIcon?.let {
+        style.backIconSource?.let {
             val iconInteraction = remember { MutableInteractionSource() }
             val backIconColor =
                 style.colors.backIconColor.getValue(iconInteraction)
@@ -281,9 +281,9 @@ private fun StartContent(
                         indication = LocalIndication.current,
                         onClick = onBackPressed,
                     ),
-                painter = painterResource(it),
+                source = it,
                 contentDescription = "",
-                tint = backIconColor,
+                brush = BrushProducer { SolidColor(backIconColor) },
             )
         }
         if (actionStart != null) {

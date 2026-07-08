@@ -223,7 +223,7 @@ private fun OuterStartButton(
     modifier: Modifier = Modifier,
 ) {
     val buttonsPlacement = style.buttonsPlacement
-    val prevIcon = style.prevButtonIcon
+    val prevIcon = style.prevButtonIconSource
     if (buttonsPlacement == CarouselButtonsPlacement.Inner) return
     if (prevIcon == null || !hasControls) return
     val paddings = PaddingValues(end = style.dimensions.prevButtonPadding)
@@ -233,7 +233,7 @@ private fun OuterStartButton(
         if (state.currentPage != 0) {
             StartButton(
                 paddings = paddings,
-                iconRes = prevIcon,
+                iconSource = prevIcon,
                 style = style,
                 state = state,
                 coroutineScope = coroutineScope,
@@ -255,14 +255,14 @@ private fun InnerStartButton(
     modifier: Modifier = Modifier,
 ) {
     val buttonsPlacement = style.buttonsPlacement
-    val prevIcon = style.prevButtonIcon
+    val prevIcon = style.prevButtonIconSource
     if (buttonsPlacement == CarouselButtonsPlacement.Outer) return
     if (prevIcon == null || !hasControls || state.currentPage == 0) return
     val paddings = PaddingValues(start = style.dimensions.prevButtonPadding)
 
     StartButton(
         paddings = paddings,
-        iconRes = prevIcon,
+        iconSource = prevIcon,
         style = style,
         state = state,
         coroutineScope = coroutineScope,
@@ -274,7 +274,7 @@ private fun InnerStartButton(
 @Composable
 private fun StartButton(
     paddings: PaddingValues,
-    iconRes: Int,
+    iconSource: ImageSource,
     style: CarouselStyle,
     state: PagerState,
     coroutineScope: CoroutineScope,
@@ -286,7 +286,7 @@ private fun StartButton(
         modifier = modifier,
         paddings = paddings,
         buttonStyle = style.prevButtonStyle,
-        iconRes = iconRes,
+        iconSource = iconSource,
         interactionSource = interactionSource,
         scrollAction = {
             coroutineScope.launch {
@@ -306,7 +306,7 @@ private fun OuterEndButton(
     modifier: Modifier = Modifier,
 ) {
     val buttonsPlacement = style.buttonsPlacement
-    val nextIcon = style.nextButtonIcon
+    val nextIcon = style.nextButtonIconSource
     if (buttonsPlacement == CarouselButtonsPlacement.Inner) return
     if (nextIcon == null || !hasControls) return
     val paddings = PaddingValues(start = style.dimensions.nextButtonPadding)
@@ -316,7 +316,7 @@ private fun OuterEndButton(
         if (state.currentPage != state.pageCount - 1) {
             EndButton(
                 paddings = paddings,
-                iconRes = nextIcon,
+                iconSource = nextIcon,
                 style = style,
                 state = state,
                 coroutineScope = coroutineScope,
@@ -337,14 +337,14 @@ private fun InnerEndButton(
     modifier: Modifier = Modifier,
 ) {
     val buttonsPlacement = style.buttonsPlacement
-    val nextIcon = style.nextButtonIcon
+    val nextIcon = style.nextButtonIconSource
     if (buttonsPlacement == CarouselButtonsPlacement.Outer) return
     if (nextIcon == null || !hasControls || state.currentPage == state.pageCount - 1) return
     val paddings = PaddingValues(end = style.dimensions.nextButtonPadding)
 
     EndButton(
         paddings = paddings,
-        iconRes = nextIcon,
+        iconSource = nextIcon,
         style = style,
         state = state,
         coroutineScope = coroutineScope,
@@ -356,7 +356,7 @@ private fun InnerEndButton(
 @Composable
 private fun EndButton(
     paddings: PaddingValues,
-    iconRes: Int,
+    iconSource: ImageSource,
     style: CarouselStyle,
     state: PagerState,
     coroutineScope: CoroutineScope,
@@ -368,7 +368,7 @@ private fun EndButton(
         modifier = modifier,
         paddings = paddings,
         buttonStyle = style.nextButtonStyle,
-        iconRes = iconRes,
+        iconSource = iconSource,
         interactionSource = interactionSource,
         scrollAction = {
             coroutineScope.launch {
@@ -383,14 +383,19 @@ private fun ControlButton(
     modifier: Modifier,
     paddings: PaddingValues,
     buttonStyle: ButtonStyle,
-    iconRes: Int,
+    iconSource: ImageSource,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     scrollAction: () -> Unit,
 ) {
     IconButton(
         modifier = modifier.padding(paddings),
         style = buttonStyle,
-        iconRes = iconRes,
+        icon = {
+            Icon(
+                source = iconSource,
+                contentDescription = null,
+            )
+        },
         interactionSource = interactionSource,
         onClick = scrollAction,
     )

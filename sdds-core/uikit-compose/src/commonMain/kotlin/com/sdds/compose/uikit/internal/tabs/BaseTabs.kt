@@ -21,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.layoutId
@@ -31,6 +32,7 @@ import com.sdds.compose.uikit.Divider
 import com.sdds.compose.uikit.DividerOrientation
 import com.sdds.compose.uikit.DropdownMenu
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.ImageSource
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.LocalTabsStyle
 import com.sdds.compose.uikit.PopoverAlignment
@@ -41,10 +43,9 @@ import com.sdds.compose.uikit.TabsClip
 import com.sdds.compose.uikit.TabsOrientation
 import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TriggerInfo
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.interactions.InteractiveColor
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.internal.tabs.Tabs.DISABLE_ALPHA
 import com.sdds.compose.uikit.internal.tabs.Tabs.DIVIDER_LAYOUT_ID
 import com.sdds.compose.uikit.internal.tabs.Tabs.END_BUTTON_LAYOUT_ID
@@ -78,11 +79,9 @@ internal fun BaseTabs(
     tabScope.reset()
     tabScope.tabs()
     Box(modifier = modifier) {
-        @DrawableRes
-        val overFlowNextIcon: Int? = style.overflowNextIcon
+        val overFlowNextIcon: ImageSource? = style.overflowNextIconSource
 
-        @DrawableRes
-        val overFlowPrevIcon: Int? = style.overflowPrevIcon
+        val overFlowPrevIcon: ImageSource? = style.overflowPrevIconSource
         val dropdownTriggerInfo = remember { mutableStateOf(TriggerInfo()) }
         val showDropdown = remember { mutableStateOf(false) }
         val showScrollControls = remember(clip, stretch, orientation) {
@@ -239,6 +238,7 @@ private fun DropdownIfNeed(
                                 .focusable(interactionSource = interactionSource),
                             text = tabScope.tabs[i].dropdownAlias,
                             disclosureEnabled = false,
+                            disclosureIconSource = null,
                             interactionSource = interactionSource,
                         )
                     }
@@ -250,7 +250,7 @@ private fun DropdownIfNeed(
 
 @Composable
 private fun StartControl(
-    overFlowIcon: Int?,
+    overFlowIcon: ImageSource?,
     clip: TabsClip,
     coroutineScope: CoroutineScope,
     scrollState: ScrollState,
@@ -262,6 +262,7 @@ private fun StartControl(
 ) {
     if (overFlowIcon != null && clip == TabsClip.Scroll) {
         val nonTransparentAlpha = if (enabled) 1f else DISABLE_ALPHA
+        val iconColor = color.colorForInteraction(interactionSource)
         Icon(
             modifier = Modifier
                 .graphicsLayer { alpha = if (!scrollState.isStart()) nonTransparentAlpha else 0f }
@@ -279,16 +280,16 @@ private fun StartControl(
                     }
                 }
                 .layoutId(Tabs.START_BUTTON_LAYOUT_ID),
-            painter = painterResource(overFlowIcon),
+            source = overFlowIcon,
             contentDescription = "",
-            tint = color.colorForInteraction(interactionSource),
+            brush = BrushProducer { SolidColor(iconColor) },
         )
     }
 }
 
 @Composable
 private fun EndControl(
-    overFlowIcon: Int?,
+    overFlowIcon: ImageSource?,
     clip: TabsClip,
     coroutineScope: CoroutineScope,
     scrollState: ScrollState,
@@ -300,6 +301,7 @@ private fun EndControl(
 ) {
     if (overFlowIcon != null && clip == TabsClip.Scroll) {
         val nonTransparentAlpha = if (enabled) 1f else DISABLE_ALPHA
+        val iconColor = color.colorForInteraction(interactionSource)
         Icon(
             modifier = Modifier
                 .graphicsLayer { alpha = if (!scrollState.isEnd()) nonTransparentAlpha else 0f }
@@ -317,9 +319,9 @@ private fun EndControl(
                     }
                 }
                 .layoutId(END_BUTTON_LAYOUT_ID),
-            painter = painterResource(overFlowIcon),
+            source = overFlowIcon,
             contentDescription = "",
-            tint = color.colorForInteraction(interactionSource),
+            brush = BrushProducer { SolidColor(iconColor) },
         )
     }
 }

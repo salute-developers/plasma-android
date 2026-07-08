@@ -31,6 +31,7 @@ import androidx.compose.ui.zIndex
 import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.ImageSource
 import com.sdds.compose.uikit.LocalButtonForceShape
 import com.sdds.compose.uikit.LocalIconDefaultSize
 import com.sdds.compose.uikit.LocalTintBrushProducer
@@ -38,7 +39,6 @@ import com.sdds.compose.uikit.ProvideTextBehaviour
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextBehaviour
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.graphics.LocalIndication
@@ -46,7 +46,6 @@ import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.surface
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.button.ButtonMotionStyle
 import com.sdds.compose.uikit.motion.components.button.rememberButtonMotion
@@ -243,8 +242,7 @@ internal fun ButtonIcon(
  */
 @Composable
 internal fun ButtonIcon(
-    @DrawableRes
-    iconRes: Int,
+    iconSource: ImageSource,
     style: ButtonStyle,
     marginStart: StatefulValue<Dp>? = null,
     marginEnd: StatefulValue<Dp>? = null,
@@ -257,7 +255,7 @@ internal fun ButtonIcon(
     val size = style.dimensions.iconSizeValues.getValue(interactionSource)
     val brush = style.colors.iconBrush.getBrushAsState(motion.context, motion.style.iconColor)
     Icon(
-        painter = painterResource(iconRes),
+        source = iconSource,
         contentDescription = contentDescription,
         modifier = Modifier
             .padding(

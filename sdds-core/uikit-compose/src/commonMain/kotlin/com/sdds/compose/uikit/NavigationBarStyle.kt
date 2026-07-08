@@ -34,8 +34,16 @@ interface NavigationBarStyle : Style {
     /**
      * Иконка кнопки назад
      */
+    @Deprecated("Use backIconSource", replaceWith = ReplaceWith("backIconSource"))
     @get:DrawableRes
     val backIcon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки кнопки назад
+     */
+    val backIconSource: ImageSource?
+        get() = null
 
     /**
      * Форма нижних углов компонента
@@ -120,9 +128,19 @@ interface NavigationBarStyleBuilder : StyleBuilder<NavigationBarStyle> {
         descriptionStyle(descriptionStyle.asStatefulValue())
 
     /**
+     * Устанавливает источник изображения иконки кнопки назад [backIcon]
+     */
+    fun backIcon(backIcon: ImageSource): NavigationBarStyleBuilder
+
+    /**
      * Устанавливает иконку кнопки назад [backIcon]
      */
-    fun backIcon(@DrawableRes backIcon: Int?): NavigationBarStyleBuilder
+    @Deprecated(
+        "Use backIcon with ImageSource",
+        replaceWith = ReplaceWith("backIcon(backIcon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun backIcon(@DrawableRes backIcon: Int?): NavigationBarStyleBuilder = this
 
     /**
      * Устанавливает форму нижних углов [bottomShape]
@@ -153,7 +171,7 @@ interface NavigationBarStyleBuilder : StyleBuilder<NavigationBarStyle> {
 }
 
 private class DefaultNavigationBarStyle(
-    override val backIcon: Int?,
+    override val backIconSource: ImageSource?,
     override val shadow: ShadowAppearance,
     override val dimensions: NavigationBarDimensions,
     override val colors: NavigationBarColors,
@@ -163,10 +181,12 @@ private class DefaultNavigationBarStyle(
     override val descriptionStyle: StatefulValue<TextStyle>,
     override val actionButtonStyle: ButtonStyle?,
 ) : NavigationBarStyle {
+    @Deprecated("Use backIconSource", replaceWith = ReplaceWith("backIconSource"))
+    override val backIcon: Int? = null
 
     class Builder : NavigationBarStyleBuilder {
 
-        private var backIcon: Int? = null
+        private var backIconSource: ImageSource? = null
         private var bottomShape: CornerBasedShape? = null
         private var shadow: ShadowAppearance? = null
         private val colorsBuilder = NavigationBarColors.builder()
@@ -188,8 +208,8 @@ private class DefaultNavigationBarStyle(
             this.descriptionStyle = descriptionStyle
         }
 
-        override fun backIcon(backIcon: Int?) = apply {
-            this.backIcon = backIcon
+        override fun backIcon(backIcon: ImageSource) = apply {
+            this.backIconSource = backIcon
         }
 
         override fun bottomShape(bottomShape: CornerBasedShape) = apply {
@@ -217,7 +237,7 @@ private class DefaultNavigationBarStyle(
 
         override fun style(): NavigationBarStyle {
             return DefaultNavigationBarStyle(
-                backIcon = backIcon,
+                backIconSource = backIconSource,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 shadow = shadow ?: ShadowAppearance(),

@@ -9,12 +9,13 @@ package com.sdds.compose.sandbox.styles.iconbadge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
 import com.sdds.compose.uikit.iconBadgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -110,12 +111,8 @@ public val WrapperIconBadgeTransparentView.Default: WrapperIconBadgeTransparentT
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -123,12 +120,8 @@ public val WrapperIconBadgeTransparentView.Accent: WrapperIconBadgeTransparentTe
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -136,12 +129,8 @@ public val WrapperIconBadgeTransparentView.Negative: WrapperIconBadgeTransparent
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentNegative.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -149,12 +138,8 @@ public val WrapperIconBadgeTransparentView.Positive: WrapperIconBadgeTransparent
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentPositive.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -162,12 +147,8 @@ public val WrapperIconBadgeTransparentView.Warning: WrapperIconBadgeTransparentT
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentWarning.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -175,12 +156,8 @@ public val WrapperIconBadgeTransparentView.Dark: WrapperIconBadgeTransparentTerm
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnLightTransparentDeep.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
@@ -188,12 +165,8 @@ public val WrapperIconBadgeTransparentView.Light: WrapperIconBadgeTransparentTer
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnDarkTransparentSecondary.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceOnDarkTransparentSecondary).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 

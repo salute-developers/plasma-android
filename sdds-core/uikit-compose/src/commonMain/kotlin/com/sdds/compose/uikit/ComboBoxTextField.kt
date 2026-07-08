@@ -14,7 +14,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.isDisabled
@@ -23,7 +22,6 @@ import com.sdds.compose.uikit.interactions.ActivateInteraction
 import com.sdds.compose.uikit.interactions.activate
 import com.sdds.compose.uikit.interactions.deactivate
 import com.sdds.compose.uikit.interactions.tryDeactivate
-import com.sdds.compose.uikit.internal.platform.painterResource
 
 /**
  * Текстовое поле для ввода и выбора значения, предназначенное для использования внутри [ComboBoxScope].
@@ -32,8 +30,8 @@ import com.sdds.compose.uikit.internal.platform.painterResource
  * @param onValueChange callback для изменения текста при вводе
  * @param modifier Modifier для дополнительного изменения компонента
  * @param style стиль текстового поля
- * @param iconOpened ресурс иконки, отображаемой когда список открыт
- * @param iconClosed ресурс иконки, отображаемой когда список закрыт
+ * @param iconOpened источник иконки, отображаемой когда список открыт
+ * @param iconClosed источник иконки, отображаемой когда список закрыт
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если true - ввод текста и открытие списка отключены
  * @param placeholderText текст-подсказка
@@ -60,10 +58,8 @@ fun ComboBoxScope.ComboBoxTextField(
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     style: TextFieldStyle = LocalTextFieldStyle.current,
-    @DrawableRes
-    iconOpened: Int? = null,
-    @DrawableRes
-    iconClosed: Int? = null,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
     enabled: Boolean = true,
     readOnly: Boolean = false,
     placeholderText: String? = null,
@@ -137,10 +133,8 @@ fun ComboBoxScope.ComboBoxTextField(
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
     style: TextFieldStyle = LocalTextFieldStyle.current,
-    @DrawableRes
-    iconOpened: Int? = null,
-    @DrawableRes
-    iconClosed: Int? = null,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
     enabled: Boolean = true,
     readOnly: Boolean = false,
     placeholderText: String? = null,
@@ -244,8 +238,8 @@ private fun rememberComboBoxTextFieldState(
 @Composable
 private fun ComboBoxTextFieldIcon(
     selectState: SelectState,
-    @DrawableRes iconOpened: Int?,
-    @DrawableRes iconClosed: Int?,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
     enabled: Boolean,
     readOnly: Boolean,
 ) {
@@ -254,7 +248,7 @@ private fun ComboBoxTextFieldIcon(
     val dismissState = LocalComboBoxDismissState.current
     icon?.let {
         Icon(
-            painterResource(icon),
+            source = icon,
             contentDescription = "",
             modifier = Modifier.clickable(
                 indication = null,

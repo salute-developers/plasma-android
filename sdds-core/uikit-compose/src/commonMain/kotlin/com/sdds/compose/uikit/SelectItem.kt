@@ -18,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.maybeShapeable
-import com.sdds.compose.uikit.internal.platform.painterResource
 
 /**
  * Элемент компонента выбора [Select].
@@ -146,10 +145,10 @@ fun SelectItem(
                 val controlContent: @Composable () -> Unit = {
                     when (style.itemType) {
                         SelectItemType.Single -> {
-                            val icon = style.icon
+                            val icon = style.iconSource
                             if (checked && icon != null) {
                                 Icon(
-                                    painter = painterResource(icon),
+                                    source = icon,
                                     contentDescription = "",
                                 )
                             }

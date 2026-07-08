@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.internal.tabs.BaseIconTabItem
 import com.sdds.compose.uikit.motion.Motion
@@ -21,8 +20,8 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
  * @param modifier модификатор
  * @param style стиль компонента [TabItem]
  * @param isSelected выбран ли таб
- * @param icon ресурс иконки
- * @param actionIcon ресурс иконки действия
+ * @param icon источник иконки
+ * @param actionIcon источник иконки действия
  * @param onActionClicked обработчик нажатия на иконку действия
  * @param count текст счетчика [Counter]
  * @param interactionSource источник взаимодействий
@@ -37,8 +36,8 @@ fun IconTabItem(
     modifier: Modifier = Modifier,
     style: TabItemStyle = LocalTabItemStyle.current,
     isSelected: Boolean = false,
-    @DrawableRes icon: Int? = null,
-    @DrawableRes actionIcon: Int? = null,
+    icon: ImageSource? = null,
+    actionIcon: ImageSource? = null,
     onActionClicked: () -> Unit = {},
     count: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -53,7 +52,7 @@ fun IconTabItem(
     ) {
         icon ?: return@BaseIconTabItem
         Icon(
-            source = resourceImageSource(icon),
+            source = icon,
             contentDescription = "",
         )
     }
@@ -112,7 +111,7 @@ private fun counterContent(
 }
 
 private fun actionContent(
-    icon: Int?,
+    icon: ImageSource? = null,
     onActionClicked: () -> Unit = {},
 ): (@Composable () -> Unit)? {
     icon ?: return null
@@ -123,7 +122,7 @@ private fun actionContent(
                 interactionSource = null,
                 onClick = onActionClicked,
             ),
-            source = resourceImageSource(icon),
+            source = icon,
             contentDescription = "",
         )
     }

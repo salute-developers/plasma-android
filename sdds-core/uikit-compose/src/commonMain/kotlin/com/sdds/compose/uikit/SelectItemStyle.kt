@@ -69,8 +69,17 @@ interface SelectItemStyle : Style {
      * Иконка элемента.
      * @return ресурс иконки или null, если иконка не задана
      */
+    @Deprecated("Use iconSource", replaceWith = ReplaceWith("iconSource"))
     @get:DrawableRes
     val icon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки элемента.
+     * @return источник изображения иконки или null, если иконка не задана
+     */
+    val iconSource: ImageSource?
+        get() = null
 
     companion object {
         /**
@@ -107,10 +116,21 @@ interface SelectItemStyleBuilder : StyleBuilder<SelectItemStyle> {
     fun shape(shape: Shape): SelectItemStyleBuilder
 
     /**
+     * Устанавливает источник изображения иконки элемента.
+     * @param icon источник изображения иконки
+     */
+    fun icon(icon: ImageSource): SelectItemStyleBuilder
+
+    /**
      * Устанавливает иконку элемента.
      * @param icon ресурс иконки
      */
-    fun icon(@DrawableRes icon: Int): SelectItemStyleBuilder
+    @Deprecated(
+        "Use icon with ImageSource",
+        replaceWith = ReplaceWith("icon(icon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun icon(@DrawableRes icon: Int): SelectItemStyleBuilder = this
 
     /**
      * Устанавливает стиль чекбокса для множественного выбора.
@@ -148,12 +168,15 @@ private data class DefaultSelectItemStyle(
     override val itemType: SelectItemType,
     override val checkBoxStyle: CheckBoxStyle,
     override val cellStyle: CellStyle,
-    override val icon: Int?,
+    override val iconSource: ImageSource?,
     override val disableAlpha: Float,
     override val shape: Shape,
 ) : SelectItemStyle {
+    @Deprecated("Use iconSource", replaceWith = ReplaceWith("iconSource"))
+    override val icon: Int? = null
+
     class Builder : SelectItemStyleBuilder {
-        private var icon: Int? = null
+        private var iconSource: ImageSource? = null
         private var itemType: SelectItemType? = null
         private var shape: Shape? = null
         private var disableAlpha: Float? = null
@@ -174,8 +197,8 @@ private data class DefaultSelectItemStyle(
             this.shape = shape
         }
 
-        override fun icon(icon: Int): SelectItemStyleBuilder = apply {
-            this.icon = icon
+        override fun icon(icon: ImageSource): SelectItemStyleBuilder = apply {
+            this.iconSource = icon
         }
 
         override fun checkboxStyle(checkBoxStyle: CheckBoxStyle) = apply {
@@ -200,9 +223,9 @@ private data class DefaultSelectItemStyle(
             itemType = itemType ?: SelectItemType.Multiple,
             checkBoxStyle = checkBoxStyle ?: CheckBoxStyle.builder().style(),
             cellStyle = cellStyle ?: CellStyle.builder().style(),
+            iconSource = iconSource,
             disableAlpha = disableAlpha ?: 0.4f,
             shape = shape ?: RectangleShape,
-            icon = icon,
         )
     }
 }

@@ -70,8 +70,16 @@ interface FormItemStyle : Style {
     /**
      * Иконка кнопки подсказки
      */
+    @Deprecated("Use hintIconSource", replaceWith = ReplaceWith("hintIconSource"))
     @get:DrawableRes
     val hintIcon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки кнопки подсказки
+     */
+    val hintIconSource: ImageSource?
+        get() = null
 
     /**
      * Расположение заголовка [FormTitlePlacement]
@@ -180,11 +188,23 @@ interface FormItemStyleBuilder : StyleBuilder<FormItemStyle> {
     fun indicatorAlignment(indicatorAlignment: FormIndicatorAlignment): FormItemStyleBuilder
 
     /**
+     * Устанавливает источник изображения иконки кнопки подсказки
+     *
+     * @param hintIcon источник изображения иконки кнопки подсказки
+     */
+    fun hintIcon(hintIcon: ImageSource): FormItemStyleBuilder
+
+    /**
      * Устанавливает иконку кнопки подсказки
      *
      * @param hintIcon идентификатор ресурса иконки кнопки подсказки
      */
-    fun hintIcon(@DrawableRes hintIcon: Int): FormItemStyleBuilder
+    @Deprecated(
+        "Use hintIcon with ImageSource",
+        replaceWith = ReplaceWith("hintIcon(hintIcon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun hintIcon(@DrawableRes hintIcon: Int): FormItemStyleBuilder = this
 
     /**
      * Устанавливает стиль заголовка
@@ -251,11 +271,14 @@ private data class DefaultFormItemStyle(
     override val formItemType: FormType,
     override val indicatorAlignmentMode: IndicatorMode,
     override val indicatorAlignment: FormIndicatorAlignment,
-    override val hintIcon: Int?,
+    override val hintIconSource: ImageSource?,
     override val indicatorStyle: IndicatorStyle,
     override val topTextAlignment: FormTextAlignment,
     override val bottomTextAlignment: FormTextAlignment,
 ) : FormItemStyle {
+    @Deprecated("Use hintIconSource", replaceWith = ReplaceWith("hintIconSource"))
+    override val hintIcon: Int? = null
+
     class Builder : FormItemStyleBuilder {
         private var indicatorStyle: IndicatorStyle? = null
         private var titlePlacement: FormTitlePlacement? = null
@@ -273,7 +296,7 @@ private data class DefaultFormItemStyle(
         private val colorsBuilder: FormItemColorsBuilder = FormItemColors.builder()
         private val dimensionsBuilder: FormItemDimensionsBuilder = FormItemDimensions.builder()
 
-        private var hintIcon: Int? = null
+        private var hintIconSource: ImageSource? = null
 
         override fun disableAlpha(disableAlpha: Float) = apply {
             this.disableAlpha = disableAlpha
@@ -308,8 +331,8 @@ private data class DefaultFormItemStyle(
             this.indicatorAlignment = indicatorAlignment
         }
 
-        override fun hintIcon(hintIcon: Int) = apply {
-            this.hintIcon = hintIcon
+        override fun hintIcon(hintIcon: ImageSource) = apply {
+            this.hintIconSource = hintIcon
         }
 
         override fun titleStyle(titleStyle: TextStyle): FormItemStyleBuilder = apply {
@@ -354,7 +377,7 @@ private data class DefaultFormItemStyle(
             formItemType = formItemType ?: FormType.Optional,
             indicatorAlignmentMode = indicatorAlignmentMode ?: IndicatorMode.Inner,
             indicatorAlignment = indicatorAlignment ?: FormIndicatorAlignment.CenterEnd,
-            hintIcon = hintIcon,
+            hintIconSource = hintIconSource,
             indicatorStyle = indicatorStyle ?: IndicatorStyle.builder().style(),
         )
     }

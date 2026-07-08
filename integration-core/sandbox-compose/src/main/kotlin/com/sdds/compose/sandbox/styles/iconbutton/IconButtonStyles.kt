@@ -9,6 +9,7 @@ package com.sdds.compose.sandbox.styles.iconbutton
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.ButtonStyle
@@ -17,6 +18,7 @@ import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -144,28 +146,28 @@ public val WrapperIconButtonView.Default: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textInversePrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -175,28 +177,28 @@ public val WrapperIconButtonView.Secondary: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -206,28 +208,28 @@ public val WrapperIconButtonView.Accent: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccentHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -237,28 +239,28 @@ public val WrapperIconButtonView.Positive: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositive).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositiveActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositiveHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultPositiveHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -268,28 +270,28 @@ public val WrapperIconButtonView.Negative: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegative).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegativeHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultNegativeHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -299,28 +301,28 @@ public val WrapperIconButtonView.Warning: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarning).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarningHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultWarningHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -330,28 +332,28 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -361,28 +363,28 @@ public val WrapperIconButtonView.Dark: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceOnLightTransparentDeepActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceOnLightTransparentDeepHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceOnLightTransparentDeepActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceOnLightTransparentDeepHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -392,28 +394,28 @@ public val WrapperIconButtonView.Black: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceOnLightSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceOnLightSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceOnLightSolidDefaultHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnLightSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceOnLightSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -423,28 +425,28 @@ public val WrapperIconButtonView.White: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceOnDarkSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceOnDarkSolidDefaultHover),
+                ),
+            )
+            iconColor(
+                SolidColor(SddsSandboxTheme.colors.textOnLightPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnLightPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnLightPrimaryHover),
+                ),
+            )
             spinnerColor(
                 SddsSandboxTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnLightPrimaryHover,
-                ),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textOnLightPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnLightPrimaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceOnDarkSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnLightPrimaryHover,
                 ),
             )
         }
@@ -453,8 +455,8 @@ public val WrapperIconButtonView.White: WrapperIconButtonTerminate
 private val IconButtonStyleBuilder.invariantProps: IconButtonStyleBuilder
     @Composable
     get() = this
-        .loadingAlpha(0.0f)
         .disableAlpha(0.4f)
+        .loadingAlpha(0.0f)
 
 public val IconButton.Xl: WrapperIconButtonXl
     @Composable

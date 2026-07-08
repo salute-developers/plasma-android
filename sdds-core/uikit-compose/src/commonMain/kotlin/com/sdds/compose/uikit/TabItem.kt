@@ -6,9 +6,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.graphics.LocalIndication
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.internal.tabs.BaseTabItem
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.tabs.LocalTabItemMotionStyle
@@ -79,7 +77,7 @@ fun TabItem(
  * @param count текст счетчика [Counter]
  * @param startContent контент в начале
  * @param endContent контент в конце
- * @param actionIcon ресурс иконки действия
+ * @param actionIcon источник иконки действия
  * @param onActionClicked обработчик нажатия на иконку действия
  * @param interactionSource источник взаимодействий [InteractionSource]
  */
@@ -97,7 +95,7 @@ fun TabItem(
     count: String? = null,
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
-    @DrawableRes actionIcon: Int? = null,
+    actionIcon: ImageSource? = null,
     onActionClicked: () -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
@@ -125,7 +123,7 @@ fun TabItem(
         action = if (actionIcon != null) {
             {
                 Icon(
-                    painter = painterResource(id = actionIcon),
+                    source = actionIcon,
                     contentDescription = "",
                     modifier = Modifier.clickable(
                         indication = LocalIndication.current,

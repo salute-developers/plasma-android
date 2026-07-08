@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.universal
 
 import com.sdds.plugin.themebuilder.internal.components.base.StringState
 import com.sdds.plugin.themebuilder.internal.components.base.Value
+import io.mockk.mockk
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -9,7 +10,7 @@ class IconPropertyMapperTest {
 
     @Test
     fun `возвращает ссылку на drawable без состояний`() {
-        val underTest = IconPropertyMapper(null)
+        val underTest = IconPropertyMapper(null, mockk(relaxed = true))
 
         val builderCall = underTest.map(
             meta = iconParam(methodName = "startIcon"),
@@ -22,7 +23,7 @@ class IconPropertyMapperTest {
 
     @Test
     fun `возвращает ссылку на drawable с состояниями`() {
-        val underTest = IconPropertyMapper(null)
+        val underTest = IconPropertyMapper(null, mockk(relaxed = true))
 
         val builderCall = underTest.map(
             meta = iconParam(methodName = "startIcon"),
@@ -54,6 +55,7 @@ class IconPropertyMapperTest {
                 simpleName = "ChipState",
                 values = listOf(EnumValueInfo(name = "Selected", configName = "selected_chip")),
             ),
+            importCollector = mockk(relaxed = true),
         )
 
         val builderCall = underTest.map(

@@ -100,14 +100,22 @@ interface CellStyle : Style {
     /**
      * Иконка disclosure
      */
-    @Deprecated("Use disclosureIconRes instead")
+    @Deprecated("Use disclosureIconSource instead")
     val disclosureIcon: Painter?
 
     /**
      * Иконка disclosure
      */
+    @Deprecated("Use disclosureIconSource", replaceWith = ReplaceWith("disclosureIconSource"))
     @get:DrawableRes
     val disclosureIconRes: Int?
+        get() = null
+
+    /**
+     * Источник изображения disclosure-иконки
+     */
+    val disclosureIconSource: ImageSource?
+        get() = disclosureIcon?.let { painter -> ImageSource { painter } }
 
     /**
      * Цвета компонента
@@ -159,9 +167,9 @@ interface CellStyle : Style {
 
 @Immutable
 private data class DefaultCellStyle(
-    @Deprecated("Use disclosureIconRes instead")
+    @Deprecated("Use disclosureIconSource instead")
     override val disclosureIcon: Painter?,
-    override val disclosureIconRes: Int?,
+    override val disclosureIconSource: ImageSource?,
     override val colors: CellColors,
     override val dimensions: CellDimensions,
     override val avatarStyle: AvatarStyle,
@@ -188,13 +196,16 @@ private data class DefaultCellStyle(
     @Deprecated("Use disclosureTextStyles", replaceWith = ReplaceWith("disclosureTextStyles"))
     override val disclosureTextStyle: TextStyle get() = disclosureTextStyles.getDefaultValue()
 
+    @Deprecated("Use disclosureIconSource", replaceWith = ReplaceWith("disclosureIconSource"))
+    override val disclosureIconRes: Int? = null
+
     class Builder : CellStyleBuilder {
         private var labelStyle: StatefulValue<TextStyle>? = null
         private var titleStyle: StatefulValue<TextStyle>? = null
         private var subtitleStyle: StatefulValue<TextStyle>? = null
         private var disclosureStyle: StatefulValue<TextStyle>? = null
         private var disclosureIcon: Painter? = null
-        private var disclosureIconRes: Int? = null
+        private var disclosureIconSource: ImageSource? = null
         private var colorsBuilder: CellColorsBuilder = CellColors.builder()
         private var dimensionsBuilder: CellDimensionsBuilder = CellDimensions.builder()
         private var avatarStyle: AvatarStyle? = null
@@ -220,13 +231,14 @@ private data class DefaultCellStyle(
             this.disclosureStyle = disclosureStyle
         }
 
-        @Deprecated("Use disclosureIcon with drawable res")
+        @Deprecated("Use disclosureIcon with ImageSource")
         override fun disclosureIcon(disclosureIcon: Painter) = apply {
             this.disclosureIcon = disclosureIcon
+            this.disclosureIconSource = ImageSource { disclosureIcon }
         }
 
-        override fun disclosureIcon(@DrawableRes disclosureIconRes: Int) = apply {
-            this.disclosureIconRes = disclosureIconRes
+        override fun disclosureIcon(disclosureIcon: ImageSource) = apply {
+            this.disclosureIconSource = disclosureIcon
         }
 
         @Composable
@@ -270,7 +282,7 @@ private data class DefaultCellStyle(
                 subtitleStyles = subtitleStyle ?: TextStyle.Default.asStatefulValue(),
                 disclosureTextStyles = disclosureStyle ?: TextStyle.Default.asStatefulValue(),
                 disclosureIcon = disclosureIcon,
-                disclosureIconRes = disclosureIconRes,
+                disclosureIconSource = disclosureIconSource,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 avatarStyle = avatarStyle ?: AvatarStyle.builder().style(),
@@ -337,13 +349,23 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
     /**
      * Устанавливает иконку disclosure
      */
-    @Deprecated("Use disclosureIcon with drawable res")
+    @Deprecated("Use disclosureIcon with ImageSource")
     fun disclosureIcon(disclosureIcon: Painter): CellStyleBuilder
+
+    /**
+     * Устанавливает источник изображения disclosure-иконки
+     */
+    fun disclosureIcon(disclosureIcon: ImageSource): CellStyleBuilder
 
     /**
      * Устанавливает иконку disclosure
      */
-    fun disclosureIcon(@DrawableRes disclosureIconRes: Int): CellStyleBuilder
+    @Deprecated(
+        "Use disclosureIcon with ImageSource",
+        replaceWith = ReplaceWith("disclosureIcon(disclosureIconRes)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun disclosureIcon(@DrawableRes disclosureIconRes: Int): CellStyleBuilder = this
 
     /**
      * Устанавливает цвета компонента при помощи [builder]

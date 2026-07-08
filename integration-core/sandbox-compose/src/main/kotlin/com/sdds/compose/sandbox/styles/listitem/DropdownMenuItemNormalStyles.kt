@@ -8,13 +8,15 @@
 package com.sdds.compose.sandbox.styles.listitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -86,9 +88,7 @@ public val WrapperDropdownMenuItemNormalView.Default: WrapperDropdownMenuItemNor
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            titleColor(SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperDropdownMenuItemNormalTerminate)
 
@@ -96,9 +96,7 @@ public val WrapperDropdownMenuItemNormalView.Positive: WrapperDropdownMenuItemNo
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            titleColor(SolidColor(SddsSandboxTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperDropdownMenuItemNormalTerminate)
 
@@ -106,9 +104,7 @@ public val WrapperDropdownMenuItemNormalView.Negative: WrapperDropdownMenuItemNo
     @Composable
     get() = builder
         .colors {
-            titleColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            titleColor(SolidColor(SddsSandboxTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperDropdownMenuItemNormalTerminate)
 
@@ -117,14 +113,12 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
     get() = this
         .colors {
             backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary),
                 ),
             )
-            disclosureIconColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            disclosureIconColor(SolidColor(SddsSandboxTheme.colors.textDefaultSecondary).asStatefulValue())
         }
 
 public val DropdownMenuItemNormal.Xl: WrapperDropdownMenuItemNormalXl
@@ -134,14 +128,14 @@ public val DropdownMenuItemNormal.Xl: WrapperDropdownMenuItemNormalXl
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundL)
         .titleStyle(SddsSandboxTheme.typography.bodyLNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(8.0.dp)
-            height(64.0.dp)
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
+            height(64.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemNormalXl)
 
@@ -152,14 +146,14 @@ public val DropdownMenuItemNormal.L: WrapperDropdownMenuItemNormalL
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(SddsSandboxTheme.typography.bodyLNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(8.0.dp)
-            height(56.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
+            height(56.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemNormalL)
 
@@ -170,14 +164,14 @@ public val DropdownMenuItemNormal.M: WrapperDropdownMenuItemNormalM
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundM)
         .titleStyle(SddsSandboxTheme.typography.bodyMNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(8.0.dp)
-            height(48.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
+            height(48.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemNormalM)
 
@@ -188,14 +182,14 @@ public val DropdownMenuItemNormal.S: WrapperDropdownMenuItemNormalS
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(SddsSandboxTheme.typography.bodySNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .dimensions {
             contentPaddingEnd(6.0.dp)
-            height(40.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
+            height(40.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemNormalS)
 
@@ -206,13 +200,13 @@ public val DropdownMenuItemNormal.Xs: WrapperDropdownMenuItemNormalXs
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundS)
         .titleStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .dimensions {
             contentPaddingEnd(6.0.dp)
-            height(32.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
+            height(32.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemNormalXs)

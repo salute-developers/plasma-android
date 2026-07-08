@@ -15,7 +15,6 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.BaseButton
@@ -36,7 +35,7 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
  * На время анимации загрузки контент будет скрыт или станет полупрозрачным
  * в зависимости от стиля.
  *
- * @param iconRes иконка
+ * @param iconSource иконка
  * @param modifier модификатор
  * @param iconContentDescription описание иконки
  * @param style стиль кнопки
@@ -49,8 +48,7 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
  */
 @Composable
 fun IconButton(
-    @DrawableRes
-    iconRes: Int,
+    iconSource: ImageSource,
     modifier: Modifier = Modifier,
     iconContentDescription: String? = null,
     style: ButtonStyle = LocalIconButtonStyle.current,
@@ -65,7 +63,7 @@ fun IconButton(
         motionContext = rememberMotionContext(interactionSource),
     )
     IconButton(
-        iconRes = iconRes,
+        iconSource = iconSource,
         modifier = modifier,
         motion = motion,
         iconContentDescription = iconContentDescription,
@@ -84,7 +82,7 @@ fun IconButton(
  * На время анимации загрузки контент будет скрыт или станет полупрозрачным
  * в зависимости от стиля.
  *
- * @param iconRes иконка
+ * @param iconSource иконка
  * @param modifier модификатор
  * @param iconContentDescription описание иконки
  * @param style стиль кнопки
@@ -96,8 +94,7 @@ fun IconButton(
  */
 @Composable
 fun IconButton(
-    @DrawableRes
-    iconRes: Int,
+    iconSource: ImageSource,
     motion: Motion<IconButtonMotionStyle>,
     modifier: Modifier = Modifier,
     iconContentDescription: String? = null,
@@ -120,7 +117,7 @@ fun IconButton(
         onClickLabel = onClickLabel,
         startContent = {
             ButtonIcon(
-                iconRes = iconRes,
+                iconSource = iconSource,
                 contentDescription = iconContentDescription,
                 style = style,
                 motion = motion,
@@ -378,13 +375,13 @@ fun Button(
         needPaddingCompensation = true,
         motion = motion,
         startContent =
-        if (icons?.startRes != null || icons?.start != null) {
+        if (icons?.startSource != null || icons?.start != null) {
             { StartButtonIcon(icons = icons, style = style, motion = motion) }
         } else {
             null
         },
         endContent =
-        if (icons?.endRes != null || icons?.end != null) {
+        if (icons?.endSource != null || icons?.end != null) {
             { EndButtonIcon(icons = icons, style = style, motion = motion) }
         } else {
             null
@@ -449,39 +446,95 @@ enum class ButtonSpacing {
 
 /**
  * Иконки кнопки
- * @property startRes иконка, которая будет добавлена в начале
- * @property endRes иконка, которая будет добавлена в конце
+ * @property startSource источник иконки, которая будет добавлена в начале
+ * @property endSource источник иконки, которая будет добавлена в конце
  * @property startContentDescription описание иконки в начале
  * @property endContentDescription описание иконки в конце
  */
-class ButtonIcons(
-    @Deprecated("Use startRes instead")
-    val start: Painter? = null,
-    @Deprecated("Use endRes instead")
-    val end: Painter? = null,
+class ButtonIcons private constructor(
+    val startSource: ImageSource? = null,
+    val endSource: ImageSource? = null,
     val startContentDescription: String? = null,
     val endContentDescription: String? = null,
-    @DrawableRes
-    val startRes: Int? = null,
-    @DrawableRes
-    val endRes: Int? = null,
+    @Deprecated("Use startSource instead")
+    val start: Painter? = null,
+    @Deprecated("Use endSource instead")
+    val end: Painter? = null,
 ) {
 
     /**
-     * Создает [ButtonIcons] с указанными иконками вначале [start] и вконце [end]
+     * Создает [ButtonIcons] с указанными источниками иконок вначале [startSource] и вконце [endSource]
      */
-    constructor(start: Painter?, end: Painter?) : this(start, end, null, null)
+    constructor(
+        startSource: ImageSource? = null,
+        endSource: ImageSource? = null,
+        startContentDescription: String? = null,
+        endContentDescription: String? = null,
+    ) : this(
+        startSource = startSource,
+        endSource = endSource,
+        startContentDescription = startContentDescription,
+        endContentDescription = endContentDescription,
+        start = null,
+        end = null,
+    )
+
+    /**
+     * Создает [ButtonIcons] с указанными иконками вначале [start] и вконце [end].
+     */
+    @Deprecated("Use ButtonIcons constructor with ImageSource instead")
+    constructor(
+        start: Painter?,
+        end: Painter? = null,
+        startContentDescription: String? = null,
+        endContentDescription: String? = null,
+    ) : this(
+        startSource = start?.asImageSource(),
+        endSource = end?.asImageSource(),
+        startContentDescription = startContentDescription,
+        endContentDescription = endContentDescription,
+        start = start,
+        end = end,
+    )
+
+    /**
+     * Создает [ButtonIcons] с указанной иконкой вконце [end].
+     */
+    @Deprecated("Use ButtonIcons constructor with ImageSource instead")
+    constructor(
+        end: Painter?,
+        startContentDescription: String? = null,
+        endContentDescription: String? = null,
+    ) : this(
+        startSource = null,
+        endSource = end?.asImageSource(),
+        startContentDescription = startContentDescription,
+        endContentDescription = endContentDescription,
+        start = null,
+        end = end,
+    )
 
     /**
      * Копирует [ButtonIcons]
      */
     fun copy(
-        start: Painter? = this.start,
-        end: Painter? = this.end,
+        startSource: ImageSource? = this.startSource,
+        endSource: ImageSource? = this.endSource,
         startContentDescription: String? = this.startContentDescription,
         endContentDescription: String? = this.endContentDescription,
-    ): ButtonIcons = ButtonIcons(start, end, startContentDescription, endContentDescription)
+        start: Painter? = this.start,
+        end: Painter? = this.end,
+    ): ButtonIcons = ButtonIcons(
+        startSource = startSource ?: start?.asImageSource(),
+        endSource = endSource ?: end?.asImageSource(),
+        startContentDescription = startContentDescription,
+        endContentDescription = endContentDescription,
+        start = start,
+        end = end,
+    )
 }
+
+private fun Painter.asImageSource(): ImageSource = ImageSource { this }
 
 internal val LocalButtonForceShape: ProvidableCompositionLocal<Shape?> =
     compositionLocalOf(structuralEqualityPolicy()) { null }
@@ -492,9 +545,9 @@ private fun StartButtonIcon(
     style: ButtonStyle,
     motion: Motion<ButtonMotionStyle>,
 ) {
-    if (icons?.startRes != null) {
+    if (icons?.startSource != null) {
         ButtonIcon(
-            iconRes = icons.startRes,
+            iconSource = icons.startSource,
             contentDescription = icons.startContentDescription,
             style = style,
             marginEnd = style.dimensions.iconMarginValues,
@@ -517,9 +570,9 @@ private fun EndButtonIcon(
     style: ButtonStyle,
     motion: Motion<ButtonMotionStyle>,
 ) {
-    if (icons?.endRes != null) {
+    if (icons?.endSource != null) {
         ButtonIcon(
-            iconRes = icons.endRes,
+            iconSource = icons.endSource,
             contentDescription = icons.endContentDescription,
             style = style,
             marginStart = style.dimensions.iconMarginValues,

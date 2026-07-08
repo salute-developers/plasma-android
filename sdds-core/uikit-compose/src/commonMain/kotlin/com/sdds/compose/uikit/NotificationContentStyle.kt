@@ -41,8 +41,16 @@ interface NotificationContentStyle : Style {
     /**
      * Ресурс иконки
      */
+    @Deprecated("Use iconSource", replaceWith = ReplaceWith("iconSource"))
     @get:DrawableRes
     val icon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки
+     */
+    val iconSource: ImageSource?
+        get() = null
 
     /**
      * Расположение иконки
@@ -100,9 +108,19 @@ interface NotificationContentStyleBuilder : StyleBuilder<NotificationContentStyl
     fun iconPlacement(iconPlacement: NotificationContentIconPlacement): NotificationContentStyleBuilder
 
     /**
+     * Устанавливает источник изображения иконки [icon]
+     */
+    fun icon(icon: ImageSource): NotificationContentStyleBuilder
+
+    /**
      * Устанавливает ресурс иконки [icon]
      */
-    fun icon(@DrawableRes icon: Int): NotificationContentStyleBuilder
+    @Deprecated(
+        "Use icon with ImageSource",
+        replaceWith = ReplaceWith("icon(icon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun icon(@DrawableRes icon: Int): NotificationContentStyleBuilder = this
 
     /**
      * Устанавливает стиль заголовка [titleStyle]
@@ -137,13 +155,16 @@ private data class DefaultNotificationContentStyle(
     override val buttonGroupStyle: ButtonGroupStyle,
     override val iconPlacement: NotificationContentIconPlacement,
     override val buttonLayout: NotificationContentButtonLayout,
-    override val icon: Int?,
+    override val iconSource: ImageSource?,
 ) : NotificationContentStyle {
+    @Deprecated("Use iconSource", replaceWith = ReplaceWith("iconSource"))
+    override val icon: Int? = null
+
     class Builder : NotificationContentStyleBuilder {
         private var buttonGroupStyle: ButtonGroupStyle? = null
         private var buttonLayout: NotificationContentButtonLayout? = null
         private var iconPlacement: NotificationContentIconPlacement? = null
-        private var icon: Int? = null
+        private var iconSource: ImageSource? = null
         private var titleStyle: TextStyle? = null
         private var textStyle: TextStyle? = null
 
@@ -165,8 +186,8 @@ private data class DefaultNotificationContentStyle(
             this.iconPlacement = iconPlacement
         }
 
-        override fun icon(icon: Int) = apply {
-            this.icon = icon
+        override fun icon(icon: ImageSource) = apply {
+            this.iconSource = icon
         }
 
         override fun titleStyle(titleStyle: TextStyle): NotificationContentStyleBuilder = apply {
@@ -196,7 +217,7 @@ private data class DefaultNotificationContentStyle(
                 buttonGroupStyle = buttonGroupStyle ?: ButtonGroupStyle.builder().style(),
                 buttonLayout = buttonLayout ?: NotificationContentButtonLayout.Normal,
                 iconPlacement = iconPlacement ?: NotificationContentIconPlacement.None,
-                icon = icon,
+                iconSource = iconSource,
             )
     }
 }

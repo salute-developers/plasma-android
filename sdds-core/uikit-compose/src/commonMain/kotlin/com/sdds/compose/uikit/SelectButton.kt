@@ -4,7 +4,6 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.sdds.compose.uikit.annotations.DrawableRes
 
 /**
  * Компонент кнопки для выбора, предназначенный для использования внутри [SelectScope].
@@ -16,9 +15,9 @@ import com.sdds.compose.uikit.annotations.DrawableRes
  * @param spacing Определяет расположение контента внутри кнопки (например, [ButtonSpacing.SpaceBetween] для распределения по краям)
  * @param enabled Флаг, определяющий доступность компонента для взаимодействия
  * @param readonly Флаг, запрещающий изменение состояния селектора при клике на кнопку
- * @param startIcon Ресурс иконки, отображаемой в начале кнопки (слева от текста)
- * @param iconOpened Ресурс иконки, отображаемой когда селектор открыт (обычно стрелка вверх)
- * @param iconClosed Ресурс иконки, отображаемой когда селектор закрыт (обычно стрелка вниз)
+ * @param startIcon источник иконки, отображаемой в начале кнопки (слева от текста)
+ * @param iconOpened источник иконки, отображаемой когда селектор открыт
+ * @param iconClosed источник иконки, отображаемой когда селектор закрыт
  * @param onClickLabel Описательная метка для действия клика, используемая специальными возможностями (accessibility)
  * @param interactionSource Источник взаимодействий для отслеживания состояний компонента (наведение, нажатие и т.д.)
  */
@@ -30,12 +29,9 @@ fun SelectScope.SelectButton(
     spacing: ButtonSpacing = ButtonSpacing.SpaceBetween,
     enabled: Boolean = true,
     readonly: Boolean = false,
-    @DrawableRes
-    startIcon: Int? = null,
-    @DrawableRes
-    iconOpened: Int? = null,
-    @DrawableRes
-    iconClosed: Int? = null,
+    startIcon: ImageSource? = null,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
     onClickLabel: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
@@ -45,8 +41,8 @@ fun SelectScope.SelectButton(
         modifier = modifier,
         label = label,
         icons = ButtonIcons(
-            startRes = startIcon,
-            endRes = if (isOpened) iconOpened else iconClosed,
+            startSource = startIcon,
+            endSource = if (isOpened) iconOpened else iconClosed,
         ),
         style = style,
         enabled = enabled,

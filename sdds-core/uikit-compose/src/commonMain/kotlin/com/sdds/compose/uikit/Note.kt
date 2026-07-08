@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -30,13 +31,12 @@ import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.SemanticStateSource
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.heightOrZero
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.abs
 
@@ -47,8 +47,8 @@ import kotlin.math.abs
  * @param style стиль компонента
  * @param title заголовок
  * @param text текст
- * @param closeIconRes ссылка на ресурс иконки закрытия
- * @param onClose колбэк клика на иконку закрытия [closeIconRes]
+ * @param closeIconSource источник иконки закрытия
+ * @param onClose колбэк клика на иконку закрытия [closeIconSource]
  * @param contentBefore контент перед текстовым блоком
  * @param interactionSource источник взаимодействий
  * @param action дополнительный контент для взаимодейстивия с компонентом
@@ -59,8 +59,7 @@ fun Note(
     style: NoteStyle = LocalNoteStyle.current,
     title: String = "",
     text: String = "",
-    @DrawableRes
-    closeIconRes: Int? = style.closeIcon,
+    closeIconSource: ImageSource? = null,
     onClose: (() -> Unit)? = null,
     contentBefore: (@Composable BoxScope.() -> Unit)? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
@@ -75,11 +74,8 @@ fun Note(
         } else {
             null
         },
-        closeIcon = if (closeIconRes != null) {
-            { CloseIcon(style, closeIconRes, onClose) }
-        } else {
-            null
-        },
+        closeIcon = (closeIconSource ?: style.closeIconSource)
+            ?.let { source -> { CloseIcon(style, source, onClose) } },
         contentBefore = contentBefore,
         interactionSource = interactionSource,
         action = action,
@@ -249,7 +245,7 @@ enum class ContentBeforeVerticalArrangement {
 @Composable
 private fun BoxScope.CloseIcon(
     style: NoteStyle,
-    closeIconRes: Int,
+    closeIconSource: ImageSource,
     onClose: (() -> Unit)?,
 ) {
     val closeInteractionSource = remember { MutableInteractionSource() }
@@ -261,9 +257,9 @@ private fun BoxScope.CloseIcon(
                 interactionSource = closeInteractionSource,
                 indication = LocalIndication.current,
             ) { onClose?.invoke() },
-        painter = painterResource(closeIconRes),
+        source = closeIconSource,
         contentDescription = "",
-        tint = closeColor,
+        brush = BrushProducer { SolidColor(closeColor) },
     )
 }
 

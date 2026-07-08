@@ -28,6 +28,7 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TabsStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -139,33 +140,27 @@ public value class WrapperTabsDefaultXsHorizontal(
 private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
     @Composable
     get() = this
+        .dividerStyle(Divider.Default.style())
+        .dividerEnabled(true)
+        .indicatorEnabled(true)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
         .colors {
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            overflowNextIconColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            overflowPrevIconColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            indicatorColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive())
+            overflowNextIconColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
+            overflowPrevIconColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
             disclosureColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryActive,
                 ),
             )
         }
         .dimensions {
             indicatorThickness(2.0.dp)
         }
-        .dividerStyle(Divider.Default.style())
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
-        .dividerEnabled(true)
-        .indicatorEnabled(true)
 
 public val TabsDefault.L: WrapperTabsDefaultL
     @Composable
@@ -181,24 +176,24 @@ public val WrapperTabsDefaultL.Vertical: WrapperTabsDefaultLVertical
     @Composable
     @JvmName("WrapperTabsDefaultLVertical")
     get() = builder
+        .tabItemStyle(TabItemDefault.L.Vertical.style())
+        .orientation(TabsOrientation.Vertical)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .dimensions {
             minSpacing(0.0.dp)
         }
-        .tabItemStyle(TabItemDefault.L.Vertical.style())
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
-        .orientation(TabsOrientation.Vertical)
         .wrap(::WrapperTabsDefaultLVertical)
 
 public val WrapperTabsDefaultL.Horizontal: WrapperTabsDefaultLHorizontal
     @Composable
     @JvmName("WrapperTabsDefaultLHorizontal")
     get() = builder
+        .tabItemStyle(TabItemDefault.L.Horizontal.style())
+        .orientation(TabsOrientation.Horizontal)
         .dimensions {
             minSpacing(28.0.dp)
         }
-        .tabItemStyle(TabItemDefault.L.Horizontal.style())
-        .orientation(TabsOrientation.Horizontal)
         .wrap(::WrapperTabsDefaultLHorizontal)
 
 public val TabsDefault.M: WrapperTabsDefaultM
@@ -215,24 +210,24 @@ public val WrapperTabsDefaultM.Vertical: WrapperTabsDefaultMVertical
     @Composable
     @JvmName("WrapperTabsDefaultMVertical")
     get() = builder
+        .tabItemStyle(TabItemDefault.M.Vertical.style())
+        .orientation(TabsOrientation.Vertical)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .dimensions {
             minSpacing(0.0.dp)
         }
-        .tabItemStyle(TabItemDefault.M.Vertical.style())
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
-        .orientation(TabsOrientation.Vertical)
         .wrap(::WrapperTabsDefaultMVertical)
 
 public val WrapperTabsDefaultM.Horizontal: WrapperTabsDefaultMHorizontal
     @Composable
     @JvmName("WrapperTabsDefaultMHorizontal")
     get() = builder
+        .tabItemStyle(TabItemDefault.M.Horizontal.style())
+        .orientation(TabsOrientation.Horizontal)
         .dimensions {
             minSpacing(28.0.dp)
         }
-        .tabItemStyle(TabItemDefault.M.Horizontal.style())
-        .orientation(TabsOrientation.Horizontal)
         .wrap(::WrapperTabsDefaultMHorizontal)
 
 public val TabsDefault.S: WrapperTabsDefaultS
@@ -249,24 +244,24 @@ public val WrapperTabsDefaultS.Vertical: WrapperTabsDefaultSVertical
     @Composable
     @JvmName("WrapperTabsDefaultSVertical")
     get() = builder
+        .tabItemStyle(TabItemDefault.S.Vertical.style())
+        .orientation(TabsOrientation.Vertical)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .dimensions {
             minSpacing(0.0.dp)
         }
-        .tabItemStyle(TabItemDefault.S.Vertical.style())
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
-        .orientation(TabsOrientation.Vertical)
         .wrap(::WrapperTabsDefaultSVertical)
 
 public val WrapperTabsDefaultS.Horizontal: WrapperTabsDefaultSHorizontal
     @Composable
     @JvmName("WrapperTabsDefaultSHorizontal")
     get() = builder
+        .tabItemStyle(TabItemDefault.S.Horizontal.style())
+        .orientation(TabsOrientation.Horizontal)
         .dimensions {
             minSpacing(28.0.dp)
         }
-        .tabItemStyle(TabItemDefault.S.Horizontal.style())
-        .orientation(TabsOrientation.Horizontal)
         .wrap(::WrapperTabsDefaultSHorizontal)
 
 public val TabsDefault.Xs: WrapperTabsDefaultXs
@@ -283,22 +278,22 @@ public val WrapperTabsDefaultXs.Vertical: WrapperTabsDefaultXsVertical
     @Composable
     @JvmName("WrapperTabsDefaultXsVertical")
     get() = builder
+        .tabItemStyle(TabItemDefault.Xs.Vertical.style())
+        .orientation(TabsOrientation.Vertical)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .dimensions {
             minSpacing(0.0.dp)
         }
-        .tabItemStyle(TabItemDefault.Xs.Vertical.style())
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
-        .orientation(TabsOrientation.Vertical)
         .wrap(::WrapperTabsDefaultXsVertical)
 
 public val WrapperTabsDefaultXs.Horizontal: WrapperTabsDefaultXsHorizontal
     @Composable
     @JvmName("WrapperTabsDefaultXsHorizontal")
     get() = builder
+        .tabItemStyle(TabItemDefault.Xs.Horizontal.style())
+        .orientation(TabsOrientation.Horizontal)
         .dimensions {
             minSpacing(28.0.dp)
         }
-        .tabItemStyle(TabItemDefault.Xs.Horizontal.style())
-        .orientation(TabsOrientation.Horizontal)
         .wrap(::WrapperTabsDefaultXsHorizontal)

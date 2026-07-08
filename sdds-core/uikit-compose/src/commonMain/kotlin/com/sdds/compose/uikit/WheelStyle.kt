@@ -75,14 +75,30 @@ interface WheelStyle : Style {
     /**
      * Иконка верхнего контрола
      */
+    @Deprecated("Use controlIconUpSource", replaceWith = ReplaceWith("controlIconUpSource"))
     @get:DrawableRes
     val controlIconUp: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки верхнего контрола
+     */
+    val controlIconUpSource: ImageSource?
+        get() = null
 
     /**
      * Иконка нижнего контрола
      */
+    @Deprecated("Use controlIconDownSource", replaceWith = ReplaceWith("controlIconDownSource"))
     @get:DrawableRes
     val controlIconDown: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки нижнего контрола
+     */
+    val controlIconDownSource: ImageSource?
+        get() = null
 
     /**
      * Стиль разделителя
@@ -167,14 +183,34 @@ interface WheelStyleBuilder : StyleBuilder<WheelStyle> {
     fun visibleItemsCount(visibleItemsCount: Int): WheelStyleBuilder
 
     /**
+     * Устанавливает источник изображения иконки верхнего контрола [controlIconUp]
+     */
+    fun controlIconUp(controlIconUp: ImageSource): WheelStyleBuilder
+
+    /**
      * Устанавливает иконка верхнего контрола [controlIconUp]
      */
-    fun controlIconUp(@DrawableRes controlIconUp: Int): WheelStyleBuilder
+    @Deprecated(
+        "Use controlIconUp with ImageSource",
+        replaceWith = ReplaceWith("controlIconUp(controlIconUp)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun controlIconUp(@DrawableRes controlIconUp: Int): WheelStyleBuilder = this
 
     /**
      * Устанавливает иконка нижнего контрола [controlIconUp]
      */
-    fun controlIconDown(@DrawableRes controlIconDown: Int): WheelStyleBuilder
+    fun controlIconDown(controlIconDown: ImageSource): WheelStyleBuilder
+
+    /**
+     * Устанавливает иконка нижнего контрола [controlIconUp]
+     */
+    @Deprecated(
+        "Use controlIconDown with ImageSource",
+        replaceWith = ReplaceWith("controlIconDown(controlIconDown)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun controlIconDown(@DrawableRes controlIconDown: Int): WheelStyleBuilder = this
 
     /**
      * Устанавливает стиль разделителя [dividerStyle]
@@ -251,13 +287,18 @@ private class DefaultWheelStyle(
     override val itemAlignment: WheelAlignment,
     override val wheelCount: Int,
     override val visibleItemsCount: Int,
-    override val controlIconUp: Int?,
-    override val controlIconDown: Int?,
+    override val controlIconUpSource: ImageSource?,
+    override val controlIconDownSource: ImageSource?,
     override val dividerStyle: DividerStyle,
     override val textAfterMode: TextAfterMode,
     override val selectionIndicatorEnabled: Boolean,
     override val selectionIndicatorShape: StatefulValue<Shape>,
 ) : WheelStyle {
+    @Deprecated("Use controlIconUpSource", replaceWith = ReplaceWith("controlIconUpSource"))
+    override val controlIconUp: Int? = null
+
+    @Deprecated("Use controlIconDownSource", replaceWith = ReplaceWith("controlIconDownSource"))
+    override val controlIconDown: Int? = null
 
     @Deprecated(
         "Не используется, используйте selectionIndicatorEnabled",
@@ -280,8 +321,8 @@ private class DefaultWheelStyle(
         private var itemAlignment: WheelAlignment? = null
         private var wheelCount: Int? = null
         private var visibleItemsCount: Int? = null
-        private var controlIconUp: Int? = null
-        private var controlIconDown: Int? = null
+        private var controlIconUpSource: ImageSource? = null
+        private var controlIconDownSource: ImageSource? = null
         private var dividerStyle: DividerStyle? = null
         private var textAfterMode: TextAfterMode? = null
         private var selectionIndicatorEnabled: Boolean? = null
@@ -311,12 +352,12 @@ private class DefaultWheelStyle(
             this.visibleItemsCount = visibleItemsCount
         }
 
-        override fun controlIconUp(controlIconUp: Int) = apply {
-            this.controlIconUp = controlIconUp
+        override fun controlIconUp(controlIconUp: ImageSource) = apply {
+            this.controlIconUpSource = controlIconUp
         }
 
-        override fun controlIconDown(controlIconDown: Int) = apply {
-            this.controlIconDown = controlIconDown
+        override fun controlIconDown(controlIconDown: ImageSource) = apply {
+            this.controlIconDownSource = controlIconDown
         }
 
         override fun dividerStyle(dividerStyle: DividerStyle) = apply {
@@ -356,8 +397,8 @@ private class DefaultWheelStyle(
                 itemAlignment = itemAlignment ?: WheelAlignment.Center,
                 wheelCount = wheelCount ?: 3,
                 visibleItemsCount = visibleItemsCount ?: 5,
-                controlIconUp = controlIconUp,
-                controlIconDown = controlIconDown,
+                controlIconUpSource = controlIconUpSource,
+                controlIconDownSource = controlIconDownSource,
                 dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
                 textAfterMode = textAfterMode ?: TextAfterMode.EachItem,
                 selectionIndicatorEnabled = selectionIndicatorEnabled ?: false,

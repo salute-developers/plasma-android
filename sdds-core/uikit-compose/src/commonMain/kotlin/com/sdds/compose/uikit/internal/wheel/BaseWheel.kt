@@ -30,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Placeable
@@ -45,14 +46,14 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.DataEdgePlacement
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.ImageSource
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextAfterMode
 import com.sdds.compose.uikit.WheelItemData
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.internal.platform.painterResource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlin.math.abs
@@ -84,10 +85,8 @@ internal fun BaseWheel(
     visibleItemsCount: Int,
     textAfterMode: TextAfterMode = TextAfterMode.EachItem,
     staticTextAfter: String? = null,
-    @DrawableRes
-    iconUp: Int? = null,
-    @DrawableRes
-    iconDown: Int? = null,
+    iconUp: ImageSource? = null,
+    iconDown: ImageSource? = null,
     onItemSelected: (Int) -> Unit = {},
     onLabelPositionCalculated: ((Float) -> Unit)? = null,
     onItemHeightCalculated: ((Int) -> Unit)? = null,
@@ -596,12 +595,13 @@ internal enum class WheelItemAlignment {
 
 @Composable
 private fun TopControl(
-    @DrawableRes icon: Int,
+    icon: ImageSource,
     color: InteractiveColor,
     state: LazyListState,
     coroutineScope: CoroutineScope,
 ) {
     val upInteractionSource = remember { MutableInteractionSource() }
+    val iconColor = color.colorForInteraction(upInteractionSource)
     Icon(
         modifier = Modifier
             .testTag("top_control")
@@ -616,19 +616,20 @@ private fun TopControl(
                 }
             },
         contentDescription = null,
-        painter = painterResource(icon),
-        tint = color.colorForInteraction(upInteractionSource),
+        source = icon,
+        brush = BrushProducer { SolidColor(iconColor) },
     )
 }
 
 @Composable
 private fun BottomControl(
-    @DrawableRes icon: Int,
+    icon: ImageSource,
     color: InteractiveColor,
     state: LazyListState,
     coroutineScope: CoroutineScope,
 ) {
     val downInteractionSource = remember { MutableInteractionSource() }
+    val iconColor = color.colorForInteraction(downInteractionSource)
     Icon(
         modifier = Modifier
             .testTag("bottom_control")
@@ -641,8 +642,8 @@ private fun BottomControl(
                 }
             },
         contentDescription = null,
-        painter = painterResource(icon),
-        tint = color.colorForInteraction(downInteractionSource),
+        source = icon,
+        brush = BrushProducer { SolidColor(iconColor) },
     )
 }
 

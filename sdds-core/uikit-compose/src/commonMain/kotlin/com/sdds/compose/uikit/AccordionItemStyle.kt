@@ -58,14 +58,30 @@ interface AccordionItemStyle : Style {
     /**
      * Иконка в закрытом состоянии
      */
+    @Deprecated("Use iconClosedSource", replaceWith = ReplaceWith("iconClosedSource"))
     @get:DrawableRes
     val iconClosed: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки в закрытом состоянии
+     */
+    val iconClosedSource: ImageSource?
+        get() = null
 
     /**
      * Иконка в открытом состоянии
      */
+    @Deprecated("Use iconOpenedSource", replaceWith = ReplaceWith("iconOpenedSource"))
     @get:DrawableRes
     val iconOpened: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки в открытом состоянии
+     */
+    val iconOpenedSource: ImageSource?
+        get() = null
 
     /**
      * Цвета компонента
@@ -107,16 +123,38 @@ interface AccordionItemStyleBuilder : StyleBuilder<AccordionItemStyle> {
     fun contentTextStyle(contentTextStyle: TextStyle): AccordionItemStyleBuilder
 
     /**
-     * Устанавливает иконку в закрытом состоянии [iconClosed]
+     * Устанавливает источник изображения иконки в закрытом состоянии [iconClosed]
      */
     @ApiName(name = "closedIcon")
-    fun iconClosed(@DrawableRes iconClosed: Int?): AccordionItemStyleBuilder
+    fun iconClosed(iconClosed: ImageSource): AccordionItemStyleBuilder
+
+    /**
+     * Устанавливает иконку в закрытом состоянии [iconClosed]
+     */
+    @Deprecated(
+        "Use iconClosed with ImageSource",
+        replaceWith = ReplaceWith("iconClosed(iconClosed)"),
+        level = DeprecationLevel.ERROR,
+    )
+    @ApiName(name = "closedIcon")
+    fun iconClosed(@DrawableRes iconClosed: Int?): AccordionItemStyleBuilder = this
 
     /**
      * Устанавливает иконку в открытом состоянии [iconOpened]
      */
     @ApiName(name = "openedIcon")
-    fun iconOpened(@DrawableRes iconOpened: Int?): AccordionItemStyleBuilder
+    fun iconOpened(iconOpened: ImageSource): AccordionItemStyleBuilder
+
+    /**
+     * Устанавливает иконку в открытом состоянии [iconOpened]
+     */
+    @Deprecated(
+        "Use iconOpened with ImageSource",
+        replaceWith = ReplaceWith("iconOpened(iconOpened)"),
+        level = DeprecationLevel.ERROR,
+    )
+    @ApiName(name = "openedIcon")
+    fun iconOpened(@DrawableRes iconOpened: Int?): AccordionItemStyleBuilder = this
 
     /**
      * Устанавливает угол поворота иконки при смене состояния
@@ -149,9 +187,14 @@ private data class DefaultAccordionItemStyle(
     override val colors: AccordionItemColors,
     override val dimensions: AccordionItemDimensions,
     override val iconPlacement: AccordionIconPlacement,
-    override val iconClosed: Int?,
-    override val iconOpened: Int?,
+    override val iconClosedSource: ImageSource?,
+    override val iconOpenedSource: ImageSource?,
 ) : AccordionItemStyle {
+    @Deprecated("Use iconClosedSource", replaceWith = ReplaceWith("iconClosedSource"))
+    override val iconClosed: Int? = null
+
+    @Deprecated("Use iconOpenedSource", replaceWith = ReplaceWith("iconOpenedSource"))
+    override val iconOpened: Int? = null
 
     class Builder : AccordionItemStyleBuilder {
         private var titleStyle: TextStyle? = null
@@ -162,9 +205,8 @@ private data class DefaultAccordionItemStyle(
 
         private var iconRotation: Float? = null
 
-        private var iconClosed: Int? = null
-
-        private var iconOpened: Int? = null
+        private var iconClosedSource: ImageSource? = null
+        private var iconOpenedSource: ImageSource? = null
 
         private var iconPlacement: AccordionIconPlacement? = null
 
@@ -182,11 +224,11 @@ private data class DefaultAccordionItemStyle(
         override fun contentTextStyle(contentTextStyle: TextStyle): AccordionItemStyleBuilder =
             apply { this.contentTextStyle = contentTextStyle }
 
-        override fun iconClosed(iconClosed: Int?): AccordionItemStyleBuilder =
-            apply { this.iconClosed = iconClosed }
+        override fun iconClosed(iconClosed: ImageSource): AccordionItemStyleBuilder =
+            apply { this.iconClosedSource = iconClosed }
 
-        override fun iconOpened(iconOpened: Int?): AccordionItemStyleBuilder =
-            apply { this.iconOpened = iconOpened }
+        override fun iconOpened(iconOpened: ImageSource): AccordionItemStyleBuilder =
+            apply { this.iconOpenedSource = iconOpened }
 
         override fun iconRotation(iconRotation: Float): AccordionItemStyleBuilder =
             apply { this.iconRotation = iconRotation }
@@ -208,8 +250,8 @@ private data class DefaultAccordionItemStyle(
             contentTextStyle = contentTextStyle ?: TextStyle.Default,
             iconRotation = iconRotation ?: 180f,
             iconPlacement = iconPlacement ?: AccordionIconPlacement.Start,
-            iconClosed = iconClosed,
-            iconOpened = iconOpened,
+            iconClosedSource = iconClosedSource,
+            iconOpenedSource = iconOpenedSource,
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
         )

@@ -24,6 +24,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Tooltip
 import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
 
 @Composable
@@ -108,7 +109,7 @@ fun FormHorizontal_Simple() {
 fun FormItem_Style() {
     composableCodeSnippet {
         FormItemStyle.builder()
-            .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+            .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
             .captionStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .titleCaptionStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .counterStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))

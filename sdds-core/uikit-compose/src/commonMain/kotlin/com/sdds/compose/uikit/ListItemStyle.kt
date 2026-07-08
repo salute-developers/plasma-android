@@ -84,14 +84,22 @@ interface ListItemStyle : Style {
     /**
      * Иконка disclosure
      */
-    @Deprecated("Use disclosureIconRes instead")
+    @Deprecated("Use disclosureIconSource instead")
     val disclosureIcon: Painter?
 
     /**
      * Иконка disclosure
      */
+    @Deprecated("Use disclosureIconSource", replaceWith = ReplaceWith("disclosureIconSource"))
     @get:DrawableRes
     val disclosureIconRes: Int?
+        get() = null
+
+    /**
+     * Источник изображения disclosure-иконки
+     */
+    val disclosureIconSource: ImageSource?
+        get() = disclosureIcon?.let { painter -> ImageSource { painter } }
 
     /**
      * Стиль текста disclosure
@@ -153,9 +161,9 @@ interface ListItemStyle : Style {
 
 @Immutable
 private data class DefaultListItemStyle(
-    @Deprecated("Use disclosureIconRes instead")
+    @Deprecated("Use disclosureIconSource instead")
     override val disclosureIcon: Painter?,
-    override val disclosureIconRes: Int?,
+    override val disclosureIconSource: ImageSource?,
     override val colors: ListItemColors,
     override val dimensions: ListItemDimensions,
     override val titleStyles: StatefulValue<TextStyle>,
@@ -184,6 +192,9 @@ private data class DefaultListItemStyle(
     @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
     override val shape: Shape = shapes.getDefaultValue()
 
+    @Deprecated("Use disclosureIconSource", replaceWith = ReplaceWith("disclosureIconSource"))
+    override val disclosureIconRes: Int? = null
+
     class Builder : ListItemStyleBuilder {
         private var shapes: StatefulValue<Shape>? = null
         private var titleStyle: StatefulValue<TextStyle>? = null
@@ -191,7 +202,7 @@ private data class DefaultListItemStyle(
         private var subtitleStyle: StatefulValue<TextStyle>? = null
         private var labelStyle: StatefulValue<TextStyle>? = null
         private var disclosureIcon: Painter? = null
-        private var disclosureIconRes: Int? = null
+        private var disclosureIconSource: ImageSource? = null
         private var colorsBuilder: ListItemColorsBuilder = ListItemColors.builder()
         private var dimensionsBuilder: ListItemDimensionsBuilder = ListItemDimensions.builder()
         private var avatarStyle: AvatarStyle? = null
@@ -227,13 +238,14 @@ private data class DefaultListItemStyle(
             this.labelStyle = labelStyle
         }
 
-        @Deprecated("Use disclosureIcon with drawable res")
+        @Deprecated("Use disclosureIcon with ImageSource")
         override fun disclosureIcon(disclosureIcon: Painter) = apply {
             this.disclosureIcon = disclosureIcon
+            this.disclosureIconSource = ImageSource { disclosureIcon }
         }
 
-        override fun disclosureIcon(disclosureIconRes: Int) = apply {
-            this.disclosureIconRes = disclosureIconRes
+        override fun disclosureIcon(disclosureIcon: ImageSource) = apply {
+            this.disclosureIconSource = disclosureIcon
         }
 
         @Composable
@@ -286,7 +298,7 @@ private data class DefaultListItemStyle(
                 subtitleStyles = subtitleStyle ?: TextStyle.Default.asStatefulValue(),
                 labelStyles = labelStyle ?: TextStyle.Default.asStatefulValue(),
                 disclosureIcon = disclosureIcon,
-                disclosureIconRes = disclosureIconRes,
+                disclosureIconSource = disclosureIconSource,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 avatarStyle = avatarStyle,
@@ -355,13 +367,23 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
     /**
      * Устанавливает иконку disclosure
      */
-    @Deprecated("Use disclosureIcon with drawable res")
+    @Deprecated("Use disclosureIcon with ImageSource")
     fun disclosureIcon(disclosureIcon: Painter): ListItemStyleBuilder
+
+    /**
+     * Устанавливает источник изображения disclosure-иконки
+     */
+    fun disclosureIcon(disclosureIcon: ImageSource): ListItemStyleBuilder
 
     /**
      * Устанавливает иконку disclosure
      */
-    fun disclosureIcon(@DrawableRes disclosureIconRes: Int): ListItemStyleBuilder
+    @Deprecated(
+        "Use disclosureIcon with ImageSource",
+        replaceWith = ReplaceWith("disclosureIcon(disclosureIconRes)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun disclosureIcon(@DrawableRes disclosureIconRes: Int): ListItemStyleBuilder = this
 
     /**
      * Устанавливает цвета компонента при помощи [builder]

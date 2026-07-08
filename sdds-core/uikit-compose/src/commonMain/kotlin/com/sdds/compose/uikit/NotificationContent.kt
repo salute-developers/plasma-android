@@ -10,9 +10,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.sdds.compose.uikit.annotations.DrawableRes
+import androidx.compose.ui.graphics.SolidColor
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.internal.common.StyledText
-import com.sdds.compose.uikit.internal.platform.painterResource
 
 /**
  * Контент для компонента уведомлений [Notification]
@@ -21,7 +21,7 @@ import com.sdds.compose.uikit.internal.platform.painterResource
  * @param style стиль компонента
  * @param title заголовок
  * @param text текст
- * @param iconRes ресурс иконки
+ * @param iconSource источник иконки
  * @param interactionSource источник взаимодействий
  * @param buttons кнопки уведомления
  */
@@ -31,8 +31,7 @@ fun NotificationContent(
     style: NotificationContentStyle = LocalNotificationContentStyle.current,
     title: String = "",
     text: String = "",
-    @DrawableRes
-    iconRes: Int? = style.icon,
+    iconSource: ImageSource? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     buttons: (NotificationContentButtonsScope.() -> Unit)? = null,
 ) {
@@ -47,7 +46,7 @@ fun NotificationContent(
                 ),
             title = title,
             text = text,
-            iconRes = iconRes,
+            iconSource = iconSource ?: style.iconSource,
             style = style,
             interactionSource = interactionSource,
         )
@@ -139,26 +138,26 @@ private fun Content(
     modifier: Modifier,
     title: String,
     text: String,
-    iconRes: Int?,
+    iconSource: ImageSource? = null,
     style: NotificationContentStyle,
     interactionSource: InteractionSource,
 ) {
     Column(modifier = modifier) {
-        if (style.iconPlacement == NotificationContentIconPlacement.Top && iconRes != null) {
+        if (style.iconPlacement == NotificationContentIconPlacement.Top && iconSource != null) {
             NotificationIcon(
                 modifier = Modifier
                     .padding(bottom = style.dimensions.iconMargin),
-                iconRes = iconRes,
+                iconSource = iconSource,
                 style = style,
                 interactionSource = interactionSource,
             )
         }
         Row {
-            if (style.iconPlacement == NotificationContentIconPlacement.Start && iconRes != null) {
+            if (style.iconPlacement == NotificationContentIconPlacement.Start && iconSource != null) {
                 NotificationIcon(
                     modifier = Modifier
                         .padding(end = style.dimensions.iconMargin),
-                    iconRes = iconRes,
+                    iconSource = iconSource,
                     style = style,
                     interactionSource = interactionSource,
                 )
@@ -182,17 +181,18 @@ private fun Content(
 @Composable
 private fun NotificationIcon(
     modifier: Modifier,
-    iconRes: Int,
+    iconSource: ImageSource,
     style: NotificationContentStyle,
     interactionSource: InteractionSource,
 ) {
+    val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
     Icon(
-        painter = painterResource(iconRes),
+        source = iconSource,
         modifier = modifier
             .size(style.dimensions.iconSize)
             .defaultMinSize(style.dimensions.iconSize, style.dimensions.iconSize),
         contentDescription = "",
-        tint = style.colors.iconColor.colorForInteraction(interactionSource),
+        brush = BrushProducer { SolidColor(iconColor) },
     )
 }
 

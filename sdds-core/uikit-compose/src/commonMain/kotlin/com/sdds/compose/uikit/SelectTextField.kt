@@ -10,7 +10,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.isDisabled
@@ -19,7 +18,6 @@ import com.sdds.compose.uikit.interactions.ActivateInteraction
 import com.sdds.compose.uikit.interactions.activate
 import com.sdds.compose.uikit.interactions.deactivate
 import com.sdds.compose.uikit.interactions.tryDeactivate
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.internal.textfield.BaseTextField
 
 /**
@@ -29,8 +27,8 @@ import com.sdds.compose.uikit.internal.textfield.BaseTextField
  * @param value Текущее значение текстового поля в виде строки
  * @param modifier Модификатор для настройки внешнего вида и поведения компонента
  * @param style Стиль текстового поля, определяющий его визуальное оформление
- * @param iconOpened Ресурс иконки, отображаемой когда селектор открыт (в виде drawable ресурса)
- * @param iconClosed Ресурс иконки, отображаемой когда селектор закрыт (в виде drawable ресурса)
+ * @param iconOpened источник иконки, отображаемой когда селектор открыт
+ * @param iconClosed источник иконки, отображаемой когда селектор закрыт
  * @param readOnly Флаг, определяющий возможность открытия селектора
  * @param enabled Флаг, определяющий доступность компонента для взаимодействия
  * @param placeholderText Текст-подсказка, отображаемый когда поле пустое
@@ -50,10 +48,8 @@ fun SelectScope.SelectTextField(
     value: String,
     modifier: Modifier = Modifier,
     style: TextFieldStyle = LocalTextFieldStyle.current,
-    @DrawableRes
-    iconOpened: Int? = null,
-    @DrawableRes
-    iconClosed: Int? = null,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
     readOnly: Boolean = false,
     enabled: Boolean = false,
     placeholderText: String? = null,
@@ -99,8 +95,8 @@ fun SelectScope.SelectTextField(
  * @param value Текущее значение текстового поля в виде строки
  * @param modifier Модификатор для настройки внешнего вида и поведения компонента
  * @param style Стиль текстового поля, определяющий его визуальное оформление
- * @param iconOpened Ресурс иконки, отображаемой когда селектор открыт (в виде drawable ресурса)
- * @param iconClosed Ресурс иконки, отображаемой когда селектор закрыт (в виде drawable ресурса)
+ * @param iconOpened источник иконки, отображаемой когда селектор открыт
+ * @param iconClosed источник иконки, отображаемой когда селектор закрыт
  * @param readOnly Флаг, определяющий возможность открытия селектора
  * @param enabled Флаг, определяющий доступность компонента для взаимодействия
  * @param placeholderText Текст-подсказка, отображаемый когда поле пустое
@@ -120,10 +116,8 @@ fun SelectScope.SelectTextField(
     modifier: Modifier = Modifier,
     style: TextFieldStyle = LocalTextFieldStyle.current,
     value: TextFieldValue,
-    @DrawableRes
-    iconOpened: Int? = null,
-    @DrawableRes
-    iconClosed: Int? = null,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
     readOnly: Boolean = false,
     enabled: Boolean = false,
     placeholderText: String? = null,
@@ -188,7 +182,7 @@ fun SelectScope.SelectTextField(
             fakeTextField = true,
             endContent = {
                 val icon = if (isOpened) iconOpened else iconClosed
-                icon?.let { Icon(painterResource(icon), contentDescription = "") }
+                icon?.let { Icon(source = icon, contentDescription = "") }
             },
             focusSelectorSettings = focusSelectorSettings,
             chipsContent = chipsContent,

@@ -32,7 +32,6 @@ import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.InteractiveColor
-import com.sdds.compose.uikit.internal.platform.painterResource
 
 /**
  * AccordionItem.
@@ -140,7 +139,7 @@ fun AccordionItem(
             endContent = endContent(iconContent, style.iconPlacement),
             gravity = CellGravity.Center,
             disclosureContentEnabled = false,
-            disclosureIconRes = null,
+            disclosureIconSource = null,
         )
         AnimatedVisibility(
             visible = opened,
@@ -205,8 +204,8 @@ private fun AccordionAction(
     iconAnimationSpec: AnimationSpec<Float>?,
 ) {
     val transition = iconAnimationState(opened, iconAnimationSpec)
-    val iconClosed = style.iconClosed?.let { painterResource(it) }
-    val iconOpened = style.iconOpened?.let { painterResource(it) }
+    val iconClosed = style.iconClosedSource
+    val iconOpened = style.iconOpenedSource
     val rotation = style.iconRotation
     Box {
         iconClosed?.let {
@@ -214,7 +213,7 @@ private fun AccordionAction(
                 modifier = Modifier
                     .rotate(rotation * transition.value - rotation)
                     .graphicsLayer { alpha = transition.value },
-                painter = it,
+                source = it,
                 contentDescription = "",
             )
         }
@@ -223,7 +222,7 @@ private fun AccordionAction(
                 modifier = Modifier
                     .rotate(rotation * transition.value)
                     .graphicsLayer { alpha = 1f - transition.value },
-                painter = it,
+                source = it,
                 contentDescription = "",
             )
         }

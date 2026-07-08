@@ -61,6 +61,7 @@ import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.IndicatorMode
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextFieldAnimation
 import com.sdds.compose.uikit.TextFieldColors
@@ -78,6 +79,7 @@ import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.fs.isDisabled
 import com.sdds.compose.uikit.fs.isEnabled
 import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.brush.asBrush
 import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
@@ -280,7 +282,7 @@ internal fun BaseTextField(
         ),
         decorationBox = {
             Layout(
-                measurePolicy = remember {
+                measurePolicy = remember(chipsContent != null) {
                     BaseTextFieldMeasurePolicy()
                 },
                 content = {
@@ -640,7 +642,10 @@ private fun icon(
 ): @Composable (() -> Unit)? {
     return if (iconContent != null) {
         {
-            CompositionLocalProvider(LocalTint provides contentColor) {
+            CompositionLocalProvider(
+                LocalTint provides contentColor,
+                LocalTintBrushProducer provides { contentColor.asBrush() },
+            ) {
                 iconContent()
             }
         }

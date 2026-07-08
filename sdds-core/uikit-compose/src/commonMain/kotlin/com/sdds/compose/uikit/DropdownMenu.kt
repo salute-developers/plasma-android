@@ -20,12 +20,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.PopupProperties
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.internal.dropdownmenu.BaseDropdownMenu
 import com.sdds.compose.uikit.internal.dropdownmenu.BaseModalDropdownMenu
 import com.sdds.compose.uikit.internal.dropdownmenu.DefaultModalDropdownDialogProperties
 import com.sdds.compose.uikit.internal.dropdownmenu.DefaultModalDropdownPopupProperties
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.internal.popover.DefaultPopupProperties
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.dropdownmenu.DropdownMenuMotionStyle
@@ -444,7 +442,7 @@ interface DropdownScope
  * Представление пустого состояния [DropdownMenu]
  *
  * @param style стиль компонента
- * @param iconRes ресурс иконки
+ * @param iconSource источник иконки
  * @param description описание
  * @param buttonLabel текст кнопки действия
  * @param onClick обработчик кнопки действия
@@ -452,16 +450,16 @@ interface DropdownScope
 @Composable
 fun DropdownScope.EmptyState(
     style: DropdownEmptyStateStyle = LocalDropdownEmptyStateStyle.current,
-    @DrawableRes iconRes: Int? = null,
+    iconSource: ImageSource? = null,
     description: String,
     buttonLabel: String? = null,
     onClick: (() -> Unit)? = null,
 ) {
     EmptyState(
-        image = if (iconRes != null) {
+        image = if (iconSource != null) {
             {
                 Icon(
-                    painter = painterResource(id = iconRes),
+                    source = iconSource,
                     contentDescription = null,
                 )
             }

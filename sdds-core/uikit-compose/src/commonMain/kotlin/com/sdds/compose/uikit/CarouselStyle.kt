@@ -51,14 +51,30 @@ interface CarouselStyle : Style {
     /**
      * Ресурс иконки для кнопки "вперед".
      */
+    @Deprecated("Use nextButtonIconSource", replaceWith = ReplaceWith("nextButtonIconSource"))
     @get:DrawableRes
     val nextButtonIcon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки для кнопки "вперед".
+     */
+    val nextButtonIconSource: ImageSource?
+        get() = null
 
     /**
      * Ресурс иконки для кнопки "назад".
      */
+    @Deprecated("Use prevButtonIconSource", replaceWith = ReplaceWith("prevButtonIconSource"))
     @get:DrawableRes
     val prevButtonIcon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки для кнопки "назад".
+     */
+    val prevButtonIconSource: ImageSource?
+        get() = null
 
     /**
      * Расположение кнопок навигации относительно контента карусели.
@@ -111,16 +127,38 @@ interface CarouselStyleBuilder : StyleBuilder<CarouselStyle> {
     fun prevButtonStyle(prevButtonStyle: ButtonStyle): CarouselStyleBuilder
 
     /**
+     * Устанавливает источник изображения иконки для кнопки "вперед"
+     * @param nextButtonIcon источник изображения иконки
+     */
+    fun nextButtonIcon(nextButtonIcon: ImageSource): CarouselStyleBuilder
+
+    /**
      * Устанавливает иконку для кнопки "вперед"
      * @param nextButtonIcon ресурс иконки
      */
-    fun nextButtonIcon(@DrawableRes nextButtonIcon: Int): CarouselStyleBuilder
+    @Deprecated(
+        "Use nextButtonIcon with ImageSource",
+        replaceWith = ReplaceWith("nextButtonIcon(nextButtonIcon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun nextButtonIcon(@DrawableRes nextButtonIcon: Int): CarouselStyleBuilder = this
 
     /**
      * Устанавливает иконку для кнопки "назад"
      * @param prevButtonIcon ресурс иконки
      */
-    fun prevButtonIcon(@DrawableRes prevButtonIcon: Int): CarouselStyleBuilder
+    fun prevButtonIcon(prevButtonIcon: ImageSource): CarouselStyleBuilder
+
+    /**
+     * Устанавливает иконку для кнопки "назад"
+     * @param prevButtonIcon ресурс иконки
+     */
+    @Deprecated(
+        "Use prevButtonIcon with ImageSource",
+        replaceWith = ReplaceWith("prevButtonIcon(prevButtonIcon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun prevButtonIcon(@DrawableRes prevButtonIcon: Int): CarouselStyleBuilder = this
 
     /**
      * Устанавливает расположение кнопок навигации
@@ -221,16 +259,22 @@ private data class DefaultCarouselStyle(
     override val indicatorStyle: PaginationDotsStyle,
     override val nextButtonStyle: ButtonStyle,
     override val prevButtonStyle: ButtonStyle,
-    override val nextButtonIcon: Int?,
-    override val prevButtonIcon: Int?,
+    override val nextButtonIconSource: ImageSource?,
+    override val prevButtonIconSource: ImageSource?,
     override val buttonsPlacement: CarouselButtonsPlacement,
 ) : CarouselStyle {
+    @Deprecated("Use nextButtonIconSource", replaceWith = ReplaceWith("nextButtonIconSource"))
+    override val nextButtonIcon: Int? = null
+
+    @Deprecated("Use prevButtonIconSource", replaceWith = ReplaceWith("prevButtonIconSource"))
+    override val prevButtonIcon: Int? = null
+
     class Builder : CarouselStyleBuilder {
         var indicatorStyle: PaginationDotsStyle? = null
         var nextButtonStyle: ButtonStyle? = null
         var prevButtonStyle: ButtonStyle? = null
-        var nextButtonIcon: Int? = null
-        var prevButtonIcon: Int? = null
+        var nextButtonIconSource: ImageSource? = null
+        var prevButtonIconSource: ImageSource? = null
         var buttonsPlacement: CarouselButtonsPlacement? = null
 
         private val dimensionsBuilder: CarouselDimensionsBuilder = CarouselDimensions.builder()
@@ -247,12 +291,12 @@ private data class DefaultCarouselStyle(
             this.prevButtonStyle = prevButtonStyle
         }
 
-        override fun nextButtonIcon(nextButtonIcon: Int) = apply {
-            this.nextButtonIcon = nextButtonIcon
+        override fun nextButtonIcon(nextButtonIcon: ImageSource) = apply {
+            this.nextButtonIconSource = nextButtonIcon
         }
 
-        override fun prevButtonIcon(prevButtonIcon: Int) = apply {
-            this.prevButtonIcon = prevButtonIcon
+        override fun prevButtonIcon(prevButtonIcon: ImageSource) = apply {
+            this.prevButtonIconSource = prevButtonIcon
         }
 
         override fun buttonsPlacement(buttonsPlacement: CarouselButtonsPlacement) = apply {
@@ -269,8 +313,8 @@ private data class DefaultCarouselStyle(
                 indicatorStyle = indicatorStyle ?: PaginationDotsStyle.builder().style(),
                 nextButtonStyle = nextButtonStyle ?: ButtonStyle.iconButtonBuilder().style(),
                 prevButtonStyle = prevButtonStyle ?: ButtonStyle.iconButtonBuilder().style(),
-                nextButtonIcon = nextButtonIcon,
-                prevButtonIcon = prevButtonIcon,
+                nextButtonIconSource = nextButtonIconSource,
+                prevButtonIconSource = prevButtonIconSource,
                 buttonsPlacement = buttonsPlacement ?: CarouselButtonsPlacement.Inner,
             )
     }

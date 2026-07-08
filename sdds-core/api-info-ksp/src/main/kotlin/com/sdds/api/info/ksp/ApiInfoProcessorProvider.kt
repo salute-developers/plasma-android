@@ -387,7 +387,7 @@ class ApiInfoProcessor(
     ): ParameterType = when {
         isEnumClass(paramType) -> ParameterType.VALUE
         isComponentStyle(simpleName, qualifiedName) -> ParameterType.COMPONENT_STYLE
-        isDrawableRes(param) -> ParameterType.ICON
+        isIcon(param, qualifiedName) -> ParameterType.ICON
         SHAPE_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.SHAPE
         COLOR_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.COLOR
         TYPOGRAPHY_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.TYPOGRAPHY
@@ -398,6 +398,10 @@ class ApiInfoProcessor(
         qualifiedName == "kotlin.Int" -> ParameterType.INTEGER
         qualifiedName.startsWith("kotlin.collections.List") -> classifyListType(paramType)
         else -> ParameterType.UNKNOWN
+    }
+
+    private fun isIcon(param: KSValueParameter, qualifiedName: String): Boolean {
+        return isDrawableRes(param) || qualifiedName == IMAGE_SOURCE
     }
 
     private fun classifyListType(paramType: KSType): ParameterType {
@@ -450,6 +454,7 @@ class ApiInfoProcessor(
     companion object {
         private const val STATEFUL_VALUE = "com.sdds.compose.uikit.interactions.StatefulValue"
         private const val STYLE_BUILDER = "com.sdds.compose.uikit.style.StyleBuilder"
+        private const val IMAGE_SOURCE = "com.sdds.compose.uikit.ImageSource"
         private const val API_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiInfo"
         private const val STATE_SET_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiStateSet"
         private const val CONFIG_NAME_ANNOTATION = "com.sdds.api.info.compose.ApiName"

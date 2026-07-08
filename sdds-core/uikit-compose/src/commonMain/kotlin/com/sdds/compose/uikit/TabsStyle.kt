@@ -35,20 +35,44 @@ interface TabsStyle : Style {
     /**
      * Иконка disclosure
      */
+    @Deprecated("Use disclosureIconSource", replaceWith = ReplaceWith("disclosureIconSource"))
     @get:DrawableRes
     val disclosureIcon: Int?
+        get() = null
+
+    /**
+     * Источник изображения disclosure-иконки
+     */
+    val disclosureIconSource: ImageSource?
+        get() = null
 
     /**
      * Иконка кнопки перемотки вправо
      */
+    @Deprecated("Use overflowNextIconSource", replaceWith = ReplaceWith("overflowNextIconSource"))
     @get:DrawableRes
     val overflowNextIcon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки кнопки перемотки вправо
+     */
+    val overflowNextIconSource: ImageSource?
+        get() = null
 
     /**
      * Иконка кнопки перемотки влево
      */
+    @Deprecated("Use overflowPrevIconSource", replaceWith = ReplaceWith("overflowPrevIconSource"))
     @get:DrawableRes
     val overflowPrevIcon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки кнопки перемотки влево
+     */
+    val overflowPrevIconSource: ImageSource?
+        get() = null
 
     /**
      * Ориентация табов [TabsOrientation]
@@ -172,19 +196,49 @@ interface TabsStyleBuilder : StyleBuilder<TabsStyle> {
     fun disclosureTextStyle(disclosureTextStyle: TextStyle): TabsStyleBuilder
 
     /**
+     * Устанавливает источник изображения иконки кнопки перемотки вправо [overflowNextIcon]
+     */
+    fun overflowNextIcon(overflowNextIcon: ImageSource): TabsStyleBuilder
+
+    /**
      * Устанавливает иконку кнопки перемотки вправо [overflowNextIcon]
      */
-    fun overflowNextIcon(@DrawableRes overflowNextIcon: Int): TabsStyleBuilder
+    @Deprecated(
+        "Use overflowNextIcon with ImageSource",
+        replaceWith = ReplaceWith("overflowNextIcon(overflowNextIcon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun overflowNextIcon(@DrawableRes overflowNextIcon: Int): TabsStyleBuilder = this
 
     /**
      * Устанавливает иконку кнопки перемотки влево [overflowNextIcon]
      */
-    fun overflowPrevIcon(@DrawableRes overflowPrevIcon: Int): TabsStyleBuilder
+    fun overflowPrevIcon(overflowPrevIcon: ImageSource): TabsStyleBuilder
+
+    /**
+     * Устанавливает иконку кнопки перемотки влево [overflowNextIcon]
+     */
+    @Deprecated(
+        "Use overflowPrevIcon with ImageSource",
+        replaceWith = ReplaceWith("overflowPrevIcon(overflowPrevIcon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun overflowPrevIcon(@DrawableRes overflowPrevIcon: Int): TabsStyleBuilder = this
 
     /**
      * Устанавливает diclosure иконку [disclosureIcon]
      */
-    fun disclosureIcon(@DrawableRes disclosureIcon: Int): TabsStyleBuilder
+    fun disclosureIcon(disclosureIcon: ImageSource): TabsStyleBuilder
+
+    /**
+     * Устанавливает diclosure иконку [disclosureIcon]
+     */
+    @Deprecated(
+        "Use disclosureIcon with ImageSource",
+        replaceWith = ReplaceWith("disclosureIcon(disclosureIcon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun disclosureIcon(@DrawableRes disclosureIcon: Int): TabsStyleBuilder = this
 
     /**
      * Устанавливает форму индикатора [shape] выбранного таба
@@ -198,9 +252,9 @@ private class DefaultTabsStyle(
     override val colors: TabsColors,
     override val dimensions: TabsDimensions,
     override val tabItemStyle: TabItemStyle,
-    override val disclosureIcon: Int?,
-    override val overflowNextIcon: Int?,
-    override val overflowPrevIcon: Int?,
+    override val disclosureIconSource: ImageSource?,
+    override val overflowNextIconSource: ImageSource?,
+    override val overflowPrevIconSource: ImageSource?,
     override val orientation: TabsOrientation,
     override val dividerEnabled: Boolean,
     override val indicatorEnabled: Boolean,
@@ -209,16 +263,24 @@ private class DefaultTabsStyle(
     override val dropdownMenuStyle: DropdownMenuStyle,
     override val indicatorShape: Shape,
 ) : TabsStyle {
+    @Deprecated("Use disclosureIconSource", replaceWith = ReplaceWith("disclosureIconSource"))
+    override val disclosureIcon: Int? = null
+
+    @Deprecated("Use overflowNextIconSource", replaceWith = ReplaceWith("overflowNextIconSource"))
+    override val overflowNextIcon: Int? = null
+
+    @Deprecated("Use overflowPrevIconSource", replaceWith = ReplaceWith("overflowPrevIconSource"))
+    override val overflowPrevIcon: Int? = null
 
     class Builder : TabsStyleBuilder {
         private var shape: CornerBasedShape? = null
-        private var disclosureIcon: Int? = null
-        private var overflowNextIcon: Int? = null
+        private var disclosureIconSource: ImageSource? = null
+        private var overflowNextIconSource: ImageSource? = null
         private var orientation: TabsOrientation? = null
         private var dividerEnabled: Boolean? = null
         private var indicatorEnabled: Boolean? = null
         private var disclosureTextStyle: TextStyle? = null
-        private var overflowPrevIcon: Int? = null
+        private var overflowPrevIconSource: ImageSource? = null
         private var colorsBuilder: TabsColorsBuilder = TabsColors.builder()
         private var dimensionsBuilder: TabsDimensionsBuilder =
             TabsDimensions.builder()
@@ -271,16 +333,16 @@ private class DefaultTabsStyle(
             this.disclosureTextStyle = disclosureTextStyle
         }
 
-        override fun overflowNextIcon(overflowNextIcon: Int) = apply {
-            this.overflowNextIcon = overflowNextIcon
+        override fun overflowNextIcon(overflowNextIcon: ImageSource) = apply {
+            this.overflowNextIconSource = overflowNextIcon
         }
 
-        override fun overflowPrevIcon(overflowPrevIcon: Int) = apply {
-            this.overflowPrevIcon = overflowPrevIcon
+        override fun overflowPrevIcon(overflowPrevIcon: ImageSource) = apply {
+            this.overflowPrevIconSource = overflowPrevIcon
         }
 
-        override fun disclosureIcon(disclosureIcon: Int) = apply {
-            this.disclosureIcon = disclosureIcon
+        override fun disclosureIcon(disclosureIcon: ImageSource) = apply {
+            this.disclosureIconSource = disclosureIcon
         }
 
         override fun indicatorShape(shape: Shape) = apply {
@@ -293,9 +355,9 @@ private class DefaultTabsStyle(
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 tabItemStyle = tabItemStyle ?: TabItemStyle.builder().style(),
-                disclosureIcon = disclosureIcon,
-                overflowNextIcon = overflowNextIcon,
-                overflowPrevIcon = overflowPrevIcon,
+                disclosureIconSource = disclosureIconSource,
+                overflowNextIconSource = overflowNextIconSource,
+                overflowPrevIconSource = overflowPrevIconSource,
                 orientation = orientation ?: TabsOrientation.Horizontal,
                 dividerEnabled = dividerEnabled ?: true,
                 indicatorEnabled = indicatorEnabled ?: true,

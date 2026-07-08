@@ -70,8 +70,16 @@ interface TabItemStyle : Style {
     /**
      * Иконка действия
      */
+    @Deprecated("Use actionIconSource", replaceWith = ReplaceWith("actionIconSource"))
     @get:DrawableRes
     val actionIcon: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки действия
+     */
+    val actionIconSource: ImageSource?
+        get() = null
 
     /**
      * Стиль каунтера [Counter]
@@ -137,9 +145,19 @@ interface TabItemStyleBuilder : StyleBuilder<TabItemStyle> {
     fun dimensions(builder: @Composable TabItemDimensionsBuilder.() -> Unit): TabItemStyleBuilder
 
     /**
+     * Устанавливает источник изображения иконки действия [actionIcon]
+     */
+    fun actionIcon(actionIcon: ImageSource): TabItemStyleBuilder
+
+    /**
      * Устанавливает иконку действия [actionIcon]
      */
-    fun actionIcon(@DrawableRes actionIcon: Int): TabItemStyleBuilder
+    @Deprecated(
+        "Use actionIcon with ImageSource",
+        replaceWith = ReplaceWith("actionIcon(actionIcon)"),
+        level = DeprecationLevel.ERROR,
+    )
+    fun actionIcon(@DrawableRes actionIcon: Int): TabItemStyleBuilder = this
 
     /**
      * Устанавливает стиль [Counter]
@@ -155,10 +173,12 @@ private class DefaultTabItemStyle(
     override val colors: TabItemColors,
     override val dimensions: TabItemDimensions,
     override val counterStyle: CounterStyle,
-    override val actionIcon: Int?,
+    override val actionIconSource: ImageSource?,
     override val disableAlpha: Float,
     override val labelStyles: StatefulValue<TextStyle>,
 ) : TabItemStyle {
+    @Deprecated("Use actionIconSource", replaceWith = ReplaceWith("actionIconSource"))
+    override val actionIcon: Int? = null
 
     class Builder : TabItemStyleBuilder {
         private var disabledAlpha: Float? = null
@@ -168,7 +188,7 @@ private class DefaultTabItemStyle(
         private var colorsBuilder: TabItemColorsBuilder = TabItemColors.builder()
         private var dimensionsBuilder: TabItemDimensionsBuilder =
             TabItemDimensions.builder()
-        private var actionIcon: Int? = null
+        private var actionIconSource: ImageSource? = null
         private var counterStyle: CounterStyle? = null
 
         override fun shape(shape: CornerBasedShape) = apply {
@@ -198,8 +218,8 @@ private class DefaultTabItemStyle(
                 this.dimensionsBuilder.builder()
             }
 
-        override fun actionIcon(actionIcon: Int) = apply {
-            this.actionIcon = actionIcon
+        override fun actionIcon(actionIcon: ImageSource) = apply {
+            this.actionIconSource = actionIcon
         }
 
         override fun counterStyle(counterStyle: CounterStyle) = apply {
@@ -213,7 +233,7 @@ private class DefaultTabItemStyle(
                 valueStyle = valueStyle ?: TextStyle.Default,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
-                actionIcon = actionIcon,
+                actionIconSource = actionIconSource,
                 counterStyle = counterStyle ?: CounterStyle.builder().style(),
                 disableAlpha = disabledAlpha ?: 0.4F,
                 labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),

@@ -21,6 +21,7 @@ import com.sdds.compose.uikit.SelectItemType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -77,12 +78,10 @@ public value class WrapperSelectItemSingleNormalXs(
 private val SelectItemStyleBuilder.invariantProps: SelectItemStyleBuilder
     @Composable
     get() = this
-        .disableAlpha(0.4f)
         .itemType(SelectItemType.Single)
+        .disableAlpha(0.4f)
         .colors {
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultAccent.asInteractive())
             backgroundColor(
                 SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Focused)
@@ -97,15 +96,15 @@ public val SelectItemSingleNormal.Xl: WrapperSelectItemSingleNormalXl
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundL)
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.L.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(8.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(18.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
-            controlMargin(8.0.dp)
-            controlSize(24.0.dp)
             height(64.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalXl)
@@ -116,15 +115,15 @@ public val SelectItemSingleNormal.L: WrapperSelectItemSingleNormalL
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundL.adjustBy(all = -2.0.dp))
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.L.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(6.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
-            controlMargin(6.0.dp)
-            controlSize(24.0.dp)
             height(56.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalL)
@@ -135,15 +134,15 @@ public val SelectItemSingleNormal.M: WrapperSelectItemSingleNormalM
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundM)
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.M.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(6.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
-            controlMargin(6.0.dp)
-            controlSize(24.0.dp)
             height(48.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalM)
@@ -154,15 +153,15 @@ public val SelectItemSingleNormal.S: WrapperSelectItemSingleNormalS
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundM.adjustBy(all = -2.0.dp))
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.S.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(6.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            controlMargin(6.0.dp)
-            controlSize(24.0.dp)
             height(40.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalS)
@@ -173,15 +172,15 @@ public val SelectItemSingleNormal.Xs: WrapperSelectItemSingleNormalXs
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundS)
-        .icon(com.sdds.icons.R.drawable.ic_done_16)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_16))
         .cellStyle(Cell.Xs.style())
         .dimensions {
+            controlSize(16.0.dp)
+            controlMargin(4.0.dp)
             paddingStart(6.0.dp)
             paddingEnd(8.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            controlMargin(4.0.dp)
-            controlSize(16.0.dp)
             height(32.0.dp)
         }
         .wrap(::WrapperSelectItemSingleNormalXs)

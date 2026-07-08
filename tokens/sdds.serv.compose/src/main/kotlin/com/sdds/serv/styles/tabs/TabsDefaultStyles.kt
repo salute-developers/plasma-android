@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TabsStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -142,8 +143,8 @@ private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
         .dividerStyle(Divider.Default.style())
         .dividerEnabled(true)
         .indicatorEnabled(true)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
         .colors {
             indicatorColor(SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive())
             overflowNextIconColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
@@ -177,8 +178,8 @@ public val WrapperTabsDefaultL.Vertical: WrapperTabsDefaultLVertical
     get() = builder
         .tabItemStyle(TabItemDefault.L.Vertical.style())
         .orientation(TabsOrientation.Vertical)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .dimensions {
             minSpacing(0.0.dp)
         }
@@ -211,8 +212,8 @@ public val WrapperTabsDefaultM.Vertical: WrapperTabsDefaultMVertical
     get() = builder
         .tabItemStyle(TabItemDefault.M.Vertical.style())
         .orientation(TabsOrientation.Vertical)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .dimensions {
             minSpacing(0.0.dp)
         }
@@ -245,8 +246,8 @@ public val WrapperTabsDefaultS.Vertical: WrapperTabsDefaultSVertical
     get() = builder
         .tabItemStyle(TabItemDefault.S.Vertical.style())
         .orientation(TabsOrientation.Vertical)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .dimensions {
             minSpacing(0.0.dp)
         }
@@ -279,8 +280,8 @@ public val WrapperTabsDefaultXs.Vertical: WrapperTabsDefaultXsVertical
     get() = builder
         .tabItemStyle(TabItemDefault.Xs.Vertical.style())
         .orientation(TabsOrientation.Vertical)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .dimensions {
             minSpacing(0.0.dp)
         }

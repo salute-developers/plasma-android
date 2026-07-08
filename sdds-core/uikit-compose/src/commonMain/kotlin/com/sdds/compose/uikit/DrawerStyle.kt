@@ -57,8 +57,16 @@ interface DrawerStyle : Style {
     /**
      * Ресурс иконки закрытия.
      */
+    @Deprecated("Use closeIconSource", replaceWith = ReplaceWith("closeIconSource"))
     @get:DrawableRes
-    val closeIconRes: Int
+    val closeIconRes: Int?
+        get() = null
+
+    /**
+     * Источник изображения иконки закрытия.
+     */
+    val closeIconSource: ImageSource?
+        get() = null
 
     /**
      * Расположение иконки
@@ -146,12 +154,25 @@ interface DrawerStyleBuilder : StyleBuilder<DrawerStyle> {
     fun dimensions(builder: @Composable DrawerDimensionsBuilder.() -> Unit): DrawerStyleBuilder
 
     /**
+     * Устанавливает источник изображения иконки закрытия панели.
+     *
+     * @param closeIcon источник изображения иконки.
+     */
+    @ApiName(name = "closeIcon")
+    fun closeIcon(closeIcon: ImageSource): DrawerStyleBuilder
+
+    /**
      * Устанавливает ресурс иконки закрытия панели.
      *
      * @param closeIconRes ID ресурса иконки.
      */
+    @Deprecated(
+        "Use closeIcon with ImageSource",
+        replaceWith = ReplaceWith("closeIcon(closeIconRes)"),
+        level = DeprecationLevel.ERROR,
+    )
     @ApiName(name = "closeIcon")
-    fun closeIconRes(@DrawableRes closeIconRes: Int): DrawerStyleBuilder
+    fun closeIconRes(@DrawableRes closeIconRes: Int): DrawerStyleBuilder = this
 
     /**
      * Устанавливает расположение иконки [CloseIconPlacement]
@@ -471,18 +492,20 @@ private class DefaultDrawerStyle(
     override val shape: Shape,
     override val colors: DrawerColors,
     override val dimensions: DrawerDimensions,
-    override val closeIconRes: Int,
+    override val closeIconSource: ImageSource?,
     override val shadow: ShadowAppearance,
     override val closeIconPlacement: CloseIconPlacement,
     override val closeIconAlignment: CloseIconAlignment,
 ) : DrawerStyle {
+    @Deprecated("Use closeIconSource", replaceWith = ReplaceWith("closeIconSource"))
+    override val closeIconRes: Int? = null
 
     class Builder(receiver: Any?) : DrawerStyleBuilder {
         private var colorsBuilder: DrawerColorsBuilder = DrawerColorsBuilder.builder()
         private var shape: CornerBasedShape? = null
         private var shadow: ShadowAppearance? = null
         private var dimensionsBuilder: DrawerDimensionsBuilder = DrawerDimensionsBuilder.builder()
-        private var closeIconRes: Int = -1
+        private var closeIconSource: ImageSource? = null
         private var closeIconPlacement = CloseIconPlacement.Inner
         private var closeIconAlignment = CloseIconAlignment.End
 
@@ -507,8 +530,8 @@ private class DefaultDrawerStyle(
             this.dimensionsBuilder.builder()
         }
 
-        override fun closeIconRes(closeIconRes: Int): DrawerStyleBuilder = apply {
-            this.closeIconRes = closeIconRes
+        override fun closeIcon(closeIcon: ImageSource): DrawerStyleBuilder = apply {
+            this.closeIconSource = closeIcon
         }
 
         override fun closeIconPlacement(closeIconPlacement: CloseIconPlacement): DrawerStyleBuilder = apply {
@@ -524,7 +547,7 @@ private class DefaultDrawerStyle(
                 colors = colorsBuilder.build(),
                 shape = shape ?: DefaultDrawerShape,
                 dimensions = dimensionsBuilder.build(),
-                closeIconRes = closeIconRes,
+                closeIconSource = closeIconSource,
                 shadow = shadow ?: ShadowAppearance(),
                 closeIconPlacement = closeIconPlacement,
                 closeIconAlignment = closeIconAlignment,

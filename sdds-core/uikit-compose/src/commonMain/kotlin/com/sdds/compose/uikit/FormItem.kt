@@ -35,9 +35,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.graphics.brush.asBrush
 import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.internal.heightOrZero
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.internal.widthOrZero
 
 /**
@@ -276,7 +276,10 @@ private fun getHint(
     return if (hint != null) {
         {
             val hintColor = style.colors.hintColor.colorForInteraction(interactionSource)
-            CompositionLocalProvider(LocalTint provides hintColor) {
+            CompositionLocalProvider(
+                LocalTint provides hintColor,
+                LocalTintBrushProducer provides { hintColor.asBrush() },
+            ) {
                 Box(
                     modifier = Modifier
                         .width(style.dimensions.hintWidth)
@@ -297,11 +300,11 @@ private fun getHintIcon(
     hintTriggerInfo: MutableState<TriggerInfo>,
     onHintPressed: (() -> Unit)?,
 ): (@Composable () -> Unit)? {
-    val hintIcon = style.hintIcon
+    val hintIcon = style.hintIconSource
     return if (hasHint && hintIcon != null) {
         {
             Icon(
-                painter = painterResource(hintIcon),
+                source = hintIcon,
                 contentDescription = "Hint",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

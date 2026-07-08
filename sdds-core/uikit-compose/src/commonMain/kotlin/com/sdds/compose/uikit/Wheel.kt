@@ -162,8 +162,8 @@ fun Wheel(
             onLabelPositionCalculated = { labelOffsetFromCenter = it },
             onItemHeightCalculated = { wheelItemHeight = it },
             interactionSource = interactionSource,
-            iconUp = style.controlIconUp,
-            iconDown = style.controlIconDown,
+            iconUp = style.controlIconUpSource,
+            iconDown = style.controlIconDownSource,
             hasControls = hasControls,
         )
     }

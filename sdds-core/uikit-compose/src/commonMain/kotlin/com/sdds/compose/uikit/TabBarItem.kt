@@ -7,8 +7,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.sdds.compose.uikit.annotations.DrawableRes
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.internal.tabbar.BaseTabBarItem
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.tabbar.TabBarItemMotionStyle
@@ -62,8 +60,8 @@ fun TabBarItem(
  * @param isSelected выбран ли элемент
  * @param onClick обработчик нажатия
  * @param style стиль компонента
- * @param defaultIcon иконка при [isSelected] == false
- * @param selectedIcon иконка при [isSelected] == true
+ * @param defaultIcon источник иконки при [isSelected] == false
+ * @param selectedIcon источник иконки при [isSelected] == true
  * @param label текст лэйбла
  * @param interactionSource источник взаимодействий
  * @param extra дополнительный контент в правом верхнем углу иконки
@@ -108,8 +106,8 @@ fun TabBarItem(
  * @param modifier модификатор
  * @param onClick обработчик нажатия
  * @param style стиль компонента
- * @param defaultIcon иконка при [isSelected] == false
- * @param selectedIcon иконка при [isSelected] == true
+ * @param defaultIcon источник иконки при [isSelected] == false
+ * @param selectedIcon источник иконки при [isSelected] == true
  * @param label текст лэйбла
  * @param interactionSource источник взаимодействий
  * @param extra дополнительный контент в правом верхнем углу иконки
@@ -120,8 +118,8 @@ fun TabBarItem(
     isSelected: Boolean,
     onClick: (() -> Unit)? = null,
     style: TabBarItemStyle = LocalTabBarItemStyle.current,
-    @DrawableRes defaultIcon: Int,
-    @DrawableRes selectedIcon: Int,
+    defaultIcon: ImageSource,
+    selectedIcon: ImageSource,
     label: String? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     extra: (@Composable () -> Unit)? = null,
@@ -133,7 +131,7 @@ fun TabBarItem(
     TabBarItem(
         icon = {
             Icon(
-                painter = painterResource(if (isSelected) selectedIcon else defaultIcon),
+                source = if (isSelected) selectedIcon else defaultIcon,
                 contentDescription = "",
             )
         },

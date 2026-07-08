@@ -21,6 +21,7 @@ import com.sdds.compose.uikit.FormTitlePlacement
 import com.sdds.compose.uikit.FormType
 import com.sdds.compose.uikit.IndicatorMode
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -341,9 +342,7 @@ public val WrapperFormItemView.Default: WrapperFormItemTerminate
     @Composable
     get() = builder
         .colors {
-            captionColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            captionColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperFormItemTerminate)
 
@@ -351,9 +350,7 @@ public val WrapperFormItemView.Positive: WrapperFormItemTerminate
     @Composable
     get() = builder
         .colors {
-            captionColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            captionColor(SddsSandboxTheme.colors.textDefaultPositive.asInteractive())
         }
         .wrap(::WrapperFormItemTerminate)
 
@@ -361,9 +358,7 @@ public val WrapperFormItemView.Negative: WrapperFormItemTerminate
     @Composable
     get() = builder
         .colors {
-            captionColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            captionColor(SddsSandboxTheme.colors.textDefaultNegative.asInteractive())
         }
         .wrap(::WrapperFormItemTerminate)
 
@@ -371,9 +366,7 @@ public val WrapperFormItemView.Warning: WrapperFormItemTerminate
     @Composable
     get() = builder
         .colors {
-            captionColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            captionColor(SddsSandboxTheme.colors.textDefaultWarning.asInteractive())
         }
         .wrap(::WrapperFormItemTerminate)
 
@@ -381,25 +374,15 @@ private val FormItemStyleBuilder.invariantProps: FormItemStyleBuilder
     @Composable
     get() = this
         .disableAlpha(0.4f)
-        .captionStyle(SddsSandboxTheme.typography.bodyXsNormal)
         .titleCaptionStyle(SddsSandboxTheme.typography.bodyXsNormal)
+        .captionStyle(SddsSandboxTheme.typography.bodyXsNormal)
         .counterStyle(SddsSandboxTheme.typography.bodyXsNormal)
         .colors {
-            hintColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            optionalColor(
-                SddsSandboxTheme.colors.textDefaultTertiary.asInteractive(),
-            )
-            titleCaptionColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            titleColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            counterColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            titleColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            optionalColor(SddsSandboxTheme.colors.textDefaultTertiary.asInteractive())
+            titleCaptionColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
+            counterColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
+            hintColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
             titleBlockSpacing(4.0.dp)
@@ -412,13 +395,13 @@ public val FormItem.Xs: WrapperFormItemXs
     @JvmName("WrapperFormItemXs")
     get() = FormItemStyle.builder(this)
         .invariantProps
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
         .titlePlacement(FormTitlePlacement.None)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .dimensions {
-            hintHeight(14.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(8.0.dp)
             titleCaptionPadding(4.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(14.0.dp)
         }
         .wrap(::WrapperFormItemXs)
 
@@ -426,35 +409,35 @@ public val WrapperFormItemXs.RequiredStart: WrapperFormItemXsRequiredStart
     @Composable
     @JvmName("WrapperFormItemXsRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopStart)
-        .indicatorAlignmentMode(IndicatorMode.Inner)
-        .formItemType(FormType.Required)
         .indicatorStyle(Indicator.S.Negative.style())
+        .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Inner)
+        .indicatorAlignment(FormIndicatorAlignment.TopStart)
         .wrap(::WrapperFormItemXsRequiredStart)
 
 public val WrapperFormItemXs.RequiredEnd: WrapperFormItemXsRequiredEnd
     @Composable
     @JvmName("WrapperFormItemXsRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Inner)
-        .formItemType(FormType.Required)
         .indicatorStyle(Indicator.S.Negative.style())
+        .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Inner)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .wrap(::WrapperFormItemXsRequiredEnd)
 
 public val WrapperFormItemXs.TitleTop: WrapperFormItemXsTitleTop
     @Composable
     @JvmName("WrapperFormItemXsTitleTop")
     get() = builder
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .titlePlacement(FormTitlePlacement.Top)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsSandboxTheme.typography.bodyXsNormal)
         .optionalStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .titlePlacement(FormTitlePlacement.Top)
         .dimensions {
-            hintHeight(14.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(6.0.dp)
             titleCaptionPadding(6.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(14.0.dp)
         }
         .wrap(::WrapperFormItemXsTitleTop)
 
@@ -462,42 +445,42 @@ public val WrapperFormItemXsTitleTop.RequiredStart: WrapperFormItemXsTitleTopReq
     @Composable
     @JvmName("WrapperFormItemXsTitleTopRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
         .dimensions {
             indicatorOffsetX(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemXsTitleTopRequiredStart)
 
 public val WrapperFormItemXsTitleTop.RequiredEnd: WrapperFormItemXsTitleTopRequiredEnd
     @Composable
     @JvmName("WrapperFormItemXsTitleTopRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .dimensions {
             indicatorOffsetX(4.0.dp)
             indicatorOffsetY(2.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemXsTitleTopRequiredEnd)
 
 public val WrapperFormItemXs.TitleStart: WrapperFormItemXsTitleStart
     @Composable
     @JvmName("WrapperFormItemXsTitleStart")
     get() = builder
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .titlePlacement(FormTitlePlacement.Start)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsSandboxTheme.typography.bodyXsNormal)
         .optionalStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .titlePlacement(FormTitlePlacement.Start)
         .dimensions {
-            hintHeight(14.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(6.0.dp)
             titleBlockWidth(102.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(14.0.dp)
         }
         .wrap(::WrapperFormItemXsTitleStart)
 
@@ -505,27 +488,27 @@ public val WrapperFormItemXsTitleStart.RequiredStart: WrapperFormItemXsTitleStar
     @Composable
     @JvmName("WrapperFormItemXsTitleStartRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
         .dimensions {
             indicatorOffsetX(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemXsTitleStartRequiredStart)
 
 public val WrapperFormItemXsTitleStart.RequiredEnd: WrapperFormItemXsTitleStartRequiredEnd
     @Composable
     @JvmName("WrapperFormItemXsTitleStartRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .dimensions {
             indicatorOffsetX(4.0.dp)
             indicatorOffsetY(2.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemXsTitleStartRequiredEnd)
 
 public val FormItem.S: WrapperFormItemS
@@ -533,13 +516,13 @@ public val FormItem.S: WrapperFormItemS
     @JvmName("WrapperFormItemS")
     get() = FormItemStyle.builder(this)
         .invariantProps
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
         .titlePlacement(FormTitlePlacement.None)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_24))
         .dimensions {
-            hintHeight(24.0.dp)
-            hintWidth(24.0.dp)
             titleBlockPadding(12.0.dp)
             titleCaptionPadding(4.0.dp)
+            hintWidth(24.0.dp)
+            hintHeight(24.0.dp)
         }
         .wrap(::WrapperFormItemS)
 
@@ -547,35 +530,35 @@ public val WrapperFormItemS.RequiredStart: WrapperFormItemSRequiredStart
     @Composable
     @JvmName("WrapperFormItemSRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopStart)
-        .indicatorAlignmentMode(IndicatorMode.Inner)
-        .formItemType(FormType.Required)
         .indicatorStyle(Indicator.M.Negative.style())
+        .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Inner)
+        .indicatorAlignment(FormIndicatorAlignment.TopStart)
         .wrap(::WrapperFormItemSRequiredStart)
 
 public val WrapperFormItemS.RequiredEnd: WrapperFormItemSRequiredEnd
     @Composable
     @JvmName("WrapperFormItemSRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Inner)
-        .formItemType(FormType.Required)
         .indicatorStyle(Indicator.M.Negative.style())
+        .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Inner)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .wrap(::WrapperFormItemSRequiredEnd)
 
 public val WrapperFormItemS.TitleTop: WrapperFormItemSTitleTop
     @Composable
     @JvmName("WrapperFormItemSTitleTop")
     get() = builder
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .titlePlacement(FormTitlePlacement.Top)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsSandboxTheme.typography.bodySNormal)
         .optionalStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .titlePlacement(FormTitlePlacement.Top)
         .dimensions {
-            hintHeight(16.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(8.0.dp)
             titleCaptionPadding(9.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(16.0.dp)
         }
         .wrap(::WrapperFormItemSTitleTop)
 
@@ -583,42 +566,42 @@ public val WrapperFormItemSTitleTop.RequiredStart: WrapperFormItemSTitleTopRequi
     @Composable
     @JvmName("WrapperFormItemSTitleTopRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
         .dimensions {
             indicatorOffsetX(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemSTitleTopRequiredStart)
 
 public val WrapperFormItemSTitleTop.RequiredEnd: WrapperFormItemSTitleTopRequiredEnd
     @Composable
     @JvmName("WrapperFormItemSTitleTopRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .dimensions {
             indicatorOffsetX(4.0.dp)
             indicatorOffsetY(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemSTitleTopRequiredEnd)
 
 public val WrapperFormItemS.TitleStart: WrapperFormItemSTitleStart
     @Composable
     @JvmName("WrapperFormItemSTitleStart")
     get() = builder
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .titlePlacement(FormTitlePlacement.Start)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsSandboxTheme.typography.bodySNormal)
         .optionalStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .titlePlacement(FormTitlePlacement.Start)
         .dimensions {
-            hintHeight(14.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(12.0.dp)
             titleBlockWidth(116.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(14.0.dp)
         }
         .wrap(::WrapperFormItemSTitleStart)
 
@@ -626,27 +609,27 @@ public val WrapperFormItemSTitleStart.RequiredStart: WrapperFormItemSTitleStartR
     @Composable
     @JvmName("WrapperFormItemSTitleStartRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
         .dimensions {
             indicatorOffsetX(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemSTitleStartRequiredStart)
 
 public val WrapperFormItemSTitleStart.RequiredEnd: WrapperFormItemSTitleStartRequiredEnd
     @Composable
     @JvmName("WrapperFormItemSTitleStartRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .dimensions {
             indicatorOffsetX(4.0.dp)
             indicatorOffsetY(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemSTitleStartRequiredEnd)
 
 public val FormItem.M: WrapperFormItemM
@@ -654,13 +637,13 @@ public val FormItem.M: WrapperFormItemM
     @JvmName("WrapperFormItemM")
     get() = FormItemStyle.builder(this)
         .invariantProps
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
         .titlePlacement(FormTitlePlacement.None)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_24))
         .dimensions {
-            hintHeight(24.0.dp)
-            hintWidth(24.0.dp)
             titleBlockPadding(14.0.dp)
             titleCaptionPadding(4.0.dp)
+            hintWidth(24.0.dp)
+            hintHeight(24.0.dp)
         }
         .wrap(::WrapperFormItemM)
 
@@ -668,35 +651,35 @@ public val WrapperFormItemM.RequiredStart: WrapperFormItemMRequiredStart
     @Composable
     @JvmName("WrapperFormItemMRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopStart)
-        .indicatorAlignmentMode(IndicatorMode.Inner)
-        .formItemType(FormType.Required)
         .indicatorStyle(Indicator.M.Negative.style())
+        .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Inner)
+        .indicatorAlignment(FormIndicatorAlignment.TopStart)
         .wrap(::WrapperFormItemMRequiredStart)
 
 public val WrapperFormItemM.RequiredEnd: WrapperFormItemMRequiredEnd
     @Composable
     @JvmName("WrapperFormItemMRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Inner)
-        .formItemType(FormType.Required)
         .indicatorStyle(Indicator.M.Negative.style())
+        .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Inner)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .wrap(::WrapperFormItemMRequiredEnd)
 
 public val WrapperFormItemM.TitleTop: WrapperFormItemMTitleTop
     @Composable
     @JvmName("WrapperFormItemMTitleTop")
     get() = builder
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .titlePlacement(FormTitlePlacement.Top)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsSandboxTheme.typography.bodyMNormal)
         .optionalStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .titlePlacement(FormTitlePlacement.Top)
         .dimensions {
-            hintHeight(16.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(10.0.dp)
             titleCaptionPadding(11.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(16.0.dp)
         }
         .wrap(::WrapperFormItemMTitleTop)
 
@@ -704,42 +687,42 @@ public val WrapperFormItemMTitleTop.RequiredStart: WrapperFormItemMTitleTopRequi
     @Composable
     @JvmName("WrapperFormItemMTitleTopRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
         .dimensions {
             indicatorOffsetX(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemMTitleTopRequiredStart)
 
 public val WrapperFormItemMTitleTop.RequiredEnd: WrapperFormItemMTitleTopRequiredEnd
     @Composable
     @JvmName("WrapperFormItemMTitleTopRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .dimensions {
             indicatorOffsetX(4.0.dp)
             indicatorOffsetY(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemMTitleTopRequiredEnd)
 
 public val WrapperFormItemM.TitleStart: WrapperFormItemMTitleStart
     @Composable
     @JvmName("WrapperFormItemMTitleStart")
     get() = builder
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .titlePlacement(FormTitlePlacement.Start)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsSandboxTheme.typography.bodyMNormal)
         .optionalStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .titlePlacement(FormTitlePlacement.Start)
         .dimensions {
-            hintHeight(16.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(14.0.dp)
             titleBlockWidth(132.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(16.0.dp)
         }
         .wrap(::WrapperFormItemMTitleStart)
 
@@ -747,27 +730,27 @@ public val WrapperFormItemMTitleStart.RequiredStart: WrapperFormItemMTitleStartR
     @Composable
     @JvmName("WrapperFormItemMTitleStartRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
         .dimensions {
             indicatorOffsetX(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemMTitleStartRequiredStart)
 
 public val WrapperFormItemMTitleStart.RequiredEnd: WrapperFormItemMTitleStartRequiredEnd
     @Composable
     @JvmName("WrapperFormItemMTitleStartRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .dimensions {
             indicatorOffsetX(4.0.dp)
             indicatorOffsetY(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemMTitleStartRequiredEnd)
 
 public val FormItem.L: WrapperFormItemL
@@ -775,13 +758,13 @@ public val FormItem.L: WrapperFormItemL
     @JvmName("WrapperFormItemL")
     get() = FormItemStyle.builder(this)
         .invariantProps
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
         .titlePlacement(FormTitlePlacement.None)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_24))
         .dimensions {
-            hintHeight(24.0.dp)
-            hintWidth(24.0.dp)
             titleBlockPadding(16.0.dp)
             titleCaptionPadding(4.0.dp)
+            hintWidth(24.0.dp)
+            hintHeight(24.0.dp)
         }
         .wrap(::WrapperFormItemL)
 
@@ -789,35 +772,35 @@ public val WrapperFormItemL.RequiredStart: WrapperFormItemLRequiredStart
     @Composable
     @JvmName("WrapperFormItemLRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopStart)
-        .indicatorAlignmentMode(IndicatorMode.Inner)
-        .formItemType(FormType.Required)
         .indicatorStyle(Indicator.M.Negative.style())
+        .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Inner)
+        .indicatorAlignment(FormIndicatorAlignment.TopStart)
         .wrap(::WrapperFormItemLRequiredStart)
 
 public val WrapperFormItemL.RequiredEnd: WrapperFormItemLRequiredEnd
     @Composable
     @JvmName("WrapperFormItemLRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Inner)
-        .formItemType(FormType.Required)
         .indicatorStyle(Indicator.M.Negative.style())
+        .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Inner)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .wrap(::WrapperFormItemLRequiredEnd)
 
 public val WrapperFormItemL.TitleTop: WrapperFormItemLTitleTop
     @Composable
     @JvmName("WrapperFormItemLTitleTop")
     get() = builder
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .titlePlacement(FormTitlePlacement.Top)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsSandboxTheme.typography.bodyLNormal)
         .optionalStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .titlePlacement(FormTitlePlacement.Top)
         .dimensions {
-            hintHeight(16.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(12.0.dp)
             titleCaptionPadding(14.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(16.0.dp)
         }
         .wrap(::WrapperFormItemLTitleTop)
 
@@ -825,42 +808,42 @@ public val WrapperFormItemLTitleTop.RequiredStart: WrapperFormItemLTitleTopRequi
     @Composable
     @JvmName("WrapperFormItemLTitleTopRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
         .dimensions {
             indicatorOffsetX(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemLTitleTopRequiredStart)
 
 public val WrapperFormItemLTitleTop.RequiredEnd: WrapperFormItemLTitleTopRequiredEnd
     @Composable
     @JvmName("WrapperFormItemLTitleTopRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .dimensions {
             indicatorOffsetX(4.0.dp)
             indicatorOffsetY(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemLTitleTopRequiredEnd)
 
 public val WrapperFormItemL.TitleStart: WrapperFormItemLTitleStart
     @Composable
     @JvmName("WrapperFormItemLTitleStart")
     get() = builder
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .titlePlacement(FormTitlePlacement.Start)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsSandboxTheme.typography.bodyLNormal)
         .optionalStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .titlePlacement(FormTitlePlacement.Start)
         .dimensions {
-            hintHeight(16.0.dp)
-            hintWidth(16.0.dp)
             titleBlockPadding(16.0.dp)
             titleBlockWidth(142.0.dp)
+            hintWidth(16.0.dp)
+            hintHeight(16.0.dp)
         }
         .wrap(::WrapperFormItemLTitleStart)
 
@@ -868,25 +851,25 @@ public val WrapperFormItemLTitleStart.RequiredStart: WrapperFormItemLTitleStartR
     @Composable
     @JvmName("WrapperFormItemLTitleStartRequiredStart")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.CenterStart)
         .dimensions {
             indicatorOffsetX(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemLTitleStartRequiredStart)
 
 public val WrapperFormItemLTitleStart.RequiredEnd: WrapperFormItemLTitleStartRequiredEnd
     @Composable
     @JvmName("WrapperFormItemLTitleStartRequiredEnd")
     get() = builder
-        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
-        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorStyle(Indicator.S.Negative.style())
         .formItemType(FormType.Required)
+        .indicatorAlignmentMode(IndicatorMode.Outer)
+        .indicatorAlignment(FormIndicatorAlignment.TopEnd)
         .dimensions {
             indicatorOffsetX(4.0.dp)
             indicatorOffsetY(4.0.dp)
         }
-        .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemLTitleStartRequiredEnd)

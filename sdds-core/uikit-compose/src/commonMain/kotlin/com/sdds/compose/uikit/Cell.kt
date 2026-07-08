@@ -8,13 +8,12 @@ import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.AnnotatedString
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.internal.cell.BaseCell
 import com.sdds.compose.uikit.internal.cell.CellCenterContent
 import com.sdds.compose.uikit.internal.common.StyledText
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.cell.CellMotionStyle
 import com.sdds.compose.uikit.motion.components.cell.LocalCellMotionStyle
@@ -88,7 +87,7 @@ fun Cell(
  * @param subtitle сабтайтл
  * @param disclosureContentEnabled Включает/выключает отображение disclosure (Текст + иконка)
  * @param disclosureText текст disclosure
- * @param disclosureIconRes иконка disclosure
+ * @param disclosureIconSource источник иконки disclosure
  * @param startContent контент в начале
  * @param endContent контент в конце
  * @param interactionSource источник взаимодействий
@@ -102,7 +101,7 @@ fun Cell(
     subtitle: AnnotatedString = AnnotatedString(""),
     label: AnnotatedString = AnnotatedString(""),
     disclosureContentEnabled: Boolean = false,
-    @DrawableRes disclosureIconRes: Int? = null,
+    disclosureIconSource: ImageSource? = null,
     disclosureText: AnnotatedString = AnnotatedString(""),
     startContent: (@Composable RowScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
@@ -144,15 +143,14 @@ fun Cell(
                     brush = { textColor.value },
                 )
             }
-            val iconRes = disclosureIconRes ?: style.disclosureIconRes
-            val painter = iconRes?.let { painterResource(it) } ?: style.disclosureIcon
-            painter?.let {
+            val iconSource = disclosureIconSource ?: style.disclosureIconSource
+            iconSource?.let {
                 val iconColor = style.colors.disclosureIconBrush.getBrushAsState(
                     motion.context,
                     motion.style.disclosureIconColor,
                 )
                 Icon(
-                    painter = it,
+                    source = it,
                     contentDescription = "",
                     brush = { iconColor.value },
                 )
@@ -224,19 +222,23 @@ fun Cell(
                 ),
             )
             disclosureIcon
-                ?: style.disclosureIcon
-                ?: style.disclosureIconRes?.let {
-                    painterResource(it)
+                ?.let {
+                    Icon(
+                        painter = it,
+                        contentDescription = "",
+                        tint = style.colors.disclosureIconColor.colorForInteraction(
+                            interactionSource,
+                        ),
+                    )
                 }
-                    ?.let {
-                        Icon(
-                            painter = it,
-                            contentDescription = "",
-                            tint = style.colors.disclosureIconColor.colorForInteraction(
-                                interactionSource,
-                            ),
-                        )
-                    }
+                ?: style.disclosureIconSource?.let {
+                    val disclosureIconColor = style.colors.disclosureIconColor.colorForInteraction(interactionSource)
+                    Icon(
+                        source = it,
+                        contentDescription = "",
+                        brush = { SolidColor(disclosureIconColor) },
+                    )
+                }
         },
         motion = motion,
     )

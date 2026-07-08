@@ -99,8 +99,8 @@ public val SelectMultipleTight.Xl: WrapperSelectMultipleTightXl
         .invariantProps
         .textFieldStyle(TextField.Xl.Default.style())
         .buttonStyle(BasicButton.Xl.Secondary.style())
-        .selectItemStyle(SelectItemMultipleTight.Xl.style())
         .dropdownStyle(DropdownMenuTight.Xl.style())
+        .selectItemStyle(SelectItemMultipleTight.Xl.style())
         .wrap(::WrapperSelectMultipleTightXl)
 
 public val SelectMultipleTight.L: WrapperSelectMultipleTightL
@@ -110,8 +110,8 @@ public val SelectMultipleTight.L: WrapperSelectMultipleTightL
         .invariantProps
         .textFieldStyle(TextField.L.Default.style())
         .buttonStyle(BasicButton.L.Secondary.style())
-        .selectItemStyle(SelectItemMultipleTight.L.style())
         .dropdownStyle(DropdownMenuTight.L.style())
+        .selectItemStyle(SelectItemMultipleTight.L.style())
         .wrap(::WrapperSelectMultipleTightL)
 
 public val SelectMultipleTight.M: WrapperSelectMultipleTightM
@@ -121,8 +121,8 @@ public val SelectMultipleTight.M: WrapperSelectMultipleTightM
         .invariantProps
         .textFieldStyle(TextField.M.Default.style())
         .buttonStyle(BasicButton.M.Secondary.style())
-        .selectItemStyle(SelectItemMultipleTight.M.style())
         .dropdownStyle(DropdownMenuTight.M.style())
+        .selectItemStyle(SelectItemMultipleTight.M.style())
         .wrap(::WrapperSelectMultipleTightM)
 
 public val SelectMultipleTight.S: WrapperSelectMultipleTightS
@@ -132,8 +132,8 @@ public val SelectMultipleTight.S: WrapperSelectMultipleTightS
         .invariantProps
         .textFieldStyle(TextField.S.Default.style())
         .buttonStyle(BasicButton.S.Secondary.style())
-        .selectItemStyle(SelectItemMultipleTight.S.style())
         .dropdownStyle(DropdownMenuTight.S.style())
+        .selectItemStyle(SelectItemMultipleTight.S.style())
         .wrap(::WrapperSelectMultipleTightS)
 
 public val SelectMultipleTight.Xs: WrapperSelectMultipleTightXs
@@ -143,6 +143,6 @@ public val SelectMultipleTight.Xs: WrapperSelectMultipleTightXs
         .invariantProps
         .textFieldStyle(TextField.Xs.Default.style())
         .buttonStyle(BasicButton.Xs.Secondary.style())
-        .selectItemStyle(SelectItemMultipleTight.Xs.style())
         .dropdownStyle(DropdownMenuTight.Xs.style())
+        .selectItemStyle(SelectItemMultipleTight.Xs.style())
         .wrap(::WrapperSelectMultipleTightXs)

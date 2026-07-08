@@ -14,11 +14,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.AnnotatedString
-import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
-import com.sdds.compose.uikit.internal.platform.painterResource
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.list.ListItemMotionStyle
 import com.sdds.compose.uikit.motion.components.list.rememberListItemMotion
@@ -125,7 +123,7 @@ fun ListItem(
  * @param style стиль компонента
  * @param text текст элемента
  * @param disclosureEnabled включена ли иконка
- * @param disclosureIconRes иконка disclosure
+ * @param disclosureIconSource источник иконки disclosure
  * @param interactionSource источник взаимодействий
  * @param startContent контент в начале
  * @param endContent контент в конце
@@ -138,7 +136,7 @@ fun ListItem(
     style: ListItemStyle = LocalListItemStyle.current,
     text: String,
     disclosureEnabled: Boolean = false,
-    @DrawableRes disclosureIconRes: Int? = style.disclosureIconRes,
+    disclosureIconSource: ImageSource? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     startContent: (@Composable RowScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
@@ -168,7 +166,7 @@ fun ListItem(
         label = label?.let { AnnotatedString(it) } ?: AnnotatedString(""),
         gravity = style.gravity,
         disclosureContentEnabled = disclosureEnabled,
-        disclosureIconRes = disclosureIconRes,
+        disclosureIconSource = disclosureIconSource,
         startContent = startContent,
         endContent = endContent,
         motion = motion,
@@ -267,7 +265,7 @@ fun ListItem(
     style: ListItemStyle = LocalListItemStyle.current,
     title: String,
     disclosureEnabled: Boolean = false,
-    disclosureIcon: Painter? = style.disclosureIcon,
+    disclosureIcon: Painter? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val background = style.colors.backgroundBrush.getValueAsState(interactionSource)
@@ -300,7 +298,7 @@ private fun ListItemStyle.toCellStyle(): CellStyle {
         subtitleStyle(subtitleStyles)
         labelStyle(labelStyles)
         disclosureTextStyle(disclosureTextStyle)
-        disclosureIconRes?.let { disclosureIcon(it) }
+        disclosureIconSource?.let { disclosureIcon(it) }
         colors {
             titleColor(colors.titleBrush)
             subtitleColor(colors.subtitleBrush)
@@ -332,11 +330,11 @@ private fun RowScope.ListItemDisclosure(
     ListItemDisclosure(
         style = style,
         interactionSource = interactionSource,
-        icon = style.disclosureIconRes?.let {
+        icon = style.disclosureIconSource?.let {
             @Composable {
                 val brush = style.colors.disclosureIconBrush.getValueAsState(interactionSource)
                 Icon(
-                    painter = painterResource(it),
+                    source = it,
                     contentDescription = "",
                     brush = { brush.value },
                 )
@@ -351,7 +349,7 @@ private fun RowScope.ListItemDisclosure(
     style: ListItemStyle = LocalListItemStyle.current,
     motion: Motion<ListItemMotionStyle>,
 ) {
-    style.disclosureIconRes?.let { icon ->
+    style.disclosureIconSource?.let { icon ->
         ListItemDisclosure(
             style = style,
             motion = motion,
@@ -361,7 +359,7 @@ private fun RowScope.ListItemDisclosure(
                     motion.style.disclosureIconColor,
                 )
                 Icon(
-                    painter = painterResource(icon),
+                    source = icon,
                     contentDescription = "",
                     brush = { iconColor.value },
                 )
