@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -125,7 +126,7 @@ public val CellSelect.L: WrapperCellSelectL
         .titleStyle(StarDsTheme.typography.bodyLNormal)
         .subtitleStyle(StarDsTheme.typography.bodyMNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodyMNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .avatarStyle(Avatar.L.style())
         .iconButtonStyle(IconButton.L.style())
         .checkBoxStyle(CheckBox.M.Default.style())
@@ -146,7 +147,7 @@ public val CellSelect.M: WrapperCellSelectM
         .titleStyle(StarDsTheme.typography.bodyMNormal)
         .subtitleStyle(StarDsTheme.typography.bodySNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodySNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .avatarStyle(Avatar.M.style())
         .iconButtonStyle(IconButton.M.style())
         .checkBoxStyle(CheckBox.M.Default.style())
@@ -167,7 +168,7 @@ public val CellSelect.S: WrapperCellSelectS
         .titleStyle(StarDsTheme.typography.bodySNormal)
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.S.style())
         .checkBoxStyle(CheckBox.S.Default.style())
@@ -188,7 +189,7 @@ public val CellSelect.Xs: WrapperCellSelectXs
         .titleStyle(StarDsTheme.typography.bodyXsNormal)
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.Xs.style())
         .checkBoxStyle(CheckBox.S.Default.style())
