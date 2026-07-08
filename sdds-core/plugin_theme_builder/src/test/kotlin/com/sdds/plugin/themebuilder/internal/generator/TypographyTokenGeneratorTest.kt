@@ -73,6 +73,7 @@ class TypographyTokenGeneratorTest {
             fontsAggregator = mockFontsAggregator,
             dimensionsConfig = dimensionsConfig,
             namespace = "com.test",
+            themeName = "TestTheme",
         )
     }
 

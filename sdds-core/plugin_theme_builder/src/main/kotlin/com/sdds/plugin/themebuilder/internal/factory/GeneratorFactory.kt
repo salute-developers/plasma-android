@@ -18,6 +18,7 @@ import com.sdds.plugin.themebuilder.internal.generator.GradientTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShadowTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShapeTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.SpacingTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.ThemeInfoGenerator
 import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
@@ -288,6 +289,7 @@ internal class GeneratorFactory(
             colorTokenValues = colors,
             resourceReferenceProvider = resourceReferenceProvider,
             palette = palette,
+            themeName = themeName,
         )
     }
 
@@ -307,6 +309,7 @@ internal class GeneratorFactory(
             gradients,
             palette,
             resourceReferenceProvider,
+            themeName,
         )
     }
 
@@ -348,6 +351,7 @@ internal class GeneratorFactory(
             fontsAggregator = fontsAggregator,
             dimensionsConfig = dimensionsConfig,
             namespace = namespace,
+            themeName = themeName,
         )
     }
 
@@ -379,6 +383,7 @@ internal class GeneratorFactory(
             shapeTokenValues = shapes,
             dimensionsConfig = dimensionsConfig,
             namespace = namespace,
+            themeName = themeName,
         )
     }
 
@@ -401,6 +406,7 @@ internal class GeneratorFactory(
             dimensAggregator = dimensAggregator,
             namespace = namespace,
             palette = palette,
+            themeName = themeName,
         )
     }
 
@@ -418,6 +424,10 @@ internal class GeneratorFactory(
             dimensionsConfig = dimensionsConfig,
             namespace = namespace,
             spacingTokenValues = spacings,
+            themeName = themeName,
         )
     }
+
+    fun createThemeInfoGenerator(outputFile: File): ThemeInfoGenerator =
+        ThemeInfoGenerator(outputFile)
 }

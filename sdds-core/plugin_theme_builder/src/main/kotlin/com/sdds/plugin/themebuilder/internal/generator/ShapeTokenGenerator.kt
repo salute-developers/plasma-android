@@ -15,12 +15,15 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
+import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
 import com.sdds.plugin.themebuilder.internal.token.RoundedShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
+import com.sdds.plugin.themebuilder.internal.token.toJson
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shapesXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decapitalized
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.ShapeTokenValidator
@@ -52,6 +55,7 @@ internal class ShapeTokenGenerator(
     private val shapeTokenValues: Map<Tenant, Map<String, ShapeTokenValue>>,
     private val dimensionsConfig: DimensionsConfig,
     namespace: String,
+    private val themeName: String,
 ) : TokenGenerator<ShapeToken, ShapeTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
@@ -66,9 +70,12 @@ internal class ShapeTokenGenerator(
     private val viewTokenDataCollector =
         mutableListOf<ShapeTokenResult.TokenData>()
 
+    private val generatedTokens = mutableListOf<GeneratedTokenInfo>()
+
     override fun collectResult() = ShapeTokenResult(
         composeTokens = composeTokenDataCollectors,
         viewTokens = viewTokenDataCollector,
+        tokenInfo = generatedTokens,
     )
 
     /**
@@ -181,9 +188,19 @@ internal class ShapeTokenGenerator(
                 val composeTokenDataCollector = composeTokenDataCollectors.getOrPut(tenant) {
                     mutableListOf()
                 }
+                val attrName = token.ktName.decapitalized()
+                generatedTokens += GeneratedTokenInfo(
+                    type = "shape",
+                    name = token.name,
+                    reference = token.ktName,
+                    themeReference = "${themeName.snakeToCamelCase()}Theme.shapes.$attrName",
+                    displayName = token.displayName,
+                    description = token.description,
+                    value = tokenValue.toJson(),
+                )
                 composeTokenDataCollector.add(
                     ShapeTokenResult.TokenData(
-                        attrName = token.ktName.decapitalized(),
+                        attrName = attrName,
                         tokenRefName = token.ktName,
                         description = token.description,
                         tokenObjectName = "${ROUND_SHAPE_TOKENS_NAME}${tenant.name}",

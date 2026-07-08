@@ -123,7 +123,10 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     fun generate() {
         val deps = getGeneratorDependencies()
         val componentsDir = componentsDir.get()
-        val allMeta = loadUikitApiMeta()
+        // Мета из uikit-compose нужна только универсальному Compose-генератору.
+        // Универсального генератора для View пока нет, поэтому при генерации view-библиотек
+        // compose-мету читать не нужно — иначе её отсутствие ломает генерацию view-стилей.
+        val allMeta = if (deps.target.isComposeOrAll) loadUikitApiMeta() else emptyList()
         val delegates = componentDelegates(allMeta, metaInfo.components)
         val composeComponents = mutableListOf<ComponentInfo>()
         val viewComponents = mutableListOf<ComponentInfo>()
@@ -274,8 +277,10 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         val platformPostfix = target.name.lowercase().replace('_', '-')
         return projectDir
             .get()
+            .dir(".sdds")
             .file("$CONFIG_INFO_FILE_NAME-$platformPostfix.json")
             .asFile
+            .apply { parentFile.mkdirs() }
     }
 
     @OptIn(ExperimentalSerializationApi::class)

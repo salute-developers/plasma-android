@@ -1,7 +1,9 @@
 package com.sdds.plugin.themebuilder.internal.generator.data
 
+import com.sdds.plugin.themebuilder.internal.generator.TokenResult
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
+import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
 
 /**
  * Данные о токенах цвета.
@@ -9,12 +11,15 @@ import com.sdds.plugin.themebuilder.internal.token.ColorToken
  * @property tokens исходные данные о токенах цвета
  * @property composeTokens данные о токенах для Compose
  * @property viewTokens данные о токенах для View
+ * @property tokenInfo данные о сгенерированных токенах
+ * @see TokenResult
  */
 internal data class ColorTokenResult(
     val tokens: List<ColorToken>,
     val composeTokens: Map<Tenant, TokenData>,
     val viewTokens: TokenData,
-) {
+    override val tokenInfo: List<GeneratedTokenInfo>,
+) : TokenResult {
 
     /**
      * Данные о токенах для фреймворка View или Compose

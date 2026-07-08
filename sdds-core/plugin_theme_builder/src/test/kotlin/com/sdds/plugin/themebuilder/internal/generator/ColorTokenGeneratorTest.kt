@@ -59,6 +59,7 @@ class ColorTokenGeneratorTest {
             colorTokenValues = colorTokenValues,
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             palette = palette,
+            themeName = "TestTheme",
         )
     }
 

@@ -68,4 +68,4 @@ internal fun String.capitalized(): String =
  * Возвращает слово, убрав заглавную букву
  */
 internal fun String.decapitalized(): String =
-    this.decapitalize(Locale.getDefault())
+    this.replaceFirstChar { it.lowercase(Locale.getDefault()) }

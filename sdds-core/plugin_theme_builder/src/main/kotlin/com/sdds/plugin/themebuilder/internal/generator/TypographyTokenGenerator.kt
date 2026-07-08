@@ -18,13 +18,16 @@ import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.TypographyInfo
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
+import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
+import com.sdds.plugin.themebuilder.internal.token.toJson
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.textAppearancesXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.typographyXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decapitalized
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.TypographyTokenValidator
@@ -65,6 +68,7 @@ internal class TypographyTokenGenerator(
     private val typographyTokenValues: Map<Tenant, Map<String, TypographyTokenValue>>,
     private val fontsAggregator: FontsAggregator,
     private val dimensionsConfig: DimensionsConfig,
+    private val themeName: String,
     namespace: String,
 ) : TokenGenerator<TypographyToken, TypographyTokenResult>(target) {
 
@@ -112,6 +116,8 @@ internal class TypographyTokenGenerator(
 
     private val viewTokenDataCollector = mutableMapOf<String, TypographyInfo>()
 
+    private val generatedTokens = mutableListOf<GeneratedTokenInfo>()
+
     private val viewSmallTokens = mutableMapOf<String, TypographyToken>()
     private val viewMediumTokens = mutableMapOf<String, TypographyToken>()
     private val viewLargeTokens = mutableMapOf<String, TypographyToken>()
@@ -128,6 +134,7 @@ internal class TypographyTokenGenerator(
         viewTokens = TypographyTokenResult.ViewTokenData(
             attrs = viewTokenDataCollector,
         ),
+        tokenInfo = generatedTokens,
     )
 
     /**
@@ -195,6 +202,15 @@ internal class TypographyTokenGenerator(
             if (tokenValue != null) {
                 TypographyTokenValidator.validate(tokenValue, token.name)
                 val attrName = token.ktName.decapitalized()
+                generatedTokens += GeneratedTokenInfo(
+                    type = "typography",
+                    name = token.name,
+                    reference = token.ktName,
+                    themeReference = "${themeName.snakeToCamelCase()}Theme.typography.$attrName",
+                    displayName = token.displayName,
+                    description = token.description,
+                    value = tokenValue.toJson(),
+                )
                 val composeSmallTokenDataCollector = composeSmallTokenDataCollectors.getOrPut(tenant) { mutableMapOf() }
                 val composeMediumTokenDataCollector = composeMediumTokenDataCollectors.getOrPut(
                     tenant,

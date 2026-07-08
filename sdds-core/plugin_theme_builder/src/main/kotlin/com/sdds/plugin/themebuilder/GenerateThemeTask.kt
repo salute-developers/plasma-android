@@ -11,6 +11,16 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderF
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
+import com.sdds.plugin.themebuilder.internal.generator.ColorTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.DimenTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.FontTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.GradientTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.ShadowTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.ShapeTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.SpacingTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.ThemeInfoGenerator
+import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
@@ -29,6 +39,7 @@ import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.ConfigurableFileCollection
@@ -41,6 +52,7 @@ import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
+import org.gradle.kotlin.dsl.provideDelegate
 import java.io.File
 
 /**
@@ -237,6 +249,10 @@ abstract class GenerateThemeTask : DefaultTask() {
 
     private val themeGenerator by unsafeLazy { generatorFactory.createThemeGenerator() }
     private val dimensGenerator by unsafeLazy { generatorFactory.createDimensGenerator() }
+    private val outputFileForCompose: File by unsafeLazy {
+        createJsonFileFor(target.get())
+    }
+    private val themeInfoGenerator by unsafeLazy { generatorFactory.createThemeInfoGenerator(outputFileForCompose) }
 
     /**
      * Генерирует файлы с токенами
@@ -259,7 +275,8 @@ abstract class GenerateThemeTask : DefaultTask() {
             )
         }.associateBy { Tenant(it.tenant) }
 
-        val metaFileTokens = decodeMeta().tokens
+        val theme = decodeMeta()
+        val metaFileTokens = theme.tokens
 
         val defaultTenant = tenantDataMap[Tenant.Default]
             ?: throw ThemeBuilderException("Theme must have default tenant")
@@ -340,17 +357,63 @@ abstract class GenerateThemeTask : DefaultTask() {
                 is SpacingToken -> spacingGenerator.addToken(token)
             }
         }
+        themeInfoGenerator.setInfo(themeName.get().snakeToCamelCase(), theme.version, target.get().value)
+        generateTokens(
+            colorGenerator = colorGenerator,
+            gradientGenerator = gradientGenerator,
+            shadowGenerator = shadowGenerator,
+            shapesGenerator = shapesGenerator,
+            spacingGenerator = spacingGenerator,
+            typographyGenerator = typographyGenerator,
+            fontGenerator = fontGenerator,
+            dimensGenerator = dimensGenerator,
+            themeGenerator = themeGenerator,
+            themeInfoGenerator = themeInfoGenerator,
+        )
+    }
 
-        colorGenerator.generate().also(themeGenerator::setColorTokenData)
-        gradientGenerator.generate().also(themeGenerator::setGradientTokenData)
-        typographyGenerator.generate().also(themeGenerator::setTypographyTokenData)
-        shapesGenerator.generate().also(themeGenerator::setShapeTokenData)
-        shadowGenerator.generate().also(themeGenerator::setShadowTokenData)
-        spacingGenerator.generate().also(themeGenerator::setSpacingTokenData)
+    private fun generateTokens(
+        colorGenerator: ColorTokenGenerator,
+        gradientGenerator: GradientTokenGenerator,
+        shadowGenerator: ShadowTokenGenerator,
+        shapesGenerator: ShapeTokenGenerator,
+        spacingGenerator: SpacingTokenGenerator,
+        typographyGenerator: TypographyTokenGenerator,
+        fontGenerator: FontTokenGenerator,
+        dimensGenerator: DimenTokenGenerator,
+        themeGenerator: ThemeGenerator,
+        themeInfoGenerator: ThemeInfoGenerator,
+    ) {
+        val colorResult = colorGenerator.generate()
+        themeGenerator.setColorTokenData(colorResult)
+        themeInfoGenerator.addResult(colorResult)
+
+        val gradientResult = gradientGenerator.generate()
+        themeGenerator.setGradientTokenData(gradientResult)
+        themeInfoGenerator.addResult(gradientResult)
+
+        val shadowResult = shadowGenerator.generate()
+        themeGenerator.setShadowTokenData(shadowResult)
+        themeInfoGenerator.addResult(shadowResult)
+
+        val shapeResult = shapesGenerator.generate()
+        themeGenerator.setShapeTokenData(shapeResult)
+        themeInfoGenerator.addResult(shapeResult)
+
+        val spaceResult = spacingGenerator.generate()
+        themeGenerator.setSpacingTokenData(spaceResult)
+        themeInfoGenerator.addResult(spaceResult)
+
+        val typographyResult = typographyGenerator.generate()
+        themeGenerator.setTypographyTokenData(typographyResult)
+        themeInfoGenerator.addResult(typographyResult)
+
+        val fontResult = fontGenerator.generate()
+        themeInfoGenerator.addResult(fontResult)
+
         dimensGenerator.generate()
-        fontGenerator.generate()
-
         themeGenerator.generate()
+        themeInfoGenerator.generate()
     }
 
     private fun <T> tenantToDefaultDiff(
@@ -474,5 +537,19 @@ abstract class GenerateThemeTask : DefaultTask() {
         }
         file.decode<Map<String, Map<String, String>>>()
             .also { logger.debug("decoded palette $it") }
+    }
+
+    private fun createJsonFileFor(target: ThemeBuilderTarget): File {
+        val platformPostfix = target.name.lowercase().replace('_', '-')
+        return projectDir
+            .get()
+            .dir(".sdds")
+            .file("$FILE_NAME-$platformPostfix.json")
+            .asFile
+            .apply { parentFile.mkdirs() }
+    }
+
+    private companion object {
+        const val FILE_NAME = "theme-info"
     }
 }

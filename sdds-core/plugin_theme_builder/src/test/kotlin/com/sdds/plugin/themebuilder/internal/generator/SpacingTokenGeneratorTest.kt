@@ -63,6 +63,7 @@ class SpacingTokenGeneratorTest {
             spacingTokenValues = spacingTokenValues,
             dimensionsConfig = dimensionsConfig,
             namespace = "com.test",
+            themeName = "TestTheme",
         )
     }
 

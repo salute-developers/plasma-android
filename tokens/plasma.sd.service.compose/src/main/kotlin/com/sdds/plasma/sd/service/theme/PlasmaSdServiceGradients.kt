@@ -280,6 +280,21 @@ public class PlasmaSdServiceGradients(
         val overrideMap = gradientOverrideScope.overrideMap
         return PlasmaSdServiceGradients(gradients.mapValues { overrideMap[it.key] ?: it.value })
     }
+
+    /**
+     * Возвращает копию [PlasmaSdServiceGradients]. Предоставляет возможность переопределять цвета.
+     */
+    internal fun copyAttrs(overrideGradients: GradientAttrOverrideScope.() -> Unit = {}): PlasmaSdServiceGradients {
+        val gradientOverrideScope = GradientAttrOverrideScope()
+        overrideGradients.invoke(gradientOverrideScope)
+        val overrideMap = gradientOverrideScope.overrideMap
+        return PlasmaSdServiceGradients(
+            gradients.mapValues {
+                gradients[overrideMap[it.key]]
+                    ?: it.value
+            },
+        )
+    }
 }
 
 /**
@@ -543,6 +558,271 @@ public class GradientOverrideScope {
      * Переопределяет аттрибут градиента.
      */
     public infix fun String.overrideBy(gradient: List<ShaderBrush>) {
+        _overrideMap[this] = gradient
+    }
+}
+
+/**
+ * Скоуп переопределения градиентов
+ */
+public class GradientAttrOverrideScope {
+    private val _overrideMap: MutableMap<String, String> = mutableMapOf()
+
+    internal val overrideMap: Map<String, String>
+        get() = _overrideMap.toMap()
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientHover: String = "textDefaultAccentGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientActive: String = "textDefaultAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientHover: String = "textOnDarkAccentGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientActive: String = "textOnDarkAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientHover: String = "textOnLightAccentGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientActive: String = "textOnLightAccentGradientActive"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientHover: String = "textInverseAccentGradientHover"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientActive: String = "textInverseAccentGradientActive"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradientHover: String = "surfaceDefaultAccentGradientHover"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradientActive: String = "surfaceDefaultAccentGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientHover: String = "surfaceDefaultSkeletonGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientActive: String = "surfaceDefaultSkeletonGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradient: String = "surfaceDefaultSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradientHover: String =
+        "surfaceDefaultSkeletonDeepGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradientActive: String =
+        "surfaceDefaultSkeletonDeepGradientActive"
+
+    /**
+     * Акц. фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
+
+    /**
+     * Акц. фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradientHover: String = "surfaceOnDarkAccentGradientHover"
+
+    /**
+     * Акц. фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradientActive: String = "surfaceOnDarkAccentGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientHover: String = "surfaceOnDarkSkeletonGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientActive: String = "surfaceOnDarkSkeletonGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradient: String = "surfaceOnDarkSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradientHover: String =
+        "surfaceOnDarkSkeletonDeepGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradientActive: String =
+        "surfaceOnDarkSkeletonDeepGradientActive"
+
+    /**
+     * Акц. фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
+
+    /**
+     * Акц. фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradientHover: String = "surfaceOnLightAccentGradientHover"
+
+    /**
+     * Акц. фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradientActive: String = "surfaceOnLightAccentGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradientHover: String = "surfaceOnLightSkeletonGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradientActive: String = "surfaceOnLightSkeletonGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradient: String = "surfaceOnLightSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradientHover: String =
+        "surfaceOnLightSkeletonDeepGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradientActive: String =
+        "surfaceOnLightSkeletonDeepGradientActive"
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradientHover: String = "surfaceInverseAccentGradientHover"
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradientActive: String = "surfaceInverseAccentGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientHover: String = "surfaceInverseSkeletonGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientActive: String = "surfaceInverseSkeletonGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceInverseSkeletonDeepGradient: String = "surfaceInverseSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceInverseSkeletonDeepGradientHover: String =
+        "surfaceInverseSkeletonDeepGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceInverseSkeletonDeepGradientActive: String =
+        "surfaceInverseSkeletonDeepGradientActive"
+
+    /**
+     * Переопределяет аттрибут градиента.
+     */
+    public infix fun String.overrideBy(gradient: String) {
         _overrideMap[this] = gradient
     }
 }
