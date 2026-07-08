@@ -43,7 +43,7 @@ import com.sdds.compose.uikit.motion.getBrushAsState
  * Вертикальное колесо выбора.
  * Используется для выбора одного значения из списка с визуальным фокусом на текущем значении.
  *
- * @param modifier модификатор
+ * @param modifier модификатор компонента
  * @param style стиль компонента
  * @param wheelCount количество колёс
  * @param hasControls наличие кнопок перемотки

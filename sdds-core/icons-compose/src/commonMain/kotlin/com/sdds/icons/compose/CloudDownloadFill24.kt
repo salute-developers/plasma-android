@@ -1,0 +1,24 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.CloudDownloadFill24: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "CloudDownloadFill24",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 24f,
+        viewportHeight = 24f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathFillType = PathFillType.EvenOdd,
+            pathData = addPathNodes("M 2.0 11.61 c 0.0 -2.517 1.838 -4.63 4.324 -5.224 l 0.003 -0.01 c 0.04 -0.004 0.08 -0.01 0.12 -0.022 C 7.484 6.077 8.577 6.082 9.61 6.37 c 1.034 0.288 1.972 0.848 2.716 1.622 c 0.287 0.299 0.761 0.308 1.06 0.021 c 0.299 -0.287 0.308 -0.762 0.021 -1.06 c -0.93 -0.968 -2.102 -1.668 -3.394 -2.028 c -0.91 -0.253 -1.855 -0.332 -2.786 -0.235 C 8.447 3.063 10.466 2.0 12.75 2.0 c 3.728 0.0 6.75 2.833 6.75 6.328 c 0.0 0.222 -0.012 0.44 -0.036 0.657 C 20.964 9.668 22.0 11.11 22.0 12.78 C 22.0 15.111 19.985 17.0 17.5 17.0 h -4.75 v 2.19 l 1.72 -1.72 c 0.293 -0.293 0.767 -0.293 1.06 0.0 c 0.293 0.293 0.293 0.767 0.0 1.06 l -3.0 3.0 c -0.293 0.293 -0.767 0.293 -1.06 0.0 l -3.0 -3.0 c -0.293 -0.293 -0.293 -0.767 0.0 -1.06 c 0.293 -0.293 0.767 -0.293 1.06 0.0 l 1.72 1.72 V 17.0 h -3.5 C 4.574 17.0 2.0 14.586 2.0 11.61 Z m 9.25 5.387 h 1.5 V 12.5 c 0.0 -0.414 -0.336 -0.75 -0.75 -0.75 s -0.75 0.336 -0.75 0.75 v 4.497 Z")
+        )
+    }.build()
+}

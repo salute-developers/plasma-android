@@ -1,0 +1,30 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.PoopFill36: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "PoopFill36",
+        defaultWidth = 36.dp,
+        defaultHeight = 36.dp,
+        viewportWidth = 36f,
+        viewportHeight = 36f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 21.042 5.66 c 0.364 -0.54 1.245 -0.557 1.566 0.012 c 0.682 1.21 1.316 2.147 1.88 2.983 c 1.44 2.129 2.433 3.598 2.657 7.226 c -0.27 -0.03 -0.558 -0.057 -0.863 -0.086 c -1.92 -0.18 -4.512 -0.425 -7.617 -1.833 c -0.209 -0.094 -0.42 -0.192 -0.634 -0.29 c -1.244 -0.576 -2.59 -1.198 -4.109 -1.537 c 0.648 -1.163 1.829 -1.97 3.119 -2.851 c 1.383 -0.946 2.891 -1.976 4.0 -3.623 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 9.881 13.135 c -1.878 0.468 -2.682 1.524 -2.953 2.587 c -0.206 0.807 -0.12 1.68 0.152 2.419 c 0.363 0.027 0.726 0.11 1.08 0.252 c 10.594 4.264 14.497 2.298 17.495 0.79 c 1.119 -0.564 2.112 -1.064 3.28 -1.153 c -0.022 -0.267 -0.074 -0.42 -0.12 -0.508 c -0.044 -0.086 -0.103 -0.151 -0.213 -0.216 c -0.299 -0.176 -0.826 -0.283 -1.852 -0.386 c -0.181 -0.019 -0.372 -0.037 -0.572 -0.055 c -1.927 -0.181 -4.682 -0.44 -7.957 -1.924 L 17.6 14.656 c -2.314 -1.066 -4.649 -2.14 -7.718 -1.521 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 7.762 19.39 c 7.612 3.064 12.017 3.04 15.172 2.102 c 1.285 -0.383 2.34 -0.915 3.223 -1.36 c 0.17 -0.086 0.335 -0.169 0.493 -0.246 c 1.005 -0.495 1.773 -0.795 2.652 -0.795 c 0.882 0.0 1.505 0.289 1.945 0.71 c 0.456 0.435 0.78 1.076 0.923 1.86 c 0.29 1.587 -0.21 3.509 -1.425 4.76 c -4.073 3.673 -9.859 4.735 -15.104 4.198 c -2.615 -0.268 -5.044 -0.93 -6.987 -1.822 c -1.97 -0.905 -3.323 -1.992 -3.947 -3.033 c -1.382 -2.306 -1.073 -4.156 -0.292 -5.252 c 0.82 -1.15 2.191 -1.588 3.347 -1.122 Z")
+        )
+    }.build()
+}
