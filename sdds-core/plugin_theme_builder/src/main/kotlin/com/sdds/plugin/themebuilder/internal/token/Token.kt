@@ -4,6 +4,8 @@ import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonElement
 import org.gradle.configurationcache.extensions.capitalized
 
 /**
@@ -71,7 +73,7 @@ internal object Unknown : Token() {
 /**
  * Интерфейс-маркер для значения токена
  */
-internal interface TokenValue
+internal sealed interface TokenValue
 
 /**
  * Целевая платформа токена
@@ -103,3 +105,35 @@ enum class TokenPlatform {
             }
     }
 }
+
+/**
+ * Информация о сгенерированном токене
+ * @param type тип токена
+ * @param name техническое название токена
+ * @param displayName название для отображения
+ * @param description описание токена
+ * @param reference название токена для файлов целефого фреймворка
+ * @param themeReference ссылка на токен в теме
+ * @param value значение токена
+ */
+@Serializable
+internal data class GeneratedTokenInfo(
+    val type: String,
+    val name: String,
+    val displayName: String,
+    val description: String,
+    val reference: String,
+    val themeReference: String,
+    val value: JsonElement,
+)
+
+internal fun TokenValue.toJson(): JsonElement =
+    when (this) {
+        is ColorTokenValue -> Json.encodeToJsonElement(ColorTokenValue.serializer(), this)
+        is TypographyTokenValue -> Json.encodeToJsonElement(TypographyTokenValue.serializer(), this)
+        is ShapeTokenValue -> Json.encodeToJsonElement(ShapeTokenValue.serializer(), this)
+        is ShadowTokenValue -> Json.encodeToJsonElement(ShadowTokenValue.serializer(), this)
+        is SpacingTokenValue -> Json.encodeToJsonElement(SpacingTokenValue.serializer(), this)
+        is GradientTokenValue -> Json.encodeToJsonElement(GradientTokenValue.serializer(), this)
+        is FontTokenValue -> Json.encodeToJsonElement(FontTokenValue.serializer(), this)
+    }

@@ -73,10 +73,10 @@ public value class WrapperWheelH1MixedAlign(
 private val WheelStyleBuilder.invariantProps: WheelStyleBuilder
     @Composable
     get() = this
-        .controlIconUp(com.sdds.icons.R.drawable.ic_disclosure_up_outline_36)
-        .controlIconDown(com.sdds.icons.R.drawable.ic_disclosure_down_outline_36)
         .wheelCount(3)
         .visibleItemsCount(5)
+        .controlIconUp(com.sdds.icons.R.drawable.ic_disclosure_up_outline_36)
+        .controlIconDown(com.sdds.icons.R.drawable.ic_disclosure_down_outline_36)
         .dividerStyle(Divider.Default.style())
         .colors {
             itemTextColor(
@@ -109,9 +109,7 @@ private val WheelStyleBuilder.invariantProps: WheelStyleBuilder
                         to StarDsTheme.colors.textDefaultPrimary,
                 ),
             )
-            separatorColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            separatorColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
         }
 
 public val Wheel.H1: WrapperWheelH1

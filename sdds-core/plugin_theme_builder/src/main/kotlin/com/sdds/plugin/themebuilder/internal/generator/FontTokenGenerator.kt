@@ -10,9 +10,12 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.fonts.FontData
 import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
+import com.sdds.plugin.themebuilder.internal.generator.data.FontTokenResult
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
+import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
+import com.sdds.plugin.themebuilder.internal.token.toJson
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontDir
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontFamilyXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.fontFileNameFromUrl
@@ -50,7 +53,7 @@ internal class FontTokenGenerator(
     private val fontsAggregator: FontsAggregator,
     private val dimensionsConfig: DimensionsConfig,
     private val useDefaultFonts: Boolean = false,
-) : TokenGenerator<FontToken, String>(target) {
+) : TokenGenerator<FontToken, FontTokenResult>(target) {
 
     private val rFileImport = ClassName(namespace, "R")
     private val fontFamilyXmlBuilders = mutableMapOf<String, XmlFontFamilyDocumentBuilder>()
@@ -65,8 +68,11 @@ internal class FontTokenGenerator(
     private val rootObjectBuilders =
         mutableMapOf(Tenant.Default to ktFileBuilder.rootObject(FONT_TOKENS_NAME, FONT_TOKENS_DESC))
     private val fontDownloader by unsafeLazy { fontDownloaderFactory.create() }
+    private val generatedTokens = mutableListOf<GeneratedTokenInfo>()
 
-    override fun collectResult() = ""
+    override fun collectResult() = FontTokenResult(
+        generatedTokens,
+    )
 
     override fun generateViewSystem() {
         super.generateViewSystem()
@@ -121,6 +127,17 @@ internal class FontTokenGenerator(
                     description = token.description,
                     tokenValue = tokenValue,
                 )
+                if (tokenValue != null) {
+                    generatedTokens += GeneratedTokenInfo(
+                        type = "font",
+                        name = token.name,
+                        reference = token.ktName,
+                        themeReference = "null",
+                        displayName = token.displayName,
+                        description = token.description,
+                        value = tokenValue.toJson(),
+                    )
+                }
             }
         }
 

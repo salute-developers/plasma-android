@@ -14,13 +14,17 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
+import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
+import com.sdds.plugin.themebuilder.internal.token.toJson
 import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.HexFormat
 import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shadowsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.camelToSnakeCase
+import com.sdds.plugin.themebuilder.internal.utils.decapitalized
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.ShadowTokenValidator
 import com.squareup.kotlinpoet.ClassName
@@ -50,6 +54,7 @@ internal class ShadowTokenGenerator(
     private val dimensAggregator: DimensAggregator,
     private val palette: Map<String, Map<String, String>>,
     namespace: String,
+    private val themeName: String,
 ) : TokenGenerator<ShadowToken, ShadowTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
@@ -61,12 +66,15 @@ internal class ShadowTokenGenerator(
     private val composeTokenDataCollectors = mutableMapOf<Tenant, MutableList<ShadowTokenResult.TokenData>>()
     private val viewTokenDataCollector = mutableListOf<ShadowTokenResult.TokenData>()
 
+    private val generatedTokens = mutableListOf<GeneratedTokenInfo>()
+
     /**
      * @see TokenGenerator.collectResult
      */
     override fun collectResult() = ShadowTokenResult(
         composeTokenDataCollectors,
         viewTokenDataCollector,
+        generatedTokens,
     )
 
     /**
@@ -189,6 +197,16 @@ internal class ShadowTokenGenerator(
                         val layerRef = appendShadowProperties(tokenName, tokenValue, token.description, tenant)
                         layers.add(layerRef)
                     }
+                    val attrName = token.ktName.decapitalized()
+                    generatedTokens += GeneratedTokenInfo(
+                        type = "shadow",
+                        name = token.name,
+                        reference = token.ktName,
+                        themeReference = "${themeName.snakeToCamelCase()}Theme.shadows.$attrName",
+                        displayName = token.displayName,
+                        description = token.description,
+                        value = tokenValue.toJson(),
+                    )
                 }
                 val composeTokenDataCollector = composeTokenDataCollectors.getOrPut(tenant) {
                     mutableListOf()

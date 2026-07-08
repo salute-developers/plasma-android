@@ -3,11 +3,9 @@ package com.sdds.serv.theme.subthemes
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import com.sdds.serv.theme.LocalSddsServColors
+import com.sdds.serv.theme.LocalSddsServGradients
 import com.sdds.serv.theme.SddsServTheme
-import com.sdds.serv.theme.darkSddsServColors
-import com.sdds.serv.theme.darkSddsServGradients
-import com.sdds.serv.theme.lightSddsServColors
-import com.sdds.serv.theme.lightSddsServGradients
 import kotlin.Boolean
 import kotlin.Unit
 
@@ -20,15 +18,7 @@ public fun SddsServTheme.Default(
     content: @Composable
     () -> Unit,
 ) {
-    val colors = if (isDark) {
-        darkSddsServColors()
-    } else {
-        lightSddsServColors()
-    }
-    val gradients = if (isDark) {
-        darkSddsServGradients()
-    } else {
-        lightSddsServGradients()
-    }
-    SddsServTheme(colors = colors, gradients = gradients, content = content)
+    val currentColors = LocalSddsServColors.current
+    val currentGradients = LocalSddsServGradients.current
+    SddsServTheme(colors = currentColors, gradients = currentGradients, content = content)
 }

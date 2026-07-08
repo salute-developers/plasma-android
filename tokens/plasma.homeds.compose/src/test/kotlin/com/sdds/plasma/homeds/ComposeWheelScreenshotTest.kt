@@ -9,12 +9,14 @@ import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.testcases.WheelCountFourDescriptionDots
 import com.sdds.compose.uikit.fixtures.testcases.WheelCountOneSeparatorNone
 import com.sdds.compose.uikit.fixtures.testcases.WheelCountThreeDescriptionDivider
+import com.sdds.compose.uikit.fixtures.testcases.WheelCountTwoTADescriptionDivider
 import com.sdds.compose.uikit.fixtures.testcases.WheelThreeVisibleEntriesFiveLabelHasControls
 import com.sdds.compose.uikit.fixtures.testcases.WheelTwoVisibleEntriesNineTADivider
 import com.sdds.compose.uikit.fixtures.testcases.WheelTwoVisibleEntriesOneDescriptionDots
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.wheel.CenterAlign
 import com.sdds.plasma.homeds.styles.wheel.H1
+import com.sdds.plasma.homeds.styles.wheel.H4
 import com.sdds.plasma.homeds.styles.wheel.LeftAlign
 import com.sdds.plasma.homeds.styles.wheel.MixedAlign
 import com.sdds.plasma.homeds.styles.wheel.RightAlign
@@ -77,6 +79,13 @@ class ComposeWheelScreenshotTest(
     fun testWheelCountThreeDescriptionDivider() {
         composeTestRule.content {
             WheelCountThreeDescriptionDivider(Wheel.H1.CenterAlign.style())
+        }
+    }
+
+    @Test
+    fun testWheelCountTwoTADescriptionDivider() {
+        composeTestRule.content {
+            WheelCountTwoTADescriptionDivider(Wheel.H4.CenterAlign.style())
         }
     }
 }

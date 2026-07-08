@@ -63,6 +63,7 @@ class GradientTokenGeneratorTest {
                 resourcePrefix = "thmbldr",
                 "TestTheme",
             ),
+            themeName = "TestTheme",
         )
     }
 

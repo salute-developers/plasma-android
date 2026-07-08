@@ -194,21 +194,23 @@ public val Wheel.H4: WrapperWheelH4
         .itemTextAfterStyle(PlasmaHomeDsTheme.typography.headerH4Bold)
         .descriptionStyle(PlasmaHomeDsTheme.typography.bodySBold)
         .textAfterMode(TextAfterMode.Static)
-        .itemSelectorEnabled(true)
-        .itemSelectorShape(PlasmaHomeDsTheme.shapes.roundXl)
+        .selectionIndicatorEnabled(true)
+        .selectionIndicatorShape(PlasmaHomeDsTheme.shapes.roundXl)
         .colors {
             itemTextAfterColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
-            itemSelectorColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue())
+            selectionIndicatorColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue(),
+            )
         }
         .dimensions {
             itemTextAfterPadding(2.0.dp)
             descriptionPadding(6.0.dp)
             separatorSpacing(24.0.dp)
             itemMinSpacing(32.0.dp)
-            itemSelectorPaddingTop(16.0.dp)
-            itemSelectorPaddingBottom(16.0.dp)
-            itemSelectorPaddingStart(0.0.dp)
-            itemSelectorPaddingEnd(0.0.dp)
+            selectionIndicatorPaddingTop(16.0.dp)
+            selectionIndicatorPaddingBottom(16.0.dp)
+            selectionIndicatorPaddingStart(0.0.dp)
+            selectionIndicatorPaddingEnd(0.0.dp)
         }
         .wrap(::WrapperWheelH4)
 

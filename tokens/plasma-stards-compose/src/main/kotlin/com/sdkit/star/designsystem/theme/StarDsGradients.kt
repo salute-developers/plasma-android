@@ -1454,6 +1454,16 @@ public class StarDsGradients(
         val overrideMap = gradientOverrideScope.overrideMap
         return StarDsGradients(gradients.mapValues { overrideMap[it.key] ?: it.value })
     }
+
+    /**
+     * Возвращает копию [StarDsGradients]. Предоставляет возможность переопределять цвета.
+     */
+    internal fun copyAttrs(overrideGradients: GradientAttrOverrideScope.() -> Unit = {}): StarDsGradients {
+        val gradientOverrideScope = GradientAttrOverrideScope()
+        overrideGradients.invoke(gradientOverrideScope)
+        val overrideMap = gradientOverrideScope.overrideMap
+        return StarDsGradients(gradients.mapValues { gradients[overrideMap[it.key]] ?: it.value })
+    }
 }
 
 /**
@@ -2960,6 +2970,1514 @@ public class GradientOverrideScope {
      * Переопределяет аттрибут градиента.
      */
     public infix fun String.overrideBy(gradient: List<ShaderBrush>) {
+        _overrideMap[this] = gradient
+    }
+}
+
+/**
+ * Скоуп переопределения градиентов
+ */
+public class GradientAttrOverrideScope {
+    private val _overrideMap: MutableMap<String, String> = mutableMapOf()
+
+    internal val overrideMap: Map<String, String>
+        get() = _overrideMap.toMap()
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientHover: String = "textDefaultAccentGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientActive: String = "textDefaultAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradientHover: String = "textDefaultAccentMinorGradientHover"
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradientActive: String = "textDefaultAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradient: String = "textDefaultAccentMinorGradient"
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradientHover: String = "textDefaultPromoGradientHover"
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradientActive: String = "textDefaultPromoGradientActive"
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradient: String = "textDefaultPromoGradient"
+
+    /**
+     * Минорный промо цвет с градиентом
+     */
+    public val textDefaultPromoMinorGradientHover: String = "textDefaultPromoMinorGradientHover"
+
+    /**
+     * Минорный промо цвет с градиентом
+     */
+    public val textDefaultPromoMinorGradientActive: String = "textDefaultPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет с градиентом
+     */
+    public val textDefaultPromoMinorGradient: String = "textDefaultPromoMinorGradient"
+
+    /**
+     * Градиент Афины
+     */
+    public val textDefaultGradientAthenaHover: String = "textDefaultGradientAthenaHover"
+
+    /**
+     * Градиент Афины
+     */
+    public val textDefaultGradientAthenaActive: String = "textDefaultGradientAthenaActive"
+
+    /**
+     * Градиент Афины
+     */
+    public val textDefaultGradientAthena: String = "textDefaultGradientAthena"
+
+    /**
+     * Градиент Джой
+     */
+    public val textDefaultGradientJoyHover: String = "textDefaultGradientJoyHover"
+
+    /**
+     * Градиент Джой
+     */
+    public val textDefaultGradientJoyActive: String = "textDefaultGradientJoyActive"
+
+    /**
+     * Градиент Джой
+     */
+    public val textDefaultGradientJoy: String = "textDefaultGradientJoy"
+
+    /**
+     * Градиент бренда
+     */
+    public val textDefaultGradientBrandHover: String = "textDefaultGradientBrandHover"
+
+    /**
+     * Градиент бренда
+     */
+    public val textDefaultGradientBrandActive: String = "textDefaultGradientBrandActive"
+
+    /**
+     * Градиент бренда
+     */
+    public val textDefaultGradientBrand: String = "textDefaultGradientBrand"
+
+    /**
+     * Градиент B2E-ассистента
+     */
+    public val textDefaultGradientB2EHover: String = "textDefaultGradientB2EHover"
+
+    /**
+     * Градиент B2E-ассистента
+     */
+    public val textDefaultGradientB2EActive: String = "textDefaultGradientB2EActive"
+
+    /**
+     * Градиент B2E-ассистента
+     */
+    public val textDefaultGradientB2E: String = "textDefaultGradientB2E"
+
+    /**
+     * Градиент
+     */
+    public val textDefaultGradientMainHover: String = "textDefaultGradientMainHover"
+
+    /**
+     * Градиент
+     */
+    public val textDefaultGradientMainActive: String = "textDefaultGradientMainActive"
+
+    /**
+     * Градиент
+     */
+    public val textDefaultGradientMain: String = "textDefaultGradientMain"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientHover: String = "textOnDarkAccentGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientActive: String = "textOnDarkAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+
+    /**
+     * Акцентный минорный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentMinorGradientHover: String = "textOnDarkAccentMinorGradientHover"
+
+    /**
+     * Акцентный минорный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentMinorGradientActive: String = "textOnDarkAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentMinorGradient: String = "textOnDarkAccentMinorGradient"
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradientHover: String = "textOnDarkPromoGradientHover"
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradientActive: String = "textOnDarkPromoGradientActive"
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradient: String = "textOnDarkPromoGradient"
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradientHover: String = "textOnDarkPromoMinorGradientHover"
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradientActive: String = "textOnDarkPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradient: String = "textOnDarkPromoMinorGradient"
+
+    /**
+     * Градиент Афины на темном фоне
+     */
+    public val textOnDarkGradientAthenaHover: String = "textOnDarkGradientAthenaHover"
+
+    /**
+     * Градиент Афины на темном фоне
+     */
+    public val textOnDarkGradientAthenaActive: String = "textOnDarkGradientAthenaActive"
+
+    /**
+     * Градиент Афины на темном фоне
+     */
+    public val textOnDarkGradientAthena: String = "textOnDarkGradientAthena"
+
+    /**
+     * Градиент Джой на темном фоне
+     */
+    public val textOnDarkGradientJoyHover: String = "textOnDarkGradientJoyHover"
+
+    /**
+     * Градиент Джой на темном фоне
+     */
+    public val textOnDarkGradientJoyActive: String = "textOnDarkGradientJoyActive"
+
+    /**
+     * Градиент Джой на темном фоне
+     */
+    public val textOnDarkGradientJoy: String = "textOnDarkGradientJoy"
+
+    /**
+     * Градиент B2E-ассистента на темном фоне
+     */
+    public val textOnDarkGradientB2EHover: String = "textOnDarkGradientB2EHover"
+
+    /**
+     * Градиент B2E-ассистента на темном фоне
+     */
+    public val textOnDarkGradientB2EActive: String = "textOnDarkGradientB2EActive"
+
+    /**
+     * Градиент B2E-ассистента на темном фоне
+     */
+    public val textOnDarkGradientB2E: String = "textOnDarkGradientB2E"
+
+    /**
+     * Градиент бренда на темном фоне
+     */
+    public val textOnDarkGradientBrandHover: String = "textOnDarkGradientBrandHover"
+
+    /**
+     * Градиент бренда на темном фоне
+     */
+    public val textOnDarkGradientBrandActive: String = "textOnDarkGradientBrandActive"
+
+    /**
+     * Градиент бренда на темном фоне
+     */
+    public val textOnDarkGradientBrand: String = "textOnDarkGradientBrand"
+
+    /**
+     * Градиент на темном фоне
+     */
+    public val textOnDarkGradientMainHover: String = "textOnDarkGradientMainHover"
+
+    /**
+     * Градиент на темном фоне
+     */
+    public val textOnDarkGradientMainActive: String = "textOnDarkGradientMainActive"
+
+    /**
+     * Градиент на темном фоне
+     */
+    public val textOnDarkGradientMain: String = "textOnDarkGradientMain"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientHover: String = "textOnLightAccentGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientActive: String = "textOnLightAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradientHover: String = "textOnLightAccentMinorGradientHover"
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradientActive: String = "textOnLightAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradient: String = "textOnLightAccentMinorGradient"
+
+    /**
+     * Промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoGradientHover: String = "textOnLightPromoGradientHover"
+
+    /**
+     * Промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoGradientActive: String = "textOnLightPromoGradientActive"
+
+    /**
+     * Промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoGradient: String = "textOnLightPromoGradient"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradientHover: String = "textOnLightPromoMinorGradientHover"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradientActive: String = "textOnLightPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradient: String = "textOnLightPromoMinorGradient"
+
+    /**
+     * Градиент Афины на светлом фоне
+     */
+    public val textOnLightGradientAthenaHover: String = "textOnLightGradientAthenaHover"
+
+    /**
+     * Градиент Афины на светлом фоне
+     */
+    public val textOnLightGradientAthenaActive: String = "textOnLightGradientAthenaActive"
+
+    /**
+     * Градиент Афины на светлом фоне
+     */
+    public val textOnLightGradientAthena: String = "textOnLightGradientAthena"
+
+    /**
+     * Градиент Джой на светлом фоне
+     */
+    public val textOnLightGradientJoyHover: String = "textOnLightGradientJoyHover"
+
+    /**
+     * Градиент Джой на светлом фоне
+     */
+    public val textOnLightGradientJoyActive: String = "textOnLightGradientJoyActive"
+
+    /**
+     * Градиент Джой на светлом фоне
+     */
+    public val textOnLightGradientJoy: String = "textOnLightGradientJoy"
+
+    /**
+     * Градиент B2E-ассистента на светлом фоне
+     */
+    public val textOnLightGradientB2EHover: String = "textOnLightGradientB2EHover"
+
+    /**
+     * Градиент B2E-ассистента на светлом фоне
+     */
+    public val textOnLightGradientB2EActive: String = "textOnLightGradientB2EActive"
+
+    /**
+     * Градиент B2E-ассистента на светлом фоне
+     */
+    public val textOnLightGradientB2E: String = "textOnLightGradientB2E"
+
+    /**
+     * Акцентный цвет бренда на светлом фоне
+     */
+    public val textOnLightGradientBrandHover: String = "textOnLightGradientBrandHover"
+
+    /**
+     * Акцентный цвет бренда на светлом фоне
+     */
+    public val textOnLightGradientBrandActive: String = "textOnLightGradientBrandActive"
+
+    /**
+     * Акцентный цвет бренда на светлом фоне
+     */
+    public val textOnLightGradientBrand: String = "textOnLightGradientBrand"
+
+    /**
+     * Градиент на светлом фоне
+     */
+    public val textOnLightGradientMainHover: String = "textOnLightGradientMainHover"
+
+    /**
+     * Градиент на светлом фоне
+     */
+    public val textOnLightGradientMainActive: String = "textOnLightGradientMainActive"
+
+    /**
+     * Градиент на светлом фоне
+     */
+    public val textOnLightGradientMain: String = "textOnLightGradientMain"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientHover: String = "textInverseAccentGradientHover"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientActive: String = "textInverseAccentGradientActive"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradientHover: String = "textInverseAccentMinorGradientHover"
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradientActive: String = "textInverseAccentMinorGradientActive"
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradient: String = "textInverseAccentMinorGradient"
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradientHover: String = "textInversePromoGradientHover"
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradientActive: String = "textInversePromoGradientActive"
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradient: String = "textInversePromoGradient"
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradientHover: String = "textInversePromoMinorGradientHover"
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradientActive: String = "textInversePromoMinorGradientActive"
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradient: String = "textInversePromoMinorGradient"
+
+    /**
+     * light text inverse textGradientMainHover
+     */
+    public val textInverseGradientMainHover: String = "textInverseGradientMainHover"
+
+    /**
+     * light text inverse textGradientMainActive
+     */
+    public val textInverseGradientMainActive: String = "textInverseGradientMainActive"
+
+    /**
+     * light text inverse textGradientAthenaHover
+     */
+    public val textInverseGradientAthenaHover: String = "textInverseGradientAthenaHover"
+
+    /**
+     * light text inverse textGradientAthenaActive
+     */
+    public val textInverseGradientAthenaActive: String = "textInverseGradientAthenaActive"
+
+    /**
+     * light text inverse textGradientJoyHover
+     */
+    public val textInverseGradientJoyHover: String = "textInverseGradientJoyHover"
+
+    /**
+     * light text inverse textGradientJoyActive
+     */
+    public val textInverseGradientJoyActive: String = "textInverseGradientJoyActive"
+
+    /**
+     * light text inverse textGradientBrandHover
+     */
+    public val textInverseGradientBrandHover: String = "textInverseGradientBrandHover"
+
+    /**
+     * light text inverse textGradientBrandActive
+     */
+    public val textInverseGradientBrandActive: String = "textInverseGradientBrandActive"
+
+    /**
+     * light text inverse textGradientB2EHover
+     */
+    public val textInverseGradientB2EHover: String = "textInverseGradientB2EHover"
+
+    /**
+     * light text inverse textGradientB2EActive
+     */
+    public val textInverseGradientB2EActive: String = "textInverseGradientB2EActive"
+
+    /**
+     * light text inverse textGradientMain
+     */
+    public val textInverseGradientMain: String = "textInverseGradientMain"
+
+    /**
+     * light text inverse textGradientAthena
+     */
+    public val textInverseGradientAthena: String = "textInverseGradientAthena"
+
+    /**
+     * light text inverse textGradientJoy
+     */
+    public val textInverseGradientJoy: String = "textInverseGradientJoy"
+
+    /**
+     * light text inverse textGradientB2E
+     */
+    public val textInverseGradientB2E: String = "textInverseGradientB2E"
+
+    /**
+     * light text inverse textGradientBrand
+     */
+    public val textInverseGradientBrand: String = "textInverseGradientBrand"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradientHover: String = "surfaceDefaultAccentGradientHover"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradientActive: String = "surfaceDefaultAccentGradientActive"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
+
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentMinorGradientHover: String =
+        "surfaceDefaultAccentMinorGradientHover"
+
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentMinorGradientActive: String =
+        "surfaceDefaultAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentMinorGradient: String = "surfaceDefaultAccentMinorGradient"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentAccentGradientHover: String =
+        "surfaceDefaultTransparentAccentGradientHover"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentAccentGradientActive: String =
+        "surfaceDefaultTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentAccentGradient: String =
+        "surfaceDefaultTransparentAccentGradient"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoGradientHover: String = "surfaceDefaultPromoGradientHover"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoGradientActive: String = "surfaceDefaultPromoGradientActive"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoGradient: String = "surfaceDefaultPromoGradient"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoMinorGradientHover: String =
+        "surfaceDefaultPromoMinorGradientHover"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoMinorGradientActive: String =
+        "surfaceDefaultPromoMinorGradientActive"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoMinorGradient: String = "surfaceDefaultPromoMinorGradient"
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentPromoGradientHover: String =
+        "surfaceDefaultTransparentPromoGradientHover"
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentPromoGradientActive: String =
+        "surfaceDefaultTransparentPromoGradientActive"
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentPromoGradient: String =
+        "surfaceDefaultTransparentPromoGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeleton: String = "surfaceDefaultSkeleton"
+
+    /**
+     * light surface default surfaceGradientMainHover
+     */
+    public val surfaceDefaultGradientMainHover: String = "surfaceDefaultGradientMainHover"
+
+    /**
+     * light surface default surfaceGradientMainActive
+     */
+    public val surfaceDefaultGradientMainActive: String = "surfaceDefaultGradientMainActive"
+
+    /**
+     * light surface default surfaceGradientMain
+     */
+    public val surfaceDefaultGradientMain: String = "surfaceDefaultGradientMain"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientHover: String = "surfaceDefaultSkeletonGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientActive: String = "surfaceDefaultSkeletonGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradient: String = "surfaceDefaultSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradientHover: String =
+        "surfaceDefaultSkeletonDeepGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradientActive: String =
+        "surfaceDefaultSkeletonDeepGradientActive"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradientHover: String = "surfaceOnDarkAccentGradientHover"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradientActive: String = "surfaceOnDarkAccentGradientActive"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
+
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentMinorGradientHover: String =
+        "surfaceOnDarkAccentMinorGradientHover"
+
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentMinorGradientActive: String =
+        "surfaceOnDarkAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentMinorGradient: String = "surfaceOnDarkAccentMinorGradient"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradientHover: String =
+        "surfaceOnDarkTransparentAccentGradientHover"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradientActive: String =
+        "surfaceOnDarkTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradient: String =
+        "surfaceOnDarkTransparentAccentGradient"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkPromoGradientHover: String = "surfaceOnDarkPromoGradientHover"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkPromoGradientActive: String = "surfaceOnDarkPromoGradientActive"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkPromoGradient: String = "surfaceOnDarkPromoGradient"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkPromoMinorGradientHover: String = "surfaceOnDarkPromoMinorGradientHover"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkPromoMinorGradientActive: String =
+        "surfaceOnDarkPromoMinorGradientActive"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkPromoMinorGradient: String = "surfaceOnDarkPromoMinorGradient"
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentPromoGradientHover: String =
+        "surfaceOnDarkTransparentPromoGradientHover"
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentPromoGradientActive: String =
+        "surfaceOnDarkTransparentPromoGradientActive"
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentPromoGradient: String =
+        "surfaceOnDarkTransparentPromoGradient"
+
+    /**
+     * light surface onDark surfaceGradientMainHover
+     */
+    public val surfaceOnDarkGradientMainHover: String = "surfaceOnDarkGradientMainHover"
+
+    /**
+     * light surface onDark surfaceGradientMainActive
+     */
+    public val surfaceOnDarkGradientMainActive: String = "surfaceOnDarkGradientMainActive"
+
+    /**
+     * light surface onDark surfaceGradientMain
+     */
+    public val surfaceOnDarkGradientMain: String = "surfaceOnDarkGradientMain"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientHover: String = "surfaceOnDarkSkeletonGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientActive: String = "surfaceOnDarkSkeletonGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradient: String = "surfaceOnDarkSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradientHover: String =
+        "surfaceOnDarkSkeletonDeepGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradientActive: String =
+        "surfaceOnDarkSkeletonDeepGradientActive"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradientHover: String = "surfaceOnLightAccentGradientHover"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradientActive: String = "surfaceOnLightAccentGradientActive"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
+
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentMinorGradientHover: String =
+        "surfaceOnLightAccentMinorGradientHover"
+
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentMinorGradientActive: String =
+        "surfaceOnLightAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentMinorGradient: String = "surfaceOnLightAccentMinorGradient"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentAccentGradientHover: String =
+        "surfaceOnLightTransparentAccentGradientHover"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentAccentGradientActive: String =
+        "surfaceOnLightTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentAccentGradient: String =
+        "surfaceOnLightTransparentAccentGradient"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoGradientHover: String = "surfaceOnLightPromoGradientHover"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoGradientActive: String = "surfaceOnLightPromoGradientActive"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoGradient: String = "surfaceOnLightPromoGradient"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoMinorGradientHover: String =
+        "surfaceOnLightPromoMinorGradientHover"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoMinorGradientActive: String =
+        "surfaceOnLightPromoMinorGradientActive"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoMinorGradient: String = "surfaceOnLightPromoMinorGradient"
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentPromoGradientHover: String =
+        "surfaceOnLightTransparentPromoGradientHover"
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentPromoGradientActive: String =
+        "surfaceOnLightTransparentPromoGradientActive"
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentPromoGradient: String =
+        "surfaceOnLightTransparentPromoGradient"
+
+    /**
+     * light surface onLight surfaceGradientMainHover
+     */
+    public val surfaceOnLightGradientMainHover: String = "surfaceOnLightGradientMainHover"
+
+    /**
+     * light surface onLight surfaceGradientMainActive
+     */
+    public val surfaceOnLightGradientMainActive: String = "surfaceOnLightGradientMainActive"
+
+    /**
+     * light surface onLight surfaceGradientMain
+     */
+    public val surfaceOnLightGradientMain: String = "surfaceOnLightGradientMain"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradientHover: String = "surfaceOnLightSkeletonGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradientActive: String = "surfaceOnLightSkeletonGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradient: String = "surfaceOnLightSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradientHover: String =
+        "surfaceOnLightSkeletonDeepGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradientActive: String =
+        "surfaceOnLightSkeletonDeepGradientActive"
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradientHover: String = "surfaceInverseAccentGradientHover"
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradientActive: String = "surfaceInverseAccentGradientActive"
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradientHover: String =
+        "surfaceInverseAccentMinorGradientHover"
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradientActive: String =
+        "surfaceInverseAccentMinorGradientActive"
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradient: String = "surfaceInverseAccentMinorGradient"
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradientHover: String =
+        "surfaceInverseTransparentAccentGradientHover"
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradientActive: String =
+        "surfaceInverseTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradient: String =
+        "surfaceInverseTransparentAccentGradient"
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradientHover: String = "surfaceInversePromoGradientHover"
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradientActive: String = "surfaceInversePromoGradientActive"
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradient: String = "surfaceInversePromoGradient"
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradientHover: String =
+        "surfaceInversePromoMinorGradientHover"
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradientActive: String =
+        "surfaceInversePromoMinorGradientActive"
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradient: String = "surfaceInversePromoMinorGradient"
+
+    /**
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentPromoGradientHover: String =
+        "surfaceInverseTransparentPromoGradientHover"
+
+    /**
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentPromoGradientActive: String =
+        "surfaceInverseTransparentPromoGradientActive"
+
+    /**
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentPromoGradient: String =
+        "surfaceInverseTransparentPromoGradient"
+
+    /**
+     * light surface inverse surfaceGradientMainHover
+     */
+    public val surfaceInverseGradientMainHover: String = "surfaceInverseGradientMainHover"
+
+    /**
+     * light surface inverse surfaceGradientMainActive
+     */
+    public val surfaceInverseGradientMainActive: String = "surfaceInverseGradientMainActive"
+
+    /**
+     * light surface inverse surfaceGradientMain
+     */
+    public val surfaceInverseGradientMain: String = "surfaceInverseGradientMain"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientHover: String = "surfaceInverseSkeletonGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientActive: String = "surfaceInverseSkeletonGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceInverseSkeletonDeepGradient: String = "surfaceInverseSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceInverseSkeletonDeepGradientHover: String =
+        "surfaceInverseSkeletonDeepGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceInverseSkeletonDeepGradientActive: String =
+        "surfaceInverseSkeletonDeepGradientActive"
+
+    /**
+     * Фон Афины на мобиле
+     */
+    public val backgroundDefaultMobileAssistantAthena: String =
+        "backgroundDefaultMobileAssistantAthena"
+
+    /**
+     * Фон Джой на мобиле
+     */
+    public val backgroundDefaultMobileAssistantJoy: String = "backgroundDefaultMobileAssistantJoy"
+
+    /**
+     * Фоновый градиент бренда на мобиле
+     */
+    public val backgroundDefaultMobileAssistantBrand: String =
+        "backgroundDefaultMobileAssistantBrand"
+
+    /**
+     * Фон для модальной шторки
+     */
+    public val backgroundDefaultModalSheet: String = "backgroundDefaultModalSheet"
+
+    /**
+     * Фоновый градиент B2E-ассистента на мобиле
+     */
+    public val backgroundDefaultMobileAssistantB2E: String = "backgroundDefaultMobileAssistantB2E"
+
+    /**
+     * Фон ассистента на мобиле
+     */
+    public val backgroundDefaultMobileAssistantMain: String = "backgroundDefaultMobileAssistantMain"
+
+    /**
+     * Акцентный цвет обводки с градиентом
+     */
+    public val outlineDefaultAccentGradientHover: String = "outlineDefaultAccentGradientHover"
+
+    /**
+     * Акцентный цвет обводки с градиентом
+     */
+    public val outlineDefaultAccentGradientActive: String = "outlineDefaultAccentGradientActive"
+
+    /**
+     * Акцентный цвет обводки с градиентом
+     */
+    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом
+     */
+    public val outlineDefaultAccentMinorGradientHover: String =
+        "outlineDefaultAccentMinorGradientHover"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом
+     */
+    public val outlineDefaultAccentMinorGradientActive: String =
+        "outlineDefaultAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом
+     */
+    public val outlineDefaultAccentMinorGradient: String = "outlineDefaultAccentMinorGradient"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом
+     */
+    public val outlineDefaultTransparentAccentGradientHover: String =
+        "outlineDefaultTransparentAccentGradientHover"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом
+     */
+    public val outlineDefaultTransparentAccentGradientActive: String =
+        "outlineDefaultTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом
+     */
+    public val outlineDefaultTransparentAccentGradient: String =
+        "outlineDefaultTransparentAccentGradient"
+
+    /**
+     * Промо цвет обводки с градиентом
+     */
+    public val outlineDefaultPromoGradientHover: String = "outlineDefaultPromoGradientHover"
+
+    /**
+     * Промо цвет обводки с градиентом
+     */
+    public val outlineDefaultPromoGradientActive: String = "outlineDefaultPromoGradientActive"
+
+    /**
+     * Промо цвет обводки с градиентом
+     */
+    public val outlineDefaultPromoGradient: String = "outlineDefaultPromoGradient"
+
+    /**
+     * Минорный промо цвет обводки с градиентом
+     */
+    public val outlineDefaultPromoMinorGradientHover: String =
+        "outlineDefaultPromoMinorGradientHover"
+
+    /**
+     * Минорный промо цвет обводки с градиентом
+     */
+    public val outlineDefaultPromoMinorGradientActive: String =
+        "outlineDefaultPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет обводки с градиентом
+     */
+    public val outlineDefaultPromoMinorGradient: String = "outlineDefaultPromoMinorGradient"
+
+    /**
+     * Акцентный цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkAccentGradientHover: String = "outlineOnDarkAccentGradientHover"
+
+    /**
+     * Акцентный цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkAccentGradientActive: String = "outlineOnDarkAccentGradientActive"
+
+    /**
+     * Акцентный цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkAccentMinorGradientHover: String =
+        "outlineOnDarkAccentMinorGradientHover"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkAccentMinorGradientActive: String =
+        "outlineOnDarkAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkAccentMinorGradient: String = "outlineOnDarkAccentMinorGradient"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkTransparentAccentGradientHover: String =
+        "outlineOnDarkTransparentAccentGradientHover"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkTransparentAccentGradientActive: String =
+        "outlineOnDarkTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkTransparentAccentGradient: String =
+        "outlineOnDarkTransparentAccentGradient"
+
+    /**
+     * Промо цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkPromoGradientHover: String = "outlineOnDarkPromoGradientHover"
+
+    /**
+     * Промо цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkPromoGradientActive: String = "outlineOnDarkPromoGradientActive"
+
+    /**
+     * Промо цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkPromoGradient: String = "outlineOnDarkPromoGradient"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkPromoMinorGradientHover: String = "outlineOnDarkPromoMinorGradientHover"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkPromoMinorGradientActive: String =
+        "outlineOnDarkPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на темном фоне
+     */
+    public val outlineOnDarkPromoMinorGradient: String = "outlineOnDarkPromoMinorGradient"
+
+    /**
+     * Акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightAccentGradientHover: String = "outlineOnLightAccentGradientHover"
+
+    /**
+     * Акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightAccentGradientActive: String = "outlineOnLightAccentGradientActive"
+
+    /**
+     * Акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightAccentMinorGradientHover: String =
+        "outlineOnLightAccentMinorGradientHover"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightAccentMinorGradientActive: String =
+        "outlineOnLightAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightAccentMinorGradient: String = "outlineOnLightAccentMinorGradient"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradientHover: String =
+        "outlineOnLightTransparentAccentGradientHover"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradientActive: String =
+        "outlineOnLightTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradient: String =
+        "outlineOnLightTransparentAccentGradient"
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradientHover: String = "outlineOnLightPromoGradientHover"
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradientActive: String = "outlineOnLightPromoGradientActive"
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradient: String = "outlineOnLightPromoGradient"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradientHover: String =
+        "outlineOnLightPromoMinorGradientHover"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradientActive: String =
+        "outlineOnLightPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradient: String = "outlineOnLightPromoMinorGradient"
+
+    /**
+     * Инвертированный акцентный цвет обводки с градиентом
+     */
+    public val outlineInverseAccentGradientHover: String = "outlineInverseAccentGradientHover"
+
+    /**
+     * Инвертированный акцентный цвет обводки с градиентом
+     */
+    public val outlineInverseAccentGradientActive: String = "outlineInverseAccentGradientActive"
+
+    /**
+     * Инвертированный акцентный цвет обводки с градиентом
+     */
+    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
+
+    /**
+     * Инвертированный акцентный минорный цвет обводки с градиентом
+     */
+    public val outlineInverseAccentMinorGradientHover: String =
+        "outlineInverseAccentMinorGradientHover"
+
+    /**
+     * Инвертированный акцентный минорный цвет обводки с градиентом
+     */
+    public val outlineInverseAccentMinorGradientActive: String =
+        "outlineInverseAccentMinorGradientActive"
+
+    /**
+     * Инвертированный акцентный минорный цвет обводки с градиентом
+     */
+    public val outlineInverseAccentMinorGradient: String = "outlineInverseAccentMinorGradient"
+
+    /**
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     */
+    public val outlineInverseTransparentAccentGradientHover: String =
+        "outlineInverseTransparentAccentGradientHover"
+
+    /**
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     */
+    public val outlineInverseTransparentAccentGradientActive: String =
+        "outlineInverseTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     */
+    public val outlineInverseTransparentAccentGradient: String =
+        "outlineInverseTransparentAccentGradient"
+
+    /**
+     * Инвертированный промо цвет обводки с градиентом
+     */
+    public val outlineInversePromoGradientHover: String = "outlineInversePromoGradientHover"
+
+    /**
+     * Инвертированный промо цвет обводки с градиентом
+     */
+    public val outlineInversePromoGradientActive: String = "outlineInversePromoGradientActive"
+
+    /**
+     * Инвертированный промо цвет обводки с градиентом
+     */
+    public val outlineInversePromoGradient: String = "outlineInversePromoGradient"
+
+    /**
+     * Инвертированный минорный промо цвет обводки с градиентом
+     */
+    public val outlineInversePromoMinorGradientHover: String =
+        "outlineInversePromoMinorGradientHover"
+
+    /**
+     * Инвертированный минорный промо цвет обводки с градиентом
+     */
+    public val outlineInversePromoMinorGradientActive: String =
+        "outlineInversePromoMinorGradientActive"
+
+    /**
+     * Инвертированный минорный промо цвет обводки с градиентом
+     */
+    public val outlineInversePromoMinorGradient: String = "outlineInversePromoMinorGradient"
+
+    /**
+     * Переопределяет аттрибут градиента.
+     */
+    public infix fun String.overrideBy(gradient: String) {
         _overrideMap[this] = gradient
     }
 }

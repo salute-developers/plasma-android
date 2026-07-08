@@ -10,6 +10,7 @@ import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.testcases.BottomSheetFooterAuto
 import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderAuto
 import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderFixedHandleOuter
+import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderFooterFixedFitContentEdgeToEdge
 import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderFooterFixedHandleInner
 import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderFooterFixedHandleNone
 import com.sdds.compose.uikit.fixtures.testcases.BottomSheetNoHeaderFooterAuto
@@ -107,6 +108,20 @@ class ComposeBottomSheetScreenshotTest(
     fun testBottomSheetNoHeaderFooterAuto() {
         composeTestRule.content {
             BottomSheetNoHeaderFooterAuto(
+                ModalBottomSheet.Default.style(),
+                BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testBottomSheetHeaderFooterFixedFitContentEdgeToEdge() {
+        composeTestRule.content {
+            BottomSheetHeaderFooterFixedFitContentEdgeToEdge(
                 ModalBottomSheet.Default.style(),
                 BasicButton.M.Default.style(),
             )

@@ -77,3 +77,13 @@ internal val Token.isLight: Boolean
  */
 internal val Token.isDark: Boolean
     get() = name.startsWith("dark")
+
+/**
+ * Значение токена шрифта
+ * @param color цвет
+ * @see TokenValue
+ */
+@Serializable
+internal data class ColorTokenValue(
+    val color: String,
+) : TokenValue

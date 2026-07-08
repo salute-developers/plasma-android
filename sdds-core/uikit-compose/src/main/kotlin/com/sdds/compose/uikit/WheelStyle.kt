@@ -97,12 +97,30 @@ interface WheelStyle : Style {
     /**
      * Включён ли индикатор выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorEnabled",
+        replaceWith = ReplaceWith("selectionIndicatorEnabled"),
+    )
     val itemSelectorEnabled: Boolean
+
+    /**
+     * Включён ли индикатор выбранного элемента
+     */
+    val selectionIndicatorEnabled: Boolean
 
     /**
      * Форма индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorShape",
+        replaceWith = ReplaceWith("selectionIndicatorShape"),
+    )
     val itemSelectorShape: StatefulValue<Shape>
+
+    /**
+     * Форма индикатора выбранного элемента
+     */
+    val selectionIndicatorShape: StatefulValue<Shape>
 
     companion object {
         /**
@@ -171,17 +189,45 @@ interface WheelStyleBuilder : StyleBuilder<WheelStyle> {
     /**
      * Включает или выключает индикатор выбранного элемента
      */
-    fun itemSelectorEnabled(enabled: Boolean): WheelStyleBuilder
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorEnabled",
+        replaceWith = ReplaceWith("selectionIndicatorEnabled(enabled)"),
+    )
+    fun itemSelectorEnabled(enabled: Boolean): WheelStyleBuilder = selectionIndicatorEnabled(enabled)
+
+    /**
+     * Включает или выключает индикатор выбранного элемента
+     */
+    fun selectionIndicatorEnabled(enabled: Boolean): WheelStyleBuilder
 
     /**
      * Устанавливает форму индикатора выбранного элемента
      */
-    fun itemSelectorShape(shape: StatefulValue<Shape>): WheelStyleBuilder
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorShape",
+        replaceWith = ReplaceWith("selectionIndicatorShape(shape)"),
+    )
+    fun itemSelectorShape(shape: StatefulValue<Shape>): WheelStyleBuilder = selectionIndicatorShape(shape)
 
     /**
      * Устанавливает форму индикатора выбранного элемента
      */
-    fun itemSelectorShape(shape: Shape): WheelStyleBuilder = itemSelectorShape(shape.asStatefulValue())
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorShape",
+        replaceWith = ReplaceWith("selectionIndicatorShape(shape)"),
+    )
+    fun itemSelectorShape(shape: Shape): WheelStyleBuilder = selectionIndicatorShape(shape)
+
+    /**
+     * Устанавливает форму индикатора выбранного элемента
+     */
+    fun selectionIndicatorShape(shape: StatefulValue<Shape>): WheelStyleBuilder
+
+    /**
+     * Устанавливает форму индикатора выбранного элемента
+     */
+    fun selectionIndicatorShape(shape: Shape): WheelStyleBuilder =
+        selectionIndicatorShape(shape.asStatefulValue())
 
     /**
      * Устанавливает цвета компонента при помощи [builder].
@@ -209,9 +255,21 @@ private class DefaultWheelStyle(
     override val controlIconDown: Int?,
     override val dividerStyle: DividerStyle,
     override val textAfterMode: TextAfterMode,
-    override val itemSelectorEnabled: Boolean,
-    override val itemSelectorShape: StatefulValue<Shape>,
+    override val selectionIndicatorEnabled: Boolean,
+    override val selectionIndicatorShape: StatefulValue<Shape>,
 ) : WheelStyle {
+
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorEnabled",
+        replaceWith = ReplaceWith("selectionIndicatorEnabled"),
+    )
+    override val itemSelectorEnabled: Boolean = false
+
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorShape",
+        replaceWith = ReplaceWith("selectionIndicatorShape"),
+    )
+    override val itemSelectorShape: StatefulValue<Shape> = RectangleShape.asStatefulValue()
 
     class Builder : WheelStyleBuilder {
         private val colorsBuilder = WheelColors.builder()
@@ -226,8 +284,8 @@ private class DefaultWheelStyle(
         private var controlIconDown: Int? = null
         private var dividerStyle: DividerStyle? = null
         private var textAfterMode: TextAfterMode? = null
-        private var itemSelectorEnabled: Boolean? = null
-        private var itemSelectorShape: StatefulValue<Shape>? = null
+        private var selectionIndicatorEnabled: Boolean? = null
+        private var selectionIndicatorShape: StatefulValue<Shape>? = null
 
         override fun itemTextStyle(itemTextStyle: TextStyle) = apply {
             this.itemTextStyle = itemTextStyle
@@ -269,12 +327,12 @@ private class DefaultWheelStyle(
             this.textAfterMode = mode
         }
 
-        override fun itemSelectorEnabled(enabled: Boolean) = apply {
-            this.itemSelectorEnabled = enabled
+        override fun selectionIndicatorEnabled(enabled: Boolean) = apply {
+            this.selectionIndicatorEnabled = enabled
         }
 
-        override fun itemSelectorShape(shape: StatefulValue<Shape>) = apply {
-            this.itemSelectorShape = shape
+        override fun selectionIndicatorShape(shape: StatefulValue<Shape>) = apply {
+            this.selectionIndicatorShape = shape
         }
 
         @Composable
@@ -302,8 +360,8 @@ private class DefaultWheelStyle(
                 controlIconDown = controlIconDown,
                 dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
                 textAfterMode = textAfterMode ?: TextAfterMode.EachItem,
-                itemSelectorEnabled = itemSelectorEnabled ?: false,
-                itemSelectorShape = itemSelectorShape ?: RectangleShape.asStatefulValue(),
+                selectionIndicatorEnabled = selectionIndicatorEnabled ?: false,
+                selectionIndicatorShape = selectionIndicatorShape ?: RectangleShape.asStatefulValue(),
             )
         }
     }
@@ -348,7 +406,16 @@ interface WheelColors {
     /**
      * Кисть индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorBrush",
+        replaceWith = ReplaceWith("selectionIndicatorBrush"),
+    )
     val itemSelectorBrush: StatefulValue<Brush>
+
+    /**
+     * Кисть индикатора выбранного элемента
+     */
+    val selectionIndicatorBrush: StatefulValue<Brush>
 
     companion object {
 
@@ -432,25 +499,65 @@ interface WheelColorsBuilder {
     /**
      * Устанавливает кисть индикатора выбранного элемента [itemSelectorBrush].
      */
-    fun itemSelectorColor(brush: StatefulValue<Brush>): WheelColorsBuilder
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorColor",
+        replaceWith = ReplaceWith("selectionIndicatorColor(brush)"),
+    )
+    fun itemSelectorColor(brush: StatefulValue<Brush>): WheelColorsBuilder =
+        selectionIndicatorColor(brush)
 
     /**
      * Устанавливает кисть индикатора выбранного элемента [itemSelectorBrush].
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorColor",
+        replaceWith = ReplaceWith("selectionIndicatorColor(brush)"),
+    )
     fun itemSelectorColor(brush: Brush): WheelColorsBuilder =
-        itemSelectorColor(brush.asStatefulValue())
+        selectionIndicatorColor(brush)
 
     /**
      * Устанавливает кисть индикатора выбранного элемента [itemSelectorBrush].
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorColor",
+        replaceWith = ReplaceWith("selectionIndicatorColor(color)"),
+    )
     fun itemSelectorColor(color: Color): WheelColorsBuilder =
-        itemSelectorColor(color.asStatefulBrush())
+        selectionIndicatorColor(color)
 
     /**
      * Устанавливает кисть индикатора выбранного элемента [itemSelectorBrush].
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorColor",
+        replaceWith = ReplaceWith("selectionIndicatorColor(color)"),
+    )
     fun itemSelectorColor(color: InteractiveColor): WheelColorsBuilder =
-        itemSelectorColor(color.asStatefulBrush())
+        selectionIndicatorColor(color)
+
+    /**
+     * Устанавливает кисть индикатора выбранного элемента [selectionIndicatorBrush].
+     */
+    fun selectionIndicatorColor(brush: StatefulValue<Brush>): WheelColorsBuilder
+
+    /**
+     * Устанавливает кисть индикатора выбранного элемента [selectionIndicatorBrush].
+     */
+    fun selectionIndicatorColor(brush: Brush): WheelColorsBuilder =
+        selectionIndicatorColor(brush.asStatefulValue())
+
+    /**
+     * Устанавливает кисть индикатора выбранного элемента [selectionIndicatorBrush].
+     */
+    fun selectionIndicatorColor(color: Color): WheelColorsBuilder =
+        selectionIndicatorColor(color.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть индикатора выбранного элемента [selectionIndicatorBrush].
+     */
+    fun selectionIndicatorColor(color: InteractiveColor): WheelColorsBuilder =
+        selectionIndicatorColor(color.asStatefulBrush())
 
     /**
      * Создает экземпляр [WheelColors]
@@ -466,8 +573,14 @@ private data class DefaultWheelColors(
     override val controlIconUpColor: InteractiveColor,
     override val controlIconDownColor: InteractiveColor,
     override val separatorColor: InteractiveColor,
-    override val itemSelectorBrush: StatefulValue<Brush>,
+    override val selectionIndicatorBrush: StatefulValue<Brush>,
 ) : WheelColors {
+
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorBrush",
+        replaceWith = ReplaceWith("selectionIndicatorBrush"),
+    )
+    override val itemSelectorBrush: StatefulValue<Brush> = Color.Transparent.asStatefulBrush()
 
     class Builder : WheelColorsBuilder {
         private var itemTextColor: InteractiveColor? = null
@@ -476,7 +589,7 @@ private data class DefaultWheelColors(
         private var controlIconUpColor: InteractiveColor? = null
         private var controlIconDownColor: InteractiveColor? = null
         private var separatorColor: InteractiveColor? = null
-        private var itemSelectorBrush: StatefulValue<Brush>? = null
+        private var selectionIndicatorBrush: StatefulValue<Brush>? = null
 
         override fun itemTextColor(itemTextColor: InteractiveColor) = apply {
             this.itemTextColor = itemTextColor
@@ -502,8 +615,8 @@ private data class DefaultWheelColors(
             this.separatorColor = separatorColor
         }
 
-        override fun itemSelectorColor(brush: StatefulValue<Brush>) = apply {
-            this.itemSelectorBrush = brush
+        override fun selectionIndicatorColor(brush: StatefulValue<Brush>) = apply {
+            this.selectionIndicatorBrush = brush
         }
 
         override fun build(): WheelColors {
@@ -514,7 +627,7 @@ private data class DefaultWheelColors(
                 controlIconUpColor = controlIconUpColor ?: Color.DarkGray.asInteractive(),
                 controlIconDownColor = controlIconDownColor ?: Color.DarkGray.asInteractive(),
                 separatorColor = separatorColor ?: Color.Black.asInteractive(),
-                itemSelectorBrush = itemSelectorBrush ?: Color.Transparent.asStatefulBrush(),
+                selectionIndicatorBrush = selectionIndicatorBrush ?: Color.Transparent.asStatefulBrush(),
             )
         }
     }
@@ -549,22 +662,58 @@ interface WheelDimensions {
     /**
      * Верхний отступ индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingTop",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingTop"),
+    )
     val itemSelectorPaddingTop: StatefulValue<Dp>
+
+    /**
+     * Верхний отступ индикатора выбранного элемента
+     */
+    val selectionIndicatorPaddingTop: StatefulValue<Dp>
 
     /**
      * Нижний отступ индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingBottom",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingBottom"),
+    )
     val itemSelectorPaddingBottom: StatefulValue<Dp>
+
+    /**
+     * Нижний отступ индикатора выбранного элемента
+     */
+    val selectionIndicatorPaddingBottom: StatefulValue<Dp>
 
     /**
      * Начальный отступ индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingStart",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingStart"),
+    )
     val itemSelectorPaddingStart: StatefulValue<Dp>
+
+    /**
+     * Начальный отступ индикатора выбранного элемента
+     */
+    val selectionIndicatorPaddingStart: StatefulValue<Dp>
 
     /**
      * Конечный отступ индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingEnd",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingEnd"),
+    )
     val itemSelectorPaddingEnd: StatefulValue<Dp>
+
+    /**
+     * Конечный отступ индикатора выбранного элемента
+     */
+    val selectionIndicatorPaddingEnd: StatefulValue<Dp>
 
     companion object {
         /**
@@ -601,46 +750,126 @@ interface WheelDimensionsBuilder {
     /**
      * Устанавливает верхний отступ индикатора выбранного элемента
      */
-    fun itemSelectorPaddingTop(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingTop",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingTop(padding)"),
+    )
+    fun itemSelectorPaddingTop(padding: StatefulValue<Dp>): WheelDimensionsBuilder =
+        selectionIndicatorPaddingTop(padding)
 
     /**
      * Устанавливает верхний отступ индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingTop",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingTop(padding)"),
+    )
     fun itemSelectorPaddingTop(padding: Dp): WheelDimensionsBuilder =
-        itemSelectorPaddingTop(padding.asStatefulValue())
+        selectionIndicatorPaddingTop(padding)
 
     /**
      * Устанавливает нижний отступ индикатора выбранного элемента
      */
-    fun itemSelectorPaddingBottom(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingBottom",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingBottom(padding)"),
+    )
+    fun itemSelectorPaddingBottom(padding: StatefulValue<Dp>): WheelDimensionsBuilder =
+        selectionIndicatorPaddingBottom(padding)
 
     /**
      * Устанавливает нижний отступ индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingBottom",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingBottom(padding)"),
+    )
     fun itemSelectorPaddingBottom(padding: Dp): WheelDimensionsBuilder =
-        itemSelectorPaddingBottom(padding.asStatefulValue())
+        selectionIndicatorPaddingBottom(padding)
 
     /**
      * Устанавливает начальный отступ индикатора выбранного элемента
      */
-    fun itemSelectorPaddingStart(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingStart",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingStart(padding)"),
+    )
+    fun itemSelectorPaddingStart(padding: StatefulValue<Dp>): WheelDimensionsBuilder =
+        selectionIndicatorPaddingStart(padding)
 
     /**
      * Устанавливает начальный отступ индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingStart",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingStart(padding)"),
+    )
     fun itemSelectorPaddingStart(padding: Dp): WheelDimensionsBuilder =
-        itemSelectorPaddingStart(padding.asStatefulValue())
+        selectionIndicatorPaddingStart(padding)
 
     /**
      * Устанавливает конечный отступ индикатора выбранного элемента
      */
-    fun itemSelectorPaddingEnd(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingEnd",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingEnd(padding)"),
+    )
+    fun itemSelectorPaddingEnd(padding: StatefulValue<Dp>): WheelDimensionsBuilder =
+        selectionIndicatorPaddingEnd(padding)
 
     /**
      * Устанавливает конечный отступ индикатора выбранного элемента
      */
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingEnd",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingEnd(padding)"),
+    )
     fun itemSelectorPaddingEnd(padding: Dp): WheelDimensionsBuilder =
-        itemSelectorPaddingEnd(padding.asStatefulValue())
+        selectionIndicatorPaddingEnd(padding)
+
+    /**
+     * Устанавливает верхний отступ индикатора выбранного элемента
+     */
+    fun selectionIndicatorPaddingTop(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+
+    /**
+     * Устанавливает верхний отступ индикатора выбранного элемента
+     */
+    fun selectionIndicatorPaddingTop(padding: Dp): WheelDimensionsBuilder =
+        selectionIndicatorPaddingTop(padding.asStatefulValue())
+
+    /**
+     * Устанавливает нижний отступ индикатора выбранного элемента
+     */
+    fun selectionIndicatorPaddingBottom(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+
+    /**
+     * Устанавливает нижний отступ индикатора выбранного элемента
+     */
+    fun selectionIndicatorPaddingBottom(padding: Dp): WheelDimensionsBuilder =
+        selectionIndicatorPaddingBottom(padding.asStatefulValue())
+
+    /**
+     * Устанавливает начальный отступ индикатора выбранного элемента
+     */
+    fun selectionIndicatorPaddingStart(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+
+    /**
+     * Устанавливает начальный отступ индикатора выбранного элемента
+     */
+    fun selectionIndicatorPaddingStart(padding: Dp): WheelDimensionsBuilder =
+        selectionIndicatorPaddingStart(padding.asStatefulValue())
+
+    /**
+     * Устанавливает конечный отступ индикатора выбранного элемента
+     */
+    fun selectionIndicatorPaddingEnd(padding: StatefulValue<Dp>): WheelDimensionsBuilder
+
+    /**
+     * Устанавливает конечный отступ индикатора выбранного элемента
+     */
+    fun selectionIndicatorPaddingEnd(padding: Dp): WheelDimensionsBuilder =
+        selectionIndicatorPaddingEnd(padding.asStatefulValue())
 
     /**
      * Создает экземпляр [WheelDimensions]
@@ -653,11 +882,35 @@ private class DefaultWheelDimensions(
     override val descriptionPadding: Dp,
     override val separatorSpacing: Dp,
     override val itemMinSpacing: Dp,
-    override val itemSelectorPaddingTop: StatefulValue<Dp>,
-    override val itemSelectorPaddingBottom: StatefulValue<Dp>,
-    override val itemSelectorPaddingStart: StatefulValue<Dp>,
-    override val itemSelectorPaddingEnd: StatefulValue<Dp>,
+    override val selectionIndicatorPaddingTop: StatefulValue<Dp>,
+    override val selectionIndicatorPaddingBottom: StatefulValue<Dp>,
+    override val selectionIndicatorPaddingStart: StatefulValue<Dp>,
+    override val selectionIndicatorPaddingEnd: StatefulValue<Dp>,
 ) : WheelDimensions {
+
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingTop",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingTop"),
+    )
+    override val itemSelectorPaddingTop: StatefulValue<Dp> = 0.dp.asStatefulValue()
+
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingBottom",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingBottom"),
+    )
+    override val itemSelectorPaddingBottom: StatefulValue<Dp> = 0.dp.asStatefulValue()
+
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingStart",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingStart"),
+    )
+    override val itemSelectorPaddingStart: StatefulValue<Dp> = 0.dp.asStatefulValue()
+
+    @Deprecated(
+        "Не используется, используйте selectionIndicatorPaddingEnd",
+        replaceWith = ReplaceWith("selectionIndicatorPaddingEnd"),
+    )
+    override val itemSelectorPaddingEnd: StatefulValue<Dp> = 0.dp.asStatefulValue()
 
     class Builder : WheelDimensionsBuilder {
 
@@ -665,10 +918,10 @@ private class DefaultWheelDimensions(
         private var descriptionPadding: Dp? = null
         private var separatorSpacing: Dp? = null
         private var itemMinSpacing: Dp? = null
-        private var itemSelectorPaddingTop: StatefulValue<Dp>? = null
-        private var itemSelectorPaddingBottom: StatefulValue<Dp>? = null
-        private var itemSelectorPaddingStart: StatefulValue<Dp>? = null
-        private var itemSelectorPaddingEnd: StatefulValue<Dp>? = null
+        private var selectionIndicatorPaddingTop: StatefulValue<Dp>? = null
+        private var selectionIndicatorPaddingBottom: StatefulValue<Dp>? = null
+        private var selectionIndicatorPaddingStart: StatefulValue<Dp>? = null
+        private var selectionIndicatorPaddingEnd: StatefulValue<Dp>? = null
 
         override fun itemTextAfterPadding(itemTextAfterPadding: Dp) = apply {
             this.itemTextAfterPadding = itemTextAfterPadding
@@ -686,20 +939,20 @@ private class DefaultWheelDimensions(
             this.itemMinSpacing = itemMinSpacing
         }
 
-        override fun itemSelectorPaddingTop(padding: StatefulValue<Dp>) = apply {
-            this.itemSelectorPaddingTop = padding
+        override fun selectionIndicatorPaddingTop(padding: StatefulValue<Dp>) = apply {
+            this.selectionIndicatorPaddingTop = padding
         }
 
-        override fun itemSelectorPaddingBottom(padding: StatefulValue<Dp>) = apply {
-            this.itemSelectorPaddingBottom = padding
+        override fun selectionIndicatorPaddingBottom(padding: StatefulValue<Dp>) = apply {
+            this.selectionIndicatorPaddingBottom = padding
         }
 
-        override fun itemSelectorPaddingStart(padding: StatefulValue<Dp>) = apply {
-            this.itemSelectorPaddingStart = padding
+        override fun selectionIndicatorPaddingStart(padding: StatefulValue<Dp>) = apply {
+            this.selectionIndicatorPaddingStart = padding
         }
 
-        override fun itemSelectorPaddingEnd(padding: StatefulValue<Dp>) = apply {
-            this.itemSelectorPaddingEnd = padding
+        override fun selectionIndicatorPaddingEnd(padding: StatefulValue<Dp>) = apply {
+            this.selectionIndicatorPaddingEnd = padding
         }
 
         override fun build(): WheelDimensions {
@@ -709,10 +962,10 @@ private class DefaultWheelDimensions(
                 descriptionPadding = descriptionPadding ?: 2.dp,
                 separatorSpacing = separatorSpacing ?: 20.dp,
                 itemMinSpacing = itemMinSpacing ?: 4.dp,
-                itemSelectorPaddingTop = itemSelectorPaddingTop ?: zeroPadding,
-                itemSelectorPaddingBottom = itemSelectorPaddingBottom ?: zeroPadding,
-                itemSelectorPaddingStart = itemSelectorPaddingStart ?: zeroPadding,
-                itemSelectorPaddingEnd = itemSelectorPaddingEnd ?: zeroPadding,
+                selectionIndicatorPaddingTop = selectionIndicatorPaddingTop ?: zeroPadding,
+                selectionIndicatorPaddingBottom = selectionIndicatorPaddingBottom ?: zeroPadding,
+                selectionIndicatorPaddingStart = selectionIndicatorPaddingStart ?: zeroPadding,
+                selectionIndicatorPaddingEnd = selectionIndicatorPaddingEnd ?: zeroPadding,
             )
         }
     }

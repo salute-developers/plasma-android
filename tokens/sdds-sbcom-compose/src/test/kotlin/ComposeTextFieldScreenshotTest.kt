@@ -6,10 +6,17 @@ import androidx.compose.ui.test.performTextInput
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldAlternativeField
 import com.sdds.compose.uikit.fixtures.testcases.TextFieldIconRight
 import com.sdds.compose.uikit.fixtures.testcases.TextFieldIconRightDisabled
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldNormalSbCom
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldSbComSearchBar
 import com.sdds.compose.uikit.style.style
+import com.sdds.sbcom.styles.textfield.AlternativeField
 import com.sdds.sbcom.styles.textfield.Default
+import com.sdds.sbcom.styles.textfield.Error
+import com.sdds.sbcom.styles.textfield.SearchBar
+import com.sdds.sbcom.styles.textfield.Success
 import com.sdds.sbcom.styles.textfield.TextField
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -31,6 +38,20 @@ class ComposeTextFieldScreenshotTest(
     fun testTextFieldDefault() {
         composeTestRule.content {
             TextFieldIconRight(style = TextField.Default.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldSuccess() {
+        composeTestRule.content {
+            TextFieldNormalSbCom(style = TextField.Success.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldError() {
+        composeTestRule.content {
+            TextFieldNormalSbCom(style = TextField.Error.style())
         }
     }
 
@@ -78,6 +99,20 @@ class ComposeTextFieldScreenshotTest(
     fun testTextFieldLDisabled() {
         composeTestRule.content {
             TextFieldIconRightDisabled(style = TextField.Default.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldDAlternative() {
+        composeTestRule.content {
+            TextFieldAlternativeField(style = AlternativeField.Default.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldDSearchBar() {
+        composeTestRule.content {
+            TextFieldSbComSearchBar(style = SearchBar.Default.style())
         }
     }
 }

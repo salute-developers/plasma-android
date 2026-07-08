@@ -16,3 +16,18 @@ internal data class Theme(
     @Serializable
     val tokens: List<Token>,
 )
+
+/**
+ * Данные о сгенерированных токенах в теме
+ * @property name название темы
+ * @property version версия темы
+ * @property tokens токены темы
+ * @author Малышев Александр on 05.03.2024
+ */
+@Serializable
+internal data class ThemeTokenInfo(
+    val name: String,
+    val version: String,
+    val platform: String,
+    val tokens: List<GeneratedTokenInfo>,
+)

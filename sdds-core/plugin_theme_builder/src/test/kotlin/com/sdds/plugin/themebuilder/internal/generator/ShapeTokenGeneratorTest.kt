@@ -68,6 +68,7 @@ class ShapeTokenGeneratorTest {
             viewShapeAppearanceConfig = listOf(materialShape(), sddsShape()),
             dimensionsConfig = dimensionsConfig,
             namespace = "com.test",
+            themeName = "TestTheme",
         )
     }
 

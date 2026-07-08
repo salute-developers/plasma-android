@@ -84,7 +84,12 @@ private val SwitchStyleBuilder.invariantProps: SwitchStyleBuilder
         .colorValues {
             labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
             descriptionColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
-            toggleThumbColor(SolidColor(PlasmaGigaTheme.colors.surfaceInverseSolidDefault).asStatefulValue())
+            toggleThumbColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue(
+                    setOf(SwitchStates.Checked)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceInverseSolidDefault),
+                ),
+            )
             toggleTrackColor(
                 SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(SwitchStates.Checked)

@@ -78,7 +78,7 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
         val docsDir = destinationDir.resolve("docs")
         mergePlusPrefixedDocs(docsDir)
         val componentConfig = if (isComposeLib())
-            project.projectDir.resolve("../config-info-compose.json")
+            project.projectDir.resolve("../.sdds/config-info-compose.json")
         else project.projectDir.resolve("../config-info-view-system.json")
         transformTemplate(destinationDir, extension.snippetsDir.asFile.get(), componentConfig)
     }

@@ -13,6 +13,7 @@ import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ViewTokenData
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
 import com.sdds.plugin.themebuilder.internal.token.BackgroundGradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
 import com.sdds.plugin.themebuilder.internal.token.GradientPoint
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
 import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
@@ -23,10 +24,13 @@ import com.sdds.plugin.themebuilder.internal.token.colorAttrName
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
 import com.sdds.plugin.themebuilder.internal.token.isTextGradient
+import com.sdds.plugin.themebuilder.internal.token.toJson
 import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.HexFormat
 import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientParametersXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.decapitalized
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.LinearGradientTokenValidator
 import com.sdds.plugin.themebuilder.internal.validator.RadialGradientTokenValidator
@@ -34,7 +38,6 @@ import com.sdds.plugin.themebuilder.internal.validator.SweepGradientTokenValidat
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.asTypeName
 import java.io.File
-import java.util.Locale
 
 /**
  * @param outputLocation локация для сохранения kt-файла с токенами
@@ -53,6 +56,7 @@ internal class GradientTokenGenerator(
     private val gradientTokenValues: Map<Tenant, Map<String, List<GradientTokenValue>>>,
     private val palette: Map<String, Map<String, String>>,
     private val resourceReferenceProvider: ResourceReferenceProvider,
+    private val themeName: String,
 ) : TokenGenerator<GradientToken, GradientTokenResult>(target) {
 
     private val composeKtFileBuilder by unsafeLazy { ktFileBuilderFactory.create("GradientTokens") }
@@ -86,6 +90,8 @@ internal class GradientTokenGenerator(
     private val viewXmlDrawableDarkTokenDataCollector =
         mutableMapOf<String, ViewTokenData.Gradient>()
 
+    private val generatedTokens = mutableListOf<GeneratedTokenInfo>()
+
     override fun collectResult() = GradientTokenResult(
         tokens = tokens,
         composeTokens = gradientTokenValues.mapValues {
@@ -98,6 +104,7 @@ internal class GradientTokenGenerator(
             light = viewXmlDrawableLightTokenDataCollector,
             dark = viewXmlDrawableDarkTokenDataCollector,
         ),
+        tokenInfo = generatedTokens,
     )
 
     /**
@@ -182,7 +189,6 @@ internal class GradientTokenGenerator(
                 )
             }
         }
-
         addViewGradientResult(token.colorAttrName(), token, gradientParameters)
         return true
     }
@@ -307,10 +313,20 @@ internal class GradientTokenGenerator(
                 objectName = objectName,
             )
         }
+        val attrName = token.ktName.decapitalized()
         token.addKtTokenData(
-            token.attrName(),
+            attrName,
             tokenData,
             tenant,
+        )
+        generatedTokens += GeneratedTokenInfo(
+            type = "gradient",
+            name = token.name,
+            reference = token.ktName,
+            themeReference = "${themeName.snakeToCamelCase()}Theme.gradients.$attrName",
+            displayName = token.displayName,
+            description = token.description,
+            value = tokenValue.toJson(),
         )
     }
 
@@ -754,8 +770,6 @@ internal class GradientTokenGenerator(
             darkCollector.getOrPut(attrName) { mutableListOf() }.add(params)
         }
     }
-
-    private fun GradientToken.attrName(): String = ktName.decapitalize(Locale.getDefault())
 
     /**
      * Данные о параметре токена градиента в XML.

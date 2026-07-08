@@ -30,6 +30,7 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ModalBottomSheet
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue
+import com.sdds.compose.uikit.internal.modal.HalfExpandedSettings
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.integrationtest.components.scenario.ScenarioButton
@@ -65,7 +66,10 @@ import kotlinx.coroutines.launch
 @Composable
 internal fun LoginFormScenarioScreen() {
     var uiState by remember { mutableStateOf(LoginFormScenarioUiState.initial()) }
-    val sheetState = rememberModalBottomSheetState(initialValue = BottomSheetValue.Hidden)
+    val sheetState = rememberModalBottomSheetState(
+        initialValue = BottomSheetValue.Hidden,
+        halfExpandedSettings = HalfExpandedSettings.Skip,
+    )
     val scope = rememberCoroutineScope()
     val bodyScrollState = rememberScrollState()
 
@@ -187,16 +191,17 @@ internal fun LoginFormScenarioScreen() {
                                 style = BasicButton.Xs.Secondary.style(),
                                 onClick = { uiState = uiState.applyValidSample() },
                             )
-                            ScenarioButton(
-                                state = uiState.resetButton,
-                                style = BasicButton.Xs.Secondary.style(),
-                                onClick = { uiState = uiState.reset() },
-                            )
                         }
                         Spacer(modifier = Modifier.height(16.dp))
                     }
                 },
-                footer = {},
+                footer = {
+                    ScenarioButton(
+                        state = uiState.resetButton,
+                        style = BasicButton.Xs.Secondary.style(),
+                        onClick = { uiState = uiState.reset() },
+                    )
+                },
             )
         }
     }

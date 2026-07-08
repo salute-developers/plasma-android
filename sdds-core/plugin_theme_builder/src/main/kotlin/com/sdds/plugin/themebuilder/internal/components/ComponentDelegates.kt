@@ -187,9 +187,14 @@ private class ComponentDelegatesScope(
     private val allMeta: List<ComponentMeta>,
     private val allComponents: List<Component>,
 ) {
-    fun universal(componentName: String): ComponentConfigDelegate<*> {
+    fun universal(componentName: String): ComponentConfigDelegate<*>? {
         val meta = allMeta.firstOrNull { it.componentName == componentName }
-            ?: error("[$componentName] ComponentMeta not found. Make sure @ApiInfo is set on the StyleBuilder.")
+        if (meta == null) {
+            // Универсальные компоненты не имеют legacy view-делегата. При генерации view-библиотеки
+            // compose-мета не загружается (allMeta пуст), поэтому такой компонент просто пропускается.
+            logger.warn("[$componentName] ComponentMeta not found, component will be skipped")
+            return null
+        }
         return UniversalComponentConfigDelegate(meta, allMeta, allComponents)
     }
 

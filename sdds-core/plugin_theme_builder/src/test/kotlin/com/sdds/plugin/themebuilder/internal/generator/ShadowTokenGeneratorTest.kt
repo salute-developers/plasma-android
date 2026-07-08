@@ -64,6 +64,7 @@ class ShadowTokenGeneratorTest {
             dimensAggregator = mockk(relaxed = true),
             namespace = "com.test",
             palette = palette,
+            themeName = "TestTheme",
         )
     }
 

@@ -4817,6 +4817,16 @@ public class PlasmaSdServiceColors(
         val overrideMap = colorOverrideScope.overrideMap
         return PlasmaSdServiceColors(colors.mapValues { overrideMap[it.key] ?: it.value })
     }
+
+    /**
+     * Возвращает копию [PlasmaSdServiceColors]. Предоставляет возможность переопределять цвета.
+     */
+    internal fun copyAttrs(overrideColors: ColorAttrOverrideScope.() -> Unit = {}): PlasmaSdServiceColors {
+        val colorOverrideScope = ColorAttrOverrideScope()
+        overrideColors.invoke(colorOverrideScope)
+        val overrideMap = colorOverrideScope.overrideMap
+        return PlasmaSdServiceColors(colors.mapValues { colors[overrideMap[it.key]] ?: it.value })
+    }
 }
 
 /**
@@ -9313,6 +9323,4504 @@ public class ColorOverrideScope {
      * Переопределяет аттрибут цвета.
      */
     public infix fun String.overrideBy(color: Color) {
+        _overrideMap[this] = color
+    }
+}
+
+/**
+ * Скоуп переопределения цветов по арибутам
+ */
+internal class ColorAttrOverrideScope {
+    private val _overrideMap: MutableMap<String, String> = mutableMapOf()
+
+    internal val overrideMap: Map<String, String>
+        get() = _overrideMap.toMap()
+
+    /**
+     * Основной цвет текста
+     */
+    public val textDefaultPrimary: String = "textDefaultPrimary"
+
+    /**
+     * Основной цвет текста
+     */
+    public val textDefaultPrimaryBrightness: String = "textDefaultPrimaryBrightness"
+
+    /**
+     * Вторичный цвет текста
+     */
+    public val textDefaultSecondary: String = "textDefaultSecondary"
+
+    /**
+     * Третичный цвет текста
+     */
+    public val textDefaultTertiary: String = "textDefaultTertiary"
+
+    /**
+     * Сплошной наборный текст
+     */
+    public val textDefaultParagraph: String = "textDefaultParagraph"
+
+    /**
+     * Акцентный цвет
+     */
+    public val textDefaultAccent: String = "textDefaultAccent"
+
+    /**
+     * Цвет успеха
+     */
+    public val textDefaultPositive: String = "textDefaultPositive"
+
+    /**
+     * Цвет предупреждения
+     */
+    public val textDefaultWarning: String = "textDefaultWarning"
+
+    /**
+     * Цвет ошибки
+     */
+    public val textDefaultNegative: String = "textDefaultNegative"
+
+    /**
+     * light text default textAccentMinorHover
+     */
+    public val textDefaultAccentMinorHover: String = "textDefaultAccentMinorHover"
+
+    /**
+     * light text default textAccentMinorActive
+     */
+    public val textDefaultAccentMinorActive: String = "textDefaultAccentMinorActive"
+
+    /**
+     * light text default textInfoHover
+     */
+    public val textDefaultInfoHover: String = "textDefaultInfoHover"
+
+    /**
+     * light text default textInfoActive
+     */
+    public val textDefaultInfoActive: String = "textDefaultInfoActive"
+
+    /**
+     * light text default textPositiveMinorHover
+     */
+    public val textDefaultPositiveMinorHover: String = "textDefaultPositiveMinorHover"
+
+    /**
+     * light text default textPositiveMinorActive
+     */
+    public val textDefaultPositiveMinorActive: String = "textDefaultPositiveMinorActive"
+
+    /**
+     * light text default textWarningMinorHover
+     */
+    public val textDefaultWarningMinorHover: String = "textDefaultWarningMinorHover"
+
+    /**
+     * light text default textWarningMinorActive
+     */
+    public val textDefaultWarningMinorActive: String = "textDefaultWarningMinorActive"
+
+    /**
+     * light text default textNegativeMinorHover
+     */
+    public val textDefaultNegativeMinorHover: String = "textDefaultNegativeMinorHover"
+
+    /**
+     * light text default textNegativeMinorActive
+     */
+    public val textDefaultNegativeMinorActive: String = "textDefaultNegativeMinorActive"
+
+    /**
+     * light text default textInfoMinorHover
+     */
+    public val textDefaultInfoMinorHover: String = "textDefaultInfoMinorHover"
+
+    /**
+     * light text default textInfoMinorActive
+     */
+    public val textDefaultInfoMinorActive: String = "textDefaultInfoMinorActive"
+
+    /**
+     * light text default textAccentMinor
+     */
+    public val textDefaultAccentMinor: String = "textDefaultAccentMinor"
+
+    /**
+     * light text default textPositiveMinor
+     */
+    public val textDefaultPositiveMinor: String = "textDefaultPositiveMinor"
+
+    /**
+     * light text default textWarningMinor
+     */
+    public val textDefaultWarningMinor: String = "textDefaultWarningMinor"
+
+    /**
+     * light text default textNegativeMinor
+     */
+    public val textDefaultNegativeMinor: String = "textDefaultNegativeMinor"
+
+    /**
+     * light text default textInfo
+     */
+    public val textDefaultInfo: String = "textDefaultInfo"
+
+    /**
+     * light text default textInfoMinor
+     */
+    public val textDefaultInfoMinor: String = "textDefaultInfoMinor"
+
+    /**
+     * Основной цвет текста
+     */
+    public val textDefaultPrimaryHover: String = "textDefaultPrimaryHover"
+
+    /**
+     * Основной цвет текста
+     */
+    public val textDefaultPrimaryActive: String = "textDefaultPrimaryActive"
+
+    /**
+     * Вторичный цвет текста
+     */
+    public val textDefaultSecondaryHover: String = "textDefaultSecondaryHover"
+
+    /**
+     * Вторичный цвет текста
+     */
+    public val textDefaultSecondaryActive: String = "textDefaultSecondaryActive"
+
+    /**
+     * Третичный цвет текста
+     */
+    public val textDefaultTertiaryHover: String = "textDefaultTertiaryHover"
+
+    /**
+     * Третичный цвет текста
+     */
+    public val textDefaultTertiaryActive: String = "textDefaultTertiaryActive"
+
+    /**
+     * Сплошной наборный текст
+     */
+    public val textDefaultParagraphHover: String = "textDefaultParagraphHover"
+
+    /**
+     * Сплошной наборный текст
+     */
+    public val textDefaultParagraphActive: String = "textDefaultParagraphActive"
+
+    /**
+     * Акцентный цвет
+     */
+    public val textDefaultAccentHover: String = "textDefaultAccentHover"
+
+    /**
+     * Акцентный цвет
+     */
+    public val textDefaultAccentActive: String = "textDefaultAccentActive"
+
+    /**
+     * Цвет успеха
+     */
+    public val textDefaultPositiveHover: String = "textDefaultPositiveHover"
+
+    /**
+     * Цвет успеха
+     */
+    public val textDefaultPositiveActive: String = "textDefaultPositiveActive"
+
+    /**
+     * Цвет предупреждения
+     */
+    public val textDefaultWarningHover: String = "textDefaultWarningHover"
+
+    /**
+     * Цвет предупреждения
+     */
+    public val textDefaultWarningActive: String = "textDefaultWarningActive"
+
+    /**
+     * Цвет ошибки
+     */
+    public val textDefaultNegativeHover: String = "textDefaultNegativeHover"
+
+    /**
+     * Цвет ошибки
+     */
+    public val textDefaultNegativeActive: String = "textDefaultNegativeActive"
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val textOnDarkPrimary: String = "textOnDarkPrimary"
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val textOnDarkPrimaryBrightness: String = "textOnDarkPrimaryBrightness"
+
+    /**
+     * Вторичный цвет текста на темном фоне
+     */
+    public val textOnDarkSecondary: String = "textOnDarkSecondary"
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val textOnDarkTertiary: String = "textOnDarkTertiary"
+
+    /**
+     * Сплошной наборный текст на темном фоне
+     */
+    public val textOnDarkParagraph: String = "textOnDarkParagraph"
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val textOnDarkAccent: String = "textOnDarkAccent"
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val textOnDarkPositive: String = "textOnDarkPositive"
+
+    /**
+     * Цвет предупреждения на темном фоне
+     */
+    public val textOnDarkWarning: String = "textOnDarkWarning"
+
+    /**
+     * Цвет ошибки на темном фоне
+     */
+    public val textOnDarkNegative: String = "textOnDarkNegative"
+
+    /**
+     * light text onDark textAccentMinor
+     */
+    public val textOnDarkAccentMinor: String = "textOnDarkAccentMinor"
+
+    /**
+     * light text onDark textAccentMinorHover
+     */
+    public val textOnDarkAccentMinorHover: String = "textOnDarkAccentMinorHover"
+
+    /**
+     * light text onDark textAccentMinorActive
+     */
+    public val textOnDarkAccentMinorActive: String = "textOnDarkAccentMinorActive"
+
+    /**
+     * light text onDark textInfoHover
+     */
+    public val textOnDarkInfoHover: String = "textOnDarkInfoHover"
+
+    /**
+     * light text onDark textInfoActive
+     */
+    public val textOnDarkInfoActive: String = "textOnDarkInfoActive"
+
+    /**
+     * light text onDark textPositiveMinor
+     */
+    public val textOnDarkPositiveMinor: String = "textOnDarkPositiveMinor"
+
+    /**
+     * light text onDark textPositiveMinorHover
+     */
+    public val textOnDarkPositiveMinorHover: String = "textOnDarkPositiveMinorHover"
+
+    /**
+     * light text onDark textPositiveMinorActive
+     */
+    public val textOnDarkPositiveMinorActive: String = "textOnDarkPositiveMinorActive"
+
+    /**
+     * light text onDark textWarningMinor
+     */
+    public val textOnDarkWarningMinor: String = "textOnDarkWarningMinor"
+
+    /**
+     * light text onDark textWarningMinorHover
+     */
+    public val textOnDarkWarningMinorHover: String = "textOnDarkWarningMinorHover"
+
+    /**
+     * light text onDark textWarningMinorActive
+     */
+    public val textOnDarkWarningMinorActive: String = "textOnDarkWarningMinorActive"
+
+    /**
+     * light text onDark textNegativeMinor
+     */
+    public val textOnDarkNegativeMinor: String = "textOnDarkNegativeMinor"
+
+    /**
+     * light text onDark textNegativeMinorHover
+     */
+    public val textOnDarkNegativeMinorHover: String = "textOnDarkNegativeMinorHover"
+
+    /**
+     * light text onDark textNegativeMinorActive
+     */
+    public val textOnDarkNegativeMinorActive: String = "textOnDarkNegativeMinorActive"
+
+    /**
+     * light text onDark textInfoMinorHover
+     */
+    public val textOnDarkInfoMinorHover: String = "textOnDarkInfoMinorHover"
+
+    /**
+     * light text onDark textInfoMinorActive
+     */
+    public val textOnDarkInfoMinorActive: String = "textOnDarkInfoMinorActive"
+
+    /**
+     * light text onDark textInfoMinor
+     */
+    public val textOnDarkInfoMinor: String = "textOnDarkInfoMinor"
+
+    /**
+     * light text onDark textInfo
+     */
+    public val textOnDarkInfo: String = "textOnDarkInfo"
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val textOnDarkPrimaryHover: String = "textOnDarkPrimaryHover"
+
+    /**
+     * Основной цвет текста на темном фоне
+     */
+    public val textOnDarkPrimaryActive: String = "textOnDarkPrimaryActive"
+
+    /**
+     * Вторичный цвет текста на темном фоне
+     */
+    public val textOnDarkSecondaryHover: String = "textOnDarkSecondaryHover"
+
+    /**
+     * Вторичный цвет текста на темном фоне
+     */
+    public val textOnDarkSecondaryActive: String = "textOnDarkSecondaryActive"
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val textOnDarkTertiaryHover: String = "textOnDarkTertiaryHover"
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val textOnDarkTertiaryActive: String = "textOnDarkTertiaryActive"
+
+    /**
+     * Сплошной наборный текст на темном фоне
+     */
+    public val textOnDarkParagraphHover: String = "textOnDarkParagraphHover"
+
+    /**
+     * Сплошной наборный текст на темном фоне
+     */
+    public val textOnDarkParagraphActive: String = "textOnDarkParagraphActive"
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val textOnDarkAccentHover: String = "textOnDarkAccentHover"
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val textOnDarkAccentActive: String = "textOnDarkAccentActive"
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val textOnDarkPositiveHover: String = "textOnDarkPositiveHover"
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val textOnDarkPositiveActive: String = "textOnDarkPositiveActive"
+
+    /**
+     * Цвет предупреждения на темном фоне
+     */
+    public val textOnDarkWarningHover: String = "textOnDarkWarningHover"
+
+    /**
+     * Цвет предупреждения на темном фоне
+     */
+    public val textOnDarkWarningActive: String = "textOnDarkWarningActive"
+
+    /**
+     * Цвет ошибки на темном фоне
+     */
+    public val textOnDarkNegativeHover: String = "textOnDarkNegativeHover"
+
+    /**
+     * Цвет ошибки на темном фоне
+     */
+    public val textOnDarkNegativeActive: String = "textOnDarkNegativeActive"
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val textOnLightPrimary: String = "textOnLightPrimary"
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val textOnLightPrimaryBrightness: String = "textOnLightPrimaryBrightness"
+
+    /**
+     * Вторичный цвет текста на светлом фоне
+     */
+    public val textOnLightSecondary: String = "textOnLightSecondary"
+
+    /**
+     * Третичный цвет текста на светлом фоне
+     */
+    public val textOnLightTertiary: String = "textOnLightTertiary"
+
+    /**
+     * Сплошной наборный текст на светлом фоне
+     */
+    public val textOnLightParagraph: String = "textOnLightParagraph"
+
+    /**
+     * Акцентный цвет на светлом фоне
+     */
+    public val textOnLightAccent: String = "textOnLightAccent"
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val textOnLightPositive: String = "textOnLightPositive"
+
+    /**
+     * Цвет предупреждения на светлом фоне
+     */
+    public val textOnLightWarning: String = "textOnLightWarning"
+
+    /**
+     * light text onLight textAccentMinor
+     */
+    public val textOnLightAccentMinor: String = "textOnLightAccentMinor"
+
+    /**
+     * light text onLight textAccentMinorHover
+     */
+    public val textOnLightAccentMinorHover: String = "textOnLightAccentMinorHover"
+
+    /**
+     * light text onLight textAccentMinorActive
+     */
+    public val textOnLightAccentMinorActive: String = "textOnLightAccentMinorActive"
+
+    /**
+     * light text onLight textInfoHover
+     */
+    public val textOnLightInfoHover: String = "textOnLightInfoHover"
+
+    /**
+     * light text onLight textInfoActive
+     */
+    public val textOnLightInfoActive: String = "textOnLightInfoActive"
+
+    /**
+     * light text onLight textPositiveMinor
+     */
+    public val textOnLightPositiveMinor: String = "textOnLightPositiveMinor"
+
+    /**
+     * light text onLight textPositiveMinorHover
+     */
+    public val textOnLightPositiveMinorHover: String = "textOnLightPositiveMinorHover"
+
+    /**
+     * light text onLight textPositiveMinorActive
+     */
+    public val textOnLightPositiveMinorActive: String = "textOnLightPositiveMinorActive"
+
+    /**
+     * light text onLight textWarningMinor
+     */
+    public val textOnLightWarningMinor: String = "textOnLightWarningMinor"
+
+    /**
+     * light text onLight textWarningMinorHover
+     */
+    public val textOnLightWarningMinorHover: String = "textOnLightWarningMinorHover"
+
+    /**
+     * light text onLight textWarningMinorActive
+     */
+    public val textOnLightWarningMinorActive: String = "textOnLightWarningMinorActive"
+
+    /**
+     * light text onLight textNegativeMinor
+     */
+    public val textOnLightNegativeMinor: String = "textOnLightNegativeMinor"
+
+    /**
+     * light text onLight textNegativeMinorHover
+     */
+    public val textOnLightNegativeMinorHover: String = "textOnLightNegativeMinorHover"
+
+    /**
+     * light text onLight textNegativeMinorActive
+     */
+    public val textOnLightNegativeMinorActive: String = "textOnLightNegativeMinorActive"
+
+    /**
+     * light text onLight textInfoMinorHover
+     */
+    public val textOnLightInfoMinorHover: String = "textOnLightInfoMinorHover"
+
+    /**
+     * light text onLight textInfoMinorActive
+     */
+    public val textOnLightInfoMinorActive: String = "textOnLightInfoMinorActive"
+
+    /**
+     * Цвет ошибки на светлом фоне
+     */
+    public val textOnLightNegative: String = "textOnLightNegative"
+
+    /**
+     * Цвет ошибки на светлом фоне
+     */
+    public val textOnLightNegativeHover: String = "textOnLightNegativeHover"
+
+    /**
+     * Цвет ошибки на светлом фоне
+     */
+    public val textOnLightNegativeActive: String = "textOnLightNegativeActive"
+
+    /**
+     * light text onLight textInfo
+     */
+    public val textOnLightInfo: String = "textOnLightInfo"
+
+    /**
+     * light text onLight textInfoMinor
+     */
+    public val textOnLightInfoMinor: String = "textOnLightInfoMinor"
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val textOnLightPrimaryHover: String = "textOnLightPrimaryHover"
+
+    /**
+     * Основной цвет текста на светлом фоне
+     */
+    public val textOnLightPrimaryActive: String = "textOnLightPrimaryActive"
+
+    /**
+     * Вторичный цвет текста на светлом фоне
+     */
+    public val textOnLightSecondaryHover: String = "textOnLightSecondaryHover"
+
+    /**
+     * Вторичный цвет текста на светлом фоне
+     */
+    public val textOnLightSecondaryActive: String = "textOnLightSecondaryActive"
+
+    /**
+     * Третичный цвет текста на светлом фоне
+     */
+    public val textOnLightTertiaryHover: String = "textOnLightTertiaryHover"
+
+    /**
+     * Третичный цвет текста на светлом фоне
+     */
+    public val textOnLightTertiaryActive: String = "textOnLightTertiaryActive"
+
+    /**
+     * Сплошной наборный текст на светлом фоне
+     */
+    public val textOnLightParagraphHover: String = "textOnLightParagraphHover"
+
+    /**
+     * Сплошной наборный текст на светлом фоне
+     */
+    public val textOnLightParagraphActive: String = "textOnLightParagraphActive"
+
+    /**
+     * Акцентный цвет на светлом фоне
+     */
+    public val textOnLightAccentHover: String = "textOnLightAccentHover"
+
+    /**
+     * Акцентный цвет на светлом фоне
+     */
+    public val textOnLightAccentActive: String = "textOnLightAccentActive"
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val textOnLightPositiveHover: String = "textOnLightPositiveHover"
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val textOnLightPositiveActive: String = "textOnLightPositiveActive"
+
+    /**
+     * Цвет предупреждения на светлом фоне
+     */
+    public val textOnLightWarningHover: String = "textOnLightWarningHover"
+
+    /**
+     * Цвет предупреждения на светлом фоне
+     */
+    public val textOnLightWarningActive: String = "textOnLightWarningActive"
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val textInversePrimary: String = "textInversePrimary"
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val textInversePrimaryBrightness: String = "textInversePrimaryBrightness"
+
+    /**
+     * Инвертированный вторичный цвет текста
+     */
+    public val textInverseSecondary: String = "textInverseSecondary"
+
+    /**
+     * Инвертированный третичный цвет текста
+     */
+    public val textInverseTertiary: String = "textInverseTertiary"
+
+    /**
+     * Инвертированный cплошной наборный текст
+     */
+    public val textInverseParagraph: String = "textInverseParagraph"
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val textInversePositive: String = "textInversePositive"
+
+    /**
+     * Инвертированный цвет предупреждения
+     */
+    public val textInverseWarning: String = "textInverseWarning"
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val textInverseNegative: String = "textInverseNegative"
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val textInversePrimaryHover: String = "textInversePrimaryHover"
+
+    /**
+     * Инвертированный основной цвет текста
+     */
+    public val textInversePrimaryActive: String = "textInversePrimaryActive"
+
+    /**
+     * Инвертированный вторичный цвет текста
+     */
+    public val textInverseSecondaryHover: String = "textInverseSecondaryHover"
+
+    /**
+     * Инвертированный вторичный цвет текста
+     */
+    public val textInverseSecondaryActive: String = "textInverseSecondaryActive"
+
+    /**
+     * Инвертированный третичный цвет текста
+     */
+    public val textInverseTertiaryHover: String = "textInverseTertiaryHover"
+
+    /**
+     * Инвертированный третичный цвет текста
+     */
+    public val textInverseTertiaryActive: String = "textInverseTertiaryActive"
+
+    /**
+     * Инвертированный cплошной наборный текст
+     */
+    public val textInverseParagraphHover: String = "textInverseParagraphHover"
+
+    /**
+     * Инвертированный cплошной наборный текст
+     */
+    public val textInverseParagraphActive: String = "textInverseParagraphActive"
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val textInverseAccentHover: String = "textInverseAccentHover"
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val textInverseAccentActive: String = "textInverseAccentActive"
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val textInversePositiveHover: String = "textInversePositiveHover"
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val textInversePositiveActive: String = "textInversePositiveActive"
+
+    /**
+     * Инвертированный цвет предупреждения
+     */
+    public val textInverseWarningHover: String = "textInverseWarningHover"
+
+    /**
+     * Инвертированный цвет предупреждения
+     */
+    public val textInverseWarningActive: String = "textInverseWarningActive"
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val textInverseNegativeHover: String = "textInverseNegativeHover"
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val textInverseNegativeActive: String = "textInverseNegativeActive"
+
+    /**
+     * light text inverse textAccentMinor
+     */
+    public val textInverseAccentMinor: String = "textInverseAccentMinor"
+
+    /**
+     * light text inverse textAccentMinorHover
+     */
+    public val textInverseAccentMinorHover: String = "textInverseAccentMinorHover"
+
+    /**
+     * light text inverse textAccentMinorActive
+     */
+    public val textInverseAccentMinorActive: String = "textInverseAccentMinorActive"
+
+    /**
+     * light text inverse textInfoHover
+     */
+    public val textInverseInfoHover: String = "textInverseInfoHover"
+
+    /**
+     * light text inverse textInfoActive
+     */
+    public val textInverseInfoActive: String = "textInverseInfoActive"
+
+    /**
+     * light text inverse textPositiveMinorHover
+     */
+    public val textInversePositiveMinorHover: String = "textInversePositiveMinorHover"
+
+    /**
+     * light text inverse textPositiveMinorActive
+     */
+    public val textInversePositiveMinorActive: String = "textInversePositiveMinorActive"
+
+    /**
+     * light text inverse textWarningMinorHover
+     */
+    public val textInverseWarningMinorHover: String = "textInverseWarningMinorHover"
+
+    /**
+     * light text inverse textWarningMinorActive
+     */
+    public val textInverseWarningMinorActive: String = "textInverseWarningMinorActive"
+
+    /**
+     * light text inverse textNegativeMinorHover
+     */
+    public val textInverseNegativeMinorHover: String = "textInverseNegativeMinorHover"
+
+    /**
+     * light text inverse textNegativeMinorActive
+     */
+    public val textInverseNegativeMinorActive: String = "textInverseNegativeMinorActive"
+
+    /**
+     * light text inverse textInfoMinorHover
+     */
+    public val textInverseInfoMinorHover: String = "textInverseInfoMinorHover"
+
+    /**
+     * light text inverse textInfoMinorActive
+     */
+    public val textInverseInfoMinorActive: String = "textInverseInfoMinorActive"
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val textInverseAccent: String = "textInverseAccent"
+
+    /**
+     * light text inverse textInfo
+     */
+    public val textInverseInfo: String = "textInverseInfo"
+
+    /**
+     * light text inverse textPositiveMinor
+     */
+    public val textInversePositiveMinor: String = "textInversePositiveMinor"
+
+    /**
+     * light text inverse textWarningMinor
+     */
+    public val textInverseWarningMinor: String = "textInverseWarningMinor"
+
+    /**
+     * light text inverse textNegativeMinor
+     */
+    public val textInverseNegativeMinor: String = "textInverseNegativeMinor"
+
+    /**
+     * light text inverse textInfoMinor
+     */
+    public val textInverseInfoMinor: String = "textInverseInfoMinor"
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceDefaultSolidDefault: String = "surfaceDefaultSolidDefault"
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidPrimary: String = "surfaceDefaultSolidPrimary"
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidPrimaryBrightness: String = "surfaceDefaultSolidPrimaryBrightness"
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidSecondary: String = "surfaceDefaultSolidSecondary"
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidTertiary: String = "surfaceDefaultSolidTertiary"
+
+    /**
+     * Основной фон для карточек
+     */
+    public val surfaceDefaultSolidCard: String = "surfaceDefaultSolidCard"
+
+    /**
+     * Основной фон для карточек
+     */
+    public val surfaceDefaultSolidCardBrightness: String = "surfaceDefaultSolidCardBrightness"
+
+    /**
+     * Прозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceDefaultTransparentDefault: String = "surfaceDefaultTransparentDefault"
+
+    /**
+     * Основной прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentPrimary: String = "surfaceDefaultTransparentPrimary"
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentSecondary: String = "surfaceDefaultTransparentSecondary"
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentTertiary: String = "surfaceDefaultTransparentTertiary"
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val surfaceDefaultTransparentCard: String = "surfaceDefaultTransparentCard"
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val surfaceDefaultTransparentCardBrightness: String =
+        "surfaceDefaultTransparentCardBrightness"
+
+    /**
+     * Акцентный фон поверхности/контрола
+     */
+    public val surfaceDefaultAccent: String = "surfaceDefaultAccent"
+
+    /**
+     * Цвет успеха
+     */
+    public val surfaceDefaultPositive: String = "surfaceDefaultPositive"
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceDefaultWarning: String = "surfaceDefaultWarning"
+
+    /**
+     * Цвет фона поверхности/контрола ошибка
+     */
+    public val surfaceDefaultNegative: String = "surfaceDefaultNegative"
+
+    /**
+     * Фон поверхности/контрола без заливки
+     */
+    public val surfaceDefaultClear: String = "surfaceDefaultClear"
+
+    /**
+     * light surface default surfaceTransparentDeep
+     */
+    public val surfaceDefaultTransparentDeep: String = "surfaceDefaultTransparentDeep"
+
+    /**
+     * light surface default surfaceAccentMinorHover
+     */
+    public val surfaceDefaultAccentMinorHover: String = "surfaceDefaultAccentMinorHover"
+
+    /**
+     * light surface default surfaceAccentMinorActive
+     */
+    public val surfaceDefaultAccentMinorActive: String = "surfaceDefaultAccentMinorActive"
+
+    /**
+     * light surface default surfaceTransparentAccentHover
+     */
+    public val surfaceDefaultTransparentAccentHover: String = "surfaceDefaultTransparentAccentHover"
+
+    /**
+     * light surface default surfaceTransparentAccentActive
+     */
+    public val surfaceDefaultTransparentAccentActive: String =
+        "surfaceDefaultTransparentAccentActive"
+
+    /**
+     * light surface default surfaceInfoHover
+     */
+    public val surfaceDefaultInfoHover: String = "surfaceDefaultInfoHover"
+
+    /**
+     * light surface default surfaceInfoActive
+     */
+    public val surfaceDefaultInfoActive: String = "surfaceDefaultInfoActive"
+
+    /**
+     * light surface default surfacePositiveMinorHover
+     */
+    public val surfaceDefaultPositiveMinorHover: String = "surfaceDefaultPositiveMinorHover"
+
+    /**
+     * light surface default surfacePositiveMinorActive
+     */
+    public val surfaceDefaultPositiveMinorActive: String = "surfaceDefaultPositiveMinorActive"
+
+    /**
+     * light surface default surfaceWarningMinorHover
+     */
+    public val surfaceDefaultWarningMinorHover: String = "surfaceDefaultWarningMinorHover"
+
+    /**
+     * light surface default surfaceWarningMinorActive
+     */
+    public val surfaceDefaultWarningMinorActive: String = "surfaceDefaultWarningMinorActive"
+
+    /**
+     * light surface default surfaceNegativeMinorHover
+     */
+    public val surfaceDefaultNegativeMinorHover: String = "surfaceDefaultNegativeMinorHover"
+
+    /**
+     * light surface default surfaceNegativeMinorActive
+     */
+    public val surfaceDefaultNegativeMinorActive: String = "surfaceDefaultNegativeMinorActive"
+
+    /**
+     * light surface default surfaceInfoMinorHover
+     */
+    public val surfaceDefaultInfoMinorHover: String = "surfaceDefaultInfoMinorHover"
+
+    /**
+     * light surface default surfaceInfoMinorActive
+     */
+    public val surfaceDefaultInfoMinorActive: String = "surfaceDefaultInfoMinorActive"
+
+    /**
+     * light surface default surfaceTransparentPositiveHover
+     */
+    public val surfaceDefaultTransparentPositiveHover: String =
+        "surfaceDefaultTransparentPositiveHover"
+
+    /**
+     * light surface default surfaceTransparentPositiveActive
+     */
+    public val surfaceDefaultTransparentPositiveActive: String =
+        "surfaceDefaultTransparentPositiveActive"
+
+    /**
+     * light surface default surfaceTransparentWarningHover
+     */
+    public val surfaceDefaultTransparentWarningHover: String =
+        "surfaceDefaultTransparentWarningHover"
+
+    /**
+     * light surface default surfaceTransparentWarningActive
+     */
+    public val surfaceDefaultTransparentWarningActive: String =
+        "surfaceDefaultTransparentWarningActive"
+
+    /**
+     * light surface default surfaceTransparentNegativeHover
+     */
+    public val surfaceDefaultTransparentNegativeHover: String =
+        "surfaceDefaultTransparentNegativeHover"
+
+    /**
+     * light surface default surfaceTransparentNegativeActive
+     */
+    public val surfaceDefaultTransparentNegativeActive: String =
+        "surfaceDefaultTransparentNegativeActive"
+
+    /**
+     * light surface default surfaceTransparentInfoHover
+     */
+    public val surfaceDefaultTransparentInfoHover: String = "surfaceDefaultTransparentInfoHover"
+
+    /**
+     * light surface default surfaceTransparentInfoActive
+     */
+    public val surfaceDefaultTransparentInfoActive: String = "surfaceDefaultTransparentInfoActive"
+
+    /**
+     * light surface default surfaceAccentMinor
+     */
+    public val surfaceDefaultAccentMinor: String = "surfaceDefaultAccentMinor"
+
+    /**
+     * light surface default surfaceTransparentAccent
+     */
+    public val surfaceDefaultTransparentAccent: String = "surfaceDefaultTransparentAccent"
+
+    /**
+     * light surface default surfacePositiveMinor
+     */
+    public val surfaceDefaultPositiveMinor: String = "surfaceDefaultPositiveMinor"
+
+    /**
+     * light surface default surfaceWarningMinor
+     */
+    public val surfaceDefaultWarningMinor: String = "surfaceDefaultWarningMinor"
+
+    /**
+     * light surface default surfaceNegativeMinor
+     */
+    public val surfaceDefaultNegativeMinor: String = "surfaceDefaultNegativeMinor"
+
+    /**
+     * light surface default surfaceTransparentPositive
+     */
+    public val surfaceDefaultTransparentPositive: String = "surfaceDefaultTransparentPositive"
+
+    /**
+     * light surface default surfaceTransparentWarning
+     */
+    public val surfaceDefaultTransparentWarning: String = "surfaceDefaultTransparentWarning"
+
+    /**
+     * light surface default surfaceTransparentNegative
+     */
+    public val surfaceDefaultTransparentNegative: String = "surfaceDefaultTransparentNegative"
+
+    /**
+     * light surface default surfaceInfo
+     */
+    public val surfaceDefaultInfo: String = "surfaceDefaultInfo"
+
+    /**
+     * light surface default surfaceInfoMinor
+     */
+    public val surfaceDefaultInfoMinor: String = "surfaceDefaultInfoMinor"
+
+    /**
+     * light surface default surfaceTransparentInfo
+     */
+    public val surfaceDefaultTransparentInfo: String = "surfaceDefaultTransparentInfo"
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceDefaultSolidDefaultHover: String = "surfaceDefaultSolidDefaultHover"
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceDefaultSolidDefaultActive: String = "surfaceDefaultSolidDefaultActive"
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidPrimaryHover: String = "surfaceDefaultSolidPrimaryHover"
+
+    /**
+     * Основной непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidPrimaryActive: String = "surfaceDefaultSolidPrimaryActive"
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidSecondaryHover: String = "surfaceDefaultSolidSecondaryHover"
+
+    /**
+     * Вторичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidSecondaryActive: String = "surfaceDefaultSolidSecondaryActive"
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidTertiaryHover: String = "surfaceDefaultSolidTertiaryHover"
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultSolidTertiaryActive: String = "surfaceDefaultSolidTertiaryActive"
+
+    /**
+     * Основной фон для карточек
+     */
+    public val surfaceDefaultSolidCardHover: String = "surfaceDefaultSolidCardHover"
+
+    /**
+     * Основной фон для карточек
+     */
+    public val surfaceDefaultSolidCardActive: String = "surfaceDefaultSolidCardActive"
+
+    /**
+     * Прозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceDefaultTransparentDefaultHover: String =
+        "surfaceDefaultTransparentDefaultHover"
+
+    /**
+     * Прозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceDefaultTransparentDefaultActive: String =
+        "surfaceDefaultTransparentDefaultActive"
+
+    /**
+     * Основной прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentPrimaryHover: String =
+        "surfaceDefaultTransparentPrimaryHover"
+
+    /**
+     * Основной прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentPrimaryActive: String =
+        "surfaceDefaultTransparentPrimaryActive"
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentSecondaryHover: String =
+        "surfaceDefaultTransparentSecondaryHover"
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentSecondaryActive: String =
+        "surfaceDefaultTransparentSecondaryActive"
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentTertiaryHover: String =
+        "surfaceDefaultTransparentTertiaryHover"
+
+    /**
+     * Третичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentTertiaryActive: String =
+        "surfaceDefaultTransparentTertiaryActive"
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val surfaceDefaultTransparentCardHover: String = "surfaceDefaultTransparentCardHover"
+
+    /**
+     * Прозрачный фон для карточек
+     */
+    public val surfaceDefaultTransparentCardActive: String = "surfaceDefaultTransparentCardActive"
+
+    /**
+     * Акцентный фон поверхности/контрола
+     */
+    public val surfaceDefaultAccentHover: String = "surfaceDefaultAccentHover"
+
+    /**
+     * Акцентный фон поверхности/контрола
+     */
+    public val surfaceDefaultAccentActive: String = "surfaceDefaultAccentActive"
+
+    /**
+     * Цвет успеха
+     */
+    public val surfaceDefaultPositiveHover: String = "surfaceDefaultPositiveHover"
+
+    /**
+     * Цвет успеха
+     */
+    public val surfaceDefaultPositiveActive: String = "surfaceDefaultPositiveActive"
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceDefaultWarningHover: String = "surfaceDefaultWarningHover"
+
+    /**
+     * Цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceDefaultWarningActive: String = "surfaceDefaultWarningActive"
+
+    /**
+     * Цвет фона поверхности/контрола ошибка
+     */
+    public val surfaceDefaultNegativeHover: String = "surfaceDefaultNegativeHover"
+
+    /**
+     * Цвет фона поверхности/контрола ошибка
+     */
+    public val surfaceDefaultNegativeActive: String = "surfaceDefaultNegativeActive"
+
+    /**
+     * Фон поверхности/контрола без заливки
+     */
+    public val surfaceDefaultClearHover: String = "surfaceDefaultClearHover"
+
+    /**
+     * Фон поверхности/контрола без заливки
+     */
+    public val surfaceDefaultClearActive: String = "surfaceDefaultClearActive"
+
+    /**
+     * light surface default surfaceTransparentDeepHover
+     */
+    public val surfaceDefaultTransparentDeepHover: String = "surfaceDefaultTransparentDeepHover"
+
+    /**
+     * light surface default surfaceTransparentDeepActive
+     */
+    public val surfaceDefaultTransparentDeepActive: String = "surfaceDefaultTransparentDeepActive"
+
+    /**
+     * Осн. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidPrimary: String = "surfaceOnDarkSolidPrimary"
+
+    /**
+     * Осн. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidPrimaryBrightness: String = "surfaceOnDarkSolidPrimaryBrightness"
+
+    /**
+     * Втор. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidSecondary: String = "surfaceOnDarkSolidSecondary"
+
+    /**
+     * Трет. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidTertiary: String = "surfaceOnDarkSolidTertiary"
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkSolidCard: String = "surfaceOnDarkSolidCard"
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkSolidCardBrightness: String = "surfaceOnDarkSolidCardBrightness"
+
+    /**
+     * Прозрачный фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val surfaceOnDarkTransparentDefault: String = "surfaceOnDarkTransparentDefault"
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkAccent: String = "surfaceOnDarkAccent"
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val surfaceOnDarkPositive: String = "surfaceOnDarkPositive"
+
+    /**
+     * Цвет фона поверхн./контрола предупреждение на темном фоне
+     */
+    public val surfaceOnDarkWarning: String = "surfaceOnDarkWarning"
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public val surfaceOnDarkNegative: String = "surfaceOnDarkNegative"
+
+    /**
+     * Фон поверхности/контрола без заливки на темном фоне
+     */
+    public val surfaceOnDarkClear: String = "surfaceOnDarkClear"
+
+    /**
+     * light surface onDark surfaceTransparentDeep
+     */
+    public val surfaceOnDarkTransparentDeep: String = "surfaceOnDarkTransparentDeep"
+
+    /**
+     * light surface onDark surfaceAccentMinor
+     */
+    public val surfaceOnDarkAccentMinor: String = "surfaceOnDarkAccentMinor"
+
+    /**
+     * light surface onDark surfaceAccentMinorHover
+     */
+    public val surfaceOnDarkAccentMinorHover: String = "surfaceOnDarkAccentMinorHover"
+
+    /**
+     * light surface onDark surfaceAccentMinorActive
+     */
+    public val surfaceOnDarkAccentMinorActive: String = "surfaceOnDarkAccentMinorActive"
+
+    /**
+     * light surface onDark surfaceTransparentAccent
+     */
+    public val surfaceOnDarkTransparentAccent: String = "surfaceOnDarkTransparentAccent"
+
+    /**
+     * light surface onDark surfaceTransparentAccentHover
+     */
+    public val surfaceOnDarkTransparentAccentHover: String = "surfaceOnDarkTransparentAccentHover"
+
+    /**
+     * light surface onDark surfaceTransparentAccentActive
+     */
+    public val surfaceOnDarkTransparentAccentActive: String = "surfaceOnDarkTransparentAccentActive"
+
+    /**
+     * light surface onDark surfaceSurfaceInfoHover
+     */
+    public val surfaceOnDarkSurfaceInfoHover: String = "surfaceOnDarkSurfaceInfoHover"
+
+    /**
+     * light surface onDark surfaceSurfaceInfoActive
+     */
+    public val surfaceOnDarkSurfaceInfoActive: String = "surfaceOnDarkSurfaceInfoActive"
+
+    /**
+     * light surface onDark surfacePositiveMinor
+     */
+    public val surfaceOnDarkPositiveMinor: String = "surfaceOnDarkPositiveMinor"
+
+    /**
+     * light surface onDark surfacePositiveMinorHover
+     */
+    public val surfaceOnDarkPositiveMinorHover: String = "surfaceOnDarkPositiveMinorHover"
+
+    /**
+     * light surface onDark surfacePositiveMinorActive
+     */
+    public val surfaceOnDarkPositiveMinorActive: String = "surfaceOnDarkPositiveMinorActive"
+
+    /**
+     * light surface onDark surfaceWarningMinor
+     */
+    public val surfaceOnDarkWarningMinor: String = "surfaceOnDarkWarningMinor"
+
+    /**
+     * light surface onDark surfaceWarningMinorHover
+     */
+    public val surfaceOnDarkWarningMinorHover: String = "surfaceOnDarkWarningMinorHover"
+
+    /**
+     * light surface onDark surfaceWarningMinorActive
+     */
+    public val surfaceOnDarkWarningMinorActive: String = "surfaceOnDarkWarningMinorActive"
+
+    /**
+     * light surface onDark surfaceNegativeMinor
+     */
+    public val surfaceOnDarkNegativeMinor: String = "surfaceOnDarkNegativeMinor"
+
+    /**
+     * light surface onDark surfaceNegativeMinorHover
+     */
+    public val surfaceOnDarkNegativeMinorHover: String = "surfaceOnDarkNegativeMinorHover"
+
+    /**
+     * light surface onDark surfaceNegativeMinorActive
+     */
+    public val surfaceOnDarkNegativeMinorActive: String = "surfaceOnDarkNegativeMinorActive"
+
+    /**
+     * light surface onDark surfaceInfoMinorHover
+     */
+    public val surfaceOnDarkInfoMinorHover: String = "surfaceOnDarkInfoMinorHover"
+
+    /**
+     * light surface onDark surfaceInfoMinorActive
+     */
+    public val surfaceOnDarkInfoMinorActive: String = "surfaceOnDarkInfoMinorActive"
+
+    /**
+     * light surface onDark surfaceTransparentPositiveHover
+     */
+    public val surfaceOnDarkTransparentPositiveHover: String =
+        "surfaceOnDarkTransparentPositiveHover"
+
+    /**
+     * light surface onDark surfaceTransparentPositiveActive
+     */
+    public val surfaceOnDarkTransparentPositiveActive: String =
+        "surfaceOnDarkTransparentPositiveActive"
+
+    /**
+     * light surface onDark surfaceTransparentWarningHover
+     */
+    public val surfaceOnDarkTransparentWarningHover: String = "surfaceOnDarkTransparentWarningHover"
+
+    /**
+     * light surface onDark surfaceTransparentWarningActive
+     */
+    public val surfaceOnDarkTransparentWarningActive: String =
+        "surfaceOnDarkTransparentWarningActive"
+
+    /**
+     * light surface onDark surfaceTransparentNegativeHover
+     */
+    public val surfaceOnDarkTransparentNegativeHover: String =
+        "surfaceOnDarkTransparentNegativeHover"
+
+    /**
+     * light surface onDark surfaceTransparentNegativeActive
+     */
+    public val surfaceOnDarkTransparentNegativeActive: String =
+        "surfaceOnDarkTransparentNegativeActive"
+
+    /**
+     * light surface onDark surfaceTransparentInfoHover
+     */
+    public val surfaceOnDarkTransparentInfoHover: String = "surfaceOnDarkTransparentInfoHover"
+
+    /**
+     * light surface onDark surfaceTransparentInfoActive
+     */
+    public val surfaceOnDarkTransparentInfoActive: String = "surfaceOnDarkTransparentInfoActive"
+
+    /**
+     * Непр. фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val surfaceOnDarkSolidDefault: String = "surfaceOnDarkSolidDefault"
+
+    /**
+     * Непр. фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val surfaceOnDarkSolidDefaultHover: String = "surfaceOnDarkSolidDefaultHover"
+
+    /**
+     * Непр. фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val surfaceOnDarkSolidDefaultActive: String = "surfaceOnDarkSolidDefaultActive"
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkTransparentPrimary: String = "surfaceOnDarkTransparentPrimary"
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkTransparentPrimaryHover: String = "surfaceOnDarkTransparentPrimaryHover"
+
+    /**
+     * Основной прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkTransparentPrimaryActive: String =
+        "surfaceOnDarkTransparentPrimaryActive"
+
+    /**
+     * Втор. прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkTransparentSecondary: String = "surfaceOnDarkTransparentSecondary"
+
+    /**
+     * Втор. прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkTransparentSecondaryHover: String =
+        "surfaceOnDarkTransparentSecondaryHover"
+
+    /**
+     * Втор. прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkTransparentSecondaryActive: String =
+        "surfaceOnDarkTransparentSecondaryActive"
+
+    /**
+     * Трет. прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkTransparentTertiary: String = "surfaceOnDarkTransparentTertiary"
+
+    /**
+     * Трет. прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkTransparentTertiaryHover: String =
+        "surfaceOnDarkTransparentTertiaryHover"
+
+    /**
+     * Трет. прозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkTransparentTertiaryActive: String =
+        "surfaceOnDarkTransparentTertiaryActive"
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkTransparentCard: String = "surfaceOnDarkTransparentCard"
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkTransparentCardBrightness: String =
+        "surfaceOnDarkTransparentCardBrightness"
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkTransparentCardHover: String = "surfaceOnDarkTransparentCardHover"
+
+    /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkTransparentCardActive: String = "surfaceOnDarkTransparentCardActive"
+
+    /**
+     * light surface onDark surfaceTransparentPositive
+     */
+    public val surfaceOnDarkTransparentPositive: String = "surfaceOnDarkTransparentPositive"
+
+    /**
+     * light surface onDark surfaceTransparentWarning
+     */
+    public val surfaceOnDarkTransparentWarning: String = "surfaceOnDarkTransparentWarning"
+
+    /**
+     * light surface onDark surfaceTransparentNegative
+     */
+    public val surfaceOnDarkTransparentNegative: String = "surfaceOnDarkTransparentNegative"
+
+    /**
+     * light surface onDark surfaceSurfaceInfo
+     */
+    public val surfaceOnDarkSurfaceInfo: String = "surfaceOnDarkSurfaceInfo"
+
+    /**
+     * light surface onDark surfaceInfoMinor
+     */
+    public val surfaceOnDarkInfoMinor: String = "surfaceOnDarkInfoMinor"
+
+    /**
+     * light surface onDark surfaceTransparentInfo
+     */
+    public val surfaceOnDarkTransparentInfo: String = "surfaceOnDarkTransparentInfo"
+
+    /**
+     * Осн. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidPrimaryHover: String = "surfaceOnDarkSolidPrimaryHover"
+
+    /**
+     * Осн. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidPrimaryActive: String = "surfaceOnDarkSolidPrimaryActive"
+
+    /**
+     * Втор. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidSecondaryHover: String = "surfaceOnDarkSolidSecondaryHover"
+
+    /**
+     * Втор. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidSecondaryActive: String = "surfaceOnDarkSolidSecondaryActive"
+
+    /**
+     * Трет. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidTertiaryHover: String = "surfaceOnDarkSolidTertiaryHover"
+
+    /**
+     * Трет. непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkSolidTertiaryActive: String = "surfaceOnDarkSolidTertiaryActive"
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkSolidCardHover: String = "surfaceOnDarkSolidCardHover"
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkSolidCardActive: String = "surfaceOnDarkSolidCardActive"
+
+    /**
+     * Прозрачный фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val surfaceOnDarkTransparentDefaultHover: String = "surfaceOnDarkTransparentDefaultHover"
+
+    /**
+     * Прозрачный фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val surfaceOnDarkTransparentDefaultActive: String =
+        "surfaceOnDarkTransparentDefaultActive"
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkAccentHover: String = "surfaceOnDarkAccentHover"
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkAccentActive: String = "surfaceOnDarkAccentActive"
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val surfaceOnDarkPositiveHover: String = "surfaceOnDarkPositiveHover"
+
+    /**
+     * Цвет успеха на темном фоне
+     */
+    public val surfaceOnDarkPositiveActive: String = "surfaceOnDarkPositiveActive"
+
+    /**
+     * Цвет фона поверхн./контрола предупреждение на темном фоне
+     */
+    public val surfaceOnDarkWarningHover: String = "surfaceOnDarkWarningHover"
+
+    /**
+     * Цвет фона поверхн./контрола предупреждение на темном фоне
+     */
+    public val surfaceOnDarkWarningActive: String = "surfaceOnDarkWarningActive"
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public val surfaceOnDarkNegativeHover: String = "surfaceOnDarkNegativeHover"
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public val surfaceOnDarkNegativeActive: String = "surfaceOnDarkNegativeActive"
+
+    /**
+     * Фон поверхности/контрола без заливки на темном фоне
+     */
+    public val surfaceOnDarkClearHover: String = "surfaceOnDarkClearHover"
+
+    /**
+     * Фон поверхности/контрола без заливки на темном фоне
+     */
+    public val surfaceOnDarkClearActive: String = "surfaceOnDarkClearActive"
+
+    /**
+     * light surface onDark surfaceTransparentDeepHover
+     */
+    public val surfaceOnDarkTransparentDeepHover: String = "surfaceOnDarkTransparentDeepHover"
+
+    /**
+     * light surface onDark surfaceTransparentDeepActive
+     */
+    public val surfaceOnDarkTransparentDeepActive: String = "surfaceOnDarkTransparentDeepActive"
+
+    /**
+     * Непр. фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val surfaceOnLightSolidDefault: String = "surfaceOnLightSolidDefault"
+
+    /**
+     * Осн. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidPrimary: String = "surfaceOnLightSolidPrimary"
+
+    /**
+     * Осн. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidPrimaryBrightness: String = "surfaceOnLightSolidPrimaryBrightness"
+
+    /**
+     * Втор. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidSecondary: String = "surfaceOnLightSolidSecondary"
+
+    /**
+     * Трет. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidTertiary: String = "surfaceOnLightSolidTertiary"
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightSolidCard: String = "surfaceOnLightSolidCard"
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightSolidCardBrightness: String = "surfaceOnLightSolidCardBrightness"
+
+    /**
+     * Прозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val surfaceOnLightTransparentDefault: String = "surfaceOnLightTransparentDefault"
+
+    /**
+     * Осн. прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentPrimary: String = "surfaceOnLightTransparentPrimary"
+
+    /**
+     * Втор.  прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentSecondary: String = "surfaceOnLightTransparentSecondary"
+
+    /**
+     * Трет. прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentTertiary: String = "surfaceOnLightTransparentTertiary"
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightTransparentCard: String = "surfaceOnLightTransparentCard"
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightTransparentCardBrightness: String =
+        "surfaceOnLightTransparentCardBrightness"
+
+    /**
+     * Акцентный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightAccent: String = "surfaceOnLightAccent"
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val surfaceOnLightPositive: String = "surfaceOnLightPositive"
+
+    /**
+     * Цвет фона поверхн./контрола предупреждение на светлом фоне
+     */
+    public val surfaceOnLightWarning: String = "surfaceOnLightWarning"
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на светлом фоне
+     */
+    public val surfaceOnLightNegative: String = "surfaceOnLightNegative"
+
+    /**
+     * Фон поверхности/контрола без заливки на светлом фоне
+     */
+    public val surfaceOnLightClear: String = "surfaceOnLightClear"
+
+    /**
+     * light surface onLight surfaceTransparentDeep
+     */
+    public val surfaceOnLightTransparentDeep: String = "surfaceOnLightTransparentDeep"
+
+    /**
+     * light surface onLight surfaceAccentMinor
+     */
+    public val surfaceOnLightAccentMinor: String = "surfaceOnLightAccentMinor"
+
+    /**
+     * light surface onLight surfaceAccentMinorHover
+     */
+    public val surfaceOnLightAccentMinorHover: String = "surfaceOnLightAccentMinorHover"
+
+    /**
+     * light surface onLight surfaceAccentMinorActive
+     */
+    public val surfaceOnLightAccentMinorActive: String = "surfaceOnLightAccentMinorActive"
+
+    /**
+     * light surface onLight surfaceTransparentAccent
+     */
+    public val surfaceOnLightTransparentAccent: String = "surfaceOnLightTransparentAccent"
+
+    /**
+     * light surface onLight surfaceTransparentAccentHover
+     */
+    public val surfaceOnLightTransparentAccentHover: String = "surfaceOnLightTransparentAccentHover"
+
+    /**
+     * light surface onLight surfaceTransparentAccentActive
+     */
+    public val surfaceOnLightTransparentAccentActive: String =
+        "surfaceOnLightTransparentAccentActive"
+
+    /**
+     * light surface onLight surfaceInfoHover
+     */
+    public val surfaceOnLightInfoHover: String = "surfaceOnLightInfoHover"
+
+    /**
+     * light surface onLight surfaceInfoActive
+     */
+    public val surfaceOnLightInfoActive: String = "surfaceOnLightInfoActive"
+
+    /**
+     * light surface onLight surfacePositiveMinor
+     */
+    public val surfaceOnLightPositiveMinor: String = "surfaceOnLightPositiveMinor"
+
+    /**
+     * light surface onLight surfacePositiveMinorHover
+     */
+    public val surfaceOnLightPositiveMinorHover: String = "surfaceOnLightPositiveMinorHover"
+
+    /**
+     * light surface onLight surfacePositiveMinorActive
+     */
+    public val surfaceOnLightPositiveMinorActive: String = "surfaceOnLightPositiveMinorActive"
+
+    /**
+     * light surface onLight surfaceWarningMinor
+     */
+    public val surfaceOnLightWarningMinor: String = "surfaceOnLightWarningMinor"
+
+    /**
+     * light surface onLight surfaceWarningMinorHover
+     */
+    public val surfaceOnLightWarningMinorHover: String = "surfaceOnLightWarningMinorHover"
+
+    /**
+     * light surface onLight surfaceWarningMinorActive
+     */
+    public val surfaceOnLightWarningMinorActive: String = "surfaceOnLightWarningMinorActive"
+
+    /**
+     * light surface onLight surfaceNegativeMinor
+     */
+    public val surfaceOnLightNegativeMinor: String = "surfaceOnLightNegativeMinor"
+
+    /**
+     * light surface onLight surfaceNegativeMinorHover
+     */
+    public val surfaceOnLightNegativeMinorHover: String = "surfaceOnLightNegativeMinorHover"
+
+    /**
+     * light surface onLight surfaceNegativeMinorActive
+     */
+    public val surfaceOnLightNegativeMinorActive: String = "surfaceOnLightNegativeMinorActive"
+
+    /**
+     * light surface onLight surfaceInfoMinorHover
+     */
+    public val surfaceOnLightInfoMinorHover: String = "surfaceOnLightInfoMinorHover"
+
+    /**
+     * light surface onLight surfaceInfoMinorActive
+     */
+    public val surfaceOnLightInfoMinorActive: String = "surfaceOnLightInfoMinorActive"
+
+    /**
+     * light surface onLight surfaceTransparentPositiveHover
+     */
+    public val surfaceOnLightTransparentPositiveHover: String =
+        "surfaceOnLightTransparentPositiveHover"
+
+    /**
+     * light surface onLight surfaceTransparentPositiveActive
+     */
+    public val surfaceOnLightTransparentPositiveActive: String =
+        "surfaceOnLightTransparentPositiveActive"
+
+    /**
+     * light surface onLight surfaceTransparentWarningHover
+     */
+    public val surfaceOnLightTransparentWarningHover: String =
+        "surfaceOnLightTransparentWarningHover"
+
+    /**
+     * light surface onLight surfaceTransparentWarningActive
+     */
+    public val surfaceOnLightTransparentWarningActive: String =
+        "surfaceOnLightTransparentWarningActive"
+
+    /**
+     * light surface onLight surfaceTransparentNegativeHover
+     */
+    public val surfaceOnLightTransparentNegativeHover: String =
+        "surfaceOnLightTransparentNegativeHover"
+
+    /**
+     * light surface onLight surfaceTransparentNegativeActive
+     */
+    public val surfaceOnLightTransparentNegativeActive: String =
+        "surfaceOnLightTransparentNegativeActive"
+
+    /**
+     * light surface onLight surfaceTransparentInfoHover
+     */
+    public val surfaceOnLightTransparentInfoHover: String = "surfaceOnLightTransparentInfoHover"
+
+    /**
+     * light surface onLight surfaceTransparentInfoActive
+     */
+    public val surfaceOnLightTransparentInfoActive: String = "surfaceOnLightTransparentInfoActive"
+
+    /**
+     * light surface onLight surfaceTransparentPositive
+     */
+    public val surfaceOnLightTransparentPositive: String = "surfaceOnLightTransparentPositive"
+
+    /**
+     * light surface onLight surfaceTransparentWarning
+     */
+    public val surfaceOnLightTransparentWarning: String = "surfaceOnLightTransparentWarning"
+
+    /**
+     * light surface onLight surfaceTransparentNegative
+     */
+    public val surfaceOnLightTransparentNegative: String = "surfaceOnLightTransparentNegative"
+
+    /**
+     * light surface onLight surfaceInfo
+     */
+    public val surfaceOnLightInfo: String = "surfaceOnLightInfo"
+
+    /**
+     * light surface onLight surfaceInfoMinor
+     */
+    public val surfaceOnLightInfoMinor: String = "surfaceOnLightInfoMinor"
+
+    /**
+     * light surface onLight surfaceTransparentInfo
+     */
+    public val surfaceOnLightTransparentInfo: String = "surfaceOnLightTransparentInfo"
+
+    /**
+     * Непр. фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val surfaceOnLightSolidDefaultHover: String = "surfaceOnLightSolidDefaultHover"
+
+    /**
+     * Непр. фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val surfaceOnLightSolidDefaultActive: String = "surfaceOnLightSolidDefaultActive"
+
+    /**
+     * Осн. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidPrimaryHover: String = "surfaceOnLightSolidPrimaryHover"
+
+    /**
+     * Осн. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidPrimaryActive: String = "surfaceOnLightSolidPrimaryActive"
+
+    /**
+     * Втор. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidSecondaryHover: String = "surfaceOnLightSolidSecondaryHover"
+
+    /**
+     * Втор. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidSecondaryActive: String = "surfaceOnLightSolidSecondaryActive"
+
+    /**
+     * Трет. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidTertiaryHover: String = "surfaceOnLightSolidTertiaryHover"
+
+    /**
+     * Трет. непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidTertiaryActive: String = "surfaceOnLightSolidTertiaryActive"
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightSolidCardHover: String = "surfaceOnLightSolidCardHover"
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightSolidCardActive: String = "surfaceOnLightSolidCardActive"
+
+    /**
+     * Прозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val surfaceOnLightTransparentDefaultHover: String =
+        "surfaceOnLightTransparentDefaultHover"
+
+    /**
+     * Прозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val surfaceOnLightTransparentDefaultActive: String =
+        "surfaceOnLightTransparentDefaultActive"
+
+    /**
+     * Осн. прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentPrimaryHover: String =
+        "surfaceOnLightTransparentPrimaryHover"
+
+    /**
+     * Осн. прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentPrimaryActive: String =
+        "surfaceOnLightTransparentPrimaryActive"
+
+    /**
+     * Втор.  прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentSecondaryHover: String =
+        "surfaceOnLightTransparentSecondaryHover"
+
+    /**
+     * Втор.  прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentSecondaryActive: String =
+        "surfaceOnLightTransparentSecondaryActive"
+
+    /**
+     * Трет. прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentTertiaryHover: String =
+        "surfaceOnLightTransparentTertiaryHover"
+
+    /**
+     * Трет. прозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightTransparentTertiaryActive: String =
+        "surfaceOnLightTransparentTertiaryActive"
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightTransparentCardHover: String = "surfaceOnLightTransparentCardHover"
+
+    /**
+     * Прозрачный фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightTransparentCardActive: String = "surfaceOnLightTransparentCardActive"
+
+    /**
+     * Акцентный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightAccentHover: String = "surfaceOnLightAccentHover"
+
+    /**
+     * Акцентный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightAccentActive: String = "surfaceOnLightAccentActive"
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val surfaceOnLightPositiveHover: String = "surfaceOnLightPositiveHover"
+
+    /**
+     * Цвет успеха на светлом фоне
+     */
+    public val surfaceOnLightPositiveActive: String = "surfaceOnLightPositiveActive"
+
+    /**
+     * Цвет фона поверхн./контрола предупреждение на светлом фоне
+     */
+    public val surfaceOnLightWarningHover: String = "surfaceOnLightWarningHover"
+
+    /**
+     * Цвет фона поверхн./контрола предупреждение на светлом фоне
+     */
+    public val surfaceOnLightWarningActive: String = "surfaceOnLightWarningActive"
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на светлом фоне
+     */
+    public val surfaceOnLightNegativeHover: String = "surfaceOnLightNegativeHover"
+
+    /**
+     * Цвет фона поверхности/контрола ошибка на светлом фоне
+     */
+    public val surfaceOnLightNegativeActive: String = "surfaceOnLightNegativeActive"
+
+    /**
+     * Фон поверхности/контрола без заливки на светлом фоне
+     */
+    public val surfaceOnLightClearHover: String = "surfaceOnLightClearHover"
+
+    /**
+     * Фон поверхности/контрола без заливки на светлом фоне
+     */
+    public val surfaceOnLightClearActive: String = "surfaceOnLightClearActive"
+
+    /**
+     * light surface onLight surfaceTransparentDeepHover
+     */
+    public val surfaceOnLightTransparentDeepHover: String = "surfaceOnLightTransparentDeepHover"
+
+    /**
+     * light surface onLight surfaceTransparentDeepActive
+     */
+    public val surfaceOnLightTransparentDeepActive: String = "surfaceOnLightTransparentDeepActive"
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceInverseSolidDefault: String = "surfaceInverseSolidDefault"
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidPrimary: String = "surfaceInverseSolidPrimary"
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidPrimaryBrightness: String = "surfaceInverseSolidPrimaryBrightness"
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidSecondary: String = "surfaceInverseSolidSecondary"
+
+    /**
+     * Инвертированный третичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidTertiary: String = "surfaceInverseSolidTertiary"
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val surfaceInverseSolidCard: String = "surfaceInverseSolidCard"
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val surfaceInverseSolidCardBrightness: String = "surfaceInverseSolidCardBrightness"
+
+    /**
+     * Инвертированный прозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceInverseTransparentDefault: String = "surfaceInverseTransparentDefault"
+
+    /**
+     * Инвертированный основной прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentPrimary: String = "surfaceInverseTransparentPrimary"
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentSecondary: String = "surfaceInverseTransparentSecondary"
+
+    /**
+     * Инвертированный третичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentTertiary: String = "surfaceInverseTransparentTertiary"
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val surfaceInverseTransparentCard: String = "surfaceInverseTransparentCard"
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val surfaceInverseTransparentCardBrightness: String =
+        "surfaceInverseTransparentCardBrightness"
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val surfaceInverseAccent: String = "surfaceInverseAccent"
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val surfaceInversePositive: String = "surfaceInversePositive"
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceInverseWarning: String = "surfaceInverseWarning"
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола ошибка
+     */
+    public val surfaceInverseNegative: String = "surfaceInverseNegative"
+
+    /**
+     * Инвертированный фон поверхности/контрола без заливки
+     */
+    public val surfaceInverseClear: String = "surfaceInverseClear"
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceInverseSolidDefaultHover: String = "surfaceInverseSolidDefaultHover"
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceInverseSolidDefaultActive: String = "surfaceInverseSolidDefaultActive"
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidPrimaryHover: String = "surfaceInverseSolidPrimaryHover"
+
+    /**
+     * Инвертированный основной непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidPrimaryActive: String = "surfaceInverseSolidPrimaryActive"
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidSecondaryHover: String = "surfaceInverseSolidSecondaryHover"
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidSecondaryActive: String = "surfaceInverseSolidSecondaryActive"
+
+    /**
+     * Инвертированный третичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidTertiaryHover: String = "surfaceInverseSolidTertiaryHover"
+
+    /**
+     * Инвертированный третичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidTertiaryActive: String = "surfaceInverseSolidTertiaryActive"
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val surfaceInverseSolidCardHover: String = "surfaceInverseSolidCardHover"
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val surfaceInverseSolidCardActive: String = "surfaceInverseSolidCardActive"
+
+    /**
+     * Инвертированный прозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceInverseTransparentDefaultHover: String =
+        "surfaceInverseTransparentDefaultHover"
+
+    /**
+     * Инвертированный прозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceInverseTransparentDefaultActive: String =
+        "surfaceInverseTransparentDefaultActive"
+
+    /**
+     * Инвертированный основной прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentPrimaryHover: String =
+        "surfaceInverseTransparentPrimaryHover"
+
+    /**
+     * Инвертированный основной прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentPrimaryActive: String =
+        "surfaceInverseTransparentPrimaryActive"
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentSecondaryHover: String =
+        "surfaceInverseTransparentSecondaryHover"
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentSecondaryActive: String =
+        "surfaceInverseTransparentSecondaryActive"
+
+    /**
+     * Инвертированный третичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentTertiaryHover: String =
+        "surfaceInverseTransparentTertiaryHover"
+
+    /**
+     * Инвертированный третичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseTransparentTertiaryActive: String =
+        "surfaceInverseTransparentTertiaryActive"
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val surfaceInverseTransparentCardHover: String = "surfaceInverseTransparentCardHover"
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val surfaceInverseTransparentCardActive: String = "surfaceInverseTransparentCardActive"
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val surfaceInverseAccentHover: String = "surfaceInverseAccentHover"
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val surfaceInverseAccentActive: String = "surfaceInverseAccentActive"
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val surfaceInversePositiveHover: String = "surfaceInversePositiveHover"
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val surfaceInversePositiveActive: String = "surfaceInversePositiveActive"
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceInverseWarningHover: String = "surfaceInverseWarningHover"
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceInverseWarningActive: String = "surfaceInverseWarningActive"
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола ошибка
+     */
+    public val surfaceInverseNegativeHover: String = "surfaceInverseNegativeHover"
+
+    /**
+     * Инвертированный цвет фона поверхности/контрола ошибка
+     */
+    public val surfaceInverseNegativeActive: String = "surfaceInverseNegativeActive"
+
+    /**
+     * Инвертированный фон поверхности/контрола без заливки
+     */
+    public val surfaceInverseClearHover: String = "surfaceInverseClearHover"
+
+    /**
+     * Инвертированный фон поверхности/контрола без заливки
+     */
+    public val surfaceInverseClearActive: String = "surfaceInverseClearActive"
+
+    /**
+     * light surface inverse surfaceTransparentDeep
+     */
+    public val surfaceInverseTransparentDeep: String = "surfaceInverseTransparentDeep"
+
+    /**
+     * light surface inverse surfaceTransparentDeepHover
+     */
+    public val surfaceInverseTransparentDeepHover: String = "surfaceInverseTransparentDeepHover"
+
+    /**
+     * light surface inverse surfaceTransparentDeepActive
+     */
+    public val surfaceInverseTransparentDeepActive: String = "surfaceInverseTransparentDeepActive"
+
+    /**
+     * light surface inverse surfaceAccentMinor
+     */
+    public val surfaceInverseAccentMinor: String = "surfaceInverseAccentMinor"
+
+    /**
+     * light surface inverse surfaceAccentMinorHover
+     */
+    public val surfaceInverseAccentMinorHover: String = "surfaceInverseAccentMinorHover"
+
+    /**
+     * light surface inverse surfaceAccentMinorActive
+     */
+    public val surfaceInverseAccentMinorActive: String = "surfaceInverseAccentMinorActive"
+
+    /**
+     * light surface inverse surfaceTransparentAccent
+     */
+    public val surfaceInverseTransparentAccent: String = "surfaceInverseTransparentAccent"
+
+    /**
+     * light surface inverse surfaceTransparentAccentHover
+     */
+    public val surfaceInverseTransparentAccentHover: String = "surfaceInverseTransparentAccentHover"
+
+    /**
+     * light surface inverse surfaceTransparentAccentActive
+     */
+    public val surfaceInverseTransparentAccentActive: String =
+        "surfaceInverseTransparentAccentActive"
+
+    /**
+     * light surface inverse surfaceInfo
+     */
+    public val surfaceInverseInfo: String = "surfaceInverseInfo"
+
+    /**
+     * light surface inverse surfaceInfoHover
+     */
+    public val surfaceInverseInfoHover: String = "surfaceInverseInfoHover"
+
+    /**
+     * light surface inverse surfaceInfoActive
+     */
+    public val surfaceInverseInfoActive: String = "surfaceInverseInfoActive"
+
+    /**
+     * light surface inverse surfacePositiveMinor
+     */
+    public val surfaceInversePositiveMinor: String = "surfaceInversePositiveMinor"
+
+    /**
+     * light surface inverse surfacePositiveMinorHover
+     */
+    public val surfaceInversePositiveMinorHover: String = "surfaceInversePositiveMinorHover"
+
+    /**
+     * light surface inverse surfacePositiveMinorActive
+     */
+    public val surfaceInversePositiveMinorActive: String = "surfaceInversePositiveMinorActive"
+
+    /**
+     * light surface inverse surfaceWarningMinor
+     */
+    public val surfaceInverseWarningMinor: String = "surfaceInverseWarningMinor"
+
+    /**
+     * light surface inverse surfaceWarningMinorHover
+     */
+    public val surfaceInverseWarningMinorHover: String = "surfaceInverseWarningMinorHover"
+
+    /**
+     * light surface inverse surfaceWarningMinorActive
+     */
+    public val surfaceInverseWarningMinorActive: String = "surfaceInverseWarningMinorActive"
+
+    /**
+     * light surface inverse surfaceNegativeMinor
+     */
+    public val surfaceInverseNegativeMinor: String = "surfaceInverseNegativeMinor"
+
+    /**
+     * light surface inverse surfaceNegativeMinorHover
+     */
+    public val surfaceInverseNegativeMinorHover: String = "surfaceInverseNegativeMinorHover"
+
+    /**
+     * light surface inverse surfaceNegativeMinorActive
+     */
+    public val surfaceInverseNegativeMinorActive: String = "surfaceInverseNegativeMinorActive"
+
+    /**
+     * light surface inverse surfaceInfoMinor
+     */
+    public val surfaceInverseInfoMinor: String = "surfaceInverseInfoMinor"
+
+    /**
+     * light surface inverse surfaceInfoMinorHover
+     */
+    public val surfaceInverseInfoMinorHover: String = "surfaceInverseInfoMinorHover"
+
+    /**
+     * light surface inverse surfaceInfoMinorActive
+     */
+    public val surfaceInverseInfoMinorActive: String = "surfaceInverseInfoMinorActive"
+
+    /**
+     * light surface inverse surfaceTransparentPositive
+     */
+    public val surfaceInverseTransparentPositive: String = "surfaceInverseTransparentPositive"
+
+    /**
+     * light surface inverse surfaceTransparentPositiveHover
+     */
+    public val surfaceInverseTransparentPositiveHover: String =
+        "surfaceInverseTransparentPositiveHover"
+
+    /**
+     * light surface inverse surfaceTransparentPositiveActive
+     */
+    public val surfaceInverseTransparentPositiveActive: String =
+        "surfaceInverseTransparentPositiveActive"
+
+    /**
+     * light surface inverse surfaceTransparentWarning
+     */
+    public val surfaceInverseTransparentWarning: String = "surfaceInverseTransparentWarning"
+
+    /**
+     * light surface inverse surfaceTransparentWarningHover
+     */
+    public val surfaceInverseTransparentWarningHover: String =
+        "surfaceInverseTransparentWarningHover"
+
+    /**
+     * light surface inverse surfaceTransparentWarningActive
+     */
+    public val surfaceInverseTransparentWarningActive: String =
+        "surfaceInverseTransparentWarningActive"
+
+    /**
+     * light surface inverse surfaceTransparentNegative
+     */
+    public val surfaceInverseTransparentNegative: String = "surfaceInverseTransparentNegative"
+
+    /**
+     * light surface inverse surfaceTransparentNegativeHover
+     */
+    public val surfaceInverseTransparentNegativeHover: String =
+        "surfaceInverseTransparentNegativeHover"
+
+    /**
+     * light surface inverse surfaceTransparentNegativeActive
+     */
+    public val surfaceInverseTransparentNegativeActive: String =
+        "surfaceInverseTransparentNegativeActive"
+
+    /**
+     * light surface inverse surfaceTransparentInfo
+     */
+    public val surfaceInverseTransparentInfo: String = "surfaceInverseTransparentInfo"
+
+    /**
+     * light surface inverse surfaceTransparentInfoHover
+     */
+    public val surfaceInverseTransparentInfoHover: String = "surfaceInverseTransparentInfoHover"
+
+    /**
+     * light surface inverse surfaceTransparentInfoActive
+     */
+    public val surfaceInverseTransparentInfoActive: String = "surfaceInverseTransparentInfoActive"
+
+    /**
+     * Основной фон
+     */
+    public val backgroundDefaultPrimary: String = "backgroundDefaultPrimary"
+
+    /**
+     * Основной фон
+     */
+    public val backgroundDefaultPrimaryBrightness: String = "backgroundDefaultPrimaryBrightness"
+
+    /**
+     * Вторичный фон
+     */
+    public val backgroundDefaultSecondary: String = "backgroundDefaultSecondary"
+
+    /**
+     * Третичный фон
+     */
+    public val backgroundDefaultTertiary: String = "backgroundDefaultTertiary"
+
+    /**
+     * Основной фон на темном фоне
+     */
+    public val backgroundDarkPrimary: String = "backgroundDarkPrimary"
+
+    /**
+     * Вторичный фон на темном фоне
+     */
+    public val backgroundDarkSecondary: String = "backgroundDarkSecondary"
+
+    /**
+     * Третичный фон на темном фоне
+     */
+    public val backgroundDarkTertiary: String = "backgroundDarkTertiary"
+
+    /**
+     * Основной фон на светлом фоне
+     */
+    public val backgroundLightPrimary: String = "backgroundLightPrimary"
+
+    /**
+     * Вторичный фон на светлом фоне
+     */
+    public val backgroundLightSecondary: String = "backgroundLightSecondary"
+
+    /**
+     * Третичный фон на светлом фоне
+     */
+    public val backgroundLightTertiary: String = "backgroundLightTertiary"
+
+    /**
+     * Инвертированный основной фон
+     */
+    public val backgroundInversePrimaryBrightness: String = "backgroundInversePrimaryBrightness"
+
+    /**
+     * Инвертированный вторичный фон
+     */
+    public val backgroundInverseSecondary: String = "backgroundInverseSecondary"
+
+    /**
+     * Инвертированный третичный фон
+     */
+    public val backgroundInverseTertiary: String = "backgroundInverseTertiary"
+
+    /**
+     * Инвертированный основной фон
+     */
+    public val backgroundInversePrimary: String = "backgroundInversePrimary"
+
+    /**
+     * Цвет фона паранжи светлый
+     */
+    public val overlayDefaultSoft: String = "overlayDefaultSoft"
+
+    /**
+     * Цвет фона паранжи темный
+     */
+    public val overlayDefaultHard: String = "overlayDefaultHard"
+
+    /**
+     * light overlay default overlayBlur
+     */
+    public val overlayDefaultBlur: String = "overlayDefaultBlur"
+
+    /**
+     * Цвет фона паранжи светлый на темном фоне
+     */
+    public val overlayOnDarkSoft: String = "overlayOnDarkSoft"
+
+    /**
+     * Цвет фона паранжи темный на темном фоне
+     */
+    public val overlayOnDarkHard: String = "overlayOnDarkHard"
+
+    /**
+     * light overlay onDark overlayBlur
+     */
+    public val overlayOnDarkBlur: String = "overlayOnDarkBlur"
+
+    /**
+     * Цвет фона паранжи светлый на светлом фоне
+     */
+    public val overlayOnLightSoft: String = "overlayOnLightSoft"
+
+    /**
+     * Цвет фона паранжи темный на светлом фоне
+     */
+    public val overlayOnLightHard: String = "overlayOnLightHard"
+
+    /**
+     * light overlay onLight overlayBlur
+     */
+    public val overlayOnLightBlur: String = "overlayOnLightBlur"
+
+    /**
+     * Инвертированный цвет фона паранжи темный
+     */
+    public val overlayInverseHard: String = "overlayInverseHard"
+
+    /**
+     * Инвертированный цвет фона паранжи светлый
+     */
+    public val overlayInverseSoft: String = "overlayInverseSoft"
+
+    /**
+     * light overlay inverse overlayBlur
+     */
+    public val overlayInverseBlur: String = "overlayInverseBlur"
+
+    /**
+     * light outline default outlineSecondaryHover
+     */
+    public val outlineDefaultSecondaryHover: String = "outlineDefaultSecondaryHover"
+
+    /**
+     * light outline default outlineSecondaryActive
+     */
+    public val outlineDefaultSecondaryActive: String = "outlineDefaultSecondaryActive"
+
+    /**
+     * light outline default outlineTertiaryHover
+     */
+    public val outlineDefaultTertiaryHover: String = "outlineDefaultTertiaryHover"
+
+    /**
+     * light outline default outlineTertiaryActive
+     */
+    public val outlineDefaultTertiaryActive: String = "outlineDefaultTertiaryActive"
+
+    /**
+     * light outline default outlineDefaultHover
+     */
+    public val outlineDefaultDefaultHover: String = "outlineDefaultDefaultHover"
+
+    /**
+     * light outline default outlineDefaultActive
+     */
+    public val outlineDefaultDefaultActive: String = "outlineDefaultDefaultActive"
+
+    /**
+     * light outline default outlineTransparentPrimaryHover
+     */
+    public val outlineDefaultTransparentPrimaryHover: String =
+        "outlineDefaultTransparentPrimaryHover"
+
+    /**
+     * light outline default outlineTransparentPrimaryActive
+     */
+    public val outlineDefaultTransparentPrimaryActive: String =
+        "outlineDefaultTransparentPrimaryActive"
+
+    /**
+     * light outline default outlineTransparentSecondaryHover
+     */
+    public val outlineDefaultTransparentSecondaryHover: String =
+        "outlineDefaultTransparentSecondaryHover"
+
+    /**
+     * light outline default outlineTransparentSecondaryActive
+     */
+    public val outlineDefaultTransparentSecondaryActive: String =
+        "outlineDefaultTransparentSecondaryActive"
+
+    /**
+     * light outline default outlineTransparentTertiaryHover
+     */
+    public val outlineDefaultTransparentTertiaryHover: String =
+        "outlineDefaultTransparentTertiaryHover"
+
+    /**
+     * light outline default outlineTransparentTertiaryActive
+     */
+    public val outlineDefaultTransparentTertiaryActive: String =
+        "outlineDefaultTransparentTertiaryActive"
+
+    /**
+     * light outline default outlineTransparentClearHover
+     */
+    public val outlineDefaultTransparentClearHover: String = "outlineDefaultTransparentClearHover"
+
+    /**
+     * light outline default outlineTransparentClearActive
+     */
+    public val outlineDefaultTransparentClearActive: String = "outlineDefaultTransparentClearActive"
+
+    /**
+     * light outline default outlineAccentHover
+     */
+    public val outlineDefaultAccentHover: String = "outlineDefaultAccentHover"
+
+    /**
+     * light outline default outlineAccentActive
+     */
+    public val outlineDefaultAccentActive: String = "outlineDefaultAccentActive"
+
+    /**
+     * light outline default outlineAccentMinorHover
+     */
+    public val outlineDefaultAccentMinorHover: String = "outlineDefaultAccentMinorHover"
+
+    /**
+     * light outline default outlineAccentMinorActive
+     */
+    public val outlineDefaultAccentMinorActive: String = "outlineDefaultAccentMinorActive"
+
+    /**
+     * light outline default outlineTransparentAccentHover
+     */
+    public val outlineDefaultTransparentAccentHover: String = "outlineDefaultTransparentAccentHover"
+
+    /**
+     * light outline default outlineTransparentAccentActive
+     */
+    public val outlineDefaultTransparentAccentActive: String =
+        "outlineDefaultTransparentAccentActive"
+
+    /**
+     * light outline default outlinePositiveHover
+     */
+    public val outlineDefaultPositiveHover: String = "outlineDefaultPositiveHover"
+
+    /**
+     * light outline default outlinePositiveActive
+     */
+    public val outlineDefaultPositiveActive: String = "outlineDefaultPositiveActive"
+
+    /**
+     * light outline default outlineWarningHover
+     */
+    public val outlineDefaultWarningHover: String = "outlineDefaultWarningHover"
+
+    /**
+     * light outline default outlineWarningActive
+     */
+    public val outlineDefaultWarningActive: String = "outlineDefaultWarningActive"
+
+    /**
+     * light outline default outlineNegativeHover
+     */
+    public val outlineDefaultNegativeHover: String = "outlineDefaultNegativeHover"
+
+    /**
+     * light outline default outlineNegativeActive
+     */
+    public val outlineDefaultNegativeActive: String = "outlineDefaultNegativeActive"
+
+    /**
+     * light outline default outlineInfoHover
+     */
+    public val outlineDefaultInfoHover: String = "outlineDefaultInfoHover"
+
+    /**
+     * light outline default outlineInfoActive
+     */
+    public val outlineDefaultInfoActive: String = "outlineDefaultInfoActive"
+
+    /**
+     * light outline default outlinePositiveMinorHover
+     */
+    public val outlineDefaultPositiveMinorHover: String = "outlineDefaultPositiveMinorHover"
+
+    /**
+     * light outline default outlinePositiveMinorActive
+     */
+    public val outlineDefaultPositiveMinorActive: String = "outlineDefaultPositiveMinorActive"
+
+    /**
+     * light outline default outlineWarningMinorHover
+     */
+    public val outlineDefaultWarningMinorHover: String = "outlineDefaultWarningMinorHover"
+
+    /**
+     * light outline default outlineWarningMinorActive
+     */
+    public val outlineDefaultWarningMinorActive: String = "outlineDefaultWarningMinorActive"
+
+    /**
+     * light outline default outlineNegativeMinorHover
+     */
+    public val outlineDefaultNegativeMinorHover: String = "outlineDefaultNegativeMinorHover"
+
+    /**
+     * light outline default outlineNegativeMinorActive
+     */
+    public val outlineDefaultNegativeMinorActive: String = "outlineDefaultNegativeMinorActive"
+
+    /**
+     * light outline default outlineInfoMinorHover
+     */
+    public val outlineDefaultInfoMinorHover: String = "outlineDefaultInfoMinorHover"
+
+    /**
+     * light outline default outlineInfoMinorActive
+     */
+    public val outlineDefaultInfoMinorActive: String = "outlineDefaultInfoMinorActive"
+
+    /**
+     * light outline default outlineTransparentPositiveHover
+     */
+    public val outlineDefaultTransparentPositiveHover: String =
+        "outlineDefaultTransparentPositiveHover"
+
+    /**
+     * light outline default outlineTransparentPositiveActive
+     */
+    public val outlineDefaultTransparentPositiveActive: String =
+        "outlineDefaultTransparentPositiveActive"
+
+    /**
+     * light outline default outlineTransparentWarningHover
+     */
+    public val outlineDefaultTransparentWarningHover: String =
+        "outlineDefaultTransparentWarningHover"
+
+    /**
+     * light outline default outlineTransparentWarningActive
+     */
+    public val outlineDefaultTransparentWarningActive: String =
+        "outlineDefaultTransparentWarningActive"
+
+    /**
+     * light outline default outlineNegativeTransparentHover
+     */
+    public val outlineDefaultNegativeTransparentHover: String =
+        "outlineDefaultNegativeTransparentHover"
+
+    /**
+     * light outline default outlineNegativeTransparentActive
+     */
+    public val outlineDefaultNegativeTransparentActive: String =
+        "outlineDefaultNegativeTransparentActive"
+
+    /**
+     * light outline default outlineTransparentInfoHover
+     */
+    public val outlineDefaultTransparentInfoHover: String = "outlineDefaultTransparentInfoHover"
+
+    /**
+     * light outline default outlineTransparentInfoActive
+     */
+    public val outlineDefaultTransparentInfoActive: String = "outlineDefaultTransparentInfoActive"
+
+    /**
+     * light outline default outlinePrimaryHover
+     */
+    public val outlineDefaultPrimaryHover: String = "outlineDefaultPrimaryHover"
+
+    /**
+     * light outline default outlinePrimaryActive
+     */
+    public val outlineDefaultPrimaryActive: String = "outlineDefaultPrimaryActive"
+
+    /**
+     * light outline default outlineTransparentPrimary
+     */
+    public val outlineDefaultTransparentPrimary: String = "outlineDefaultTransparentPrimary"
+
+    /**
+     * light outline default outlineTransparentSecondary
+     */
+    public val outlineDefaultTransparentSecondary: String = "outlineDefaultTransparentSecondary"
+
+    /**
+     * light outline default outlineTransparentTertiary
+     */
+    public val outlineDefaultTransparentTertiary: String = "outlineDefaultTransparentTertiary"
+
+    /**
+     * light outline default outlineTransparentClear
+     */
+    public val outlineDefaultTransparentClear: String = "outlineDefaultTransparentClear"
+
+    /**
+     * light outline default outlineAccent
+     */
+    public val outlineDefaultAccent: String = "outlineDefaultAccent"
+
+    /**
+     * light outline default outlineAccentMinor
+     */
+    public val outlineDefaultAccentMinor: String = "outlineDefaultAccentMinor"
+
+    /**
+     * light outline default outlineTransparentAccent
+     */
+    public val outlineDefaultTransparentAccent: String = "outlineDefaultTransparentAccent"
+
+    /**
+     * light outline default outlinePositive
+     */
+    public val outlineDefaultPositive: String = "outlineDefaultPositive"
+
+    /**
+     * light outline default outlineWarning
+     */
+    public val outlineDefaultWarning: String = "outlineDefaultWarning"
+
+    /**
+     * light outline default outlineNegative
+     */
+    public val outlineDefaultNegative: String = "outlineDefaultNegative"
+
+    /**
+     * light outline default outlinePositiveMinor
+     */
+    public val outlineDefaultPositiveMinor: String = "outlineDefaultPositiveMinor"
+
+    /**
+     * light outline default outlineWarningMinor
+     */
+    public val outlineDefaultWarningMinor: String = "outlineDefaultWarningMinor"
+
+    /**
+     * light outline default outlineNegativeMinor
+     */
+    public val outlineDefaultNegativeMinor: String = "outlineDefaultNegativeMinor"
+
+    /**
+     * light outline default outlineTransparentPositive
+     */
+    public val outlineDefaultTransparentPositive: String = "outlineDefaultTransparentPositive"
+
+    /**
+     * light outline default outlineTransparentWarning
+     */
+    public val outlineDefaultTransparentWarning: String = "outlineDefaultTransparentWarning"
+
+    /**
+     * light outline default outlineTransparentNegative
+     */
+    public val outlineDefaultTransparentNegative: String = "outlineDefaultTransparentNegative"
+
+    /**
+     * light outline default outlineTransparentNegativeHover
+     */
+    public val outlineDefaultTransparentNegativeHover: String =
+        "outlineDefaultTransparentNegativeHover"
+
+    /**
+     * light outline default outlineTransparentNegativeActive
+     */
+    public val outlineDefaultTransparentNegativeActive: String =
+        "outlineDefaultTransparentNegativeActive"
+
+    /**
+     * light outline default outlineInfo
+     */
+    public val outlineDefaultInfo: String = "outlineDefaultInfo"
+
+    /**
+     * light outline default outlineInfoMinor
+     */
+    public val outlineDefaultInfoMinor: String = "outlineDefaultInfoMinor"
+
+    /**
+     * light outline default outlineTransparentInfo
+     */
+    public val outlineDefaultTransparentInfo: String = "outlineDefaultTransparentInfo"
+
+    /**
+     * light outline default outlineSolidPrimaryHover
+     */
+    public val outlineDefaultSolidPrimaryHover: String = "outlineDefaultSolidPrimaryHover"
+
+    /**
+     * light outline default outlineSolidPrimaryActive
+     */
+    public val outlineDefaultSolidPrimaryActive: String = "outlineDefaultSolidPrimaryActive"
+
+    /**
+     * light outline default outlineSolidSecondaryHover
+     */
+    public val outlineDefaultSolidSecondaryHover: String = "outlineDefaultSolidSecondaryHover"
+
+    /**
+     * light outline default outlineSolidSecondaryActive
+     */
+    public val outlineDefaultSolidSecondaryActive: String = "outlineDefaultSolidSecondaryActive"
+
+    /**
+     * light outline default outlineSolidTertiaryHover
+     */
+    public val outlineDefaultSolidTertiaryHover: String = "outlineDefaultSolidTertiaryHover"
+
+    /**
+     * light outline default outlineSolidTertiaryActive
+     */
+    public val outlineDefaultSolidTertiaryActive: String = "outlineDefaultSolidTertiaryActive"
+
+    /**
+     * light outline default outlineSolidDefaultHover
+     */
+    public val outlineDefaultSolidDefaultHover: String = "outlineDefaultSolidDefaultHover"
+
+    /**
+     * light outline default outlineSolidDefaultActive
+     */
+    public val outlineDefaultSolidDefaultActive: String = "outlineDefaultSolidDefaultActive"
+
+    /**
+     * light outline default outlineSolidPrimary
+     */
+    public val outlineDefaultSolidPrimary: String = "outlineDefaultSolidPrimary"
+
+    /**
+     * light outline default outlineSolidSecondary
+     */
+    public val outlineDefaultSolidSecondary: String = "outlineDefaultSolidSecondary"
+
+    /**
+     * light outline default outlineSolidTertiary
+     */
+    public val outlineDefaultSolidTertiary: String = "outlineDefaultSolidTertiary"
+
+    /**
+     * light outline default outlineSolidDefault
+     */
+    public val outlineDefaultSolidDefault: String = "outlineDefaultSolidDefault"
+
+    /**
+     * light outline onDark outlineSecondaryHover
+     */
+    public val outlineOnDarkSecondaryHover: String = "outlineOnDarkSecondaryHover"
+
+    /**
+     * light outline onDark outlineSecondaryActive
+     */
+    public val outlineOnDarkSecondaryActive: String = "outlineOnDarkSecondaryActive"
+
+    /**
+     * light outline onDark outlineTertiaryHover
+     */
+    public val outlineOnDarkTertiaryHover: String = "outlineOnDarkTertiaryHover"
+
+    /**
+     * light outline onDark outlineTertiaryActive
+     */
+    public val outlineOnDarkTertiaryActive: String = "outlineOnDarkTertiaryActive"
+
+    /**
+     * light outline onDark outlineDefaultHover
+     */
+    public val outlineOnDarkDefaultHover: String = "outlineOnDarkDefaultHover"
+
+    /**
+     * light outline onDark outlineDefaultActive
+     */
+    public val outlineOnDarkDefaultActive: String = "outlineOnDarkDefaultActive"
+
+    /**
+     * light outline onDark outlineTransparentPrimary
+     */
+    public val outlineOnDarkTransparentPrimary: String = "outlineOnDarkTransparentPrimary"
+
+    /**
+     * light outline onDark outlineTransparentPrimaryHover
+     */
+    public val outlineOnDarkTransparentPrimaryHover: String = "outlineOnDarkTransparentPrimaryHover"
+
+    /**
+     * light outline onDark outlineTransparentPrimaryActive
+     */
+    public val outlineOnDarkTransparentPrimaryActive: String =
+        "outlineOnDarkTransparentPrimaryActive"
+
+    /**
+     * light outline onDark outlineTransparentSecondary
+     */
+    public val outlineOnDarkTransparentSecondary: String = "outlineOnDarkTransparentSecondary"
+
+    /**
+     * light outline onDark outlineTransparentSecondaryHover
+     */
+    public val outlineOnDarkTransparentSecondaryHover: String =
+        "outlineOnDarkTransparentSecondaryHover"
+
+    /**
+     * light outline onDark outlineTransparentSecondaryActive
+     */
+    public val outlineOnDarkTransparentSecondaryActive: String =
+        "outlineOnDarkTransparentSecondaryActive"
+
+    /**
+     * light outline onDark outlineTransparentTertiary
+     */
+    public val outlineOnDarkTransparentTertiary: String = "outlineOnDarkTransparentTertiary"
+
+    /**
+     * light outline onDark outlineTransparentTertiaryHover
+     */
+    public val outlineOnDarkTransparentTertiaryHover: String =
+        "outlineOnDarkTransparentTertiaryHover"
+
+    /**
+     * light outline onDark outlineTransparentTertiaryActive
+     */
+    public val outlineOnDarkTransparentTertiaryActive: String =
+        "outlineOnDarkTransparentTertiaryActive"
+
+    /**
+     * light outline onDark outlineAccent
+     */
+    public val outlineOnDarkAccent: String = "outlineOnDarkAccent"
+
+    /**
+     * light outline onDark outlineAccentHover
+     */
+    public val outlineOnDarkAccentHover: String = "outlineOnDarkAccentHover"
+
+    /**
+     * light outline onDark outlineAccentActive
+     */
+    public val outlineOnDarkAccentActive: String = "outlineOnDarkAccentActive"
+
+    /**
+     * light outline onDark outlineAccentMinor
+     */
+    public val outlineOnDarkAccentMinor: String = "outlineOnDarkAccentMinor"
+
+    /**
+     * light outline onDark outlineAccentMinorHover
+     */
+    public val outlineOnDarkAccentMinorHover: String = "outlineOnDarkAccentMinorHover"
+
+    /**
+     * light outline onDark outlineAccentMinorActive
+     */
+    public val outlineOnDarkAccentMinorActive: String = "outlineOnDarkAccentMinorActive"
+
+    /**
+     * light outline onDark outlineTransparentAccent
+     */
+    public val outlineOnDarkTransparentAccent: String = "outlineOnDarkTransparentAccent"
+
+    /**
+     * light outline onDark outlineTransparentAccentHover
+     */
+    public val outlineOnDarkTransparentAccentHover: String = "outlineOnDarkTransparentAccentHover"
+
+    /**
+     * light outline onDark outlineTransparentAccentActive
+     */
+    public val outlineOnDarkTransparentAccentActive: String = "outlineOnDarkTransparentAccentActive"
+
+    /**
+     * light outline onDark outlinePositive
+     */
+    public val outlineOnDarkPositive: String = "outlineOnDarkPositive"
+
+    /**
+     * light outline onDark outlinePositiveHover
+     */
+    public val outlineOnDarkPositiveHover: String = "outlineOnDarkPositiveHover"
+
+    /**
+     * light outline onDark outlinePositiveActive
+     */
+    public val outlineOnDarkPositiveActive: String = "outlineOnDarkPositiveActive"
+
+    /**
+     * light outline onDark outlineWarning
+     */
+    public val outlineOnDarkWarning: String = "outlineOnDarkWarning"
+
+    /**
+     * light outline onDark outlineWarningHover
+     */
+    public val outlineOnDarkWarningHover: String = "outlineOnDarkWarningHover"
+
+    /**
+     * light outline onDark outlineWarningActive
+     */
+    public val outlineOnDarkWarningActive: String = "outlineOnDarkWarningActive"
+
+    /**
+     * light outline onDark outlineNegative
+     */
+    public val outlineOnDarkNegative: String = "outlineOnDarkNegative"
+
+    /**
+     * light outline onDark outlineNegativeHover
+     */
+    public val outlineOnDarkNegativeHover: String = "outlineOnDarkNegativeHover"
+
+    /**
+     * light outline onDark outlineNegativeActive
+     */
+    public val outlineOnDarkNegativeActive: String = "outlineOnDarkNegativeActive"
+
+    /**
+     * light outline onDark outlineInfoHover
+     */
+    public val outlineOnDarkInfoHover: String = "outlineOnDarkInfoHover"
+
+    /**
+     * light outline onDark outlineInfoActive
+     */
+    public val outlineOnDarkInfoActive: String = "outlineOnDarkInfoActive"
+
+    /**
+     * light outline onDark outlinePositiveMinor
+     */
+    public val outlineOnDarkPositiveMinor: String = "outlineOnDarkPositiveMinor"
+
+    /**
+     * light outline onDark outlinePositiveMinorHover
+     */
+    public val outlineOnDarkPositiveMinorHover: String = "outlineOnDarkPositiveMinorHover"
+
+    /**
+     * light outline onDark outlinePositiveMinorActive
+     */
+    public val outlineOnDarkPositiveMinorActive: String = "outlineOnDarkPositiveMinorActive"
+
+    /**
+     * light outline onDark outlineWarningMinor
+     */
+    public val outlineOnDarkWarningMinor: String = "outlineOnDarkWarningMinor"
+
+    /**
+     * light outline onDark outlineWarningMinorHover
+     */
+    public val outlineOnDarkWarningMinorHover: String = "outlineOnDarkWarningMinorHover"
+
+    /**
+     * light outline onDark outlineWarningMinorActive
+     */
+    public val outlineOnDarkWarningMinorActive: String = "outlineOnDarkWarningMinorActive"
+
+    /**
+     * light outline onDark outlineNegativeMinor
+     */
+    public val outlineOnDarkNegativeMinor: String = "outlineOnDarkNegativeMinor"
+
+    /**
+     * light outline onDark outlineNegativeMinorHover
+     */
+    public val outlineOnDarkNegativeMinorHover: String = "outlineOnDarkNegativeMinorHover"
+
+    /**
+     * light outline onDark outlineNegativeMinorActive
+     */
+    public val outlineOnDarkNegativeMinorActive: String = "outlineOnDarkNegativeMinorActive"
+
+    /**
+     * light outline onDark outlineInfoMinorHover
+     */
+    public val outlineOnDarkInfoMinorHover: String = "outlineOnDarkInfoMinorHover"
+
+    /**
+     * light outline onDark outlineInfoMinorActive
+     */
+    public val outlineOnDarkInfoMinorActive: String = "outlineOnDarkInfoMinorActive"
+
+    /**
+     * light outline onDark outlineTransparentPositive
+     */
+    public val outlineOnDarkTransparentPositive: String = "outlineOnDarkTransparentPositive"
+
+    /**
+     * light outline onDark outlineTransparentPositiveHover
+     */
+    public val outlineOnDarkTransparentPositiveHover: String =
+        "outlineOnDarkTransparentPositiveHover"
+
+    /**
+     * light outline onDark outlineTransparentPositiveActive
+     */
+    public val outlineOnDarkTransparentPositiveActive: String =
+        "outlineOnDarkTransparentPositiveActive"
+
+    /**
+     * light outline onDark outlineTransparentWarning
+     */
+    public val outlineOnDarkTransparentWarning: String = "outlineOnDarkTransparentWarning"
+
+    /**
+     * light outline onDark outlineTransparentWarningHover
+     */
+    public val outlineOnDarkTransparentWarningHover: String = "outlineOnDarkTransparentWarningHover"
+
+    /**
+     * light outline onDark outlineTransparentWarningActive
+     */
+    public val outlineOnDarkTransparentWarningActive: String =
+        "outlineOnDarkTransparentWarningActive"
+
+    /**
+     * light outline onDark outlineNegativeTransparent
+     */
+    public val outlineOnDarkNegativeTransparent: String = "outlineOnDarkNegativeTransparent"
+
+    /**
+     * light outline onDark outlineNegativeTransparentHover
+     */
+    public val outlineOnDarkNegativeTransparentHover: String =
+        "outlineOnDarkNegativeTransparentHover"
+
+    /**
+     * light outline onDark outlineNegativeTransparentActive
+     */
+    public val outlineOnDarkNegativeTransparentActive: String =
+        "outlineOnDarkNegativeTransparentActive"
+
+    /**
+     * light outline onDark outlineTransparentInfoHover
+     */
+    public val outlineOnDarkTransparentInfoHover: String = "outlineOnDarkTransparentInfoHover"
+
+    /**
+     * light outline onDark outlineTransparentInfoActive
+     */
+    public val outlineOnDarkTransparentInfoActive: String = "outlineOnDarkTransparentInfoActive"
+
+    /**
+     * light outline onDark outlinePrimaryHover
+     */
+    public val outlineOnDarkPrimaryHover: String = "outlineOnDarkPrimaryHover"
+
+    /**
+     * light outline onDark outlinePrimaryActive
+     */
+    public val outlineOnDarkPrimaryActive: String = "outlineOnDarkPrimaryActive"
+
+    /**
+     * light outline onDark outlineInfo
+     */
+    public val outlineOnDarkInfo: String = "outlineOnDarkInfo"
+
+    /**
+     * light outline onDark outlineInfoMinor
+     */
+    public val outlineOnDarkInfoMinor: String = "outlineOnDarkInfoMinor"
+
+    /**
+     * light outline onDark outlineTransparentInfo
+     */
+    public val outlineOnDarkTransparentInfo: String = "outlineOnDarkTransparentInfo"
+
+    /**
+     * light outline onDark outlineSolidPrimary
+     */
+    public val outlineOnDarkSolidPrimary: String = "outlineOnDarkSolidPrimary"
+
+    /**
+     * light outline onDark outlineSolidPrimaryHover
+     */
+    public val outlineOnDarkSolidPrimaryHover: String = "outlineOnDarkSolidPrimaryHover"
+
+    /**
+     * light outline onDark outlineSolidPrimaryActive
+     */
+    public val outlineOnDarkSolidPrimaryActive: String = "outlineOnDarkSolidPrimaryActive"
+
+    /**
+     * light outline onDark outlineSolidSecondary
+     */
+    public val outlineOnDarkSolidSecondary: String = "outlineOnDarkSolidSecondary"
+
+    /**
+     * light outline onDark outlineSolidSecondaryHover
+     */
+    public val outlineOnDarkSolidSecondaryHover: String = "outlineOnDarkSolidSecondaryHover"
+
+    /**
+     * light outline onDark outlineSolidSecondaryActive
+     */
+    public val outlineOnDarkSolidSecondaryActive: String = "outlineOnDarkSolidSecondaryActive"
+
+    /**
+     * light outline onDark outlineSolidTertiary
+     */
+    public val outlineOnDarkSolidTertiary: String = "outlineOnDarkSolidTertiary"
+
+    /**
+     * light outline onDark outlineSolidTertiaryHover
+     */
+    public val outlineOnDarkSolidTertiaryHover: String = "outlineOnDarkSolidTertiaryHover"
+
+    /**
+     * light outline onDark outlineSolidTertiaryActive
+     */
+    public val outlineOnDarkSolidTertiaryActive: String = "outlineOnDarkSolidTertiaryActive"
+
+    /**
+     * light outline onDark outlineSolidDefault
+     */
+    public val outlineOnDarkSolidDefault: String = "outlineOnDarkSolidDefault"
+
+    /**
+     * light outline onDark outlineSolidDefaultHover
+     */
+    public val outlineOnDarkSolidDefaultHover: String = "outlineOnDarkSolidDefaultHover"
+
+    /**
+     * light outline onDark outlineSolidDefaultActive
+     */
+    public val outlineOnDarkSolidDefaultActive: String = "outlineOnDarkSolidDefaultActive"
+
+    /**
+     * light outline onLight outlineSecondaryHover
+     */
+    public val outlineOnLightSecondaryHover: String = "outlineOnLightSecondaryHover"
+
+    /**
+     * light outline onLight outlineSecondaryActive
+     */
+    public val outlineOnLightSecondaryActive: String = "outlineOnLightSecondaryActive"
+
+    /**
+     * light outline onLight outlineTertiaryHover
+     */
+    public val outlineOnLightTertiaryHover: String = "outlineOnLightTertiaryHover"
+
+    /**
+     * light outline onLight outlineTertiaryActive
+     */
+    public val outlineOnLightTertiaryActive: String = "outlineOnLightTertiaryActive"
+
+    /**
+     * light outline onLight outlineDefaultHover
+     */
+    public val outlineOnLightDefaultHover: String = "outlineOnLightDefaultHover"
+
+    /**
+     * light outline onLight outlineDefaultActive
+     */
+    public val outlineOnLightDefaultActive: String = "outlineOnLightDefaultActive"
+
+    /**
+     * light outline onLight outlineTransparentPrimary
+     */
+    public val outlineOnLightTransparentPrimary: String = "outlineOnLightTransparentPrimary"
+
+    /**
+     * light outline onLight outlineTransparentPrimaryHover
+     */
+    public val outlineOnLightTransparentPrimaryHover: String =
+        "outlineOnLightTransparentPrimaryHover"
+
+    /**
+     * light outline onLight outlineTransparentPrimaryActive
+     */
+    public val outlineOnLightTransparentPrimaryActive: String =
+        "outlineOnLightTransparentPrimaryActive"
+
+    /**
+     * light outline onLight outlineTransparentSecondary
+     */
+    public val outlineOnLightTransparentSecondary: String = "outlineOnLightTransparentSecondary"
+
+    /**
+     * light outline onLight outlineTransparentSecondaryHover
+     */
+    public val outlineOnLightTransparentSecondaryHover: String =
+        "outlineOnLightTransparentSecondaryHover"
+
+    /**
+     * light outline onLight outlineTransparentSecondaryActive
+     */
+    public val outlineOnLightTransparentSecondaryActive: String =
+        "outlineOnLightTransparentSecondaryActive"
+
+    /**
+     * light outline onLight outlineTransparentTertiary
+     */
+    public val outlineOnLightTransparentTertiary: String = "outlineOnLightTransparentTertiary"
+
+    /**
+     * light outline onLight outlineTransparentTertiaryHover
+     */
+    public val outlineOnLightTransparentTertiaryHover: String =
+        "outlineOnLightTransparentTertiaryHover"
+
+    /**
+     * light outline onLight outlineTransparentTertiaryActive
+     */
+    public val outlineOnLightTransparentTertiaryActive: String =
+        "outlineOnLightTransparentTertiaryActive"
+
+    /**
+     * light outline onLight outlineAccent
+     */
+    public val outlineOnLightAccent: String = "outlineOnLightAccent"
+
+    /**
+     * light outline onLight outlineAccentHover
+     */
+    public val outlineOnLightAccentHover: String = "outlineOnLightAccentHover"
+
+    /**
+     * light outline onLight outlineAccentActive
+     */
+    public val outlineOnLightAccentActive: String = "outlineOnLightAccentActive"
+
+    /**
+     * light outline onLight outlineAccentMinor
+     */
+    public val outlineOnLightAccentMinor: String = "outlineOnLightAccentMinor"
+
+    /**
+     * light outline onLight outlineAccentMinorHover
+     */
+    public val outlineOnLightAccentMinorHover: String = "outlineOnLightAccentMinorHover"
+
+    /**
+     * light outline onLight outlineAccentMinorActive
+     */
+    public val outlineOnLightAccentMinorActive: String = "outlineOnLightAccentMinorActive"
+
+    /**
+     * light outline onLight outlineTransparentAccent
+     */
+    public val outlineOnLightTransparentAccent: String = "outlineOnLightTransparentAccent"
+
+    /**
+     * light outline onLight outlineTransparentAccentHover
+     */
+    public val outlineOnLightTransparentAccentHover: String = "outlineOnLightTransparentAccentHover"
+
+    /**
+     * light outline onLight outlineTransparentAccentActive
+     */
+    public val outlineOnLightTransparentAccentActive: String =
+        "outlineOnLightTransparentAccentActive"
+
+    /**
+     * light outline onLight outlinePositive
+     */
+    public val outlineOnLightPositive: String = "outlineOnLightPositive"
+
+    /**
+     * light outline onLight outlinePositiveHover
+     */
+    public val outlineOnLightPositiveHover: String = "outlineOnLightPositiveHover"
+
+    /**
+     * light outline onLight outlinePositiveActive
+     */
+    public val outlineOnLightPositiveActive: String = "outlineOnLightPositiveActive"
+
+    /**
+     * light outline onLight outlineWarning
+     */
+    public val outlineOnLightWarning: String = "outlineOnLightWarning"
+
+    /**
+     * light outline onLight outlineWarningHover
+     */
+    public val outlineOnLightWarningHover: String = "outlineOnLightWarningHover"
+
+    /**
+     * light outline onLight outlineWarningActive
+     */
+    public val outlineOnLightWarningActive: String = "outlineOnLightWarningActive"
+
+    /**
+     * light outline onLight outlineNegative
+     */
+    public val outlineOnLightNegative: String = "outlineOnLightNegative"
+
+    /**
+     * light outline onLight outlineNegativeHover
+     */
+    public val outlineOnLightNegativeHover: String = "outlineOnLightNegativeHover"
+
+    /**
+     * light outline onLight outlineNegativeActive
+     */
+    public val outlineOnLightNegativeActive: String = "outlineOnLightNegativeActive"
+
+    /**
+     * light outline onLight outlineInfoHover
+     */
+    public val outlineOnLightInfoHover: String = "outlineOnLightInfoHover"
+
+    /**
+     * light outline onLight outlineInfoActive
+     */
+    public val outlineOnLightInfoActive: String = "outlineOnLightInfoActive"
+
+    /**
+     * light outline onLight outlinePositiveMinor
+     */
+    public val outlineOnLightPositiveMinor: String = "outlineOnLightPositiveMinor"
+
+    /**
+     * light outline onLight outlinePositiveMinorHover
+     */
+    public val outlineOnLightPositiveMinorHover: String = "outlineOnLightPositiveMinorHover"
+
+    /**
+     * light outline onLight outlinePositiveMinorActive
+     */
+    public val outlineOnLightPositiveMinorActive: String = "outlineOnLightPositiveMinorActive"
+
+    /**
+     * light outline onLight outlineWarningMinor
+     */
+    public val outlineOnLightWarningMinor: String = "outlineOnLightWarningMinor"
+
+    /**
+     * light outline onLight outlineWarningMinorHover
+     */
+    public val outlineOnLightWarningMinorHover: String = "outlineOnLightWarningMinorHover"
+
+    /**
+     * light outline onLight outlineWarningMinorActive
+     */
+    public val outlineOnLightWarningMinorActive: String = "outlineOnLightWarningMinorActive"
+
+    /**
+     * light outline onLight outlineNegativeMinor
+     */
+    public val outlineOnLightNegativeMinor: String = "outlineOnLightNegativeMinor"
+
+    /**
+     * light outline onLight outlineNegativeMinorHover
+     */
+    public val outlineOnLightNegativeMinorHover: String = "outlineOnLightNegativeMinorHover"
+
+    /**
+     * light outline onLight outlineNegativeMinorActive
+     */
+    public val outlineOnLightNegativeMinorActive: String = "outlineOnLightNegativeMinorActive"
+
+    /**
+     * light outline onLight outlineInfoMinorHover
+     */
+    public val outlineOnLightInfoMinorHover: String = "outlineOnLightInfoMinorHover"
+
+    /**
+     * light outline onLight outlineInfoMinorActive
+     */
+    public val outlineOnLightInfoMinorActive: String = "outlineOnLightInfoMinorActive"
+
+    /**
+     * light outline onLight outlineTransparentPositive
+     */
+    public val outlineOnLightTransparentPositive: String = "outlineOnLightTransparentPositive"
+
+    /**
+     * light outline onLight outlineTransparentPositiveHover
+     */
+    public val outlineOnLightTransparentPositiveHover: String =
+        "outlineOnLightTransparentPositiveHover"
+
+    /**
+     * light outline onLight outlineTransparentPositiveActive
+     */
+    public val outlineOnLightTransparentPositiveActive: String =
+        "outlineOnLightTransparentPositiveActive"
+
+    /**
+     * light outline onLight outlineTransparentWarning
+     */
+    public val outlineOnLightTransparentWarning: String = "outlineOnLightTransparentWarning"
+
+    /**
+     * light outline onLight outlineTransparentWarningHover
+     */
+    public val outlineOnLightTransparentWarningHover: String =
+        "outlineOnLightTransparentWarningHover"
+
+    /**
+     * light outline onLight outlineTransparentWarningActive
+     */
+    public val outlineOnLightTransparentWarningActive: String =
+        "outlineOnLightTransparentWarningActive"
+
+    /**
+     * light outline onLight outlineNegativeTransparent
+     */
+    public val outlineOnLightNegativeTransparent: String = "outlineOnLightNegativeTransparent"
+
+    /**
+     * light outline onLight outlineNegativeTransparentHover
+     */
+    public val outlineOnLightNegativeTransparentHover: String =
+        "outlineOnLightNegativeTransparentHover"
+
+    /**
+     * light outline onLight outlineNegativeTransparentActive
+     */
+    public val outlineOnLightNegativeTransparentActive: String =
+        "outlineOnLightNegativeTransparentActive"
+
+    /**
+     * light outline onLight outlineTransparentInfoHover
+     */
+    public val outlineOnLightTransparentInfoHover: String = "outlineOnLightTransparentInfoHover"
+
+    /**
+     * light outline onLight outlineTransparentInfoActive
+     */
+    public val outlineOnLightTransparentInfoActive: String = "outlineOnLightTransparentInfoActive"
+
+    /**
+     * light outline onLight outlinePrimaryHover
+     */
+    public val outlineOnLightPrimaryHover: String = "outlineOnLightPrimaryHover"
+
+    /**
+     * light outline onLight outlinePrimaryActive
+     */
+    public val outlineOnLightPrimaryActive: String = "outlineOnLightPrimaryActive"
+
+    /**
+     * light outline onLight outlineInfo
+     */
+    public val outlineOnLightInfo: String = "outlineOnLightInfo"
+
+    /**
+     * light outline onLight outlineInfoMinor
+     */
+    public val outlineOnLightInfoMinor: String = "outlineOnLightInfoMinor"
+
+    /**
+     * light outline onLight outlineTransparentInfo
+     */
+    public val outlineOnLightTransparentInfo: String = "outlineOnLightTransparentInfo"
+
+    /**
+     * light outline onLight outlineSolidTertiaryHover
+     */
+    public val outlineOnLightSolidTertiaryHover: String = "outlineOnLightSolidTertiaryHover"
+
+    /**
+     * light outline onLight outlineSolidTertiaryActive
+     */
+    public val outlineOnLightSolidTertiaryActive: String = "outlineOnLightSolidTertiaryActive"
+
+    /**
+     * light outline onLight outlineSolidDefaultHover
+     */
+    public val outlineOnLightSolidDefaultHover: String = "outlineOnLightSolidDefaultHover"
+
+    /**
+     * light outline onLight outlineSolidDefaultActive
+     */
+    public val outlineOnLightSolidDefaultActive: String = "outlineOnLightSolidDefaultActive"
+
+    /**
+     * light outline onLight outlineSolidPrimaryHover
+     */
+    public val outlineOnLightSolidPrimaryHover: String = "outlineOnLightSolidPrimaryHover"
+
+    /**
+     * light outline onLight outlineSolidPrimaryActive
+     */
+    public val outlineOnLightSolidPrimaryActive: String = "outlineOnLightSolidPrimaryActive"
+
+    /**
+     * light outline onLight outlineSolidSecondaryHover
+     */
+    public val outlineOnLightSolidSecondaryHover: String = "outlineOnLightSolidSecondaryHover"
+
+    /**
+     * light outline onLight outlineSolidSecondaryActive
+     */
+    public val outlineOnLightSolidSecondaryActive: String = "outlineOnLightSolidSecondaryActive"
+
+    /**
+     * light outline onLight outlineSolidPrimary
+     */
+    public val outlineOnLightSolidPrimary: String = "outlineOnLightSolidPrimary"
+
+    /**
+     * light outline onLight outlineSolidSecondary
+     */
+    public val outlineOnLightSolidSecondary: String = "outlineOnLightSolidSecondary"
+
+    /**
+     * light outline onLight outlineSolidTertiary
+     */
+    public val outlineOnLightSolidTertiary: String = "outlineOnLightSolidTertiary"
+
+    /**
+     * light outline onLight outlineSolidDefault
+     */
+    public val outlineOnLightSolidDefault: String = "outlineOnLightSolidDefault"
+
+    /**
+     * light outline inverse outlinePrimaryHover
+     */
+    public val outlineInversePrimaryHover: String = "outlineInversePrimaryHover"
+
+    /**
+     * light outline inverse outlinePrimaryActive
+     */
+    public val outlineInversePrimaryActive: String = "outlineInversePrimaryActive"
+
+    /**
+     * light outline inverse outlineSecondaryHover
+     */
+    public val outlineInverseSecondaryHover: String = "outlineInverseSecondaryHover"
+
+    /**
+     * light outline inverse outlineSecondaryActive
+     */
+    public val outlineInverseSecondaryActive: String = "outlineInverseSecondaryActive"
+
+    /**
+     * light outline inverse outlineTertiaryHover
+     */
+    public val outlineInverseTertiaryHover: String = "outlineInverseTertiaryHover"
+
+    /**
+     * light outline inverse outlineTertiaryActive
+     */
+    public val outlineInverseTertiaryActive: String = "outlineInverseTertiaryActive"
+
+    /**
+     * light outline inverse outlineDefaultHover
+     */
+    public val outlineInverseDefaultHover: String = "outlineInverseDefaultHover"
+
+    /**
+     * light outline inverse outlineDefaultActive
+     */
+    public val outlineInverseDefaultActive: String = "outlineInverseDefaultActive"
+
+    /**
+     * light outline inverse outlineTransparentPrimaryHover
+     */
+    public val outlineInverseTransparentPrimaryHover: String =
+        "outlineInverseTransparentPrimaryHover"
+
+    /**
+     * light outline inverse outlineTransparentPrimaryActive
+     */
+    public val outlineInverseTransparentPrimaryActive: String =
+        "outlineInverseTransparentPrimaryActive"
+
+    /**
+     * light outline inverse outlineTransparentSecondaryHover
+     */
+    public val outlineInverseTransparentSecondaryHover: String =
+        "outlineInverseTransparentSecondaryHover"
+
+    /**
+     * light outline inverse outlineTransparentSecondaryActive
+     */
+    public val outlineInverseTransparentSecondaryActive: String =
+        "outlineInverseTransparentSecondaryActive"
+
+    /**
+     * light outline inverse outlineTransparentTertiaryHover
+     */
+    public val outlineInverseTransparentTertiaryHover: String =
+        "outlineInverseTransparentTertiaryHover"
+
+    /**
+     * light outline inverse outlineTransparentTertiaryActive
+     */
+    public val outlineInverseTransparentTertiaryActive: String =
+        "outlineInverseTransparentTertiaryActive"
+
+    /**
+     * light outline inverse outlineTransparentClearHover
+     */
+    public val outlineInverseTransparentClearHover: String = "outlineInverseTransparentClearHover"
+
+    /**
+     * light outline inverse outlineTransparentClearActive
+     */
+    public val outlineInverseTransparentClearActive: String = "outlineInverseTransparentClearActive"
+
+    /**
+     * light outline inverse outlineAccentHover
+     */
+    public val outlineInverseAccentHover: String = "outlineInverseAccentHover"
+
+    /**
+     * light outline inverse outlineAccentActive
+     */
+    public val outlineInverseAccentActive: String = "outlineInverseAccentActive"
+
+    /**
+     * light outline inverse outlineAccentMinorHover
+     */
+    public val outlineInverseAccentMinorHover: String = "outlineInverseAccentMinorHover"
+
+    /**
+     * light outline inverse outlineAccentMinorActive
+     */
+    public val outlineInverseAccentMinorActive: String = "outlineInverseAccentMinorActive"
+
+    /**
+     * light outline inverse outlineTransparentAccentHover
+     */
+    public val outlineInverseTransparentAccentHover: String = "outlineInverseTransparentAccentHover"
+
+    /**
+     * light outline inverse outlineTransparentAccentActive
+     */
+    public val outlineInverseTransparentAccentActive: String =
+        "outlineInverseTransparentAccentActive"
+
+    /**
+     * light outline inverse outlinePositiveHover
+     */
+    public val outlineInversePositiveHover: String = "outlineInversePositiveHover"
+
+    /**
+     * light outline inverse outlinePositiveActive
+     */
+    public val outlineInversePositiveActive: String = "outlineInversePositiveActive"
+
+    /**
+     * light outline inverse outlineWarningHover
+     */
+    public val outlineInverseWarningHover: String = "outlineInverseWarningHover"
+
+    /**
+     * light outline inverse outlineWarningActive
+     */
+    public val outlineInverseWarningActive: String = "outlineInverseWarningActive"
+
+    /**
+     * light outline inverse outlineNegativeHover
+     */
+    public val outlineInverseNegativeHover: String = "outlineInverseNegativeHover"
+
+    /**
+     * light outline inverse outlineNegativeActive
+     */
+    public val outlineInverseNegativeActive: String = "outlineInverseNegativeActive"
+
+    /**
+     * light outline inverse outlineInfoHover
+     */
+    public val outlineInverseInfoHover: String = "outlineInverseInfoHover"
+
+    /**
+     * light outline inverse outlineInfoActive
+     */
+    public val outlineInverseInfoActive: String = "outlineInverseInfoActive"
+
+    /**
+     * light outline inverse outlinePositiveMinorHover
+     */
+    public val outlineInversePositiveMinorHover: String = "outlineInversePositiveMinorHover"
+
+    /**
+     * light outline inverse outlinePositiveMinorActive
+     */
+    public val outlineInversePositiveMinorActive: String = "outlineInversePositiveMinorActive"
+
+    /**
+     * light outline inverse outlineWarningMinorHover
+     */
+    public val outlineInverseWarningMinorHover: String = "outlineInverseWarningMinorHover"
+
+    /**
+     * light outline inverse outlineWarningMinorActive
+     */
+    public val outlineInverseWarningMinorActive: String = "outlineInverseWarningMinorActive"
+
+    /**
+     * light outline inverse outlineNegativeMinorHover
+     */
+    public val outlineInverseNegativeMinorHover: String = "outlineInverseNegativeMinorHover"
+
+    /**
+     * light outline inverse outlineNegativeMinorActive
+     */
+    public val outlineInverseNegativeMinorActive: String = "outlineInverseNegativeMinorActive"
+
+    /**
+     * light outline inverse outlineInfoMinorHover
+     */
+    public val outlineInverseInfoMinorHover: String = "outlineInverseInfoMinorHover"
+
+    /**
+     * light outline inverse outlineInfoMinorActive
+     */
+    public val outlineInverseInfoMinorActive: String = "outlineInverseInfoMinorActive"
+
+    /**
+     * light outline inverse outlineTransparentPositiveHover
+     */
+    public val outlineInverseTransparentPositiveHover: String =
+        "outlineInverseTransparentPositiveHover"
+
+    /**
+     * light outline inverse outlineTransparentPositiveActive
+     */
+    public val outlineInverseTransparentPositiveActive: String =
+        "outlineInverseTransparentPositiveActive"
+
+    /**
+     * light outline inverse outlineTransparentWarningHover
+     */
+    public val outlineInverseTransparentWarningHover: String =
+        "outlineInverseTransparentWarningHover"
+
+    /**
+     * light outline inverse outlineTransparentWarningActive
+     */
+    public val outlineInverseTransparentWarningActive: String =
+        "outlineInverseTransparentWarningActive"
+
+    /**
+     * light outline inverse outlineTransparentNegativeHover
+     */
+    public val outlineInverseTransparentNegativeHover: String =
+        "outlineInverseTransparentNegativeHover"
+
+    /**
+     * light outline inverse outlineTransparentNegativeActive
+     */
+    public val outlineInverseTransparentNegativeActive: String =
+        "outlineInverseTransparentNegativeActive"
+
+    /**
+     * light outline inverse outlineTransparentInfoHover
+     */
+    public val outlineInverseTransparentInfoHover: String = "outlineInverseTransparentInfoHover"
+
+    /**
+     * light outline inverse outlineTransparentInfoActive
+     */
+    public val outlineInverseTransparentInfoActive: String = "outlineInverseTransparentInfoActive"
+
+    /**
+     * light outline inverse outlineTransparentPrimary
+     */
+    public val outlineInverseTransparentPrimary: String = "outlineInverseTransparentPrimary"
+
+    /**
+     * light outline inverse outlineTransparentSecondary
+     */
+    public val outlineInverseTransparentSecondary: String = "outlineInverseTransparentSecondary"
+
+    /**
+     * light outline inverse outlineTransparentTertiary
+     */
+    public val outlineInverseTransparentTertiary: String = "outlineInverseTransparentTertiary"
+
+    /**
+     * light outline inverse outlineTransparentClear
+     */
+    public val outlineInverseTransparentClear: String = "outlineInverseTransparentClear"
+
+    /**
+     * light outline inverse outlineAccent
+     */
+    public val outlineInverseAccent: String = "outlineInverseAccent"
+
+    /**
+     * light outline inverse outlineAccentMinor
+     */
+    public val outlineInverseAccentMinor: String = "outlineInverseAccentMinor"
+
+    /**
+     * light outline inverse outlineTransparentAccent
+     */
+    public val outlineInverseTransparentAccent: String = "outlineInverseTransparentAccent"
+
+    /**
+     * light outline inverse outlinePositive
+     */
+    public val outlineInversePositive: String = "outlineInversePositive"
+
+    /**
+     * light outline inverse outlineWarning
+     */
+    public val outlineInverseWarning: String = "outlineInverseWarning"
+
+    /**
+     * light outline inverse outlineNegative
+     */
+    public val outlineInverseNegative: String = "outlineInverseNegative"
+
+    /**
+     * light outline inverse outlineInfo
+     */
+    public val outlineInverseInfo: String = "outlineInverseInfo"
+
+    /**
+     * light outline inverse outlinePositiveMinor
+     */
+    public val outlineInversePositiveMinor: String = "outlineInversePositiveMinor"
+
+    /**
+     * light outline inverse outlineWarningMinor
+     */
+    public val outlineInverseWarningMinor: String = "outlineInverseWarningMinor"
+
+    /**
+     * light outline inverse outlineNegativeMinor
+     */
+    public val outlineInverseNegativeMinor: String = "outlineInverseNegativeMinor"
+
+    /**
+     * light outline inverse outlineInfoMinor
+     */
+    public val outlineInverseInfoMinor: String = "outlineInverseInfoMinor"
+
+    /**
+     * light outline inverse outlineTransparentPositive
+     */
+    public val outlineInverseTransparentPositive: String = "outlineInverseTransparentPositive"
+
+    /**
+     * light outline inverse outlineTransparentWarning
+     */
+    public val outlineInverseTransparentWarning: String = "outlineInverseTransparentWarning"
+
+    /**
+     * light outline inverse outlineTransparentNegative
+     */
+    public val outlineInverseTransparentNegative: String = "outlineInverseTransparentNegative"
+
+    /**
+     * light outline inverse outlineTransparentInfo
+     */
+    public val outlineInverseTransparentInfo: String = "outlineInverseTransparentInfo"
+
+    /**
+     * light outline inverse outlineSolidPrimaryHover
+     */
+    public val outlineInverseSolidPrimaryHover: String = "outlineInverseSolidPrimaryHover"
+
+    /**
+     * light outline inverse outlineSolidPrimaryActive
+     */
+    public val outlineInverseSolidPrimaryActive: String = "outlineInverseSolidPrimaryActive"
+
+    /**
+     * light outline inverse outlineSolidSecondaryHover
+     */
+    public val outlineInverseSolidSecondaryHover: String = "outlineInverseSolidSecondaryHover"
+
+    /**
+     * light outline inverse outlineSolidSecondaryActive
+     */
+    public val outlineInverseSolidSecondaryActive: String = "outlineInverseSolidSecondaryActive"
+
+    /**
+     * light outline inverse outlineSolidTertiaryHover
+     */
+    public val outlineInverseSolidTertiaryHover: String = "outlineInverseSolidTertiaryHover"
+
+    /**
+     * light outline inverse outlineSolidTertiaryActive
+     */
+    public val outlineInverseSolidTertiaryActive: String = "outlineInverseSolidTertiaryActive"
+
+    /**
+     * light outline inverse outlineSolidDefaultHover
+     */
+    public val outlineInverseSolidDefaultHover: String = "outlineInverseSolidDefaultHover"
+
+    /**
+     * light outline inverse outlineSolidDefaultActive
+     */
+    public val outlineInverseSolidDefaultActive: String = "outlineInverseSolidDefaultActive"
+
+    /**
+     * light outline inverse outlineSolidPrimary
+     */
+    public val outlineInverseSolidPrimary: String = "outlineInverseSolidPrimary"
+
+    /**
+     * light outline inverse outlineSolidSecondary
+     */
+    public val outlineInverseSolidSecondary: String = "outlineInverseSolidSecondary"
+
+    /**
+     * light outline inverse outlineSolidTertiary
+     */
+    public val outlineInverseSolidTertiary: String = "outlineInverseSolidTertiary"
+
+    /**
+     * light outline inverse outlineSolidDefault
+     */
+    public val outlineInverseSolidDefault: String = "outlineInverseSolidDefault"
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val dataDefaultYellow: String = "dataDefaultYellow"
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val dataDefaultYellowHover: String = "dataDefaultYellowHover"
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val dataDefaultYellowActive: String = "dataDefaultYellowActive"
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val dataDefaultYellowMinor: String = "dataDefaultYellowMinor"
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val dataDefaultYellowMinorHover: String = "dataDefaultYellowMinorHover"
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val dataDefaultYellowMinorActive: String = "dataDefaultYellowMinorActive"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparent: String = "dataDefaultYellowTransparent"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparentHover: String = "dataDefaultYellowTransparentHover"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparentActive: String = "dataDefaultYellowTransparentActive"
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellow: String = "dataOnDarkYellow"
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowHover: String = "dataOnDarkYellowHover"
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowActive: String = "dataOnDarkYellowActive"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinor: String = "dataOnDarkYellowMinor"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinorHover: String = "dataOnDarkYellowMinorHover"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinorActive: String = "dataOnDarkYellowMinorActive"
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowTransparent: String = "dataOnDarkYellowTransparent"
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowTransparentHover: String = "dataOnDarkYellowTransparentHover"
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowTransparentActive: String = "dataOnDarkYellowTransparentActive"
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellow: String = "dataOnLightYellow"
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowHover: String = "dataOnLightYellowHover"
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowActive: String = "dataOnLightYellowActive"
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowMinor: String = "dataOnLightYellowMinor"
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowMinorHover: String = "dataOnLightYellowMinorHover"
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowMinorActive: String = "dataOnLightYellowMinorActive"
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowTransparent: String = "dataOnLightYellowTransparent"
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowTransparentHover: String = "dataOnLightYellowTransparentHover"
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowTransparentActive: String = "dataOnLightYellowTransparentActive"
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val dataInverseYellow: String = "dataInverseYellow"
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val dataInverseYellowHover: String = "dataInverseYellowHover"
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val dataInverseYellowActive: String = "dataInverseYellowActive"
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val dataInverseYellowMinor: String = "dataInverseYellowMinor"
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val dataInverseYellowMinorHover: String = "dataInverseYellowMinorHover"
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val dataInverseYellowMinorActive: String = "dataInverseYellowMinorActive"
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val dataInverseYellowTransparent: String = "dataInverseYellowTransparent"
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val dataInverseYellowTransparentHover: String = "dataInverseYellowTransparentHover"
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val dataInverseYellowTransparentActive: String = "dataInverseYellowTransparentActive"
+
+    /**
+     * Переопределяет аттрибут цвета.
+     */
+    public infix fun String.overrideBy(color: String) {
         _overrideMap[this] = color
     }
 }

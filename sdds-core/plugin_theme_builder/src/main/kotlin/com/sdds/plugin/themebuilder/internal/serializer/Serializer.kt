@@ -72,4 +72,13 @@ object Serializer {
         prettyPrint = true
         prettyPrintIndent = "   "
     }
+
+    /**
+     * Экземпляр сериализации json файла с информацией о токенах темы
+     */
+    @OptIn(ExperimentalSerializationApi::class)
+    val themeInfo: Json = Json {
+        prettyPrint = true
+        prettyPrintIndent = "   "
+    }
 }

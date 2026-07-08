@@ -3,11 +3,9 @@ package com.sdkit.star.designsystem.theme.subthemes
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import com.sdkit.star.designsystem.theme.LocalStarDsColors
+import com.sdkit.star.designsystem.theme.LocalStarDsGradients
 import com.sdkit.star.designsystem.theme.StarDsTheme
-import com.sdkit.star.designsystem.theme.darkStarDsColors
-import com.sdkit.star.designsystem.theme.darkStarDsGradients
-import com.sdkit.star.designsystem.theme.lightStarDsColors
-import com.sdkit.star.designsystem.theme.lightStarDsGradients
 import kotlin.Boolean
 import kotlin.Unit
 
@@ -20,15 +18,7 @@ public fun StarDsTheme.Default(
     content: @Composable
     () -> Unit,
 ) {
-    val colors = if (isDark) {
-        darkStarDsColors()
-    } else {
-        lightStarDsColors()
-    }
-    val gradients = if (isDark) {
-        darkStarDsGradients()
-    } else {
-        lightStarDsGradients()
-    }
-    StarDsTheme(colors = colors, gradients = gradients, content = content)
+    val currentColors = LocalStarDsColors.current
+    val currentGradients = LocalStarDsGradients.current
+    StarDsTheme(colors = currentColors, gradients = currentGradients, content = content)
 }
