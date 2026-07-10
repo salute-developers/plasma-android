@@ -54,6 +54,7 @@ jobs:
         shell: bash
         run: |
           ./gradlew :sdds-core:icons:bump --info
+          ./gradlew :sdds-core:icons-compose:bump --info
 
       - name: Extract current version
         id: extract_version
@@ -91,6 +92,9 @@ jobs:
           git add ./sdds-core/icons/gradle.properties
           git add ./gradle/icons.version.toml
           git commit -m "feat(sdds-acore/icons): Bump icons version"
+          git add ./sdds-core/icons-compose/gradle.properties
+          git add ./gradle/icons-compose.version.toml
+          git commit -m "feat(sdds-acore/icons-compose): Bump icons-compose version"
 
       - name: Create drawables folder
         working-directory: ./current
@@ -99,6 +103,61 @@ jobs:
 
       - name: Move generated icons to drawable folder
         run: cp -rf plasma/packages/plasma-icons/android-icons/. current/sdds-core/icons/src/main/res/drawable/
+
+      # --- Compose icons (sdds-core:icons-compose) ---
+      # Generated from the SAME android-icons/*.xml as the XML module above, so the
+      # sets stay in parity. Valkyrie needs JDK 21 (its jars are compiled to class v65).
+
+      - name: Setup Java 21 for Valkyrie
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install Valkyrie CLI
+        env:
+          VALKYRIE_VERSION: '1.2.0'
+        run: |
+          set -euo pipefail
+          curl -fsSL -o valkyrie-cli.zip \
+            "https://github.com/ComposeGears/Valkyrie/releases/download/cli-${VALKYRIE_VERSION}/valkyrie-cli-${VALKYRIE_VERSION}.zip"
+          unzip -q valkyrie-cli.zip -d valkyrie-cli
+          # zip contains a single top-level dir with bin/valkyrie
+          VALKYRIE_BIN="$(find "$PWD/valkyrie-cli" -type f -name valkyrie -path '*/bin/*' | head -1)"
+          chmod +x "$VALKYRIE_BIN"
+          echo "VALKYRIE_BIN=$VALKYRIE_BIN" >> "$GITHUB_ENV"
+
+      - name: Prepare and filter Compose icons input
+        run: |
+          set -euo pipefail
+          # Work on a COPY: the XML drawable set must keep both variants of each
+          # collision pair; only the Compose input is filtered.
+          rm -rf compose-icons-input
+          cp -rf plasma/packages/plasma-icons/android-icons compose-icons-input
+          current/.github/scripts/filter-compose-icon-collisions.sh compose-icons-input
+
+      - name: Clean previously generated Compose icons
+        run: |
+          set -euo pipefail
+          PKG=current/sdds-core/icons-compose/src/commonMain/kotlin/com/sdds/icons/compose
+          mkdir -p "$PKG"
+          # remove stale generated icons but keep the hand-written receiver object
+          find "$PKG" -maxdepth 1 -type f -name '*.kt' ! -name 'SddsIcons.kt' -delete
+
+      - name: Generate Compose icons (Valkyrie)
+        # No continue-on-error: Valkyrie exits non-zero on an unhandled
+        # case-insensitive collision, which MUST fail the run (fail-fast) rather
+        # than silently skip icons.
+        run: |
+          set -euo pipefail
+          "$VALKYRIE_BIN" svgxml2imagevector \
+            --input-path "$PWD/compose-icons-input" \
+            --output-path current/sdds-core/icons-compose/src/commonMain/kotlin/com/sdds/icons/compose \
+            --package-name com.sdds.icons.compose \
+            --iconpack-name SddsIcons \
+            --output-format lazy-property \
+            --explicit-mode true \
+            --use-path-data-string true
 
       - name: Create tag and release pull request
         working-directory: ./current
@@ -109,6 +168,8 @@ jobs:
           TAG=${{steps.extract_version.outputs.tag}}
           PLASMA_VER=${{ github.event.client_payload.version || github.event.inputs.plasma-version }}
           git add ./sdds-core/icons/
-          git commit -m "feat(sdds-acore/icons): New icons were added from plasma v$PLASMA_VER"
+          git commit -m "feat(sdds-acore/icons): New xml icons were added from plasma v$PLASMA_VER"
+          git add ./sdds-core/icons-compose/
+          git commit -m "feat(sdds-acore/icons-compose): New compose icons were added from plasma v$PLASMA_VER"
           git push --set-upstream origin release/$TAG
           gh pr create --base main --head release/$TAG --title "Release $TAG" --body "Icons were updated to v$PLASMA_VER"

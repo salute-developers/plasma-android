@@ -1,0 +1,29 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.CapsuleOpenOutline24: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "CapsuleOpenOutline24",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 24f,
+        viewportHeight = 24f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathFillType = PathFillType.EvenOdd,
+            pathData = addPathNodes("M 5.79 6.756 c 0.292 0.293 0.292 0.768 0.0 1.06 c -0.293 0.294 -0.768 0.294 -1.061 0.0 c -0.293 -0.292 -0.293 -0.767 0.0 -1.06 c 0.293 -0.293 0.768 -0.293 1.06 0.0 Z m 3.38 0.906 c 0.293 0.293 0.293 0.768 0.0 1.06 c -0.293 0.293 -0.768 0.293 -1.06 0.0 c -0.293 -0.292 -0.293 -0.767 0.0 -1.06 c 0.292 -0.293 0.767 -0.293 1.06 0.0 Z M 6.69 11.204 c 0.293 -0.293 0.293 -0.768 0.0 -1.06 c -0.293 -0.294 -0.768 -0.294 -1.06 0.0 c -0.294 0.292 -0.294 0.767 0.0 1.06 c 0.292 0.293 0.767 0.293 1.06 0.0 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathFillType = PathFillType.EvenOdd,
+            pathData = addPathNodes("M 20.837 5.1 c -1.867 -1.867 -4.895 -1.867 -6.762 0.0 l -2.12 2.12 L 9.84 5.104 C 7.972 3.236 4.941 3.243 3.082 5.119 C 1.236 6.981 1.24 9.984 3.09 11.841 l 2.426 2.435 c 0.414 0.416 1.087 0.417 1.502 0.002 l 4.937 -4.937 l 4.947 4.947 c 0.413 0.414 1.084 0.414 1.498 0.001 l 2.43 -2.42 c 1.873 -1.867 1.875 -4.899 0.006 -6.768 Z m -3.184 7.817 L 13.017 8.28 l 2.119 -2.119 c 1.281 -1.281 3.359 -1.281 4.64 0.0 c 1.283 1.283 1.281 3.364 -0.004 4.645 l -2.119 2.111 Z M 8.78 6.165 l 2.116 2.115 l -4.626 4.626 l -2.116 -2.123 C 2.885 9.51 2.883 7.45 4.147 6.175 C 5.422 4.889 7.5 4.885 8.78 6.165 Z m 3.174 14.115 c 0.415 0.0 0.75 -0.335 0.75 -0.75 c 0.0 -0.414 -0.335 -0.75 -0.75 -0.75 c -0.414 0.0 -0.75 0.336 -0.75 0.75 c 0.0 0.415 0.336 0.75 0.75 0.75 Z m 0.75 -3.75 c 0.0 0.415 -0.335 0.75 -0.75 0.75 c -0.414 0.0 -0.75 -0.335 -0.75 -0.75 c 0.0 -0.414 0.336 -0.75 0.75 -0.75 c 0.415 0.0 0.75 0.336 0.75 0.75 Z m -4.5 0.0 c 0.0 0.415 0.336 0.75 0.75 0.75 c 0.415 0.0 0.75 -0.335 0.75 -0.75 c 0.0 -0.414 -0.335 -0.75 -0.75 -0.75 c -0.414 0.0 -0.75 0.336 -0.75 0.75 Z m 4.5 -3.0 c 0.0 0.415 -0.335 0.75 -0.75 0.75 c -0.414 0.0 -0.75 -0.335 -0.75 -0.75 c 0.0 -0.414 0.336 -0.75 0.75 -0.75 c 0.415 0.0 0.75 0.336 0.75 0.75 Z m 1.5 3.0 c 0.0 0.415 0.336 0.75 0.75 0.75 c 0.415 0.0 0.75 -0.335 0.75 -0.75 c 0.0 -0.414 -0.335 -0.75 -0.75 -0.75 c -0.414 0.0 -0.75 0.336 -0.75 0.75 Z")
+        )
+    }.build()
+}
