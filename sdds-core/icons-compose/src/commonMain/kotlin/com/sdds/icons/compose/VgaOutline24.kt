@@ -1,0 +1,60 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.VgaOutline24: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "VgaOutline24",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 24f,
+        viewportHeight = 24f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 7.0 11.5 c 0.414 0.0 0.75 -0.336 0.75 -0.75 S 7.414 10.0 7.0 10.0 s -0.75 0.336 -0.75 0.75 S 6.586 11.5 7.0 11.5 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 9.5 11.5 c 0.414 0.0 0.75 -0.336 0.75 -0.75 S 9.914 10.0 9.5 10.0 s -0.75 0.336 -0.75 0.75 s 0.336 0.75 0.75 0.75 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 12.75 10.75 c 0.0 0.414 -0.336 0.75 -0.75 0.75 s -0.75 -0.336 -0.75 -0.75 S 11.586 10.0 12.0 10.0 s 0.75 0.336 0.75 0.75 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 14.5 11.5 c 0.414 0.0 0.75 -0.336 0.75 -0.75 S 14.914 10.0 14.5 10.0 s -0.75 0.336 -0.75 0.75 s 0.336 0.75 0.75 0.75 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 17.75 10.75 c 0.0 0.414 -0.336 0.75 -0.75 0.75 s -0.75 -0.336 -0.75 -0.75 S 16.586 10.0 17.0 10.0 s 0.75 0.336 0.75 0.75 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 8.25 14.0 C 8.664 14.0 9.0 13.664 9.0 13.25 S 8.664 12.5 8.25 12.5 S 7.5 12.836 7.5 13.25 S 7.836 14.0 8.25 14.0 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 11.5 13.25 c 0.0 0.414 -0.336 0.75 -0.75 0.75 S 10.0 13.664 10.0 13.25 s 0.336 -0.75 0.75 -0.75 s 0.75 0.336 0.75 0.75 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 13.25 14.0 c 0.414 0.0 0.75 -0.336 0.75 -0.75 s -0.336 -0.75 -0.75 -0.75 s -0.75 0.336 -0.75 0.75 S 12.836 14.0 13.25 14.0 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 16.5 13.25 c 0.0 0.414 -0.336 0.75 -0.75 0.75 S 15.0 13.664 15.0 13.25 s 0.336 -0.75 0.75 -0.75 s 0.75 0.336 0.75 0.75 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathFillType = PathFillType.EvenOdd,
+            pathData = addPathNodes("M 6.828 17.0 c -0.748 0.0 -1.333 0.001 -1.843 -0.21 c -0.447 -0.186 -0.837 -0.486 -1.13 -0.87 c -0.336 -0.44 -0.485 -1.005 -0.676 -1.729 l -0.6 -2.264 c -0.173 -0.655 -0.315 -1.195 -0.391 -1.637 c -0.079 -0.455 -0.104 -0.895 0.025 -1.327 c 0.194 -0.65 0.622 -1.205 1.2 -1.56 C 3.799 7.17 4.23 7.08 4.69 7.04 C 5.136 7.0 5.695 7.0 6.373 7.0 h 11.254 c 0.678 0.0 1.237 0.0 1.684 0.04 c 0.46 0.04 0.891 0.129 1.275 0.364 c 0.58 0.354 1.007 0.91 1.2 1.56 c 0.13 0.431 0.105 0.87 0.026 1.326 c -0.076 0.442 -0.218 0.982 -0.392 1.637 l -0.6 2.264 c -0.19 0.724 -0.34 1.29 -0.674 1.728 c -0.294 0.385 -0.684 0.685 -1.13 0.87 c -0.51 0.212 -1.096 0.212 -1.844 0.211 H 6.828 Z M 5.56 15.404 C 5.757 15.486 6.013 15.5 6.963 15.5 h 10.074 c 0.95 0.0 1.206 -0.014 1.403 -0.096 c 0.203 -0.084 0.38 -0.22 0.514 -0.395 c 0.129 -0.17 0.208 -0.414 0.451 -1.332 l 0.556 -2.1 c 0.185 -0.697 0.31 -1.172 0.373 -1.541 c 0.063 -0.364 0.048 -0.536 0.015 -0.644 c -0.088 -0.295 -0.282 -0.548 -0.545 -0.708 c -0.096 -0.059 -0.258 -0.118 -0.626 -0.15 C 18.805 8.5 18.314 8.5 17.593 8.5 H 6.407 c -0.72 0.0 -1.212 0.0 -1.585 0.034 c -0.368 0.032 -0.53 0.091 -0.626 0.15 c -0.263 0.16 -0.457 0.413 -0.545 0.708 c -0.033 0.108 -0.048 0.28 0.015 0.644 c 0.063 0.369 0.188 0.844 0.373 1.54 l 0.556 2.1 c 0.243 0.92 0.322 1.164 0.451 1.333 c 0.134 0.175 0.311 0.311 0.514 0.395 Z")
+        )
+    }.build()
+}

@@ -1,0 +1,22 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.CallFill24: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "CallFill24",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 24f,
+        viewportHeight = 24f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 9.423 2.398 c -0.34 -0.09 -0.715 -0.044 -1.124 0.192 c -0.65 0.374 -2.111 1.218 -2.785 3.05 c -0.674 1.833 -0.561 4.654 1.94 8.985 c 2.5 4.33 4.886 5.839 6.81 6.171 c 1.924 0.333 3.386 -0.511 4.035 -0.886 c 0.409 -0.236 0.635 -0.538 0.728 -0.878 c 0.093 -0.34 0.053 -0.721 -0.074 -1.116 c -0.255 -0.788 -0.86 -1.629 -1.44 -2.31 c -0.189 -0.221 -0.318 -0.368 -0.413 -0.468 c -0.099 -0.104 -0.195 -0.193 -0.32 -0.267 c -0.117 -0.07 -0.205 -0.114 -0.297 -0.144 l -0.024 -0.008 C 16.34 14.65 16.19 14.621 16.0 14.65 l -0.074 0.026 c -0.082 0.01 -0.197 0.027 -0.36 0.06 c -0.282 0.057 -0.66 0.146 -1.16 0.265 c -0.623 0.147 -1.348 0.182 -2.072 -0.087 c -0.724 -0.27 -1.447 -0.844 -2.065 -1.914 c -0.618 -1.07 -0.754 -1.984 -0.625 -2.746 c 0.129 -0.761 0.521 -1.372 0.96 -1.837 c 0.354 -0.375 0.62 -0.657 0.81 -0.873 c 0.203 -0.23 0.28 -0.345 0.316 -0.403 l -0.005 -0.003 l 0.043 -0.074 h 0.002 l 0.025 -0.056 c 0.012 -0.027 0.024 -0.055 0.034 -0.083 c 0.023 -0.06 0.04 -0.115 0.052 -0.17 c 0.02 -0.096 0.025 -0.194 0.023 -0.33 c -0.001 -0.146 -0.03 -0.273 -0.07 -0.411 c -0.04 -0.132 -0.103 -0.318 -0.2 -0.592 c -0.3 -0.843 -0.725 -1.787 -1.28 -2.402 c -0.278 -0.307 -0.588 -0.532 -0.93 -0.622 Z")
+        )
+    }.build()
+}
