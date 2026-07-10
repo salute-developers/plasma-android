@@ -353,9 +353,16 @@ private class RippleIndicationNode(
 
     private fun finishRipple() {
         currentPress = null
-        scaleJob?.cancel()
         alphaJob?.cancel()
         alphaJob = coroutineScope.launch {
+            if (alpha.value < 1f) {
+                alpha.animateTo(
+                    targetValue = 1f,
+                    animationSpec = opacityFadeInAnimationSpec,
+                ) {
+                    invalidateDraw()
+                }
+            }
             alpha.animateTo(
                 targetValue = 0f,
                 animationSpec = opacityFadeOutAnimationSpec,
