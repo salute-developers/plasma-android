@@ -13,6 +13,7 @@ import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.PathSensitive
 import org.gradle.api.tasks.PathSensitivity
 import org.gradle.api.tasks.TaskAction
+import java.io.File
 import java.util.zip.ZipFile
 
 /**
@@ -35,21 +36,30 @@ internal abstract class UikitApiMetaTask : DefaultTask() {
     @TaskAction
     fun generate() {
         val meta = metaClasspath.files
-            .firstNotNullOfOrNull { file ->
-                if (!file.exists()) return@firstNotNullOfOrNull null
-                ZipFile(file).use { zip ->
-                    val entry = zip.entries().toList()
-                        .firstOrNull { it.name.endsWith("uikit-api-meta.json") }
-                        ?: return@use null
-                    zip.getInputStream(entry).use { stream ->
-                        Serializer.componentConfig.decodeFromStream<List<ComponentMeta>>(stream)
-                    }
-                }
-            }
+            .firstNotNullOfOrNull(::readMeta)
             ?: emptyList()
 
         outputFile.get().asFile.outputStream().use { stream ->
             Serializer.componentConfig.encodeToStream(meta, stream)
+        }
+    }
+
+    @OptIn(ExperimentalSerializationApi::class)
+    private fun readMeta(file: File): List<ComponentMeta>? {
+        if (!file.exists()) return null
+        if (file.isDirectory) {
+            file.walkTopDown()
+                .firstOrNull { it.isFile && it.invariantSeparatorsPath.endsWith("uikit-api-meta.json") }
+                ?.inputStream()
+                ?.use { stream ->
+                    Serializer.componentConfig.decodeFromStream<List<ComponentMeta>>(stream)
+                }
+        }
+        return ZipFile(file).use { zip ->
+            zip.entries().toList()
+                .firstOrNull { it.name.endsWith("uikit-api-meta.json") }
+                ?.let { zip.getInputStream(it) }
+                ?.use { Serializer.componentConfig.decodeFromStream<List<ComponentMeta>>(it) }
         }
     }
 }

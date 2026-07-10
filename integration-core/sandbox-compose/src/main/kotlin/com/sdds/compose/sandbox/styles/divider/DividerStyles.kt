@@ -9,11 +9,12 @@ package com.sdds.compose.sandbox.styles.divider
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DividerStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -39,9 +40,7 @@ public val Divider.Default: WrapperDividerDefault
     get() = DividerStyle.builder(this)
         .shape(CircleShape)
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
         }
         .dimensions {
             thickness(1.0.dp)

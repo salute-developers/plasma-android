@@ -9,12 +9,13 @@ package com.sdds.compose.sandbox.styles.badge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.BadgeStyleBuilder
 import com.sdds.compose.uikit.badgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -110,18 +111,10 @@ public val WrapperBadgeTransparentView.Default: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            labelColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+            labelColor(SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -129,18 +122,10 @@ public val WrapperBadgeTransparentView.Accent: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
-            labelColor(
-                SddsSandboxTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultAccent.asInteractive(),
-            )
-            endContentColor(
-                SddsSandboxTheme.colors.textDefaultAccent.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentAccent).asStatefulValue())
+            labelColor(SolidColor(SddsSandboxTheme.colors.textDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultAccent).asStatefulValue())
+            endContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -148,18 +133,10 @@ public val WrapperBadgeTransparentView.Negative: WrapperBadgeTransparentTerminat
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentNegative.asInteractive(),
-            )
-            labelColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
-            endContentColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
+            labelColor(SolidColor(SddsSandboxTheme.colors.textDefaultNegative).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultNegative).asStatefulValue())
+            endContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -167,18 +144,10 @@ public val WrapperBadgeTransparentView.Positive: WrapperBadgeTransparentTerminat
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentPositive.asInteractive(),
-            )
-            labelColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
-            endContentColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
+            labelColor(SolidColor(SddsSandboxTheme.colors.textDefaultPositive).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultPositive).asStatefulValue())
+            endContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -186,18 +155,10 @@ public val WrapperBadgeTransparentView.Warning: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentWarning.asInteractive(),
-            )
-            labelColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
-            endContentColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
+            labelColor(SolidColor(SddsSandboxTheme.colors.textDefaultWarning).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultWarning).asStatefulValue())
+            endContentColor(SolidColor(SddsSandboxTheme.colors.textDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -205,18 +166,10 @@ public val WrapperBadgeTransparentView.Dark: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnLightTransparentDeep.asInteractive(),
-            )
-            labelColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue())
+            labelColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -224,18 +177,10 @@ public val WrapperBadgeTransparentView.Light: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnDarkTransparentSecondary.asInteractive(),
-            )
-            labelColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
-            endContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceOnDarkTransparentSecondary).asStatefulValue())
+            labelColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
+            endContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeTransparentTerminate)
 
@@ -252,8 +197,8 @@ public val BadgeTransparent.L: WrapperBadgeTransparentL
         .labelStyle(SddsSandboxTheme.typography.bodySNormal)
         .dimensions {
             height(28.0.dp)
-            startContentSize(16.0.dp)
             endContentSize(16.0.dp)
+            startContentSize(16.0.dp)
             startContentMargin(4.0.dp)
             endContentMargin(4.0.dp)
             startPadding(11.0.dp)
@@ -277,8 +222,8 @@ public val BadgeTransparent.M: WrapperBadgeTransparentM
         .labelStyle(SddsSandboxTheme.typography.bodyXsNormal)
         .dimensions {
             height(24.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(3.0.dp)
             endContentMargin(3.0.dp)
             startPadding(9.0.dp)
@@ -302,8 +247,8 @@ public val BadgeTransparent.S: WrapperBadgeTransparentS
         .labelStyle(SddsSandboxTheme.typography.bodyXxsNormal)
         .dimensions {
             height(20.0.dp)
-            startContentSize(12.0.dp)
             endContentSize(12.0.dp)
+            startContentSize(12.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(7.0.dp)
@@ -327,8 +272,8 @@ public val BadgeTransparent.Xs: WrapperBadgeTransparentXs
         .labelStyle(SddsSandboxTheme.typography.bodyXxsNormal)
         .dimensions {
             height(16.0.dp)
-            startContentSize(10.0.dp)
             endContentSize(10.0.dp)
+            startContentSize(10.0.dp)
             startContentMargin(2.0.dp)
             endContentMargin(2.0.dp)
             startPadding(4.0.dp)

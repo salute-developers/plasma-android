@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TabsStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -87,8 +88,8 @@ private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
         .dividerEnabled(false)
         .indicatorEnabled(false)
         .orientation(TabsOrientation.Horizontal)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
         .colors {
             indicatorColor(SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive())
             overflowNextIconColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())

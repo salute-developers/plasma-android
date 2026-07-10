@@ -32,6 +32,7 @@ import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.basicButtonBuilder
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
 import com.sdds.icons.R
 
@@ -84,7 +85,7 @@ fun Cell_Style() {
             .titleStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .subtitleStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .disclosureTextStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
-            .disclosureIcon(R.drawable.ic_disclosure_right_outline_24)
+            .disclosureIcon(resourceImageSource(R.drawable.ic_disclosure_right_outline_24))
             .dimensions {
                 contentPaddingStart(8.0.dp)
                 contentPaddingEnd(8.0.dp)

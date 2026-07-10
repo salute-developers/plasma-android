@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TabsStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -139,9 +140,9 @@ private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
         .dividerStyle(Divider.Default.style())
         .dividerEnabled(true)
         .indicatorEnabled(true)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_dots_horizontal_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_dots_horizontal_outline_24))
         .colors {
             indicatorColor(SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive())
             overflowNextIconColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
@@ -175,8 +176,8 @@ public val WrapperIconTabsL.Vertical: WrapperIconTabsLVertical
     @JvmName("WrapperIconTabsLVertical")
     get() = builder
         .orientation(TabsOrientation.Vertical)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .wrap(::WrapperIconTabsLVertical)
 
 public val WrapperIconTabsL.Horizontal: WrapperIconTabsLHorizontal
@@ -201,8 +202,8 @@ public val WrapperIconTabsM.Vertical: WrapperIconTabsMVertical
     @JvmName("WrapperIconTabsMVertical")
     get() = builder
         .orientation(TabsOrientation.Vertical)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .wrap(::WrapperIconTabsMVertical)
 
 public val WrapperIconTabsM.Horizontal: WrapperIconTabsMHorizontal
@@ -227,8 +228,8 @@ public val WrapperIconTabsS.Vertical: WrapperIconTabsSVertical
     @JvmName("WrapperIconTabsSVertical")
     get() = builder
         .orientation(TabsOrientation.Vertical)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .wrap(::WrapperIconTabsSVertical)
 
 public val WrapperIconTabsS.Horizontal: WrapperIconTabsSHorizontal
@@ -253,8 +254,8 @@ public val WrapperIconTabsXs.Vertical: WrapperIconTabsXsVertical
     @JvmName("WrapperIconTabsXsVertical")
     get() = builder
         .orientation(TabsOrientation.Vertical)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .wrap(::WrapperIconTabsXsVertical)
 
 public val WrapperIconTabsXs.Horizontal: WrapperIconTabsXsHorizontal

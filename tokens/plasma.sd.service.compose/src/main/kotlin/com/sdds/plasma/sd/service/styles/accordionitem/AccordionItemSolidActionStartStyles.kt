@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.AccordionItemStyle
 import com.sdds.compose.uikit.AccordionItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -114,8 +115,8 @@ public val AccordionItemSolidActionStart.Xs: WrapperAccordionItemSolidActionStar
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
@@ -135,8 +136,8 @@ public val AccordionItemSolidActionStart.S: WrapperAccordionItemSolidActionStart
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.bodySBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
@@ -156,8 +157,8 @@ public val AccordionItemSolidActionStart.M: WrapperAccordionItemSolidActionStart
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyMBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
@@ -177,8 +178,8 @@ public val AccordionItemSolidActionStart.L: WrapperAccordionItemSolidActionStart
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.bodyLBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
@@ -198,8 +199,8 @@ public val AccordionItemSolidActionStart.H2: WrapperAccordionItemSolidActionStar
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.headerH2Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24))
         .dimensions {
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
@@ -219,8 +220,8 @@ public val AccordionItemSolidActionStart.H3: WrapperAccordionItemSolidActionStar
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .titleStyle(PlasmaSdServiceTheme.typography.headerH3Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24))
         .dimensions {
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
@@ -240,8 +241,8 @@ public val AccordionItemSolidActionStart.H4: WrapperAccordionItemSolidActionStar
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.headerH4Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
@@ -261,8 +262,8 @@ public val AccordionItemSolidActionStart.H5: WrapperAccordionItemSolidActionStar
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .titleStyle(PlasmaSdServiceTheme.typography.headerH5Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)

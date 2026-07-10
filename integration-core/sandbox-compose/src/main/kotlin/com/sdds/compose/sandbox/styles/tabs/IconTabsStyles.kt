@@ -25,6 +25,7 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TabsStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -136,22 +137,22 @@ public value class WrapperIconTabsXsHorizontal(
 private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
     @Composable
     get() = this
+        .dividerStyle(Divider.Default.style())
+        .dividerEnabled(true)
+        .indicatorEnabled(true)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_dots_horizontal_outline_24))
         .colors {
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            overflowNextIconColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            overflowPrevIconColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            indicatorColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive())
+            overflowNextIconColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
+            overflowPrevIconColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
             disclosureColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryActive,
                 ),
             )
         }
@@ -159,12 +160,6 @@ private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
             indicatorThickness(2.0.dp)
             minSpacing(0.0.dp)
         }
-        .dividerStyle(Divider.Default.style())
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_dots_horizontal_outline_24)
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
-        .dividerEnabled(true)
-        .indicatorEnabled(true)
 
 public val IconTabs.L: WrapperIconTabsL
     @Composable
@@ -180,9 +175,9 @@ public val WrapperIconTabsL.Vertical: WrapperIconTabsLVertical
     @Composable
     @JvmName("WrapperIconTabsLVertical")
     get() = builder
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
         .orientation(TabsOrientation.Vertical)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .wrap(::WrapperIconTabsLVertical)
 
 public val WrapperIconTabsL.Horizontal: WrapperIconTabsLHorizontal
@@ -206,9 +201,9 @@ public val WrapperIconTabsM.Vertical: WrapperIconTabsMVertical
     @Composable
     @JvmName("WrapperIconTabsMVertical")
     get() = builder
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
         .orientation(TabsOrientation.Vertical)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .wrap(::WrapperIconTabsMVertical)
 
 public val WrapperIconTabsM.Horizontal: WrapperIconTabsMHorizontal
@@ -232,9 +227,9 @@ public val WrapperIconTabsS.Vertical: WrapperIconTabsSVertical
     @Composable
     @JvmName("WrapperIconTabsSVertical")
     get() = builder
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
         .orientation(TabsOrientation.Vertical)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .wrap(::WrapperIconTabsSVertical)
 
 public val WrapperIconTabsS.Horizontal: WrapperIconTabsSHorizontal
@@ -258,9 +253,9 @@ public val WrapperIconTabsXs.Vertical: WrapperIconTabsXsVertical
     @Composable
     @JvmName("WrapperIconTabsXsVertical")
     get() = builder
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24)
         .orientation(TabsOrientation.Vertical)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_24))
         .wrap(::WrapperIconTabsXsVertical)
 
 public val WrapperIconTabsXs.Horizontal: WrapperIconTabsXsHorizontal

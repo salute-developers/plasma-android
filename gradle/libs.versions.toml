@@ -1,6 +1,6 @@
 [versions]
 global-gradle = "8.8.2"
-global-jvmTarget = "1.8"
+global-jvmTarget = "11"
 global-kotlin = "2.1.10"
 global-compileSdk = "35"
 global-targetSdk = "35"
@@ -16,8 +16,10 @@ androidX-core = "1.7.0"
 androidX-appcompat = "1.3.1"
 androidX-compose-compiler = "1.5.15"
 androidX-activity-compose = "1.3.1"
-androidX-compose-bom = "2025.05.00"
+androidX-compose = "1.8.2"
+androidX-compose-bom = "2025.08.00"
 androidX-lifecycle-compose = "2.4.1"
+jb-androidX-lifecycle-compose = "2.8.4"
 androidX-navigation="2.7.2"
 androidX-constraintLayout = "2.1.4"
 androidX-lifecycle = "2.4.1"
@@ -56,8 +58,8 @@ uikit-input-masks-version = "7.2.6"
 plugin-androidCacheFix = "3.0.1"
 plugin-gradleNexusPublish = "1.3.0"
 plugin-gradlePluginPublish = "1.2.1"
-plugin-binary-compatibility-validator = "0.14.0"
-plugin-compose-multiplatform = "1.7.3"
+plugin-binary-compatibility-validator = "0.18.1"
+plugin-compose-multiplatform = "1.8.2"
 plugin-poko = "0.18.0"
 plugin-metalava = "0.3.5"
 
@@ -80,14 +82,16 @@ base-androidX-collection = { module = "androidx.collection:collection", version.
 base-androidX-recyclerView = { module = "androidx.recyclerview:recyclerview", version.ref = "androidX-recyclerView" }
 
 base-androidX-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidX-compose-bom"}
-base-androidX-compose-runtime = { module = "androidx.compose.runtime:runtime" }
-base-androidX-compose-animation = { module = "androidx.compose.animation:animation" }
-base-androidX-compose-foundation = { module = "androidx.compose.foundation:foundation" }
-base-androidX-compose-material = { module = "androidx.compose.material:material" }
-base-androidX-compose-uiTooling = { module = "androidx.compose.ui:ui-tooling" }
-base-androidX-compose-uiTooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+base-androidX-compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "androidX-compose" }
+base-androidX-compose-animation = { module = "androidx.compose.animation:animation", version.ref = "androidX-compose" }
+base-androidX-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidX-compose" }
+base-androidX-compose-material = { module = "androidx.compose.material:material", version.ref = "androidX-compose" }
+base-androidX-compose-uiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidX-compose" }
+base-androidX-compose-uiTooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "androidX-compose" }
 base-androidX-lifecycle-compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidX-lifecycle-compose" }
 base-androidX-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidX-activity-compose" }
+
+base-jetbrains-androidX-lifecycle-compose-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "jb-androidX-lifecycle-compose" }
 
 base-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "global-kotlin" }
 base-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "global-kotlin" }
@@ -117,8 +121,8 @@ base-test-integration-runner = { module = "androidx.test:runner", version.ref = 
 base-test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "test-assertk" }
 
 base-test-ui-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "test-espresso" }
-base-test-ui-compose-jUnit4 = { module = "androidx.compose.ui:ui-test-junit4" }
-base-test-ui-compose-uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest" }
+base-test-ui-compose-jUnit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "androidX-compose" }
+base-test-ui-compose-uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidX-compose" }
 
 base-gradle-android = { module = "com.android.tools.build:gradle", version.ref = "global-gradle" }
 base-gradle-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "staticAnalysis-detekt" }

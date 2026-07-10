@@ -19,6 +19,7 @@ import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
 
 @Composable
@@ -61,8 +62,8 @@ fun Accordion_ItemStyle() {
                 paddingBottom(8.0.dp)
                 iconPadding(10.0.dp)
             }
-            .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-            .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+            .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_plus_16))
+            .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_minus_16))
             .style()
     }
 }

@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.FormTitlePlacement
 import com.sdds.compose.uikit.FormType
 import com.sdds.compose.uikit.IndicatorMode
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -395,7 +396,7 @@ public val FormItem.Xs: WrapperFormItemXs
     get() = FormItemStyle.builder(this)
         .invariantProps
         .titlePlacement(FormTitlePlacement.None)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .dimensions {
             titleBlockPadding(8.0.dp)
             titleCaptionPadding(4.0.dp)
@@ -429,7 +430,7 @@ public val WrapperFormItemXs.TitleTop: WrapperFormItemXsTitleTop
     @JvmName("WrapperFormItemXsTitleTop")
     get() = builder
         .titlePlacement(FormTitlePlacement.Top)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsServTheme.typography.bodyXsNormal)
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
@@ -472,7 +473,7 @@ public val WrapperFormItemXs.TitleStart: WrapperFormItemXsTitleStart
     @JvmName("WrapperFormItemXsTitleStart")
     get() = builder
         .titlePlacement(FormTitlePlacement.Start)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsServTheme.typography.bodyXsNormal)
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
@@ -516,7 +517,7 @@ public val FormItem.S: WrapperFormItemS
     get() = FormItemStyle.builder(this)
         .invariantProps
         .titlePlacement(FormTitlePlacement.None)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_24))
         .dimensions {
             titleBlockPadding(12.0.dp)
             titleCaptionPadding(4.0.dp)
@@ -550,7 +551,7 @@ public val WrapperFormItemS.TitleTop: WrapperFormItemSTitleTop
     @JvmName("WrapperFormItemSTitleTop")
     get() = builder
         .titlePlacement(FormTitlePlacement.Top)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsServTheme.typography.bodySNormal)
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
@@ -593,7 +594,7 @@ public val WrapperFormItemS.TitleStart: WrapperFormItemSTitleStart
     @JvmName("WrapperFormItemSTitleStart")
     get() = builder
         .titlePlacement(FormTitlePlacement.Start)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsServTheme.typography.bodySNormal)
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
@@ -637,7 +638,7 @@ public val FormItem.M: WrapperFormItemM
     get() = FormItemStyle.builder(this)
         .invariantProps
         .titlePlacement(FormTitlePlacement.None)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_24))
         .dimensions {
             titleBlockPadding(14.0.dp)
             titleCaptionPadding(4.0.dp)
@@ -671,7 +672,7 @@ public val WrapperFormItemM.TitleTop: WrapperFormItemMTitleTop
     @JvmName("WrapperFormItemMTitleTop")
     get() = builder
         .titlePlacement(FormTitlePlacement.Top)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsServTheme.typography.bodyMNormal)
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
@@ -714,7 +715,7 @@ public val WrapperFormItemM.TitleStart: WrapperFormItemMTitleStart
     @JvmName("WrapperFormItemMTitleStart")
     get() = builder
         .titlePlacement(FormTitlePlacement.Start)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsServTheme.typography.bodyMNormal)
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
@@ -758,7 +759,7 @@ public val FormItem.L: WrapperFormItemL
     get() = FormItemStyle.builder(this)
         .invariantProps
         .titlePlacement(FormTitlePlacement.None)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_24))
         .dimensions {
             titleBlockPadding(16.0.dp)
             titleCaptionPadding(4.0.dp)
@@ -792,7 +793,7 @@ public val WrapperFormItemL.TitleTop: WrapperFormItemLTitleTop
     @JvmName("WrapperFormItemLTitleTop")
     get() = builder
         .titlePlacement(FormTitlePlacement.Top)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsServTheme.typography.bodyLNormal)
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
@@ -835,7 +836,7 @@ public val WrapperFormItemL.TitleStart: WrapperFormItemLTitleStart
     @JvmName("WrapperFormItemLTitleStart")
     get() = builder
         .titlePlacement(FormTitlePlacement.Start)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(SddsServTheme.typography.bodyLNormal)
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {

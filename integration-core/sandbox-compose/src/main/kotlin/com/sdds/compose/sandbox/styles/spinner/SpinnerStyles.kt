@@ -8,12 +8,14 @@
 package com.sdds.compose.sandbox.styles.spinner
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.SpinnerStrokeCap
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SpinnerStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -110,12 +112,8 @@ public val WrapperSpinnerView.Default: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            endColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
-            )
+            startColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive())
+            endColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -123,13 +121,8 @@ public val WrapperSpinnerView.Secondary: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.multiplyAlpha(0.32f).asInteractive(),
-            )
-            endColor(
-
-                SddsSandboxTheme.colors.surfaceDefaultTransparentPrimary.multiplyAlpha(0.32f).asInteractive(),
-            )
+            startColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault.multiplyAlpha(0.32f).asInteractive())
+            endColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPrimary.multiplyAlpha(0.32f).asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -137,12 +130,8 @@ public val WrapperSpinnerView.Accent: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
-            endColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
-            )
+            startColor(SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive())
+            endColor(SddsSandboxTheme.colors.surfaceDefaultTransparentAccent.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -150,12 +139,8 @@ public val WrapperSpinnerView.Positive: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                SddsSandboxTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
-            endColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentPositive.asInteractive(),
-            )
+            startColor(SddsSandboxTheme.colors.surfaceDefaultPositive.asInteractive())
+            endColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -163,12 +148,8 @@ public val WrapperSpinnerView.Negative: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                SddsSandboxTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            endColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentNegative.asInteractive(),
-            )
+            startColor(SddsSandboxTheme.colors.surfaceDefaultNegative.asInteractive())
+            endColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -176,12 +157,8 @@ public val WrapperSpinnerView.Warning: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                SddsSandboxTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
-            endColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentWarning.asInteractive(),
-            )
+            startColor(SddsSandboxTheme.colors.surfaceDefaultWarning.asInteractive())
+            endColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -189,12 +166,8 @@ public val WrapperSpinnerView.Info: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
-            startColor(
-                SddsSandboxTheme.colors.surfaceDefaultInfo.asInteractive(),
-            )
-            endColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentInfo.asInteractive(),
-            )
+            startColor(SddsSandboxTheme.colors.surfaceDefaultInfo.asInteractive())
+            endColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo.asInteractive())
         }
         .wrap(::WrapperSpinnerTerminate)
 
@@ -204,9 +177,7 @@ private val SpinnerStyleBuilder.invariantProps: SpinnerStyleBuilder
         .angle(360.0f)
         .strokeCap(SpinnerStrokeCap.Round)
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
 
 public val Spinner.Xxl: WrapperSpinnerXxl

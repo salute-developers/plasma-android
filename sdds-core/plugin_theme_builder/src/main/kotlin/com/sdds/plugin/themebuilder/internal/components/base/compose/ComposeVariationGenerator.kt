@@ -223,7 +223,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     protected fun getIconAsDrawableRes(iconName: String, icon: Icon): String {
         val resourceRef = "ic_${icon.value.replace('.', '_')}"
-        return ".$iconName(com.sdds.icons.R.drawable.$resourceRef)"
+        return ".$iconName(resourceImageSource(com.sdds.icons.R.drawable.$resourceRef))"
     }
 
     private fun getDimension(
@@ -919,8 +919,8 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             names = listOf("dp"),
         )
         addImport(
-            packageName = "androidx.compose.ui.res",
-            names = listOf("painterResource"),
+            packageName = "com.sdds.compose.uikit",
+            names = listOf("resourceImageSource"),
         )
         addImport(
             packageName = "com.sdds.compose.uikit.graphics",

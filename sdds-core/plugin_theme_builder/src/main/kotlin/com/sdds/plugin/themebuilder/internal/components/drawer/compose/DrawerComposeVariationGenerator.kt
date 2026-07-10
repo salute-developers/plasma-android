@@ -149,7 +149,7 @@ internal class DrawerComposeVariationGenerator(
 
     private fun closeIconCall(props: DrawerProperties): String? {
         return props.closeIcon?.let {
-            getIconAsDrawableRes("closeIconRes", it)
+            getIconAsDrawableRes("closeIcon", it)
         }
     }
 

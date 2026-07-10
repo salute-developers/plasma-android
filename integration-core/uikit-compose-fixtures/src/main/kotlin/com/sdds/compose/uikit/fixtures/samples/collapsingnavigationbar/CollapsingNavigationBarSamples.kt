@@ -21,6 +21,7 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.docs.DocSample
 import com.sdds.icons.R
@@ -109,7 +110,7 @@ fun CollapsingNavigationBar_Style() {
             .bottomShape(placeholder(RoundedCornerShape(8.dp), "/** Токен формы(скругления) */"))
             .titleStyle(placeholder(TextStyle.Default, "/** Токен типографки */").asStatefulValue())
             .descriptionStyle(placeholder(TextStyle.Default, "/** Токен типографки */").asStatefulValue())
-            .backIcon(R.drawable.ic_disclosure_left_outline_24)
+            .backIcon(resourceImageSource(R.drawable.ic_disclosure_left_outline_24))
             .colors {
                 backIconColor(placeholder(Color.DarkGray, "/** Токен цвета */").asStatefulValue())
                 titleColor(placeholder(Color.Black, "/** Токен цвета */").asStatefulValue())

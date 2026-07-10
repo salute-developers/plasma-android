@@ -8,13 +8,13 @@
 package com.sdds.compose.sandbox.styles.checkbox
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.CheckBoxStates
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.CheckBoxStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -71,34 +71,31 @@ public val WrapperCheckBoxView.Default: WrapperCheckBoxTerminate
     @Composable
     get() = builder
         .colorValues {
-            toggleColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(CheckBoxStates.Checked)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccent,
-                    setOf(CheckBoxStates.Indeterminate)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccent,
-                ),
-            )
-            toggleIconColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
             toggleBorderColor(
-                SddsSandboxTheme.colors.outlineDefaultTransparentTertiary.asInteractive(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
-                        to SddsSandboxTheme.colors.outlineDefaultAccent,
+                SolidColor(SddsSandboxTheme.colors.outlineDefaultTransparentTertiary).asStatefulValue(
                     setOf(
                         InteractiveState.Focused,
-                        CheckBoxStates.Indeterminate,
-                    )
-                        to SddsSandboxTheme.colors.outlineDefaultAccent,
-                    setOf(InteractiveState.Focused)
-                        to SddsSandboxTheme.colors.outlineDefaultAccent,
+                        CheckBoxStates.Checked,
+                    ) to SolidColor(SddsSandboxTheme.colors.outlineDefaultAccent),
+                    setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsSandboxTheme.colors.outlineDefaultAccent),
+                    setOf(InteractiveState.Focused) to
+                        SolidColor(SddsSandboxTheme.colors.outlineDefaultAccent),
                     setOf(CheckBoxStates.Checked)
-                        to SddsSandboxTheme.colors.outlineDefaultClear,
-                    setOf(CheckBoxStates.Indeterminate)
-                        to SddsSandboxTheme.colors.outlineDefaultClear,
+                        to SolidColor(SddsSandboxTheme.colors.outlineDefaultClear),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsSandboxTheme.colors.outlineDefaultClear),
                 ),
             )
+            toggleColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(CheckBoxStates.Checked)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent),
+                ),
+            )
+            toggleIconColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperCheckBoxTerminate)
 
@@ -106,97 +103,83 @@ public val WrapperCheckBoxView.Negative: WrapperCheckBoxTerminate
     @Composable
     get() = builder
         .colorValues {
-            toggleColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(CheckBoxStates.Checked)
-                        to SddsSandboxTheme.colors.surfaceDefaultNegative,
-                    setOf(CheckBoxStates.Indeterminate)
-                        to SddsSandboxTheme.colors.surfaceDefaultNegative,
-                ),
-            )
-            toggleIconColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
             toggleBorderColor(
-                SddsSandboxTheme.colors.outlineDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
-                        to SddsSandboxTheme.colors.outlineDefaultNegative,
+                SolidColor(SddsSandboxTheme.colors.outlineDefaultNegative).asStatefulValue(
                     setOf(
                         InteractiveState.Focused,
-                        CheckBoxStates.Indeterminate,
-                    )
-                        to SddsSandboxTheme.colors.outlineDefaultNegative,
-                    setOf(InteractiveState.Focused)
-                        to SddsSandboxTheme.colors.outlineDefaultNegative,
-                    setOf(CheckBoxStates.Checked)
-                        to SddsSandboxTheme.colors.outlineDefaultClear,
-                    setOf(CheckBoxStates.Indeterminate)
-                        to SddsSandboxTheme.colors.outlineDefaultClear,
+                        CheckBoxStates.Checked,
+                    ) to SolidColor(SddsSandboxTheme.colors.outlineDefaultNegative),
+                    setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsSandboxTheme.colors.outlineDefaultNegative),
+                    setOf(InteractiveState.Focused) to
+                        SolidColor(SddsSandboxTheme.colors.outlineDefaultNegative),
+                    setOf(CheckBoxStates.Checked) to
+                        SolidColor(SddsSandboxTheme.colors.outlineDefaultClear),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsSandboxTheme.colors.outlineDefaultClear),
                 ),
             )
+            toggleColor(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(CheckBoxStates.Checked)
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegative),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegative),
+                ),
+            )
+            toggleIconColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperCheckBoxTerminate)
 
 private val CheckBoxStyleBuilder.invariantProps: CheckBoxStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .colorValues {
-            labelColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(SddsSandboxTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .dimensionValues {
             toggleBorderOffset(
                 0.0.dp.asStatefulValue(
                     setOf(InteractiveState.Focused) to 3.0.dp,
-                    setOf(
-                        InteractiveState.Focused,
-                        CheckBoxStates.Checked,
-                    ) to 3.0.dp,
-                    setOf(
-                        InteractiveState.Focused,
-                        CheckBoxStates.Indeterminate,
-                    ) to 3.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Checked) to 3.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to 3.0.dp,
                 ),
             )
         }
-        .disableAlpha(0.4f)
 
 public val CheckBox.L: WrapperCheckBoxL
     @Composable
     @JvmName("WrapperCheckBoxL")
     get() = CheckBoxStyle.builder(this)
         .invariantProps
-        .shape(SddsSandboxTheme.shapes.roundXs)
         .labelStyle(SddsSandboxTheme.typography.bodyLNormal)
         .descriptionStyle(SddsSandboxTheme.typography.bodyMNormal)
+        .shape(SddsSandboxTheme.shapes.roundXs)
         .dimensionValues {
             toggleWidth(24.0.dp)
             toggleHeight(24.0.dp)
+            togglePadding(2.0.dp)
             toggleIconHeight(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 6.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        2.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 2.0.dp,
                 ),
             )
             toggleIconWidth(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 9.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        12.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 12.0.dp,
                 ),
             )
             toggleBorderWidth(
                 2.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked) to 1.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
+                        to 1.0.dp,
                     setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to 1.0.dp,
                 ),
             )
-            togglePadding(2.0.dp)
             textPadding(12.0.dp)
             descriptionPadding(2.0.dp)
         }
@@ -207,33 +190,32 @@ public val CheckBox.M: WrapperCheckBoxM
     @JvmName("WrapperCheckBoxM")
     get() = CheckBoxStyle.builder(this)
         .invariantProps
-        .shape(SddsSandboxTheme.shapes.roundXs)
         .labelStyle(SddsSandboxTheme.typography.bodyMNormal)
         .descriptionStyle(SddsSandboxTheme.typography.bodySNormal)
+        .shape(SddsSandboxTheme.shapes.roundXs)
         .dimensionValues {
             toggleWidth(24.0.dp)
             toggleHeight(24.0.dp)
+            togglePadding(2.0.dp)
             toggleIconHeight(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 6.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        2.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 2.0.dp,
                 ),
             )
             toggleIconWidth(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 9.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        12.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 12.0.dp,
                 ),
             )
             toggleBorderWidth(
                 2.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked) to 1.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
+                        to 1.0.dp,
                     setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to 1.0.dp,
                 ),
             )
-            togglePadding(2.0.dp)
             textPadding(12.0.dp)
             descriptionPadding(2.0.dp)
         }
@@ -244,33 +226,32 @@ public val CheckBox.S: WrapperCheckBoxS
     @JvmName("WrapperCheckBoxS")
     get() = CheckBoxStyle.builder(this)
         .invariantProps
-        .shape(SddsSandboxTheme.shapes.roundXxs)
         .labelStyle(SddsSandboxTheme.typography.bodySNormal)
         .descriptionStyle(SddsSandboxTheme.typography.bodyXsNormal)
+        .shape(SddsSandboxTheme.shapes.roundXxs)
         .dimensionValues {
             toggleWidth(16.0.dp)
             toggleHeight(16.0.dp)
+            togglePadding(1.0.dp)
             toggleIconHeight(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 4.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        2.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 2.0.dp,
                 ),
             )
             toggleIconWidth(
                 0.0.dp.asStatefulValue(
                     setOf(CheckBoxStates.Checked) to 6.0.dp,
-                    setOf(CheckBoxStates.Indeterminate) to
-                        8.0.dp,
+                    setOf(CheckBoxStates.Indeterminate) to 8.0.dp,
                 ),
             )
             toggleBorderWidth(
                 1.5.dp.asStatefulValue(
-                    setOf(InteractiveState.Focused, CheckBoxStates.Checked) to 1.0.dp,
+                    setOf(InteractiveState.Focused, CheckBoxStates.Checked)
+                        to 1.0.dp,
                     setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to 1.0.dp,
                 ),
             )
-            togglePadding(1.0.dp)
             textPadding(8.0.dp)
             descriptionPadding(2.0.dp)
         }

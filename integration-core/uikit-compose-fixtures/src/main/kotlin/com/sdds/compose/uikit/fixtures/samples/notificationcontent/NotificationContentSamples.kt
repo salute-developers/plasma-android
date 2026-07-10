@@ -11,6 +11,7 @@ import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.NotificationContent
 import com.sdds.compose.uikit.NotificationContentButtonLayout
 import com.sdds.compose.uikit.NotificationContentStyle
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
 
 @Composable
@@ -36,7 +37,7 @@ fun NotificationContent_Style() {
         NotificationContentStyle.builder()
             .buttonLayout(NotificationContentButtonLayout.Stretch)
             .buttonGroupStyle(placeholder(ButtonGroupStyle.builder().style(), "/** Стиль компонента */"))
-            .icon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
+            .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_24))
             .titleStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .textStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .dimensions {

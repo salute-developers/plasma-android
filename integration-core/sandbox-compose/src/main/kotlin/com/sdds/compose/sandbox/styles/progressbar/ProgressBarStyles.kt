@@ -9,12 +9,12 @@ package com.sdds.compose.sandbox.styles.progressbar
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.ProgressBarStyleBuilder
 import com.sdds.compose.uikit.graphics.asLayered
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -39,12 +39,8 @@ public val ProgressBar.Default: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -53,12 +49,8 @@ public val ProgressBar.Secondary: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -67,12 +59,8 @@ public val ProgressBar.Accent: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent).asStatefulValue())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -81,12 +69,8 @@ public val ProgressBar.Gradient: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                SddsSandboxTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue(),
-            )
+            indicatorColor(SddsSandboxTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -95,12 +79,8 @@ public val ProgressBar.Info: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultInfo.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultInfo).asStatefulValue())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -109,12 +89,8 @@ public val ProgressBar.Negative: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -123,12 +99,8 @@ public val ProgressBar.Positive: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositive).asStatefulValue())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 
@@ -137,12 +109,8 @@ public val ProgressBar.Warning: WrapperProgressBarTerminate
     get() = ProgressBarStyle.builder(this)
         .invariantProps
         .colorValues {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarning).asStatefulValue())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperProgressBarTerminate)
 

@@ -9,12 +9,13 @@ package com.sdds.compose.sandbox.styles.iconbadge
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
 import com.sdds.compose.uikit.iconBadgeBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -110,12 +111,8 @@ public val WrapperIconBadgeSolidView.Default: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textInversePrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textInversePrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -123,12 +120,8 @@ public val WrapperIconBadgeSolidView.Accent: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -136,12 +129,8 @@ public val WrapperIconBadgeSolidView.Negative: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -149,12 +138,8 @@ public val WrapperIconBadgeSolidView.Positive: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositive).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -162,12 +147,8 @@ public val WrapperIconBadgeSolidView.Warning: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarning).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -175,12 +156,8 @@ public val WrapperIconBadgeSolidView.Dark: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnLightSolidDefault.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceOnLightSolidDefault).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
@@ -188,12 +165,8 @@ public val WrapperIconBadgeSolidView.Light: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
-            startContentColor(
-                SddsSandboxTheme.colors.textOnLightPrimary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
+            startContentColor(SolidColor(SddsSandboxTheme.colors.textOnLightPrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 

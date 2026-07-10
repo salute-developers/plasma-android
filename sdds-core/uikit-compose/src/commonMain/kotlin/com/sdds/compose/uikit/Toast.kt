@@ -1,0 +1,94 @@
+package com.sdds.compose.uikit
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.internal.icontext.BaseIconText
+
+/**
+ * Компонент Toast
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param text текст
+ * @param contentStart контент в начале
+ * @param contentEnd контент в конце
+ * @param interactionSource источник взаимодействий
+ */
+@Composable
+fun Toast(
+    modifier: Modifier = Modifier,
+    style: ToastStyle = LocalToastStyle.current,
+    text: String = "Toast",
+    contentStart: (@Composable () -> Unit)? = null,
+    contentEnd: (@Composable () -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    if (text.isEmpty() && contentStart == null && contentEnd == null) return
+    Toast(
+        modifier = modifier,
+        style = style,
+        contentStart = contentStart,
+        contentEnd = contentEnd,
+        interactionSource = interactionSource,
+    ) {
+        Text(text, maxLines = 1, overflow = TextOverflow.Ellipsis)
+    }
+}
+
+/**
+ * Компонент Toast
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param contentStart контент в начале
+ * @param contentEnd контент в конце
+ * @param interactionSource источник взаимодействий
+ * @param content слот для основного контента (текста)
+ */
+@Composable
+fun Toast(
+    modifier: Modifier = Modifier,
+    style: ToastStyle = LocalToastStyle.current,
+    contentStart: (@Composable () -> Unit)? = null,
+    contentEnd: (@Composable () -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: @Composable () -> Unit,
+) {
+    val shape = style.shape
+    val dimensions = style.dimensions
+    val colors = style.colors
+
+    BaseIconText(
+        modifier = modifier
+            .background(
+                brush = colors.backgroundColor.getValue(interactionSource),
+                shape = shape,
+            )
+            .padding(top = dimensions.paddingTop, bottom = dimensions.paddingBottom),
+        labelContent = content,
+        dimensionsSet = BaseIconText.Dimensions(
+            startContentSize = dimensions.contentStartSize,
+            endContentSize = dimensions.contentEndSize,
+            startContentMargin = dimensions.contentStartPadding,
+            endContentMargin = dimensions.contentEndPadding,
+            startPadding = dimensions.paddingStart,
+            endPadding = dimensions.paddingEnd,
+        ),
+        labelStyle = style.textStyle.asStatefulValue(),
+        brushesSet = BaseIconText.Brushes(
+            labelBrush = colors.textColor.asStatefulBrush(),
+            startContentBrush = colors.contentStartColor.asStatefulBrush(),
+            endContentBrush = colors.contentEndColor.asStatefulBrush(),
+        ),
+        startContent = contentStart,
+        endContent = contentEnd,
+        interactionSource = interactionSource,
+    )
+}

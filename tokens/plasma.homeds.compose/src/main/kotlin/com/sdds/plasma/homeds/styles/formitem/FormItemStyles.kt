@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.FormItemStyleBuilder
 import com.sdds.compose.uikit.FormTextAlignment
 import com.sdds.compose.uikit.FormTitlePlacement
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -76,7 +77,7 @@ private val FormItemStyleBuilder.invariantProps: FormItemStyleBuilder
         .titlePlacement(FormTitlePlacement.None)
         .topTextAlignment(FormTextAlignment.Center)
         .bottomTextAlignment(FormTextAlignment.Center)
-        .hintIcon(com.sdds.icons.R.drawable.ic_info_circle_outline_16)
+        .hintIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_16))
         .titleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .optionalStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .titleCaptionStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)

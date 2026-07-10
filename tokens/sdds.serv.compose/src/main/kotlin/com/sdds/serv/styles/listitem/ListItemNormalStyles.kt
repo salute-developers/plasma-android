@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -92,7 +93,7 @@ public val ListItemNormal.Xl: WrapperListItemNormalXl
         .titleStyle(SddsServTheme.typography.bodyLNormal)
         .subtitleStyle(SddsServTheme.typography.bodyMNormal)
         .labelStyle(SddsServTheme.typography.bodyMNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(8.0.dp)
             paddingStart(18.0.dp)
@@ -113,7 +114,7 @@ public val ListItemNormal.L: WrapperListItemNormalL
         .titleStyle(SddsServTheme.typography.bodyLNormal)
         .subtitleStyle(SddsServTheme.typography.bodyMNormal)
         .labelStyle(SddsServTheme.typography.bodyMNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(8.0.dp)
             paddingStart(16.0.dp)
@@ -134,7 +135,7 @@ public val ListItemNormal.M: WrapperListItemNormalM
         .titleStyle(SddsServTheme.typography.bodyMNormal)
         .subtitleStyle(SddsServTheme.typography.bodySNormal)
         .labelStyle(SddsServTheme.typography.bodySNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(8.0.dp)
             paddingStart(14.0.dp)
@@ -155,7 +156,7 @@ public val ListItemNormal.S: WrapperListItemNormalS
         .titleStyle(SddsServTheme.typography.bodySNormal)
         .subtitleStyle(SddsServTheme.typography.bodyXsNormal)
         .labelStyle(SddsServTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .dimensions {
             contentPaddingEnd(6.0.dp)
             paddingStart(12.0.dp)
@@ -176,7 +177,7 @@ public val ListItemNormal.Xs: WrapperListItemNormalXs
         .titleStyle(SddsServTheme.typography.bodyXsNormal)
         .subtitleStyle(SddsServTheme.typography.bodyXsNormal)
         .labelStyle(SddsServTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .dimensions {
             contentPaddingEnd(6.0.dp)
             paddingStart(8.0.dp)

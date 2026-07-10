@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.AccordionItemStyle
 import com.sdds.compose.uikit.AccordionItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -114,8 +115,8 @@ public val AccordionItemSolidActionStart.Xs: WrapperAccordionItemSolidActionStar
         .shape(SddsServTheme.shapes.roundS)
         .titleStyle(SddsServTheme.typography.bodyXsBold)
         .contentTextStyle(SddsServTheme.typography.bodyXsNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
@@ -135,8 +136,8 @@ public val AccordionItemSolidActionStart.S: WrapperAccordionItemSolidActionStart
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(SddsServTheme.typography.bodySBold)
         .contentTextStyle(SddsServTheme.typography.bodySNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
@@ -156,8 +157,8 @@ public val AccordionItemSolidActionStart.M: WrapperAccordionItemSolidActionStart
         .shape(SddsServTheme.shapes.roundM)
         .titleStyle(SddsServTheme.typography.bodyMBold)
         .contentTextStyle(SddsServTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
@@ -177,8 +178,8 @@ public val AccordionItemSolidActionStart.L: WrapperAccordionItemSolidActionStart
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(SddsServTheme.typography.bodyLBold)
         .contentTextStyle(SddsServTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
@@ -198,8 +199,8 @@ public val AccordionItemSolidActionStart.H2: WrapperAccordionItemSolidActionStar
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(SddsServTheme.typography.headerH2Bold)
         .contentTextStyle(SddsServTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24))
         .dimensions {
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
@@ -219,8 +220,8 @@ public val AccordionItemSolidActionStart.H3: WrapperAccordionItemSolidActionStar
         .shape(SddsServTheme.shapes.roundM)
         .titleStyle(SddsServTheme.typography.headerH3Bold)
         .contentTextStyle(SddsServTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24))
         .dimensions {
             paddingStart(18.0.dp)
             paddingEnd(18.0.dp)
@@ -240,8 +241,8 @@ public val AccordionItemSolidActionStart.H4: WrapperAccordionItemSolidActionStar
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(SddsServTheme.typography.headerH4Bold)
         .contentTextStyle(SddsServTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(14.0.dp)
             paddingEnd(14.0.dp)
@@ -261,8 +262,8 @@ public val AccordionItemSolidActionStart.H5: WrapperAccordionItemSolidActionStar
         .shape(SddsServTheme.shapes.roundS)
         .titleStyle(SddsServTheme.typography.headerH5Bold)
         .contentTextStyle(SddsServTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)

@@ -8,12 +8,13 @@
 package com.sdds.compose.sandbox.styles.card
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.CardStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -53,9 +54,7 @@ private val CardStyleBuilder.invariantProps: CardStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
 
 public val CardSolid.L: WrapperCardSolidL
@@ -66,10 +65,10 @@ public val CardSolid.L: WrapperCardSolidL
         .shape(SddsSandboxTheme.shapes.roundL)
         .contentShape(SddsSandboxTheme.shapes.roundS)
         .dimensions {
-            paddingTop(12.0.dp)
-            paddingBottom(12.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
+            paddingTop(12.0.dp)
+            paddingBottom(12.0.dp)
         }
         .wrap(::WrapperCardSolidL)
 
@@ -81,10 +80,10 @@ public val CardSolid.M: WrapperCardSolidM
         .shape(SddsSandboxTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .contentShape(SddsSandboxTheme.shapes.roundXs)
         .dimensions {
-            paddingTop(10.0.dp)
-            paddingBottom(10.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(10.0.dp)
+            paddingTop(10.0.dp)
+            paddingBottom(10.0.dp)
         }
         .wrap(::WrapperCardSolidM)
 
@@ -96,9 +95,9 @@ public val CardSolid.S: WrapperCardSolidS
         .shape(SddsSandboxTheme.shapes.roundM)
         .contentShape(SddsSandboxTheme.shapes.roundXs)
         .dimensions {
-            paddingTop(8.0.dp)
-            paddingBottom(8.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
+            paddingTop(8.0.dp)
+            paddingBottom(8.0.dp)
         }
         .wrap(::WrapperCardSolidS)

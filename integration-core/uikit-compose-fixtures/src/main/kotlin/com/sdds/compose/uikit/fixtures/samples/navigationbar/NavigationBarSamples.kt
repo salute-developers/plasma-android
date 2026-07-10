@@ -18,6 +18,7 @@ import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.NavigationBarTextPlacement
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.docs.DocSample
 
@@ -176,7 +177,7 @@ fun NavigationBar_Style() {
             .shadow(placeholder(ShadowAppearance(), "/** Токен тени */"))
             .bottomShape(placeholder(RoundedCornerShape(8.dp), "/** Токен формы(скругления) */"))
             .textStyle(placeholder(TextStyle.Default, "/** Токен типографки */"))
-            .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
+            .backIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
             .colors {
                 backIconColor(placeholder(Color.DarkGray, "/** Токен цвета */").asInteractive())
                 textColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())

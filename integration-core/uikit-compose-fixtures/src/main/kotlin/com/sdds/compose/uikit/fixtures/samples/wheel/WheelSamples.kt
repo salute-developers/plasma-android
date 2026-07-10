@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.WheelSeparator
 import com.sdds.compose.uikit.WheelStyle
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
 
 @Composable
@@ -168,8 +169,8 @@ fun Wheel_AlarmClockWithEdgePlacement() {
 fun Wheel_Style() {
     composableCodeSnippet {
         WheelStyle.builder()
-            .controlIconUp(com.sdds.icons.R.drawable.ic_disclosure_up_outline_36)
-            .controlIconDown(com.sdds.icons.R.drawable.ic_disclosure_down_outline_36)
+            .controlIconUp(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_outline_36))
+            .controlIconDown(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_outline_36))
             .wheelCount(3)
             .visibleItemsCount(3)
             .colors {

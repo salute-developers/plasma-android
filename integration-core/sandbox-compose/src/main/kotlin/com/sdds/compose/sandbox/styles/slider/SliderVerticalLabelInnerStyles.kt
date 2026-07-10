@@ -156,9 +156,7 @@ public val WrapperSliderVerticalLabelInnerView.Default: WrapperSliderVerticalLab
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
             thumbStrokeColor(
                 SolidColor(SddsSandboxTheme.colors.outlineDefaultSolidSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
@@ -172,9 +170,7 @@ public val WrapperSliderVerticalLabelInnerView.Accent: WrapperSliderVerticalLabe
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent).asStatefulValue())
             thumbStrokeColor(
                 SolidColor(SddsSandboxTheme.colors.outlineDefaultSolidSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
@@ -188,11 +184,8 @@ public val WrapperSliderVerticalLabelInnerView.Gradient: WrapperSliderVerticalLa
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SddsSandboxTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue(),
-            )
+            indicatorColor(SddsSandboxTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue())
             thumbStrokeColor(
-
                 listOf(singleColor(SddsSandboxTheme.colors.outlineDefaultSolidSecondary)).asLayered().asStatefulValue(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.gradients.surfaceDefaultAccentGradient.asLayered(),
@@ -206,28 +199,18 @@ private val SliderStyleBuilder.invariantProps: SliderStyleBuilder
     get() = this
         .tooltipStyle(Tooltip.S.style())
         .orientation(SliderOrientation.Vertical)
-        .alignment(SliderAlignment.Center)
-        .limitLabelAlignment(LimitLabelAlignment.Center)
         .valuePlacement(ValuePlacement.End)
+        .limitLabelAlignment(LimitLabelAlignment.Center)
+        .alignment(SliderAlignment.Center)
         .shape(CircleShape)
         .indicatorShape(CircleShape)
         .thumbShape(CircleShape)
         .colors {
-            thumbColor(
-                SddsSandboxTheme.colors.surfaceOnLightSolidCard.asInteractive(),
-            )
-            trackColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            limitLabelColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            thumbColor(SddsSandboxTheme.colors.surfaceOnLightSolidCard.asInteractive())
+            trackColor(SddsSandboxTheme.colors.surfaceDefaultSolidTertiary.asInteractive())
+            iconColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            titleColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            limitLabelColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
             trackThickness(4.0.dp)
@@ -240,11 +223,11 @@ public val SliderVerticalLabelInner.L: WrapperSliderVerticalLabelInnerL
     @JvmName("WrapperSliderVerticalLabelInnerL")
     get() = SliderStyle.builder(this)
         .invariantProps
+        .slideDirection(SlideDirection.Normal)
+        .labelAlignment(LabelAlignment.Top)
+        .titleAlignment(TitleAlignment.Start)
         .titleStyle(SddsSandboxTheme.typography.bodyLNormal)
         .limitLabelStyle(SddsSandboxTheme.typography.bodySNormal)
-        .titleAlignment(TitleAlignment.Start)
-        .labelAlignment(LabelAlignment.Top)
-        .slideDirection(SlideDirection.Normal)
         .dimensions {
             thumbSize(20.0.dp)
             iconSize(24.0.dp)
@@ -258,8 +241,8 @@ public val WrapperSliderVerticalLabelInnerL.LabelEnd: WrapperSliderVerticalLabel
     @Composable
     @JvmName("WrapperSliderVerticalLabelInnerLLabelEnd")
     get() = builder
-        .titleAlignment(TitleAlignment.End)
         .labelAlignment(LabelAlignment.Bottom)
+        .titleAlignment(TitleAlignment.End)
         .wrap(::WrapperSliderVerticalLabelInnerLLabelEnd)
 
 public val WrapperSliderVerticalLabelInnerLLabelEnd.ThumbS:
@@ -286,11 +269,11 @@ public val SliderVerticalLabelInner.M: WrapperSliderVerticalLabelInnerM
     @JvmName("WrapperSliderVerticalLabelInnerM")
     get() = SliderStyle.builder(this)
         .invariantProps
+        .slideDirection(SlideDirection.Normal)
+        .labelAlignment(LabelAlignment.Top)
+        .titleAlignment(TitleAlignment.Start)
         .titleStyle(SddsSandboxTheme.typography.bodyMNormal)
         .limitLabelStyle(SddsSandboxTheme.typography.bodySNormal)
-        .titleAlignment(TitleAlignment.Start)
-        .labelAlignment(LabelAlignment.Top)
-        .slideDirection(SlideDirection.Normal)
         .dimensions {
             thumbSize(20.0.dp)
             iconSize(24.0.dp)
@@ -304,8 +287,8 @@ public val WrapperSliderVerticalLabelInnerM.LabelEnd: WrapperSliderVerticalLabel
     @Composable
     @JvmName("WrapperSliderVerticalLabelInnerMLabelEnd")
     get() = builder
-        .titleAlignment(TitleAlignment.End)
         .labelAlignment(LabelAlignment.Bottom)
+        .titleAlignment(TitleAlignment.End)
         .wrap(::WrapperSliderVerticalLabelInnerMLabelEnd)
 
 public val WrapperSliderVerticalLabelInnerMLabelEnd.ThumbS:
@@ -332,11 +315,11 @@ public val SliderVerticalLabelInner.S: WrapperSliderVerticalLabelInnerS
     @JvmName("WrapperSliderVerticalLabelInnerS")
     get() = SliderStyle.builder(this)
         .invariantProps
+        .slideDirection(SlideDirection.Normal)
+        .labelAlignment(LabelAlignment.Top)
+        .titleAlignment(TitleAlignment.Start)
         .titleStyle(SddsSandboxTheme.typography.bodySNormal)
         .limitLabelStyle(SddsSandboxTheme.typography.bodyXsNormal)
-        .titleAlignment(TitleAlignment.Start)
-        .labelAlignment(LabelAlignment.Top)
-        .slideDirection(SlideDirection.Normal)
         .dimensions {
             thumbSize(20.0.dp)
             iconSize(16.0.dp)
@@ -350,8 +333,8 @@ public val WrapperSliderVerticalLabelInnerS.LabelEnd: WrapperSliderVerticalLabel
     @Composable
     @JvmName("WrapperSliderVerticalLabelInnerSLabelEnd")
     get() = builder
-        .titleAlignment(TitleAlignment.End)
         .labelAlignment(LabelAlignment.Bottom)
+        .titleAlignment(TitleAlignment.End)
         .wrap(::WrapperSliderVerticalLabelInnerSLabelEnd)
 
 public val WrapperSliderVerticalLabelInnerSLabelEnd.ThumbS:

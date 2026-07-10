@@ -42,6 +42,7 @@ import com.sdds.compose.uikit.fixtures.stories.SelectUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.SelectUiStateTransformer
 import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
 import com.sdds.compose.uikit.rememberSelectSingleDataStateManager
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
@@ -160,8 +161,8 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                                 label = value,
                                 readonly = state.readOnly,
                                 enabled = state.enabled,
-                                iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
-                                iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
+                                iconOpened = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_up_24),
+                                iconClosed = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_down_24),
                             )
                         }
                     }
@@ -217,8 +218,8 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                         SelectItemType.Single,
                         stateManager.selectedItems,
                     ),
-                    iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
-                    iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
+                    iconOpened = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_up_24),
+                    iconClosed = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_down_24),
                 )
             },
             listContent = {

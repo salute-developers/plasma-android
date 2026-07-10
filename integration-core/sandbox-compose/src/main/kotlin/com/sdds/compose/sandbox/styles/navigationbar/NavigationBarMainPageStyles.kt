@@ -81,45 +81,31 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
         .textStyle(SddsSandboxTheme.typography.bodyLBold)
         .titleStyle(
             SddsSandboxTheme.typography.headerH2Normal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    SddsSandboxTheme.typography.bodyMNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to SddsSandboxTheme.typography.bodyMNormal,
             ),
         )
         .descriptionStyle(
             SddsSandboxTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    SddsSandboxTheme.typography.bodyXsNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to SddsSandboxTheme.typography.bodyXsNormal,
             ),
         )
         .colors {
-            textColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            actionStartColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            actionEndColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            actionStartColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            actionEndColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            titleColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            descriptionColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            textBlockTopMargin(16.0.dp)
+            horizontalSpacing(16.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
-            textBlockTopMargin(16.0.dp)
-            horizontalSpacing(16.0.dp)
-            descriptionPadding(
-                12.0.dp.asStatefulValue(
-                    setOf(NavigationBarTextPlacement.Inline) to 4.0.dp,
-                ),
-            )
+            descriptionPadding(12.0.dp.asStatefulValue(setOf(NavigationBarTextPlacement.Inline) to 4.0.dp))
         }
 
 public val NavigationBarMainPage.NoBackground: WrapperNavigationBarMainPageNoBackground
@@ -128,9 +114,7 @@ public val NavigationBarMainPage.NoBackground: WrapperNavigationBarMainPageNoBac
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive())
         }
         .wrap(::WrapperNavigationBarMainPageNoBackground)
 
@@ -148,9 +132,7 @@ public val NavigationBarMainPage.HasBackground: WrapperNavigationBarMainPageHasB
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
+            backgroundColor(SddsSandboxTheme.colors.surfaceDefaultSolidCard.asInteractive())
         }
         .wrap(::WrapperNavigationBarMainPageHasBackground)
 

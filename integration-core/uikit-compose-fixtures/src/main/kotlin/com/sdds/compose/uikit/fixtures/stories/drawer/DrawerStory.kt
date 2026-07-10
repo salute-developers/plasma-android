@@ -191,9 +191,9 @@ private val DrawerListItemStyle: ListItemStyle
     get() {
         val current = LocalListItemStyle.current
         return ListItemStyle.builder()
-            .titleStyle(current.titleStyle)
-            .shape(current.shape)
-            .apply { current.disclosureIconRes?.let { disclosureIcon(it) } }
+            .titleStyle(current.titleStyles)
+            .shape(current.shapes)
+            .apply { current.disclosureIconSource?.let { disclosureIcon(it) } }
             .dimensions {
                 paddingStart(0.dp)
                 paddingEnd(0.dp)

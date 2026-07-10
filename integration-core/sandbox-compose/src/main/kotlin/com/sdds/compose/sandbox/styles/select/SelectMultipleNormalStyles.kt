@@ -99,8 +99,8 @@ public val SelectMultipleNormal.Xl: WrapperSelectMultipleNormalXl
         .invariantProps
         .textFieldStyle(TextField.Xl.Default.style())
         .buttonStyle(BasicButton.Xl.Secondary.style())
-        .selectItemStyle(SelectItemMultipleNormal.Xl.style())
         .dropdownStyle(DropdownMenuNormal.Xl.style())
+        .selectItemStyle(SelectItemMultipleNormal.Xl.style())
         .wrap(::WrapperSelectMultipleNormalXl)
 
 public val SelectMultipleNormal.L: WrapperSelectMultipleNormalL
@@ -110,8 +110,8 @@ public val SelectMultipleNormal.L: WrapperSelectMultipleNormalL
         .invariantProps
         .textFieldStyle(TextField.L.Default.style())
         .buttonStyle(BasicButton.L.Secondary.style())
-        .selectItemStyle(SelectItemMultipleNormal.L.style())
         .dropdownStyle(DropdownMenuNormal.L.style())
+        .selectItemStyle(SelectItemMultipleNormal.L.style())
         .wrap(::WrapperSelectMultipleNormalL)
 
 public val SelectMultipleNormal.M: WrapperSelectMultipleNormalM
@@ -121,8 +121,8 @@ public val SelectMultipleNormal.M: WrapperSelectMultipleNormalM
         .invariantProps
         .textFieldStyle(TextField.M.Default.style())
         .buttonStyle(BasicButton.M.Secondary.style())
-        .selectItemStyle(SelectItemMultipleNormal.M.style())
         .dropdownStyle(DropdownMenuNormal.M.style())
+        .selectItemStyle(SelectItemMultipleNormal.M.style())
         .wrap(::WrapperSelectMultipleNormalM)
 
 public val SelectMultipleNormal.S: WrapperSelectMultipleNormalS
@@ -132,8 +132,8 @@ public val SelectMultipleNormal.S: WrapperSelectMultipleNormalS
         .invariantProps
         .textFieldStyle(TextField.S.Default.style())
         .buttonStyle(BasicButton.S.Secondary.style())
-        .selectItemStyle(SelectItemMultipleNormal.S.style())
         .dropdownStyle(DropdownMenuNormal.S.style())
+        .selectItemStyle(SelectItemMultipleNormal.S.style())
         .wrap(::WrapperSelectMultipleNormalS)
 
 public val SelectMultipleNormal.Xs: WrapperSelectMultipleNormalXs
@@ -143,6 +143,6 @@ public val SelectMultipleNormal.Xs: WrapperSelectMultipleNormalXs
         .invariantProps
         .textFieldStyle(TextField.Xs.Default.style())
         .buttonStyle(BasicButton.Xs.Secondary.style())
-        .selectItemStyle(SelectItemMultipleNormal.Xs.style())
         .dropdownStyle(DropdownMenuNormal.Xs.style())
+        .selectItemStyle(SelectItemMultipleNormal.Xs.style())
         .wrap(::WrapperSelectMultipleNormalXs)

@@ -62,8 +62,8 @@ public value class WrapperPaginationDotsHorizontalSActiveTypeLine(
 private val PaginationDotsStyleBuilder.invariantProps: PaginationDotsStyleBuilder
     @Composable
     get() = this
-        .orientation(PaginationDotsOrientation.Horizontal)
         .edgeShrinkFactor(0.3f)
+        .orientation(PaginationDotsOrientation.Horizontal)
         .colors {
             dotBackgroundColor(
                 SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asStatefulValue(
@@ -94,11 +94,7 @@ public val WrapperPaginationDotsHorizontalM.ActiveTypeLine:
     @JvmName("WrapperPaginationDotsHorizontalMActiveTypeLine")
     get() = builder
         .dimensions {
-            dotWidth(
-                12.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Activated) to 48.0.dp,
-                ),
-            )
+            dotWidth(12.0.dp.asStatefulValue(setOf(InteractiveState.Activated) to 48.0.dp))
         }
         .wrap(::WrapperPaginationDotsHorizontalMActiveTypeLine)
 
@@ -120,10 +116,6 @@ public val WrapperPaginationDotsHorizontalS.ActiveTypeLine:
     @JvmName("WrapperPaginationDotsHorizontalSActiveTypeLine")
     get() = builder
         .dimensions {
-            dotWidth(
-                8.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Activated) to 32.0.dp,
-                ),
-            )
+            dotWidth(8.0.dp.asStatefulValue(setOf(InteractiveState.Activated) to 32.0.dp))
         }
         .wrap(::WrapperPaginationDotsHorizontalSActiveTypeLine)

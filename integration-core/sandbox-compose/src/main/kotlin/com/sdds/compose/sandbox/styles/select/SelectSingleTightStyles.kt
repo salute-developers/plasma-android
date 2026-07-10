@@ -99,8 +99,8 @@ public val SelectSingleTight.Xl: WrapperSelectSingleTightXl
         .invariantProps
         .textFieldStyle(TextField.Xl.Default.style())
         .buttonStyle(BasicButton.Xl.Secondary.style())
-        .selectItemStyle(SelectItemSingleTight.Xl.style())
         .dropdownStyle(DropdownMenuTight.Xl.style())
+        .selectItemStyle(SelectItemSingleTight.Xl.style())
         .wrap(::WrapperSelectSingleTightXl)
 
 public val SelectSingleTight.L: WrapperSelectSingleTightL
@@ -110,8 +110,8 @@ public val SelectSingleTight.L: WrapperSelectSingleTightL
         .invariantProps
         .textFieldStyle(TextField.L.Default.style())
         .buttonStyle(BasicButton.L.Secondary.style())
-        .selectItemStyle(SelectItemSingleTight.L.style())
         .dropdownStyle(DropdownMenuTight.L.style())
+        .selectItemStyle(SelectItemSingleTight.L.style())
         .wrap(::WrapperSelectSingleTightL)
 
 public val SelectSingleTight.M: WrapperSelectSingleTightM
@@ -121,8 +121,8 @@ public val SelectSingleTight.M: WrapperSelectSingleTightM
         .invariantProps
         .textFieldStyle(TextField.M.Default.style())
         .buttonStyle(BasicButton.M.Secondary.style())
-        .selectItemStyle(SelectItemSingleTight.M.style())
         .dropdownStyle(DropdownMenuTight.M.style())
+        .selectItemStyle(SelectItemSingleTight.M.style())
         .wrap(::WrapperSelectSingleTightM)
 
 public val SelectSingleTight.S: WrapperSelectSingleTightS
@@ -132,8 +132,8 @@ public val SelectSingleTight.S: WrapperSelectSingleTightS
         .invariantProps
         .textFieldStyle(TextField.S.Default.style())
         .buttonStyle(BasicButton.S.Secondary.style())
-        .selectItemStyle(SelectItemSingleTight.S.style())
         .dropdownStyle(DropdownMenuTight.S.style())
+        .selectItemStyle(SelectItemSingleTight.S.style())
         .wrap(::WrapperSelectSingleTightS)
 
 public val SelectSingleTight.Xs: WrapperSelectSingleTightXs
@@ -143,6 +143,6 @@ public val SelectSingleTight.Xs: WrapperSelectSingleTightXs
         .invariantProps
         .textFieldStyle(TextField.Xs.Default.style())
         .buttonStyle(BasicButton.Xs.Secondary.style())
-        .selectItemStyle(SelectItemSingleTight.Xs.style())
         .dropdownStyle(DropdownMenuTight.Xs.style())
+        .selectItemStyle(SelectItemSingleTight.Xs.style())
         .wrap(::WrapperSelectSingleTightXs)

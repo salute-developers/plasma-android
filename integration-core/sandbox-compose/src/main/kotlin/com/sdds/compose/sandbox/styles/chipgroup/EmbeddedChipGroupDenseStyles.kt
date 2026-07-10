@@ -127,11 +127,11 @@ public value class WrapperEmbeddedChipGroupDenseXs(
 private val ChipGroupStyleBuilder.invariantProps: ChipGroupStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .dimensions {
             gap(2.0.dp)
             lineSpacing(2.0.dp)
         }
-        .disableAlpha(0.4f)
 
 public val WrapperEmbeddedChipGroupDenseXlView.Default: WrapperEmbeddedChipGroupDenseTerminate
     @Composable

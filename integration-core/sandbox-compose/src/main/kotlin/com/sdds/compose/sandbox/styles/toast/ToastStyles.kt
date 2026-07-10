@@ -63,9 +63,7 @@ public val WrapperToastView.Default: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            contentStartColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -73,9 +71,7 @@ public val WrapperToastView.Positive: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            contentStartColor(SddsSandboxTheme.colors.textDefaultPositive.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -83,9 +79,7 @@ public val WrapperToastView.Negative: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            contentStartColor(SddsSandboxTheme.colors.textDefaultNegative.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -94,20 +88,14 @@ private val ToastStyleBuilder.invariantProps: ToastStyleBuilder
     get() = this
         .textStyle(SddsSandboxTheme.typography.bodyXsNormal)
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            textColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            contentEndColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            textColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            contentEndColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
             contentStartSize(16.0.dp)
-            contentEndSize(16.0.dp)
             contentStartPadding(6.0.dp)
+            contentEndSize(16.0.dp)
             contentEndPadding(8.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(12.0.dp)

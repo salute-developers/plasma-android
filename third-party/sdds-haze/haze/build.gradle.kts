@@ -6,100 +6,124 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import utils.addDefaultTargets
 
 plugins {
-  id("convention.cmp-lib")
-  id("convention.maven-publish")
-  id("convention.auto-bump")
-  id("convention.dokka")
-  id("dev.drewhamilton.poko")
+    id("convention.cmp-lib")
+    id("convention.maven-publish")
+    id("convention.auto-bump")
+    id("convention.dokka")
+    id("dev.drewhamilton.poko")
 }
 
 android {
-  namespace = "com.sdds.haze"
+    namespace = "com.sdds.haze"
 
-  defaultConfig {
-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-    consumerProguardFiles("consumer-rules.pro")
-  }
-
-  testOptions {
-    unitTests {
-      isIncludeAndroidResources = true
+        consumerProguardFiles("consumer-rules.pro")
     }
-  }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 kotlin {
-  addDefaultTargets()
-  explicitApi()
+    addDefaultTargets()
+    explicitApi()
 
-  sourceSets {
-    commonMain {
-      dependencies {
-        api(compose.ui)
-        implementation(compose.foundation)
-        implementation(libs.base.androidX.collection)
-      }
+    sourceSets {
+        commonMain {
+            dependencies {
+                api(compose.ui)
+                implementation(compose.foundation)
+                implementation(libs.base.androidX.collection)
+            }
+        }
+
+        androidMain {
+            dependencies {
+                implementation(libs.base.androidX.activity)
+                implementation(libs.base.androidX.tracing)
+            }
+        }
+
+        val skikoMain by creating {
+            dependsOn(commonMain.get())
+        }
+
+        val iosMain by creating {
+            dependsOn(skikoMain)
+        }
+
+        val iosX64Main by getting {
+            dependsOn(iosMain)
+        }
+
+        val iosArm64Main by getting {
+            dependsOn(iosMain)
+        }
+
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
+        }
+
+        val macosMain by creating {
+            dependsOn(skikoMain)
+        }
+
+        val macosX64Main by getting {
+            dependsOn(macosMain)
+        }
+
+        val macosArm64Main by getting {
+            dependsOn(macosMain)
+        }
+
+        jvmMain {
+            dependsOn(skikoMain)
+        }
+
+        named("wasmJsMain") {
+            dependsOn(skikoMain)
+        }
+
+        jsMain {
+            dependsOn(skikoMain)
+        }
+
+        commonTest {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(libs.base.test.assertk)
+
+                @OptIn(ExperimentalComposeLibrary::class)
+                implementation(compose.uiTest)
+            }
+        }
+
+        jvmTest {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+            }
+        }
     }
 
-    androidMain {
-      dependencies {
-        implementation(libs.base.androidX.activity)
-        implementation(libs.base.androidX.tracing)
-      }
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    compilerOptions {
+        optIn.add("com.sdds.haze.ExperimentalHazeApi")
+        optIn.add("com.sdds.haze.InternalHazeApi")
     }
-
-    val skikoMain by creating {
-      dependsOn(commonMain.get())
-    }
-
-//    iosMain {
-//      dependsOn(skikoMain)
-//    }
-//
-//    macosMain {
-//      dependsOn(skikoMain)
-//    }
-//
-    jvmMain {
-      dependsOn(skikoMain)
-    }
-
-//    named("wasmJsMain") {
-//      dependsOn(skikoMain)
-//    }
-//
-//    jsMain {
-//      dependsOn(skikoMain)
-//    }
-
-    commonTest {
-      dependencies {
-        implementation(kotlin("test"))
-        implementation(libs.base.test.assertk)
-
-        @OptIn(ExperimentalComposeLibrary::class)
-        implementation(compose.uiTest)
-      }
-    }
-
-    jvmTest {
-      dependencies {
-        implementation(compose.desktop.currentOs)
-      }
-    }
-  }
-
-  @OptIn(ExperimentalKotlinGradlePluginApi::class)
-  compilerOptions {
-    optIn.add("com.sdds.haze.ExperimentalHazeApi")
-    optIn.add("com.sdds.haze.InternalHazeApi")
-  }
 }
 
 // https://youtrack.jetbrains.com/issue/CMP-4906
 tasks.withType<org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest> {
-  enabled = false
+    enabled = false
+}
+
+tasks.matching { it.name.startsWith("detekt") }.configureEach {
+    enabled = false
 }
 
 /**
@@ -107,12 +131,12 @@ tasks.withType<org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest> {
  * provide little value over the quicker JVM + Android tests
  */
 tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest> {
-  enabled = false
+    enabled = false
 }
 tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeHostTest> {
-  enabled = false
+    enabled = false
 }
 
 poko {
-  pokoAnnotation.set("com/sdds/haze/Poko")
+    pokoAnnotation.set("com/sdds/haze/Poko")
 }

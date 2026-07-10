@@ -8,6 +8,7 @@
 package com.sdds.compose.sandbox.styles.tabbar
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.styles.tabbaritem.Accent
 import com.sdds.compose.sandbox.styles.tabbaritem.Default
@@ -19,7 +20,7 @@ import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.TabBarStyle
 import com.sdds.compose.uikit.TabBarStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -156,9 +157,7 @@ private val TabBarStyleBuilder.invariantProps: TabBarStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
         }
         .dimensions {
             contentPaddingStart(2.0.dp)
@@ -222,9 +221,7 @@ public val WrapperTabBarClearM.Divider: WrapperTabBarClearMDivider
     @JvmName("WrapperTabBarClearMDivider")
     get() = builder
         .colors {
-            dividerColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-            )
+            dividerColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
         }
         .dimensions {
             dividerThickness(1.0.dp)
@@ -292,9 +289,7 @@ public val WrapperTabBarClearL.Divider: WrapperTabBarClearLDivider
     @JvmName("WrapperTabBarClearLDivider")
     get() = builder
         .colors {
-            dividerColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-            )
+            dividerColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
         }
         .dimensions {
             dividerThickness(1.0.dp)

@@ -14,6 +14,7 @@ import com.sdds.compose.sandbox.styles.notificationcontent.ButtonStretch
 import com.sdds.compose.sandbox.styles.notificationcontent.Default
 import com.sdds.compose.sandbox.styles.notificationcontent.NotificationContent
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
+import com.sdds.compose.uikit.NotificationCloseAlignment
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.NotificationStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -60,13 +61,10 @@ private val NotificationStyleBuilder.invariantProps: NotificationStyleBuilder
     @Composable
     get() = this
         .notificationContentStyle(NotificationContent.ButtonStretch.Default.style())
+        .closeAlignment(NotificationCloseAlignment.TopEnd)
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
-            )
-            closeColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
+            closeColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
         }
 
 public val NotificationCompact.L: WrapperNotificationCompactL
@@ -76,11 +74,11 @@ public val NotificationCompact.L: WrapperNotificationCompactL
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundM)
         .dimensions {
+            closeSize(24.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            closeSize(24.0.dp)
         }
         .wrap(::WrapperNotificationCompactL)
 
@@ -91,11 +89,11 @@ public val NotificationCompact.M: WrapperNotificationCompactM
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .dimensions {
+            closeSize(16.0.dp)
             paddingStart(6.0.dp)
             paddingEnd(6.0.dp)
             paddingTop(6.0.dp)
             paddingBottom(6.0.dp)
-            closeSize(16.0.dp)
         }
         .wrap(::WrapperNotificationCompactM)
 
@@ -106,10 +104,10 @@ public val NotificationCompact.S: WrapperNotificationCompactS
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundS)
         .dimensions {
+            closeSize(16.0.dp)
             paddingStart(4.0.dp)
             paddingEnd(4.0.dp)
             paddingTop(4.0.dp)
             paddingBottom(4.0.dp)
-            closeSize(16.0.dp)
         }
         .wrap(::WrapperNotificationCompactS)
