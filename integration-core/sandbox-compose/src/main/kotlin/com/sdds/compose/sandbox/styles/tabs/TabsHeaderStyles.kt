@@ -28,6 +28,7 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TabsStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -83,46 +84,40 @@ public value class WrapperTabsHeaderH5(
 private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
     @Composable
     get() = this
+        .dividerStyle(Divider.Default.style())
+        .dividerEnabled(false)
+        .indicatorEnabled(false)
+        .orientation(TabsOrientation.Horizontal)
+        .overflowNextIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .overflowPrevIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
         .colors {
-            indicatorColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
-            overflowNextIconColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            overflowPrevIconColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            indicatorColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive())
+            overflowNextIconColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
+            overflowPrevIconColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
             disclosureColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryActive,
                 ),
             )
         }
         .dimensions {
             indicatorThickness(2.0.dp)
         }
-        .dividerStyle(Divider.Default.style())
-        .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
-        .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
-        .orientation(TabsOrientation.Horizontal)
-        .dividerEnabled(false)
-        .indicatorEnabled(false)
 
 public val TabsHeader.H1: WrapperTabsHeaderH1
     @Composable
     @JvmName("WrapperTabsHeaderH1")
     get() = TabsStyle.builder(this)
         .invariantProps
-        .dimensions {
-            minSpacing(56.0.dp)
-        }
         .tabItemStyle(TabItemHeader.H1.style())
         .dropdownMenuStyle(DropdownMenuNormal.L.style())
         .disclosureTextStyle(SddsSandboxTheme.typography.headerH1Bold)
+        .dimensions {
+            minSpacing(56.0.dp)
+        }
         .wrap(::WrapperTabsHeaderH1)
 
 public val TabsHeader.H2: WrapperTabsHeaderH2
@@ -130,12 +125,12 @@ public val TabsHeader.H2: WrapperTabsHeaderH2
     @JvmName("WrapperTabsHeaderH2")
     get() = TabsStyle.builder(this)
         .invariantProps
-        .dimensions {
-            minSpacing(40.0.dp)
-        }
         .tabItemStyle(TabItemHeader.H2.style())
         .dropdownMenuStyle(DropdownMenuNormal.M.style())
         .disclosureTextStyle(SddsSandboxTheme.typography.headerH2Bold)
+        .dimensions {
+            minSpacing(40.0.dp)
+        }
         .wrap(::WrapperTabsHeaderH2)
 
 public val TabsHeader.H3: WrapperTabsHeaderH3
@@ -143,12 +138,12 @@ public val TabsHeader.H3: WrapperTabsHeaderH3
     @JvmName("WrapperTabsHeaderH3")
     get() = TabsStyle.builder(this)
         .invariantProps
-        .dimensions {
-            minSpacing(36.0.dp)
-        }
         .tabItemStyle(TabItemHeader.H3.style())
         .dropdownMenuStyle(DropdownMenuNormal.S.style())
         .disclosureTextStyle(SddsSandboxTheme.typography.headerH3Bold)
+        .dimensions {
+            minSpacing(36.0.dp)
+        }
         .wrap(::WrapperTabsHeaderH3)
 
 public val TabsHeader.H4: WrapperTabsHeaderH4
@@ -156,12 +151,12 @@ public val TabsHeader.H4: WrapperTabsHeaderH4
     @JvmName("WrapperTabsHeaderH4")
     get() = TabsStyle.builder(this)
         .invariantProps
-        .dimensions {
-            minSpacing(32.0.dp)
-        }
         .tabItemStyle(TabItemHeader.H4.style())
         .dropdownMenuStyle(DropdownMenuNormal.Xs.style())
         .disclosureTextStyle(SddsSandboxTheme.typography.headerH4Bold)
+        .dimensions {
+            minSpacing(32.0.dp)
+        }
         .wrap(::WrapperTabsHeaderH4)
 
 public val TabsHeader.H5: WrapperTabsHeaderH5
@@ -169,10 +164,10 @@ public val TabsHeader.H5: WrapperTabsHeaderH5
     @JvmName("WrapperTabsHeaderH5")
     get() = TabsStyle.builder(this)
         .invariantProps
-        .dimensions {
-            minSpacing(28.0.dp)
-        }
         .tabItemStyle(TabItemHeader.H5.style())
         .dropdownMenuStyle(DropdownMenuNormal.Xs.style())
         .disclosureTextStyle(SddsSandboxTheme.typography.headerH5Bold)
+        .dimensions {
+            minSpacing(28.0.dp)
+        }
         .wrap(::WrapperTabsHeaderH5)

@@ -13,6 +13,7 @@ import com.sdds.compose.uikit.CollapsingNavigationBarStates
 import com.sdds.compose.uikit.CollapsingNavigationBarStyle
 import com.sdds.compose.uikit.CollapsingNavigationBarStyleBuilder
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -55,7 +56,7 @@ public val CollapsingNavigationBarInternalPage.Default:
                     to PlasmaHomeDsTheme.typography.bodyXsNormal,
             ),
         )
-        .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
+        .backIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
         .actionButtonStyle(IconButton.S.Secondary.style())
         .colors {
             backgroundColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear.asStatefulValue())

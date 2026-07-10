@@ -9,11 +9,12 @@ package com.sdds.compose.sandbox.styles.indicator
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.IndicatorStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -69,9 +70,7 @@ public val WrapperIndicatorView.Default: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -79,9 +78,7 @@ public val WrapperIndicatorView.Accent: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -89,9 +86,7 @@ public val WrapperIndicatorView.Inactive: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidTertiary).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -99,9 +94,7 @@ public val WrapperIndicatorView.Positive: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultPositive.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -109,9 +102,7 @@ public val WrapperIndicatorView.Warning: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultWarning.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -119,9 +110,7 @@ public val WrapperIndicatorView.Negative: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultNegative.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -129,9 +118,7 @@ public val WrapperIndicatorView.Dark: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnLightTransparentDeep.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceOnLightTransparentDeep).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -139,9 +126,7 @@ public val WrapperIndicatorView.Black: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnLightSolidDefault.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceOnLightSolidDefault).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 
@@ -149,9 +134,7 @@ public val WrapperIndicatorView.White: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
         }
         .wrap(::WrapperIndicatorTerminate)
 

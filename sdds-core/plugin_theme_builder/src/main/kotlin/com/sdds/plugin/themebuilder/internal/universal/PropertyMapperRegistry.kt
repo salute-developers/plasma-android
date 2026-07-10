@@ -55,7 +55,7 @@ internal class PropertyMapperRegistry(
             booleanMapper = BooleanPropertyMapper(stateEnum),
             integerMapper = IntegerPropertyMapper(stateEnum),
             floatMapper = FloatPropertyMapper(stateEnum),
-            iconMapper = IconPropertyMapper(stateEnum),
+            iconMapper = IconPropertyMapper(stateEnum, importCollector),
             componentStyleMapper = ComponentStyleMapper(stateEnum, importCollector, themeStylesPackage, packageLookup),
             valueMapper = ValuePropertyMapper(stateEnum, importCollector),
         )

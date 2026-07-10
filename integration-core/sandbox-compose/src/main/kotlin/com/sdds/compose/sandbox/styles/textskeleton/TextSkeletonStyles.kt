@@ -35,22 +35,18 @@ public val TextSkeleton.Default: WrapperTextSkeletonTerminate
     @Composable
     get() = TextSkeletonStyle.builder(this)
         .invariantProps
-        .gradient(
-            SddsSandboxTheme.gradients.surfaceDefaultSkeletonGradient.asLayered().asStatefulValue(),
-        )
+        .gradient(SddsSandboxTheme.gradients.surfaceDefaultSkeletonGradient.asLayered().asStatefulValue())
         .wrap(::WrapperTextSkeletonTerminate)
 
 public val TextSkeleton.Lighter: WrapperTextSkeletonTerminate
     @Composable
     get() = TextSkeletonStyle.builder(this)
         .invariantProps
-        .gradient(
-            SddsSandboxTheme.gradients.surfaceDefaultSkeletonDeepGradient.asLayered().asStatefulValue(),
-        )
+        .gradient(SddsSandboxTheme.gradients.surfaceDefaultSkeletonDeepGradient.asLayered().asStatefulValue())
         .wrap(::WrapperTextSkeletonTerminate)
 
 private val TextSkeletonStyleBuilder.invariantProps: TextSkeletonStyleBuilder
     @Composable
     get() = this
         .shape(SddsSandboxTheme.shapes.roundXxs)
-        .duration(5000.0.toInt())
+        .duration(5000)

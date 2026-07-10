@@ -37,8 +37,6 @@ public val Overlay.Default: WrapperOverlayDefault
     @JvmName("WrapperOverlayDefault")
     get() = OverlayStyle.builder(this)
         .color {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.overlayDefaultSoft).asStatefulValue(),
-            )
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.overlayDefaultSoft).asStatefulValue())
         }
         .wrap(::WrapperOverlayDefault)

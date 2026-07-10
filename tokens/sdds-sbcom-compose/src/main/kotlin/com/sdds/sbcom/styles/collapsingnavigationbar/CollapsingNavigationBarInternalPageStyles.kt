@@ -13,6 +13,7 @@ import com.sdds.compose.uikit.CollapsingNavigationBarStates
 import com.sdds.compose.uikit.CollapsingNavigationBarStyle
 import com.sdds.compose.uikit.CollapsingNavigationBarStyleBuilder
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -55,7 +56,7 @@ public val CollapsingNavigationBarInternalPage.Default:
                     to SddsSbComTheme.typography.bodyXsMedium,
             ),
         )
-        .backIcon(com.sdds.icons.R.drawable.ic_arrow_left_24)
+        .backIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_arrow_left_24))
         .actionButtonStyle(IconButtonClear.M.Accent.style())
         .colors {
             backgroundColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asStatefulValue())

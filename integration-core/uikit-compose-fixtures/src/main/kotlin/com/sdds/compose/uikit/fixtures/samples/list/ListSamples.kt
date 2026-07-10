@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
 
 @Composable
@@ -61,7 +62,7 @@ fun ListItem_Style() {
         ListItemStyle.builder()
             .shape(placeholder(RoundedCornerShape(8.dp), "/** Токен формы (скругления) */"))
             .titleStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
-            .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+            .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
             .colors {
                 titleColor(Color.Black)
                 disclosureIconColor(Color.Gray)

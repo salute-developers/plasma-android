@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.SelectItemType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -95,7 +96,7 @@ public val SelectItemSingleNormal.Xl: WrapperSelectItemSingleNormalXl
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundL)
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.L.style())
         .dimensions {
             controlSize(24.0.dp)
@@ -114,7 +115,7 @@ public val SelectItemSingleNormal.L: WrapperSelectItemSingleNormalL
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.L.style())
         .dimensions {
             controlSize(24.0.dp)
@@ -133,7 +134,7 @@ public val SelectItemSingleNormal.M: WrapperSelectItemSingleNormalM
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundM)
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.M.style())
         .dimensions {
             controlSize(24.0.dp)
@@ -152,7 +153,7 @@ public val SelectItemSingleNormal.S: WrapperSelectItemSingleNormalS
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = -2.0.dp))
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.S.style())
         .dimensions {
             controlSize(24.0.dp)
@@ -171,7 +172,7 @@ public val SelectItemSingleNormal.Xs: WrapperSelectItemSingleNormalXs
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundS)
-        .icon(com.sdds.icons.R.drawable.ic_done_16)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_16))
         .cellStyle(Cell.Xs.style())
         .dimensions {
             controlSize(16.0.dp)

@@ -13,6 +13,7 @@ import com.sdds.compose.uikit.AccordionIconPlacement
 import com.sdds.compose.uikit.AccordionItemStyle
 import com.sdds.compose.uikit.AccordionItemStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -111,8 +112,8 @@ public val AccordionItemClearActionStart.Xs: WrapperAccordionItemClearActionStar
         .invariantProps
         .titleStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
@@ -128,8 +129,8 @@ public val AccordionItemClearActionStart.S: WrapperAccordionItemClearActionStart
         .invariantProps
         .titleStyle(PlasmaSdServiceTheme.typography.bodySBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
@@ -145,8 +146,8 @@ public val AccordionItemClearActionStart.M: WrapperAccordionItemClearActionStart
         .invariantProps
         .titleStyle(PlasmaSdServiceTheme.typography.bodyMBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
@@ -162,8 +163,8 @@ public val AccordionItemClearActionStart.L: WrapperAccordionItemClearActionStart
         .invariantProps
         .titleStyle(PlasmaSdServiceTheme.typography.bodyLBold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingTop(17.0.dp)
             paddingBottom(17.0.dp)
@@ -179,8 +180,8 @@ public val AccordionItemClearActionStart.H2: WrapperAccordionItemClearActionStar
         .invariantProps
         .titleStyle(PlasmaSdServiceTheme.typography.headerH2Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24))
         .dimensions {
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
@@ -196,8 +197,8 @@ public val AccordionItemClearActionStart.H3: WrapperAccordionItemClearActionStar
         .invariantProps
         .titleStyle(PlasmaSdServiceTheme.typography.headerH3Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24))
         .dimensions {
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
@@ -213,8 +214,8 @@ public val AccordionItemClearActionStart.H4: WrapperAccordionItemClearActionStar
         .invariantProps
         .titleStyle(PlasmaSdServiceTheme.typography.headerH4Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
@@ -230,8 +231,8 @@ public val AccordionItemClearActionStart.H5: WrapperAccordionItemClearActionStar
         .invariantProps
         .titleStyle(PlasmaSdServiceTheme.typography.headerH5Bold)
         .contentTextStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
         .dimensions {
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)

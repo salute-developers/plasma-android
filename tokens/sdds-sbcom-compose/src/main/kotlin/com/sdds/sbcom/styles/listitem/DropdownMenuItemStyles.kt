@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -41,7 +42,7 @@ public val DropdownMenuItem.Default: WrapperDropdownMenuItemDefault
         .shape(SddsSbComTheme.shapes.roundXxs)
         .titleStyle(SddsSbComTheme.typography.bodyLNormal)
         .subtitleStyle(SddsSbComTheme.typography.bodyMNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .colors {
             backgroundColor(
                 SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue(

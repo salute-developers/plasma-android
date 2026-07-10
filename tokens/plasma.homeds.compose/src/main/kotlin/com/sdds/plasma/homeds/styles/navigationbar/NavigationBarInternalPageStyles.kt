@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.NavigationBarStyleBuilder
 import com.sdds.compose.uikit.NavigationBarTextPlacement
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -56,7 +57,7 @@ public val NavigationBarInternalPage.Default: WrapperNavigationBarInternalPageDe
                     to PlasmaHomeDsTheme.typography.bodyXsNormal,
             ),
         )
-        .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
+        .backIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
         .actionButtonStyle(IconButton.S.Secondary.style())
         .colors {
             backgroundColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive())
