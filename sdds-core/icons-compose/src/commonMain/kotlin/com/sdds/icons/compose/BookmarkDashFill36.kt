@@ -1,0 +1,26 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.BookmarkDashFill36: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "BookmarkDashFill36",
+        defaultWidth = 36.dp,
+        defaultHeight = 36.dp,
+        viewportWidth = 36f,
+        viewportHeight = 36f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 27.75 27.037 c 0.0 0.757 0.0 1.403 -0.043 1.907 c -0.041 0.496 -0.136 1.086 -0.49 1.566 c -0.463 0.627 -1.165 0.993 -1.907 0.992 c -0.567 0.0 -1.053 -0.29 -1.437 -0.565 c -0.39 -0.279 -0.856 -0.682 -1.402 -1.155 l -1.643 -1.422 c -0.633 -0.547 -1.065 -0.92 -1.422 -1.185 c -0.347 -0.258 -0.567 -0.37 -0.756 -0.426 c -0.425 -0.127 -0.875 -0.127 -1.3 0.0 c -0.19 0.057 -0.41 0.168 -0.756 0.426 c -0.358 0.265 -0.789 0.638 -1.422 1.185 l -1.642 1.422 c -0.547 0.473 -1.013 0.876 -1.404 1.155 c -0.383 0.275 -0.87 0.564 -1.436 0.565 c -0.714 0.0 -1.39 -0.337 -1.853 -0.92 L 27.75 11.669 v 15.368 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 29.75 4.082 c 0.39 -0.39 1.023 -0.39 1.413 0.0 c 0.39 0.39 0.39 1.024 0.0 1.414 L 5.707 30.952 c -0.39 0.39 -1.023 0.39 -1.414 0.0 c -0.39 -0.39 -0.39 -1.024 0.0 -1.414 l 3.957 -3.957 V 11.61 c 0.0 -1.014 0.0 -1.844 0.051 -2.518 c 0.053 -0.698 0.165 -1.329 0.443 -1.917 c 0.434 -0.922 1.126 -1.671 1.978 -2.141 c 0.544 -0.3 1.127 -0.421 1.771 -0.478 c 0.624 -0.056 1.392 -0.055 2.33 -0.055 h 6.355 c 0.938 0.0 1.705 0.0 2.328 0.055 c 0.645 0.057 1.229 0.178 1.773 0.478 c 0.727 0.4 1.336 1.006 1.77 1.747 l 2.7 -2.7 Z")
+        )
+    }.build()
+}
