@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.universal
 
 import com.sdds.plugin.themebuilder.internal.components.base.StringState
 import com.sdds.plugin.themebuilder.internal.components.base.Value
+import io.mockk.mockk
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -10,7 +11,7 @@ class IconPropertyMapperTest {
 
     @Test
     fun `возвращает ссылку на drawable без состояний`() {
-        val underTest = IconPropertyMapper(null)
+        val underTest = IconPropertyMapper(null, mockk(relaxed = true))
 
         val builderCall = underTest.map(
             meta = iconParam(methodName = "startIcon"),
@@ -18,12 +19,12 @@ class IconPropertyMapperTest {
             variationId = "",
         )
 
-        assertEquals("startIcon(com.sdds.icons.R.drawable.ic_actions_add)", builderCall)
+        assertEquals("startIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add))", builderCall)
     }
 
     @Test
     fun `возвращает ссылку на drawable с состояниями`() {
-        val underTest = IconPropertyMapper(null)
+        val underTest = IconPropertyMapper(null, mockk(relaxed = true))
 
         val builderCall = underTest.map(
             meta = iconParam(methodName = "startIcon"),
@@ -38,11 +39,11 @@ class IconPropertyMapperTest {
         )
 
         assertEquals(
-            "startIcon(com.sdds.icons.R.drawable.ic_actions_add." +
+            "startIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add)." +
                 "asStatefulValue(setOf(InteractiveState.Pressed) " +
-                "to com.sdds.icons.R.drawable.ic_actions_remove, " +
+                "to resourceImageSource(com.sdds.icons.R.drawable.ic_actions_remove), " +
                 "setOf(InteractiveState.Pressed, InteractiveState.Hovered) " +
-                "to com.sdds.icons.R.drawable.ic_actions_close))",
+                "to resourceImageSource(com.sdds.icons.R.drawable.ic_actions_close)))",
             builderCall,
         )
     }
@@ -55,6 +56,7 @@ class IconPropertyMapperTest {
                 simpleName = "ChipState",
                 values = listOf(EnumValueInfo(name = "Selected", configName = "selected_chip")),
             ),
+            importCollector = mockk(relaxed = true),
         )
 
         val builderCall = underTest.map(
@@ -69,8 +71,8 @@ class IconPropertyMapperTest {
         )
 
         assertEquals(
-            "icon(com.sdds.icons.R.drawable.ic_actions_add.asStatefulValue(" +
-                "setOf(ChipState.Selected) to com.sdds.icons.R.drawable.ic_actions_check))",
+            "icon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add).asStatefulValue(" +
+                "setOf(ChipState.Selected) to resourceImageSource(com.sdds.icons.R.drawable.ic_actions_check)))",
             builderCall,
         )
     }
