@@ -1,0 +1,5 @@
+[versions]
+sdds-icons-compose = "0.1.0"
+
+[libraries]
+sdds-icons-compose = { module = "io.github.salute-developers:sdds-icons-compose", version.ref = "sdds-icons-compose" }
