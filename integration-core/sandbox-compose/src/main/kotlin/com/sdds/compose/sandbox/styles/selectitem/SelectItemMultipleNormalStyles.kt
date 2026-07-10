@@ -81,8 +81,8 @@ public value class WrapperSelectItemMultipleNormalXs(
 private val SelectItemStyleBuilder.invariantProps: SelectItemStyleBuilder
     @Composable
     get() = this
-        .disableAlpha(0.4f)
         .itemType(SelectItemType.Multiple)
+        .disableAlpha(0.4f)
         .colors {
             backgroundColor(
                 SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
@@ -98,15 +98,15 @@ public val SelectItemMultipleNormal.Xl: WrapperSelectItemMultipleNormalXl
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundL)
-        .cellStyle(Cell.L.style())
         .checkboxStyle(CheckBox.M.Default.style())
+        .cellStyle(Cell.L.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(8.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(18.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
-            controlMargin(8.0.dp)
-            controlSize(24.0.dp)
             height(64.0.dp)
         }
         .wrap(::WrapperSelectItemMultipleNormalXl)
@@ -117,15 +117,15 @@ public val SelectItemMultipleNormal.L: WrapperSelectItemMultipleNormalL
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundL.adjustBy(all = -2.0.dp))
-        .cellStyle(Cell.L.style())
         .checkboxStyle(CheckBox.M.Default.style())
+        .cellStyle(Cell.L.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(6.0.dp)
             paddingStart(14.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
-            controlMargin(6.0.dp)
-            controlSize(24.0.dp)
             height(56.0.dp)
         }
         .wrap(::WrapperSelectItemMultipleNormalL)
@@ -136,15 +136,15 @@ public val SelectItemMultipleNormal.M: WrapperSelectItemMultipleNormalM
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundM)
-        .cellStyle(Cell.M.style())
         .checkboxStyle(CheckBox.M.Default.style())
+        .cellStyle(Cell.M.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(6.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(14.0.dp)
             paddingTop(12.0.dp)
             paddingBottom(12.0.dp)
-            controlMargin(6.0.dp)
-            controlSize(24.0.dp)
             height(48.0.dp)
         }
         .wrap(::WrapperSelectItemMultipleNormalM)
@@ -155,15 +155,15 @@ public val SelectItemMultipleNormal.S: WrapperSelectItemMultipleNormalS
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundM.adjustBy(all = -2.0.dp))
-        .cellStyle(Cell.S.style())
         .checkboxStyle(CheckBox.M.Default.style())
+        .cellStyle(Cell.S.style())
         .dimensions {
+            controlSize(24.0.dp)
+            controlMargin(6.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(12.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            controlMargin(6.0.dp)
-            controlSize(24.0.dp)
             height(40.0.dp)
         }
         .wrap(::WrapperSelectItemMultipleNormalS)
@@ -174,15 +174,15 @@ public val SelectItemMultipleNormal.Xs: WrapperSelectItemMultipleNormalXs
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(SddsSandboxTheme.shapes.roundS)
-        .cellStyle(Cell.Xs.style())
         .checkboxStyle(CheckBox.S.Default.style())
+        .cellStyle(Cell.Xs.style())
         .dimensions {
+            controlSize(16.0.dp)
+            controlMargin(4.0.dp)
             paddingStart(6.0.dp)
             paddingEnd(8.0.dp)
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
-            controlMargin(4.0.dp)
-            controlSize(16.0.dp)
             height(32.0.dp)
         }
         .wrap(::WrapperSelectItemMultipleNormalXs)

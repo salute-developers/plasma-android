@@ -100,18 +100,21 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun TaskProvider<UikitApiMetaTask>.configureUikitApiMetaTask(compileClasspath: Configuration) {
         configure {
             metaClasspath.from(
-                compileClasspath.incoming.artifactView {
-                    attributes {
-                        attribute(
-                            Attribute.of("artifactType", String::class.java),
-                            "jar",
-                        )
-                    }
-                    isLenient = true
-                }.files,
+                compileClasspath.artifactFiles("jar"),
+                compileClasspath.artifactFiles("android-java-res"),
             )
         }
     }
+
+    private fun Configuration.artifactFiles(artifactType: String) = incoming.artifactView {
+        attributes {
+            attribute(
+                Attribute.of("artifactType", String::class.java),
+                artifactType,
+            )
+        }
+        isLenient = true
+    }.files
 
     private fun Project.registerClean(extension: ThemeBuilderExtension): TaskProvider<CleanThemeTask> {
         return project.tasks.register<CleanThemeTask>("cleanTheme") {

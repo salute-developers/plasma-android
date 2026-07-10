@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.NoteCompactStyle
 import com.sdds.compose.uikit.NoteCompactStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -171,7 +172,7 @@ public val WrapperNoteCompactContentBeforeFixed.HasClose:
     @Composable
     @JvmName("WrapperNoteCompactContentBeforeFixedHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
             closeSize(24.0.dp)
             closeStartMargin(2.0.dp)
@@ -199,7 +200,7 @@ public val WrapperNoteCompactContentBeforeScalable.HasClose:
     @Composable
     @JvmName("WrapperNoteCompactContentBeforeScalableHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
             closeSize(24.0.dp)
             closeStartMargin(2.0.dp)

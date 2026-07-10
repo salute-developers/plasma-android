@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.NavigationBarStyleBuilder
 import com.sdds.compose.uikit.NavigationBarTextPlacement
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -81,50 +82,34 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
         .textStyle(SddsSandboxTheme.typography.bodyLBold)
         .titleStyle(
             SddsSandboxTheme.typography.headerH2Normal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    SddsSandboxTheme.typography.bodyMNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to SddsSandboxTheme.typography.bodyMNormal,
             ),
         )
         .descriptionStyle(
             SddsSandboxTheme.typography.bodyMNormal.asStatefulValue(
-                setOf(NavigationBarTextPlacement.Inline) to
-                    SddsSandboxTheme.typography.bodyXsNormal,
+                setOf(NavigationBarTextPlacement.Inline)
+                    to SddsSandboxTheme.typography.bodyXsNormal,
             ),
         )
-        .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
+        .backIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
         .colors {
-            backIconColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            textColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            titleColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            actionStartColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            actionEndColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            backIconColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            actionStartColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            actionEndColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            titleColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            descriptionColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            backIconMargin(4.0.dp)
+            textBlockTopMargin(16.0.dp)
+            horizontalSpacing(16.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
-            backIconMargin(4.0.dp)
-            textBlockTopMargin(16.0.dp)
-            horizontalSpacing(16.0.dp)
-            descriptionPadding(
-                12.0.dp.asStatefulValue(
-                    setOf(NavigationBarTextPlacement.Inline) to 4.0.dp,
-                ),
-            )
+            descriptionPadding(12.0.dp.asStatefulValue(setOf(NavigationBarTextPlacement.Inline) to 4.0.dp))
         }
 
 public val NavigationBarInternalPage.NoBackground: WrapperNavigationBarInternalPageNoBackground
@@ -133,9 +118,7 @@ public val NavigationBarInternalPage.NoBackground: WrapperNavigationBarInternalP
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
+            backgroundColor(SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive())
         }
         .wrap(::WrapperNavigationBarInternalPageNoBackground)
 
@@ -153,9 +136,7 @@ public val NavigationBarInternalPage.HasBackground: WrapperNavigationBarInternal
     get() = NavigationBarStyle.builder(this)
         .invariantProps
         .colors {
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidCard.asInteractive(),
-            )
+            backgroundColor(SddsSandboxTheme.colors.surfaceDefaultSolidCard.asInteractive())
         }
         .wrap(::WrapperNavigationBarInternalPageHasBackground)
 

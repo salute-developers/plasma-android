@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CarouselButtonsPlacement
 import com.sdds.compose.uikit.CarouselStyle
 import com.sdds.compose.uikit.CarouselStyleBuilder
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -53,8 +54,8 @@ private val CarouselStyleBuilder.invariantProps: CarouselStyleBuilder
         .indicatorStyle(PaginationDotsHorizontal.S.style())
         .nextButtonStyle(IconButton.S.Pilled.Secondary.style())
         .prevButtonStyle(IconButton.S.Pilled.Secondary.style())
-        .nextButtonIcon(com.sdds.icons.R.drawable.ic_chevron_right_24)
-        .prevButtonIcon(com.sdds.icons.R.drawable.ic_chevron_left_24)
+        .nextButtonIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_right_24))
+        .prevButtonIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_left_24))
         .dimensions {
             nextButtonPadding(12.0.dp)
             prevButtonPadding(12.0.dp)

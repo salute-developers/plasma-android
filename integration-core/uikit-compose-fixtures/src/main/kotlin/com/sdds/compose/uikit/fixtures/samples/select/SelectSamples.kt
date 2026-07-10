@@ -25,6 +25,7 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.basicButtonBuilder
 import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
 import com.sdds.compose.uikit.rememberSelectSingleDataStateManager
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
 import com.sdds.icons.R
 import kotlin.text.ifEmpty
@@ -146,8 +147,8 @@ fun Select_SingleButtonLike() {
                 SelectButton(
                     modifier = Modifier.width(260.dp),
                     label = checkedStateManager.selectedItems.firstOrNull() ?: "Value",
-                    iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
-                    iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
+                    iconOpened = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_up_24),
+                    iconClosed = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_down_24),
                 )
             },
             listContent = {
@@ -191,8 +192,8 @@ fun Select_MultipleButtonLike() {
                     label = checkedStateManager.selectedItems
                         .joinToString(", ")
                         .ifEmpty { "Value" },
-                    iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
-                    iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
+                    iconOpened = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_up_24),
+                    iconClosed = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_down_24),
                 )
             },
             listContent = {

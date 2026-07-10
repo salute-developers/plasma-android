@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.NoteCompactStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -350,7 +351,7 @@ public val WrapperNoteCompactL.HasClose: WrapperNoteCompactLHasClose
     @Composable
     @JvmName("WrapperNoteCompactLHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
             closeSize(24.0.dp)
             closeStartMargin(4.0.dp)
@@ -377,7 +378,7 @@ public val WrapperNoteCompactL.HasCloseContentScalable: WrapperNoteCompactLHasCl
     @JvmName("WrapperNoteCompactLHasCloseContentScalable")
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
             closeSize(24.0.dp)
             iconSize(0.0.dp)
@@ -471,7 +472,7 @@ public val WrapperNoteCompactM.HasClose: WrapperNoteCompactMHasClose
     @Composable
     @JvmName("WrapperNoteCompactMHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
             closeSize(24.0.dp)
             closeStartMargin(4.0.dp)
@@ -498,7 +499,7 @@ public val WrapperNoteCompactM.HasCloseContentScalable: WrapperNoteCompactMHasCl
     @JvmName("WrapperNoteCompactMHasCloseContentScalable")
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
             closeSize(24.0.dp)
             iconSize(0.0.dp)
@@ -592,7 +593,7 @@ public val WrapperNoteCompactS.HasClose: WrapperNoteCompactSHasClose
     @Composable
     @JvmName("WrapperNoteCompactSHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
             closeSize(24.0.dp)
             closeStartMargin(2.0.dp)
@@ -619,7 +620,7 @@ public val WrapperNoteCompactS.HasCloseContentScalable: WrapperNoteCompactSHasCl
     @JvmName("WrapperNoteCompactSHasCloseContentScalable")
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
             closeSize(24.0.dp)
             iconSize(0.0.dp)
@@ -713,7 +714,7 @@ public val WrapperNoteCompactXs.HasClose: WrapperNoteCompactXsHasClose
     @Composable
     @JvmName("WrapperNoteCompactXsHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_16)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_16))
         .dimensions {
             closeSize(16.0.dp)
             closeStartMargin(2.0.dp)
@@ -740,7 +741,7 @@ public val WrapperNoteCompactXs.HasCloseContentScalable: WrapperNoteCompactXsHas
     @JvmName("WrapperNoteCompactXsHasCloseContentScalable")
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_16)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_16))
         .dimensions {
             closeSize(16.0.dp)
             iconSize(0.0.dp)

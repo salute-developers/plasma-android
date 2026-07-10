@@ -1,0 +1,143 @@
+package com.sdds.compose.uikit
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.InteractionSource
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import com.sdds.compose.uikit.graphics.LocalIndication
+import com.sdds.compose.uikit.internal.tabs.BaseTabItem
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.tabs.LocalTabItemMotionStyle
+import com.sdds.compose.uikit.motion.components.tabs.TabItemMotionStyle
+import com.sdds.compose.uikit.motion.components.tabs.rememberTabItemMotion
+import com.sdds.compose.uikit.motion.rememberMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
+
+/**
+ * Таб (Вкладка). Элемент, предназначенный для использования в [Tabs].
+ * Может содержать контент в начале и в конце, основной текст, дополнительный текст, кнопку действия, счетчик.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента [TabItem]
+ * @param isSelected выбран ли таб
+ * @param enabled включен ли таб
+ * @param helperContent дополнительный текст
+ * @param counter слот для счетчика [Counter]
+ * @param startContent контент в начале
+ * @param endContent контент в конце
+ * @param action слот для кнопки/иконки действия
+ * @param onClickLabel лейбл обработчика нажатия на таб
+ * @param motion объект анимации
+ * @param content основной контент
+ */
+@Composable
+fun TabItem(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    style: TabItemStyle = LocalTabItemStyle.current,
+    isSelected: Boolean = false,
+    enabled: Boolean = true,
+    helperContent: (@Composable () -> Unit)? = null,
+    counter: (@Composable () -> Unit)? = null,
+    startContent: (@Composable () -> Unit)? = null,
+    endContent: (@Composable () -> Unit)? = null,
+    action: (@Composable () -> Unit)? = null,
+    onClickLabel: String? = null,
+    motion: Motion<TabItemMotionStyle> = rememberTabItemMotion(),
+    content: @Composable () -> Unit,
+) {
+    BaseTabItem(
+        modifier = modifier,
+        style = style,
+        isSelected = isSelected,
+        enabled = enabled,
+        labelContent = content,
+        helperContent = helperContent,
+        counter = counter,
+        startContent = startContent,
+        endContent = endContent,
+        action = action,
+        onClick = onClick,
+        onClickLabel = onClickLabel,
+        motion = motion,
+    )
+}
+
+/**
+ * Таб (Вкладка). Элемент, предназначенный для использования в [Tabs].
+ * Может содержать контент в начале и в конце, основной текст, дополнительный текст, кнопку действия, счетчик.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента [TabItem]
+ * @param isSelected выбран ли таб
+ * @param label основной текст
+ * @param helpText дополнительный текст
+ * @param count текст счетчика [Counter]
+ * @param startContent контент в начале
+ * @param endContent контент в конце
+ * @param actionIcon источник иконки действия
+ * @param onActionClicked обработчик нажатия на иконку действия
+ * @param interactionSource источник взаимодействий [InteractionSource]
+ */
+@Deprecated(
+    "Use TabItem with onClick",
+    replaceWith = ReplaceWith("TabItem(onClick = {})"),
+)
+@Composable
+fun TabItem(
+    modifier: Modifier = Modifier,
+    style: TabItemStyle = LocalTabItemStyle.current,
+    isSelected: Boolean = false,
+    label: String? = null,
+    helpText: String? = null,
+    count: String? = null,
+    startContent: (@Composable () -> Unit)? = null,
+    endContent: (@Composable () -> Unit)? = null,
+    actionIcon: ImageSource? = null,
+    onActionClicked: () -> Unit = {},
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    BaseTabItem(
+        modifier = modifier,
+        style = style,
+        isSelected = isSelected,
+        labelContent = if (!label.isNullOrEmpty()) {
+            { Text(label) }
+        } else {
+            null
+        },
+        helperContent = if (!helpText.isNullOrEmpty()) {
+            { Text(helpText) }
+        } else {
+            null
+        },
+        counter = if (!count.isNullOrEmpty()) {
+            { Counter(count = count) }
+        } else {
+            null
+        },
+        startContent = startContent,
+        endContent = endContent,
+        action = if (actionIcon != null) {
+            {
+                Icon(
+                    source = actionIcon,
+                    contentDescription = "",
+                    modifier = Modifier.clickable(
+                        indication = LocalIndication.current,
+                        interactionSource = remember { MutableInteractionSource() },
+                        onClick = onActionClicked,
+                    ),
+                )
+            }
+        } else {
+            null
+        },
+        motion = rememberMotion(
+            LocalTabItemMotionStyle.current,
+            rememberMotionContext(interactionSource),
+        ),
+    )
+}

@@ -90,16 +90,16 @@ public val WrapperCounterView.Default: WrapperCounterTerminate
                 SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
                 ),
             )
             textColor(
                 SddsSandboxTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -121,8 +121,8 @@ public val WrapperCounterView.Accent: WrapperCounterTerminate
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -144,8 +144,8 @@ public val WrapperCounterView.Positive: WrapperCounterTerminate
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -167,8 +167,8 @@ public val WrapperCounterView.Warning: WrapperCounterTerminate
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -190,8 +190,8 @@ public val WrapperCounterView.Negative: WrapperCounterTerminate
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -205,16 +205,16 @@ public val WrapperCounterView.Black: WrapperCounterTerminate
                 SddsSandboxTheme.colors.surfaceOnLightSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceOnLightSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceOnLightSolidDefaultHover,
                 ),
             )
             textColor(
                 SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -228,16 +228,16 @@ public val WrapperCounterView.White: WrapperCounterTerminate
                 SddsSandboxTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceOnDarkSolidDefaultHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceOnDarkSolidDefaultHover,
                 ),
             )
             textColor(
                 SddsSandboxTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnLightPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnLightPrimaryHover,
                 ),
             )
         }
@@ -255,8 +255,8 @@ public val Counter.L: WrapperCounterL
         .invariantProps
         .textStyle(SddsSandboxTheme.typography.bodySNormal)
         .dimensions {
-            minHeight(28.0.dp)
             minWidth(28.0.dp)
+            minHeight(28.0.dp)
             paddingStart(10.0.dp)
             paddingEnd(10.0.dp)
         }
@@ -269,8 +269,8 @@ public val Counter.M: WrapperCounterM
         .invariantProps
         .textStyle(SddsSandboxTheme.typography.bodyXsNormal)
         .dimensions {
-            minHeight(24.0.dp)
             minWidth(24.0.dp)
+            minHeight(24.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
         }
@@ -283,8 +283,8 @@ public val Counter.S: WrapperCounterS
         .invariantProps
         .textStyle(SddsSandboxTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(20.0.dp)
             minWidth(20.0.dp)
+            minHeight(20.0.dp)
             paddingStart(6.0.dp)
             paddingEnd(6.0.dp)
         }
@@ -297,8 +297,8 @@ public val Counter.Xs: WrapperCounterXs
         .invariantProps
         .textStyle(SddsSandboxTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(16.0.dp)
             minWidth(16.0.dp)
+            minHeight(16.0.dp)
             paddingStart(4.0.dp)
             paddingEnd(4.0.dp)
         }
@@ -311,8 +311,8 @@ public val Counter.Xxs: WrapperCounterXxs
         .invariantProps
         .textStyle(SddsSandboxTheme.typography.bodyXxsNormal)
         .dimensions {
-            minHeight(12.0.dp)
             minWidth(12.0.dp)
+            minHeight(12.0.dp)
             paddingStart(2.0.dp)
             paddingEnd(2.0.dp)
         }

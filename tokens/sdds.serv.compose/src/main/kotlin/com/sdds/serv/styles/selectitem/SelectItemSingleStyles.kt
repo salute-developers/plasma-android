@@ -13,6 +13,7 @@ import com.sdds.compose.uikit.SelectItemStyle
 import com.sdds.compose.uikit.SelectItemStyleBuilder
 import com.sdds.compose.uikit.SelectItemType
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -86,7 +87,7 @@ public val SelectItemSingle.Xl: WrapperSelectItemSingleXl
     @JvmName("WrapperSelectItemSingleXl")
     get() = SelectItemStyle.builder(this)
         .invariantProps
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.L.style())
         .dimensions {
             paddingStart(16.0.dp)
@@ -103,7 +104,7 @@ public val SelectItemSingle.L: WrapperSelectItemSingleL
     @JvmName("WrapperSelectItemSingleL")
     get() = SelectItemStyle.builder(this)
         .invariantProps
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.L.style())
         .dimensions {
             paddingStart(14.0.dp)
@@ -120,7 +121,7 @@ public val SelectItemSingle.M: WrapperSelectItemSingleM
     @JvmName("WrapperSelectItemSingleM")
     get() = SelectItemStyle.builder(this)
         .invariantProps
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.M.style())
         .dimensions {
             paddingStart(12.0.dp)
@@ -137,7 +138,7 @@ public val SelectItemSingle.S: WrapperSelectItemSingleS
     @JvmName("WrapperSelectItemSingleS")
     get() = SelectItemStyle.builder(this)
         .invariantProps
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(Cell.S.style())
         .dimensions {
             paddingStart(10.0.dp)
@@ -154,7 +155,7 @@ public val SelectItemSingle.Xs: WrapperSelectItemSingleXs
     @JvmName("WrapperSelectItemSingleXs")
     get() = SelectItemStyle.builder(this)
         .invariantProps
-        .icon(com.sdds.icons.R.drawable.ic_done_16)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_16))
         .cellStyle(Cell.Xs.style())
         .dimensions {
             paddingStart(6.0.dp)

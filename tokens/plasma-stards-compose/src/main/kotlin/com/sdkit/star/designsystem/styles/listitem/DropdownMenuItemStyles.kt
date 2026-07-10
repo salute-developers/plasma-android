@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
@@ -148,7 +149,7 @@ public val DropdownMenuItem.Xl: WrapperDropdownMenuItemXl
         .invariantProps
         .shape(StarDsTheme.shapes.roundL)
         .titleStyle(StarDsTheme.typography.bodyLNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_xl))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_xl))
@@ -172,7 +173,7 @@ public val DropdownMenuItem.L: WrapperDropdownMenuItemL
             ),
         )
         .titleStyle(StarDsTheme.typography.bodyLNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_l))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_l))
@@ -191,7 +192,7 @@ public val DropdownMenuItem.M: WrapperDropdownMenuItemM
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .titleStyle(StarDsTheme.typography.bodyMNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_m))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_m))
@@ -215,7 +216,7 @@ public val DropdownMenuItem.S: WrapperDropdownMenuItemS
             ),
         )
         .titleStyle(StarDsTheme.typography.bodySNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_s))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_s))
@@ -234,7 +235,7 @@ public val DropdownMenuItem.Xs: WrapperDropdownMenuItemXs
         .invariantProps
         .shape(StarDsTheme.shapes.roundS)
         .titleStyle(StarDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_xs))
             paddingStart(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_padding_start_xs))

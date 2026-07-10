@@ -13,6 +13,7 @@ import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.TabItemStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -117,7 +118,7 @@ public val IconTabItem.L: WrapperIconTabItemL
     @JvmName("WrapperIconTabItemL")
     get() = TabItemStyle.builder(this)
         .invariantProps
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .actionIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .counterStyle(Counter.Xs.Negative.style())
         .dimensions {
             minHeight(56.0.dp)
@@ -136,7 +137,7 @@ public val IconTabItem.M: WrapperIconTabItemM
     @JvmName("WrapperIconTabItemM")
     get() = TabItemStyle.builder(this)
         .invariantProps
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .actionIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .counterStyle(Counter.Xs.Negative.style())
         .dimensions {
             minHeight(48.0.dp)
@@ -156,7 +157,7 @@ public val IconTabItem.S: WrapperIconTabItemS
     @JvmName("WrapperIconTabItemS")
     get() = TabItemStyle.builder(this)
         .invariantProps
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .actionIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .counterStyle(Counter.Xxs.Negative.style())
         .dimensions {
             minHeight(40.0.dp)
@@ -176,7 +177,7 @@ public val IconTabItem.Xs: WrapperIconTabItemXs
     @JvmName("WrapperIconTabItemXs")
     get() = TabItemStyle.builder(this)
         .invariantProps
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_16)
+        .actionIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_16))
         .counterStyle(Counter.Xxs.Negative.style())
         .dimensions {
             minHeight(32.0.dp)

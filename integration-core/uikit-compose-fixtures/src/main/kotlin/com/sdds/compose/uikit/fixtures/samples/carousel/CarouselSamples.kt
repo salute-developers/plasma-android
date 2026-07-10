@@ -17,6 +17,7 @@ import com.sdds.compose.uikit.CarouselStyle
 import com.sdds.compose.uikit.PaginationDotsStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.iconButtonBuilder
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
 import com.sdds.icons.R
 
@@ -167,8 +168,8 @@ fun Carousel_Style() {
             .indicatorStyle(
                 placeholder(PaginationDotsStyle.builder().style(), "/** Стиль компонента PaginationDots */"),
             )
-            .prevButtonIcon(R.drawable.ic_chevron_left_36)
-            .nextButtonIcon(R.drawable.ic_chevron_right_36)
+            .prevButtonIcon(resourceImageSource(R.drawable.ic_chevron_left_36))
+            .nextButtonIcon(resourceImageSource(R.drawable.ic_chevron_right_36))
             .buttonsPlacement(CarouselButtonsPlacement.Inner)
             .style()
     }

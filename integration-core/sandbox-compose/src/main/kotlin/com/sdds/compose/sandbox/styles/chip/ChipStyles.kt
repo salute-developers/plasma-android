@@ -9,13 +9,14 @@ package com.sdds.compose.sandbox.styles.chip
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -112,35 +113,35 @@ public val WrapperChipView.Default: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
-                ),
-            )
-            contentStartColor(
-                SddsSandboxTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
-                ),
-            )
-            contentEndColor(
-                SddsSandboxTheme.colors.textInverseSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textInverseSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textInverseSecondaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                SddsSandboxTheme.colors.textInversePrimary.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.textInversePrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textInversePrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(SddsSandboxTheme.colors.textInversePrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textInversePrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textInversePrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(SddsSandboxTheme.colors.textInverseSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textInverseSecondaryHover),
                 ),
             )
         }
@@ -151,35 +152,35 @@ public val WrapperChipView.Accent: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentHover,
-                ),
-            )
-            contentStartColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                SddsSandboxTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -190,35 +191,35 @@ public val WrapperChipView.Negative: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultNegative.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultNegativeHover,
-                ),
-            )
-            contentStartColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                SddsSandboxTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegativeActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegativeHover),
                 ),
             )
             labelColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -229,35 +230,35 @@ public val WrapperChipView.Positive: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultPositive.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositive).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultPositiveHover,
-                ),
-            )
-            contentStartColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                SddsSandboxTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositiveActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositiveHover),
                 ),
             )
             labelColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -268,35 +269,35 @@ public val WrapperChipView.Secondary: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryHover,
-                ),
-            )
-            contentStartColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondaryHover),
                 ),
             )
             labelColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(SddsSandboxTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textDefaultSecondaryHover),
                 ),
             )
         }
@@ -307,35 +308,35 @@ public val WrapperChipView.Warning: WrapperChipTerminate
     get() = builder
         .colors {
             backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultWarning.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultWarningHover,
-                ),
-            )
-            contentStartColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-            contentEndColor(
-                SddsSandboxTheme.colors.textOnDarkSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarningActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarningHover),
                 ),
             )
             labelColor(
-                SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentStartColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkPrimary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkPrimaryHover),
+                ),
+            )
+            contentEndColor(
+                SolidColor(SddsSandboxTheme.colors.textOnDarkSecondary).asStatefulValue(
+                    setOf(InteractiveState.Pressed)
+                        to SolidColor(SddsSandboxTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsSandboxTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
         }
@@ -355,12 +356,12 @@ public val Chip.L: WrapperChipL
         .labelStyle(SddsSandboxTheme.typography.bodyLNormal)
         .dimensions {
             height(48.0.dp)
-            paddingStart(16.0.dp)
-            paddingEnd(16.0.dp)
-            contentStartPadding(8.0.dp)
-            contentEndPadding(8.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(8.0.dp)
+            contentEndPadding(8.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
         }
         .wrap(::WrapperChipL)
 
@@ -380,12 +381,12 @@ public val Chip.M: WrapperChipM
         .labelStyle(SddsSandboxTheme.typography.bodyMNormal)
         .dimensions {
             height(40.0.dp)
-            paddingStart(14.0.dp)
-            paddingEnd(14.0.dp)
-            contentStartPadding(6.0.dp)
-            contentEndPadding(6.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
+            contentStartPadding(6.0.dp)
+            contentEndPadding(6.0.dp)
+            paddingStart(14.0.dp)
+            paddingEnd(14.0.dp)
         }
         .wrap(::WrapperChipM)
 
@@ -405,12 +406,12 @@ public val Chip.S: WrapperChipS
         .labelStyle(SddsSandboxTheme.typography.bodySNormal)
         .dimensions {
             height(32.0.dp)
-            paddingStart(12.0.dp)
-            paddingEnd(12.0.dp)
-            contentStartPadding(4.0.dp)
-            contentEndPadding(4.0.dp)
             contentStartSize(16.0.dp)
             contentEndSize(16.0.dp)
+            contentStartPadding(4.0.dp)
+            contentEndPadding(4.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(12.0.dp)
         }
         .wrap(::WrapperChipS)
 
@@ -430,12 +431,12 @@ public val Chip.Xs: WrapperChipXs
         .labelStyle(SddsSandboxTheme.typography.bodyXsNormal)
         .dimensions {
             height(24.0.dp)
-            paddingStart(10.0.dp)
-            paddingEnd(10.0.dp)
-            contentStartPadding(2.0.dp)
-            contentEndPadding(2.0.dp)
             contentStartSize(12.0.dp)
             contentEndSize(12.0.dp)
+            contentStartPadding(2.0.dp)
+            contentEndPadding(2.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(10.0.dp)
         }
         .wrap(::WrapperChipXs)
 
