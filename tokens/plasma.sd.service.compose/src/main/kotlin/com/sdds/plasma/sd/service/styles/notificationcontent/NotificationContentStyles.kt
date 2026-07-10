@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.NotificationContentIconPlacement
 import com.sdds.compose.uikit.NotificationContentStyle
 import com.sdds.compose.uikit.NotificationContentStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -150,7 +151,7 @@ public val WrapperNotificationContentView.Info: WrapperNotificationContentTermin
 private val NotificationContentStyleBuilder.invariantProps: NotificationContentStyleBuilder
     @Composable
     get() = this
-        .icon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_info_circle_outline_24))
         .titleStyle(PlasmaSdServiceTheme.typography.bodySBold)
         .textStyle(PlasmaSdServiceTheme.typography.textSNormal)
         .dimensions {

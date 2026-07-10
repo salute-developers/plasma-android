@@ -22,7 +22,6 @@ import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -174,22 +173,32 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
@@ -201,67 +210,37 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsSandboxTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -271,22 +250,33 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
@@ -298,61 +288,37 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -362,22 +328,32 @@ public val WrapperSegmentItemView.Accent: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
@@ -389,67 +365,37 @@ public val WrapperSegmentItemView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
@@ -463,23 +409,34 @@ public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemXlViewAccent")
     get() = builder
+        .counterStyle(Counter.S.Accent.style())
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
@@ -491,88 +448,40 @@ public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.S.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
@@ -580,22 +489,32 @@ public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXlViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
@@ -607,67 +526,37 @@ public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsSandboxTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -678,22 +567,33 @@ public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXlViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
@@ -705,61 +605,37 @@ public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -773,18 +649,18 @@ public val SegmentItem.Xl: WrapperSegmentItemXl
         .shape(SddsSandboxTheme.shapes.roundL.adjustBy(all = 0.0.dp))
         .labelStyle(SddsSandboxTheme.typography.bodyLBold)
         .valueStyle(SddsSandboxTheme.typography.bodyLBold)
+        .counterStyle(Counter.S.Accent.style())
         .dimensions {
-            minWidth(110.0.dp)
             minHeight(64.0.dp)
+            minWidth(110.0.dp)
             paddingStart(28.0.dp)
             paddingEnd(28.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
+            valueMargin(6.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(6.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemXl)
 
 public val WrapperSegmentItemXl.Pilled: WrapperSegmentItemXlPilled
@@ -803,23 +679,34 @@ public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemLViewAccent")
     get() = builder
+        .counterStyle(Counter.S.Accent.style())
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
@@ -831,88 +718,40 @@ public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.S.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
@@ -920,22 +759,32 @@ public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemLViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
@@ -947,67 +796,37 @@ public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsSandboxTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1018,22 +837,33 @@ public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemLViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
@@ -1045,61 +875,37 @@ public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1113,18 +919,18 @@ public val SegmentItem.L: WrapperSegmentItemL
         .shape(SddsSandboxTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .labelStyle(SddsSandboxTheme.typography.bodyLBold)
         .valueStyle(SddsSandboxTheme.typography.bodyLBold)
+        .counterStyle(Counter.S.Accent.style())
         .dimensions {
-            minWidth(102.0.dp)
             minHeight(56.0.dp)
+            minWidth(102.0.dp)
             paddingStart(24.0.dp)
             paddingEnd(24.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
+            valueMargin(6.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(6.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
         .wrap(::WrapperSegmentItemL)
 
 public val WrapperSegmentItemL.Pilled: WrapperSegmentItemLPilled
@@ -1143,23 +949,34 @@ public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemMViewAccent")
     get() = builder
+        .counterStyle(Counter.Xs.Accent.style())
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
@@ -1171,88 +988,40 @@ public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
@@ -1260,22 +1029,32 @@ public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemMViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
@@ -1287,67 +1066,37 @@ public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsSandboxTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1358,22 +1107,33 @@ public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemMViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
@@ -1385,61 +1145,37 @@ public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1453,18 +1189,18 @@ public val SegmentItem.M: WrapperSegmentItemM
         .shape(SddsSandboxTheme.shapes.roundM.adjustBy(all = 0.0.dp))
         .labelStyle(SddsSandboxTheme.typography.bodyMBold)
         .valueStyle(SddsSandboxTheme.typography.bodyMBold)
+        .counterStyle(Counter.Xs.Accent.style())
         .dimensions {
-            minWidth(88.0.dp)
             minHeight(48.0.dp)
+            minWidth(88.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
+            valueMargin(4.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(4.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemM)
 
 public val WrapperSegmentItemM.Pilled: WrapperSegmentItemMPilled
@@ -1483,23 +1219,34 @@ public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemSViewAccent")
     get() = builder
+        .counterStyle(Counter.Xs.Accent.style())
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
@@ -1511,88 +1258,40 @@ public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
@@ -1600,22 +1299,32 @@ public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemSViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
@@ -1627,67 +1336,37 @@ public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsSandboxTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -1698,22 +1377,33 @@ public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemSViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
@@ -1725,61 +1415,37 @@ public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -1793,18 +1459,18 @@ public val SegmentItem.S: WrapperSegmentItemS
         .shape(SddsSandboxTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .labelStyle(SddsSandboxTheme.typography.bodySBold)
         .valueStyle(SddsSandboxTheme.typography.bodySBold)
+        .counterStyle(Counter.Xs.Accent.style())
         .dimensions {
-            minWidth(75.0.dp)
             minHeight(40.0.dp)
+            minWidth(75.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             startContentPadding(2.0.dp)
             endContentPadding(2.0.dp)
+            valueMargin(2.0.dp)
             startContentSize(24.0.dp)
             endContentSize(24.0.dp)
-            valueMargin(2.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
         .wrap(::WrapperSegmentItemS)
 
 public val WrapperSegmentItemS.Pilled: WrapperSegmentItemSPilled
@@ -1823,23 +1489,34 @@ public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
     @Composable
     @JvmName("WrapperSegmentItemXsViewAccent")
     get() = builder
+        .counterStyle(Counter.Xxs.Accent.style())
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccent,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             valueColor(
@@ -1851,88 +1528,40 @@ public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccent,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultAccentHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textOnDarkPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textOnDarkPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textOnDarkPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textOnDarkPrimaryHover,
                 ),
             )
         }
-        .counterStyle(
-            Counter.Xxs.Accent.modify {
-                colors {
-                    backgroundColor(
-                        SddsSandboxTheme.colors.surfaceDefaultAccent.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.surfaceOnDarkSolidDefault,
-                        ),
-                    )
-                    textColor(
-                        SddsSandboxTheme.colors.textOnDarkPrimary.asInteractive(
-                            setOf(InteractiveState.Selected)
-                                to SddsSandboxTheme.colors.textOnLightPrimary,
-                        ),
-                    )
-                }
-            }.style(),
-        )
         .wrap(::WrapperSegmentItemTerminate)
 
 public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
@@ -1940,22 +1569,32 @@ public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXsViewPrimary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             valueColor(
@@ -1967,67 +1606,37 @@ public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInverseSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultSolidDefaultHover,
+                    ) to SddsSandboxTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInverseSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textInversePrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textInversePrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textInversePrimaryHover,
+                    ) to SddsSandboxTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -2038,22 +1647,33 @@ public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
     @JvmName("WrapperSegmentItemXsViewSecondary")
     get() = builder
         .colors {
+            backgroundColor(
+                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
+                    setOf(
+                        InteractiveState.Selected,
+                        InteractiveState.Pressed,
+                    ) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                ),
+            )
             labelColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             valueColor(
@@ -2065,61 +1685,37 @@ public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                ),
-            )
-            backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentCardHover,
+                    ) to SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
                         to SddsSandboxTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryHover,
                 ),
             )
         }
@@ -2133,18 +1729,18 @@ public val SegmentItem.Xs: WrapperSegmentItemXs
         .shape(SddsSandboxTheme.shapes.roundS.adjustBy(all = 0.0.dp))
         .labelStyle(SddsSandboxTheme.typography.bodyXsBold)
         .valueStyle(SddsSandboxTheme.typography.bodyXsBold)
+        .counterStyle(Counter.Xxs.Accent.style())
         .dimensions {
-            minWidth(61.0.dp)
             minHeight(32.0.dp)
+            minWidth(61.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
             startContentPadding(2.0.dp)
             endContentPadding(2.0.dp)
+            valueMargin(2.0.dp)
             startContentSize(16.0.dp)
             endContentSize(16.0.dp)
-            valueMargin(2.0.dp)
         }
-        .counterStyle(Counter.Xxs.Accent.style())
         .wrap(::WrapperSegmentItemXs)
 
 public val WrapperSegmentItemXs.Pilled: WrapperSegmentItemXsPilled

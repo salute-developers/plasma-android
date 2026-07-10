@@ -19,6 +19,7 @@ import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.TabItemStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -130,85 +131,81 @@ public value class WrapperTabItemDefaultXsVertical(
 private val TabItemStyleBuilder.invariantProps: TabItemStyleBuilder
     @Composable
     get() = this
+        .disableAlpha(0.4f)
         .colors {
             labelColor(
                 SddsSandboxTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                 ),
             )
             valueColor(
                 SddsSandboxTheme.colors.textDefaultTertiary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultTertiaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultTertiaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultSecondary,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultTertiaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsSandboxTheme.colors.textDefaultTertiaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultSecondary,
                 ),
             )
             startContentColor(
                 SddsSandboxTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                 ),
             )
             endContentColor(
                 SddsSandboxTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSandboxTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsSandboxTheme.colors.textDefaultPrimary,
+                        InteractiveState.Pressed,
+                    ) to SddsSandboxTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Hovered) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryHover,
+                    setOf(InteractiveState.Pressed) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Selected) to
+                        SddsSandboxTheme.colors.textDefaultPrimary,
                 ),
             )
             actionColor(
                 SddsSandboxTheme.colors.textDefaultSecondary.asStatefulValue(
                     setOf(InteractiveState.Hovered)
                         to SddsSandboxTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSandboxTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Pressed) to
+                        SddsSandboxTheme.colors.textDefaultSecondaryActive,
                 ),
             )
         }
-        .disableAlpha(0.4f)
 
 public val TabItemDefault.L: WrapperTabItemDefaultL
     @Composable
@@ -217,6 +214,8 @@ public val TabItemDefault.L: WrapperTabItemDefaultL
         .invariantProps
         .labelStyle(SddsSandboxTheme.typography.bodyLBold)
         .valueStyle(SddsSandboxTheme.typography.bodyLBold)
+        .actionIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
+        .counterStyle(Counter.S.Accent.style())
         .dimensions {
             minHeight(56.0.dp)
             startContentSize(24.0.dp)
@@ -225,8 +224,6 @@ public val TabItemDefault.L: WrapperTabItemDefaultL
             valuePadding(8.0.dp)
             actionPadding(10.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperTabItemDefaultL)
 
 public val WrapperTabItemDefaultL.Horizontal: WrapperTabItemDefaultLHorizontal
@@ -256,6 +253,8 @@ public val TabItemDefault.M: WrapperTabItemDefaultM
         .invariantProps
         .labelStyle(SddsSandboxTheme.typography.bodyMBold)
         .valueStyle(SddsSandboxTheme.typography.bodyMBold)
+        .actionIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
+        .counterStyle(Counter.Xs.Accent.style())
         .dimensions {
             minHeight(48.0.dp)
             startContentSize(24.0.dp)
@@ -265,8 +264,6 @@ public val TabItemDefault.M: WrapperTabItemDefaultM
             valuePadding(6.0.dp)
             actionPadding(8.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperTabItemDefaultM)
 
 public val WrapperTabItemDefaultM.Horizontal: WrapperTabItemDefaultMHorizontal
@@ -296,6 +293,8 @@ public val TabItemDefault.S: WrapperTabItemDefaultS
         .invariantProps
         .labelStyle(SddsSandboxTheme.typography.bodySBold)
         .valueStyle(SddsSandboxTheme.typography.bodySBold)
+        .actionIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
+        .counterStyle(Counter.Xs.Accent.style())
         .dimensions {
             minHeight(40.0.dp)
             startContentSize(24.0.dp)
@@ -305,8 +304,6 @@ public val TabItemDefault.S: WrapperTabItemDefaultS
             valuePadding(4.0.dp)
             actionPadding(6.0.dp)
         }
-        .counterStyle(Counter.Xs.Accent.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperTabItemDefaultS)
 
 public val WrapperTabItemDefaultS.Horizontal: WrapperTabItemDefaultSHorizontal
@@ -336,6 +333,8 @@ public val TabItemDefault.Xs: WrapperTabItemDefaultXs
         .invariantProps
         .labelStyle(SddsSandboxTheme.typography.bodyXsBold)
         .valueStyle(SddsSandboxTheme.typography.bodyXsBold)
+        .actionIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_16))
+        .counterStyle(Counter.Xxs.Accent.style())
         .dimensions {
             minHeight(32.0.dp)
             startContentSize(16.0.dp)
@@ -345,8 +344,6 @@ public val TabItemDefault.Xs: WrapperTabItemDefaultXs
             valuePadding(4.0.dp)
             actionPadding(4.0.dp)
         }
-        .counterStyle(Counter.Xxs.Accent.style())
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_16)
         .wrap(::WrapperTabItemDefaultXs)
 
 public val WrapperTabItemDefaultXs.Horizontal: WrapperTabItemDefaultXsHorizontal

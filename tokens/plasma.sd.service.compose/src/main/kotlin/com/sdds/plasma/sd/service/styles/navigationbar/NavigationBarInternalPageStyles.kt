@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.NavigationBarStyleBuilder
 import com.sdds.compose.uikit.NavigationBarTextPlacement
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -91,7 +92,7 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
                     to PlasmaSdServiceTheme.typography.bodyXsNormal,
             ),
         )
-        .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
+        .backIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24))
         .colors {
             backIconColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
             actionStartColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())

@@ -103,9 +103,7 @@ public val WrapperCircularProgressBarView.Default: WrapperCircularProgressBarTer
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -113,9 +111,7 @@ public val WrapperCircularProgressBarView.Secondary: WrapperCircularProgressBarT
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -123,9 +119,7 @@ public val WrapperCircularProgressBarView.Accent: WrapperCircularProgressBarTerm
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -133,9 +127,7 @@ public val WrapperCircularProgressBarView.Gradient: WrapperCircularProgressBarTe
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SddsSandboxTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue(),
-            )
+            indicatorColor(SddsSandboxTheme.gradients.surfaceDefaultAccentGradient.asLayered().asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -143,9 +135,7 @@ public val WrapperCircularProgressBarView.Info: WrapperCircularProgressBarTermin
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultInfo).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultInfo).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -153,9 +143,7 @@ public val WrapperCircularProgressBarView.Negative: WrapperCircularProgressBarTe
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegative).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -163,9 +151,7 @@ public val WrapperCircularProgressBarView.Positive: WrapperCircularProgressBarTe
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositive).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
@@ -173,24 +159,18 @@ public val WrapperCircularProgressBarView.Warning: WrapperCircularProgressBarTer
     @Composable
     get() = builder
         .colors {
-            indicatorColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarning).asStatefulValue(),
-            )
+            indicatorColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultWarning).asStatefulValue())
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
 private val CircularProgressBarStyleBuilder.invariantProps: CircularProgressBarStyleBuilder
     @Composable
     get() = this
-        .colors {
-            trackColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            valueColor(
-                SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue(),
-            )
-        }
         .valueEnabled(true)
+        .colors {
+            trackColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+            valueColor(SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue())
+        }
 
 public val CircularProgressBar.Xxl: WrapperCircularProgressBarXxl
     @Composable
@@ -225,6 +205,7 @@ public val CircularProgressBar.L: WrapperCircularProgressBarL
     @JvmName("WrapperCircularProgressBarL")
     get() = CircularProgressBarStyle.builder(this)
         .invariantProps
+        .valueEnabled(false)
         .dimensions {
             width(56.0.dp)
             height(56.0.dp)
@@ -232,7 +213,6 @@ public val CircularProgressBar.L: WrapperCircularProgressBarL
             progressThickness(2.0.dp)
             iconSize(24.0.dp)
         }
-        .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarL)
 
 public val CircularProgressBar.M: WrapperCircularProgressBarM
@@ -240,6 +220,7 @@ public val CircularProgressBar.M: WrapperCircularProgressBarM
     @JvmName("WrapperCircularProgressBarM")
     get() = CircularProgressBarStyle.builder(this)
         .invariantProps
+        .valueEnabled(false)
         .dimensions {
             width(48.0.dp)
             height(48.0.dp)
@@ -247,7 +228,6 @@ public val CircularProgressBar.M: WrapperCircularProgressBarM
             progressThickness(2.0.dp)
             iconSize(16.0.dp)
         }
-        .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarM)
 
 public val CircularProgressBar.S: WrapperCircularProgressBarS
@@ -255,6 +235,7 @@ public val CircularProgressBar.S: WrapperCircularProgressBarS
     @JvmName("WrapperCircularProgressBarS")
     get() = CircularProgressBarStyle.builder(this)
         .invariantProps
+        .valueEnabled(false)
         .dimensions {
             width(36.0.dp)
             height(36.0.dp)
@@ -262,7 +243,6 @@ public val CircularProgressBar.S: WrapperCircularProgressBarS
             progressThickness(2.0.dp)
             iconSize(16.0.dp)
         }
-        .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarS)
 
 public val CircularProgressBar.Xs: WrapperCircularProgressBarXs
@@ -270,6 +250,7 @@ public val CircularProgressBar.Xs: WrapperCircularProgressBarXs
     @JvmName("WrapperCircularProgressBarXs")
     get() = CircularProgressBarStyle.builder(this)
         .invariantProps
+        .valueEnabled(false)
         .dimensions {
             width(24.0.dp)
             height(24.0.dp)
@@ -277,7 +258,6 @@ public val CircularProgressBar.Xs: WrapperCircularProgressBarXs
             progressThickness(2.0.dp)
             iconSize(12.0.dp)
         }
-        .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarXs)
 
 public val CircularProgressBar.Xxs: WrapperCircularProgressBarXxs
@@ -285,11 +265,11 @@ public val CircularProgressBar.Xxs: WrapperCircularProgressBarXxs
     @JvmName("WrapperCircularProgressBarXxs")
     get() = CircularProgressBarStyle.builder(this)
         .invariantProps
+        .valueEnabled(false)
         .dimensions {
             width(16.0.dp)
             height(16.0.dp)
             trackThickness(2.0.dp)
             progressThickness(2.0.dp)
         }
-        .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarXxs)

@@ -109,15 +109,13 @@ fun Tabs_Style() {
             }
             .orientation(TabsOrientation.Vertical)
             .dividerStyle(placeholder(DividerStyle.builder().style(), "/** Стиль компонента */"))
-            .overflowNextIcon(R.drawable.ic_disclosure_right_outline_24)
-            .overflowPrevIcon(R.drawable.ic_disclosure_left_outline_24)
+            .overflowNextIcon(resourceImageSource(R.drawable.ic_disclosure_right_outline_24))
+            .overflowPrevIcon(resourceImageSource(R.drawable.ic_disclosure_left_outline_24))
             .dividerEnabled(true)
             .indicatorEnabled(true)
             .dropdownMenuStyle(placeholder(DropdownMenuStyle.builder().style(), "/** Стиль компонента */"))
             .disclosureTextStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .tabItemStyle(placeholder(TabItemStyle.builder().style(), "/** Стиль компонента */"))
-            .overflowNextIcon(R.drawable.ic_disclosure_down_outline_24)
-            .overflowPrevIcon(R.drawable.ic_disclosure_up_outline_24)
             .style()
     }
 }
@@ -207,7 +205,7 @@ fun TabItem_Style() {
                 actionPadding(10.0.dp)
             }
             .counterStyle(placeholder(CounterStyle.builder().style(), "/** Стиль компонента */"))
-            .actionIcon(R.drawable.ic_close_24)
+            .actionIcon(resourceImageSource(R.drawable.ic_close_24))
             .style()
     }
 }
@@ -268,7 +266,7 @@ fun TabItemIcon_Style() {
                 counterOffsetY(8.0.dp)
             }
             .counterStyle(placeholder(CounterStyle.builder().style(), "/** Стиль компонента */"))
-            .actionIcon(R.drawable.ic_close_24)
+            .actionIcon(resourceImageSource(R.drawable.ic_close_24))
             .style()
     }
 }

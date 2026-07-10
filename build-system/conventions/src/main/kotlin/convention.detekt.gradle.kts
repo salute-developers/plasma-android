@@ -8,7 +8,10 @@ import utils.withVersionCatalogs
 apply<DetektPlugin>()
 
 configure<DetektExtension> {
-    source = project.files("src/main/kotlin")
+    source = project.files(project.fileTree("src") {
+        include("main/kotlin/**/*.kt")
+        include("*Main/kotlin/**/*.kt")
+    })
     println("detekt: rootDir $rootDir")
     // Так как `convention.detekt` находится в includeBuild 'build-system'.
     // Это значит, что если есть `convention.detekt` плагин то должен быть и includeBuild с именем 'build-system'.

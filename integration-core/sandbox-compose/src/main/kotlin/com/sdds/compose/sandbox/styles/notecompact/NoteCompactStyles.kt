@@ -26,6 +26,7 @@ import com.sdds.compose.uikit.NoteCompactStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -218,12 +219,8 @@ public val WrapperNoteCompactView.Default: WrapperNoteCompactTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -231,12 +228,8 @@ public val WrapperNoteCompactView.Positive: WrapperNoteCompactTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -244,12 +237,8 @@ public val WrapperNoteCompactView.Negative: WrapperNoteCompactTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -257,12 +246,8 @@ public val WrapperNoteCompactView.Warning: WrapperNoteCompactTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -270,12 +255,8 @@ public val WrapperNoteCompactView.Info: WrapperNoteCompactTerminate
     @Composable
     get() = builder
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -283,15 +264,9 @@ private val NoteCompactStyleBuilder.invariantProps: NoteCompactStyleBuilder
     @Composable
     get() = this
         .colors {
-            closeColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
-            titleColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            textColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            titleColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            closeColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
         }
 
 public val WrapperNoteCompactLView.Default: WrapperNoteCompactTerminate
@@ -300,12 +275,8 @@ public val WrapperNoteCompactLView.Default: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -315,12 +286,8 @@ public val WrapperNoteCompactLView.Positive: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -330,12 +297,8 @@ public val WrapperNoteCompactLView.Negative: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Negative.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -345,12 +308,8 @@ public val WrapperNoteCompactLView.Warning: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Warning.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -360,12 +319,8 @@ public val WrapperNoteCompactLView.Info: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.L.Info.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -379,16 +334,16 @@ public val NoteCompact.L: WrapperNoteCompactL
         .titleStyle(SddsSandboxTheme.typography.textLBold)
         .textStyle(SddsSandboxTheme.typography.textLNormal)
         .dimensions {
+            iconSize(24.0.dp)
+            closeStartMargin(0.0.dp)
+            contentBeforeEndMargin(12.0.dp)
+            textTopMargin(4.0.dp)
+            actionStartMargin(16.0.dp)
+            actionEndMargin(0.0.dp)
             paddingStart(30.0.dp)
             paddingEnd(30.0.dp)
             paddingTop(7.0.dp)
             paddingBottom(24.0.dp)
-            iconSize(24.0.dp)
-            contentBeforeEndMargin(12.0.dp)
-            textTopMargin(4.0.dp)
-            closeStartMargin(0.0.dp)
-            actionStartMargin(16.0.dp)
-            actionEndMargin(0.0.dp)
         }
         .wrap(::WrapperNoteCompactL)
 
@@ -396,12 +351,12 @@ public val WrapperNoteCompactL.HasClose: WrapperNoteCompactLHasClose
     @Composable
     @JvmName("WrapperNoteCompactLHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
-            paddingEnd(16.0.dp)
             closeSize(24.0.dp)
             closeStartMargin(4.0.dp)
             actionEndMargin(16.0.dp)
+            paddingEnd(16.0.dp)
         }
         .wrap(::WrapperNoteCompactLHasClose)
 
@@ -411,10 +366,10 @@ public val WrapperNoteCompactL.ContentScalable: WrapperNoteCompactLContentScalab
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
         .dimensions {
-            paddingStart(28.0.dp)
-            paddingEnd(28.0.dp)
             iconSize(0.0.dp)
             contentBeforeEndMargin(16.0.dp)
+            paddingStart(28.0.dp)
+            paddingEnd(28.0.dp)
         }
         .wrap(::WrapperNoteCompactLContentScalable)
 
@@ -423,15 +378,15 @@ public val WrapperNoteCompactL.HasCloseContentScalable: WrapperNoteCompactLHasCl
     @JvmName("WrapperNoteCompactLHasCloseContentScalable")
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
-            paddingStart(28.0.dp)
-            paddingEnd(16.0.dp)
             closeSize(24.0.dp)
             iconSize(0.0.dp)
-            contentBeforeEndMargin(16.0.dp)
             closeStartMargin(4.0.dp)
+            contentBeforeEndMargin(16.0.dp)
             actionEndMargin(16.0.dp)
+            paddingStart(28.0.dp)
+            paddingEnd(16.0.dp)
         }
         .wrap(::WrapperNoteCompactLHasCloseContentScalable)
 
@@ -441,12 +396,8 @@ public val WrapperNoteCompactMView.Default: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -456,12 +407,8 @@ public val WrapperNoteCompactMView.Positive: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -471,12 +418,8 @@ public val WrapperNoteCompactMView.Negative: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Negative.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -486,12 +429,8 @@ public val WrapperNoteCompactMView.Warning: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Warning.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -501,12 +440,8 @@ public val WrapperNoteCompactMView.Info: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.M.Info.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -520,16 +455,16 @@ public val NoteCompact.M: WrapperNoteCompactM
         .titleStyle(SddsSandboxTheme.typography.textMBold)
         .textStyle(SddsSandboxTheme.typography.textMNormal)
         .dimensions {
+            iconSize(24.0.dp)
+            closeStartMargin(0.0.dp)
+            contentBeforeEndMargin(10.0.dp)
+            textTopMargin(2.0.dp)
+            actionStartMargin(16.0.dp)
+            actionEndMargin(0.0.dp)
             paddingStart(24.0.dp)
             paddingEnd(24.0.dp)
             paddingTop(6.0.dp)
             paddingBottom(20.0.dp)
-            iconSize(24.0.dp)
-            contentBeforeEndMargin(10.0.dp)
-            textTopMargin(2.0.dp)
-            closeStartMargin(0.0.dp)
-            actionStartMargin(16.0.dp)
-            actionEndMargin(0.0.dp)
         }
         .wrap(::WrapperNoteCompactM)
 
@@ -537,12 +472,12 @@ public val WrapperNoteCompactM.HasClose: WrapperNoteCompactMHasClose
     @Composable
     @JvmName("WrapperNoteCompactMHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
-            paddingEnd(12.0.dp)
             closeSize(24.0.dp)
             closeStartMargin(4.0.dp)
             actionEndMargin(16.0.dp)
+            paddingEnd(12.0.dp)
         }
         .wrap(::WrapperNoteCompactMHasClose)
 
@@ -552,10 +487,10 @@ public val WrapperNoteCompactM.ContentScalable: WrapperNoteCompactMContentScalab
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
         .dimensions {
-            paddingStart(20.0.dp)
-            paddingEnd(20.0.dp)
             iconSize(0.0.dp)
             contentBeforeEndMargin(12.0.dp)
+            paddingStart(20.0.dp)
+            paddingEnd(20.0.dp)
         }
         .wrap(::WrapperNoteCompactMContentScalable)
 
@@ -564,15 +499,15 @@ public val WrapperNoteCompactM.HasCloseContentScalable: WrapperNoteCompactMHasCl
     @JvmName("WrapperNoteCompactMHasCloseContentScalable")
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
-            paddingStart(20.0.dp)
-            paddingEnd(12.0.dp)
             closeSize(24.0.dp)
             iconSize(0.0.dp)
-            contentBeforeEndMargin(12.0.dp)
             closeStartMargin(4.0.dp)
+            contentBeforeEndMargin(12.0.dp)
             actionEndMargin(16.0.dp)
+            paddingStart(20.0.dp)
+            paddingEnd(12.0.dp)
         }
         .wrap(::WrapperNoteCompactMHasCloseContentScalable)
 
@@ -582,12 +517,8 @@ public val WrapperNoteCompactSView.Default: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -597,12 +528,8 @@ public val WrapperNoteCompactSView.Positive: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -612,12 +539,8 @@ public val WrapperNoteCompactSView.Negative: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Negative.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -627,12 +550,8 @@ public val WrapperNoteCompactSView.Warning: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Warning.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -642,12 +561,8 @@ public val WrapperNoteCompactSView.Info: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Info.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -661,16 +576,16 @@ public val NoteCompact.S: WrapperNoteCompactS
         .titleStyle(SddsSandboxTheme.typography.textSBold)
         .textStyle(SddsSandboxTheme.typography.textSNormal)
         .dimensions {
+            iconSize(16.0.dp)
+            closeStartMargin(0.0.dp)
+            contentBeforeEndMargin(8.0.dp)
+            textTopMargin(2.0.dp)
+            actionStartMargin(12.0.dp)
+            actionEndMargin(0.0.dp)
             paddingStart(20.0.dp)
             paddingEnd(20.0.dp)
             paddingTop(6.0.dp)
             paddingBottom(16.0.dp)
-            iconSize(16.0.dp)
-            contentBeforeEndMargin(8.0.dp)
-            textTopMargin(2.0.dp)
-            closeStartMargin(0.0.dp)
-            actionStartMargin(12.0.dp)
-            actionEndMargin(0.0.dp)
         }
         .wrap(::WrapperNoteCompactS)
 
@@ -678,12 +593,12 @@ public val WrapperNoteCompactS.HasClose: WrapperNoteCompactSHasClose
     @Composable
     @JvmName("WrapperNoteCompactSHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
-            paddingEnd(10.0.dp)
             closeSize(24.0.dp)
             closeStartMargin(2.0.dp)
             actionEndMargin(12.0.dp)
+            paddingEnd(10.0.dp)
         }
         .wrap(::WrapperNoteCompactSHasClose)
 
@@ -693,10 +608,10 @@ public val WrapperNoteCompactS.ContentScalable: WrapperNoteCompactSContentScalab
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
         .dimensions {
-            paddingStart(16.0.dp)
-            paddingEnd(20.0.dp)
             iconSize(0.0.dp)
             contentBeforeEndMargin(12.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(20.0.dp)
         }
         .wrap(::WrapperNoteCompactSContentScalable)
 
@@ -705,15 +620,15 @@ public val WrapperNoteCompactS.HasCloseContentScalable: WrapperNoteCompactSHasCl
     @JvmName("WrapperNoteCompactSHasCloseContentScalable")
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .dimensions {
-            paddingStart(16.0.dp)
-            paddingEnd(10.0.dp)
             closeSize(24.0.dp)
             iconSize(0.0.dp)
-            contentBeforeEndMargin(12.0.dp)
             closeStartMargin(2.0.dp)
+            contentBeforeEndMargin(12.0.dp)
             actionEndMargin(12.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(10.0.dp)
         }
         .wrap(::WrapperNoteCompactSHasCloseContentScalable)
 
@@ -723,12 +638,8 @@ public val WrapperNoteCompactXsView.Default: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPrimary.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -738,12 +649,8 @@ public val WrapperNoteCompactXsView.Positive: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Positive.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultPositive.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultPositive.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPositive).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -753,12 +660,8 @@ public val WrapperNoteCompactXsView.Negative: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Negative.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultNegative.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultNegative.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -768,12 +671,8 @@ public val WrapperNoteCompactXsView.Warning: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Warning.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultWarning.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultWarning.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentWarning).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -783,12 +682,8 @@ public val WrapperNoteCompactXsView.Info: WrapperNoteCompactTerminate
     get() = builder
         .linkButtonStyle(LinkButton.Xs.Info.style())
         .colors {
-            backgroundColor(
-                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue(),
-            )
-            iconColor(
-                SddsSandboxTheme.colors.textDefaultInfo.asInteractive(),
-            )
+            iconColor(SddsSandboxTheme.colors.textDefaultInfo.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
         }
         .wrap(::WrapperNoteCompactTerminate)
 
@@ -802,16 +697,16 @@ public val NoteCompact.Xs: WrapperNoteCompactXs
         .titleStyle(SddsSandboxTheme.typography.textXsBold)
         .textStyle(SddsSandboxTheme.typography.textXsNormal)
         .dimensions {
+            iconSize(16.0.dp)
+            closeStartMargin(0.0.dp)
+            contentBeforeEndMargin(6.0.dp)
+            textTopMargin(2.0.dp)
+            actionStartMargin(12.0.dp)
+            actionEndMargin(0.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(16.0.dp)
             paddingTop(3.0.dp)
             paddingBottom(12.0.dp)
-            iconSize(16.0.dp)
-            contentBeforeEndMargin(6.0.dp)
-            textTopMargin(2.0.dp)
-            closeStartMargin(0.0.dp)
-            actionStartMargin(12.0.dp)
-            actionEndMargin(0.0.dp)
         }
         .wrap(::WrapperNoteCompactXs)
 
@@ -819,12 +714,12 @@ public val WrapperNoteCompactXs.HasClose: WrapperNoteCompactXsHasClose
     @Composable
     @JvmName("WrapperNoteCompactXsHasClose")
     get() = builder
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_16)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_16))
         .dimensions {
-            paddingEnd(10.0.dp)
             closeSize(16.0.dp)
             closeStartMargin(2.0.dp)
             actionEndMargin(12.0.dp)
+            paddingEnd(10.0.dp)
         }
         .wrap(::WrapperNoteCompactXsHasClose)
 
@@ -834,10 +729,10 @@ public val WrapperNoteCompactXs.ContentScalable: WrapperNoteCompactXsContentScal
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
         .dimensions {
-            paddingStart(12.0.dp)
-            paddingEnd(16.0.dp)
             iconSize(0.0.dp)
             contentBeforeEndMargin(8.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(16.0.dp)
         }
         .wrap(::WrapperNoteCompactXsContentScalable)
 
@@ -846,14 +741,14 @@ public val WrapperNoteCompactXs.HasCloseContentScalable: WrapperNoteCompactXsHas
     @JvmName("WrapperNoteCompactXsHasCloseContentScalable")
     get() = builder
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
-        .closeIcon(com.sdds.icons.R.drawable.ic_close_16)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_16))
         .dimensions {
-            paddingStart(12.0.dp)
-            paddingEnd(10.0.dp)
             closeSize(16.0.dp)
             iconSize(0.0.dp)
-            contentBeforeEndMargin(8.0.dp)
             closeStartMargin(2.0.dp)
+            contentBeforeEndMargin(8.0.dp)
             actionEndMargin(12.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(10.0.dp)
         }
         .wrap(::WrapperNoteCompactXsHasCloseContentScalable)

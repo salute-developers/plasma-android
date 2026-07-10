@@ -9,12 +9,13 @@ package com.sdds.compose.sandbox.styles.switcher
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import kotlin.Suppress
@@ -79,27 +80,19 @@ private val SwitchStyleBuilder.invariantProps: SwitchStyleBuilder
     get() = this
         .toggleTrackShape(CircleShape)
         .toggleThumbShape(CircleShape)
+        .disableAlpha(0.4f)
         .colorValues {
-            labelColor(
-                SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(),
-            )
-            descriptionColor(
-                SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(),
-            )
+            labelColor(SolidColor(SddsSandboxTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(SddsSandboxTheme.colors.textDefaultSecondary).asStatefulValue())
+            toggleThumbColor(SolidColor(SddsSandboxTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
             toggleTrackColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(SwitchStates.Checked)
-                        to SddsSandboxTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultAccent),
                 ),
             )
-            toggleTrackBorderColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(),
-            )
-            toggleThumbColor(
-                SddsSandboxTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-            )
+            toggleTrackBorderColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultClear).asStatefulValue())
         }
-        .disableAlpha(0.4f)
 
 public val Switch.L: WrapperSwitchL
     @Composable

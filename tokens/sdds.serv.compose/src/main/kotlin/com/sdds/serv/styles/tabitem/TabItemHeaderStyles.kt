@@ -13,6 +13,7 @@ import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.TabItemStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
@@ -69,7 +70,7 @@ private val TabItemStyleBuilder.invariantProps: TabItemStyleBuilder
     @Composable
     get() = this
         .disableAlpha(0.4f)
-        .actionIcon(com.sdds.icons.R.drawable.ic_close_36)
+        .actionIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_36))
         .colors {
             labelColor(
                 SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
