@@ -224,12 +224,12 @@ fun ModalBottomSheet(
                 progressProvider = { (sheetState.progressFromHalfExpandedToExpanded) },
                 handlePlacement = handlePlacement,
             )
+            .then(shadowModifier)
             .clip(newShape)
             .backgroundBrush(
                 { backgroundColor.value },
                 newShape,
             )
-            .then(shadowModifier)
             .padding(PaddingValues(start, top, end, bottom)),
         sheetGesturesEnabled = sheetGesturesEnabled,
         bottomSheetState = sheetState,
