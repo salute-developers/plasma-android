@@ -111,6 +111,12 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     abstract val componentsMetaStyleClass: Property<Boolean>
 
     /**
+     * Признак мультиплатформенного (Compose Multiplatform) режима генерации стилей.
+     */
+    @get:Input
+    abstract val multiplatform: Property<Boolean>
+
+    /**
      * JSON-файл с метаданными компонентов uikit (из uikit-api-meta.json).
      * Опционален: если не задан, делегаты работают без универсального генератора.
      */
@@ -343,6 +349,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
             packageResolver = packageResolver,
             target = target.get(),
+            multiplatform = multiplatform.getOrElse(false),
         )
     }
 

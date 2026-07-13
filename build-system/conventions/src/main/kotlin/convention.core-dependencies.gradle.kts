@@ -28,6 +28,11 @@ subprojects {
                     "we work with the unreleased development version"
                 )
 
+                "sdds-icons-compose" -> useTarget(
+                    "sdds-core:icons-compose:*",
+                    "we work with the unreleased development version"
+                )
+
                 "sdds-haze" -> useTarget(
                     "sdds-haze:haze:*",
                     "we work with the unreleased development version"

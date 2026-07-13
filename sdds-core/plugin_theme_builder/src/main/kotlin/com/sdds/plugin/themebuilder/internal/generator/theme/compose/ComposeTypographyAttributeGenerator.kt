@@ -37,6 +37,7 @@ internal class ComposeTypographyAttributeGenerator(
     private val themeName: String,
     private val dimensionsConfig: DimensionsConfig,
     private val packageResolver: PackageResolver,
+    private val multiplatform: Boolean = false,
 ) : SimpleBaseGenerator {
 
     private var tokenData: Map<Tenant, TypographyTokenResult.ComposeTokenData> = emptyMap()
@@ -78,8 +79,11 @@ internal class ComposeTypographyAttributeGenerator(
     }
 
     private fun createWindowSizeFile() {
+        // В CMP-режиме используется мультиплатформенный шаблон (без Android-only
+        // LocalContext/displayMetrics), но имя выходного файла остаётся прежним.
+        val templateName = if (multiplatform) WINDOW_SIZE_CMP_TEMPLATE_NAME else WINDOW_SIZE_KT_FILE_NAME
         ktFileFromResBuilder.buildFromResource(
-            inputRes = "$RAW_KT_FILE_RES_DIR/$WINDOW_SIZE_KT_FILE_NAME.txt",
+            inputRes = "$RAW_KT_FILE_RES_DIR/$templateName.txt",
             outputLocation = outputLocation,
             outputFileName = WINDOW_SIZE_KT_FILE_NAME,
         )
@@ -259,10 +263,17 @@ internal class ComposeTypographyAttributeGenerator(
                     ).let { "return $it" },
                 ),
                 description = description,
-                annotations = listOf(
-                    KtFileBuilder.TypeAnnotationComposable,
-                    KtFileBuilder.TypeAnnotationReadOnlyComposable,
-                ).takeIf { dimensionsConfig.fromResources },
+                annotations = when {
+                    // fromResources: токены типографики — @Composable @ReadOnlyComposable (LocalDensity)
+                    dimensionsConfig.fromResources -> listOf(
+                        KtFileBuilder.TypeAnnotationComposable,
+                        KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                    )
+                    // CMP: токены типографики — обычные @Composable (ссылаются на @Composable FontTokens),
+                    // поэтому фабрика тоже @Composable (без ReadOnlyComposable)
+                    multiplatform -> listOf(KtFileBuilder.TypeAnnotationComposable)
+                    else -> null
+                },
             )
         }
     }
@@ -303,5 +314,6 @@ internal class ComposeTypographyAttributeGenerator(
     private companion object {
         private const val RAW_KT_FILE_RES_DIR = "raw-kt-files/compose"
         private const val WINDOW_SIZE_KT_FILE_NAME = "WindowSize"
+        private const val WINDOW_SIZE_CMP_TEMPLATE_NAME = "WindowSizeCmp"
     }
 }
