@@ -1,0 +1,103 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+package com.sdds.serv.theme
+
+import androidx.compose.foundation.text.selection.LocalTextSelectionColors
+import androidx.compose.foundation.text.selection.TextSelectionColors
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.remember
+import com.sdds.compose.uikit.ProvideTextStyle
+import kotlin.Unit
+
+/**
+ * Аттрибуты темы SddsServTheme
+ */
+public object SddsServTheme {
+    /**
+     * Аттрибуты цвета
+     */
+    public val colors: SddsServColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalSddsServColors.current
+
+    /**
+     * Аттрибуты градиентов
+     */
+    public val gradients: SddsServGradients
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalSddsServGradients.current
+
+    /**
+     * Аттрибуты форм
+     */
+    public val shapes: SddsServShapes
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalSddsServShapes.current
+
+    /**
+     * Аттрибуты теней
+     */
+    public val shadows: SddsServShadows
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalSddsServShadows.current
+
+    /**
+     * Аттрибуты отступов
+     */
+    public val spacing: SddsServSpacing
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalSddsServSpacing.current
+
+    /**
+     * Аттрибуты типографики
+     */
+    public val typography: SddsServTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalSddsServTypography.current
+}
+
+/**
+ * Базовая тема SddsServ
+ */
+@Composable
+public fun SddsServTheme(
+    colors: SddsServColors = SddsServTheme.colors,
+    gradients: SddsServGradients = SddsServTheme.gradients,
+    shapes: SddsServShapes = defaultSddsServShapes(),
+    shadows: SddsServShadows = defaultSddsServShadows(),
+    typography: SddsServTypography = dynamicSddsServTypography(),
+    spacing: SddsServSpacing = defaultSddsServSpacing(),
+    content: @Composable () -> Unit,
+) {
+    val rememberColors = remember { colors.copy() }.apply { updateColorsFrom(colors) }
+
+    val textSelectionColors = remember {
+        TextSelectionColors(
+            handleColor = rememberColors.textDefaultAccent,
+            backgroundColor = rememberColors.textDefaultAccent.copy(0.3f),
+        )
+    }
+
+    CompositionLocalProvider(
+        LocalSddsServColors provides rememberColors,
+        LocalSddsServGradients provides gradients,
+        LocalSddsServTypography provides typography,
+        LocalSddsServShapes provides shapes,
+        LocalSddsServShadows provides shadows,
+        LocalSddsServSpacing provides spacing,
+        LocalTextSelectionColors provides textSelectionColors,
+        content = {
+            ProvideTextStyle(
+                value = typography.bodyMNormal.copy(color = rememberColors.textDefaultPrimary),
+                content = content,
+            )
+        },
+    )
+}

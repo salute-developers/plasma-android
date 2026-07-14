@@ -119,8 +119,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun Project.registerClean(extension: ThemeBuilderExtension): TaskProvider<CleanThemeTask> {
         return project.tasks.register<CleanThemeTask>("cleanTheme") {
             group = TASK_GROUP
-            outputDirPath.set(extension.outputLocation.getSourcePath())
-            outputResDirPath.set(extension.outputLocation.getResourcePath())
+            outputDirPath.set(extension.outputLocation.getSourcePath(extension.multiplatform))
+            outputResDirPath.set(extension.outputLocation.getResourcePath(extension.multiplatform))
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
         }
     }
@@ -179,8 +179,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
         val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
             group = TASK_GROUP
             componentsDir.set(getComponentsDir())
-            outputDirPath.set(extension.outputLocation.getSourcePath())
-            outputResDirPath.set(extension.outputLocation.getResourcePath())
+            outputDirPath.set(extension.outputLocation.getSourcePath(extension.multiplatform))
+            outputResDirPath.set(extension.outputLocation.getResourcePath(extension.multiplatform))
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
             val projectDirProperty = objects.directoryProperty()
                 .apply { set(layout.projectDirectory) }
@@ -191,6 +191,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             namespace.set(getProjectNameSpace())
             target.set(extension.target)
             componentsMetaStyleClass.set(extension.componentsMetaStyleClass)
+            multiplatform.set(extension.multiplatform)
             uikitApiMetaFile.set(readUikitApiMetaTask.flatMap { it.outputFile })
         }
         task.dependsOn(fetchComponentsTask, readUikitApiMetaTask)
@@ -413,13 +414,14 @@ class ThemeBuilderPlugin : Plugin<Project> {
             val projectDirProperty = objects.directoryProperty()
                 .apply { set(layout.projectDirectory) }
             projectDir.set(projectDirProperty)
-            outputDirPath.set(extension.outputLocation.getSourcePath())
-            outputResDirPath.set(extension.outputLocation.getResourcePath())
+            outputDirPath.set(extension.outputLocation.getSourcePath(extension.multiplatform))
+            outputResDirPath.set(extension.outputLocation.getResourcePath(extension.multiplatform))
             namespace.set(getProjectNameSpace())
             dimensionsConfig.set(extension.dimensionsConfig)
             defaultThemeTypography.set(extension.defaultThemeTypography)
             ignoreDisabledTokens.set(extension.ignoreDisabledTokens)
             useDefaultFonts.set(extension.useDefaultFonts)
+            multiplatform.set(extension.multiplatform)
             dependsOn(*unzipTasks.toTypedArray())
         }
     }
@@ -458,16 +460,16 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun Project.getBaseExtension() = extensions.findByType<AppExtension>()
         ?: extensions.findByType<LibraryExtension>()
 
-    private fun OutputLocation.getSourcePath(): String =
+    private fun OutputLocation.getSourcePath(multiplatform: Boolean = false): String =
         when (this) {
             OutputLocation.BUILD -> BUILD_OUTPUT_PATH
-            OutputLocation.SRC -> SRC_OUTPUT_PATH
+            OutputLocation.SRC -> if (multiplatform) CMP_OUTPUT_PATH else SRC_OUTPUT_PATH
         }
 
-    private fun OutputLocation.getResourcePath(): String =
+    private fun OutputLocation.getResourcePath(multiplatform: Boolean = false): String =
         when (this) {
             OutputLocation.BUILD -> BUILD_OUTPUT_RESOURCE_PATH
-            OutputLocation.SRC -> SRC_OUTPUT_RESOURCE_PATH
+            OutputLocation.SRC -> if (multiplatform) CMP_OUTPUT_RESOURCE_PATH else SRC_OUTPUT_RESOURCE_PATH
         }
 
     private enum class TokenValueFile(val fileName: String) {
@@ -527,6 +529,12 @@ class ThemeBuilderPlugin : Plugin<Project> {
         const val BUILD_OUTPUT_PATH = "build/generated/theme-builder"
         const val SRC_OUTPUT_RESOURCE_PATH = "src/main/theme-builder-res"
         const val SRC_OUTPUT_PATH = "src/main/kotlin"
+
+        // Мультиплатформенный (CMP) режим: код и ресурсы кладутся в commonMain,
+        // откуда KMP и compose-resources подхватывают их конвенционально
+        // (src/commonMain/kotlin и src/commonMain/composeResources сканируются по умолчанию).
+        const val CMP_OUTPUT_RESOURCE_PATH = "src/commonMain/composeResources"
+        const val CMP_OUTPUT_PATH = "src/commonMain/kotlin"
 
         const val THEME_PATH = "theme-builder/theme"
         const val COMPONENTS_PATH = "theme-builder/components"

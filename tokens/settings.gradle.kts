@@ -14,6 +14,9 @@ dependencyResolutionManagement {
         create("icons") {
             from(files("../gradle/icons.version.toml"))
         }
+        create("iconsCompose") {
+            from(files("../gradle/icons-compose.version.toml"))
+        }
     }
 }
 
