@@ -1,3 +1,4 @@
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import utils.addDefaultTargets
 
 plugins {
@@ -37,4 +38,19 @@ spotless {
             "**/com/sdds/icons/compose/**",
         )
     }
+}
+
+// Detekt — тоже style-check: исключаем сгенерированные Valkyrie иконки (как в spotless выше),
+// иначе `UndocumentedPublicProperty` и т.п. срабатывают на каждой `SddsIcons.*`-иконке.
+// `convention.detekt` задаёт source через project.files(fileTree), из-за чего per-task
+// exclude(...) не фильтрует, — переопределяем source с нужным exclude (config/baseline,
+// выставленные конвенцией на том же extension, сохраняются).
+configure<DetektExtension> {
+    source = files(
+        fileTree("src") {
+            include("main/kotlin/**/*.kt")
+            include("*Main/kotlin/**/*.kt")
+            exclude("**/com/sdds/icons/compose/**")
+        },
+    )
 }

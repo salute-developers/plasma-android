@@ -1,31 +1,15 @@
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+import utils.addDefaultTargets
 
 plugins {
-    kotlin("multiplatform")
-    id("convention.detekt")
-    id("convention.spotless")
-    id("convention.kotlin-java-version-sync")
+    id("convention.kmp-lib")
 }
 
 group = "sdds-core"
 
-// SOURCE-retention annotations are platform-neutral and are consumed by KSP from common code.
+android {
+    namespace = "com.sdds.api.info.compose"
+}
+
 kotlin {
-    jvmToolchain(17)
-
-    jvm()
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
-    macosX64()
-    macosArm64()
-
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser()
-    }
-
-    js(IR) {
-        browser()
-    }
+    addDefaultTargets()
 }

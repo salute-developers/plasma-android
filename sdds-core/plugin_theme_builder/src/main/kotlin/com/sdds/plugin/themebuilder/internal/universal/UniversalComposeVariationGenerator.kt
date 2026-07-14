@@ -33,6 +33,7 @@ internal class UniversalComposeVariationGenerator(
     styleBuilderName: String? = null,
     private val styleBuilderFactoryFunName: String = "builder",
     private val componentStylePackage: String = "com.sdds.compose.uikit",
+    private val multiplatform: Boolean = false,
 ) : ComponentStyleGenerator<UniversalComponentConfig> {
 
     private val camelComponentName: String = componentName.toCamelCase()
@@ -182,14 +183,20 @@ internal class UniversalComposeVariationGenerator(
         addImport(packageName = "com.sdds.compose.uikit.style", names = listOf("wrap", "style", "modify"))
         addImport(packageName = "androidx.compose.runtime", names = listOf("Composable"))
         addImport(packageName = "androidx.compose.ui.unit", names = listOf("dp"))
-        addImport(packageName = "androidx.compose.ui.res", names = listOf("painterResource"))
+        // painterResource в стиль не эмитится (стиль хранит источник, painter резолвят компоненты).
+        // В Android-режиме импорт сохраняется для обратной совместимости golden-вывода;
+        // в CMP-режиме он не нужен и был бы Android-only (androidx.compose.ui.res).
+        if (!multiplatform) {
+            addImport(packageName = "androidx.compose.ui.res", names = listOf("painterResource"))
+        }
         addImport(packageName = "com.sdds.compose.uikit.graphics", names = listOf("asLayered"))
         addImport(packageName = "androidx.compose.ui.graphics", names = listOf("SolidColor", "Brush"))
         addImport(
             packageName = "com.sdds.compose.uikit.interactions",
             names = listOf("InteractiveState", "asInteractive", "asStatefulValue"),
         )
-        if (dimensionsConfig.fromResources) {
+        // Ветка fromResources опирается на dimensionResource/R (Android-only) — в CMP не выполняется.
+        if (dimensionsConfig.fromResources && !multiplatform) {
             addImport(KtFileBuilder.TypeLocalDensity)
             addImport(KtFileBuilder.TypeDimensionResource)
             addImport(rFile)
