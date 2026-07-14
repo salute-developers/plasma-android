@@ -211,6 +211,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     @get:Input
     abstract val useDefaultFonts: Property<Boolean>
 
+    /**
+     * Признак мультиплатформенного (Compose Multiplatform) режима генерации токенов.
+     */
+    @get:Input
+    abstract val multiplatform: Property<Boolean>
+
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
     private val fontsAggregator by unsafeLazy { FontsAggregator() }
     private val packageResolver by unsafeLazy { PackageResolver(packageName.get()) }
@@ -244,6 +250,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             packageResolver = packageResolver,
             defaultThemeTypography = defaultThemeTypography.get(),
             useDefaultFonts = useDefaultFonts.get(),
+            multiplatform = multiplatform.getOrElse(false),
         )
     }
 

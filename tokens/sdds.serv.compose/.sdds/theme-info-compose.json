@@ -1,6 +1,6 @@
 {
    "name": "SddsServ",
-   "version": "0.8.0",
+   "version": "0.9.0",
    "platform": "compose",
    "tokens": [
       {
@@ -4147,7 +4147,7 @@
          "reference": "SurfaceOnLightSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidPrimaryHover",
          "value": {
-            "color": "0xFFFAFAFA"
+            "color": "0xFFF2F2F2"
          }
       },
       {
@@ -4191,7 +4191,7 @@
          "reference": "SurfaceOnLightSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidSecondaryHover",
          "value": {
-            "color": "0xFFF7F7F7"
+            "color": "0xFFE8E8E8"
          }
       },
       {
@@ -4202,7 +4202,7 @@
          "reference": "SurfaceOnLightSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidSecondaryActive",
          "value": {
-            "color": "0xFFE8E8E8"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -4224,7 +4224,7 @@
          "reference": "SurfaceOnLightSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidTertiaryHover",
          "value": {
-            "color": "0xFFE8E8E8"
+            "color": "0xFFD9D9D9"
          }
       },
       {
@@ -4235,7 +4235,7 @@
          "reference": "SurfaceOnLightSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidTertiaryActive",
          "value": {
-            "color": "0xFFD9D9D9"
+            "color": "0xFFD4D4D4"
          }
       },
       {
@@ -4301,7 +4301,7 @@
          "reference": "SurfaceOnLightSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidDefaultHover",
          "value": {
-            "color": "0xFF0D0D0D"
+            "color": "0xFF262626"
          }
       },
       {
@@ -4334,7 +4334,7 @@
          "reference": "SurfaceOnLightTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentPrimaryHover",
          "value": {
-            "color": "0x12080808"
+            "color": "0x0A080808"
          }
       },
       {
@@ -4345,7 +4345,7 @@
          "reference": "SurfaceOnLightTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentPrimaryActive",
          "value": {
-            "color": "0x03080808"
+            "color": "0x0D080808"
          }
       },
       {
@@ -4356,7 +4356,7 @@
          "reference": "SurfaceOnLightTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentSecondaryHover",
          "value": {
-            "color": "0x1F080808"
+            "color": "0x14080808"
          }
       },
       {
@@ -4367,7 +4367,7 @@
          "reference": "SurfaceOnLightTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentSecondaryActive",
          "value": {
-            "color": "0x0A080808"
+            "color": "0x1A080808"
          }
       },
       {
@@ -4389,7 +4389,7 @@
          "reference": "SurfaceOnLightTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentTertiaryHover",
          "value": {
-            "color": "0x3D080808"
+            "color": "0x2E080808"
          }
       },
       {
@@ -4400,7 +4400,7 @@
          "reference": "SurfaceOnLightTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentTertiaryActive",
          "value": {
-            "color": "0x0F080808"
+            "color": "0x33080808"
          }
       },
       {
@@ -4422,7 +4422,7 @@
          "reference": "SurfaceOnLightTransparentDeepHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentDeepHover",
          "value": {
-            "color": "0xC2080808"
+            "color": "0xB3080808"
          }
       },
       {
@@ -4433,7 +4433,7 @@
          "reference": "SurfaceOnLightTransparentDeepActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentDeepActive",
          "value": {
-            "color": "0x94080808"
+            "color": "0xB8080808"
          }
       },
       {
@@ -4455,7 +4455,7 @@
          "reference": "SurfaceOnLightTransparentCardHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentCardHover",
          "value": {
-            "color": "0x1F080808"
+            "color": "0x14080808"
          }
       },
       {
@@ -4466,7 +4466,7 @@
          "reference": "SurfaceOnLightTransparentCardActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentCardActive",
          "value": {
-            "color": "0x0A080808"
+            "color": "0x1A080808"
          }
       },
       {
@@ -4532,7 +4532,7 @@
          "reference": "SurfaceOnLightAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightAccentHover",
          "value": {
-            "color": "0xFF1DAF37"
+            "color": "0xFF1EB83A"
          }
       },
       {
@@ -4543,7 +4543,7 @@
          "reference": "SurfaceOnLightAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightAccentActive",
          "value": {
-            "color": "0xFF18952F"
+            "color": "0xFF178C2C"
          }
       },
       {
@@ -4565,7 +4565,7 @@
          "reference": "SurfaceOnLightAccentMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightAccentMinorHover",
          "value": {
-            "color": "0xFFB1FBBF"
+            "color": "0xFF94F9A7"
          }
       },
       {
@@ -4576,7 +4576,7 @@
          "reference": "SurfaceOnLightAccentMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightAccentMinorActive",
          "value": {
-            "color": "0xFF94F9A7"
+            "color": "0xFF8BF99F"
          }
       },
       {
@@ -4587,7 +4587,7 @@
          "reference": "SurfaceOnLightTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentAccentHover",
          "value": {
-            "color": "0x3D1A9E32"
+            "color": "0x2E1A9E32"
          }
       },
       {
@@ -4598,7 +4598,7 @@
          "reference": "SurfaceOnLightTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentAccentActive",
          "value": {
-            "color": "0x0F1A9E32"
+            "color": "0x331A9E32"
          }
       },
       {
@@ -4708,7 +4708,7 @@
          "reference": "SurfaceOnLightPositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightPositiveHover",
          "value": {
-            "color": "0xFF1DAF37"
+            "color": "0xFF1EB83A"
          }
       },
       {
@@ -4719,7 +4719,7 @@
          "reference": "SurfaceOnLightPositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightPositiveActive",
          "value": {
-            "color": "0xFF18952F"
+            "color": "0xFF178C2C"
          }
       },
       {
@@ -4741,7 +4741,7 @@
          "reference": "SurfaceOnLightWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightWarningHover",
          "value": {
-            "color": "0xFFFB7223"
+            "color": "0xFFFB782D"
          }
       },
       {
@@ -4752,7 +4752,7 @@
          "reference": "SurfaceOnLightWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightWarningActive",
          "value": {
-            "color": "0xFFF05B05"
+            "color": "0xFFE65705"
          }
       },
       {
@@ -4774,7 +4774,7 @@
          "reference": "SurfaceOnLightNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightNegativeHover",
          "value": {
-            "color": "0xFFFF475A"
+            "color": "0xFFFF5263"
          }
       },
       {
@@ -4785,7 +4785,7 @@
          "reference": "SurfaceOnLightNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightNegativeActive",
          "value": {
-            "color": "0xFFFF1F35"
+            "color": "0xFFFF142C"
          }
       },
       {
@@ -4807,7 +4807,7 @@
          "reference": "SurfaceOnLightInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightInfoHover",
          "value": {
-            "color": "0xFF1798EE"
+            "color": "0xFF209CEE"
          }
       },
       {
@@ -4818,7 +4818,7 @@
          "reference": "SurfaceOnLightInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightInfoActive",
          "value": {
-            "color": "0xFF1086D5"
+            "color": "0xFF0F81CC"
          }
       },
       {
@@ -4829,7 +4829,7 @@
          "reference": "SurfaceOnLightPositiveMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightPositiveMinorHover",
          "value": {
-            "color": "0xFFB1FBBF"
+            "color": "0xFF94F9A7"
          }
       },
       {
@@ -4840,7 +4840,7 @@
          "reference": "SurfaceOnLightPositiveMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightPositiveMinorActive",
          "value": {
-            "color": "0xFF94F9A7"
+            "color": "0xFF8BF99F"
          }
       },
       {
@@ -4851,7 +4851,7 @@
          "reference": "SurfaceOnLightWarningMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightWarningMinorHover",
          "value": {
-            "color": "0xFFFEE9DC"
+            "color": "0xFFFEDCC8"
          }
       },
       {
@@ -4862,7 +4862,7 @@
          "reference": "SurfaceOnLightWarningMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightWarningMinorActive",
          "value": {
-            "color": "0xFFFEDCC8"
+            "color": "0xFFFED9C3"
          }
       },
       {
@@ -4873,7 +4873,7 @@
          "reference": "SurfaceOnLightNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightNegativeMinorHover",
          "value": {
-            "color": "0xFFFFEBED"
+            "color": "0xFFFFD6DA"
          }
       },
       {
@@ -4884,7 +4884,7 @@
          "reference": "SurfaceOnLightNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightNegativeMinorActive",
          "value": {
-            "color": "0xFFFFD6DA"
+            "color": "0xFFFFD1D6"
          }
       },
       {
@@ -4895,7 +4895,7 @@
          "reference": "SurfaceOnLightInfoMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightInfoMinorHover",
          "value": {
-            "color": "0xFFDBF1FF"
+            "color": "0xFFC7E9FF"
          }
       },
       {
@@ -4906,7 +4906,7 @@
          "reference": "SurfaceOnLightInfoMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightInfoMinorActive",
          "value": {
-            "color": "0xFFC7E9FF"
+            "color": "0xFFC2E7FF"
          }
       },
       {
@@ -4917,7 +4917,7 @@
          "reference": "SurfaceOnLightTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentPositiveHover",
          "value": {
-            "color": "0x3D1A9E32"
+            "color": "0x2E1A9E32"
          }
       },
       {
@@ -4928,7 +4928,7 @@
          "reference": "SurfaceOnLightTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentPositiveActive",
          "value": {
-            "color": "0x0F1A9E32"
+            "color": "0x331A9E32"
          }
       },
       {
@@ -4939,7 +4939,7 @@
          "reference": "SurfaceOnLightTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentWarningHover",
          "value": {
-            "color": "0x3DFA5F05"
+            "color": "0x2EFA5F05"
          }
       },
       {
@@ -4950,7 +4950,7 @@
          "reference": "SurfaceOnLightTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentWarningActive",
          "value": {
-            "color": "0x0FFA5F05"
+            "color": "0x33FA5F05"
          }
       },
       {
@@ -4961,7 +4961,7 @@
          "reference": "SurfaceOnLightTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentNegativeHover",
          "value": {
-            "color": "0x3DFF293E"
+            "color": "0x2EFF293E"
          }
       },
       {
@@ -4972,7 +4972,7 @@
          "reference": "SurfaceOnLightTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentNegativeActive",
          "value": {
-            "color": "0x0FFF293E"
+            "color": "0x33FF293E"
          }
       },
       {
@@ -4983,7 +4983,7 @@
          "reference": "SurfaceOnLightTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentInfoHover",
          "value": {
-            "color": "0x3D118CDF"
+            "color": "0x2E118CDF"
          }
       },
       {
@@ -4994,7 +4994,7 @@
          "reference": "SurfaceOnLightTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentInfoActive",
          "value": {
-            "color": "0x0F118CDF"
+            "color": "0x33118CDF"
          }
       },
       {
@@ -5137,7 +5137,7 @@
          "reference": "SurfaceInverseSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidPrimaryHover",
          "value": {
-            "color": "0xFFFAFAFA"
+            "color": "0xFFF2F2F2"
          }
       },
       {
@@ -5181,7 +5181,7 @@
          "reference": "SurfaceInverseSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidSecondaryHover",
          "value": {
-            "color": "0xFFF7F7F7"
+            "color": "0xFFE8E8E8"
          }
       },
       {
@@ -5192,7 +5192,7 @@
          "reference": "SurfaceInverseSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidSecondaryActive",
          "value": {
-            "color": "0xFFE8E8E8"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -5214,7 +5214,7 @@
          "reference": "SurfaceInverseSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidTertiaryHover",
          "value": {
-            "color": "0xFFE8E8E8"
+            "color": "0xFFD9D9D9"
          }
       },
       {
@@ -5225,7 +5225,7 @@
          "reference": "SurfaceInverseSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidTertiaryActive",
          "value": {
-            "color": "0xFFD9D9D9"
+            "color": "0xFFD4D4D4"
          }
       },
       {
@@ -5291,7 +5291,7 @@
          "reference": "SurfaceInverseSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidDefaultHover",
          "value": {
-            "color": "0xFF0D0D0D"
+            "color": "0xFF262626"
          }
       },
       {
@@ -5324,7 +5324,7 @@
          "reference": "SurfaceInverseTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentPrimaryHover",
          "value": {
-            "color": "0x12080808"
+            "color": "0x0A080808"
          }
       },
       {
@@ -5335,7 +5335,7 @@
          "reference": "SurfaceInverseTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentPrimaryActive",
          "value": {
-            "color": "0x03080808"
+            "color": "0x0D080808"
          }
       },
       {
@@ -5346,7 +5346,7 @@
          "reference": "SurfaceInverseTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentSecondaryHover",
          "value": {
-            "color": "0x1F080808"
+            "color": "0x14080808"
          }
       },
       {
@@ -5357,7 +5357,7 @@
          "reference": "SurfaceInverseTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentSecondaryActive",
          "value": {
-            "color": "0x0A080808"
+            "color": "0x1A080808"
          }
       },
       {
@@ -5379,7 +5379,7 @@
          "reference": "SurfaceInverseTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentTertiaryHover",
          "value": {
-            "color": "0x3D080808"
+            "color": "0x2E080808"
          }
       },
       {
@@ -5390,7 +5390,7 @@
          "reference": "SurfaceInverseTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentTertiaryActive",
          "value": {
-            "color": "0x0F080808"
+            "color": "0x33080808"
          }
       },
       {
@@ -5412,7 +5412,7 @@
          "reference": "SurfaceInverseTransparentDeepHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentDeepHover",
          "value": {
-            "color": "0xC2080808"
+            "color": "0xB3080808"
          }
       },
       {
@@ -5423,7 +5423,7 @@
          "reference": "SurfaceInverseTransparentDeepActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentDeepActive",
          "value": {
-            "color": "0x94080808"
+            "color": "0xB8080808"
          }
       },
       {
@@ -5522,7 +5522,7 @@
          "reference": "SurfaceInverseAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseAccentHover",
          "value": {
-            "color": "0xFF1DAF37"
+            "color": "0xFF1EB83A"
          }
       },
       {
@@ -5533,7 +5533,7 @@
          "reference": "SurfaceInverseAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseAccentActive",
          "value": {
-            "color": "0xFF18952F"
+            "color": "0xFF178C2C"
          }
       },
       {
@@ -5555,7 +5555,7 @@
          "reference": "SurfaceInverseAccentMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseAccentMinorHover",
          "value": {
-            "color": "0xFFB1FBBF"
+            "color": "0xFF94F9A7"
          }
       },
       {
@@ -5566,7 +5566,7 @@
          "reference": "SurfaceInverseAccentMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseAccentMinorActive",
          "value": {
-            "color": "0xFF94F9A7"
+            "color": "0xFF8BF99F"
          }
       },
       {
@@ -5577,7 +5577,7 @@
          "reference": "SurfaceInverseTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentAccentHover",
          "value": {
-            "color": "0x3D1A9E32"
+            "color": "0x2E1A9E32"
          }
       },
       {
@@ -5588,7 +5588,7 @@
          "reference": "SurfaceInverseTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentAccentActive",
          "value": {
-            "color": "0x0F1A9E32"
+            "color": "0x331A9E32"
          }
       },
       {
@@ -5698,7 +5698,7 @@
          "reference": "SurfaceInversePositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceInversePositiveHover",
          "value": {
-            "color": "0xFF1DAF37"
+            "color": "0xFF1EB83A"
          }
       },
       {
@@ -5709,7 +5709,7 @@
          "reference": "SurfaceInversePositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceInversePositiveActive",
          "value": {
-            "color": "0xFF18952F"
+            "color": "0xFF178C2C"
          }
       },
       {
@@ -5731,7 +5731,7 @@
          "reference": "SurfaceInverseWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseWarningHover",
          "value": {
-            "color": "0xFFFB7223"
+            "color": "0xFFFB782D"
          }
       },
       {
@@ -5742,7 +5742,7 @@
          "reference": "SurfaceInverseWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseWarningActive",
          "value": {
-            "color": "0xFFF05B05"
+            "color": "0xFFE65705"
          }
       },
       {
@@ -5764,7 +5764,7 @@
          "reference": "SurfaceInverseNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseNegativeHover",
          "value": {
-            "color": "0xFFFF475A"
+            "color": "0xFFFF5263"
          }
       },
       {
@@ -5775,7 +5775,7 @@
          "reference": "SurfaceInverseNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseNegativeActive",
          "value": {
-            "color": "0xFFFF1F35"
+            "color": "0xFFFF142C"
          }
       },
       {
@@ -5797,7 +5797,7 @@
          "reference": "SurfaceInverseInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseInfoHover",
          "value": {
-            "color": "0xFF1798EE"
+            "color": "0xFF209CEE"
          }
       },
       {
@@ -5808,7 +5808,7 @@
          "reference": "SurfaceInverseInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseInfoActive",
          "value": {
-            "color": "0xFF1086D5"
+            "color": "0xFF0F81CC"
          }
       },
       {
@@ -5819,7 +5819,7 @@
          "reference": "SurfaceInversePositiveMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceInversePositiveMinorHover",
          "value": {
-            "color": "0xFFB1FBBF"
+            "color": "0xFF94F9A7"
          }
       },
       {
@@ -5830,7 +5830,7 @@
          "reference": "SurfaceInversePositiveMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInversePositiveMinorActive",
          "value": {
-            "color": "0xFF94F9A7"
+            "color": "0xFF8BF99F"
          }
       },
       {
@@ -5841,7 +5841,7 @@
          "reference": "SurfaceInverseWarningMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseWarningMinorHover",
          "value": {
-            "color": "0xFFFEE9DC"
+            "color": "0xFFFEDCC8"
          }
       },
       {
@@ -5852,7 +5852,7 @@
          "reference": "SurfaceInverseWarningMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseWarningMinorActive",
          "value": {
-            "color": "0xFFFEDCC8"
+            "color": "0xFFFED9C3"
          }
       },
       {
@@ -5863,7 +5863,7 @@
          "reference": "SurfaceInverseNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseNegativeMinorHover",
          "value": {
-            "color": "0xFFFFEBED"
+            "color": "0xFFFFD6DA"
          }
       },
       {
@@ -5874,7 +5874,7 @@
          "reference": "SurfaceInverseNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseNegativeMinorActive",
          "value": {
-            "color": "0xFFFFD6DA"
+            "color": "0xFFFFD1D6"
          }
       },
       {
@@ -5885,7 +5885,7 @@
          "reference": "SurfaceInverseInfoMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseInfoMinorHover",
          "value": {
-            "color": "0xFFDBF1FF"
+            "color": "0xFFC7E9FF"
          }
       },
       {
@@ -5896,7 +5896,7 @@
          "reference": "SurfaceInverseInfoMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseInfoMinorActive",
          "value": {
-            "color": "0xFFC7E9FF"
+            "color": "0xFFC2E7FF"
          }
       },
       {
@@ -5907,7 +5907,7 @@
          "reference": "SurfaceInverseTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentPositiveHover",
          "value": {
-            "color": "0x3D1A9E32"
+            "color": "0x2E1A9E32"
          }
       },
       {
@@ -5918,7 +5918,7 @@
          "reference": "SurfaceInverseTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentPositiveActive",
          "value": {
-            "color": "0x0F1A9E32"
+            "color": "0x331A9E32"
          }
       },
       {
@@ -5929,7 +5929,7 @@
          "reference": "SurfaceInverseTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentWarningHover",
          "value": {
-            "color": "0x3DFA5F05"
+            "color": "0x2EFA5F05"
          }
       },
       {
@@ -5940,7 +5940,7 @@
          "reference": "SurfaceInverseTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentWarningActive",
          "value": {
-            "color": "0x0FFA5F05"
+            "color": "0x33FA5F05"
          }
       },
       {
@@ -5951,7 +5951,7 @@
          "reference": "SurfaceInverseTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentNegativeHover",
          "value": {
-            "color": "0x3DFF293E"
+            "color": "0x2EFF293E"
          }
       },
       {
@@ -5962,7 +5962,7 @@
          "reference": "SurfaceInverseTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentNegativeActive",
          "value": {
-            "color": "0x0FFF293E"
+            "color": "0x33FF293E"
          }
       },
       {
@@ -5973,7 +5973,7 @@
          "reference": "SurfaceInverseTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentInfoHover",
          "value": {
-            "color": "0x3D118CDF"
+            "color": "0x2E118CDF"
          }
       },
       {
@@ -5984,7 +5984,7 @@
          "reference": "SurfaceInverseTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentInfoActive",
          "value": {
-            "color": "0x0F118CDF"
+            "color": "0x33118CDF"
          }
       },
       {
@@ -6413,7 +6413,7 @@
          "reference": "OutlineDefaultSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidPrimaryHover",
          "value": {
-            "color": "0xFFFFFFFF"
+            "color": "0xFF545454"
          }
       },
       {
@@ -6424,7 +6424,7 @@
          "reference": "OutlineDefaultSolidPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidPrimaryActive",
          "value": {
-            "color": "0xFFADADAD"
+            "color": "0xFF171717"
          }
       },
       {
@@ -6435,7 +6435,7 @@
          "reference": "OutlineDefaultSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidSecondaryHover",
          "value": {
-            "color": "0xFF595959"
+            "color": "0xFFABABAB"
          }
       },
       {
@@ -6446,7 +6446,7 @@
          "reference": "OutlineDefaultSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidSecondaryActive",
          "value": {
-            "color": "0xFF4A4A4A"
+            "color": "0xFF363636"
          }
       },
       {
@@ -6457,7 +6457,7 @@
          "reference": "OutlineDefaultSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidTertiaryHover",
          "value": {
-            "color": "0xFF8F8F8F"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -6468,7 +6468,7 @@
          "reference": "OutlineDefaultSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidTertiaryActive",
          "value": {
-            "color": "0xFF808080"
+            "color": "0xFF525252"
          }
       },
       {
@@ -6479,7 +6479,7 @@
          "reference": "OutlineDefaultTransparentDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentDefaultHover",
          "value": {
-            "color": "0xFFC7C7C7"
+            "color": "0xFF808080"
          }
       },
       {
@@ -6490,7 +6490,7 @@
          "reference": "OutlineDefaultTransparentDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentDefaultActive",
          "value": {
-            "color": "0xFFE0E0E0"
+            "color": "0xFF616161"
          }
       },
       {
@@ -6501,7 +6501,7 @@
          "reference": "OutlineDefaultTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentPrimaryHover",
          "value": {
-            "color": "0x3DFFFFFF"
+            "color": "0x4DFFFFFF"
          }
       },
       {
@@ -6512,7 +6512,7 @@
          "reference": "OutlineDefaultTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentPrimaryActive",
          "value": {
-            "color": "0x0FFFFFFF"
+            "color": "0x12FFFFFF"
          }
       },
       {
@@ -6523,7 +6523,7 @@
          "reference": "OutlineDefaultTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentSecondaryHover",
          "value": {
-            "color": "0x66FFFFFF"
+            "color": "0xB3FFFFFF"
          }
       },
       {
@@ -6534,7 +6534,7 @@
          "reference": "OutlineDefaultTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentSecondaryActive",
          "value": {
-            "color": "0x38FFFFFF"
+            "color": "0x2BFFFFFF"
          }
       },
       {
@@ -6545,7 +6545,7 @@
          "reference": "OutlineDefaultTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentTertiaryHover",
          "value": {
-            "color": "0xADFFFFFF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -6556,7 +6556,7 @@
          "reference": "OutlineDefaultTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentTertiaryActive",
          "value": {
-            "color": "0x80FFFFFF"
+            "color": "0x47FFFFFF"
          }
       },
       {
@@ -6589,7 +6589,7 @@
          "reference": "OutlineDefaultAccentHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultAccentHover",
          "value": {
-            "color": "0xFF2ACB47"
+            "color": "0xFF5EDE76"
          }
       },
       {
@@ -6622,7 +6622,7 @@
          "reference": "OutlineDefaultAccentMinorActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultAccentMinorActive",
          "value": {
-            "color": "0xFF0C7920"
+            "color": "0xFF074A14"
          }
       },
       {
@@ -6633,7 +6633,7 @@
          "reference": "OutlineDefaultTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentAccentHover",
          "value": {
-            "color": "0xFF24B23E"
+            "color": "0xB324B23E"
          }
       },
       {
@@ -6644,7 +6644,7 @@
          "reference": "OutlineDefaultTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentAccentActive",
          "value": {
-            "color": "0x5624B23E"
+            "color": "0x2B24B23E"
          }
       },
       {
@@ -6655,7 +6655,7 @@
          "reference": "OutlineDefaultPromoHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultPromoHover",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF858585"
          }
       },
       {
@@ -6666,7 +6666,7 @@
          "reference": "OutlineDefaultPromoActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultPromoActive",
          "value": {
-            "color": "0xFFE6E6E6"
+            "color": "0xFF666666"
          }
       },
       {
@@ -6688,7 +6688,7 @@
          "reference": "OutlineDefaultPromoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultPromoMinorHover",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF858585"
          }
       },
       {
@@ -6699,7 +6699,7 @@
          "reference": "OutlineDefaultPromoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultPromoMinorActive",
          "value": {
-            "color": "0xFFE6E6E6"
+            "color": "0xFF666666"
          }
       },
       {
@@ -6721,7 +6721,7 @@
          "reference": "OutlineDefaultPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultPositiveHover",
          "value": {
-            "color": "0xFF2ACB47"
+            "color": "0xFF5EDE76"
          }
       },
       {
@@ -6743,7 +6743,7 @@
          "reference": "OutlineDefaultWarningHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultWarningHover",
          "value": {
-            "color": "0xFFFF8442"
+            "color": "0xFFFFA575"
          }
       },
       {
@@ -6765,7 +6765,7 @@
          "reference": "OutlineDefaultNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultNegativeHover",
          "value": {
-            "color": "0xFFFF5C6C"
+            "color": "0xFFFF8F9A"
          }
       },
       {
@@ -6820,7 +6820,7 @@
          "reference": "OutlineDefaultPositiveMinorActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultPositiveMinorActive",
          "value": {
-            "color": "0xFF0C7920"
+            "color": "0xFF074A14"
          }
       },
       {
@@ -6842,7 +6842,7 @@
          "reference": "OutlineDefaultWarningMinorActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultWarningMinorActive",
          "value": {
-            "color": "0xFF9F440F"
+            "color": "0xFF70300A"
          }
       },
       {
@@ -6853,7 +6853,7 @@
          "reference": "OutlineDefaultNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultNegativeMinorHover",
          "value": {
-            "color": "0xFFB91828"
+            "color": "0xFFD41C2E"
          }
       },
       {
@@ -6864,7 +6864,7 @@
          "reference": "OutlineDefaultNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultNegativeMinorActive",
          "value": {
-            "color": "0xFF83111C"
+            "color": "0xFF8C121E"
          }
       },
       {
@@ -6886,7 +6886,7 @@
          "reference": "OutlineDefaultInfoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultInfoMinorActive",
          "value": {
-            "color": "0xFF10659E"
+            "color": "0xFF0B476F"
          }
       },
       {
@@ -6897,7 +6897,7 @@
          "reference": "OutlineDefaultTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentPositiveHover",
          "value": {
-            "color": "0xFF24B23E"
+            "color": "0xB324B23E"
          }
       },
       {
@@ -6908,7 +6908,7 @@
          "reference": "OutlineDefaultTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentPositiveActive",
          "value": {
-            "color": "0x5624B23E"
+            "color": "0x2B24B23E"
          }
       },
       {
@@ -6919,7 +6919,7 @@
          "reference": "OutlineDefaultTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentWarningHover",
          "value": {
-            "color": "0xFFFF7024"
+            "color": "0xB3FF7024"
          }
       },
       {
@@ -6930,7 +6930,7 @@
          "reference": "OutlineDefaultTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentWarningActive",
          "value": {
-            "color": "0x56FF7024"
+            "color": "0x2BFF7024"
          }
       },
       {
@@ -6941,7 +6941,7 @@
          "reference": "OutlineDefaultTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentNegativeHover",
          "value": {
-            "color": "0xFFFF3D51"
+            "color": "0xB3FF3D51"
          }
       },
       {
@@ -6952,7 +6952,7 @@
          "reference": "OutlineDefaultTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentNegativeActive",
          "value": {
-            "color": "0x56FF3D51"
+            "color": "0x2BFF3D51"
          }
       },
       {
@@ -6963,7 +6963,7 @@
          "reference": "OutlineDefaultTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentInfoHover",
          "value": {
-            "color": "0xFF199AF0"
+            "color": "0xB3199AF0"
          }
       },
       {
@@ -6974,7 +6974,7 @@
          "reference": "OutlineDefaultTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentInfoActive",
          "value": {
-            "color": "0x56199AF0"
+            "color": "0x2B199AF0"
          }
       },
       {
@@ -7238,7 +7238,7 @@
          "reference": "OutlineDefaultSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidDefaultHover",
          "value": {
-            "color": "0xFFC7C7C7"
+            "color": "0xFF808080"
          }
       },
       {
@@ -7249,7 +7249,7 @@
          "reference": "OutlineDefaultSolidDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidDefaultActive",
          "value": {
-            "color": "0xFFE0E0E0"
+            "color": "0xFF616161"
          }
       },
       {
@@ -7271,7 +7271,7 @@
          "reference": "OutlineOnDarkSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidPrimaryHover",
          "value": {
-            "color": "0xFFFFFFFF"
+            "color": "0xFF545454"
          }
       },
       {
@@ -7282,7 +7282,7 @@
          "reference": "OutlineOnDarkSolidPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidPrimaryActive",
          "value": {
-            "color": "0xFFADADAD"
+            "color": "0xFF171717"
          }
       },
       {
@@ -7293,7 +7293,7 @@
          "reference": "OutlineOnDarkSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidSecondaryHover",
          "value": {
-            "color": "0xFF595959"
+            "color": "0xFFABABAB"
          }
       },
       {
@@ -7304,7 +7304,7 @@
          "reference": "OutlineOnDarkSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidSecondaryActive",
          "value": {
-            "color": "0xFF4A4A4A"
+            "color": "0xFF363636"
          }
       },
       {
@@ -7315,7 +7315,7 @@
          "reference": "OutlineOnDarkSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidTertiaryHover",
          "value": {
-            "color": "0xFF8F8F8F"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -7326,7 +7326,7 @@
          "reference": "OutlineOnDarkSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidTertiaryActive",
          "value": {
-            "color": "0xFF808080"
+            "color": "0xFF525252"
          }
       },
       {
@@ -7337,7 +7337,7 @@
          "reference": "OutlineOnDarkTransparentDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentDefaultHover",
          "value": {
-            "color": "0xFFC7C7C7"
+            "color": "0xFF808080"
          }
       },
       {
@@ -7348,7 +7348,7 @@
          "reference": "OutlineOnDarkTransparentDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentDefaultActive",
          "value": {
-            "color": "0xFFE0E0E0"
+            "color": "0xFF616161"
          }
       },
       {
@@ -7359,7 +7359,7 @@
          "reference": "OutlineOnDarkTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentPrimaryHover",
          "value": {
-            "color": "0x3DFFFFFF"
+            "color": "0x4DFFFFFF"
          }
       },
       {
@@ -7370,7 +7370,7 @@
          "reference": "OutlineOnDarkTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentPrimaryActive",
          "value": {
-            "color": "0x0FFFFFFF"
+            "color": "0x12FFFFFF"
          }
       },
       {
@@ -7381,7 +7381,7 @@
          "reference": "OutlineOnDarkTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentSecondaryHover",
          "value": {
-            "color": "0x66FFFFFF"
+            "color": "0xB3FFFFFF"
          }
       },
       {
@@ -7392,7 +7392,7 @@
          "reference": "OutlineOnDarkTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentSecondaryActive",
          "value": {
-            "color": "0x38FFFFFF"
+            "color": "0x2BFFFFFF"
          }
       },
       {
@@ -7403,7 +7403,7 @@
          "reference": "OutlineOnDarkTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentTertiaryHover",
          "value": {
-            "color": "0xADFFFFFF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -7414,7 +7414,7 @@
          "reference": "OutlineOnDarkTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentTertiaryActive",
          "value": {
-            "color": "0x80FFFFFF"
+            "color": "0x47FFFFFF"
          }
       },
       {
@@ -7447,7 +7447,7 @@
          "reference": "OutlineOnDarkAccentHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkAccentHover",
          "value": {
-            "color": "0xFF2ACB47"
+            "color": "0xFF5EDE76"
          }
       },
       {
@@ -7480,7 +7480,7 @@
          "reference": "OutlineOnDarkAccentMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkAccentMinorActive",
          "value": {
-            "color": "0xFF0C7920"
+            "color": "0xFF074A14"
          }
       },
       {
@@ -7491,7 +7491,7 @@
          "reference": "OutlineOnDarkTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentAccentHover",
          "value": {
-            "color": "0xFF24B23E"
+            "color": "0xB324B23E"
          }
       },
       {
@@ -7502,7 +7502,7 @@
          "reference": "OutlineOnDarkTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentAccentActive",
          "value": {
-            "color": "0x5624B23E"
+            "color": "0x2B24B23E"
          }
       },
       {
@@ -7513,7 +7513,7 @@
          "reference": "OutlineOnDarkPromoHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPromoHover",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF858585"
          }
       },
       {
@@ -7524,7 +7524,7 @@
          "reference": "OutlineOnDarkPromoActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPromoActive",
          "value": {
-            "color": "0xFFE6E6E6"
+            "color": "0xFF666666"
          }
       },
       {
@@ -7546,7 +7546,7 @@
          "reference": "OutlineOnDarkPromoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPromoMinorHover",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF858585"
          }
       },
       {
@@ -7557,7 +7557,7 @@
          "reference": "OutlineOnDarkPromoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPromoMinorActive",
          "value": {
-            "color": "0xFFE6E6E6"
+            "color": "0xFF666666"
          }
       },
       {
@@ -7579,7 +7579,7 @@
          "reference": "OutlineOnDarkPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPositiveHover",
          "value": {
-            "color": "0xFF2ACB47"
+            "color": "0xFF5EDE76"
          }
       },
       {
@@ -7601,7 +7601,7 @@
          "reference": "OutlineOnDarkWarningHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkWarningHover",
          "value": {
-            "color": "0xFFFF8442"
+            "color": "0xFFFFA575"
          }
       },
       {
@@ -7623,7 +7623,7 @@
          "reference": "OutlineOnDarkNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkNegativeHover",
          "value": {
-            "color": "0xFFFF5C6C"
+            "color": "0xFFFF8F9A"
          }
       },
       {
@@ -7678,7 +7678,7 @@
          "reference": "OutlineOnDarkPositiveMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPositiveMinorActive",
          "value": {
-            "color": "0xFF0C7920"
+            "color": "0xFF074A14"
          }
       },
       {
@@ -7700,7 +7700,7 @@
          "reference": "OutlineOnDarkWarningMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkWarningMinorActive",
          "value": {
-            "color": "0xFF9F440F"
+            "color": "0xFF70300A"
          }
       },
       {
@@ -7711,7 +7711,7 @@
          "reference": "OutlineOnDarkNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkNegativeMinorHover",
          "value": {
-            "color": "0xFFB91828"
+            "color": "0xFFD41C2E"
          }
       },
       {
@@ -7722,7 +7722,7 @@
          "reference": "OutlineOnDarkNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkNegativeMinorActive",
          "value": {
-            "color": "0xFF83111C"
+            "color": "0xFF8C121E"
          }
       },
       {
@@ -7744,7 +7744,7 @@
          "reference": "OutlineOnDarkInfoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkInfoMinorActive",
          "value": {
-            "color": "0xFF10659E"
+            "color": "0xFF0B476F"
          }
       },
       {
@@ -7755,7 +7755,7 @@
          "reference": "OutlineOnDarkTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentPositiveHover",
          "value": {
-            "color": "0xFF24B23E"
+            "color": "0xB324B23E"
          }
       },
       {
@@ -7766,7 +7766,7 @@
          "reference": "OutlineOnDarkTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentPositiveActive",
          "value": {
-            "color": "0x5624B23E"
+            "color": "0x2B24B23E"
          }
       },
       {
@@ -7777,7 +7777,7 @@
          "reference": "OutlineOnDarkTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentWarningHover",
          "value": {
-            "color": "0xFFFF7024"
+            "color": "0xB3FF7024"
          }
       },
       {
@@ -7788,7 +7788,7 @@
          "reference": "OutlineOnDarkTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentWarningActive",
          "value": {
-            "color": "0x56FF7024"
+            "color": "0x2BFF7024"
          }
       },
       {
@@ -7799,7 +7799,7 @@
          "reference": "OutlineOnDarkTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentNegativeHover",
          "value": {
-            "color": "0xFFFF3D51"
+            "color": "0xB3FF3D51"
          }
       },
       {
@@ -7810,7 +7810,7 @@
          "reference": "OutlineOnDarkTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentNegativeActive",
          "value": {
-            "color": "0x56FF3D51"
+            "color": "0x2BFF3D51"
          }
       },
       {
@@ -7821,7 +7821,7 @@
          "reference": "OutlineOnDarkTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentInfoHover",
          "value": {
-            "color": "0xFF199AF0"
+            "color": "0xB3199AF0"
          }
       },
       {
@@ -7832,7 +7832,7 @@
          "reference": "OutlineOnDarkTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentInfoActive",
          "value": {
-            "color": "0x56199AF0"
+            "color": "0x2B199AF0"
          }
       },
       {
@@ -8107,7 +8107,7 @@
          "reference": "OutlineOnDarkSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidDefaultHover",
          "value": {
-            "color": "0xFFC7C7C7"
+            "color": "0xFF808080"
          }
       },
       {
@@ -8118,7 +8118,7 @@
          "reference": "OutlineOnDarkSolidDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidDefaultActive",
          "value": {
-            "color": "0xFFE0E0E0"
+            "color": "0xFF616161"
          }
       },
       {
@@ -8151,7 +8151,7 @@
          "reference": "OutlineOnLightSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidSecondaryHover",
          "value": {
-            "color": "0xFFBDBDBD"
+            "color": "0xFFDBDBDB"
          }
       },
       {
@@ -8162,7 +8162,7 @@
          "reference": "OutlineOnLightSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidSecondaryActive",
          "value": {
-            "color": "0xFFADADAD"
+            "color": "0xFF8F8F8F"
          }
       },
       {
@@ -8173,7 +8173,7 @@
          "reference": "OutlineOnLightSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidTertiaryHover",
          "value": {
-            "color": "0xFFFFFFFF"
+            "color": "0xFFA3A3A3"
          }
       },
       {
@@ -8184,7 +8184,7 @@
          "reference": "OutlineOnLightSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidTertiaryActive",
          "value": {
-            "color": "0xFF737373"
+            "color": "0xFF5C5C5C"
          }
       },
       {
@@ -8195,7 +8195,7 @@
          "reference": "OutlineOnLightTransparentDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentDefaultHover",
          "value": {
-            "color": "0xFFFFFFFF"
+            "color": "0xFF969696"
          }
       },
       {
@@ -8206,7 +8206,7 @@
          "reference": "OutlineOnLightTransparentDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentDefaultActive",
          "value": {
-            "color": "0xFFC7C7C7"
+            "color": "0xFF080808"
          }
       },
       {
@@ -8217,7 +8217,7 @@
          "reference": "OutlineOnLightTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentPrimaryHover",
          "value": {
-            "color": "0x3D080808"
+            "color": "0x52080808"
          }
       },
       {
@@ -8228,7 +8228,7 @@
          "reference": "OutlineOnLightTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentPrimaryActive",
          "value": {
-            "color": "0x0F080808"
+            "color": "0x38080808"
          }
       },
       {
@@ -8239,7 +8239,7 @@
          "reference": "OutlineOnLightTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentSecondaryHover",
          "value": {
-            "color": "0x66080808"
+            "color": "0x2B080808"
          }
       },
       {
@@ -8250,7 +8250,7 @@
          "reference": "OutlineOnLightTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentSecondaryActive",
          "value": {
-            "color": "0x38080808"
+            "color": "0x72080808"
          }
       },
       {
@@ -8261,7 +8261,7 @@
          "reference": "OutlineOnLightTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentTertiaryHover",
          "value": {
-            "color": "0xAD080808"
+            "color": "0x47080808"
          }
       },
       {
@@ -8272,7 +8272,7 @@
          "reference": "OutlineOnLightTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentTertiaryActive",
          "value": {
-            "color": "0x80080808"
+            "color": "0xFF080808"
          }
       },
       {
@@ -8305,7 +8305,7 @@
          "reference": "OutlineOnLightAccentHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightAccentHover",
          "value": {
-            "color": "0xFF13AA2C"
+            "color": "0xFF15BC31"
          }
       },
       {
@@ -8316,7 +8316,7 @@
          "reference": "OutlineOnLightAccentActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightAccentActive",
          "value": {
-            "color": "0xFF0D731E"
+            "color": "0xFF0C6A1B"
          }
       },
       {
@@ -8327,7 +8327,7 @@
          "reference": "OutlineOnLightAccentMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightAccentMinorHover",
          "value": {
-            "color": "0xFF3EDA5B"
+            "color": "0xFF7AE68E"
          }
       },
       {
@@ -8349,7 +8349,7 @@
          "reference": "OutlineOnLightTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentAccentHover",
          "value": {
-            "color": "0xFF108E25"
+            "color": "0x1F108E25"
          }
       },
       {
@@ -8360,7 +8360,7 @@
          "reference": "OutlineOnLightTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentAccentActive",
          "value": {
-            "color": "0x3D108E25"
+            "color": "0x52108E25"
          }
       },
       {
@@ -8437,7 +8437,7 @@
          "reference": "OutlineOnLightPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightPositiveHover",
          "value": {
-            "color": "0xFF13AA2C"
+            "color": "0xFF15BC31"
          }
       },
       {
@@ -8448,7 +8448,7 @@
          "reference": "OutlineOnLightPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightPositiveActive",
          "value": {
-            "color": "0xFF0D731E"
+            "color": "0xFF0C6A1B"
          }
       },
       {
@@ -8459,7 +8459,7 @@
          "reference": "OutlineOnLightWarningHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightWarningHover",
          "value": {
-            "color": "0xFFFD650D"
+            "color": "0xFFFD9253"
          }
       },
       {
@@ -8481,7 +8481,7 @@
          "reference": "OutlineOnLightNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightNegativeHover",
          "value": {
-            "color": "0xFFF5384B"
+            "color": "0xFFF87C89"
          }
       },
       {
@@ -8503,7 +8503,7 @@
          "reference": "OutlineOnLightInfoHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightInfoHover",
          "value": {
-            "color": "0xFF34A7F4"
+            "color": "0xFF47B0F5"
          }
       },
       {
@@ -8525,7 +8525,7 @@
          "reference": "OutlineOnLightPositiveMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightPositiveMinorHover",
          "value": {
-            "color": "0xFF3EDA5B"
+            "color": "0xFF7AE68E"
          }
       },
       {
@@ -8547,7 +8547,7 @@
          "reference": "OutlineOnLightWarningMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightWarningMinorHover",
          "value": {
-            "color": "0xFFFDB086"
+            "color": "0xFFFDB790"
          }
       },
       {
@@ -8558,7 +8558,7 @@
          "reference": "OutlineOnLightWarningMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightWarningMinorActive",
          "value": {
-            "color": "0xFFFC884A"
+            "color": "0xFFFC8240"
          }
       },
       {
@@ -8569,7 +8569,7 @@
          "reference": "OutlineOnLightNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightNegativeMinorHover",
          "value": {
-            "color": "0xFFFFADB6"
+            "color": "0xFFFFB8BF"
          }
       },
       {
@@ -8580,7 +8580,7 @@
          "reference": "OutlineOnLightNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightNegativeMinorActive",
          "value": {
-            "color": "0xFFFF707E"
+            "color": "0xFFFF6675"
          }
       },
       {
@@ -8602,7 +8602,7 @@
          "reference": "OutlineOnLightInfoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightInfoMinorActive",
          "value": {
-            "color": "0xFF33ADFF"
+            "color": "0xFF29A9FF"
          }
       },
       {
@@ -8613,7 +8613,7 @@
          "reference": "OutlineOnLightTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentPositiveHover",
          "value": {
-            "color": "0xFF108E25"
+            "color": "0x1F108E25"
          }
       },
       {
@@ -8624,7 +8624,7 @@
          "reference": "OutlineOnLightTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentPositiveActive",
          "value": {
-            "color": "0x3D108E25"
+            "color": "0x52108E25"
          }
       },
       {
@@ -8635,7 +8635,7 @@
          "reference": "OutlineOnLightTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentWarningHover",
          "value": {
-            "color": "0xFFE85702"
+            "color": "0x1FE85702"
          }
       },
       {
@@ -8646,7 +8646,7 @@
          "reference": "OutlineOnLightTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentWarningActive",
          "value": {
-            "color": "0x3DE85702"
+            "color": "0x52E85702"
          }
       },
       {
@@ -8657,7 +8657,7 @@
          "reference": "OutlineOnLightTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentNegativeHover",
          "value": {
-            "color": "0xFFF31B31"
+            "color": "0x1FF31B31"
          }
       },
       {
@@ -8668,7 +8668,7 @@
          "reference": "OutlineOnLightTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentNegativeActive",
          "value": {
-            "color": "0x3DF31B31"
+            "color": "0x52F31B31"
          }
       },
       {
@@ -8679,7 +8679,7 @@
          "reference": "OutlineOnLightTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentInfoHover",
          "value": {
-            "color": "0xFF0B7ECB"
+            "color": "0x1F0B7ECB"
          }
       },
       {
@@ -8690,7 +8690,7 @@
          "reference": "OutlineOnLightTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentInfoActive",
          "value": {
-            "color": "0x3D0B7ECB"
+            "color": "0x520B7ECB"
          }
       },
       {
@@ -8965,7 +8965,7 @@
          "reference": "OutlineOnLightSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidDefaultHover",
          "value": {
-            "color": "0xFFFFFFFF"
+            "color": "0xFF969696"
          }
       },
       {
@@ -8976,7 +8976,7 @@
          "reference": "OutlineOnLightSolidDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidDefaultActive",
          "value": {
-            "color": "0xFFC7C7C7"
+            "color": "0xFF080808"
          }
       },
       {
@@ -9009,7 +9009,7 @@
          "reference": "OutlineInverseSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidSecondaryHover",
          "value": {
-            "color": "0xFFBDBDBD"
+            "color": "0xFFDBDBDB"
          }
       },
       {
@@ -9020,7 +9020,7 @@
          "reference": "OutlineInverseSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidSecondaryActive",
          "value": {
-            "color": "0xFFADADAD"
+            "color": "0xFF8F8F8F"
          }
       },
       {
@@ -9031,7 +9031,7 @@
          "reference": "OutlineInverseSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidTertiaryHover",
          "value": {
-            "color": "0xFFFFFFFF"
+            "color": "0xFFA3A3A3"
          }
       },
       {
@@ -9042,7 +9042,7 @@
          "reference": "OutlineInverseSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidTertiaryActive",
          "value": {
-            "color": "0xFF737373"
+            "color": "0xFF5C5C5C"
          }
       },
       {
@@ -9086,7 +9086,7 @@
          "reference": "OutlineInverseTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentPrimaryHover",
          "value": {
-            "color": "0x3D080808"
+            "color": "0x52080808"
          }
       },
       {
@@ -9097,7 +9097,7 @@
          "reference": "OutlineInverseTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentPrimaryActive",
          "value": {
-            "color": "0x0F080808"
+            "color": "0x38080808"
          }
       },
       {
@@ -9108,7 +9108,7 @@
          "reference": "OutlineInverseTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentSecondaryHover",
          "value": {
-            "color": "0x66080808"
+            "color": "0x2B080808"
          }
       },
       {
@@ -9119,7 +9119,7 @@
          "reference": "OutlineInverseTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentSecondaryActive",
          "value": {
-            "color": "0x38080808"
+            "color": "0x72080808"
          }
       },
       {
@@ -9130,7 +9130,7 @@
          "reference": "OutlineInverseTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentTertiaryHover",
          "value": {
-            "color": "0xAD080808"
+            "color": "0x47080808"
          }
       },
       {
@@ -9141,7 +9141,7 @@
          "reference": "OutlineInverseTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentTertiaryActive",
          "value": {
-            "color": "0x80080808"
+            "color": "0xFF080808"
          }
       },
       {
@@ -9174,7 +9174,7 @@
          "reference": "OutlineInverseAccentHover",
          "themeReference": "SddsServTheme.colors.outlineInverseAccentHover",
          "value": {
-            "color": "0xFF13AA2C"
+            "color": "0xFF15BC31"
          }
       },
       {
@@ -9185,7 +9185,7 @@
          "reference": "OutlineInverseAccentActive",
          "themeReference": "SddsServTheme.colors.outlineInverseAccentActive",
          "value": {
-            "color": "0xFF0D731E"
+            "color": "0xFF0C6A1B"
          }
       },
       {
@@ -9196,7 +9196,7 @@
          "reference": "OutlineInverseAccentMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInverseAccentMinorHover",
          "value": {
-            "color": "0xFF3EDA5B"
+            "color": "0xFF7AE68E"
          }
       },
       {
@@ -9218,7 +9218,7 @@
          "reference": "OutlineInverseTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentAccentHover",
          "value": {
-            "color": "0xFF108E25"
+            "color": "0x1F108E25"
          }
       },
       {
@@ -9229,7 +9229,7 @@
          "reference": "OutlineInverseTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentAccentActive",
          "value": {
-            "color": "0x3D108E25"
+            "color": "0x52108E25"
          }
       },
       {
@@ -9306,7 +9306,7 @@
          "reference": "OutlineInversePositiveHover",
          "themeReference": "SddsServTheme.colors.outlineInversePositiveHover",
          "value": {
-            "color": "0xFF13AA2C"
+            "color": "0xFF15BC31"
          }
       },
       {
@@ -9317,7 +9317,7 @@
          "reference": "OutlineInversePositiveActive",
          "themeReference": "SddsServTheme.colors.outlineInversePositiveActive",
          "value": {
-            "color": "0xFF0D731E"
+            "color": "0xFF0C6A1B"
          }
       },
       {
@@ -9328,7 +9328,7 @@
          "reference": "OutlineInverseWarningHover",
          "themeReference": "SddsServTheme.colors.outlineInverseWarningHover",
          "value": {
-            "color": "0xFFFD650D"
+            "color": "0xFFFD9253"
          }
       },
       {
@@ -9350,7 +9350,7 @@
          "reference": "OutlineInverseNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineInverseNegativeHover",
          "value": {
-            "color": "0xFFF5384B"
+            "color": "0xFFF87C89"
          }
       },
       {
@@ -9372,7 +9372,7 @@
          "reference": "OutlineInverseInfoHover",
          "themeReference": "SddsServTheme.colors.outlineInverseInfoHover",
          "value": {
-            "color": "0xFF34A7F4"
+            "color": "0xFF47B0F5"
          }
       },
       {
@@ -9394,7 +9394,7 @@
          "reference": "OutlineInversePositiveMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInversePositiveMinorHover",
          "value": {
-            "color": "0xFF3EDA5B"
+            "color": "0xFF7AE68E"
          }
       },
       {
@@ -9416,7 +9416,7 @@
          "reference": "OutlineInverseWarningMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInverseWarningMinorHover",
          "value": {
-            "color": "0xFFFDB086"
+            "color": "0xFFFDB790"
          }
       },
       {
@@ -9427,7 +9427,7 @@
          "reference": "OutlineInverseWarningMinorActive",
          "themeReference": "SddsServTheme.colors.outlineInverseWarningMinorActive",
          "value": {
-            "color": "0xFFFC884A"
+            "color": "0xFFFC8240"
          }
       },
       {
@@ -9438,7 +9438,7 @@
          "reference": "OutlineInverseNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInverseNegativeMinorHover",
          "value": {
-            "color": "0xFFFFADB6"
+            "color": "0xFFFFB8BF"
          }
       },
       {
@@ -9449,7 +9449,7 @@
          "reference": "OutlineInverseNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.outlineInverseNegativeMinorActive",
          "value": {
-            "color": "0xFFFF707E"
+            "color": "0xFFFF6675"
          }
       },
       {
@@ -9471,7 +9471,7 @@
          "reference": "OutlineInverseInfoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineInverseInfoMinorActive",
          "value": {
-            "color": "0xFF33ADFF"
+            "color": "0xFF29A9FF"
          }
       },
       {
@@ -9482,7 +9482,7 @@
          "reference": "OutlineInverseTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentPositiveHover",
          "value": {
-            "color": "0xFF108E25"
+            "color": "0x1F108E25"
          }
       },
       {
@@ -9493,7 +9493,7 @@
          "reference": "OutlineInverseTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentPositiveActive",
          "value": {
-            "color": "0x3D108E25"
+            "color": "0x52108E25"
          }
       },
       {
@@ -9504,7 +9504,7 @@
          "reference": "OutlineInverseTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentWarningHover",
          "value": {
-            "color": "0xFFE85702"
+            "color": "0x1FE85702"
          }
       },
       {
@@ -9515,7 +9515,7 @@
          "reference": "OutlineInverseTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentWarningActive",
          "value": {
-            "color": "0x3DE85702"
+            "color": "0x52E85702"
          }
       },
       {
@@ -9526,7 +9526,7 @@
          "reference": "OutlineInverseTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentNegativeHover",
          "value": {
-            "color": "0xFFF31B31"
+            "color": "0x1FF31B31"
          }
       },
       {
@@ -9537,7 +9537,7 @@
          "reference": "OutlineInverseTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentNegativeActive",
          "value": {
-            "color": "0x3DF31B31"
+            "color": "0x52F31B31"
          }
       },
       {
@@ -9548,7 +9548,7 @@
          "reference": "OutlineInverseTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentInfoHover",
          "value": {
-            "color": "0xFF0B7ECB"
+            "color": "0x1F0B7ECB"
          }
       },
       {
@@ -9559,7 +9559,7 @@
          "reference": "OutlineInverseTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentInfoActive",
          "value": {
-            "color": "0x3D0B7ECB"
+            "color": "0x520B7ECB"
          }
       },
       {
@@ -9812,7 +9812,7 @@
          "reference": "OutlineInverseSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidDefaultHover",
          "value": {
-            "color": "0xFFFFFFFF"
+            "color": "0xFF969696"
          }
       },
       {
@@ -9823,7 +9823,7 @@
          "reference": "OutlineInverseSolidDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidDefaultActive",
          "value": {
-            "color": "0xFFC7C7C7"
+            "color": "0xFF080808"
          }
       },
       {
@@ -10054,7 +10054,7 @@
          "reference": "DataOnLightYellowHover",
          "themeReference": "SddsServTheme.colors.dataOnLightYellowHover",
          "value": {
-            "color": "0xFFF4B22F"
+            "color": "0xFFF5B638"
          }
       },
       {
@@ -10065,7 +10065,7 @@
          "reference": "DataOnLightYellowActive",
          "themeReference": "SddsServTheme.colors.dataOnLightYellowActive",
          "value": {
-            "color": "0xFFEDA20C"
+            "color": "0xFFE49C0C"
          }
       },
       {
@@ -10087,7 +10087,7 @@
          "reference": "DataOnLightYellowMinorHover",
          "themeReference": "SddsServTheme.colors.dataOnLightYellowMinorHover",
          "value": {
-            "color": "0xFFFFDA8F"
+            "color": "0xFFFFCF70"
          }
       },
       {
@@ -10098,7 +10098,7 @@
          "reference": "DataOnLightYellowMinorActive",
          "themeReference": "SddsServTheme.colors.dataOnLightYellowMinorActive",
          "value": {
-            "color": "0xFFFFCF70"
+            "color": "0xFFFFCC66"
          }
       },
       {
@@ -10120,7 +10120,7 @@
          "reference": "DataOnLightYellowTransparentHover",
          "themeReference": "SddsServTheme.colors.dataOnLightYellowTransparentHover",
          "value": {
-            "color": "0xADF3A812"
+            "color": "0x9EF3A812"
          }
       },
       {
@@ -10131,7 +10131,7 @@
          "reference": "DataOnLightYellowTransparentActive",
          "themeReference": "SddsServTheme.colors.dataOnLightYellowTransparentActive",
          "value": {
-            "color": "0x80F3A812"
+            "color": "0xA3F3A812"
          }
       },
       {
@@ -10153,7 +10153,7 @@
          "reference": "DataInverseYellowHover",
          "themeReference": "SddsServTheme.colors.dataInverseYellowHover",
          "value": {
-            "color": "0xFFF4B22F"
+            "color": "0xFFF5B638"
          }
       },
       {
@@ -10164,7 +10164,7 @@
          "reference": "DataInverseYellowActive",
          "themeReference": "SddsServTheme.colors.dataInverseYellowActive",
          "value": {
-            "color": "0xFFEDA20C"
+            "color": "0xFFE49C0C"
          }
       },
       {
@@ -10186,7 +10186,7 @@
          "reference": "DataInverseYellowMinorHover",
          "themeReference": "SddsServTheme.colors.dataInverseYellowMinorHover",
          "value": {
-            "color": "0xFFFFDA8F"
+            "color": "0xFFFFCF70"
          }
       },
       {
@@ -10197,7 +10197,7 @@
          "reference": "DataInverseYellowMinorActive",
          "themeReference": "SddsServTheme.colors.dataInverseYellowMinorActive",
          "value": {
-            "color": "0xFFFFCF70"
+            "color": "0xFFFFCC66"
          }
       },
       {
@@ -10219,7 +10219,7 @@
          "reference": "DataInverseYellowTransparentHover",
          "themeReference": "SddsServTheme.colors.dataInverseYellowTransparentHover",
          "value": {
-            "color": "0xADF3A812"
+            "color": "0x9EF3A812"
          }
       },
       {
@@ -10230,7 +10230,7 @@
          "reference": "DataInverseYellowTransparentActive",
          "themeReference": "SddsServTheme.colors.dataInverseYellowTransparentActive",
          "value": {
-            "color": "0x80F3A812"
+            "color": "0xA3F3A812"
          }
       },
       {
@@ -12397,7 +12397,7 @@
          "reference": "SurfaceDefaultSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultSolidPrimaryHover",
          "value": {
-            "color": "0xFFFAFAFA"
+            "color": "0xFFF2F2F2"
          }
       },
       {
@@ -12441,7 +12441,7 @@
          "reference": "SurfaceDefaultSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultSolidSecondaryHover",
          "value": {
-            "color": "0xFFF7F7F7"
+            "color": "0xFFE8E8E8"
          }
       },
       {
@@ -12452,7 +12452,7 @@
          "reference": "SurfaceDefaultSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultSolidSecondaryActive",
          "value": {
-            "color": "0xFFE8E8E8"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -12474,7 +12474,7 @@
          "reference": "SurfaceDefaultSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultSolidTertiaryHover",
          "value": {
-            "color": "0xFFEDEDED"
+            "color": "0xFFD9D9D9"
          }
       },
       {
@@ -12584,7 +12584,7 @@
          "reference": "SurfaceDefaultTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentPrimaryHover",
          "value": {
-            "color": "0x03080808"
+            "color": "0x0A080808"
          }
       },
       {
@@ -12606,7 +12606,7 @@
          "reference": "SurfaceDefaultTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover",
          "value": {
-            "color": "0x05080808"
+            "color": "0x14080808"
          }
       },
       {
@@ -12639,7 +12639,7 @@
          "reference": "SurfaceDefaultTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentTertiaryHover",
          "value": {
-            "color": "0x0A080808"
+            "color": "0x2E080808"
          }
       },
       {
@@ -12650,7 +12650,7 @@
          "reference": "SurfaceDefaultTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentTertiaryActive",
          "value": {
-            "color": "0x29080808"
+            "color": "0x33080808"
          }
       },
       {
@@ -12672,7 +12672,7 @@
          "reference": "SurfaceDefaultTransparentDeepHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentDeepHover",
          "value": {
-            "color": "0x8F080808"
+            "color": "0xB3080808"
          }
       },
       {
@@ -12683,7 +12683,7 @@
          "reference": "SurfaceDefaultTransparentDeepActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentDeepActive",
          "value": {
-            "color": "0xAD080808"
+            "color": "0xB8080808"
          }
       },
       {
@@ -12815,7 +12815,7 @@
          "reference": "SurfaceDefaultAccentMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultAccentMinorHover",
          "value": {
-            "color": "0xFFB1FBBF"
+            "color": "0xFF94F9A7"
          }
       },
       {
@@ -12837,7 +12837,7 @@
          "reference": "SurfaceDefaultTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentAccentHover",
          "value": {
-            "color": "0x0A108E25"
+            "color": "0x2E108E25"
          }
       },
       {
@@ -12848,7 +12848,7 @@
          "reference": "SurfaceDefaultTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentAccentActive",
          "value": {
-            "color": "0x29108E25"
+            "color": "0x33108E25"
          }
       },
       {
@@ -13057,7 +13057,7 @@
          "reference": "SurfaceDefaultInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultInfoHover",
          "value": {
-            "color": "0xFF1798EE"
+            "color": "0xFF209CEE"
          }
       },
       {
@@ -13079,7 +13079,7 @@
          "reference": "SurfaceDefaultPositiveMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultPositiveMinorHover",
          "value": {
-            "color": "0xFFB1FBBF"
+            "color": "0xFF94F9A7"
          }
       },
       {
@@ -13101,7 +13101,7 @@
          "reference": "SurfaceDefaultWarningMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultWarningMinorHover",
          "value": {
-            "color": "0xFFFEEFE6"
+            "color": "0xFFFEDCC8"
          }
       },
       {
@@ -13112,7 +13112,7 @@
          "reference": "SurfaceDefaultWarningMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultWarningMinorActive",
          "value": {
-            "color": "0xFFFEDCC8"
+            "color": "0xFFFED9C3"
          }
       },
       {
@@ -13123,7 +13123,7 @@
          "reference": "SurfaceDefaultNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultNegativeMinorHover",
          "value": {
-            "color": "0xFFFFF5F6"
+            "color": "0xFFFFD6DA"
          }
       },
       {
@@ -13134,7 +13134,7 @@
          "reference": "SurfaceDefaultNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultNegativeMinorActive",
          "value": {
-            "color": "0xFFFFD6DA"
+            "color": "0xFFFFD1D6"
          }
       },
       {
@@ -13145,7 +13145,7 @@
          "reference": "SurfaceDefaultInfoMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultInfoMinorHover",
          "value": {
-            "color": "0xFFE5F5FF"
+            "color": "0xFFC7E9FF"
          }
       },
       {
@@ -13156,7 +13156,7 @@
          "reference": "SurfaceDefaultInfoMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultInfoMinorActive",
          "value": {
-            "color": "0xFFC7E9FF"
+            "color": "0xFFC2E7FF"
          }
       },
       {
@@ -13167,7 +13167,7 @@
          "reference": "SurfaceDefaultTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentPositiveHover",
          "value": {
-            "color": "0x0A1A9E32"
+            "color": "0x2E1A9E32"
          }
       },
       {
@@ -13178,7 +13178,7 @@
          "reference": "SurfaceDefaultTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentPositiveActive",
          "value": {
-            "color": "0x291A9E32"
+            "color": "0x331A9E32"
          }
       },
       {
@@ -13189,7 +13189,7 @@
          "reference": "SurfaceDefaultTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentWarningHover",
          "value": {
-            "color": "0x0AFA5F05"
+            "color": "0x2EFA5F05"
          }
       },
       {
@@ -13200,7 +13200,7 @@
          "reference": "SurfaceDefaultTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentWarningActive",
          "value": {
-            "color": "0x29FA5F05"
+            "color": "0x33FA5F05"
          }
       },
       {
@@ -13211,7 +13211,7 @@
          "reference": "SurfaceDefaultTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentNegativeHover",
          "value": {
-            "color": "0x0AFF293E"
+            "color": "0x2EFF293E"
          }
       },
       {
@@ -13222,7 +13222,7 @@
          "reference": "SurfaceDefaultTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentNegativeActive",
          "value": {
-            "color": "0x29FF293E"
+            "color": "0x33FF293E"
          }
       },
       {
@@ -13233,7 +13233,7 @@
          "reference": "SurfaceDefaultTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentInfoHover",
          "value": {
-            "color": "0x0A118CDF"
+            "color": "0x2E118CDF"
          }
       },
       {
@@ -13244,7 +13244,7 @@
          "reference": "SurfaceDefaultTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceDefaultTransparentInfoActive",
          "value": {
-            "color": "0x29118CDF"
+            "color": "0x33118CDF"
          }
       },
       {
@@ -13387,7 +13387,7 @@
          "reference": "SurfaceOnDarkSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkSolidPrimaryHover",
          "value": {
-            "color": "0xFF363636"
+            "color": "0xFF1C1C1C"
          }
       },
       {
@@ -13398,7 +13398,7 @@
          "reference": "SurfaceOnDarkSolidPrimaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkSolidPrimaryActive",
          "value": {
-            "color": "0xFF0D0D0D"
+            "color": "0xFF121212"
          }
       },
       {
@@ -13431,7 +13431,7 @@
          "reference": "SurfaceOnDarkSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkSolidSecondaryHover",
          "value": {
-            "color": "0xFF3B3B3B"
+            "color": "0xFF303030"
          }
       },
       {
@@ -13442,7 +13442,7 @@
          "reference": "SurfaceOnDarkSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkSolidSecondaryActive",
          "value": {
-            "color": "0xFF1C1C1C"
+            "color": "0xFF212121"
          }
       },
       {
@@ -13464,7 +13464,7 @@
          "reference": "SurfaceOnDarkSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkSolidTertiaryHover",
          "value": {
-            "color": "0xFF4A4A4A"
+            "color": "0xFF404040"
          }
       },
       {
@@ -13475,7 +13475,7 @@
          "reference": "SurfaceOnDarkSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkSolidTertiaryActive",
          "value": {
-            "color": "0xFF2B2B2B"
+            "color": "0xFF303030"
          }
       },
       {
@@ -13497,7 +13497,7 @@
          "reference": "SurfaceOnDarkSolidCardHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkSolidCardHover",
          "value": {
-            "color": "0xFF363636"
+            "color": "0xFF1C1C1C"
          }
       },
       {
@@ -13508,7 +13508,7 @@
          "reference": "SurfaceOnDarkSolidCardActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkSolidCardActive",
          "value": {
-            "color": "0xFF0D0D0D"
+            "color": "0xFF121212"
          }
       },
       {
@@ -13574,7 +13574,7 @@
          "reference": "SurfaceOnDarkTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentPrimaryHover",
          "value": {
-            "color": "0x05FFFFFF"
+            "color": "0x1FFFFFFF"
          }
       },
       {
@@ -13585,7 +13585,7 @@
          "reference": "SurfaceOnDarkTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentPrimaryActive",
          "value": {
-            "color": "0x1AFFFFFF"
+            "color": "0x0AFFFFFF"
          }
       },
       {
@@ -13607,7 +13607,7 @@
          "reference": "SurfaceOnDarkTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentSecondaryHover",
          "value": {
-            "color": "0x0AFFFFFF"
+            "color": "0x3DFFFFFF"
          }
       },
       {
@@ -13618,7 +13618,7 @@
          "reference": "SurfaceOnDarkTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentSecondaryActive",
          "value": {
-            "color": "0x29FFFFFF"
+            "color": "0x0FFFFFFF"
          }
       },
       {
@@ -13640,7 +13640,7 @@
          "reference": "SurfaceOnDarkTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentTertiaryHover",
          "value": {
-            "color": "0x1FFFFFFF"
+            "color": "0x52FFFFFF"
          }
       },
       {
@@ -13651,7 +13651,7 @@
          "reference": "SurfaceOnDarkTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentTertiaryActive",
          "value": {
-            "color": "0x3DFFFFFF"
+            "color": "0x24FFFFFF"
          }
       },
       {
@@ -13673,7 +13673,7 @@
          "reference": "SurfaceOnDarkTransparentDeepHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentDeepHover",
          "value": {
-            "color": "0x8FFFFFFF"
+            "color": "0xC2FFFFFF"
          }
       },
       {
@@ -13684,7 +13684,7 @@
          "reference": "SurfaceOnDarkTransparentDeepActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentDeepActive",
          "value": {
-            "color": "0xADFFFFFF"
+            "color": "0x94FFFFFF"
          }
       },
       {
@@ -13706,7 +13706,7 @@
          "reference": "SurfaceOnDarkTransparentCardHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentCardHover",
          "value": {
-            "color": "0x05FFFFFF"
+            "color": "0x1FFFFFFF"
          }
       },
       {
@@ -13717,7 +13717,7 @@
          "reference": "SurfaceOnDarkTransparentCardActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentCardActive",
          "value": {
-            "color": "0x1AFFFFFF"
+            "color": "0x0AFFFFFF"
          }
       },
       {
@@ -13783,7 +13783,7 @@
          "reference": "SurfaceOnDarkAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkAccentHover",
          "value": {
-            "color": "0xFF1EB83A"
+            "color": "0xFF1DAF37"
          }
       },
       {
@@ -13794,7 +13794,7 @@
          "reference": "SurfaceOnDarkAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkAccentActive",
          "value": {
-            "color": "0xFF178C2C"
+            "color": "0xFF18952F"
          }
       },
       {
@@ -13827,7 +13827,7 @@
          "reference": "SurfaceOnDarkAccentMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkAccentMinorActive",
          "value": {
-            "color": "0xFF061909"
+            "color": "0xFF08210C"
          }
       },
       {
@@ -13838,7 +13838,7 @@
          "reference": "SurfaceOnDarkTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentAccentHover",
          "value": {
-            "color": "0x1F1A9E32"
+            "color": "0x521A9E32"
          }
       },
       {
@@ -13849,7 +13849,7 @@
          "reference": "SurfaceOnDarkTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentAccentActive",
          "value": {
-            "color": "0x3D1A9E32"
+            "color": "0x241A9E32"
          }
       },
       {
@@ -13959,7 +13959,7 @@
          "reference": "SurfaceOnDarkPositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkPositiveHover",
          "value": {
-            "color": "0xFF1EB83A"
+            "color": "0xFF1DAF37"
          }
       },
       {
@@ -13970,7 +13970,7 @@
          "reference": "SurfaceOnDarkPositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkPositiveActive",
          "value": {
-            "color": "0xFF178C2C"
+            "color": "0xFF18952F"
          }
       },
       {
@@ -13992,7 +13992,7 @@
          "reference": "SurfaceOnDarkWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkWarningHover",
          "value": {
-            "color": "0xFFFB782D"
+            "color": "0xFFFB7223"
          }
       },
       {
@@ -14003,7 +14003,7 @@
          "reference": "SurfaceOnDarkWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkWarningActive",
          "value": {
-            "color": "0xFFE65705"
+            "color": "0xFFF05B05"
          }
       },
       {
@@ -14025,7 +14025,7 @@
          "reference": "SurfaceOnDarkNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkNegativeHover",
          "value": {
-            "color": "0xFFFF5263"
+            "color": "0xFFFF475A"
          }
       },
       {
@@ -14036,7 +14036,7 @@
          "reference": "SurfaceOnDarkNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkNegativeActive",
          "value": {
-            "color": "0xFFFF142C"
+            "color": "0xFFFF1F35"
          }
       },
       {
@@ -14069,7 +14069,7 @@
          "reference": "SurfaceOnDarkInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkInfoActive",
          "value": {
-            "color": "0xFF0F81CC"
+            "color": "0xFF1086D5"
          }
       },
       {
@@ -14091,7 +14091,7 @@
          "reference": "SurfaceOnDarkPositiveMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkPositiveMinorActive",
          "value": {
-            "color": "0xFF061909"
+            "color": "0xFF08210C"
          }
       },
       {
@@ -14102,7 +14102,7 @@
          "reference": "SurfaceOnDarkWarningMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkWarningMinorHover",
          "value": {
-            "color": "0xFF58290E"
+            "color": "0xFF4F250D"
          }
       },
       {
@@ -14113,7 +14113,7 @@
          "reference": "SurfaceOnDarkWarningMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkWarningMinorActive",
          "value": {
-            "color": "0xFF2C1507"
+            "color": "0xFF351909"
          }
       },
       {
@@ -14124,7 +14124,7 @@
          "reference": "SurfaceOnDarkNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkNegativeMinorHover",
          "value": {
-            "color": "0xFF64121A"
+            "color": "0xFF5B1018"
          }
       },
       {
@@ -14135,7 +14135,7 @@
          "reference": "SurfaceOnDarkNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkNegativeMinorActive",
          "value": {
-            "color": "0xFF380A0F"
+            "color": "0xFF410B11"
          }
       },
       {
@@ -14157,7 +14157,7 @@
          "reference": "SurfaceOnDarkInfoMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkInfoMinorActive",
          "value": {
-            "color": "0xFF091D2A"
+            "color": "0xFF0A2333"
          }
       },
       {
@@ -14168,7 +14168,7 @@
          "reference": "SurfaceOnDarkTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentPositiveHover",
          "value": {
-            "color": "0x1F1A9E32"
+            "color": "0x521A9E32"
          }
       },
       {
@@ -14179,7 +14179,7 @@
          "reference": "SurfaceOnDarkTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentPositiveActive",
          "value": {
-            "color": "0x3D1A9E32"
+            "color": "0x241A9E32"
          }
       },
       {
@@ -14190,7 +14190,7 @@
          "reference": "SurfaceOnDarkTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentWarningHover",
          "value": {
-            "color": "0x1FFA5F05"
+            "color": "0x52FA5F05"
          }
       },
       {
@@ -14201,7 +14201,7 @@
          "reference": "SurfaceOnDarkTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentWarningActive",
          "value": {
-            "color": "0x3DFA5F05"
+            "color": "0x24FA5F05"
          }
       },
       {
@@ -14212,7 +14212,7 @@
          "reference": "SurfaceOnDarkTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentNegativeHover",
          "value": {
-            "color": "0x1FFF293E"
+            "color": "0x52FF293E"
          }
       },
       {
@@ -14223,7 +14223,7 @@
          "reference": "SurfaceOnDarkTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentNegativeActive",
          "value": {
-            "color": "0x3DFF293E"
+            "color": "0x24FF293E"
          }
       },
       {
@@ -14234,7 +14234,7 @@
          "reference": "SurfaceOnDarkTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentInfoHover",
          "value": {
-            "color": "0x1F118CDF"
+            "color": "0x52118CDF"
          }
       },
       {
@@ -14245,7 +14245,7 @@
          "reference": "SurfaceOnDarkTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceOnDarkTransparentInfoActive",
          "value": {
-            "color": "0x3D118CDF"
+            "color": "0x24118CDF"
          }
       },
       {
@@ -14377,7 +14377,7 @@
          "reference": "SurfaceOnLightSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidPrimaryHover",
          "value": {
-            "color": "0xFFFAFAFA"
+            "color": "0xFFF2F2F2"
          }
       },
       {
@@ -14421,7 +14421,7 @@
          "reference": "SurfaceOnLightSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidSecondaryHover",
          "value": {
-            "color": "0xFFF7F7F7"
+            "color": "0xFFE8E8E8"
          }
       },
       {
@@ -14432,7 +14432,7 @@
          "reference": "SurfaceOnLightSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidSecondaryActive",
          "value": {
-            "color": "0xFFE8E8E8"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -14454,7 +14454,7 @@
          "reference": "SurfaceOnLightSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightSolidTertiaryHover",
          "value": {
-            "color": "0xFFEDEDED"
+            "color": "0xFFD9D9D9"
          }
       },
       {
@@ -14564,7 +14564,7 @@
          "reference": "SurfaceOnLightTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentPrimaryHover",
          "value": {
-            "color": "0x03080808"
+            "color": "0x0A080808"
          }
       },
       {
@@ -14586,7 +14586,7 @@
          "reference": "SurfaceOnLightTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentSecondaryHover",
          "value": {
-            "color": "0x05080808"
+            "color": "0x14080808"
          }
       },
       {
@@ -14619,7 +14619,7 @@
          "reference": "SurfaceOnLightTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentTertiaryHover",
          "value": {
-            "color": "0x0A080808"
+            "color": "0x2E080808"
          }
       },
       {
@@ -14630,7 +14630,7 @@
          "reference": "SurfaceOnLightTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentTertiaryActive",
          "value": {
-            "color": "0x29080808"
+            "color": "0x33080808"
          }
       },
       {
@@ -14652,7 +14652,7 @@
          "reference": "SurfaceOnLightTransparentDeepHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentDeepHover",
          "value": {
-            "color": "0x8F080808"
+            "color": "0xB3080808"
          }
       },
       {
@@ -14663,7 +14663,7 @@
          "reference": "SurfaceOnLightTransparentDeepActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentDeepActive",
          "value": {
-            "color": "0xAD080808"
+            "color": "0xB8080808"
          }
       },
       {
@@ -14795,7 +14795,7 @@
          "reference": "SurfaceOnLightAccentMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightAccentMinorHover",
          "value": {
-            "color": "0xFFB1FBBF"
+            "color": "0xFF94F9A7"
          }
       },
       {
@@ -14817,7 +14817,7 @@
          "reference": "SurfaceOnLightTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentAccentHover",
          "value": {
-            "color": "0x0A1A9E32"
+            "color": "0x2E1A9E32"
          }
       },
       {
@@ -14828,7 +14828,7 @@
          "reference": "SurfaceOnLightTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentAccentActive",
          "value": {
-            "color": "0x291A9E32"
+            "color": "0x331A9E32"
          }
       },
       {
@@ -15037,7 +15037,7 @@
          "reference": "SurfaceOnLightInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightInfoHover",
          "value": {
-            "color": "0xFF1798EE"
+            "color": "0xFF209CEE"
          }
       },
       {
@@ -15059,7 +15059,7 @@
          "reference": "SurfaceOnLightPositiveMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightPositiveMinorHover",
          "value": {
-            "color": "0xFFB1FBBF"
+            "color": "0xFF94F9A7"
          }
       },
       {
@@ -15081,7 +15081,7 @@
          "reference": "SurfaceOnLightWarningMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightWarningMinorHover",
          "value": {
-            "color": "0xFFFEEFE6"
+            "color": "0xFFFEDCC8"
          }
       },
       {
@@ -15092,7 +15092,7 @@
          "reference": "SurfaceOnLightWarningMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightWarningMinorActive",
          "value": {
-            "color": "0xFFFEDCC8"
+            "color": "0xFFFED9C3"
          }
       },
       {
@@ -15103,7 +15103,7 @@
          "reference": "SurfaceOnLightNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightNegativeMinorHover",
          "value": {
-            "color": "0xFFFFF5F6"
+            "color": "0xFFFFD6DA"
          }
       },
       {
@@ -15114,7 +15114,7 @@
          "reference": "SurfaceOnLightNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightNegativeMinorActive",
          "value": {
-            "color": "0xFFFFD6DA"
+            "color": "0xFFFFD1D6"
          }
       },
       {
@@ -15125,7 +15125,7 @@
          "reference": "SurfaceOnLightInfoMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightInfoMinorHover",
          "value": {
-            "color": "0xFFE5F5FF"
+            "color": "0xFFC7E9FF"
          }
       },
       {
@@ -15136,7 +15136,7 @@
          "reference": "SurfaceOnLightInfoMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightInfoMinorActive",
          "value": {
-            "color": "0xFFC7E9FF"
+            "color": "0xFFC2E7FF"
          }
       },
       {
@@ -15147,7 +15147,7 @@
          "reference": "SurfaceOnLightTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentPositiveHover",
          "value": {
-            "color": "0x0A1A9E32"
+            "color": "0x2E1A9E32"
          }
       },
       {
@@ -15158,7 +15158,7 @@
          "reference": "SurfaceOnLightTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentPositiveActive",
          "value": {
-            "color": "0x291A9E32"
+            "color": "0x331A9E32"
          }
       },
       {
@@ -15169,7 +15169,7 @@
          "reference": "SurfaceOnLightTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentWarningHover",
          "value": {
-            "color": "0x0AFA5F05"
+            "color": "0x2EFA5F05"
          }
       },
       {
@@ -15180,7 +15180,7 @@
          "reference": "SurfaceOnLightTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentWarningActive",
          "value": {
-            "color": "0x29FA5F05"
+            "color": "0x33FA5F05"
          }
       },
       {
@@ -15191,7 +15191,7 @@
          "reference": "SurfaceOnLightTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentNegativeHover",
          "value": {
-            "color": "0x0AFF293E"
+            "color": "0x2EFF293E"
          }
       },
       {
@@ -15202,7 +15202,7 @@
          "reference": "SurfaceOnLightTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentNegativeActive",
          "value": {
-            "color": "0x29FF293E"
+            "color": "0x33FF293E"
          }
       },
       {
@@ -15213,7 +15213,7 @@
          "reference": "SurfaceOnLightTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentInfoHover",
          "value": {
-            "color": "0x0A118CDF"
+            "color": "0x2E118CDF"
          }
       },
       {
@@ -15224,7 +15224,7 @@
          "reference": "SurfaceOnLightTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceOnLightTransparentInfoActive",
          "value": {
-            "color": "0x29118CDF"
+            "color": "0x33118CDF"
          }
       },
       {
@@ -15367,7 +15367,7 @@
          "reference": "SurfaceInverseSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidPrimaryHover",
          "value": {
-            "color": "0xFF363636"
+            "color": "0xFF1C1C1C"
          }
       },
       {
@@ -15378,7 +15378,7 @@
          "reference": "SurfaceInverseSolidPrimaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidPrimaryActive",
          "value": {
-            "color": "0xFF0D0D0D"
+            "color": "0xFF121212"
          }
       },
       {
@@ -15411,7 +15411,7 @@
          "reference": "SurfaceInverseSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidSecondaryHover",
          "value": {
-            "color": "0xFF3B3B3B"
+            "color": "0xFF303030"
          }
       },
       {
@@ -15422,7 +15422,7 @@
          "reference": "SurfaceInverseSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidSecondaryActive",
          "value": {
-            "color": "0xFF1C1C1C"
+            "color": "0xFF212121"
          }
       },
       {
@@ -15444,7 +15444,7 @@
          "reference": "SurfaceInverseSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidTertiaryHover",
          "value": {
-            "color": "0xFF4A4A4A"
+            "color": "0xFF404040"
          }
       },
       {
@@ -15455,7 +15455,7 @@
          "reference": "SurfaceInverseSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidTertiaryActive",
          "value": {
-            "color": "0xFF2B2B2B"
+            "color": "0xFF303030"
          }
       },
       {
@@ -15477,7 +15477,7 @@
          "reference": "SurfaceInverseSolidCardHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidCardHover",
          "value": {
-            "color": "0xFF363636"
+            "color": "0xFF1C1C1C"
          }
       },
       {
@@ -15488,7 +15488,7 @@
          "reference": "SurfaceInverseSolidCardActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseSolidCardActive",
          "value": {
-            "color": "0xFF0D0D0D"
+            "color": "0xFF121212"
          }
       },
       {
@@ -15554,7 +15554,7 @@
          "reference": "SurfaceInverseTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentPrimaryHover",
          "value": {
-            "color": "0x05FFFFFF"
+            "color": "0x1FFFFFFF"
          }
       },
       {
@@ -15565,7 +15565,7 @@
          "reference": "SurfaceInverseTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentPrimaryActive",
          "value": {
-            "color": "0x1AFFFFFF"
+            "color": "0x0AFFFFFF"
          }
       },
       {
@@ -15587,7 +15587,7 @@
          "reference": "SurfaceInverseTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentSecondaryHover",
          "value": {
-            "color": "0x0AFFFFFF"
+            "color": "0x3DFFFFFF"
          }
       },
       {
@@ -15598,7 +15598,7 @@
          "reference": "SurfaceInverseTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentSecondaryActive",
          "value": {
-            "color": "0x29FFFFFF"
+            "color": "0x0FFFFFFF"
          }
       },
       {
@@ -15620,7 +15620,7 @@
          "reference": "SurfaceInverseTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentTertiaryHover",
          "value": {
-            "color": "0x1FFFFFFF"
+            "color": "0x52FFFFFF"
          }
       },
       {
@@ -15631,7 +15631,7 @@
          "reference": "SurfaceInverseTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentTertiaryActive",
          "value": {
-            "color": "0x3DFFFFFF"
+            "color": "0x24FFFFFF"
          }
       },
       {
@@ -15653,7 +15653,7 @@
          "reference": "SurfaceInverseTransparentDeepHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentDeepHover",
          "value": {
-            "color": "0x8FFFFFFF"
+            "color": "0xC2FFFFFF"
          }
       },
       {
@@ -15664,7 +15664,7 @@
          "reference": "SurfaceInverseTransparentDeepActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentDeepActive",
          "value": {
-            "color": "0xADFFFFFF"
+            "color": "0x94FFFFFF"
          }
       },
       {
@@ -15686,7 +15686,7 @@
          "reference": "SurfaceInverseTransparentCardHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentCardHover",
          "value": {
-            "color": "0x05FFFFFF"
+            "color": "0x1FFFFFFF"
          }
       },
       {
@@ -15697,7 +15697,7 @@
          "reference": "SurfaceInverseTransparentCardActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentCardActive",
          "value": {
-            "color": "0x1AFFFFFF"
+            "color": "0x0AFFFFFF"
          }
       },
       {
@@ -15763,7 +15763,7 @@
          "reference": "SurfaceInverseAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseAccentHover",
          "value": {
-            "color": "0xFF1EB83A"
+            "color": "0xFF1DAF37"
          }
       },
       {
@@ -15774,7 +15774,7 @@
          "reference": "SurfaceInverseAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseAccentActive",
          "value": {
-            "color": "0xFF178C2C"
+            "color": "0xFF18952F"
          }
       },
       {
@@ -15807,7 +15807,7 @@
          "reference": "SurfaceInverseAccentMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseAccentMinorActive",
          "value": {
-            "color": "0xFF061909"
+            "color": "0xFF08210C"
          }
       },
       {
@@ -15818,7 +15818,7 @@
          "reference": "SurfaceInverseTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentAccentHover",
          "value": {
-            "color": "0x1F1A9E32"
+            "color": "0x521A9E32"
          }
       },
       {
@@ -15829,7 +15829,7 @@
          "reference": "SurfaceInverseTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentAccentActive",
          "value": {
-            "color": "0x3D1A9E32"
+            "color": "0x241A9E32"
          }
       },
       {
@@ -15939,7 +15939,7 @@
          "reference": "SurfaceInversePositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceInversePositiveHover",
          "value": {
-            "color": "0xFF1EB83A"
+            "color": "0xFF1DAF37"
          }
       },
       {
@@ -15950,7 +15950,7 @@
          "reference": "SurfaceInversePositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceInversePositiveActive",
          "value": {
-            "color": "0xFF178C2C"
+            "color": "0xFF18952F"
          }
       },
       {
@@ -15972,7 +15972,7 @@
          "reference": "SurfaceInverseWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseWarningHover",
          "value": {
-            "color": "0xFFFB782D"
+            "color": "0xFFFB7223"
          }
       },
       {
@@ -15983,7 +15983,7 @@
          "reference": "SurfaceInverseWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseWarningActive",
          "value": {
-            "color": "0xFFE65705"
+            "color": "0xFFF05B05"
          }
       },
       {
@@ -16005,7 +16005,7 @@
          "reference": "SurfaceInverseNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseNegativeHover",
          "value": {
-            "color": "0xFFFF5263"
+            "color": "0xFFFF475A"
          }
       },
       {
@@ -16016,7 +16016,7 @@
          "reference": "SurfaceInverseNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseNegativeActive",
          "value": {
-            "color": "0xFFFF142C"
+            "color": "0xFFFF1F35"
          }
       },
       {
@@ -16049,7 +16049,7 @@
          "reference": "SurfaceInverseInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseInfoActive",
          "value": {
-            "color": "0xFF0F81CC"
+            "color": "0xFF1086D5"
          }
       },
       {
@@ -16071,7 +16071,7 @@
          "reference": "SurfaceInversePositiveMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInversePositiveMinorActive",
          "value": {
-            "color": "0xFF061909"
+            "color": "0xFF08210C"
          }
       },
       {
@@ -16082,7 +16082,7 @@
          "reference": "SurfaceInverseWarningMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseWarningMinorHover",
          "value": {
-            "color": "0xFF58290E"
+            "color": "0xFF4F250D"
          }
       },
       {
@@ -16093,7 +16093,7 @@
          "reference": "SurfaceInverseWarningMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseWarningMinorActive",
          "value": {
-            "color": "0xFF2C1507"
+            "color": "0xFF351909"
          }
       },
       {
@@ -16104,7 +16104,7 @@
          "reference": "SurfaceInverseNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseNegativeMinorHover",
          "value": {
-            "color": "0xFF64121A"
+            "color": "0xFF5B1018"
          }
       },
       {
@@ -16115,7 +16115,7 @@
          "reference": "SurfaceInverseNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseNegativeMinorActive",
          "value": {
-            "color": "0xFF380A0F"
+            "color": "0xFF410B11"
          }
       },
       {
@@ -16137,7 +16137,7 @@
          "reference": "SurfaceInverseInfoMinorActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseInfoMinorActive",
          "value": {
-            "color": "0xFF091D2A"
+            "color": "0xFF0A2333"
          }
       },
       {
@@ -16148,7 +16148,7 @@
          "reference": "SurfaceInverseTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentPositiveHover",
          "value": {
-            "color": "0x1F1A9E32"
+            "color": "0x521A9E32"
          }
       },
       {
@@ -16159,7 +16159,7 @@
          "reference": "SurfaceInverseTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentPositiveActive",
          "value": {
-            "color": "0x3D1A9E32"
+            "color": "0x241A9E32"
          }
       },
       {
@@ -16170,7 +16170,7 @@
          "reference": "SurfaceInverseTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentWarningHover",
          "value": {
-            "color": "0x1FFA5F05"
+            "color": "0x52FA5F05"
          }
       },
       {
@@ -16181,7 +16181,7 @@
          "reference": "SurfaceInverseTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentWarningActive",
          "value": {
-            "color": "0x3DFA5F05"
+            "color": "0x24FA5F05"
          }
       },
       {
@@ -16192,7 +16192,7 @@
          "reference": "SurfaceInverseTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentNegativeHover",
          "value": {
-            "color": "0x1FFF293E"
+            "color": "0x52FF293E"
          }
       },
       {
@@ -16203,7 +16203,7 @@
          "reference": "SurfaceInverseTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentNegativeActive",
          "value": {
-            "color": "0x3DFF293E"
+            "color": "0x24FF293E"
          }
       },
       {
@@ -16214,7 +16214,7 @@
          "reference": "SurfaceInverseTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentInfoHover",
          "value": {
-            "color": "0x1F118CDF"
+            "color": "0x52118CDF"
          }
       },
       {
@@ -16225,7 +16225,7 @@
          "reference": "SurfaceInverseTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.surfaceInverseTransparentInfoActive",
          "value": {
-            "color": "0x3D118CDF"
+            "color": "0x24118CDF"
          }
       },
       {
@@ -16643,7 +16643,7 @@
          "reference": "OutlineDefaultSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidPrimaryHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFABABAB"
          }
       },
       {
@@ -16654,7 +16654,7 @@
          "reference": "OutlineDefaultSolidPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidPrimaryActive",
          "value": {
-            "color": "0xFFB3B3B3"
+            "color": "0xFFC4C4C4"
          }
       },
       {
@@ -16665,7 +16665,7 @@
          "reference": "OutlineDefaultSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidSecondaryHover",
          "value": {
-            "color": "0xFFC2C2C2"
+            "color": "0xFFDBDBDB"
          }
       },
       {
@@ -16676,7 +16676,7 @@
          "reference": "OutlineDefaultSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidSecondaryActive",
          "value": {
-            "color": "0xFFA8A8A8"
+            "color": "0xFF8F8F8F"
          }
       },
       {
@@ -16687,7 +16687,7 @@
          "reference": "OutlineDefaultSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidTertiaryHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFA3A3A3"
          }
       },
       {
@@ -16698,7 +16698,7 @@
          "reference": "OutlineDefaultSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidTertiaryActive",
          "value": {
-            "color": "0xFF595959"
+            "color": "0xFF5C5C5C"
          }
       },
       {
@@ -16709,7 +16709,7 @@
          "reference": "OutlineDefaultTransparentDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentDefaultHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFCCCCCC"
          }
       },
       {
@@ -16720,7 +16720,7 @@
          "reference": "OutlineDefaultTransparentDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentDefaultActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -16742,7 +16742,7 @@
          "reference": "OutlineDefaultTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentPrimaryHover",
          "value": {
-            "color": "0x0A080808"
+            "color": "0x52080808"
          }
       },
       {
@@ -16753,7 +16753,7 @@
          "reference": "OutlineDefaultTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentPrimaryActive",
          "value": {
-            "color": "0x29080808"
+            "color": "0x38080808"
          }
       },
       {
@@ -16764,7 +16764,7 @@
          "reference": "OutlineDefaultTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentSecondaryHover",
          "value": {
-            "color": "0x33080808"
+            "color": "0x2B080808"
          }
       },
       {
@@ -16775,7 +16775,7 @@
          "reference": "OutlineDefaultTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentSecondaryActive",
          "value": {
-            "color": "0x52080808"
+            "color": "0x72080808"
          }
       },
       {
@@ -16786,7 +16786,7 @@
          "reference": "OutlineDefaultTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentTertiaryHover",
          "value": {
-            "color": "0x7A080808"
+            "color": "0x47080808"
          }
       },
       {
@@ -16797,7 +16797,7 @@
          "reference": "OutlineDefaultTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentTertiaryActive",
          "value": {
-            "color": "0x99080808"
+            "color": "0xFF080808"
          }
       },
       {
@@ -16830,7 +16830,7 @@
          "reference": "OutlineDefaultAccentHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultAccentHover",
          "value": {
-            "color": "0xFF14B32E"
+            "color": "0xFF15BC31"
          }
       },
       {
@@ -16852,7 +16852,7 @@
          "reference": "OutlineDefaultAccentMinorHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultAccentMinorHover",
          "value": {
-            "color": "0xFF47DC62"
+            "color": "0xFF7AE68E"
          }
       },
       {
@@ -16863,7 +16863,7 @@
          "reference": "OutlineDefaultAccentMinorActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultAccentMinorActive",
          "value": {
-            "color": "0xFF21B03C"
+            "color": "0xFF23B83E"
          }
       },
       {
@@ -16874,7 +16874,7 @@
          "reference": "OutlineDefaultTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentAccentHover",
          "value": {
-            "color": "0xFF108E25"
+            "color": "0x1F108E25"
          }
       },
       {
@@ -16885,7 +16885,7 @@
          "reference": "OutlineDefaultTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentAccentActive",
          "value": {
-            "color": "0x3D108E25"
+            "color": "0x52108E25"
          }
       },
       {
@@ -16896,7 +16896,7 @@
          "reference": "OutlineDefaultPromoHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultPromoHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFCCCCCC"
          }
       },
       {
@@ -16907,7 +16907,7 @@
          "reference": "OutlineDefaultPromoActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultPromoActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -16929,7 +16929,7 @@
          "reference": "OutlineDefaultPromoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultPromoMinorHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFCCCCCC"
          }
       },
       {
@@ -16940,7 +16940,7 @@
          "reference": "OutlineDefaultPromoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultPromoMinorActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -16962,7 +16962,7 @@
          "reference": "OutlineDefaultPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultPositiveHover",
          "value": {
-            "color": "0xFF14B32E"
+            "color": "0xFF15BC31"
          }
       },
       {
@@ -16984,7 +16984,7 @@
          "reference": "OutlineDefaultWarningHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultWarningHover",
          "value": {
-            "color": "0xFFFD6B17"
+            "color": "0xFFFD9253"
          }
       },
       {
@@ -16995,7 +16995,7 @@
          "reference": "OutlineDefaultWarningActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultWarningActive",
          "value": {
-            "color": "0xFFC04802"
+            "color": "0xFFCA4B02"
          }
       },
       {
@@ -17006,7 +17006,7 @@
          "reference": "OutlineDefaultNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultNegativeHover",
          "value": {
-            "color": "0xFFF54254"
+            "color": "0xFFF87C89"
          }
       },
       {
@@ -17017,7 +17017,7 @@
          "reference": "OutlineDefaultNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultNegativeActive",
          "value": {
-            "color": "0xFFDA0B20"
+            "color": "0xFFE40C22"
          }
       },
       {
@@ -17028,7 +17028,7 @@
          "reference": "OutlineDefaultInfoHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultInfoHover",
          "value": {
-            "color": "0xFF0D96F2"
+            "color": "0xFF47B0F5"
          }
       },
       {
@@ -17039,7 +17039,7 @@
          "reference": "OutlineDefaultInfoActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultInfoActive",
          "value": {
-            "color": "0xFF0966A5"
+            "color": "0xFF096CAE"
          }
       },
       {
@@ -17050,7 +17050,7 @@
          "reference": "OutlineDefaultPositiveMinorHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultPositiveMinorHover",
          "value": {
-            "color": "0xFF47DC62"
+            "color": "0xFF7AE68E"
          }
       },
       {
@@ -17061,7 +17061,7 @@
          "reference": "OutlineDefaultPositiveMinorActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultPositiveMinorActive",
          "value": {
-            "color": "0xFF21B03C"
+            "color": "0xFF23B83E"
          }
       },
       {
@@ -17116,7 +17116,7 @@
          "reference": "OutlineDefaultInfoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultInfoMinorHover",
          "value": {
-            "color": "0xFF7ACAFF"
+            "color": "0xFFA3DAFF"
          }
       },
       {
@@ -17138,7 +17138,7 @@
          "reference": "OutlineDefaultTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentPositiveHover",
          "value": {
-            "color": "0xFF108E25"
+            "color": "0x1F108E25"
          }
       },
       {
@@ -17149,7 +17149,7 @@
          "reference": "OutlineDefaultTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentPositiveActive",
          "value": {
-            "color": "0x3D108E25"
+            "color": "0x52108E25"
          }
       },
       {
@@ -17160,7 +17160,7 @@
          "reference": "OutlineDefaultTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentWarningHover",
          "value": {
-            "color": "0xFFE85702"
+            "color": "0x1FE85702"
          }
       },
       {
@@ -17171,7 +17171,7 @@
          "reference": "OutlineDefaultTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentWarningActive",
          "value": {
-            "color": "0x3DE85702"
+            "color": "0x52E85702"
          }
       },
       {
@@ -17182,7 +17182,7 @@
          "reference": "OutlineDefaultTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentNegativeHover",
          "value": {
-            "color": "0xFFF31B31"
+            "color": "0x1FF31B31"
          }
       },
       {
@@ -17193,7 +17193,7 @@
          "reference": "OutlineDefaultTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentNegativeActive",
          "value": {
-            "color": "0x3DF31B31"
+            "color": "0x52F31B31"
          }
       },
       {
@@ -17204,7 +17204,7 @@
          "reference": "OutlineDefaultTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentInfoHover",
          "value": {
-            "color": "0xFF0B7ECB"
+            "color": "0x1F0B7ECB"
          }
       },
       {
@@ -17215,7 +17215,7 @@
          "reference": "OutlineDefaultTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultTransparentInfoActive",
          "value": {
-            "color": "0x3D0B7ECB"
+            "color": "0x520B7ECB"
          }
       },
       {
@@ -17479,7 +17479,7 @@
          "reference": "OutlineDefaultSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidDefaultHover",
          "value": {
-            "color": "0xFF595959"
+            "color": "0xFF969696"
          }
       },
       {
@@ -17490,7 +17490,7 @@
          "reference": "OutlineDefaultSolidDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineDefaultSolidDefaultActive",
          "value": {
-            "color": "0xFF303030"
+            "color": "0xFF080808"
          }
       },
       {
@@ -17501,7 +17501,7 @@
          "reference": "OutlineOnDarkSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidPrimaryHover",
          "value": {
-            "color": "0xFF787878"
+            "color": "0xFF545454"
          }
       },
       {
@@ -17512,7 +17512,7 @@
          "reference": "OutlineOnDarkSolidPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidPrimaryActive",
          "value": {
-            "color": "0xFF4F4F4F"
+            "color": "0xFF171717"
          }
       },
       {
@@ -17523,7 +17523,7 @@
          "reference": "OutlineOnDarkSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidSecondaryHover",
          "value": {
-            "color": "0xFF636363"
+            "color": "0xFFABABAB"
          }
       },
       {
@@ -17534,7 +17534,7 @@
          "reference": "OutlineOnDarkSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidSecondaryActive",
          "value": {
-            "color": "0xFF454545"
+            "color": "0xFF363636"
          }
       },
       {
@@ -17545,7 +17545,7 @@
          "reference": "OutlineOnDarkSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidTertiaryHover",
          "value": {
-            "color": "0xFF949494"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -17556,7 +17556,7 @@
          "reference": "OutlineOnDarkSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidTertiaryActive",
          "value": {
-            "color": "0xFF7A7A7A"
+            "color": "0xFF525252"
          }
       },
       {
@@ -17567,7 +17567,7 @@
          "reference": "OutlineOnDarkTransparentDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentDefaultHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFF858585"
          }
       },
       {
@@ -17578,7 +17578,7 @@
          "reference": "OutlineOnDarkTransparentDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentDefaultActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF666666"
          }
       },
       {
@@ -17600,7 +17600,7 @@
          "reference": "OutlineOnDarkTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentPrimaryHover",
          "value": {
-            "color": "0x0AFFFFFF"
+            "color": "0x4DFFFFFF"
          }
       },
       {
@@ -17611,7 +17611,7 @@
          "reference": "OutlineOnDarkTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentPrimaryActive",
          "value": {
-            "color": "0x29FFFFFF"
+            "color": "0x12FFFFFF"
          }
       },
       {
@@ -17622,7 +17622,7 @@
          "reference": "OutlineOnDarkTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentSecondaryHover",
          "value": {
-            "color": "0x33FFFFFF"
+            "color": "0xB3FFFFFF"
          }
       },
       {
@@ -17633,7 +17633,7 @@
          "reference": "OutlineOnDarkTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentSecondaryActive",
          "value": {
-            "color": "0x52FFFFFF"
+            "color": "0x2BFFFFFF"
          }
       },
       {
@@ -17644,7 +17644,7 @@
          "reference": "OutlineOnDarkTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentTertiaryHover",
          "value": {
-            "color": "0x7AFFFFFF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -17655,7 +17655,7 @@
          "reference": "OutlineOnDarkTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentTertiaryActive",
          "value": {
-            "color": "0x99FFFFFF"
+            "color": "0x47FFFFFF"
          }
       },
       {
@@ -17688,7 +17688,7 @@
          "reference": "OutlineOnDarkAccentHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkAccentHover",
          "value": {
-            "color": "0xFF2BD44A"
+            "color": "0xFF5EDE76"
          }
       },
       {
@@ -17699,7 +17699,7 @@
          "reference": "OutlineOnDarkAccentActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkAccentActive",
          "value": {
-            "color": "0xFF1D9032"
+            "color": "0xFF1F9835"
          }
       },
       {
@@ -17710,7 +17710,7 @@
          "reference": "OutlineOnDarkAccentMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkAccentMinorHover",
          "value": {
-            "color": "0xFF11A72C"
+            "color": "0xFF0F9527"
          }
       },
       {
@@ -17721,7 +17721,7 @@
          "reference": "OutlineOnDarkAccentMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkAccentMinorActive",
          "value": {
-            "color": "0xFF0D8222"
+            "color": "0xFF074A14"
          }
       },
       {
@@ -17732,7 +17732,7 @@
          "reference": "OutlineOnDarkTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentAccentHover",
          "value": {
-            "color": "0xFF24B23E"
+            "color": "0xB324B23E"
          }
       },
       {
@@ -17743,7 +17743,7 @@
          "reference": "OutlineOnDarkTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentAccentActive",
          "value": {
-            "color": "0x5624B23E"
+            "color": "0x2B24B23E"
          }
       },
       {
@@ -17754,7 +17754,7 @@
          "reference": "OutlineOnDarkPromoHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPromoHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFF858585"
          }
       },
       {
@@ -17765,7 +17765,7 @@
          "reference": "OutlineOnDarkPromoActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPromoActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF666666"
          }
       },
       {
@@ -17787,7 +17787,7 @@
          "reference": "OutlineOnDarkPromoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPromoMinorHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFF858585"
          }
       },
       {
@@ -17798,7 +17798,7 @@
          "reference": "OutlineOnDarkPromoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPromoMinorActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF666666"
          }
       },
       {
@@ -17820,7 +17820,7 @@
          "reference": "OutlineOnDarkPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPositiveHover",
          "value": {
-            "color": "0xFF2BD44A"
+            "color": "0xFF5EDE76"
          }
       },
       {
@@ -17831,7 +17831,7 @@
          "reference": "OutlineOnDarkPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPositiveActive",
          "value": {
-            "color": "0xFF1D9032"
+            "color": "0xFF1F9835"
          }
       },
       {
@@ -17842,7 +17842,7 @@
          "reference": "OutlineOnDarkWarningHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkWarningHover",
          "value": {
-            "color": "0xFFFF8B4D"
+            "color": "0xFFFFA575"
          }
       },
       {
@@ -17853,7 +17853,7 @@
          "reference": "OutlineOnDarkWarningActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkWarningActive",
          "value": {
-            "color": "0xFFFA5700"
+            "color": "0xFFFF5D05"
          }
       },
       {
@@ -17864,7 +17864,7 @@
          "reference": "OutlineOnDarkNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkNegativeHover",
          "value": {
-            "color": "0xFFFF6675"
+            "color": "0xFFFF8F9A"
          }
       },
       {
@@ -17875,7 +17875,7 @@
          "reference": "OutlineOnDarkNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkNegativeActive",
          "value": {
-            "color": "0xFFFF142C"
+            "color": "0xFFFF1F35"
          }
       },
       {
@@ -17886,7 +17886,7 @@
          "reference": "OutlineOnDarkInfoHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkInfoHover",
          "value": {
-            "color": "0xFF3FABF3"
+            "color": "0xFF66BCF5"
          }
       },
       {
@@ -17897,7 +17897,7 @@
          "reference": "OutlineOnDarkInfoActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkInfoActive",
          "value": {
-            "color": "0xFF0D84D3"
+            "color": "0xFF0E8ADD"
          }
       },
       {
@@ -17908,7 +17908,7 @@
          "reference": "OutlineOnDarkPositiveMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPositiveMinorHover",
          "value": {
-            "color": "0xFF11A72C"
+            "color": "0xFF0F9527"
          }
       },
       {
@@ -17919,7 +17919,7 @@
          "reference": "OutlineOnDarkPositiveMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkPositiveMinorActive",
          "value": {
-            "color": "0xFF0D8222"
+            "color": "0xFF074A14"
          }
       },
       {
@@ -17930,7 +17930,7 @@
          "reference": "OutlineOnDarkWarningMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkWarningMinorHover",
          "value": {
-            "color": "0xFFFF8B4D"
+            "color": "0xFFFFA575"
          }
       },
       {
@@ -17941,7 +17941,7 @@
          "reference": "OutlineOnDarkWarningMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkWarningMinorActive",
          "value": {
-            "color": "0xFFFA5700"
+            "color": "0xFFFF5D05"
          }
       },
       {
@@ -17952,7 +17952,7 @@
          "reference": "OutlineOnDarkNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkNegativeMinorHover",
          "value": {
-            "color": "0xFFFF6675"
+            "color": "0xFFFF8F9A"
          }
       },
       {
@@ -17963,7 +17963,7 @@
          "reference": "OutlineOnDarkNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkNegativeMinorActive",
          "value": {
-            "color": "0xFFFF142C"
+            "color": "0xFFFF1F35"
          }
       },
       {
@@ -17974,7 +17974,7 @@
          "reference": "OutlineOnDarkInfoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkInfoMinorHover",
          "value": {
-            "color": "0xFF3FABF3"
+            "color": "0xFF66BCF5"
          }
       },
       {
@@ -17985,7 +17985,7 @@
          "reference": "OutlineOnDarkInfoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkInfoMinorActive",
          "value": {
-            "color": "0xFF0D84D3"
+            "color": "0xFF0E8ADD"
          }
       },
       {
@@ -17996,7 +17996,7 @@
          "reference": "OutlineOnDarkTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentPositiveHover",
          "value": {
-            "color": "0xFF24B23E"
+            "color": "0xB324B23E"
          }
       },
       {
@@ -18007,7 +18007,7 @@
          "reference": "OutlineOnDarkTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentPositiveActive",
          "value": {
-            "color": "0x5624B23E"
+            "color": "0x2B24B23E"
          }
       },
       {
@@ -18018,7 +18018,7 @@
          "reference": "OutlineOnDarkTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentWarningHover",
          "value": {
-            "color": "0xFFFF7024"
+            "color": "0xB3FF7024"
          }
       },
       {
@@ -18029,7 +18029,7 @@
          "reference": "OutlineOnDarkTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentWarningActive",
          "value": {
-            "color": "0x56FF7024"
+            "color": "0x2BFF7024"
          }
       },
       {
@@ -18040,7 +18040,7 @@
          "reference": "OutlineOnDarkTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentNegativeHover",
          "value": {
-            "color": "0xFFFF3D51"
+            "color": "0xB3FF3D51"
          }
       },
       {
@@ -18051,7 +18051,7 @@
          "reference": "OutlineOnDarkTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentNegativeActive",
          "value": {
-            "color": "0x56FF3D51"
+            "color": "0x2BFF3D51"
          }
       },
       {
@@ -18062,7 +18062,7 @@
          "reference": "OutlineOnDarkTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentInfoHover",
          "value": {
-            "color": "0xFF199AF0"
+            "color": "0xB3199AF0"
          }
       },
       {
@@ -18073,7 +18073,7 @@
          "reference": "OutlineOnDarkTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkTransparentInfoActive",
          "value": {
-            "color": "0x56199AF0"
+            "color": "0x2B199AF0"
          }
       },
       {
@@ -18337,7 +18337,7 @@
          "reference": "OutlineOnDarkSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidDefaultHover",
          "value": {
-            "color": "0xFFFFFFFF"
+            "color": "0xFF808080"
          }
       },
       {
@@ -18348,7 +18348,7 @@
          "reference": "OutlineOnDarkSolidDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineOnDarkSolidDefaultActive",
          "value": {
-            "color": "0xFFC7C7C7"
+            "color": "0xFF616161"
          }
       },
       {
@@ -18359,7 +18359,7 @@
          "reference": "OutlineOnLightSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidPrimaryHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFABABAB"
          }
       },
       {
@@ -18370,7 +18370,7 @@
          "reference": "OutlineOnLightSolidPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidPrimaryActive",
          "value": {
-            "color": "0xFFB3B3B3"
+            "color": "0xFFC4C4C4"
          }
       },
       {
@@ -18381,7 +18381,7 @@
          "reference": "OutlineOnLightSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidSecondaryHover",
          "value": {
-            "color": "0xFFC2C2C2"
+            "color": "0xFFDBDBDB"
          }
       },
       {
@@ -18392,7 +18392,7 @@
          "reference": "OutlineOnLightSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidSecondaryActive",
          "value": {
-            "color": "0xFFA8A8A8"
+            "color": "0xFF8F8F8F"
          }
       },
       {
@@ -18403,7 +18403,7 @@
          "reference": "OutlineOnLightSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidTertiaryHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFA3A3A3"
          }
       },
       {
@@ -18414,7 +18414,7 @@
          "reference": "OutlineOnLightSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidTertiaryActive",
          "value": {
-            "color": "0xFF595959"
+            "color": "0xFF5C5C5C"
          }
       },
       {
@@ -18425,7 +18425,7 @@
          "reference": "OutlineOnLightTransparentDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentDefaultHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFCCCCCC"
          }
       },
       {
@@ -18436,7 +18436,7 @@
          "reference": "OutlineOnLightTransparentDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentDefaultActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -18458,7 +18458,7 @@
          "reference": "OutlineOnLightTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentPrimaryHover",
          "value": {
-            "color": "0x0A080808"
+            "color": "0x52080808"
          }
       },
       {
@@ -18469,7 +18469,7 @@
          "reference": "OutlineOnLightTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentPrimaryActive",
          "value": {
-            "color": "0x29080808"
+            "color": "0x38080808"
          }
       },
       {
@@ -18480,7 +18480,7 @@
          "reference": "OutlineOnLightTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentSecondaryHover",
          "value": {
-            "color": "0x33080808"
+            "color": "0x2B080808"
          }
       },
       {
@@ -18491,7 +18491,7 @@
          "reference": "OutlineOnLightTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentSecondaryActive",
          "value": {
-            "color": "0x52080808"
+            "color": "0x72080808"
          }
       },
       {
@@ -18502,7 +18502,7 @@
          "reference": "OutlineOnLightTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentTertiaryHover",
          "value": {
-            "color": "0x7A080808"
+            "color": "0x47080808"
          }
       },
       {
@@ -18513,7 +18513,7 @@
          "reference": "OutlineOnLightTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentTertiaryActive",
          "value": {
-            "color": "0x99080808"
+            "color": "0xFF080808"
          }
       },
       {
@@ -18546,7 +18546,7 @@
          "reference": "OutlineOnLightAccentHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightAccentHover",
          "value": {
-            "color": "0xFF14B32E"
+            "color": "0xFF15BC31"
          }
       },
       {
@@ -18568,7 +18568,7 @@
          "reference": "OutlineOnLightAccentMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightAccentMinorHover",
          "value": {
-            "color": "0xFF47DC62"
+            "color": "0xFF7AE68E"
          }
       },
       {
@@ -18579,7 +18579,7 @@
          "reference": "OutlineOnLightAccentMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightAccentMinorActive",
          "value": {
-            "color": "0xFF21B03C"
+            "color": "0xFF23B83E"
          }
       },
       {
@@ -18590,7 +18590,7 @@
          "reference": "OutlineOnLightTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentAccentHover",
          "value": {
-            "color": "0xFF108E25"
+            "color": "0x1F108E25"
          }
       },
       {
@@ -18601,7 +18601,7 @@
          "reference": "OutlineOnLightTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentAccentActive",
          "value": {
-            "color": "0x3D108E25"
+            "color": "0x52108E25"
          }
       },
       {
@@ -18612,7 +18612,7 @@
          "reference": "OutlineOnLightPromoHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightPromoHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFCCCCCC"
          }
       },
       {
@@ -18623,7 +18623,7 @@
          "reference": "OutlineOnLightPromoActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightPromoActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -18645,7 +18645,7 @@
          "reference": "OutlineOnLightPromoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightPromoMinorHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFFCCCCCC"
          }
       },
       {
@@ -18656,7 +18656,7 @@
          "reference": "OutlineOnLightPromoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightPromoMinorActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFFE6E6E6"
          }
       },
       {
@@ -18678,7 +18678,7 @@
          "reference": "OutlineOnLightPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightPositiveHover",
          "value": {
-            "color": "0xFF14B32E"
+            "color": "0xFF15BC31"
          }
       },
       {
@@ -18700,7 +18700,7 @@
          "reference": "OutlineOnLightWarningHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightWarningHover",
          "value": {
-            "color": "0xFFFD6B17"
+            "color": "0xFFFD9253"
          }
       },
       {
@@ -18711,7 +18711,7 @@
          "reference": "OutlineOnLightWarningActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightWarningActive",
          "value": {
-            "color": "0xFFC04802"
+            "color": "0xFFCA4B02"
          }
       },
       {
@@ -18722,7 +18722,7 @@
          "reference": "OutlineOnLightNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightNegativeHover",
          "value": {
-            "color": "0xFFF54254"
+            "color": "0xFFF87C89"
          }
       },
       {
@@ -18733,7 +18733,7 @@
          "reference": "OutlineOnLightNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightNegativeActive",
          "value": {
-            "color": "0xFFDA0B20"
+            "color": "0xFFE40C22"
          }
       },
       {
@@ -18744,7 +18744,7 @@
          "reference": "OutlineOnLightInfoHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightInfoHover",
          "value": {
-            "color": "0xFF0D96F2"
+            "color": "0xFF47B0F5"
          }
       },
       {
@@ -18755,7 +18755,7 @@
          "reference": "OutlineOnLightInfoActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightInfoActive",
          "value": {
-            "color": "0xFF0966A5"
+            "color": "0xFF096CAE"
          }
       },
       {
@@ -18766,7 +18766,7 @@
          "reference": "OutlineOnLightPositiveMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightPositiveMinorHover",
          "value": {
-            "color": "0xFF47DC62"
+            "color": "0xFF7AE68E"
          }
       },
       {
@@ -18777,7 +18777,7 @@
          "reference": "OutlineOnLightPositiveMinorActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightPositiveMinorActive",
          "value": {
-            "color": "0xFF21B03C"
+            "color": "0xFF23B83E"
          }
       },
       {
@@ -18832,7 +18832,7 @@
          "reference": "OutlineOnLightInfoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightInfoMinorHover",
          "value": {
-            "color": "0xFF7ACAFF"
+            "color": "0xFFA3DAFF"
          }
       },
       {
@@ -18854,7 +18854,7 @@
          "reference": "OutlineOnLightTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentPositiveHover",
          "value": {
-            "color": "0xFF108E25"
+            "color": "0x1F108E25"
          }
       },
       {
@@ -18865,7 +18865,7 @@
          "reference": "OutlineOnLightTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentPositiveActive",
          "value": {
-            "color": "0x3D108E25"
+            "color": "0x52108E25"
          }
       },
       {
@@ -18876,7 +18876,7 @@
          "reference": "OutlineOnLightTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentWarningHover",
          "value": {
-            "color": "0xFFE85702"
+            "color": "0x1FE85702"
          }
       },
       {
@@ -18887,7 +18887,7 @@
          "reference": "OutlineOnLightTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentWarningActive",
          "value": {
-            "color": "0x3DE85702"
+            "color": "0x52E85702"
          }
       },
       {
@@ -18898,7 +18898,7 @@
          "reference": "OutlineOnLightTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentNegativeHover",
          "value": {
-            "color": "0xFFF31B31"
+            "color": "0x1FF31B31"
          }
       },
       {
@@ -18909,7 +18909,7 @@
          "reference": "OutlineOnLightTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentNegativeActive",
          "value": {
-            "color": "0x3DF31B31"
+            "color": "0x52F31B31"
          }
       },
       {
@@ -18920,7 +18920,7 @@
          "reference": "OutlineOnLightTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentInfoHover",
          "value": {
-            "color": "0xFF0B7ECB"
+            "color": "0x1F0B7ECB"
          }
       },
       {
@@ -18931,7 +18931,7 @@
          "reference": "OutlineOnLightTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightTransparentInfoActive",
          "value": {
-            "color": "0x3D0B7ECB"
+            "color": "0x520B7ECB"
          }
       },
       {
@@ -19195,7 +19195,7 @@
          "reference": "OutlineOnLightSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidDefaultHover",
          "value": {
-            "color": "0xFF595959"
+            "color": "0xFF969696"
          }
       },
       {
@@ -19206,7 +19206,7 @@
          "reference": "OutlineOnLightSolidDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineOnLightSolidDefaultActive",
          "value": {
-            "color": "0xFF303030"
+            "color": "0xFF080808"
          }
       },
       {
@@ -19217,7 +19217,7 @@
          "reference": "OutlineInverseSolidPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidPrimaryHover",
          "value": {
-            "color": "0xFF787878"
+            "color": "0xFF545454"
          }
       },
       {
@@ -19228,7 +19228,7 @@
          "reference": "OutlineInverseSolidPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidPrimaryActive",
          "value": {
-            "color": "0xFF4F4F4F"
+            "color": "0xFF171717"
          }
       },
       {
@@ -19239,7 +19239,7 @@
          "reference": "OutlineInverseSolidSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidSecondaryHover",
          "value": {
-            "color": "0xFF636363"
+            "color": "0xFFABABAB"
          }
       },
       {
@@ -19250,7 +19250,7 @@
          "reference": "OutlineInverseSolidSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidSecondaryActive",
          "value": {
-            "color": "0xFF454545"
+            "color": "0xFF363636"
          }
       },
       {
@@ -19261,7 +19261,7 @@
          "reference": "OutlineInverseSolidTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidTertiaryHover",
          "value": {
-            "color": "0xFF949494"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -19272,7 +19272,7 @@
          "reference": "OutlineInverseSolidTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidTertiaryActive",
          "value": {
-            "color": "0xFF7A7A7A"
+            "color": "0xFF525252"
          }
       },
       {
@@ -19283,7 +19283,7 @@
          "reference": "OutlineInverseTransparentDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentDefaultHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFF858585"
          }
       },
       {
@@ -19294,7 +19294,7 @@
          "reference": "OutlineInverseTransparentDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentDefaultActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF666666"
          }
       },
       {
@@ -19316,7 +19316,7 @@
          "reference": "OutlineInverseTransparentPrimaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentPrimaryHover",
          "value": {
-            "color": "0x0AFFFFFF"
+            "color": "0x4DFFFFFF"
          }
       },
       {
@@ -19327,7 +19327,7 @@
          "reference": "OutlineInverseTransparentPrimaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentPrimaryActive",
          "value": {
-            "color": "0x29FFFFFF"
+            "color": "0x12FFFFFF"
          }
       },
       {
@@ -19338,7 +19338,7 @@
          "reference": "OutlineInverseTransparentSecondaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentSecondaryHover",
          "value": {
-            "color": "0x33FFFFFF"
+            "color": "0xB3FFFFFF"
          }
       },
       {
@@ -19349,7 +19349,7 @@
          "reference": "OutlineInverseTransparentSecondaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentSecondaryActive",
          "value": {
-            "color": "0x52FFFFFF"
+            "color": "0x2BFFFFFF"
          }
       },
       {
@@ -19360,7 +19360,7 @@
          "reference": "OutlineInverseTransparentTertiaryHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentTertiaryHover",
          "value": {
-            "color": "0x7AFFFFFF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -19371,7 +19371,7 @@
          "reference": "OutlineInverseTransparentTertiaryActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentTertiaryActive",
          "value": {
-            "color": "0x99FFFFFF"
+            "color": "0x47FFFFFF"
          }
       },
       {
@@ -19404,7 +19404,7 @@
          "reference": "OutlineInverseAccentHover",
          "themeReference": "SddsServTheme.colors.outlineInverseAccentHover",
          "value": {
-            "color": "0xFF2BD44A"
+            "color": "0xFF5EDE76"
          }
       },
       {
@@ -19415,7 +19415,7 @@
          "reference": "OutlineInverseAccentActive",
          "themeReference": "SddsServTheme.colors.outlineInverseAccentActive",
          "value": {
-            "color": "0xFF1D9032"
+            "color": "0xFF1F9835"
          }
       },
       {
@@ -19426,7 +19426,7 @@
          "reference": "OutlineInverseAccentMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInverseAccentMinorHover",
          "value": {
-            "color": "0xFF11A72C"
+            "color": "0xFF0F9527"
          }
       },
       {
@@ -19437,7 +19437,7 @@
          "reference": "OutlineInverseAccentMinorActive",
          "themeReference": "SddsServTheme.colors.outlineInverseAccentMinorActive",
          "value": {
-            "color": "0xFF0D8222"
+            "color": "0xFF074A14"
          }
       },
       {
@@ -19448,7 +19448,7 @@
          "reference": "OutlineInverseTransparentAccentHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentAccentHover",
          "value": {
-            "color": "0xFF24B23E"
+            "color": "0xB324B23E"
          }
       },
       {
@@ -19459,7 +19459,7 @@
          "reference": "OutlineInverseTransparentAccentActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentAccentActive",
          "value": {
-            "color": "0x5624B23E"
+            "color": "0x2B24B23E"
          }
       },
       {
@@ -19470,7 +19470,7 @@
          "reference": "OutlineInversePromoHover",
          "themeReference": "SddsServTheme.colors.outlineInversePromoHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFF858585"
          }
       },
       {
@@ -19481,7 +19481,7 @@
          "reference": "OutlineInversePromoActive",
          "themeReference": "SddsServTheme.colors.outlineInversePromoActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF666666"
          }
       },
       {
@@ -19503,7 +19503,7 @@
          "reference": "OutlineInversePromoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInversePromoMinorHover",
          "value": {
-            "color": "0xFF000000"
+            "color": "0xFF858585"
          }
       },
       {
@@ -19514,7 +19514,7 @@
          "reference": "OutlineInversePromoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineInversePromoMinorActive",
          "value": {
-            "color": "0xFFCCCCCC"
+            "color": "0xFF666666"
          }
       },
       {
@@ -19536,7 +19536,7 @@
          "reference": "OutlineInversePositiveHover",
          "themeReference": "SddsServTheme.colors.outlineInversePositiveHover",
          "value": {
-            "color": "0xFF2BD44A"
+            "color": "0xFF5EDE76"
          }
       },
       {
@@ -19547,7 +19547,7 @@
          "reference": "OutlineInversePositiveActive",
          "themeReference": "SddsServTheme.colors.outlineInversePositiveActive",
          "value": {
-            "color": "0xFF1D9032"
+            "color": "0xFF1F9835"
          }
       },
       {
@@ -19558,7 +19558,7 @@
          "reference": "OutlineInverseWarningHover",
          "themeReference": "SddsServTheme.colors.outlineInverseWarningHover",
          "value": {
-            "color": "0xFFFF8B4D"
+            "color": "0xFFFFA575"
          }
       },
       {
@@ -19569,7 +19569,7 @@
          "reference": "OutlineInverseWarningActive",
          "themeReference": "SddsServTheme.colors.outlineInverseWarningActive",
          "value": {
-            "color": "0xFFFA5700"
+            "color": "0xFFFF5D05"
          }
       },
       {
@@ -19580,7 +19580,7 @@
          "reference": "OutlineInverseNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineInverseNegativeHover",
          "value": {
-            "color": "0xFFFF6675"
+            "color": "0xFFFF8F9A"
          }
       },
       {
@@ -19591,7 +19591,7 @@
          "reference": "OutlineInverseNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineInverseNegativeActive",
          "value": {
-            "color": "0xFFFF142C"
+            "color": "0xFFFF1F35"
          }
       },
       {
@@ -19602,7 +19602,7 @@
          "reference": "OutlineInverseInfoHover",
          "themeReference": "SddsServTheme.colors.outlineInverseInfoHover",
          "value": {
-            "color": "0xFF3FABF3"
+            "color": "0xFF66BCF5"
          }
       },
       {
@@ -19613,7 +19613,7 @@
          "reference": "OutlineInverseInfoActive",
          "themeReference": "SddsServTheme.colors.outlineInverseInfoActive",
          "value": {
-            "color": "0xFF0D84D3"
+            "color": "0xFF0E8ADD"
          }
       },
       {
@@ -19624,7 +19624,7 @@
          "reference": "OutlineInversePositiveMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInversePositiveMinorHover",
          "value": {
-            "color": "0xFF11A72C"
+            "color": "0xFF0F9527"
          }
       },
       {
@@ -19635,7 +19635,7 @@
          "reference": "OutlineInversePositiveMinorActive",
          "themeReference": "SddsServTheme.colors.outlineInversePositiveMinorActive",
          "value": {
-            "color": "0xFF0D8222"
+            "color": "0xFF074A14"
          }
       },
       {
@@ -19646,7 +19646,7 @@
          "reference": "OutlineInverseWarningMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInverseWarningMinorHover",
          "value": {
-            "color": "0xFFCD5713"
+            "color": "0xFFBB4F11"
          }
       },
       {
@@ -19657,7 +19657,7 @@
          "reference": "OutlineInverseWarningMinorActive",
          "themeReference": "SddsServTheme.colors.outlineInverseWarningMinorActive",
          "value": {
-            "color": "0xFFA84710"
+            "color": "0xFF70300A"
          }
       },
       {
@@ -19668,7 +19668,7 @@
          "reference": "OutlineInverseNegativeMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInverseNegativeMinorHover",
          "value": {
-            "color": "0xFFC2192A"
+            "color": "0xFFD41C2E"
          }
       },
       {
@@ -19679,7 +19679,7 @@
          "reference": "OutlineInverseNegativeMinorActive",
          "themeReference": "SddsServTheme.colors.outlineInverseNegativeMinorActive",
          "value": {
-            "color": "0xFF7A101A"
+            "color": "0xFF8C121E"
          }
       },
       {
@@ -19690,7 +19690,7 @@
          "reference": "OutlineInverseInfoMinorHover",
          "themeReference": "SddsServTheme.colors.outlineInverseInfoMinorHover",
          "value": {
-            "color": "0xFF1483CC"
+            "color": "0xFF1277BA"
          }
       },
       {
@@ -19701,7 +19701,7 @@
          "reference": "OutlineInverseInfoMinorActive",
          "themeReference": "SddsServTheme.colors.outlineInverseInfoMinorActive",
          "value": {
-            "color": "0xFF116BA7"
+            "color": "0xFF0B476F"
          }
       },
       {
@@ -19712,7 +19712,7 @@
          "reference": "OutlineInverseTransparentPositiveHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentPositiveHover",
          "value": {
-            "color": "0xFF24B23E"
+            "color": "0xB324B23E"
          }
       },
       {
@@ -19723,7 +19723,7 @@
          "reference": "OutlineInverseTransparentPositiveActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentPositiveActive",
          "value": {
-            "color": "0x5624B23E"
+            "color": "0x2B24B23E"
          }
       },
       {
@@ -19734,7 +19734,7 @@
          "reference": "OutlineInverseTransparentWarningHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentWarningHover",
          "value": {
-            "color": "0xFFFF7024"
+            "color": "0xB3FF7024"
          }
       },
       {
@@ -19745,7 +19745,7 @@
          "reference": "OutlineInverseTransparentWarningActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentWarningActive",
          "value": {
-            "color": "0x56FF7024"
+            "color": "0x2BFF7024"
          }
       },
       {
@@ -19756,7 +19756,7 @@
          "reference": "OutlineInverseTransparentNegativeHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentNegativeHover",
          "value": {
-            "color": "0xFFFF3D51"
+            "color": "0xB3FF3D51"
          }
       },
       {
@@ -19767,7 +19767,7 @@
          "reference": "OutlineInverseTransparentNegativeActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentNegativeActive",
          "value": {
-            "color": "0x56FF3D51"
+            "color": "0x2BFF3D51"
          }
       },
       {
@@ -19778,7 +19778,7 @@
          "reference": "OutlineInverseTransparentInfoHover",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentInfoHover",
          "value": {
-            "color": "0xFF199AF0"
+            "color": "0xB3199AF0"
          }
       },
       {
@@ -19789,7 +19789,7 @@
          "reference": "OutlineInverseTransparentInfoActive",
          "themeReference": "SddsServTheme.colors.outlineInverseTransparentInfoActive",
          "value": {
-            "color": "0x56199AF0"
+            "color": "0x2B199AF0"
          }
       },
       {
@@ -20053,7 +20053,7 @@
          "reference": "OutlineInverseSolidDefaultHover",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidDefaultHover",
          "value": {
-            "color": "0xFFFFFFFF"
+            "color": "0xFF808080"
          }
       },
       {
@@ -20064,7 +20064,7 @@
          "reference": "OutlineInverseSolidDefaultActive",
          "themeReference": "SddsServTheme.colors.outlineInverseSolidDefaultActive",
          "value": {
-            "color": "0xFFC7C7C7"
+            "color": "0xFF616161"
          }
       },
       {
@@ -20119,7 +20119,7 @@
          "reference": "DataDefaultYellowMinorHover",
          "themeReference": "SddsServTheme.colors.dataDefaultYellowMinorHover",
          "value": {
-            "color": "0xFFFFDA8F"
+            "color": "0xFFFFCF70"
          }
       },
       {
@@ -20152,7 +20152,7 @@
          "reference": "DataDefaultYellowTransparentHover",
          "themeReference": "SddsServTheme.colors.dataDefaultYellowTransparentHover",
          "value": {
-            "color": "0x7AF3A812"
+            "color": "0x9EF3A812"
          }
       },
       {
@@ -20163,7 +20163,7 @@
          "reference": "DataDefaultYellowTransparentActive",
          "themeReference": "SddsServTheme.colors.dataDefaultYellowTransparentActive",
          "value": {
-            "color": "0x99F3A812"
+            "color": "0xA3F3A812"
          }
       },
       {
@@ -20185,7 +20185,7 @@
          "reference": "DataOnDarkYellowHover",
          "themeReference": "SddsServTheme.colors.dataOnDarkYellowHover",
          "value": {
-            "color": "0xFFF5B638"
+            "color": "0xFFF4B22F"
          }
       },
       {
@@ -20196,7 +20196,7 @@
          "reference": "DataOnDarkYellowActive",
          "themeReference": "SddsServTheme.colors.dataOnDarkYellowActive",
          "value": {
-            "color": "0xFFE49C0C"
+            "color": "0xFFEDA20C"
          }
       },
       {
@@ -20229,7 +20229,7 @@
          "reference": "DataOnDarkYellowMinorActive",
          "themeReference": "SddsServTheme.colors.dataOnDarkYellowMinorActive",
          "value": {
-            "color": "0xFF8F5F00"
+            "color": "0xFF996600"
          }
       },
       {
@@ -20251,7 +20251,7 @@
          "reference": "DataOnDarkYellowTransparentHover",
          "themeReference": "SddsServTheme.colors.dataOnDarkYellowTransparentHover",
          "value": {
-            "color": "0x7AF3A812"
+            "color": "0xADF3A812"
          }
       },
       {
@@ -20262,7 +20262,7 @@
          "reference": "DataOnDarkYellowTransparentActive",
          "themeReference": "SddsServTheme.colors.dataOnDarkYellowTransparentActive",
          "value": {
-            "color": "0x99F3A812"
+            "color": "0x80F3A812"
          }
       },
       {
@@ -20317,7 +20317,7 @@
          "reference": "DataOnLightYellowMinorHover",
          "themeReference": "SddsServTheme.colors.dataOnLightYellowMinorHover",
          "value": {
-            "color": "0xFFFFDA8F"
+            "color": "0xFFFFCF70"
          }
       },
       {
@@ -20350,7 +20350,7 @@
          "reference": "DataOnLightYellowTransparentHover",
          "themeReference": "SddsServTheme.colors.dataOnLightYellowTransparentHover",
          "value": {
-            "color": "0x7AF3A812"
+            "color": "0x9EF3A812"
          }
       },
       {
@@ -20361,7 +20361,7 @@
          "reference": "DataOnLightYellowTransparentActive",
          "themeReference": "SddsServTheme.colors.dataOnLightYellowTransparentActive",
          "value": {
-            "color": "0x99F3A812"
+            "color": "0xA3F3A812"
          }
       },
       {
@@ -20383,7 +20383,7 @@
          "reference": "DataInverseYellowHover",
          "themeReference": "SddsServTheme.colors.dataInverseYellowHover",
          "value": {
-            "color": "0xFFF5B638"
+            "color": "0xFFF4B22F"
          }
       },
       {
@@ -20394,7 +20394,7 @@
          "reference": "DataInverseYellowActive",
          "themeReference": "SddsServTheme.colors.dataInverseYellowActive",
          "value": {
-            "color": "0xFFE49C0C"
+            "color": "0xFFEDA20C"
          }
       },
       {
@@ -20427,7 +20427,7 @@
          "reference": "DataInverseYellowMinorActive",
          "themeReference": "SddsServTheme.colors.dataInverseYellowMinorActive",
          "value": {
-            "color": "0xFF8F5F00"
+            "color": "0xFF996600"
          }
       },
       {
@@ -20449,7 +20449,7 @@
          "reference": "DataInverseYellowTransparentHover",
          "themeReference": "SddsServTheme.colors.dataInverseYellowTransparentHover",
          "value": {
-            "color": "0x7AF3A812"
+            "color": "0xADF3A812"
          }
       },
       {
@@ -20460,7 +20460,7 @@
          "reference": "DataInverseYellowTransparentActive",
          "themeReference": "SddsServTheme.colors.dataInverseYellowTransparentActive",
          "value": {
-            "color": "0x99F3A812"
+            "color": "0x80F3A812"
          }
       },
       {
