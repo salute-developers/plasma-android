@@ -53,9 +53,17 @@ internal class FontTokenGenerator(
     private val fontsAggregator: FontsAggregator,
     private val dimensionsConfig: DimensionsConfig,
     private val useDefaultFonts: Boolean = false,
+    private val multiplatform: Boolean = false,
 ) : TokenGenerator<FontToken, FontTokenResult>(target) {
 
     private val rFileImport = ClassName(namespace, "R")
+
+    // В CMP-режиме шрифты грузятся через compose-resources: Font(Res.font.*) вместо Font(R.font.*, Int).
+    // Пакет генерируемого класса Res compose-resources должен совпадать с настройкой модуля токенов
+    // (packageOfResClass, см. план 06); по умолчанию используется конвенция <namespace>.generated.resources.
+    private val resPackage = "$namespace.generated.resources"
+    private val resClassImport = ClassName(resPackage, "Res")
+    private val composeFontImport = ClassName("org.jetbrains.compose.resources", "Font")
     private val fontFamilyXmlBuilders = mutableMapOf<String, XmlFontFamilyDocumentBuilder>()
     private val ktFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(FONT_TOKENS_NAME).also {
@@ -151,15 +159,26 @@ internal class FontTokenGenerator(
             ktFileBuilder.build(outputLocation)
             return
         }
-        ktFileBuilder.addImport(KtFileBuilder.TypeFont)
-        ktFileBuilder.addImport(KtFileBuilder.TypeFontFamily)
-        ktFileBuilder.addImport(KtFileBuilder.TypeFontStyle)
-        ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
-        ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
-        if (dimensionsConfig.variableFonts) {
-            ktFileBuilder.addImport(KtFileBuilder.TypeFontVariation)
+        if (multiplatform) {
+            ktFileBuilder.addImport(composeFontImport)
+            ktFileBuilder.addImport(KtFileBuilder.TypeFontFamily)
+            ktFileBuilder.addImport(KtFileBuilder.TypeFontStyle)
+            ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
+            ktFileBuilder.addImport(KtFileBuilder.TypeAnnotationComposable)
+            if (dimensionsConfig.variableFonts) {
+                ktFileBuilder.addImport(KtFileBuilder.TypeFontVariation)
+            }
+            ktFileBuilder.addImport(resClassImport)
+        } else {
+            ktFileBuilder.addImport(KtFileBuilder.TypeFont)
+            ktFileBuilder.addImport(KtFileBuilder.TypeFontFamily)
+            ktFileBuilder.addImport(KtFileBuilder.TypeFontStyle)
+            ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
+            if (dimensionsConfig.variableFonts) {
+                ktFileBuilder.addImport(KtFileBuilder.TypeFontVariation)
+            }
+            ktFileBuilder.addImport(rFileImport)
         }
-        ktFileBuilder.addImport(rFileImport)
         ktFileBuilder.build(outputLocation)
     }
 
@@ -185,13 +204,20 @@ internal class FontTokenGenerator(
                 url = it.link,
                 fontDir = outputResDir.fontDir(),
             )
+            val fontFileName = fontFile.nameWithoutExtension
             val fontStyle = "FontStyle.${it.fontStyle.toComposeFontStyle()}"
             val fontWeight = "FontWeight(${it.fontWeight})"
             val variationSettings = "variationSettings = FontVariation.Settings($fontWeight, $fontStyle)"
                 .takeIf { dimensionsConfig.variableFonts }.orEmpty()
+            val fontRef = if (multiplatform) {
+                ktFileBuilder.addImport(ClassName(resPackage, fontFileName))
+                "Res.font.$fontFileName"
+            } else {
+                "R.font.$fontFileName"
+            }
             KtFileBuilder.createConstructorCall(
                 "Font",
-                "R.font.${fontFile.nameWithoutExtension}",
+                fontRef,
                 fontWeight,
                 fontStyle,
                 variationSettings,
@@ -202,12 +228,26 @@ internal class FontTokenGenerator(
             initializers = initializers.toTypedArray(),
         )
         with(ktFileBuilder) {
-            appendProperty(
-                name = name,
-                typeName = KtFileBuilder.TypeFontFamily,
-                initializer = initializer,
-                description = description,
-            )
+            if (multiplatform) {
+                // compose-resources Font(FontResource) — @Composable, поэтому токен становится
+                // @Composable-геттером (за этим следует каскад в TypographyTokens/типографику темы).
+                appendProperty(
+                    name = name,
+                    typeName = KtFileBuilder.TypeFontFamily,
+                    description = description,
+                    propGetter = KtFileBuilder.Getter.Annotated(
+                        annotations = listOf(KtFileBuilder.Annotation(KtFileBuilder.TypeAnnotationComposable)),
+                        body = "return $initializer",
+                    ),
+                )
+            } else {
+                appendProperty(
+                    name = name,
+                    typeName = KtFileBuilder.TypeFontFamily,
+                    initializer = initializer,
+                    description = description,
+                )
+            }
         }
     }
 

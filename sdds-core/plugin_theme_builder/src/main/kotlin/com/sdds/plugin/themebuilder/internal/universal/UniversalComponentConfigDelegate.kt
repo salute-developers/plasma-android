@@ -57,6 +57,7 @@ internal class UniversalComponentConfigDelegate(
             resourceReferenceProvider = deps.resourceReferenceProvider,
             themeStylesPackage = deps.packageResolver.getPackage(TargetPackage.STYLES),
             packageLookup = packageLookup,
+            multiplatform = deps.multiplatform,
         )
         return UniversalComposeVariationGenerator(
             componentMeta = componentMeta,
@@ -74,6 +75,7 @@ internal class UniversalComponentConfigDelegate(
             styleBuilderName = styleBuilderName,
             styleBuilderFactoryFunName = componentMeta.builderFunName.ifBlank { "builder" },
             componentStylePackage = styleBuilderPackage,
+            multiplatform = deps.multiplatform,
         )
     }
 

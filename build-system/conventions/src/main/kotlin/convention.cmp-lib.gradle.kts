@@ -1,4 +1,4 @@
-import utils.withVersionCatalogs
+import utils.configureAndroidLibraryDefaults
 
 plugins {
     id("com.android.library")
@@ -11,32 +11,22 @@ plugins {
     id("convention.spotless")
 }
 
+configureAndroidLibraryDefaults()
+
 android {
 
-    withVersionCatalogs {
-        compileSdk = versions.global.compileSdk.get().toInt()
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
 
-        defaultConfig {
-            minSdk = versions.global.minSdk.get().toInt()
-            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        }
-
-        buildFeatures {
-            compose = true
-        }
+    buildFeatures {
+        compose = true
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-
-    withVersionCatalogs {
-        compileOptions {
-            sourceCompatibility = JavaVersion.toVersion(versions.global.jvmTarget.get())
-            targetCompatibility = JavaVersion.toVersion(versions.global.jvmTarget.get())
         }
     }
 

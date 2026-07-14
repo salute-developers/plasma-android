@@ -130,6 +130,78 @@ class ComposeTypographyAttributeGeneratorTest {
     }
 
     @Test
+    fun `в CMP-режиме фабрики типографики становятся @Composable без ReadOnlyComposable`() {
+        outputKt = ByteArrayOutputStream()
+        underTest = ComposeTypographyAttributeGenerator(
+            ktFileBuilderFactory = mockKtFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            themeName = "Theme",
+            dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
+            multiplatform = true,
+        )
+
+        underTest.setTypographyTokenData(input1)
+        underTest.generate()
+
+        val output = outputKt.toString()
+        // фабрика конкретного экрана становится @Composable (в обычном режиме — без аннотации)
+        Assert.assertTrue(
+            Regex("@Composable[\\s\\S]{0,60}fun smallThemeTypography").containsMatchIn(output),
+        )
+        // в CMP используем только @Composable (токены — обычные @Composable, не ReadOnlyComposable)
+        Assert.assertFalse(output.contains("ReadOnlyComposable"))
+    }
+
+    @Test
+    fun `в CMP-режиме WindowSize использует LocalWindowInfo без Android-only API`() {
+        outputKt = ByteArrayOutputStream()
+        underTest = ComposeTypographyAttributeGenerator(
+            ktFileBuilderFactory = mockKtFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            themeName = "Theme",
+            dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
+            multiplatform = true,
+        )
+
+        underTest.setTypographyTokenData(input1)
+        underTest.generate()
+
+        val output = outputKt.toString()
+        // CMP-реализация размера окна — мультиплатформенная
+        Assert.assertTrue(output.contains("LocalWindowInfo"))
+        Assert.assertTrue(output.contains("containerSize"))
+        // без Android-only API
+        Assert.assertFalse(output.contains("LocalContext"))
+        Assert.assertFalse(output.contains("LocalConfiguration"))
+        Assert.assertFalse(output.contains("displayMetrics"))
+    }
+
+    @Test
+    fun `в Android-режиме WindowSize использует LocalContext и displayMetrics`() {
+        outputKt = ByteArrayOutputStream()
+        underTest = ComposeTypographyAttributeGenerator(
+            ktFileBuilderFactory = mockKtFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            themeName = "Theme",
+            dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
+        )
+
+        underTest.setTypographyTokenData(input1)
+        underTest.generate()
+
+        val output = outputKt.toString()
+        Assert.assertTrue(output.contains("LocalContext"))
+        Assert.assertTrue(output.contains("displayMetrics"))
+        Assert.assertFalse(output.contains("LocalWindowInfo"))
+    }
+
+    @Test
     fun `KtAttributeGenerator генерирует атрибуты типографики с недостающими токенами`() {
         outputKt = ByteArrayOutputStream()
         underTest = ComposeTypographyAttributeGenerator(
