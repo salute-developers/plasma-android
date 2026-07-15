@@ -10,7 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.Badge
@@ -19,6 +18,7 @@ import com.sdds.compose.uikit.graphics.cutout.cutout
 import com.sdds.compose.uikit.graphics.cutout.cutoutTarget
 import com.sdds.compose.uikit.graphics.cutout.rememberCutoutState
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

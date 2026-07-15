@@ -23,7 +23,6 @@ dependencies {
     implementation(project(":sandbox-compose"))
     implementation(project(":uikit-compose-fixtures"))
     implementation("sdds-core:docs")
-    implementation("sdds-core:docs-compose")
     implementation("sdds-core:uikit-compose")
     implementation("sdds-core:icons")
 

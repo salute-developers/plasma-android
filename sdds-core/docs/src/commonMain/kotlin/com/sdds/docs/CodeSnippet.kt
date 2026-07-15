@@ -1,7 +1,6 @@
-package com.sdds.compose.docs
+package com.sdds.docs
 
 import androidx.compose.runtime.Composable
-import com.sdds.docs.CodeSnippetScope
 
 /**
  * Composable код внутри [block] будет извлечен и помещен в документацию

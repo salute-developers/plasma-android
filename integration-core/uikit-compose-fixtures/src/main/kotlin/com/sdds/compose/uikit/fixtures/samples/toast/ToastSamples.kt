@@ -8,7 +8,6 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Toast
@@ -18,6 +17,7 @@ import com.sdds.compose.uikit.overlay.OverlayHost
 import com.sdds.compose.uikit.overlay.OverlayPosition
 import com.sdds.compose.uikit.overlay.showToast
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

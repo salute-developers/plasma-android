@@ -13,7 +13,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
@@ -22,6 +21,7 @@ import com.sdds.compose.uikit.graphics.brush.asBrush
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.stringSource
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)
