@@ -1,3 +1,4 @@
+import utils.addDefaultTargets
 
 plugins {
     id("convention.cmp-lib")
@@ -12,7 +13,7 @@ android {
 }
 
 kotlin {
-    jvm()
+    addDefaultTargets()
     androidTarget {
         publishLibraryVariants("release")
     }
