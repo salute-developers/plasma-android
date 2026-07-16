@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
@@ -16,9 +17,10 @@ import com.sdds.compose.uikit.ai.AiAnswerError
 import com.sdds.compose.uikit.ai.AiAnswerLoading
 import com.sdds.compose.uikit.ai.AiAnswerState
 import com.sdds.compose.uikit.ai.AiAnswerStyle
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.AiAnswerUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AiAnswerUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -99,10 +101,10 @@ private fun AiAnswerStoryContent(
         },
         actionsStart = if (state.hasActionsStart) {
             {
-                button { AiAnswerActionIconButton(iconRes = R.drawable.ic_copy_outline_24) }
-                button { AiAnswerActionIconButton(iconRes = R.drawable.ic_like_outline_24) }
-                button { AiAnswerActionIconButton(iconRes = R.drawable.ic_dislike_outline_24) }
-                button { AiAnswerActionIconButton(iconRes = R.drawable.ic_repeat_outline_24) }
+                button { AiAnswerActionIconButton(iconRes = FixtureR.drawable.ic_copy_outline_24) }
+                button { AiAnswerActionIconButton(iconRes = FixtureR.drawable.ic_like_outline_24) }
+                button { AiAnswerActionIconButton(iconRes = FixtureR.drawable.ic_dislike_outline_24) }
+                button { AiAnswerActionIconButton(iconRes = FixtureR.drawable.ic_repeat_outline_24) }
             }
         } else {
             null
@@ -128,10 +130,10 @@ private fun AiAnswerStoryContent(
 
 @Composable
 private fun AiAnswerActionIconButton(
-    iconRes: Int,
+    iconRes: ImageVector,
 ) {
     IconButton(
-        iconRes = iconRes,
+        iconSource = resourceImageSource(iconRes),
         onClick = {},
     )
 }

@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit.fixtures.stories.bottomsheet
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -102,7 +101,7 @@ object BottomSheetStory : ComposeBaseStory<BottomSheetUiState, ModalBottomSheetS
             modifier = Modifier.statusBarsPadding(),
             style = style,
             sheetState = sheetState,
-            onDismiss = { Log.d("BottomSheetScreen", "OnDismiss") },
+            onDismiss = { println("BottomSheetScreen" + ": " + "OnDismiss") },
             dimBackground = state.dimBackground,
             useNativeBlackout = state.useNativeBlackout,
             handlePlacement = state.handlePlacement,

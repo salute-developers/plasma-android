@@ -17,16 +17,16 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.ScrollBar
 import com.sdds.compose.uikit.ScrollBarStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ScrollBarUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ScrollBarUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -124,7 +124,7 @@ object ScrollBarStory : ComposeBaseStory<ScrollBarUiState, ScrollBarStyle>(
             ) {
                 repeat(20) {
                     Icon(
-                        painter = painterResource(R.drawable.ic_clown_24),
+                        painter = painterResource(FixtureR.drawable.ic_clown_24),
                         contentDescription = "",
                     )
                 }

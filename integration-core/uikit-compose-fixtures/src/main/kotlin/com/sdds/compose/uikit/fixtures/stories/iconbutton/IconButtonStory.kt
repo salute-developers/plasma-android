@@ -1,14 +1,14 @@
 package com.sdds.compose.uikit.fixtures.stories.iconbutton
 
-import android.util.Log
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.IconButtonUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.IconButtonUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -44,13 +44,13 @@ object IconBasicButtonStory : ComposeBaseStory<IconButtonUiState, ButtonStyle>(
     @Composable
     override fun BoxScope.Content(style: ButtonStyle, state: IconButtonUiState) {
         IconButton(
-            iconRes = R.drawable.ic_plasma_24,
+            iconSource = resourceImageSource(FixtureR.drawable.ic_plasma_24),
             style = style,
             enabled = state.enabled,
             loading = state.loading,
             onClickLabel = "Протестировать текст для Accessibility",
             onClick = {
-                Log.d("BasicButton", "onClick")
+                println("BasicButton" + ": " + "onClick")
             },
         )
     }
@@ -61,7 +61,7 @@ object IconBasicButtonStory : ComposeBaseStory<IconButtonUiState, ButtonStyle>(
         key: ComponentKey,
     ) {
         IconButton(
-            iconRes = R.drawable.ic_plasma_24,
+            iconSource = resourceImageSource(FixtureR.drawable.ic_plasma_24),
             style = style,
             enabled = true,
             loading = false,

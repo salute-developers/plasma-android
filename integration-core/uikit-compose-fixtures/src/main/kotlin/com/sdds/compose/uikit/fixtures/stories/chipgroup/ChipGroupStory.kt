@@ -9,15 +9,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ChipGroupUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ChipGroupUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -67,7 +67,7 @@ object ChipGroupStory : ComposeBaseStory<ChipGroupUiState, ChipGroupStyle>(
                     endContent = if (isSelected) {
                         {
                             Icon(
-                                painter = painterResource(id = R.drawable.ic_close_24),
+                                painter = painterResource(id = FixtureR.drawable.ic_close_24),
                                 contentDescription = "",
                             )
                         }

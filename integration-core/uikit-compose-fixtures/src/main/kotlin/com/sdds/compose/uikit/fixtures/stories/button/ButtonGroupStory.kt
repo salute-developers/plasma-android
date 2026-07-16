@@ -8,7 +8,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
@@ -17,9 +16,10 @@ import com.sdds.compose.uikit.ButtonGroupOrientation
 import com.sdds.compose.uikit.ButtonGroupScope
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ButtonGroupUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ButtonGroupUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Property
 import com.sdds.sandbox.PropertyProducer
@@ -138,7 +138,7 @@ object ButtonGroupStory : ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>
      */
     private fun ButtonGroupScope.buttonContent(appearance: String = "") {
         if (appearance.contains("Icon")) {
-            button { IconButton(painterResource(R.drawable.ic_plasma_24), {}) }
+            button { IconButton(painterResource(FixtureR.drawable.ic_plasma_24), {}) }
         } else {
             button {
                 Button(

@@ -2,12 +2,12 @@ package com.sdds.compose.uikit.fixtures.stories.loader
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Loader
 import com.sdds.compose.uikit.LoaderStyle
 import com.sdds.compose.uikit.LoaderType
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.LoaderUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.LoaderUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -47,7 +47,7 @@ object LoaderStory : ComposeBaseStory<LoaderUiState, LoaderStyle>(
             trackEnabled = state.trackEnabled,
             valueContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
+                    painter = painterResource(id = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_close_16),
                     contentDescription = "",
                 )
             },

@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit.fixtures.stories.combobox
 
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -20,7 +19,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
@@ -39,12 +37,13 @@ import com.sdds.compose.uikit.SelectItemType
 import com.sdds.compose.uikit.SelectState
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ComboBoxUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ComboBoxUiStateTransformer
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
 import com.sdds.compose.uikit.rememberSelectSingleDataStateManager
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -137,8 +136,8 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                             enabled = state.enabled,
                             placeholderText = if (value.isEmpty()) "Сотрудник" else null,
                             captionText = "Введите или выберите имя",
-                            iconOpened = R.drawable.ic_chevron_up_24,
-                            iconClosed = R.drawable.ic_chevron_down_24,
+                            iconOpened = FixtureR.drawable.ic_chevron_up_24,
+                            iconClosed = FixtureR.drawable.ic_chevron_down_24,
                             chipsContent = getChipsContent(
                                 itemType,
                                 checkedStateManager.selectedItems,
@@ -149,7 +148,7 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                             focusSelectorSettings = FocusSelectorSettings.None,
                             startContent = {
                                 Icon(
-                                    painterResource(R.drawable.ic_search_24),
+                                    painterResource(FixtureR.drawable.ic_search_24),
                                     "",
                                 )
                             },
@@ -158,7 +157,7 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                     showEmptyState = state.showEmptyState || filteredList.isEmpty(),
                     emptyState = {
                         EmptyState(
-                            iconRes = R.drawable.ic_plasma_36,
+                            iconRes = FixtureR.drawable.ic_plasma_36,
                             description = "Empty State",
                             buttonLabel = "Action",
                         )
@@ -175,7 +174,7 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                                 modifier = Modifier.fillMaxWidth(),
                                 checked = checkedStateManager.isSelected(item),
                                 onClick = {
-                                    Log.d("ComboBox", "Item $it was selected")
+                                    println("ComboBox" + ": " + "Item $it was selected")
                                     checkedStateManager.onItemPressed(item)
                                     value = if (isMultiple) "" else item
                                     if (!isMultiple) {
@@ -185,7 +184,6 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                             ) {
                                 Cell(
                                     title = AnnotatedString(item),
-                                    disclosureIconRes = null,
                                 )
                             }
                         }
@@ -219,15 +217,15 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                     value = value,
                     placeholderText = if (value.isEmpty()) "Сотрудник" else null,
                     onValueChange = { value = it },
-                    iconOpened = R.drawable.ic_chevron_up_24,
-                    iconClosed = R.drawable.ic_chevron_down_24,
+                    iconOpened = FixtureR.drawable.ic_chevron_up_24,
+                    iconClosed = FixtureR.drawable.ic_chevron_down_24,
                     focusSelectorSettings = FocusSelectorSettings.None,
                 )
             },
             showEmptyState = filteredList.isEmpty(),
             emptyState = {
                 EmptyState(
-                    iconRes = R.drawable.ic_plasma_36,
+                    iconRes = FixtureR.drawable.ic_plasma_36,
                     description = "Empty State",
                     buttonLabel = "Action",
                 )
@@ -239,7 +237,7 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                         modifier = Modifier.fillMaxWidth(),
                         checked = stateManager.isSelected(item),
                         onClick = {
-                            Log.d("ComboBox", "Item $it was selected")
+                            println("ComboBox" + ": " + "Item $it was selected")
                             stateManager.onItemPressed(item)
                             value = item
                             selectState.close()
@@ -247,7 +245,6 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                     ) {
                         Cell(
                             title = AnnotatedString(item),
-                            disclosureIconRes = null,
                         )
                     }
                 }
@@ -271,7 +268,7 @@ private fun getChipsContent(
                     enabled = enabled,
                     endContent = {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_close_24),
+                            painter = painterResource(id = FixtureR.drawable.ic_close_24),
                             contentDescription = "",
                             modifier = if (enabled && !readOnly) {
                                 Modifier.clickable(

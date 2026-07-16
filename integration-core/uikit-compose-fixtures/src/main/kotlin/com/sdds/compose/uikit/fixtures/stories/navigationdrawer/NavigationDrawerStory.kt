@@ -11,6 +11,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
@@ -23,12 +24,12 @@ import com.sdds.compose.uikit.NavigationDrawerItem
 import com.sdds.compose.uikit.NavigationDrawerStyle
 import com.sdds.compose.uikit.NavigationDrawerValue
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.NavigationDrawerUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.NavigationDrawerUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.navigationdrawer.NavigationDrawerStory.updateState
 import com.sdds.compose.uikit.rememberNavigationDrawerState
-import com.sdds.compose.uikit.resourceImageSource
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -112,7 +113,7 @@ private fun NavigationDrawerStoryContent(
                 DrawerItem(
                     selected = isSelected,
                     onClick = { selectedIndex.intValue = it },
-                    iconRes = R.drawable.ic_mail_outline_24,
+                    iconRes = FixtureR.drawable.ic_mail_outline_24,
                     state = state,
                 )
             }
@@ -130,7 +131,7 @@ private fun NavigationDrawerHeader(
         onClick = onClick,
         icon = {
             Icon(
-                source = resourceImageSource(R.drawable.ic_menu_24),
+                source = resourceImageSource(FixtureR.drawable.ic_menu_24),
                 contentDescription = "Menu",
             )
         },
@@ -162,7 +163,7 @@ private fun NavigationDrawerFooter() {
 @Composable
 private fun DrawerItem(
     selected: Boolean,
-    iconRes: Int,
+    iconRes: ImageVector,
     onClick: () -> Unit,
     state: NavigationDrawerUiState,
 ) {

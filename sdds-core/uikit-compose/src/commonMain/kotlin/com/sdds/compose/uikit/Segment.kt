@@ -5,17 +5,16 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 
 /**
  * Компонент Segment с горизонтальной ориентацией
@@ -40,7 +39,6 @@ fun SegmentHorizontal(
     val stretchModifier = if (stretch) Modifier.fillMaxWidth() else Modifier
     Row(
         modifier = Modifier
-            .height(IntrinsicSize.Min)
             .then(modifier)
             .background(
                 color = if (hasBackground) {
@@ -57,7 +55,7 @@ fun SegmentHorizontal(
                 bottom = style.dimensions.paddingBottom,
             )
             .then(stretchModifier),
-        horizontalArrangement = Arrangement.spacedBy(style.dimensions.gap),
+        horizontalArrangement = Arrangement.spacedBy(style.dimensions.gap.toArrangementSpacing()),
     ) {
         CompositionLocalProvider(
             LocalSegmentItemStyle provides style.segmentItemStyle,
@@ -113,7 +111,6 @@ fun SegmentVertical(
     val segmentScope = remember { SegmentScopeImpl() }
     Column(
         modifier = Modifier
-            .width(IntrinsicSize.Min)
             .then(modifier)
             .background(
                 color = if (hasBackground) {
@@ -129,7 +126,7 @@ fun SegmentVertical(
                 top = style.dimensions.paddingTop,
                 bottom = style.dimensions.paddingBottom,
             ),
-        verticalArrangement = Arrangement.spacedBy(style.dimensions.gap),
+        verticalArrangement = Arrangement.spacedBy(style.dimensions.gap.toArrangementSpacing()),
     ) {
         CompositionLocalProvider(
             LocalSegmentItemStyle provides style.segmentItemStyle,
@@ -199,4 +196,8 @@ private sealed class SegmentItem {
     data class Item(override val content: @Composable () -> Unit) : SegmentItem()
 
     data class Divider(override val content: @Composable () -> Unit) : SegmentItem()
+}
+
+private fun Dp.toArrangementSpacing(): Dp {
+    return if (value.isFinite()) this else 0.dp
 }

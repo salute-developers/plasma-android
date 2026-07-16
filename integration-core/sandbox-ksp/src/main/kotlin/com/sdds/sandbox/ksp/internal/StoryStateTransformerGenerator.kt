@@ -20,11 +20,9 @@ internal class StoryStateTransformerGenerator(
 
     private val fileSpecBuilder by lazy(LazyThreadSafetyMode.NONE) { FileSpec.builder(packageName, fileNameWithSuffix) }
     private val stateTransformerType = ClassName("com.sdds.sandbox", "StateTransformer")
-    private val keepAnnotation = ClassName("androidx.annotation", "Keep")
 
     override fun build(data: StoryStateData): FileSpec {
         fileSpecBuilder.addTransformer(data)
-//        fileSpecBuilder.addTransformerEntryPoint(data)
         return fileSpecBuilder.build()
     }
 
@@ -48,22 +46,6 @@ internal class StoryStateTransformerGenerator(
                     .build(),
             )
         addType(builder.build())
-    }
-
-    private fun FileSpec.Builder.addTransformerEntryPoint(data: StoryStateData) {
-        val uiStateType = data.uiStateClass.toTypeName()
-        val builder = FunSpec.builder("transformer")
-            .addModifiers(KModifier.PUBLIC)
-            .addAnnotation(keepAnnotation)
-            .receiver(uiStateType)
-            .addCode(
-                buildCodeBlock {
-                    add("return ${data.name}Transformer")
-                },
-            )
-            .returns(stateTransformerType.parameterizedBy(uiStateType))
-
-        addFunction(builder.build())
     }
 
     private fun CodeBlock.Builder.addTransformerStatements(

@@ -11,7 +11,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
@@ -20,9 +19,10 @@ import com.sdds.compose.uikit.Editable
 import com.sdds.compose.uikit.EditableIconPlacement
 import com.sdds.compose.uikit.EditableStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.EditableUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.EditableUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -80,7 +80,7 @@ object EditableStory : ComposeBaseStory<EditableUiState, EditableStyle>(
                             focusRequester.requestFocus()
                             text = text.copy(selection = TextRange(text.text.length))
                         },
-                    painter = painterResource(R.drawable.ic_edit_fill_36),
+                    painter = painterResource(FixtureR.drawable.ic_edit_fill_36),
                     contentDescription = null,
                 )
             },
@@ -104,7 +104,7 @@ object EditableStory : ComposeBaseStory<EditableUiState, EditableStyle>(
             singleLine = true,
             icon = {
                 Icon(
-                    painter = painterResource(R.drawable.ic_edit_fill_36),
+                    painter = painterResource(FixtureR.drawable.ic_edit_fill_36),
                     contentDescription = null,
                 )
             },

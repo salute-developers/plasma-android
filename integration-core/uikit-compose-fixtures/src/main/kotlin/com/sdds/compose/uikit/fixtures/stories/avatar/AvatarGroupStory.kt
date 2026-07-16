@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Avatar
@@ -14,7 +13,8 @@ import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.Image
-import com.sdds.compose.uikit.fixtures.R
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.AvatarGroupUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AvatarGroupUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -89,7 +89,7 @@ object AvatarGroupStory : ComposeBaseStory<AvatarGroupUiState, AvatarGroupStyle>
                     Image(
                         modifier = Modifier.matchParentSize(),
                         contentScale = ContentScale.Crop,
-                        painter = painterResource(id = R.drawable.il_avatar_test),
+                        painter = painterResource(id = FixtureR.drawable.il_avatar_test),
                         contentDescription = "Avatar",
                     )
                 }
@@ -114,7 +114,7 @@ object AvatarGroupStory : ComposeBaseStory<AvatarGroupUiState, AvatarGroupStyle>
                     status = AvatarStatus.Active,
                     actionEnabled = false,
                     placeholder = AvatarPlaceholder.Name("Michael Scott"),
-                    painter = painterResource(id = R.drawable.il_avatar_test),
+                    painter = painterResource(id = FixtureR.drawable.il_avatar_test),
                     contentScale = ContentScale.Fit,
                 )
             }

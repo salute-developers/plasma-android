@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit.fixtures.stories.dropdownmenu
 
-import android.util.Log
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -142,10 +141,7 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
                                 .maybeShapeable(listItemStyle.shapes.getDefaultValue()),
                             interactionSource = interactionSource,
                         ) {
-                            Log.d(
-                                "DropdownMenu",
-                                "${state.itemTitle} $it pressed",
-                            )
+                            println("DropdownMenu: ${state.itemTitle} $it pressed")
                         }
                         .fillMaxWidth(),
                     titleContent = { Text("${state.itemTitle} $it") },

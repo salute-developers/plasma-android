@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit.fixtures.stories.popover
 
-import android.util.Log
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -131,7 +130,7 @@ object PopoverStory : ComposeBaseStory<PopoverUiState, PopoverStyle>(
                 Button(
                     modifier = Modifier.width(166.dp),
                     label = "Ok",
-                    onClick = { Log.d("Popover", "Popover button was pressed") },
+                    onClick = { println("Popover" + ": " + "Popover button was pressed") },
                 )
             }
         }

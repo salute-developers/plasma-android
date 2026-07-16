@@ -11,18 +11,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.sandbox.internal.FIELD_FOCUS_SELECTOR_MODE_SWITCH
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.TextFieldStyle
-import com.sdds.compose.uikit.fixtures.R
+import com.sdds.compose.uikit.fixtures.FixtureR
 import com.sdds.compose.uikit.fixtures.stories.MaskedTextFieldUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.MaskedTextFieldUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.textfield.TextFieldIcon
 import com.sdds.compose.uikit.fixtures.stories.textfield.getTextFieldExampleIcon
+import com.sdds.compose.uikit.fixtures.stringResource
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.mask.DateMask
@@ -123,11 +123,11 @@ object MaskedTextFieldStory : ComposeBaseStory<MaskedTextFieldUiState, TextField
                 Spacer(Modifier.size(64.dp))
                 Switch(
                     active = isFocusSelectorOn,
-                    label = stringResource(R.string.sandbox_enable_focus_selector),
+                    label = stringResource(FixtureR.string.sandbox_enable_focus_selector),
                     onActiveChanged = { isFocusSelectorOn = it },
                 )
                 Button(
-                    label = stringResource(R.string.sandbox_clear_focus),
+                    label = stringResource(FixtureR.string.sandbox_clear_focus),
                     onClick = { focusManager.clearFocus(true) },
                 )
             }

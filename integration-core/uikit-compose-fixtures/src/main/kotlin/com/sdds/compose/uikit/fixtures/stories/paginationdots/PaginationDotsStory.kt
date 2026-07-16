@@ -19,9 +19,10 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.PaginationDots
 import com.sdds.compose.uikit.PaginationDotsStyle
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.PaginationDotsUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.PaginationDotsUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -68,7 +69,7 @@ object PaginationDotsStory : ComposeBaseStory<PaginationDotsUiState, PaginationD
             Spacer(Modifier.size(16.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 IconButton(
-                    iconRes = R.drawable.ic_arrow_left_24,
+                    iconSource = resourceImageSource(FixtureR.drawable.ic_arrow_left_24),
                     onClick = {
                         selectedIndex = selectedIndex
                             .minus(state.step)
@@ -76,7 +77,7 @@ object PaginationDotsStory : ComposeBaseStory<PaginationDotsUiState, PaginationD
                     },
                 )
                 IconButton(
-                    iconRes = R.drawable.ic_arrow_right_24,
+                    iconSource = resourceImageSource(FixtureR.drawable.ic_arrow_right_24),
                     onClick = {
                         selectedIndex = selectedIndex
                             .plus(state.step)

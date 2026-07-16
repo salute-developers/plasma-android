@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Divider
@@ -21,13 +20,14 @@ import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.ListItemDisclosure
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ListUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ListUiStateTransformer
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.motion.components.list.rememberListItemMotion
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -114,7 +114,7 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
                                 motion = listItemMotion,
                                 icon = {
                                     Icon(
-                                        painter = painterResource(R.drawable.ic_disclosure_right_outline_24),
+                                        painter = painterResource(FixtureR.drawable.ic_disclosure_right_outline_24),
                                         contentDescription = "",
                                     )
                                 },
@@ -167,7 +167,7 @@ private fun getStartContent(
         ListItemStartContent.IconSize24 -> {
             {
                 Icon(
-                    painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_24),
+                    painter = painterResource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_plasma_24),
                     contentDescription = "",
                 )
             }
@@ -176,7 +176,7 @@ private fun getStartContent(
         ListItemStartContent.IconSize36 -> {
             {
                 Icon(
-                    painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_36),
+                    painter = painterResource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_plasma_36),
                     contentDescription = "",
                 )
             }
@@ -199,7 +199,7 @@ private fun getEndContent(
         ListItemEndContent.IconSize24 -> {
             {
                 Icon(
-                    painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_24),
+                    painter = painterResource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_plasma_24),
                     contentDescription = "",
                 )
             }
@@ -208,7 +208,7 @@ private fun getEndContent(
         ListItemEndContent.IconSize36 -> {
             {
                 Icon(
-                    painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_36),
+                    painter = painterResource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_plasma_36),
                     contentDescription = "",
                 )
             }

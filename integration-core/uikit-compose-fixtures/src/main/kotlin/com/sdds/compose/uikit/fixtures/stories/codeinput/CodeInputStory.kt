@@ -16,7 +16,6 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.focusTarget
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.sandbox.internal.FIELD_FOCUS_SELECTOR_MODE_SWITCH
@@ -25,9 +24,10 @@ import com.sdds.compose.uikit.CodeInput
 import com.sdds.compose.uikit.CodeInputCaptionAlignment
 import com.sdds.compose.uikit.CodeInputStyle
 import com.sdds.compose.uikit.Switch
-import com.sdds.compose.uikit.fixtures.R
+import com.sdds.compose.uikit.fixtures.FixtureR
 import com.sdds.compose.uikit.fixtures.stories.CodeInputUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.CodeInputUiStateTransformer
+import com.sdds.compose.uikit.fixtures.stringResource
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.isEnabled
 import com.sdds.sandbox.ComponentKey
@@ -92,11 +92,11 @@ object CodeInputStory : ComposeBaseStory<CodeInputUiState, CodeInputStyle>(
                 Spacer(Modifier.size(64.dp))
                 Switch(
                     active = isFocusSelectorOn,
-                    label = stringResource(R.string.sandbox_enable_focus_selector),
+                    label = stringResource(FixtureR.string.sandbox_enable_focus_selector),
                     onActiveChanged = { isFocusSelectorOn = it },
                 )
                 Button(
-                    label = stringResource(R.string.sandbox_clear_focus),
+                    label = stringResource(FixtureR.string.sandbox_clear_focus),
                     onClick = { focusManager.clearFocus(true) },
                 )
             }

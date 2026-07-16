@@ -18,9 +18,10 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ToolBar
 import com.sdds.compose.uikit.ToolBarOrientation
 import com.sdds.compose.uikit.ToolBarStyle
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.ToolBarUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ToolBarUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -63,9 +64,9 @@ object ToolBarStory : ComposeBaseStory<ToolBarUiState, ToolBarStyle>(
                     if (section % 2 == 0) {
                         section {
                             ContainerAccordingOrientation(style.orientation) {
-                                IconButton(R.drawable.ic_plasma_24) { }
+                                IconButton(resourceImageSource(FixtureR.drawable.ic_plasma_24)) { }
                                 Spacer(modifier = Modifier.size(4.dp))
-                                IconButton(R.drawable.ic_salute_outline_24) { }
+                                IconButton(resourceImageSource(FixtureR.drawable.ic_salute_outline_24)) { }
                             }
                         }
                     } else {
@@ -89,9 +90,9 @@ object ToolBarStory : ComposeBaseStory<ToolBarUiState, ToolBarStyle>(
                 if (item % 2 == 0) {
                     section {
                         Row {
-                            IconButton(R.drawable.ic_plasma_24) { }
+                            IconButton(resourceImageSource(FixtureR.drawable.ic_plasma_24)) { }
                             Spacer(modifier = Modifier.size(4.dp))
-                            IconButton(R.drawable.ic_salute_outline_24) { }
+                            IconButton(resourceImageSource(FixtureR.drawable.ic_salute_outline_24)) { }
                         }
                     }
                 } else {

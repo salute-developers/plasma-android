@@ -14,7 +14,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
@@ -25,6 +24,7 @@ import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Tooltip
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.FormItemUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.FormItemUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -141,7 +141,7 @@ private fun getIconTextOrNull(text: String, hasIcon: Boolean): (@Composable () -
                     Icon(
                         modifier = Modifier.height(14.dp),
                         contentScale = ContentScale.Crop,
-                        painter = painterResource(com.sdds.icons.R.drawable.ic_shazam_16),
+                        painter = painterResource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_shazam_16),
                         contentDescription = "",
                     )
                 }

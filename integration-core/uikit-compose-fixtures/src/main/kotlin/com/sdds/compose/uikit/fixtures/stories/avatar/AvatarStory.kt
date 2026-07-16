@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Avatar
@@ -15,7 +14,8 @@ import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Image
-import com.sdds.compose.uikit.fixtures.R
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.AvatarUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AvatarUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.badge.badgeContent
@@ -195,7 +195,7 @@ private fun BoxScope.AvatarContent(avatarUiState: AvatarUiState) {
         ExampleMode.Local -> Image(
             modifier = Modifier.matchParentSize(),
             contentScale = ContentScale.Crop,
-            painter = painterResource(id = com.sdds.compose.uikit.fixtures.R.drawable.il_avatar_test),
+            painter = painterResource(id = com.sdds.compose.uikit.fixtures.FixtureR.drawable.il_avatar_test),
             contentDescription = "Avatar",
         )
 

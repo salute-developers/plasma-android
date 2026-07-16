@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
@@ -17,12 +16,13 @@ import com.sdds.compose.uikit.Notification
 import com.sdds.compose.uikit.NotificationContent
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.NotificationUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.NotificationUiStateTransformer
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
 import com.sdds.compose.uikit.overlay.OverlayPosition
 import com.sdds.compose.uikit.overlay.showNotification
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -71,7 +71,7 @@ object NotificationStory : ComposeBaseStory<NotificationUiState, NotificationSty
                     Notification(
                         style = style,
                         hasClose = state.hasClose,
-                        closeIcon = painterResource(R.drawable.ic_close_24),
+                        closeIcon = painterResource(FixtureR.drawable.ic_close_24),
                         onClose = { overlayManager.remove(it) },
                     ) {
                         val idText = if (state.showId) " $it" else ""
@@ -107,7 +107,7 @@ object NotificationStory : ComposeBaseStory<NotificationUiState, NotificationSty
                     Notification(
                         style = style,
                         hasClose = true,
-                        closeIcon = painterResource(R.drawable.ic_close_24),
+                        closeIcon = painterResource(FixtureR.drawable.ic_close_24),
                         onClose = { overlayManager.remove(it) },
                     ) {
                         val idText = "$it"

@@ -10,7 +10,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
@@ -21,9 +20,11 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ai.AiUserMessage
 import com.sdds.compose.uikit.ai.AiUserMessageStyle
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
+import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.AiUserMessageUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AiUserMessageUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -105,12 +106,27 @@ object AiUserMessageStory : ComposeBaseStory<AiUserMessageUiState, AiUserMessage
             },
             actions = if (state.hasActions) {
                 {
-                    button { IconButton(iconRes = R.drawable.ic_backward_outline_24, onClick = {}) }
-                    button { IconButton(iconRes = R.drawable.ic_copy_outline_24, onClick = {}) }
-                    button { IconButton(iconRes = R.drawable.ic_plasma_24, onClick = {}) }
                     button {
                         IconButton(
-                            iconRes = R.drawable.ic_edit_outline_24,
+                            iconSource = resourceImageSource(FixtureR.drawable.ic_backward_outline_24),
+                            onClick = {},
+                        )
+                    }
+                    button {
+                        IconButton(
+                            iconSource = resourceImageSource(FixtureR.drawable.ic_copy_outline_24),
+                            onClick = {},
+                        )
+                    }
+                    button {
+                        IconButton(
+                            iconSource = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+                            onClick = {},
+                        )
+                    }
+                    button {
+                        IconButton(
+                            iconSource = resourceImageSource(FixtureR.drawable.ic_edit_outline_24),
                             onClick = {
                                 draftMessage = message
                                 editMode = true
@@ -138,9 +154,19 @@ object AiUserMessageStory : ComposeBaseStory<AiUserMessageUiState, AiUserMessage
             isInEdit = false,
             actions =
             {
-                button { IconButton(iconRes = R.drawable.ic_backward_outline_24, onClick = {}) }
-                button { IconButton(iconRes = R.drawable.ic_copy_outline_24, onClick = {}) }
-                button { IconButton(iconRes = R.drawable.ic_plasma_24, onClick = {}) }
+                button {
+                    IconButton(
+                        iconSource = resourceImageSource(FixtureR.drawable.ic_backward_outline_24),
+                        onClick = {},
+                    )
+                }
+                button {
+                    IconButton(
+                        iconSource = resourceImageSource(FixtureR.drawable.ic_copy_outline_24),
+                        onClick = {},
+                    )
+                }
+                button { IconButton(iconSource = resourceImageSource(FixtureR.drawable.ic_plasma_24), onClick = {}) }
             },
         )
     }
@@ -175,13 +201,13 @@ private fun FileExample(count: Int = 1) {
         isLoading = false,
         image = {
             Icon(
-                painterResource(R.drawable.ic_file_check_fill_24),
+                painterResource(FixtureR.drawable.ic_file_check_fill_24),
                 contentDescription = "",
             )
         },
         action = {
             IconButton(
-                iconRes = R.drawable.ic_close_16,
+                iconSource = resourceImageSource(FixtureR.drawable.ic_close_16),
                 onClick = {},
             )
         },

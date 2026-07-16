@@ -37,6 +37,9 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
     @get:Input
     abstract val scheme: Property<Scheme>
 
+    @get:Input
+    abstract val multiplatform: Property<Boolean>
+
     init {
         group = "sandbox"
     }
@@ -59,9 +62,11 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
         val target = target.get() ?: throw GradleException("Property target must be specified")
         val themeAlias = themeAlias.get() ?: throw GradleException("Property themeAlias must be specified")
         val scheme = scheme.get() ?: Scheme.V1
+        val multiplatform = multiplatform.getOrElse(false)
         // Determine output dir from main source set root and packageName
-        val mainRoot = resolveMainSourceRoot()
+        val mainRoot = resolveMainSourceRoot(multiplatform)
         val pkgPath = pkg.replace('.', File.separatorChar)
+        cleanupStaleSourceRoots(pkgPath, mainRoot)
         val packageDir = File(mainRoot, pkgPath)
         if (!packageDir.exists()) packageDir.mkdirs()
 
@@ -73,6 +78,7 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
                     packageDir = packageDir,
                     scheme = scheme,
                     themeAlias = themeAlias,
+                    multiplatform = multiplatform,
                 )
             }
             ComponentsTarget.XML -> XmlComponentsGenerator(config, pkg, packageDir, scheme)
@@ -81,15 +87,56 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
         generator.generate()
     }
 
-    private fun resolveMainSourceRoot(): File {
+    private fun resolveMainSourceRoot(multiplatform: Boolean): File {
         // Prefer Kotlin sources, then Java. Fallback to build/generated if none exist.
         val projectDir = project.layout.projectDirectory.asFile
+        val commonKotlinDir = File(projectDir, "src/commonMain/kotlin")
         val kotlinDir = File(projectDir, "src/main/kotlin")
         val javaDir = File(projectDir, "src/main/java")
         return when {
+            multiplatform -> commonKotlinDir
             kotlinDir.exists() -> kotlinDir
             javaDir.exists() -> javaDir
             else -> project.layout.buildDirectory.dir("generated/sdds").get().asFile
+        }
+    }
+
+    private fun cleanupStaleSourceRoots(
+        packagePath: String,
+        activeRoot: File,
+    ) {
+        val projectDir = project.layout.projectDirectory.asFile
+        listOf(
+            File(projectDir, "src/commonMain/kotlin"),
+            File(projectDir, "src/main/kotlin"),
+            File(projectDir, "src/main/java"),
+        )
+            .filterNot { it == activeRoot }
+            .map { File(it, packagePath) }
+            .filter { it.exists() }
+            .forEach { packageDir ->
+                val sourceRoot = generateSequence(packageDir) { it.parentFile }
+                    .first { it.name == "kotlin" || it.name == "java" }
+                packageDir.deleteRecursively()
+                deleteEmptyParents(packageDir.parentFile, sourceRoot)
+            }
+    }
+
+    private fun deleteEmptyParents(
+        directory: File?,
+        stopAt: File,
+    ) {
+        var current = directory
+        while (current != null && current != stopAt) {
+            if (current.listFiles()?.isEmpty() == true) {
+                current.delete()
+                current = current.parentFile
+            } else {
+                return
+            }
+        }
+        if (stopAt.listFiles()?.isEmpty() == true) {
+            stopAt.delete()
         }
     }
 }

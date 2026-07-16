@@ -1,31 +1,20 @@
 package com.sdds.compose.uikit.fixtures.stories
 
-import com.sdds.compose.sandbox.ui.SandboxActivity
-
 /**
- * Регистрирует все основные (core) истории компонентов в текущей SandboxActivity.
+ * Регистрирует все основные (core) истории компонентов.
  *
- * Функция-расширение для [SandboxActivity], которая вызывает [registerStories]
- * для инициализации и регистрации всех стандартных историй компонентов
- * в глобальном реестре [StoryRegistry].
+ * Функция вызывает [registerStories] для инициализации и регистрации всех стандартных историй компонентов
+ * в глобальном реестре.
  *
- * Должна вызываться на этапе инициализации активности, обычно в [onCreate],
- * чтобы все истории были доступны для отображения в сторибуке.
+ * Должна вызываться до отрисовки sandbox UI, чтобы все истории были доступны для отображения в сторибуке.
  *
  * Пример использования:
  * ```
- * class MainActivity : SandboxActivity() {
- *     override fun onCreate(savedInstanceState: Bundle?) {
- *         super.onCreate(savedInstanceState)
- *         registerCoreStories() // Регистрируем все стандартные истории
- *     }
- * }
+ * registerCoreStories()
  * ```
  *
- * @see SandboxActivity
- * @see StoryRegistry
- * @see BaseStory.register
+ * @see registerStories
  */
-fun SandboxActivity.registerCoreStories() {
+fun registerCoreStories() {
     registerStories()
 }

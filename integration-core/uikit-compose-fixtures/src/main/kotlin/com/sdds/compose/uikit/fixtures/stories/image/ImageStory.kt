@@ -7,14 +7,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.ImageStyle
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ImageUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ImageUiStateTransformer
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -47,7 +47,7 @@ object ImageStory : ComposeBaseStory<ImageUiState, ImageStyle>(
         state: ImageUiState,
     ) {
         Image(
-            painter = painterResource(R.drawable.ic_alarm_done_fill_36),
+            painter = painterResource(FixtureR.drawable.ic_alarm_done_fill_36),
             contentDescription = null,
             modifier = Modifier
                 .width(100.dp)
@@ -62,7 +62,7 @@ object ImageStory : ComposeBaseStory<ImageUiState, ImageStyle>(
         key: ComponentKey,
     ) {
         Image(
-            painter = painterResource(R.drawable.ic_alarm_done_fill_36),
+            painter = painterResource(FixtureR.drawable.ic_alarm_done_fill_36),
             contentDescription = null,
             modifier = Modifier
                 .height(100.dp)

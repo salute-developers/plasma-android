@@ -2,15 +2,15 @@ package com.sdds.compose.uikit.fixtures.stories.iconbadge
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconBadge
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.IconBadgeUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.IconBadgeUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.badge.badgeContent
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -53,7 +53,7 @@ object IconBadgeStory : ComposeBaseStory<IconBadgeUiState, BadgeStyle>(
             style = style,
             content = {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_plasma_16),
+                    painter = painterResource(id = FixtureR.drawable.ic_plasma_16),
                     contentDescription = "",
                 )
             },

@@ -9,7 +9,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Divider
@@ -20,13 +19,14 @@ import com.sdds.compose.uikit.SegmentScope
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentVertical
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.SegmentUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.SegmentUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.segmentitem.SegmentItemContent
 import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.motion.components.counter.rememberCounterMotion
 import com.sdds.compose.uikit.motion.rememberMotionContext
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -119,7 +119,7 @@ object SegmentStory : ComposeBaseStory<SegmentUiState, SegmentStyle>(
                         enabled = true,
                         startContent = {
                             Icon(
-                                painter = painterResource(id = R.drawable.ic_plasma_24),
+                                painter = painterResource(id = FixtureR.drawable.ic_plasma_24),
                                 contentDescription = "",
                             )
                         },
@@ -175,7 +175,7 @@ private fun SegmentScope.SegmentItems(
 private fun startIcon(hasStartIcon: Boolean): (@Composable () -> Unit)? {
     return if (hasStartIcon) {
         {
-            Icon(painterResource(id = R.drawable.ic_scribble_diagonal_24), "")
+            Icon(painterResource(id = FixtureR.drawable.ic_scribble_diagonal_24), "")
         }
     } else {
         null
@@ -191,7 +191,7 @@ private fun endContent(
         SegmentItemContent.NONE -> null
         SegmentItemContent.ICON -> {
             {
-                Icon(painterResource(id = R.drawable.ic_scribble_diagonal_36), "")
+                Icon(painterResource(id = FixtureR.drawable.ic_scribble_diagonal_36), "")
             }
         }
 

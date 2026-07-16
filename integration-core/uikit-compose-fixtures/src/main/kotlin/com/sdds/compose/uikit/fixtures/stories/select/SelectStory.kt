@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit.fixtures.stories.select
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -17,7 +16,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
@@ -38,12 +36,13 @@ import com.sdds.compose.uikit.SelectStyle
 import com.sdds.compose.uikit.SelectTextField
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.FixtureR
+import com.sdds.compose.uikit.fixtures.painterResource
+import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.SelectUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.SelectUiStateTransformer
 import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
 import com.sdds.compose.uikit.rememberSelectSingleDataStateManager
-import com.sdds.compose.uikit.resourceImageSource
-import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -112,7 +111,6 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                     popupProperties = PopupProperties(
                         clippingEnabled = false,
                         focusable = true,
-                        usePlatformDefaultWidth = true,
                     ),
                 ).copy(
                     placement = state.placement,
@@ -139,15 +137,15 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                                 enabled = state.enabled,
                                 placeholderText = if (value.isEmpty()) "Сотрудник" else null,
                                 captionText = "Выберите имя",
-                                iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
-                                iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
+                                iconOpened = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_up_24,
+                                iconClosed = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_down_24,
                                 chipsContent = getChipsContent(
                                     itemType,
                                     checkedStateManager.selectedItems,
                                 ),
                                 startContent = {
                                     Icon(
-                                        painterResource(R.drawable.ic_search_24),
+                                        painterResource(FixtureR.drawable.ic_search_24),
                                         "",
                                     )
                                 },
@@ -161,8 +159,12 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                                 label = value,
                                 readonly = state.readOnly,
                                 enabled = state.enabled,
-                                iconOpened = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_up_24),
-                                iconClosed = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_down_24),
+                                iconOpened = resourceImageSource(
+                                    com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_up_24,
+                                ),
+                                iconClosed = resourceImageSource(
+                                    com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_down_24,
+                                ),
                             )
                         }
                     }
@@ -170,7 +172,7 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                 showEmptyState = state.showEmptyState,
                 emptyState = {
                     EmptyState(
-                        iconRes = R.drawable.ic_plasma_36,
+                        iconRes = FixtureR.drawable.ic_plasma_36,
                         description = "Empty State",
                         buttonLabel = "Action",
                     )
@@ -186,13 +188,12 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                             modifier = Modifier.fillMaxWidth(),
                             checked = checkedStateManager.isSelected(SelectList[it]),
                             onClick = {
-                                Log.d("Select", "Item $it was selected")
+                                println("Select" + ": " + "Item $it was selected")
                                 checkedStateManager.onItemPressed(SelectList[it])
                             },
                         ) {
                             Cell(
                                 title = AnnotatedString(SelectList[it]),
-                                disclosureIconRes = null,
                             )
                         }
                     }
@@ -218,8 +219,12 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                         SelectItemType.Single,
                         stateManager.selectedItems,
                     ),
-                    iconOpened = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_up_24),
-                    iconClosed = resourceImageSource(com.sdds.icons.R.drawable.ic_chevron_down_24),
+                    iconOpened = resourceImageSource(
+                        com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_up_24,
+                    ),
+                    iconClosed = resourceImageSource(
+                        com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_down_24,
+                    ),
                 )
             },
             listContent = {
@@ -228,13 +233,12 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                         modifier = Modifier.fillMaxWidth(),
                         checked = stateManager.isSelected(SelectList[it]),
                         onClick = {
-                            Log.d("Select", "Item $it was selected")
+                            println("Select" + ": " + "Item $it was selected")
                             stateManager.onItemPressed(SelectList[it])
                         },
                     ) {
                         Cell(
                             title = AnnotatedString(SelectList[it]),
-                            disclosureIconRes = null,
                         )
                     }
                 }
