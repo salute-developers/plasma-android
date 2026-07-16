@@ -1,0 +1,10 @@
+{
+    "projectId": "758d0697-3bc2-4021-9d5b-8e28bb0ed78e",
+    "designSystemId": "bab8ceb1-8c62-4e03-bb1b-c5cc240555f1",
+    "credential": {
+        "type": "env",
+        "name": "DSBUILDER_HOMEDS_KEY"
+    },
+    "tenants": [],
+    "palettePath": null
+}

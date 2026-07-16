@@ -151,6 +151,7 @@ data class ComponentKey(
         val Splitter = ComponentKey(CoreComponentName.SPLITTER)
         val AiInput = ComponentKey(CoreComponentName.AI_INPUT)
         val AiUserMessage = ComponentKey(CoreComponentName.AI_USER_MESSAGE)
+        val NumberPanel = ComponentKey(CoreComponentName.NUMBER_PANEL)
     }
 }
 
@@ -266,6 +267,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     DROP_ZONE,
     AI_USER_MESSAGE,
     SPLITTER,
+    NUMBER_PANEL,
     ;
 
     val displayName: String = displayName ?: this.name
@@ -339,6 +341,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.FORM_ITEM,
         CoreComponentName.EDITABLE,
         CoreComponentName.DROP_ZONE,
+        CoreComponentName.NUMBER_PANEL,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponentName.DROPDOWN_MENU,

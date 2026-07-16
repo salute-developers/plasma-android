@@ -6,7 +6,7 @@ plugins {
 }
 
 extensions.configure<DocusaurusExtension>("docusaurus") {
-    components.set(layout.projectDirectory.file("../config-info-compose.json"))
+    components.set(layout.projectDirectory.file("../.sdds/config-info-compose.json"))
 
 }
 
