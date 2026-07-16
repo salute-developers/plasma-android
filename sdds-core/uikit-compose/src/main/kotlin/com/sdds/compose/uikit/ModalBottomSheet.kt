@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -24,6 +25,7 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.getValueAsState
@@ -224,7 +226,6 @@ fun ModalBottomSheet(
                 progressProvider = { (sheetState.progressFromHalfExpandedToExpanded) },
                 handlePlacement = handlePlacement,
             )
-            .clip(newShape)
             .backgroundBrush(
                 { backgroundColor.value },
                 newShape,
@@ -247,10 +248,14 @@ fun ModalBottomSheet(
             measurePolicy = measurePolicy,
             content = {
                 header?.let {
+                    val headerClipShape = remember(topShape) {
+                        topShape.copy(bottomStart = CornerSize(0.dp), bottomEnd = CornerSize(0.dp))
+                    }
                     Box(
                         modifier = Modifier
                             .layoutId(HEADER)
-                            .fillMaxWidth(),
+                            .fillMaxWidth()
+                            .clip(headerClipShape),
                         contentAlignment = Alignment.Center,
                     ) {
                         header()
@@ -265,6 +270,9 @@ fun ModalBottomSheet(
                     body()
                 }
                 footer?.let {
+                    val footerClipShape = remember(bottomShape) {
+                        bottomShape.copy(topStart = CornerSize(0.dp), topEnd = CornerSize(0.dp))
+                    }
                     Box(
                         modifier = Modifier
                             .layoutId(FOOTER)
@@ -275,12 +283,10 @@ fun ModalBottomSheet(
                                     translationY = layoutState.footerTranslation(
                                         sheetTop = sheetState.requireOffset(),
                                         expandedTop = anchors.minPosition(),
-                                        hiddenTop = anchors.positionOf(Hidden),
-                                        topPadding = top.roundToPx(),
-                                        bottomPadding = bottom.roundToPx(),
                                     )
                                 }
-                            },
+                            }
+                            .clip(footerClipShape),
                         contentAlignment = Alignment.Center,
                     ) {
                         footer()
@@ -388,21 +394,11 @@ private class BottomSheetLayoutState {
     fun footerTranslation(
         sheetTop: Float,
         expandedTop: Float,
-        hiddenTop: Float,
-        topPadding: Int,
-        bottomPadding: Int,
     ): Float {
         // максимальное смещение, после которого footer начинает двигаться вместе с BottomSheet
         val maxTranslation = (layoutHeight - footerHeight).toFloat()
-        // позиция верхней границы footer на экране, когда BottomSheet раскрыт
-        val footerTopWhenExpanded = expandedTop + maxTranslation
-        // позиция, в котрой footer должен быть зафиксирован
-        val desireFooterTop = hiddenTop - footerHeight - topPadding - bottomPadding
-        // базовая компенсация, необходимая для фиксации footer
-        val baseTranslation = desireFooterTop - footerTopWhenExpanded
-        // на сколько BottomSheet сместился относительно expanded
-        val dragDelta = sheetTop - expandedTop
-        return (baseTranslation - dragDelta).coerceIn(-maxTranslation, baseTranslation)
+        // компенсируем смещение BottomSheet от Expanded, где footer остается без translation
+        return -(sheetTop - expandedTop).coerceIn(0f, maxTranslation)
     }
 }
 
