@@ -18,9 +18,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -100,11 +98,11 @@ internal fun NavigationViewTv(
     items: List<MenuItem>,
     onSelect: (MenuItem) -> Unit,
     title: String,
+    selectedRoute: String?,
     modifier: Modifier = Modifier,
     focusable: Boolean = false,
     style: NavigationViewStyle = LocalNavigationViewStyle.current,
 ) {
-    var currentIndex by remember { mutableIntStateOf(0) }
     Column(
         modifier = modifier
             .fillMaxHeight()
@@ -147,9 +145,8 @@ internal fun NavigationViewTv(
                 NavigationItemTv(
                     title = menuItem.title,
                     style = style,
-                    isSelected = index == currentIndex,
+                    isSelected = menuItem.route == (selectedRoute ?: items.firstOrNull()?.route),
                     onClick = {
-                        currentIndex = index
                         onSelect(menuItem)
                     },
                 )

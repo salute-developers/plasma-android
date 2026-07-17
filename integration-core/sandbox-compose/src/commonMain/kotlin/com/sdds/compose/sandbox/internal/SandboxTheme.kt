@@ -107,12 +107,17 @@ fun SandboxTheme(
                         },
                     ),
                     itemBackground = ComposeColor.Transparent.asInteractive(
-                        focused = if (darkTheme) {
+                        setOf(InteractiveState.Pressed) to ComposeColor.Transparent,
+                        setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                            colorScheme.surfaceDefaultSolidSecondary,
+                        setOf(InteractiveState.Hovered) to ComposeColor.Transparent,
+                        setOf(InteractiveState.Focused) to if (darkTheme) {
                             colorScheme.surfaceDefaultSolidDefault
                         } else {
                             colorScheme.surfaceDefaultTransparentSecondary
                         },
-                        selected = colorScheme.surfaceDefaultSolidSecondary,
+                        setOf(InteractiveState.Activated) to ComposeColor.Transparent,
+                        setOf(InteractiveState.Selected) to colorScheme.surfaceDefaultSolidSecondary,
                     ),
                     itemCard = CardSolid.L.builder
                         .colors {

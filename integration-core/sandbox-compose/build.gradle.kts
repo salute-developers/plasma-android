@@ -56,6 +56,11 @@ kotlin {
                 implementation(libs.base.androidX.compose.uiTooling.preview)
             }
         }
+        commonTest {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
     }
 }
 

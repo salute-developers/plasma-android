@@ -262,9 +262,10 @@ internal fun DraggableContainer(
             }
             .offset {
                 alignment.toDrawerOffset(
-                    drawerState
-                        .requireOffset()
-                        .roundToInt(),
+                    drawerState.offset
+                        .takeIf { it.isFinite() }
+                        ?.roundToInt()
+                        ?: 0,
                 )
             }
             .semantics {

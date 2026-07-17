@@ -51,7 +51,11 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
     componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
-    if (isLargeDevice()) {
+    val isLargeLayout = when (LocalSandboxLayout.current) {
+        SandboxLayout.Desktop -> isPersistentDesktopNavigationWindow()
+        SandboxLayout.Mobile, SandboxLayout.Tv -> isLargeDevice()
+    }
+    if (isLargeLayout) {
         LargeScaffold(
             key = key,
             stateController = stateController,
