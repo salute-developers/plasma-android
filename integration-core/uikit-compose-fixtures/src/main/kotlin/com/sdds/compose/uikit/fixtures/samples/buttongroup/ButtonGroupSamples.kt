@@ -4,7 +4,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonGroup
 import com.sdds.compose.uikit.ButtonGroupOrientation
@@ -14,6 +13,7 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.basicButtonBuilder
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.icons.R
 
 @Composable

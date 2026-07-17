@@ -6,12 +6,12 @@ plugins {
 }
 
 extensions.configure<DocusaurusExtension>("docusaurus") {
-    components.set(layout.projectDirectory.file("../config-info-compose.json"))
+    components.set(layout.projectDirectory.file("../.sdds/config-info-compose.json"))
 
 }
 
 dependencies {
     "docsSnippets"("integration-core:uikit-compose-fixtures:unspecified:docs@jar")
-    "implementation"("sdds-core:docs-compose")
+    "implementation"("sdds-core:docs")
     "testImplementation"("integration-core:uikit-compose-fixtures")
 }

@@ -32,8 +32,7 @@ dependencies {
     implementation("sdds-core:uikit-compose")
     implementation("sdds-core:icons")
     implementation("sdds-core:docs")
-    implementation("sdds-core:docs-compose")
-    ksp("sdds-core:docs-ksp")
+    ksp("sdds-core:docs")
 
     implementation(libs.base.androidX.appcompat)
     implementation(libs.base.androidX.compose.foundation)

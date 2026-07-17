@@ -7,7 +7,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
@@ -27,6 +26,7 @@ import com.sdds.compose.uikit.motion.components.tabs.rememberTabItemPagerMotion
 import com.sdds.compose.uikit.motion.components.tabs.rememberTabSelectedState
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.icons.R
 import kotlinx.coroutines.launch
 

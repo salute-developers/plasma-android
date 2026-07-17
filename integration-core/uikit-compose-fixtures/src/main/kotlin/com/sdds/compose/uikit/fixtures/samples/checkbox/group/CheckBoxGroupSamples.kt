@@ -3,12 +3,12 @@ package com.sdds.compose.uikit.fixtures.samples.checkbox.group
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

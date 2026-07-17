@@ -13,7 +13,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.EditableStyle
@@ -26,6 +25,7 @@ import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.ai.AiUserMessage
 import com.sdds.compose.uikit.ai.AiUserMessageStyle
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.icons.R
 
 @Composable

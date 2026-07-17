@@ -5,7 +5,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.mask.DateMask
 import com.sdds.compose.uikit.mask.MaskedTextField
@@ -13,6 +12,7 @@ import com.sdds.compose.uikit.mask.NumberMask
 import com.sdds.compose.uikit.mask.PhoneMask
 import com.sdds.compose.uikit.mask.TimeMask
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

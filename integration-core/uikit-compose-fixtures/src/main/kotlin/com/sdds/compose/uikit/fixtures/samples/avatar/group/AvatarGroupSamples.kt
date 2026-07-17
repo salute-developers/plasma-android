@@ -2,7 +2,6 @@ package com.sdds.compose.uikit.fixtures.samples.avatar.group
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarCounter
 import com.sdds.compose.uikit.AvatarGroup
@@ -11,6 +10,7 @@ import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)
