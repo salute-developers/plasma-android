@@ -14,8 +14,8 @@ import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Image
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
+import com.sdds.compose.uikit.fixtures.generated.resources.Res
+import com.sdds.compose.uikit.fixtures.generated.resources.il_avatar_test
 import com.sdds.compose.uikit.fixtures.stories.AvatarUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AvatarUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.badge.badgeContent
@@ -27,6 +27,7 @@ import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryProperty
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
+import org.jetbrains.compose.resources.painterResource
 
 /**
  * Состояние [Avatar]
@@ -195,7 +196,7 @@ private fun BoxScope.AvatarContent(avatarUiState: AvatarUiState) {
         ExampleMode.Local -> Image(
             modifier = Modifier.matchParentSize(),
             contentScale = ContentScale.Crop,
-            painter = painterResource(id = com.sdds.compose.uikit.fixtures.FixtureR.drawable.il_avatar_test),
+            painter = painterResource(Res.drawable.il_avatar_test),
             contentDescription = "Avatar",
         )
 

@@ -27,6 +27,9 @@ kotlin {
                 listOf(
                     "src/main/kotlin/com/sdds/compose/uikit/fixtures/stories",
                     "build/generated/ksp/metadata/commonMain/kotlin",
+                    "build/generated/compose/resourceGenerator/kotlin/commonResClass",
+                    "build/generated/compose/resourceGenerator/kotlin/commonMainResourceAccessors",
+                    "build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors",
                 ),
             )
 
@@ -36,6 +39,7 @@ kotlin {
                 implementation("sdds-core:uikit-compose")
                 implementation("sdds-core:icons-compose")
                 implementation(compose.foundation)
+                implementation(compose.components.resources)
                 implementation(compose.ui)
             }
         }
@@ -44,6 +48,7 @@ kotlin {
             kotlin.setSrcDirs(
                 listOf(
                     "src/main/kotlin/com/sdds/compose/uikit/fixtures/samples",
+                    "build/generated/compose/resourceGenerator/kotlin/androidMainResourceCollectors",
                 ),
             )
             resources.srcDir("src/main/res")
@@ -64,9 +69,18 @@ kotlin {
     }
 }
 
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "com.sdds.compose.uikit.fixtures.generated.resources"
+}
+
 dependencies {
     add("kspCommonMainMetadata", project(":sandbox-ksp"))
     add("kspAndroid", "sdds-core:docs-ksp")
+}
+
+tasks.matching { it.name == "kspCommonMainKotlinMetadata" }.configureEach {
+    dependsOn("generateResourceAccessorsForCommonMain")
 }
 
 tasks.matching { it.name.startsWith("compile") && it.name.contains("Kotlin") }
