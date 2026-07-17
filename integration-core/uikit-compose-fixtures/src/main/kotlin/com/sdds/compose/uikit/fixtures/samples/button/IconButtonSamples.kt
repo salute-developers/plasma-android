@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconButton
@@ -13,6 +12,7 @@ import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = false)

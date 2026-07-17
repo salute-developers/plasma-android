@@ -8,7 +8,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBar
@@ -21,6 +20,7 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

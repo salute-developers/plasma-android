@@ -7,7 +7,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.compose.uikit.CircularProgressBarStyle
@@ -18,6 +17,7 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

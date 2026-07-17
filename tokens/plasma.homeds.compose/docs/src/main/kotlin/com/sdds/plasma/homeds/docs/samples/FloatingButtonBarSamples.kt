@@ -4,13 +4,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonGroup
 import com.sdds.compose.uikit.ButtonGroupOrientation
 import com.sdds.compose.uikit.Overlay
 import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.plasma.homeds.styles.buttongroup.BasicButtonGroup
 import com.sdds.plasma.homeds.styles.buttongroup.Default
 import com.sdds.plasma.homeds.styles.buttongroup.M

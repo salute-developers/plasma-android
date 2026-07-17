@@ -5,12 +5,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.compose.uikit.CircularProgressBarStyle
 import com.sdds.compose.uikit.LocalCircularProgressBarStyle
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import kotlin.math.roundToInt
 
 @Composable

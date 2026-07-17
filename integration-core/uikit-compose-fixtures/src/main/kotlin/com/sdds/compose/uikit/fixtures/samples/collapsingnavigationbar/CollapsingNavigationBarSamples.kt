@@ -12,7 +12,6 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.CollapsingNavigationBar
 import com.sdds.compose.uikit.CollapsingNavigationBarDefaults
 import com.sdds.compose.uikit.CollapsingNavigationBarStates
@@ -24,6 +23,7 @@ import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.icons.R
 
 @Composable

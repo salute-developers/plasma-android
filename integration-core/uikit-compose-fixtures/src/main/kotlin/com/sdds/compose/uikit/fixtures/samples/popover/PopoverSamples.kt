@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Popover
 import com.sdds.compose.uikit.PopoverAlignment
@@ -24,6 +23,7 @@ import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ContentBeforeVerticalArrangement
 import com.sdds.compose.uikit.Icon
@@ -16,6 +15,7 @@ import com.sdds.compose.uikit.NoteCompactStyle
 import com.sdds.compose.uikit.NoteStyle
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

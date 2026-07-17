@@ -5,7 +5,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.AvatarStatus
@@ -15,6 +14,7 @@ import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.indicator
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)
