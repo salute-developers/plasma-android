@@ -9,13 +9,13 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.CodeInput
 import com.sdds.compose.uikit.CodeInputCaptionAlignment
 import com.sdds.compose.uikit.CodeInputStates
 import com.sdds.compose.uikit.CodeInputStyle
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

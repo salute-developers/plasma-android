@@ -22,7 +22,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.DropZone
 import com.sdds.compose.uikit.DropZoneBorderType
 import com.sdds.compose.uikit.DropZoneIconPlacement
@@ -35,6 +34,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.motion.components.dropzone.rememberDropZoneMotion
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.icons.R
 
 @Composable

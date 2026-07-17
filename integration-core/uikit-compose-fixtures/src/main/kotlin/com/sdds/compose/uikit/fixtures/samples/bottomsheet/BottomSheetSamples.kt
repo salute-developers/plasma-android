@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.BottomSheetHandlePlacement
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonSpacing
@@ -41,6 +40,7 @@ import com.sdds.compose.uikit.internal.modal.BottomSheetValue
 import com.sdds.compose.uikit.internal.modal.HalfExpandedSettings
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.icons.R
 import kotlinx.coroutines.launch
 

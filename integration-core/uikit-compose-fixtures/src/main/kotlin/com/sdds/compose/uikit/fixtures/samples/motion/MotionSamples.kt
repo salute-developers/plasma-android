@@ -11,7 +11,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
@@ -36,6 +35,7 @@ import com.sdds.compose.uikit.motion.transition
 import com.sdds.compose.uikit.motion.updateInterpolationChannel
 import com.sdds.docs.DocSample
 import com.sdds.docs.codeSnippet
+import com.sdds.docs.composableCodeSnippet
 
 @DocSample(needScreenshot = false)
 @Composable

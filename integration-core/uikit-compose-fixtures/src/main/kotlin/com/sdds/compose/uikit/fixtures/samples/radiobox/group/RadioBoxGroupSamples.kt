@@ -2,7 +2,6 @@ package com.sdds.compose.uikit.fixtures.samples.radiobox.group
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
@@ -10,6 +9,7 @@ import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.isChecked
 import com.sdds.compose.uikit.updateSelection
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

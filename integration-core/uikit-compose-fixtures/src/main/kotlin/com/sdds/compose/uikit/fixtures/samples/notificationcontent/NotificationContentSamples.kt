@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.NotificationContent
@@ -13,6 +12,7 @@ import com.sdds.compose.uikit.NotificationContentButtonLayout
 import com.sdds.compose.uikit.NotificationContentStyle
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

@@ -1,9 +1,6 @@
-package com.sdds.compose.docs
+package com.sdds.docs
 
 import androidx.compose.runtime.Composable
-import com.sdds.docs.Sample
-import com.sdds.docs.SampleId
-import com.sdds.docs.SampleRegistry
 
 /**
  * Обертка для Composable кода - примера в документацию

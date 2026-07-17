@@ -9,7 +9,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.FormHorizontal
 import com.sdds.compose.uikit.FormIndicatorAlignment
 import com.sdds.compose.uikit.FormItem
@@ -26,6 +25,7 @@ import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

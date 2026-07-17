@@ -10,7 +10,6 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.CodeField
 import com.sdds.compose.uikit.CodeFieldCaptionAlignment
 import com.sdds.compose.uikit.CodeFieldStyle
@@ -18,6 +17,7 @@ import com.sdds.compose.uikit.CodeInputStates
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

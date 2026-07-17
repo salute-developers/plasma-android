@@ -8,7 +8,6 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.Card
 import com.sdds.compose.uikit.Carousel
@@ -19,6 +18,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.icons.R
 
 @Composable

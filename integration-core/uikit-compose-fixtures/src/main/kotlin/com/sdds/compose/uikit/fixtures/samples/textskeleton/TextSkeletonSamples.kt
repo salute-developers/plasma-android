@@ -6,12 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.LocalTextStyle
 import com.sdds.compose.uikit.SkeletonLineWidthProvider
 import com.sdds.compose.uikit.TextSkeleton
 import com.sdds.compose.uikit.TextSkeletonStyle
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 @Composable
 @DocSample(needScreenshot = true)

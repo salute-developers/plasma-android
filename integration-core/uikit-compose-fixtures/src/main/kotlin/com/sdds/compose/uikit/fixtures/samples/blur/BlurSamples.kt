@@ -8,12 +8,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.graphics.BlurStyle
 import com.sdds.compose.uikit.graphics.blurEffect
 import com.sdds.compose.uikit.graphics.blurSource
 import com.sdds.compose.uikit.graphics.rememberBlurState
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 
 /**
  * Пример: создание состояния блюра.

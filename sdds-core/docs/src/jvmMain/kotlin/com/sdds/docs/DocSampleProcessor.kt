@@ -1,4 +1,4 @@
-package com.sdds.docs.ksp
+package com.sdds.docs
 
 import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
@@ -12,9 +12,10 @@ import com.google.devtools.ksp.symbol.KSFile
 import com.google.devtools.ksp.symbol.KSFunctionDeclaration
 import com.google.devtools.ksp.validate
 import java.io.OutputStreamWriter
+import kotlin.text.iterator
 
 /**
- * Provider для KSP-процессора, который собирает функции, помеченные [com.sdds.docs.DocSample],
+ * Provider для KSP-процессора, который собирает функции, помеченные [DocSample],
  * и генерирует реестр примеров для документации.
  */
 class DocSamplesProcessorProvider : SymbolProcessorProvider {
@@ -25,7 +26,7 @@ class DocSamplesProcessorProvider : SymbolProcessorProvider {
 /**
  * KSP-процессор для @DocSample.
  *
- * Находит функции с аннотацией [com.sdds.docs.DocSample] и генерирует Kotlin-файл
+ * Находит функции с аннотацией [DocSample] и генерирует Kotlin-файл
  * с registry: KotlinSamples, ViewSamples и ComposableSamples.
  *
  * Ключом выступает `id` из аннотации (если задан) либо имя функции/qualified name.
@@ -201,7 +202,7 @@ class DocSamplesProcessor(
 
             if (composable.isNotEmpty()) {
                 out.appendLine("import androidx.compose.runtime.Composable")
-                out.appendLine("import com.sdds.compose.docs.ComposableSample")
+                out.appendLine("import com.sdds.docs.ComposableSample")
                 out.appendLine()
             }
 
