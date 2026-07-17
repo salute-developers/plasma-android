@@ -15,6 +15,42 @@ import kotlin.Suppress
  */
 public object FontTokens {
     /**
+     * fontFamily body
+     */
+    public val body: FontFamily = FontFamily(
+        Font(
+            R.font.s_b_sans_display_light,
+            FontWeight(300),
+            FontStyle.Normal,
+        ),
+        Font(
+            R.font.s_b_sans_display_thin,
+            FontWeight(100),
+            FontStyle.Normal,
+        ),
+        Font(
+            R.font.s_b_sans_display_bold,
+            FontWeight(700),
+            FontStyle.Normal,
+        ),
+        Font(
+            R.font.s_b_sans_display_regular,
+            FontWeight(400),
+            FontStyle.Normal,
+        ),
+        Font(
+            R.font.s_b_sans_display_semibold,
+            FontWeight(600),
+            FontStyle.Normal,
+        ),
+        Font(
+            R.font.s_b_sans_display_medium,
+            FontWeight(500),
+            FontStyle.Normal,
+        ),
+    )
+
+    /**
      * fontFamily display
      */
     public val display: FontFamily = FontFamily(
@@ -90,42 +126,6 @@ public object FontTokens {
      * fontFamily text
      */
     public val text: FontFamily = FontFamily(
-        Font(
-            R.font.s_b_sans_display_light,
-            FontWeight(300),
-            FontStyle.Normal,
-        ),
-        Font(
-            R.font.s_b_sans_display_thin,
-            FontWeight(100),
-            FontStyle.Normal,
-        ),
-        Font(
-            R.font.s_b_sans_display_bold,
-            FontWeight(700),
-            FontStyle.Normal,
-        ),
-        Font(
-            R.font.s_b_sans_display_regular,
-            FontWeight(400),
-            FontStyle.Normal,
-        ),
-        Font(
-            R.font.s_b_sans_display_semibold,
-            FontWeight(600),
-            FontStyle.Normal,
-        ),
-        Font(
-            R.font.s_b_sans_display_medium,
-            FontWeight(500),
-            FontStyle.Normal,
-        ),
-    )
-
-    /**
-     * fontFamily body
-     */
-    public val body: FontFamily = FontFamily(
         Font(
             R.font.s_b_sans_display_light,
             FontWeight(300),

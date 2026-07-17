@@ -7,6 +7,7 @@ import com.sdds.plasma.homeds.components.numberpanel.NumberPanel
 import com.sdds.plasma.homeds.components.numberpanel.NumberPanelStyle
 import com.sdds.plasma.homeds.compose.sandbox.stories.HomeDsNumberPanelUiStatePropertiesProducer
 import com.sdds.plasma.homeds.compose.sandbox.stories.HomeDsNumberPanelUiStateTransformer
+import com.sdds.plasma.homeds.integration.custom.NumberPanelKey
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -32,7 +33,7 @@ data class HomeDsNumberPanelUiState(
 
 @Story
 internal object NumberPanelStory : ComposeBaseStory<HomeDsNumberPanelUiState, NumberPanelStyle>(
-    ComponentKey.NumberPanel,
+    NumberPanelKey,
     HomeDsNumberPanelUiState(),
     HomeDsNumberPanelUiStatePropertiesProducer,
     HomeDsNumberPanelUiStateTransformer,

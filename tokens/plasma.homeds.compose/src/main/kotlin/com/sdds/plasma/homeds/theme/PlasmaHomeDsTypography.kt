@@ -18,114 +18,6 @@ import com.sdds.plasma.homeds.tokens.TypographySmallTokens
 @Immutable
 public data class PlasmaHomeDsTypography internal constructor(
     /**
-     * typography l display-l-bold
-     */
-    public val displayLBold: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-l-medium
-     */
-    public val displayLMedium: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-l
-     */
-    public val displayLNormal: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-m-bold
-     */
-    public val displayMBold: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-m-medium
-     */
-    public val displayMMedium: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-m
-     */
-    public val displayMNormal: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-s-bold
-     */
-    public val displaySBold: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-s-medium
-     */
-    public val displaySMedium: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-s
-     */
-    public val displaySNormal: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h1-bold
-     */
-    public val headerH1Bold: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h1-medium
-     */
-    public val headerH1Medium: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h1
-     */
-    public val headerH1Normal: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h2-bold
-     */
-    public val headerH2Bold: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h2-medium
-     */
-    public val headerH2Medium: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h2
-     */
-    public val headerH2Normal: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h3-bold
-     */
-    public val headerH3Bold: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h3-medium
-     */
-    public val headerH3Medium: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h3
-     */
-    public val headerH3Normal: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h4-bold
-     */
-    public val headerH4Bold: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h4-medium
-     */
-    public val headerH4Medium: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h4
-     */
-    public val headerH4Normal: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h5-bold
-     */
-    public val headerH5Bold: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h5-medium
-     */
-    public val headerH5Medium: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h5
-     */
-    public val headerH5Normal: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h6
-     */
-    public val headerH6Normal: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h6-medium
-     */
-    public val headerH6Medium: TextStyle = TextStyle.Default,
-    /**
-     * typography l header-h6-bold
-     */
-    public val headerH6Bold: TextStyle = TextStyle.Default,
-    /**
      * typography l body-l-bold
      */
     public val bodyLBold: TextStyle = TextStyle.Default,
@@ -186,6 +78,110 @@ public data class PlasmaHomeDsTypography internal constructor(
      */
     public val bodyXxsNormal: TextStyle = TextStyle.Default,
     /**
+     * typography l display-l-bold
+     */
+    public val displayLBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-l-medium
+     */
+    public val displayLMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-l
+     */
+    public val displayLNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-m-bold
+     */
+    public val displayMBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-m-medium
+     */
+    public val displayMMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-m
+     */
+    public val displayMNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-s-bold
+     */
+    public val displaySBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-s-medium
+     */
+    public val displaySMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-s
+     */
+    public val displaySNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h1-bold
+     */
+    public val headerH1Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h1-medium
+     */
+    public val headerH1Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h1
+     */
+    public val headerH1Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h2-bold
+     */
+    public val headerH2Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h2
+     */
+    public val headerH2Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h3-bold
+     */
+    public val headerH3Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h3-medium
+     */
+    public val headerH3Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h3
+     */
+    public val headerH3Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h4-bold
+     */
+    public val headerH4Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h4-medium
+     */
+    public val headerH4Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h4
+     */
+    public val headerH4Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h5-bold
+     */
+    public val headerH5Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h5-medium
+     */
+    public val headerH5Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h5
+     */
+    public val headerH5Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h6-bold
+     */
+    public val headerH6Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h6-medium
+     */
+    public val headerH6Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h6
+     */
+    public val headerH6Normal: TextStyle = TextStyle.Default,
+    /**
      * typography l text-l-bold
      */
     public val textLBold: TextStyle = TextStyle.Default,
@@ -233,6 +229,10 @@ public data class PlasmaHomeDsTypography internal constructor(
      * typography l text-xs
      */
     public val textXsNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h2-medium
+     */
+    public val headerH2Medium: TextStyle = TextStyle.Default,
 )
 
 internal val LocalPlasmaHomeDsTypography: ProvidableCompositionLocal<PlasmaHomeDsTypography> =
@@ -244,33 +244,6 @@ internal val LocalPlasmaHomeDsTypography: ProvidableCompositionLocal<PlasmaHomeD
  * Возвращает [PlasmaHomeDsTypography] для WindowSizeClass.Compact
  */
 public fun smallPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsTypography(
-    displayLBold = TypographySmallTokens.DisplayLBold,
-    displayLMedium = TypographySmallTokens.DisplayLMedium,
-    displayLNormal = TypographySmallTokens.DisplayLNormal,
-    displayMBold = TypographySmallTokens.DisplayMBold,
-    displayMMedium = TypographySmallTokens.DisplayMMedium,
-    displayMNormal = TypographySmallTokens.DisplayMNormal,
-    displaySBold = TypographySmallTokens.DisplaySBold,
-    displaySMedium = TypographySmallTokens.DisplaySMedium,
-    displaySNormal = TypographySmallTokens.DisplaySNormal,
-    headerH1Bold = TypographySmallTokens.HeaderH1Bold,
-    headerH1Medium = TypographySmallTokens.HeaderH1Medium,
-    headerH1Normal = TypographySmallTokens.HeaderH1Normal,
-    headerH2Bold = TypographySmallTokens.HeaderH2Bold,
-    headerH2Medium = TypographySmallTokens.HeaderH2Medium,
-    headerH2Normal = TypographySmallTokens.HeaderH2Normal,
-    headerH3Bold = TypographySmallTokens.HeaderH3Bold,
-    headerH3Medium = TypographySmallTokens.HeaderH3Medium,
-    headerH3Normal = TypographySmallTokens.HeaderH3Normal,
-    headerH4Bold = TypographySmallTokens.HeaderH4Bold,
-    headerH4Medium = TypographySmallTokens.HeaderH4Medium,
-    headerH4Normal = TypographySmallTokens.HeaderH4Normal,
-    headerH5Bold = TypographySmallTokens.HeaderH5Bold,
-    headerH5Medium = TypographySmallTokens.HeaderH5Medium,
-    headerH5Normal = TypographySmallTokens.HeaderH5Normal,
-    headerH6Normal = TypographySmallTokens.HeaderH6Normal,
-    headerH6Medium = TypographySmallTokens.HeaderH6Medium,
-    headerH6Bold = TypographySmallTokens.HeaderH6Bold,
     bodyLBold = TypographySmallTokens.BodyLBold,
     bodyLMedium = TypographySmallTokens.BodyLMedium,
     bodyLNormal = TypographySmallTokens.BodyLNormal,
@@ -286,6 +259,32 @@ public fun smallPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     bodyXxsBold = TypographySmallTokens.BodyXxsBold,
     bodyXxsMedium = TypographySmallTokens.BodyXxsMedium,
     bodyXxsNormal = TypographySmallTokens.BodyXxsNormal,
+    displayLBold = TypographySmallTokens.DisplayLBold,
+    displayLMedium = TypographySmallTokens.DisplayLMedium,
+    displayLNormal = TypographySmallTokens.DisplayLNormal,
+    displayMBold = TypographySmallTokens.DisplayMBold,
+    displayMMedium = TypographySmallTokens.DisplayMMedium,
+    displayMNormal = TypographySmallTokens.DisplayMNormal,
+    displaySBold = TypographySmallTokens.DisplaySBold,
+    displaySMedium = TypographySmallTokens.DisplaySMedium,
+    displaySNormal = TypographySmallTokens.DisplaySNormal,
+    headerH1Bold = TypographySmallTokens.HeaderH1Bold,
+    headerH1Medium = TypographySmallTokens.HeaderH1Medium,
+    headerH1Normal = TypographySmallTokens.HeaderH1Normal,
+    headerH2Bold = TypographySmallTokens.HeaderH2Bold,
+    headerH2Normal = TypographySmallTokens.HeaderH2Normal,
+    headerH3Bold = TypographySmallTokens.HeaderH3Bold,
+    headerH3Medium = TypographySmallTokens.HeaderH3Medium,
+    headerH3Normal = TypographySmallTokens.HeaderH3Normal,
+    headerH4Bold = TypographySmallTokens.HeaderH4Bold,
+    headerH4Medium = TypographySmallTokens.HeaderH4Medium,
+    headerH4Normal = TypographySmallTokens.HeaderH4Normal,
+    headerH5Bold = TypographySmallTokens.HeaderH5Bold,
+    headerH5Medium = TypographySmallTokens.HeaderH5Medium,
+    headerH5Normal = TypographySmallTokens.HeaderH5Normal,
+    headerH6Bold = TypographySmallTokens.HeaderH6Bold,
+    headerH6Medium = TypographySmallTokens.HeaderH6Medium,
+    headerH6Normal = TypographySmallTokens.HeaderH6Normal,
     textLBold = TypographySmallTokens.TextLBold,
     textLMedium = TypographySmallTokens.TextLMedium,
     textLNormal = TypographySmallTokens.TextLNormal,
@@ -298,39 +297,13 @@ public fun smallPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     textXsBold = TypographySmallTokens.TextXsBold,
     textXsMedium = TypographySmallTokens.TextXsMedium,
     textXsNormal = TypographySmallTokens.TextXsNormal,
+    headerH2Medium = TypographySmallTokens.HeaderH2Medium,
 )
 
 /**
  * Возвращает [PlasmaHomeDsTypography] для WindowSizeClass.Medium
  */
 public fun mediumPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsTypography(
-    displayLBold = TypographyMediumTokens.DisplayLBold,
-    displayLMedium = TypographyMediumTokens.DisplayLMedium,
-    displayLNormal = TypographyMediumTokens.DisplayLNormal,
-    displayMBold = TypographyMediumTokens.DisplayMBold,
-    displayMMedium = TypographyMediumTokens.DisplayMMedium,
-    displayMNormal = TypographyMediumTokens.DisplayMNormal,
-    displaySBold = TypographyMediumTokens.DisplaySBold,
-    displaySMedium = TypographyMediumTokens.DisplaySMedium,
-    displaySNormal = TypographyMediumTokens.DisplaySNormal,
-    headerH1Bold = TypographyMediumTokens.HeaderH1Bold,
-    headerH1Medium = TypographyMediumTokens.HeaderH1Medium,
-    headerH1Normal = TypographyMediumTokens.HeaderH1Normal,
-    headerH2Bold = TypographyMediumTokens.HeaderH2Bold,
-    headerH2Medium = TypographyMediumTokens.HeaderH2Medium,
-    headerH2Normal = TypographyMediumTokens.HeaderH2Normal,
-    headerH3Bold = TypographyMediumTokens.HeaderH3Bold,
-    headerH3Medium = TypographyMediumTokens.HeaderH3Medium,
-    headerH3Normal = TypographyMediumTokens.HeaderH3Normal,
-    headerH4Bold = TypographyMediumTokens.HeaderH4Bold,
-    headerH4Medium = TypographyMediumTokens.HeaderH4Medium,
-    headerH4Normal = TypographyMediumTokens.HeaderH4Normal,
-    headerH5Bold = TypographyMediumTokens.HeaderH5Bold,
-    headerH5Medium = TypographyMediumTokens.HeaderH5Medium,
-    headerH5Normal = TypographyMediumTokens.HeaderH5Normal,
-    headerH6Normal = TypographyMediumTokens.HeaderH6Normal,
-    headerH6Medium = TypographyMediumTokens.HeaderH6Medium,
-    headerH6Bold = TypographyMediumTokens.HeaderH6Bold,
     bodyLBold = TypographyMediumTokens.BodyLBold,
     bodyLMedium = TypographyMediumTokens.BodyLMedium,
     bodyLNormal = TypographyMediumTokens.BodyLNormal,
@@ -346,6 +319,32 @@ public fun mediumPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDs
     bodyXxsBold = TypographyMediumTokens.BodyXxsBold,
     bodyXxsMedium = TypographyMediumTokens.BodyXxsMedium,
     bodyXxsNormal = TypographyMediumTokens.BodyXxsNormal,
+    displayLBold = TypographyMediumTokens.DisplayLBold,
+    displayLMedium = TypographyMediumTokens.DisplayLMedium,
+    displayLNormal = TypographyMediumTokens.DisplayLNormal,
+    displayMBold = TypographyMediumTokens.DisplayMBold,
+    displayMMedium = TypographyMediumTokens.DisplayMMedium,
+    displayMNormal = TypographyMediumTokens.DisplayMNormal,
+    displaySBold = TypographyMediumTokens.DisplaySBold,
+    displaySMedium = TypographyMediumTokens.DisplaySMedium,
+    displaySNormal = TypographyMediumTokens.DisplaySNormal,
+    headerH1Bold = TypographyMediumTokens.HeaderH1Bold,
+    headerH1Medium = TypographyMediumTokens.HeaderH1Medium,
+    headerH1Normal = TypographyMediumTokens.HeaderH1Normal,
+    headerH2Bold = TypographyMediumTokens.HeaderH2Bold,
+    headerH2Normal = TypographyMediumTokens.HeaderH2Normal,
+    headerH3Bold = TypographyMediumTokens.HeaderH3Bold,
+    headerH3Medium = TypographyMediumTokens.HeaderH3Medium,
+    headerH3Normal = TypographyMediumTokens.HeaderH3Normal,
+    headerH4Bold = TypographyMediumTokens.HeaderH4Bold,
+    headerH4Medium = TypographyMediumTokens.HeaderH4Medium,
+    headerH4Normal = TypographyMediumTokens.HeaderH4Normal,
+    headerH5Bold = TypographyMediumTokens.HeaderH5Bold,
+    headerH5Medium = TypographyMediumTokens.HeaderH5Medium,
+    headerH5Normal = TypographyMediumTokens.HeaderH5Normal,
+    headerH6Bold = TypographyMediumTokens.HeaderH6Bold,
+    headerH6Medium = TypographyMediumTokens.HeaderH6Medium,
+    headerH6Normal = TypographyMediumTokens.HeaderH6Normal,
     textLBold = TypographyMediumTokens.TextLBold,
     textLMedium = TypographyMediumTokens.TextLMedium,
     textLNormal = TypographyMediumTokens.TextLNormal,
@@ -358,39 +357,13 @@ public fun mediumPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDs
     textXsBold = TypographyMediumTokens.TextXsBold,
     textXsMedium = TypographyMediumTokens.TextXsMedium,
     textXsNormal = TypographyMediumTokens.TextXsNormal,
+    headerH2Medium = TypographyMediumTokens.HeaderH2Medium,
 )
 
 /**
  * Возвращает [PlasmaHomeDsTypography] для WindowSizeClass.Expanded
  */
 public fun largePlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsTypography(
-    displayLBold = TypographyLargeTokens.DisplayLBold,
-    displayLMedium = TypographyLargeTokens.DisplayLMedium,
-    displayLNormal = TypographyLargeTokens.DisplayLNormal,
-    displayMBold = TypographyLargeTokens.DisplayMBold,
-    displayMMedium = TypographyLargeTokens.DisplayMMedium,
-    displayMNormal = TypographyLargeTokens.DisplayMNormal,
-    displaySBold = TypographyLargeTokens.DisplaySBold,
-    displaySMedium = TypographyLargeTokens.DisplaySMedium,
-    displaySNormal = TypographyLargeTokens.DisplaySNormal,
-    headerH1Bold = TypographyLargeTokens.HeaderH1Bold,
-    headerH1Medium = TypographyLargeTokens.HeaderH1Medium,
-    headerH1Normal = TypographyLargeTokens.HeaderH1Normal,
-    headerH2Bold = TypographyLargeTokens.HeaderH2Bold,
-    headerH2Medium = TypographyLargeTokens.HeaderH2Medium,
-    headerH2Normal = TypographyLargeTokens.HeaderH2Normal,
-    headerH3Bold = TypographyLargeTokens.HeaderH3Bold,
-    headerH3Medium = TypographyLargeTokens.HeaderH3Medium,
-    headerH3Normal = TypographyLargeTokens.HeaderH3Normal,
-    headerH4Bold = TypographyLargeTokens.HeaderH4Bold,
-    headerH4Medium = TypographyLargeTokens.HeaderH4Medium,
-    headerH4Normal = TypographyLargeTokens.HeaderH4Normal,
-    headerH5Bold = TypographyLargeTokens.HeaderH5Bold,
-    headerH5Medium = TypographyLargeTokens.HeaderH5Medium,
-    headerH5Normal = TypographyLargeTokens.HeaderH5Normal,
-    headerH6Normal = TypographyLargeTokens.HeaderH6Normal,
-    headerH6Medium = TypographyLargeTokens.HeaderH6Medium,
-    headerH6Bold = TypographyLargeTokens.HeaderH6Bold,
     bodyLBold = TypographyLargeTokens.BodyLBold,
     bodyLMedium = TypographyLargeTokens.BodyLMedium,
     bodyLNormal = TypographyLargeTokens.BodyLNormal,
@@ -406,6 +379,32 @@ public fun largePlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     bodyXxsBold = TypographyLargeTokens.BodyXxsBold,
     bodyXxsMedium = TypographyLargeTokens.BodyXxsMedium,
     bodyXxsNormal = TypographyLargeTokens.BodyXxsNormal,
+    displayLBold = TypographyLargeTokens.DisplayLBold,
+    displayLMedium = TypographyLargeTokens.DisplayLMedium,
+    displayLNormal = TypographyLargeTokens.DisplayLNormal,
+    displayMBold = TypographyLargeTokens.DisplayMBold,
+    displayMMedium = TypographyLargeTokens.DisplayMMedium,
+    displayMNormal = TypographyLargeTokens.DisplayMNormal,
+    displaySBold = TypographyLargeTokens.DisplaySBold,
+    displaySMedium = TypographyLargeTokens.DisplaySMedium,
+    displaySNormal = TypographyLargeTokens.DisplaySNormal,
+    headerH1Bold = TypographyLargeTokens.HeaderH1Bold,
+    headerH1Medium = TypographyLargeTokens.HeaderH1Medium,
+    headerH1Normal = TypographyLargeTokens.HeaderH1Normal,
+    headerH2Bold = TypographyLargeTokens.HeaderH2Bold,
+    headerH2Normal = TypographyLargeTokens.HeaderH2Normal,
+    headerH3Bold = TypographyLargeTokens.HeaderH3Bold,
+    headerH3Medium = TypographyLargeTokens.HeaderH3Medium,
+    headerH3Normal = TypographyLargeTokens.HeaderH3Normal,
+    headerH4Bold = TypographyLargeTokens.HeaderH4Bold,
+    headerH4Medium = TypographyLargeTokens.HeaderH4Medium,
+    headerH4Normal = TypographyLargeTokens.HeaderH4Normal,
+    headerH5Bold = TypographyLargeTokens.HeaderH5Bold,
+    headerH5Medium = TypographyLargeTokens.HeaderH5Medium,
+    headerH5Normal = TypographyLargeTokens.HeaderH5Normal,
+    headerH6Bold = TypographyLargeTokens.HeaderH6Bold,
+    headerH6Medium = TypographyLargeTokens.HeaderH6Medium,
+    headerH6Normal = TypographyLargeTokens.HeaderH6Normal,
     textLBold = TypographyLargeTokens.TextLBold,
     textLMedium = TypographyLargeTokens.TextLMedium,
     textLNormal = TypographyLargeTokens.TextLNormal,
@@ -418,6 +417,7 @@ public fun largePlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     textXsBold = TypographyLargeTokens.TextXsBold,
     textXsMedium = TypographyLargeTokens.TextXsMedium,
     textXsNormal = TypographyLargeTokens.TextXsNormal,
+    headerH2Medium = TypographyLargeTokens.HeaderH2Medium,
 )
 
 /**

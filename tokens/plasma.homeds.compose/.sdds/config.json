@@ -5,6 +5,17 @@
         "type": "env",
         "name": "DSBUILDER_HOMEDS_KEY"
     },
-    "tenants": [],
-    "palettePath": null
+    "tenants": [
+        {
+            "id": "e29b532e-76b9-42c3-8205-4b47cdf30ae0",
+            "designSystemId": "bab8ceb1-8c62-4e03-bb1b-c5cc240555f1",
+            "name": "plasma_homeds_default",
+            "description": null,
+            "directoryPath": ".sdds/tenants/plasma_homeds_default",
+            "alias": "PlasmaHomeDs",
+            "createdAt": "2026-06-15T09:25:17.623Z",
+            "updatedAt": "2026-06-15T09:25:17.623Z"
+        }
+    ],
+    "palettePath": ".sdds/tenants/palette.json"
 }
