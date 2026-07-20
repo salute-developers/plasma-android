@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.movableContentOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalLayoutDirection
@@ -41,6 +43,8 @@ internal fun DrawerLayout(
             .fillMaxSize()
             .then(nestedScroll)
 
+        val movableContent = remember { movableContentOf(content) }
+
         if (drawerState.alignment.isHorizontal()) {
             val draggableHorizontal = Modifier.anchoredDraggable(
                 state = drawerState.anchoredDraggableState,
@@ -49,7 +53,7 @@ internal fun DrawerLayout(
                 reverseDirection = isRtl,
             )
             Box(swipeable.then(draggableHorizontal)) {
-                content(drawerConstraints)
+                movableContent(this, drawerConstraints)
             }
         } else {
             val draggableVertical = Modifier.anchoredDraggable(
@@ -59,7 +63,7 @@ internal fun DrawerLayout(
                 reverseDirection = false,
             )
             Box(swipeable.then(draggableVertical)) {
-                content(drawerConstraints)
+                movableContent(this, drawerConstraints)
             }
         }
     }
