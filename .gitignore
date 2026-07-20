@@ -40,3 +40,6 @@ google-services.json
 .vscode/settings.json
 **/.sdds/**/
 /.kotlin/
+
+# Kotlin/JS local dependency store
+tokens/kotlin-js-store/
