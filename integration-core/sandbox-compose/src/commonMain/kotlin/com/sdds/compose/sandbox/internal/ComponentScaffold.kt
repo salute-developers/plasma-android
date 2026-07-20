@@ -46,7 +46,7 @@ import com.sdds.sandbox.UiState
 @Composable
 internal fun <State : UiState, S : Style> ComponentScaffold(
     key: ComponentKey,
-    stateController: ComponentStateController<State, S>,
+    stateController: ComponentViewModel<State, S>,
     themeManager: ThemeManager = ThemeManager,
     componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
@@ -77,7 +77,7 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
 @Composable
 private fun <State : UiState, S : Style> MobileScaffold(
     key: ComponentKey,
-    stateController: ComponentStateController<State, S>,
+    stateController: ComponentViewModel<State, S>,
     themeManager: ThemeManager = ThemeManager,
     componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
@@ -137,7 +137,7 @@ private fun <State : UiState, S : Style> MobileScaffold(
 @Composable
 private fun <State : UiState, S : Style> LargeScaffold(
     key: ComponentKey,
-    stateController: ComponentStateController<State, S>,
+    stateController: ComponentViewModel<State, S>,
     themeManager: ThemeManager = ThemeManager,
     componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
@@ -220,7 +220,7 @@ private fun SubTheme(
 @Composable
 private fun <State : UiState, S : Style> AnimatedMenuProperty(
     title: String,
-    stateController: ComponentStateController<State, S>,
+    stateController: ComponentViewModel<State, S>,
     isLargeScreen: Boolean,
     modifier: Modifier = Modifier,
 ) {

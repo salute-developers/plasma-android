@@ -104,6 +104,7 @@ base-kotlin-poetKsp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "k
 base-kotlin-compiler-embeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "global-kotlin"}
 base-kotlin-compose-compiler = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "global-kotlin" }
 base-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutines"}
+base-kotlin-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinCoroutines"}
 
 base-staticAnalysis-ktlint = { module = "com.pinterest:ktlint", version.ref = "staticAnalysis-ktlint" }
 base-staticAnalysis-detekt-api = { module = "io.gitlab.arturbosch.detekt:detekt-api", version.ref = "staticAnalysis-detekt" }

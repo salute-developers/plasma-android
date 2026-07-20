@@ -44,6 +44,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.components.resources)
                 implementation(libs.base.jetbrains.androidX.navigation.compose)
+                implementation(libs.base.jetbrains.androidX.lifecycle.compose.viewmodel)
                 implementation(libs.base.kotlin.serialization.json)
             }
         }
@@ -52,8 +53,12 @@ kotlin {
                 implementation(libs.base.androidX.activity.compose)
                 implementation(libs.base.androidX.appcompat)
                 implementation(libs.base.androidX.activity)
-                implementation(libs.base.androidX.lifecycle.compose.viewmodel)
                 implementation(libs.base.androidX.compose.uiTooling.preview)
+            }
+        }
+        jvmMain {
+            dependencies {
+                implementation(libs.base.kotlin.coroutines.swing)
             }
         }
         commonTest {

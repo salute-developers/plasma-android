@@ -3,10 +3,9 @@ package com.sdds.compose.sandbox
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.sandbox.internal.ComponentScaffold
-import com.sdds.compose.sandbox.internal.ComponentStateController
+import com.sdds.compose.sandbox.internal.ComponentViewModel
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.style.Style
 import com.sdds.sandbox.BaseStory
@@ -38,7 +37,7 @@ import kotlinx.coroutines.flow.StateFlow
  *
  * @see BaseStory
  * @see ComponentScaffold
- * @see ComponentStateController
+ * @see ComponentViewModel
  */
 abstract class ComposeBaseStory<State : UiState, S : Style>(
     override val component: ComponentKey,
@@ -101,14 +100,14 @@ abstract class ComposeBaseStory<State : UiState, S : Style>(
      */
     @Composable
     internal fun Story() {
-        val coroutineScope = rememberCoroutineScope()
-        val stateController = remember(component) {
-            ComponentStateController<State, S>(
+        val stateController: ComponentViewModel<State, S> = viewModel(
+            key = component.value,
+        ) {
+            ComponentViewModel<State, S>(
                 defaultState = defaultState,
                 propertiesProducer = propertiesProducer,
                 stateTransformer = stateTransformer,
                 componentKey = component,
-                coroutineScope = coroutineScope,
             )
         }
         DisposableEffect(stateController) {

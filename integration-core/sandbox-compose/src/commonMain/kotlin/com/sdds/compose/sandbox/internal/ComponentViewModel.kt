@@ -1,5 +1,7 @@
 package com.sdds.compose.sandbox.internal
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeTheme
 import com.sdds.compose.sandbox.SubTheme
@@ -15,7 +17,6 @@ import com.sdds.sandbox.ThemeManager
 import com.sdds.sandbox.UiState
 import com.sdds.sandbox.getAppearances
 import com.sdds.sandbox.getDefaultAppearance
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -24,14 +25,13 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.stateIn
 
-internal class ComponentStateController<State : UiState, S : Style>(
+internal class ComponentViewModel<State : UiState, S : Style>(
     private val defaultState: State,
     private val propertiesProducer: PropertiesProducer<State>,
     private val stateTransformer: StateTransformer<State>,
     private val componentKey: ComponentKey,
-    coroutineScope: CoroutineScope,
     private val themeManager: ThemeManager = ThemeManager,
-) : PropertiesOwner, StateOwner<State> {
+) : ViewModel(), PropertiesOwner, StateOwner<State> {
 
     private val internalUiState = MutableStateFlow(defaultState)
     private val selectedBindings = MutableStateFlow<Map<String, Any?>>(emptyMap())
@@ -44,7 +44,7 @@ internal class ComponentStateController<State : UiState, S : Style>(
      */
     val theme: StateFlow<ComposeTheme> = themeManager.currentTheme
         .mapNotNull { it as? ComposeTheme }
-        .stateIn(coroutineScope, SharingStarted.Lazily, ComposeTheme.Default)
+        .stateIn(viewModelScope, SharingStarted.Lazily, ComposeTheme.Default)
 
     /**
      * Подтема
@@ -61,14 +61,14 @@ internal class ComponentStateController<State : UiState, S : Style>(
             appearanceProperties(state, themeState) +
                 styleProperties(state, themeState, bindings)
         }
-            .stateIn(coroutineScope, SharingStarted.Lazily, emptyList())
+            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     override val properties: StateFlow<List<Property<*>>> =
         combine(internalUiState, theme, selectedBindings) { state, themeState, bindings ->
             if (themeState.components.components.isEmpty()) return@combine emptyList()
             state.toProps()
         }
-            .stateIn(coroutineScope, SharingStarted.Lazily, emptyList())
+            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     @Suppress("UNCHECKED_CAST")
     override fun updateProperty(name: String, value: Any?) {
