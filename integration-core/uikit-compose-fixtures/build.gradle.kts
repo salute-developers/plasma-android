@@ -79,12 +79,20 @@ dependencies {
 }
 
 tasks.matching { it.name == "kspCommonMainKotlinMetadata" }.configureEach {
-    dependsOn("generateResourceAccessorsForCommonMain")
+    dependsOn(
+        "generateComposeResClass",
+        "generateResourceAccessorsForCommonMain",
+    )
 }
 
 tasks.matching { it.name.startsWith("compile") && it.name.contains("Kotlin") }
     .configureEach {
         dependsOn("kspCommonMainKotlinMetadata")
+    }
+
+tasks.matching { it.name.startsWith("compile") && it.name.endsWith("KotlinAndroid") }
+    .configureEach {
+        dependsOn("generateResourceAccessorsForAndroidMain")
     }
 
 tasks.matching {
