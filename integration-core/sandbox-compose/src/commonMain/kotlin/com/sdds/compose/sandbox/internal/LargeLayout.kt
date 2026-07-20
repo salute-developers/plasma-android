@@ -4,7 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
@@ -16,18 +18,58 @@ import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.Drawer
 
 @Composable
-internal fun TvLayout(
-    peekWidth: Dp = 30.dp,
+internal fun LargeLayout(
+    navigationMode: LargeNavigationMode,
     menuItems: @Composable () -> Unit,
-    mainContent: @Composable () -> Unit,
+    content: @Composable () -> Unit,
+) {
+    when (navigationMode) {
+        LargeNavigationMode.Persistent -> PersistentLargeLayout(
+            menuItems = menuItems,
+            content = content,
+        )
+
+        LargeNavigationMode.FocusDriven -> FocusDrivenLargeLayout(
+            menuItems = menuItems,
+            content = content,
+        )
+    }
+}
+
+@Composable
+private fun PersistentLargeLayout(
+    menuItems: @Composable () -> Unit,
+    content: @Composable () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(SddsSandboxTheme.colors.backgroundDefaultPrimary),
+    ) {
+        menuItems()
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight(),
+        ) {
+            content()
+        }
+    }
+}
+
+@Composable
+private fun FocusDrivenLargeLayout(
+    menuItems: @Composable () -> Unit,
+    content: @Composable () -> Unit,
+    peekWidth: Dp = FocusDrivenNavigationPeekWidth,
 ) {
     val style = LocalNavigationViewStyle.current
     val density = LocalDensity.current
     Drawer(
         modifier = Modifier
             .width(style.menuWidth)
-            .fillMaxHeight()
-            .background(SddsSandboxTheme.colors.backgroundDefaultPrimary),
+            .fillMaxHeight(),
+        gesturesEnabled = true,
         moveContentEnabled = true,
         openOnFocus = true,
         overlayEnabled = false,
@@ -39,11 +81,16 @@ internal fun TvLayout(
             Box(
                 modifier = Modifier
                     .width(with(density) { screenWidth.toDp() - peekWidth })
-                    .padding(start = peekWidth + 2.dp)
+                    .padding(start = peekWidth + FocusDrivenContentGap)
                     .fillMaxHeight()
                     .background(SddsSandboxTheme.colors.backgroundDefaultPrimary)
                     .focusGroup(),
-            ) { mainContent() }
+            ) {
+                content()
+            }
         }
     }
 }
+
+private val FocusDrivenNavigationPeekWidth = 30.dp
+private val FocusDrivenContentGap = 2.dp

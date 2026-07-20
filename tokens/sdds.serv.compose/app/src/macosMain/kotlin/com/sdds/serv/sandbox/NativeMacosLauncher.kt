@@ -3,7 +3,6 @@ package com.sdds.serv.sandbox
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
-import com.sdds.compose.sandbox.SandboxNavigationPolicy
 import platform.AppKit.NSApplication
 import platform.AppKit.NSApplicationActivationPolicy
 import platform.AppKit.NSApplicationDelegateProtocol
@@ -21,7 +20,7 @@ fun main() {
         title = "SddsServ Sandbox",
         size = DpSize(1440.dp, 960.dp),
     ) {
-        SddsServSandboxApp(navigationPolicy = SandboxNavigationPolicy.Desktop)
+        SddsServSandboxApp()
     }
     application.run()
 }

@@ -2,7 +2,6 @@ package com.sdds.serv.sandbox
 
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import com.sdds.compose.sandbox.SandboxNavigationPolicy
 
 /** JVM Desktop entrypoint for the SddsServ sandbox. */
 fun main() = application {
@@ -11,6 +10,6 @@ fun main() = application {
         onCloseRequest = ::exitApplication,
         title = "SddsServ Sandbox",
     ) {
-        SddsServSandboxApp(navigationPolicy = SandboxNavigationPolicy.Desktop)
+        SddsServSandboxApp()
     }
 }

@@ -30,12 +30,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sdds.compose.sandbox.ComposeTheme
-import com.sdds.compose.sandbox.SandboxNavigationPolicy
 import com.sdds.compose.sandbox.currentComposeThemeAsState
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.WindowSizeClass
-import com.sdds.compose.uikit.collectWindowSizeInfoAsState
+import com.sdds.compose.uikit.widthBreakPoint
 import com.sdds.icons.compose.DisclosureDownOutline16
 import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ThemeManager
@@ -44,52 +43,40 @@ import kotlinx.coroutines.launch
 @Suppress("LongMethod")
 @Composable
 internal fun MainContent(
-    navigationPolicy: SandboxNavigationPolicy,
     navigationIntegration: @Composable (NavHostController) -> Unit,
     themeManager: ThemeManager = ThemeManager,
 ) {
     val currentTheme by themeManager.currentComposeThemeAsState
-    val isLarge = isLargeDevice()
-    val layout = navigationPolicy.resolve(isLarge)
-    val isTv = layout == SandboxLayout.Tv
-    val isDesktop = layout == SandboxLayout.Desktop
+    val layout = resolveSandboxLayout(isLargeDevice())
     val menuItems = remember(currentTheme) { currentTheme.components.getMenuItems() }
     val scope = rememberCoroutineScope()
     val navController = rememberNavController()
+    val backDispatcher = remember { SandboxBackDispatcher() }
     navigationIntegration(navController)
     val currentBackStackEntry by navController.currentBackStackEntryFlow.collectAsState(initial = null)
-    val showTopBar = currentBackStackEntry?.destination?.route == START_DESTINATION
+    val isStartDestination = currentBackStackEntry?.destination?.route == START_DESTINATION
+    val isComponentStory = currentBackStackEntry?.destination?.route
+        ?.let { it != START_DESTINATION }
+        ?: false
     val navigationContent: @Composable () -> Unit = {
         NavigationGraph(
             navController = navController,
             menuItems = menuItems,
             themeInfo = currentTheme,
             useSlideTransitions = layout.usesSlideTransitions(),
-            showFirstStoryAtStart = isTv || isDesktop,
+            showFirstStoryAtStart = layout.showsFirstStoryAtStart(),
         )
     }
 
-    CompositionLocalProvider(LocalSandboxLayout provides layout) {
-        if (isTv) {
-            TvLayout(
+    CompositionLocalProvider(
+        LocalSandboxLayout provides layout,
+        LocalSandboxBackDispatcher provides backDispatcher,
+    ) {
+        when (layout) {
+            SandboxLayout.Large -> LargeLayout(
+                navigationMode = platformLargeNavigationMode,
                 menuItems = {
-                    NavigationViewTv(
-                        items = menuItems,
-                        title = currentTheme.displayName,
-                        selectedRoute = currentBackStackEntry?.destination?.route,
-                        focusable = true,
-                        onSelect = {
-                            scope.launch { navController.navigateTo(it) }
-                        },
-                    )
-                },
-            ) {
-                navigationContent()
-            }
-        } else if (isDesktop) {
-            DesktopLayout(
-                menuItems = {
-                    NavigationViewTv(
+                    NavigationViewLarge(
                         items = menuItems,
                         title = currentTheme.displayName,
                         selectedRoute = currentBackStackEntry?.destination?.route,
@@ -98,22 +85,26 @@ internal fun MainContent(
                         },
                     )
                 },
-            ) {
-                navigationContent()
-            }
-        } else {
-            MobileLayout(
+                content = {
+                    navigationContent()
+                },
+            )
+
+            SandboxLayout.Mobile -> MobileLayout(
                 hasMultipleThemes = false,
-                showTopBar = showTopBar,
+                showTopBar = isStartDestination,
                 topBar = {
                     TopBar(
                         title = "Theme",
                         onNavigationClick = { },
                     )
                 },
-            ) {
-                navigationContent()
-            }
+                showBackButton = layout.showsMobileBackButton(isComponentStory),
+                onBack = {
+                    backDispatcher.handleBack(navController::navigateBackToComponentList)
+                },
+                content = navigationContent,
+            )
         }
     }
 }
@@ -189,6 +180,14 @@ private suspend fun NavHostController.navigateTo(item: MenuItem) {
     }
 }
 
+private fun NavHostController.navigateBackToComponentList() {
+    if (!popBackStack()) {
+        navigate(START_DESTINATION) {
+            launchSingleTop = true
+        }
+    }
+}
+
 @Composable
 internal fun TopBar(
     title: String,
@@ -229,35 +228,28 @@ private data class NavigationTransition(
 
 @Composable
 internal fun isLargeDevice(): Boolean {
-    val sizeInfo by collectWindowSizeInfoAsState()
-    return sizeInfo.widthClass == WindowSizeClass.Expanded
-}
-
-internal fun SandboxNavigationPolicy.resolve(isLargeDevice: Boolean): SandboxLayout {
-    return when (this) {
-        SandboxNavigationPolicy.Auto -> if (isLargeDevice) SandboxLayout.Tv else SandboxLayout.Mobile
-        SandboxNavigationPolicy.Tv -> SandboxLayout.Tv
-        SandboxNavigationPolicy.Desktop -> SandboxLayout.Desktop
+    val windowInfo = LocalWindowInfo.current
+    val density = LocalDensity.current
+    return with(density) {
+        windowInfo.containerSize.width.toDp() >= WindowSizeClass.Expanded.widthBreakPoint()
     }
 }
 
+internal fun resolveSandboxLayout(isLargeDevice: Boolean): SandboxLayout =
+    if (isLargeDevice) SandboxLayout.Large else SandboxLayout.Mobile
+
 internal enum class SandboxLayout {
     Mobile,
-    Tv,
-    Desktop,
+    Large,
 }
 
 internal val LocalSandboxLayout = compositionLocalOf { SandboxLayout.Mobile }
 
-@Composable
-internal fun isPersistentDesktopNavigationWindow(): Boolean {
-    val windowInfo = LocalWindowInfo.current
-    val density = LocalDensity.current
-    return with(density) {
-        windowInfo.containerSize.width.toDp() >= PersistentDesktopNavigationBreakpoint
-    }
-}
-
 internal fun SandboxLayout.usesSlideTransitions(): Boolean = this == SandboxLayout.Mobile
+
+internal fun SandboxLayout.showsFirstStoryAtStart(): Boolean = this == SandboxLayout.Large
+
+internal fun SandboxLayout.showsMobileBackButton(isComponentStory: Boolean): Boolean =
+    this == SandboxLayout.Mobile && isComponentStory
 
 private const val START_DESTINATION = "menuItems"

@@ -31,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
@@ -43,19 +44,15 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.basicButtonBuilder
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
-import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.selection
-import com.sdds.icons.compose.ArrowLeft16
-import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.Property
 
 internal val LocalPropertyEditorStyle = compositionLocalOf { PropertyEditorStyle.create() }
@@ -135,6 +132,7 @@ internal fun PropertyEditor(
     modifier: Modifier = Modifier,
     style: PropertyEditorStyle = LocalPropertyEditorStyle.current,
 ) {
+    val choiceFocusRequester = remember(property) { FocusRequester() }
     Column(
         modifier = Modifier
             .clip(style.shape)
@@ -146,6 +144,7 @@ internal fun PropertyEditor(
             title = headerTitle,
             style = style,
             onBack = onBack,
+            downFocusRequester = choiceFocusRequester.takeIf { property is Property.SingleChoiceProperty },
         )
 
         when (property) {
@@ -155,6 +154,7 @@ internal fun PropertyEditor(
                 currentValue = property.value,
                 style = style,
                 propertyName = property.name,
+                entryFocusRequester = choiceFocusRequester,
             )
 
             is Property.IntProperty, is Property.FloatProperty -> TextPropertyEditor(
@@ -224,6 +224,7 @@ private fun <T> ChoiceEditor(
     currentValue: T,
     choices: List<T>,
     style: PropertyEditorStyle,
+    entryFocusRequester: FocusRequester,
 ) {
     var selected by remember { mutableStateOf(currentValue) }
     val selectedIndex = choices.indexOf(selected).coerceAtLeast(0)
@@ -259,6 +260,13 @@ private fun <T> ChoiceEditor(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(style.editorItemHeight)
+                        .then(
+                            if (it == selectedIndex) {
+                                Modifier.focusRequester(entryFocusRequester)
+                            } else {
+                                Modifier
+                            },
+                        )
                         .focusRequester(focusRequester[it])
                         .selection(isSelected, semanticStateSource)
                         .background(color = background, shape = style.editorItemShape)
@@ -302,6 +310,7 @@ private fun EditorHeader(
     title: String,
     style: PropertyEditorStyle,
     onBack: (() -> Unit)?,
+    downFocusRequester: FocusRequester?,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -312,11 +321,16 @@ private fun EditorHeader(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         if (onBack != null) {
-            IconButton(
-                modifier = Modifier.padding(end = 6.dp),
-                style = LocalPropertiesListStyle.current.resetButtonStyle,
-                iconSource = imageVectorSource(SddsIcons.ArrowLeft16),
-                iconContentDescription = "Назад",
+            SandboxBackButton(
+                modifier = Modifier
+                    .padding(end = 6.dp)
+                    .then(
+                        if (downFocusRequester != null) {
+                            Modifier.focusProperties { down = downFocusRequester }
+                        } else {
+                            Modifier
+                        },
+                    ),
                 onClick = onBack,
             )
         }

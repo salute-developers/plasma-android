@@ -43,6 +43,7 @@ kotlin {
                 implementation(iconsCompose.sdds.icons.compose)
                 implementation(compose.foundation)
                 implementation(compose.components.resources)
+                implementation(libs.base.jetbrains.compose.ui.backhandler)
                 implementation(libs.base.jetbrains.androidX.navigation.compose)
                 implementation(libs.base.jetbrains.androidX.lifecycle.compose.viewmodel)
                 implementation(libs.base.kotlin.serialization.json)

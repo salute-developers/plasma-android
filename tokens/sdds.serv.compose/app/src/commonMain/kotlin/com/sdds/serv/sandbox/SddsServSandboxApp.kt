@@ -3,7 +3,6 @@ package com.sdds.serv.sandbox
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import com.sdds.compose.sandbox.SandboxApp
-import com.sdds.compose.sandbox.SandboxNavigationPolicy
 import com.sdds.compose.uikit.fixtures.stories.registerCoreStories
 import com.sdds.serv.integration.registerTheme
 
@@ -23,11 +22,9 @@ fun initializeSddsServSandbox() {
  */
 @Composable
 fun SddsServSandboxApp(
-    navigationPolicy: SandboxNavigationPolicy = SandboxNavigationPolicy.Auto,
     navigationIntegration: @Composable (NavHostController) -> Unit = {},
 ) {
     SandboxApp(
-        navigationPolicy = navigationPolicy,
         navigationIntegration = navigationIntegration,
     )
 }

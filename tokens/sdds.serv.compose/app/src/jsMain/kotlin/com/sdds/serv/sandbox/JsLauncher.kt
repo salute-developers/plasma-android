@@ -9,7 +9,6 @@ import androidx.compose.ui.window.ComposeViewport
 import androidx.navigation.ExperimentalBrowserHistoryApi
 import androidx.navigation.NavHostController
 import androidx.navigation.bindToNavigation
-import com.sdds.compose.sandbox.SandboxNavigationPolicy
 import com.sdds.serv.compose.generated.resources.Res
 import com.sdds.serv.compose.generated.resources.s_b_sans_display_bold
 import com.sdds.serv.compose.generated.resources.s_b_sans_display_light
@@ -68,7 +67,6 @@ private fun PreloadedSddsServSandbox() {
 
     if (fontsLoaded) {
         SddsServSandboxApp(
-            navigationPolicy = SandboxNavigationPolicy.Desktop,
             navigationIntegration = { navController -> BrowserNavigationIntegration(navController) },
         )
     }

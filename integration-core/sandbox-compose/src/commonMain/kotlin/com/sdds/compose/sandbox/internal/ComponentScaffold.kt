@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -27,7 +28,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.backhandler.BackHandler
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
@@ -51,20 +54,16 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
     componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
-    val isLargeLayout = when (LocalSandboxLayout.current) {
-        SandboxLayout.Desktop -> isPersistentDesktopNavigationWindow()
-        SandboxLayout.Mobile, SandboxLayout.Tv -> isLargeDevice()
-    }
-    if (isLargeLayout) {
-        LargeScaffold(
+    when (LocalSandboxLayout.current) {
+        SandboxLayout.Large -> LargeScaffold(
             key = key,
             stateController = stateController,
             themeManager = themeManager,
             componentAlignment = componentAlignment,
             component = component,
         )
-    } else {
-        MobileScaffold(
+
+        SandboxLayout.Mobile -> MobileScaffold(
             key = key,
             stateController = stateController,
             themeManager = themeManager,
@@ -217,6 +216,7 @@ private fun SubTheme(
     }
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun <State : UiState, S : Style> AnimatedMenuProperty(
     title: String,
@@ -227,8 +227,21 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
     val contentState = remember { mutableStateOf<MenuPropertyContent>(MenuPropertyContent.PropertiesList) }
     val properties by stateController.properties.collectAsState()
     val styleProperties by stateController.styleProperties.collectAsState()
-    BackHandler(enabled = contentState.value is MenuPropertyContent.PropertyEditor) {
+    val backDispatcher = LocalSandboxBackDispatcher.current
+    val isPropertyEditor = contentState.value is MenuPropertyContent.PropertyEditor
+    val returnToPropertiesList = {
         contentState.value = MenuPropertyContent.PropertiesList
+    }
+    DisposableEffect(backDispatcher, isLargeScreen, isPropertyEditor) {
+        val unregister = if (!isLargeScreen && isPropertyEditor) {
+            backDispatcher.register(returnToPropertiesList)
+        } else {
+            null
+        }
+        onDispose { unregister?.invoke() }
+    }
+    BackHandler(enabled = !isLargeScreen && isPropertyEditor) {
+        backDispatcher.handleBack(returnToPropertiesList)
     }
     AnimatedContent(
         modifier = modifier,
@@ -283,13 +296,6 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
         }
     }
 }
-
-@Composable
-@Suppress("UNUSED_PARAMETER")
-private fun BackHandler(
-    enabled: Boolean,
-    onBack: () -> Unit,
-) = Unit
 
 private sealed class MenuPropertyContent {
     object PropertiesList : MenuPropertyContent()

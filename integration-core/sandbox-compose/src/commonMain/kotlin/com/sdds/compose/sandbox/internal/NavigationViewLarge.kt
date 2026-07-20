@@ -89,18 +89,13 @@ internal interface NavigationViewStyle {
     }
 }
 
-/**
- *
- * @author Малышев Александр on 25.02.2025
- */
 @Composable
-internal fun NavigationViewTv(
+internal fun NavigationViewLarge(
     items: List<MenuItem>,
     onSelect: (MenuItem) -> Unit,
     title: String,
     selectedRoute: String?,
     modifier: Modifier = Modifier,
-    focusable: Boolean = false,
     style: NavigationViewStyle = LocalNavigationViewStyle.current,
 ) {
     Column(
@@ -113,7 +108,6 @@ internal fun NavigationViewTv(
             )
             .padding(start = 4.dp, end = 4.dp)
             .systemBarsPadding(),
-
     ) {
         Row(
             Modifier
@@ -135,20 +129,17 @@ internal fun NavigationViewTv(
                 if (isFirstOfGroup) {
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        modifier = Modifier
-                            .padding(start = style.groupPadding),
+                        modifier = Modifier.padding(start = style.groupPadding),
                         text = menuItem.componentKey.group.displayName,
                         style = style.headerTextStyle.copy(color = style.headerTextColor),
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                 }
-                NavigationItemTv(
+                NavigationItemLarge(
                     title = menuItem.title,
                     style = style,
                     isSelected = menuItem.route == (selectedRoute ?: items.firstOrNull()?.route),
-                    onClick = {
-                        onSelect(menuItem)
-                    },
+                    onClick = { onSelect(menuItem) },
                 )
             }
         }
@@ -156,7 +147,7 @@ internal fun NavigationViewTv(
 }
 
 @Composable
-private fun NavigationItemTv(
+private fun NavigationItemLarge(
     title: String,
     style: NavigationViewStyle,
     isSelected: Boolean = false,

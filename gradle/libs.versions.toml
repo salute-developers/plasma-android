@@ -94,6 +94,7 @@ base-androidX-activity-compose = { module = "androidx.activity:activity-compose"
 
 base-jetbrains-androidX-lifecycle-compose-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "jb-androidX-lifecycle-compose" }
 base-jetbrains-androidX-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "jb-androidX-navigation" }
+base-jetbrains-compose-ui-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.ref = "plugin-compose-multiplatform" }
 
 base-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "global-kotlin" }
 base-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "global-kotlin" }
