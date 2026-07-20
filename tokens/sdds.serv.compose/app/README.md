@@ -67,6 +67,12 @@ launcher пока не собирается.
 ./gradlew :tokens:sdds.serv.compose:app:wasmJsBrowserDevelopmentRun
 ```
 
+### Проверка mobile layout
+
+Отдельной web-сборки для мобильных устройств нет: тот же Wasm-бандл адаптирует
+интерфейс к ширине viewport. Откройте адрес dev-сервера в браузере, включите
+Device Toolbar в DevTools (`⌘⇧M`), выберите устройство и перезагрузите страницу.
+
 Production bundle:
 
 ```bash

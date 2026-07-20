@@ -270,6 +270,11 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
                         .then(insetsModifier),
                     headerTitle = title,
                     property = content.property,
+                    onBack = if (isLargeScreen) {
+                        { contentState.value = MenuPropertyContent.PropertiesList }
+                    } else {
+                        null
+                    },
                     onConfirm = { name, value ->
                         stateController.updateProperty(name, value)
                     },

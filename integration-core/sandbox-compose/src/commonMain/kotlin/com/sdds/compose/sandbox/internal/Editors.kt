@@ -43,15 +43,19 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.basicButtonBuilder
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.selection
+import com.sdds.icons.compose.ArrowLeft16
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.Property
 
 internal val LocalPropertyEditorStyle = compositionLocalOf { PropertyEditorStyle.create() }
@@ -127,6 +131,7 @@ internal fun PropertyEditor(
     property: Property<*>?,
     onConfirm: (String, String) -> Unit,
     headerTitle: String,
+    onBack: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
     style: PropertyEditorStyle = LocalPropertyEditorStyle.current,
 ) {
@@ -140,6 +145,7 @@ internal fun PropertyEditor(
         EditorHeader(
             title = headerTitle,
             style = style,
+            onBack = onBack,
         )
 
         when (property) {
@@ -295,6 +301,7 @@ private fun ChoiceEditorHeader(
 private fun EditorHeader(
     title: String,
     style: PropertyEditorStyle,
+    onBack: (() -> Unit)?,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -304,6 +311,15 @@ private fun EditorHeader(
             .padding(style.editorItemPadding),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        if (onBack != null) {
+            IconButton(
+                modifier = Modifier.padding(end = 6.dp),
+                style = LocalPropertiesListStyle.current.resetButtonStyle,
+                iconSource = imageVectorSource(SddsIcons.ArrowLeft16),
+                iconContentDescription = "Назад",
+                onClick = onBack,
+            )
+        }
         Column(
             Modifier
                 .weight(1f)
