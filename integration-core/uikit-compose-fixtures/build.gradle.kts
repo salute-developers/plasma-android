@@ -55,7 +55,6 @@ kotlin {
 
             dependencies {
                 implementation("sdds-core:docs")
-                implementation("sdds-core:docs-compose")
                 implementation("sdds-core:icons")
                 implementation(libs.base.androidX.appcompat)
                 implementation(libs.base.koil.compose)
@@ -76,7 +75,7 @@ compose.resources {
 
 dependencies {
     add("kspCommonMainMetadata", project(":sandbox-ksp"))
-    add("kspAndroid", "sdds-core:docs-ksp")
+    add("kspAndroid", "sdds-core:docs")
 }
 
 tasks.matching { it.name == "kspCommonMainKotlinMetadata" }.configureEach {
