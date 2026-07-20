@@ -3,16 +3,17 @@ package com.sdds.compose.uikit.fixtures.stories.slider
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.SlideDirection
 import com.sdds.compose.uikit.Slider
 import com.sdds.compose.uikit.SliderAlignment
 import com.sdds.compose.uikit.SliderStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.SliderUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.SliderUiStateTransformer
+import com.sdds.icons.compose.SaluteOutline36
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -56,7 +57,7 @@ object SliderStory : ComposeBaseStory<SliderUiState, SliderStyle>(
             title = state.title,
             labelContent = {
                 Icon(
-                    painter = painterResource(FixtureR.drawable.ic_salute_outline_36),
+                    painter = rememberVectorPainter(SddsIcons.SaluteOutline36),
                     contentDescription = null,
                 )
             },
@@ -85,7 +86,7 @@ object SliderStory : ComposeBaseStory<SliderUiState, SliderStyle>(
             title = "Title",
             labelContent = {
                 Icon(
-                    painter = painterResource(FixtureR.drawable.ic_salute_outline_36),
+                    painter = rememberVectorPainter(SddsIcons.SaluteOutline36),
                     contentDescription = null,
                 )
             },

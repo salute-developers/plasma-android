@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Icon
@@ -12,10 +13,11 @@ import com.sdds.compose.uikit.Note
 import com.sdds.compose.uikit.NoteCompact
 import com.sdds.compose.uikit.NoteCompactStyle
 import com.sdds.compose.uikit.NoteStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.NoteUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.NoteUiStateTransformer
+import com.sdds.icons.compose.SaluteOutline24
+import com.sdds.icons.compose.SaluteOutline36
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -59,7 +61,7 @@ object NoteStory : ComposeBaseStory<NoteUiState, NoteStyle>(
             title = state.title,
             contentBefore = {
                 Icon(
-                    painter = painterResource(FixtureR.drawable.ic_salute_outline_36),
+                    painter = rememberVectorPainter(SddsIcons.SaluteOutline36),
                     contentDescription = null,
                 )
             },
@@ -87,7 +89,7 @@ object NoteStory : ComposeBaseStory<NoteUiState, NoteStyle>(
             title = "Title",
             contentBefore = {
                 Icon(
-                    painter = painterResource(FixtureR.drawable.ic_salute_outline_24),
+                    painter = rememberVectorPainter(SddsIcons.SaluteOutline24),
                     contentDescription = null,
                 )
             },
@@ -120,7 +122,7 @@ object NoteCompactStory : ComposeBaseStory<NoteUiState, NoteCompactStyle>(
             title = state.title,
             contentBefore = {
                 Icon(
-                    painter = painterResource(FixtureR.drawable.ic_salute_outline_36),
+                    painter = rememberVectorPainter(SddsIcons.SaluteOutline36),
                     contentDescription = null,
                 )
             },
@@ -148,7 +150,7 @@ object NoteCompactStory : ComposeBaseStory<NoteUiState, NoteCompactStyle>(
             title = "Title",
             contentBefore = {
                 Icon(
-                    painter = painterResource(FixtureR.drawable.ic_salute_outline_24),
+                    painter = rememberVectorPainter(SddsIcons.SaluteOutline24),
                     contentDescription = null,
                 )
             },

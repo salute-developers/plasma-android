@@ -5,10 +5,11 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.IconButtonUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.IconButtonUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.Plasma24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -44,7 +45,7 @@ object IconBasicButtonStory : ComposeBaseStory<IconButtonUiState, ButtonStyle>(
     @Composable
     override fun BoxScope.Content(style: ButtonStyle, state: IconButtonUiState) {
         IconButton(
-            iconSource = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+            iconSource = imageVectorSource(SddsIcons.Plasma24),
             style = style,
             enabled = state.enabled,
             loading = state.loading,
@@ -61,7 +62,7 @@ object IconBasicButtonStory : ComposeBaseStory<IconButtonUiState, ButtonStyle>(
         key: ComponentKey,
     ) {
         IconButton(
-            iconSource = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+            iconSource = imageVectorSource(SddsIcons.Plasma24),
             style = style,
             enabled = true,
             loading = false,

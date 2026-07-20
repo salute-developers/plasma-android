@@ -17,10 +17,14 @@ import com.sdds.compose.uikit.ai.AiAnswerError
 import com.sdds.compose.uikit.ai.AiAnswerLoading
 import com.sdds.compose.uikit.ai.AiAnswerState
 import com.sdds.compose.uikit.ai.AiAnswerStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.AiAnswerUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AiAnswerUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.CopyOutline24
+import com.sdds.icons.compose.DislikeOutline24
+import com.sdds.icons.compose.LikeOutline24
+import com.sdds.icons.compose.RepeatOutline24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -101,10 +105,10 @@ private fun AiAnswerStoryContent(
         },
         actionsStart = if (state.hasActionsStart) {
             {
-                button { AiAnswerActionIconButton(iconRes = FixtureR.drawable.ic_copy_outline_24) }
-                button { AiAnswerActionIconButton(iconRes = FixtureR.drawable.ic_like_outline_24) }
-                button { AiAnswerActionIconButton(iconRes = FixtureR.drawable.ic_dislike_outline_24) }
-                button { AiAnswerActionIconButton(iconRes = FixtureR.drawable.ic_repeat_outline_24) }
+                button { AiAnswerActionIconButton(iconRes = SddsIcons.CopyOutline24) }
+                button { AiAnswerActionIconButton(iconRes = SddsIcons.LikeOutline24) }
+                button { AiAnswerActionIconButton(iconRes = SddsIcons.DislikeOutline24) }
+                button { AiAnswerActionIconButton(iconRes = SddsIcons.RepeatOutline24) }
             }
         } else {
             null
@@ -133,7 +137,7 @@ private fun AiAnswerActionIconButton(
     iconRes: ImageVector,
 ) {
     IconButton(
-        iconSource = resourceImageSource(iconRes),
+        iconSource = imageVectorSource(iconRes),
         onClick = {},
     )
 }

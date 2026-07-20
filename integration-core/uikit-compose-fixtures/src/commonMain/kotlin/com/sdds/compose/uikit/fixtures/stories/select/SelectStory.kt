@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
@@ -36,13 +37,16 @@ import com.sdds.compose.uikit.SelectStyle
 import com.sdds.compose.uikit.SelectTextField
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.SelectUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.SelectUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
 import com.sdds.compose.uikit.rememberSelectSingleDataStateManager
+import com.sdds.icons.compose.ChevronDown24
+import com.sdds.icons.compose.ChevronUp24
+import com.sdds.icons.compose.Plasma36
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Search24
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -137,15 +141,15 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                                 enabled = state.enabled,
                                 placeholderText = if (value.isEmpty()) "Сотрудник" else null,
                                 captionText = "Выберите имя",
-                                iconOpened = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_up_24,
-                                iconClosed = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_down_24,
+                                iconOpened = imageVectorSource(SddsIcons.ChevronUp24),
+                                iconClosed = imageVectorSource(SddsIcons.ChevronDown24),
                                 chipsContent = getChipsContent(
                                     itemType,
                                     checkedStateManager.selectedItems,
                                 ),
                                 startContent = {
                                     Icon(
-                                        painterResource(FixtureR.drawable.ic_search_24),
+                                        rememberVectorPainter(SddsIcons.Search24),
                                         "",
                                     )
                                 },
@@ -159,11 +163,11 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                                 label = value,
                                 readonly = state.readOnly,
                                 enabled = state.enabled,
-                                iconOpened = resourceImageSource(
-                                    com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_up_24,
+                                iconOpened = imageVectorSource(
+                                    SddsIcons.ChevronUp24,
                                 ),
-                                iconClosed = resourceImageSource(
-                                    com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_down_24,
+                                iconClosed = imageVectorSource(
+                                    SddsIcons.ChevronDown24,
                                 ),
                             )
                         }
@@ -172,7 +176,7 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                 showEmptyState = state.showEmptyState,
                 emptyState = {
                     EmptyState(
-                        iconRes = FixtureR.drawable.ic_plasma_36,
+                        iconSource = imageVectorSource(SddsIcons.Plasma36),
                         description = "Empty State",
                         buttonLabel = "Action",
                     )
@@ -219,11 +223,11 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                         SelectItemType.Single,
                         stateManager.selectedItems,
                     ),
-                    iconOpened = resourceImageSource(
-                        com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_up_24,
+                    iconOpened = imageVectorSource(
+                        SddsIcons.ChevronUp24,
                     ),
-                    iconClosed = resourceImageSource(
-                        com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_chevron_down_24,
+                    iconClosed = imageVectorSource(
+                        SddsIcons.ChevronDown24,
                     ),
                 )
             },

@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
@@ -20,11 +21,13 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.CollapsingNavigationBarUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.CollapsingNavigationBarUiStateTransformer
 import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
+import com.sdds.icons.compose.Menu24
+import com.sdds.icons.compose.Plus24
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Search24
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -120,11 +123,11 @@ private fun actionStart(hasAction: Boolean): (@Composable RowScope.() -> Unit)? 
     return if (hasAction) {
         @Composable {
             Icon(
-                painter = painterResource(FixtureR.drawable.ic_search_24),
+                painter = rememberVectorPainter(SddsIcons.Search24),
                 contentDescription = "",
             )
             Icon(
-                painter = painterResource(FixtureR.drawable.ic_plus_24),
+                painter = rememberVectorPainter(SddsIcons.Plus24),
                 contentDescription = "",
             )
         }
@@ -137,7 +140,7 @@ private fun actionEnd(hasAction: Boolean): (@Composable RowScope.() -> Unit)? {
     return if (hasAction) {
         @Composable {
             Icon(
-                painter = painterResource(FixtureR.drawable.ic_menu_24),
+                painter = rememberVectorPainter(SddsIcons.Menu24),
                 contentDescription = "",
             )
         }

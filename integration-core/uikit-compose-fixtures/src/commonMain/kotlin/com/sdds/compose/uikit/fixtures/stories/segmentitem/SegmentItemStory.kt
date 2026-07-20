@@ -7,14 +7,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentItemStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.SegmentItemUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.SegmentItemUiStateTransformer
+import com.sdds.icons.compose.Plasma24
+import com.sdds.icons.compose.ScribbleDiagonal24
+import com.sdds.icons.compose.ScribbleDiagonal36
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -84,7 +87,7 @@ object SegmentItemStory : ComposeBaseStory<SegmentItemUiState, SegmentItemStyle>
             enabled = true,
             startContent = {
                 Icon(
-                    painter = painterResource(id = FixtureR.drawable.ic_plasma_24),
+                    painter = rememberVectorPainter(SddsIcons.Plasma24),
                     contentDescription = "",
                 )
             },
@@ -96,7 +99,7 @@ object SegmentItemStory : ComposeBaseStory<SegmentItemUiState, SegmentItemStyle>
 @Composable
 private fun startIcon(hasStartIcon: Boolean): Painter? {
     return if (hasStartIcon) {
-        painterResource(id = FixtureR.drawable.ic_scribble_diagonal_24)
+        rememberVectorPainter(SddsIcons.ScribbleDiagonal24)
     } else {
         null
     }
@@ -105,7 +108,7 @@ private fun startIcon(hasStartIcon: Boolean): Painter? {
 @Composable
 private fun endIcon(contentType: SegmentItemContent): Painter? {
     return if (contentType == SegmentItemContent.ICON) {
-        painterResource(id = FixtureR.drawable.ic_scribble_diagonal_36)
+        rememberVectorPainter(SddsIcons.ScribbleDiagonal36)
     } else {
         null
     }

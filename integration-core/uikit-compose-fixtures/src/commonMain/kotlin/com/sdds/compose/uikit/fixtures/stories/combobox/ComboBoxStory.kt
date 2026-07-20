@@ -19,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
@@ -37,13 +38,18 @@ import com.sdds.compose.uikit.SelectItemType
 import com.sdds.compose.uikit.SelectState
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ComboBoxUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ComboBoxUiStateTransformer
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
 import com.sdds.compose.uikit.rememberSelectSingleDataStateManager
+import com.sdds.icons.compose.ChevronDown24
+import com.sdds.icons.compose.ChevronUp24
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.Plasma36
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Search24
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -136,8 +142,8 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                             enabled = state.enabled,
                             placeholderText = if (value.isEmpty()) "Сотрудник" else null,
                             captionText = "Введите или выберите имя",
-                            iconOpened = FixtureR.drawable.ic_chevron_up_24,
-                            iconClosed = FixtureR.drawable.ic_chevron_down_24,
+                            iconOpened = imageVectorSource(SddsIcons.ChevronUp24),
+                            iconClosed = imageVectorSource(SddsIcons.ChevronDown24),
                             chipsContent = getChipsContent(
                                 itemType,
                                 checkedStateManager.selectedItems,
@@ -148,7 +154,7 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                             focusSelectorSettings = FocusSelectorSettings.None,
                             startContent = {
                                 Icon(
-                                    painterResource(FixtureR.drawable.ic_search_24),
+                                    rememberVectorPainter(SddsIcons.Search24),
                                     "",
                                 )
                             },
@@ -157,7 +163,7 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                     showEmptyState = state.showEmptyState || filteredList.isEmpty(),
                     emptyState = {
                         EmptyState(
-                            iconRes = FixtureR.drawable.ic_plasma_36,
+                            iconSource = imageVectorSource(SddsIcons.Plasma36),
                             description = "Empty State",
                             buttonLabel = "Action",
                         )
@@ -217,15 +223,15 @@ object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
                     value = value,
                     placeholderText = if (value.isEmpty()) "Сотрудник" else null,
                     onValueChange = { value = it },
-                    iconOpened = FixtureR.drawable.ic_chevron_up_24,
-                    iconClosed = FixtureR.drawable.ic_chevron_down_24,
+                    iconOpened = imageVectorSource(SddsIcons.ChevronUp24),
+                    iconClosed = imageVectorSource(SddsIcons.ChevronDown24),
                     focusSelectorSettings = FocusSelectorSettings.None,
                 )
             },
             showEmptyState = filteredList.isEmpty(),
             emptyState = {
                 EmptyState(
-                    iconRes = FixtureR.drawable.ic_plasma_36,
+                    iconSource = imageVectorSource(SddsIcons.Plasma36),
                     description = "Empty State",
                     buttonLabel = "Action",
                 )
@@ -268,7 +274,7 @@ private fun getChipsContent(
                     enabled = enabled,
                     endContent = {
                         Icon(
-                            painter = painterResource(id = FixtureR.drawable.ic_close_24),
+                            painter = rememberVectorPainter(SddsIcons.Close24),
                             contentDescription = "",
                             modifier = if (enabled && !readOnly) {
                                 Modifier.clickable(

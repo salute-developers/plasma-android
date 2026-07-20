@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.TextFieldValue
@@ -26,13 +27,14 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.TextFieldUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.TextFieldUiStateTransformer
-import com.sdds.compose.uikit.fixtures.stringResource
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.ScribbleDiagonal24
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Shazam24
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -110,13 +112,11 @@ object TextFieldStory : ComposeBaseStory<TextFieldUiState, TextFieldStyle>(
                 Spacer(Modifier.size(64.dp))
                 Switch(
                     active = isFocusSelectorOn,
-                    label = stringResource(
-                        com.sdds.compose.uikit.fixtures.FixtureR.string.sandbox_enable_focus_selector,
-                    ),
+                    label = "Enable focus selector",
                     onActiveChanged = { isFocusSelectorOn = it },
                 )
                 Button(
-                    label = stringResource(com.sdds.compose.uikit.fixtures.FixtureR.string.sandbox_clear_focus),
+                    label = "Clear focus",
                     onClick = { focusManager.clearFocus(true) },
                 )
             }
@@ -141,13 +141,13 @@ object TextFieldStory : ComposeBaseStory<TextFieldUiState, TextFieldStyle>(
             focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
-                    painter = painterResource(id = FixtureR.drawable.ic_scribble_diagonal_24),
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
                     contentDescription = "",
                 )
             },
             endContent = {
                 Icon(
-                    painter = painterResource(id = FixtureR.drawable.ic_shazam_24),
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
                     contentDescription = "",
                 )
             },
@@ -156,8 +156,8 @@ object TextFieldStory : ComposeBaseStory<TextFieldUiState, TextFieldStyle>(
 }
 
 internal enum class TextFieldIcon(val res: ImageVector) {
-    Start(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_scribble_diagonal_24),
-    End(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_shazam_24),
+    Start(SddsIcons.ScribbleDiagonal24),
+    End(SddsIcons.Shazam24),
 }
 
 internal fun Boolean.getTextFieldExampleIcon(icon: TextFieldIcon): (@Composable () -> Unit)? {
@@ -169,7 +169,7 @@ internal fun Boolean.getTextFieldExampleIcon(icon: TextFieldIcon): (@Composable 
                     indication = null,
                     interactionSource = remember { MutableInteractionSource() },
                 ) { },
-                painter = painterResource(id = icon.res),
+                painter = rememberVectorPainter(icon.res),
                 contentDescription = "",
             )
         }
@@ -204,7 +204,7 @@ private fun ChipsContent(
             label = chip,
             endContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_close_24),
+                    painter = rememberVectorPainter(SddsIcons.Close24),
                     contentDescription = "",
                 )
             },

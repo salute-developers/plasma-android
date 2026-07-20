@@ -8,6 +8,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Counter
@@ -16,11 +17,13 @@ import com.sdds.compose.uikit.Indicator
 import com.sdds.compose.uikit.TabBar
 import com.sdds.compose.uikit.TabBarItem
 import com.sdds.compose.uikit.TabBarStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.TabBarUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.TabBarUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.HomeAltFill36
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.SmileFill36
+import com.sdds.icons.compose.SmileOutline36
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -65,8 +68,8 @@ object TabBarStory : ComposeBaseStory<TabBarUiState, TabBarStyle>(
                 tabItem {
                     TabBarItem(
                         isSelected = it == selectedItem,
-                        defaultIcon = resourceImageSource(FixtureR.drawable.ic_smile_outline_36),
-                        selectedIcon = resourceImageSource(FixtureR.drawable.ic_smile_fill_36),
+                        defaultIcon = imageVectorSource(SddsIcons.SmileOutline36),
+                        selectedIcon = imageVectorSource(SddsIcons.SmileFill36),
                         label = state.label,
                         extra = getExtra(state.extraType),
                         onClick = {
@@ -78,7 +81,7 @@ object TabBarStory : ComposeBaseStory<TabBarUiState, TabBarStyle>(
                     tabItem(weight = null) {
                         Icon(
                             modifier = Modifier.width(44.dp),
-                            painter = painterResource(FixtureR.drawable.ic_home_alt_fill_36),
+                            painter = rememberVectorPainter(SddsIcons.HomeAltFill36),
                             contentDescription = null,
                         )
                     }
@@ -97,8 +100,8 @@ object TabBarStory : ComposeBaseStory<TabBarUiState, TabBarStyle>(
                 tabItem {
                     TabBarItem(
                         isSelected = it == 0,
-                        defaultIcon = resourceImageSource(FixtureR.drawable.ic_smile_outline_36),
-                        selectedIcon = resourceImageSource(FixtureR.drawable.ic_smile_fill_36),
+                        defaultIcon = imageVectorSource(SddsIcons.SmileOutline36),
+                        selectedIcon = imageVectorSource(SddsIcons.SmileFill36),
                         label = "Label",
                         extra = { Counter(count = "12") },
                     )

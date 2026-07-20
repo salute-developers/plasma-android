@@ -2,17 +2,18 @@ package com.sdds.compose.uikit.fixtures.stories.linkbutton
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonIcons
 import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.LinkButtonUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.LinkButtonUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.button.ButtonIcon
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.Plasma24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -58,9 +59,9 @@ object LinkButtonStory : ComposeBaseStory<LinkButtonUiState, ButtonStyle>(
             loading = state.loading,
             spacing = state.spacing,
             icons = when (state.icon) {
-                ButtonIcon.End -> ButtonIcons(endSource = resourceImageSource(FixtureR.drawable.ic_plasma_24))
+                ButtonIcon.End -> ButtonIcons(endSource = imageVectorSource(SddsIcons.Plasma24))
                 ButtonIcon.No -> null
-                ButtonIcon.Start -> ButtonIcons(startSource = resourceImageSource(FixtureR.drawable.ic_plasma_24))
+                ButtonIcon.Start -> ButtonIcons(startSource = imageVectorSource(SddsIcons.Plasma24))
             },
             onClick = {},
         )
@@ -73,7 +74,7 @@ object LinkButtonStory : ComposeBaseStory<LinkButtonUiState, ButtonStyle>(
     ) {
         Button(
             style = style,
-            icons = ButtonIcons(start = painterResource(id = FixtureR.drawable.ic_plasma_24)),
+            icons = ButtonIcons(start = rememberVectorPainter(SddsIcons.Plasma24)),
             spacing = ButtonSpacing.Packed,
             label = "Label",
             enabled = true,

@@ -12,16 +12,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Overlay
 import com.sdds.compose.uikit.OverlayStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.OverlayUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.OverlayUiStateTransformer
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -69,7 +70,7 @@ object OverlayStory : ComposeBaseStory<OverlayUiState, OverlayStyle>(
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(end = 8.dp, top = 8.dp),
-                    icon = painterResource(id = FixtureR.drawable.ic_close_24),
+                    icon = rememberVectorPainter(SddsIcons.Close24),
                     onClick = { showOverlay = false },
                 )
             }
@@ -98,7 +99,7 @@ object OverlayStory : ComposeBaseStory<OverlayUiState, OverlayStyle>(
                 IconButton(
                     modifier = Modifier
                         .align(Alignment.CenterEnd),
-                    icon = painterResource(id = FixtureR.drawable.ic_close_24),
+                    icon = rememberVectorPainter(SddsIcons.Close24),
                     onClick = { showOverlay = false },
                 )
             }

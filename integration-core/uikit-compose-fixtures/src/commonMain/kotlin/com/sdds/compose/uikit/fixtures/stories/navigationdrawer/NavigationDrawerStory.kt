@@ -13,7 +13,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import coil.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarPlaceholder
@@ -24,12 +23,15 @@ import com.sdds.compose.uikit.NavigationDrawerItem
 import com.sdds.compose.uikit.NavigationDrawerStyle
 import com.sdds.compose.uikit.NavigationDrawerValue
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.resourceImageSource
+import com.sdds.compose.uikit.fixtures.RemoteImage
 import com.sdds.compose.uikit.fixtures.stories.NavigationDrawerUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.NavigationDrawerUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.navigationdrawer.NavigationDrawerStory.updateState
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.rememberNavigationDrawerState
+import com.sdds.icons.compose.MailOutline24
+import com.sdds.icons.compose.Menu24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -113,7 +115,7 @@ private fun NavigationDrawerStoryContent(
                 DrawerItem(
                     selected = isSelected,
                     onClick = { selectedIndex.intValue = it },
-                    iconRes = FixtureR.drawable.ic_mail_outline_24,
+                    iconRes = SddsIcons.MailOutline24,
                     state = state,
                 )
             }
@@ -131,7 +133,7 @@ private fun NavigationDrawerHeader(
         onClick = onClick,
         icon = {
             Icon(
-                source = resourceImageSource(FixtureR.drawable.ic_menu_24),
+                source = imageVectorSource(SddsIcons.Menu24),
                 contentDescription = "Menu",
             )
         },
@@ -148,7 +150,7 @@ private fun NavigationDrawerFooter() {
             Avatar(
                 placeholder = AvatarPlaceholder.Name("Michael Scot"),
             ) {
-                AsyncImage(
+                RemoteImage(
                     modifier = Modifier.matchParentSize(),
                     contentScale = ContentScale.Crop,
                     model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",
@@ -173,7 +175,7 @@ private fun DrawerItem(
         onClick = onClick,
         icon = {
             Icon(
-                source = resourceImageSource(iconRes),
+                source = imageVectorSource(iconRes),
                 contentDescription = "",
             )
         },

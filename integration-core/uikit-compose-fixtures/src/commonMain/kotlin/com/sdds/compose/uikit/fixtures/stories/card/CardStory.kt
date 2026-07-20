@@ -19,18 +19,20 @@ import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
-import com.sdds.compose.uikit.fixtures.resourceImageSource
+import com.sdds.compose.uikit.fixtures.generated.resources.Res
+import com.sdds.compose.uikit.fixtures.generated.resources.il_avatar_test
 import com.sdds.compose.uikit.fixtures.stories.CardUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.CardUiStateTransformer
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.Plasma24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
-import com.sdds.compose.uikit.fixtures.FixtureR.drawable as Icons
+import org.jetbrains.compose.resources.painterResource
 
 /**
  * Состояние компонента Card
@@ -81,7 +83,7 @@ object CardStory : ComposeBaseStory<CardUiState, CardStyle>(
                 Image(
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop,
-                    painter = painterResource(id = FixtureR.drawable.il_avatar_test),
+                    painter = painterResource(Res.drawable.il_avatar_test),
                     contentDescription = "Android",
                 )
             }
@@ -121,7 +123,7 @@ object CardStory : ComposeBaseStory<CardUiState, CardStyle>(
                 ) {
                     Image(
                         contentScale = ContentScale.Crop,
-                        painter = painterResource(id = FixtureR.drawable.il_avatar_test),
+                        painter = painterResource(Res.drawable.il_avatar_test),
                         contentDescription = "Android",
                     )
                     Text(
@@ -135,7 +137,7 @@ object CardStory : ComposeBaseStory<CardUiState, CardStyle>(
 
 private fun getExtra(): (@Composable BoxScope.() -> Unit) = {
     IconButton(
-        iconSource = resourceImageSource(Icons.ic_plasma_24),
+        iconSource = imageVectorSource(SddsIcons.Plasma24),
         modifier = Modifier.align(Alignment.BottomEnd),
         onClick = {},
     )

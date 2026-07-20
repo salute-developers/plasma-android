@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.AnnotatedString
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Avatar
@@ -21,12 +22,12 @@ import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.Switch
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.CellUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.CellUiStateTransformer
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.icons.compose.ScribbleDiagonal24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -106,12 +107,12 @@ object CellStory : ComposeBaseStory<CellUiState, CellStyle>(
             disclosureContentEnabled = false,
             startContent = {
                 Avatar(
-                    painter = painterResource(id = FixtureR.drawable.ic_scribble_diagonal_24),
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
                 )
             },
             endContent = {
                 Icon(
-                    painter = painterResource(id = FixtureR.drawable.ic_scribble_diagonal_24),
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
                     contentDescription = "",
                 )
             },
@@ -125,15 +126,11 @@ private fun cellContent(contentType: CellContent): (@Composable RowScope.() -> U
         {
             when (contentType) {
                 CellContent.AVATAR -> Avatar(
-                    painter = painterResource(
-                        id = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_scribble_diagonal_24,
-                    ),
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
                 )
 
                 CellContent.ICON -> Icon(
-                    painter = painterResource(
-                        id = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_scribble_diagonal_24,
-                    ),
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
                     contentDescription = "",
                 )
 

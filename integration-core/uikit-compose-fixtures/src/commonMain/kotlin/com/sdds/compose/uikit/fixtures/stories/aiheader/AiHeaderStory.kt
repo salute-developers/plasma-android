@@ -12,9 +12,13 @@ import com.sdds.compose.uikit.ai.AiHeader
 import com.sdds.compose.uikit.ai.AiHeaderSeparationType
 import com.sdds.compose.uikit.ai.AiHeaderStyle
 import com.sdds.compose.uikit.ai.AiHeaderTitleAlignment
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.AiHeaderUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AiHeaderUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.AiOutline24
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.PanelSidebarLOutline24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -63,8 +67,8 @@ object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
                     ButtonGroup {
                         button {
                             IconButton(
-                                iconSource = resourceImageSource(
-                                    com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_panel_sidebar_l_outline_24,
+                                iconSource = imageVectorSource(
+                                    SddsIcons.PanelSidebarLOutline24,
                                 ),
                                 onClick = {
                                 },
@@ -72,8 +76,8 @@ object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
                         }
                         button {
                             IconButton(
-                                iconSource = resourceImageSource(
-                                    com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_ai_outline_24,
+                                iconSource = imageVectorSource(
+                                    SddsIcons.AiOutline24,
                                 ),
                                 onClick = {},
                             )
@@ -86,7 +90,7 @@ object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
             actionAfter = if (state.hasActionAfter) {
                 {
                     IconButton(
-                        iconSource = resourceImageSource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_close_24),
+                        iconSource = imageVectorSource(SddsIcons.Close24),
                         onClick = {},
                     )
                 }
@@ -111,8 +115,8 @@ object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
             style = style,
             actionBefore = {
                 IconButton(
-                    iconSource = resourceImageSource(
-                        com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_panel_sidebar_l_outline_24,
+                    iconSource = imageVectorSource(
+                        SddsIcons.PanelSidebarLOutline24,
                     ),
                     onClick = {
                     },
@@ -120,7 +124,7 @@ object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
             },
             actionAfter = {
                 IconButton(
-                    iconSource = resourceImageSource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_close_24),
+                    iconSource = imageVectorSource(SddsIcons.Close24),
                     onClick = {},
                 )
             },

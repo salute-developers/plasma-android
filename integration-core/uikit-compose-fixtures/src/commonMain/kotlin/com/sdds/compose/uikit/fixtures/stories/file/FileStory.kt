@@ -7,9 +7,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.compose.uikit.File
@@ -19,11 +19,15 @@ import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ProgressBar
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
-import com.sdds.compose.uikit.fixtures.resourceImageSource
+import com.sdds.compose.uikit.fixtures.RemoteImage
 import com.sdds.compose.uikit.fixtures.stories.FileUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.FileUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.Close16
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.Close36
+import com.sdds.icons.compose.FileCheckFill36
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -76,7 +80,7 @@ object FileStory : ComposeBaseStory<FileUiState, FileStyle>(
                             progress = 0.4f,
                             valueContent = {
                                 Icon(
-                                    painter = painterResource(id = FixtureR.drawable.ic_close_16),
+                                    painter = rememberVectorPainter(SddsIcons.Close16),
                                     contentDescription = "",
                                 )
                             },
@@ -90,7 +94,7 @@ object FileStory : ComposeBaseStory<FileUiState, FileStyle>(
             },
             action = {
                 IconButton(
-                    iconSource = resourceImageSource(FixtureR.drawable.ic_close_24),
+                    iconSource = imageVectorSource(SddsIcons.Close24),
                     onClick = {},
                 )
             },
@@ -110,7 +114,7 @@ object FileStory : ComposeBaseStory<FileUiState, FileStyle>(
             isLoading = true,
             image = {
                 Icon(
-                    painterResource(FixtureR.drawable.ic_file_check_fill_36),
+                    rememberVectorPainter(SddsIcons.FileCheckFill36),
                     contentDescription = "",
                 )
             },
@@ -119,7 +123,7 @@ object FileStory : ComposeBaseStory<FileUiState, FileStyle>(
                     progress = 0.4f,
                     valueContent = {
                         Icon(
-                            painter = painterResource(id = FixtureR.drawable.ic_close_16),
+                            painter = rememberVectorPainter(SddsIcons.Close16),
                             contentDescription = "",
                         )
                     },
@@ -127,7 +131,7 @@ object FileStory : ComposeBaseStory<FileUiState, FileStyle>(
             },
             action = {
                 IconButton(
-                    iconSource = resourceImageSource(FixtureR.drawable.ic_close_36),
+                    iconSource = imageVectorSource(SddsIcons.Close36),
                     onClick = {},
                 )
             },
@@ -141,11 +145,11 @@ private fun getImageContent(fileUiState: FileUiState): @Composable (() -> Unit)?
         {
             when (fileUiState.contentType) {
                 FileContentType.Icon -> Icon(
-                    painterResource(FixtureR.drawable.ic_file_check_fill_36),
+                    rememberVectorPainter(SddsIcons.FileCheckFill36),
                     contentDescription = "",
                 )
 
-                FileContentType.Image -> AsyncImage(
+                FileContentType.Image -> RemoteImage(
                     modifier = Modifier
                         .size(36.dp)
                         .clip(RoundedCornerShape(6.dp)),

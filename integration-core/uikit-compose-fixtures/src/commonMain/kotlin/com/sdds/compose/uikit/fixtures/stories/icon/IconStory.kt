@@ -12,11 +12,12 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.sandbox.NoStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.LocalTintBrushProducer
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.IconUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.IconUiStateTransformer
 import com.sdds.compose.uikit.graphics.brush.asBrush
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.Plasma24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -64,7 +65,7 @@ object IconStory : ComposeBaseStory<IconUiState, NoStyle>(
                     LocalTintBrushProducer provides { Color(0xFF2F80ED).asBrush() },
                 ) {
                     Icon(
-                        source = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+                        source = imageVectorSource(SddsIcons.Plasma24),
                         contentDescription = "Icon",
                         modifier = Modifier.size(48.dp),
                     )
@@ -73,7 +74,7 @@ object IconStory : ComposeBaseStory<IconUiState, NoStyle>(
 
             IconColorMode.FillColor -> {
                 Icon(
-                    source = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+                    source = imageVectorSource(SddsIcons.Plasma24),
                     contentDescription = "Icon",
                     modifier = Modifier.size(48.dp),
                     brush = { ExampleFillColor },
@@ -82,7 +83,7 @@ object IconStory : ComposeBaseStory<IconUiState, NoStyle>(
 
             IconColorMode.FillBrush -> {
                 Icon(
-                    source = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+                    source = imageVectorSource(SddsIcons.Plasma24),
                     contentDescription = "Icon",
                     modifier = Modifier.size(48.dp),
                     brush = { ExampleFillBrush },
@@ -97,7 +98,7 @@ object IconStory : ComposeBaseStory<IconUiState, NoStyle>(
         key: ComponentKey,
     ) {
         Icon(
-            source = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+            source = imageVectorSource(SddsIcons.Plasma24),
             contentDescription = "Icon",
             modifier = Modifier.size(24.dp),
             brush = { ExampleFillColor },

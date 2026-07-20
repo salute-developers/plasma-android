@@ -2,14 +2,16 @@ package com.sdds.compose.uikit.fixtures.stories.chip
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.Icon
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ChipUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ChipUiStateTransformer
+import com.sdds.icons.compose.AddFill24
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -63,7 +65,7 @@ object ChipStory : ComposeBaseStory<ChipUiState, ChipStyle>(
             onClick = {},
             endContent = {
                 Icon(
-                    painter = painterResource(id = FixtureR.drawable.ic_close_24),
+                    painter = rememberVectorPainter(SddsIcons.Close24),
                     contentDescription = null,
                 )
             },
@@ -84,7 +86,7 @@ private fun startContent(hasContent: Boolean): (@Composable () -> Unit)? {
     return if (hasContent) {
         {
             Icon(
-                painter = painterResource(id = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_add_fill_24),
+                painter = rememberVectorPainter(SddsIcons.AddFill24),
                 contentDescription = "",
             )
         }
@@ -97,7 +99,7 @@ private fun endContent(hasContent: Boolean): (@Composable () -> Unit)? {
     return if (hasContent) {
         {
             Icon(
-                painter = painterResource(id = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_close_24),
+                painter = rememberVectorPainter(SddsIcons.Close24),
                 contentDescription = "",
             )
         }

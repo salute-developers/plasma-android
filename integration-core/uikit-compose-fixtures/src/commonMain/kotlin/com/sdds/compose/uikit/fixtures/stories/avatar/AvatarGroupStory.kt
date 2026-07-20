@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import coil.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarCounter
@@ -13,8 +12,9 @@ import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.Image
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
+import com.sdds.compose.uikit.fixtures.RemoteImage
+import com.sdds.compose.uikit.fixtures.generated.resources.Res
+import com.sdds.compose.uikit.fixtures.generated.resources.il_avatar_test
 import com.sdds.compose.uikit.fixtures.stories.AvatarGroupUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AvatarGroupUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -24,6 +24,7 @@ import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryProperty
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
+import org.jetbrains.compose.resources.painterResource
 
 @StoryUiState
 data class AvatarGroupUiState(
@@ -74,7 +75,7 @@ object AvatarGroupStory : ComposeBaseStory<AvatarGroupUiState, AvatarGroupStyle>
                     Avatar(placeholder = state.placeholder)
                 } else {
                     Avatar {
-                        AsyncImage(
+                        RemoteImage(
                             modifier = Modifier.matchParentSize(),
                             contentScale = ContentScale.Crop,
                             model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",
@@ -89,7 +90,7 @@ object AvatarGroupStory : ComposeBaseStory<AvatarGroupUiState, AvatarGroupStyle>
                     Image(
                         modifier = Modifier.matchParentSize(),
                         contentScale = ContentScale.Crop,
-                        painter = painterResource(id = FixtureR.drawable.il_avatar_test),
+                        painter = painterResource(Res.drawable.il_avatar_test),
                         contentDescription = "Avatar",
                     )
                 }
@@ -114,7 +115,7 @@ object AvatarGroupStory : ComposeBaseStory<AvatarGroupUiState, AvatarGroupStyle>
                     status = AvatarStatus.Active,
                     actionEnabled = false,
                     placeholder = AvatarPlaceholder.Name("Michael Scott"),
-                    painter = painterResource(id = FixtureR.drawable.il_avatar_test),
+                    painter = painterResource(Res.drawable.il_avatar_test),
                     contentScale = ContentScale.Fit,
                 )
             }

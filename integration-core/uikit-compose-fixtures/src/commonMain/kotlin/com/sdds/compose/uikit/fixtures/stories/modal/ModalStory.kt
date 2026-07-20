@@ -8,6 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
@@ -15,10 +16,10 @@ import com.sdds.compose.uikit.Modal
 import com.sdds.compose.uikit.ModalGravity
 import com.sdds.compose.uikit.ModalStyle
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ModalUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ModalUiStateTransformer
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -68,7 +69,7 @@ object ModalStory : ComposeBaseStory<ModalUiState, ModalStyle>(
             gravity = state.gravity,
             dimBackground = state.hasDimBackground,
             useNativeBlackout = state.useNativeBlackout,
-            closeIcon = painterResource(FixtureR.drawable.ic_close_24),
+            closeIcon = rememberVectorPainter(SddsIcons.Close24),
         ) {
             Text("Modal", modifier = Modifier.wrapContentSize())
         }
@@ -92,7 +93,7 @@ object ModalStory : ComposeBaseStory<ModalUiState, ModalStyle>(
             hasClose = true,
             dimBackground = true,
             useNativeBlackout = true,
-            closeIcon = painterResource(FixtureR.drawable.ic_close_24),
+            closeIcon = rememberVectorPainter(SddsIcons.Close24),
         ) {
             Text("Modal", modifier = Modifier.wrapContentSize())
         }

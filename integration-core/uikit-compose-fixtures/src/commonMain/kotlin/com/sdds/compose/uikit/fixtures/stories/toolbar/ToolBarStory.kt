@@ -18,10 +18,12 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ToolBar
 import com.sdds.compose.uikit.ToolBarOrientation
 import com.sdds.compose.uikit.ToolBarStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.ToolBarUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ToolBarUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.Plasma24
+import com.sdds.icons.compose.SaluteOutline24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -64,9 +66,9 @@ object ToolBarStory : ComposeBaseStory<ToolBarUiState, ToolBarStyle>(
                     if (section % 2 == 0) {
                         section {
                             ContainerAccordingOrientation(style.orientation) {
-                                IconButton(resourceImageSource(FixtureR.drawable.ic_plasma_24)) { }
+                                IconButton(imageVectorSource(SddsIcons.Plasma24)) { }
                                 Spacer(modifier = Modifier.size(4.dp))
-                                IconButton(resourceImageSource(FixtureR.drawable.ic_salute_outline_24)) { }
+                                IconButton(imageVectorSource(SddsIcons.SaluteOutline24)) { }
                             }
                         }
                     } else {
@@ -90,9 +92,9 @@ object ToolBarStory : ComposeBaseStory<ToolBarUiState, ToolBarStyle>(
                 if (item % 2 == 0) {
                     section {
                         Row {
-                            IconButton(resourceImageSource(FixtureR.drawable.ic_plasma_24)) { }
+                            IconButton(imageVectorSource(SddsIcons.Plasma24)) { }
                             Spacer(modifier = Modifier.size(4.dp))
-                            IconButton(resourceImageSource(FixtureR.drawable.ic_salute_outline_24)) { }
+                            IconButton(imageVectorSource(SddsIcons.SaluteOutline24)) { }
                         }
                     }
                 } else {

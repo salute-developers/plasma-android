@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import com.sdds.compose.sandbox.ComposeBaseStory
@@ -24,14 +25,16 @@ import com.sdds.compose.uikit.ModalGravity
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Toast
 import com.sdds.compose.uikit.ToastStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.ToastUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ToastUiStateTransformer
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
 import com.sdds.compose.uikit.overlay.OverlayManager
 import com.sdds.compose.uikit.overlay.OverlayPosition
 import com.sdds.compose.uikit.overlay.showToast
+import com.sdds.icons.compose.Close16
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Shazam16
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Property
 import com.sdds.sandbox.PropertyProducer
@@ -131,7 +134,7 @@ object ToastStory : ComposeBaseStory<ToastUiState, ToastStyle>(
                     Toast(
                         style = style,
                         text = "Toast Text",
-                        contentStart = { Icon(painter = painterResource(FixtureR.drawable.ic_shazam_16), "") },
+                        contentStart = { Icon(painter = rememberVectorPainter(SddsIcons.Shazam16), "") },
                         contentEnd = {
                             Icon(
                                 modifier = Modifier.clickable(
@@ -140,7 +143,7 @@ object ToastStory : ComposeBaseStory<ToastUiState, ToastStyle>(
                                 ) {
                                     overlayManager.remove(it)
                                 },
-                                painter = painterResource(FixtureR.drawable.ic_close_16),
+                                painter = rememberVectorPainter(SddsIcons.Close16),
                                 contentDescription = "",
                             )
                         },
@@ -178,7 +181,7 @@ private fun BoxScope.ToastViaModal(
                 edgeToEdge = true,
                 dimBackground = false,
                 useNativeBlackout = false,
-                closeIcon = painterResource(FixtureR.drawable.ic_close_24),
+                closeIcon = rememberVectorPainter(SddsIcons.Close24),
             ) {
                 Box(
                     modifier = Modifier
@@ -215,7 +218,7 @@ private fun BoxScope.ToastViaModal(
 
 private fun getContentStart(hasContentStart: Boolean): @Composable (() -> Unit)? {
     return if (hasContentStart) {
-        @Composable { Icon(painter = painterResource(FixtureR.drawable.ic_shazam_16), "") }
+        @Composable { Icon(painter = rememberVectorPainter(SddsIcons.Shazam16), "") }
     } else {
         null
     }
@@ -231,7 +234,7 @@ private fun getContentEnd(hasContentEnd: Boolean, onClick: () -> Unit): @Composa
                 ) {
                     onClick.invoke()
                 },
-                painter = painterResource(FixtureR.drawable.ic_close_16),
+                painter = rememberVectorPainter(SddsIcons.Close16),
                 contentDescription = "",
             )
         }

@@ -20,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
@@ -35,10 +36,13 @@ import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.AutocompleteUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AutocompleteUiStateTransformer
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.Plasma36
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Search24
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -119,7 +123,7 @@ object AutocompleteStory : ComposeBaseStory<AutocompleteUiState, AutocompleteSty
                         },
                         endContent = {
                             Icon(
-                                painterResource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_search_24),
+                                rememberVectorPainter(SddsIcons.Search24),
                                 "",
                             )
                         },
@@ -129,7 +133,7 @@ object AutocompleteStory : ComposeBaseStory<AutocompleteUiState, AutocompleteSty
                 showEmptyState = showEmptyState,
                 emptyState = {
                     EmptyState(
-                        iconRes = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_plasma_36,
+                        iconSource = imageVectorSource(SddsIcons.Plasma36),
                         description = "Empty State",
                         buttonLabel = "Action",
                     )
@@ -175,7 +179,7 @@ object AutocompleteStory : ComposeBaseStory<AutocompleteUiState, AutocompleteSty
                     },
                     endContent = {
                         Icon(
-                            painter = painterResource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_search_24),
+                            painter = rememberVectorPainter(SddsIcons.Search24),
                             "",
                         )
                     },
@@ -186,7 +190,7 @@ object AutocompleteStory : ComposeBaseStory<AutocompleteUiState, AutocompleteSty
             showEmptyState = showEmptyState,
             emptyState = {
                 EmptyState(
-                    iconRes = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_plasma_36,
+                    iconSource = imageVectorSource(SddsIcons.Plasma36),
                     description = "Empty State",
                     buttonLabel = "Action",
                 )

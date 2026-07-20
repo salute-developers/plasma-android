@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -23,10 +24,16 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.ai.AiInput
 import com.sdds.compose.uikit.ai.AiInputStyle
-import com.sdds.compose.uikit.fixtures.painterResource
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.AiInputUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AiInputUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.Clip24
+import com.sdds.icons.compose.Close16
+import com.sdds.icons.compose.FileCheckFill36
+import com.sdds.icons.compose.MicOutline24
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.SendOutline24
+import com.sdds.icons.compose.SettingsFilter24
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -125,16 +132,16 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
                     ButtonGroup {
                         button {
                             IconButton(
-                                iconSource = resourceImageSource(
-                                    com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_clip_24,
+                                iconSource = imageVectorSource(
+                                    SddsIcons.Clip24,
                                 ),
                                 onClick = {},
                             )
                         }
                         button {
                             IconButton(
-                                iconSource = resourceImageSource(
-                                    com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_settings_filter_24,
+                                iconSource = imageVectorSource(
+                                    SddsIcons.SettingsFilter24,
                                 ),
                                 onClick = {},
                             )
@@ -149,8 +156,8 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
                     ButtonGroup {
                         button {
                             IconButton(
-                                iconSource = resourceImageSource(
-                                    com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_mic_outline_24,
+                                iconSource = imageVectorSource(
+                                    SddsIcons.MicOutline24,
                                 ),
                                 onClick = {},
                             )
@@ -162,8 +169,8 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
             },
             sendButton = {
                 IconButton(
-                    iconSource = resourceImageSource(
-                        com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_send_outline_24,
+                    iconSource = imageVectorSource(
+                        SddsIcons.SendOutline24,
                     ),
                     onClick = {},
                 )
@@ -183,7 +190,7 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
     @Composable
     private fun FileImage() {
         Icon(
-            painter = painterResource(id = com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_file_check_fill_36),
+            painter = rememberVectorPainter(SddsIcons.FileCheckFill36),
             contentDescription = null,
         )
     }
@@ -191,7 +198,7 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
     @Composable
     private fun FileCloseAction() {
         IconButton(
-            iconSource = resourceImageSource(com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_close_16),
+            iconSource = imageVectorSource(SddsIcons.Close16),
             onClick = {},
         )
     }
@@ -215,16 +222,16 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
                 ButtonGroup {
                     button {
                         IconButton(
-                            iconSource = resourceImageSource(
-                                com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_clip_24,
+                            iconSource = imageVectorSource(
+                                SddsIcons.Clip24,
                             ),
                             onClick = {},
                         )
                     }
                     button {
                         IconButton(
-                            iconSource = resourceImageSource(
-                                com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_settings_filter_24,
+                            iconSource = imageVectorSource(
+                                SddsIcons.SettingsFilter24,
                             ),
                             onClick = {},
                         )
@@ -235,8 +242,8 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
                 ButtonGroup {
                     button {
                         IconButton(
-                            iconSource = resourceImageSource(
-                                com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_mic_outline_24,
+                            iconSource = imageVectorSource(
+                                SddsIcons.MicOutline24,
                             ),
                             onClick = {},
                         )
@@ -245,8 +252,8 @@ object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
             },
             sendButton = {
                 IconButton(
-                    iconSource = resourceImageSource(
-                        com.sdds.compose.uikit.fixtures.FixtureR.drawable.ic_send_outline_24,
+                    iconSource = imageVectorSource(
+                        SddsIcons.SendOutline24,
                     ),
                     onClick = {},
                 )

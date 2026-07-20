@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draganddrop.DragAndDropEvent
 import androidx.compose.ui.draganddrop.DragAndDropTarget
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.DropZone
@@ -26,12 +27,13 @@ import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.LocalTextStyle
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.DropZoneUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.DropZoneUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.motion.components.dropzone.rememberDropZoneMotion
+import com.sdds.icons.compose.FileCheckFill36
+import com.sdds.icons.compose.SaluteOutline24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -114,7 +116,7 @@ object DropZoneStory : ComposeBaseStory<DropZoneUiState, DropZoneStyle>(
                     },
                     icon = {
                         Icon(
-                            painter = painterResource(FixtureR.drawable.ic_salute_outline_24),
+                            painter = rememberVectorPainter(SddsIcons.SaluteOutline24),
                             contentDescription = null,
                         )
                     },
@@ -143,7 +145,7 @@ object DropZoneStory : ComposeBaseStory<DropZoneUiState, DropZoneStyle>(
             },
             icon = {
                 Icon(
-                    source = resourceImageSource(FixtureR.drawable.ic_salute_outline_24),
+                    source = imageVectorSource(SddsIcons.SaluteOutline24),
                     contentDescription = null,
                 )
             },
@@ -171,7 +173,7 @@ private fun DraggableContent() {
         descriptionContent = {},
         image = {
             Icon(
-                painter = painterResource(FixtureR.drawable.ic_file_check_fill_36),
+                painter = rememberVectorPainter(SddsIcons.FileCheckFill36),
                 contentDescription = null,
             )
         },

@@ -9,9 +9,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.File
@@ -20,11 +20,17 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ai.AiUserMessage
 import com.sdds.compose.uikit.ai.AiUserMessageStyle
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
-import com.sdds.compose.uikit.fixtures.resourceImageSource
+import com.sdds.compose.uikit.fixtures.RemoteImage
 import com.sdds.compose.uikit.fixtures.stories.AiUserMessageUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AiUserMessageUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.icons.compose.BackwardOutline24
+import com.sdds.icons.compose.Close16
+import com.sdds.icons.compose.CopyOutline24
+import com.sdds.icons.compose.EditOutline24
+import com.sdds.icons.compose.FileCheckFill24
+import com.sdds.icons.compose.Plasma24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -108,25 +114,25 @@ object AiUserMessageStory : ComposeBaseStory<AiUserMessageUiState, AiUserMessage
                 {
                     button {
                         IconButton(
-                            iconSource = resourceImageSource(FixtureR.drawable.ic_backward_outline_24),
+                            iconSource = imageVectorSource(SddsIcons.BackwardOutline24),
                             onClick = {},
                         )
                     }
                     button {
                         IconButton(
-                            iconSource = resourceImageSource(FixtureR.drawable.ic_copy_outline_24),
+                            iconSource = imageVectorSource(SddsIcons.CopyOutline24),
                             onClick = {},
                         )
                     }
                     button {
                         IconButton(
-                            iconSource = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+                            iconSource = imageVectorSource(SddsIcons.Plasma24),
                             onClick = {},
                         )
                     }
                     button {
                         IconButton(
-                            iconSource = resourceImageSource(FixtureR.drawable.ic_edit_outline_24),
+                            iconSource = imageVectorSource(SddsIcons.EditOutline24),
                             onClick = {
                                 draftMessage = message
                                 editMode = true
@@ -156,17 +162,17 @@ object AiUserMessageStory : ComposeBaseStory<AiUserMessageUiState, AiUserMessage
             {
                 button {
                     IconButton(
-                        iconSource = resourceImageSource(FixtureR.drawable.ic_backward_outline_24),
+                        iconSource = imageVectorSource(SddsIcons.BackwardOutline24),
                         onClick = {},
                     )
                 }
                 button {
                     IconButton(
-                        iconSource = resourceImageSource(FixtureR.drawable.ic_copy_outline_24),
+                        iconSource = imageVectorSource(SddsIcons.CopyOutline24),
                         onClick = {},
                     )
                 }
-                button { IconButton(iconSource = resourceImageSource(FixtureR.drawable.ic_plasma_24), onClick = {}) }
+                button { IconButton(iconSource = imageVectorSource(SddsIcons.Plasma24), onClick = {}) }
             },
         )
     }
@@ -185,7 +191,7 @@ private fun UploadingFile(group: Boolean = false) {
 
 @Composable
 private fun UploadingImage() {
-    AsyncImage(
+    RemoteImage(
         modifier = Modifier,
         contentScale = ContentScale.Fit,
         model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",
@@ -201,13 +207,13 @@ private fun FileExample(count: Int = 1) {
         isLoading = false,
         image = {
             Icon(
-                painterResource(FixtureR.drawable.ic_file_check_fill_24),
+                rememberVectorPainter(SddsIcons.FileCheckFill24),
                 contentDescription = "",
             )
         },
         action = {
             IconButton(
-                iconSource = resourceImageSource(FixtureR.drawable.ic_close_16),
+                iconSource = imageVectorSource(SddsIcons.Close16),
                 onClick = {},
             )
         },

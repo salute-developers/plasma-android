@@ -22,6 +22,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Counter
@@ -34,16 +35,16 @@ import com.sdds.compose.uikit.TabsClip
 import com.sdds.compose.uikit.TabsOrientation
 import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
-import com.sdds.compose.uikit.fixtures.resourceImageSource
 import com.sdds.compose.uikit.fixtures.stories.TabsUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.TabsUiStateTransformer
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.motion.MotionContext
 import com.sdds.compose.uikit.motion.components.counter.rememberCounterMotion
 import com.sdds.compose.uikit.motion.components.tabs.rememberTabItemPagerMotion
 import com.sdds.compose.uikit.motion.components.tabs.rememberTabSelectedState
 import com.sdds.compose.uikit.stringSource
+import com.sdds.icons.compose.Plasma24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -154,7 +155,7 @@ object TabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
                         onClick = { selectedTab = index },
                         startContent = {
                             Icon(
-                                painter = painterResource(FixtureR.drawable.ic_plasma_24),
+                                painter = rememberVectorPainter(SddsIcons.Plasma24),
                                 contentDescription = "",
                             )
                         },
@@ -201,7 +202,7 @@ object IconTabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
                         enabled = state.enabled,
                         content = {
                             Icon(
-                                source = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+                                source = imageVectorSource(SddsIcons.Plasma24),
                                 contentDescription = "$label icon",
                             )
                         },
@@ -231,7 +232,7 @@ object IconTabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
                         onClick = { selectedTab = index },
                         content = {
                             Icon(
-                                source = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+                                source = imageVectorSource(SddsIcons.Plasma24),
                                 contentDescription = "$label icon",
                             )
                         },
@@ -334,7 +335,7 @@ private fun endIcon(state: TabsUiState): (@Composable () -> Unit)? {
     return if (state.icon == TabItemIcon.End) {
         {
             Icon(
-                source = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+                source = imageVectorSource(SddsIcons.Plasma24),
                 contentDescription = "",
             )
         }
@@ -347,7 +348,7 @@ private fun startIcon(state: TabsUiState): (@Composable () -> Unit)? {
     return if (state.icon == TabItemIcon.Start) {
         {
             Icon(
-                source = resourceImageSource(FixtureR.drawable.ic_plasma_24),
+                source = imageVectorSource(SddsIcons.Plasma24),
                 contentDescription = "",
             )
         }

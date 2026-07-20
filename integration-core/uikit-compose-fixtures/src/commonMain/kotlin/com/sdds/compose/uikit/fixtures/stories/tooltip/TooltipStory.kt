@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
@@ -17,14 +18,14 @@ import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.Tooltip
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.TriggerInfo
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.TooltipUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.TooltipUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.popover.TriggerPlacement
 import com.sdds.compose.uikit.fixtures.stories.popover.autoHideToMs
 import com.sdds.compose.uikit.fixtures.stories.popover.toAlignment
 import com.sdds.compose.uikit.popoverTrigger
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Shazam16
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -118,7 +119,7 @@ object TooltipStory : ComposeBaseStory<TooltipUiState, TooltipStyle>(
                 showTooltip.value = false
             },
             duration = 3000,
-            contentStart = { Icon(painter = painterResource(FixtureR.drawable.ic_shazam_16), "") },
+            contentStart = { Icon(painter = rememberVectorPainter(SddsIcons.Shazam16), "") },
             text = AnnotatedString("Tooltip text you can replace"),
         )
     }
@@ -126,7 +127,7 @@ object TooltipStory : ComposeBaseStory<TooltipUiState, TooltipStyle>(
 
 private fun getContentStart(hasContentStart: Boolean): @Composable (() -> Unit)? {
     return if (hasContentStart) {
-        @Composable { Icon(painter = painterResource(FixtureR.drawable.ic_shazam_16), "") }
+        @Composable { Icon(painter = rememberVectorPainter(SddsIcons.Shazam16), "") }
     } else {
         null
     }

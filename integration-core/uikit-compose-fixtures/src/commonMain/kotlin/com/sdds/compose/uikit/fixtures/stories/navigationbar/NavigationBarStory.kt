@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Icon
@@ -18,10 +19,12 @@ import com.sdds.compose.uikit.NavigationBarStyle
 import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.NavigationBarTextPlacement
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.FixtureR
-import com.sdds.compose.uikit.fixtures.painterResource
 import com.sdds.compose.uikit.fixtures.stories.NavigationBarUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.NavigationBarUiStateTransformer
+import com.sdds.icons.compose.Clip24
+import com.sdds.icons.compose.Menu24
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Search24
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -98,7 +101,7 @@ private fun actionStart(hasAction: Boolean): (@Composable RowScope.() -> Unit)? 
     return if (hasAction) {
         @Composable {
             Icon(
-                painter = painterResource(FixtureR.drawable.ic_search_24),
+                painter = rememberVectorPainter(SddsIcons.Search24),
                 contentDescription = "",
             )
         }
@@ -111,7 +114,7 @@ private fun actionEnd(hasAction: Boolean): (@Composable RowScope.() -> Unit)? {
     return if (hasAction) {
         @Composable {
             Icon(
-                painter = painterResource(FixtureR.drawable.ic_menu_24),
+                painter = rememberVectorPainter(SddsIcons.Menu24),
                 contentDescription = "",
             )
         }
@@ -138,7 +141,7 @@ private fun textContent(text: String): (@Composable () -> Unit)? {
                 Spacer(Modifier.width(4.dp))
                 Icon(
                     modifier = Modifier,
-                    painter = painterResource(FixtureR.drawable.ic_clip_24),
+                    painter = rememberVectorPainter(SddsIcons.Clip24),
                     contentDescription = "",
                 )
             }
