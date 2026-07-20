@@ -23,15 +23,7 @@ kotlin {
 
     sourceSets {
         commonMain {
-            kotlin.setSrcDirs(
-                listOf(
-                    "src/main/kotlin/com/sdds/compose/uikit/fixtures/stories",
-                    "build/generated/ksp/metadata/commonMain/kotlin",
-                    "build/generated/compose/resourceGenerator/kotlin/commonResClass",
-                    "build/generated/compose/resourceGenerator/kotlin/commonMainResourceAccessors",
-                    "build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors",
-                ),
-            )
+            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
 
             dependencies {
                 implementation(project(":sandbox-core"))
@@ -45,14 +37,6 @@ kotlin {
         }
 
         androidMain {
-            kotlin.setSrcDirs(
-                listOf(
-                    "src/main/kotlin/com/sdds/compose/uikit/fixtures/samples",
-                    "build/generated/compose/resourceGenerator/kotlin/androidMainResourceCollectors",
-                ),
-            )
-            resources.srcDir("src/main/res")
-
             dependencies {
                 implementation("sdds-core:docs")
                 implementation("sdds-core:icons")
@@ -61,10 +45,6 @@ kotlin {
             }
         }
 
-        matching { it.name == "androidDebug" || it.name == "androidRelease" }
-            .configureEach {
-                kotlin.setSrcDirs(emptyList<String>())
-            }
     }
 }
 
@@ -78,21 +58,9 @@ dependencies {
     add("kspAndroid", "sdds-core:docs")
 }
 
-tasks.matching { it.name == "kspCommonMainKotlinMetadata" }.configureEach {
-    dependsOn(
-        "generateComposeResClass",
-        "generateResourceAccessorsForCommonMain",
-    )
-}
-
 tasks.matching { it.name.startsWith("compile") && it.name.contains("Kotlin") }
     .configureEach {
         dependsOn("kspCommonMainKotlinMetadata")
-    }
-
-tasks.matching { it.name.startsWith("compile") && it.name.endsWith("KotlinAndroid") }
-    .configureEach {
-        dependsOn("generateResourceAccessorsForAndroidMain")
     }
 
 tasks.matching {
