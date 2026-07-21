@@ -158,6 +158,7 @@ internal class ComposeComponentsGenerator(
     private val packageDir: File,
     private val scheme: Scheme,
     private val themeAlias: String,
+    private val multiplatform: Boolean = false,
 ) : ComponentGenerator() {
 
     private val themeName = config.name.toPascalCase()
@@ -430,7 +431,13 @@ internal class ComposeComponentsGenerator(
     ) {
         if (scheme != Scheme.V2) return
 
-        val registerThemeTemplate = loadTemplate("ComposeRegisterThemeKt_V2.txt").trim()
+        val registerThemeTemplate = loadTemplate(
+            if (multiplatform) {
+                "ComposeRegisterThemeKt_CMP_V2.txt"
+            } else {
+                "ComposeRegisterThemeKt_V2.txt"
+            },
+        ).trim()
         val content = expand(
             registerThemeTemplate,
             mapOf(

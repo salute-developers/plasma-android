@@ -55,6 +55,7 @@ class IconPropertyMapperTest {
                 simpleName = "ChipState",
                 values = listOf(EnumValueInfo(name = "Selected", configName = "selected_chip")),
             ),
+            importCollector = ImportCollector(),
         )
 
         val builderCall = underTest.map(

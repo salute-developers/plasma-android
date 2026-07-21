@@ -20,6 +20,7 @@ androidX-compose = "1.8.2"
 androidX-compose-bom = "2025.08.00"
 androidX-lifecycle-compose = "2.4.1"
 jb-androidX-lifecycle-compose = "2.8.4"
+jb-androidX-navigation = "2.8.0-alpha13"
 androidX-navigation="2.7.2"
 androidX-constraintLayout = "2.1.4"
 androidX-lifecycle = "2.4.1"
@@ -40,10 +41,10 @@ test-roborazzi = "1.44.0"
 test-assertk = "0.28.1"
 kover = "0.9.8"
 
-kotlinSerialization = "1.4.0"
+kotlinSerialization = "1.7.3"
 kotlinKsp = "2.1.10-1.0.31"
 kotlinPoet = "1.12.0"
-kotlinCoroutines = "1.6.1"
+kotlinCoroutines = "1.10.2"
 glide = "4.16.0"
 
 koilVersion-compose = "2.2.0"
@@ -92,6 +93,8 @@ base-androidX-lifecycle-compose-viewmodel = { module = "androidx.lifecycle:lifec
 base-androidX-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidX-activity-compose" }
 
 base-jetbrains-androidX-lifecycle-compose-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "jb-androidX-lifecycle-compose" }
+base-jetbrains-androidX-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "jb-androidX-navigation" }
+base-jetbrains-compose-ui-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.ref = "plugin-compose-multiplatform" }
 
 base-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "global-kotlin" }
 base-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "global-kotlin" }
@@ -102,6 +105,7 @@ base-kotlin-poetKsp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "k
 base-kotlin-compiler-embeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "global-kotlin"}
 base-kotlin-compose-compiler = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "global-kotlin" }
 base-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutines"}
+base-kotlin-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinCoroutines"}
 
 base-staticAnalysis-ktlint = { module = "com.pinterest:ktlint", version.ref = "staticAnalysis-ktlint" }
 base-staticAnalysis-detekt-api = { module = "io.gitlab.arturbosch.detekt:detekt-api", version.ref = "staticAnalysis-detekt" }

@@ -1,6 +1,6 @@
 package com.sdds.compose.uikit.interactions
 
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.platform.debugInspectorInfo
@@ -23,7 +23,7 @@ fun Modifier.selection(
         properties["semanticStateSource"] = semanticStateSource
     },
 ) {
-    LaunchedEffect(selected, semanticStateSource) {
+    SideEffect {
         semanticStateSource.set(InteractiveState.Selected, selected)
     }
     this

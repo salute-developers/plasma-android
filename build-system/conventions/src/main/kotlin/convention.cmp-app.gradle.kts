@@ -1,5 +1,6 @@
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import utils.addDefaultTargets
 import utils.versionInfo
 import utils.withVersionCatalogs
 
@@ -13,6 +14,7 @@ plugins {
 }
 
 kotlin {
+    addDefaultTargets(publishLibraryVariants = false)
     androidTarget {
         withVersionCatalogs {
             compilations.all {
@@ -22,7 +24,6 @@ kotlin {
             }
         }
     }
-    jvm()
 }
 
 
