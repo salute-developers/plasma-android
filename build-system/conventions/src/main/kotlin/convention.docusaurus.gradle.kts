@@ -31,6 +31,20 @@ val changelogJsonPath = changelogJsonDir.resolve("changelog.json")
 
 val extension = extensions.create("docusaurus", DocusaurusExtension::class)
 
+extension.snippetsDir.convention(layout.buildDirectory.dir("docs"))
+
+tasks.withType<Test>().configureEach {
+    doFirst {
+        if (extension.components.asFile.isPresent) {
+            systemProperty("docs.componentsConfig", extension.components.asFile.get().absolutePath)
+        }
+        systemProperty(
+            "docs.additionalComponentNames",
+            extension.additionalComponentNames.getOrElse(emptySet()).joinToString(","),
+        )
+    }
+}
+
 val generateInstanceTask by tasks.register("docusaurusGenerate") {
     group = "documentation"
     description = "Создает экземпляр Docusaurus"
@@ -77,10 +91,13 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
 
         val docsDir = destinationDir.resolve("docs")
         mergePlusPrefixedDocs(docsDir)
-        val componentConfig = if (isComposeLib())
-            project.projectDir.resolve("../.sdds/config-info-compose.json")
-        else project.projectDir.resolve("../config-info-view-system.json")
-        transformTemplate(destinationDir, extension.snippetsDir.asFile.get(), componentConfig)
+        val componentConfig = extension.components.asFile.orNull
+        transformTemplate(
+            destinationDir,
+            extension.snippetsDir.asFile.get(),
+            componentConfig,
+            extension.additionalComponentNames.getOrElse(emptySet()),
+        )
     }
 }
 

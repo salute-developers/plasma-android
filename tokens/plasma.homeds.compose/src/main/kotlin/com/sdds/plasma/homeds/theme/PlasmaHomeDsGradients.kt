@@ -31,249 +31,334 @@ public class PlasmaHomeDsGradients(
     private val gradients: Map<String, List<ShaderBrush>>,
 ) {
     /**
-     * Акцентный цвет с градиентом
+     * Акцентный цвет обводки с градиентом
      */
-    public val textDefaultAccentGradientHover: List<ShaderBrush> by gradients
+    public val outlineDefaultAccentGradient: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом
+     * Акцентный цвет обводки с градиентом
      */
-    public val textDefaultAccentGradientActive: List<ShaderBrush> by gradients
+    public val outlineDefaultAccentGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный цвет с градиентом
+     * Акцентный цвет обводки с градиентом
      */
-    public val textDefaultAccentMinorGradient: List<ShaderBrush> by gradients
+    public val outlineDefaultAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом
      */
-    public val textDefaultAccentMinorGradientHover: List<ShaderBrush> by gradients
+    public val outlineDefaultAccentMinorGradient: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом
      */
-    public val textDefaultAccentMinorGradientActive: List<ShaderBrush> by gradients
+    public val outlineDefaultAccentMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Промо цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом
      */
-    public val textDefaultPromoGradient: List<ShaderBrush> by gradients
+    public val outlineDefaultAccentMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Промо цвет с градиентом
+     * Промо цвет обводки с градиентом
      */
-    public val textDefaultPromoGradientHover: List<ShaderBrush> by gradients
+    public val outlineDefaultPromoGradient: List<ShaderBrush> by gradients
 
     /**
-     * Промо цвет с градиентом
+     * Промо цвет обводки с градиентом
      */
-    public val textDefaultPromoGradientActive: List<ShaderBrush> by gradients
+    public val outlineDefaultPromoGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Минорный промо цвет с градиентом
+     * Промо цвет обводки с градиентом
      */
-    public val textDefaultPromoMinorGradient: List<ShaderBrush> by gradients
+    public val outlineDefaultPromoGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Минорный промо цвет с градиентом
+     * Минорный промо цвет обводки с градиентом
      */
-    public val textDefaultPromoMinorGradientHover: List<ShaderBrush> by gradients
+    public val outlineDefaultPromoMinorGradient: List<ShaderBrush> by gradients
 
     /**
-     * Минорный промо цвет с градиентом
+     * Минорный промо цвет обводки с градиентом
      */
-    public val textDefaultPromoMinorGradientActive: List<ShaderBrush> by gradients
+    public val outlineDefaultPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом
      */
-    public val textDefaultAccentGradient: List<ShaderBrush> by gradients
+    public val outlineDefaultPromoMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * Прозрачный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentGradientHover: List<ShaderBrush> by gradients
+    public val outlineDefaultTransparentAccentGradient: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * Прозрачный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentGradientActive: List<ShaderBrush> by gradients
+    public val outlineDefaultTransparentAccentGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный цвет с градиентом на темном фоне
+     * Прозрачный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentMinorGradient: List<ShaderBrush> by gradients
+    public val outlineDefaultTransparentAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный цвет с градиентом на темном фоне
+     * Инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentMinorGradientHover: List<ShaderBrush> by gradients
+    public val outlineInverseAccentGradient: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный цвет с градиентом на темном фоне
+     * Инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentMinorGradientActive: List<ShaderBrush> by gradients
+    public val outlineInverseAccentGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Промо цвет на темном фоне с градиентом
+     * Инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkPromoGradient: List<ShaderBrush> by gradients
+    public val outlineInverseAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Промо цвет на темном фоне с градиентом
+     * Инвертированный акцентный минорный цвет обводки с градиентом
      */
-    public val textOnDarkPromoGradientHover: List<ShaderBrush> by gradients
+    public val outlineInverseAccentMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Промо цвет на темном фоне с градиентом
+     * Инвертированный акцентный минорный цвет обводки с градиентом
      */
-    public val textOnDarkPromoGradientActive: List<ShaderBrush> by gradients
+    public val outlineInverseAccentMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Минорный промо цвет на темном фоне с градиентом
+     * Инвертированный промо цвет обводки с градиентом
      */
-    public val textOnDarkPromoMinorGradient: List<ShaderBrush> by gradients
+    public val outlineInversePromoGradient: List<ShaderBrush> by gradients
 
     /**
-     * Минорный промо цвет на темном фоне с градиентом
+     * Инвертированный промо цвет обводки с градиентом
      */
-    public val textOnDarkPromoMinorGradientHover: List<ShaderBrush> by gradients
+    public val outlineInversePromoGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Минорный промо цвет на темном фоне с градиентом
+     * Инвертированный промо цвет обводки с градиентом
      */
-    public val textOnDarkPromoMinorGradientActive: List<ShaderBrush> by gradients
+    public val outlineInversePromoGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * Инвертированный минорный промо цвет обводки с градиентом
      */
-    public val textOnDarkAccentGradient: List<ShaderBrush> by gradients
+    public val outlineInversePromoMinorGradient: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * Инвертированный минорный промо цвет обводки с градиентом
      */
-    public val textOnLightAccentGradientHover: List<ShaderBrush> by gradients
+    public val outlineInversePromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnLightAccentGradientActive: List<ShaderBrush> by gradients
+    public val outlineInverseTransparentAccentGradient: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный цвет с градиентом на светлом фоне
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnLightAccentMinorGradient: List<ShaderBrush> by gradients
+    public val outlineInverseTransparentAccentGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный цвет с градиентом на светлом фоне
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnLightAccentMinorGradientHover: List<ShaderBrush> by gradients
+    public val outlineInverseTransparentAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный цвет с градиентом на светлом фоне
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightAccentMinorGradientActive: List<ShaderBrush> by gradients
+    public val outlineOnDarkAccentGradient: List<ShaderBrush> by gradients
 
     /**
-     * Промо цвет на светлом фоне с градиентом
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoGradient: List<ShaderBrush> by gradients
+    public val outlineOnDarkAccentGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Промо цвет на светлом фоне с градиентом
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoGradientHover: List<ShaderBrush> by gradients
+    public val outlineOnDarkAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Промо цвет на светлом фоне с градиентом
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoGradientActive: List<ShaderBrush> by gradients
+    public val outlineOnDarkAccentMinorGradient: List<ShaderBrush> by gradients
 
     /**
-     * Минорный промо цвет на светлом фоне с градиентом
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoMinorGradient: List<ShaderBrush> by gradients
+    public val outlineOnDarkAccentMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Минорный промо цвет на светлом фоне с градиентом
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoMinorGradientHover: List<ShaderBrush> by gradients
+    public val outlineOnDarkAccentMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Минорный промо цвет на светлом фоне с градиентом
+     * Промо цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoMinorGradientActive: List<ShaderBrush> by gradients
+    public val outlineOnDarkPromoGradient: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * Промо цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightAccentGradient: List<ShaderBrush> by gradients
+    public val outlineOnDarkPromoGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * Промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentGradientHover: List<ShaderBrush> by gradients
+    public val outlineOnDarkPromoGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentGradientActive: List<ShaderBrush> by gradients
+    public val outlineOnDarkPromoMinorGradient: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный минорный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentMinorGradient: List<ShaderBrush> by gradients
+    public val outlineOnDarkPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный минорный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentMinorGradientHover: List<ShaderBrush> by gradients
+    public val outlineOnDarkPromoMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный минорный цвет с градиентом
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentMinorGradientActive: List<ShaderBrush> by gradients
+    public val outlineOnDarkTransparentAccentGradient: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный промо цвет с градиентом
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textInversePromoGradient: List<ShaderBrush> by gradients
+    public val outlineOnDarkTransparentAccentGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный промо цвет с градиентом
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textInversePromoGradientHover: List<ShaderBrush> by gradients
+    public val outlineOnDarkTransparentAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный промо цвет с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoGradientActive: List<ShaderBrush> by gradients
+    public val outlineOnLightAccentGradient: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный минорный промо цвет с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoMinorGradient: List<ShaderBrush> by gradients
+    public val outlineOnLightAccentGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный минорный промо цвет с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoMinorGradientHover: List<ShaderBrush> by gradients
+    public val outlineOnLightAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный минорный промо цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoMinorGradientActive: List<ShaderBrush> by gradients
+    public val outlineOnLightAccentMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
      */
-    public val textInverseAccentGradient: List<ShaderBrush> by gradients
+    public val outlineOnLightAccentMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * dark overlay default overlayGradientDown
+     */
+    public val overlayDefaultGradientDown: List<ShaderBrush> by gradients
+
+    /**
+     * dark overlay default overlayGradientUp
+     */
+    public val overlayDefaultGradientUp: List<ShaderBrush> by gradients
+
+    /**
+     * dark overlay inverse overlayGradientDown
+     */
+    public val overlayInverseGradientDown: List<ShaderBrush> by gradients
+
+    /**
+     * dark overlay inverse overlayGradientUp
+     */
+    public val overlayInverseGradientUp: List<ShaderBrush> by gradients
+
+    /**
+     * dark overlay onDark overlayGradientDown
+     */
+    public val overlayOnDarkGradientDown: List<ShaderBrush> by gradients
+
+    /**
+     * dark overlay onDark overlayGradientUp
+     */
+    public val overlayOnDarkGradientUp: List<ShaderBrush> by gradients
+
+    /**
+     * dark overlay onLight overlayGradientDown
+     */
+    public val overlayOnLightGradientDown: List<ShaderBrush> by gradients
+
+    /**
+     * dark overlay onLight overlayGradientUp
+     */
+    public val overlayOnLightGradientUp: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentGradientHover: List<ShaderBrush> by gradients
+    public val surfaceDefaultAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
@@ -281,14 +366,9 @@ public class PlasmaHomeDsGradients(
     public val surfaceDefaultAccentGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный фон поверхности/контрола с градиентом
+     * Акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultAccentMinorGradientHover: List<ShaderBrush> by gradients
+    public val surfaceDefaultAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом
@@ -296,19 +376,9 @@ public class PlasmaHomeDsGradients(
     public val surfaceDefaultAccentMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом
+     * Акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultTransparentAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultTransparentAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultTransparentAccentGradientActive: List<ShaderBrush> by gradients
+    public val surfaceDefaultAccentMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Промо фон поверхности/контрола с градиентом
@@ -318,12 +388,12 @@ public class PlasmaHomeDsGradients(
     /**
      * Промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultPromoGradientHover: List<ShaderBrush> by gradients
+    public val surfaceDefaultPromoGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultPromoGradientActive: List<ShaderBrush> by gradients
+    public val surfaceDefaultPromoGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом
@@ -333,47 +403,12 @@ public class PlasmaHomeDsGradients(
     /**
      * Минорный промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultPromoMinorGradientHover: List<ShaderBrush> by gradients
+    public val surfaceDefaultPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultPromoMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultTransparentPromoGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultTransparentPromoGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultTransparentPromoGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceDefaultSkeletonGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceDefaultSkeletonGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceDefaultSkeletonGradientActive: List<ShaderBrush> by gradients
+    public val surfaceDefaultPromoMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Яркий фон для скелетона
@@ -383,22 +418,177 @@ public class PlasmaHomeDsGradients(
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceDefaultSkeletonDeepGradientHover: List<ShaderBrush> by gradients
+    public val surfaceDefaultSkeletonDeepGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentPromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentPromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultTransparentPromoGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceDefaultSkeletonDeepGradientActive: List<ShaderBrush> by gradients
+    public val surfaceInverseSkeletonDeepGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceInverseSkeletonDeepGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceInverseSkeletonDeepGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentPromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentPromoGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkAccentGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnDarkAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
      */
     public val surfaceOnDarkAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
@@ -408,27 +598,12 @@ public class PlasmaHomeDsGradients(
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkAccentMinorGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnDarkAccentMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkAccentMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentAccentGradientActive: List<ShaderBrush> by gradients
+    public val surfaceOnDarkAccentMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Промо фон поверхности/контрола с градиентом на темном фоне
@@ -438,12 +613,12 @@ public class PlasmaHomeDsGradients(
     /**
      * Промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnDarkPromoGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoGradientActive: List<ShaderBrush> by gradients
+    public val surfaceOnDarkPromoGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом на темном фоне
@@ -453,47 +628,12 @@ public class PlasmaHomeDsGradients(
     /**
      * Минорный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoMinorGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnDarkPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentPromoGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentPromoGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentPromoGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientActive: List<ShaderBrush> by gradients
+    public val surfaceOnDarkPromoMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Яркий фон для скелетона
@@ -503,17 +643,57 @@ public class PlasmaHomeDsGradients(
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceOnDarkSkeletonDeepGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnDarkSkeletonDeepGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceOnDarkSkeletonDeepGradientActive: List<ShaderBrush> by gradients
+    public val surfaceOnDarkSkeletonDeepGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentPromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentPromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentPromoGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightAccentGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnLightAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
@@ -531,26 +711,6 @@ public class PlasmaHomeDsGradients(
     public val surfaceOnLightAccentMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightTransparentAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightTransparentAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightTransparentAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
      * Промо фон поверхности/контрола с градиентом на светлом фоне
      */
     public val surfaceOnLightPromoGradient: List<ShaderBrush> by gradients
@@ -558,12 +718,12 @@ public class PlasmaHomeDsGradients(
     /**
      * Промо фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightPromoGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnLightPromoGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Промо фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightPromoGradientActive: List<ShaderBrush> by gradients
+    public val surfaceOnLightPromoGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
@@ -573,47 +733,12 @@ public class PlasmaHomeDsGradients(
     /**
      * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightPromoMinorGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnLightPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightPromoMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightTransparentPromoGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightTransparentPromoGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightTransparentPromoGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientActive: List<ShaderBrush> by gradients
+    public val surfaceOnLightPromoMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Яркий фон для скелетона
@@ -623,407 +748,297 @@ public class PlasmaHomeDsGradients(
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceOnLightSkeletonDeepGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Яркий фон для скелетона
-     */
     public val surfaceOnLightSkeletonDeepGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     * Яркий фон для скелетона
      */
-    public val surfaceInverseAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentMinorGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoMinorGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentPromoGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentPromoGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentPromoGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradient: List<ShaderBrush> by gradients
+    public val surfaceOnLightSkeletonDeepGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Фон для скелетона
      */
-    public val surfaceInverseSkeletonGradient: List<ShaderBrush> by gradients
+    public val surfaceOnLightSkeletonGradient: List<ShaderBrush> by gradients
 
     /**
      * Фон для скелетона
      */
-    public val surfaceInverseSkeletonGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnLightSkeletonGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Фон для скелетона
      */
-    public val surfaceInverseSkeletonGradientActive: List<ShaderBrush> by gradients
+    public val surfaceOnLightSkeletonGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentPromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentPromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentPromoGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет с градиентом
+     */
+    public val textDefaultPromoMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет с градиентом
+     */
+    public val textDefaultPromoMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный минорный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный минорный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradientHover: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceInverseSkeletonDeepGradient: List<ShaderBrush> by gradients
+    public val surfaceDefaultSkeletonDeepGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Яркий фон для скелетона
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceInverseSkeletonDeepGradientHover: List<ShaderBrush> by gradients
+    public val surfaceOnLightAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Яркий фон для скелетона
+     * Промо цвет на светлом фоне с градиентом
      */
-    public val surfaceInverseSkeletonDeepGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * light overlay default overlayGradientUp
-     */
-    public val overlayDefaultGradientUp: List<ShaderBrush> by gradients
-
-    /**
-     * light overlay default overlayGradientDown
-     */
-    public val overlayDefaultGradientDown: List<ShaderBrush> by gradients
-
-    /**
-     * light overlay onDark overlayGradientUp
-     */
-    public val overlayOnDarkGradientUp: List<ShaderBrush> by gradients
-
-    /**
-     * light overlay onDark overlayGradientDown
-     */
-    public val overlayOnDarkGradientDown: List<ShaderBrush> by gradients
-
-    /**
-     * light overlay onLight overlayGradientUp
-     */
-    public val overlayOnLightGradientUp: List<ShaderBrush> by gradients
-
-    /**
-     * light overlay onLight overlayGradientDown
-     */
-    public val overlayOnLightGradientDown: List<ShaderBrush> by gradients
-
-    /**
-     * light overlay inverse overlayGradientUp
-     */
-    public val overlayInverseGradientUp: List<ShaderBrush> by gradients
-
-    /**
-     * light overlay inverse overlayGradientDown
-     */
-    public val overlayInverseGradientDown: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentMinorGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultTransparentAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultTransparentAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultTransparentAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoMinorGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentMinorGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkTransparentAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkTransparentAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkTransparentAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoMinorGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentMinorGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightTransparentAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightTransparentAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightTransparentAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoMinorGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoMinorGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientActive: List<ShaderBrush> by gradients
+    public val textOnLightPromoGradientHover: List<ShaderBrush> by gradients
 
     /**
      * Инвертированный акцентный минорный цвет обводки с градиентом
@@ -1031,49 +1046,29 @@ public class PlasmaHomeDsGradients(
     public val outlineInverseAccentMinorGradient: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный минорный цвет обводки с градиентом
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
      */
-    public val outlineInverseAccentMinorGradientHover: List<ShaderBrush> by gradients
+    public val outlineOnLightAccentMinorGradient: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный минорный цвет обводки с градиентом
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
      */
-    public val outlineInverseAccentMinorGradientActive: List<ShaderBrush> by gradients
+    public val surfaceInverseAccentGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val outlineInverseTransparentAccentGradient: List<ShaderBrush> by gradients
+    public val surfaceOnLightAccentMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     * Минорный промо цвет с градиентом
      */
-    public val outlineInverseTransparentAccentGradientHover: List<ShaderBrush> by gradients
+    public val textDefaultPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     * Акцентный минорный цвет с градиентом на темном фоне
      */
-    public val outlineInverseTransparentAccentGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoGradientHover: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный минорный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoMinorGradient: List<ShaderBrush> by gradients
+    public val textOnDarkAccentMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
      * Инвертированный минорный промо цвет обводки с градиентом
@@ -1081,14 +1076,19 @@ public class PlasmaHomeDsGradients(
     public val outlineInversePromoMinorGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный минорный промо цвет обводки с градиентом
+     * Акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val outlineInversePromoMinorGradientActive: List<ShaderBrush> by gradients
+    public val surfaceDefaultAccentMinorGradient: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный цвет обводки с градиентом
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
      */
-    public val outlineInverseAccentGradient: List<ShaderBrush> by gradients
+    public val surfaceInverseTransparentPromoGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Возвращает копию [PlasmaHomeDsGradients]. Предоставляет возможность переопределять градиенты.
@@ -1126,249 +1126,360 @@ public class GradientOverrideScope {
         get() = _overrideMap.toMap()
 
     /**
-     * Акцентный цвет с градиентом
+     * Акцентный цвет обводки с градиентом
      */
-    public val textDefaultAccentGradientHover: String = "textDefaultAccentGradientHover"
+    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
 
     /**
-     * Акцентный цвет с градиентом
+     * Акцентный цвет обводки с градиентом
      */
-    public val textDefaultAccentGradientActive: String = "textDefaultAccentGradientActive"
+    public val outlineDefaultAccentGradientActive: String = "outlineDefaultAccentGradientActive"
 
     /**
-     * Акцентный минорный цвет с градиентом
+     * Акцентный цвет обводки с градиентом
      */
-    public val textDefaultAccentMinorGradient: String = "textDefaultAccentMinorGradient"
+    public val outlineDefaultAccentGradientHover: String = "outlineDefaultAccentGradientHover"
 
     /**
-     * Акцентный минорный цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом
      */
-    public val textDefaultAccentMinorGradientHover: String = "textDefaultAccentMinorGradientHover"
+    public val outlineDefaultAccentMinorGradient: String = "outlineDefaultAccentMinorGradient"
 
     /**
-     * Акцентный минорный цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом
      */
-    public val textDefaultAccentMinorGradientActive: String = "textDefaultAccentMinorGradientActive"
+    public val outlineDefaultAccentMinorGradientActive: String =
+        "outlineDefaultAccentMinorGradientActive"
 
     /**
-     * Промо цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом
      */
-    public val textDefaultPromoGradient: String = "textDefaultPromoGradient"
+    public val outlineDefaultAccentMinorGradientHover: String =
+        "outlineDefaultAccentMinorGradientHover"
 
     /**
-     * Промо цвет с градиентом
+     * Промо цвет обводки с градиентом
      */
-    public val textDefaultPromoGradientHover: String = "textDefaultPromoGradientHover"
+    public val outlineDefaultPromoGradient: String = "outlineDefaultPromoGradient"
 
     /**
-     * Промо цвет с градиентом
+     * Промо цвет обводки с градиентом
      */
-    public val textDefaultPromoGradientActive: String = "textDefaultPromoGradientActive"
+    public val outlineDefaultPromoGradientActive: String = "outlineDefaultPromoGradientActive"
 
     /**
-     * Минорный промо цвет с градиентом
+     * Промо цвет обводки с градиентом
      */
-    public val textDefaultPromoMinorGradient: String = "textDefaultPromoMinorGradient"
+    public val outlineDefaultPromoGradientHover: String = "outlineDefaultPromoGradientHover"
 
     /**
-     * Минорный промо цвет с градиентом
+     * Минорный промо цвет обводки с градиентом
      */
-    public val textDefaultPromoMinorGradientHover: String = "textDefaultPromoMinorGradientHover"
+    public val outlineDefaultPromoMinorGradient: String = "outlineDefaultPromoMinorGradient"
 
     /**
-     * Минорный промо цвет с градиентом
+     * Минорный промо цвет обводки с градиентом
      */
-    public val textDefaultPromoMinorGradientActive: String = "textDefaultPromoMinorGradientActive"
+    public val outlineDefaultPromoMinorGradientActive: String =
+        "outlineDefaultPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом
      */
-    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+    public val outlineDefaultPromoMinorGradientHover: String =
+        "outlineDefaultPromoMinorGradientHover"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * Прозрачный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentGradientHover: String = "textOnDarkAccentGradientHover"
+    public val outlineDefaultTransparentAccentGradient: String =
+        "outlineDefaultTransparentAccentGradient"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * Прозрачный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentGradientActive: String = "textOnDarkAccentGradientActive"
+    public val outlineDefaultTransparentAccentGradientActive: String =
+        "outlineDefaultTransparentAccentGradientActive"
 
     /**
-     * Акцентный минорный цвет с градиентом на темном фоне
+     * Прозрачный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentMinorGradient: String = "textOnDarkAccentMinorGradient"
+    public val outlineDefaultTransparentAccentGradientHover: String =
+        "outlineDefaultTransparentAccentGradientHover"
 
     /**
-     * Акцентный минорный цвет с градиентом на темном фоне
+     * Инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentMinorGradientHover: String = "textOnDarkAccentMinorGradientHover"
+    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
 
     /**
-     * Акцентный минорный цвет с градиентом на темном фоне
+     * Инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentMinorGradientActive: String = "textOnDarkAccentMinorGradientActive"
+    public val outlineInverseAccentGradientActive: String = "outlineInverseAccentGradientActive"
 
     /**
-     * Промо цвет на темном фоне с градиентом
+     * Инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkPromoGradient: String = "textOnDarkPromoGradient"
+    public val outlineInverseAccentGradientHover: String = "outlineInverseAccentGradientHover"
 
     /**
-     * Промо цвет на темном фоне с градиентом
+     * Инвертированный акцентный минорный цвет обводки с градиентом
      */
-    public val textOnDarkPromoGradientHover: String = "textOnDarkPromoGradientHover"
+    public val outlineInverseAccentMinorGradientActive: String =
+        "outlineInverseAccentMinorGradientActive"
 
     /**
-     * Промо цвет на темном фоне с градиентом
+     * Инвертированный акцентный минорный цвет обводки с градиентом
      */
-    public val textOnDarkPromoGradientActive: String = "textOnDarkPromoGradientActive"
+    public val outlineInverseAccentMinorGradientHover: String =
+        "outlineInverseAccentMinorGradientHover"
 
     /**
-     * Минорный промо цвет на темном фоне с градиентом
+     * Инвертированный промо цвет обводки с градиентом
      */
-    public val textOnDarkPromoMinorGradient: String = "textOnDarkPromoMinorGradient"
+    public val outlineInversePromoGradient: String = "outlineInversePromoGradient"
 
     /**
-     * Минорный промо цвет на темном фоне с градиентом
+     * Инвертированный промо цвет обводки с градиентом
      */
-    public val textOnDarkPromoMinorGradientHover: String = "textOnDarkPromoMinorGradientHover"
+    public val outlineInversePromoGradientActive: String = "outlineInversePromoGradientActive"
 
     /**
-     * Минорный промо цвет на темном фоне с градиентом
+     * Инвертированный промо цвет обводки с градиентом
      */
-    public val textOnDarkPromoMinorGradientActive: String = "textOnDarkPromoMinorGradientActive"
+    public val outlineInversePromoGradientHover: String = "outlineInversePromoGradientHover"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * Инвертированный минорный промо цвет обводки с градиентом
      */
-    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+    public val outlineInversePromoMinorGradient: String = "outlineInversePromoMinorGradient"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * Инвертированный минорный промо цвет обводки с градиентом
      */
-    public val textOnLightAccentGradientHover: String = "textOnLightAccentGradientHover"
+    public val outlineInversePromoMinorGradientActive: String =
+        "outlineInversePromoMinorGradientActive"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnLightAccentGradientActive: String = "textOnLightAccentGradientActive"
+    public val outlineInverseTransparentAccentGradient: String =
+        "outlineInverseTransparentAccentGradient"
 
     /**
-     * Акцентный минорный цвет с градиентом на светлом фоне
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnLightAccentMinorGradient: String = "textOnLightAccentMinorGradient"
+    public val outlineInverseTransparentAccentGradientActive: String =
+        "outlineInverseTransparentAccentGradientActive"
 
     /**
-     * Акцентный минорный цвет с градиентом на светлом фоне
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnLightAccentMinorGradientHover: String = "textOnLightAccentMinorGradientHover"
+    public val outlineInverseTransparentAccentGradientHover: String =
+        "outlineInverseTransparentAccentGradientHover"
 
     /**
-     * Акцентный минорный цвет с градиентом на светлом фоне
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightAccentMinorGradientActive: String = "textOnLightAccentMinorGradientActive"
+    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
 
     /**
-     * Промо цвет на светлом фоне с градиентом
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoGradient: String = "textOnLightPromoGradient"
+    public val outlineOnDarkAccentGradientActive: String = "outlineOnDarkAccentGradientActive"
 
     /**
-     * Промо цвет на светлом фоне с градиентом
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoGradientHover: String = "textOnLightPromoGradientHover"
+    public val outlineOnDarkAccentGradientHover: String = "outlineOnDarkAccentGradientHover"
 
     /**
-     * Промо цвет на светлом фоне с градиентом
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoGradientActive: String = "textOnLightPromoGradientActive"
+    public val outlineOnDarkAccentMinorGradient: String = "outlineOnDarkAccentMinorGradient"
 
     /**
-     * Минорный промо цвет на светлом фоне с градиентом
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoMinorGradient: String = "textOnLightPromoMinorGradient"
+    public val outlineOnDarkAccentMinorGradientActive: String =
+        "outlineOnDarkAccentMinorGradientActive"
 
     /**
-     * Минорный промо цвет на светлом фоне с градиентом
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoMinorGradientHover: String = "textOnLightPromoMinorGradientHover"
+    public val outlineOnDarkAccentMinorGradientHover: String =
+        "outlineOnDarkAccentMinorGradientHover"
 
     /**
-     * Минорный промо цвет на светлом фоне с градиентом
+     * Промо цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoMinorGradientActive: String = "textOnLightPromoMinorGradientActive"
+    public val outlineOnDarkPromoGradient: String = "outlineOnDarkPromoGradient"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * Промо цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+    public val outlineOnDarkPromoGradientActive: String = "outlineOnDarkPromoGradientActive"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * Промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentGradientHover: String = "textInverseAccentGradientHover"
+    public val outlineOnDarkPromoGradientHover: String = "outlineOnDarkPromoGradientHover"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentGradientActive: String = "textInverseAccentGradientActive"
+    public val outlineOnDarkPromoMinorGradient: String = "outlineOnDarkPromoMinorGradient"
 
     /**
-     * Инвертированный акцентный минорный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentMinorGradient: String = "textInverseAccentMinorGradient"
+    public val outlineOnDarkPromoMinorGradientActive: String =
+        "outlineOnDarkPromoMinorGradientActive"
 
     /**
-     * Инвертированный акцентный минорный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentMinorGradientHover: String = "textInverseAccentMinorGradientHover"
+    public val outlineOnDarkPromoMinorGradientHover: String = "outlineOnDarkPromoMinorGradientHover"
 
     /**
-     * Инвертированный акцентный минорный цвет с градиентом
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentMinorGradientActive: String = "textInverseAccentMinorGradientActive"
+    public val outlineOnDarkTransparentAccentGradient: String =
+        "outlineOnDarkTransparentAccentGradient"
 
     /**
-     * Инвертированный промо цвет с градиентом
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textInversePromoGradient: String = "textInversePromoGradient"
+    public val outlineOnDarkTransparentAccentGradientActive: String =
+        "outlineOnDarkTransparentAccentGradientActive"
 
     /**
-     * Инвертированный промо цвет с градиентом
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textInversePromoGradientHover: String = "textInversePromoGradientHover"
+    public val outlineOnDarkTransparentAccentGradientHover: String =
+        "outlineOnDarkTransparentAccentGradientHover"
 
     /**
-     * Инвертированный промо цвет с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoGradientActive: String = "textInversePromoGradientActive"
+    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
 
     /**
-     * Инвертированный минорный промо цвет с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoMinorGradient: String = "textInversePromoMinorGradient"
+    public val outlineOnLightAccentGradientActive: String = "outlineOnLightAccentGradientActive"
 
     /**
-     * Инвертированный минорный промо цвет с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoMinorGradientHover: String = "textInversePromoMinorGradientHover"
+    public val outlineOnLightAccentGradientHover: String = "outlineOnLightAccentGradientHover"
 
     /**
-     * Инвертированный минорный промо цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoMinorGradientActive: String = "textInversePromoMinorGradientActive"
+    public val outlineOnLightAccentMinorGradientActive: String =
+        "outlineOnLightAccentMinorGradientActive"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
      */
-    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+    public val outlineOnLightAccentMinorGradientHover: String =
+        "outlineOnLightAccentMinorGradientHover"
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradient: String = "outlineOnLightPromoGradient"
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradientActive: String = "outlineOnLightPromoGradientActive"
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradientHover: String = "outlineOnLightPromoGradientHover"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradient: String = "outlineOnLightPromoMinorGradient"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradientActive: String =
+        "outlineOnLightPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradientHover: String =
+        "outlineOnLightPromoMinorGradientHover"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradient: String =
+        "outlineOnLightTransparentAccentGradient"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradientActive: String =
+        "outlineOnLightTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradientHover: String =
+        "outlineOnLightTransparentAccentGradientHover"
+
+    /**
+     * dark overlay default overlayGradientDown
+     */
+    public val overlayDefaultGradientDown: String = "overlayDefaultGradientDown"
+
+    /**
+     * dark overlay default overlayGradientUp
+     */
+    public val overlayDefaultGradientUp: String = "overlayDefaultGradientUp"
+
+    /**
+     * dark overlay inverse overlayGradientDown
+     */
+    public val overlayInverseGradientDown: String = "overlayInverseGradientDown"
+
+    /**
+     * dark overlay inverse overlayGradientUp
+     */
+    public val overlayInverseGradientUp: String = "overlayInverseGradientUp"
+
+    /**
+     * dark overlay onDark overlayGradientDown
+     */
+    public val overlayOnDarkGradientDown: String = "overlayOnDarkGradientDown"
+
+    /**
+     * dark overlay onDark overlayGradientUp
+     */
+    public val overlayOnDarkGradientUp: String = "overlayOnDarkGradientUp"
+
+    /**
+     * dark overlay onLight overlayGradientDown
+     */
+    public val overlayOnLightGradientDown: String = "overlayOnLightGradientDown"
+
+    /**
+     * dark overlay onLight overlayGradientUp
+     */
+    public val overlayOnLightGradientUp: String = "overlayOnLightGradientUp"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentGradientHover: String = "surfaceDefaultAccentGradientHover"
+    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
@@ -1376,9 +1487,15 @@ public class GradientOverrideScope {
     public val surfaceDefaultAccentGradientActive: String = "surfaceDefaultAccentGradientActive"
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradientHover: String = "surfaceDefaultAccentGradientHover"
+
+    /**
      * Акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentMinorGradient: String = "surfaceDefaultAccentMinorGradient"
+    public val surfaceDefaultAccentMinorGradientActive: String =
+        "surfaceDefaultAccentMinorGradientActive"
 
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом
@@ -1387,10 +1504,62 @@ public class GradientOverrideScope {
         "surfaceDefaultAccentMinorGradientHover"
 
     /**
-     * Акцентный минорный фон поверхности/контрола с градиентом
+     * Промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentMinorGradientActive: String =
-        "surfaceDefaultAccentMinorGradientActive"
+    public val surfaceDefaultPromoGradient: String = "surfaceDefaultPromoGradient"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoGradientActive: String = "surfaceDefaultPromoGradientActive"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoGradientHover: String = "surfaceDefaultPromoGradientHover"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoMinorGradient: String = "surfaceDefaultPromoMinorGradient"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoMinorGradientActive: String =
+        "surfaceDefaultPromoMinorGradientActive"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoMinorGradientHover: String =
+        "surfaceDefaultPromoMinorGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradient: String = "surfaceDefaultSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradientActive: String =
+        "surfaceDefaultSkeletonDeepGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientActive: String = "surfaceDefaultSkeletonGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientHover: String = "surfaceDefaultSkeletonGradientHover"
 
     /**
      * Прозрачный акцентный фон поверхности/контрола с градиентом
@@ -1401,46 +1570,14 @@ public class GradientOverrideScope {
     /**
      * Прозрачный акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultTransparentAccentGradientHover: String =
-        "surfaceDefaultTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом
-     */
     public val surfaceDefaultTransparentAccentGradientActive: String =
         "surfaceDefaultTransparentAccentGradientActive"
 
     /**
-     * Промо фон поверхности/контрола с градиентом
+     * Прозрачный акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultPromoGradient: String = "surfaceDefaultPromoGradient"
-
-    /**
-     * Промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoGradientHover: String = "surfaceDefaultPromoGradientHover"
-
-    /**
-     * Промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoGradientActive: String = "surfaceDefaultPromoGradientActive"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoMinorGradient: String = "surfaceDefaultPromoMinorGradient"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoMinorGradientHover: String =
-        "surfaceDefaultPromoMinorGradientHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoMinorGradientActive: String =
-        "surfaceDefaultPromoMinorGradientActive"
+    public val surfaceDefaultTransparentAccentGradientHover: String =
+        "surfaceDefaultTransparentAccentGradientHover"
 
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом
@@ -1451,61 +1588,150 @@ public class GradientOverrideScope {
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultTransparentPromoGradientHover: String =
-        "surfaceDefaultTransparentPromoGradientHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом
-     */
     public val surfaceDefaultTransparentPromoGradientActive: String =
         "surfaceDefaultTransparentPromoGradientActive"
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом
+     * Прозрачный промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
+    public val surfaceDefaultTransparentPromoGradientHover: String =
+        "surfaceDefaultTransparentPromoGradientHover"
 
     /**
-     * Фон для скелетона
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
+    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
 
     /**
-     * Фон для скелетона
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultSkeletonGradientHover: String = "surfaceDefaultSkeletonGradientHover"
+    public val surfaceInverseAccentGradientHover: String = "surfaceInverseAccentGradientHover"
 
     /**
-     * Фон для скелетона
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultSkeletonGradientActive: String = "surfaceDefaultSkeletonGradientActive"
+    public val surfaceInverseAccentMinorGradient: String = "surfaceInverseAccentMinorGradient"
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradientActive: String =
+        "surfaceInverseAccentMinorGradientActive"
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradientHover: String =
+        "surfaceInverseAccentMinorGradientHover"
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradient: String = "surfaceInversePromoGradient"
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradientActive: String = "surfaceInversePromoGradientActive"
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradientHover: String = "surfaceInversePromoGradientHover"
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradient: String = "surfaceInversePromoMinorGradient"
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradientActive: String =
+        "surfaceInversePromoMinorGradientActive"
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradientHover: String =
+        "surfaceInversePromoMinorGradientHover"
 
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceDefaultSkeletonDeepGradient: String = "surfaceDefaultSkeletonDeepGradient"
+    public val surfaceInverseSkeletonDeepGradient: String = "surfaceInverseSkeletonDeepGradient"
 
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceDefaultSkeletonDeepGradientHover: String =
-        "surfaceDefaultSkeletonDeepGradientHover"
+    public val surfaceInverseSkeletonDeepGradientActive: String =
+        "surfaceInverseSkeletonDeepGradientActive"
 
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceDefaultSkeletonDeepGradientActive: String =
-        "surfaceDefaultSkeletonDeepGradientActive"
+    public val surfaceInverseSkeletonDeepGradientHover: String =
+        "surfaceInverseSkeletonDeepGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientActive: String = "surfaceInverseSkeletonGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientHover: String = "surfaceInverseSkeletonGradientHover"
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradient: String =
+        "surfaceInverseTransparentAccentGradient"
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradientActive: String =
+        "surfaceInverseTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradientHover: String =
+        "surfaceInverseTransparentAccentGradientHover"
+
+    /**
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentPromoGradientActive: String =
+        "surfaceInverseTransparentPromoGradientActive"
+
+    /**
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentPromoGradientHover: String =
+        "surfaceInverseTransparentPromoGradientHover"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkAccentGradientHover: String = "surfaceOnDarkAccentGradientHover"
+    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
      */
     public val surfaceOnDarkAccentGradientActive: String = "surfaceOnDarkAccentGradientActive"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradientHover: String = "surfaceOnDarkAccentGradientHover"
 
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
@@ -1515,32 +1741,14 @@ public class GradientOverrideScope {
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkAccentMinorGradientHover: String =
-        "surfaceOnDarkAccentMinorGradientHover"
-
-    /**
-     * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
-     */
     public val surfaceOnDarkAccentMinorGradientActive: String =
         "surfaceOnDarkAccentMinorGradientActive"
 
     /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkTransparentAccentGradient: String =
-        "surfaceOnDarkTransparentAccentGradient"
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentAccentGradientHover: String =
-        "surfaceOnDarkTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentAccentGradientActive: String =
-        "surfaceOnDarkTransparentAccentGradientActive"
+    public val surfaceOnDarkAccentMinorGradientHover: String =
+        "surfaceOnDarkAccentMinorGradientHover"
 
     /**
      * Промо фон поверхности/контрола с градиентом на темном фоне
@@ -1550,12 +1758,12 @@ public class GradientOverrideScope {
     /**
      * Промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoGradientHover: String = "surfaceOnDarkPromoGradientHover"
+    public val surfaceOnDarkPromoGradientActive: String = "surfaceOnDarkPromoGradientActive"
 
     /**
      * Промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoGradientActive: String = "surfaceOnDarkPromoGradientActive"
+    public val surfaceOnDarkPromoGradientHover: String = "surfaceOnDarkPromoGradientHover"
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом на темном фоне
@@ -1565,13 +1773,57 @@ public class GradientOverrideScope {
     /**
      * Минорный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoMinorGradientHover: String = "surfaceOnDarkPromoMinorGradientHover"
+    public val surfaceOnDarkPromoMinorGradientActive: String =
+        "surfaceOnDarkPromoMinorGradientActive"
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoMinorGradientActive: String =
-        "surfaceOnDarkPromoMinorGradientActive"
+    public val surfaceOnDarkPromoMinorGradientHover: String = "surfaceOnDarkPromoMinorGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradient: String = "surfaceOnDarkSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradientActive: String =
+        "surfaceOnDarkSkeletonDeepGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradientHover: String =
+        "surfaceOnDarkSkeletonDeepGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientActive: String = "surfaceOnDarkSkeletonGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientHover: String = "surfaceOnDarkSkeletonGradientHover"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradientActive: String =
+        "surfaceOnDarkTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradientHover: String =
+        "surfaceOnDarkTransparentAccentGradientHover"
 
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
@@ -1582,56 +1834,19 @@ public class GradientOverrideScope {
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkTransparentPromoGradientHover: String =
-        "surfaceOnDarkTransparentPromoGradientHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
-     */
     public val surfaceOnDarkTransparentPromoGradientActive: String =
         "surfaceOnDarkTransparentPromoGradientActive"
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientHover: String = "surfaceOnDarkSkeletonGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientActive: String = "surfaceOnDarkSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradient: String = "surfaceOnDarkSkeletonDeepGradient"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradientHover: String =
-        "surfaceOnDarkSkeletonDeepGradientHover"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradientActive: String =
-        "surfaceOnDarkSkeletonDeepGradientActive"
+    public val surfaceOnDarkTransparentPromoGradientHover: String =
+        "surfaceOnDarkTransparentPromoGradientHover"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightAccentGradientHover: String = "surfaceOnLightAccentGradientHover"
+    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
@@ -1650,10 +1865,68 @@ public class GradientOverrideScope {
         "surfaceOnLightAccentMinorGradientHover"
 
     /**
-     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
+     * Промо фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightAccentMinorGradientActive: String =
-        "surfaceOnLightAccentMinorGradientActive"
+    public val surfaceOnLightPromoGradient: String = "surfaceOnLightPromoGradient"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoGradientActive: String = "surfaceOnLightPromoGradientActive"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoGradientHover: String = "surfaceOnLightPromoGradientHover"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoMinorGradient: String = "surfaceOnLightPromoMinorGradient"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoMinorGradientActive: String =
+        "surfaceOnLightPromoMinorGradientActive"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoMinorGradientHover: String =
+        "surfaceOnLightPromoMinorGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradient: String = "surfaceOnLightSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradientActive: String =
+        "surfaceOnLightSkeletonDeepGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradientHover: String =
+        "surfaceOnLightSkeletonDeepGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradientActive: String = "surfaceOnLightSkeletonGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradientHover: String = "surfaceOnLightSkeletonGradientHover"
 
     /**
      * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
@@ -1664,46 +1937,14 @@ public class GradientOverrideScope {
     /**
      * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightTransparentAccentGradientHover: String =
-        "surfaceOnLightTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
     public val surfaceOnLightTransparentAccentGradientActive: String =
         "surfaceOnLightTransparentAccentGradientActive"
 
     /**
-     * Промо фон поверхности/контрола с градиентом на светлом фоне
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightPromoGradient: String = "surfaceOnLightPromoGradient"
-
-    /**
-     * Промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoGradientHover: String = "surfaceOnLightPromoGradientHover"
-
-    /**
-     * Промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoGradientActive: String = "surfaceOnLightPromoGradientActive"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorGradient: String = "surfaceOnLightPromoMinorGradient"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorGradientHover: String =
-        "surfaceOnLightPromoMinorGradientHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorGradientActive: String =
-        "surfaceOnLightPromoMinorGradientActive"
+    public val surfaceOnLightTransparentAccentGradientHover: String =
+        "surfaceOnLightTransparentAccentGradientHover"
 
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
@@ -1714,478 +1955,255 @@ public class GradientOverrideScope {
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightTransparentPromoGradientHover: String =
-        "surfaceOnLightTransparentPromoGradientHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
     public val surfaceOnLightTransparentPromoGradientActive: String =
         "surfaceOnLightTransparentPromoGradientActive"
 
     /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentPromoGradientHover: String =
+        "surfaceOnLightTransparentPromoGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientActive: String = "textDefaultAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientHover: String = "textDefaultAccentGradientHover"
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradient: String = "textDefaultAccentMinorGradient"
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradientActive: String = "textDefaultAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradientHover: String = "textDefaultAccentMinorGradientHover"
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradient: String = "textDefaultPromoGradient"
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradientActive: String = "textDefaultPromoGradientActive"
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradientHover: String = "textDefaultPromoGradientHover"
+
+    /**
+     * Минорный промо цвет с градиентом
+     */
+    public val textDefaultPromoMinorGradient: String = "textDefaultPromoMinorGradient"
+
+    /**
+     * Минорный промо цвет с градиентом
+     */
+    public val textDefaultPromoMinorGradientHover: String = "textDefaultPromoMinorGradientHover"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientActive: String = "textInverseAccentGradientActive"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientHover: String = "textInverseAccentGradientHover"
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradient: String = "textInverseAccentMinorGradient"
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradientActive: String = "textInverseAccentMinorGradientActive"
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradientHover: String = "textInverseAccentMinorGradientHover"
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradient: String = "textInversePromoGradient"
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradientActive: String = "textInversePromoGradientActive"
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradientHover: String = "textInversePromoGradientHover"
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradient: String = "textInversePromoMinorGradient"
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradientActive: String = "textInversePromoMinorGradientActive"
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradientHover: String = "textInversePromoMinorGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientActive: String = "textOnDarkAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientHover: String = "textOnDarkAccentGradientHover"
+
+    /**
+     * Акцентный минорный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentMinorGradient: String = "textOnDarkAccentMinorGradient"
+
+    /**
+     * Акцентный минорный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentMinorGradientHover: String = "textOnDarkAccentMinorGradientHover"
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradient: String = "textOnDarkPromoGradient"
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradientActive: String = "textOnDarkPromoGradientActive"
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradientHover: String = "textOnDarkPromoGradientHover"
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradient: String = "textOnDarkPromoMinorGradient"
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradientActive: String = "textOnDarkPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradientHover: String = "textOnDarkPromoMinorGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientActive: String = "textOnLightAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientHover: String = "textOnLightAccentGradientHover"
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradient: String = "textOnLightAccentMinorGradient"
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradientActive: String = "textOnLightAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradientHover: String = "textOnLightAccentMinorGradientHover"
+
+    /**
+     * Промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoGradient: String = "textOnLightPromoGradient"
+
+    /**
+     * Промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoGradientActive: String = "textOnLightPromoGradientActive"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradient: String = "textOnLightPromoMinorGradient"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradientActive: String = "textOnLightPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradientHover: String = "textOnLightPromoMinorGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradientHover: String =
+        "surfaceDefaultSkeletonDeepGradientHover"
+
+    /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
+    public val surfaceOnLightAccentGradientHover: String = "surfaceOnLightAccentGradientHover"
 
     /**
-     * Фон для скелетона
+     * Промо цвет на светлом фоне с градиентом
      */
-    public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientHover: String = "surfaceOnLightSkeletonGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientActive: String = "surfaceOnLightSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradient: String = "surfaceOnLightSkeletonDeepGradient"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradientHover: String =
-        "surfaceOnLightSkeletonDeepGradientHover"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradientActive: String =
-        "surfaceOnLightSkeletonDeepGradientActive"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradientHover: String = "surfaceInverseAccentGradientHover"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradientActive: String = "surfaceInverseAccentGradientActive"
-
-    /**
-     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentMinorGradient: String = "surfaceInverseAccentMinorGradient"
-
-    /**
-     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentMinorGradientHover: String =
-        "surfaceInverseAccentMinorGradientHover"
-
-    /**
-     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentMinorGradientActive: String =
-        "surfaceInverseAccentMinorGradientActive"
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentAccentGradient: String =
-        "surfaceInverseTransparentAccentGradient"
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentAccentGradientHover: String =
-        "surfaceInverseTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentAccentGradientActive: String =
-        "surfaceInverseTransparentAccentGradientActive"
-
-    /**
-     * Инвертированный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoGradient: String = "surfaceInversePromoGradient"
-
-    /**
-     * Инвертированный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoGradientHover: String = "surfaceInversePromoGradientHover"
-
-    /**
-     * Инвертированный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoGradientActive: String = "surfaceInversePromoGradientActive"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoMinorGradient: String = "surfaceInversePromoMinorGradient"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoMinorGradientHover: String =
-        "surfaceInversePromoMinorGradientHover"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoMinorGradientActive: String =
-        "surfaceInversePromoMinorGradientActive"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentPromoGradient: String =
-        "surfaceInverseTransparentPromoGradient"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentPromoGradientHover: String =
-        "surfaceInverseTransparentPromoGradientHover"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentPromoGradientActive: String =
-        "surfaceInverseTransparentPromoGradientActive"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradientHover: String = "surfaceInverseSkeletonGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradientActive: String = "surfaceInverseSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradient: String = "surfaceInverseSkeletonDeepGradient"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradientHover: String =
-        "surfaceInverseSkeletonDeepGradientHover"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradientActive: String =
-        "surfaceInverseSkeletonDeepGradientActive"
-
-    /**
-     * light overlay default overlayGradientUp
-     */
-    public val overlayDefaultGradientUp: String = "overlayDefaultGradientUp"
-
-    /**
-     * light overlay default overlayGradientDown
-     */
-    public val overlayDefaultGradientDown: String = "overlayDefaultGradientDown"
-
-    /**
-     * light overlay onDark overlayGradientUp
-     */
-    public val overlayOnDarkGradientUp: String = "overlayOnDarkGradientUp"
-
-    /**
-     * light overlay onDark overlayGradientDown
-     */
-    public val overlayOnDarkGradientDown: String = "overlayOnDarkGradientDown"
-
-    /**
-     * light overlay onLight overlayGradientUp
-     */
-    public val overlayOnLightGradientUp: String = "overlayOnLightGradientUp"
-
-    /**
-     * light overlay onLight overlayGradientDown
-     */
-    public val overlayOnLightGradientDown: String = "overlayOnLightGradientDown"
-
-    /**
-     * light overlay inverse overlayGradientUp
-     */
-    public val overlayInverseGradientUp: String = "overlayInverseGradientUp"
-
-    /**
-     * light overlay inverse overlayGradientDown
-     */
-    public val overlayInverseGradientDown: String = "overlayInverseGradientDown"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientHover: String = "outlineDefaultAccentGradientHover"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientActive: String = "outlineDefaultAccentGradientActive"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentMinorGradient: String = "outlineDefaultAccentMinorGradient"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentMinorGradientHover: String =
-        "outlineDefaultAccentMinorGradientHover"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentMinorGradientActive: String =
-        "outlineDefaultAccentMinorGradientActive"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultTransparentAccentGradient: String =
-        "outlineDefaultTransparentAccentGradient"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultTransparentAccentGradientHover: String =
-        "outlineDefaultTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultTransparentAccentGradientActive: String =
-        "outlineDefaultTransparentAccentGradientActive"
-
-    /**
-     * Промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoGradient: String = "outlineDefaultPromoGradient"
-
-    /**
-     * Промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoGradientHover: String = "outlineDefaultPromoGradientHover"
-
-    /**
-     * Промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoGradientActive: String = "outlineDefaultPromoGradientActive"
-
-    /**
-     * Минорный промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoMinorGradient: String = "outlineDefaultPromoMinorGradient"
-
-    /**
-     * Минорный промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoMinorGradientHover: String =
-        "outlineDefaultPromoMinorGradientHover"
-
-    /**
-     * Минорный промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoMinorGradientActive: String =
-        "outlineDefaultPromoMinorGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientHover: String = "outlineOnDarkAccentGradientHover"
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientActive: String = "outlineOnDarkAccentGradientActive"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentMinorGradient: String = "outlineOnDarkAccentMinorGradient"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentMinorGradientHover: String =
-        "outlineOnDarkAccentMinorGradientHover"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentMinorGradientActive: String =
-        "outlineOnDarkAccentMinorGradientActive"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkTransparentAccentGradient: String =
-        "outlineOnDarkTransparentAccentGradient"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkTransparentAccentGradientHover: String =
-        "outlineOnDarkTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkTransparentAccentGradientActive: String =
-        "outlineOnDarkTransparentAccentGradientActive"
-
-    /**
-     * Промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoGradient: String = "outlineOnDarkPromoGradient"
-
-    /**
-     * Промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoGradientHover: String = "outlineOnDarkPromoGradientHover"
-
-    /**
-     * Промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoGradientActive: String = "outlineOnDarkPromoGradientActive"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoMinorGradient: String = "outlineOnDarkPromoMinorGradient"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoMinorGradientHover: String = "outlineOnDarkPromoMinorGradientHover"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoMinorGradientActive: String =
-        "outlineOnDarkPromoMinorGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientHover: String = "outlineOnLightAccentGradientHover"
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientActive: String = "outlineOnLightAccentGradientActive"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentMinorGradient: String = "outlineOnLightAccentMinorGradient"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentMinorGradientHover: String =
-        "outlineOnLightAccentMinorGradientHover"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentMinorGradientActive: String =
-        "outlineOnLightAccentMinorGradientActive"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightTransparentAccentGradient: String =
-        "outlineOnLightTransparentAccentGradient"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightTransparentAccentGradientHover: String =
-        "outlineOnLightTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightTransparentAccentGradientActive: String =
-        "outlineOnLightTransparentAccentGradientActive"
-
-    /**
-     * Промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoGradient: String = "outlineOnLightPromoGradient"
-
-    /**
-     * Промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoGradientHover: String = "outlineOnLightPromoGradientHover"
-
-    /**
-     * Промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoGradientActive: String = "outlineOnLightPromoGradientActive"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoMinorGradient: String = "outlineOnLightPromoMinorGradient"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoMinorGradientHover: String =
-        "outlineOnLightPromoMinorGradientHover"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoMinorGradientActive: String =
-        "outlineOnLightPromoMinorGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientHover: String = "outlineInverseAccentGradientHover"
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientActive: String = "outlineInverseAccentGradientActive"
+    public val textOnLightPromoGradientHover: String = "textOnLightPromoGradientHover"
 
     /**
      * Инвертированный акцентный минорный цвет обводки с градиентом
@@ -2193,54 +2211,30 @@ public class GradientOverrideScope {
     public val outlineInverseAccentMinorGradient: String = "outlineInverseAccentMinorGradient"
 
     /**
-     * Инвертированный акцентный минорный цвет обводки с градиентом
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
      */
-    public val outlineInverseAccentMinorGradientHover: String =
-        "outlineInverseAccentMinorGradientHover"
+    public val outlineOnLightAccentMinorGradient: String = "outlineOnLightAccentMinorGradient"
 
     /**
-     * Инвертированный акцентный минорный цвет обводки с градиентом
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
      */
-    public val outlineInverseAccentMinorGradientActive: String =
-        "outlineInverseAccentMinorGradientActive"
+    public val surfaceInverseAccentGradientActive: String = "surfaceInverseAccentGradientActive"
 
     /**
-     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val outlineInverseTransparentAccentGradient: String =
-        "outlineInverseTransparentAccentGradient"
+    public val surfaceOnLightAccentMinorGradientActive: String =
+        "surfaceOnLightAccentMinorGradientActive"
 
     /**
-     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     * Минорный промо цвет с градиентом
      */
-    public val outlineInverseTransparentAccentGradientHover: String =
-        "outlineInverseTransparentAccentGradientHover"
+    public val textDefaultPromoMinorGradientActive: String = "textDefaultPromoMinorGradientActive"
 
     /**
-     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     * Акцентный минорный цвет с градиентом на темном фоне
      */
-    public val outlineInverseTransparentAccentGradientActive: String =
-        "outlineInverseTransparentAccentGradientActive"
-
-    /**
-     * Инвертированный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoGradient: String = "outlineInversePromoGradient"
-
-    /**
-     * Инвертированный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoGradientHover: String = "outlineInversePromoGradientHover"
-
-    /**
-     * Инвертированный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoGradientActive: String = "outlineInversePromoGradientActive"
-
-    /**
-     * Инвертированный минорный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoMinorGradient: String = "outlineInversePromoMinorGradient"
+    public val textOnDarkAccentMinorGradientActive: String = "textOnDarkAccentMinorGradientActive"
 
     /**
      * Инвертированный минорный промо цвет обводки с градиентом
@@ -2249,15 +2243,21 @@ public class GradientOverrideScope {
         "outlineInversePromoMinorGradientHover"
 
     /**
-     * Инвертированный минорный промо цвет обводки с градиентом
+     * Акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val outlineInversePromoMinorGradientActive: String =
-        "outlineInversePromoMinorGradientActive"
+    public val surfaceDefaultAccentMinorGradient: String = "surfaceDefaultAccentMinorGradient"
 
     /**
-     * Инвертированный акцентный цвет обводки с градиентом
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
      */
-    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
+    public val surfaceInverseTransparentPromoGradient: String =
+        "surfaceInverseTransparentPromoGradient"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradient: String =
+        "surfaceOnDarkTransparentAccentGradient"
 
     /**
      * Переопределяет аттрибут градиента.
@@ -2277,249 +2277,360 @@ public class GradientAttrOverrideScope {
         get() = _overrideMap.toMap()
 
     /**
-     * Акцентный цвет с градиентом
+     * Акцентный цвет обводки с градиентом
      */
-    public val textDefaultAccentGradientHover: String = "textDefaultAccentGradientHover"
+    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
 
     /**
-     * Акцентный цвет с градиентом
+     * Акцентный цвет обводки с градиентом
      */
-    public val textDefaultAccentGradientActive: String = "textDefaultAccentGradientActive"
+    public val outlineDefaultAccentGradientActive: String = "outlineDefaultAccentGradientActive"
 
     /**
-     * Акцентный минорный цвет с градиентом
+     * Акцентный цвет обводки с градиентом
      */
-    public val textDefaultAccentMinorGradient: String = "textDefaultAccentMinorGradient"
+    public val outlineDefaultAccentGradientHover: String = "outlineDefaultAccentGradientHover"
 
     /**
-     * Акцентный минорный цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом
      */
-    public val textDefaultAccentMinorGradientHover: String = "textDefaultAccentMinorGradientHover"
+    public val outlineDefaultAccentMinorGradient: String = "outlineDefaultAccentMinorGradient"
 
     /**
-     * Акцентный минорный цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом
      */
-    public val textDefaultAccentMinorGradientActive: String = "textDefaultAccentMinorGradientActive"
+    public val outlineDefaultAccentMinorGradientActive: String =
+        "outlineDefaultAccentMinorGradientActive"
 
     /**
-     * Промо цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом
      */
-    public val textDefaultPromoGradient: String = "textDefaultPromoGradient"
+    public val outlineDefaultAccentMinorGradientHover: String =
+        "outlineDefaultAccentMinorGradientHover"
 
     /**
-     * Промо цвет с градиентом
+     * Промо цвет обводки с градиентом
      */
-    public val textDefaultPromoGradientHover: String = "textDefaultPromoGradientHover"
+    public val outlineDefaultPromoGradient: String = "outlineDefaultPromoGradient"
 
     /**
-     * Промо цвет с градиентом
+     * Промо цвет обводки с градиентом
      */
-    public val textDefaultPromoGradientActive: String = "textDefaultPromoGradientActive"
+    public val outlineDefaultPromoGradientActive: String = "outlineDefaultPromoGradientActive"
 
     /**
-     * Минорный промо цвет с градиентом
+     * Промо цвет обводки с градиентом
      */
-    public val textDefaultPromoMinorGradient: String = "textDefaultPromoMinorGradient"
+    public val outlineDefaultPromoGradientHover: String = "outlineDefaultPromoGradientHover"
 
     /**
-     * Минорный промо цвет с градиентом
+     * Минорный промо цвет обводки с градиентом
      */
-    public val textDefaultPromoMinorGradientHover: String = "textDefaultPromoMinorGradientHover"
+    public val outlineDefaultPromoMinorGradient: String = "outlineDefaultPromoMinorGradient"
 
     /**
-     * Минорный промо цвет с градиентом
+     * Минорный промо цвет обводки с градиентом
      */
-    public val textDefaultPromoMinorGradientActive: String = "textDefaultPromoMinorGradientActive"
+    public val outlineDefaultPromoMinorGradientActive: String =
+        "outlineDefaultPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом
      */
-    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+    public val outlineDefaultPromoMinorGradientHover: String =
+        "outlineDefaultPromoMinorGradientHover"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * Прозрачный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentGradientHover: String = "textOnDarkAccentGradientHover"
+    public val outlineDefaultTransparentAccentGradient: String =
+        "outlineDefaultTransparentAccentGradient"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * Прозрачный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentGradientActive: String = "textOnDarkAccentGradientActive"
+    public val outlineDefaultTransparentAccentGradientActive: String =
+        "outlineDefaultTransparentAccentGradientActive"
 
     /**
-     * Акцентный минорный цвет с градиентом на темном фоне
+     * Прозрачный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentMinorGradient: String = "textOnDarkAccentMinorGradient"
+    public val outlineDefaultTransparentAccentGradientHover: String =
+        "outlineDefaultTransparentAccentGradientHover"
 
     /**
-     * Акцентный минорный цвет с градиентом на темном фоне
+     * Инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentMinorGradientHover: String = "textOnDarkAccentMinorGradientHover"
+    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
 
     /**
-     * Акцентный минорный цвет с градиентом на темном фоне
+     * Инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkAccentMinorGradientActive: String = "textOnDarkAccentMinorGradientActive"
+    public val outlineInverseAccentGradientActive: String = "outlineInverseAccentGradientActive"
 
     /**
-     * Промо цвет на темном фоне с градиентом
+     * Инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnDarkPromoGradient: String = "textOnDarkPromoGradient"
+    public val outlineInverseAccentGradientHover: String = "outlineInverseAccentGradientHover"
 
     /**
-     * Промо цвет на темном фоне с градиентом
+     * Инвертированный акцентный минорный цвет обводки с градиентом
      */
-    public val textOnDarkPromoGradientHover: String = "textOnDarkPromoGradientHover"
+    public val outlineInverseAccentMinorGradientActive: String =
+        "outlineInverseAccentMinorGradientActive"
 
     /**
-     * Промо цвет на темном фоне с градиентом
+     * Инвертированный акцентный минорный цвет обводки с градиентом
      */
-    public val textOnDarkPromoGradientActive: String = "textOnDarkPromoGradientActive"
+    public val outlineInverseAccentMinorGradientHover: String =
+        "outlineInverseAccentMinorGradientHover"
 
     /**
-     * Минорный промо цвет на темном фоне с градиентом
+     * Инвертированный промо цвет обводки с градиентом
      */
-    public val textOnDarkPromoMinorGradient: String = "textOnDarkPromoMinorGradient"
+    public val outlineInversePromoGradient: String = "outlineInversePromoGradient"
 
     /**
-     * Минорный промо цвет на темном фоне с градиентом
+     * Инвертированный промо цвет обводки с градиентом
      */
-    public val textOnDarkPromoMinorGradientHover: String = "textOnDarkPromoMinorGradientHover"
+    public val outlineInversePromoGradientActive: String = "outlineInversePromoGradientActive"
 
     /**
-     * Минорный промо цвет на темном фоне с градиентом
+     * Инвертированный промо цвет обводки с градиентом
      */
-    public val textOnDarkPromoMinorGradientActive: String = "textOnDarkPromoMinorGradientActive"
+    public val outlineInversePromoGradientHover: String = "outlineInversePromoGradientHover"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * Инвертированный минорный промо цвет обводки с градиентом
      */
-    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+    public val outlineInversePromoMinorGradient: String = "outlineInversePromoMinorGradient"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * Инвертированный минорный промо цвет обводки с градиентом
      */
-    public val textOnLightAccentGradientHover: String = "textOnLightAccentGradientHover"
+    public val outlineInversePromoMinorGradientActive: String =
+        "outlineInversePromoMinorGradientActive"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnLightAccentGradientActive: String = "textOnLightAccentGradientActive"
+    public val outlineInverseTransparentAccentGradient: String =
+        "outlineInverseTransparentAccentGradient"
 
     /**
-     * Акцентный минорный цвет с градиентом на светлом фоне
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnLightAccentMinorGradient: String = "textOnLightAccentMinorGradient"
+    public val outlineInverseTransparentAccentGradientActive: String =
+        "outlineInverseTransparentAccentGradientActive"
 
     /**
-     * Акцентный минорный цвет с градиентом на светлом фоне
+     * Прозрачный инвертированный акцентный цвет обводки с градиентом
      */
-    public val textOnLightAccentMinorGradientHover: String = "textOnLightAccentMinorGradientHover"
+    public val outlineInverseTransparentAccentGradientHover: String =
+        "outlineInverseTransparentAccentGradientHover"
 
     /**
-     * Акцентный минорный цвет с градиентом на светлом фоне
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightAccentMinorGradientActive: String = "textOnLightAccentMinorGradientActive"
+    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
 
     /**
-     * Промо цвет на светлом фоне с градиентом
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoGradient: String = "textOnLightPromoGradient"
+    public val outlineOnDarkAccentGradientActive: String = "outlineOnDarkAccentGradientActive"
 
     /**
-     * Промо цвет на светлом фоне с градиентом
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoGradientHover: String = "textOnLightPromoGradientHover"
+    public val outlineOnDarkAccentGradientHover: String = "outlineOnDarkAccentGradientHover"
 
     /**
-     * Промо цвет на светлом фоне с градиентом
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoGradientActive: String = "textOnLightPromoGradientActive"
+    public val outlineOnDarkAccentMinorGradient: String = "outlineOnDarkAccentMinorGradient"
 
     /**
-     * Минорный промо цвет на светлом фоне с градиентом
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoMinorGradient: String = "textOnLightPromoMinorGradient"
+    public val outlineOnDarkAccentMinorGradientActive: String =
+        "outlineOnDarkAccentMinorGradientActive"
 
     /**
-     * Минорный промо цвет на светлом фоне с градиентом
+     * Акцентный минорный цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoMinorGradientHover: String = "textOnLightPromoMinorGradientHover"
+    public val outlineOnDarkAccentMinorGradientHover: String =
+        "outlineOnDarkAccentMinorGradientHover"
 
     /**
-     * Минорный промо цвет на светлом фоне с градиентом
+     * Промо цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightPromoMinorGradientActive: String = "textOnLightPromoMinorGradientActive"
+    public val outlineOnDarkPromoGradient: String = "outlineOnDarkPromoGradient"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * Промо цвет обводки с градиентом на темном фоне
      */
-    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+    public val outlineOnDarkPromoGradientActive: String = "outlineOnDarkPromoGradientActive"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * Промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentGradientHover: String = "textInverseAccentGradientHover"
+    public val outlineOnDarkPromoGradientHover: String = "outlineOnDarkPromoGradientHover"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentGradientActive: String = "textInverseAccentGradientActive"
+    public val outlineOnDarkPromoMinorGradient: String = "outlineOnDarkPromoMinorGradient"
 
     /**
-     * Инвертированный акцентный минорный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentMinorGradient: String = "textInverseAccentMinorGradient"
+    public val outlineOnDarkPromoMinorGradientActive: String =
+        "outlineOnDarkPromoMinorGradientActive"
 
     /**
-     * Инвертированный акцентный минорный цвет с градиентом
+     * Минорный промо цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentMinorGradientHover: String = "textInverseAccentMinorGradientHover"
+    public val outlineOnDarkPromoMinorGradientHover: String = "outlineOnDarkPromoMinorGradientHover"
 
     /**
-     * Инвертированный акцентный минорный цвет с градиентом
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textInverseAccentMinorGradientActive: String = "textInverseAccentMinorGradientActive"
+    public val outlineOnDarkTransparentAccentGradient: String =
+        "outlineOnDarkTransparentAccentGradient"
 
     /**
-     * Инвертированный промо цвет с градиентом
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textInversePromoGradient: String = "textInversePromoGradient"
+    public val outlineOnDarkTransparentAccentGradientActive: String =
+        "outlineOnDarkTransparentAccentGradientActive"
 
     /**
-     * Инвертированный промо цвет с градиентом
+     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
      */
-    public val textInversePromoGradientHover: String = "textInversePromoGradientHover"
+    public val outlineOnDarkTransparentAccentGradientHover: String =
+        "outlineOnDarkTransparentAccentGradientHover"
 
     /**
-     * Инвертированный промо цвет с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoGradientActive: String = "textInversePromoGradientActive"
+    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
 
     /**
-     * Инвертированный минорный промо цвет с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoMinorGradient: String = "textInversePromoMinorGradient"
+    public val outlineOnLightAccentGradientActive: String = "outlineOnLightAccentGradientActive"
 
     /**
-     * Инвертированный минорный промо цвет с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoMinorGradientHover: String = "textInversePromoMinorGradientHover"
+    public val outlineOnLightAccentGradientHover: String = "outlineOnLightAccentGradientHover"
 
     /**
-     * Инвертированный минорный промо цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
      */
-    public val textInversePromoMinorGradientActive: String = "textInversePromoMinorGradientActive"
+    public val outlineOnLightAccentMinorGradientActive: String =
+        "outlineOnLightAccentMinorGradientActive"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
      */
-    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+    public val outlineOnLightAccentMinorGradientHover: String =
+        "outlineOnLightAccentMinorGradientHover"
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradient: String = "outlineOnLightPromoGradient"
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradientActive: String = "outlineOnLightPromoGradientActive"
+
+    /**
+     * Промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoGradientHover: String = "outlineOnLightPromoGradientHover"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradient: String = "outlineOnLightPromoMinorGradient"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradientActive: String =
+        "outlineOnLightPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightPromoMinorGradientHover: String =
+        "outlineOnLightPromoMinorGradientHover"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradient: String =
+        "outlineOnLightTransparentAccentGradient"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradientActive: String =
+        "outlineOnLightTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
+     */
+    public val outlineOnLightTransparentAccentGradientHover: String =
+        "outlineOnLightTransparentAccentGradientHover"
+
+    /**
+     * dark overlay default overlayGradientDown
+     */
+    public val overlayDefaultGradientDown: String = "overlayDefaultGradientDown"
+
+    /**
+     * dark overlay default overlayGradientUp
+     */
+    public val overlayDefaultGradientUp: String = "overlayDefaultGradientUp"
+
+    /**
+     * dark overlay inverse overlayGradientDown
+     */
+    public val overlayInverseGradientDown: String = "overlayInverseGradientDown"
+
+    /**
+     * dark overlay inverse overlayGradientUp
+     */
+    public val overlayInverseGradientUp: String = "overlayInverseGradientUp"
+
+    /**
+     * dark overlay onDark overlayGradientDown
+     */
+    public val overlayOnDarkGradientDown: String = "overlayOnDarkGradientDown"
+
+    /**
+     * dark overlay onDark overlayGradientUp
+     */
+    public val overlayOnDarkGradientUp: String = "overlayOnDarkGradientUp"
+
+    /**
+     * dark overlay onLight overlayGradientDown
+     */
+    public val overlayOnLightGradientDown: String = "overlayOnLightGradientDown"
+
+    /**
+     * dark overlay onLight overlayGradientUp
+     */
+    public val overlayOnLightGradientUp: String = "overlayOnLightGradientUp"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentGradientHover: String = "surfaceDefaultAccentGradientHover"
+    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
@@ -2527,9 +2638,15 @@ public class GradientAttrOverrideScope {
     public val surfaceDefaultAccentGradientActive: String = "surfaceDefaultAccentGradientActive"
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradientHover: String = "surfaceDefaultAccentGradientHover"
+
+    /**
      * Акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentMinorGradient: String = "surfaceDefaultAccentMinorGradient"
+    public val surfaceDefaultAccentMinorGradientActive: String =
+        "surfaceDefaultAccentMinorGradientActive"
 
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом
@@ -2538,10 +2655,62 @@ public class GradientAttrOverrideScope {
         "surfaceDefaultAccentMinorGradientHover"
 
     /**
-     * Акцентный минорный фон поверхности/контрола с градиентом
+     * Промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentMinorGradientActive: String =
-        "surfaceDefaultAccentMinorGradientActive"
+    public val surfaceDefaultPromoGradient: String = "surfaceDefaultPromoGradient"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoGradientActive: String = "surfaceDefaultPromoGradientActive"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoGradientHover: String = "surfaceDefaultPromoGradientHover"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoMinorGradient: String = "surfaceDefaultPromoMinorGradient"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoMinorGradientActive: String =
+        "surfaceDefaultPromoMinorGradientActive"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultPromoMinorGradientHover: String =
+        "surfaceDefaultPromoMinorGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradient: String = "surfaceDefaultSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradientActive: String =
+        "surfaceDefaultSkeletonDeepGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientActive: String = "surfaceDefaultSkeletonGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceDefaultSkeletonGradientHover: String = "surfaceDefaultSkeletonGradientHover"
 
     /**
      * Прозрачный акцентный фон поверхности/контрола с градиентом
@@ -2552,46 +2721,14 @@ public class GradientAttrOverrideScope {
     /**
      * Прозрачный акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultTransparentAccentGradientHover: String =
-        "surfaceDefaultTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом
-     */
     public val surfaceDefaultTransparentAccentGradientActive: String =
         "surfaceDefaultTransparentAccentGradientActive"
 
     /**
-     * Промо фон поверхности/контрола с градиентом
+     * Прозрачный акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultPromoGradient: String = "surfaceDefaultPromoGradient"
-
-    /**
-     * Промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoGradientHover: String = "surfaceDefaultPromoGradientHover"
-
-    /**
-     * Промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoGradientActive: String = "surfaceDefaultPromoGradientActive"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoMinorGradient: String = "surfaceDefaultPromoMinorGradient"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoMinorGradientHover: String =
-        "surfaceDefaultPromoMinorGradientHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceDefaultPromoMinorGradientActive: String =
-        "surfaceDefaultPromoMinorGradientActive"
+    public val surfaceDefaultTransparentAccentGradientHover: String =
+        "surfaceDefaultTransparentAccentGradientHover"
 
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом
@@ -2602,61 +2739,150 @@ public class GradientAttrOverrideScope {
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultTransparentPromoGradientHover: String =
-        "surfaceDefaultTransparentPromoGradientHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом
-     */
     public val surfaceDefaultTransparentPromoGradientActive: String =
         "surfaceDefaultTransparentPromoGradientActive"
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом
+     * Прозрачный промо фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
+    public val surfaceDefaultTransparentPromoGradientHover: String =
+        "surfaceDefaultTransparentPromoGradientHover"
 
     /**
-     * Фон для скелетона
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
+    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
 
     /**
-     * Фон для скелетона
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultSkeletonGradientHover: String = "surfaceDefaultSkeletonGradientHover"
+    public val surfaceInverseAccentGradientHover: String = "surfaceInverseAccentGradientHover"
 
     /**
-     * Фон для скелетона
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val surfaceDefaultSkeletonGradientActive: String = "surfaceDefaultSkeletonGradientActive"
+    public val surfaceInverseAccentMinorGradient: String = "surfaceInverseAccentMinorGradient"
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradientActive: String =
+        "surfaceInverseAccentMinorGradientActive"
+
+    /**
+     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentMinorGradientHover: String =
+        "surfaceInverseAccentMinorGradientHover"
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradient: String = "surfaceInversePromoGradient"
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradientActive: String = "surfaceInversePromoGradientActive"
+
+    /**
+     * Инвертированный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoGradientHover: String = "surfaceInversePromoGradientHover"
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradient: String = "surfaceInversePromoMinorGradient"
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradientActive: String =
+        "surfaceInversePromoMinorGradientActive"
+
+    /**
+     * Инвертированный минорный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInversePromoMinorGradientHover: String =
+        "surfaceInversePromoMinorGradientHover"
 
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceDefaultSkeletonDeepGradient: String = "surfaceDefaultSkeletonDeepGradient"
+    public val surfaceInverseSkeletonDeepGradient: String = "surfaceInverseSkeletonDeepGradient"
 
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceDefaultSkeletonDeepGradientHover: String =
-        "surfaceDefaultSkeletonDeepGradientHover"
+    public val surfaceInverseSkeletonDeepGradientActive: String =
+        "surfaceInverseSkeletonDeepGradientActive"
 
     /**
      * Яркий фон для скелетона
      */
-    public val surfaceDefaultSkeletonDeepGradientActive: String =
-        "surfaceDefaultSkeletonDeepGradientActive"
+    public val surfaceInverseSkeletonDeepGradientHover: String =
+        "surfaceInverseSkeletonDeepGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientActive: String = "surfaceInverseSkeletonGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceInverseSkeletonGradientHover: String = "surfaceInverseSkeletonGradientHover"
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradient: String =
+        "surfaceInverseTransparentAccentGradient"
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradientActive: String =
+        "surfaceInverseTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentAccentGradientHover: String =
+        "surfaceInverseTransparentAccentGradientHover"
+
+    /**
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentPromoGradientActive: String =
+        "surfaceInverseTransparentPromoGradientActive"
+
+    /**
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseTransparentPromoGradientHover: String =
+        "surfaceInverseTransparentPromoGradientHover"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkAccentGradientHover: String = "surfaceOnDarkAccentGradientHover"
+    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
      */
     public val surfaceOnDarkAccentGradientActive: String = "surfaceOnDarkAccentGradientActive"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradientHover: String = "surfaceOnDarkAccentGradientHover"
 
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
@@ -2666,32 +2892,14 @@ public class GradientAttrOverrideScope {
     /**
      * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkAccentMinorGradientHover: String =
-        "surfaceOnDarkAccentMinorGradientHover"
-
-    /**
-     * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
-     */
     public val surfaceOnDarkAccentMinorGradientActive: String =
         "surfaceOnDarkAccentMinorGradientActive"
 
     /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     * Акцентный минорный фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkTransparentAccentGradient: String =
-        "surfaceOnDarkTransparentAccentGradient"
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentAccentGradientHover: String =
-        "surfaceOnDarkTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkTransparentAccentGradientActive: String =
-        "surfaceOnDarkTransparentAccentGradientActive"
+    public val surfaceOnDarkAccentMinorGradientHover: String =
+        "surfaceOnDarkAccentMinorGradientHover"
 
     /**
      * Промо фон поверхности/контрола с градиентом на темном фоне
@@ -2701,12 +2909,12 @@ public class GradientAttrOverrideScope {
     /**
      * Промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoGradientHover: String = "surfaceOnDarkPromoGradientHover"
+    public val surfaceOnDarkPromoGradientActive: String = "surfaceOnDarkPromoGradientActive"
 
     /**
      * Промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoGradientActive: String = "surfaceOnDarkPromoGradientActive"
+    public val surfaceOnDarkPromoGradientHover: String = "surfaceOnDarkPromoGradientHover"
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом на темном фоне
@@ -2716,13 +2924,57 @@ public class GradientAttrOverrideScope {
     /**
      * Минорный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoMinorGradientHover: String = "surfaceOnDarkPromoMinorGradientHover"
+    public val surfaceOnDarkPromoMinorGradientActive: String =
+        "surfaceOnDarkPromoMinorGradientActive"
 
     /**
      * Минорный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkPromoMinorGradientActive: String =
-        "surfaceOnDarkPromoMinorGradientActive"
+    public val surfaceOnDarkPromoMinorGradientHover: String = "surfaceOnDarkPromoMinorGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradient: String = "surfaceOnDarkSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradientActive: String =
+        "surfaceOnDarkSkeletonDeepGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonDeepGradientHover: String =
+        "surfaceOnDarkSkeletonDeepGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientActive: String = "surfaceOnDarkSkeletonGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnDarkSkeletonGradientHover: String = "surfaceOnDarkSkeletonGradientHover"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradientActive: String =
+        "surfaceOnDarkTransparentAccentGradientActive"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradientHover: String =
+        "surfaceOnDarkTransparentAccentGradientHover"
 
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
@@ -2733,56 +2985,19 @@ public class GradientAttrOverrideScope {
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkTransparentPromoGradientHover: String =
-        "surfaceOnDarkTransparentPromoGradientHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
-     */
     public val surfaceOnDarkTransparentPromoGradientActive: String =
         "surfaceOnDarkTransparentPromoGradientActive"
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     * Прозрачный промо фон поверхности/контрола с градиентом на темном фоне
      */
-    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientHover: String = "surfaceOnDarkSkeletonGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonGradientActive: String = "surfaceOnDarkSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradient: String = "surfaceOnDarkSkeletonDeepGradient"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradientHover: String =
-        "surfaceOnDarkSkeletonDeepGradientHover"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnDarkSkeletonDeepGradientActive: String =
-        "surfaceOnDarkSkeletonDeepGradientActive"
+    public val surfaceOnDarkTransparentPromoGradientHover: String =
+        "surfaceOnDarkTransparentPromoGradientHover"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightAccentGradientHover: String = "surfaceOnLightAccentGradientHover"
+    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
@@ -2801,10 +3016,68 @@ public class GradientAttrOverrideScope {
         "surfaceOnLightAccentMinorGradientHover"
 
     /**
-     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
+     * Промо фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightAccentMinorGradientActive: String =
-        "surfaceOnLightAccentMinorGradientActive"
+    public val surfaceOnLightPromoGradient: String = "surfaceOnLightPromoGradient"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoGradientActive: String = "surfaceOnLightPromoGradientActive"
+
+    /**
+     * Промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoGradientHover: String = "surfaceOnLightPromoGradientHover"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoMinorGradient: String = "surfaceOnLightPromoMinorGradient"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoMinorGradientActive: String =
+        "surfaceOnLightPromoMinorGradientActive"
+
+    /**
+     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightPromoMinorGradientHover: String =
+        "surfaceOnLightPromoMinorGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradient: String = "surfaceOnLightSkeletonDeepGradient"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradientActive: String =
+        "surfaceOnLightSkeletonDeepGradientActive"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceOnLightSkeletonDeepGradientHover: String =
+        "surfaceOnLightSkeletonDeepGradientHover"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradientActive: String = "surfaceOnLightSkeletonGradientActive"
+
+    /**
+     * Фон для скелетона
+     */
+    public val surfaceOnLightSkeletonGradientHover: String = "surfaceOnLightSkeletonGradientHover"
 
     /**
      * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
@@ -2815,46 +3088,14 @@ public class GradientAttrOverrideScope {
     /**
      * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightTransparentAccentGradientHover: String =
-        "surfaceOnLightTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
     public val surfaceOnLightTransparentAccentGradientActive: String =
         "surfaceOnLightTransparentAccentGradientActive"
 
     /**
-     * Промо фон поверхности/контрола с градиентом на светлом фоне
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightPromoGradient: String = "surfaceOnLightPromoGradient"
-
-    /**
-     * Промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoGradientHover: String = "surfaceOnLightPromoGradientHover"
-
-    /**
-     * Промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoGradientActive: String = "surfaceOnLightPromoGradientActive"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorGradient: String = "surfaceOnLightPromoMinorGradient"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorGradientHover: String =
-        "surfaceOnLightPromoMinorGradientHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorGradientActive: String =
-        "surfaceOnLightPromoMinorGradientActive"
+    public val surfaceOnLightTransparentAccentGradientHover: String =
+        "surfaceOnLightTransparentAccentGradientHover"
 
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
@@ -2865,478 +3106,255 @@ public class GradientAttrOverrideScope {
     /**
      * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightTransparentPromoGradientHover: String =
-        "surfaceOnLightTransparentPromoGradientHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
-     */
     public val surfaceOnLightTransparentPromoGradientActive: String =
         "surfaceOnLightTransparentPromoGradientActive"
 
     /**
+     * Прозрачный промо фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightTransparentPromoGradientHover: String =
+        "surfaceOnLightTransparentPromoGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientActive: String = "textDefaultAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом
+     */
+    public val textDefaultAccentGradientHover: String = "textDefaultAccentGradientHover"
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradient: String = "textDefaultAccentMinorGradient"
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradientActive: String = "textDefaultAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет с градиентом
+     */
+    public val textDefaultAccentMinorGradientHover: String = "textDefaultAccentMinorGradientHover"
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradient: String = "textDefaultPromoGradient"
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradientActive: String = "textDefaultPromoGradientActive"
+
+    /**
+     * Промо цвет с градиентом
+     */
+    public val textDefaultPromoGradientHover: String = "textDefaultPromoGradientHover"
+
+    /**
+     * Минорный промо цвет с градиентом
+     */
+    public val textDefaultPromoMinorGradient: String = "textDefaultPromoMinorGradient"
+
+    /**
+     * Минорный промо цвет с градиентом
+     */
+    public val textDefaultPromoMinorGradientHover: String = "textDefaultPromoMinorGradientHover"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientActive: String = "textInverseAccentGradientActive"
+
+    /**
+     * Инвертированный акцентный цвет с градиентом
+     */
+    public val textInverseAccentGradientHover: String = "textInverseAccentGradientHover"
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradient: String = "textInverseAccentMinorGradient"
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradientActive: String = "textInverseAccentMinorGradientActive"
+
+    /**
+     * Инвертированный акцентный минорный цвет с градиентом
+     */
+    public val textInverseAccentMinorGradientHover: String = "textInverseAccentMinorGradientHover"
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradient: String = "textInversePromoGradient"
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradientActive: String = "textInversePromoGradientActive"
+
+    /**
+     * Инвертированный промо цвет с градиентом
+     */
+    public val textInversePromoGradientHover: String = "textInversePromoGradientHover"
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradient: String = "textInversePromoMinorGradient"
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradientActive: String = "textInversePromoMinorGradientActive"
+
+    /**
+     * Инвертированный минорный промо цвет с градиентом
+     */
+    public val textInversePromoMinorGradientHover: String = "textInversePromoMinorGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientActive: String = "textOnDarkAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentGradientHover: String = "textOnDarkAccentGradientHover"
+
+    /**
+     * Акцентный минорный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentMinorGradient: String = "textOnDarkAccentMinorGradient"
+
+    /**
+     * Акцентный минорный цвет с градиентом на темном фоне
+     */
+    public val textOnDarkAccentMinorGradientHover: String = "textOnDarkAccentMinorGradientHover"
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradient: String = "textOnDarkPromoGradient"
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradientActive: String = "textOnDarkPromoGradientActive"
+
+    /**
+     * Промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoGradientHover: String = "textOnDarkPromoGradientHover"
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradient: String = "textOnDarkPromoMinorGradient"
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradientActive: String = "textOnDarkPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет на темном фоне с градиентом
+     */
+    public val textOnDarkPromoMinorGradientHover: String = "textOnDarkPromoMinorGradientHover"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientActive: String = "textOnLightAccentGradientActive"
+
+    /**
+     * Акцентный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentGradientHover: String = "textOnLightAccentGradientHover"
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradient: String = "textOnLightAccentMinorGradient"
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradientActive: String = "textOnLightAccentMinorGradientActive"
+
+    /**
+     * Акцентный минорный цвет с градиентом на светлом фоне
+     */
+    public val textOnLightAccentMinorGradientHover: String = "textOnLightAccentMinorGradientHover"
+
+    /**
+     * Промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoGradient: String = "textOnLightPromoGradient"
+
+    /**
+     * Промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoGradientActive: String = "textOnLightPromoGradientActive"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradient: String = "textOnLightPromoMinorGradient"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradientActive: String = "textOnLightPromoMinorGradientActive"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradientHover: String = "textOnLightPromoMinorGradientHover"
+
+    /**
+     * Яркий фон для скелетона
+     */
+    public val surfaceDefaultSkeletonDeepGradientHover: String =
+        "surfaceDefaultSkeletonDeepGradientHover"
+
+    /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
+    public val surfaceOnLightAccentGradientHover: String = "surfaceOnLightAccentGradientHover"
 
     /**
-     * Фон для скелетона
+     * Промо цвет на светлом фоне с градиентом
      */
-    public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientHover: String = "surfaceOnLightSkeletonGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceOnLightSkeletonGradientActive: String = "surfaceOnLightSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradient: String = "surfaceOnLightSkeletonDeepGradient"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradientHover: String =
-        "surfaceOnLightSkeletonDeepGradientHover"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceOnLightSkeletonDeepGradientActive: String =
-        "surfaceOnLightSkeletonDeepGradientActive"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradientHover: String = "surfaceInverseAccentGradientHover"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradientActive: String = "surfaceInverseAccentGradientActive"
-
-    /**
-     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentMinorGradient: String = "surfaceInverseAccentMinorGradient"
-
-    /**
-     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentMinorGradientHover: String =
-        "surfaceInverseAccentMinorGradientHover"
-
-    /**
-     * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentMinorGradientActive: String =
-        "surfaceInverseAccentMinorGradientActive"
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentAccentGradient: String =
-        "surfaceInverseTransparentAccentGradient"
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentAccentGradientHover: String =
-        "surfaceInverseTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentAccentGradientActive: String =
-        "surfaceInverseTransparentAccentGradientActive"
-
-    /**
-     * Инвертированный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoGradient: String = "surfaceInversePromoGradient"
-
-    /**
-     * Инвертированный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoGradientHover: String = "surfaceInversePromoGradientHover"
-
-    /**
-     * Инвертированный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoGradientActive: String = "surfaceInversePromoGradientActive"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoMinorGradient: String = "surfaceInversePromoMinorGradient"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoMinorGradientHover: String =
-        "surfaceInversePromoMinorGradientHover"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInversePromoMinorGradientActive: String =
-        "surfaceInversePromoMinorGradientActive"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentPromoGradient: String =
-        "surfaceInverseTransparentPromoGradient"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentPromoGradientHover: String =
-        "surfaceInverseTransparentPromoGradientHover"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseTransparentPromoGradientActive: String =
-        "surfaceInverseTransparentPromoGradientActive"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradientHover: String = "surfaceInverseSkeletonGradientHover"
-
-    /**
-     * Фон для скелетона
-     */
-    public val surfaceInverseSkeletonGradientActive: String = "surfaceInverseSkeletonGradientActive"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradient: String = "surfaceInverseSkeletonDeepGradient"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradientHover: String =
-        "surfaceInverseSkeletonDeepGradientHover"
-
-    /**
-     * Яркий фон для скелетона
-     */
-    public val surfaceInverseSkeletonDeepGradientActive: String =
-        "surfaceInverseSkeletonDeepGradientActive"
-
-    /**
-     * light overlay default overlayGradientUp
-     */
-    public val overlayDefaultGradientUp: String = "overlayDefaultGradientUp"
-
-    /**
-     * light overlay default overlayGradientDown
-     */
-    public val overlayDefaultGradientDown: String = "overlayDefaultGradientDown"
-
-    /**
-     * light overlay onDark overlayGradientUp
-     */
-    public val overlayOnDarkGradientUp: String = "overlayOnDarkGradientUp"
-
-    /**
-     * light overlay onDark overlayGradientDown
-     */
-    public val overlayOnDarkGradientDown: String = "overlayOnDarkGradientDown"
-
-    /**
-     * light overlay onLight overlayGradientUp
-     */
-    public val overlayOnLightGradientUp: String = "overlayOnLightGradientUp"
-
-    /**
-     * light overlay onLight overlayGradientDown
-     */
-    public val overlayOnLightGradientDown: String = "overlayOnLightGradientDown"
-
-    /**
-     * light overlay inverse overlayGradientUp
-     */
-    public val overlayInverseGradientUp: String = "overlayInverseGradientUp"
-
-    /**
-     * light overlay inverse overlayGradientDown
-     */
-    public val overlayInverseGradientDown: String = "overlayInverseGradientDown"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientHover: String = "outlineDefaultAccentGradientHover"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradientActive: String = "outlineDefaultAccentGradientActive"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentMinorGradient: String = "outlineDefaultAccentMinorGradient"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentMinorGradientHover: String =
-        "outlineDefaultAccentMinorGradientHover"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentMinorGradientActive: String =
-        "outlineDefaultAccentMinorGradientActive"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultTransparentAccentGradient: String =
-        "outlineDefaultTransparentAccentGradient"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultTransparentAccentGradientHover: String =
-        "outlineDefaultTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultTransparentAccentGradientActive: String =
-        "outlineDefaultTransparentAccentGradientActive"
-
-    /**
-     * Промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoGradient: String = "outlineDefaultPromoGradient"
-
-    /**
-     * Промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoGradientHover: String = "outlineDefaultPromoGradientHover"
-
-    /**
-     * Промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoGradientActive: String = "outlineDefaultPromoGradientActive"
-
-    /**
-     * Минорный промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoMinorGradient: String = "outlineDefaultPromoMinorGradient"
-
-    /**
-     * Минорный промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoMinorGradientHover: String =
-        "outlineDefaultPromoMinorGradientHover"
-
-    /**
-     * Минорный промо цвет обводки с градиентом
-     */
-    public val outlineDefaultPromoMinorGradientActive: String =
-        "outlineDefaultPromoMinorGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientHover: String = "outlineOnDarkAccentGradientHover"
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradientActive: String = "outlineOnDarkAccentGradientActive"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentMinorGradient: String = "outlineOnDarkAccentMinorGradient"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentMinorGradientHover: String =
-        "outlineOnDarkAccentMinorGradientHover"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentMinorGradientActive: String =
-        "outlineOnDarkAccentMinorGradientActive"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkTransparentAccentGradient: String =
-        "outlineOnDarkTransparentAccentGradient"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkTransparentAccentGradientHover: String =
-        "outlineOnDarkTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkTransparentAccentGradientActive: String =
-        "outlineOnDarkTransparentAccentGradientActive"
-
-    /**
-     * Промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoGradient: String = "outlineOnDarkPromoGradient"
-
-    /**
-     * Промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoGradientHover: String = "outlineOnDarkPromoGradientHover"
-
-    /**
-     * Промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoGradientActive: String = "outlineOnDarkPromoGradientActive"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoMinorGradient: String = "outlineOnDarkPromoMinorGradient"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoMinorGradientHover: String = "outlineOnDarkPromoMinorGradientHover"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkPromoMinorGradientActive: String =
-        "outlineOnDarkPromoMinorGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом на темном фоне
-     */
-    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientHover: String = "outlineOnLightAccentGradientHover"
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradientActive: String = "outlineOnLightAccentGradientActive"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentMinorGradient: String = "outlineOnLightAccentMinorGradient"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentMinorGradientHover: String =
-        "outlineOnLightAccentMinorGradientHover"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentMinorGradientActive: String =
-        "outlineOnLightAccentMinorGradientActive"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightTransparentAccentGradient: String =
-        "outlineOnLightTransparentAccentGradient"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightTransparentAccentGradientHover: String =
-        "outlineOnLightTransparentAccentGradientHover"
-
-    /**
-     * Прозрачный акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightTransparentAccentGradientActive: String =
-        "outlineOnLightTransparentAccentGradientActive"
-
-    /**
-     * Промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoGradient: String = "outlineOnLightPromoGradient"
-
-    /**
-     * Промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoGradientHover: String = "outlineOnLightPromoGradientHover"
-
-    /**
-     * Промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoGradientActive: String = "outlineOnLightPromoGradientActive"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoMinorGradient: String = "outlineOnLightPromoMinorGradient"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoMinorGradientHover: String =
-        "outlineOnLightPromoMinorGradientHover"
-
-    /**
-     * Минорный промо цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightPromoMinorGradientActive: String =
-        "outlineOnLightPromoMinorGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
-     */
-    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientHover: String = "outlineInverseAccentGradientHover"
-
-    /**
-     * Инвертированный акцентный цвет обводки с градиентом
-     */
-    public val outlineInverseAccentGradientActive: String = "outlineInverseAccentGradientActive"
+    public val textOnLightPromoGradientHover: String = "textOnLightPromoGradientHover"
 
     /**
      * Инвертированный акцентный минорный цвет обводки с градиентом
@@ -3344,54 +3362,30 @@ public class GradientAttrOverrideScope {
     public val outlineInverseAccentMinorGradient: String = "outlineInverseAccentMinorGradient"
 
     /**
-     * Инвертированный акцентный минорный цвет обводки с градиентом
+     * Акцентный минорный цвет обводки с градиентом на светлом фоне
      */
-    public val outlineInverseAccentMinorGradientHover: String =
-        "outlineInverseAccentMinorGradientHover"
+    public val outlineOnLightAccentMinorGradient: String = "outlineOnLightAccentMinorGradient"
 
     /**
-     * Инвертированный акцентный минорный цвет обводки с градиентом
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
      */
-    public val outlineInverseAccentMinorGradientActive: String =
-        "outlineInverseAccentMinorGradientActive"
+    public val surfaceInverseAccentGradientActive: String = "surfaceInverseAccentGradientActive"
 
     /**
-     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
      */
-    public val outlineInverseTransparentAccentGradient: String =
-        "outlineInverseTransparentAccentGradient"
+    public val surfaceOnLightAccentMinorGradientActive: String =
+        "surfaceOnLightAccentMinorGradientActive"
 
     /**
-     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     * Минорный промо цвет с градиентом
      */
-    public val outlineInverseTransparentAccentGradientHover: String =
-        "outlineInverseTransparentAccentGradientHover"
+    public val textDefaultPromoMinorGradientActive: String = "textDefaultPromoMinorGradientActive"
 
     /**
-     * Прозрачный инвертированный акцентный цвет обводки с градиентом
+     * Акцентный минорный цвет с градиентом на темном фоне
      */
-    public val outlineInverseTransparentAccentGradientActive: String =
-        "outlineInverseTransparentAccentGradientActive"
-
-    /**
-     * Инвертированный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoGradient: String = "outlineInversePromoGradient"
-
-    /**
-     * Инвертированный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoGradientHover: String = "outlineInversePromoGradientHover"
-
-    /**
-     * Инвертированный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoGradientActive: String = "outlineInversePromoGradientActive"
-
-    /**
-     * Инвертированный минорный промо цвет обводки с градиентом
-     */
-    public val outlineInversePromoMinorGradient: String = "outlineInversePromoMinorGradient"
+    public val textOnDarkAccentMinorGradientActive: String = "textOnDarkAccentMinorGradientActive"
 
     /**
      * Инвертированный минорный промо цвет обводки с градиентом
@@ -3400,15 +3394,21 @@ public class GradientAttrOverrideScope {
         "outlineInversePromoMinorGradientHover"
 
     /**
-     * Инвертированный минорный промо цвет обводки с градиентом
+     * Акцентный минорный фон поверхности/контрола с градиентом
      */
-    public val outlineInversePromoMinorGradientActive: String =
-        "outlineInversePromoMinorGradientActive"
+    public val surfaceDefaultAccentMinorGradient: String = "surfaceDefaultAccentMinorGradient"
 
     /**
-     * Инвертированный акцентный цвет обводки с градиентом
+     * Инвертированный прозрачный промо фон поверхности/контрола с градиентом
      */
-    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
+    public val surfaceInverseTransparentPromoGradient: String =
+        "surfaceInverseTransparentPromoGradient"
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkTransparentAccentGradient: String =
+        "surfaceOnDarkTransparentAccentGradient"
 
     /**
      * Переопределяет аттрибут градиента.
@@ -3441,716 +3441,716 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
     val overwrite = gradientOverrideScope.overrideMap
     val initial = mutableMapOf<String, List<ShaderBrush>>()
     initial.add(
-        "textDefaultAccentGradientHover",
+        "outlineDefaultAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultAccentGradientHover.colors,
-                LightGradientTokens.TextDefaultAccentGradientHover.positions,
-                LightGradientTokens.TextDefaultAccentGradientHover.angle,
+                LightGradientTokens.OutlineDefaultAccentGradient.colors,
+                LightGradientTokens.OutlineDefaultAccentGradient.positions,
+                LightGradientTokens.OutlineDefaultAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradientActive",
+        "outlineDefaultAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultAccentGradientActive.colors,
-                LightGradientTokens.TextDefaultAccentGradientActive.positions,
-                LightGradientTokens.TextDefaultAccentGradientActive.angle,
+                LightGradientTokens.OutlineDefaultAccentGradientActive.colors,
+                LightGradientTokens.OutlineDefaultAccentGradientActive.positions,
+                LightGradientTokens.OutlineDefaultAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentMinorGradient",
+        "outlineDefaultAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultAccentMinorGradient.colors,
-                LightGradientTokens.TextDefaultAccentMinorGradient.positions,
-                LightGradientTokens.TextDefaultAccentMinorGradient.angle,
+                LightGradientTokens.OutlineDefaultAccentGradientHover.colors,
+                LightGradientTokens.OutlineDefaultAccentGradientHover.positions,
+                LightGradientTokens.OutlineDefaultAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentMinorGradientHover",
+        "outlineDefaultAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultAccentMinorGradientHover.colors,
-                LightGradientTokens.TextDefaultAccentMinorGradientHover.positions,
-                LightGradientTokens.TextDefaultAccentMinorGradientHover.angle,
+                LightGradientTokens.OutlineDefaultAccentMinorGradient.colors,
+                LightGradientTokens.OutlineDefaultAccentMinorGradient.positions,
+                LightGradientTokens.OutlineDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentMinorGradientActive",
+        "outlineDefaultAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultAccentMinorGradientActive.colors,
-                LightGradientTokens.TextDefaultAccentMinorGradientActive.positions,
-                LightGradientTokens.TextDefaultAccentMinorGradientActive.angle,
+                LightGradientTokens.OutlineDefaultAccentMinorGradientActive.colors,
+                LightGradientTokens.OutlineDefaultAccentMinorGradientActive.positions,
+                LightGradientTokens.OutlineDefaultAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoGradient",
+        "outlineDefaultAccentMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultPromoGradient.colors,
-                LightGradientTokens.TextDefaultPromoGradient.positions,
-                LightGradientTokens.TextDefaultPromoGradient.angle,
+                LightGradientTokens.OutlineDefaultAccentMinorGradientHover.colors,
+                LightGradientTokens.OutlineDefaultAccentMinorGradientHover.positions,
+                LightGradientTokens.OutlineDefaultAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoGradientHover",
+        "outlineDefaultPromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultPromoGradientHover.colors,
-                LightGradientTokens.TextDefaultPromoGradientHover.positions,
-                LightGradientTokens.TextDefaultPromoGradientHover.angle,
+                LightGradientTokens.OutlineDefaultPromoGradient.colors,
+                LightGradientTokens.OutlineDefaultPromoGradient.positions,
+                LightGradientTokens.OutlineDefaultPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoGradientActive",
+        "outlineDefaultPromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultPromoGradientActive.colors,
-                LightGradientTokens.TextDefaultPromoGradientActive.positions,
-                LightGradientTokens.TextDefaultPromoGradientActive.angle,
+                LightGradientTokens.OutlineDefaultPromoGradientActive.colors,
+                LightGradientTokens.OutlineDefaultPromoGradientActive.positions,
+                LightGradientTokens.OutlineDefaultPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoMinorGradient",
+        "outlineDefaultPromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultPromoMinorGradient.colors,
-                LightGradientTokens.TextDefaultPromoMinorGradient.positions,
-                LightGradientTokens.TextDefaultPromoMinorGradient.angle,
+                LightGradientTokens.OutlineDefaultPromoGradientHover.colors,
+                LightGradientTokens.OutlineDefaultPromoGradientHover.positions,
+                LightGradientTokens.OutlineDefaultPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoMinorGradientHover",
+        "outlineDefaultPromoMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultPromoMinorGradientHover.colors,
-                LightGradientTokens.TextDefaultPromoMinorGradientHover.positions,
-                LightGradientTokens.TextDefaultPromoMinorGradientHover.angle,
+                LightGradientTokens.OutlineDefaultPromoMinorGradient.colors,
+                LightGradientTokens.OutlineDefaultPromoMinorGradient.positions,
+                LightGradientTokens.OutlineDefaultPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoMinorGradientActive",
+        "outlineDefaultPromoMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultPromoMinorGradientActive.colors,
-                LightGradientTokens.TextDefaultPromoMinorGradientActive.positions,
-                LightGradientTokens.TextDefaultPromoMinorGradientActive.angle,
+                LightGradientTokens.OutlineDefaultPromoMinorGradientActive.colors,
+                LightGradientTokens.OutlineDefaultPromoMinorGradientActive.positions,
+                LightGradientTokens.OutlineDefaultPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradient",
+        "outlineDefaultPromoMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextDefaultAccentGradient.colors,
-                LightGradientTokens.TextDefaultAccentGradient.positions,
-                LightGradientTokens.TextDefaultAccentGradient.angle,
+                LightGradientTokens.OutlineDefaultPromoMinorGradientHover.colors,
+                LightGradientTokens.OutlineDefaultPromoMinorGradientHover.positions,
+                LightGradientTokens.OutlineDefaultPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradientHover",
+        "outlineDefaultTransparentAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkAccentGradientHover.colors,
-                LightGradientTokens.TextOnDarkAccentGradientHover.positions,
-                LightGradientTokens.TextOnDarkAccentGradientHover.angle,
+                LightGradientTokens.OutlineDefaultTransparentAccentGradient.colors,
+                LightGradientTokens.OutlineDefaultTransparentAccentGradient.positions,
+                LightGradientTokens.OutlineDefaultTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradientActive",
+        "outlineDefaultTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkAccentGradientActive.colors,
-                LightGradientTokens.TextOnDarkAccentGradientActive.positions,
-                LightGradientTokens.TextOnDarkAccentGradientActive.angle,
+                LightGradientTokens.OutlineDefaultTransparentAccentGradientActive.colors,
+                LightGradientTokens.OutlineDefaultTransparentAccentGradientActive.positions,
+                LightGradientTokens.OutlineDefaultTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentMinorGradient",
+        "outlineDefaultTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkAccentMinorGradient.colors,
-                LightGradientTokens.TextOnDarkAccentMinorGradient.positions,
-                LightGradientTokens.TextOnDarkAccentMinorGradient.angle,
+                LightGradientTokens.OutlineDefaultTransparentAccentGradientHover.colors,
+                LightGradientTokens.OutlineDefaultTransparentAccentGradientHover.positions,
+                LightGradientTokens.OutlineDefaultTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentMinorGradientHover",
+        "outlineInverseAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkAccentMinorGradientHover.colors,
-                LightGradientTokens.TextOnDarkAccentMinorGradientHover.positions,
-                LightGradientTokens.TextOnDarkAccentMinorGradientHover.angle,
+                LightGradientTokens.OutlineInverseAccentGradient.colors,
+                LightGradientTokens.OutlineInverseAccentGradient.positions,
+                LightGradientTokens.OutlineInverseAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentMinorGradientActive",
+        "outlineInverseAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkAccentMinorGradientActive.colors,
-                LightGradientTokens.TextOnDarkAccentMinorGradientActive.positions,
-                LightGradientTokens.TextOnDarkAccentMinorGradientActive.angle,
+                LightGradientTokens.OutlineInverseAccentGradientActive.colors,
+                LightGradientTokens.OutlineInverseAccentGradientActive.positions,
+                LightGradientTokens.OutlineInverseAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoGradient",
+        "outlineInverseAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkPromoGradient.colors,
-                LightGradientTokens.TextOnDarkPromoGradient.positions,
-                LightGradientTokens.TextOnDarkPromoGradient.angle,
+                LightGradientTokens.OutlineInverseAccentGradientHover.colors,
+                LightGradientTokens.OutlineInverseAccentGradientHover.positions,
+                LightGradientTokens.OutlineInverseAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoGradientHover",
+        "outlineInverseAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkPromoGradientHover.colors,
-                LightGradientTokens.TextOnDarkPromoGradientHover.positions,
-                LightGradientTokens.TextOnDarkPromoGradientHover.angle,
+                LightGradientTokens.OutlineInverseAccentMinorGradientActive.colors,
+                LightGradientTokens.OutlineInverseAccentMinorGradientActive.positions,
+                LightGradientTokens.OutlineInverseAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoGradientActive",
+        "outlineInverseAccentMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkPromoGradientActive.colors,
-                LightGradientTokens.TextOnDarkPromoGradientActive.positions,
-                LightGradientTokens.TextOnDarkPromoGradientActive.angle,
+                LightGradientTokens.OutlineInverseAccentMinorGradientHover.colors,
+                LightGradientTokens.OutlineInverseAccentMinorGradientHover.positions,
+                LightGradientTokens.OutlineInverseAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoMinorGradient",
+        "outlineInversePromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkPromoMinorGradient.colors,
-                LightGradientTokens.TextOnDarkPromoMinorGradient.positions,
-                LightGradientTokens.TextOnDarkPromoMinorGradient.angle,
+                LightGradientTokens.OutlineInversePromoGradient.colors,
+                LightGradientTokens.OutlineInversePromoGradient.positions,
+                LightGradientTokens.OutlineInversePromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoMinorGradientHover",
+        "outlineInversePromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkPromoMinorGradientHover.colors,
-                LightGradientTokens.TextOnDarkPromoMinorGradientHover.positions,
-                LightGradientTokens.TextOnDarkPromoMinorGradientHover.angle,
+                LightGradientTokens.OutlineInversePromoGradientActive.colors,
+                LightGradientTokens.OutlineInversePromoGradientActive.positions,
+                LightGradientTokens.OutlineInversePromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoMinorGradientActive",
+        "outlineInversePromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkPromoMinorGradientActive.colors,
-                LightGradientTokens.TextOnDarkPromoMinorGradientActive.positions,
-                LightGradientTokens.TextOnDarkPromoMinorGradientActive.angle,
+                LightGradientTokens.OutlineInversePromoGradientHover.colors,
+                LightGradientTokens.OutlineInversePromoGradientHover.positions,
+                LightGradientTokens.OutlineInversePromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradient",
+        "outlineInversePromoMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkAccentGradient.colors,
-                LightGradientTokens.TextOnDarkAccentGradient.positions,
-                LightGradientTokens.TextOnDarkAccentGradient.angle,
+                LightGradientTokens.OutlineInversePromoMinorGradient.colors,
+                LightGradientTokens.OutlineInversePromoMinorGradient.positions,
+                LightGradientTokens.OutlineInversePromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradientHover",
+        "outlineInversePromoMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightAccentGradientHover.colors,
-                LightGradientTokens.TextOnLightAccentGradientHover.positions,
-                LightGradientTokens.TextOnLightAccentGradientHover.angle,
+                LightGradientTokens.OutlineInversePromoMinorGradientActive.colors,
+                LightGradientTokens.OutlineInversePromoMinorGradientActive.positions,
+                LightGradientTokens.OutlineInversePromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradientActive",
+        "outlineInverseTransparentAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightAccentGradientActive.colors,
-                LightGradientTokens.TextOnLightAccentGradientActive.positions,
-                LightGradientTokens.TextOnLightAccentGradientActive.angle,
+                LightGradientTokens.OutlineInverseTransparentAccentGradient.colors,
+                LightGradientTokens.OutlineInverseTransparentAccentGradient.positions,
+                LightGradientTokens.OutlineInverseTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentMinorGradient",
+        "outlineInverseTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightAccentMinorGradient.colors,
-                LightGradientTokens.TextOnLightAccentMinorGradient.positions,
-                LightGradientTokens.TextOnLightAccentMinorGradient.angle,
+                LightGradientTokens.OutlineInverseTransparentAccentGradientActive.colors,
+                LightGradientTokens.OutlineInverseTransparentAccentGradientActive.positions,
+                LightGradientTokens.OutlineInverseTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentMinorGradientHover",
+        "outlineInverseTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightAccentMinorGradientHover.colors,
-                LightGradientTokens.TextOnLightAccentMinorGradientHover.positions,
-                LightGradientTokens.TextOnLightAccentMinorGradientHover.angle,
+                LightGradientTokens.OutlineInverseTransparentAccentGradientHover.colors,
+                LightGradientTokens.OutlineInverseTransparentAccentGradientHover.positions,
+                LightGradientTokens.OutlineInverseTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentMinorGradientActive",
+        "outlineOnDarkAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightAccentMinorGradientActive.colors,
-                LightGradientTokens.TextOnLightAccentMinorGradientActive.positions,
-                LightGradientTokens.TextOnLightAccentMinorGradientActive.angle,
+                LightGradientTokens.OutlineOnDarkAccentGradient.colors,
+                LightGradientTokens.OutlineOnDarkAccentGradient.positions,
+                LightGradientTokens.OutlineOnDarkAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoGradient",
+        "outlineOnDarkAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightPromoGradient.colors,
-                LightGradientTokens.TextOnLightPromoGradient.positions,
-                LightGradientTokens.TextOnLightPromoGradient.angle,
+                LightGradientTokens.OutlineOnDarkAccentGradientActive.colors,
+                LightGradientTokens.OutlineOnDarkAccentGradientActive.positions,
+                LightGradientTokens.OutlineOnDarkAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoGradientHover",
+        "outlineOnDarkAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightPromoGradientHover.colors,
-                LightGradientTokens.TextOnLightPromoGradientHover.positions,
-                LightGradientTokens.TextOnLightPromoGradientHover.angle,
+                LightGradientTokens.OutlineOnDarkAccentGradientHover.colors,
+                LightGradientTokens.OutlineOnDarkAccentGradientHover.positions,
+                LightGradientTokens.OutlineOnDarkAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoGradientActive",
+        "outlineOnDarkAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightPromoGradientActive.colors,
-                LightGradientTokens.TextOnLightPromoGradientActive.positions,
-                LightGradientTokens.TextOnLightPromoGradientActive.angle,
+                LightGradientTokens.OutlineOnDarkAccentMinorGradient.colors,
+                LightGradientTokens.OutlineOnDarkAccentMinorGradient.positions,
+                LightGradientTokens.OutlineOnDarkAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoMinorGradient",
+        "outlineOnDarkAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightPromoMinorGradient.colors,
-                LightGradientTokens.TextOnLightPromoMinorGradient.positions,
-                LightGradientTokens.TextOnLightPromoMinorGradient.angle,
+                LightGradientTokens.OutlineOnDarkAccentMinorGradientActive.colors,
+                LightGradientTokens.OutlineOnDarkAccentMinorGradientActive.positions,
+                LightGradientTokens.OutlineOnDarkAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoMinorGradientHover",
+        "outlineOnDarkAccentMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightPromoMinorGradientHover.colors,
-                LightGradientTokens.TextOnLightPromoMinorGradientHover.positions,
-                LightGradientTokens.TextOnLightPromoMinorGradientHover.angle,
+                LightGradientTokens.OutlineOnDarkAccentMinorGradientHover.colors,
+                LightGradientTokens.OutlineOnDarkAccentMinorGradientHover.positions,
+                LightGradientTokens.OutlineOnDarkAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoMinorGradientActive",
+        "outlineOnDarkPromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightPromoMinorGradientActive.colors,
-                LightGradientTokens.TextOnLightPromoMinorGradientActive.positions,
-                LightGradientTokens.TextOnLightPromoMinorGradientActive.angle,
+                LightGradientTokens.OutlineOnDarkPromoGradient.colors,
+                LightGradientTokens.OutlineOnDarkPromoGradient.positions,
+                LightGradientTokens.OutlineOnDarkPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradient",
+        "outlineOnDarkPromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightAccentGradient.colors,
-                LightGradientTokens.TextOnLightAccentGradient.positions,
-                LightGradientTokens.TextOnLightAccentGradient.angle,
+                LightGradientTokens.OutlineOnDarkPromoGradientActive.colors,
+                LightGradientTokens.OutlineOnDarkPromoGradientActive.positions,
+                LightGradientTokens.OutlineOnDarkPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientHover",
+        "outlineOnDarkPromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentGradientHover.colors,
-                LightGradientTokens.TextInverseAccentGradientHover.positions,
-                LightGradientTokens.TextInverseAccentGradientHover.angle,
+                LightGradientTokens.OutlineOnDarkPromoGradientHover.colors,
+                LightGradientTokens.OutlineOnDarkPromoGradientHover.positions,
+                LightGradientTokens.OutlineOnDarkPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientActive",
+        "outlineOnDarkPromoMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentGradientActive.colors,
-                LightGradientTokens.TextInverseAccentGradientActive.positions,
-                LightGradientTokens.TextInverseAccentGradientActive.angle,
+                LightGradientTokens.OutlineOnDarkPromoMinorGradient.colors,
+                LightGradientTokens.OutlineOnDarkPromoMinorGradient.positions,
+                LightGradientTokens.OutlineOnDarkPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentMinorGradient",
+        "outlineOnDarkPromoMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentMinorGradient.colors,
-                LightGradientTokens.TextInverseAccentMinorGradient.positions,
-                LightGradientTokens.TextInverseAccentMinorGradient.angle,
+                LightGradientTokens.OutlineOnDarkPromoMinorGradientActive.colors,
+                LightGradientTokens.OutlineOnDarkPromoMinorGradientActive.positions,
+                LightGradientTokens.OutlineOnDarkPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentMinorGradientHover",
+        "outlineOnDarkPromoMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentMinorGradientHover.colors,
-                LightGradientTokens.TextInverseAccentMinorGradientHover.positions,
-                LightGradientTokens.TextInverseAccentMinorGradientHover.angle,
+                LightGradientTokens.OutlineOnDarkPromoMinorGradientHover.colors,
+                LightGradientTokens.OutlineOnDarkPromoMinorGradientHover.positions,
+                LightGradientTokens.OutlineOnDarkPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentMinorGradientActive",
+        "outlineOnDarkTransparentAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentMinorGradientActive.colors,
-                LightGradientTokens.TextInverseAccentMinorGradientActive.positions,
-                LightGradientTokens.TextInverseAccentMinorGradientActive.angle,
+                LightGradientTokens.OutlineOnDarkTransparentAccentGradient.colors,
+                LightGradientTokens.OutlineOnDarkTransparentAccentGradient.positions,
+                LightGradientTokens.OutlineOnDarkTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoGradient",
+        "outlineOnDarkTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInversePromoGradient.colors,
-                LightGradientTokens.TextInversePromoGradient.positions,
-                LightGradientTokens.TextInversePromoGradient.angle,
+                LightGradientTokens.OutlineOnDarkTransparentAccentGradientActive.colors,
+                LightGradientTokens.OutlineOnDarkTransparentAccentGradientActive.positions,
+                LightGradientTokens.OutlineOnDarkTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoGradientHover",
+        "outlineOnDarkTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInversePromoGradientHover.colors,
-                LightGradientTokens.TextInversePromoGradientHover.positions,
-                LightGradientTokens.TextInversePromoGradientHover.angle,
+                LightGradientTokens.OutlineOnDarkTransparentAccentGradientHover.colors,
+                LightGradientTokens.OutlineOnDarkTransparentAccentGradientHover.positions,
+                LightGradientTokens.OutlineOnDarkTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoGradientActive",
+        "outlineOnLightAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInversePromoGradientActive.colors,
-                LightGradientTokens.TextInversePromoGradientActive.positions,
-                LightGradientTokens.TextInversePromoGradientActive.angle,
+                LightGradientTokens.OutlineOnLightAccentGradient.colors,
+                LightGradientTokens.OutlineOnLightAccentGradient.positions,
+                LightGradientTokens.OutlineOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoMinorGradient",
+        "outlineOnLightAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInversePromoMinorGradient.colors,
-                LightGradientTokens.TextInversePromoMinorGradient.positions,
-                LightGradientTokens.TextInversePromoMinorGradient.angle,
+                LightGradientTokens.OutlineOnLightAccentGradientActive.colors,
+                LightGradientTokens.OutlineOnLightAccentGradientActive.positions,
+                LightGradientTokens.OutlineOnLightAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoMinorGradientHover",
+        "outlineOnLightAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInversePromoMinorGradientHover.colors,
-                LightGradientTokens.TextInversePromoMinorGradientHover.positions,
-                LightGradientTokens.TextInversePromoMinorGradientHover.angle,
+                LightGradientTokens.OutlineOnLightAccentGradientHover.colors,
+                LightGradientTokens.OutlineOnLightAccentGradientHover.positions,
+                LightGradientTokens.OutlineOnLightAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoMinorGradientActive",
+        "outlineOnLightAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInversePromoMinorGradientActive.colors,
-                LightGradientTokens.TextInversePromoMinorGradientActive.positions,
-                LightGradientTokens.TextInversePromoMinorGradientActive.angle,
+                LightGradientTokens.OutlineOnLightAccentMinorGradientActive.colors,
+                LightGradientTokens.OutlineOnLightAccentMinorGradientActive.positions,
+                LightGradientTokens.OutlineOnLightAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradient",
+        "outlineOnLightAccentMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentGradient.colors,
-                LightGradientTokens.TextInverseAccentGradient.positions,
-                LightGradientTokens.TextInverseAccentGradient.angle,
+                LightGradientTokens.OutlineOnLightAccentMinorGradientHover.colors,
+                LightGradientTokens.OutlineOnLightAccentMinorGradientHover.positions,
+                LightGradientTokens.OutlineOnLightAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientHover",
+        "outlineOnLightPromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultAccentGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultAccentGradientHover.angle,
+                LightGradientTokens.OutlineOnLightPromoGradient.colors,
+                LightGradientTokens.OutlineOnLightPromoGradient.positions,
+                LightGradientTokens.OutlineOnLightPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientActive",
+        "outlineOnLightPromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultAccentGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultAccentGradientActive.angle,
+                LightGradientTokens.OutlineOnLightPromoGradientActive.colors,
+                LightGradientTokens.OutlineOnLightPromoGradientActive.positions,
+                LightGradientTokens.OutlineOnLightPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentMinorGradient",
+        "outlineOnLightPromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentMinorGradient.colors,
-                LightGradientTokens.SurfaceDefaultAccentMinorGradient.positions,
-                LightGradientTokens.SurfaceDefaultAccentMinorGradient.angle,
+                LightGradientTokens.OutlineOnLightPromoGradientHover.colors,
+                LightGradientTokens.OutlineOnLightPromoGradientHover.positions,
+                LightGradientTokens.OutlineOnLightPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentMinorGradientHover",
+        "outlineOnLightPromoMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentMinorGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultAccentMinorGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultAccentMinorGradientHover.angle,
+                LightGradientTokens.OutlineOnLightPromoMinorGradient.colors,
+                LightGradientTokens.OutlineOnLightPromoMinorGradient.positions,
+                LightGradientTokens.OutlineOnLightPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentMinorGradientActive",
+        "outlineOnLightPromoMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentMinorGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultAccentMinorGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultAccentMinorGradientActive.angle,
+                LightGradientTokens.OutlineOnLightPromoMinorGradientActive.colors,
+                LightGradientTokens.OutlineOnLightPromoMinorGradientActive.positions,
+                LightGradientTokens.OutlineOnLightPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentAccentGradient",
+        "outlineOnLightPromoMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultTransparentAccentGradient.colors,
-                LightGradientTokens.SurfaceDefaultTransparentAccentGradient.positions,
-                LightGradientTokens.SurfaceDefaultTransparentAccentGradient.angle,
+                LightGradientTokens.OutlineOnLightPromoMinorGradientHover.colors,
+                LightGradientTokens.OutlineOnLightPromoMinorGradientHover.positions,
+                LightGradientTokens.OutlineOnLightPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentAccentGradientHover",
+        "outlineOnLightTransparentAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultTransparentAccentGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultTransparentAccentGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultTransparentAccentGradientHover.angle,
+                LightGradientTokens.OutlineOnLightTransparentAccentGradient.colors,
+                LightGradientTokens.OutlineOnLightTransparentAccentGradient.positions,
+                LightGradientTokens.OutlineOnLightTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentAccentGradientActive",
+        "outlineOnLightTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultTransparentAccentGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultTransparentAccentGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultTransparentAccentGradientActive.angle,
+                LightGradientTokens.OutlineOnLightTransparentAccentGradientActive.colors,
+                LightGradientTokens.OutlineOnLightTransparentAccentGradientActive.positions,
+                LightGradientTokens.OutlineOnLightTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoGradient",
+        "outlineOnLightTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultPromoGradient.colors,
-                LightGradientTokens.SurfaceDefaultPromoGradient.positions,
-                LightGradientTokens.SurfaceDefaultPromoGradient.angle,
+                LightGradientTokens.OutlineOnLightTransparentAccentGradientHover.colors,
+                LightGradientTokens.OutlineOnLightTransparentAccentGradientHover.positions,
+                LightGradientTokens.OutlineOnLightTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoGradientHover",
+        "overlayDefaultGradientDown",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultPromoGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultPromoGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultPromoGradientHover.angle,
+                LightGradientTokens.OverlayDefaultGradientDown.colors,
+                LightGradientTokens.OverlayDefaultGradientDown.positions,
+                LightGradientTokens.OverlayDefaultGradientDown.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoGradientActive",
+        "overlayDefaultGradientUp",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultPromoGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultPromoGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultPromoGradientActive.angle,
+                LightGradientTokens.OverlayDefaultGradientUp.colors,
+                LightGradientTokens.OverlayDefaultGradientUp.positions,
+                LightGradientTokens.OverlayDefaultGradientUp.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoMinorGradient",
+        "overlayInverseGradientDown",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultPromoMinorGradient.colors,
-                LightGradientTokens.SurfaceDefaultPromoMinorGradient.positions,
-                LightGradientTokens.SurfaceDefaultPromoMinorGradient.angle,
+                LightGradientTokens.OverlayInverseGradientDown.colors,
+                LightGradientTokens.OverlayInverseGradientDown.positions,
+                LightGradientTokens.OverlayInverseGradientDown.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoMinorGradientHover",
+        "overlayInverseGradientUp",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultPromoMinorGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultPromoMinorGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultPromoMinorGradientHover.angle,
+                LightGradientTokens.OverlayInverseGradientUp.colors,
+                LightGradientTokens.OverlayInverseGradientUp.positions,
+                LightGradientTokens.OverlayInverseGradientUp.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoMinorGradientActive",
+        "overlayOnDarkGradientDown",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultPromoMinorGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultPromoMinorGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultPromoMinorGradientActive.angle,
+                LightGradientTokens.OverlayOnDarkGradientDown.colors,
+                LightGradientTokens.OverlayOnDarkGradientDown.positions,
+                LightGradientTokens.OverlayOnDarkGradientDown.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentPromoGradient",
+        "overlayOnDarkGradientUp",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultTransparentPromoGradient.colors,
-                LightGradientTokens.SurfaceDefaultTransparentPromoGradient.positions,
-                LightGradientTokens.SurfaceDefaultTransparentPromoGradient.angle,
+                LightGradientTokens.OverlayOnDarkGradientUp.colors,
+                LightGradientTokens.OverlayOnDarkGradientUp.positions,
+                LightGradientTokens.OverlayOnDarkGradientUp.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentPromoGradientHover",
+        "overlayOnLightGradientDown",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultTransparentPromoGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultTransparentPromoGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultTransparentPromoGradientHover.angle,
+                LightGradientTokens.OverlayOnLightGradientDown.colors,
+                LightGradientTokens.OverlayOnLightGradientDown.positions,
+                LightGradientTokens.OverlayOnLightGradientDown.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentPromoGradientActive",
+        "overlayOnLightGradientUp",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultTransparentPromoGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultTransparentPromoGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultTransparentPromoGradientActive.angle,
+                LightGradientTokens.OverlayOnLightGradientUp.colors,
+                LightGradientTokens.OverlayOnLightGradientUp.positions,
+                LightGradientTokens.OverlayOnLightGradientUp.angle,
             ),
         ),
         overwrite,
@@ -4167,34 +4167,111 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSkeletonGradient",
+        "surfaceDefaultAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonGradient.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonGradient.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonGradient.angle,
+                LightGradientTokens.SurfaceDefaultAccentGradientActive.colors,
+                LightGradientTokens.SurfaceDefaultAccentGradientActive.positions,
+                LightGradientTokens.SurfaceDefaultAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSkeletonGradientHover",
+        "surfaceDefaultAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonGradientHover.angle,
+                LightGradientTokens.SurfaceDefaultAccentGradientHover.colors,
+                LightGradientTokens.SurfaceDefaultAccentGradientHover.positions,
+                LightGradientTokens.SurfaceDefaultAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSkeletonGradientActive",
+        "surfaceDefaultAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonGradientActive.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonGradientActive.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonGradientActive.angle,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradientActive.colors,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradientActive.positions,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultAccentMinorGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultAccentMinorGradientHover.colors,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradientHover.positions,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultPromoGradient.colors,
+                LightGradientTokens.SurfaceDefaultPromoGradient.positions,
+                LightGradientTokens.SurfaceDefaultPromoGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultPromoGradientActive.colors,
+                LightGradientTokens.SurfaceDefaultPromoGradientActive.positions,
+                LightGradientTokens.SurfaceDefaultPromoGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultPromoGradientHover.colors,
+                LightGradientTokens.SurfaceDefaultPromoGradientHover.positions,
+                LightGradientTokens.SurfaceDefaultPromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoMinorGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultPromoMinorGradient.colors,
+                LightGradientTokens.SurfaceDefaultPromoMinorGradient.positions,
+                LightGradientTokens.SurfaceDefaultPromoMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoMinorGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultPromoMinorGradientActive.colors,
+                LightGradientTokens.SurfaceDefaultPromoMinorGradientActive.positions,
+                LightGradientTokens.SurfaceDefaultPromoMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoMinorGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultPromoMinorGradientHover.colors,
+                LightGradientTokens.SurfaceDefaultPromoMinorGradientHover.positions,
+                LightGradientTokens.SurfaceDefaultPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
@@ -4211,17 +4288,6 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.colors,
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.positions,
-                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceDefaultSkeletonDeepGradientActive",
         listOf(
             linearGradient(
@@ -4233,188 +4299,342 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentGradientHover",
+        "surfaceDefaultSkeletonGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkAccentGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkAccentGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkAccentGradientHover.angle,
+                LightGradientTokens.SurfaceDefaultSkeletonGradient.colors,
+                LightGradientTokens.SurfaceDefaultSkeletonGradient.positions,
+                LightGradientTokens.SurfaceDefaultSkeletonGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentGradientActive",
+        "surfaceDefaultSkeletonGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkAccentGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkAccentGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkAccentGradientActive.angle,
+                LightGradientTokens.SurfaceDefaultSkeletonGradientActive.colors,
+                LightGradientTokens.SurfaceDefaultSkeletonGradientActive.positions,
+                LightGradientTokens.SurfaceDefaultSkeletonGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentMinorGradient",
+        "surfaceDefaultSkeletonGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkAccentMinorGradient.colors,
-                LightGradientTokens.SurfaceOnDarkAccentMinorGradient.positions,
-                LightGradientTokens.SurfaceOnDarkAccentMinorGradient.angle,
+                LightGradientTokens.SurfaceDefaultSkeletonGradientHover.colors,
+                LightGradientTokens.SurfaceDefaultSkeletonGradientHover.positions,
+                LightGradientTokens.SurfaceDefaultSkeletonGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentMinorGradientHover",
+        "surfaceDefaultTransparentAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkAccentMinorGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkAccentMinorGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkAccentMinorGradientHover.angle,
+                LightGradientTokens.SurfaceDefaultTransparentAccentGradient.colors,
+                LightGradientTokens.SurfaceDefaultTransparentAccentGradient.positions,
+                LightGradientTokens.SurfaceDefaultTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentMinorGradientActive",
+        "surfaceDefaultTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkAccentMinorGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkAccentMinorGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkAccentMinorGradientActive.angle,
+                LightGradientTokens.SurfaceDefaultTransparentAccentGradientActive.colors,
+                LightGradientTokens.SurfaceDefaultTransparentAccentGradientActive.positions,
+                LightGradientTokens.SurfaceDefaultTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentAccentGradient",
+        "surfaceDefaultTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkTransparentAccentGradient.colors,
-                LightGradientTokens.SurfaceOnDarkTransparentAccentGradient.positions,
-                LightGradientTokens.SurfaceOnDarkTransparentAccentGradient.angle,
+                LightGradientTokens.SurfaceDefaultTransparentAccentGradientHover.colors,
+                LightGradientTokens.SurfaceDefaultTransparentAccentGradientHover.positions,
+                LightGradientTokens.SurfaceDefaultTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentAccentGradientHover",
+        "surfaceDefaultTransparentPromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.angle,
+                LightGradientTokens.SurfaceDefaultTransparentPromoGradient.colors,
+                LightGradientTokens.SurfaceDefaultTransparentPromoGradient.positions,
+                LightGradientTokens.SurfaceDefaultTransparentPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentAccentGradientActive",
+        "surfaceDefaultTransparentPromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.angle,
+                LightGradientTokens.SurfaceDefaultTransparentPromoGradientActive.colors,
+                LightGradientTokens.SurfaceDefaultTransparentPromoGradientActive.positions,
+                LightGradientTokens.SurfaceDefaultTransparentPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoGradient",
+        "surfaceDefaultTransparentPromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkPromoGradient.colors,
-                LightGradientTokens.SurfaceOnDarkPromoGradient.positions,
-                LightGradientTokens.SurfaceOnDarkPromoGradient.angle,
+                LightGradientTokens.SurfaceDefaultTransparentPromoGradientHover.colors,
+                LightGradientTokens.SurfaceDefaultTransparentPromoGradientHover.positions,
+                LightGradientTokens.SurfaceDefaultTransparentPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoGradientHover",
+        "surfaceInverseAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkPromoGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkPromoGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkPromoGradientHover.angle,
+                LightGradientTokens.SurfaceInverseAccentGradient.colors,
+                LightGradientTokens.SurfaceInverseAccentGradient.positions,
+                LightGradientTokens.SurfaceInverseAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoGradientActive",
+        "surfaceInverseAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkPromoGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkPromoGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkPromoGradientActive.angle,
+                LightGradientTokens.SurfaceInverseAccentGradientHover.colors,
+                LightGradientTokens.SurfaceInverseAccentGradientHover.positions,
+                LightGradientTokens.SurfaceInverseAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoMinorGradient",
+        "surfaceInverseAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkPromoMinorGradient.colors,
-                LightGradientTokens.SurfaceOnDarkPromoMinorGradient.positions,
-                LightGradientTokens.SurfaceOnDarkPromoMinorGradient.angle,
+                LightGradientTokens.SurfaceInverseAccentMinorGradient.colors,
+                LightGradientTokens.SurfaceInverseAccentMinorGradient.positions,
+                LightGradientTokens.SurfaceInverseAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoMinorGradientHover",
+        "surfaceInverseAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkPromoMinorGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkPromoMinorGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkPromoMinorGradientHover.angle,
+                LightGradientTokens.SurfaceInverseAccentMinorGradientActive.colors,
+                LightGradientTokens.SurfaceInverseAccentMinorGradientActive.positions,
+                LightGradientTokens.SurfaceInverseAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoMinorGradientActive",
+        "surfaceInverseAccentMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkPromoMinorGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkPromoMinorGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkPromoMinorGradientActive.angle,
+                LightGradientTokens.SurfaceInverseAccentMinorGradientHover.colors,
+                LightGradientTokens.SurfaceInverseAccentMinorGradientHover.positions,
+                LightGradientTokens.SurfaceInverseAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentPromoGradient",
+        "surfaceInversePromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkTransparentPromoGradient.colors,
-                LightGradientTokens.SurfaceOnDarkTransparentPromoGradient.positions,
-                LightGradientTokens.SurfaceOnDarkTransparentPromoGradient.angle,
+                LightGradientTokens.SurfaceInversePromoGradient.colors,
+                LightGradientTokens.SurfaceInversePromoGradient.positions,
+                LightGradientTokens.SurfaceInversePromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentPromoGradientHover",
+        "surfaceInversePromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.angle,
+                LightGradientTokens.SurfaceInversePromoGradientActive.colors,
+                LightGradientTokens.SurfaceInversePromoGradientActive.positions,
+                LightGradientTokens.SurfaceInversePromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentPromoGradientActive",
+        "surfaceInversePromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.angle,
+                LightGradientTokens.SurfaceInversePromoGradientHover.colors,
+                LightGradientTokens.SurfaceInversePromoGradientHover.positions,
+                LightGradientTokens.SurfaceInversePromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInversePromoMinorGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInversePromoMinorGradient.colors,
+                LightGradientTokens.SurfaceInversePromoMinorGradient.positions,
+                LightGradientTokens.SurfaceInversePromoMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInversePromoMinorGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInversePromoMinorGradientActive.colors,
+                LightGradientTokens.SurfaceInversePromoMinorGradientActive.positions,
+                LightGradientTokens.SurfaceInversePromoMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInversePromoMinorGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInversePromoMinorGradientHover.colors,
+                LightGradientTokens.SurfaceInversePromoMinorGradientHover.positions,
+                LightGradientTokens.SurfaceInversePromoMinorGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonDeepGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.colors,
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.positions,
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonDeepGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonDeepGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradientHover.colors,
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradientHover.positions,
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseSkeletonGradient.colors,
+                LightGradientTokens.SurfaceInverseSkeletonGradient.positions,
+                LightGradientTokens.SurfaceInverseSkeletonGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseSkeletonGradientActive.colors,
+                LightGradientTokens.SurfaceInverseSkeletonGradientActive.positions,
+                LightGradientTokens.SurfaceInverseSkeletonGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseSkeletonGradientHover.colors,
+                LightGradientTokens.SurfaceInverseSkeletonGradientHover.positions,
+                LightGradientTokens.SurfaceInverseSkeletonGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseTransparentAccentGradient.colors,
+                LightGradientTokens.SurfaceInverseTransparentAccentGradient.positions,
+                LightGradientTokens.SurfaceInverseTransparentAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentAccentGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseTransparentAccentGradientActive.colors,
+                LightGradientTokens.SurfaceInverseTransparentAccentGradientActive.positions,
+                LightGradientTokens.SurfaceInverseTransparentAccentGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentAccentGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseTransparentAccentGradientHover.colors,
+                LightGradientTokens.SurfaceInverseTransparentAccentGradientHover.positions,
+                LightGradientTokens.SurfaceInverseTransparentAccentGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentPromoGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseTransparentPromoGradientActive.colors,
+                LightGradientTokens.SurfaceInverseTransparentPromoGradientActive.positions,
+                LightGradientTokens.SurfaceInverseTransparentPromoGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentPromoGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseTransparentPromoGradientHover.colors,
+                LightGradientTokens.SurfaceInverseTransparentPromoGradientHover.positions,
+                LightGradientTokens.SurfaceInverseTransparentPromoGradientHover.angle,
             ),
         ),
         overwrite,
@@ -4431,34 +4651,122 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSkeletonGradient",
+        "surfaceOnDarkAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
+                LightGradientTokens.SurfaceOnDarkAccentGradientActive.colors,
+                LightGradientTokens.SurfaceOnDarkAccentGradientActive.positions,
+                LightGradientTokens.SurfaceOnDarkAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSkeletonGradientHover",
+        "surfaceOnDarkAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.angle,
+                LightGradientTokens.SurfaceOnDarkAccentGradientHover.colors,
+                LightGradientTokens.SurfaceOnDarkAccentGradientHover.positions,
+                LightGradientTokens.SurfaceOnDarkAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSkeletonGradientActive",
+        "surfaceOnDarkAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.angle,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradient.colors,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradient.positions,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkAccentMinorGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradientActive.colors,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradientActive.positions,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkAccentMinorGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradientHover.colors,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradientHover.positions,
+                LightGradientTokens.SurfaceOnDarkAccentMinorGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkPromoGradient.colors,
+                LightGradientTokens.SurfaceOnDarkPromoGradient.positions,
+                LightGradientTokens.SurfaceOnDarkPromoGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkPromoGradientActive.colors,
+                LightGradientTokens.SurfaceOnDarkPromoGradientActive.positions,
+                LightGradientTokens.SurfaceOnDarkPromoGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkPromoGradientHover.colors,
+                LightGradientTokens.SurfaceOnDarkPromoGradientHover.positions,
+                LightGradientTokens.SurfaceOnDarkPromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoMinorGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkPromoMinorGradient.colors,
+                LightGradientTokens.SurfaceOnDarkPromoMinorGradient.positions,
+                LightGradientTokens.SurfaceOnDarkPromoMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoMinorGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkPromoMinorGradientActive.colors,
+                LightGradientTokens.SurfaceOnDarkPromoMinorGradientActive.positions,
+                LightGradientTokens.SurfaceOnDarkPromoMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoMinorGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkPromoMinorGradientHover.colors,
+                LightGradientTokens.SurfaceOnDarkPromoMinorGradientHover.positions,
+                LightGradientTokens.SurfaceOnDarkPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
@@ -4475,17 +4783,6 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.colors,
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.positions,
-                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceOnDarkSkeletonDeepGradientActive",
         listOf(
             linearGradient(
@@ -4497,12 +4794,111 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentGradientHover",
+        "surfaceOnDarkSkeletonDeepGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnLightAccentGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightAccentGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightAccentGradientHover.angle,
+                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.colors,
+                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.positions,
+                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSkeletonGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSkeletonGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.colors,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.positions,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSkeletonGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.colors,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.positions,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentAccentGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.colors,
+                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.positions,
+                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentAccentGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.colors,
+                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.positions,
+                LightGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentPromoGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkTransparentPromoGradient.colors,
+                LightGradientTokens.SurfaceOnDarkTransparentPromoGradient.positions,
+                LightGradientTokens.SurfaceOnDarkTransparentPromoGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentPromoGradientActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.colors,
+                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.positions,
+                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentPromoGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.colors,
+                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.positions,
+                LightGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnLightAccentGradient.colors,
+                LightGradientTokens.SurfaceOnLightAccentGradient.positions,
+                LightGradientTokens.SurfaceOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -4541,67 +4937,12 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentMinorGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightAccentMinorGradientActive.colors,
-                LightGradientTokens.SurfaceOnLightAccentMinorGradientActive.positions,
-                LightGradientTokens.SurfaceOnLightAccentMinorGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightTransparentAccentGradient.colors,
-                LightGradientTokens.SurfaceOnLightTransparentAccentGradient.positions,
-                LightGradientTokens.SurfaceOnLightTransparentAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightTransparentAccentGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightTransparentAccentGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightTransparentAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightTransparentAccentGradientActive.colors,
-                LightGradientTokens.SurfaceOnLightTransparentAccentGradientActive.positions,
-                LightGradientTokens.SurfaceOnLightTransparentAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceOnLightPromoGradient",
         listOf(
             linearGradient(
                 LightGradientTokens.SurfaceOnLightPromoGradient.colors,
                 LightGradientTokens.SurfaceOnLightPromoGradient.positions,
                 LightGradientTokens.SurfaceOnLightPromoGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightPromoGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightPromoGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightPromoGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightPromoGradientHover.angle,
             ),
         ),
         overwrite,
@@ -4618,23 +4959,23 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
+        "surfaceOnLightPromoGradientHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnLightPromoGradientHover.colors,
+                LightGradientTokens.SurfaceOnLightPromoGradientHover.positions,
+                LightGradientTokens.SurfaceOnLightPromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceOnLightPromoMinorGradient",
         listOf(
             linearGradient(
                 LightGradientTokens.SurfaceOnLightPromoMinorGradient.colors,
                 LightGradientTokens.SurfaceOnLightPromoMinorGradient.positions,
                 LightGradientTokens.SurfaceOnLightPromoMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightPromoMinorGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightPromoMinorGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightPromoMinorGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
@@ -4651,78 +4992,12 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceOnLightTransparentPromoGradient",
+        "surfaceOnLightPromoMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceOnLightTransparentPromoGradient.colors,
-                LightGradientTokens.SurfaceOnLightTransparentPromoGradient.positions,
-                LightGradientTokens.SurfaceOnLightTransparentPromoGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromoGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightTransparentPromoGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightTransparentPromoGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightTransparentPromoGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromoGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightTransparentPromoGradientActive.colors,
-                LightGradientTokens.SurfaceOnLightTransparentPromoGradientActive.positions,
-                LightGradientTokens.SurfaceOnLightTransparentPromoGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightAccentGradient.colors,
-                LightGradientTokens.SurfaceOnLightAccentGradient.positions,
-                LightGradientTokens.SurfaceOnLightAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightSkeletonGradient.colors,
-                LightGradientTokens.SurfaceOnLightSkeletonGradient.positions,
-                LightGradientTokens.SurfaceOnLightSkeletonGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightSkeletonGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightSkeletonGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightSkeletonGradientActive.colors,
-                LightGradientTokens.SurfaceOnLightSkeletonGradientActive.positions,
-                LightGradientTokens.SurfaceOnLightSkeletonGradientActive.angle,
+                LightGradientTokens.SurfaceOnLightPromoMinorGradientHover.colors,
+                LightGradientTokens.SurfaceOnLightPromoMinorGradientHover.positions,
+                LightGradientTokens.SurfaceOnLightPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
@@ -4739,17 +5014,6 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.colors,
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.positions,
-                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceOnLightSkeletonDeepGradientActive",
         listOf(
             linearGradient(
@@ -4761,870 +5025,639 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentGradientHover",
+        "surfaceOnLightSkeletonDeepGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseAccentGradientHover.colors,
-                LightGradientTokens.SurfaceInverseAccentGradientHover.positions,
-                LightGradientTokens.SurfaceInverseAccentGradientHover.angle,
+                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.colors,
+                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.positions,
+                LightGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentGradientActive",
+        "surfaceOnLightSkeletonGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseAccentGradientActive.colors,
-                LightGradientTokens.SurfaceInverseAccentGradientActive.positions,
-                LightGradientTokens.SurfaceInverseAccentGradientActive.angle,
+                LightGradientTokens.SurfaceOnLightSkeletonGradient.colors,
+                LightGradientTokens.SurfaceOnLightSkeletonGradient.positions,
+                LightGradientTokens.SurfaceOnLightSkeletonGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentMinorGradient",
+        "surfaceOnLightSkeletonGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseAccentMinorGradient.colors,
-                LightGradientTokens.SurfaceInverseAccentMinorGradient.positions,
-                LightGradientTokens.SurfaceInverseAccentMinorGradient.angle,
+                LightGradientTokens.SurfaceOnLightSkeletonGradientActive.colors,
+                LightGradientTokens.SurfaceOnLightSkeletonGradientActive.positions,
+                LightGradientTokens.SurfaceOnLightSkeletonGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentMinorGradientHover",
+        "surfaceOnLightSkeletonGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseAccentMinorGradientHover.colors,
-                LightGradientTokens.SurfaceInverseAccentMinorGradientHover.positions,
-                LightGradientTokens.SurfaceInverseAccentMinorGradientHover.angle,
+                LightGradientTokens.SurfaceOnLightSkeletonGradientHover.colors,
+                LightGradientTokens.SurfaceOnLightSkeletonGradientHover.positions,
+                LightGradientTokens.SurfaceOnLightSkeletonGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentMinorGradientActive",
+        "surfaceOnLightTransparentAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseAccentMinorGradientActive.colors,
-                LightGradientTokens.SurfaceInverseAccentMinorGradientActive.positions,
-                LightGradientTokens.SurfaceInverseAccentMinorGradientActive.angle,
+                LightGradientTokens.SurfaceOnLightTransparentAccentGradient.colors,
+                LightGradientTokens.SurfaceOnLightTransparentAccentGradient.positions,
+                LightGradientTokens.SurfaceOnLightTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentAccentGradient",
+        "surfaceOnLightTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseTransparentAccentGradient.colors,
-                LightGradientTokens.SurfaceInverseTransparentAccentGradient.positions,
-                LightGradientTokens.SurfaceInverseTransparentAccentGradient.angle,
+                LightGradientTokens.SurfaceOnLightTransparentAccentGradientActive.colors,
+                LightGradientTokens.SurfaceOnLightTransparentAccentGradientActive.positions,
+                LightGradientTokens.SurfaceOnLightTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentAccentGradientHover",
+        "surfaceOnLightTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseTransparentAccentGradientHover.colors,
-                LightGradientTokens.SurfaceInverseTransparentAccentGradientHover.positions,
-                LightGradientTokens.SurfaceInverseTransparentAccentGradientHover.angle,
+                LightGradientTokens.SurfaceOnLightTransparentAccentGradientHover.colors,
+                LightGradientTokens.SurfaceOnLightTransparentAccentGradientHover.positions,
+                LightGradientTokens.SurfaceOnLightTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentAccentGradientActive",
+        "surfaceOnLightTransparentPromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseTransparentAccentGradientActive.colors,
-                LightGradientTokens.SurfaceInverseTransparentAccentGradientActive.positions,
-                LightGradientTokens.SurfaceInverseTransparentAccentGradientActive.angle,
+                LightGradientTokens.SurfaceOnLightTransparentPromoGradient.colors,
+                LightGradientTokens.SurfaceOnLightTransparentPromoGradient.positions,
+                LightGradientTokens.SurfaceOnLightTransparentPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoGradient",
+        "surfaceOnLightTransparentPromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInversePromoGradient.colors,
-                LightGradientTokens.SurfaceInversePromoGradient.positions,
-                LightGradientTokens.SurfaceInversePromoGradient.angle,
+                LightGradientTokens.SurfaceOnLightTransparentPromoGradientActive.colors,
+                LightGradientTokens.SurfaceOnLightTransparentPromoGradientActive.positions,
+                LightGradientTokens.SurfaceOnLightTransparentPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoGradientHover",
+        "surfaceOnLightTransparentPromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInversePromoGradientHover.colors,
-                LightGradientTokens.SurfaceInversePromoGradientHover.positions,
-                LightGradientTokens.SurfaceInversePromoGradientHover.angle,
+                LightGradientTokens.SurfaceOnLightTransparentPromoGradientHover.colors,
+                LightGradientTokens.SurfaceOnLightTransparentPromoGradientHover.positions,
+                LightGradientTokens.SurfaceOnLightTransparentPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoGradientActive",
+        "textDefaultAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInversePromoGradientActive.colors,
-                LightGradientTokens.SurfaceInversePromoGradientActive.positions,
-                LightGradientTokens.SurfaceInversePromoGradientActive.angle,
+                LightGradientTokens.TextDefaultAccentGradient.colors,
+                LightGradientTokens.TextDefaultAccentGradient.positions,
+                LightGradientTokens.TextDefaultAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoMinorGradient",
+        "textDefaultAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInversePromoMinorGradient.colors,
-                LightGradientTokens.SurfaceInversePromoMinorGradient.positions,
-                LightGradientTokens.SurfaceInversePromoMinorGradient.angle,
+                LightGradientTokens.TextDefaultAccentGradientActive.colors,
+                LightGradientTokens.TextDefaultAccentGradientActive.positions,
+                LightGradientTokens.TextDefaultAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoMinorGradientHover",
+        "textDefaultAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInversePromoMinorGradientHover.colors,
-                LightGradientTokens.SurfaceInversePromoMinorGradientHover.positions,
-                LightGradientTokens.SurfaceInversePromoMinorGradientHover.angle,
+                LightGradientTokens.TextDefaultAccentGradientHover.colors,
+                LightGradientTokens.TextDefaultAccentGradientHover.positions,
+                LightGradientTokens.TextDefaultAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoMinorGradientActive",
+        "textDefaultAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInversePromoMinorGradientActive.colors,
-                LightGradientTokens.SurfaceInversePromoMinorGradientActive.positions,
-                LightGradientTokens.SurfaceInversePromoMinorGradientActive.angle,
+                LightGradientTokens.TextDefaultAccentMinorGradient.colors,
+                LightGradientTokens.TextDefaultAccentMinorGradient.positions,
+                LightGradientTokens.TextDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentPromoGradient",
+        "textDefaultAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseTransparentPromoGradient.colors,
-                LightGradientTokens.SurfaceInverseTransparentPromoGradient.positions,
-                LightGradientTokens.SurfaceInverseTransparentPromoGradient.angle,
+                LightGradientTokens.TextDefaultAccentMinorGradientActive.colors,
+                LightGradientTokens.TextDefaultAccentMinorGradientActive.positions,
+                LightGradientTokens.TextDefaultAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentPromoGradientHover",
+        "textDefaultAccentMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseTransparentPromoGradientHover.colors,
-                LightGradientTokens.SurfaceInverseTransparentPromoGradientHover.positions,
-                LightGradientTokens.SurfaceInverseTransparentPromoGradientHover.angle,
+                LightGradientTokens.TextDefaultAccentMinorGradientHover.colors,
+                LightGradientTokens.TextDefaultAccentMinorGradientHover.positions,
+                LightGradientTokens.TextDefaultAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentPromoGradientActive",
+        "textDefaultPromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseTransparentPromoGradientActive.colors,
-                LightGradientTokens.SurfaceInverseTransparentPromoGradientActive.positions,
-                LightGradientTokens.SurfaceInverseTransparentPromoGradientActive.angle,
+                LightGradientTokens.TextDefaultPromoGradient.colors,
+                LightGradientTokens.TextDefaultPromoGradient.positions,
+                LightGradientTokens.TextDefaultPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentGradient",
+        "textDefaultPromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseAccentGradient.colors,
-                LightGradientTokens.SurfaceInverseAccentGradient.positions,
-                LightGradientTokens.SurfaceInverseAccentGradient.angle,
+                LightGradientTokens.TextDefaultPromoGradientActive.colors,
+                LightGradientTokens.TextDefaultPromoGradientActive.positions,
+                LightGradientTokens.TextDefaultPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonGradient",
+        "textDefaultPromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonGradient.colors,
-                LightGradientTokens.SurfaceInverseSkeletonGradient.positions,
-                LightGradientTokens.SurfaceInverseSkeletonGradient.angle,
+                LightGradientTokens.TextDefaultPromoGradientHover.colors,
+                LightGradientTokens.TextDefaultPromoGradientHover.positions,
+                LightGradientTokens.TextDefaultPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonGradientHover",
+        "textDefaultPromoMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonGradientHover.colors,
-                LightGradientTokens.SurfaceInverseSkeletonGradientHover.positions,
-                LightGradientTokens.SurfaceInverseSkeletonGradientHover.angle,
+                LightGradientTokens.TextDefaultPromoMinorGradient.colors,
+                LightGradientTokens.TextDefaultPromoMinorGradient.positions,
+                LightGradientTokens.TextDefaultPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonGradientActive",
+        "textDefaultPromoMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonGradientActive.colors,
-                LightGradientTokens.SurfaceInverseSkeletonGradientActive.positions,
-                LightGradientTokens.SurfaceInverseSkeletonGradientActive.angle,
+                LightGradientTokens.TextDefaultPromoMinorGradientHover.colors,
+                LightGradientTokens.TextDefaultPromoMinorGradientHover.positions,
+                LightGradientTokens.TextDefaultPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonDeepGradient",
+        "textInverseAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.colors,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.positions,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.angle,
+                LightGradientTokens.TextInverseAccentGradient.colors,
+                LightGradientTokens.TextInverseAccentGradient.positions,
+                LightGradientTokens.TextInverseAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonDeepGradientHover",
+        "textInverseAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientHover.colors,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientHover.positions,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientHover.angle,
+                LightGradientTokens.TextInverseAccentGradientActive.colors,
+                LightGradientTokens.TextInverseAccentGradientActive.positions,
+                LightGradientTokens.TextInverseAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonDeepGradientActive",
+        "textInverseAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
-                LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
+                LightGradientTokens.TextInverseAccentGradientHover.colors,
+                LightGradientTokens.TextInverseAccentGradientHover.positions,
+                LightGradientTokens.TextInverseAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayDefaultGradientUp",
+        "textInverseAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayDefaultGradientUp.colors,
-                LightGradientTokens.OverlayDefaultGradientUp.positions,
-                LightGradientTokens.OverlayDefaultGradientUp.angle,
+                LightGradientTokens.TextInverseAccentMinorGradient.colors,
+                LightGradientTokens.TextInverseAccentMinorGradient.positions,
+                LightGradientTokens.TextInverseAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayDefaultGradientDown",
+        "textInverseAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayDefaultGradientDown.colors,
-                LightGradientTokens.OverlayDefaultGradientDown.positions,
-                LightGradientTokens.OverlayDefaultGradientDown.angle,
+                LightGradientTokens.TextInverseAccentMinorGradientActive.colors,
+                LightGradientTokens.TextInverseAccentMinorGradientActive.positions,
+                LightGradientTokens.TextInverseAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnDarkGradientUp",
+        "textInverseAccentMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnDarkGradientUp.colors,
-                LightGradientTokens.OverlayOnDarkGradientUp.positions,
-                LightGradientTokens.OverlayOnDarkGradientUp.angle,
+                LightGradientTokens.TextInverseAccentMinorGradientHover.colors,
+                LightGradientTokens.TextInverseAccentMinorGradientHover.positions,
+                LightGradientTokens.TextInverseAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnDarkGradientDown",
+        "textInversePromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnDarkGradientDown.colors,
-                LightGradientTokens.OverlayOnDarkGradientDown.positions,
-                LightGradientTokens.OverlayOnDarkGradientDown.angle,
+                LightGradientTokens.TextInversePromoGradient.colors,
+                LightGradientTokens.TextInversePromoGradient.positions,
+                LightGradientTokens.TextInversePromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradientUp",
+        "textInversePromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnLightGradientUp.colors,
-                LightGradientTokens.OverlayOnLightGradientUp.positions,
-                LightGradientTokens.OverlayOnLightGradientUp.angle,
+                LightGradientTokens.TextInversePromoGradientActive.colors,
+                LightGradientTokens.TextInversePromoGradientActive.positions,
+                LightGradientTokens.TextInversePromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradientDown",
+        "textInversePromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnLightGradientDown.colors,
-                LightGradientTokens.OverlayOnLightGradientDown.positions,
-                LightGradientTokens.OverlayOnLightGradientDown.angle,
+                LightGradientTokens.TextInversePromoGradientHover.colors,
+                LightGradientTokens.TextInversePromoGradientHover.positions,
+                LightGradientTokens.TextInversePromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayInverseGradientUp",
+        "textInversePromoMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayInverseGradientUp.colors,
-                LightGradientTokens.OverlayInverseGradientUp.positions,
-                LightGradientTokens.OverlayInverseGradientUp.angle,
+                LightGradientTokens.TextInversePromoMinorGradient.colors,
+                LightGradientTokens.TextInversePromoMinorGradient.positions,
+                LightGradientTokens.TextInversePromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayInverseGradientDown",
+        "textInversePromoMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayInverseGradientDown.colors,
-                LightGradientTokens.OverlayInverseGradientDown.positions,
-                LightGradientTokens.OverlayInverseGradientDown.angle,
+                LightGradientTokens.TextInversePromoMinorGradientActive.colors,
+                LightGradientTokens.TextInversePromoMinorGradientActive.positions,
+                LightGradientTokens.TextInversePromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradientHover",
+        "textInversePromoMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultAccentGradientHover.colors,
-                LightGradientTokens.OutlineDefaultAccentGradientHover.positions,
-                LightGradientTokens.OutlineDefaultAccentGradientHover.angle,
+                LightGradientTokens.TextInversePromoMinorGradientHover.colors,
+                LightGradientTokens.TextInversePromoMinorGradientHover.positions,
+                LightGradientTokens.TextInversePromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradientActive",
+        "textOnDarkAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultAccentGradientActive.colors,
-                LightGradientTokens.OutlineDefaultAccentGradientActive.positions,
-                LightGradientTokens.OutlineDefaultAccentGradientActive.angle,
+                LightGradientTokens.TextOnDarkAccentGradient.colors,
+                LightGradientTokens.TextOnDarkAccentGradient.positions,
+                LightGradientTokens.TextOnDarkAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentMinorGradient",
+        "textOnDarkAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultAccentMinorGradient.colors,
-                LightGradientTokens.OutlineDefaultAccentMinorGradient.positions,
-                LightGradientTokens.OutlineDefaultAccentMinorGradient.angle,
+                LightGradientTokens.TextOnDarkAccentGradientActive.colors,
+                LightGradientTokens.TextOnDarkAccentGradientActive.positions,
+                LightGradientTokens.TextOnDarkAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentMinorGradientHover",
+        "textOnDarkAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultAccentMinorGradientHover.colors,
-                LightGradientTokens.OutlineDefaultAccentMinorGradientHover.positions,
-                LightGradientTokens.OutlineDefaultAccentMinorGradientHover.angle,
+                LightGradientTokens.TextOnDarkAccentGradientHover.colors,
+                LightGradientTokens.TextOnDarkAccentGradientHover.positions,
+                LightGradientTokens.TextOnDarkAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentMinorGradientActive",
+        "textOnDarkAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultAccentMinorGradientActive.colors,
-                LightGradientTokens.OutlineDefaultAccentMinorGradientActive.positions,
-                LightGradientTokens.OutlineDefaultAccentMinorGradientActive.angle,
+                LightGradientTokens.TextOnDarkAccentMinorGradient.colors,
+                LightGradientTokens.TextOnDarkAccentMinorGradient.positions,
+                LightGradientTokens.TextOnDarkAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultTransparentAccentGradient",
+        "textOnDarkAccentMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentAccentGradient.colors,
-                LightGradientTokens.OutlineDefaultTransparentAccentGradient.positions,
-                LightGradientTokens.OutlineDefaultTransparentAccentGradient.angle,
+                LightGradientTokens.TextOnDarkAccentMinorGradientHover.colors,
+                LightGradientTokens.TextOnDarkAccentMinorGradientHover.positions,
+                LightGradientTokens.TextOnDarkAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultTransparentAccentGradientHover",
+        "textOnDarkPromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentAccentGradientHover.colors,
-                LightGradientTokens.OutlineDefaultTransparentAccentGradientHover.positions,
-                LightGradientTokens.OutlineDefaultTransparentAccentGradientHover.angle,
+                LightGradientTokens.TextOnDarkPromoGradient.colors,
+                LightGradientTokens.TextOnDarkPromoGradient.positions,
+                LightGradientTokens.TextOnDarkPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultTransparentAccentGradientActive",
+        "textOnDarkPromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultTransparentAccentGradientActive.colors,
-                LightGradientTokens.OutlineDefaultTransparentAccentGradientActive.positions,
-                LightGradientTokens.OutlineDefaultTransparentAccentGradientActive.angle,
+                LightGradientTokens.TextOnDarkPromoGradientActive.colors,
+                LightGradientTokens.TextOnDarkPromoGradientActive.positions,
+                LightGradientTokens.TextOnDarkPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoGradient",
+        "textOnDarkPromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultPromoGradient.colors,
-                LightGradientTokens.OutlineDefaultPromoGradient.positions,
-                LightGradientTokens.OutlineDefaultPromoGradient.angle,
+                LightGradientTokens.TextOnDarkPromoGradientHover.colors,
+                LightGradientTokens.TextOnDarkPromoGradientHover.positions,
+                LightGradientTokens.TextOnDarkPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoGradientHover",
+        "textOnDarkPromoMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultPromoGradientHover.colors,
-                LightGradientTokens.OutlineDefaultPromoGradientHover.positions,
-                LightGradientTokens.OutlineDefaultPromoGradientHover.angle,
+                LightGradientTokens.TextOnDarkPromoMinorGradient.colors,
+                LightGradientTokens.TextOnDarkPromoMinorGradient.positions,
+                LightGradientTokens.TextOnDarkPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoGradientActive",
+        "textOnDarkPromoMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultPromoGradientActive.colors,
-                LightGradientTokens.OutlineDefaultPromoGradientActive.positions,
-                LightGradientTokens.OutlineDefaultPromoGradientActive.angle,
+                LightGradientTokens.TextOnDarkPromoMinorGradientActive.colors,
+                LightGradientTokens.TextOnDarkPromoMinorGradientActive.positions,
+                LightGradientTokens.TextOnDarkPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoMinorGradient",
+        "textOnDarkPromoMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultPromoMinorGradient.colors,
-                LightGradientTokens.OutlineDefaultPromoMinorGradient.positions,
-                LightGradientTokens.OutlineDefaultPromoMinorGradient.angle,
+                LightGradientTokens.TextOnDarkPromoMinorGradientHover.colors,
+                LightGradientTokens.TextOnDarkPromoMinorGradientHover.positions,
+                LightGradientTokens.TextOnDarkPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoMinorGradientHover",
+        "textOnLightAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultPromoMinorGradientHover.colors,
-                LightGradientTokens.OutlineDefaultPromoMinorGradientHover.positions,
-                LightGradientTokens.OutlineDefaultPromoMinorGradientHover.angle,
+                LightGradientTokens.TextOnLightAccentGradient.colors,
+                LightGradientTokens.TextOnLightAccentGradient.positions,
+                LightGradientTokens.TextOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoMinorGradientActive",
+        "textOnLightAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultPromoMinorGradientActive.colors,
-                LightGradientTokens.OutlineDefaultPromoMinorGradientActive.positions,
-                LightGradientTokens.OutlineDefaultPromoMinorGradientActive.angle,
+                LightGradientTokens.TextOnLightAccentGradientActive.colors,
+                LightGradientTokens.TextOnLightAccentGradientActive.positions,
+                LightGradientTokens.TextOnLightAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradient",
+        "textOnLightAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultAccentGradient.colors,
-                LightGradientTokens.OutlineDefaultAccentGradient.positions,
-                LightGradientTokens.OutlineDefaultAccentGradient.angle,
+                LightGradientTokens.TextOnLightAccentGradientHover.colors,
+                LightGradientTokens.TextOnLightAccentGradientHover.positions,
+                LightGradientTokens.TextOnLightAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradientHover",
+        "textOnLightAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentGradientHover.colors,
-                LightGradientTokens.OutlineOnDarkAccentGradientHover.positions,
-                LightGradientTokens.OutlineOnDarkAccentGradientHover.angle,
+                LightGradientTokens.TextOnLightAccentMinorGradient.colors,
+                LightGradientTokens.TextOnLightAccentMinorGradient.positions,
+                LightGradientTokens.TextOnLightAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradientActive",
+        "textOnLightAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentGradientActive.colors,
-                LightGradientTokens.OutlineOnDarkAccentGradientActive.positions,
-                LightGradientTokens.OutlineOnDarkAccentGradientActive.angle,
+                LightGradientTokens.TextOnLightAccentMinorGradientActive.colors,
+                LightGradientTokens.TextOnLightAccentMinorGradientActive.positions,
+                LightGradientTokens.TextOnLightAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentMinorGradient",
+        "textOnLightAccentMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentMinorGradient.colors,
-                LightGradientTokens.OutlineOnDarkAccentMinorGradient.positions,
-                LightGradientTokens.OutlineOnDarkAccentMinorGradient.angle,
+                LightGradientTokens.TextOnLightAccentMinorGradientHover.colors,
+                LightGradientTokens.TextOnLightAccentMinorGradientHover.positions,
+                LightGradientTokens.TextOnLightAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentMinorGradientHover",
+        "textOnLightPromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentMinorGradientHover.colors,
-                LightGradientTokens.OutlineOnDarkAccentMinorGradientHover.positions,
-                LightGradientTokens.OutlineOnDarkAccentMinorGradientHover.angle,
+                LightGradientTokens.TextOnLightPromoGradient.colors,
+                LightGradientTokens.TextOnLightPromoGradient.positions,
+                LightGradientTokens.TextOnLightPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentMinorGradientActive",
+        "textOnLightPromoGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentMinorGradientActive.colors,
-                LightGradientTokens.OutlineOnDarkAccentMinorGradientActive.positions,
-                LightGradientTokens.OutlineOnDarkAccentMinorGradientActive.angle,
+                LightGradientTokens.TextOnLightPromoGradientActive.colors,
+                LightGradientTokens.TextOnLightPromoGradientActive.positions,
+                LightGradientTokens.TextOnLightPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkTransparentAccentGradient",
+        "textOnLightPromoMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkTransparentAccentGradient.colors,
-                LightGradientTokens.OutlineOnDarkTransparentAccentGradient.positions,
-                LightGradientTokens.OutlineOnDarkTransparentAccentGradient.angle,
+                LightGradientTokens.TextOnLightPromoMinorGradient.colors,
+                LightGradientTokens.TextOnLightPromoMinorGradient.positions,
+                LightGradientTokens.TextOnLightPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkTransparentAccentGradientHover",
+        "textOnLightPromoMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkTransparentAccentGradientHover.colors,
-                LightGradientTokens.OutlineOnDarkTransparentAccentGradientHover.positions,
-                LightGradientTokens.OutlineOnDarkTransparentAccentGradientHover.angle,
+                LightGradientTokens.TextOnLightPromoMinorGradientActive.colors,
+                LightGradientTokens.TextOnLightPromoMinorGradientActive.positions,
+                LightGradientTokens.TextOnLightPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkTransparentAccentGradientActive",
+        "textOnLightPromoMinorGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkTransparentAccentGradientActive.colors,
-                LightGradientTokens.OutlineOnDarkTransparentAccentGradientActive.positions,
-                LightGradientTokens.OutlineOnDarkTransparentAccentGradientActive.angle,
+                LightGradientTokens.TextOnLightPromoMinorGradientHover.colors,
+                LightGradientTokens.TextOnLightPromoMinorGradientHover.positions,
+                LightGradientTokens.TextOnLightPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkPromoGradient",
+        "surfaceDefaultSkeletonDeepGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkPromoGradient.colors,
-                LightGradientTokens.OutlineOnDarkPromoGradient.positions,
-                LightGradientTokens.OutlineOnDarkPromoGradient.angle,
+                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.colors,
+                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.positions,
+                LightGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkPromoGradientHover",
+        "surfaceOnLightAccentGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkPromoGradientHover.colors,
-                LightGradientTokens.OutlineOnDarkPromoGradientHover.positions,
-                LightGradientTokens.OutlineOnDarkPromoGradientHover.angle,
+                LightGradientTokens.SurfaceOnLightAccentGradientHover.colors,
+                LightGradientTokens.SurfaceOnLightAccentGradientHover.positions,
+                LightGradientTokens.SurfaceOnLightAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkPromoGradientActive",
+        "textOnLightPromoGradientHover",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkPromoGradientActive.colors,
-                LightGradientTokens.OutlineOnDarkPromoGradientActive.positions,
-                LightGradientTokens.OutlineOnDarkPromoGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkPromoMinorGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnDarkPromoMinorGradient.colors,
-                LightGradientTokens.OutlineOnDarkPromoMinorGradient.positions,
-                LightGradientTokens.OutlineOnDarkPromoMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkPromoMinorGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnDarkPromoMinorGradientHover.colors,
-                LightGradientTokens.OutlineOnDarkPromoMinorGradientHover.positions,
-                LightGradientTokens.OutlineOnDarkPromoMinorGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkPromoMinorGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnDarkPromoMinorGradientActive.colors,
-                LightGradientTokens.OutlineOnDarkPromoMinorGradientActive.positions,
-                LightGradientTokens.OutlineOnDarkPromoMinorGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentGradient.colors,
-                LightGradientTokens.OutlineOnDarkAccentGradient.positions,
-                LightGradientTokens.OutlineOnDarkAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightAccentGradientHover.colors,
-                LightGradientTokens.OutlineOnLightAccentGradientHover.positions,
-                LightGradientTokens.OutlineOnLightAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightAccentGradientActive.colors,
-                LightGradientTokens.OutlineOnLightAccentGradientActive.positions,
-                LightGradientTokens.OutlineOnLightAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentMinorGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightAccentMinorGradient.colors,
-                LightGradientTokens.OutlineOnLightAccentMinorGradient.positions,
-                LightGradientTokens.OutlineOnLightAccentMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentMinorGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightAccentMinorGradientHover.colors,
-                LightGradientTokens.OutlineOnLightAccentMinorGradientHover.positions,
-                LightGradientTokens.OutlineOnLightAccentMinorGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentMinorGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightAccentMinorGradientActive.colors,
-                LightGradientTokens.OutlineOnLightAccentMinorGradientActive.positions,
-                LightGradientTokens.OutlineOnLightAccentMinorGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightTransparentAccentGradient.colors,
-                LightGradientTokens.OutlineOnLightTransparentAccentGradient.positions,
-                LightGradientTokens.OutlineOnLightTransparentAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightTransparentAccentGradientHover.colors,
-                LightGradientTokens.OutlineOnLightTransparentAccentGradientHover.positions,
-                LightGradientTokens.OutlineOnLightTransparentAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightTransparentAccentGradientActive.colors,
-                LightGradientTokens.OutlineOnLightTransparentAccentGradientActive.positions,
-                LightGradientTokens.OutlineOnLightTransparentAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightPromoGradient.colors,
-                LightGradientTokens.OutlineOnLightPromoGradient.positions,
-                LightGradientTokens.OutlineOnLightPromoGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightPromoGradientHover.colors,
-                LightGradientTokens.OutlineOnLightPromoGradientHover.positions,
-                LightGradientTokens.OutlineOnLightPromoGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightPromoGradientActive.colors,
-                LightGradientTokens.OutlineOnLightPromoGradientActive.positions,
-                LightGradientTokens.OutlineOnLightPromoGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoMinorGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightPromoMinorGradient.colors,
-                LightGradientTokens.OutlineOnLightPromoMinorGradient.positions,
-                LightGradientTokens.OutlineOnLightPromoMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoMinorGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightPromoMinorGradientHover.colors,
-                LightGradientTokens.OutlineOnLightPromoMinorGradientHover.positions,
-                LightGradientTokens.OutlineOnLightPromoMinorGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoMinorGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightPromoMinorGradientActive.colors,
-                LightGradientTokens.OutlineOnLightPromoMinorGradientActive.positions,
-                LightGradientTokens.OutlineOnLightPromoMinorGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineOnLightAccentGradient.colors,
-                LightGradientTokens.OutlineOnLightAccentGradient.positions,
-                LightGradientTokens.OutlineOnLightAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseAccentGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineInverseAccentGradientHover.colors,
-                LightGradientTokens.OutlineInverseAccentGradientHover.positions,
-                LightGradientTokens.OutlineInverseAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseAccentGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineInverseAccentGradientActive.colors,
-                LightGradientTokens.OutlineInverseAccentGradientActive.positions,
-                LightGradientTokens.OutlineInverseAccentGradientActive.angle,
+                LightGradientTokens.TextOnLightPromoGradientHover.colors,
+                LightGradientTokens.TextOnLightPromoGradientHover.positions,
+                LightGradientTokens.TextOnLightPromoGradientHover.angle,
             ),
         ),
         overwrite,
@@ -5641,100 +5674,56 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentMinorGradientHover",
+        "outlineOnLightAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineInverseAccentMinorGradientHover.colors,
-                LightGradientTokens.OutlineInverseAccentMinorGradientHover.positions,
-                LightGradientTokens.OutlineInverseAccentMinorGradientHover.angle,
+                LightGradientTokens.OutlineOnLightAccentMinorGradient.colors,
+                LightGradientTokens.OutlineOnLightAccentMinorGradient.positions,
+                LightGradientTokens.OutlineOnLightAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentMinorGradientActive",
+        "surfaceInverseAccentGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineInverseAccentMinorGradientActive.colors,
-                LightGradientTokens.OutlineInverseAccentMinorGradientActive.positions,
-                LightGradientTokens.OutlineInverseAccentMinorGradientActive.angle,
+                LightGradientTokens.SurfaceInverseAccentGradientActive.colors,
+                LightGradientTokens.SurfaceInverseAccentGradientActive.positions,
+                LightGradientTokens.SurfaceInverseAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseTransparentAccentGradient",
+        "surfaceOnLightAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineInverseTransparentAccentGradient.colors,
-                LightGradientTokens.OutlineInverseTransparentAccentGradient.positions,
-                LightGradientTokens.OutlineInverseTransparentAccentGradient.angle,
+                LightGradientTokens.SurfaceOnLightAccentMinorGradientActive.colors,
+                LightGradientTokens.SurfaceOnLightAccentMinorGradientActive.positions,
+                LightGradientTokens.SurfaceOnLightAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseTransparentAccentGradientHover",
+        "textDefaultPromoMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineInverseTransparentAccentGradientHover.colors,
-                LightGradientTokens.OutlineInverseTransparentAccentGradientHover.positions,
-                LightGradientTokens.OutlineInverseTransparentAccentGradientHover.angle,
+                LightGradientTokens.TextDefaultPromoMinorGradientActive.colors,
+                LightGradientTokens.TextDefaultPromoMinorGradientActive.positions,
+                LightGradientTokens.TextDefaultPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseTransparentAccentGradientActive",
+        "textOnDarkAccentMinorGradientActive",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineInverseTransparentAccentGradientActive.colors,
-                LightGradientTokens.OutlineInverseTransparentAccentGradientActive.positions,
-                LightGradientTokens.OutlineInverseTransparentAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineInversePromoGradient.colors,
-                LightGradientTokens.OutlineInversePromoGradient.positions,
-                LightGradientTokens.OutlineInversePromoGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoGradientHover",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineInversePromoGradientHover.colors,
-                LightGradientTokens.OutlineInversePromoGradientHover.positions,
-                LightGradientTokens.OutlineInversePromoGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoGradientActive",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineInversePromoGradientActive.colors,
-                LightGradientTokens.OutlineInversePromoGradientActive.positions,
-                LightGradientTokens.OutlineInversePromoGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoMinorGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineInversePromoMinorGradient.colors,
-                LightGradientTokens.OutlineInversePromoMinorGradient.positions,
-                LightGradientTokens.OutlineInversePromoMinorGradient.angle,
+                LightGradientTokens.TextOnDarkAccentMinorGradientActive.colors,
+                LightGradientTokens.TextOnDarkAccentMinorGradientActive.positions,
+                LightGradientTokens.TextOnDarkAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
@@ -5751,23 +5740,34 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "outlineInversePromoMinorGradientActive",
+        "surfaceDefaultAccentMinorGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineInversePromoMinorGradientActive.colors,
-                LightGradientTokens.OutlineInversePromoMinorGradientActive.positions,
-                LightGradientTokens.OutlineInversePromoMinorGradientActive.angle,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradient.colors,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradient.positions,
+                LightGradientTokens.SurfaceDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentGradient",
+        "surfaceInverseTransparentPromoGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineInverseAccentGradient.colors,
-                LightGradientTokens.OutlineInverseAccentGradient.positions,
-                LightGradientTokens.OutlineInverseAccentGradient.angle,
+                LightGradientTokens.SurfaceInverseTransparentPromoGradient.colors,
+                LightGradientTokens.SurfaceInverseTransparentPromoGradient.positions,
+                LightGradientTokens.SurfaceInverseTransparentPromoGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkTransparentAccentGradient.colors,
+                LightGradientTokens.SurfaceOnDarkTransparentAccentGradient.positions,
+                LightGradientTokens.SurfaceOnDarkTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -5785,716 +5785,716 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
     val overwrite = gradientOverrideScope.overrideMap
     val initial = mutableMapOf<String, List<ShaderBrush>>()
     initial.add(
-        "textDefaultAccentGradientHover",
+        "outlineDefaultAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultAccentGradientHover.colors,
-                DarkGradientTokens.TextDefaultAccentGradientHover.positions,
-                DarkGradientTokens.TextDefaultAccentGradientHover.angle,
+                DarkGradientTokens.OutlineDefaultAccentGradient.colors,
+                DarkGradientTokens.OutlineDefaultAccentGradient.positions,
+                DarkGradientTokens.OutlineDefaultAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradientActive",
+        "outlineDefaultAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultAccentGradientActive.colors,
-                DarkGradientTokens.TextDefaultAccentGradientActive.positions,
-                DarkGradientTokens.TextDefaultAccentGradientActive.angle,
+                DarkGradientTokens.OutlineDefaultAccentGradientActive.colors,
+                DarkGradientTokens.OutlineDefaultAccentGradientActive.positions,
+                DarkGradientTokens.OutlineDefaultAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentMinorGradient",
+        "outlineDefaultAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultAccentMinorGradient.colors,
-                DarkGradientTokens.TextDefaultAccentMinorGradient.positions,
-                DarkGradientTokens.TextDefaultAccentMinorGradient.angle,
+                DarkGradientTokens.OutlineDefaultAccentGradientHover.colors,
+                DarkGradientTokens.OutlineDefaultAccentGradientHover.positions,
+                DarkGradientTokens.OutlineDefaultAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentMinorGradientHover",
+        "outlineDefaultAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultAccentMinorGradientHover.colors,
-                DarkGradientTokens.TextDefaultAccentMinorGradientHover.positions,
-                DarkGradientTokens.TextDefaultAccentMinorGradientHover.angle,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradient.colors,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradient.positions,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentMinorGradientActive",
+        "outlineDefaultAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultAccentMinorGradientActive.colors,
-                DarkGradientTokens.TextDefaultAccentMinorGradientActive.positions,
-                DarkGradientTokens.TextDefaultAccentMinorGradientActive.angle,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradientActive.colors,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradientActive.positions,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoGradient",
+        "outlineDefaultAccentMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultPromoGradient.colors,
-                DarkGradientTokens.TextDefaultPromoGradient.positions,
-                DarkGradientTokens.TextDefaultPromoGradient.angle,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradientHover.colors,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradientHover.positions,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoGradientHover",
+        "outlineDefaultPromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultPromoGradientHover.colors,
-                DarkGradientTokens.TextDefaultPromoGradientHover.positions,
-                DarkGradientTokens.TextDefaultPromoGradientHover.angle,
+                DarkGradientTokens.OutlineDefaultPromoGradient.colors,
+                DarkGradientTokens.OutlineDefaultPromoGradient.positions,
+                DarkGradientTokens.OutlineDefaultPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoGradientActive",
+        "outlineDefaultPromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultPromoGradientActive.colors,
-                DarkGradientTokens.TextDefaultPromoGradientActive.positions,
-                DarkGradientTokens.TextDefaultPromoGradientActive.angle,
+                DarkGradientTokens.OutlineDefaultPromoGradientActive.colors,
+                DarkGradientTokens.OutlineDefaultPromoGradientActive.positions,
+                DarkGradientTokens.OutlineDefaultPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoMinorGradient",
+        "outlineDefaultPromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultPromoMinorGradient.colors,
-                DarkGradientTokens.TextDefaultPromoMinorGradient.positions,
-                DarkGradientTokens.TextDefaultPromoMinorGradient.angle,
+                DarkGradientTokens.OutlineDefaultPromoGradientHover.colors,
+                DarkGradientTokens.OutlineDefaultPromoGradientHover.positions,
+                DarkGradientTokens.OutlineDefaultPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoMinorGradientHover",
+        "outlineDefaultPromoMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultPromoMinorGradientHover.colors,
-                DarkGradientTokens.TextDefaultPromoMinorGradientHover.positions,
-                DarkGradientTokens.TextDefaultPromoMinorGradientHover.angle,
+                DarkGradientTokens.OutlineDefaultPromoMinorGradient.colors,
+                DarkGradientTokens.OutlineDefaultPromoMinorGradient.positions,
+                DarkGradientTokens.OutlineDefaultPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultPromoMinorGradientActive",
+        "outlineDefaultPromoMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultPromoMinorGradientActive.colors,
-                DarkGradientTokens.TextDefaultPromoMinorGradientActive.positions,
-                DarkGradientTokens.TextDefaultPromoMinorGradientActive.angle,
+                DarkGradientTokens.OutlineDefaultPromoMinorGradientActive.colors,
+                DarkGradientTokens.OutlineDefaultPromoMinorGradientActive.positions,
+                DarkGradientTokens.OutlineDefaultPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textDefaultAccentGradient",
+        "outlineDefaultPromoMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextDefaultAccentGradient.colors,
-                DarkGradientTokens.TextDefaultAccentGradient.positions,
-                DarkGradientTokens.TextDefaultAccentGradient.angle,
+                DarkGradientTokens.OutlineDefaultPromoMinorGradientHover.colors,
+                DarkGradientTokens.OutlineDefaultPromoMinorGradientHover.positions,
+                DarkGradientTokens.OutlineDefaultPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradientHover",
+        "outlineDefaultTransparentAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkAccentGradientHover.colors,
-                DarkGradientTokens.TextOnDarkAccentGradientHover.positions,
-                DarkGradientTokens.TextOnDarkAccentGradientHover.angle,
+                DarkGradientTokens.OutlineDefaultTransparentAccentGradient.colors,
+                DarkGradientTokens.OutlineDefaultTransparentAccentGradient.positions,
+                DarkGradientTokens.OutlineDefaultTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradientActive",
+        "outlineDefaultTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkAccentGradientActive.colors,
-                DarkGradientTokens.TextOnDarkAccentGradientActive.positions,
-                DarkGradientTokens.TextOnDarkAccentGradientActive.angle,
+                DarkGradientTokens.OutlineDefaultTransparentAccentGradientActive.colors,
+                DarkGradientTokens.OutlineDefaultTransparentAccentGradientActive.positions,
+                DarkGradientTokens.OutlineDefaultTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentMinorGradient",
+        "outlineDefaultTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkAccentMinorGradient.colors,
-                DarkGradientTokens.TextOnDarkAccentMinorGradient.positions,
-                DarkGradientTokens.TextOnDarkAccentMinorGradient.angle,
+                DarkGradientTokens.OutlineDefaultTransparentAccentGradientHover.colors,
+                DarkGradientTokens.OutlineDefaultTransparentAccentGradientHover.positions,
+                DarkGradientTokens.OutlineDefaultTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentMinorGradientHover",
+        "outlineInverseAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkAccentMinorGradientHover.colors,
-                DarkGradientTokens.TextOnDarkAccentMinorGradientHover.positions,
-                DarkGradientTokens.TextOnDarkAccentMinorGradientHover.angle,
+                DarkGradientTokens.OutlineInverseAccentGradient.colors,
+                DarkGradientTokens.OutlineInverseAccentGradient.positions,
+                DarkGradientTokens.OutlineInverseAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentMinorGradientActive",
+        "outlineInverseAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkAccentMinorGradientActive.colors,
-                DarkGradientTokens.TextOnDarkAccentMinorGradientActive.positions,
-                DarkGradientTokens.TextOnDarkAccentMinorGradientActive.angle,
+                DarkGradientTokens.OutlineInverseAccentGradientActive.colors,
+                DarkGradientTokens.OutlineInverseAccentGradientActive.positions,
+                DarkGradientTokens.OutlineInverseAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoGradient",
+        "outlineInverseAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkPromoGradient.colors,
-                DarkGradientTokens.TextOnDarkPromoGradient.positions,
-                DarkGradientTokens.TextOnDarkPromoGradient.angle,
+                DarkGradientTokens.OutlineInverseAccentGradientHover.colors,
+                DarkGradientTokens.OutlineInverseAccentGradientHover.positions,
+                DarkGradientTokens.OutlineInverseAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoGradientHover",
+        "outlineInverseAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkPromoGradientHover.colors,
-                DarkGradientTokens.TextOnDarkPromoGradientHover.positions,
-                DarkGradientTokens.TextOnDarkPromoGradientHover.angle,
+                DarkGradientTokens.OutlineInverseAccentMinorGradientActive.colors,
+                DarkGradientTokens.OutlineInverseAccentMinorGradientActive.positions,
+                DarkGradientTokens.OutlineInverseAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoGradientActive",
+        "outlineInverseAccentMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkPromoGradientActive.colors,
-                DarkGradientTokens.TextOnDarkPromoGradientActive.positions,
-                DarkGradientTokens.TextOnDarkPromoGradientActive.angle,
+                DarkGradientTokens.OutlineInverseAccentMinorGradientHover.colors,
+                DarkGradientTokens.OutlineInverseAccentMinorGradientHover.positions,
+                DarkGradientTokens.OutlineInverseAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoMinorGradient",
+        "outlineInversePromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkPromoMinorGradient.colors,
-                DarkGradientTokens.TextOnDarkPromoMinorGradient.positions,
-                DarkGradientTokens.TextOnDarkPromoMinorGradient.angle,
+                DarkGradientTokens.OutlineInversePromoGradient.colors,
+                DarkGradientTokens.OutlineInversePromoGradient.positions,
+                DarkGradientTokens.OutlineInversePromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoMinorGradientHover",
+        "outlineInversePromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkPromoMinorGradientHover.colors,
-                DarkGradientTokens.TextOnDarkPromoMinorGradientHover.positions,
-                DarkGradientTokens.TextOnDarkPromoMinorGradientHover.angle,
+                DarkGradientTokens.OutlineInversePromoGradientActive.colors,
+                DarkGradientTokens.OutlineInversePromoGradientActive.positions,
+                DarkGradientTokens.OutlineInversePromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkPromoMinorGradientActive",
+        "outlineInversePromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkPromoMinorGradientActive.colors,
-                DarkGradientTokens.TextOnDarkPromoMinorGradientActive.positions,
-                DarkGradientTokens.TextOnDarkPromoMinorGradientActive.angle,
+                DarkGradientTokens.OutlineInversePromoGradientHover.colors,
+                DarkGradientTokens.OutlineInversePromoGradientHover.positions,
+                DarkGradientTokens.OutlineInversePromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradient",
+        "outlineInversePromoMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkAccentGradient.colors,
-                DarkGradientTokens.TextOnDarkAccentGradient.positions,
-                DarkGradientTokens.TextOnDarkAccentGradient.angle,
+                DarkGradientTokens.OutlineInversePromoMinorGradient.colors,
+                DarkGradientTokens.OutlineInversePromoMinorGradient.positions,
+                DarkGradientTokens.OutlineInversePromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradientHover",
+        "outlineInversePromoMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightAccentGradientHover.colors,
-                DarkGradientTokens.TextOnLightAccentGradientHover.positions,
-                DarkGradientTokens.TextOnLightAccentGradientHover.angle,
+                DarkGradientTokens.OutlineInversePromoMinorGradientActive.colors,
+                DarkGradientTokens.OutlineInversePromoMinorGradientActive.positions,
+                DarkGradientTokens.OutlineInversePromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradientActive",
+        "outlineInverseTransparentAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightAccentGradientActive.colors,
-                DarkGradientTokens.TextOnLightAccentGradientActive.positions,
-                DarkGradientTokens.TextOnLightAccentGradientActive.angle,
+                DarkGradientTokens.OutlineInverseTransparentAccentGradient.colors,
+                DarkGradientTokens.OutlineInverseTransparentAccentGradient.positions,
+                DarkGradientTokens.OutlineInverseTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentMinorGradient",
+        "outlineInverseTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightAccentMinorGradient.colors,
-                DarkGradientTokens.TextOnLightAccentMinorGradient.positions,
-                DarkGradientTokens.TextOnLightAccentMinorGradient.angle,
+                DarkGradientTokens.OutlineInverseTransparentAccentGradientActive.colors,
+                DarkGradientTokens.OutlineInverseTransparentAccentGradientActive.positions,
+                DarkGradientTokens.OutlineInverseTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentMinorGradientHover",
+        "outlineInverseTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightAccentMinorGradientHover.colors,
-                DarkGradientTokens.TextOnLightAccentMinorGradientHover.positions,
-                DarkGradientTokens.TextOnLightAccentMinorGradientHover.angle,
+                DarkGradientTokens.OutlineInverseTransparentAccentGradientHover.colors,
+                DarkGradientTokens.OutlineInverseTransparentAccentGradientHover.positions,
+                DarkGradientTokens.OutlineInverseTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentMinorGradientActive",
+        "outlineOnDarkAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightAccentMinorGradientActive.colors,
-                DarkGradientTokens.TextOnLightAccentMinorGradientActive.positions,
-                DarkGradientTokens.TextOnLightAccentMinorGradientActive.angle,
+                DarkGradientTokens.OutlineOnDarkAccentGradient.colors,
+                DarkGradientTokens.OutlineOnDarkAccentGradient.positions,
+                DarkGradientTokens.OutlineOnDarkAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoGradient",
+        "outlineOnDarkAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightPromoGradient.colors,
-                DarkGradientTokens.TextOnLightPromoGradient.positions,
-                DarkGradientTokens.TextOnLightPromoGradient.angle,
+                DarkGradientTokens.OutlineOnDarkAccentGradientActive.colors,
+                DarkGradientTokens.OutlineOnDarkAccentGradientActive.positions,
+                DarkGradientTokens.OutlineOnDarkAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoGradientHover",
+        "outlineOnDarkAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightPromoGradientHover.colors,
-                DarkGradientTokens.TextOnLightPromoGradientHover.positions,
-                DarkGradientTokens.TextOnLightPromoGradientHover.angle,
+                DarkGradientTokens.OutlineOnDarkAccentGradientHover.colors,
+                DarkGradientTokens.OutlineOnDarkAccentGradientHover.positions,
+                DarkGradientTokens.OutlineOnDarkAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoGradientActive",
+        "outlineOnDarkAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightPromoGradientActive.colors,
-                DarkGradientTokens.TextOnLightPromoGradientActive.positions,
-                DarkGradientTokens.TextOnLightPromoGradientActive.angle,
+                DarkGradientTokens.OutlineOnDarkAccentMinorGradient.colors,
+                DarkGradientTokens.OutlineOnDarkAccentMinorGradient.positions,
+                DarkGradientTokens.OutlineOnDarkAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoMinorGradient",
+        "outlineOnDarkAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightPromoMinorGradient.colors,
-                DarkGradientTokens.TextOnLightPromoMinorGradient.positions,
-                DarkGradientTokens.TextOnLightPromoMinorGradient.angle,
+                DarkGradientTokens.OutlineOnDarkAccentMinorGradientActive.colors,
+                DarkGradientTokens.OutlineOnDarkAccentMinorGradientActive.positions,
+                DarkGradientTokens.OutlineOnDarkAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoMinorGradientHover",
+        "outlineOnDarkAccentMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightPromoMinorGradientHover.colors,
-                DarkGradientTokens.TextOnLightPromoMinorGradientHover.positions,
-                DarkGradientTokens.TextOnLightPromoMinorGradientHover.angle,
+                DarkGradientTokens.OutlineOnDarkAccentMinorGradientHover.colors,
+                DarkGradientTokens.OutlineOnDarkAccentMinorGradientHover.positions,
+                DarkGradientTokens.OutlineOnDarkAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightPromoMinorGradientActive",
+        "outlineOnDarkPromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightPromoMinorGradientActive.colors,
-                DarkGradientTokens.TextOnLightPromoMinorGradientActive.positions,
-                DarkGradientTokens.TextOnLightPromoMinorGradientActive.angle,
+                DarkGradientTokens.OutlineOnDarkPromoGradient.colors,
+                DarkGradientTokens.OutlineOnDarkPromoGradient.positions,
+                DarkGradientTokens.OutlineOnDarkPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradient",
+        "outlineOnDarkPromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightAccentGradient.colors,
-                DarkGradientTokens.TextOnLightAccentGradient.positions,
-                DarkGradientTokens.TextOnLightAccentGradient.angle,
+                DarkGradientTokens.OutlineOnDarkPromoGradientActive.colors,
+                DarkGradientTokens.OutlineOnDarkPromoGradientActive.positions,
+                DarkGradientTokens.OutlineOnDarkPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientHover",
+        "outlineOnDarkPromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentGradientHover.colors,
-                DarkGradientTokens.TextInverseAccentGradientHover.positions,
-                DarkGradientTokens.TextInverseAccentGradientHover.angle,
+                DarkGradientTokens.OutlineOnDarkPromoGradientHover.colors,
+                DarkGradientTokens.OutlineOnDarkPromoGradientHover.positions,
+                DarkGradientTokens.OutlineOnDarkPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradientActive",
+        "outlineOnDarkPromoMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentGradientActive.colors,
-                DarkGradientTokens.TextInverseAccentGradientActive.positions,
-                DarkGradientTokens.TextInverseAccentGradientActive.angle,
+                DarkGradientTokens.OutlineOnDarkPromoMinorGradient.colors,
+                DarkGradientTokens.OutlineOnDarkPromoMinorGradient.positions,
+                DarkGradientTokens.OutlineOnDarkPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentMinorGradient",
+        "outlineOnDarkPromoMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentMinorGradient.colors,
-                DarkGradientTokens.TextInverseAccentMinorGradient.positions,
-                DarkGradientTokens.TextInverseAccentMinorGradient.angle,
+                DarkGradientTokens.OutlineOnDarkPromoMinorGradientActive.colors,
+                DarkGradientTokens.OutlineOnDarkPromoMinorGradientActive.positions,
+                DarkGradientTokens.OutlineOnDarkPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentMinorGradientHover",
+        "outlineOnDarkPromoMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentMinorGradientHover.colors,
-                DarkGradientTokens.TextInverseAccentMinorGradientHover.positions,
-                DarkGradientTokens.TextInverseAccentMinorGradientHover.angle,
+                DarkGradientTokens.OutlineOnDarkPromoMinorGradientHover.colors,
+                DarkGradientTokens.OutlineOnDarkPromoMinorGradientHover.positions,
+                DarkGradientTokens.OutlineOnDarkPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentMinorGradientActive",
+        "outlineOnDarkTransparentAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentMinorGradientActive.colors,
-                DarkGradientTokens.TextInverseAccentMinorGradientActive.positions,
-                DarkGradientTokens.TextInverseAccentMinorGradientActive.angle,
+                DarkGradientTokens.OutlineOnDarkTransparentAccentGradient.colors,
+                DarkGradientTokens.OutlineOnDarkTransparentAccentGradient.positions,
+                DarkGradientTokens.OutlineOnDarkTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoGradient",
+        "outlineOnDarkTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInversePromoGradient.colors,
-                DarkGradientTokens.TextInversePromoGradient.positions,
-                DarkGradientTokens.TextInversePromoGradient.angle,
+                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientActive.colors,
+                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientActive.positions,
+                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoGradientHover",
+        "outlineOnDarkTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInversePromoGradientHover.colors,
-                DarkGradientTokens.TextInversePromoGradientHover.positions,
-                DarkGradientTokens.TextInversePromoGradientHover.angle,
+                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientHover.colors,
+                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientHover.positions,
+                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoGradientActive",
+        "outlineOnLightAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInversePromoGradientActive.colors,
-                DarkGradientTokens.TextInversePromoGradientActive.positions,
-                DarkGradientTokens.TextInversePromoGradientActive.angle,
+                DarkGradientTokens.OutlineOnLightAccentGradient.colors,
+                DarkGradientTokens.OutlineOnLightAccentGradient.positions,
+                DarkGradientTokens.OutlineOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoMinorGradient",
+        "outlineOnLightAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInversePromoMinorGradient.colors,
-                DarkGradientTokens.TextInversePromoMinorGradient.positions,
-                DarkGradientTokens.TextInversePromoMinorGradient.angle,
+                DarkGradientTokens.OutlineOnLightAccentGradientActive.colors,
+                DarkGradientTokens.OutlineOnLightAccentGradientActive.positions,
+                DarkGradientTokens.OutlineOnLightAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoMinorGradientHover",
+        "outlineOnLightAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInversePromoMinorGradientHover.colors,
-                DarkGradientTokens.TextInversePromoMinorGradientHover.positions,
-                DarkGradientTokens.TextInversePromoMinorGradientHover.angle,
+                DarkGradientTokens.OutlineOnLightAccentGradientHover.colors,
+                DarkGradientTokens.OutlineOnLightAccentGradientHover.positions,
+                DarkGradientTokens.OutlineOnLightAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInversePromoMinorGradientActive",
+        "outlineOnLightAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInversePromoMinorGradientActive.colors,
-                DarkGradientTokens.TextInversePromoMinorGradientActive.positions,
-                DarkGradientTokens.TextInversePromoMinorGradientActive.angle,
+                DarkGradientTokens.OutlineOnLightAccentMinorGradientActive.colors,
+                DarkGradientTokens.OutlineOnLightAccentMinorGradientActive.positions,
+                DarkGradientTokens.OutlineOnLightAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradient",
+        "outlineOnLightAccentMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentGradient.colors,
-                DarkGradientTokens.TextInverseAccentGradient.positions,
-                DarkGradientTokens.TextInverseAccentGradient.angle,
+                DarkGradientTokens.OutlineOnLightAccentMinorGradientHover.colors,
+                DarkGradientTokens.OutlineOnLightAccentMinorGradientHover.positions,
+                DarkGradientTokens.OutlineOnLightAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientHover",
+        "outlineOnLightPromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultAccentGradientHover.angle,
+                DarkGradientTokens.OutlineOnLightPromoGradient.colors,
+                DarkGradientTokens.OutlineOnLightPromoGradient.positions,
+                DarkGradientTokens.OutlineOnLightPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradientActive",
+        "outlineOnLightPromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultAccentGradientActive.angle,
+                DarkGradientTokens.OutlineOnLightPromoGradientActive.colors,
+                DarkGradientTokens.OutlineOnLightPromoGradientActive.positions,
+                DarkGradientTokens.OutlineOnLightPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentMinorGradient",
+        "outlineOnLightPromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentMinorGradient.colors,
-                DarkGradientTokens.SurfaceDefaultAccentMinorGradient.positions,
-                DarkGradientTokens.SurfaceDefaultAccentMinorGradient.angle,
+                DarkGradientTokens.OutlineOnLightPromoGradientHover.colors,
+                DarkGradientTokens.OutlineOnLightPromoGradientHover.positions,
+                DarkGradientTokens.OutlineOnLightPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentMinorGradientHover",
+        "outlineOnLightPromoMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentMinorGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultAccentMinorGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultAccentMinorGradientHover.angle,
+                DarkGradientTokens.OutlineOnLightPromoMinorGradient.colors,
+                DarkGradientTokens.OutlineOnLightPromoMinorGradient.positions,
+                DarkGradientTokens.OutlineOnLightPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentMinorGradientActive",
+        "outlineOnLightPromoMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentMinorGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultAccentMinorGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultAccentMinorGradientActive.angle,
+                DarkGradientTokens.OutlineOnLightPromoMinorGradientActive.colors,
+                DarkGradientTokens.OutlineOnLightPromoMinorGradientActive.positions,
+                DarkGradientTokens.OutlineOnLightPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentAccentGradient",
+        "outlineOnLightPromoMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultTransparentAccentGradient.colors,
-                DarkGradientTokens.SurfaceDefaultTransparentAccentGradient.positions,
-                DarkGradientTokens.SurfaceDefaultTransparentAccentGradient.angle,
+                DarkGradientTokens.OutlineOnLightPromoMinorGradientHover.colors,
+                DarkGradientTokens.OutlineOnLightPromoMinorGradientHover.positions,
+                DarkGradientTokens.OutlineOnLightPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentAccentGradientHover",
+        "outlineOnLightTransparentAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientHover.angle,
+                DarkGradientTokens.OutlineOnLightTransparentAccentGradient.colors,
+                DarkGradientTokens.OutlineOnLightTransparentAccentGradient.positions,
+                DarkGradientTokens.OutlineOnLightTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentAccentGradientActive",
+        "outlineOnLightTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientActive.angle,
+                DarkGradientTokens.OutlineOnLightTransparentAccentGradientActive.colors,
+                DarkGradientTokens.OutlineOnLightTransparentAccentGradientActive.positions,
+                DarkGradientTokens.OutlineOnLightTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoGradient",
+        "outlineOnLightTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultPromoGradient.colors,
-                DarkGradientTokens.SurfaceDefaultPromoGradient.positions,
-                DarkGradientTokens.SurfaceDefaultPromoGradient.angle,
+                DarkGradientTokens.OutlineOnLightTransparentAccentGradientHover.colors,
+                DarkGradientTokens.OutlineOnLightTransparentAccentGradientHover.positions,
+                DarkGradientTokens.OutlineOnLightTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoGradientHover",
+        "overlayDefaultGradientDown",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultPromoGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultPromoGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultPromoGradientHover.angle,
+                DarkGradientTokens.OverlayDefaultGradientDown.colors,
+                DarkGradientTokens.OverlayDefaultGradientDown.positions,
+                DarkGradientTokens.OverlayDefaultGradientDown.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoGradientActive",
+        "overlayDefaultGradientUp",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultPromoGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultPromoGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultPromoGradientActive.angle,
+                DarkGradientTokens.OverlayDefaultGradientUp.colors,
+                DarkGradientTokens.OverlayDefaultGradientUp.positions,
+                DarkGradientTokens.OverlayDefaultGradientUp.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoMinorGradient",
+        "overlayInverseGradientDown",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultPromoMinorGradient.colors,
-                DarkGradientTokens.SurfaceDefaultPromoMinorGradient.positions,
-                DarkGradientTokens.SurfaceDefaultPromoMinorGradient.angle,
+                DarkGradientTokens.OverlayInverseGradientDown.colors,
+                DarkGradientTokens.OverlayInverseGradientDown.positions,
+                DarkGradientTokens.OverlayInverseGradientDown.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoMinorGradientHover",
+        "overlayInverseGradientUp",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultPromoMinorGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultPromoMinorGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultPromoMinorGradientHover.angle,
+                DarkGradientTokens.OverlayInverseGradientUp.colors,
+                DarkGradientTokens.OverlayInverseGradientUp.positions,
+                DarkGradientTokens.OverlayInverseGradientUp.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultPromoMinorGradientActive",
+        "overlayOnDarkGradientDown",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultPromoMinorGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultPromoMinorGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultPromoMinorGradientActive.angle,
+                DarkGradientTokens.OverlayOnDarkGradientDown.colors,
+                DarkGradientTokens.OverlayOnDarkGradientDown.positions,
+                DarkGradientTokens.OverlayOnDarkGradientDown.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentPromoGradient",
+        "overlayOnDarkGradientUp",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultTransparentPromoGradient.colors,
-                DarkGradientTokens.SurfaceDefaultTransparentPromoGradient.positions,
-                DarkGradientTokens.SurfaceDefaultTransparentPromoGradient.angle,
+                DarkGradientTokens.OverlayOnDarkGradientUp.colors,
+                DarkGradientTokens.OverlayOnDarkGradientUp.positions,
+                DarkGradientTokens.OverlayOnDarkGradientUp.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentPromoGradientHover",
+        "overlayOnLightGradientDown",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientHover.angle,
+                DarkGradientTokens.OverlayOnLightGradientDown.colors,
+                DarkGradientTokens.OverlayOnLightGradientDown.positions,
+                DarkGradientTokens.OverlayOnLightGradientDown.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentPromoGradientActive",
+        "overlayOnLightGradientUp",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientActive.angle,
+                DarkGradientTokens.OverlayOnLightGradientUp.colors,
+                DarkGradientTokens.OverlayOnLightGradientUp.positions,
+                DarkGradientTokens.OverlayOnLightGradientUp.angle,
             ),
         ),
         overwrite,
@@ -6511,34 +6511,111 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSkeletonGradient",
+        "surfaceDefaultAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonGradient.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradient.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradient.angle,
+                DarkGradientTokens.SurfaceDefaultAccentGradientActive.colors,
+                DarkGradientTokens.SurfaceDefaultAccentGradientActive.positions,
+                DarkGradientTokens.SurfaceDefaultAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSkeletonGradientHover",
+        "surfaceDefaultAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientHover.angle,
+                DarkGradientTokens.SurfaceDefaultAccentGradientHover.colors,
+                DarkGradientTokens.SurfaceDefaultAccentGradientHover.positions,
+                DarkGradientTokens.SurfaceDefaultAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSkeletonGradientActive",
+        "surfaceDefaultAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientActive.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientActive.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonGradientActive.angle,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradientActive.colors,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradientActive.positions,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultAccentMinorGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradientHover.colors,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradientHover.positions,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultPromoGradient.colors,
+                DarkGradientTokens.SurfaceDefaultPromoGradient.positions,
+                DarkGradientTokens.SurfaceDefaultPromoGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultPromoGradientActive.colors,
+                DarkGradientTokens.SurfaceDefaultPromoGradientActive.positions,
+                DarkGradientTokens.SurfaceDefaultPromoGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultPromoGradientHover.colors,
+                DarkGradientTokens.SurfaceDefaultPromoGradientHover.positions,
+                DarkGradientTokens.SurfaceDefaultPromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoMinorGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultPromoMinorGradient.colors,
+                DarkGradientTokens.SurfaceDefaultPromoMinorGradient.positions,
+                DarkGradientTokens.SurfaceDefaultPromoMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoMinorGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultPromoMinorGradientActive.colors,
+                DarkGradientTokens.SurfaceDefaultPromoMinorGradientActive.positions,
+                DarkGradientTokens.SurfaceDefaultPromoMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultPromoMinorGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultPromoMinorGradientHover.colors,
+                DarkGradientTokens.SurfaceDefaultPromoMinorGradientHover.positions,
+                DarkGradientTokens.SurfaceDefaultPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
@@ -6555,17 +6632,6 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceDefaultSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.colors,
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.positions,
-                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceDefaultSkeletonDeepGradientActive",
         listOf(
             linearGradient(
@@ -6577,188 +6643,342 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentGradientHover",
+        "surfaceDefaultSkeletonGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradient.colors,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradient.positions,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentGradientActive",
+        "surfaceDefaultSkeletonGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkAccentGradientActive.angle,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradientActive.colors,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradientActive.positions,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentMinorGradient",
+        "surfaceDefaultSkeletonGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.colors,
-                DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.positions,
-                DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.angle,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradientHover.colors,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradientHover.positions,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentMinorGradientHover",
+        "surfaceDefaultTransparentAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientHover.angle,
+                DarkGradientTokens.SurfaceDefaultTransparentAccentGradient.colors,
+                DarkGradientTokens.SurfaceDefaultTransparentAccentGradient.positions,
+                DarkGradientTokens.SurfaceDefaultTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkAccentMinorGradientActive",
+        "surfaceDefaultTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientActive.angle,
+                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientActive.colors,
+                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientActive.positions,
+                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentAccentGradient",
+        "surfaceDefaultTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradient.colors,
-                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradient.positions,
-                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradient.angle,
+                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientHover.colors,
+                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientHover.positions,
+                DarkGradientTokens.SurfaceDefaultTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentAccentGradientHover",
+        "surfaceDefaultTransparentPromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceDefaultTransparentPromoGradient.colors,
+                DarkGradientTokens.SurfaceDefaultTransparentPromoGradient.positions,
+                DarkGradientTokens.SurfaceDefaultTransparentPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentAccentGradientActive",
+        "surfaceDefaultTransparentPromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.angle,
+                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientActive.colors,
+                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientActive.positions,
+                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoGradient",
+        "surfaceDefaultTransparentPromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkPromoGradient.colors,
-                DarkGradientTokens.SurfaceOnDarkPromoGradient.positions,
-                DarkGradientTokens.SurfaceOnDarkPromoGradient.angle,
+                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientHover.colors,
+                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientHover.positions,
+                DarkGradientTokens.SurfaceDefaultTransparentPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoGradientHover",
+        "surfaceInverseAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkPromoGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkPromoGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkPromoGradientHover.angle,
+                DarkGradientTokens.SurfaceInverseAccentGradient.colors,
+                DarkGradientTokens.SurfaceInverseAccentGradient.positions,
+                DarkGradientTokens.SurfaceInverseAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoGradientActive",
+        "surfaceInverseAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkPromoGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkPromoGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkPromoGradientActive.angle,
+                DarkGradientTokens.SurfaceInverseAccentGradientHover.colors,
+                DarkGradientTokens.SurfaceInverseAccentGradientHover.positions,
+                DarkGradientTokens.SurfaceInverseAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoMinorGradient",
+        "surfaceInverseAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkPromoMinorGradient.colors,
-                DarkGradientTokens.SurfaceOnDarkPromoMinorGradient.positions,
-                DarkGradientTokens.SurfaceOnDarkPromoMinorGradient.angle,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradient.colors,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradient.positions,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoMinorGradientHover",
+        "surfaceInverseAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientHover.angle,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradientActive.colors,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradientActive.positions,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkPromoMinorGradientActive",
+        "surfaceInverseAccentMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientActive.angle,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradientHover.colors,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradientHover.positions,
+                DarkGradientTokens.SurfaceInverseAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentPromoGradient",
+        "surfaceInversePromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradient.colors,
-                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradient.positions,
-                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradient.angle,
+                DarkGradientTokens.SurfaceInversePromoGradient.colors,
+                DarkGradientTokens.SurfaceInversePromoGradient.positions,
+                DarkGradientTokens.SurfaceInversePromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentPromoGradientHover",
+        "surfaceInversePromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.angle,
+                DarkGradientTokens.SurfaceInversePromoGradientActive.colors,
+                DarkGradientTokens.SurfaceInversePromoGradientActive.positions,
+                DarkGradientTokens.SurfaceInversePromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentPromoGradientActive",
+        "surfaceInversePromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.angle,
+                DarkGradientTokens.SurfaceInversePromoGradientHover.colors,
+                DarkGradientTokens.SurfaceInversePromoGradientHover.positions,
+                DarkGradientTokens.SurfaceInversePromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInversePromoMinorGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInversePromoMinorGradient.colors,
+                DarkGradientTokens.SurfaceInversePromoMinorGradient.positions,
+                DarkGradientTokens.SurfaceInversePromoMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInversePromoMinorGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInversePromoMinorGradientActive.colors,
+                DarkGradientTokens.SurfaceInversePromoMinorGradientActive.positions,
+                DarkGradientTokens.SurfaceInversePromoMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInversePromoMinorGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInversePromoMinorGradientHover.colors,
+                DarkGradientTokens.SurfaceInversePromoMinorGradientHover.positions,
+                DarkGradientTokens.SurfaceInversePromoMinorGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonDeepGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.colors,
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.positions,
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonDeepGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonDeepGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientHover.colors,
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientHover.positions,
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseSkeletonGradient.colors,
+                DarkGradientTokens.SurfaceInverseSkeletonGradient.positions,
+                DarkGradientTokens.SurfaceInverseSkeletonGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseSkeletonGradientActive.colors,
+                DarkGradientTokens.SurfaceInverseSkeletonGradientActive.positions,
+                DarkGradientTokens.SurfaceInverseSkeletonGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseSkeletonGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseSkeletonGradientHover.colors,
+                DarkGradientTokens.SurfaceInverseSkeletonGradientHover.positions,
+                DarkGradientTokens.SurfaceInverseSkeletonGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseTransparentAccentGradient.colors,
+                DarkGradientTokens.SurfaceInverseTransparentAccentGradient.positions,
+                DarkGradientTokens.SurfaceInverseTransparentAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentAccentGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseTransparentAccentGradientActive.colors,
+                DarkGradientTokens.SurfaceInverseTransparentAccentGradientActive.positions,
+                DarkGradientTokens.SurfaceInverseTransparentAccentGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentAccentGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseTransparentAccentGradientHover.colors,
+                DarkGradientTokens.SurfaceInverseTransparentAccentGradientHover.positions,
+                DarkGradientTokens.SurfaceInverseTransparentAccentGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentPromoGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseTransparentPromoGradientActive.colors,
+                DarkGradientTokens.SurfaceInverseTransparentPromoGradientActive.positions,
+                DarkGradientTokens.SurfaceInverseTransparentPromoGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentPromoGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseTransparentPromoGradientHover.colors,
+                DarkGradientTokens.SurfaceInverseTransparentPromoGradientHover.positions,
+                DarkGradientTokens.SurfaceInverseTransparentPromoGradientHover.angle,
             ),
         ),
         overwrite,
@@ -6775,34 +6995,122 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSkeletonGradient",
+        "surfaceOnDarkAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
+                DarkGradientTokens.SurfaceOnDarkAccentGradientActive.colors,
+                DarkGradientTokens.SurfaceOnDarkAccentGradientActive.positions,
+                DarkGradientTokens.SurfaceOnDarkAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSkeletonGradientHover",
+        "surfaceOnDarkAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.angle,
+                DarkGradientTokens.SurfaceOnDarkAccentGradientHover.colors,
+                DarkGradientTokens.SurfaceOnDarkAccentGradientHover.positions,
+                DarkGradientTokens.SurfaceOnDarkAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSkeletonGradientActive",
+        "surfaceOnDarkAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.angle,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.colors,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.positions,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkAccentMinorGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientActive.colors,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientActive.positions,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkAccentMinorGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientHover.colors,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientHover.positions,
+                DarkGradientTokens.SurfaceOnDarkAccentMinorGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkPromoGradient.colors,
+                DarkGradientTokens.SurfaceOnDarkPromoGradient.positions,
+                DarkGradientTokens.SurfaceOnDarkPromoGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkPromoGradientActive.colors,
+                DarkGradientTokens.SurfaceOnDarkPromoGradientActive.positions,
+                DarkGradientTokens.SurfaceOnDarkPromoGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkPromoGradientHover.colors,
+                DarkGradientTokens.SurfaceOnDarkPromoGradientHover.positions,
+                DarkGradientTokens.SurfaceOnDarkPromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoMinorGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkPromoMinorGradient.colors,
+                DarkGradientTokens.SurfaceOnDarkPromoMinorGradient.positions,
+                DarkGradientTokens.SurfaceOnDarkPromoMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoMinorGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientActive.colors,
+                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientActive.positions,
+                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkPromoMinorGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientHover.colors,
+                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientHover.positions,
+                DarkGradientTokens.SurfaceOnDarkPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
@@ -6819,17 +7127,6 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.colors,
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.positions,
-                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceOnDarkSkeletonDeepGradientActive",
         listOf(
             linearGradient(
@@ -6841,12 +7138,111 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentGradientHover",
+        "surfaceOnDarkSkeletonDeepGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnLightAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.colors,
+                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.positions,
+                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSkeletonGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSkeletonGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.colors,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.positions,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSkeletonGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.colors,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.positions,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentAccentGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.colors,
+                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.positions,
+                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentAccentGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.colors,
+                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.positions,
+                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentPromoGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradient.colors,
+                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradient.positions,
+                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentPromoGradientActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.colors,
+                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.positions,
+                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentPromoGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.colors,
+                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.positions,
+                DarkGradientTokens.SurfaceOnDarkTransparentPromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
+                DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
+                DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -6885,67 +7281,12 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentMinorGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightAccentMinorGradientActive.colors,
-                DarkGradientTokens.SurfaceOnLightAccentMinorGradientActive.positions,
-                DarkGradientTokens.SurfaceOnLightAccentMinorGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightTransparentAccentGradient.colors,
-                DarkGradientTokens.SurfaceOnLightTransparentAccentGradient.positions,
-                DarkGradientTokens.SurfaceOnLightTransparentAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceOnLightPromoGradient",
         listOf(
             linearGradient(
                 DarkGradientTokens.SurfaceOnLightPromoGradient.colors,
                 DarkGradientTokens.SurfaceOnLightPromoGradient.positions,
                 DarkGradientTokens.SurfaceOnLightPromoGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightPromoGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightPromoGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightPromoGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightPromoGradientHover.angle,
             ),
         ),
         overwrite,
@@ -6962,23 +7303,23 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
+        "surfaceOnLightPromoGradientHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnLightPromoGradientHover.colors,
+                DarkGradientTokens.SurfaceOnLightPromoGradientHover.positions,
+                DarkGradientTokens.SurfaceOnLightPromoGradientHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceOnLightPromoMinorGradient",
         listOf(
             linearGradient(
                 DarkGradientTokens.SurfaceOnLightPromoMinorGradient.colors,
                 DarkGradientTokens.SurfaceOnLightPromoMinorGradient.positions,
                 DarkGradientTokens.SurfaceOnLightPromoMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightPromoMinorGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightPromoMinorGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightPromoMinorGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
@@ -6995,78 +7336,12 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceOnLightTransparentPromoGradient",
+        "surfaceOnLightPromoMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceOnLightTransparentPromoGradient.colors,
-                DarkGradientTokens.SurfaceOnLightTransparentPromoGradient.positions,
-                DarkGradientTokens.SurfaceOnLightTransparentPromoGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromoGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromoGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientActive.colors,
-                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientActive.positions,
-                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
-                DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
-                DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightSkeletonGradient.colors,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradient.positions,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSkeletonGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.colors,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.positions,
-                DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.angle,
+                DarkGradientTokens.SurfaceOnLightPromoMinorGradientHover.colors,
+                DarkGradientTokens.SurfaceOnLightPromoMinorGradientHover.positions,
+                DarkGradientTokens.SurfaceOnLightPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
@@ -7083,17 +7358,6 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSkeletonDeepGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.colors,
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.positions,
-                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceOnLightSkeletonDeepGradientActive",
         listOf(
             linearGradient(
@@ -7105,870 +7369,639 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentGradientHover",
+        "surfaceOnLightSkeletonDeepGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceInverseAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceInverseAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.colors,
+                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.positions,
+                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentGradientActive",
+        "surfaceOnLightSkeletonGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceInverseAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceInverseAccentGradientActive.angle,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradient.colors,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradient.positions,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentMinorGradient",
+        "surfaceOnLightSkeletonGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentMinorGradient.colors,
-                DarkGradientTokens.SurfaceInverseAccentMinorGradient.positions,
-                DarkGradientTokens.SurfaceInverseAccentMinorGradient.angle,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.colors,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.positions,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentMinorGradientHover",
+        "surfaceOnLightSkeletonGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentMinorGradientHover.colors,
-                DarkGradientTokens.SurfaceInverseAccentMinorGradientHover.positions,
-                DarkGradientTokens.SurfaceInverseAccentMinorGradientHover.angle,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.colors,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.positions,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentMinorGradientActive",
+        "surfaceOnLightTransparentAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentMinorGradientActive.colors,
-                DarkGradientTokens.SurfaceInverseAccentMinorGradientActive.positions,
-                DarkGradientTokens.SurfaceInverseAccentMinorGradientActive.angle,
+                DarkGradientTokens.SurfaceOnLightTransparentAccentGradient.colors,
+                DarkGradientTokens.SurfaceOnLightTransparentAccentGradient.positions,
+                DarkGradientTokens.SurfaceOnLightTransparentAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentAccentGradient",
+        "surfaceOnLightTransparentAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseTransparentAccentGradient.colors,
-                DarkGradientTokens.SurfaceInverseTransparentAccentGradient.positions,
-                DarkGradientTokens.SurfaceInverseTransparentAccentGradient.angle,
+                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientActive.colors,
+                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientActive.positions,
+                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentAccentGradientHover",
+        "surfaceOnLightTransparentAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseTransparentAccentGradientHover.colors,
-                DarkGradientTokens.SurfaceInverseTransparentAccentGradientHover.positions,
-                DarkGradientTokens.SurfaceInverseTransparentAccentGradientHover.angle,
+                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientHover.colors,
+                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientHover.positions,
+                DarkGradientTokens.SurfaceOnLightTransparentAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentAccentGradientActive",
+        "surfaceOnLightTransparentPromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseTransparentAccentGradientActive.colors,
-                DarkGradientTokens.SurfaceInverseTransparentAccentGradientActive.positions,
-                DarkGradientTokens.SurfaceInverseTransparentAccentGradientActive.angle,
+                DarkGradientTokens.SurfaceOnLightTransparentPromoGradient.colors,
+                DarkGradientTokens.SurfaceOnLightTransparentPromoGradient.positions,
+                DarkGradientTokens.SurfaceOnLightTransparentPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoGradient",
+        "surfaceOnLightTransparentPromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInversePromoGradient.colors,
-                DarkGradientTokens.SurfaceInversePromoGradient.positions,
-                DarkGradientTokens.SurfaceInversePromoGradient.angle,
+                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientActive.colors,
+                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientActive.positions,
+                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoGradientHover",
+        "surfaceOnLightTransparentPromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInversePromoGradientHover.colors,
-                DarkGradientTokens.SurfaceInversePromoGradientHover.positions,
-                DarkGradientTokens.SurfaceInversePromoGradientHover.angle,
+                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientHover.colors,
+                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientHover.positions,
+                DarkGradientTokens.SurfaceOnLightTransparentPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoGradientActive",
+        "textDefaultAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInversePromoGradientActive.colors,
-                DarkGradientTokens.SurfaceInversePromoGradientActive.positions,
-                DarkGradientTokens.SurfaceInversePromoGradientActive.angle,
+                DarkGradientTokens.TextDefaultAccentGradient.colors,
+                DarkGradientTokens.TextDefaultAccentGradient.positions,
+                DarkGradientTokens.TextDefaultAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoMinorGradient",
+        "textDefaultAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInversePromoMinorGradient.colors,
-                DarkGradientTokens.SurfaceInversePromoMinorGradient.positions,
-                DarkGradientTokens.SurfaceInversePromoMinorGradient.angle,
+                DarkGradientTokens.TextDefaultAccentGradientActive.colors,
+                DarkGradientTokens.TextDefaultAccentGradientActive.positions,
+                DarkGradientTokens.TextDefaultAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoMinorGradientHover",
+        "textDefaultAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInversePromoMinorGradientHover.colors,
-                DarkGradientTokens.SurfaceInversePromoMinorGradientHover.positions,
-                DarkGradientTokens.SurfaceInversePromoMinorGradientHover.angle,
+                DarkGradientTokens.TextDefaultAccentGradientHover.colors,
+                DarkGradientTokens.TextDefaultAccentGradientHover.positions,
+                DarkGradientTokens.TextDefaultAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInversePromoMinorGradientActive",
+        "textDefaultAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInversePromoMinorGradientActive.colors,
-                DarkGradientTokens.SurfaceInversePromoMinorGradientActive.positions,
-                DarkGradientTokens.SurfaceInversePromoMinorGradientActive.angle,
+                DarkGradientTokens.TextDefaultAccentMinorGradient.colors,
+                DarkGradientTokens.TextDefaultAccentMinorGradient.positions,
+                DarkGradientTokens.TextDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentPromoGradient",
+        "textDefaultAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseTransparentPromoGradient.colors,
-                DarkGradientTokens.SurfaceInverseTransparentPromoGradient.positions,
-                DarkGradientTokens.SurfaceInverseTransparentPromoGradient.angle,
+                DarkGradientTokens.TextDefaultAccentMinorGradientActive.colors,
+                DarkGradientTokens.TextDefaultAccentMinorGradientActive.positions,
+                DarkGradientTokens.TextDefaultAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentPromoGradientHover",
+        "textDefaultAccentMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseTransparentPromoGradientHover.colors,
-                DarkGradientTokens.SurfaceInverseTransparentPromoGradientHover.positions,
-                DarkGradientTokens.SurfaceInverseTransparentPromoGradientHover.angle,
+                DarkGradientTokens.TextDefaultAccentMinorGradientHover.colors,
+                DarkGradientTokens.TextDefaultAccentMinorGradientHover.positions,
+                DarkGradientTokens.TextDefaultAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentPromoGradientActive",
+        "textDefaultPromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseTransparentPromoGradientActive.colors,
-                DarkGradientTokens.SurfaceInverseTransparentPromoGradientActive.positions,
-                DarkGradientTokens.SurfaceInverseTransparentPromoGradientActive.angle,
+                DarkGradientTokens.TextDefaultPromoGradient.colors,
+                DarkGradientTokens.TextDefaultPromoGradient.positions,
+                DarkGradientTokens.TextDefaultPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentGradient",
+        "textDefaultPromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentGradient.colors,
-                DarkGradientTokens.SurfaceInverseAccentGradient.positions,
-                DarkGradientTokens.SurfaceInverseAccentGradient.angle,
+                DarkGradientTokens.TextDefaultPromoGradientActive.colors,
+                DarkGradientTokens.TextDefaultPromoGradientActive.positions,
+                DarkGradientTokens.TextDefaultPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonGradient",
+        "textDefaultPromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonGradient.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonGradient.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonGradient.angle,
+                DarkGradientTokens.TextDefaultPromoGradientHover.colors,
+                DarkGradientTokens.TextDefaultPromoGradientHover.positions,
+                DarkGradientTokens.TextDefaultPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonGradientHover",
+        "textDefaultPromoMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonGradientHover.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonGradientHover.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonGradientHover.angle,
+                DarkGradientTokens.TextDefaultPromoMinorGradient.colors,
+                DarkGradientTokens.TextDefaultPromoMinorGradient.positions,
+                DarkGradientTokens.TextDefaultPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonGradientActive",
+        "textDefaultPromoMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonGradientActive.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonGradientActive.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonGradientActive.angle,
+                DarkGradientTokens.TextDefaultPromoMinorGradientHover.colors,
+                DarkGradientTokens.TextDefaultPromoMinorGradientHover.positions,
+                DarkGradientTokens.TextDefaultPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonDeepGradient",
+        "textInverseAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.angle,
+                DarkGradientTokens.TextInverseAccentGradient.colors,
+                DarkGradientTokens.TextInverseAccentGradient.positions,
+                DarkGradientTokens.TextInverseAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonDeepGradientHover",
+        "textInverseAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientHover.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientHover.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientHover.angle,
+                DarkGradientTokens.TextInverseAccentGradientActive.colors,
+                DarkGradientTokens.TextInverseAccentGradientActive.positions,
+                DarkGradientTokens.TextInverseAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "surfaceInverseSkeletonDeepGradientActive",
+        "textInverseAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
-                DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
+                DarkGradientTokens.TextInverseAccentGradientHover.colors,
+                DarkGradientTokens.TextInverseAccentGradientHover.positions,
+                DarkGradientTokens.TextInverseAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayDefaultGradientUp",
+        "textInverseAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayDefaultGradientUp.colors,
-                DarkGradientTokens.OverlayDefaultGradientUp.positions,
-                DarkGradientTokens.OverlayDefaultGradientUp.angle,
+                DarkGradientTokens.TextInverseAccentMinorGradient.colors,
+                DarkGradientTokens.TextInverseAccentMinorGradient.positions,
+                DarkGradientTokens.TextInverseAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayDefaultGradientDown",
+        "textInverseAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayDefaultGradientDown.colors,
-                DarkGradientTokens.OverlayDefaultGradientDown.positions,
-                DarkGradientTokens.OverlayDefaultGradientDown.angle,
+                DarkGradientTokens.TextInverseAccentMinorGradientActive.colors,
+                DarkGradientTokens.TextInverseAccentMinorGradientActive.positions,
+                DarkGradientTokens.TextInverseAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnDarkGradientUp",
+        "textInverseAccentMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayOnDarkGradientUp.colors,
-                DarkGradientTokens.OverlayOnDarkGradientUp.positions,
-                DarkGradientTokens.OverlayOnDarkGradientUp.angle,
+                DarkGradientTokens.TextInverseAccentMinorGradientHover.colors,
+                DarkGradientTokens.TextInverseAccentMinorGradientHover.positions,
+                DarkGradientTokens.TextInverseAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnDarkGradientDown",
+        "textInversePromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayOnDarkGradientDown.colors,
-                DarkGradientTokens.OverlayOnDarkGradientDown.positions,
-                DarkGradientTokens.OverlayOnDarkGradientDown.angle,
+                DarkGradientTokens.TextInversePromoGradient.colors,
+                DarkGradientTokens.TextInversePromoGradient.positions,
+                DarkGradientTokens.TextInversePromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradientUp",
+        "textInversePromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayOnLightGradientUp.colors,
-                DarkGradientTokens.OverlayOnLightGradientUp.positions,
-                DarkGradientTokens.OverlayOnLightGradientUp.angle,
+                DarkGradientTokens.TextInversePromoGradientActive.colors,
+                DarkGradientTokens.TextInversePromoGradientActive.positions,
+                DarkGradientTokens.TextInversePromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradientDown",
+        "textInversePromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayOnLightGradientDown.colors,
-                DarkGradientTokens.OverlayOnLightGradientDown.positions,
-                DarkGradientTokens.OverlayOnLightGradientDown.angle,
+                DarkGradientTokens.TextInversePromoGradientHover.colors,
+                DarkGradientTokens.TextInversePromoGradientHover.positions,
+                DarkGradientTokens.TextInversePromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayInverseGradientUp",
+        "textInversePromoMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayInverseGradientUp.colors,
-                DarkGradientTokens.OverlayInverseGradientUp.positions,
-                DarkGradientTokens.OverlayInverseGradientUp.angle,
+                DarkGradientTokens.TextInversePromoMinorGradient.colors,
+                DarkGradientTokens.TextInversePromoMinorGradient.positions,
+                DarkGradientTokens.TextInversePromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayInverseGradientDown",
+        "textInversePromoMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayInverseGradientDown.colors,
-                DarkGradientTokens.OverlayInverseGradientDown.positions,
-                DarkGradientTokens.OverlayInverseGradientDown.angle,
+                DarkGradientTokens.TextInversePromoMinorGradientActive.colors,
+                DarkGradientTokens.TextInversePromoMinorGradientActive.positions,
+                DarkGradientTokens.TextInversePromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradientHover",
+        "textInversePromoMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentGradientHover.colors,
-                DarkGradientTokens.OutlineDefaultAccentGradientHover.positions,
-                DarkGradientTokens.OutlineDefaultAccentGradientHover.angle,
+                DarkGradientTokens.TextInversePromoMinorGradientHover.colors,
+                DarkGradientTokens.TextInversePromoMinorGradientHover.positions,
+                DarkGradientTokens.TextInversePromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradientActive",
+        "textOnDarkAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentGradientActive.colors,
-                DarkGradientTokens.OutlineDefaultAccentGradientActive.positions,
-                DarkGradientTokens.OutlineDefaultAccentGradientActive.angle,
+                DarkGradientTokens.TextOnDarkAccentGradient.colors,
+                DarkGradientTokens.TextOnDarkAccentGradient.positions,
+                DarkGradientTokens.TextOnDarkAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentMinorGradient",
+        "textOnDarkAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentMinorGradient.colors,
-                DarkGradientTokens.OutlineDefaultAccentMinorGradient.positions,
-                DarkGradientTokens.OutlineDefaultAccentMinorGradient.angle,
+                DarkGradientTokens.TextOnDarkAccentGradientActive.colors,
+                DarkGradientTokens.TextOnDarkAccentGradientActive.positions,
+                DarkGradientTokens.TextOnDarkAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentMinorGradientHover",
+        "textOnDarkAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentMinorGradientHover.colors,
-                DarkGradientTokens.OutlineDefaultAccentMinorGradientHover.positions,
-                DarkGradientTokens.OutlineDefaultAccentMinorGradientHover.angle,
+                DarkGradientTokens.TextOnDarkAccentGradientHover.colors,
+                DarkGradientTokens.TextOnDarkAccentGradientHover.positions,
+                DarkGradientTokens.TextOnDarkAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentMinorGradientActive",
+        "textOnDarkAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentMinorGradientActive.colors,
-                DarkGradientTokens.OutlineDefaultAccentMinorGradientActive.positions,
-                DarkGradientTokens.OutlineDefaultAccentMinorGradientActive.angle,
+                DarkGradientTokens.TextOnDarkAccentMinorGradient.colors,
+                DarkGradientTokens.TextOnDarkAccentMinorGradient.positions,
+                DarkGradientTokens.TextOnDarkAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultTransparentAccentGradient",
+        "textOnDarkAccentMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultTransparentAccentGradient.colors,
-                DarkGradientTokens.OutlineDefaultTransparentAccentGradient.positions,
-                DarkGradientTokens.OutlineDefaultTransparentAccentGradient.angle,
+                DarkGradientTokens.TextOnDarkAccentMinorGradientHover.colors,
+                DarkGradientTokens.TextOnDarkAccentMinorGradientHover.positions,
+                DarkGradientTokens.TextOnDarkAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultTransparentAccentGradientHover",
+        "textOnDarkPromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultTransparentAccentGradientHover.colors,
-                DarkGradientTokens.OutlineDefaultTransparentAccentGradientHover.positions,
-                DarkGradientTokens.OutlineDefaultTransparentAccentGradientHover.angle,
+                DarkGradientTokens.TextOnDarkPromoGradient.colors,
+                DarkGradientTokens.TextOnDarkPromoGradient.positions,
+                DarkGradientTokens.TextOnDarkPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultTransparentAccentGradientActive",
+        "textOnDarkPromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultTransparentAccentGradientActive.colors,
-                DarkGradientTokens.OutlineDefaultTransparentAccentGradientActive.positions,
-                DarkGradientTokens.OutlineDefaultTransparentAccentGradientActive.angle,
+                DarkGradientTokens.TextOnDarkPromoGradientActive.colors,
+                DarkGradientTokens.TextOnDarkPromoGradientActive.positions,
+                DarkGradientTokens.TextOnDarkPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoGradient",
+        "textOnDarkPromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultPromoGradient.colors,
-                DarkGradientTokens.OutlineDefaultPromoGradient.positions,
-                DarkGradientTokens.OutlineDefaultPromoGradient.angle,
+                DarkGradientTokens.TextOnDarkPromoGradientHover.colors,
+                DarkGradientTokens.TextOnDarkPromoGradientHover.positions,
+                DarkGradientTokens.TextOnDarkPromoGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoGradientHover",
+        "textOnDarkPromoMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultPromoGradientHover.colors,
-                DarkGradientTokens.OutlineDefaultPromoGradientHover.positions,
-                DarkGradientTokens.OutlineDefaultPromoGradientHover.angle,
+                DarkGradientTokens.TextOnDarkPromoMinorGradient.colors,
+                DarkGradientTokens.TextOnDarkPromoMinorGradient.positions,
+                DarkGradientTokens.TextOnDarkPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoGradientActive",
+        "textOnDarkPromoMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultPromoGradientActive.colors,
-                DarkGradientTokens.OutlineDefaultPromoGradientActive.positions,
-                DarkGradientTokens.OutlineDefaultPromoGradientActive.angle,
+                DarkGradientTokens.TextOnDarkPromoMinorGradientActive.colors,
+                DarkGradientTokens.TextOnDarkPromoMinorGradientActive.positions,
+                DarkGradientTokens.TextOnDarkPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoMinorGradient",
+        "textOnDarkPromoMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultPromoMinorGradient.colors,
-                DarkGradientTokens.OutlineDefaultPromoMinorGradient.positions,
-                DarkGradientTokens.OutlineDefaultPromoMinorGradient.angle,
+                DarkGradientTokens.TextOnDarkPromoMinorGradientHover.colors,
+                DarkGradientTokens.TextOnDarkPromoMinorGradientHover.positions,
+                DarkGradientTokens.TextOnDarkPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoMinorGradientHover",
+        "textOnLightAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultPromoMinorGradientHover.colors,
-                DarkGradientTokens.OutlineDefaultPromoMinorGradientHover.positions,
-                DarkGradientTokens.OutlineDefaultPromoMinorGradientHover.angle,
+                DarkGradientTokens.TextOnLightAccentGradient.colors,
+                DarkGradientTokens.TextOnLightAccentGradient.positions,
+                DarkGradientTokens.TextOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultPromoMinorGradientActive",
+        "textOnLightAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultPromoMinorGradientActive.colors,
-                DarkGradientTokens.OutlineDefaultPromoMinorGradientActive.positions,
-                DarkGradientTokens.OutlineDefaultPromoMinorGradientActive.angle,
+                DarkGradientTokens.TextOnLightAccentGradientActive.colors,
+                DarkGradientTokens.TextOnLightAccentGradientActive.positions,
+                DarkGradientTokens.TextOnLightAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineDefaultAccentGradient",
+        "textOnLightAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentGradient.colors,
-                DarkGradientTokens.OutlineDefaultAccentGradient.positions,
-                DarkGradientTokens.OutlineDefaultAccentGradient.angle,
+                DarkGradientTokens.TextOnLightAccentGradientHover.colors,
+                DarkGradientTokens.TextOnLightAccentGradientHover.positions,
+                DarkGradientTokens.TextOnLightAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradientHover",
+        "textOnLightAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentGradientHover.colors,
-                DarkGradientTokens.OutlineOnDarkAccentGradientHover.positions,
-                DarkGradientTokens.OutlineOnDarkAccentGradientHover.angle,
+                DarkGradientTokens.TextOnLightAccentMinorGradient.colors,
+                DarkGradientTokens.TextOnLightAccentMinorGradient.positions,
+                DarkGradientTokens.TextOnLightAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradientActive",
+        "textOnLightAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentGradientActive.colors,
-                DarkGradientTokens.OutlineOnDarkAccentGradientActive.positions,
-                DarkGradientTokens.OutlineOnDarkAccentGradientActive.angle,
+                DarkGradientTokens.TextOnLightAccentMinorGradientActive.colors,
+                DarkGradientTokens.TextOnLightAccentMinorGradientActive.positions,
+                DarkGradientTokens.TextOnLightAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentMinorGradient",
+        "textOnLightAccentMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentMinorGradient.colors,
-                DarkGradientTokens.OutlineOnDarkAccentMinorGradient.positions,
-                DarkGradientTokens.OutlineOnDarkAccentMinorGradient.angle,
+                DarkGradientTokens.TextOnLightAccentMinorGradientHover.colors,
+                DarkGradientTokens.TextOnLightAccentMinorGradientHover.positions,
+                DarkGradientTokens.TextOnLightAccentMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentMinorGradientHover",
+        "textOnLightPromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentMinorGradientHover.colors,
-                DarkGradientTokens.OutlineOnDarkAccentMinorGradientHover.positions,
-                DarkGradientTokens.OutlineOnDarkAccentMinorGradientHover.angle,
+                DarkGradientTokens.TextOnLightPromoGradient.colors,
+                DarkGradientTokens.TextOnLightPromoGradient.positions,
+                DarkGradientTokens.TextOnLightPromoGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentMinorGradientActive",
+        "textOnLightPromoGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentMinorGradientActive.colors,
-                DarkGradientTokens.OutlineOnDarkAccentMinorGradientActive.positions,
-                DarkGradientTokens.OutlineOnDarkAccentMinorGradientActive.angle,
+                DarkGradientTokens.TextOnLightPromoGradientActive.colors,
+                DarkGradientTokens.TextOnLightPromoGradientActive.positions,
+                DarkGradientTokens.TextOnLightPromoGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkTransparentAccentGradient",
+        "textOnLightPromoMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkTransparentAccentGradient.colors,
-                DarkGradientTokens.OutlineOnDarkTransparentAccentGradient.positions,
-                DarkGradientTokens.OutlineOnDarkTransparentAccentGradient.angle,
+                DarkGradientTokens.TextOnLightPromoMinorGradient.colors,
+                DarkGradientTokens.TextOnLightPromoMinorGradient.positions,
+                DarkGradientTokens.TextOnLightPromoMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkTransparentAccentGradientHover",
+        "textOnLightPromoMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientHover.colors,
-                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientHover.positions,
-                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientHover.angle,
+                DarkGradientTokens.TextOnLightPromoMinorGradientActive.colors,
+                DarkGradientTokens.TextOnLightPromoMinorGradientActive.positions,
+                DarkGradientTokens.TextOnLightPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkTransparentAccentGradientActive",
+        "textOnLightPromoMinorGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientActive.colors,
-                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientActive.positions,
-                DarkGradientTokens.OutlineOnDarkTransparentAccentGradientActive.angle,
+                DarkGradientTokens.TextOnLightPromoMinorGradientHover.colors,
+                DarkGradientTokens.TextOnLightPromoMinorGradientHover.positions,
+                DarkGradientTokens.TextOnLightPromoMinorGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkPromoGradient",
+        "surfaceDefaultSkeletonDeepGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkPromoGradient.colors,
-                DarkGradientTokens.OutlineOnDarkPromoGradient.positions,
-                DarkGradientTokens.OutlineOnDarkPromoGradient.angle,
+                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.colors,
+                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.positions,
+                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkPromoGradientHover",
+        "surfaceOnLightAccentGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkPromoGradientHover.colors,
-                DarkGradientTokens.OutlineOnDarkPromoGradientHover.positions,
-                DarkGradientTokens.OutlineOnDarkPromoGradientHover.angle,
+                DarkGradientTokens.SurfaceOnLightAccentGradientHover.colors,
+                DarkGradientTokens.SurfaceOnLightAccentGradientHover.positions,
+                DarkGradientTokens.SurfaceOnLightAccentGradientHover.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnDarkPromoGradientActive",
+        "textOnLightPromoGradientHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkPromoGradientActive.colors,
-                DarkGradientTokens.OutlineOnDarkPromoGradientActive.positions,
-                DarkGradientTokens.OutlineOnDarkPromoGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkPromoMinorGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnDarkPromoMinorGradient.colors,
-                DarkGradientTokens.OutlineOnDarkPromoMinorGradient.positions,
-                DarkGradientTokens.OutlineOnDarkPromoMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkPromoMinorGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnDarkPromoMinorGradientHover.colors,
-                DarkGradientTokens.OutlineOnDarkPromoMinorGradientHover.positions,
-                DarkGradientTokens.OutlineOnDarkPromoMinorGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkPromoMinorGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnDarkPromoMinorGradientActive.colors,
-                DarkGradientTokens.OutlineOnDarkPromoMinorGradientActive.positions,
-                DarkGradientTokens.OutlineOnDarkPromoMinorGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentGradient.colors,
-                DarkGradientTokens.OutlineOnDarkAccentGradient.positions,
-                DarkGradientTokens.OutlineOnDarkAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentGradientHover.colors,
-                DarkGradientTokens.OutlineOnLightAccentGradientHover.positions,
-                DarkGradientTokens.OutlineOnLightAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentGradientActive.colors,
-                DarkGradientTokens.OutlineOnLightAccentGradientActive.positions,
-                DarkGradientTokens.OutlineOnLightAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentMinorGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentMinorGradient.colors,
-                DarkGradientTokens.OutlineOnLightAccentMinorGradient.positions,
-                DarkGradientTokens.OutlineOnLightAccentMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentMinorGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentMinorGradientHover.colors,
-                DarkGradientTokens.OutlineOnLightAccentMinorGradientHover.positions,
-                DarkGradientTokens.OutlineOnLightAccentMinorGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentMinorGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentMinorGradientActive.colors,
-                DarkGradientTokens.OutlineOnLightAccentMinorGradientActive.positions,
-                DarkGradientTokens.OutlineOnLightAccentMinorGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightTransparentAccentGradient.colors,
-                DarkGradientTokens.OutlineOnLightTransparentAccentGradient.positions,
-                DarkGradientTokens.OutlineOnLightTransparentAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightTransparentAccentGradientHover.colors,
-                DarkGradientTokens.OutlineOnLightTransparentAccentGradientHover.positions,
-                DarkGradientTokens.OutlineOnLightTransparentAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightTransparentAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightTransparentAccentGradientActive.colors,
-                DarkGradientTokens.OutlineOnLightTransparentAccentGradientActive.positions,
-                DarkGradientTokens.OutlineOnLightTransparentAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightPromoGradient.colors,
-                DarkGradientTokens.OutlineOnLightPromoGradient.positions,
-                DarkGradientTokens.OutlineOnLightPromoGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightPromoGradientHover.colors,
-                DarkGradientTokens.OutlineOnLightPromoGradientHover.positions,
-                DarkGradientTokens.OutlineOnLightPromoGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightPromoGradientActive.colors,
-                DarkGradientTokens.OutlineOnLightPromoGradientActive.positions,
-                DarkGradientTokens.OutlineOnLightPromoGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoMinorGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightPromoMinorGradient.colors,
-                DarkGradientTokens.OutlineOnLightPromoMinorGradient.positions,
-                DarkGradientTokens.OutlineOnLightPromoMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoMinorGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightPromoMinorGradientHover.colors,
-                DarkGradientTokens.OutlineOnLightPromoMinorGradientHover.positions,
-                DarkGradientTokens.OutlineOnLightPromoMinorGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoMinorGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightPromoMinorGradientActive.colors,
-                DarkGradientTokens.OutlineOnLightPromoMinorGradientActive.positions,
-                DarkGradientTokens.OutlineOnLightPromoMinorGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentGradient.colors,
-                DarkGradientTokens.OutlineOnLightAccentGradient.positions,
-                DarkGradientTokens.OutlineOnLightAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseAccentGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseAccentGradientHover.colors,
-                DarkGradientTokens.OutlineInverseAccentGradientHover.positions,
-                DarkGradientTokens.OutlineInverseAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseAccentGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInverseAccentGradientActive.colors,
-                DarkGradientTokens.OutlineInverseAccentGradientActive.positions,
-                DarkGradientTokens.OutlineInverseAccentGradientActive.angle,
+                DarkGradientTokens.TextOnLightPromoGradientHover.colors,
+                DarkGradientTokens.TextOnLightPromoGradientHover.positions,
+                DarkGradientTokens.TextOnLightPromoGradientHover.angle,
             ),
         ),
         overwrite,
@@ -7985,100 +8018,56 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentMinorGradientHover",
+        "outlineOnLightAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineInverseAccentMinorGradientHover.colors,
-                DarkGradientTokens.OutlineInverseAccentMinorGradientHover.positions,
-                DarkGradientTokens.OutlineInverseAccentMinorGradientHover.angle,
+                DarkGradientTokens.OutlineOnLightAccentMinorGradient.colors,
+                DarkGradientTokens.OutlineOnLightAccentMinorGradient.positions,
+                DarkGradientTokens.OutlineOnLightAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentMinorGradientActive",
+        "surfaceInverseAccentGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineInverseAccentMinorGradientActive.colors,
-                DarkGradientTokens.OutlineInverseAccentMinorGradientActive.positions,
-                DarkGradientTokens.OutlineInverseAccentMinorGradientActive.angle,
+                DarkGradientTokens.SurfaceInverseAccentGradientActive.colors,
+                DarkGradientTokens.SurfaceInverseAccentGradientActive.positions,
+                DarkGradientTokens.SurfaceInverseAccentGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseTransparentAccentGradient",
+        "surfaceOnLightAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentAccentGradient.colors,
-                DarkGradientTokens.OutlineInverseTransparentAccentGradient.positions,
-                DarkGradientTokens.OutlineInverseTransparentAccentGradient.angle,
+                DarkGradientTokens.SurfaceOnLightAccentMinorGradientActive.colors,
+                DarkGradientTokens.SurfaceOnLightAccentMinorGradientActive.positions,
+                DarkGradientTokens.SurfaceOnLightAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseTransparentAccentGradientHover",
+        "textDefaultPromoMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentAccentGradientHover.colors,
-                DarkGradientTokens.OutlineInverseTransparentAccentGradientHover.positions,
-                DarkGradientTokens.OutlineInverseTransparentAccentGradientHover.angle,
+                DarkGradientTokens.TextDefaultPromoMinorGradientActive.colors,
+                DarkGradientTokens.TextDefaultPromoMinorGradientActive.positions,
+                DarkGradientTokens.TextDefaultPromoMinorGradientActive.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseTransparentAccentGradientActive",
+        "textOnDarkAccentMinorGradientActive",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineInverseTransparentAccentGradientActive.colors,
-                DarkGradientTokens.OutlineInverseTransparentAccentGradientActive.positions,
-                DarkGradientTokens.OutlineInverseTransparentAccentGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInversePromoGradient.colors,
-                DarkGradientTokens.OutlineInversePromoGradient.positions,
-                DarkGradientTokens.OutlineInversePromoGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoGradientHover",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInversePromoGradientHover.colors,
-                DarkGradientTokens.OutlineInversePromoGradientHover.positions,
-                DarkGradientTokens.OutlineInversePromoGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoGradientActive",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInversePromoGradientActive.colors,
-                DarkGradientTokens.OutlineInversePromoGradientActive.positions,
-                DarkGradientTokens.OutlineInversePromoGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoMinorGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineInversePromoMinorGradient.colors,
-                DarkGradientTokens.OutlineInversePromoMinorGradient.positions,
-                DarkGradientTokens.OutlineInversePromoMinorGradient.angle,
+                DarkGradientTokens.TextOnDarkAccentMinorGradientActive.colors,
+                DarkGradientTokens.TextOnDarkAccentMinorGradientActive.positions,
+                DarkGradientTokens.TextOnDarkAccentMinorGradientActive.angle,
             ),
         ),
         overwrite,
@@ -8095,23 +8084,34 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "outlineInversePromoMinorGradientActive",
+        "surfaceDefaultAccentMinorGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineInversePromoMinorGradientActive.colors,
-                DarkGradientTokens.OutlineInversePromoMinorGradientActive.positions,
-                DarkGradientTokens.OutlineInversePromoMinorGradientActive.angle,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradient.colors,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradient.positions,
+                DarkGradientTokens.SurfaceDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentGradient",
+        "surfaceInverseTransparentPromoGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineInverseAccentGradient.colors,
-                DarkGradientTokens.OutlineInverseAccentGradient.positions,
-                DarkGradientTokens.OutlineInverseAccentGradient.angle,
+                DarkGradientTokens.SurfaceInverseTransparentPromoGradient.colors,
+                DarkGradientTokens.SurfaceInverseTransparentPromoGradient.positions,
+                DarkGradientTokens.SurfaceInverseTransparentPromoGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradient.colors,
+                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradient.positions,
+                DarkGradientTokens.SurfaceOnDarkTransparentAccentGradient.angle,
             ),
         ),
         overwrite,

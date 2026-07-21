@@ -25,7 +25,6 @@ android {
 }
 
 themeBuilder {
-    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
     componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
     compose {
         componentsMetaStyleClass(true)

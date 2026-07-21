@@ -118,10 +118,16 @@ open class RoborazziConfigDocs(
         val ProvidedStyleKeys: Set<String> by lazy {
             val moduleDir = System.getProperty("moduleDir") ?: ""
             println("mooduleDir: $moduleDir")
-            val jsonFile = File(moduleDir).parentFile?.resolve("config-info-compose.json")
-                ?: return@lazy emptySet()
+            val moduleParentDir = File(moduleDir).parentFile
+            val jsonFile = System.getProperty("docs.componentsConfig")
+                ?.let(::File)
+                ?: listOfNotNull(
+                    moduleParentDir?.resolve(".sdds/config-info-compose.json"),
+                    moduleParentDir?.resolve("config-info-compose.json"),
+                ).firstOrNull { it.exists() }
+                ?: return@lazy additionalComponentNames()
 
-            if (!jsonFile.exists()) return@lazy emptySet()
+            if (!jsonFile.exists()) return@lazy additionalComponentNames()
 
             val json = JSONObject(jsonFile.readText())
             val components = json.getJSONArray("components")
@@ -133,8 +139,17 @@ open class RoborazziConfigDocs(
                     add(component.getString("coreName").lowercase())
                     add(component.getString("styleName").lowercase())
                 }
+                addAll(additionalComponentNames())
             }
         }
+
+        private fun additionalComponentNames(): Set<String> =
+            System.getProperty("docs.additionalComponentNames")
+                .orEmpty()
+                .split(",")
+                .map { it.trim().lowercase() }
+                .filter { it.isNotEmpty() }
+                .toSet()
 
         /**
          * Выводим список пропущенных тестов

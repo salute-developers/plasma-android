@@ -16,53 +16,53 @@ import kotlin.Suppress
 @Immutable
 public data class PlasmaHomeDsShadows(
     /**
-     * shadow down soft s
+     * shadow down hard l
      */
-    public val downSoftS: ShadowAppearance = ShadowAppearance(),
-    /**
-     * shadow down soft m
-     */
-    public val downSoftM: ShadowAppearance = ShadowAppearance(),
-    /**
-     * shadow down soft l
-     */
-    public val downSoftL: ShadowAppearance = ShadowAppearance(),
-    /**
-     * shadow down hard s
-     */
-    public val downHardS: ShadowAppearance = ShadowAppearance(),
+    public val downHardL: ShadowAppearance = ShadowAppearance(),
     /**
      * shadow down hard m
      */
     public val downHardM: ShadowAppearance = ShadowAppearance(),
     /**
-     * shadow down hard l
+     * shadow down hard s
      */
-    public val downHardL: ShadowAppearance = ShadowAppearance(),
+    public val downHardS: ShadowAppearance = ShadowAppearance(),
     /**
-     * shadow up soft s
+     * shadow down soft l
      */
-    public val upSoftS: ShadowAppearance = ShadowAppearance(),
+    public val downSoftL: ShadowAppearance = ShadowAppearance(),
     /**
-     * shadow up soft m
+     * shadow down soft m
      */
-    public val upSoftM: ShadowAppearance = ShadowAppearance(),
+    public val downSoftM: ShadowAppearance = ShadowAppearance(),
     /**
-     * shadow up soft l
+     * shadow down soft s
      */
-    public val upSoftL: ShadowAppearance = ShadowAppearance(),
+    public val downSoftS: ShadowAppearance = ShadowAppearance(),
     /**
-     * shadow up hard s
+     * shadow up hard l
      */
-    public val upHardS: ShadowAppearance = ShadowAppearance(),
+    public val upHardL: ShadowAppearance = ShadowAppearance(),
     /**
      * shadow up hard m
      */
     public val upHardM: ShadowAppearance = ShadowAppearance(),
     /**
-     * shadow up hard l
+     * shadow up hard s
      */
-    public val upHardL: ShadowAppearance = ShadowAppearance(),
+    public val upHardS: ShadowAppearance = ShadowAppearance(),
+    /**
+     * shadow up soft l
+     */
+    public val upSoftL: ShadowAppearance = ShadowAppearance(),
+    /**
+     * shadow up soft m
+     */
+    public val upSoftM: ShadowAppearance = ShadowAppearance(),
+    /**
+     * shadow up soft s
+     */
+    public val upSoftS: ShadowAppearance = ShadowAppearance(),
 )
 
 internal val LocalPlasmaHomeDsShadows: ProvidableCompositionLocal<PlasmaHomeDsShadows> =
@@ -75,55 +75,31 @@ internal val LocalPlasmaHomeDsShadows: ProvidableCompositionLocal<PlasmaHomeDsSh
  */
 @Suppress("LongMethod")
 public fun defaultPlasmaHomeDsShadows(): PlasmaHomeDsShadows = PlasmaHomeDsShadows(
-    downSoftS = ShadowAppearance(
+    downHardL = ShadowAppearance(
         listOf(
             ShadowLayer(
                 offset = DpOffset(
-                    x = ShadowTokens.DownSoftSLayer1.offsetX,
-                    y = ShadowTokens.DownSoftSLayer1.offsetY,
+                    x = ShadowTokens.DownHardL.offsetX,
+                    y = ShadowTokens.DownHardL.offsetY,
                 ),
-                spreadRadius = ShadowTokens.DownSoftSLayer1.spreadRadius,
-                blurRadius = ShadowTokens.DownSoftSLayer1.blurRadius,
-                color = ShadowTokens.DownSoftSLayer1.color,
-                fallbackElevation = ShadowTokens.DownSoftSLayer1.fallbackElevation,
-            ),
-            ShadowLayer(
-                offset = DpOffset(
-                    x = ShadowTokens.DownSoftSLayer2.offsetX,
-                    y = ShadowTokens.DownSoftSLayer2.offsetY,
-                ),
-                spreadRadius = ShadowTokens.DownSoftSLayer2.spreadRadius,
-                blurRadius = ShadowTokens.DownSoftSLayer2.blurRadius,
-                color = ShadowTokens.DownSoftSLayer2.color,
-                fallbackElevation = ShadowTokens.DownSoftSLayer2.fallbackElevation,
+                spreadRadius = ShadowTokens.DownHardL.spreadRadius,
+                blurRadius = ShadowTokens.DownHardL.blurRadius,
+                color = ShadowTokens.DownHardL.color,
+                fallbackElevation = ShadowTokens.DownHardL.fallbackElevation,
             ),
         ),
     ),
-    downSoftM = ShadowAppearance(
+    downHardM = ShadowAppearance(
         listOf(
             ShadowLayer(
                 offset = DpOffset(
-                    x = ShadowTokens.DownSoftM.offsetX,
-                    y = ShadowTokens.DownSoftM.offsetY,
+                    x = ShadowTokens.DownHardM.offsetX,
+                    y = ShadowTokens.DownHardM.offsetY,
                 ),
-                spreadRadius = ShadowTokens.DownSoftM.spreadRadius,
-                blurRadius = ShadowTokens.DownSoftM.blurRadius,
-                color = ShadowTokens.DownSoftM.color,
-                fallbackElevation = ShadowTokens.DownSoftM.fallbackElevation,
-            ),
-        ),
-    ),
-    downSoftL = ShadowAppearance(
-        listOf(
-            ShadowLayer(
-                offset = DpOffset(
-                    x = ShadowTokens.DownSoftL.offsetX,
-                    y = ShadowTokens.DownSoftL.offsetY,
-                ),
-                spreadRadius = ShadowTokens.DownSoftL.spreadRadius,
-                blurRadius = ShadowTokens.DownSoftL.blurRadius,
-                color = ShadowTokens.DownSoftL.color,
-                fallbackElevation = ShadowTokens.DownSoftL.fallbackElevation,
+                spreadRadius = ShadowTokens.DownHardM.spreadRadius,
+                blurRadius = ShadowTokens.DownHardM.blurRadius,
+                color = ShadowTokens.DownHardM.color,
+                fallbackElevation = ShadowTokens.DownHardM.fallbackElevation,
             ),
         ),
     ),
@@ -151,83 +127,83 @@ public fun defaultPlasmaHomeDsShadows(): PlasmaHomeDsShadows = PlasmaHomeDsShado
             ),
         ),
     ),
-    downHardM = ShadowAppearance(
+    downSoftL = ShadowAppearance(
         listOf(
             ShadowLayer(
                 offset = DpOffset(
-                    x = ShadowTokens.DownHardM.offsetX,
-                    y = ShadowTokens.DownHardM.offsetY,
+                    x = ShadowTokens.DownSoftL.offsetX,
+                    y = ShadowTokens.DownSoftL.offsetY,
                 ),
-                spreadRadius = ShadowTokens.DownHardM.spreadRadius,
-                blurRadius = ShadowTokens.DownHardM.blurRadius,
-                color = ShadowTokens.DownHardM.color,
-                fallbackElevation = ShadowTokens.DownHardM.fallbackElevation,
+                spreadRadius = ShadowTokens.DownSoftL.spreadRadius,
+                blurRadius = ShadowTokens.DownSoftL.blurRadius,
+                color = ShadowTokens.DownSoftL.color,
+                fallbackElevation = ShadowTokens.DownSoftL.fallbackElevation,
             ),
         ),
     ),
-    downHardL = ShadowAppearance(
+    downSoftM = ShadowAppearance(
         listOf(
             ShadowLayer(
                 offset = DpOffset(
-                    x = ShadowTokens.DownHardL.offsetX,
-                    y = ShadowTokens.DownHardL.offsetY,
+                    x = ShadowTokens.DownSoftM.offsetX,
+                    y = ShadowTokens.DownSoftM.offsetY,
                 ),
-                spreadRadius = ShadowTokens.DownHardL.spreadRadius,
-                blurRadius = ShadowTokens.DownHardL.blurRadius,
-                color = ShadowTokens.DownHardL.color,
-                fallbackElevation = ShadowTokens.DownHardL.fallbackElevation,
+                spreadRadius = ShadowTokens.DownSoftM.spreadRadius,
+                blurRadius = ShadowTokens.DownSoftM.blurRadius,
+                color = ShadowTokens.DownSoftM.color,
+                fallbackElevation = ShadowTokens.DownSoftM.fallbackElevation,
             ),
         ),
     ),
-    upSoftS = ShadowAppearance(
+    downSoftS = ShadowAppearance(
         listOf(
             ShadowLayer(
                 offset = DpOffset(
-                    x = ShadowTokens.UpSoftSLayer1.offsetX,
-                    y = ShadowTokens.UpSoftSLayer1.offsetY,
+                    x = ShadowTokens.DownSoftSLayer1.offsetX,
+                    y = ShadowTokens.DownSoftSLayer1.offsetY,
                 ),
-                spreadRadius = ShadowTokens.UpSoftSLayer1.spreadRadius,
-                blurRadius = ShadowTokens.UpSoftSLayer1.blurRadius,
-                color = ShadowTokens.UpSoftSLayer1.color,
-                fallbackElevation = ShadowTokens.UpSoftSLayer1.fallbackElevation,
+                spreadRadius = ShadowTokens.DownSoftSLayer1.spreadRadius,
+                blurRadius = ShadowTokens.DownSoftSLayer1.blurRadius,
+                color = ShadowTokens.DownSoftSLayer1.color,
+                fallbackElevation = ShadowTokens.DownSoftSLayer1.fallbackElevation,
             ),
             ShadowLayer(
                 offset = DpOffset(
-                    x = ShadowTokens.UpSoftSLayer2.offsetX,
-                    y = ShadowTokens.UpSoftSLayer2.offsetY,
+                    x = ShadowTokens.DownSoftSLayer2.offsetX,
+                    y = ShadowTokens.DownSoftSLayer2.offsetY,
                 ),
-                spreadRadius = ShadowTokens.UpSoftSLayer2.spreadRadius,
-                blurRadius = ShadowTokens.UpSoftSLayer2.blurRadius,
-                color = ShadowTokens.UpSoftSLayer2.color,
-                fallbackElevation = ShadowTokens.UpSoftSLayer2.fallbackElevation,
-            ),
-        ),
-    ),
-    upSoftM = ShadowAppearance(
-        listOf(
-            ShadowLayer(
-                offset = DpOffset(
-                    x = ShadowTokens.UpSoftM.offsetX,
-                    y = ShadowTokens.UpSoftM.offsetY,
-                ),
-                spreadRadius = ShadowTokens.UpSoftM.spreadRadius,
-                blurRadius = ShadowTokens.UpSoftM.blurRadius,
-                color = ShadowTokens.UpSoftM.color,
-                fallbackElevation = ShadowTokens.UpSoftM.fallbackElevation,
+                spreadRadius = ShadowTokens.DownSoftSLayer2.spreadRadius,
+                blurRadius = ShadowTokens.DownSoftSLayer2.blurRadius,
+                color = ShadowTokens.DownSoftSLayer2.color,
+                fallbackElevation = ShadowTokens.DownSoftSLayer2.fallbackElevation,
             ),
         ),
     ),
-    upSoftL = ShadowAppearance(
+    upHardL = ShadowAppearance(
         listOf(
             ShadowLayer(
                 offset = DpOffset(
-                    x = ShadowTokens.UpSoftL.offsetX,
-                    y = ShadowTokens.UpSoftL.offsetY,
+                    x = ShadowTokens.UpHardL.offsetX,
+                    y = ShadowTokens.UpHardL.offsetY,
                 ),
-                spreadRadius = ShadowTokens.UpSoftL.spreadRadius,
-                blurRadius = ShadowTokens.UpSoftL.blurRadius,
-                color = ShadowTokens.UpSoftL.color,
-                fallbackElevation = ShadowTokens.UpSoftL.fallbackElevation,
+                spreadRadius = ShadowTokens.UpHardL.spreadRadius,
+                blurRadius = ShadowTokens.UpHardL.blurRadius,
+                color = ShadowTokens.UpHardL.color,
+                fallbackElevation = ShadowTokens.UpHardL.fallbackElevation,
+            ),
+        ),
+    ),
+    upHardM = ShadowAppearance(
+        listOf(
+            ShadowLayer(
+                offset = DpOffset(
+                    x = ShadowTokens.UpHardM.offsetX,
+                    y = ShadowTokens.UpHardM.offsetY,
+                ),
+                spreadRadius = ShadowTokens.UpHardM.spreadRadius,
+                blurRadius = ShadowTokens.UpHardM.blurRadius,
+                color = ShadowTokens.UpHardM.color,
+                fallbackElevation = ShadowTokens.UpHardM.fallbackElevation,
             ),
         ),
     ),
@@ -255,31 +231,55 @@ public fun defaultPlasmaHomeDsShadows(): PlasmaHomeDsShadows = PlasmaHomeDsShado
             ),
         ),
     ),
-    upHardM = ShadowAppearance(
+    upSoftL = ShadowAppearance(
         listOf(
             ShadowLayer(
                 offset = DpOffset(
-                    x = ShadowTokens.UpHardM.offsetX,
-                    y = ShadowTokens.UpHardM.offsetY,
+                    x = ShadowTokens.UpSoftL.offsetX,
+                    y = ShadowTokens.UpSoftL.offsetY,
                 ),
-                spreadRadius = ShadowTokens.UpHardM.spreadRadius,
-                blurRadius = ShadowTokens.UpHardM.blurRadius,
-                color = ShadowTokens.UpHardM.color,
-                fallbackElevation = ShadowTokens.UpHardM.fallbackElevation,
+                spreadRadius = ShadowTokens.UpSoftL.spreadRadius,
+                blurRadius = ShadowTokens.UpSoftL.blurRadius,
+                color = ShadowTokens.UpSoftL.color,
+                fallbackElevation = ShadowTokens.UpSoftL.fallbackElevation,
             ),
         ),
     ),
-    upHardL = ShadowAppearance(
+    upSoftM = ShadowAppearance(
         listOf(
             ShadowLayer(
                 offset = DpOffset(
-                    x = ShadowTokens.UpHardL.offsetX,
-                    y = ShadowTokens.UpHardL.offsetY,
+                    x = ShadowTokens.UpSoftM.offsetX,
+                    y = ShadowTokens.UpSoftM.offsetY,
                 ),
-                spreadRadius = ShadowTokens.UpHardL.spreadRadius,
-                blurRadius = ShadowTokens.UpHardL.blurRadius,
-                color = ShadowTokens.UpHardL.color,
-                fallbackElevation = ShadowTokens.UpHardL.fallbackElevation,
+                spreadRadius = ShadowTokens.UpSoftM.spreadRadius,
+                blurRadius = ShadowTokens.UpSoftM.blurRadius,
+                color = ShadowTokens.UpSoftM.color,
+                fallbackElevation = ShadowTokens.UpSoftM.fallbackElevation,
+            ),
+        ),
+    ),
+    upSoftS = ShadowAppearance(
+        listOf(
+            ShadowLayer(
+                offset = DpOffset(
+                    x = ShadowTokens.UpSoftSLayer1.offsetX,
+                    y = ShadowTokens.UpSoftSLayer1.offsetY,
+                ),
+                spreadRadius = ShadowTokens.UpSoftSLayer1.spreadRadius,
+                blurRadius = ShadowTokens.UpSoftSLayer1.blurRadius,
+                color = ShadowTokens.UpSoftSLayer1.color,
+                fallbackElevation = ShadowTokens.UpSoftSLayer1.fallbackElevation,
+            ),
+            ShadowLayer(
+                offset = DpOffset(
+                    x = ShadowTokens.UpSoftSLayer2.offsetX,
+                    y = ShadowTokens.UpSoftSLayer2.offsetY,
+                ),
+                spreadRadius = ShadowTokens.UpSoftSLayer2.spreadRadius,
+                blurRadius = ShadowTokens.UpSoftSLayer2.blurRadius,
+                color = ShadowTokens.UpSoftSLayer2.color,
+                fallbackElevation = ShadowTokens.UpSoftSLayer2.fallbackElevation,
             ),
         ),
     ),
