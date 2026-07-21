@@ -3,6 +3,7 @@ package com.sdds.compose.uikit.fixtures.samples.collapsingnavigationbar
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -60,6 +61,38 @@ fun CollapsingNavigationBar_Simple() {
             )
             LazyColumn {
                 items(100) {
+                    Text(modifier = Modifier.padding(32.dp), text = "Label text $it")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = false)
+fun CollapsingNavigationBar_ShortList() {
+    composableCodeSnippet {
+        val listState = rememberLazyListState()
+        val scrollBehavior =
+            CollapsingNavigationBarDefaults.exitUntilCollapsedScrollBehavior(
+                state = rememberCollapsingNavigationBarState(),
+                canScroll = {
+                    listState.canScrollForward || listState.canScrollBackward
+                },
+            )
+
+        Column(
+            modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        ) {
+            CollapsingNavigationBar(
+                scrollBehavior = scrollBehavior,
+                collapsedTitle = { Text("Title") },
+                expandedTitle = { Text("Title") },
+            )
+            LazyColumn(
+                state = listState,
+            ) {
+                items(3) {
                     Text(modifier = Modifier.padding(32.dp), text = "Label text $it")
                 }
             }

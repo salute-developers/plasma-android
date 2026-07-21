@@ -14,33 +14,33 @@ import com.sdds.plasma.homeds.tokens.RoundShapeTokens
 @Immutable
 public data class PlasmaHomeDsShapes(
     /**
-     * borderRadius xxs
+     * borderRadius l
      */
-    public val roundXxs: CornerBasedShape = RoundedCornerShape(0),
-    /**
-     * borderRadius xs
-     */
-    public val roundXs: CornerBasedShape = RoundedCornerShape(0),
-    /**
-     * borderRadius s
-     */
-    public val roundS: CornerBasedShape = RoundedCornerShape(0),
+    public val roundL: CornerBasedShape = RoundedCornerShape(0),
     /**
      * borderRadius m
      */
     public val roundM: CornerBasedShape = RoundedCornerShape(0),
     /**
-     * borderRadius l
+     * borderRadius s
      */
-    public val roundL: CornerBasedShape = RoundedCornerShape(0),
+    public val roundS: CornerBasedShape = RoundedCornerShape(0),
     /**
      * borderRadius xl
      */
     public val roundXl: CornerBasedShape = RoundedCornerShape(0),
     /**
+     * borderRadius xs
+     */
+    public val roundXs: CornerBasedShape = RoundedCornerShape(0),
+    /**
      * borderRadius xxl
      */
     public val roundXxl: CornerBasedShape = RoundedCornerShape(0),
+    /**
+     * borderRadius xxs
+     */
+    public val roundXxs: CornerBasedShape = RoundedCornerShape(0),
 )
 
 internal val LocalPlasmaHomeDsShapes: ProvidableCompositionLocal<PlasmaHomeDsShapes> =
@@ -52,11 +52,11 @@ internal val LocalPlasmaHomeDsShapes: ProvidableCompositionLocal<PlasmaHomeDsSha
  * Возвращает [PlasmaHomeDsShapes]
  */
 public fun defaultPlasmaHomeDsShapes(): PlasmaHomeDsShapes = PlasmaHomeDsShapes(
-    roundXxs = RoundShapeTokens.RoundXxs,
-    roundXs = RoundShapeTokens.RoundXs,
-    roundS = RoundShapeTokens.RoundS,
-    roundM = RoundShapeTokens.RoundM,
     roundL = RoundShapeTokens.RoundL,
+    roundM = RoundShapeTokens.RoundM,
+    roundS = RoundShapeTokens.RoundS,
     roundXl = RoundShapeTokens.RoundXl,
+    roundXs = RoundShapeTokens.RoundXs,
     roundXxl = RoundShapeTokens.RoundXxl,
+    roundXxs = RoundShapeTokens.RoundXxs,
 )

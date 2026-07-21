@@ -56,7 +56,7 @@ public val NavigationBarInternalPage.Default: WrapperNavigationBarInternalPageDe
                     to PlasmaHomeDsTheme.typography.bodyXsNormal,
             ),
         )
-        .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
+        .backIcon(com.sdds.icons.R.drawable.ic_chevron_left_24)
         .actionButtonStyle(IconButton.S.Secondary.style())
         .colors {
             backgroundColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive())
