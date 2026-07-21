@@ -129,9 +129,14 @@ fun Project.changelogUrl(deploy: Boolean = true): String {
  * Преобразует шаблоны документации, подставляя значения из проекта в плейсхолдеры.
  * Изменяет все `.md` файлы и файл `docusaurus.config.ts` внутри указанной директории.
  */
-fun Project.transformTemplate(templateDir: File, snippetsDir: File, componentsConfig: File) {
+fun Project.transformTemplate(
+    templateDir: File,
+    snippetsDir: File,
+    componentsConfig: File,
+    additionalComponentNames: Set<String> = emptySet(),
+) {
     val versionInfo = versionInfo()
-    val components = resolveComponents(componentsConfig)
+    val components = resolveComponents(componentsConfig) + additionalComponentNames
     val styleApis = resolveStyleApis(componentsConfig)
     templateDir
         .walkTopDown()

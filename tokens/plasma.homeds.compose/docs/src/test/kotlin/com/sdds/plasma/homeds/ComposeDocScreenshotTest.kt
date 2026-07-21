@@ -1,6 +1,7 @@
 package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.docs.ComposableSample
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.samples.RoborazziConfigDocs
 import org.junit.Test
@@ -8,6 +9,8 @@ import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
+import com.sdds.compose.docs.ComposableSamples as UIKitComposableSamples
+import com.sdds.plasma.homeds.compose.docs.ComposableSamples as HomeDsComposableSamples
 
 @RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
@@ -28,5 +31,14 @@ class ComposeDocScreenshotTest(composableSample: ComposableSampleInfo) : Roboraz
                 e,
             )
         }
+    }
+
+    companion object {
+        @JvmStatic
+        @ParameterizedRobolectricTestRunner.Parameters(name = "")
+        fun samples(): List<ComposableSampleInfo> =
+            (UIKitComposableSamples + HomeDsComposableSamples)
+                .filterValues { it is ComposableSample && it.needScreenshot }
+                .map { (id, sample) -> ComposableSampleInfo(id, sample as ComposableSample) }
     }
 }

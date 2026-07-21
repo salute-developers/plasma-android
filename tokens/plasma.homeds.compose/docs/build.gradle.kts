@@ -9,6 +9,10 @@ android {
     namespace = "com.sdds.plasma.homeds.compose.docs"
 }
 
+docusaurus {
+    additionalComponentNames.add("NumberPanel")
+}
+
 dependencies {
     implementation(project(":plasma.homeds.compose"))
     implementation(libs.sdds.uikit.compose)
