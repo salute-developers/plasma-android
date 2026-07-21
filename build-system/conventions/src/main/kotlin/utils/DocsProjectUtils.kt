@@ -132,12 +132,12 @@ fun Project.changelogUrl(deploy: Boolean = true): String {
 fun Project.transformTemplate(
     templateDir: File,
     snippetsDir: File,
-    componentsConfig: File,
+    componentsConfig: File?,
     additionalComponentNames: Set<String> = emptySet(),
 ) {
     val versionInfo = versionInfo()
-    val components = resolveComponents(componentsConfig) + additionalComponentNames
-    val styleApis = resolveStyleApis(componentsConfig)
+    val components = componentsConfig?.let(::resolveComponents).orEmpty() + additionalComponentNames
+    val styleApis = componentsConfig?.let(::resolveStyleApis).orEmpty()
     templateDir
         .walkTopDown()
         .filter { file -> file.isFile && (file.extension == "md" || file.name == "docusaurus.config.ts") }
