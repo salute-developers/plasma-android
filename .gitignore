@@ -22,6 +22,10 @@ misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
 
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+
 # Keystore files
 *.jks
 *.keystore
@@ -36,3 +40,6 @@ google-services.json
 .vscode/settings.json
 **/.sdds/**/
 /.kotlin/
+
+# Kotlin/JS local dependency store
+tokens/kotlin-js-store/

@@ -1,0 +1,244 @@
+package com.sdds.compose.uikit.fixtures.stories.toast
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.DialogProperties
+import com.sdds.compose.sandbox.ComposeBaseStory
+import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.Modal
+import com.sdds.compose.uikit.ModalGravity
+import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.Toast
+import com.sdds.compose.uikit.ToastStyle
+import com.sdds.compose.uikit.fixtures.stories.ToastUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ToastUiStateTransformer
+import com.sdds.compose.uikit.overlay.LocalOverlayManager
+import com.sdds.compose.uikit.overlay.OverlayManager
+import com.sdds.compose.uikit.overlay.OverlayPosition
+import com.sdds.compose.uikit.overlay.showToast
+import com.sdds.icons.compose.Close16
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Shazam16
+import com.sdds.sandbox.ComponentKey
+import com.sdds.sandbox.Property
+import com.sdds.sandbox.PropertyProducer
+import com.sdds.sandbox.Story
+import com.sdds.sandbox.StoryProperty
+import com.sdds.sandbox.StoryUiState
+import com.sdds.sandbox.UiState
+import com.sdds.sandbox.enumProperty
+
+@StoryUiState
+data class ToastUiState(
+    override val variant: String = "",
+    override val appearance: String = "",
+    val text: String = "Toast Text",
+    val hasContentStart: Boolean = true,
+    val hasContentEnd: Boolean = true,
+    val position: OverlayPosition = OverlayPosition.BottomCenter,
+    val autoDismiss: Boolean = true,
+    val showViaModal: Boolean = false,
+    @StoryProperty(producedBy = ModalGravityProperty::class)
+    val modalGravity: ModalGravity = ModalGravity.Center,
+    val fillMaxWidth: Boolean = false,
+) : UiState {
+
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
+    }
+}
+
+object ModalGravityProperty : PropertyProducer<ToastUiState> {
+    override fun produce(state: ToastUiState): Property<*> {
+        return enumProperty(
+            name = "modalGravity",
+            value = state.modalGravity,
+            enabled = state.showViaModal,
+        )
+    }
+}
+
+@Story
+object ToastStory : ComposeBaseStory<ToastUiState, ToastStyle>(
+    ComponentKey.Toast,
+    ToastUiState(),
+    ToastUiStatePropertiesProducer,
+    ToastUiStateTransformer,
+) {
+    @Composable
+    override fun BoxScope.Content(
+        style: ToastStyle,
+        state: ToastUiState,
+    ) {
+        val overlayManager = LocalOverlayManager.current
+        if (state.showViaModal) {
+            ToastViaModal(
+                state = state,
+                style = style,
+                overlayManager = overlayManager,
+            )
+        } else {
+            Button(
+                modifier = Modifier.align(Alignment.Center),
+                label = "show",
+                onClick = {
+                    overlayManager.showToast(
+                        position = state.position,
+                        durationMillis = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS
+                            .takeIf { state.autoDismiss },
+                    ) {
+                        Toast(
+                            modifier = if (state.fillMaxWidth) Modifier.fillMaxWidth() else Modifier,
+                            style = style,
+                            contentStart = getContentStart(state.hasContentStart),
+                            contentEnd = getContentEnd(state.hasContentEnd) {
+                                overlayManager.remove(it)
+                            },
+                        ) {
+                            Text(state.text)
+                        }
+                    }
+                },
+            )
+        }
+    }
+
+    @Composable
+    override fun Preview(
+        style: ToastStyle,
+        key: ComponentKey,
+    ) {
+        val overlayManager = LocalOverlayManager.current
+        Button(
+            label = "Show Toast",
+            onClick = {
+                overlayManager.showToast(
+                    position = OverlayPosition.BottomCenter,
+                ) {
+                    Toast(
+                        style = style,
+                        text = "Toast Text",
+                        contentStart = { Icon(painter = rememberVectorPainter(SddsIcons.Shazam16), "") },
+                        contentEnd = {
+                            Icon(
+                                modifier = Modifier.clickable(
+                                    indication = null,
+                                    interactionSource = remember { MutableInteractionSource() },
+                                ) {
+                                    overlayManager.remove(it)
+                                },
+                                painter = rememberVectorPainter(SddsIcons.Close16),
+                                contentDescription = "",
+                            )
+                        },
+                    )
+                }
+            },
+        )
+    }
+}
+
+@Composable
+private fun BoxScope.ToastViaModal(
+    state: ToastUiState,
+    style: ToastStyle,
+    overlayManager: OverlayManager,
+) {
+    var showDialog by remember { mutableStateOf(false) }
+    if (state.showViaModal) {
+        Button(
+            modifier = Modifier.align(Alignment.Center),
+            label = "show dialog",
+            onClick = { showDialog = true },
+        )
+        if (showDialog) {
+            Modal(
+                show = true,
+                onDismissRequest = { showDialog = false },
+                modifier = Modifier.width(300.dp),
+                gravity = state.modalGravity,
+                dialogProperties = DialogProperties(
+                    dismissOnBackPress = false,
+                    dismissOnClickOutside = false,
+                ),
+                hasClose = true,
+                edgeToEdge = true,
+                dimBackground = false,
+                useNativeBlackout = false,
+                closeIcon = rememberVectorPainter(SddsIcons.Close24),
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Button(
+                        modifier = Modifier.align(Alignment.Center),
+                        label = "show toast",
+                        onClick = {
+                            overlayManager.showToast(
+                                onDismiss = {},
+                                position = state.position,
+                                durationMillis = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS
+                                    .takeIf { state.autoDismiss },
+                            ) {
+                                Toast(
+                                    style = style,
+                                    contentStart = getContentStart(state.hasContentStart),
+                                    contentEnd = getContentEnd(state.hasContentEnd) {
+                                        overlayManager.remove(it)
+                                    },
+                                ) {
+                                    Text(state.text)
+                                }
+                            }
+                        },
+                    )
+                }
+            }
+        }
+    }
+}
+
+private fun getContentStart(hasContentStart: Boolean): @Composable (() -> Unit)? {
+    return if (hasContentStart) {
+        @Composable { Icon(painter = rememberVectorPainter(SddsIcons.Shazam16), "") }
+    } else {
+        null
+    }
+}
+
+private fun getContentEnd(hasContentEnd: Boolean, onClick: () -> Unit): @Composable (() -> Unit)? {
+    return if (hasContentEnd) {
+        @Composable {
+            Icon(
+                modifier = Modifier.clickable(
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ) {
+                    onClick.invoke()
+                },
+                painter = rememberVectorPainter(SddsIcons.Close16),
+                contentDescription = "",
+            )
+        }
+    } else {
+        null
+    }
+}
