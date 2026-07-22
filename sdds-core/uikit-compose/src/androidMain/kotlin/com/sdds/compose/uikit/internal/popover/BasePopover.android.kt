@@ -61,6 +61,8 @@ internal actual fun PlatformPopupContentEffects(
     }
 }
 
+internal actual fun PopupProperties.ensureCorrectPopoverProperties(): PopupProperties = this
+
 internal actual val DefaultPopupProperties = PopupProperties(
     clippingEnabled = false,
     focusable = true,
