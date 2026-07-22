@@ -8,15 +8,26 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.window.DialogWindowProvider
 import com.sdds.compose.uikit.internal.modal.DialogWindowRegistry
 import com.sdds.compose.uikit.internal.modal.LocalDialogWindowId
 
 @Composable
-internal actual fun ConfigureOverlayPopup(position: OverlayPosition, isFocusable: Boolean) {
+internal actual fun rememberOverlayPlatformAnchor(): OverlayPlatformAnchor {
+    val rootView = LocalView.current.rootView
+    return remember(rootView) { AndroidOverlayPlatformAnchor(rootView) }
+}
+
+@Composable
+internal actual fun ConfigureOverlayPopup(
+    position: OverlayPosition,
+    isFocusable: Boolean,
+    platformAnchor: OverlayPlatformAnchor,
+) {
     val dialogView = LocalView.current
-    val rootView = dialogView.rootView
+    val rootView = (platformAnchor as AndroidOverlayPlatformAnchor).rootView
     val currentWindowId = LocalDialogWindowId.current
 
     LaunchedEffect(dialogView, currentWindowId, position, isFocusable, rootView) {
@@ -32,18 +43,22 @@ internal actual fun ConfigureOverlayPopup(position: OverlayPosition, isFocusable
 private fun View.enablePassthroughTouch(decorViewProvider: () -> View?) {
     setOnTouchListener { v, event ->
         val decorView = decorViewProvider()
-        if (decorView == null) return@setOnTouchListener false
+        if (decorView == null || decorView === v) return@setOnTouchListener false
         val anchorLocation = decorView.getScreenRect()
         val listLocation = v.getScreenRect()
         val offsetX = (listLocation.left - anchorLocation.left).toFloat()
         val offsetY = (listLocation.top - anchorLocation.top).toFloat()
         val transformedEvent = MotionEvent.obtain(event)
-        transformedEvent.offsetLocation(offsetX, offsetY)
-        val handled = decorView.dispatchTouchEvent(transformedEvent)
-        transformedEvent.recycle()
-        handled
+        try {
+            transformedEvent.offsetLocation(offsetX, offsetY)
+            decorView.dispatchTouchEvent(transformedEvent)
+        } finally {
+            transformedEvent.recycle()
+        }
     }
 }
+
+private class AndroidOverlayPlatformAnchor(val rootView: View) : OverlayPlatformAnchor
 
 @Suppress("ClickableViewAccessibility")
 private fun Window.ensureCorrect(position: OverlayPosition, isFocusable: Boolean) {
