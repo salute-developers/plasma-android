@@ -241,6 +241,7 @@ private fun OverlayPopup(
     content: @Composable (ColumnScope.() -> Unit),
 ) {
     val alignment = position.toAlignment()
+    val platformAnchor = rememberOverlayPlatformAnchor()
 
     EdgeToEdgeDialog(
         onDismissRequest = onDismissRequest,
@@ -253,7 +254,7 @@ private fun OverlayPopup(
         val newOffset = remember(position, spacing, offset) {
             offset.ensureCorrectPosition(position, spacing)
         }
-        ConfigureOverlayPopup(position, isFocusable)
+        ConfigureOverlayPopup(position, isFocusable, platformAnchor)
 
         Box(
             modifier = Modifier
@@ -273,7 +274,16 @@ private fun OverlayPopup(
 }
 
 @Composable
-internal expect fun ConfigureOverlayPopup(position: OverlayPosition, isFocusable: Boolean)
+internal expect fun rememberOverlayPlatformAnchor(): OverlayPlatformAnchor
+
+@Composable
+internal expect fun ConfigureOverlayPopup(
+    position: OverlayPosition,
+    isFocusable: Boolean,
+    platformAnchor: OverlayPlatformAnchor,
+)
+
+internal interface OverlayPlatformAnchor
 
 private fun OverlayPosition.toAlignment(): Alignment = when (this) {
     OverlayPosition.TopStart -> Alignment.TopStart
