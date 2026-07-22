@@ -1,0 +1,19 @@
+{
+  "protocolVersion": 1,
+  "requestId": "request-1",
+  "platform": "COMPOSE",
+  "theme": {
+    "color.primary": { "type": "color", "value": "#006FFF" },
+    "spacing.m": { "type": "dimension", "value": 16 },
+    "shape.round": { "type": "shape", "cornerRadii": [12, 12, 12, 12] },
+    "shadow.default": { "type": "shadow", "layers": [{ "x": 0, "y": 2, "blur": 8, "color": "#33000000" }] },
+    "typography.body": { "type": "typography", "fontFamily": "Inter", "fontSize": 16, "lineHeight": 20, "weight": 400 }
+  },
+  "component": {
+    "id": "button",
+    "variations": { "view": "primary", "size": "m" },
+    "properties": { "enabled": true }
+  },
+  "example": { "id": "button-basic", "props": { "text": "Continue" } },
+  "surface": { "width": 390, "height": 844, "background": "#FFFFFF" }
+}
