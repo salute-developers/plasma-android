@@ -31,6 +31,7 @@ rootProject.name = "integration-core"
 includeBuild("../build-system")
 includeBuild("../sdds-core")
 include(
+    ":preview-contract",
     ":sandbox-core",
     ":sandbox-compose",
     ":sandbox-view",
