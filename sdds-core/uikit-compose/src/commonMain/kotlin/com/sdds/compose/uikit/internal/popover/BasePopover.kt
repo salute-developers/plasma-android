@@ -123,6 +123,9 @@ internal fun BasePopover(
     val shadowPaddingValues = shadow.getShadowSafePaddings()
     val shadowPaddingsPx = ShadowPaddings.fromPaddingValues(shadowPaddingValues)
     val safeAreaPaddingsPx = SafeAreaPaddings.fromPaddingValues(safeAreaPadding)
+    val effectivePopupProperties = remember(popupProperties) {
+        popupProperties.ensureCorrectPopoverProperties()
+    }
     val dismissInProgress = rememberUpdatedState(!show && popoverVisible)
     val canClip = placementMode != PopoverPlacementMode.Strict
     val effectiveClipHeight = clipHeight && canClip
@@ -210,7 +213,7 @@ internal fun BasePopover(
                 )
             }
         val clickableForShadowZoneModifier =
-            if (popupProperties.dismissOnClickOutside && popupProperties.focusable) {
+            if (effectivePopupProperties.dismissOnClickOutside && effectivePopupProperties.focusable) {
                 Modifier.pointerInput(Unit) {
                     detectTapGestures(
                         onTap = { onDismissRequest.invoke() },
@@ -221,10 +224,10 @@ internal fun BasePopover(
             }
         Popup(
             popupPositionProvider = positionProvider,
-            properties = popupProperties,
+            properties = effectivePopupProperties,
             onDismissRequest = onDismissRequest,
         ) {
-            PlatformPopupContentEffects(popoverAnchor, popupProperties)
+            PlatformPopupContentEffects(popoverAnchor, effectivePopupProperties)
             AnimatedVisibility(
                 modifier = clickableForShadowZoneModifier,
                 visibleState = visibleState,
@@ -295,6 +298,8 @@ internal expect fun PlatformPopupContentEffects(
     anchor: PopoverAnchor,
     popupProperties: PopupProperties,
 )
+
+internal expect fun PopupProperties.ensureCorrectPopoverProperties(): PopupProperties
 
 internal expect val DefaultPopupProperties: PopupProperties
 

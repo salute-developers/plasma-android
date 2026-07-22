@@ -1,8 +1,11 @@
+@file:OptIn(ExperimentalComposeUiApi::class)
+
 package com.sdds.compose.uikit.internal.popover
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.window.PopupProperties
@@ -31,9 +34,27 @@ internal actual fun PlatformPopupContentEffects(
     popupProperties: PopupProperties,
 ) = Unit
 
+/**
+ * PopoverPositionProvider uses window coordinates and applies safe-area constraints itself.
+ * Skiko Popup otherwise converts the provider to safe-area-relative coordinates and adds the
+ * platform insets to the result, shifting a position obtained from positionInWindow twice on iOS.
+ */
+internal actual fun PopupProperties.ensureCorrectPopoverProperties(): PopupProperties {
+    if (!usePlatformInsets) return this
+    return PopupProperties(
+        focusable = focusable,
+        dismissOnBackPress = dismissOnBackPress,
+        dismissOnClickOutside = dismissOnClickOutside,
+        clippingEnabled = clippingEnabled,
+        usePlatformDefaultWidth = usePlatformDefaultWidth,
+        usePlatformInsets = false,
+    )
+}
+
 internal actual val DefaultPopupProperties = PopupProperties(
     clippingEnabled = false,
     focusable = true,
+    usePlatformInsets = false,
 )
 
 private class SkikoDeferredConstraintsUpdater(
