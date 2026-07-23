@@ -23,6 +23,7 @@ val SBLCDFontFamily = FontFamily(
  */
 object SBLCDTypography {
 
+    /** Стиль основного значения размера XS. */
     val sblcdXs: TextStyle = TextStyle(
         fontFamily = SBLCDFontFamily,
         fontSize = 14.sp,
@@ -30,6 +31,7 @@ object SBLCDTypography {
         letterSpacing = 0.2.em,
     )
 
+    /** Стиль основного значения размера S. */
     val sblcdS: TextStyle = TextStyle(
         fontFamily = SBLCDFontFamily,
         fontSize = 28.sp,
@@ -37,6 +39,7 @@ object SBLCDTypography {
         letterSpacing = 0.2.em,
     )
 
+    /** Стиль основного значения размера M. */
     val sblcdM: TextStyle = TextStyle(
         fontFamily = SBLCDFontFamily,
         fontSize = 40.sp,
@@ -45,6 +48,7 @@ object SBLCDTypography {
 
     )
 
+    /** Стиль дробной части значения размера XS. */
     val sblcdFractionXs: TextStyle = TextStyle(
         fontFamily = SBLCDFontFamily,
         fontSize = 9.sp,
@@ -52,6 +56,7 @@ object SBLCDTypography {
         letterSpacing = 0.05.em,
     )
 
+    /** Стиль дробной части значения размера S. */
     val sblcdFractionS: TextStyle = TextStyle(
         fontFamily = SBLCDFontFamily,
         fontSize = 18.sp,
@@ -59,6 +64,7 @@ object SBLCDTypography {
         letterSpacing = 0.05.em,
     )
 
+    /** Стиль дробной части значения размера M. */
     val sblcdFractionM: TextStyle = TextStyle(
         fontFamily = SBLCDFontFamily,
         fontSize = 26.sp,
@@ -66,6 +72,7 @@ object SBLCDTypography {
         letterSpacing = 0.05.em,
     )
 
+    /** Стиль разделителя значения размера XS. */
     val sblcdSeparatorXs: TextStyle = TextStyle(
         fontFamily = SBLCDFontFamily,
         fontSize = 10.sp,
@@ -73,6 +80,7 @@ object SBLCDTypography {
         letterSpacing = 0.05.em,
     )
 
+    /** Стиль разделителя значения размера S. */
     val sblcdSeparatorS: TextStyle = TextStyle(
         fontFamily = SBLCDFontFamily,
         fontSize = 20.sp,
@@ -80,6 +88,7 @@ object SBLCDTypography {
         letterSpacing = 0.05.em,
     )
 
+    /** Стиль разделителя значения размера M. */
     val sblcdSeparatorM: TextStyle = TextStyle(
         fontFamily = SBLCDFontFamily,
         fontSize = 29.sp,

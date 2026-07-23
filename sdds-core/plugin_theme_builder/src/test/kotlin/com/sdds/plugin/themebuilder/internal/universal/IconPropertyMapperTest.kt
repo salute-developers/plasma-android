@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.universal
 import com.sdds.plugin.themebuilder.internal.components.base.StringState
 import com.sdds.plugin.themebuilder.internal.components.base.Value
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class IconPropertyMapperTest {
@@ -54,6 +55,7 @@ class IconPropertyMapperTest {
                 simpleName = "ChipState",
                 values = listOf(EnumValueInfo(name = "Selected", configName = "selected_chip")),
             ),
+            importCollector = ImportCollector(),
         )
 
         val builderCall = underTest.map(
@@ -72,6 +74,72 @@ class IconPropertyMapperTest {
                 "setOf(ChipState.Selected) to com.sdds.icons.R.drawable.ic_actions_check))",
             builderCall,
         )
+    }
+
+    @Test
+    fun `CMP-режим оборачивает иконку в imageVectorSource`() {
+        val importCollector = ImportCollector()
+        val underTest = IconPropertyMapper(
+            stateEnum = null,
+            importCollector = importCollector,
+            multiplatform = true,
+        )
+
+        val builderCall = underTest.map(
+            meta = iconParam(methodName = "startIcon"),
+            tokenValue = Value("add.fill.16"),
+            variationId = "",
+        )
+
+        assertEquals("startIcon(imageVectorSource(SddsIcons.AddFill16))", builderCall)
+        assertTrue(
+            importCollector.importList.any { it.pck == "com.sdds.compose.uikit" && it.name == "imageVectorSource" },
+        )
+        assertTrue(importCollector.importList.any { it.pck == "com.sdds.icons.compose" && it.name == "SddsIcons" })
+        assertTrue(importCollector.importList.any { it.pck == "com.sdds.icons.compose" && it.name == "AddFill16" })
+    }
+
+    @Test
+    fun `CMP-режим оборачивает иконку с состояниями в imageVectorSource`() {
+        val underTest = IconPropertyMapper(
+            stateEnum = null,
+            importCollector = ImportCollector(),
+            multiplatform = true,
+        )
+
+        val builderCall = underTest.map(
+            meta = iconParam(methodName = "startIcon"),
+            tokenValue = Value(
+                value = "add.fill.16",
+                states = listOf(
+                    StringState(state = listOf("pressed"), value = "remove.fill.16"),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "startIcon(imageVectorSource(SddsIcons.AddFill16).asStatefulValue(" +
+                "setOf(InteractiveState.Pressed) to imageVectorSource(SddsIcons.RemoveFill16)))",
+            builderCall,
+        )
+    }
+
+    @Test
+    fun `Android-режим не меняет вывод при переданном importCollector`() {
+        val underTest = IconPropertyMapper(
+            stateEnum = null,
+            importCollector = ImportCollector(),
+            multiplatform = false,
+        )
+
+        val builderCall = underTest.map(
+            meta = iconParam(methodName = "startIcon"),
+            tokenValue = Value("actions.add"),
+            variationId = "",
+        )
+
+        assertEquals("startIcon(com.sdds.icons.R.drawable.ic_actions_add)", builderCall)
     }
 
     private fun iconParam(methodName: String) = IconPropertyMeta(

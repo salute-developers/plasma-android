@@ -1,8 +1,9 @@
+import utils.addDefaultTargets
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("convention.android-lib")
+    id("convention.cmp-lib")
     id("convention.maven-publish")
-    id("convention.compose")
     id("convention.auto-bump")
     id("convention.dokka")
     alias(libs.plugins.binary.compatibility.validator)
@@ -14,16 +15,85 @@ group = "sdds-core"
 android {
     namespace = "com.sdds.compose.uikit"
     sourceSets {
-        getByName("debug") {
-            resources.srcDir("build/generated/ksp/debug/resources")
-        }
-        getByName("release") {
-            resources.srcDir("build/generated/ksp/release/resources")
+        getByName("main") {
+            resources.srcDir(layout.buildDirectory.dir("generated/ksp/metadata/commonMain/resources"))
         }
     }
 }
 
 kotlin {
+    addDefaultTargets()
+    sourceSets {
+        commonMain {
+            resources.srcDir(layout.buildDirectory.dir("generated/ksp/metadata/commonMain/resources"))
+            dependencies {
+                implementation(project(":api-info-compose"))
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.animation)
+                implementation(libs.sdds.haze)
+                implementation(libs.base.jetbrains.androidX.lifecycle.compose.viewmodel)
+            }
+        }
+
+        androidMain {
+            dependencies {
+                implementation(libs.base.androidX.compose.uiTooling.preview)
+            }
+        }
+
+        androidUnitTest {
+            dependencies {
+                implementation(libs.base.test.unit.jUnit)
+            }
+        }
+
+        val skikoMain by creating {
+            dependsOn(commonMain.get())
+        }
+
+        val iosMain by creating {
+            dependsOn(skikoMain)
+        }
+
+        val iosX64Main by getting {
+            dependsOn(iosMain)
+        }
+
+        val iosArm64Main by getting {
+            dependsOn(iosMain)
+        }
+
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
+        }
+
+        val macosMain by creating {
+            dependsOn(skikoMain)
+        }
+
+        val macosX64Main by getting {
+            dependsOn(macosMain)
+        }
+
+        val macosArm64Main by getting {
+            dependsOn(macosMain)
+        }
+
+        jvmMain {
+            dependsOn(skikoMain)
+        }
+
+        named("wasmJsMain") {
+            dependsOn(skikoMain)
+        }
+
+        jsMain {
+            dependsOn(skikoMain)
+        }
+    }
+
     compilerOptions {
         freeCompilerArgs.addAll(
             listOf(
@@ -37,25 +107,30 @@ kotlin {
 }
 
 dependencies {
-
-    implementation(libs.base.androidX.compose.foundation)
-    implementation(libs.base.androidX.compose.material)
-    implementation(libs.base.androidX.compose.animation)
-    implementation(libs.sdds.haze)
-    implementation(libs.base.androidX.lifecycle.compose.viewmodel)
-
-    compileOnly(project(":api-info-compose"))
-    ksp(project(":api-info-ksp"))
-
-    // Preview support
-    implementation(libs.base.androidX.compose.uiTooling.preview)
+    add("kspCommonMainMetadata", project(":api-info-ksp"))
     debugImplementation(libs.base.androidX.compose.uiTooling)
 
     // UI Tests
     androidTestImplementation(libs.base.test.ui.compose.jUnit4)
     debugImplementation(libs.base.test.ui.compose.uiTestManifest)
+}
 
-    // Unit tests
-    testImplementation(libs.base.test.unit.jUnit)
+tasks.matching { it.name.endsWith("ProcessResources") }.configureEach {
+    dependsOn(tasks.matching { task -> task.name == "kspCommonMainKotlinMetadata" })
+}
 
+tasks.matching { it.name == "processDebugJavaRes" }.configureEach {
+    dependsOn(tasks.matching { task ->
+        task.name == "kspCommonMainKotlinMetadata" ||
+            task.name == "kspDebugKotlinAndroid" ||
+            task.name == "kspDebugKotlin"
+    })
+}
+
+tasks.matching { it.name == "processReleaseJavaRes" }.configureEach {
+    dependsOn(tasks.matching { task ->
+        task.name == "kspCommonMainKotlinMetadata" ||
+            task.name == "kspReleaseKotlinAndroid" ||
+            task.name == "kspReleaseKotlin"
+    })
 }

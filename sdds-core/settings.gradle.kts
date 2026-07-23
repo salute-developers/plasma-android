@@ -8,12 +8,21 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
+    }
+
     versionCatalogs {
         create("libs") {
             from(files("../gradle/libs.versions.toml"))
         }
         create("icons") {
             from(files("../gradle/icons.version.toml"))
+        }
+        create("iconsCompose") {
+            from(files("../gradle/icons-compose.version.toml"))
         }
     }
 }
@@ -23,13 +32,11 @@ includeBuild("../build-system")
 includeBuild("../third-party/sdds-haze")
 include(
     ":icons",
+    ":icons-compose",
     ":plugin_theme_builder",
     ":uikit",
     ":uikit-compose",
     ":docs",
-    ":docs-views",
-    ":docs-compose",
-    ":docs-ksp",
     ":api-info-ksp",
     ":api-info-compose",
 )

@@ -15,6 +15,7 @@ internal class ComposeTypographyAttributeGeneratorFactory(
     private val themeName: String,
     private val dimensionsConfig: DimensionsConfig,
     private val packageResolver: PackageResolver,
+    private val multiplatform: Boolean = false,
 ) {
 
     /**
@@ -27,5 +28,6 @@ internal class ComposeTypographyAttributeGeneratorFactory(
         themeName = themeName,
         dimensionsConfig = dimensionsConfig,
         packageResolver = packageResolver,
+        multiplatform = multiplatform,
     )
 }

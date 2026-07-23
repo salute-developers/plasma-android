@@ -14,6 +14,7 @@ internal class PropertyMapperRegistry(
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val themeStylesPackage: String,
     private val packageLookup: Map<String, String> = emptyMap(),
+    private val multiplatform: Boolean = false,
 ) {
     data class Mappers(
         val colorMapper: ColorPropertyMapper,
@@ -55,7 +56,7 @@ internal class PropertyMapperRegistry(
             booleanMapper = BooleanPropertyMapper(stateEnum),
             integerMapper = IntegerPropertyMapper(stateEnum),
             floatMapper = FloatPropertyMapper(stateEnum),
-            iconMapper = IconPropertyMapper(stateEnum),
+            iconMapper = IconPropertyMapper(stateEnum, importCollector, multiplatform),
             componentStyleMapper = ComponentStyleMapper(stateEnum, importCollector, themeStylesPackage, packageLookup),
             valueMapper = ValuePropertyMapper(stateEnum, importCollector),
         )

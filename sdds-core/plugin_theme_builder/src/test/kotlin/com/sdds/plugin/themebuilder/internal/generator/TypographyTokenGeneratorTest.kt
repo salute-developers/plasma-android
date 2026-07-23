@@ -28,6 +28,7 @@ import io.mockk.mockkObject
 import io.mockk.unmockkObject
 import kotlinx.serialization.decodeFromString
 import org.junit.After
+import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -175,6 +176,106 @@ class TypographyTokenGeneratorTest {
             getResourceAsText("typography-outputs/TestTypographyWithResourcesOutputKt.txt"),
             outputKt.toString(),
         )
+    }
+
+    @Test
+    fun `TypographyGenerator в CMP-режиме эмитит @Composable-геттеры TextStyle`() {
+        val input = getResourceAsText("inputs/test-typography-input.json")
+        val typographyTokens = Serializer.meta.decodeFromString<List<TypographyToken>>(input)
+        val outputKt = ByteArrayOutputStream()
+        every { dimensionsConfig.multiplier } returns 1f
+        every { dimensionsConfig.fromResources } returns false
+        val generator = TypographyTokenGenerator(
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            outputResDir = mockOutputResDir,
+            target = ThemeBuilderTarget.COMPOSE,
+            dimensAggregator = mockDimensAggregator,
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
+            ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
+            resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
+            typographyTokenValues = typographyTokenValues,
+            fontsAggregator = mockFontsAggregator,
+            dimensionsConfig = dimensionsConfig,
+            namespace = "com.test",
+            themeName = "TestTheme",
+            multiplatform = true,
+        )
+
+        typographyTokens.forEach { generator.addToken(it) }
+        generator.generate()
+
+        val output = outputKt.toString()
+        Assert.assertTrue(output.contains("import androidx.compose.runtime.Composable"))
+        Assert.assertTrue(output.contains("@Composable"))
+        Assert.assertTrue(output.contains("get()"))
+        // значение через @Composable-геттер, а не плоское присваивание
+        Assert.assertFalse(output.contains(": TextStyle = TextStyle("))
+    }
+
+    @Test
+    fun `TypographyGenerator в CMP-режиме не эмитит Android-only platformStyle`() {
+        val input = getResourceAsText("inputs/test-typography-input.json")
+        val typographyTokens = Serializer.meta.decodeFromString<List<TypographyToken>>(input)
+        val outputKt = ByteArrayOutputStream()
+        every { dimensionsConfig.multiplier } returns 1f
+        every { dimensionsConfig.fromResources } returns false
+        val generator = TypographyTokenGenerator(
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            outputResDir = mockOutputResDir,
+            target = ThemeBuilderTarget.COMPOSE,
+            dimensAggregator = mockDimensAggregator,
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
+            ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
+            resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
+            typographyTokenValues = typographyTokenValues,
+            fontsAggregator = mockFontsAggregator,
+            dimensionsConfig = dimensionsConfig,
+            namespace = "com.test",
+            themeName = "TestTheme",
+            multiplatform = true,
+        )
+
+        typographyTokens.forEach { generator.addToken(it) }
+        generator.generate()
+
+        val output = outputKt.toString()
+        // PlatformTextStyle(includeFontPadding = ...) — Android-only API, в CMP common отсутствует
+        Assert.assertFalse(output.contains("PlatformTextStyle"))
+        Assert.assertFalse(output.contains("platformStyle"))
+        Assert.assertFalse(output.contains("includeFontPadding"))
+        // прочие поля TextStyle остаются
+        Assert.assertTrue(output.contains("lineHeightStyle = TextStyleDefault.lineHeightStyle"))
+    }
+
+    @Test
+    fun `TypographyGenerator в Android-режиме эмитит platformStyle с includeFontPadding`() {
+        val input = getResourceAsText("inputs/test-typography-input.json")
+        val typographyTokens = Serializer.meta.decodeFromString<List<TypographyToken>>(input)
+        val outputKt = ByteArrayOutputStream()
+        every { dimensionsConfig.multiplier } returns 1f
+        every { dimensionsConfig.fromResources } returns false
+        val generator = TypographyTokenGenerator(
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            outputResDir = mockOutputResDir,
+            target = ThemeBuilderTarget.COMPOSE,
+            dimensAggregator = mockDimensAggregator,
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
+            ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
+            resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
+            typographyTokenValues = typographyTokenValues,
+            fontsAggregator = mockFontsAggregator,
+            dimensionsConfig = dimensionsConfig,
+            namespace = "com.test",
+            themeName = "TestTheme",
+            multiplatform = false,
+        )
+
+        typographyTokens.forEach { generator.addToken(it) }
+        generator.generate()
+
+        val output = outputKt.toString()
+        Assert.assertTrue(output.contains("PlatformTextStyle(includeFontPadding = false)"))
+        Assert.assertTrue(output.contains("platformStyle = TextStyleDefault.platformStyle"))
     }
 
     private companion object {
