@@ -26,7 +26,7 @@ internal class StoryRegistryGenerator(
             "register",
         )
         val builder = FunSpec.builder("registerStories")
-            .addModifiers(KModifier.INTERNAL)
+            .addModifiers(KModifier.PUBLIC)
             .addCode(
                 buildCodeBlock { addRegistryStatements(data.stories) },
             )

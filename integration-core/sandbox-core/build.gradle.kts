@@ -2,7 +2,7 @@ import utils.addDefaultTargets
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("convention.kmp-lib")
+    id("convention.cmp-lib")
     id("convention.maven-publish")
     id("convention.auto-bump")
 }
@@ -20,6 +20,8 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(libs.base.kotlin.coroutines)
+                implementation(libs.sdds.uikit.compose)
+                implementation(compose.foundation)
             }
         }
     }

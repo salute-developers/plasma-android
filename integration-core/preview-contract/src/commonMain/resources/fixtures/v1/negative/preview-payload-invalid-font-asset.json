@@ -1,0 +1,9 @@
+{
+  "protocolVersion": 1,
+  "requestId": "request-invalid-font",
+  "platform": "COMPOSE",
+  "assets": [{ "id": "font", "type": "WOFF2", "url": "font.woff2" }],
+  "theme": {},
+  "component": { "id": "button" },
+  "example": { "id": "default" }
+}

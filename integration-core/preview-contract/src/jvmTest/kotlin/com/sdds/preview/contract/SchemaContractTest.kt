@@ -26,6 +26,8 @@ class SchemaContractTest {
     fun `negative fixtures report expected paths`() {
         assertInvalid("preview-payload", "preview-payload-missing-component", "$.component")
         assertInvalid("preview-result", "preview-result-invalid-type", "$.type")
+        assertInvalid("preview-payload", "preview-payload-invalid-font-asset", "$.assets[0].type")
+        assertInvalid("preview-payload", "preview-payload-invalid-property", "$.component.properties.color.base")
     }
 
     @Test

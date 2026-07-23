@@ -2,17 +2,25 @@
   "protocolVersion": 1,
   "requestId": "request-1",
   "platform": "COMPOSE",
+  "assets": [
+    { "id": "font.inter.regular", "type": "TTF", "url": "https://cdn.example.test/inter-regular.ttf", "digest": "sha256:regular" },
+    { "id": "font.inter.italic", "type": "OTF", "url": "https://cdn.example.test/inter-italic.otf" }
+  ],
   "theme": {
-    "color.primary": { "type": "color", "value": "#006FFF" },
+    "color.primary": { "type": "color", "value": "#006FFFFF" },
     "spacing.m": { "type": "dimension", "value": 16 },
     "shape.round": { "type": "shape", "cornerRadii": [12, 12, 12, 12] },
     "shadow.default": { "type": "shadow", "layers": [{ "x": 0, "y": 2, "blur": 8, "color": "#33000000" }] },
-    "typography.body": { "type": "typography", "fontFamily": "Inter", "fontSize": 16, "lineHeight": 20, "weight": 400 }
+    "fontFamily.inter": { "type": "fontFamily", "faces": [{ "assetId": "font.inter.regular", "weight": 400 }, { "assetId": "font.inter.italic", "weight": 400, "style": "ITALIC" }] },
+    "typography.body": { "type": "typography", "fontFamilyTokenId": "fontFamily.inter", "fontSize": 16, "lineHeight": 20, "letterSpacing": 0.2, "weight": 400 }
   },
   "component": {
     "id": "button",
     "variations": { "view": "primary", "size": "m" },
-    "properties": { "enabled": true }
+    "properties": {
+      "enabled": { "base": { "type": "literal", "value": true } },
+      "backgroundColor": { "base": { "type": "tokenRef", "tokenId": "color.primary" }, "states": { "pressed": { "type": "literal", "value": "#004FBFFF" } } }
+    }
   },
   "example": { "id": "button-basic", "props": { "text": "Continue" } },
   "surface": { "width": 390, "height": 844, "background": "#FFFFFF" }
