@@ -13,15 +13,17 @@ import com.sdds.preview.compose.ComposePreviewRuntime
 import com.sdds.preview.compose.PreparedComposePreview
 import com.sdds.preview.compose.WasmLoadedFontFamilyFactory
 import com.sdds.preview.compose.previewComponent
+import com.sdds.preview.contract.PREVIEW_PROTOCOL_VERSION
+import com.sdds.preview.contract.PreviewContractJson
 import kotlinx.browser.document
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import kotlinx.serialization.encodeToString
 import kotlin.js.ExperimentalJsExport
 
 private sealed interface RenderState {
     data object Empty : RenderState
     data class Ready(val preview: PreparedComposePreview) : RenderState
-    data class Failure(val message: String) : RenderState
 }
 
 private val scope = MainScope()
@@ -31,14 +33,21 @@ private val runtime = ComposePreviewRuntime(
     fontFamilyFactory = WasmLoadedFontFamilyFactory,
     components = listOf(previewComponent(BasicButtonStory, BasicButtonPreviewStyleFactory)),
 )
+private val coordinator = PreviewRequestCoordinator(
+    prepare = runtime::prepare,
+    apply = { preview ->
+        renderState = RenderState.Ready(preview)
+        document.documentElement?.setAttribute("data-sdds-preview-request-id", preview.requestId)
+    },
+)
 
-/** Принимает следующий полный payload и заменяет состояние текущего Wasm preview. */
+/** Принимает следующий полный payload и сообщает browser bridge результат после применения state. */
 @OptIn(ExperimentalJsExport::class)
 @JsExport
 public fun submitPreviewPayload(json: String) {
     scope.launch {
-        renderState = runCatching { runtime.prepare(json) }
-            .fold(RenderState::Ready) { RenderState.Failure(it.message ?: "Preview preparation failed") }
+        val result = coordinator.submit(json)
+        notifyPreviewResult(PreviewContractJson.encodeToString(result))
     }
 }
 
@@ -50,13 +59,19 @@ public fun main() {
         document.body?.appendChild(document.createElement("div").apply { id = "root" })
     }
     ComposeViewport(viewportContainerId = "root") { PreviewViewport() }
+    notifyPreviewReady(PREVIEW_PROTOCOL_VERSION)
 }
 
 @Composable
 private fun PreviewViewport() {
     when (val state = renderState) {
         RenderState.Empty -> BasicText("Waiting for PreviewPayload")
-        is RenderState.Failure -> BasicText(state.message)
         is RenderState.Ready -> state.preview.Content()
     }
 }
+
+@JsFun("(result) => globalThis.__sddsPreviewResult(result)")
+private external fun notifyPreviewResult(result: String)
+
+@JsFun("(protocolVersion) => globalThis.__sddsPreviewReady(protocolVersion)")
+private external fun notifyPreviewReady(protocolVersion: Int)

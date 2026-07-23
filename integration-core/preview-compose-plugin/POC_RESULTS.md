@@ -28,18 +28,34 @@ HTML shell, manifest, production JavaScript и все Kotlin/Skiko Wasm binaries
 - BasicButton: поддержанный вручную набор root, color и dimension properties SDK.
 - Example props: boolean, int, float, string и single-choice значения sandbox contracts.
 
-## Отложенная browser-проверка
+## Production browser-проверка
 
-Фактическое декодирование реального TTF/OTF в browser Skia, визуальное подтверждение применения
-семейства и измерение first-render latency не выполнялись. Эти проверки перенесены в OpenSpec
-change `complete-compose-preview-browser-bridge`. До его завершения byte-backed fonts считаются
-подтверждёнными на уровне API, unit tests и Wasm compilation, но не browser rendering.
+`previewPluginBrowserTest` обслуживает распакованный production zip по HTTP и загружает plugin в
+iframe Headless Chrome. Canonical полный `BasicButton` payload использует реальный
+`s_b_sans_text_regular.otf`; успешный result подтверждает загрузку bytes, создание runtime
+`FontFamily`, подготовку typography и commit Compose render state.
+
+Проверено:
+
+- `sdds.preview.ready` с Preview Protocol v1;
+- коррелированные success/failure envelopes и direct Promise API;
+- замена token/property/example state вторым полным payload без reload;
+- latest-request-wins и `superseded`;
+- сохранение последнего успешного preview после invalid payload и недоступного обязательного font.
+
+Контрольный запуск 23 июля 2026: macOS arm64, Node.js 24.4.0, Headless Chrome 150.0.0.0,
+Kotlin 2.1.10 / Kotlin-Wasm stdlib 2.1.21, Compose Multiplatform 1.8.2. First-render latency от
+отправки canonical payload после ready до коррелированного success составила **6 ms**. Значение
+диагностическое и зависит от browser/toolchain/cache; task печатает актуальное значение каждого
+запуска.
 
 ## Известные ограничения
 
 - PoC типизирован только для BasicButton и не является универсальным registry factories.
 - WOFF/WOFF2 и variable-font axes не поддерживаются.
-- HTML shell предоставляет `submitPreviewPayload(payload)` и принимает сообщения типа
-  `sdds.preview.payload`.
+- HTML shell предоставляет Promise-based `submitPreviewPayload(payload)` и двусторонние
+  `sdds.preview.payload` / `sdds.preview.result` messages.
 - HTTP resolver использует browser `fetch`; внешний asset URL должен быть доступен согласно CORS.
+- Byte-backed fonts поддерживают TTF/OTF, integer weight и normal/italic; WOFF/WOFF2,
+  variable-font axes и проверка glyph rasterization не входят в PoC.
 - Artifact не включает publication, подпись и production trust policy.

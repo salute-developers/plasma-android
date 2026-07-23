@@ -58,7 +58,10 @@ python3 -m http.server 8080 --directory /tmp/preview-compose-plugin
 Если host и плагин работают в одном window:
 
 ```javascript
-await window.submitPreviewPayload(payload);
+const result = await window.submitPreviewPayload(payload);
+if (result.type === "failure") {
+  console.error(result.code, result.message);
+}
 ```
 
 `payload` может быть JavaScript-объектом или сериализованной JSON-строкой:
@@ -67,8 +70,10 @@ await window.submitPreviewPayload(payload);
 await window.submitPreviewPayload(JSON.stringify(payload));
 ```
 
-Функция становится доступна после загрузки `index.html` и самостоятельно ожидает готовности
-Wasm runtime.
+Функция становится доступна после загрузки `index.html`, самостоятельно ожидает Wasm runtime и
+завершает Promise только после подготовки payload и применения актуального Compose state.
+Результат — существующий `PreviewResult.Success` или `PreviewResult.Failure` с тем же
+`requestId`.
 
 ### iframe и postMessage
 
@@ -95,8 +100,36 @@ iframe.contentWindow.postMessage(
 );
 ```
 
-Host должен дождаться события `load` у iframe перед первой отправкой. Следующий полный payload
+Событие iframe `load` не означает готовность Wasm. Host должен дождаться lifecycle message:
+
+```javascript
+window.addEventListener("message", (event) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.data?.type === "sdds.preview.ready" &&
+    event.data.protocolVersion === 1
+  ) {
+    // Plugin готов принять первый полный payload.
+  }
+});
+```
+
+После обработки plugin отправляет результат в исходный `event.source`, используя исходный
+`event.origin` как `targetOrigin`:
+
+```javascript
+window.addEventListener("message", (event) => {
+  if (event.source !== iframe.contentWindow) return;
+  if (event.data?.type !== "sdds.preview.result") return;
+  const result = event.data.result;
+  console.log(result.requestId, result.type);
+});
+```
+
+Каждый host request должен иметь уникальный непустой `requestId`. Следующий полный payload
 заменяет предыдущие theme, component properties и example state без перезапуска Wasm application.
+Если более старый запрос заканчивает подготовку после нового, он получает failure с code
+`superseded` и не заменяет актуальный render.
 
 ## Font assets
 
@@ -136,6 +169,22 @@ const manifest = await fetch(
 ```
 
 Текущий идентификатор plugin: `sdds.compose.preview`, версия Preview Protocol: `1`.
+`payloadBridge` объявляет direct API и три transport message types:
+`sdds.preview.payload`, `sdds.preview.ready` и `sdds.preview.result`.
+
+## Проверка production artifact
+
+Focused JVM tests, artifact и browser lifecycle запускаются из корня репозитория:
+
+```bash
+./gradlew -p integration-core \
+  :preview-compose-plugin:jvmTest \
+  :preview-compose-plugin:previewPluginArtifact \
+  :preview-compose-plugin:previewPluginBrowserTest
+```
+
+Browser test использует headless Chrome и настоящий OTF asset. Путь к Chrome можно переопределить
+через `-PpreviewChromePath=/path/to/chrome`.
 
 ## Ограничения
 
@@ -143,4 +192,8 @@ const manifest = await fetch(
 - Каждый update передаёт полный payload.
 - WOFF/WOFF2 и variable-font axes не поддерживаются.
 - Проверка доверенного origin, подпись artifact и publication pipeline пока не реализованы.
-- Host отвечает за sandbox/CSP iframe и проверку совместимости manifest.
+- Ready message временно отправляется parent с `targetOrigin="*"`, поскольку production origin
+  allowlist относится к отдельному trust-policy change. Payload results всегда направляются
+  только исходному sender/origin.
+- Host отвечает за sandbox/CSP iframe, проверку `event.source`, `event.origin` и совместимости
+  manifest.
