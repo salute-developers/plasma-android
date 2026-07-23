@@ -32,6 +32,8 @@ includeBuild("../build-system")
 includeBuild("../sdds-core")
 include(
     ":preview-contract",
+    ":preview-sdk-compose",
+    ":preview-compose-plugin",
     ":sandbox-core",
     ":sandbox-compose",
     ":sandbox-view",

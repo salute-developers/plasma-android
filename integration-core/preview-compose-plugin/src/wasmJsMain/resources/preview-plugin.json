@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "sdds.compose.preview",
+  "name": "SDDS Compose Preview",
+  "platform": "compose",
+  "protocolVersion": 1,
+  "entrypoint": "index.html",
+  "payloadBridge": {
+    "direct": "submitPreviewPayload",
+    "messageType": "sdds.preview.payload"
+  },
+  "components": [
+    "BasicButton"
+  ]
+}
