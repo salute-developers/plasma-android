@@ -1,0 +1,68 @@
+{
+  "protocolVersion": 1,
+  "requestId": "button-first",
+  "platform": "COMPOSE",
+  "assets": [
+    {
+      "id": "font.body.regular",
+      "type": "OTF",
+      "url": "__BASE_URL__/test-assets/font.otf"
+    }
+  ],
+  "theme": {
+    "color.background": {"type": "color", "value": "#2A72E5FF"},
+    "color.background.pressed": {"type": "color", "value": "#1959B8FF"},
+    "color.content": {"type": "color", "value": "#FFFFFFFF"},
+    "size.height": {"type": "dimension", "value": 48.0},
+    "size.padding": {"type": "dimension", "value": 20.0},
+    "size.icon": {"type": "dimension", "value": 24.0},
+    "shape.button": {"type": "shape", "cornerRadii": [12.0, 12.0, 12.0, 12.0]},
+    "font.body": {
+      "type": "fontFamily",
+      "faces": [{"assetId": "font.body.regular", "weight": 400, "style": "NORMAL"}],
+      "allowFallback": false
+    },
+    "typography.button": {
+      "type": "typography",
+      "fontFamilyTokenId": "font.body",
+      "fontSize": 16.0,
+      "lineHeight": 20.0,
+      "letterSpacing": 0.0,
+      "weight": 400
+    }
+  },
+  "component": {
+    "id": "BasicButton",
+    "variations": {"size": "l", "view": "primary"},
+    "properties": {
+      "shape": {"base": {"type": "tokenRef", "tokenId": "shape.button"}},
+      "labelStyle": {"base": {"type": "tokenRef", "tokenId": "typography.button"}},
+      "contentColor": {"base": {"type": "tokenRef", "tokenId": "color.content"}},
+      "backgroundColor": {
+        "base": {"type": "tokenRef", "tokenId": "color.background"},
+        "states": {
+          "pressed": {"type": "tokenRef", "tokenId": "color.background.pressed"}
+        }
+      },
+      "height": {"base": {"type": "tokenRef", "tokenId": "size.height"}},
+      "paddingStart": {"base": {"type": "tokenRef", "tokenId": "size.padding"}},
+      "paddingEnd": {"base": {"type": "tokenRef", "tokenId": "size.padding"}},
+      "iconSize": {"base": {"type": "tokenRef", "tokenId": "size.icon"}},
+      "disableAlpha": {"base": {"type": "literal", "value": 0.4}},
+      "loadingAlpha": {"base": {"type": "literal", "value": 0.6}}
+    }
+  },
+  "example": {
+    "id": "BasicButton",
+    "props": {
+      "label": "Canonical button",
+      "value": "Value",
+      "icon": "No",
+      "spacing": "Packed",
+      "hasFixedWidth": true,
+      "enabled": true,
+      "loading": false
+    }
+  },
+  "surface": {"width": 360, "height": 160, "background": "#FFFFFFFF"}
+}

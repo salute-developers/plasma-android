@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.targets.js.dsl.KotlinJsTargetDsl
 import org.gradle.api.tasks.bundling.Zip
 import org.gradle.api.tasks.Delete
+import org.gradle.api.tasks.Sync
 import utils.addDefaultTargets
 
 plugins {
@@ -21,6 +22,28 @@ val previewPluginArtifact by tasks.registering(Zip::class) {
     from("src/wasmJsMain/resources")
     archiveFileName.set("preview-compose-plugin.zip")
     destinationDirectory.set(layout.buildDirectory.dir("distributions"))
+}
+
+val unpackPreviewPluginArtifact by tasks.registering(Sync::class) {
+    dependsOn(previewPluginArtifact)
+    from(previewPluginArtifact.map { zipTree(it.archiveFile) })
+    into(layout.buildDirectory.dir("browser-test/artifact"))
+}
+
+val previewPluginBrowserTest by tasks.registering(Exec::class) {
+    group = "verification"
+    description = "Проверяет production Compose preview artifact в headless Chrome."
+    dependsOn(unpackPreviewPluginArtifact)
+    val chromePath = providers.gradleProperty("previewChromePath")
+        .orElse("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+    commandLine(
+        "node",
+        "src/browserTest/run-browser-test.mjs",
+        layout.buildDirectory.dir("browser-test/artifact").get().asFile.absolutePath,
+        file("src/browserTest/resources").absolutePath,
+        file("../sandbox-compose/src/commonMain/composeResources/font/s_b_sans_text_regular.otf").absolutePath,
+        chromePath.get(),
+    )
 }
 
 group = "integration-core"
