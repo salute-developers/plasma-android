@@ -11,23 +11,97 @@
 </head>
 <body>
 <div id="root"></div>
-<script src="preview-compose-plugin.js"></script>
 <script>
+    const pendingRequests = new Map();
+    let runtimeReady = false;
+
     async function pluginApi() {
         return await globalThis["preview-compose-plugin"];
     }
 
-    globalThis.submitPreviewPayload = async function (payload) {
-        const json = typeof payload === "string" ? payload : JSON.stringify(payload);
-        const api = await pluginApi();
-        api.submitPreviewPayload(json);
+    function normalizePayload(payload) {
+        if (typeof payload === "string") {
+            const parsed = JSON.parse(payload);
+            return {json: payload, requestId: parsed && parsed.requestId};
+        }
+        return {json: JSON.stringify(payload), requestId: payload && payload.requestId};
+    }
+
+    function submit(payload, destination) {
+        let normalized;
+        try {
+            normalized = normalizePayload(payload);
+        } catch (error) {
+            return Promise.resolve({
+                type: "failure",
+                requestId: "",
+                code: "invalid_payload",
+                message: error instanceof Error ? error.message : "Preview payload could not be decoded",
+            });
+        }
+        if (typeof normalized.requestId !== "string" || normalized.requestId.length === 0) {
+            return Promise.resolve({
+                type: "failure",
+                requestId: "",
+                code: "invalid_payload",
+                message: "Preview payload must contain a non-empty requestId",
+                path: "$.requestId",
+            });
+        }
+
+        return new Promise(async (resolve) => {
+            pendingRequests.set(normalized.requestId, {resolve, destination});
+            const api = await pluginApi();
+            api.submitPreviewPayload(normalized.json);
+        });
+    }
+
+    globalThis.submitPreviewPayload = function (payload) {
+        return submit(payload, null);
     };
 
-    globalThis.addEventListener("message", function (event) {
-        if (event.data && event.data.type === "sdds.preview.payload") {
-            globalThis.submitPreviewPayload(event.data.payload);
+    globalThis.__sddsPreviewResult = function (resultJson) {
+        const result = JSON.parse(resultJson);
+        const pending = pendingRequests.get(result.requestId);
+        if (!pending) return;
+        pendingRequests.delete(result.requestId);
+        pending.resolve(result);
+        if (pending.destination) {
+            pending.destination.source.postMessage(
+                {type: "sdds.preview.result", result},
+                pending.destination.origin,
+            );
         }
+    };
+
+    globalThis.__sddsPreviewReady = function (protocolVersion) {
+        if (runtimeReady) return;
+        runtimeReady = true;
+        if (globalThis.parent !== globalThis) {
+            globalThis.parent.postMessage(
+                {type: "sdds.preview.ready", protocolVersion},
+                "*",
+            );
+        }
+    };
+
+    globalThis.addEventListener("message", async function (event) {
+        const envelope = event.data;
+        if (!envelope || envelope.type !== "sdds.preview.payload") return;
+        if (!event.source || typeof event.origin !== "string") return;
+        const payload = envelope.payload;
+        if (!payload || (typeof payload !== "object" && typeof payload !== "string")) return;
+        let requestId;
+        try {
+            requestId = typeof payload === "string" ? JSON.parse(payload).requestId : payload.requestId;
+        } catch (_) {
+            return;
+        }
+        if (typeof requestId !== "string" || requestId.length === 0) return;
+
+        await submit(payload, {source: event.source, origin: event.origin});
     });
 </script>
+<script src="preview-compose-plugin.js"></script>
 </body>
 </html>

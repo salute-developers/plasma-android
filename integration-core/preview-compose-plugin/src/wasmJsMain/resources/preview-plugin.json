@@ -7,7 +7,9 @@
   "entrypoint": "index.html",
   "payloadBridge": {
     "direct": "submitPreviewPayload",
-    "messageType": "sdds.preview.payload"
+    "payloadMessageType": "sdds.preview.payload",
+    "readyMessageType": "sdds.preview.ready",
+    "resultMessageType": "sdds.preview.result"
   },
   "components": [
     "BasicButton"

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<body>
+<iframe id="plugin" src="/index.html"></iframe>
+<pre id="result">running</pre>
+<script>
+    const output = document.getElementById("result");
+    const iframe = document.getElementById("plugin");
+    const waiters = new Map();
+    let readyResolve;
+    const ready = new Promise((resolve) => readyResolve = resolve);
+
+    addEventListener("message", (event) => {
+        if (event.source !== iframe.contentWindow) return;
+        if (event.data?.type === "sdds.preview.ready") {
+            readyResolve(event.data);
+        } else if (event.data?.type === "sdds.preview.result") {
+            waiters.get(event.data.result.requestId)?.(event.data.result);
+            waiters.delete(event.data.result.requestId);
+        }
+    });
+
+    function send(payload) {
+        return new Promise((resolve) => {
+            waiters.set(payload.requestId, resolve);
+            iframe.contentWindow.postMessage({type: "sdds.preview.payload", payload}, location.origin);
+        });
+    }
+
+    function assert(condition, message) {
+        if (!condition) throw new Error(message);
+    }
+
+    (async () => {
+        const readyMessage = await ready;
+        assert(readyMessage.protocolVersion === 1, "ready protocolVersion");
+        const fixtureText = await fetch("/canonical-basic-button.json").then((response) => response.text());
+        const fixture = JSON.parse(fixtureText.replaceAll("__BASE_URL__", location.origin));
+
+        const startedAt = performance.now();
+        const first = await send(fixture);
+        const firstRenderLatencyMs = Math.round(performance.now() - startedAt);
+        assert(first.type === "success" && first.requestId === "button-first", "first success");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-first",
+            "first render marker",
+        );
+
+        const secondPayload = structuredClone(fixture);
+        secondPayload.requestId = "button-second";
+        secondPayload.theme["color.background"].value = "#008A72FF";
+        secondPayload.component.properties.height = {base: {type: "literal", value: 56.0}};
+        secondPayload.example.props.label = "Updated button";
+        const second = await iframe.contentWindow.submitPreviewPayload(secondPayload);
+        assert(second.type === "success" && second.requestId === "button-second", "direct second success");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-second",
+            "second render marker",
+        );
+
+        const invalid = structuredClone(fixture);
+        invalid.requestId = "button-invalid";
+        invalid.protocolVersion = 999;
+        const invalidResult = await send(invalid);
+        assert(invalidResult.type === "failure", "invalid failure");
+        assert(invalidResult.code === "unsupported_protocol_version", "invalid failure code");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-second",
+            "invalid payload preserved render",
+        );
+
+        const missingFont = structuredClone(fixture);
+        missingFont.requestId = "button-missing-font";
+        missingFont.assets[0].url = location.origin + "/missing-font.otf";
+        const missingFontResult = await send(missingFont);
+        assert(missingFontResult.type === "failure", "missing font failure");
+        assert(missingFontResult.code === "asset_loading_failed", "missing font failure code");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-second",
+            "missing font preserved render",
+        );
+
+        const slow = structuredClone(fixture);
+        slow.requestId = "button-slow";
+        slow.assets[0].url = location.origin + "/slow-font.otf";
+        const slowPromise = send(slow);
+        const latest = structuredClone(secondPayload);
+        latest.requestId = "button-latest";
+        const latestPromise = send(latest);
+        const [slowResult, latestResult] = await Promise.all([slowPromise, latestPromise]);
+        assert(slowResult.type === "failure" && slowResult.code === "superseded", "superseded failure");
+        assert(latestResult.type === "success", "latest success");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-latest",
+            "latest render marker",
+        );
+
+        output.textContent = JSON.stringify({
+            status: "passed",
+            firstRenderLatencyMs,
+            userAgent: navigator.userAgent,
+            protocolVersion: readyMessage.protocolVersion,
+        });
+    })().catch((error) => {
+        output.textContent = JSON.stringify({status: "failed", message: error.stack || String(error)});
+    });
+</script>
+</body>
+</html>
