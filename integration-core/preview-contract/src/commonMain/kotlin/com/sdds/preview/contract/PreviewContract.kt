@@ -24,6 +24,43 @@ public enum class PreviewPlatform {
     IOS,
 }
 
+/** Тип runtime-ресурса preview. */
+@Serializable
+public enum class PreviewAssetType {
+    /** Шрифт TrueType. */
+    TTF,
+
+    /** Шрифт OpenType. */
+    OTF,
+}
+
+/** Описание ресурса, доступного renderer во время выполнения. */
+@Serializable
+public data class PreviewAsset(
+    /** Стабильный идентификатор ресурса. */ val id: String,
+    /** Тип ресурса. */ val type: PreviewAssetType,
+    /** URL для загрузки ресурса. */ val url: String,
+    /** Необязательный digest содержимого для проверки и кеширования. */ val digest: String? = null,
+)
+
+/** Начертание шрифта. */
+@Serializable
+public enum class PreviewFontStyle {
+    /** Обычное начертание. */
+    NORMAL,
+
+    /** Курсивное начертание. */
+    ITALIC,
+}
+
+/** Начертание font-family, связанное с runtime-ресурсом. */
+@Serializable
+public data class PreviewFontFace(
+    /** Идентификатор font asset. */ val assetId: String,
+    /** Числовой вес шрифта. */ val weight: Int,
+    /** Стиль шрифта. */ val style: PreviewFontStyle = PreviewFontStyle.NORMAL,
+)
+
 /** Нормализованное значение токена, готовое к использованию renderer. */
 @Serializable
 public sealed interface TokenValue {
@@ -47,16 +84,47 @@ public sealed interface TokenValue {
     @SerialName("shadow")
     public data class Shadow(/** Слои тени. */ val layers: List<ShadowLayer>) : TokenValue
 
+    /** Семейство runtime-шрифтов. */
+    @Serializable
+    @SerialName("fontFamily")
+    public data class FontFamily(
+        /** Доступные начертания семейства. */ val faces: List<PreviewFontFace>,
+        /** Разрешить системный fallback при недоступности font asset. */ val allowFallback: Boolean = false,
+    ) : TokenValue
+
     /** Параметры текста. */
     @Serializable
     @SerialName("typography")
     public data class Typography(
-        /** Семейство шрифта. */ val fontFamily: String,
-        /** Размер шрифта в dp. */ val fontSize: Double,
-        /** Высота строки в dp. */ val lineHeight: Double,
+        /** Идентификатор font-family token. */ val fontFamilyTokenId: String,
+        /** Размер шрифта в sp. */ val fontSize: Double,
+        /** Высота строки в sp. */ val lineHeight: Double,
+        /** Межбуквенный интервал в sp. */ val letterSpacing: Double,
         /** Вес шрифта. */ val weight: Int,
     ) : TokenValue
 }
+
+/** Источник effective-значения component property. */
+@Serializable
+public sealed interface PreviewPropertySource {
+    /** Нормализованное literal-значение. */
+    @Serializable
+    @SerialName("literal")
+    public data class Literal(/** Значение без platform UI типов. */ val value: JsonElement) : PreviewPropertySource
+
+    /** Ссылка на token из [PreviewPayload.theme]. */
+    @Serializable
+    @SerialName("tokenRef")
+    public data class TokenReference(/** Идентификатор token. */ val tokenId: String) : PreviewPropertySource
+}
+
+/** Effective-значение property с необязательными значениями interaction states. */
+@Serializable
+public data class PreviewPropertyValue(
+    /** Базовое значение. */ val base: PreviewPropertySource,
+    /** Вычисленные значения по идентификаторам interaction states. */
+    val states: Map<String, PreviewPropertySource> = emptyMap(),
+)
 
 /** Один слой тени. */
 @Serializable
@@ -72,7 +140,7 @@ public data class ShadowLayer(
 public data class PreviewComponent(
     /** Идентификатор компонента. */ val id: String,
     /** Выбранные styles по variation axes. */ val variations: Map<String, String> = emptyMap(),
-    /** Вычисленные component properties. */ val properties: Map<String, JsonElement> = emptyMap(),
+    /** Вычисленные component properties. */ val properties: Map<String, PreviewPropertyValue> = emptyMap(),
 )
 
 /** Runtime-данные демонстрационного экземпляра. */
@@ -96,6 +164,7 @@ public data class PreviewPayload(
     /** Версия протокола. */ val protocolVersion: Int = PREVIEW_PROTOCOL_VERSION,
     /** Идентификатор render request. */ val requestId: String,
     /** Платформа renderer. */ val platform: PreviewPlatform,
+    /** Runtime-ресурсы, необходимые renderer. */ val assets: List<PreviewAsset> = emptyList(),
     /** Вычисленные значения темы по token ID. */ val theme: Map<String, TokenValue>,
     /** Effective-конфигурация компонента. */ val component: PreviewComponent,
     /** Runtime-данные примера. */ val example: PreviewExample,

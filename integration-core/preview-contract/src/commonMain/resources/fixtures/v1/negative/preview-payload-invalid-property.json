@@ -1,0 +1,8 @@
+{
+  "protocolVersion": 1,
+  "requestId": "request-invalid-property",
+  "platform": "COMPOSE",
+  "theme": {},
+  "component": { "id": "button", "properties": { "color": { "base": { "type": "tokenRef" } } } },
+  "example": { "id": "default" }
+}

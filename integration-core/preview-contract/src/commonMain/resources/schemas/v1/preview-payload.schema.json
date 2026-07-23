@@ -7,49 +7,53 @@
     "protocolVersion": { "const": 1 },
     "requestId": { "type": "string", "minLength": 1 },
     "platform": { "enum": ["ANDROID", "COMPOSE", "WEB", "IOS"] },
-    "theme": {
-      "type": "object",
-      "additionalProperties": { "$ref": "#/$defs/tokenValue" }
-    },
+    "assets": { "type": "array", "items": { "$ref": "#/$defs/asset" } },
+    "theme": { "type": "object", "additionalProperties": { "$ref": "#/$defs/tokenValue" } },
     "component": {
-      "type": "object",
-      "required": ["id"],
+      "type": "object", "required": ["id"],
       "properties": {
         "id": { "type": "string", "minLength": 1 },
         "variations": { "type": "object", "additionalProperties": { "type": "string" } },
-        "properties": { "type": "object" }
-      },
-      "additionalProperties": false
+        "properties": { "type": "object", "additionalProperties": { "$ref": "#/$defs/propertyValue" } }
+      }, "additionalProperties": false
     },
     "example": {
-      "type": "object",
-      "required": ["id"],
-      "properties": {
-        "id": { "type": "string", "minLength": 1 },
-        "props": { "type": "object" }
-      },
+      "type": "object", "required": ["id"],
+      "properties": { "id": { "type": "string", "minLength": 1 }, "props": { "type": "object" } },
       "additionalProperties": false
     },
     "surface": {
-      "type": "object",
-      "required": ["width", "height"],
-      "properties": {
-        "width": { "type": "integer", "minimum": 1 },
-        "height": { "type": "integer", "minimum": 1 },
-        "background": { "type": "string" }
-      },
+      "type": "object", "required": ["width", "height"],
+      "properties": { "width": { "type": "integer", "minimum": 1 }, "height": { "type": "integer", "minimum": 1 }, "background": { "type": "string" } },
       "additionalProperties": false
     }
   },
   "additionalProperties": true,
   "$defs": {
+    "asset": {
+      "type": "object", "required": ["id", "type", "url"],
+      "properties": { "id": { "type": "string", "minLength": 1 }, "type": { "enum": ["TTF", "OTF"] }, "url": { "type": "string", "minLength": 1 }, "digest": { "type": "string", "minLength": 1 } },
+      "additionalProperties": false
+    },
+    "propertySource": {
+      "oneOf": [
+        { "type": "object", "required": ["type", "value"], "properties": { "type": { "const": "literal" }, "value": {} }, "additionalProperties": false },
+        { "type": "object", "required": ["type", "tokenId"], "properties": { "type": { "const": "tokenRef" }, "tokenId": { "type": "string", "minLength": 1 } }, "additionalProperties": false }
+      ]
+    },
+    "propertyValue": {
+      "type": "object", "required": ["base"],
+      "properties": { "base": { "$ref": "#/$defs/propertySource" }, "states": { "type": "object", "additionalProperties": { "$ref": "#/$defs/propertySource" } } },
+      "additionalProperties": false
+    },
     "tokenValue": {
       "oneOf": [
-        { "type": "object", "required": ["type", "value"], "properties": { "type": { "const": "color" }, "value": { "type": "string" } }, "additionalProperties": false },
+        { "type": "object", "required": ["type", "value"], "properties": { "type": { "const": "color" }, "value": { "type": "string", "pattern": "^#[0-9A-Fa-f]{8}$" } }, "additionalProperties": false },
         { "type": "object", "required": ["type", "value"], "properties": { "type": { "const": "dimension" }, "value": { "type": "number" } }, "additionalProperties": false },
-        { "type": "object", "required": ["type", "cornerRadii"], "properties": { "type": { "const": "shape" }, "cornerRadii": { "type": "array", "items": { "type": "number" } } }, "additionalProperties": false },
+        { "type": "object", "required": ["type", "cornerRadii"], "properties": { "type": { "const": "shape" }, "cornerRadii": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "number" } } }, "additionalProperties": false },
         { "type": "object", "required": ["type", "layers"], "properties": { "type": { "const": "shadow" }, "layers": { "type": "array", "items": { "type": "object", "required": ["x", "y", "blur", "color"], "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "blur": { "type": "number" }, "color": { "type": "string" } }, "additionalProperties": false } } }, "additionalProperties": false },
-        { "type": "object", "required": ["type", "fontFamily", "fontSize", "lineHeight", "weight"], "properties": { "type": { "const": "typography" }, "fontFamily": { "type": "string" }, "fontSize": { "type": "number" }, "lineHeight": { "type": "number" }, "weight": { "type": "integer" } }, "additionalProperties": false }
+        { "type": "object", "required": ["type", "faces"], "properties": { "type": { "const": "fontFamily" }, "faces": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["assetId", "weight"], "properties": { "assetId": { "type": "string", "minLength": 1 }, "weight": { "type": "integer", "minimum": 1, "maximum": 1000 }, "style": { "enum": ["NORMAL", "ITALIC"] } }, "additionalProperties": false } }, "allowFallback": { "type": "boolean" } }, "additionalProperties": false },
+        { "type": "object", "required": ["type", "fontFamilyTokenId", "fontSize", "lineHeight", "letterSpacing", "weight"], "properties": { "type": { "const": "typography" }, "fontFamilyTokenId": { "type": "string", "minLength": 1 }, "fontSize": { "type": "number" }, "lineHeight": { "type": "number" }, "letterSpacing": { "type": "number" }, "weight": { "type": "integer", "minimum": 1, "maximum": 1000 } }, "additionalProperties": false }
       ]
     }
   }
