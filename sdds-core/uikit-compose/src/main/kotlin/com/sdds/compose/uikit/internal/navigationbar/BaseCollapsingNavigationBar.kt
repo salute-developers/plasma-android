@@ -144,12 +144,16 @@ internal fun BaseCollapsingNavBar(
                 progress = appBarBackgroundProgress,
             ),
     ) {
-        Box {
+        Box(
+            modifier = Modifier.windowInsetsPadding(
+                windowInsets.only(WindowInsetsSides.Top),
+            ),
+        ) {
             // Верхний контент
             CollapsingNavBarLayout(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .windowInsetsPadding(windowInsets)
+                    .windowInsetsPadding(windowInsets.only(WindowInsetsSides.Horizontal))
                     .clipToBounds(),
                 offsetPx = { 0f },
                 alpha = { collapsedAlpha },
