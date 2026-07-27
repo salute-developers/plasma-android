@@ -75,6 +75,15 @@ await window.submitPreviewPayload(JSON.stringify(payload));
 Результат — существующий `PreviewResult.Success` или `PreviewResult.Failure` с тем же
 `requestId`.
 
+Описание controls зарегистрированной story доступно независимо от render state:
+
+```javascript
+const result = await window.describePreviewComponent("BasicButton");
+if (result.type === "success") {
+  console.log(result.description.properties);
+}
+```
+
 ### iframe и postMessage
 
 Host может загрузить плагин в iframe:
@@ -126,6 +135,27 @@ window.addEventListener("message", (event) => {
 });
 ```
 
+Для получения description через iframe host отправляет отдельный коррелированный request:
+
+```javascript
+iframe.contentWindow.postMessage(
+  {
+    type: "sdds.preview.describe",
+    requestId: "describe-1",
+    componentId: "BasicButton",
+  },
+  "https://preview.example.com",
+);
+
+window.addEventListener("message", (event) => {
+  if (event.source !== iframe.contentWindow) return;
+  if (event.data?.type !== "sdds.preview.description") return;
+  console.log(event.data.result.requestId, event.data.result);
+});
+```
+
+Describe requests имеют собственный lifecycle и не отменяют render requests.
+
 Каждый host request должен иметь уникальный непустой `requestId`. Следующий полный payload
 заменяет предыдущие theme, component properties и example state без перезапуска Wasm application.
 Если более старый запрос заканчивает подготовку после нового, он получает failure с code
@@ -169,8 +199,9 @@ const manifest = await fetch(
 ```
 
 Текущий идентификатор plugin: `sdds.compose.preview`, версия Preview Protocol: `1`.
-`payloadBridge` объявляет direct API и три transport message types:
-`sdds.preview.payload`, `sdds.preview.ready` и `sdds.preview.result`.
+`payloadBridge` объявляет direct render/describe API и transport message types:
+`sdds.preview.payload`, `sdds.preview.ready`, `sdds.preview.result`,
+`sdds.preview.describe` и `sdds.preview.description`.
 
 ## Проверка production artifact
 

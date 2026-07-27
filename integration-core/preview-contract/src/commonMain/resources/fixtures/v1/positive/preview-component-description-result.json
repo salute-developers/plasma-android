@@ -1,0 +1,21 @@
+{
+  "type": "success",
+  "requestId": "describe-1",
+  "description": {
+    "protocolVersion": 1,
+    "componentId": "BasicButton",
+    "storyId": "BasicButton",
+    "properties": [
+      { "type": "string", "name": "label", "defaultValue": "label" },
+      { "type": "boolean", "name": "enabled", "defaultValue": true },
+      { "type": "int", "name": "count", "defaultValue": 1 },
+      { "type": "float", "name": "progress", "defaultValue": 0.5 },
+      {
+        "type": "singleChoice",
+        "name": "icon",
+        "defaultValue": "Start",
+        "variants": ["Start", "End", "No"]
+      }
+    ]
+  }
+}

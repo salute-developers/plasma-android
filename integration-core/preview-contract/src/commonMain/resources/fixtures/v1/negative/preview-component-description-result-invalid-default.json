@@ -1,0 +1,12 @@
+{
+  "type": "success",
+  "requestId": "describe-1",
+  "description": {
+    "protocolVersion": 1,
+    "componentId": "BasicButton",
+    "storyId": "BasicButton",
+    "properties": [
+      { "type": "boolean", "name": "enabled", "defaultValue": "true" }
+    ]
+  }
+}

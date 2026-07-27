@@ -20,6 +20,7 @@ class SchemaContractTest {
     fun `canonical fixtures conform to schema and survive Kotlin round trip`() {
         roundTrip<PreviewPayload>("preview-payload")
         roundTrip<PreviewResult>("preview-result")
+        roundTrip<PreviewComponentDescriptionResult>("preview-component-description-result")
     }
 
     @Test
@@ -28,11 +29,16 @@ class SchemaContractTest {
         assertInvalid("preview-result", "preview-result-invalid-type", "$.type")
         assertInvalid("preview-payload", "preview-payload-invalid-font-asset", "$.assets[0].type")
         assertInvalid("preview-payload", "preview-payload-invalid-property", "$.component.properties.color.base")
+        assertInvalid(
+            "preview-component-description-result",
+            "preview-component-description-result-invalid-default",
+            "$.description.properties[0].defaultValue",
+        )
     }
 
     @Test
     fun `schemas and fixtures are packaged as resources`() {
-        listOf("preview-payload", "preview-result").forEach {
+        listOf("preview-payload", "preview-result", "preview-component-description-result").forEach {
             assertTrue(resource("schemas/v1/$it.schema.json").isNotBlank())
             assertTrue(resource("fixtures/v1/positive/$it.json").isNotBlank())
         }

@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en">
-<body>
+<body style="margin:0;background:rgb(231, 44, 91)">
 <iframe id="plugin" src="/index.html"></iframe>
 <pre id="result">running</pre>
 <script>
     const output = document.getElementById("result");
     const iframe = document.getElementById("plugin");
     const waiters = new Map();
+    const descriptionWaiters = new Map();
     let readyResolve;
     const ready = new Promise((resolve) => readyResolve = resolve);
 
@@ -17,6 +18,9 @@
         } else if (event.data?.type === "sdds.preview.result") {
             waiters.get(event.data.result.requestId)?.(event.data.result);
             waiters.delete(event.data.result.requestId);
+        } else if (event.data?.type === "sdds.preview.description") {
+            descriptionWaiters.get(event.data.result.requestId)?.(event.data.result);
+            descriptionWaiters.delete(event.data.result.requestId);
         }
     });
 
@@ -24,6 +28,16 @@
         return new Promise((resolve) => {
             waiters.set(payload.requestId, resolve);
             iframe.contentWindow.postMessage({type: "sdds.preview.payload", payload}, location.origin);
+        });
+    }
+
+    function describe(componentId, requestId) {
+        return new Promise((resolve) => {
+            descriptionWaiters.set(requestId, resolve);
+            iframe.contentWindow.postMessage(
+                {type: "sdds.preview.describe", requestId, componentId},
+                location.origin,
+            );
         });
     }
 
@@ -36,6 +50,66 @@
         assert(readyMessage.protocolVersion === 1, "ready protocolVersion");
         const fixtureText = await fetch("/canonical-basic-button.json").then((response) => response.text());
         const fixture = JSON.parse(fixtureText.replaceAll("__BASE_URL__", location.origin));
+        const directDescription = await iframe.contentWindow.describePreviewComponent("BasicButton");
+        assert(directDescription.type === "success", "direct description success");
+        const description = directDescription.description;
+        assert(
+            JSON.stringify(description.properties) === JSON.stringify([
+                {type: "string", name: "label", defaultValue: "label"},
+                {type: "string", name: "value", defaultValue: ""},
+                {type: "singleChoice", name: "icon", defaultValue: "Start", variants: ["Start", "End", "No"]},
+                {
+                    type: "singleChoice",
+                    name: "spacing",
+                    defaultValue: "Packed",
+                    variants: ["Packed", "SpaceBetween"],
+                },
+                {type: "boolean", name: "hasFixedWidth", defaultValue: false},
+                {type: "boolean", name: "enabled", defaultValue: true},
+                {type: "boolean", name: "loading", defaultValue: false},
+            ]),
+            "exact BasicButton properties",
+        );
+        const messageDescription = await describe("BasicButton", "describe-message");
+        assert(messageDescription.type === "success", "message description success");
+        assert(messageDescription.requestId === "describe-message", "description correlation");
+        const unknownDescription = await describe("Missing", "describe-missing");
+        assert(
+            unknownDescription.type === "failure" && unknownDescription.code === "unknown_component",
+            "unknown component failure",
+        );
+        const duplicateResults = [];
+        const duplicateDone = new Promise((resolve) => {
+            const listener = (event) => {
+                if (
+                    event.source !== iframe.contentWindow ||
+                    event.data?.type !== "sdds.preview.description" ||
+                    event.data.result.requestId !== "describe-duplicate"
+                ) return;
+                duplicateResults.push(event.data.result);
+                if (duplicateResults.length === 2) {
+                    removeEventListener("message", listener);
+                    resolve();
+                }
+            };
+            addEventListener("message", listener);
+        });
+        const duplicateEnvelope = {
+            type: "sdds.preview.describe",
+            requestId: "describe-duplicate",
+            componentId: "BasicButton",
+        };
+        iframe.contentWindow.postMessage(duplicateEnvelope, location.origin);
+        iframe.contentWindow.postMessage(duplicateEnvelope, location.origin);
+        await duplicateDone;
+        assert(
+            duplicateResults.some((result) => result.type === "success") &&
+            duplicateResults.some((result) => result.code === "duplicate_request"),
+            "duplicate describe request",
+        );
+        await new Promise((resolve) => setTimeout(resolve, 0));
+        const reusedDescription = await describe("BasicButton", "describe-duplicate");
+        assert(reusedDescription.type === "success", "describe pending cleanup");
 
         const startedAt = performance.now();
         const first = await send(fixture);
@@ -45,6 +119,22 @@
             iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-first",
             "first render marker",
         );
+        const propertyValues = {
+            label: "Changed label",
+            value: "Changed value",
+            icon: "End",
+            spacing: "SpaceBetween",
+            hasFixedWidth: true,
+            enabled: false,
+            loading: true,
+        };
+        for (const property of description.properties) {
+            const payload = structuredClone(fixture);
+            payload.requestId = `property-${property.name}`;
+            payload.example.props[property.name] = propertyValues[property.name];
+            const propertyResult = await send(payload);
+            assert(propertyResult.type === "success", `property ${property.name} success`);
+        }
 
         const secondPayload = structuredClone(fixture);
         secondPayload.requestId = "button-second";

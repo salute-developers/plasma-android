@@ -1,5 +1,6 @@
 package com.sdds.preview.compose
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
@@ -47,11 +48,15 @@ public fun PreviewPayload.prepareComposeTheme(
 ): PreparedComposeTheme {
     val colors = theme.mapNotNullValues { (it as? TokenValue.Color)?.value?.toComposeColorOrNull() }
     val dimensions = theme.mapNotNullValues { (it as? TokenValue.Dimension)?.value?.dp }
-    val shapes = theme.mapNotNullValues { value ->
-        (value as? TokenValue.Shape)?.cornerRadii?.takeIf { it.size == 4 }?.let {
-            RoundedCornerShape(it[0].dp, it[1].dp, it[2].dp, it[3].dp)
+    val shapes = theme.mapNotNull { (id, value) ->
+        val shape = when {
+            id == "round.circle" -> CircleShape
+            else -> (value as? TokenValue.Shape)?.cornerRadii?.takeIf { it.size == 4 }?.let {
+                RoundedCornerShape(it[0].dp, it[1].dp, it[2].dp, it[3].dp)
+            }
         }
-    }
+        shape?.let { id to it }
+    }.toMap()
     val shadows = theme.mapNotNullValues { value ->
         (value as? TokenValue.Shadow)?.layers?.mapNotNull { layer ->
             layer.color.toComposeColorOrNull()?.let { Shadow(color = it, blurRadius = layer.blur.toFloat()) }
@@ -101,10 +106,15 @@ public suspend fun PreviewPayload.prepareComposeTheme(
     return prepareComposeTheme(families)
 }
 
-/** Преобразует `#RRGGBBAA` в Compose ARGB [Color]. */
+/** Преобразует `#RRGGBB` или `#RRGGBBAA` в Compose ARGB [Color]. */
 public fun String.toComposeColorOrNull(): Color? {
-    if (length != 9 || firstOrNull() != '#') return null
-    val rgba = drop(1).toULongOrNull(16) ?: return null
+    if (firstOrNull() != '#') return null
+    val rgbaText = when (length) {
+        7 -> "${drop(1)}FF"
+        9 -> drop(1)
+        else -> return null
+    }
+    val rgba = rgbaText.toULongOrNull(16) ?: return null
     val argb = ((rgba and 0xFFu) shl 24) or (rgba shr 8)
     return Color(argb.toLong())
 }
