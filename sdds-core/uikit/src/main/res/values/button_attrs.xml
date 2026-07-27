@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<!-- Namespace sdds: размечает API компонента для генератора стилей. См. VIEW_API_MARKUP.md -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_iconButtonStyle" format="reference" />
     <attr name="sd_linkButtonStyle" format="reference" />
@@ -9,7 +11,7 @@
         Компонент "Кнопка".
         Умеет отображать иконку, индикатор загрузки, а также два текста: основной и дополнительный.
       -->
-    <declare-styleable name="Button" tools:ignore="ResourceName">
+    <declare-styleable name="Button" tools:ignore="ResourceName" sdds:api_info="Button" sdds:api_framework="height=android:minHeight:dimension;minWidth=android:minWidth:dimension;paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;labelStyle=android:textAppearance:typography;labelColor=android:textColor:color">
         <attr name="android:insetLeft" />
         <attr name="android:insetTop" />
         <attr name="android:insetRight" />
@@ -18,9 +20,9 @@
         <!-- Дополнительный текст кнопки -->
         <attr name="sd_value" format="string" />
         <!--  Цвет дополнительного текста      -->
-        <attr name="sd_valueTextColor" format="reference|color" />
+        <attr name="sd_valueTextColor" format="reference|color" sdds:api_name="valueColor" />
         <!-- Отступ между основным и дополнительным текстом -->
-        <attr name="sd_valuePadding" format="dimension" />
+        <attr name="sd_valuePadding" format="dimension" sdds:api_name="valueMargin" />
         <!-- Режим обработки расстояния между основным и дополнительным текстами -->
         <attr name="sd_spacing" format="enum">
             <!-- Отступ между текстами минимальный, но не менее valuePadding -->
@@ -30,11 +32,11 @@
         </attr>
 
         <!-- Иконка кнопки -->
-        <attr name="sd_icon" format="reference" />
+        <attr name="sd_icon" format="reference" sdds:api_type="icon" />
         <!-- Окрас иконки кнопки -->
-        <attr name="sd_iconTint" format="reference|color" />
+        <attr name="sd_iconTint" format="reference|color" sdds:api_name="iconColor" />
         <!-- Отступ между иконкой и текстом кнопки -->
-        <attr name="sd_iconPadding" format="dimension" />
+        <attr name="sd_iconPadding" format="dimension" sdds:api_name="iconMargin" />
         <!--
             Размер иконки кнопки.
             Если sd_iconSize == 0, то будет использована внутрення ширина иконки (Drawable.getIntrinsicWidth)
@@ -53,12 +55,12 @@
         <!-- Толщина линии индикатора загрузки -->
         <attr name="sd_spinnerStrokeWidth" format="dimension" />
         <!-- Окрас индикатора загрузки -->
-        <attr name="sd_spinnerTint" format="reference|color" />
+        <attr name="sd_spinnerTint" format="reference|color" sdds:api_name="spinnerColor" />
 
-        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <attr name="sd_strokeColor" />
         <attr name="sd_strokeWidth" />
-        <attr name="sd_disabledAlpha" />
+        <attr name="sd_disabledAlpha" sdds:api_name="disableAlpha" />
         <attr name="android:checkable" />
         <attr name="android:checked" />
         <attr name="sd_fsAdditionalColor" />
@@ -74,15 +76,15 @@
     <!-- Компонент - "Группа кнопок". Отображает такие компоненты как Button, IconButton.
          Имеет собственную форму скругления углов, а так же форму скругления дочерних компонентов.
      -->
-    <declare-styleable name="ButtonGroup" tools:ignore="ResourceName">
+    <declare-styleable name="ButtonGroup" sdds:api_info="ButtonGroup" tools:ignore="ResourceName">
         <!-- Оверлэй стиль кнопки -->
-        <attr name="sd_buttonStyleOverlay" format="reference" />
+        <attr name="sd_buttonStyleOverlay" sdds:api_name="buttonStyle" format="reference" />
         <!-- Форма скруглений наружних углов у крайних элементов группы -->
         <attr name="sd_externalShapeAppearance" format="reference" />
         <!-- Форма скруглений углов элементов группы -->
         <attr name="sd_internalShapeAppearance" format="reference" />
         <!-- Отступ между элементами внутри группы -->
-        <attr name="sd_buttonSpacing" format="dimension" />
+        <attr name="sd_buttonSpacing" sdds:api_name="spacing" format="dimension" />
     </declare-styleable>
 
 </resources>

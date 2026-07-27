@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_indicatorStyle" format="reference" />
 
-    <declare-styleable name="Indicator" tools:ignore="ResourceName">
+    <declare-styleable name="Indicator" sdds:api_info="Indicator" tools:ignore="ResourceName">
         <attr name="android:maxHeight" />
         <attr name="android:maxWidth" />
         <attr name="sd_shapeAppearance"/>

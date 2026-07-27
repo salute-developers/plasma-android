@@ -34,7 +34,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
         val extension = project.themeBuilderExt()
         project.configureSourceSets()
 
-        val readUikitApiMetaTask = project.registerApiMetaTask()
+        val readUikitComposeApiMetaTask = project.registerUikitComposeApiMetaTask()
+        val readUikitApiMetaTask = project.registerUikitApiMetaTask()
 
         project.afterEvaluate {
             val compileClasspath = listOf(
@@ -42,6 +43,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 "releaseCompileClasspath",
                 "compileClasspath",
             ).firstNotNullOfOrNull { project.configurations.findByName(it) } ?: return@afterEvaluate
+            readUikitComposeApiMetaTask.configureUikitComposeApiMetaTask(compileClasspath)
             readUikitApiMetaTask.configureUikitApiMetaTask(compileClasspath)
 
             project.registerClean(extension)
@@ -85,11 +87,27 @@ class ThemeBuilderPlugin : Plugin<Project> {
             )
 
             val fetchComponentsTask = registerFetchAndUnzipComponents(extension, componentsZip)
-            fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it, readUikitApiMetaTask) }
+            fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it, readUikitComposeApiMetaTask) }
         }
     }
 
-    private fun Project.registerApiMetaTask() = tasks.register(
+    private fun Project.registerUikitComposeApiMetaTask() = tasks.register(
+        "readUikitComposeApiMeta",
+        UikitComposeApiMetaTask::class.java,
+    ) {
+        group = TASK_GROUP
+        outputFile.set(layout.buildDirectory.file("$COMPONENTS_PATH/uikit-compose-api-meta.json"))
+    }
+
+    private fun TaskProvider<UikitComposeApiMetaTask>.configureUikitComposeApiMetaTask(
+        compileClasspath: Configuration,
+    ) {
+        configure {
+            metaClasspath.from(compileClasspath.jarArtifactFiles())
+        }
+    }
+
+    private fun Project.registerUikitApiMetaTask() = tasks.register(
         "readUikitApiMeta",
         UikitApiMetaTask::class.java,
     ) {
@@ -99,19 +117,20 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
     private fun TaskProvider<UikitApiMetaTask>.configureUikitApiMetaTask(compileClasspath: Configuration) {
         configure {
-            metaClasspath.from(
-                compileClasspath.incoming.artifactView {
-                    attributes {
-                        attribute(
-                            Attribute.of("artifactType", String::class.java),
-                            "jar",
-                        )
-                    }
-                    isLenient = true
-                }.files,
-            )
+            metaClasspath.from(compileClasspath.jarArtifactFiles())
         }
     }
+
+    private fun Configuration.jarArtifactFiles() =
+        incoming.artifactView {
+            attributes {
+                attribute(
+                    Attribute.of("artifactType", String::class.java),
+                    "jar",
+                )
+            }
+            isLenient = true
+        }.files
 
     private fun Project.registerClean(extension: ThemeBuilderExtension): TaskProvider<CleanThemeTask> {
         return project.tasks.register<CleanThemeTask>("cleanTheme") {
@@ -171,7 +190,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun Project.registerGenerateComponentsTask(
         extension: ThemeBuilderExtension,
         fetchComponentsTask: TaskProvider<Copy>,
-        readUikitApiMetaTask: TaskProvider<UikitApiMetaTask>,
+        readUikitComposeApiMetaTask: TaskProvider<UikitComposeApiMetaTask>,
     ) {
         val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
             group = TASK_GROUP
@@ -188,9 +207,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
             namespace.set(getProjectNameSpace())
             target.set(extension.target)
             componentsMetaStyleClass.set(extension.componentsMetaStyleClass)
-            uikitApiMetaFile.set(readUikitApiMetaTask.flatMap { it.outputFile })
+            uikitComposeApiMetaFile.set(readUikitComposeApiMetaTask.flatMap { it.outputFile })
         }
-        task.dependsOn(fetchComponentsTask, readUikitApiMetaTask)
+        task.dependsOn(fetchComponentsTask, readUikitComposeApiMetaTask)
     }
 
     private fun Project.registerThemeBuilder(

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_imageViewStyle" format="reference" />
     <!--
        Компонент для отображения изображений.
        Поддерживает изменение формы, установку отступов только для контента (без фона),
        а также отрисовку границы.
        -->
-    <declare-styleable name="ImageView" tools:ignore="ResourceName">
+    <declare-styleable name="ImageView" sdds:api_info="ImageView" tools:ignore="ResourceName">
         <!-- Внутренние отступы для контента (изображения) -->
         <attr name="sd_contentPadding" format="dimension" />
         <!-- Внутренний отступ контента в начале -->

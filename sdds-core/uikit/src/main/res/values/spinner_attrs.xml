@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_spinnerStyle" format="reference" />
 
-    <declare-styleable name="Spinner" tools:ignore="ResourceName">
+    <declare-styleable name="Spinner" sdds:api_info="Spinner" sdds:api_framework="padding=android:padding:dimension" tools:ignore="ResourceName">
 
         <!-- Толщина линии индикатора загрузки -->
         <attr name="sd_strokeWidth" />
@@ -20,7 +21,7 @@
             <enum name="square" value="1" />
         </attr>
         <!-- Угол дуги индикатора загрузки в градусах, определяет какую часть окружности занимает индикатор -->
-        <attr name="sd_sweepAngle" format="float" />
+        <attr name="sd_sweepAngle" sdds:api_name="angle" format="float" />
         <attr name="android:padding" />
         <attr name="android:maxHeight" />
         <attr name="android:maxWidth" />

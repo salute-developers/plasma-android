@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_popoverStyle" format="reference" />
 
-    <declare-styleable name="Popover" tools:ignore="ResourceName">
+    <declare-styleable name="Popover" sdds:api_info="Popover" sdds:api_framework="width=android:minWidth:dimension" tools:ignore="ResourceName">
         <attr name="sd_offset" format="dimension" />
         <attr name="sd_clipWidth" format="boolean" />
         <attr name="sd_clipHeight" format="boolean" />
         <attr name="sd_shadowAppearance" />
-        <attr name="sd_background" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" />
 
         <attr name="sd_shapeAppearance" />
         <attr name="sd_shapeAppearanceAdjustment" />
         <attr name="sd_strokeWidth" />
         <attr name="sd_strokeColor" />
         <attr name="sd_clipToOutline" />
-        <attr name="sd_shapeTailWidth" />
-        <attr name="sd_shapeTailHeight" />
+        <attr name="sd_shapeTailWidth" sdds:api_name="tailWidth" />
+        <attr name="sd_shapeTailHeight" sdds:api_name="tailHeight" />
         <attr name="sd_shapeTailOffset" />
         <attr name="sd_shapeTailEnabled" />
         <attr name="sd_shapeTailPlacement" />

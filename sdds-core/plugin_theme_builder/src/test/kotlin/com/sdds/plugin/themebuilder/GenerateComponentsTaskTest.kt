@@ -112,7 +112,7 @@ class GenerateComponentsTaskTest {
     @Test
     fun `generate при target compose и несуществующем uikitMetaFile не падает`() {
         val (task, projectDir) = createConfigureTask()
-        task.uikitApiMetaFile.set(projectDir.resolve("missing-uikit-meta.json"))
+        task.uikitComposeApiMetaFile.set(projectDir.resolve("missing-uikit-meta.json"))
 
         task.generate()
 

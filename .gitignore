@@ -22,6 +22,10 @@ misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
 
+# Xcode user-specific files
+**/xcuserdata/
+*.xcuserstate
+
 # Keystore files
 *.jks
 *.keystore

@@ -1,7 +1,7 @@
 package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
-import com.sdds.plugin.themebuilder.internal.universal.ComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.view.ComponentMeta
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.decodeFromStream
 import kotlinx.serialization.json.encodeToStream
@@ -19,8 +19,10 @@ import java.util.zip.ZipFile
  * Gradle-задача для поиска и чтения файлов метаданных
  * `uikit-api-meta.json` из зависимостей classpath.
  *
- * Парсит найденный JSON в список [ComponentMeta] и записывает его в [outputFile].
- * Если файл не найден, записывает пустой массив.
+ * Зеркалит [UikitComposeApiMetaTask]: сканирует jar-артефакты classpath, находит
+ * `sdds/api/uikit-api-meta.json` (упакованный producer-плагином в classes.jar
+ * модуля `uikit`), парсит его в список [ComponentMeta] и записывает
+ * в [outputFile]. Если файл не найден, записывает пустой массив.
  */
 internal abstract class UikitApiMetaTask : DefaultTask() {
 

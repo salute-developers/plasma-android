@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_carouselStyle" format="reference" />
 
     <item name="sd_carouselNextButtonId" type="id"/>
     <item name="sd_carouselPrevButtonId" type="id"/>
 
-    <declare-styleable name="Carousel" tools:ignore="ResourceName">
-        <attr name="sd_paginationDotsStyleOverlay" format="reference" />
-        <attr name="sd_nextButtonStyleOverlay" format="reference" />
-        <attr name="sd_prevButtonStyleOverlay" format="reference" />
+    <declare-styleable name="Carousel" sdds:api_info="Carousel" tools:ignore="ResourceName">
+        <attr name="sd_paginationDotsStyleOverlay" sdds:api_name="indicatorStyle" format="reference" />
+        <attr name="sd_nextButtonStyleOverlay" sdds:api_name="nextButtonStyle" format="reference" />
+        <attr name="sd_prevButtonStyleOverlay" sdds:api_name="prevButtonStyle" format="reference" />
 
         <attr name="sd_indicatorVisibleItemCount" format="integer" />
         <attr name="sd_indicatorEnabled" format="boolean" />
@@ -20,7 +21,7 @@
         <attr name="sd_prevButtonPadding" format="dimension" />
         <attr name="sd_prevButtonIcon" format="dimension" />
         <attr name="sd_controlsEnabled"/>
-        <attr name="sd_controlsPlacement" format="enum">
+        <attr name="sd_controlsPlacement" sdds:api_name="buttonsPlacement" format="enum">
             <enum name="inner" value="0"/>
             <enum name="outer" value="1"/>
         </attr>

@@ -16,10 +16,10 @@ import com.google.devtools.ksp.symbol.KSFile
 import com.google.devtools.ksp.symbol.KSFunctionDeclaration
 import com.google.devtools.ksp.symbol.KSType
 import com.google.devtools.ksp.symbol.KSValueParameter
-import com.sdds.api.info.ksp.internal.ComponentMeta
-import com.sdds.api.info.ksp.internal.EnumValueInfo
-import com.sdds.api.info.ksp.internal.ParameterMeta
-import com.sdds.api.info.ksp.internal.StateEnum
+import com.sdds.api.info.ksp.internal.ComposeComponentMeta
+import com.sdds.api.info.ksp.internal.ComposeEnumValueInfo
+import com.sdds.api.info.ksp.internal.ComposeParameterMeta
+import com.sdds.api.info.ksp.internal.ComposeStateEnum
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.IOException
@@ -45,7 +45,7 @@ class ApiInfoProcessorProvider : SymbolProcessorProvider {
  * - формирует JSON-файл с описанием компонентов.
  *
  * Результат сохраняется в файл:
- * `sdds/api/uikit-api-meta.json`.
+ * `sdds/api/uikit-compose-api-meta.json`.
  *
  * @property codeGenerator генератор файлов KSP.
  * @property logger логгер KSP.
@@ -72,7 +72,7 @@ class ApiInfoProcessor(
         UNKNOWN,
     }
 
-    private val components = mutableListOf<ComponentMeta>()
+    private val components = mutableListOf<ComposeComponentMeta>()
     private val sourceFiles = linkedSetOf<KSFile>()
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
@@ -102,11 +102,11 @@ class ApiInfoProcessor(
             codeGenerator.createNewFile(
                 dependencies = Dependencies(aggregating = true, *allSourceFiles),
                 packageName = "sdds/api",
-                fileName = "uikit-api-meta",
+                fileName = "uikit-compose-api-meta",
                 extensionName = "json",
             ).writer().use { it.write(json.encodeToString(components)) }
         } catch (e: FileAlreadyExistsException) {
-            logger.warn("uikit-api-meta.json already exists, skipping")
+            logger.warn("uikit-compose-api-meta.json already exists, skipping")
         } catch (e: IOException) {
             logger.error("Failed to write meta: ${e::class.simpleName}: ${e.message}")
         }
@@ -114,8 +114,8 @@ class ApiInfoProcessor(
 
     private fun processStyleBuilder(
         classDeclaration: KSClassDeclaration,
-        stateEnumsByComponent: Map<String, StateEnum>,
-    ): List<ComponentMeta> {
+        stateEnumsByComponent: Map<String, ComposeStateEnum>,
+    ): List<ComposeComponentMeta> {
         val qualifiedName = classDeclaration.qualifiedName?.asString() ?: return emptyList()
 
         val apiInfoAnnotation = classDeclaration.annotations
@@ -144,7 +144,7 @@ class ApiInfoProcessor(
         }
 
         val collectedTypes = linkedSetOf<String>()
-        val params = mutableListOf<ParameterMeta>()
+        val params = mutableListOf<ComposeParameterMeta>()
 
         classDeclaration.getDeclaredFunctions()
             .filter { it.simpleName.asString() !in SKIP_METHODS && !it.isDeprecated() }
@@ -165,7 +165,7 @@ class ApiInfoProcessor(
         val resolvedTypes = collectedTypes.sorted()
         val styleQualifiedName = classDeclaration.styleBuilderTypeArgQualifiedName()
         return componentNames.map { componentName ->
-            ComponentMeta(
+            ComposeComponentMeta(
                 componentName = componentName,
                 qualifiedName = qualifiedName,
                 resolvedTypes = resolvedTypes,
@@ -179,7 +179,7 @@ class ApiInfoProcessor(
         }
     }
 
-    private fun collectStateEnumsByComponent(resolver: Resolver): Map<String, StateEnum> =
+    private fun collectStateEnumsByComponent(resolver: Resolver): Map<String, ComposeStateEnum> =
         resolver
             .getSymbolsWithAnnotation(STATE_SET_INFO_ANNOTATION)
             .filterIsInstance<KSClassDeclaration>()
@@ -195,11 +195,11 @@ class ApiInfoProcessor(
             }
             .toMap()
 
-    private fun KSClassDeclaration.toStateEnum(): StateEnum {
+    private fun KSClassDeclaration.toStateEnum(): ComposeStateEnum {
         val qualifiedName = qualifiedName?.asString().orEmpty()
         val simpleName = simpleName.asString()
 
-        return StateEnum(
+        return ComposeStateEnum(
             qualifiedName = qualifiedName,
             simpleName = simpleName,
             values = declarations
@@ -208,7 +208,7 @@ class ApiInfoProcessor(
                 .map { enumEntry ->
                     val name = enumEntry.simpleName.asString()
 
-                    EnumValueInfo(
+                    ComposeEnumValueInfo(
                         name = name,
                         configName = enumEntry.apiNameAnnotation().ifBlank { name },
                     )
@@ -278,7 +278,7 @@ class ApiInfoProcessor(
         lambdaType: KSType,
         group: String,
         collectedTypes: LinkedHashSet<String>,
-    ): List<ParameterMeta> {
+    ): List<ComposeParameterMeta> {
         val receiverDeclaration = lambdaType.arguments
             .firstOrNull()
             ?.type
@@ -288,7 +288,7 @@ class ApiInfoProcessor(
 
         if (receiverDeclaration.classKind != ClassKind.INTERFACE) return emptyList()
 
-        val result = mutableListOf<ParameterMeta>()
+        val result = mutableListOf<ComposeParameterMeta>()
 
         receiverDeclaration
             .getDeclaredFunctions()
@@ -316,7 +316,7 @@ class ApiInfoProcessor(
         paramType: KSType,
         group: String,
         collectedTypes: LinkedHashSet<String>,
-    ): ParameterMeta? {
+    ): ComposeParameterMeta? {
         val actualQualifiedName = paramType.declaration.qualifiedName?.asString() ?: return null
         val actualSimpleName = paramType.declaration.simpleName.asString()
 
@@ -342,7 +342,7 @@ class ApiInfoProcessor(
         val paramName = param.name?.asString() ?: return null
         val methodName = func.simpleName.asString()
 
-        return ParameterMeta(
+        return ComposeParameterMeta(
             type = type.name.lowercase(),
             id = func.propertyName() ?: methodName,
             methodName = methodName,
@@ -361,7 +361,7 @@ class ApiInfoProcessor(
             ?.argumentValue<String>("name")
             ?.takeIf { it.isNotBlank() }
 
-    private fun extractEnumValues(paramType: KSType): List<EnumValueInfo> =
+    private fun extractEnumValues(paramType: KSType): List<ComposeEnumValueInfo> =
         (paramType.declaration as? KSClassDeclaration)
             ?.declarations
             ?.filterIsInstance<KSClassDeclaration>()
@@ -369,7 +369,7 @@ class ApiInfoProcessor(
             ?.map { enumEntry ->
                 val name = enumEntry.simpleName.asString()
                 val configName = enumEntry.apiNameAnnotation().ifBlank { name }
-                EnumValueInfo(name = name, configName = configName)
+                ComposeEnumValueInfo(name = name, configName = configName)
             }
             ?.toList()
             ?: emptyList()

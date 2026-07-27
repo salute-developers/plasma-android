@@ -5,12 +5,12 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 
 @Serializable
-internal data class ComponentMeta(
+internal data class ComposeComponentMeta(
     val componentName: String,
     val qualifiedName: String,
     val resolvedTypes: List<String>,
-    val params: List<ParameterMeta>,
-    val stateEnum: StateEnum?,
+    val params: List<ComposeParameterMeta>,
+    val stateEnum: ComposeStateEnum?,
     val packageName: String = "",
     val styleQualifiedName: String = "",
     val builderFunName: String = "",
@@ -19,7 +19,7 @@ internal data class ComponentMeta(
 )
 
 @Serializable
-internal data class ParameterMeta(
+internal data class ComposeParameterMeta(
     val type: String,
     val id: String,
     val methodName: String,
@@ -28,18 +28,18 @@ internal data class ParameterMeta(
     val paramSimpleType: String,
     val valueQualifiedType: String,
     val group: String,
-    val values: List<EnumValueInfo> = emptyList(),
+    val values: List<ComposeEnumValueInfo> = emptyList(),
 )
 
 @Serializable
-internal data class StateEnum(
+internal data class ComposeStateEnum(
     val qualifiedName: String,
     val simpleName: String,
-    val values: List<EnumValueInfo>,
+    val values: List<ComposeEnumValueInfo>,
 )
 
 @Serializable
-internal data class EnumValueInfo(
+internal data class ComposeEnumValueInfo(
     val name: String,
     val configName: String = name,
 )

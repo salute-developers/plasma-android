@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_segmentItemStyle" format="reference" />
     <attr name="sd_segmentStyle" format="reference" />
@@ -9,7 +10,7 @@
     Компонент "Сегмент итем".
     Умеет отображать иконку, два текста: основной и дополнительный, и счетчик.
   -->
-    <declare-styleable name="SegmentItem" tools:ignore="ResourceName">
+    <declare-styleable name="SegmentItem" sdds:api_info="SegmentItem" tools:ignore="ResourceName">
         <attr name="backgroundTint"/>
         <attr name="sd_valueTextColor"/>
         <attr name="sd_iconTint"/>
@@ -29,10 +30,10 @@
 
     </declare-styleable>
 
-    <declare-styleable name="Segment" tools:ignore="ResourceName">
+    <declare-styleable name="Segment" sdds:api_info="Segment" sdds:api_framework="paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension;backgroundColor=android:backgroundTint:color" tools:ignore="ResourceName">
         <!-- Распределение итемов равномерно по ширине контейнера -->
         <attr name="sd_stretch" format="boolean" />
-        <attr name="sd_segmentItemStyleOverlay"/>
+        <attr name="sd_segmentItemStyleOverlay" sdds:api_name="segmentItemStyle"/>
         <attr name="sd_shapeAppearance" />
         <attr name="sd_shapeAppearanceAdjustment"/>
         <attr name="sd_strokeWidth"/>
