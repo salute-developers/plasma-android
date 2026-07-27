@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_tooltipStyle" format="reference" />
 
-    <declare-styleable name="Tooltip" tools:ignore="ResourceName">
+    <declare-styleable name="Tooltip" sdds:api_info="Tooltip" sdds:api_framework="textStyle=android:textAppearance:typography;paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension" tools:ignore="ResourceName">
         <attr name="sd_offset" />
         <attr name="sd_shadowAppearance" />
-        <attr name="sd_background" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" />
 
         <attr name="sd_contentStart" format="reference" />
-        <attr name="sd_contentStartTint" format="reference|color" />
+        <attr name="sd_contentStartTint" sdds:api_name="contentStartColor" format="reference|color" />
         <attr name="sd_contentStartSize"  />
         <attr name="sd_contentStartPadding"  />
 
@@ -31,8 +32,8 @@
         <attr name="sd_strokeWidth" />
         <attr name="sd_strokeColor" />
         <attr name="sd_clipToOutline" />
-        <attr name="sd_shapeTailWidth" />
-        <attr name="sd_shapeTailHeight" />
+        <attr name="sd_shapeTailWidth" sdds:api_name="tailWidth" />
+        <attr name="sd_shapeTailHeight" sdds:api_name="tailHeight" />
         <attr name="sd_shapeTailOffset" />
         <attr name="sd_shapeTailEnabled" />
         <attr name="sd_shapeTailPlacement" />

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_rectSkeletonStyle" format="reference" />
     <attr name="sd_textSkeletonStyle" format="reference" />
 
-    <declare-styleable name="RectSkeleton" tools:ignore="ResourceName" />
-    <declare-styleable name="TextSkeleton" tools:ignore="ResourceName">
+    <declare-styleable name="RectSkeleton" sdds:api_info="RectSkeleton" sdds:api_framework="textStyle=android:textAppearance:typography" tools:ignore="ResourceName" />
+    <declare-styleable name="TextSkeleton" sdds:api_info="TextSkeleton" tools:ignore="ResourceName">
         <attr name="sd_lineCount" format="integer" />
         <attr name="android:textAppearance" />
         <attr name="sd_shimmer" />
-        <attr name="sd_shimmerDuration" />
+        <attr name="sd_shimmerDuration" sdds:api_name="duration" />
         <attr name="sd_autoStart"/>
     </declare-styleable>
 </resources>

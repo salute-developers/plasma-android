@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_listViewStyle" format="reference" />
     <attr name="sd_listItemViewStyle" format="reference" />
 
-    <declare-styleable name="ListView" tools:ignore="ResourceName">
-        <attr name="sd_listItemViewStyleOverlay" format="reference"/>
+    <declare-styleable name="ListView" sdds:api_info="ListView" tools:ignore="ResourceName">
+        <attr name="sd_listItemViewStyleOverlay" sdds:api_name="listItemStyle" format="reference"/>
     </declare-styleable>
 
-    <declare-styleable name="ListItemView" tools:ignore="ResourceName">
+    <declare-styleable name="ListItemView" sdds:api_info="ListItemView" tools:ignore="ResourceName">
 
     </declare-styleable>
 </resources>

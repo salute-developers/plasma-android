@@ -21,7 +21,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
-import com.sdds.plugin.themebuilder.internal.universal.ComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentMeta
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
@@ -122,7 +122,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
      */
     @get:InputFile
     @get:Optional
-    abstract val uikitApiMetaFile: RegularFileProperty
+    abstract val uikitComposeApiMetaFile: RegularFileProperty
 
     @TaskAction
     @Suppress("TooGenericExceptionCaught")
@@ -132,7 +132,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         // Мета из uikit-compose нужна только универсальному Compose-генератору.
         // Универсального генератора для View пока нет, поэтому при генерации view-библиотек
         // compose-мету читать не нужно — иначе её отсутствие ломает генерацию view-стилей.
-        val allMeta = if (deps.target.isComposeOrAll) loadUikitApiMeta() else emptyList()
+        val allMeta = if (deps.target.isComposeOrAll) loadUikitComposeApiMeta() else emptyList()
         val delegates = componentDelegates(allMeta, metaInfo.components)
         val composeComponents = mutableListOf<ComponentInfo>()
         val viewComponents = mutableListOf<ComponentInfo>()
@@ -290,8 +290,8 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     }
 
     @OptIn(ExperimentalSerializationApi::class)
-    private fun loadUikitApiMeta(): List<ComponentMeta> {
-        val file = if (uikitApiMetaFile.isPresent) uikitApiMetaFile.get().asFile else return emptyList()
+    private fun loadUikitComposeApiMeta(): List<ComposeComponentMeta> {
+        val file = if (uikitComposeApiMetaFile.isPresent) uikitComposeApiMetaFile.get().asFile else return emptyList()
         if (!file.exists()) return emptyList()
         return file.inputStream().use { stream ->
             Serializer.componentConfig.decodeFromStream(stream)

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_drawerStyle" format="reference" />
 
     <declare-styleable name="DrawerLayout" tools:ignore="ResourceName">
@@ -30,14 +31,14 @@
         <attr name="android:layout_gravity" />
     </declare-styleable>
 
-    <declare-styleable name="Drawer" tools:ignore="ResourceName" >
+    <declare-styleable name="Drawer" sdds:api_info="Drawer" sdds:api_framework="paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension" tools:ignore="ResourceName" >
         <attr name="sd_shadowAppearance" />
         <attr name="sd_shapeAppearance" />
-        <attr name="sd_background" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" />
         <attr name="sd_closeIcon" />
-        <attr name="sd_closeIconTint" />
+        <attr name="sd_closeIconTint" sdds:api_name="closeColor" />
         <attr name="sd_strokeColor" />
-        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeWidth" sdds:api_name="strokeSize" />
         <!-- Расположение иконки закрытия -->
         <attr name="sd_closeIconPlacement" format="enum">
             <enum name="inner" value="0" />

@@ -74,12 +74,12 @@ import com.sdds.plugin.themebuilder.internal.components.toast.ToastConfigDelegat
 import com.sdds.plugin.themebuilder.internal.components.toolbar.ToolBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tooltip.TooltipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.wheel.WheelConfigDelegate
-import com.sdds.plugin.themebuilder.internal.universal.ComponentMeta
-import com.sdds.plugin.themebuilder.internal.universal.HybridComponentConfigDelegate
-import com.sdds.plugin.themebuilder.internal.universal.UniversalComponentConfigDelegate
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.HybridComponentConfigDelegate
+import com.sdds.plugin.themebuilder.internal.universal.compose.UniversalComponentConfigDelegate
 import org.gradle.api.logging.Logging
 
-internal fun componentDelegates(allMeta: List<ComponentMeta>, allComponents: List<Component> = emptyList()) =
+internal fun componentDelegates(allMeta: List<ComposeComponentMeta>, allComponents: List<Component> = emptyList()) =
     ComponentDelegatesScope(allMeta, allComponents).run {
         mapOf(
             "avatar" to universal("Avatar") { AvatarConfigDelegate() },
@@ -184,7 +184,7 @@ internal fun componentDelegates(allMeta: List<ComponentMeta>, allComponents: Lis
 private val logger = Logging.getLogger("ComponentDelegates")
 
 private class ComponentDelegatesScope(
-    private val allMeta: List<ComponentMeta>,
+    private val allMeta: List<ComposeComponentMeta>,
     private val allComponents: List<Component>,
 ) {
     fun universal(componentName: String): ComponentConfigDelegate<*>? {
@@ -192,7 +192,7 @@ private class ComponentDelegatesScope(
         if (meta == null) {
             // Универсальные компоненты не имеют legacy view-делегата. При генерации view-библиотеки
             // compose-мета не загружается (allMeta пуст), поэтому такой компонент просто пропускается.
-            logger.warn("[$componentName] ComponentMeta not found, component will be skipped")
+            logger.warn("[$componentName] ComposeComponentMeta not found, component will be skipped")
             return null
         }
         return UniversalComponentConfigDelegate(meta, allMeta, allComponents)
@@ -210,7 +210,7 @@ private class ComponentDelegatesScope(
                 fallbackDelegate,
             )
         } else {
-            logger.warn("[$componentName] ComponentMeta not found, using legacy fallback delegate")
+            logger.warn("[$componentName] ComposeComponentMeta not found, using legacy fallback delegate")
             fallbackDelegate
         }
     }

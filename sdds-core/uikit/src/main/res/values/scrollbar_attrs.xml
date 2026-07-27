@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_scrollBarStyle" format="reference" />
 
-    <declare-styleable name="ScrollBar" tools:ignore="ResourceName">
+    <declare-styleable name="ScrollBar" sdds:api_info="ScrollBar" tools:ignore="ResourceName">
         <!-- Цвет неподвижной части скроллбара -->
         <attr name="sd_trackColor" />
         <!-- Цвет подвижной части скроллбара -->
@@ -10,7 +11,7 @@
         <!-- Будет ли увеличиваться скроллбар при взаимодействии с ним-->
         <attr name="sd_hoverExpand" format="boolean" />
         <!-- Фактор увеличения скроллбара при взаимодействии с ним -->
-        <attr name="sd_expandFactor" format="float" />
+        <attr name="sd_expandFactor" sdds:api_name="hoverExpandFactor" format="float" />
         <!-- Ориентация скролла -->
         <attr name="sd_orientation" format="enum">
             <enum name="vertical" value="0" />
@@ -21,7 +22,7 @@
         <attr name="sd_autoHide" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="SdScrollDrawable">
+    <declare-styleable name="SdScrollDrawable" sdds:api_info="ScrollBar">
         <!-- Форма скругления концов thumb и track -->
         <attr name="sd_shapeAppearance" />
         <!-- Отображение трека у  скроллбара -->

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_modalStyle" format="reference"/>
 
-    <declare-styleable name="ModalView" tools:ignore="ResourceName">
+    <declare-styleable name="ModalView" sdds:api_info="ModalView" sdds:api_framework="paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension" tools:ignore="ResourceName">
         <attr name="sd_closeIcon" format="reference"/>
-        <attr name="sd_closeIconTint" format="color"/>
-        <attr name="sd_closeIconSize" format="dimension"/>
+        <attr name="sd_closeIconTint" format="color" sdds:api_name="closeColor"/>
+        <attr name="sd_closeIconSize" sdds:api_name="closeSize" format="dimension"/>
         <attr name="sd_closeIconContentPadding" format="dimension"/>
-        <attr name="sd_closeIconAlignment" format="enum">
+        <attr name="sd_closeIconAlignment" sdds:api_name="closeAlignment" format="enum">
             <enum name="topEnd" value="0" />
             <enum name="centerEnd" value="1" />
         </attr>
-        <attr name="sd_overlayStyleOverlay" format="reference" />
+        <attr name="sd_overlayStyleOverlay" sdds:api_name="overlayStyle" format="reference" />
         <attr name="sd_enterAnimation" format="reference" />
         <attr name="sd_exitAnimation" format="reference" />
         <attr name="sd_overlayEnterAnimationDuration" format="integer" />
