@@ -1,11 +1,15 @@
 package com.sdds.preview.compose.plugin
 
-import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.ComposeViewport
 import com.sdds.compose.uikit.fixtures.stories.button.BasicButtonStory
 import com.sdds.compose.uikit.fixtures.stories.registerStories
@@ -51,6 +55,12 @@ public fun submitPreviewPayload(json: String) {
     }
 }
 
+/** Возвращает сериализованное описание зарегистрированной story. */
+@OptIn(ExperimentalJsExport::class)
+@JsExport
+public fun describePreviewComponent(componentId: String, requestId: String): String =
+    PreviewContractJson.encodeToString(runtime.describe(componentId, requestId))
+
 /** Browser entrypoint типизированного BasicButton PoC. */
 @OptIn(ExperimentalComposeUiApi::class)
 public fun main() {
@@ -64,9 +74,19 @@ public fun main() {
 
 @Composable
 private fun PreviewViewport() {
-    when (val state = renderState) {
-        RenderState.Empty -> BasicText("Waiting for PreviewPayload")
-        is RenderState.Ready -> state.preview.Content()
+    val state = renderState
+    val backgroundModifier = when (state) {
+        RenderState.Empty -> Modifier
+        is RenderState.Ready -> state.preview.surfaceBackground?.let { Modifier.background(it) } ?: Modifier
+    }
+    Box(
+        modifier = Modifier.fillMaxSize().then(backgroundModifier),
+        contentAlignment = Alignment.Center,
+    ) {
+        when (state) {
+            RenderState.Empty -> Unit
+            is RenderState.Ready -> state.preview.Content()
+        }
     }
 }
 
