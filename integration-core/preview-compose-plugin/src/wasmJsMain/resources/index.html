@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDDS Compose Preview</title>
     <style>
-        html, body, #root { width: 100%; height: 100%; margin: 0; }
+        html, body, #root {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background: transparent !important;
+        }
         body { overflow: hidden; }
+        canvas { background: transparent !important; }
     </style>
 </head>
 <body>
 <div id="root"></div>
 <script>
     const pendingRequests = new Map();
+    const pendingDescriptions = new Map();
+    let describeSequence = 0;
     let runtimeReady = false;
 
     async function pluginApi() {
@@ -60,6 +68,51 @@
         return submit(payload, null);
     };
 
+    function describe(componentId, requestId) {
+        if (typeof componentId !== "string" || componentId.length === 0) {
+            return Promise.resolve({
+                type: "failure",
+                requestId,
+                code: "invalid_request",
+                message: "componentId must be a non-empty string",
+            });
+        }
+        if (pendingDescriptions.has(requestId)) {
+            return Promise.resolve({
+                type: "failure",
+                requestId,
+                code: "duplicate_request",
+                message: `Describe request ${requestId} is already pending`,
+            });
+        }
+        return new Promise(async (resolve) => {
+            pendingDescriptions.set(requestId, {resolve});
+            try {
+                const api = await pluginApi();
+                const result = JSON.parse(api.describePreviewComponent(componentId, requestId));
+                const pending = pendingDescriptions.get(requestId);
+                if (!pending) return;
+                pending.resolve(result);
+                setTimeout(() => pendingDescriptions.delete(requestId), 0);
+            } catch (error) {
+                const pending = pendingDescriptions.get(requestId);
+                if (!pending) return;
+                const result = {
+                    type: "failure",
+                    requestId,
+                    code: "description_failed",
+                    message: error instanceof Error ? error.message : String(error),
+                };
+                pending.resolve(result);
+                setTimeout(() => pendingDescriptions.delete(requestId), 0);
+            }
+        });
+    }
+
+    globalThis.describePreviewComponent = function (componentId) {
+        return describe(componentId, `describe-${++describeSequence}`);
+    };
+
     globalThis.__sddsPreviewResult = function (resultJson) {
         const result = JSON.parse(resultJson);
         const pending = pendingRequests.get(result.requestId);
@@ -87,8 +140,18 @@
 
     globalThis.addEventListener("message", async function (event) {
         const envelope = event.data;
-        if (!envelope || envelope.type !== "sdds.preview.payload") return;
+        if (!envelope) return;
         if (!event.source || typeof event.origin !== "string") return;
+        if (envelope.type === "sdds.preview.describe") {
+            if (typeof envelope.requestId !== "string" || envelope.requestId.length === 0) return;
+            const result = await describe(envelope.componentId, envelope.requestId);
+            event.source.postMessage(
+                {type: "sdds.preview.description", result},
+                event.origin,
+            );
+            return;
+        }
+        if (envelope.type !== "sdds.preview.payload") return;
         const payload = envelope.payload;
         if (!payload || (typeof payload !== "object" && typeof payload !== "string")) return;
         let requestId;
