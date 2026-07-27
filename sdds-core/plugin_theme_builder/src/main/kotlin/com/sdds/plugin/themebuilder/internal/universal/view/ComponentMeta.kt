@@ -18,7 +18,6 @@ import kotlinx.serialization.Serializable
  * @property componentNames имена компонентов, обслуживаемых `declare-styleable`.
  * @property styleableName имя `declare-styleable`.
  * @property packageName пакет для генерируемых стилей (обход зарезервированных слов).
- * @property builderFunName имя генерируемой фабрики.
  * @property params темизируемые свойства компонента.
  * @property stateSets наборы кастомных состояний (для генерации ColorState).
  */
@@ -27,7 +26,6 @@ internal data class ComponentMeta(
     val componentNames: List<String>,
     val styleableName: String,
     val packageName: String = "",
-    val builderFunName: String = "",
     val params: List<PropertyMeta>,
     val stateSets: List<StateSet> = emptyList(),
 )

@@ -46,7 +46,6 @@ Namespace `sdds` **opt-in** и не влияет на сборку ресурс�
 |---|---|---|
 | `sdds:api_info` | `<declare-styleable>` | **Обязательный** маркер. Имя компонента; список через запятую — если styleable общий (`"TextField,TextArea"`). |
 | `sdds:api_package` | `<declare-styleable>` | Пакет генерируемых стилей. Обход зарезервированных слов языка генерации (напр. `switch` → `switcher`). |
-| `sdds:api_builder_fun` | `<declare-styleable>` | Имя генерируемой фабрики стиля. |
 | `sdds:api_name` | `<attr>` / `<enum>` | Переопределяет `id` свойства / `configName` значения, если авто-strip префикса не даёт нужный ключ конфига. |
 | `sdds:api_type` | `<attr>` | Явный семантический тип (см. закрытый список ниже). Нужен, когда `format` неоднозначен (`reference`, `reference\|color`) или эвристика по имени не срабатывает. |
 | `sdds:api_state` | `<attr>` | Помечает атрибут как **кастомное состояние**; значение — имя набора (= имя генерируемого `XxxColorState`-enum). |

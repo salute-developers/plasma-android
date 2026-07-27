@@ -115,15 +115,11 @@ TBD - created by archiving change add-view-api-meta. Update Purpose after archiv
 - **THEN** он SHALL быть исключён из меты компонента
 
 ### Requirement: Разметка обходных случаев именования генерации
-`declare-styleable` SHALL поддерживать `sdds:api_package` (для компонентов, имя которых конфликтует с зарезервированным словом языка генерации) и `sdds:api_builder_fun` (для уникализации имени генерируемой фабрики, когда несколько styleable проецируются на связанные стили).
+`declare-styleable` SHALL поддерживать `sdds:api_package` (для компонентов, имя которых конфликтует с зарезервированным словом языка генерации, напр. `switch` → `switcher` в имени пакета генерируемого `XxxColorState`). Атрибут `sdds:api_builder_fun` во view НЕ поддерживается: он моделировал имя фабричной функции compose-`StyleBuilder` (Kotlin style-объект), тогда как view-генерация производит XML-`<style>`-ресурсы и style-builder'а не имеет — концепт остаётся исключительно compose-специфичным.
 
 #### Scenario: Обход зарезервированного слова
 - **WHEN** `<declare-styleable name="Switch" sdds:api_info="Switch" sdds:api_package="switcher">`
 - **THEN** мета компонента SHALL содержать `packageName = "switcher"`
-
-#### Scenario: Явное имя фабрики
-- **WHEN** styleable помечен `sdds:api_builder_fun="iconButtonBuilder"`
-- **THEN** мета компонента SHALL содержать `builderFunName = "iconButtonBuilder"`
 
 ### Requirement: Разметка наборов кастомных состояний
 Кастомные (не-framework) состояния компонента SHALL размечаться так, чтобы мета несла для каждого состояния: имя набора (`sdds:api_state`), флейвор drawable-состояния (`sdds:api_state_kind` ∈ `android` | `shared` | `scoped`), ключ конфига (`sdds:api_name`) и детерминированный порядок. Framework-состояния (`focused`/`pressed`/`hovered`/`activated`/`checked`) SHALL разрешаться автоматически без разметки.

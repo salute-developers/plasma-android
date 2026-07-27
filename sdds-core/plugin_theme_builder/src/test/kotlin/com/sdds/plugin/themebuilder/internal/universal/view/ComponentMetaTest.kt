@@ -25,9 +25,7 @@ class ComponentMetaTest {
               {
                 "componentNames": ["Button"],
                 "styleableName": "Button",
-                "packageName": "",
-                "builderFunName": "",
-                "params": [
+                "packageName": "",                "params": [
                   {
                     "id": "valuePadding",
                     "attrName": "sd_valuePadding",
@@ -79,9 +77,7 @@ class ComponentMetaTest {
               {
                 "componentNames": ["Avatar"],
                 "styleableName": "Avatar",
-                "packageName": "",
-                "builderFunName": "",
-                "params": [],
+                "packageName": "",                "params": [],
                 "stateSets": [
                   {
                     "name": "AvatarStatus",

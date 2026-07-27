@@ -96,7 +96,6 @@ class DeclareStyleableParser(
             componentNames = componentNames,
             styleableName = styleableName,
             packageName = styleable.getAttribute(ATTR_API_PACKAGE),
-            builderFunName = styleable.getAttribute(ATTR_API_BUILDER_FUN),
             params = params,
             stateSets = stateSets,
         )
@@ -263,7 +262,6 @@ class DeclareStyleableParser(
         const val ATTR_API_NAME = "sdds:api_name"
         const val ATTR_API_TYPE = "sdds:api_type"
         const val ATTR_API_PACKAGE = "sdds:api_package"
-        const val ATTR_API_BUILDER_FUN = "sdds:api_builder_fun"
         const val ATTR_API_STATE = "sdds:api_state"
         const val ATTR_API_STATE_KIND = "sdds:api_state_kind"
         const val ATTR_API_STATE_NEGATED = "sdds:api_state_negated"

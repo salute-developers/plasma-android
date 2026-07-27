@@ -15,7 +15,6 @@ package tasks.viewapi
  * @property styleableName имя `declare-styleable`.
  * @property packageName имя пакета для генерируемых стилей (из `sdds:api_package`;
  *  используется для обхода зарезервированных слов языка генерации, напр. `switch` → `switcher`).
- * @property builderFunName имя генерируемой фабрики (из `sdds:api_builder_fun`).
  * @property params темизируемые свойства компонента.
  * @property stateSets наборы кастомных состояний компонента.
  */
@@ -24,7 +23,6 @@ data class ComponentMeta(
     val componentNames: List<String>,
     val styleableName: String,
     val packageName: String = "",
-    val builderFunName: String = "",
     val params: List<PropertyMeta>,
     val stateSets: List<StateSet> = emptyList(),
 )
