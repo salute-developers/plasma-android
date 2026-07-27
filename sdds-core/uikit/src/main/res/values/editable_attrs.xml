@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" >
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_editableStyle" format="reference" />
 
-    <declare-styleable name="Editable" tools:ignore="ResourceName" >
+    <declare-styleable name="Editable" sdds:api_info="Editable" tools:ignore="ResourceName" >
         <!--  Иконка (drawable ресурс) -->
         <attr name="sd_icon" />
         <!--  Цвет иконки (drawable) -->
-        <attr name="sd_iconTint" />
+        <attr name="sd_iconTint" sdds:api_name="iconColor" />
         <!--  Размер иконки (drawable) -->
         <attr name="sd_iconSize" />
         <!--  Отступ иконки (drawable) от текстового поля -->

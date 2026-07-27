@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_codeFieldStyle" format="reference" />
 
-    <declare-styleable name="CodeField" tools:ignore="ResourceName">
+    <declare-styleable name="CodeField" sdds:api_info="CodeField" tools:ignore="ResourceName">
         <!-- Длина кода (количество ячеек для ввода) -->
         <attr name="sd_codeLength" format="integer" />
         <!-- Форма скруглений ячейки -->
@@ -21,7 +22,7 @@
         <!-- Отступ поля для подписи(caption) -->
         <attr name="sd_captionPadding" format="dimension" />
         <!-- Ресурс стиля текста подписи -->
-        <attr name="sd_captionAppearance" />
+        <attr name="sd_captionAppearance" sdds:api_name="captionStyle" />
         <!-- Цвет текста подписи -->
         <attr name="sd_captionColor" />
         <!-- Текст подписи -->
@@ -39,7 +40,7 @@
         <attr name="android:imeOptions" />
 
         <!-- Ресурс стиля текста -->
-        <attr name="sd_valueAppearance" />
+        <attr name="sd_valueAppearance" sdds:api_name="valueStyle" />
         <!-- Цвет текста -->
         <attr name="sd_valueColor" />
         <!-- Толщина обводки(бордера) точки, скрывающей вводимые символы  -->
@@ -51,7 +52,7 @@
         <!-- Цвет точки, скрывающей вводимые символы  -->
         <attr name="sd_dotColor" format="reference|color" />
         <!-- Цвет фона ячейки  -->
-        <attr name="sd_background" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" />
         <!-- Цвет курсора  -->
         <attr name="sd_cursorColor" format="reference|color" />
         <attr name="sd_disabledAlpha" />
@@ -68,14 +69,14 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="SdCodeItemDrawable">
-        <attr name="sd_valueAppearance" />
-        <attr name="sd_valueColor" />
-        <attr name="sd_strokeWidth" />
+    <declare-styleable name="SdCodeItemDrawable" sdds:api_info="CodeField">
+        <attr name="sd_valueAppearance" sdds:api_name="codeStyle" />
+        <attr name="sd_valueColor" sdds:api_name="codeColor" />
+        <attr name="sd_strokeWidth" sdds:api_name="strokeSize" />
         <attr name="sd_strokeColor" />
         <attr name="sd_dotSize" />
-        <attr name="sd_dotColor" />
-        <attr name="sd_background" />
+        <attr name="sd_dotColor" sdds:api_name="fillColor" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" />
         <attr name="sd_cursorColor" />
     </declare-styleable>
 </resources>

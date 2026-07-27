@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_navigationBarStyle" format="reference" />
 
-    <declare-styleable name="NavigationBar" tools:ignore="ResourceName">
+    <declare-styleable name="NavigationBar" sdds:api_info="NavigationBar" tools:ignore="ResourceName">
         <!-- Оверлэй стиль компонента IconButton -->
-        <attr name="sd_iconButtonStyleOverlay" />
+        <attr name="sd_iconButtonStyleOverlay" sdds:api_name="actionButtonStyle" />
 
         <!-- Стиль тени -->
         <attr name="sd_shadowAppearance" />
@@ -14,13 +15,13 @@
         <!-- Корректировка формы компонента -->
         <attr name="sd_shapeAppearanceAdjustment" />
         <!-- Отступ в начале блока, содержащего actions -->
-        <attr name="sd_contentPaddingStart" />
+        <attr name="sd_contentPaddingStart" sdds:api_name="paddingStart" />
         <!-- Отступ в конце блока, содержащего actions -->
-        <attr name="sd_contentPaddingEnd" />
+        <attr name="sd_contentPaddingEnd" sdds:api_name="paddingEnd" />
         <!-- Верхний отступ блока, содержащего actions -->
-        <attr name="sd_contentPaddingTop" />
+        <attr name="sd_contentPaddingTop" sdds:api_name="paddingTop" />
         <!-- Нижний отступ блока, содержащего actions -->
-        <attr name="sd_contentPaddingBottom" />
+        <attr name="sd_contentPaddingBottom" sdds:api_name="paddingBottom" />
         <!-- Отступ между Title и Description -->
         <attr name="sd_descriptionMargin" format="dimension|reference" />
         <!-- Ссылка на ресурс иконки "назад" -->
@@ -42,14 +43,14 @@
         <attr name="sd_titleColor" />
 
         <!-- Окрас иконки "назад"  -->
-        <attr name="sd_backIconTint" format="reference|color"/>
+        <attr name="sd_backIconTint" sdds:api_name="backIconColor" format="reference|color"/>
 
         <!-- Стиль текста Description  -->
         <attr name="sd_descriptionAppearance" />
         <!-- Цвет текста Description  -->
         <attr name="sd_descriptionColor" />
         <!-- Цвет фона  -->
-        <attr name="sd_background" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" />
 
         <!-- Расположение компонента с ролью Content -->
         <attr name="sd_navbarContentPlacement"

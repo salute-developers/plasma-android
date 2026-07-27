@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_cellStyle" format="reference" />
 
-    <declare-styleable name="CellLayout" tools:ignore="ResourceName">
+    <declare-styleable name="CellLayout" sdds:api_info="CellLayout" sdds:api_framework="iconButtonStyle=android:buttonStyle:component_style;radioBoxStyle=android:radioButtonStyle:component_style;checkBoxStyle=android:checkboxStyle:component_style;paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension;height=android:minHeight:dimension" tools:ignore="ResourceName">
         <attr name="android:gravity" />
-        <attr name="sd_contentStartPadding" format="dimension" />
-        <attr name="sd_contentEndPadding" format="dimension" />
+        <attr name="sd_contentStartPadding" sdds:api_name="contentPaddingStart" format="dimension" />
+        <attr name="sd_contentEndPadding" sdds:api_name="contentPaddingEnd" format="dimension" />
 
         <attr name="sd_labelAppearance" />
         <attr name="sd_labelColor" />
@@ -21,12 +22,12 @@
         <attr name="sd_disclosurePadding" format="dimension" />
         <attr name="sd_disclosureText" format="string" />
         <attr name="sd_disclosureTextAppearance" format="reference" />
-        <attr name="sd_disclosureColor" format="color" />
+        <attr name="sd_disclosureColor" sdds:api_name="disclosureIconColor" format="color" />
         <attr name="sd_disclosureTextColor" format="color" />
         <attr name="sd_disclosureIcon" format="reference" />
         <attr name="sd_forceDuplicateParentState" format="boolean" />
 
-        <attr name="sd_background"/>
+        <attr name="sd_background" sdds:api_name="backgroundColor"/>
         <attr name="sd_backgroundAnimationDuration"/>
         <attr name="sd_backgroundAnimationInterpolator"/>
         <attr name="sd_textAnimationDuration"/>
