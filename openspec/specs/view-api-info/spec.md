@@ -130,8 +130,8 @@ TBD - created by archiving change add-view-api-meta. Update Purpose after archiv
 - **независимые (не взаимоисключающие) scoped-булевы состояния** (напр. `SdTextFieldState`: `readonly` + `inner_label`, которые могут быть истинны одновременно) — их SHALL NOT размечать как `api_state`-набор, т.к. модель набора с ordinal изобразила бы их упорядоченным enum и ввела потребителя в заблуждение; генератор трактует их как независимые предикаты state-list (`addToStateList(..., extraAttrs)`), а не как `ColorState`-enum. Поддержка независимых scoped-булевых состояний в мете — отдельный вопрос модели, вне данного change.
 
 #### Scenario: Кастомное состояние привязано к набору
-- **WHEN** `<attr name="sd_state_online" format="boolean" sdds:api_state="AvatarStatus" sdds:api_state_kind="scoped" sdds:api_name="online" />`
-- **THEN** в мете набор `AvatarStatus` SHALL содержать состояние с `configName="online"`, флейвором `scoped` и позицией, задающей его ordinal
+- **WHEN** `<attr name="sd_status_active" format="boolean" sdds:api_state="AvatarStatus" sdds:api_state_kind="scoped" sdds:api_name="active" />` (реально существующий в `SdAvatarStatus` атрибут)
+- **THEN** в мете набор `AvatarStatus` SHALL содержать состояние с `configName="active"`, флейвором `scoped` и позицией, задающей его ordinal
 
 #### Scenario: Framework-состояние не требует разметки
 - **WHEN** ключ состояния в конфиге равен `pressed`/`hovered`/`activated`/`checked`/`focused`

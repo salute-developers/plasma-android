@@ -92,21 +92,30 @@ Namespace `sdds` **opt-in** и не влияет на сборку ресурс�
 `ordinal`** — это рантайм-контракт `XxxColorStateProvider` (читает `getInt(...)` по
 ordinal). Не переупорядочивайте состояния внутри набора.
 
+Размечаются **реально существующие** в ресурсах компонента drawable-state
+атрибуты (напр. `sd_status_active` в `SdAvatarStatus` у Avatar):
+
 ```xml
-<declare-styleable name="Avatar" sdds:api_info="Avatar">
-    <attr name="sd_state_online" format="boolean"
-        sdds:api_state="AvatarStatus" sdds:api_state_kind="scoped" sdds:api_name="online" />
-    <attr name="sd_state_offline" format="boolean"
-        sdds:api_state="AvatarStatus" sdds:api_state_kind="scoped" sdds:api_name="offline" />
+<declare-styleable name="SdAvatarStatus" sdds:api_info="Avatar">
+    <attr name="sd_status_active" format="boolean"
+        sdds:api_state="AvatarStatus" sdds:api_state_kind="scoped" sdds:api_name="active" />
+    <attr name="sd_status_inactive" format="boolean"
+        sdds:api_state="AvatarStatus" sdds:api_state_kind="scoped" sdds:api_name="inactive" />
 </declare-styleable>
 ```
 
-Флейворы:
+Флейвор (`sdds:api_state_kind`) описывает **происхождение drawable-state атрибута**,
+а не то, что он кем-то генерируется:
 
 - **`android`** — состояние фреймворка (focused/pressed/hovered/activated/checked),
   резолвится автоматически по совпадению имени.
-- **`shared`** — общий drawable-state из `base_attrs` (напр. `sd_state_loading`).
-- **`scoped`** — сгенерированный `sd_<comp>_state_<name>`, специфичный для компонента.
+- **`shared`** — общий drawable-state, объявленный в `base_attrs` и используемый
+  многими компонентами (напр. `sd_state_loading`, `sd_state_error`).
+- **`scoped`** — drawable-state атрибут, специфичный для одного компонента и
+  объявленный в его собственных ресурсах (напр. `sd_status_active` в `SdAvatarStatus`).
+  Это существующие в core атрибуты — НЕ «сгенерированные»; порождаемые генератором
+  `sd_<comp>_state_<name>` появляются лишь в пользовательских ДС после генерации
+  стилей и разметке core не подлежат.
 
 ## Пайплайн
 
