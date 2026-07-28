@@ -21,7 +21,7 @@ class DocumentationAggregateTaskTest {
         val project = ProjectBuilder.builder().withProjectDir(temporaryFolder.root).build()
         val task = project.tasks.create("aggregate", DocumentationAggregateTask::class.java)
         val first = createJar("a.jar", "META-INF/sdds-docs/assets/examples/kotlin/sample.kt", "first")
-        val second = createJar("b.jar", "META-INF/sdds-docs/assets/examples/kotlin/sample.kt", "second")
+        val second = createJar("b.jar", "META-INF/sdds-docs/assets/examples/kotlin/sample.kt", "first")
         val kotlin = temporaryFolder.newFolder("kotlin").apply {
             resolve("sample.kt").writeText("local")
         }
@@ -176,11 +176,13 @@ class DocumentationAggregateTaskTest {
         task.aggregate()
 
         val output = task.outputDirectory.get().asFile
-        val content = output.resolve("content/components/Button.md").readText()
+        val content = output.resolve("content/core/components/Button.md").readText()
         assertTrue(content.contains("local"))
         assertTrue(content.contains("<local/>"))
         assertTrue(!content.contains("@sample"))
-        assertTrue(!output.resolve("content/components/Draft.md").exists())
+        assertTrue(!output.resolve("content/core/components/Draft.md").exists())
+        assertTrue(!output.resolve("content/user").exists())
+        assertTrue(!output.resolve("structure-user.json").exists())
         assertTrue(output.resolve("structure-core.json").isFile)
     }
 
@@ -226,7 +228,7 @@ class DocumentationAggregateTaskTest {
         task.aggregate()
 
         val output = task.outputDirectory.get().asFile
-        val content = output.resolve("content/components/ButtonUsage.md").readText()
+        val content = output.resolve("content/core/components/ButtonUsage.md").readText()
         assertTrue(content.contains("<!-- @screenshot: sample.Button.Simple -->"))
         assertTrue(output.resolve("assets/screenshots/sample.Button.Simple.png").isFile)
         assertTrue(content.contains("Пример выбора готового стиля"))
@@ -265,8 +267,145 @@ class DocumentationAggregateTaskTest {
         val error = runCatching(task::aggregate).exceptionOrNull()
 
         assertTrue(error is GradleException)
-        assertTrue(error?.message.orEmpty().contains("docs/page.md"))
+        assertTrue(error?.message.orEmpty().contains("core page 'page.md'"))
         assertTrue(error?.message.orEmpty().contains("Missing.kt"))
+    }
+
+    @Test
+    fun `user standalone page is enriched and unlisted draft is ignored`() {
+        val task = configuredTask()
+        val user = temporaryFolder.newFolder("user")
+        user.resolve("structure.json").writeText(
+            """{"navigation":[{"title":"Custom","path":"components/Custom.md","hidden":true}]}""",
+        )
+        user.resolve("docs/components").mkdirs()
+        user.resolve("docs/components/Custom.md").writeText("// @sample: sample.kt")
+        user.resolve("docs/components/Draft.md").writeText("draft")
+        task.kotlinSnippets.get().asFile.resolve("sample.kt").writeText("user sample")
+        task.userDocumentationRoot.set(user)
+
+        task.aggregate()
+
+        val output = task.outputDirectory.get().asFile
+        assertEquals("user sample", output.resolve("content/user/components/Custom.md").readText())
+        assertTrue(!output.resolve("content/user/components/Draft.md").exists())
+        assertTrue(output.resolve("structure-user.json").readText().contains("\"hidden\": true"))
+    }
+
+    @Test
+    fun `append and replace resolve legacy physical sources without merging core`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "core.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"path":"components/Page.md"},{"path":"components/Other.md"}]}""",
+                "META-INF/sdds-docs/docs/components/Page.md" to "core page",
+                "META-INF/sdds-docs/docs/components/Other.md" to "core other",
+            ),
+        )
+        val user = temporaryFolder.newFolder("user-merge")
+        user.resolve("structure.json").writeText(
+            """
+                {"navigation":[
+                  {"path":"components/Page.md","merge":"append"},
+                  {"path":"components/Other.md","merge":"replace"}
+                ]}
+            """.trimIndent(),
+        )
+        user.resolve("docs/components").mkdirs()
+        user.resolve("docs/components/+Page.md").writeText("user append")
+        user.resolve("docs/components/Other.md").writeText("user replace")
+        task.userDocumentationRoot.set(user)
+
+        task.aggregate()
+
+        val output = task.outputDirectory.get().asFile
+        assertEquals("core page", output.resolve("content/core/components/Page.md").readText())
+        assertEquals("user append", output.resolve("content/user/components/Page.md").readText())
+        assertEquals("user replace", output.resolve("content/user/components/Other.md").readText())
+    }
+
+    @Test
+    fun `user style api is enriched and screenshot directive is preserved`() {
+        val task = configuredTask()
+        val user = temporaryFolder.newFolder("user-style")
+        user.resolve("structure.json").writeText(
+            """{"navigation":[{"path":"components/ButtonUsage.md"}]}""",
+        )
+        user.resolve("docs/components").mkdirs()
+        user.resolve("docs/components/ButtonUsage.md").writeText(
+            "<!-- @screenshot: sample.Button -->\n<!-- @style-api -->",
+        )
+        task.componentsInfoFile.set(
+            temporaryFolder.newFile("user-style-components.json").apply {
+                writeText(
+                    """
+                        {"components":[{"coreName":"Button","styleName":"Button",
+                        "styleApi":{"receiverClassName":"ButtonStyles.Companion","params":[]},"variations":[]}]}
+                    """.trimIndent(),
+                )
+            },
+        )
+        task.userDocumentationRoot.set(user)
+
+        task.aggregate()
+
+        val content = task.outputDirectory.get().asFile
+            .resolve("content/user/components/ButtonUsage.md").readText()
+        assertTrue(content.contains("<!-- @screenshot: sample.Button -->"))
+        assertTrue(content.contains("Пример выбора готового стиля"))
+    }
+
+    @Test
+    fun `invalid user mappings fail with actionable diagnostics`() {
+        val cases = listOf(
+            Triple("""{"path":"page.md"}""", "page.md", "requires explicit"),
+            Triple("""{"path":"page.md","merge":"append"}""", "page.md", "must use source"),
+            Triple("""{"path":"new.md"}""", "+new.md", "must not use plus-prefixed"),
+            Triple("""{"path":"page.md","merge":"prepend"}""", "+page.md", "unsupported merge"),
+            Triple("""{"path":"../unsafe.md"}""", "../unsafe.md", "invalid relative path"),
+        )
+        cases.forEachIndexed { index, (node, sourcePath, expected) ->
+            val task = configuredTask()
+            task.coreArtifacts.from(
+                createJar(
+                    "mapping-$index.jar",
+                    "META-INF/sdds-docs/structure.json" to
+                        """{"navigation":[{"path":"page.md"}]}""",
+                    "META-INF/sdds-docs/docs/page.md" to "core",
+                ),
+            )
+            val user = temporaryFolder.newFolder("invalid-user-$index")
+            user.resolve("structure.json").writeText("""{"navigation":[$node]}""")
+            user.resolve("docs").mkdirs()
+            user.resolve("docs/$sourcePath").apply {
+                parentFile.mkdirs()
+                writeText("user")
+            }
+            task.userDocumentationRoot.set(user)
+
+            val error = runCatching(task::aggregate).exceptionOrNull()
+
+            assertTrue("Expected '$expected' for case $index: ${error?.message}", error is GradleException)
+            assertTrue(error?.message.orEmpty().contains(expected))
+        }
+    }
+
+    @Test
+    fun `missing user source reports logical path and user sample reports layer`() {
+        val task = configuredTask()
+        val user = temporaryFolder.newFolder("missing-user")
+        user.resolve("structure.json").writeText("""{"navigation":[{"path":"missing.md"}]}""")
+        task.userDocumentationRoot.set(user)
+        val missingSource = runCatching(task::aggregate).exceptionOrNull()
+        assertTrue(missingSource?.message.orEmpty().contains("missing.md"))
+
+        user.resolve("docs").mkdirs()
+        user.resolve("docs/missing.md").writeText("// @sample: Missing.kt")
+        val missingSample = runCatching(task::aggregate).exceptionOrNull()
+        assertTrue(missingSample?.message.orEmpty().contains("user page 'missing.md'"))
+        assertTrue(missingSample?.message.orEmpty().contains("Missing.kt"))
     }
 
     @Test
@@ -281,6 +420,20 @@ class DocumentationAggregateTaskTest {
 
         assertTrue(error is GradleException)
         assertTrue(error?.message.orEmpty().contains("Conflicting Core documentation template"))
+    }
+
+    @Test
+    fun `conflicting core assets fail aggregation`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar("first-asset.jar", "META-INF/sdds-docs/assets/examples/kotlin/sample.kt", "first"),
+            createJar("second-asset.jar", "META-INF/sdds-docs/assets/examples/kotlin/sample.kt", "second"),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("Conflicting documentation asset"))
     }
 
     @Test

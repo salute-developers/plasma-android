@@ -170,6 +170,7 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
             screenshotsDirectory.set(
                 layout.projectDirectory.dir("override-docs/static/screenshots-docusaurus"),
             )
+            userDocumentationRoot.set(documentation.userDocumentationRoot)
             outputDirectory.set(documentation.outputDirectory)
             dependsOn(extract)
         }

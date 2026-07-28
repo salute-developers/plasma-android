@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder
 
+import com.sdds.plugin.themebuilder.documentation.DocumentationAggregateTask
 import com.sdds.plugin.themebuilder.sandbox.GenerateSandboxAdaptersTask
 import com.sdds.plugin.themebuilder.sandbox.SandboxScheme
 import org.gradle.api.attributes.Attribute
@@ -293,7 +294,11 @@ class DsBuilderPluginTest {
             ),
         )
         assertNotNull(project.tasks.findByName("documentationExtract"))
-        assertNotNull(project.tasks.findByName("documentationAggregate"))
+        val aggregate = project.tasks.getByName("documentationAggregate") as DocumentationAggregateTask
+        assertEquals(
+            projectDir.resolve("override-docs").canonicalFile,
+            aggregate.userDocumentationRoot.get().asFile.canonicalFile,
+        )
         assertNull(project.tasks.findByName("docusaurusGenerate"))
         assertNull(project.tasks.findByName("npmInstall"))
         assertNull(project.tasks.findByName("publishDocumentation"))

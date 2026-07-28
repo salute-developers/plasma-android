@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "navigation": [
+    {
+      "title": "Компоненты",
+      "items": [
+        {"title": "CollapsingNavigationBar", "path": "components/CollapsingNavigationBarUsage.md", "merge": "append"},
+        {"title": "Editable", "path": "components/EditableUsage.md", "merge": "append"},
+        {"title": "NavigationBar", "path": "components/NavigationBarUsage.md", "merge": "append"},
+        {"title": "FloatingButtonBar", "path": "components/FloatingButtonBar.md"},
+        {"title": "NumberPanel", "path": "components/NumberPanelUsage.md"}
+      ]
+    }
+  ]
+}

@@ -61,6 +61,12 @@ abstract class DocumentationAggregateTask : DefaultTask() {
     @get:PathSensitive(PathSensitivity.RELATIVE)
     abstract val screenshotsDirectory: DirectoryProperty
 
+    /** Optional user documentation root containing `structure.json` and `docs/**/*.md`. */
+    @get:InputDirectory
+    @get:Optional
+    @get:PathSensitive(PathSensitivity.RELATIVE)
+    abstract val userDocumentationRoot: DirectoryProperty
+
     /** `.sdds/temp/docs` directory consumed by DS Builder CLI. */
     @get:OutputDirectory
     abstract val outputDirectory: DirectoryProperty
@@ -89,7 +95,7 @@ abstract class DocumentationAggregateTask : DefaultTask() {
         )
         copyRequired(componentsInfoFile.get().asFile, output.resolve("meta/components-info.json"))
         copyRequired(themeInfoFile.get().asFile, output.resolve("meta/theme-info.json"))
-        enrichCoreDocumentation(core, output)
+        enrichDocumentation(core, output)
     }
 
     private fun unpackCoreArtifacts(output: File): CoreDocumentation {
@@ -140,7 +146,7 @@ abstract class DocumentationAggregateTask : DefaultTask() {
                 core.templates[relativePath] = zip.getInputStream(entry).reader().use { it.readText() }
             }
             relativePath.startsWith(EXAMPLES_PREFIX) -> {
-                copyZipEntry(zip, entry, checkedTarget(output, relativePath, entry.name))
+                copyZipEntryChecked(zip, entry, checkedTarget(output, relativePath, entry.name))
             }
             relativePath.startsWith("meta/") || relativePath.startsWith("assets/") -> Unit
             else -> {
@@ -158,6 +164,18 @@ abstract class DocumentationAggregateTask : DefaultTask() {
         zip.getInputStream(entry).use { input ->
             target.outputStream().use(input::copyTo)
         }
+    }
+
+    private fun copyZipEntryChecked(zip: ZipFile, entry: ZipEntry, target: File) {
+        val bytes = zip.getInputStream(entry).use { it.readBytes() }
+        if (target.isFile) {
+            if (!target.readBytes().contentEquals(bytes)) {
+                throw GradleException("Conflicting documentation asset: ${entry.name}")
+            }
+            return
+        }
+        target.parentFile.mkdirs()
+        target.writeBytes(bytes)
     }
 
     private fun checkedTarget(output: File, relativePath: String, source: String): File {
@@ -207,86 +225,168 @@ abstract class DocumentationAggregateTask : DefaultTask() {
     }
 
     @Suppress("ThrowsCount")
-    private fun enrichCoreDocumentation(core: CoreDocumentation, output: File) {
+    private fun enrichDocumentation(core: CoreDocumentation, output: File) {
         val structure = core.structure
         if (structure == null) {
             if (core.templates.isNotEmpty()) {
                 throw GradleException("Core documentation templates require structure.json")
             }
+            enrichUserDocumentation(emptySet(), output)
             return
         }
-        val navigation = structure.get("navigation")
-        if (navigation == null || !navigation.isJsonArray) {
-            throw GradleException("Core documentation structure must contain a navigation array")
-        }
-        val publicPaths = linkedSetOf<String>()
         val styleApis = resolveStyleApis(componentsInfoFile.get().asFile)
-        navigation.asJsonArray.forEach { collectPagePaths(it, publicPaths) }
+        val publicPaths = collectPublicPages(structure, "Core").mapTo(linkedSetOf(), Page::path)
         publicPaths.forEach { pagePath ->
             val templatePath = "$TEMPLATES_PREFIX$pagePath"
             val template = core.templates[templatePath]
                 ?: throw GradleException("Core documentation template does not exist: $pagePath")
-            val target = checkedTarget(output, "content/$pagePath", templatePath)
+            val target = checkedTarget(output, "content/core/$pagePath", templatePath)
             target.parentFile.mkdirs()
-            target.writeText(enrichTemplate(template, templatePath, output, styleApis))
+            target.writeText(enrichTemplate(template, "core", pagePath, output, styleApis))
         }
         val structureTarget = checkedTarget(output, "structure-core.json", STRUCTURE_PATH)
         structureTarget.parentFile.mkdirs()
         structureTarget.writeText(GSON.toJson(structure))
+        enrichUserDocumentation(publicPaths, output)
+    }
+
+    @Suppress("CyclomaticComplexMethod", "ThrowsCount")
+    private fun enrichUserDocumentation(corePaths: Set<String>, output: File) {
+        val root = userDocumentationRoot.orNull?.asFile ?: return
+        val structureFile = root.resolve(STRUCTURE_PATH)
+        if (!structureFile.isFile) return
+        val structureElement = runCatching { JsonParser.parseString(structureFile.readText()) }
+            .getOrElse { throw GradleException("Invalid user documentation structure: ${structureFile.path}", it) }
+        if (!structureElement.isJsonObject) {
+            throw GradleException("User documentation structure must be a JSON object: ${structureFile.path}")
+        }
+        val structure = structureElement.asJsonObject
+        val pages = collectPublicPages(structure, "User")
+        val styleApis = resolveStyleApis(componentsInfoFile.get().asFile)
+        pages.forEach { page ->
+            val collidesWithCore = page.path in corePaths
+            val merge = page.merge
+            when {
+                merge == "prepend" -> throw GradleException(
+                    "User documentation page '${page.path}' uses unsupported merge mode: prepend",
+                )
+                merge != null && merge !in SUPPORTED_MERGES -> throw GradleException(
+                    "User documentation page '${page.path}' uses unsupported merge mode: $merge",
+                )
+                collidesWithCore && merge == null -> throw GradleException(
+                    "User documentation page '${page.path}' collides with Core and requires explicit append or replace",
+                )
+                !collidesWithCore && merge != null -> throw GradleException(
+                    "Standalone user documentation page '${page.path}' must not declare merge: $merge",
+                )
+            }
+            val sourcePath = when (merge) {
+                "append" -> page.path.withPlusFileName()
+                else -> page.path
+            }
+            val source = checkedSource(root.resolve(TEMPLATES_PREFIX), sourcePath, page.path)
+            if (!source.isFile) {
+                val alternatePath = if (merge == "append") page.path else page.path.withPlusFileName()
+                val alternate = checkedSource(root.resolve(TEMPLATES_PREFIX), alternatePath, page.path)
+                val message = when {
+                    merge == "append" && alternate.isFile ->
+                        "Append user documentation page '${page.path}' must use source '$sourcePath'"
+                    !collidesWithCore && alternate.isFile ->
+                        "Standalone user documentation page '${page.path}' " +
+                            "must not use plus-prefixed source '$alternatePath'"
+                    else -> "User documentation source does not exist for '${page.path}': ${source.path}"
+                }
+                throw GradleException(message)
+            }
+            val target = checkedTarget(output, "content/user/${page.path}", source.path)
+            target.parentFile.mkdirs()
+            target.writeText(enrichTemplate(source.readText(), "user", page.path, output, styleApis))
+        }
+        checkedTarget(output, "structure-user.json", structureFile.path)
+            .writeText(GSON.toJson(structure))
+    }
+
+    private fun checkedSource(root: File, relativePath: String, logicalPath: String): File {
+        val source = root.resolve(relativePath).canonicalFile
+        if (!source.toPath().startsWith(root.canonicalFile.toPath())) {
+            throw GradleException("User documentation page '$logicalPath' has an unsafe source path")
+        }
+        return source
     }
 
     private fun enrichTemplate(
         template: String,
-        templatePath: String,
+        layer: String,
+        logicalPath: String,
         output: File,
         styleApis: StyleApis,
     ): String {
-        return enrichSamples(template, templatePath, output)
+        return enrichSamples(template, layer, logicalPath, output)
             .replace(STYLE_API_REGEX) {
-                renderStyleApi(templatePath, styleApis)
+                renderStyleApi(logicalPath, styleApis)
             }
     }
 
+    private fun collectPublicPages(structure: JsonObject, layer: String): List<Page> {
+        val navigation = structure.get("navigation")
+        if (navigation == null || !navigation.isJsonArray) {
+            throw GradleException("$layer documentation structure must contain a navigation array")
+        }
+        val result = mutableListOf<Page>()
+        navigation.asJsonArray.forEach { collectPages(it, layer, result) }
+        return result
+    }
+
     @Suppress("ThrowsCount")
-    private fun collectPagePaths(element: JsonElement, result: MutableSet<String>) {
+    private fun collectPages(element: JsonElement, layer: String, result: MutableList<Page>) {
         if (!element.isJsonObject) {
-            throw GradleException("Core documentation navigation entries must be JSON objects")
+            throw GradleException("$layer documentation navigation entries must be JSON objects")
         }
         val node = element.asJsonObject
         node.get("path")?.let { pathElement ->
             if (!pathElement.isJsonPrimitive || !pathElement.asJsonPrimitive.isString) {
-                throw GradleException("Core documentation page path must be a string")
+                throw GradleException("$layer documentation page path must be a string")
             }
-            val path = normalizeRelativePath(pathElement.asString, "Core documentation page path")
+            val path = normalizeRelativePath(pathElement.asString, "$layer documentation page path")
             if (!path.endsWith(".md")) {
-                throw GradleException("Core documentation page must reference markdown: $path")
+                throw GradleException("$layer documentation page must reference markdown: $path")
             }
-            result += path
+            if (File(path).name.startsWith("+")) {
+                throw GradleException("$layer documentation logical path must not use plus prefix: $path")
+            }
+            val merge = node.get("merge")?.let {
+                if (!it.isJsonPrimitive || !it.asJsonPrimitive.isString) {
+                    throw GradleException("$layer documentation merge must be a string: $path")
+                }
+                it.asString
+            }
+            result += Page(path, merge)
         }
         node.get("items")?.let { items ->
             if (!items.isJsonArray) {
-                throw GradleException("Core documentation navigation items must be an array")
+                throw GradleException("$layer documentation navigation items must be an array")
             }
-            items.asJsonArray.forEach { collectPagePaths(it, result) }
+            items.asJsonArray.forEach { collectPages(it, layer, result) }
         }
     }
 
-    private fun enrichSamples(template: String, templatePath: String, output: File): String {
+    private fun enrichSamples(template: String, layer: String, logicalPath: String, output: File): String {
         val withKotlin = template.replace(KOTLIN_SAMPLE_REGEX) { match ->
-            resolveSample(match.groupValues[1].trim(), "kotlin", templatePath, output)
+            resolveSample(match.groupValues[1].trim(), "kotlin", layer, logicalPath, output)
         }
         return withKotlin.replace(XML_SAMPLE_REGEX) { match ->
-            resolveSample(match.groupValues[1].trim(), "xml", templatePath, output)
+            resolveSample(match.groupValues[1].trim(), "xml", layer, logicalPath, output)
         }
     }
 
     private fun resolveSample(
         reference: String,
         language: String,
-        templatePath: String,
+        layer: String,
+        logicalPath: String,
         output: File,
     ): String {
-        val normalized = normalizeRelativePath(reference, "Sample reference in $templatePath")
+        val normalized = normalizeRelativePath(reference, "Sample reference in $layer page $logicalPath")
         val examples = output.resolve("assets/examples")
         val candidates = if (normalized.startsWith("assets/")) {
             listOf(output.resolve(normalized))
@@ -295,7 +395,7 @@ abstract class DocumentationAggregateTask : DefaultTask() {
         }
         val sample = candidates.firstOrNull(File::isFile)
             ?: throw GradleException(
-                "Documentation sample '$reference' referenced from '$templatePath' does not exist",
+                "Documentation sample '$reference' referenced from $layer page '$logicalPath' does not exist",
             )
         return sample.readText().trim()
     }
@@ -348,12 +448,12 @@ abstract class DocumentationAggregateTask : DefaultTask() {
                         },
                     )
                 },
-                variations = component.getAsJsonArrayOrEmpty("variations").mapNotNull { variationElement ->
+                variations = component.getAsJsonArrayOrEmpty("variations").mapNotNull variation@{ variationElement ->
                     val variation = variationElement.asJsonObject
                     val reference = variation.get("composeReference")
                         ?.takeUnless(JsonElement::isJsonNull)
                         ?.asString
-                        ?: return@mapNotNull null
+                        ?: return@variation null
                     StyleVariationDoc(
                         composeReference = reference,
                         props = variation.getAsJsonArrayOrEmpty("props").associate {
@@ -399,6 +499,8 @@ abstract class DocumentationAggregateTask : DefaultTask() {
         val templates: MutableMap<String, String> = linkedMapOf(),
         val samples: MutableList<JsonObject> = mutableListOf(),
     )
+
+    private data class Page(val path: String, val merge: String?)
 
     private data class StyleApis(
         val componentNames: Set<String> = emptySet(),
@@ -501,11 +603,17 @@ abstract class DocumentationAggregateTask : DefaultTask() {
         const val EXAMPLES_PREFIX = "assets/examples/"
         const val LEGACY_META_PATH = "meta.json"
         const val SAMPLES_META_PATH = "meta/samples.json"
+        val SUPPORTED_MERGES = setOf("append", "replace")
         val KOTLIN_SAMPLE_REGEX = "//\\s*@sample:\\s*(.+)".toRegex()
         val XML_SAMPLE_REGEX = "<!--\\s*@sample:\\s*(.+?)\\s*-->".toRegex()
         val STYLE_API_REGEX = "<!--\\s*@style-api\\s*-->".toRegex()
         val GSON = GsonBuilder().setPrettyPrinting().create()
     }
+}
+
+private fun String.withPlusFileName(): String {
+    val file = File(this)
+    return file.parent?.let { "$it/+${file.name}" } ?: "+${file.name}"
 }
 
 private fun JsonObject.getAsJsonObjectOrNull(name: String): JsonObject? {

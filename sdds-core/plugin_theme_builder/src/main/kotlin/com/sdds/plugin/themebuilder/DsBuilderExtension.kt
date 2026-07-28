@@ -145,6 +145,9 @@ abstract class DsBuilderExtension @Inject constructor(
             )
             extension.configFile.convention(extension.sddsDirectory.file("config.json"))
             extension.documentation.outputDirectory.convention(extension.sddsDirectory.dir("temp/docs"))
+            extension.documentation.userDocumentationRoot.convention(
+                project.layout.projectDirectory.dir("override-docs"),
+            )
             return extension
         }
     }
@@ -337,6 +340,9 @@ abstract class DocumentationCapability @Inject constructor(
 ) : DsBuilderCapability() {
     /** Platform enrichment root, conventionally `.sdds/temp/docs`. */
     abstract val outputDirectory: DirectoryProperty
+
+    /** Optional design-system documentation root, conventionally `override-docs`. */
+    abstract val userDocumentationRoot: DirectoryProperty
 
     /** Compose documentation settings, or `null` when Compose is not enabled. */
     var compose: DocumentationPlatform? = null
