@@ -84,6 +84,7 @@ abstract class DsBuilderExtension @Inject constructor(
             capability.dimensions.convention(dimensions)
             capability.multiplatform.convention(multiplatform)
         }
+        sandbox.outputLocation.convention(outputLocation)
     }
 
     /** Enables Compose generation for both theme and components. */
@@ -376,6 +377,9 @@ abstract class DocumentationPlatform {
 abstract class SandboxCapability @Inject constructor(
     private val objects: ObjectFactory,
 ) : DsBuilderCapability() {
+    /** Location of generated sandbox adapter sources. */
+    abstract val outputLocation: Property<OutputLocation>
+
     /** Compose adapter settings, or `null` when Compose is not enabled. */
     var compose: ComposeSandboxPlatform? = null
         private set

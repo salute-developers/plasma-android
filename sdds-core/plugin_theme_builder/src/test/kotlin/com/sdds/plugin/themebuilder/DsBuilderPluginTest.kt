@@ -100,6 +100,7 @@ class DsBuilderPluginTest {
             assertTrue(capability.dimensions.get().fromResources)
             assertEquals(2f, capability.dimensions.get().multiplier)
         }
+        assertEquals(OutputLocation.SRC, extension.sandbox.outputLocation.get())
     }
 
     @Test
@@ -353,6 +354,29 @@ class DsBuilderPluginTest {
     }
 
     @Test
+    fun `sandbox output location can override root convention`() {
+        val projectDir = temporaryFolder.newFolder("sandbox-src")
+        createSandboxMetadata(projectDir, "config-info-compose.json")
+        val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).apply {
+            outputLocation.set(OutputLocation.BUILD)
+            sandbox {
+                outputLocation.set(OutputLocation.SRC)
+                compose {}
+            }
+        }
+
+        (project as ProjectInternal).evaluate()
+
+        val task = project.tasks.getByName("generateComposeSandbox") as GenerateSandboxAdaptersTask
+        assertEquals(
+            projectDir.resolve("src/main/kotlin").canonicalFile,
+            task.outputDirectory.get().asFile.canonicalFile,
+        )
+    }
+
+    @Test
     fun `multiplatform sandbox generates into wired common source set`() {
         val projectDir = temporaryFolder.newFolder("kmp-sandbox")
         createSandboxMetadata(projectDir, "config-info-compose.json")
@@ -371,6 +395,7 @@ class DsBuilderPluginTest {
                 }
 
                 dsBuilder {
+                    outputLocation.set(com.sdds.plugin.themebuilder.OutputLocation.SRC)
                     sandbox {
                         compose {
                             multiplatform.set(true)
@@ -381,7 +406,7 @@ class DsBuilderPluginTest {
                 tasks.register("verifySandboxWiring") {
                     dependsOn("generateComposeSandbox")
                     doLast {
-                        val expected = layout.buildDirectory.dir("generated/sdds/sandbox").get().asFile
+                        val expected = layout.projectDirectory.dir("src/commonMain/kotlin").asFile
                         check(expected.walkTopDown().any { it.extension == "kt" })
                         val commonMain = project.extensions
                             .getByType(KotlinMultiplatformExtension::class.java)

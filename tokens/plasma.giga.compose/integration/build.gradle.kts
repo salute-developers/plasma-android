@@ -1,3 +1,5 @@
+import com.sdds.plugin.themebuilder.OutputLocation
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
@@ -6,6 +8,7 @@ plugins {
 }
 
 dsBuilder {
+    outputLocation.set(OutputLocation.SRC)
     sandbox {
         compose {
             generatedPackageName.set("com.sdds.plasma.giga.integration")

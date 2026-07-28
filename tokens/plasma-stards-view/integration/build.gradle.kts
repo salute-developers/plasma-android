@@ -1,3 +1,5 @@
+import com.sdds.plugin.themebuilder.OutputLocation
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
@@ -9,6 +11,7 @@ android {
 }
 
 dsBuilder {
+    outputLocation.set(OutputLocation.SRC)
     sandbox {
         view {
             generatedPackageName.set("com.sdkit.star.designsystem.integration")

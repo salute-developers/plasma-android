@@ -1,3 +1,4 @@
+import com.sdds.plugin.themebuilder.OutputLocation
 import utils.addDefaultTargets
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -16,16 +17,17 @@ kotlin {
     sourceSets {
         commonMain {
             dsBuilder {
-    sandbox {
-        compose {
-            generatedPackageName.set("com.sdds.serv.integration")
-            themeAlias.set("SddsServ")
-            multiplatform.set(true)
-        }
-    }
-}
+                outputLocation.set(OutputLocation.SRC)
+                sandbox {
+                    compose {
+                        generatedPackageName.set("com.sdds.serv.integration")
+                        themeAlias.set("SddsServ")
+                        multiplatform.set(true)
+                    }
+                }
+            }
 
-dependencies {
+            dependencies {
                 implementation(project(":sdds.serv.compose"))
                 implementation("integration-core:sandbox-core")
                 implementation("integration-core:sandbox-compose")

@@ -13,6 +13,8 @@ import org.gradle.api.Project
 import org.gradle.api.attributes.Attribute
 import org.gradle.api.attributes.Category
 import org.gradle.api.attributes.Usage
+import org.gradle.api.file.Directory
+import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.register
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
@@ -48,9 +50,9 @@ class DsBuilderPlugin : Plugin<Project> {
 private fun Project.configureSandbox(extension: DsBuilderExtension) {
     afterEvaluate {
         val sandbox = extension.sandbox.takeIf { it.enabled.get() } ?: return@afterEvaluate
-        val output = layout.buildDirectory.dir("generated/sdds/sandbox")
         sandbox.compose?.let { platform ->
             configureSandboxConventions(extension, platform)
+            val output = sandboxOutputDirectory(sandbox.outputLocation.get(), platform.multiplatform.get())
             val task = registerSandboxTask(
                 name = "generateComposeSandbox",
                 platform = platform,
@@ -68,6 +70,7 @@ private fun Project.configureSandbox(extension: DsBuilderExtension) {
         }
         sandbox.view?.let { platform ->
             configureSandboxConventions(extension, platform)
+            val output = sandboxOutputDirectory(sandbox.outputLocation.get(), multiplatform = false)
             registerSandboxTask(
                 name = "generateViewSandbox",
                 platform = platform,
@@ -76,12 +79,21 @@ private fun Project.configureSandbox(extension: DsBuilderExtension) {
                 multiplatform = false,
             )
         }
-        extensions.findByType<BaseExtension>()
-            ?.sourceSets
-            ?.maybeCreate("main")
-            ?.java
-            ?.srcDir(output)
     }
+}
+
+private fun Project.sandboxOutputDirectory(
+    outputLocation: OutputLocation,
+    multiplatform: Boolean,
+): Provider<Directory> = when (outputLocation) {
+    OutputLocation.BUILD -> layout.buildDirectory.dir("generated/sdds/sandbox")
+    OutputLocation.SRC -> layout.dir(
+        providers.provider {
+            layout.projectDirectory.dir(
+                if (multiplatform) "src/commonMain/kotlin" else "src/main/kotlin",
+            ).asFile
+        },
+    )
 }
 
 private fun Project.configureSandboxConventions(
@@ -119,6 +131,14 @@ private fun Project.registerSandboxTask(
     this.target.set(target)
     this.multiplatform.set(multiplatform)
     outputDirectory.set(output)
+}.also { task ->
+    if (!multiplatform) {
+        extensions.findByType<BaseExtension>()
+            ?.sourceSets
+            ?.maybeCreate("main")
+            ?.java
+            ?.srcDir(task.flatMap { it.outputDirectory })
+    }
 }
 
 private fun Project.configureDocumentation(extension: DsBuilderExtension) {
