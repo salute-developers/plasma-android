@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.documentation
 
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -9,19 +10,22 @@ import org.gradle.api.GradleException
 import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.InputFiles
+import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.PathSensitive
 import org.gradle.api.tasks.PathSensitivity
 import org.gradle.api.tasks.TaskAction
 import java.io.File
+import java.util.zip.ZipEntry
 import java.util.zip.ZipFile
 
 /** Assembles Android documentation enrichment using the ADR-0003 directory contract. */
 abstract class DocumentationAggregateTask : DefaultTask() {
 
-    /** Core documentation JARs. */
+    /** Versioned Core documentation template JARs. */
     @get:InputFiles
     @get:PathSensitive(PathSensitivity.RELATIVE)
     abstract val coreArtifacts: ConfigurableFileCollection
@@ -51,71 +55,117 @@ abstract class DocumentationAggregateTask : DefaultTask() {
     @get:PathSensitive(PathSensitivity.NONE)
     abstract val themeInfoFile: RegularFileProperty
 
+    /** Locally generated screenshots keyed by screenshot directives. */
+    @get:InputDirectory
+    @get:Optional
+    @get:PathSensitive(PathSensitivity.RELATIVE)
+    abstract val screenshotsDirectory: DirectoryProperty
+
     /** `.sdds/temp/docs` directory consumed by DS Builder CLI. */
     @get:OutputDirectory
     abstract val outputDirectory: DirectoryProperty
 
-    /** Builds a deterministic enrichment tree; local examples override Core examples. */
+    /**
+     * Builds a deterministic ADR-0003 enrichment tree.
+     *
+     * Local examples and metadata override their Core counterparts.
+     */
     @TaskAction
     fun aggregate() {
         val output = outputDirectory.get().asFile
         output.deleteRecursively()
         output.mkdirs()
 
-        val coreSamples = coreArtifacts.files
-            .sortedBy(File::getAbsolutePath)
-            .flatMap { unpackCoreArtifact(it, output) }
+        val core = unpackCoreArtifacts(output)
         copyTree(kotlinSnippets.get().asFile, output.resolve("assets/examples/kotlin"))
         copyTree(xmlSnippets.get().asFile, output.resolve("assets/examples/xml"))
+        screenshotsDirectory.orNull?.asFile
+            ?.takeIf(File::isDirectory)
+            ?.let { copyTree(it, output.resolve("assets/screenshots")) }
         mergeSamples(
-            coreSamples = coreSamples,
+            coreSamples = core.samples,
             localMetadata = samplesMetadata.get().asFile,
             target = output.resolve("meta/samples.json"),
         )
         copyRequired(componentsInfoFile.get().asFile, output.resolve("meta/components-info.json"))
         copyRequired(themeInfoFile.get().asFile, output.resolve("meta/theme-info.json"))
+        enrichCoreDocumentation(core, output)
     }
 
-    private fun unpackCoreArtifact(artifact: File, output: File): List<JsonObject> {
-        val samples = mutableListOf<JsonObject>()
-        ZipFile(artifact).use { zip ->
-            zip.entries().asSequence()
-                .filterNot { it.isDirectory }
-                .filter { it.name.startsWith(CORE_DOCS_PREFIX) }
-                .sortedBy { it.name }
-                .forEach { entry ->
-                    processCoreEntry(zip, entry, output, samples)
-                }
+    private fun unpackCoreArtifacts(output: File): CoreDocumentation {
+        val core = CoreDocumentation()
+        coreArtifacts.files.sortedBy(File::getAbsolutePath).forEach { artifact ->
+            ZipFile(artifact).use { zip ->
+                zip.entries().asSequence()
+                    .filterNot { it.isDirectory }
+                    .filter { it.name.startsWith(CORE_DOCS_PREFIX) }
+                    .sortedBy { it.name }
+                    .forEach { entry -> processCoreEntry(zip, entry, output, core) }
+            }
         }
-        return samples
+        return core
     }
 
+    @Suppress("CyclomaticComplexMethod", "ThrowsCount")
     private fun processCoreEntry(
         zip: ZipFile,
-        entry: java.util.zip.ZipEntry,
+        entry: ZipEntry,
         output: File,
-        samples: MutableList<JsonObject>,
+        core: CoreDocumentation,
     ) {
-        val relativePath = entry.name.removePrefix(CORE_DOCS_PREFIX)
-        if (relativePath == LEGACY_META_PATH || relativePath == SAMPLES_META_PATH) {
-            zip.getInputStream(entry).reader().use { reader ->
-                samples += parseSamples(JsonParser.parseReader(reader))
+        val relativePath = normalizeRelativePath(
+            entry.name.removePrefix(CORE_DOCS_PREFIX),
+            "Core documentation entry ${entry.name}",
+        )
+        when {
+            relativePath == LEGACY_META_PATH || relativePath == SAMPLES_META_PATH -> {
+                zip.getInputStream(entry).reader().use { reader ->
+                    core.samples += parseSamples(JsonParser.parseReader(reader))
+                }
             }
-            return
+            relativePath == STRUCTURE_PATH -> {
+                if (core.structure != null) {
+                    throw GradleException("Conflicting Core documentation structure: ${entry.name}")
+                }
+                val structure = zip.getInputStream(entry).reader().use(JsonParser::parseReader)
+                if (!structure.isJsonObject) {
+                    throw GradleException("Core documentation structure must be a JSON object: ${entry.name}")
+                }
+                core.structure = structure.asJsonObject
+            }
+            relativePath.startsWith(TEMPLATES_PREFIX) && relativePath.endsWith(".md") -> {
+                if (core.templates.containsKey(relativePath)) {
+                    throw GradleException("Conflicting Core documentation template: $relativePath")
+                }
+                core.templates[relativePath] = zip.getInputStream(entry).reader().use { it.readText() }
+            }
+            relativePath.startsWith(EXAMPLES_PREFIX) -> {
+                copyZipEntry(zip, entry, checkedTarget(output, relativePath, entry.name))
+            }
+            relativePath.startsWith("meta/") || relativePath.startsWith("assets/") -> Unit
+            else -> {
+                copyZipEntry(
+                    zip,
+                    entry,
+                    checkedTarget(output, "assets/examples/kotlin/$relativePath", entry.name),
+                )
+            }
         }
-        val normalizedPath = if (relativePath.startsWith("assets/")) {
-            relativePath
-        } else {
-            "assets/examples/kotlin/$relativePath"
-        }
-        val target = output.resolve(normalizedPath).canonicalFile
-        if (!target.toPath().startsWith(output.canonicalFile.toPath())) {
-            throw GradleException("Invalid Core documentation entry: ${entry.name}")
-        }
+    }
+
+    private fun copyZipEntry(zip: ZipFile, entry: ZipEntry, target: File) {
         target.parentFile.mkdirs()
         zip.getInputStream(entry).use { input ->
             target.outputStream().use(input::copyTo)
         }
+    }
+
+    private fun checkedTarget(output: File, relativePath: String, source: String): File {
+        val target = output.resolve(relativePath).canonicalFile
+        if (!target.toPath().startsWith(output.canonicalFile.toPath())) {
+            throw GradleException("Invalid Core documentation entry: $source")
+        }
+        return target
     }
 
     private fun copyTree(source: File, target: File) {
@@ -156,6 +206,110 @@ abstract class DocumentationAggregateTask : DefaultTask() {
         target.writeText(GSON.toJson(merged.values))
     }
 
+    @Suppress("ThrowsCount")
+    private fun enrichCoreDocumentation(core: CoreDocumentation, output: File) {
+        val structure = core.structure
+        if (structure == null) {
+            if (core.templates.isNotEmpty()) {
+                throw GradleException("Core documentation templates require structure.json")
+            }
+            return
+        }
+        val navigation = structure.get("navigation")
+        if (navigation == null || !navigation.isJsonArray) {
+            throw GradleException("Core documentation structure must contain a navigation array")
+        }
+        val publicPaths = linkedSetOf<String>()
+        val styleApis = resolveStyleApis(componentsInfoFile.get().asFile)
+        navigation.asJsonArray.forEach { collectPagePaths(it, publicPaths) }
+        publicPaths.forEach { pagePath ->
+            val templatePath = "$TEMPLATES_PREFIX$pagePath"
+            val template = core.templates[templatePath]
+                ?: throw GradleException("Core documentation template does not exist: $pagePath")
+            val target = checkedTarget(output, "content/$pagePath", templatePath)
+            target.parentFile.mkdirs()
+            target.writeText(enrichTemplate(template, templatePath, output, styleApis))
+        }
+        val structureTarget = checkedTarget(output, "structure-core.json", STRUCTURE_PATH)
+        structureTarget.parentFile.mkdirs()
+        structureTarget.writeText(GSON.toJson(structure))
+    }
+
+    private fun enrichTemplate(
+        template: String,
+        templatePath: String,
+        output: File,
+        styleApis: StyleApis,
+    ): String {
+        return enrichSamples(template, templatePath, output)
+            .replace(STYLE_API_REGEX) {
+                renderStyleApi(templatePath, styleApis)
+            }
+    }
+
+    @Suppress("ThrowsCount")
+    private fun collectPagePaths(element: JsonElement, result: MutableSet<String>) {
+        if (!element.isJsonObject) {
+            throw GradleException("Core documentation navigation entries must be JSON objects")
+        }
+        val node = element.asJsonObject
+        node.get("path")?.let { pathElement ->
+            if (!pathElement.isJsonPrimitive || !pathElement.asJsonPrimitive.isString) {
+                throw GradleException("Core documentation page path must be a string")
+            }
+            val path = normalizeRelativePath(pathElement.asString, "Core documentation page path")
+            if (!path.endsWith(".md")) {
+                throw GradleException("Core documentation page must reference markdown: $path")
+            }
+            result += path
+        }
+        node.get("items")?.let { items ->
+            if (!items.isJsonArray) {
+                throw GradleException("Core documentation navigation items must be an array")
+            }
+            items.asJsonArray.forEach { collectPagePaths(it, result) }
+        }
+    }
+
+    private fun enrichSamples(template: String, templatePath: String, output: File): String {
+        val withKotlin = template.replace(KOTLIN_SAMPLE_REGEX) { match ->
+            resolveSample(match.groupValues[1].trim(), "kotlin", templatePath, output)
+        }
+        return withKotlin.replace(XML_SAMPLE_REGEX) { match ->
+            resolveSample(match.groupValues[1].trim(), "xml", templatePath, output)
+        }
+    }
+
+    private fun resolveSample(
+        reference: String,
+        language: String,
+        templatePath: String,
+        output: File,
+    ): String {
+        val normalized = normalizeRelativePath(reference, "Sample reference in $templatePath")
+        val examples = output.resolve("assets/examples")
+        val candidates = if (normalized.startsWith("assets/")) {
+            listOf(output.resolve(normalized))
+        } else {
+            listOf(examples.resolve(normalized), examples.resolve(language).resolve(normalized))
+        }
+        val sample = candidates.firstOrNull(File::isFile)
+            ?: throw GradleException(
+                "Documentation sample '$reference' referenced from '$templatePath' does not exist",
+            )
+        return sample.readText().trim()
+    }
+
+    private fun normalizeRelativePath(path: String, description: String): String {
+        val normalized = path.replace('\\', '/')
+        val parts = normalized.split('/').filter(String::isNotEmpty)
+        val hasInvalidSegment = parts.any { it == "." || it == ".." }
+        if (normalized.startsWith("/") || parts.isEmpty() || hasInvalidSegment) {
+            throw GradleException("$description has an invalid relative path: $path")
+        }
+        return parts.joinToString("/")
+    }
+
     private fun normalizeSamplePath(sample: JsonObject): JsonObject {
         val normalized = sample.deepCopy()
         val snippetPath = normalized.get("snippetPath")?.asString
@@ -166,6 +320,66 @@ abstract class DocumentationAggregateTask : DefaultTask() {
         val language = if (normalized.get("kind")?.asString == "xml") "xml" else "kotlin"
         normalized.addProperty("snippetPath", "assets/examples/$language/$snippetPath")
         return normalized
+    }
+
+    private fun resolveStyleApis(componentsInfo: File): StyleApis {
+        val info = JsonParser.parseString(componentsInfo.readText())
+        if (!info.isJsonObject) return StyleApis()
+        val components = info.asJsonObject.getAsJsonArrayOrEmpty("components")
+        val componentNames = components.mapNotNull { element ->
+            element.takeIf(JsonElement::isJsonObject)?.asJsonObject?.get("coreName")?.asString
+        }.toSet()
+        val docs = components.mapNotNull { element ->
+            val component = element.asJsonObject
+            val styleApi = component.getAsJsonObjectOrNull("styleApi") ?: return@mapNotNull null
+            StyleApiDoc(
+                coreName = component.get("coreName").asString,
+                styleName = component.get("styleName").asString,
+                receiverClassName = styleApi.get("receiverClassName").asString,
+                functionName = styleApi.get("functionName")?.asString ?: "style",
+                params = styleApi.getAsJsonArrayOrEmpty("params").map { paramElement ->
+                    val param = paramElement.asJsonObject
+                    StyleApiParamDoc(
+                        name = param.get("name").asString,
+                        typeName = param.get("typeName").asString,
+                        defaultValue = param.getAsJsonObjectOrNull("defaultValue")?.toStyleApiValueDoc(),
+                        values = param.getAsJsonArrayOrEmpty("values").map {
+                            it.asJsonObject.toStyleApiValueDoc()
+                        },
+                    )
+                },
+                variations = component.getAsJsonArrayOrEmpty("variations").mapNotNull { variationElement ->
+                    val variation = variationElement.asJsonObject
+                    val reference = variation.get("composeReference")
+                        ?.takeUnless(JsonElement::isJsonNull)
+                        ?.asString
+                        ?: return@mapNotNull null
+                    StyleVariationDoc(
+                        composeReference = reference,
+                        props = variation.getAsJsonArrayOrEmpty("props").associate {
+                            val property = it.asJsonObject
+                            property.get("name").asString to property.get("value").asString
+                        },
+                    )
+                },
+            )
+        }.groupBy(StyleApiDoc::coreName)
+        return StyleApis(componentNames, docs)
+    }
+
+    private fun renderStyleApi(templatePath: String, styleApis: StyleApis): String {
+        val componentName = File(templatePath).name.removeSuffix("Usage.md")
+        val hasStyles = styleApis.componentNames.any { it.equals(componentName, ignoreCase = true) }
+        val docs = styleApis.docs[componentName].orEmpty()
+        return when {
+            hasStyles && docs.isNotEmpty() -> docs.joinToString("\n\n", transform = StyleApiDoc::toMarkdown)
+            hasStyles -> ""
+            else -> """
+                :::warning
+                У компонента нет готовых стилей. Если нужен стиль, обратитесь в поддержку.
+                :::
+            """.trimIndent()
+        }
     }
 
     private fun parseSamples(element: JsonElement): List<JsonObject> {
@@ -180,10 +394,133 @@ abstract class DocumentationAggregateTask : DefaultTask() {
         }
     }
 
+    private data class CoreDocumentation(
+        var structure: JsonObject? = null,
+        val templates: MutableMap<String, String> = linkedMapOf(),
+        val samples: MutableList<JsonObject> = mutableListOf(),
+    )
+
+    private data class StyleApis(
+        val componentNames: Set<String> = emptySet(),
+        val docs: Map<String, List<StyleApiDoc>> = emptyMap(),
+    )
+
+    private data class StyleApiDoc(
+        val coreName: String,
+        val styleName: String,
+        val receiverClassName: String,
+        val functionName: String,
+        val params: List<StyleApiParamDoc>,
+        val variations: List<StyleVariationDoc>,
+    ) {
+        fun toMarkdown(): String {
+            val header = if (styleName == coreName) {
+                "### Параметры стиля"
+            } else {
+                "### Параметры стиля `$styleName`"
+            }
+            return buildString {
+                if (params.isNotEmpty()) {
+                    appendLine(header)
+                    appendLine()
+                    appendLine("| Параметр | Тип | Возможные значения |")
+                    appendLine("| --- | --- | --- |")
+                    params.forEach { param ->
+                        appendLine("| `${param.name}` | `${param.typeName}` | ${param.valuesColumn} |")
+                    }
+                    appendLine()
+                }
+                appendLine("Пример выбора готового стиля:")
+                appendLine("```kotlin")
+                append(exampleCall())
+                exampleDotNotationCall()?.let { dotExample ->
+                    appendLine()
+                    appendLine()
+                    appendLine("// или через dot notation")
+                    appendLine(dotExample)
+                }
+                appendLine("```")
+            }
+        }
+
+        private fun exampleCall(): String {
+            val invocation = receiverClassName.removeSuffix(".Companion")
+            val args = params.joinToString(",\n") { param ->
+                "    ${param.name} = ${param.exampleValueExpression()}"
+            }
+            return buildString {
+                append("val style = $invocation.$functionName(")
+                if (args.isNotBlank()) append("\n$args\n")
+                append(")")
+            }
+        }
+
+        private fun exampleDotNotationCall(): String? {
+            val reference = variations.firstOrNull { variation ->
+                params.all { param ->
+                    val actual = variation.props[param.name] ?: param.defaultValue?.value
+                    actual == param.exampleRawValue()
+                }
+            }?.composeReference ?: variations.firstOrNull()?.composeReference
+            return reference?.let { "val style = $it.style()" }
+        }
+    }
+
+    private data class StyleApiParamDoc(
+        val name: String,
+        val typeName: String,
+        val defaultValue: StyleApiValueDoc?,
+        val values: List<StyleApiValueDoc>,
+    ) {
+        val valuesColumn: String
+            get() = if (values.isEmpty()) "-" else values.joinToString(", ") { "`${it.codeName}`" }
+
+        fun exampleValueExpression(): String {
+            val selected = defaultValue ?: values.firstOrNull()
+                ?: throw GradleException("No values available for style parameter '$name'")
+            return if (typeName == "Boolean") selected.codeName else "$typeName.${selected.codeName}"
+        }
+
+        fun exampleRawValue(): String {
+            return (defaultValue ?: values.firstOrNull())?.value
+                ?: throw GradleException("No values available for style parameter '$name'")
+        }
+    }
+
+    internal data class StyleApiValueDoc(val value: String, val codeName: String)
+
+    private data class StyleVariationDoc(
+        val composeReference: String,
+        val props: Map<String, String>,
+    )
+
     private companion object {
         const val CORE_DOCS_PREFIX = "META-INF/sdds-docs/"
+        const val STRUCTURE_PATH = "structure.json"
+        const val TEMPLATES_PREFIX = "docs/"
+        const val EXAMPLES_PREFIX = "assets/examples/"
         const val LEGACY_META_PATH = "meta.json"
         const val SAMPLES_META_PATH = "meta/samples.json"
+        val KOTLIN_SAMPLE_REGEX = "//\\s*@sample:\\s*(.+)".toRegex()
+        val XML_SAMPLE_REGEX = "<!--\\s*@sample:\\s*(.+?)\\s*-->".toRegex()
+        val STYLE_API_REGEX = "<!--\\s*@style-api\\s*-->".toRegex()
         val GSON = GsonBuilder().setPrettyPrinting().create()
     }
+}
+
+private fun JsonObject.getAsJsonObjectOrNull(name: String): JsonObject? {
+    val element = get(name) ?: return null
+    return if (element.isJsonNull) null else element.asJsonObject
+}
+
+private fun JsonObject.getAsJsonArrayOrEmpty(name: String): JsonArray {
+    val element = get(name) ?: return JsonArray()
+    return if (element.isJsonNull) JsonArray() else element.asJsonArray
+}
+
+private fun JsonObject.toStyleApiValueDoc(): DocumentationAggregateTask.StyleApiValueDoc {
+    return DocumentationAggregateTask.StyleApiValueDoc(
+        value = get("value").asString,
+        codeName = get("codeName").asString,
+    )
 }

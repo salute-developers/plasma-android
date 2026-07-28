@@ -140,6 +140,163 @@ class DocumentationAggregateTaskTest {
     }
 
     @Test
+    fun `core structure enriches only public markdown with local samples`() {
+        val task = configuredTask()
+        val structure = """
+            {
+              "schemaVersion": "1.0",
+              "navigation": [
+                {
+                  "title": "Components",
+                  "items": [{"title": "Button", "path": "components/Button.md"}]
+                }
+              ]
+            }
+        """.trimIndent()
+        val markdown = """
+            ```kotlin
+            // @sample: sample.kt
+            ```
+            ```xml
+            <!-- @sample: sample.xml -->
+            ```
+        """.trimIndent()
+        task.coreArtifacts.from(
+            createJar(
+                "templates.jar",
+                "META-INF/sdds-docs/structure.json" to structure,
+                "META-INF/sdds-docs/docs/components/Button.md" to markdown,
+                "META-INF/sdds-docs/docs/components/Draft.md" to "draft",
+                "META-INF/sdds-docs/assets/examples/kotlin/sample.kt" to "core",
+            ),
+        )
+        task.kotlinSnippets.get().asFile.resolve("sample.kt").writeText("local")
+        task.xmlSnippets.get().asFile.resolve("sample.xml").writeText("<local/>")
+
+        task.aggregate()
+
+        val output = task.outputDirectory.get().asFile
+        val content = output.resolve("content/components/Button.md").readText()
+        assertTrue(content.contains("local"))
+        assertTrue(content.contains("<local/>"))
+        assertTrue(!content.contains("@sample"))
+        assertTrue(!output.resolve("content/components/Draft.md").exists())
+        assertTrue(output.resolve("structure-core.json").isFile)
+    }
+
+    @Test
+    fun `core markdown includes style api and preserves screenshot directive`() {
+        val task = configuredTask()
+        task.screenshotsDirectory.set(
+            temporaryFolder.newFolder("screenshots").apply {
+                resolve("sample.Button.Simple.png").writeBytes(byteArrayOf(1, 2, 3))
+            },
+        )
+        task.coreArtifacts.from(
+            createJar(
+                "rich-template.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"title":"Button","path":"components/ButtonUsage.md"}]}""",
+                "META-INF/sdds-docs/docs/components/ButtonUsage.md" to
+                    """
+                        <!-- @screenshot: sample.Button.Simple -->
+                        <!-- @style-api -->
+                    """.trimIndent(),
+            ),
+        )
+        task.componentsInfoFile.set(
+            temporaryFolder.newFile("style-components.json").apply {
+                writeText(
+                    """
+                        {
+                          "components": [{
+                            "coreName": "Button",
+                            "styleName": "Button",
+                            "styleApi": {
+                              "receiverClassName": "ButtonStyles.Companion",
+                              "params": []
+                            },
+                            "variations": []
+                          }]
+                        }
+                    """.trimIndent(),
+                )
+            },
+        )
+        task.aggregate()
+
+        val output = task.outputDirectory.get().asFile
+        val content = output.resolve("content/components/ButtonUsage.md").readText()
+        assertTrue(content.contains("<!-- @screenshot: sample.Button.Simple -->"))
+        assertTrue(output.resolve("assets/screenshots/sample.Button.Simple.png").isFile)
+        assertTrue(content.contains("Пример выбора готового стиля"))
+        assertTrue(!content.contains("@style-api"))
+    }
+
+    @Test
+    fun `missing public markdown reports its path`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "missing-template.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"title":"Missing","path":"missing.md"}]}""",
+            ),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("missing.md"))
+    }
+
+    @Test
+    fun `missing sample reports template and reference`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "missing-sample.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"title":"Page","path":"page.md"}]}""",
+                "META-INF/sdds-docs/docs/page.md" to "// @sample: Missing.kt",
+            ),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("docs/page.md"))
+        assertTrue(error?.message.orEmpty().contains("Missing.kt"))
+    }
+
+    @Test
+    fun `conflicting core templates fail aggregation`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar("first-template.jar", "META-INF/sdds-docs/docs/page.md", "first"),
+            createJar("second-template.jar", "META-INF/sdds-docs/docs/page.md", "second"),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("Conflicting Core documentation template"))
+    }
+
+    @Test
+    fun `unsafe core entry fails aggregation`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar("unsafe.jar", "META-INF/sdds-docs/../../outside.md", "unsafe"),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("invalid relative path"))
+    }
+
+    @Test
     fun `missing info error contains exact resolved path`() {
         val missing = temporaryFolder.root.resolve("missing-components.json")
         val task = configuredTask().apply {
@@ -165,11 +322,16 @@ class DocumentationAggregateTaskTest {
     }
 
     private fun createJar(name: String, path: String, content: String): File =
+        createJar(name, path to content)
+
+    private fun createJar(name: String, vararg entries: Pair<String, String>): File =
         temporaryFolder.newFile(name).also { file ->
             ZipOutputStream(file.outputStream()).use { output ->
-                output.putNextEntry(ZipEntry(path))
-                output.write(content.toByteArray())
-                output.closeEntry()
+                entries.forEach { (path, content) ->
+                    output.putNextEntry(ZipEntry(path))
+                    output.write(content.toByteArray())
+                    output.closeEntry()
+                }
             }
         }
 }

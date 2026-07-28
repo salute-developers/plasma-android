@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.sandbox.GenerateSandboxAdaptersTask
 import com.sdds.plugin.themebuilder.sandbox.SandboxScheme
+import org.gradle.api.attributes.Attribute
 import org.gradle.api.internal.project.ProjectInternal
 import org.gradle.testfixtures.ProjectBuilder
 import org.gradle.testkit.runner.GradleRunner
@@ -285,6 +286,12 @@ class DsBuilderPluginTest {
         (project as ProjectInternal).evaluate()
 
         assertNotNull(project.configurations.findByName("sddsCoreDocumentation"))
+        assertEquals(
+            "templates",
+            project.configurations.getByName("sddsCoreDocumentation").attributes.getAttribute(
+                Attribute.of("com.sdds.docs.variant", String::class.java),
+            ),
+        )
         assertNotNull(project.tasks.findByName("documentationExtract"))
         assertNotNull(project.tasks.findByName("documentationAggregate"))
         assertNull(project.tasks.findByName("docusaurusGenerate"))

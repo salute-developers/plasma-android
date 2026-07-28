@@ -132,7 +132,7 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
                 Category.CATEGORY_ATTRIBUTE,
                 objects.named(Category::class.java, Category.DOCUMENTATION),
             )
-            attribute(Attribute.of("com.sdds.docs.variant", String::class.java), "snippets")
+            attribute(Attribute.of("com.sdds.docs.variant", String::class.java), "templates")
         }
     }
     val compiler = configurations.create("sddsDocumentationKotlinCompiler") {
@@ -167,6 +167,9 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
             samplesMetadata.set(extract.flatMap { it.outputMeta })
             componentsInfoFile.set(platform.componentsInfoFile)
             themeInfoFile.set(platform.themeInfoFile)
+            screenshotsDirectory.set(
+                layout.projectDirectory.dir("override-docs/static/screenshots-docusaurus"),
+            )
             outputDirectory.set(documentation.outputDirectory)
             dependsOn(extract)
         }

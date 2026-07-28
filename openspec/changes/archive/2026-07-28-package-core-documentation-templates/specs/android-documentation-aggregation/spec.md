@@ -1,18 +1,4 @@
-# android-documentation-aggregation Specification
-
-## Purpose
-TBD - created by archiving change unify-ds-builder-plugin. Update Purpose after archive.
-## Requirements
-### Requirement: Плагин собирает платформенные фрагменты документации
-Documentation capability SHALL собирать Kotlin и XML snippets, metadata и платформенные info-артефакты в объявленные Gradle outputs.
-
-#### Scenario: Compose documentation
-- **WHEN** модуль включает `documentation { compose() }`
-- **THEN** плагин SHALL зарегистрировать задачи извлечения Kotlin snippets и включить Compose `componentsInfoFile` и `themeInfoFile` в агрегированный результат
-
-#### Scenario: View documentation
-- **WHEN** модуль включает `documentation { view() }`
-- **THEN** плагин SHALL зарегистрировать задачи извлечения Kotlin/XML snippets и включить View `componentsInfoFile` и `themeInfoFile` в агрегированный результат
+## MODIFIED Requirements
 
 ### Requirement: Core snippets принимаются как Gradle artifacts
 Documentation capability SHALL предоставлять resolvable configuration для версионированных Core documentation artifacts и распаковывать их templates, snippets и metadata из `META-INF/sdds-docs` с проверкой безопасных относительных путей.
@@ -60,12 +46,7 @@ Documentation capability SHALL производить платформенно �
 - **WHEN** Core documentation artifact не содержит `structure.json` и markdown template
 - **THEN** snippets и info-артефакты SHALL агрегироваться в legacy-compatible режиме без создания фиктивной структуры
 
-### Requirement: Portal build и публикация не входят в capability
-Documentation capability SHALL NOT выполнять Docusaurus template generation, npm-команды, changelog synchronization, S3 upload или публикацию документации.
-
-#### Scenario: Выполняется агрегация документации
-- **WHEN** запускается lifecycle-задача documentation capability
-- **THEN** она SHALL завершаться созданием локального платформенного результата и SHALL NOT запускать portal build или network publication
+## ADDED Requirements
 
 ### Requirement: Core markdown насыщается платформенными examples
 Documentation capability SHALL обрабатывать существующие Kotlin/XML sample directives в Core markdown и записывать результат в `.sdds/temp/docs/content`, сохраняя относительные пути страниц.
@@ -111,4 +92,3 @@ Documentation capability SHALL заменять существующие style-a
 #### Scenario: Compose style API существует
 - **WHEN** markdown содержит `@style-api` directive и component info содержит style API
 - **THEN** directive SHALL быть заменён таблицей параметров и примером выбора готового стиля
-
