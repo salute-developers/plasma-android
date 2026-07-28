@@ -1,11 +1,20 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
-    id("convention.integration-view")
+    id(libs.plugins.dsbuilder.get().pluginId)
 }
 
 android {
     namespace = "com.sdkit.star.designsystem.integration"
+}
+
+dsBuilder {
+    sandbox {
+        view {
+            generatedPackageName.set("com.sdkit.star.designsystem.integration")
+            themeAlias.set("StarDs")
+        }
+    }
 }
 
 dependencies {

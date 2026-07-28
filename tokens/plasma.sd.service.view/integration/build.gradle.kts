@@ -1,11 +1,20 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
-    id("convention.integration-view")
+    id(libs.plugins.dsbuilder.get().pluginId)
 }
 
 android {
     namespace = "com.sdds.sd.service.sandbox.integration"
+}
+
+dsBuilder {
+    sandbox {
+        view {
+            generatedPackageName.set("com.plasma.sd.service.integration")
+            themeAlias.set("SdService")
+        }
+    }
 }
 
 dependencies {

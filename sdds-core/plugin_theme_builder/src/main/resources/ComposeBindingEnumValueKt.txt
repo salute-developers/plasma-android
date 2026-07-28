@@ -1,0 +1,5 @@
+when (bindings["${{ name }}"]?.toString()) {
+                ${{ mappings }}
+                else -> ${{ defaultExpression }}
+            }
+

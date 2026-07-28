@@ -1,1 +1,0 @@
-            "${{ variationName }}" to viewStyleReference(DsR.style.${{ variationReference }}),

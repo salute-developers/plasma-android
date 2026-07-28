@@ -3,7 +3,7 @@ import utils.addDefaultTargets
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.cmp-lib")
-    id("convention.integration-compose")
+    id(libs.plugins.dsbuilder.get().pluginId)
 }
 
 android {
@@ -15,7 +15,17 @@ kotlin {
 
     sourceSets {
         commonMain {
-            dependencies {
+            dsBuilder {
+    sandbox {
+        compose {
+            generatedPackageName.set("com.sdds.serv.integration")
+            themeAlias.set("SddsServ")
+            multiplatform.set(true)
+        }
+    }
+}
+
+dependencies {
                 implementation(project(":sdds.serv.compose"))
                 implementation("integration-core:sandbox-core")
                 implementation("integration-core:sandbox-compose")

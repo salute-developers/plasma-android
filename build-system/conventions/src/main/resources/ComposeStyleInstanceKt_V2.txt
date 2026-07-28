@@ -1,1 +1,0 @@
-            "${{ variationName }}" to ComposeStyleReference { ${{ variationReference }}.style() },

@@ -1,0 +1,11 @@
+package ${{ packageName }}
+
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import ${{ themePackageName }}.R as DsR
+
+internal object ${{ themeName }}${{ styleName }}VariationsView : ViewStyleProvider<String>() {
+    override val variations: Map<String, Int> =
+        mapOf(
+${{ variations }}
+        )
+}

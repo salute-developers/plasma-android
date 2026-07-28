@@ -11,7 +11,7 @@ import utils.themeVersion
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
-    id(libs.plugins.themebuilder.get().pluginId)
+    id(libs.plugins.dsbuilder.get().pluginId)
     id("convention.maven-publish")
     id("convention.auto-bump")
     id("convention.testing")
@@ -24,19 +24,23 @@ android {
     resourcePrefix = themeResPrefix
 }
 
-themeBuilder {
-    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
-    componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
+dsBuilder {
     view {
         themeParents {
             materialComponentsTheme()
         }
         setupShapeAppearance(sddsShape())
     }
-    ktPackage("com.sdds.plasma.sd.service")
-    autoGenerate(false)
-    mode(ThemeBuilderMode.THEME)
-    outputLocation(OutputLocation.SRC)
+    packageName.set("com.sdds.plasma.sd.service")
+    outputLocation.set(OutputLocation.SRC)
+    theme {
+        source(name = themeName, version = themeVersion, alias = themeAlias)
+        autoGenerate.set(false)
+        mode.set(ThemeBuilderMode.THEME)
+    }
+    components {
+        source(name = componentsName, version = componentsVersion, alias = themeAlias)
+    }
 }
 
 dependencies {

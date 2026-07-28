@@ -1,0 +1,7 @@
+ComposeComponent(
+    ComponentKey.${{ key }},
+    mapOf(
+        ${{ appearances }}
+    )
+)
+

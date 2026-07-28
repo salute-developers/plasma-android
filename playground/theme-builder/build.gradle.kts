@@ -6,7 +6,7 @@ import com.sdds.plugin.themebuilder.ThemeBuilderMode
 plugins {
     id("convention.android-lib")
     id("convention.compose")
-    id(libs.plugins.themebuilder.get().pluginId)
+    id(libs.plugins.dsbuilder.get().pluginId)
 }
 
 android {
@@ -14,22 +14,7 @@ android {
     resourcePrefix = "thmbldr"
 }
 
-themeBuilder {
-    themeSources(baseAlias = "SddsServ") {
-        defaultSourceFromUrl(
-            name = "sdds_serv",
-            url = "file://${projectDir.path}/json/latest.zip",
-        )
-        sourceFromUrl(
-            name = "sdds_serv",
-            url = "file://${projectDir.path}/json/latest_gold.zip",
-            tenant = "Gold",
-        )
-    }
-    componentSource {
-        url("file://${projectDir.path}/json/test_components.zip")
-        name("sdds_serv")
-    }
+dsBuilder {
     view {
         themeParents {
             materialComponentsTheme()
@@ -37,10 +22,8 @@ themeBuilder {
         setupShapeAppearance(sddsShape())
     }
     compose()
-    ktPackage("com.sdds.playground.themebuilder")
-    mode(ThemeBuilderMode.THEME)
-    outputLocation(OutputLocation.BUILD)
-    autoGenerate(false)
+    packageName.set("com.sdds.playground.themebuilder")
+    outputLocation.set(OutputLocation.BUILD)
     dimensions {
         multiplier(2f)
         breakPoints {
@@ -48,6 +31,24 @@ themeBuilder {
             medium(560)
         }
         fromResources(false)
+    }
+    theme {
+        sources(baseAlias = "SddsServ") {
+            defaultSourceFromUrl(
+                name = "sdds_serv",
+                url = "file://${projectDir.path}/json/latest.zip",
+            )
+            sourceFromUrl(
+                name = "sdds_serv",
+                url = "file://${projectDir.path}/json/latest_gold.zip",
+                tenant = "Gold",
+            )
+        }
+        mode.set(ThemeBuilderMode.THEME)
+        autoGenerate.set(false)
+    }
+    components {
+        source("file://${projectDir.path}/json/test_components.zip")
     }
 }
 

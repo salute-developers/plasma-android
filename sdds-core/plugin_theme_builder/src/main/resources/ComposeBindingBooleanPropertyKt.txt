@@ -1,0 +1,2 @@
+Property.BooleanProperty(name = "${{ name }}", value = ${{ defaultValue }})
+

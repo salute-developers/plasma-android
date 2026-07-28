@@ -3,7 +3,6 @@ package com.sdds.plugin.themebuilder
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.materialShape
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
-import org.gradle.api.Project
 import java.io.Serializable
 
 /**
@@ -134,6 +133,11 @@ open class ThemeBuilderExtension {
         }
     }
 
+    internal fun setThemeSources(sources: ThemeBuilderSources) {
+        themeSource = null
+        themeSources = sources
+    }
+
     /**
      * Устанавливает View фреймворк для генерации темы и токенов
      *
@@ -242,16 +246,9 @@ open class ThemeBuilderExtension {
         }
     }
 
-    companion object {
+    private companion object {
         private const val DEFAULT_PALETTE_URL =
             "https://raw.githubusercontent.com/salute-developers/plasma/dev/packages/plasma-colors/palette/general.json"
-
-        /**
-         * Создает extension [ThemeBuilderExtension]
-         */
-        fun Project.themeBuilderExt(): ThemeBuilderExtension {
-            return extensions.create("themeBuilder", ThemeBuilderExtension::class.java)
-        }
     }
 }
 

@@ -14,7 +14,7 @@ plugins {
     id("convention.maven-publish")
     id("convention.auto-bump")
     id("convention.testing-compose")
-    id(libs.plugins.themebuilder.get().pluginId)
+    id(libs.plugins.dsbuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
     id("star-dimens-generator")
     id("convention.docusaurus")
@@ -25,20 +25,11 @@ android {
     resourcePrefix = themeResPrefix
 }
 
-themeBuilder {
-    themeSource {
-        url(themeUrl)
-        name(themeAlias)
-    }
-    componentSource(name = componentsName, componentsVersion, themeAlias)
-    compose {
-        componentsMetaStyleClass(true)
-    }
-    ktPackage("com.sdkit.star.designsystem")
-    resourcesPrefix(prefix = themeResPrefix)
-    outputLocation(OutputLocation.SRC)
-    autoGenerate(false)
-    mode(ThemeBuilderMode.THEME)
+dsBuilder {
+    compose()
+    packageName.set("com.sdkit.star.designsystem")
+    resourcePrefix.set(themeResPrefix)
+    outputLocation.set(OutputLocation.SRC)
     dimensions {
         fromResources(true)
         multiplier(2f)
@@ -46,6 +37,15 @@ themeBuilder {
             large(960)
             medium(560)
         }
+    }
+    theme {
+        source(url = themeUrl, name = themeAlias)
+        autoGenerate.set(false)
+        mode.set(ThemeBuilderMode.THEME)
+    }
+    components {
+        source(name = componentsName, version = componentsVersion, alias = themeAlias)
+        componentsMetaStyleClass.set(true)
     }
 }
 

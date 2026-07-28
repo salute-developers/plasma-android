@@ -197,15 +197,20 @@ private fun Project.getArtifactDocsBaseUrl(artifactId: String, version: String, 
 private fun String.replaceKotlinSnippets(snippetsDir: File): String {
     return this.replace("//\\s*@sample:\\s*(.+)".toRegex()) { m ->
         val path = m.groupValues[1].trim()
-        snippetsDir.resolve(path).readText().trim()
+        snippetsDir.resolveSnippet(path, "kotlin").readText().trim()
     }
 }
 
 private fun String.replaceXmlSnippets(snippetsDir: File): String {
     return this.replace("<!--\\s*@sample:\\s*(.+)\\s*-->".toRegex()) { m ->
         val path = m.groupValues[1].trim()
-        snippetsDir.resolve(path).readText().trim()
+        snippetsDir.resolveSnippet(path, "xml").readText().trim()
     }
+}
+
+private fun File.resolveSnippet(path: String, platformDirectory: String): File {
+    val direct = resolve(path)
+    return if (direct.isFile) direct else resolve("$platformDirectory/$path")
 }
 
 private fun String.replaceScreenshots(templateDir: File, needScreenshots: Boolean, logger: Logger): String {

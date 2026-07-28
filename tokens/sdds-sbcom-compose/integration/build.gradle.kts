@@ -1,12 +1,21 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
-    id("convention.integration-compose")
+    id(libs.plugins.dsbuilder.get().pluginId)
     id("convention.compose")
 }
 
 android {
     namespace = "com.sdds.sbcom.compose.integration"
+}
+
+dsBuilder {
+    sandbox {
+        compose {
+            generatedPackageName.set("com.sdds.sbcom.integration")
+            themeAlias.set("SddsSbCom")
+        }
+    }
 }
 
 dependencies {

@@ -11,7 +11,7 @@ import utils.themeResPrefix
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
-    id(libs.plugins.themebuilder.get().pluginId)
+    id(libs.plugins.dsbuilder.get().pluginId)
     id("convention.maven-publish")
     id("convention.auto-bump")
     id("convention.testing")
@@ -25,12 +25,7 @@ android {
     resourcePrefix = themeResPrefix
 }
 
-themeBuilder {
-    themeSource {
-        url(themeUrl)
-        name(themeAlias)
-    }
-    componentSource(name = componentsName, componentsVersion, themeAlias)
+dsBuilder {
     view {
         themeParents {
             materialComponentsTheme("NoActionBar")
@@ -38,17 +33,23 @@ themeBuilder {
         }
         setupShapeAppearance(sddsShape())
     }
-    ktPackage("com.sdkit.star.designsystem")
-    resourcesPrefix(prefix = themeResPrefix)
-    outputLocation(OutputLocation.SRC)
-    autoGenerate(false)
-    mode(ThemeBuilderMode.THEME)
+    packageName.set("com.sdkit.star.designsystem")
+    resourcePrefix.set(themeResPrefix)
+    outputLocation.set(OutputLocation.SRC)
     dimensions {
         multiplier(2f)
         breakPoints {
             large(960)
             medium(560)
         }
+    }
+    theme {
+        source(url = themeUrl, name = themeAlias)
+        autoGenerate.set(false)
+        mode.set(ThemeBuilderMode.THEME)
+    }
+    components {
+        source(name = componentsName, version = componentsVersion, alias = themeAlias)
     }
 }
 

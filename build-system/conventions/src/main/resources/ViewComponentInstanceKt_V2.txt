@@ -1,6 +1,0 @@
-Component(
-    ComponentKey.${{ key }},
-    mapOf(
-        ${{ appearances }}
-    )
-)

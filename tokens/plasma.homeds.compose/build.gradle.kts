@@ -15,7 +15,7 @@ plugins {
     id("convention.maven-publish")
     id("convention.auto-bump")
     id("convention.testing-compose")
-    id(libs.plugins.themebuilder.get().pluginId)
+    id(libs.plugins.dsbuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
 }
 
@@ -24,16 +24,19 @@ android {
     resourcePrefix = themeResPrefix
 }
 
-themeBuilder {
-    componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
-    compose {
-        componentsMetaStyleClass(true)
+dsBuilder {
+    compose()
+    packageName.set("com.sdds.plasma.homeds")
+    outputLocation.set(SRC)
+    theme {
+        mode.set(THEME)
+        autoGenerate.set(false)
+        defaultTypography.set(SMALL)
     }
-    ktPackage(ktPackage = "com.sdds.plasma.homeds")
-    mode(THEME)
-    outputLocation(SRC)
-    autoGenerate(false)
-    defaultTypography(SMALL)
+    components {
+        source(name = componentsName, version = componentsVersion, alias = themeAlias)
+        componentsMetaStyleClass.set(true)
+    }
 }
 
 dependencies {

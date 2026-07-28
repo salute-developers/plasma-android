@@ -1,12 +1,21 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
-    id("convention.integration-compose")
+    id(libs.plugins.dsbuilder.get().pluginId)
     id("convention.compose")
 }
 
 android {
     namespace = "com.sdds.plasma.homeds.compose.integration"
+}
+
+dsBuilder {
+    sandbox {
+        compose {
+            generatedPackageName.set("com.sdds.plasma.homeds.integration")
+            themeAlias.set("PlasmaHomeDs")
+        }
+    }
 }
 
 dependencies {
