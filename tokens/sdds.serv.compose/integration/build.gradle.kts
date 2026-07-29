@@ -4,6 +4,7 @@ import utils.addDefaultTargets
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.cmp-lib")
+    id("convention.integration-detekt")
     id(libs.plugins.dsbuilder.get().pluginId)
 }
 

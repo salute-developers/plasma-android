@@ -15,6 +15,7 @@ import org.gradle.api.attributes.Category
 import org.gradle.api.attributes.Usage
 import org.gradle.api.file.Directory
 import org.gradle.api.provider.Provider
+import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.register
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
@@ -60,6 +61,7 @@ private fun Project.configureSandbox(extension: DsBuilderExtension) {
                 output = output,
                 multiplatform = platform.multiplatform.get(),
             )
+            attachToPreBuild(task, sandbox.autoGenerate.get())
             if (platform.multiplatform.get()) {
                 extensions.findByType<KotlinMultiplatformExtension>()
                     ?.sourceSets
@@ -71,13 +73,14 @@ private fun Project.configureSandbox(extension: DsBuilderExtension) {
         sandbox.view?.let { platform ->
             configureSandboxConventions(extension, platform)
             val output = sandboxOutputDirectory(sandbox.outputLocation.get(), multiplatform = false)
-            registerSandboxTask(
+            val task = registerSandboxTask(
                 name = "generateViewSandbox",
                 platform = platform,
                 target = SandboxTarget.XML,
                 output = output,
                 multiplatform = false,
             )
+            attachToPreBuild(task, sandbox.autoGenerate.get())
         }
     }
 }
@@ -178,7 +181,7 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
             outputXmlDir.set(workDirectory.map { it.dir("xml") })
             outputMeta.set(workDirectory.map { it.file("samples.json") })
         }
-        tasks.register<DocumentationAggregateTask>("documentationAggregate") {
+        val aggregate = tasks.register<DocumentationAggregateTask>("documentationAggregate") {
             group = "documentation"
             description = "Creates ADR-0003 Android documentation enrichment"
             coreArtifacts.from(coreSnippets)
@@ -194,6 +197,7 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
             outputDirectory.set(documentation.outputDirectory)
             dependsOn(extract)
         }
+        attachToPreBuild(aggregate, documentation.autoGenerate.get())
     }
 }
 
@@ -218,6 +222,7 @@ private fun ComponentsCapability.toLegacyExtension(): ThemeBuilderExtension =
         copyGenerationOptionsTo(legacy)
         legacy.componentSource = source.orNull
         legacy.componentsMetaStyleClass = componentsMetaStyleClass.get()
+        legacy.autoGenerate = autoGenerate.get()
     }
 
 private fun GenerationCapability.copyGenerationOptionsTo(legacy: ThemeBuilderExtension) {
@@ -229,4 +234,11 @@ private fun GenerationCapability.copyGenerationOptionsTo(legacy: ThemeBuilderExt
     legacy.outputLocation = outputLocation.get()
     legacy.dimensionsConfig = dimensions.get()
     legacy.multiplatform = multiplatform.get()
+}
+
+private fun Project.attachToPreBuild(task: TaskProvider<*>, enabled: Boolean) {
+    if (!enabled) return
+    tasks.matching { it.name == "preBuild" }.configureEach {
+        dependsOn(task)
+    }
 }

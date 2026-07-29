@@ -25,6 +25,7 @@ android {
 }
 
 dsBuilder {
+    autoGenerate.set(false)
     view {
         themeParents {
             materialComponentsTheme()
@@ -35,7 +36,6 @@ dsBuilder {
     outputLocation.set(OutputLocation.SRC)
     theme {
         source(name = themeName, version = themeVersion, alias = themeAlias)
-        autoGenerate.set(false)
         mode.set(ThemeBuilderMode.THEME)
     }
     components {

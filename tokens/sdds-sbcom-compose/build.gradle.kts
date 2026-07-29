@@ -24,12 +24,12 @@ android {
 }
 
 dsBuilder {
+    autoGenerate.set(false)
     compose()
     packageName.set("com.sdds.sbcom")
     outputLocation.set(SRC)
     theme {
         mode.set(THEME)
-        autoGenerate.set(false)
         ignoreDisabledTokens.set(true)
         useDefaultFonts.set(true)
     }

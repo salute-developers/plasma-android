@@ -3,6 +3,7 @@ import extensions.docs.DocusaurusExtension
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
+    id("convention.integration-detekt")
     id("convention.docusaurus")
     id("com.google.devtools.ksp")
     id(libs.plugins.dsbuilder.get().pluginId)

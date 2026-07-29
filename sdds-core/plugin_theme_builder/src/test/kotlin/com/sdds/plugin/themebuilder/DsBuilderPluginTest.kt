@@ -87,6 +87,7 @@ class DsBuilderPluginTest {
         extension.packageName.set("com.example.shared")
         extension.resourcePrefix.set("shared")
         extension.outputLocation.set(OutputLocation.SRC)
+        extension.autoGenerate.set(false)
         extension.dimensions {
             fromResources(true)
             multiplier(2f)
@@ -101,6 +102,14 @@ class DsBuilderPluginTest {
             assertEquals(2f, capability.dimensions.get().multiplier)
         }
         assertEquals(OutputLocation.SRC, extension.sandbox.outputLocation.get())
+        listOf(
+            extension.theme,
+            extension.components,
+            extension.documentation,
+            extension.sandbox,
+        ).forEach { capability ->
+            assertFalse(capability.autoGenerate.get())
+        }
     }
 
     @Test
@@ -280,6 +289,7 @@ class DsBuilderPluginTest {
         val projectDir = temporaryFolder.root
         projectDir.resolve(".sdds").mkdir()
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        val preBuild = project.tasks.register("preBuild")
         project.plugins.apply(DsBuilderPlugin::class.java)
         project.extensions.getByType(DsBuilderExtension::class.java).documentation {
             compose()
@@ -293,6 +303,10 @@ class DsBuilderPluginTest {
             project.configurations.getByName("sddsCoreDocumentation").attributes.getAttribute(
                 Attribute.of("com.sdds.docs.variant", String::class.java),
             ),
+        )
+        assertTrue(
+            preBuild.get().taskDependencies.getDependencies(preBuild.get())
+                .any { it.name == "documentationAggregate" },
         )
         assertNotNull(project.tasks.findByName("documentationExtract"))
         val aggregate = project.tasks.getByName("documentationAggregate") as DocumentationAggregateTask
@@ -310,6 +324,7 @@ class DsBuilderPluginTest {
         val projectDir = temporaryFolder.root
         createSandboxMetadata(projectDir, "config-info-compose.json")
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        val preBuild = project.tasks.register("preBuild")
         project.plugins.apply(DsBuilderPlugin::class.java)
         val extension = project.extensions.getByType(DsBuilderExtension::class.java)
         extension.sandbox {
@@ -324,6 +339,10 @@ class DsBuilderPluginTest {
         assertEquals(
             project.layout.buildDirectory.dir("generated/sdds/sandbox").get().asFile,
             task.outputDirectory.get().asFile,
+        )
+        assertTrue(
+            preBuild.get().taskDependencies.getDependencies(preBuild.get())
+                .any { it.name == "generateComposeSandbox" },
         )
         assertTrue(
             ComposeSandboxPlatform::class.java.methods.none {
@@ -358,11 +377,13 @@ class DsBuilderPluginTest {
         val projectDir = temporaryFolder.newFolder("sandbox-src")
         createSandboxMetadata(projectDir, "config-info-compose.json")
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        val preBuild = project.tasks.register("preBuild")
         project.plugins.apply(DsBuilderPlugin::class.java)
         project.extensions.getByType(DsBuilderExtension::class.java).apply {
             outputLocation.set(OutputLocation.BUILD)
             sandbox {
                 outputLocation.set(OutputLocation.SRC)
+                autoGenerate.set(false)
                 compose {}
             }
         }
@@ -373,6 +394,31 @@ class DsBuilderPluginTest {
         assertEquals(
             projectDir.resolve("src/main/kotlin").canonicalFile,
             task.outputDirectory.get().asFile.canonicalFile,
+        )
+        assertTrue(
+            preBuild.get().taskDependencies.getDependencies(preBuild.get())
+                .none { it.name == "generateComposeSandbox" },
+        )
+    }
+
+    @Test
+    fun `components auto generation is attached to preBuild`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.newFolder("components-auto"))
+            .build()
+        val preBuild = project.tasks.register("preBuild")
+        project.configurations.create("compileClasspath")
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).components {
+            compose()
+            source("https://example.com/components.zip")
+        }
+
+        (project as ProjectInternal).evaluate()
+
+        assertTrue(
+            preBuild.get().taskDependencies.getDependencies(preBuild.get())
+                .any { it.name == "generateComponents" },
         )
     }
 

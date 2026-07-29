@@ -47,6 +47,7 @@ import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
 
 dsBuilder {
+    autoGenerate.set(false)
     compose()
     packageName.set("com.example.designsystem")
     resourcePrefix.set("example")
@@ -57,7 +58,6 @@ dsBuilder {
     theme {
         source(name = "stylesSalute", version = "latest", alias = "Salute")
         mode.set(THEME)
-        autoGenerate.set(false)
     }
     components {
         source(name = "componentsSalute", version = "latest", alias = "Salute")

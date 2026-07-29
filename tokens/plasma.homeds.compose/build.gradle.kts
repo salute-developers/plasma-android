@@ -25,12 +25,12 @@ android {
 }
 
 dsBuilder {
+    autoGenerate.set(false)
     compose()
     packageName.set("com.sdds.plasma.homeds")
     outputLocation.set(SRC)
     theme {
         mode.set(THEME)
-        autoGenerate.set(false)
         defaultTypography.set(SMALL)
     }
     components {

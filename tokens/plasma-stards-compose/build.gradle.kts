@@ -26,6 +26,7 @@ android {
 }
 
 dsBuilder {
+    autoGenerate.set(false)
     compose()
     packageName.set("com.sdkit.star.designsystem")
     resourcePrefix.set(themeResPrefix)
@@ -40,7 +41,6 @@ dsBuilder {
     }
     theme {
         source(url = themeUrl, name = themeAlias)
-        autoGenerate.set(false)
         mode.set(ThemeBuilderMode.THEME)
     }
     components {

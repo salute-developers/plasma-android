@@ -26,6 +26,7 @@ android {
 }
 
 dsBuilder {
+    autoGenerate.set(false)
     view {
         themeParents {
             materialComponentsTheme("NoActionBar")
@@ -45,7 +46,6 @@ dsBuilder {
     }
     theme {
         source(url = themeUrl, name = themeAlias)
-        autoGenerate.set(false)
         mode.set(ThemeBuilderMode.THEME)
     }
     components {

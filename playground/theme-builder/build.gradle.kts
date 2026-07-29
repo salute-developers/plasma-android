@@ -15,6 +15,7 @@ android {
 }
 
 dsBuilder {
+    autoGenerate.set(false)
     view {
         themeParents {
             materialComponentsTheme()
@@ -45,7 +46,6 @@ dsBuilder {
             )
         }
         mode.set(ThemeBuilderMode.THEME)
-        autoGenerate.set(false)
     }
     components {
         source("file://${projectDir.path}/json/test_components.zip")

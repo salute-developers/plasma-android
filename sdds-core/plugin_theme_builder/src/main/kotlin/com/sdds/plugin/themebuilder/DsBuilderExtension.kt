@@ -45,8 +45,11 @@ abstract class DsBuilderExtension @Inject constructor(
     /** Shape mappings shared by generated View themes and components. */
     abstract val viewShapeAppearance: SetProperty<ShapeAppearanceConfig>
 
-    /** Output location shared by theme and component generation. */
+    /** Output location shared by theme, component and sandbox generation. */
     abstract val outputLocation: Property<OutputLocation>
+
+    /** Whether enabled capability tasks are attached to Android `preBuild`. */
+    abstract val autoGenerate: Property<Boolean>
 
     /** Dimension settings shared by theme and component generation. */
     abstract val dimensions: Property<DimensionsConfig>
@@ -71,6 +74,7 @@ abstract class DsBuilderExtension @Inject constructor(
         viewThemeParents.convention(emptySet())
         viewShapeAppearance.convention(emptySet())
         outputLocation.convention(OutputLocation.BUILD)
+        autoGenerate.convention(true)
         dimensions.convention(DimensionsConfig())
         multiplatform.convention(false)
 
@@ -83,6 +87,9 @@ abstract class DsBuilderExtension @Inject constructor(
             capability.outputLocation.convention(outputLocation)
             capability.dimensions.convention(dimensions)
             capability.multiplatform.convention(multiplatform)
+        }
+        listOf(theme, components, documentation, sandbox).forEach { capability ->
+            capability.autoGenerate.convention(autoGenerate)
         }
         sandbox.outputLocation.convention(outputLocation)
     }
@@ -168,8 +175,12 @@ abstract class DsBuilderCapability {
     /** Whether this capability was activated by its DSL block. */
     abstract val enabled: Property<Boolean>
 
+    /** Whether this capability is attached to Android `preBuild`. */
+    abstract val autoGenerate: Property<Boolean>
+
     init {
         enabled.convention(false)
+        autoGenerate.convention(true)
     }
 }
 
@@ -189,9 +200,6 @@ abstract class ThemeCapability : GenerationCapability() {
     /** Theme generator mode. */
     abstract val mode: Property<ThemeBuilderMode>
 
-    /** Whether generation is attached to Android `preBuild`. */
-    abstract val autoGenerate: Property<Boolean>
-
     /** Default typography strategy used by generated themes. */
     abstract val defaultTypography: Property<DefaultThemeTypography>
 
@@ -204,7 +212,6 @@ abstract class ThemeCapability : GenerationCapability() {
     init {
         paletteUrl.convention(DEFAULT_PALETTE_URL)
         mode.convention(ThemeBuilderMode.TOKENS_ONLY)
-        autoGenerate.convention(true)
         defaultTypography.convention(DefaultThemeTypography.DYNAMIC)
         ignoreDisabledTokens.convention(false)
         useDefaultFonts.convention(false)

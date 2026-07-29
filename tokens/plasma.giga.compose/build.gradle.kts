@@ -25,13 +25,13 @@ android {
 }
 
 dsBuilder {
+    autoGenerate.set(false)
     compose()
     packageName.set("com.sdds.plasma.giga")
     outputLocation.set(SRC)
     theme {
         source(name = themeName, version = themeVersion, alias = themeAlias)
         mode.set(THEME)
-        autoGenerate.set(false)
     }
     components {
         source(name = componentsName, version = componentsVersion, alias = themeAlias)

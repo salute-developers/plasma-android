@@ -97,7 +97,12 @@ internal class ThemeBuilderPlugin {
                 }
                 val fetchComponentsTask = registerFetchAndUnzipComponents(components, componentsZip)
                 fetchComponentsTask?.let {
-                    registerGenerateComponentsTask(components, it, readUikitApiMetaTask)
+                    val generateComponents = registerGenerateComponentsTask(components, it, readUikitApiMetaTask)
+                    if (components.autoGenerate) {
+                        tasks.matching { task -> task.name == "preBuild" }.configureEach {
+                            dependsOn(generateComponents)
+                        }
+                    }
                 }
             }
         }
@@ -189,7 +194,7 @@ internal class ThemeBuilderPlugin {
         extension: ThemeBuilderExtension,
         fetchComponentsTask: TaskProvider<Copy>,
         readUikitApiMetaTask: TaskProvider<UikitApiMetaTask>,
-    ) {
+    ): TaskProvider<GenerateComponentsTask> {
         val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
             group = TASK_GROUP
             componentsDir.set(getComponentsDir())
@@ -209,6 +214,7 @@ internal class ThemeBuilderPlugin {
             uikitApiMetaFile.set(readUikitApiMetaTask.flatMap { it.outputFile })
         }
         task.dependsOn(fetchComponentsTask, readUikitApiMetaTask)
+        return task
     }
 
     private fun Project.registerThemeBuilder(
