@@ -13,6 +13,7 @@ android {
 
 dsBuilder {
     outputLocation.set(OutputLocation.SRC)
+    autoGenerate.set(false)
     sandbox {
         view {
             generatedPackageName.set("com.plasma.sd.service.integration")

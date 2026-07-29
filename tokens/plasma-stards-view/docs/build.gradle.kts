@@ -20,6 +20,7 @@ ksp {
 }
 
 dsBuilder {
+    autoGenerate.set(false)
     documentation {
         view()
     }

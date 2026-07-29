@@ -25,6 +25,7 @@ ksp {
 }
 
 dsBuilder {
+    autoGenerate.set(false)
     documentation {
         compose()
     }

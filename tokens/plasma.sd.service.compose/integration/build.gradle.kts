@@ -14,6 +14,7 @@ android {
 
 dsBuilder {
     outputLocation.set(OutputLocation.SRC)
+    autoGenerate.set(false)
     sandbox {
         compose {
             generatedPackageName.set("com.sdds.plasma.sd.service.compose.integration")
