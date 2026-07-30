@@ -16,6 +16,8 @@ internal class IconButtonStyleGeneratorView(
     dimensAggregator: DimensAggregator,
     outputResDir: File,
     attrPrefix: String,
+    styleComponentName: String = CORE_COMPONENT_NAME,
+    colorStateComponentName: String = CORE_COMPONENT_NAME,
     viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
 ) : BaseButtonStyleGeneratorView(
@@ -25,6 +27,8 @@ internal class IconButtonStyleGeneratorView(
     outputResDir = outputResDir,
     resourcePrefix = attrPrefix,
     coreComponentName = CORE_COMPONENT_NAME,
+    styleComponentName = styleComponentName,
+    colorStateComponentName = colorStateComponentName,
     componentParent = COMPONENT_PARENT,
     viewColorStateGeneratorFactory = viewColorStateGeneratorFactory,
     colorStateListGeneratorFactory = colorStateListGeneratorFactory,

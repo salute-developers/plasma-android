@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components.button.view
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
@@ -28,6 +29,7 @@ import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
+import io.mockk.verify
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -122,6 +124,52 @@ class IconButtonStyleGeneratorViewTest {
             getResourceAsText("component-outputs/colorstate/IconButtonColorStateKt.txt"),
             mockOutputKt.toString(),
         )
+    }
+
+    @Test
+    fun `generate uses appearance name for styles resources and color states`() {
+        val styleOutputXml = ByteArrayOutputStream()
+        every { mockOutputStyleFile.fileWriter() } returns styleOutputXml.writer()
+        val attrsOutputXml = ByteArrayOutputStream()
+        every { mockOutputAttrsFile.fileWriter() } returns attrsOutputXml.writer()
+        val colorOutputXml = ByteArrayOutputStream()
+        every { mockOutputColorFile.fileWriter() } returns colorOutputXml.writer()
+        val resourcePrefixConfig = ResourcePrefixConfig("thmbldr", true)
+        val packageResolver = PackageResolver("com.test")
+        val appearanceGenerator = IconButtonStyleGeneratorView(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensAggregator = dimensAggregator,
+            outputResDir = mockOutputResDir,
+            attrPrefix = "thmbldr",
+            styleComponentName = "EmbeddedIconButton",
+            colorStateComponentName = "EmbeddedIconButton",
+            colorStateListGeneratorFactory = ColorStateListGeneratorFactory(
+                xmlBuilderFactory,
+                resourcePrefixConfig,
+                mockOutputResDir,
+            ),
+            viewColorStateGeneratorFactory = ViewColorStateGeneratorFactory(
+                ktFileBuilderFactory = KtFileBuilderFactory(packageResolver),
+                xmlBuilderFactory = xmlBuilderFactory,
+                packageResolver = packageResolver,
+                namespace = "com.test",
+                outputResDir = mockOutputResDir,
+                colorStateOutputLocation = KtFileBuilder.OutputLocation.Stream(mockOutputKt),
+                resourcePrefixConfig = resourcePrefixConfig,
+            ),
+        )
+
+        val result = appearanceGenerator.generate(config) as ComponentStyleGenerator.Result.Xml
+
+        Assert.assertEquals("IconButton", result.coreName)
+        Assert.assertEquals("EmbeddedIconButton", result.styleName)
+        Assert.assertTrue(styleOutputXml.toString().contains("TestTheme.Components.EmbeddedIconButton"))
+        Assert.assertTrue(attrsOutputXml.toString().contains("thmbldr_embeddediconbuttonColors"))
+        Assert.assertTrue(mockOutputKt.toString().contains("EmbeddedIconButtonColorState"))
+        verify { mockOutputResDir.componentStyleXmlFile("EmbeddedIconButton") }
+        verify { mockOutputResDir.attrsFile("embeddediconbutton") }
+        verify { mockOutputResDir.colorXmlFile("embedded_icon_button_icon_tint", "thmbldr") }
     }
 
     private companion object {

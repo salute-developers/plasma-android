@@ -12,7 +12,7 @@
     <style name="Serv.Sdds.Components.SegmentItem.Xl">
         <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Accent</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Default</item>
         <item name="android:minWidth">@dimen/serv_segment_item_xl_min_width</item>
         <item name="android:minHeight">@dimen/serv_segment_item_xl_min_height</item>
         <item name="android:paddingStart">@dimen/serv_segment_item_xl_padding_start</item>
@@ -75,7 +75,7 @@
         <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/serv_segment_item_l_shape_adjustment</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Accent</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Default</item>
         <item name="android:minWidth">@dimen/serv_segment_item_l_min_width</item>
         <item name="android:minHeight">@dimen/serv_segment_item_l_min_height</item>
         <item name="android:paddingStart">@dimen/serv_segment_item_l_padding_start</item>
@@ -137,7 +137,7 @@
     <style name="Serv.Sdds.Components.SegmentItem.M">
         <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Accent</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Default</item>
         <item name="android:minWidth">@dimen/serv_segment_item_m_min_width</item>
         <item name="android:minHeight">@dimen/serv_segment_item_m_min_height</item>
         <item name="android:paddingStart">@dimen/serv_segment_item_m_padding_start</item>
@@ -200,7 +200,7 @@
         <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/serv_segment_item_s_shape_adjustment</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Accent</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Default</item>
         <item name="android:minWidth">@dimen/serv_segment_item_s_min_width</item>
         <item name="android:minHeight">@dimen/serv_segment_item_s_min_height</item>
         <item name="android:paddingStart">@dimen/serv_segment_item_s_padding_start</item>
@@ -262,7 +262,7 @@
     <style name="Serv.Sdds.Components.SegmentItem.Xs">
         <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Accent</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xxs.Default</item>
         <item name="android:minWidth">@dimen/serv_segment_item_xs_min_width</item>
         <item name="android:minHeight">@dimen/serv_segment_item_xs_min_height</item>
         <item name="android:paddingStart">@dimen/serv_segment_item_xs_padding_start</item>

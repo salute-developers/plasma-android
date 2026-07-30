@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AiUserMessageEditable" parent="Sdds.Components.Editable">
+        <item name="sd_valueColor">?serv_textDefaultPrimary</item>
+        <item name="sd_cursorColor">?serv_textDefaultAccent</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiUserMessageEditable.Xl">
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiUserMessageEditableXl">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.AiUserMessageEditable.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiUserMessageEditable.L">
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiUserMessageEditableL">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.AiUserMessageEditable.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiUserMessageEditable.M">
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiUserMessageEditableM">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.AiUserMessageEditable.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiUserMessageEditable.S">
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiUserMessageEditableS">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.AiUserMessageEditable.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiUserMessageEditable.Xs">
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiUserMessageEditableXs">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.AiUserMessageEditable.Xs</item>
+    </style>
+</resources>

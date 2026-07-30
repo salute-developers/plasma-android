@@ -37,7 +37,7 @@ internal class ButtonConfigDelegate(
     ): ComponentStyleGenerator<ButtonConfig>? {
         return when (buttonType) {
             ButtonType.Basic -> createBasicButtonViewGenerator(deps)
-            ButtonType.Icon -> createIconButtonViewGenerator(deps)
+            ButtonType.Icon -> createIconButtonViewGenerator(deps, component)
             ButtonType.Link -> createLinkButtonViewGenerator(deps)
         }
     }
@@ -78,6 +78,7 @@ internal class ButtonConfigDelegate(
 
     private fun createIconButtonViewGenerator(
         deps: StyleGeneratorDependencies,
+        component: Component,
     ): ComponentStyleGenerator<ButtonConfig> {
         return IconButtonStyleGeneratorView(
             xmlBuilderFactory = deps.xmlBuilderFactory,
@@ -85,6 +86,8 @@ internal class ButtonConfigDelegate(
             dimensAggregator = deps.dimensAggregator,
             outputResDir = deps.outputResDir,
             attrPrefix = deps.resourcePrefixConfig.resourcePrefix,
+            styleComponentName = component.styleName.techToCamelCase(),
+            colorStateComponentName = component.styleName.techToCamelCase(),
             viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
             colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
         )

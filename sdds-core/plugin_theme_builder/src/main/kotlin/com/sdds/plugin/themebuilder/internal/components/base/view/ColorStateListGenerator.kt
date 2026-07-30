@@ -2,7 +2,6 @@ package com.sdds.plugin.themebuilder.internal.components.base.view
 
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
-import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorXmlFile
@@ -49,7 +48,7 @@ internal class ColorStateListGenerator(
     }
 
     override fun onAddItem(index: Int, rawValue: String, value: Color, states: Set<StateListAttribute>) {
-        if (value is Gradient) {
+        if (value.hasGradients) {
             hasGradients = true
         }
         addColorItem(

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AvatarIndicator" parent="Sdds.Components.Indicator">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/serv_avatar_indicator_bg_color</item>
+    </style>
+    <style name="Serv.Sdds.Components.AvatarIndicator.L">
+        <item name="android:maxHeight">@dimen/serv_avatar_indicator_l_max_height</item>
+        <item name="android:maxWidth">@dimen/serv_avatar_indicator_l_max_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AvatarIndicatorL">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.AvatarIndicator.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AvatarIndicator.M">
+        <item name="android:maxHeight">@dimen/serv_avatar_indicator_m_max_height</item>
+        <item name="android:maxWidth">@dimen/serv_avatar_indicator_m_max_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AvatarIndicatorM">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.AvatarIndicator.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AvatarIndicator.S">
+        <item name="android:maxHeight">@dimen/serv_avatar_indicator_s_max_height</item>
+        <item name="android:maxWidth">@dimen/serv_avatar_indicator_s_max_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AvatarIndicatorS">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.AvatarIndicator.S</item>
+    </style>
+</resources>

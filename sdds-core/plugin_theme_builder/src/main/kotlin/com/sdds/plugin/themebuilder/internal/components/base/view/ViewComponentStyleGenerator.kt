@@ -47,6 +47,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     private val resourcePrefix: String,
     private val coreComponentName: String,
     protected val styleComponentName: String = coreComponentName,
+    colorStateComponentName: String = coreComponentName,
     private val componentParent: String,
     private val viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     private val colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
@@ -59,7 +60,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     protected val baseStyleName by unsafeLazy { "Components.${styleComponentName.capitalized()}" }
     private val baseOverlayStyleName by unsafeLazy { "ComponentOverlays.${styleComponentName.capitalized()}" }
     private val colorStateAttributesGenerator by unsafeLazy {
-        viewColorStateGeneratorFactory.create(coreComponentName)
+        viewColorStateGeneratorFactory.create(colorStateComponentName)
     }
     private val numberStateListGeneratorFactory: NumberStateListGeneratorFactory by unsafeLazy {
         NumberStateListGeneratorFactory(

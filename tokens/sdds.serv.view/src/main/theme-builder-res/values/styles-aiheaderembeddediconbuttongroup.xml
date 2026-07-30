@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButtonGroup" parent="Sdds.Components.ButtonGroup">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_header_embedded_icon_button_group_spacing</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSSecondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonGroupS">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButtonGroup.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMSecondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonGroupM">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButtonGroup.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLSecondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonGroupL">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButtonGroup.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButtonGroup.Xl">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlSecondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonGroupXl">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButtonGroup.Xl</item>
+    </style>
+</resources>

@@ -1153,7 +1153,7 @@
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlChips">
-        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.L.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.Xl.Secondary</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.Xl">
         <item name="sd_requirementMode">optional</item>

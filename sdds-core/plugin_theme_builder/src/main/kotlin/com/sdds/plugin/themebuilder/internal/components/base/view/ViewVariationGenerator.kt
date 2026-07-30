@@ -39,6 +39,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
     resourcePrefix: String,
     coreComponentName: String,
     styleComponentName: String = coreComponentName,
+    colorStateComponentName: String = coreComponentName,
     componentParent: String,
     viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
@@ -51,6 +52,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
     resourcePrefix = resourcePrefix,
     coreComponentName = coreComponentName,
     styleComponentName = styleComponentName,
+    colorStateComponentName = colorStateComponentName,
     componentParent = componentParent,
     viewColorStateGeneratorFactory = viewColorStateGeneratorFactory,
     colorStateListGeneratorFactory = colorStateListGeneratorFactory,
@@ -437,9 +439,12 @@ internal val PropertyValue<*>.isStateful: Boolean
 
 internal val ColorValue.hasGradients: Boolean
     get() = when {
-        this is ColorValue.SimpleValue -> this.color is Gradient
-        else -> this is ColorValue.ViewValue && this.colors.any { it.value is Gradient }
+        this is ColorValue.SimpleValue -> this.color.hasGradients
+        else -> this is ColorValue.ViewValue && this.colors.any { it.value.hasGradients }
     }
+
+internal val Color.hasGradients: Boolean
+    get() = this is Gradient || states.orEmpty().any { it.type == "gradient" }
 
 internal val PropertyValue<*>?.isNullOrInherited: Boolean
     get() = this == null || (this is SingleValue<*> && this.inherited)

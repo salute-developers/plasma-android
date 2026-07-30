@@ -29,6 +29,8 @@ internal class CounterConfigDelegate : ComponentConfigDelegate<CounterConfig>() 
             dimensAggregator = deps.dimensAggregator,
             outputResDir = deps.outputResDir,
             resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
+            styleComponentName = component.styleName.techToCamelCase(),
+            colorStateComponentName = component.styleName.techToCamelCase(),
             viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
             colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
         )

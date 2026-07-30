@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AiAnswerChipGroup" parent="Sdds.Components.ChipGroup">
+        <item name="sd_gap">@dimen/serv_ai_answer_chip_group_gap</item>
+        <item name="sd_lineSpacing">@dimen/serv_ai_answer_chip_group_line_spacing</item>
+        <item name="sd_disabledAlpha">0.4</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiAnswerChipGroup.L">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ChipLPilledSecondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiAnswerChipGroupL">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.AiAnswerChipGroup.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiAnswerChipGroup.M">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ChipMPilledSecondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiAnswerChipGroupM">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.AiAnswerChipGroup.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiAnswerChipGroup.S">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ChipSPilledSecondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiAnswerChipGroupS">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.AiAnswerChipGroup.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiAnswerChipGroup.Xs">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ChipXsPilledSecondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiAnswerChipGroupXs">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.AiAnswerChipGroup.Xs</item>
+    </style>
+</resources>

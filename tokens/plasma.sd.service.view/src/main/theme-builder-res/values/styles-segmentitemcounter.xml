@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.SegmentItemCounter" parent="Sdds.Components.Counter">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:backgroundTint">@color/plasma_segment_item_counter_bg_color</item>
+        <item name="android:textColor">@color/plasma_segment_item_counter_text_color</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.SegmentItemCounterColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.L">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/plasma_segment_item_counter_l_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_segment_item_counter_l_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_segment_item_counter_l_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_segment_item_counter_l_padding_right</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterL">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.L.Default">
+        <item name="plasma_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterLDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.L.Accent">
+        <item name="plasma_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterLAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.M">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_segment_item_counter_m_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_segment_item_counter_m_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_segment_item_counter_m_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_segment_item_counter_m_padding_right</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterM">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.M.Default">
+        <item name="plasma_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterMDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.M.Accent">
+        <item name="plasma_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterMAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.S">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_segment_item_counter_s_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_segment_item_counter_s_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_segment_item_counter_s_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_segment_item_counter_s_padding_right</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterS">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.S.Default">
+        <item name="plasma_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterSDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.S.Accent">
+        <item name="plasma_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterSAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.Xs">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_segment_item_counter_xs_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_segment_item_counter_xs_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_segment_item_counter_xs_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_segment_item_counter_xs_padding_right</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterXs">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.Xs.Default">
+        <item name="plasma_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterXsDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.Xs.Accent">
+        <item name="plasma_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterXsAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.Xxs">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_segment_item_counter_xxs_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_segment_item_counter_xxs_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_segment_item_counter_xxs_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_segment_item_counter_xxs_padding_right</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterXxs">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.Xxs</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.Xxs.Default">
+        <item name="plasma_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterXxsDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.Xxs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.SegmentItemCounter.Xxs.Accent">
+        <item name="plasma_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItemCounterXxsAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.SegmentItemCounter.Xxs.Accent</item>
+    </style>
+</resources>
