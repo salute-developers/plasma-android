@@ -10,34 +10,50 @@
     Компонент "Сегмент итем".
     Умеет отображать иконку, два текста: основной и дополнительный, и счетчик.
   -->
-    <declare-styleable name="SegmentItem" sdds:api_info="SegmentItem" tools:ignore="ResourceName">
-        <attr name="backgroundTint"/>
-        <attr name="sd_valueTextColor"/>
-        <attr name="sd_iconTint"/>
+    <declare-styleable name="SegmentItem" sdds:api_info="SegmentItem"
+        sdds:api_def_style_attr="sd_segmentItemStyle"
+        sdds:api_parent="Sdds.Components.SegmentItem" tools:ignore="ResourceName">
+        <attr name="backgroundTint" sdds:api_name="backgroundColor" sdds:api_res_suffix="background_color" />
+        <attr name="sd_valueTextColor" sdds:api_name="valueColor" />
+        <attr name="sd_iconTint" sdds:api_name="startContentColor" />
         <attr name="sd_iconSize"/>
-        <attr name="sd_contentStartSize"/>
-        <attr name="sd_contentEndSize"/>
+        <attr name="sd_contentStartSize" sdds:api_name="startContentSize" />
+        <attr name="sd_contentEndSize" sdds:api_name="endContentSize" />
         <attr name="sd_spinnerTint"/>
         <attr name="android:checkable"/>
         <attr name="android:checked"/>
         <attr name="sd_counterStyle"/>
-        <attr name="sd_counterPadding" format="dimension"/>
+        <attr name="sd_counterPadding" format="dimension" sdds:api_name="counterMargin" />
         <attr name="sd_counterText" format="string"/>
         <attr name="sd_counterEnabled"/>
-        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <attr name="sd_shapeAppearanceAdjustment"/>
-        <attr name="sd_valuePadding"/>
-
+        <attr name="sd_valuePadding" sdds:api_name="valueMargin" />
+        <attr name="android:minHeight" sdds:api_type="dimension" sdds:api_name="minHeight" />
+        <attr name="android:minWidth" sdds:api_type="dimension" sdds:api_name="minWidth" />
+        <attr name="android:paddingEnd" sdds:api_type="dimension" sdds:api_name="paddingEnd" />
+        <attr name="android:paddingStart" sdds:api_type="dimension" sdds:api_name="paddingStart" />
+        <attr name="android:textAppearance" sdds:api_name="labelStyle" sdds:api_type="typography" />
+        <attr name="android:textColor" sdds:api_name="labelColor" sdds:api_type="color" />
+        <attr name="sd_iconPadding" sdds:api_name="iconMargin" />
+        <attr name="android:state_checked" sdds:api_state="SegmentItemSelection" sdds:api_state_kind="android" sdds:api_name="selected" />
     </declare-styleable>
 
-    <declare-styleable name="Segment" sdds:api_info="Segment" sdds:api_framework="paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension;backgroundColor=android:backgroundTint:color" tools:ignore="ResourceName">
+    <declare-styleable name="Segment" sdds:api_info="Segment"
+        sdds:api_def_style_attr="sd_segmentStyle"
+        sdds:api_parent="Sdds.Components.Segment" tools:ignore="ResourceName">
         <!-- Распределение итемов равномерно по ширине контейнера -->
         <attr name="sd_stretch" format="boolean" />
         <attr name="sd_segmentItemStyleOverlay" sdds:api_name="segmentItemStyle"/>
-        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <attr name="sd_shapeAppearanceAdjustment"/>
         <attr name="sd_strokeWidth"/>
         <attr name="sd_strokeColor"/>
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
+        <attr name="android:backgroundTint" sdds:api_name="backgroundColor" sdds:api_type="color" sdds:api_res_suffix="background_color" />
     </declare-styleable>
 
 </resources>

@@ -5,7 +5,9 @@
     <attr name="sd_selectItemStyle" format="reference" />
     <attr name="sd_selectItemStyleOverlay" format="reference" />
 
-    <declare-styleable name="Select" sdds:api_info="Select" tools:ignore="ResourceName">
+    <declare-styleable name="Select" sdds:api_info="Select"
+        sdds:api_def_style_attr="sd_selectStyle"
+        sdds:api_parent="Sdds.Components.Select" tools:ignore="ResourceName">
         <!-- Оверлэй стиль компонента Button -->
         <attr name="sd_buttonStyleOverlay" sdds:api_name="buttonStyle" />
         <!-- Оверлэй стиль компонента TextField -->
@@ -16,13 +18,16 @@
         <attr name="sd_selectItemStyleOverlay" sdds:api_name="selectItemStyle" />
     </declare-styleable>
 
-    <declare-styleable name="SelectItem" sdds:api_info="SelectItem" sdds:api_framework="height=android:minHeight:dimension;paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension" tools:ignore="ResourceName">
+    <declare-styleable name="SelectItem" sdds:api_info="SelectItem"
+        sdds:api_core_name="SelectIem"
+        sdds:api_def_style_attr="sd_selectItemStyle"
+        sdds:api_parent="Sdds.Components.SelectItem" tools:ignore="ResourceName">
         <!-- Оверлэй стиль компонента CellLayout -->
         <attr name="sd_cellStyleOverlay" sdds:api_name="cellStyle" format="reference" />
         <!-- Оверлэй стиль компонента CheckBox -->
         <attr name="sd_checkBoxStyleOverlay" sdds:api_name="checkboxStyle" />
         <!-- Цвет фона -->
-        <attr name="sd_background" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_type="color" />
         <attr name="android:checked" />
         <attr name="android:checkable" />
         <!-- Окрас иконки отвечающей за checked состояние -->
@@ -40,6 +45,13 @@
             <!-- В checked состоянии будет показан CheckBox -->
             <enum name="multiple" value="1" />
         </attr>
+        <attr name="android:minHeight" sdds:api_name="height" sdds:api_type="dimension" />
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
+        <attr name="sd_disabledAlpha" sdds:api_name="disableAlpha" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
     </declare-styleable>
 
     <declare-styleable name="SelectItem_Layout" tools:ignore="ResourceName">

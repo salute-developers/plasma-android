@@ -3,7 +3,9 @@
            xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_editableStyle" format="reference" />
 
-    <declare-styleable name="Editable" sdds:api_info="Editable" tools:ignore="ResourceName" >
+    <declare-styleable name="Editable" sdds:api_info="Editable"
+        sdds:api_def_style_attr="sd_editableStyle"
+        sdds:api_parent="Sdds.Components.Editable" tools:ignore="ResourceName" >
         <!--  Иконка (drawable ресурс) -->
         <attr name="sd_icon" />
         <!--  Цвет иконки (drawable) -->
@@ -13,9 +15,9 @@
         <!--  Отступ иконки (drawable) от текстового поля -->
         <attr name="sd_iconMargin" />
         <!--  Цвет текста -->
-        <attr name="sd_valueColor" />
+        <attr name="sd_valueColor" sdds:api_name="textColor" />
         <!--  Стиль текста -->
-        <attr name="sd_valueAppearance" />
+        <attr name="sd_valueAppearance" sdds:api_name="textStyle" />
         <!--  Цвет курсора -->
         <attr name="sd_cursorColor" />
         <!--  Расположение иконки (drawable) -->
@@ -27,5 +29,6 @@
         </attr>
         <attr name="android:textAppearance" />
         <attr name="android:textColor" />
+        <attr name="sd_disabledAlpha" sdds:api_name="disableAlpha" />
     </declare-styleable>
 </resources>

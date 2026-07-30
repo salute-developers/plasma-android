@@ -3,7 +3,9 @@
            xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_spinnerStyle" format="reference" />
 
-    <declare-styleable name="Spinner" sdds:api_info="Spinner" sdds:api_framework="padding=android:padding:dimension" tools:ignore="ResourceName">
+    <declare-styleable name="Spinner" sdds:api_info="Spinner"
+        sdds:api_def_style_attr="sd_spinnerStyle"
+        sdds:api_parent="Sdds.Components.Spinner" tools:ignore="ResourceName">
 
         <!-- Толщина линии индикатора загрузки -->
         <attr name="sd_strokeWidth" />
@@ -21,11 +23,11 @@
             <enum name="square" value="1" />
         </attr>
         <!-- Угол дуги индикатора загрузки в градусах, определяет какую часть окружности занимает индикатор -->
-        <attr name="sd_sweepAngle" sdds:api_name="angle" format="float" />
-        <attr name="android:padding" />
-        <attr name="android:maxHeight" />
-        <attr name="android:maxWidth" />
-        <attr name="android:minHeight" />
-        <attr name="android:minWidth" />
+        <attr name="sd_sweepAngle" sdds:api_name="angle" format="float" sdds:api_type="integer" />
+        <attr name="android:padding" sdds:api_name="padding" sdds:api_type="dimension" />
+        <attr name="android:maxHeight" sdds:api_name="size" sdds:api_type="dimension" />
+        <attr name="android:maxWidth" sdds:api_name="size" sdds:api_type="dimension" />
+        <attr name="android:minHeight" sdds:api_name="size" sdds:api_type="dimension" />
+        <attr name="android:minWidth" sdds:api_name="size" sdds:api_type="dimension" />
     </declare-styleable>
 </resources>

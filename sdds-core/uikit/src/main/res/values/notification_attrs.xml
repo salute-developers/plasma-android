@@ -6,11 +6,25 @@
     <attr name="sd_notificationContentStyle" format="reference"/>
     <attr name="sd_notificationContentStyleOverlay" format="reference"/>
 
-    <declare-styleable name="Notification" sdds:api_info="Notification" tools:ignore="ResourceName">
-        <attr name="sd_notificationContentStyleOverlay"/>
+    <declare-styleable name="Notification" sdds:api_info="Notification"
+        sdds:api_def_style_attr="sd_notificationStyle"
+        sdds:api_parent="Sdds.Components.Notification" tools:ignore="ResourceName">
+        <attr name="sd_notificationContentStyleOverlay" sdds:api_name="notificationContentStyle" />
+        <attr name="android:paddingBottom" sdds:api_type="dimension" sdds:api_name="paddingBottom" />
+        <attr name="android:paddingEnd" sdds:api_type="dimension" sdds:api_name="paddingEnd" />
+        <attr name="android:paddingStart" sdds:api_type="dimension" sdds:api_name="paddingStart" />
+        <attr name="android:paddingTop" sdds:api_type="dimension" sdds:api_name="paddingTop" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
+        <attr name="sd_closeIconAlignment" sdds:api_name="closeAlignment" />
+        <attr name="sd_closeIconSize" sdds:api_name="closeSize" />
+        <attr name="sd_closeIconTint" sdds:api_name="closeColor" sdds:api_res_suffix="close_icon_color" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <attr name="sd_shadowAppearance" sdds:api_name="shadow" />
     </declare-styleable>
 
-    <declare-styleable name="NotificationContent" sdds:api_info="NotificationContent" tools:ignore="ResourceName">
+    <declare-styleable name="NotificationContent" sdds:api_info="NotificationContent"
+        sdds:api_def_style_attr="sd_notificationContentStyle"
+        sdds:api_parent="Sdds.Components.NotificationContent" tools:ignore="ResourceName">
         <attr name="sd_buttonGroupStyleOverlay" sdds:api_name="buttonGroupStyle" format="reference"/>
         <attr name="sd_buttonLayout" format="enum">
             <enum name="normal" value="0" />
@@ -41,15 +55,15 @@
         <attr name="sd_contentTopPadding" format="dimension" />
         <attr name="sd_contentBottomPadding" format="dimension" />
 
-        <attr name="sd_textBoxStartPadding" format="dimension" />
-        <attr name="sd_textBoxEndPadding" format="dimension" />
-        <attr name="sd_textBoxTopPadding" format="dimension" />
-        <attr name="sd_textBoxBottomPadding" format="dimension" />
+        <attr name="sd_textBoxStartPadding" format="dimension" sdds:api_res_suffix="tbox_start_padding" />
+        <attr name="sd_textBoxEndPadding" format="dimension" sdds:api_res_suffix="tbox_end_padding" />
+        <attr name="sd_textBoxTopPadding" format="dimension" sdds:api_res_suffix="tbox_top_padding" />
+        <attr name="sd_textBoxBottomPadding" format="dimension" sdds:api_res_suffix="tbox_bottom_padding" />
 
-        <attr name="sd_buttonGroupStartPadding" format="dimension" />
-        <attr name="sd_buttonGroupEndPadding" format="dimension" />
-        <attr name="sd_buttonGroupTopPadding" format="dimension" />
-        <attr name="sd_buttonGroupBottomPadding" format="dimension" />
+        <attr name="sd_buttonGroupStartPadding" format="dimension" sdds:api_res_suffix="btn_group_start_padding" />
+        <attr name="sd_buttonGroupEndPadding" format="dimension" sdds:api_res_suffix="btn_group_end_padding" />
+        <attr name="sd_buttonGroupTopPadding" format="dimension" sdds:api_res_suffix="btn_group_top_padding" />
+        <attr name="sd_buttonGroupBottomPadding" format="dimension" sdds:api_res_suffix="btn_group_bottom_padding" />
 
         <attr name="sd_viewState" />
     </declare-styleable>

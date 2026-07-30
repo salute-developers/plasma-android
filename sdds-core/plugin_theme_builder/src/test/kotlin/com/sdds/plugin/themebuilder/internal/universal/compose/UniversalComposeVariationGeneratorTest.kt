@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.universal.compose
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.PropertyMapperRegistry
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -77,7 +78,7 @@ class UniversalComposeVariationGeneratorTest {
 
         val result = generator.generate(
             config,
-        ) as com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator.Result.Compose
+        ) as com.sdds.plugin.themebuilder.internal.universal.ComponentStyleGenerator.Result.Compose
 
         assertEquals("Badge", result.styleName)
     }
@@ -107,7 +108,7 @@ class UniversalComposeVariationGeneratorTest {
         // Just verify no exception and result is returned
         val result = generator.generate(
             config,
-        ) as com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator.Result.Compose
+        ) as com.sdds.plugin.themebuilder.internal.universal.ComponentStyleGenerator.Result.Compose
         assertEquals("Badge", result.styleName)
     }
 
@@ -130,7 +131,7 @@ class UniversalComposeVariationGeneratorTest {
 
         val result = generator.generate(
             config,
-        ) as com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator.Result.Compose
+        ) as com.sdds.plugin.themebuilder.internal.universal.ComponentStyleGenerator.Result.Compose
         assertEquals("Badge", result.styleName)
     }
 

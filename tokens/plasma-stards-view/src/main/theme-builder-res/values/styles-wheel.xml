@@ -3,35 +3,35 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Sdkit.StarDs.Components.Wheel" parent="Sdds.Components.Wheel">
-        <item name="sd_wheelCount">3</item>
-        <item name="sd_visibleItemsCount">5</item>
-        <item name="sd_controlIconUp">@drawable/ic_disclosure_up_outline_36</item>
-        <item name="sd_controlIconDown">@drawable/ic_disclosure_down_outline_36</item>
-        <item name="sd_itemSelectorEnabled">true</item>
-        <item name="sd_itemSelectorShapeAppearance">?sdkit_shapeRoundL</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_wheel_shape_adjustment</item>
         <item name="sd_itemTextColor">@color/sdkit_wheel_item_text_color</item>
         <item name="sd_itemTextAfterColor">@color/sdkit_wheel_item_text_after_color</item>
-        <item name="sd_descriptionTextColor">@color/sdkit_wheel_description_color</item>
+        <item name="sd_visibleItemsCount">5</item>
+        <item name="sd_controlIconUp">@drawable/ic_disclosure_up_outline_36</item>
         <item name="sd_controlIconUpTint">@color/sdkit_wheel_control_up_color</item>
+        <item name="sd_controlIconDown">@drawable/ic_disclosure_down_outline_36</item>
         <item name="sd_controlIconDownTint">@color/sdkit_wheel_control_down_color</item>
+        <item name="sd_descriptionTextColor">@color/sdkit_wheel_description_color</item>
+        <item name="sd_wheelCount">3</item>
         <item name="sd_separatorColor">?sdkit_textDefaultPrimary</item>
+        <item name="sd_itemSelectorEnabled">true</item>
         <item name="sd_itemSelectorTint">?sdkit_surfaceDefaultSolidDefault</item>
+        <item name="sd_itemSelectorShapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_wheel_shape_adjustment</item>
     </style>
     <style name="Sdkit.StarDs.Components.Wheel.H1">
         <item name="sd_itemTextAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Normal</item>
         <item name="sd_itemTextAfterAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Normal</item>
-        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
-        <item name="sd_wheelEntryMinScale">0.35</item>
-        <item name="sd_wheelEntryMinAlpha">0.16</item>
         <item name="sd_itemTextAfterPadding">@dimen/sdkit_wheel_h1_text_after_padding</item>
+        <item name="sd_itemMinSpacing">@dimen/sdkit_wheel_h1_item_min_spacing</item>
+        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
         <item name="sd_descriptionPadding">@dimen/sdkit_wheel_h1_description_padding</item>
         <item name="sd_separatorSpacing">@dimen/sdkit_wheel_h1_separator_spacing</item>
-        <item name="sd_itemMinSpacing">@dimen/sdkit_wheel_h1_item_min_spacing</item>
         <item name="sd_itemSelectorPaddingTop">@dimen/sdkit_wheel_h1_item_selector_padding_top</item>
+        <item name="sd_itemSelectorPaddingBottom">@dimen/sdkit_wheel_h1_item_selector_padding_bottom</item>
         <item name="sd_itemSelectorPaddingStart">@dimen/sdkit_wheel_h1_item_selector_padding_start</item>
         <item name="sd_itemSelectorPaddingEnd">@dimen/sdkit_wheel_h1_item_selector_padding_end</item>
-        <item name="sd_itemSelectorPaddingBottom">@dimen/sdkit_wheel_h1_item_selector_padding_bottom</item>
+        <item name="sd_wheelEntryMinScale">0.35</item>
+        <item name="sd_wheelEntryMinAlpha">0.16</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.WheelH1">
         <item name="sd_wheelStyle">@style/Sdkit.StarDs.Components.Wheel.H1</item>

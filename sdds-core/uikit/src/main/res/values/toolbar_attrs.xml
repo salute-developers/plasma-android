@@ -3,15 +3,17 @@
            xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_toolBarStyle" format="reference" />
 
-    <declare-styleable name="ToolBar" sdds:api_info="ToolBar" sdds:api_framework="orientation=android:orientation:integer;paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension" tools:ignore="ResourceName">
+    <declare-styleable name="ToolBar" sdds:api_info="ToolBar"
+        sdds:api_def_style_attr="sd_toolBarStyle"
+        sdds:api_parent="Sdds.Components.ToolBar" tools:ignore="ResourceName">
         <!-- Цвет фона компонента -->
-        <attr name="sd_background" sdds:api_name="backgroundColor" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
         <!-- Форма скруглений углов -->
-        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <!-- Поправочное значение формы скруглений углов -->
         <attr name="sd_shapeAppearanceAdjustment" />
         <!-- Ссылка на ресурс тени -->
-        <attr name="sd_shadowAppearance" />
+        <attr name="sd_shadowAppearance" sdds:api_name="shadow" />
         <!-- Включение отображения разделителя -->
         <attr name="sd_hasDivider" format="boolean" />
         <!-- Оверлэй стиль разделителя Divider -->
@@ -19,13 +21,17 @@
         <!-- Количество слотов для контента -->
         <attr name="sd_slotsAmount" format="integer" />
         <!-- Ориентация компонента -->
-        <attr name="android:orientation" />
+        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="integer" />
         <!-- Отступ от краев Divider в горизонтальной ориентации marginTop и marginBottom
              в вертикальной - marginStart и marginEnd -->
         <attr name="sd_dividerMargin" format="dimension" />
         <!-- Падинг между слотами (устанавливается в конце текущего слота
              и в начале следующего -->
         <attr name="sd_slotPadding" format="dimension" />
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
     </declare-styleable>
 
     <declare-styleable name="ToolBar_Layout" tools:ignore="ResourceName">

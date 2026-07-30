@@ -7,7 +7,9 @@
     <item name="sd_carouselNextButtonId" type="id"/>
     <item name="sd_carouselPrevButtonId" type="id"/>
 
-    <declare-styleable name="Carousel" sdds:api_info="Carousel" tools:ignore="ResourceName">
+    <declare-styleable name="Carousel" sdds:api_info="Carousel"
+        sdds:api_def_style_attr="sd_carouselStyle"
+        sdds:api_parent="Sdds.Components.Carousel" tools:ignore="ResourceName">
         <attr name="sd_paginationDotsStyleOverlay" sdds:api_name="indicatorStyle" format="reference" />
         <attr name="sd_nextButtonStyleOverlay" sdds:api_name="nextButtonStyle" format="reference" />
         <attr name="sd_prevButtonStyleOverlay" sdds:api_name="prevButtonStyle" format="reference" />
@@ -16,10 +18,10 @@
         <attr name="sd_indicatorEnabled" format="boolean" />
         <attr name="sd_indicatorPadding" format="dimension" />
 
-        <attr name="sd_nextButtonPadding" format="dimension" />
+        <attr name="sd_nextButtonPadding" format="dimension" sdds:api_res_suffix="next_padding" />
         <attr name="sd_nextButtonIcon" format="reference" />
-        <attr name="sd_prevButtonPadding" format="dimension" />
-        <attr name="sd_prevButtonIcon" format="dimension" />
+        <attr name="sd_prevButtonPadding" format="dimension" sdds:api_res_suffix="prev_padding" />
+        <attr name="sd_prevButtonIcon" format="dimension" sdds:api_type="icon" />
         <attr name="sd_controlsEnabled"/>
         <attr name="sd_controlsPlacement" sdds:api_name="buttonsPlacement" format="enum">
             <enum name="inner" value="0"/>

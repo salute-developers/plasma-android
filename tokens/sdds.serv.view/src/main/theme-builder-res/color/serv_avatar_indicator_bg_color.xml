@@ -2,5 +2,6 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_surfaceOnLightSolidTertiary" app:sd_status_inactive="true"/>
     <item android:color="?serv_surfaceDefaultPositive"/>
 </selector>

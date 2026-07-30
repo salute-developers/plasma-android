@@ -3,12 +3,12 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.Popover" parent="Sdds.Components.Popover">
-        <item name="sd_shadowAppearance">?plasma_shadowDownHardM</item>
-        <item name="android:minWidth">@dimen/plasma_popover_min_width</item>
         <item name="sd_offset">@dimen/plasma_popover_offset</item>
+        <item name="sd_shadowAppearance">?plasma_shadowDownHardM</item>
+        <item name="sd_background">@color/plasma_popover_bg_color</item>
         <item name="sd_shapeTailWidth">@dimen/plasma_popover_tail_width</item>
         <item name="sd_shapeTailHeight">@dimen/plasma_popover_tail_height</item>
-        <item name="sd_background">@color/plasma_popover_bg_color</item>
+        <item name="android:minWidth">@dimen/plasma_popover_min_width</item>
         <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.PopoverColorStateProvider</item>
     </style>
     <style name="Plasma.SdService.Components.Popover.M">

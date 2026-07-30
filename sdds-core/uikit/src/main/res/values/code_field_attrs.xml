@@ -4,23 +4,25 @@
 
     <attr name="sd_codeFieldStyle" format="reference" />
 
-    <declare-styleable name="CodeField" sdds:api_info="CodeField" tools:ignore="ResourceName">
+    <declare-styleable name="CodeField" sdds:api_info="CodeField"
+        sdds:api_def_style_attr="sd_codeFieldStyle"
+        sdds:api_parent="Sdds.Components.CodeField" tools:ignore="ResourceName">
         <!-- Длина кода (количество ячеек для ввода) -->
         <attr name="sd_codeLength" format="integer" />
         <!-- Форма скруглений ячейки -->
-        <attr name="sd_itemShapeAppearance" format="reference" />
+        <attr name="sd_itemShapeAppearance" format="reference" sdds:api_name="itemShape" />
         <!-- Форма скруглений группы ячеек (наружние углы крайних ячеек) -->
-        <attr name="sd_groupShapeAppearance" format="reference" />
+        <attr name="sd_groupShapeAppearance" format="reference" sdds:api_name="groupShape" />
         <!-- Высота ячейки -->
-        <attr name="sd_itemHeight" format="dimension" />
+        <attr name="sd_itemHeight" format="dimension" sdds:api_name="height" />
         <!-- Ширина ячейки -->
-        <attr name="sd_itemWidth" format="dimension" />
+        <attr name="sd_itemWidth" format="dimension" sdds:api_name="width" />
         <!-- Отступ между ячейками -->
         <attr name="sd_itemSpacing" />
         <!-- Отступ между группами ячеек -->
         <attr name="sd_groupSpacing" format="dimension" />
         <!-- Отступ поля для подписи(caption) -->
-        <attr name="sd_captionPadding" format="dimension" />
+        <attr name="sd_captionPadding" format="dimension" sdds:api_name="captionSpacing" />
         <!-- Ресурс стиля текста подписи -->
         <attr name="sd_captionAppearance" sdds:api_name="captionStyle" />
         <!-- Цвет текста подписи -->
@@ -52,7 +54,7 @@
         <!-- Цвет точки, скрывающей вводимые символы  -->
         <attr name="sd_dotColor" format="reference|color" />
         <!-- Цвет фона ячейки  -->
-        <attr name="sd_background" sdds:api_name="backgroundColor" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_type="color" />
         <!-- Цвет курсора  -->
         <attr name="sd_cursorColor" format="reference|color" />
         <attr name="sd_disabledAlpha" />
@@ -76,7 +78,7 @@
         <attr name="sd_strokeColor" />
         <attr name="sd_dotSize" />
         <attr name="sd_dotColor" sdds:api_name="fillColor" />
-        <attr name="sd_background" sdds:api_name="backgroundColor" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_type="color" />
         <attr name="sd_cursorColor" />
     </declare-styleable>
 </resources>

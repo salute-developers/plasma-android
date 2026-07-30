@@ -4,19 +4,28 @@
 
     <attr name="sd_modalStyle" format="reference"/>
 
-    <declare-styleable name="ModalView" sdds:api_info="ModalView" sdds:api_framework="paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension" tools:ignore="ResourceName">
+    <declare-styleable name="ModalView" sdds:api_info="Modal"
+        sdds:api_def_style_attr="sd_modalStyle"
+        sdds:api_parent="Sdds.Components.Modal" tools:ignore="ResourceName">
         <attr name="sd_closeIcon" format="reference"/>
-        <attr name="sd_closeIconTint" format="color" sdds:api_name="closeColor"/>
+        <attr name="sd_closeIconTint" format="color" sdds:api_name="closeColor" sdds:api_res_suffix="close_icon_color" />
         <attr name="sd_closeIconSize" sdds:api_name="closeSize" format="dimension"/>
         <attr name="sd_closeIconContentPadding" format="dimension"/>
-        <attr name="sd_closeIconAlignment" sdds:api_name="closeAlignment" format="enum">
+        <attr name="sd_closeIconAlignment" sdds:api_name="closeAlignment" format="enum" sdds:api_default="topEnd">
             <enum name="topEnd" value="0" />
-            <enum name="centerEnd" value="1" />
+            <enum name="centerEnd" value="1" sdds:api_name="center-end" />
         </attr>
         <attr name="sd_overlayStyleOverlay" sdds:api_name="overlayStyle" format="reference" />
         <attr name="sd_enterAnimation" format="reference" />
         <attr name="sd_exitAnimation" format="reference" />
         <attr name="sd_overlayEnterAnimationDuration" format="integer" />
         <attr name="sd_overlayExitAnimationDuration" format="integer" />
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <attr name="sd_shadowAppearance" sdds:api_name="shadow" />
     </declare-styleable>
 </resources>

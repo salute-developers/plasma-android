@@ -7,5 +7,6 @@
     <item android:color="?serv_surfaceDefaultAccent" app:serv_segmentitemcounter_state_default="true"/>
     <item android:color="?serv_surfaceDefaultAccentActive" android:state_pressed="true" app:serv_segmentitemcounter_state_accent="true"/>
     <item android:color="?serv_surfaceDefaultAccentHover" android:state_hovered="true" app:serv_segmentitemcounter_state_accent="true"/>
+    <item android:color="?serv_surfaceOnDarkSolidDefault" android:state_checked="true" app:serv_segmentitemcounter_state_accent="true"/>
     <item android:color="?serv_surfaceDefaultAccent" app:serv_segmentitemcounter_state_accent="true"/>
 </selector>

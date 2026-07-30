@@ -1,9 +1,9 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
-import com.sdds.plugin.themebuilder.internal.components.base.State
-import com.sdds.plugin.themebuilder.internal.components.base.Stateful
-import com.sdds.plugin.themebuilder.internal.components.base.view.NumberStateListGenerator
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
+import com.sdds.plugin.themebuilder.internal.universal.State
+import com.sdds.plugin.themebuilder.internal.universal.Stateful
+import com.sdds.plugin.themebuilder.internal.universal.view.NumberStateListGenerator
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import java.io.File
 

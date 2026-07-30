@@ -4,22 +4,22 @@
 <resources>
     <style name="Sdkit.StarDs.Components.CardContent" parent="Sdds.Components.CardContent">
         <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_fsStrokeInset">@dimen/sdkit_card_fs_stroke_inset</item>
+        <item name="sd_fsBorderMode">gradient_animated</item>
         <item name="sd_fsDuplicateParentState">true</item>
         <item name="android:duplicateParentState">true</item>
-        <item name="sd_fsBorderMode">gradient_animated</item>
-        <item name="sd_fsStrokeInset">@dimen/sdkit_card_fs_stroke_inset</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.CardContent">
         <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent</item>
     </style>
     <style name="Sdkit.StarDs.Components.Card" parent="Sdds.Components.Card">
+        <item name="android:backgroundTint">?sdkit_surfaceDefaultClear</item>
+        <item name="android:paddingBottom">@dimen/sdkit_card_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/sdkit_card_padding_end</item>
         <item name="android:paddingStart">@dimen/sdkit_card_padding_start</item>
         <item name="android:paddingTop">@dimen/sdkit_card_padding_top</item>
-        <item name="android:paddingEnd">@dimen/sdkit_card_padding_end</item>
-        <item name="android:paddingBottom">@dimen/sdkit_card_padding_bottom</item>
         <item name="sd_fsEnabled">false</item>
         <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CardContent</item>
-        <item name="android:backgroundTint">@color/sdkit_card_bg_color</item>
     </style>
     <style name="Sdkit.StarDs.Components.CardContent.Horizontal"/>
     <style name="Sdkit.StarDs.Components.Card.Horizontal"/>

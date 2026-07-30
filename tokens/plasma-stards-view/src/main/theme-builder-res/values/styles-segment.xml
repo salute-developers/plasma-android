@@ -18,10 +18,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.Xl.Primary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemXlPrimary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_xl_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_xl_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_xl_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_xl_padding_bottom</item>
         <item name="sdkit_segmentColors">state_primary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentXlPrimary">
@@ -29,10 +25,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.Xl.Secondary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemXlSecondary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_xl_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_xl_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_xl_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_xl_padding_bottom</item>
         <item name="sdkit_segmentColors">state_secondary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentXlSecondary">
@@ -71,10 +63,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.L.Primary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemLPrimary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_l_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_l_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_l_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_l_padding_bottom</item>
         <item name="sdkit_segmentColors">state_primary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentLPrimary">
@@ -82,10 +70,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.L.Secondary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemLSecondary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_l_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_l_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_l_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_l_padding_bottom</item>
         <item name="sdkit_segmentColors">state_secondary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentLSecondary">
@@ -123,10 +107,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.M.Primary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemMPrimary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_m_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_m_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_m_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_m_padding_bottom</item>
         <item name="sdkit_segmentColors">state_primary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentMPrimary">
@@ -134,10 +114,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.M.Secondary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemMSecondary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_m_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_m_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_m_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_m_padding_bottom</item>
         <item name="sdkit_segmentColors">state_secondary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentMSecondary">
@@ -176,10 +152,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.S.Primary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemSPrimary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_s_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_s_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_s_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_s_padding_bottom</item>
         <item name="sdkit_segmentColors">state_primary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentSPrimary">
@@ -187,10 +159,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.S.Secondary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemSSecondary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_s_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_s_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_s_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_s_padding_bottom</item>
         <item name="sdkit_segmentColors">state_secondary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentSSecondary">
@@ -228,10 +196,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.Xs.Primary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemXsPrimary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_xs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_xs_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_xs_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_xs_padding_bottom</item>
         <item name="sdkit_segmentColors">state_primary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentXsPrimary">
@@ -239,10 +203,6 @@
     </style>
     <style name="Sdkit.StarDs.Components.Segment.Xs.Secondary">
         <item name="sd_segmentItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SegmentItemXsSecondary</item>
-        <item name="android:paddingStart">@dimen/sdkit_segment_xs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_segment_xs_padding_end</item>
-        <item name="android:paddingTop">@dimen/sdkit_segment_xs_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_segment_xs_padding_bottom</item>
         <item name="sdkit_segmentColors">state_secondary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SegmentXsSecondary">

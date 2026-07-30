@@ -3,21 +3,21 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.EmbeddedIconButton" parent="Sdds.Components.IconButton">
+        <item name="sd_iconTint">@color/serv_embedded_icon_button_icon_tint</item>
+        <item name="sd_spinnerTint">@color/serv_embedded_icon_button_spinner_tint</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="android:paddingStart">@dimen/serv_embedded_icon_button_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_embedded_icon_button_padding_end</item>
-        <item name="backgroundTint">@color/serv_embedded_icon_button_bg_color</item>
-        <item name="sd_spinnerTint">@color/serv_embedded_icon_button_spinner_tint</item>
-        <item name="sd_iconTint">@color/serv_embedded_icon_button_icon_tint</item>
+        <item name="backgroundTint">?serv_surfaceDefaultClear</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.EmbeddedIconButtonColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.Components.EmbeddedIconButton.L">
-        <item name="android:minHeight">@dimen/serv_embedded_icon_button_l_min_height</item>
-        <item name="android:minWidth">@dimen/serv_embedded_icon_button_l_min_width</item>
         <item name="sd_iconSize">@dimen/serv_embedded_icon_button_l_icon_size</item>
         <item name="sd_spinnerSize">@dimen/serv_embedded_icon_button_l_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/serv_embedded_icon_button_l_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="android:minHeight">@dimen/serv_embedded_icon_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/serv_embedded_icon_button_l_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonL">
         <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.EmbeddedIconButton.L</item>
@@ -65,12 +65,12 @@
         <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.EmbeddedIconButton.L.Info</item>
     </style>
     <style name="Serv.Sdds.Components.EmbeddedIconButton.M">
-        <item name="android:minHeight">@dimen/serv_embedded_icon_button_m_min_height</item>
-        <item name="android:minWidth">@dimen/serv_embedded_icon_button_m_min_width</item>
         <item name="sd_iconSize">@dimen/serv_embedded_icon_button_m_icon_size</item>
         <item name="sd_spinnerSize">@dimen/serv_embedded_icon_button_m_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/serv_embedded_icon_button_m_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="android:minHeight">@dimen/serv_embedded_icon_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/serv_embedded_icon_button_m_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonM">
         <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.EmbeddedIconButton.M</item>
@@ -118,12 +118,12 @@
         <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.EmbeddedIconButton.M.Info</item>
     </style>
     <style name="Serv.Sdds.Components.EmbeddedIconButton.S">
-        <item name="android:minHeight">@dimen/serv_embedded_icon_button_s_min_height</item>
-        <item name="android:minWidth">@dimen/serv_embedded_icon_button_s_min_width</item>
         <item name="sd_iconSize">@dimen/serv_embedded_icon_button_s_icon_size</item>
         <item name="sd_spinnerSize">@dimen/serv_embedded_icon_button_s_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/serv_embedded_icon_button_s_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="android:minHeight">@dimen/serv_embedded_icon_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/serv_embedded_icon_button_s_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonS">
         <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.EmbeddedIconButton.S</item>
@@ -171,12 +171,12 @@
         <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.EmbeddedIconButton.S.Info</item>
     </style>
     <style name="Serv.Sdds.Components.EmbeddedIconButton.Xs">
-        <item name="android:minHeight">@dimen/serv_embedded_icon_button_xs_min_height</item>
-        <item name="android:minWidth">@dimen/serv_embedded_icon_button_xs_min_width</item>
         <item name="sd_iconSize">@dimen/serv_embedded_icon_button_xs_icon_size</item>
         <item name="sd_spinnerSize">@dimen/serv_embedded_icon_button_xs_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/serv_embedded_icon_button_xs_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
+        <item name="android:minHeight">@dimen/serv_embedded_icon_button_xs_min_height</item>
+        <item name="android:minWidth">@dimen/serv_embedded_icon_button_xs_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXs">
         <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.EmbeddedIconButton.Xs</item>

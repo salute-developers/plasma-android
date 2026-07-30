@@ -4,20 +4,27 @@
     <attr name="sd_counterStyle" format="reference" />
     <attr name="sd_counterStyleOverlay" format="reference" />
 
-    <declare-styleable name="Counter" sdds:api_info="Counter" tools:ignore="ResourceName">
+    <declare-styleable name="Counter" sdds:api_info="Counter"
+        sdds:api_def_style_attr="sd_counterStyle"
+        sdds:api_color_state_scope="variety"
+        sdds:api_parent="Sdds.Components.Counter" tools:ignore="ResourceName">
         <attr name="android:text" />
-        <attr name="android:textAppearance" />
-        <attr name="android:textColor" />
-        <attr name="android:backgroundTint"/>
-        <attr name="android:minWidth"/>
-        <attr name="android:minHeight"/>
-        <attr name="android:paddingLeft"/>
+        <attr name="android:textAppearance" sdds:api_name="labelStyle" sdds:api_type="typography" />
+        <attr name="android:textColor" sdds:api_type="color" sdds:api_name="textColor" />
+        <attr name="android:backgroundTint" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
+        <attr name="android:minWidth" sdds:api_type="dimension" sdds:api_name="minWidth" />
+        <attr name="android:minHeight" sdds:api_type="dimension" sdds:api_name="minHeight" />
+        <attr name="android:paddingLeft" sdds:api_type="dimension" sdds:api_name="paddingLeft" />
         <attr name="android:paddingStart"/>
-        <attr name="android:paddingRight"/>
+        <attr name="android:paddingRight" sdds:api_type="dimension" sdds:api_name="paddingRight" />
         <attr name="android:paddingEnd"/>
         <attr name="android:paddingTop"/>
         <attr name="android:paddingBottom"/>
         <attr name="backgroundTint"/>
-        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <!-- Счётчик внутри сегмента получает его drawable-state, поэтому `selected`
+             у счётчика — то же `android:state_checked`, что и у самого SegmentItem. -->
+        <attr name="android:state_checked" sdds:api_state="CounterSelection" sdds:api_state_kind="android"
+            sdds:api_name="selected" />
     </declare-styleable>
 </resources>

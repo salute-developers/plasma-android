@@ -7,5 +7,6 @@
     <item android:color="?serv_textOnDarkPrimary" app:serv_segmentitemcounter_state_default="true"/>
     <item android:color="?serv_textOnDarkPrimaryActive" android:state_pressed="true" app:serv_segmentitemcounter_state_accent="true"/>
     <item android:color="?serv_textOnDarkPrimaryHover" android:state_hovered="true" app:serv_segmentitemcounter_state_accent="true"/>
+    <item android:color="?serv_textOnLightPrimary" android:state_checked="true" app:serv_segmentitemcounter_state_accent="true"/>
     <item android:color="?serv_textOnDarkPrimary" app:serv_segmentitemcounter_state_accent="true"/>
 </selector>

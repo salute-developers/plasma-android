@@ -5,7 +5,7 @@
     <style name="Plasma.SdService.Components.Divider" parent="Sdds.Components.Divider">
         <item name="sd_thickness">@dimen/plasma_divider_thickness</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-        <item name="backgroundTint">@color/plasma_divider_bg_color</item>
+        <item name="backgroundTint">?plasma_surfaceDefaultTransparentTertiary</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.Divider">
         <item name="sd_dividerStyle">@style/Plasma.SdService.Components.Divider</item>

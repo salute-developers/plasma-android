@@ -1,11 +1,11 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
-import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
-import com.sdds.plugin.themebuilder.internal.components.base.Binding
-import com.sdds.plugin.themebuilder.internal.components.base.Bindings
-import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
-import com.sdds.plugin.themebuilder.internal.components.base.Config
-import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.universal.Binding
+import com.sdds.plugin.themebuilder.internal.universal.Bindings
+import com.sdds.plugin.themebuilder.internal.universal.ChildVariation
+import com.sdds.plugin.themebuilder.internal.universal.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.universal.Config
+import com.sdds.plugin.themebuilder.internal.universal.ViewVariation
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject

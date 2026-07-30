@@ -1,6 +1,15 @@
-## Плагин ThemeBuilder
+# Плагин Theme Builder
 
-Плагин генерирует тему и токены на основе метаданных. Источником данных служит zip архив, который содержит:
+Плагин генерирует токены, темы и стили компонентов для Android View и Jetpack
+Compose на основе метаданных дизайн-системы.
+
+Подробная документация по описанию API компонентов:
+
+- [Compose: аннотации и `StyleBuilder`](COMPOSE_STYLE_GENERATOR.md);
+- [View: XML-разметка `declare-styleable`](VIEW_STYLE_GENERATOR.md).
+
+Источником токенов служит zip-архив, который содержит:
+
 - meta.json файл с мета информацией о токенах.
 - папку android, содержащую файлы, начинающиеся с префикса "android_". Файлы содержат значения токенов для соответствующих ключей из meta.json.
 
@@ -44,9 +53,15 @@ android {
 
 themeBuilder {
     themeSource(name = "stylesSalute", version = "0.1.0")
-    view(parentThemeName = "Sdds.Theme")
+    componentSource(name = "componentsSalute", version = "0.1.0")
+    view {
+        themeParents {
+            customTheme("Sdds.Theme")
+        }
+    }
     compose()
     ktPackage("com.example.app.themebuilder.tokens")
+    mode(ThemeBuilderMode.THEME)
 }
 ```
 </details>
@@ -69,6 +84,28 @@ themeSource(name = "stylesSalute", version = "0.1.0")
 ```
 ```kotlin
 themeSource(url = "https://example.com/themes/theme.zip")
+```
+</details>
+
+#### `componentSource` (optional)
+
+Источник конфигов компонентов. Если он задан, плагин регистрирует задачу
+`generateComponents`, которая сопоставляет конфиг компонента с API-метаданными
+UIKit и генерирует стили для выбранных `view`/`compose` целей.
+
+<details>
+<summary>Примеры настройки componentSource</summary>
+
+```kotlin
+componentSource(name = "componentsSalute") // version = "latest"
+```
+
+```kotlin
+componentSource(name = "componentsSalute", version = "0.1.0", alias = "Salute")
+```
+
+```kotlin
+componentSource(url = "https://example.com/components/components.zip")
 ```
 </details>
 
@@ -121,11 +158,10 @@ themeSource(url = "https://example.com/themes/theme.zip")
 ```kotlin
 view { 
     themeParents {
-        materialComponentsTheme() // Наследуемся от Theme.MaterialComponents и генерируем единственную тему c темными токенами
+        materialComponentsTheme() // Theme.MaterialComponents и Theme.MaterialComponents.Light
         materialComponentsTheme("DayNight") // Наследуемся от Theme.MaterialComponents.DayNight
-        appCompatTheme("Light.NoActionBar") // Наследуемся от Theme.AppCompat.Light.NoActionBar и генерируем единственную тему cо светлыми токенами
-        customTheme("Theme.App", ViewThemeType.DARK_LIGHT) // Наследумся от Theme.App и генерируем тему для двух режимов
-        customTheme("Theme.Custom", ViewThemeType.DARK) // Наследумся от Theme.Custom и генерируем единственную тему c темными токенами
+        appCompatTheme("Light.NoActionBar") // Наследуемся от Theme.AppCompat.Light.NoActionBar
+        customTheme("Theme.App") // Наследуемся от произвольной темы
     }
 }
 ```
@@ -192,11 +228,38 @@ paletteUrl(url = "https://example.com/themes/color-palette.json")
 ```
 </details>
 
+#### `outputLocation` (optional)
+
+Расположение генерируемых файлов. По умолчанию используется
+`OutputLocation.BUILD`. Для библиотек, которые хранят сгенерированный код в
+репозитории, можно выбрать `OutputLocation.SRC`.
+
+```kotlin
+outputLocation(OutputLocation.SRC)
+```
+
 ## Использование
-Необходимо запустить сборку модуля, куда был подключен плагин:
 
- `./gradlew :your_module:assemble`
+Для обычной генерации достаточно запустить сборку модуля, куда подключён плагин:
 
-Плагин скачает архив с темой из источника, указанного в `themeSource` и сгенерирует токены/темы под указанные фреймворки. По пути `your_module/build/generated/` должны появиться папки:
+```shell
+./gradlew :your_module:assemble
+```
+
+При `autoGenerate(true)` плагин скачает входные данные и сгенерирует результаты
+для выбранных платформ. Задачи можно запускать и явно:
+
+```shell
+./gradlew :your_module:generateTheme
+./gradlew :your_module:generateComponents
+```
+
+`generateComponents` доступна только при настроенном `componentSource`.
+
+При `OutputLocation.BUILD` результаты находятся в `your_module/build/generated/`:
+
 - `your_module/build/generated/theme-builder` - Kotlin-файлы темы. Может содержать токены и тему для compose, а также токены градиентов для view.
 - `your_module/build/generated/theme-builder-res` - ресурсы темы. Содержит токены и темы для view, а также ресурсы шрифтов для compose.
+
+При `OutputLocation.SRC` Kotlin-файлы записываются в `src/main/kotlin`, а ресурсы —
+в `src/main/theme-builder-res`.

@@ -1,8 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
-import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
-import com.sdds.plugin.themebuilder.internal.components.base.StringState
-import com.sdds.plugin.themebuilder.internal.components.button.ButtonProperties
+import com.sdds.plugin.themebuilder.internal.universal.ComponentStyle
+import com.sdds.plugin.themebuilder.internal.universal.StringState
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.ComponentStyleMapper
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Assert.assertEquals
@@ -25,7 +25,7 @@ class ComponentStyleMapperTest {
                 methodName = "buttonStyle",
                 id = "buttonStyle",
             ),
-            tokenValue = ComponentStyle<ButtonProperties>("basic-button"),
+            tokenValue = ComponentStyle<UniversalPropertyOwner>("basic-button"),
             variationId = "",
         )
 
@@ -48,7 +48,7 @@ class ComponentStyleMapperTest {
                 methodName = "buttonStyle",
                 id = "buttonStyle",
             ),
-            tokenValue = ComponentStyle<ButtonProperties>("basic-button.m.clear"),
+            tokenValue = ComponentStyle<UniversalPropertyOwner>("basic-button.m.clear"),
             variationId = "",
         )
 
@@ -72,7 +72,7 @@ class ComponentStyleMapperTest {
                 methodName = "buttonStyle",
                 id = "buttonStyle",
             ),
-            tokenValue = ComponentStyle<ButtonProperties>(
+            tokenValue = ComponentStyle<UniversalPropertyOwner>(
                 value = "basic-button.m.default",
                 states = listOf(
                     StringState(state = listOf("pressed"), value = "basic-button.m.secondary"),

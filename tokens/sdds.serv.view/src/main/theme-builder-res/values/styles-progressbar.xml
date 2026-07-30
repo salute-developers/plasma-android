@@ -3,13 +3,13 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.ProgressBar" parent="Sdds.Components.ProgressBar">
-        <item name="android:minHeight">@dimen/serv_progress_bar_min_height</item>
-        <item name="android:maxHeight">@dimen/serv_progress_bar_max_height</item>
-        <item name="sd_trackHeight">@dimen/serv_progress_bar_track_height</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="sd_indicatorShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_trackHeight">@dimen/serv_progress_bar_track_height</item>
         <item name="backgroundTint">@color/serv_progress_bar_bg_color</item>
         <item name="sd_progressColor">@xml/serv_progress_bar_progress_color</item>
+        <item name="android:maxHeight">@dimen/serv_progress_bar_max_height</item>
+        <item name="android:minHeight">@dimen/serv_progress_bar_min_height</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.ProgressBarColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.ProgressBar">

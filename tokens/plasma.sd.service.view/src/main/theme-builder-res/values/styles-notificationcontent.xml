@@ -3,21 +3,21 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.NotificationContent" parent="Sdds.Components.NotificationContent">
-        <item name="sd_textAppearance">@style/Plasma.SdService.TextAppearance.TextSNormal</item>
-        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
         <item name="sd_icon">@drawable/ic_info_circle_outline_24</item>
         <item name="sd_iconSize">@dimen/plasma_notification_content_icon_size</item>
+        <item name="sd_iconTint">@color/plasma_notification_content_icon_tint</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
+        <item name="sd_titleColor">@color/plasma_notification_content_title_color</item>
         <item name="sd_textPadding">@dimen/plasma_notification_content_text_padding</item>
+        <item name="sd_textAppearance">@style/Plasma.SdService.TextAppearance.TextSNormal</item>
+        <item name="sd_textColor">@color/plasma_notification_content_text_color</item>
         <item name="sd_textBoxBottomPadding">@dimen/plasma_notification_content_tbox_bottom_padding</item>
         <item name="sd_buttonGroupTopPadding">@dimen/plasma_notification_content_btn_group_top_padding</item>
-        <item name="sd_titleColor">@color/plasma_notification_content_title_color</item>
-        <item name="sd_textColor">@color/plasma_notification_content_text_color</item>
-        <item name="sd_iconTint">@color/plasma_notification_content_icon_tint</item>
         <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.NotificationContentColorStateProvider</item>
     </style>
     <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch">
-        <item name="sd_buttonLayout">stretch</item>
         <item name="sd_buttonGroupStyleOverlay">@style/Plasma.SdService.ComponentOverlays.BasicButtonGroupXsDenseDefault</item>
+        <item name="sd_buttonLayout">stretch</item>
         <item name="sd_contentStartPadding">@dimen/plasma_notification_content_button_stretch_content_start_padding</item>
         <item name="sd_contentTopPadding">@dimen/plasma_notification_content_button_stretch_content_top_padding</item>
     </style>
@@ -55,8 +55,8 @@
         <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.Info</item>
     </style>
     <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop">
-        <item name="sd_notificationIconPlacement">top</item>
         <item name="sd_iconMargin">@dimen/plasma_notification_content_button_stretch_icon_top_icon_margin</item>
+        <item name="sd_notificationIconPlacement">top</item>
         <item name="sd_contentEndPadding">@dimen/plasma_notification_content_button_stretch_icon_top_content_end_padding</item>
         <item name="sd_textBoxStartPadding">@dimen/plasma_notification_content_button_stretch_icon_top_tbox_start_padding</item>
     </style>
@@ -94,8 +94,8 @@
         <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Info</item>
     </style>
     <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart">
-        <item name="sd_notificationIconPlacement">start</item>
         <item name="sd_iconMargin">@dimen/plasma_notification_content_button_stretch_icon_start_icon_margin</item>
+        <item name="sd_notificationIconPlacement">start</item>
         <item name="sd_textBoxStartPadding">@dimen/plasma_notification_content_button_stretch_icon_start_tbox_start_padding</item>
         <item name="sd_textBoxTopPadding">@dimen/plasma_notification_content_button_stretch_icon_start_tbox_top_padding</item>
     </style>
@@ -133,8 +133,8 @@
         <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Info</item>
     </style>
     <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch">
-        <item name="sd_buttonLayout">normal</item>
         <item name="sd_buttonGroupStyleOverlay">@style/Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsDenseDefault</item>
+        <item name="sd_buttonLayout">normal</item>
         <item name="sd_contentTopPadding">@dimen/plasma_notification_content_no_button_stretch_content_top_padding</item>
         <item name="sd_textBoxStartPadding">@dimen/plasma_notification_content_no_button_stretch_tbox_start_padding</item>
         <item name="sd_textBoxTopPadding">@dimen/plasma_notification_content_no_button_stretch_tbox_top_padding</item>
@@ -173,8 +173,8 @@
         <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.Info</item>
     </style>
     <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop">
-        <item name="sd_notificationIconPlacement">top</item>
         <item name="sd_iconMargin">@dimen/plasma_notification_content_no_button_stretch_icon_top_icon_margin</item>
+        <item name="sd_notificationIconPlacement">top</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconTop">
         <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop</item>
@@ -210,8 +210,8 @@
         <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Info</item>
     </style>
     <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart">
-        <item name="sd_notificationIconPlacement">start</item>
         <item name="sd_iconMargin">@dimen/plasma_notification_content_no_button_stretch_icon_start_icon_margin</item>
+        <item name="sd_notificationIconPlacement">start</item>
         <item name="sd_buttonGroupStartPadding">@dimen/plasma_notification_content_no_button_stretch_icon_start_btn_group_start_padding</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconStart">

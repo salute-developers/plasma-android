@@ -3,21 +3,21 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.IconButton" parent="Sdds.Components.IconButton">
+        <item name="sd_iconTint">@color/plasma_icon_button_icon_tint</item>
+        <item name="sd_spinnerTint">@color/plasma_icon_button_spinner_tint</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="backgroundTint">@color/plasma_icon_button_bg_color</item>
-        <item name="sd_spinnerTint">@color/plasma_icon_button_spinner_tint</item>
-        <item name="sd_iconTint">@color/plasma_icon_button_icon_tint</item>
         <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.IconButtonColorStateProvider</item>
     </style>
     <style name="Plasma.SdService.Components.IconButton.Xl">
-        <item name="android:minHeight">@dimen/plasma_icon_button_xl_min_height</item>
-        <item name="android:minWidth">@dimen/plasma_icon_button_xl_min_width</item>
-        <item name="android:paddingStart">@dimen/plasma_icon_button_xl_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_icon_button_xl_padding_end</item>
         <item name="sd_iconSize">@dimen/plasma_icon_button_xl_icon_size</item>
         <item name="sd_spinnerSize">@dimen/plasma_icon_button_xl_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_xl_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="android:minHeight">@dimen/plasma_icon_button_xl_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_xl_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_xl_padding_end</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconButtonXl">
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xl</item>
@@ -149,15 +149,15 @@
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xl.Pilled.White</item>
     </style>
     <style name="Plasma.SdService.Components.IconButton.L">
-        <item name="android:minHeight">@dimen/plasma_icon_button_l_min_height</item>
-        <item name="android:minWidth">@dimen/plasma_icon_button_l_min_width</item>
-        <item name="android:paddingStart">@dimen/plasma_icon_button_l_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_icon_button_l_padding_end</item>
         <item name="sd_iconSize">@dimen/plasma_icon_button_l_icon_size</item>
         <item name="sd_spinnerSize">@dimen/plasma_icon_button_l_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_l_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_icon_button_l_shape_adjustment</item>
+        <item name="android:minHeight">@dimen/plasma_icon_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_l_padding_end</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconButtonL">
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L</item>
@@ -289,14 +289,14 @@
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.White</item>
     </style>
     <style name="Plasma.SdService.Components.IconButton.M">
-        <item name="android:minHeight">@dimen/plasma_icon_button_m_min_height</item>
-        <item name="android:minWidth">@dimen/plasma_icon_button_m_min_width</item>
-        <item name="android:paddingStart">@dimen/plasma_icon_button_m_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_icon_button_m_padding_end</item>
         <item name="sd_iconSize">@dimen/plasma_icon_button_m_icon_size</item>
         <item name="sd_spinnerSize">@dimen/plasma_icon_button_m_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_m_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="android:minHeight">@dimen/plasma_icon_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_m_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_m_padding_end</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconButtonM">
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M</item>
@@ -428,15 +428,15 @@
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.White</item>
     </style>
     <style name="Plasma.SdService.Components.IconButton.S">
-        <item name="android:minHeight">@dimen/plasma_icon_button_s_min_height</item>
-        <item name="android:minWidth">@dimen/plasma_icon_button_s_min_width</item>
-        <item name="android:paddingStart">@dimen/plasma_icon_button_s_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_icon_button_s_padding_end</item>
         <item name="sd_iconSize">@dimen/plasma_icon_button_s_icon_size</item>
         <item name="sd_spinnerSize">@dimen/plasma_icon_button_s_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_s_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_icon_button_s_shape_adjustment</item>
+        <item name="android:minHeight">@dimen/plasma_icon_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_s_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_s_padding_end</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconButtonS">
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S</item>
@@ -568,14 +568,14 @@
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.White</item>
     </style>
     <style name="Plasma.SdService.Components.IconButton.Xs">
-        <item name="android:minHeight">@dimen/plasma_icon_button_xs_min_height</item>
-        <item name="android:minWidth">@dimen/plasma_icon_button_xs_min_width</item>
-        <item name="android:paddingStart">@dimen/plasma_icon_button_xs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_icon_button_xs_padding_end</item>
         <item name="sd_iconSize">@dimen/plasma_icon_button_xs_icon_size</item>
         <item name="sd_spinnerSize">@dimen/plasma_icon_button_xs_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_xs_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="android:minHeight">@dimen/plasma_icon_button_xs_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_xs_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_xs_padding_end</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconButtonXs">
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs</item>
@@ -707,14 +707,14 @@
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.White</item>
     </style>
     <style name="Plasma.SdService.Components.IconButton.Xxs">
-        <item name="android:minHeight">@dimen/plasma_icon_button_xxs_min_height</item>
-        <item name="android:minWidth">@dimen/plasma_icon_button_xxs_min_width</item>
-        <item name="android:paddingStart">@dimen/plasma_icon_button_xxs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_icon_button_xxs_padding_end</item>
         <item name="sd_iconSize">@dimen/plasma_icon_button_xxs_icon_size</item>
         <item name="sd_spinnerSize">@dimen/plasma_icon_button_xxs_spinner_size</item>
         <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_xxs_spinner_stroke_width</item>
         <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="android:minHeight">@dimen/plasma_icon_button_xxs_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_xxs_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_xxs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_xxs_padding_end</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconButtonXxs">
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xxs</item>

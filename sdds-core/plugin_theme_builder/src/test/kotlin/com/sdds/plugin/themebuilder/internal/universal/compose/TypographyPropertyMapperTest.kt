@@ -1,7 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
-import com.sdds.plugin.themebuilder.internal.components.base.StringState
-import com.sdds.plugin.themebuilder.internal.components.base.Typography
+import com.sdds.plugin.themebuilder.internal.universal.StringState
+import com.sdds.plugin.themebuilder.internal.universal.Typography
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.TypographyPropertyMapper
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

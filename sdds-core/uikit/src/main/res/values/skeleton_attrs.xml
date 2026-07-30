@@ -5,12 +5,21 @@
     <attr name="sd_rectSkeletonStyle" format="reference" />
     <attr name="sd_textSkeletonStyle" format="reference" />
 
-    <declare-styleable name="RectSkeleton" sdds:api_info="RectSkeleton" sdds:api_framework="textStyle=android:textAppearance:typography" tools:ignore="ResourceName" />
-    <declare-styleable name="TextSkeleton" sdds:api_info="TextSkeleton" tools:ignore="ResourceName">
+    <declare-styleable name="RectSkeleton" sdds:api_info="RectSkeleton"
+        sdds:api_def_style_attr="sd_rectSkeletonStyle"
+        sdds:api_parent="Sdds.Components.RectSkeleton" tools:ignore="ResourceName">
+        <attr name="sd_shimmer" sdds:api_name="gradient" sdds:api_res_suffix="rect_skeleton_shimmer" sdds:api_type="color" />
+        <attr name="sd_shimmerDuration" sdds:api_name="duration" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+    </declare-styleable>
+    <declare-styleable name="TextSkeleton" sdds:api_info="TextSkeleton"
+        sdds:api_def_style_attr="sd_textSkeletonStyle"
+        sdds:api_parent="Sdds.Components.TextSkeleton" tools:ignore="ResourceName">
         <attr name="sd_lineCount" format="integer" />
-        <attr name="android:textAppearance" />
-        <attr name="sd_shimmer" />
+        <attr name="android:textAppearance" sdds:api_name="textStyle" sdds:api_type="typography" />
+        <attr name="sd_shimmer" sdds:api_name="gradient" sdds:api_res_suffix="text_skeleton_shimmer" sdds:api_type="color" />
         <attr name="sd_shimmerDuration" sdds:api_name="duration" />
         <attr name="sd_autoStart"/>
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
     </declare-styleable>
 </resources>

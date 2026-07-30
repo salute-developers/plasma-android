@@ -4,15 +4,15 @@
 <resources>
     <style name="Serv.Sdds.Components.AiUserMessageEmbeddedIconButtonGroup" parent="Sdds.Components.ButtonGroup"/>
     <style name="Serv.Sdds.Components.AiUserMessageEmbeddedIconButtonGroup.S">
-        <item name="sd_buttonSpacing">@dimen/serv_ai_user_message_embedded_icon_button_group_s_spacing</item>
         <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSSecondary</item>
+        <item name="sd_buttonSpacing">@dimen/serv_ai_user_message_embedded_icon_button_group_s_spacing</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AiUserMessageEmbeddedIconButtonGroupS">
         <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiUserMessageEmbeddedIconButtonGroup.S</item>
     </style>
     <style name="Serv.Sdds.Components.AiUserMessageEmbeddedIconButtonGroup.M">
-        <item name="sd_buttonSpacing">@dimen/serv_ai_user_message_embedded_icon_button_group_m_spacing</item>
         <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMSecondary</item>
+        <item name="sd_buttonSpacing">@dimen/serv_ai_user_message_embedded_icon_button_group_m_spacing</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AiUserMessageEmbeddedIconButtonGroupM">
         <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiUserMessageEmbeddedIconButtonGroup.M</item>

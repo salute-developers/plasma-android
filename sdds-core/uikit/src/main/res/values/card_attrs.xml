@@ -5,11 +5,34 @@
     <attr name="sd_cardStyle" format="reference"/>
     <attr name="sd_cardContentStyle" format="reference"/>
 
-    <declare-styleable name="Card" sdds:api_info="Card" tools:ignore="ResourceName">
+    <declare-styleable name="Card" sdds:api_info="Card"
+        sdds:api_def_style_attr="sd_cardStyle"
+        sdds:api_parent="Sdds.Components.Card" tools:ignore="ResourceName">
+        <attr name="android:backgroundTint" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
+        <attr name="android:paddingBottom" sdds:api_type="dimension" sdds:api_name="paddingBottom" />
+        <attr name="android:paddingEnd" sdds:api_type="dimension" sdds:api_name="paddingEnd" />
+        <attr name="android:paddingStart" sdds:api_type="dimension" sdds:api_name="paddingStart" />
+        <attr name="android:paddingTop" sdds:api_type="dimension" sdds:api_name="paddingTop" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <!-- Свойства фокус-селектора уходят туда, куда указывает fsTarget: в стиль
+             карточки либо в стиль её контента (см. styleable CardContent ниже). -->
+        <attr name="sd_fsBorderMode" sdds:api_when="fsTarget=card" />
+        <attr name="sd_fsScaleFactor" sdds:api_when="fsTarget=card" />
+        <attr name="sd_fsStrokeInset" sdds:api_when="fsTarget=card" />
+        <attr name="sd_fsEnabled" sdds:api_value="false" sdds:api_when="fsTarget=content" />
     </declare-styleable>
 
-    <declare-styleable name="CardContent" tools:ignore="ResourceName">
-        <attr name="sd_shapeAppearance"/>
+    <!-- Вложенная семья стилей карточки: `Components.CardSolidContent.L` и ссылки на неё. -->
+    <declare-styleable name="CardContent" sdds:api_info="Card"
+        sdds:api_sub_style="Content"
+        sdds:api_style_ref="sd_cardContentStyle"
+        sdds:api_parent="Sdds.Components.CardContent" tools:ignore="ResourceName">
+        <attr name="sd_shapeAppearance" sdds:api_name="contentShape" sdds:api_res_prefix="content" />
+        <attr name="android:minWidth" sdds:api_name="contentMinWidth" sdds:api_res_suffix="min_width"
+            sdds:api_res_prefix="content" sdds:api_type="dimension" />
+        <attr name="android:minHeight" sdds:api_name="contentMinHeight" sdds:api_res_suffix="min_height"
+            sdds:api_res_prefix="content" sdds:api_type="dimension" />
+        <attr name="android:theme" sdds:api_placement="theme" />
         <attr name="sd_shapeAppearanceAdjustment"/>
         <attr name="sd_strokeWidth"/>
         <attr name="sd_strokeColor"/>
@@ -17,9 +40,13 @@
         <attr name="sd_fsAdditionalColor" />
         <attr name="sd_fsMainColor" />
         <attr name="sd_fsMode" />
-        <attr name="sd_fsScaleFactor" />
+        <attr name="sd_fsScaleFactor" sdds:api_when="fsTarget=content" />
         <attr name="sd_fsStrokeWidth" />
-        <attr name="sd_fsStrokeInset" />
+        <attr name="sd_fsStrokeInset" sdds:api_when="fsTarget=content" />
+        <attr name="sd_fsBorderMode" sdds:api_when="fsTarget=content" />
+        <!-- Контент повторяет состояние карточки-родителя, когда селектор нарисован на нём. -->
+        <attr name="sd_fsDuplicateParentState" sdds:api_value="true" sdds:api_when="fsTarget=content" />
+        <attr name="android:duplicateParentState" sdds:api_value="true" sdds:api_when="fsTarget=content" />
         <attr name="sd_fsShapeAppearance" />
         <attr name="sd_fsShapeAdjustment" />
     </declare-styleable>

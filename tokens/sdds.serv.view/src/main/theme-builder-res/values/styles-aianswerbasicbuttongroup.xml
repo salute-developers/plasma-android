@@ -4,37 +4,37 @@
 <resources>
     <style name="Serv.Sdds.Components.AiAnswerBasicButtonGroup" parent="Sdds.Components.ButtonGroup"/>
     <style name="Serv.Sdds.Components.AiAnswerBasicButtonGroup.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXsSecondary</item>
         <item name="sd_externalShapeAppearance">?serv_shapeRoundXs</item>
         <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
         <item name="sd_buttonSpacing">@dimen/serv_ai_answer_basic_button_group_xs_spacing</item>
-        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXsSecondary</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AiAnswerBasicButtonGroupXs">
         <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiAnswerBasicButtonGroup.Xs</item>
     </style>
     <style name="Serv.Sdds.Components.AiAnswerBasicButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonSSecondary</item>
         <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
         <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
         <item name="sd_buttonSpacing">@dimen/serv_ai_answer_basic_button_group_s_spacing</item>
-        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonSSecondary</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AiAnswerBasicButtonGroupS">
         <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiAnswerBasicButtonGroup.S</item>
     </style>
     <style name="Serv.Sdds.Components.AiAnswerBasicButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonMSecondary</item>
         <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
         <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
         <item name="sd_buttonSpacing">@dimen/serv_ai_answer_basic_button_group_m_spacing</item>
-        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonMSecondary</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AiAnswerBasicButtonGroupM">
         <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiAnswerBasicButtonGroup.M</item>
     </style>
     <style name="Serv.Sdds.Components.AiAnswerBasicButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonLSecondary</item>
         <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
         <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
         <item name="sd_buttonSpacing">@dimen/serv_ai_answer_basic_button_group_l_spacing</item>
-        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonLSecondary</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AiAnswerBasicButtonGroupL">
         <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiAnswerBasicButtonGroup.L</item>

@@ -12,5 +12,4 @@ TBD
 
 Свойства и состояния View-компонентов размечаются в `declare-styleable`
 namespace'ом `sdds` для универсального генератора стилей Theme Builder.
-См. [VIEW_API_MARKUP.md](VIEW_API_MARKUP.md).
-
+См. [руководство по View API](../plugin_theme_builder/VIEW_STYLE_GENERATOR.md).

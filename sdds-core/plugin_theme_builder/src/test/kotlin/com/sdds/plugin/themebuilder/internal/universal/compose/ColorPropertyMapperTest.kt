@@ -1,8 +1,9 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
-import com.sdds.plugin.themebuilder.internal.components.base.ColorState
-import com.sdds.plugin.themebuilder.internal.components.base.Gradient
-import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
+import com.sdds.plugin.themebuilder.internal.universal.ColorState
+import com.sdds.plugin.themebuilder.internal.universal.Gradient
+import com.sdds.plugin.themebuilder.internal.universal.SolidColor
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.ColorPropertyMapper
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

@@ -3,30 +3,31 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.SegmentItem" parent="Sdds.Components.SegmentItem">
-        <item name="android:textColor">@color/serv_segment_item_text_color</item>
-        <item name="sd_valueTextColor">@color/serv_segment_item_value_text_color</item>
         <item name="backgroundTint">@color/serv_segment_item_background_color</item>
+        <item name="sd_valueTextColor">@color/serv_segment_item_value_text_color</item>
         <item name="sd_iconTint">@color/serv_segment_item_icon_tint</item>
+        <item name="android:textColor">@color/serv_segment_item_text_color</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.SegmentItemColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.Xl">
-        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Default</item>
-        <item name="android:minWidth">@dimen/serv_segment_item_xl_min_width</item>
-        <item name="android:minHeight">@dimen/serv_segment_item_xl_min_height</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_xl_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_segment_item_xl_padding_end</item>
         <item name="sd_contentStartSize">@dimen/serv_segment_item_xl_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/serv_segment_item_xl_content_end_size</item>
-        <item name="sd_iconPadding">@dimen/serv_segment_item_xl_icon_padding</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Default</item>
         <item name="sd_counterPadding">@dimen/serv_segment_item_xl_counter_padding</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
         <item name="sd_valuePadding">@dimen/serv_segment_item_xl_value_padding</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_xl_min_height</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_xl_min_width</item>
+        <item name="android:paddingEnd">@dimen/serv_segment_item_xl_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_xl_padding_start</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+        <item name="sd_iconPadding">@dimen/serv_segment_item_xl_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemXl">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xl</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.Xl.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemXlAccent">
@@ -47,13 +48,14 @@
     <style name="Serv.Sdds.Components.SegmentItem.Xl.Pilled">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="android:minWidth">@dimen/serv_segment_item_xl_pilled_min_width</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_xl_pilled_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_segment_item_xl_pilled_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_xl_pilled_padding_start</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemXlPilled">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xl.Pilled</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.Xl.Pilled.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemXlPilledAccent">
@@ -72,24 +74,25 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xl.Pilled.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.L">
-        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_segment_item_l_shape_adjustment</item>
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Default</item>
-        <item name="android:minWidth">@dimen/serv_segment_item_l_min_width</item>
-        <item name="android:minHeight">@dimen/serv_segment_item_l_min_height</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_l_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_segment_item_l_padding_end</item>
         <item name="sd_contentStartSize">@dimen/serv_segment_item_l_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/serv_segment_item_l_content_end_size</item>
-        <item name="sd_iconPadding">@dimen/serv_segment_item_l_icon_padding</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Default</item>
         <item name="sd_counterPadding">@dimen/serv_segment_item_l_counter_padding</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_segment_item_l_shape_adjustment</item>
         <item name="sd_valuePadding">@dimen/serv_segment_item_l_value_padding</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_l_min_height</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_l_min_width</item>
+        <item name="android:paddingEnd">@dimen/serv_segment_item_l_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_l_padding_start</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+        <item name="sd_iconPadding">@dimen/serv_segment_item_l_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemL">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.L.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemLAccent">
@@ -110,13 +113,14 @@
     <style name="Serv.Sdds.Components.SegmentItem.L.Pilled">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="android:minWidth">@dimen/serv_segment_item_l_pilled_min_width</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_l_pilled_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_segment_item_l_pilled_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_l_pilled_padding_start</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemLPilled">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Pilled</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.L.Pilled.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemLPilledAccent">
@@ -135,23 +139,24 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Pilled.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.M">
-        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Default</item>
-        <item name="android:minWidth">@dimen/serv_segment_item_m_min_width</item>
-        <item name="android:minHeight">@dimen/serv_segment_item_m_min_height</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_m_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_segment_item_m_padding_end</item>
         <item name="sd_contentStartSize">@dimen/serv_segment_item_m_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/serv_segment_item_m_content_end_size</item>
-        <item name="sd_iconPadding">@dimen/serv_segment_item_m_icon_padding</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Default</item>
         <item name="sd_counterPadding">@dimen/serv_segment_item_m_counter_padding</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
         <item name="sd_valuePadding">@dimen/serv_segment_item_m_value_padding</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_m_min_height</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_m_min_width</item>
+        <item name="android:paddingEnd">@dimen/serv_segment_item_m_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_m_padding_start</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="sd_iconPadding">@dimen/serv_segment_item_m_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemM">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.M.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemMAccent">
@@ -172,13 +177,14 @@
     <style name="Serv.Sdds.Components.SegmentItem.M.Pilled">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="android:minWidth">@dimen/serv_segment_item_m_pilled_min_width</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_m_pilled_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_segment_item_m_pilled_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_m_pilled_padding_start</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemMPilled">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Pilled</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.M.Pilled.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemMPilledAccent">
@@ -197,24 +203,25 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Pilled.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.S">
-        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_segment_item_s_shape_adjustment</item>
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Default</item>
-        <item name="android:minWidth">@dimen/serv_segment_item_s_min_width</item>
-        <item name="android:minHeight">@dimen/serv_segment_item_s_min_height</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_s_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_segment_item_s_padding_end</item>
         <item name="sd_contentStartSize">@dimen/serv_segment_item_s_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/serv_segment_item_s_content_end_size</item>
-        <item name="sd_iconPadding">@dimen/serv_segment_item_s_icon_padding</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Default</item>
         <item name="sd_counterPadding">@dimen/serv_segment_item_s_counter_padding</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_segment_item_s_shape_adjustment</item>
         <item name="sd_valuePadding">@dimen/serv_segment_item_s_value_padding</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_s_min_height</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_s_min_width</item>
+        <item name="android:paddingEnd">@dimen/serv_segment_item_s_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_s_padding_start</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
+        <item name="sd_iconPadding">@dimen/serv_segment_item_s_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemS">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.S.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemSAccent">
@@ -235,13 +242,14 @@
     <style name="Serv.Sdds.Components.SegmentItem.S.Pilled">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="android:minWidth">@dimen/serv_segment_item_s_pilled_min_width</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_s_pilled_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_segment_item_s_pilled_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_s_pilled_padding_start</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemSPilled">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Pilled</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.S.Pilled.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemSPilledAccent">
@@ -260,23 +268,24 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Pilled.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.Xs">
-        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xxs.Default</item>
-        <item name="android:minWidth">@dimen/serv_segment_item_xs_min_width</item>
-        <item name="android:minHeight">@dimen/serv_segment_item_xs_min_height</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_xs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_segment_item_xs_padding_end</item>
         <item name="sd_contentStartSize">@dimen/serv_segment_item_xs_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/serv_segment_item_xs_content_end_size</item>
-        <item name="sd_iconPadding">@dimen/serv_segment_item_xs_icon_padding</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xxs.Default</item>
         <item name="sd_counterPadding">@dimen/serv_segment_item_xs_counter_padding</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
         <item name="sd_valuePadding">@dimen/serv_segment_item_xs_value_padding</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_xs_min_height</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_xs_min_width</item>
+        <item name="android:paddingEnd">@dimen/serv_segment_item_xs_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_xs_padding_start</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+        <item name="sd_iconPadding">@dimen/serv_segment_item_xs_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemXs">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.Xs.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xxs.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemXsAccent">
@@ -297,13 +306,14 @@
     <style name="Serv.Sdds.Components.SegmentItem.Xs.Pilled">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="android:minWidth">@dimen/serv_segment_item_xs_pilled_min_width</item>
-        <item name="android:paddingStart">@dimen/serv_segment_item_xs_pilled_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_segment_item_xs_pilled_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_segment_item_xs_pilled_padding_start</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemXsPilled">
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Pilled</item>
     </style>
     <style name="Serv.Sdds.Components.SegmentItem.Xs.Pilled.Accent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xxs.Accent</item>
         <item name="serv_segmentitemColors">state_accent</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SegmentItemXsPilledAccent">

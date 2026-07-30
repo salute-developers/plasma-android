@@ -7,5 +7,6 @@
     <item android:color="?plasma_surfaceDefaultAccent" app:plasma_segmentitemcounter_state_default="true"/>
     <item android:color="?plasma_surfaceDefaultAccentActive" android:state_pressed="true" app:plasma_segmentitemcounter_state_accent="true"/>
     <item android:color="?plasma_surfaceDefaultAccentHover" android:state_hovered="true" app:plasma_segmentitemcounter_state_accent="true"/>
+    <item android:color="?plasma_surfaceOnDarkSolidDefault" android:state_checked="true" app:plasma_segmentitemcounter_state_accent="true"/>
     <item android:color="?plasma_surfaceDefaultAccent" app:plasma_segmentitemcounter_state_accent="true"/>
 </selector>

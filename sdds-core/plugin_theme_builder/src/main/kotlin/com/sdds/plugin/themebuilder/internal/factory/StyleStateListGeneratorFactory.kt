@@ -1,8 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
-import com.sdds.plugin.themebuilder.internal.components.base.State
-import com.sdds.plugin.themebuilder.internal.components.base.Stateful
-import com.sdds.plugin.themebuilder.internal.components.base.view.StyleStateListGenerator
+import com.sdds.plugin.themebuilder.internal.universal.State
+import com.sdds.plugin.themebuilder.internal.universal.Stateful
+import com.sdds.plugin.themebuilder.internal.universal.view.StyleStateListGenerator
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import java.io.File
 
