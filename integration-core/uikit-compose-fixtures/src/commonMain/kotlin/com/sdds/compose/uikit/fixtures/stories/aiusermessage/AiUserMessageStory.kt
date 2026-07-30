@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.File
@@ -20,7 +21,6 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ai.AiUserMessage
 import com.sdds.compose.uikit.ai.AiUserMessageStyle
-import com.sdds.compose.uikit.fixtures.RemoteImage
 import com.sdds.compose.uikit.fixtures.stories.AiUserMessageUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.AiUserMessageUiStateTransformer
 import com.sdds.compose.uikit.imageVectorSource
@@ -191,7 +191,7 @@ private fun UploadingFile(group: Boolean = false) {
 
 @Composable
 private fun UploadingImage() {
-    RemoteImage(
+    AsyncImage(
         modifier = Modifier,
         contentScale = ContentScale.Fit,
         model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",

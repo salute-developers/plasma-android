@@ -1,11 +1,12 @@
 package com.sdds.compose.uikit.fixtures.stories.dropzone
 
-import androidx.compose.foundation.draganddrop.dragAndDropTarget
 import androidx.compose.foundation.focusable
+import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,9 +14,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draganddrop.DragAndDropEvent
-import androidx.compose.ui.draganddrop.DragAndDropTarget
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.boundsInRoot
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.DropZone
@@ -38,6 +43,7 @@ import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
+import kotlin.math.roundToInt
 
 @StoryUiState
 data class DropZoneUiState(
@@ -66,37 +72,21 @@ object DropZoneStory : ComposeBaseStory<DropZoneUiState, DropZoneStyle>(
         style: DropZoneStyle,
         state: DropZoneUiState,
     ) {
-        var dragOver by remember { mutableStateOf(false) }
+        val motion = rememberDropZoneMotion()
+        var dropZoneBounds by remember { mutableStateOf<Rect?>(null) }
+        var fileBounds by remember { mutableStateOf<Rect?>(null) }
+
+        val dragOver = dropZoneBounds?.overlaps(fileBounds ?: Rect.Zero) ?: false
+
         Column(
             verticalArrangement = Arrangement.spacedBy(32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Box(
-                modifier = Modifier.dragAndDropTarget(
-                    shouldStartDragAndDrop = { true },
-                    target = remember {
-                        object : DragAndDropTarget {
-                            override fun onEntered(event: DragAndDropEvent) {
-                                dragOver = true
-                            }
-
-                            override fun onExited(event: DragAndDropEvent) {
-                                dragOver = false
-                            }
-
-                            override fun onEnded(event: DragAndDropEvent) {
-                                dragOver = false
-                            }
-
-                            override fun onDrop(event: DragAndDropEvent): Boolean {
-                                dragOver = false
-                                return true
-                            }
-                        }
-                    },
-                ),
+                modifier = Modifier.onGloballyPositioned {
+                    dropZoneBounds = it.boundsInRoot()
+                },
             ) {
-                val motion = rememberDropZoneMotion()
                 DropZone(
                     modifier = Modifier
                         .focusable(state.enabled, motion.context.interactionSource),
@@ -122,7 +112,9 @@ object DropZoneStory : ComposeBaseStory<DropZoneUiState, DropZoneStyle>(
                     },
                 )
             }
-            DraggableContent()
+            DraggableContent(
+                onBoundsChanged = { fileBounds = it },
+            )
 
             Text("Start dragging File to see DropZone behavior")
         }
@@ -154,7 +146,9 @@ object DropZoneStory : ComposeBaseStory<DropZoneUiState, DropZoneStyle>(
 }
 
 @Composable
-private fun DraggableContent() {
+private fun DraggableContent(
+    onBoundsChanged: (Rect) -> Unit,
+) {
     val fileStyle = FileStyle.builder()
         .colors {
             labelColor(LocalTextStyle.current.color)
@@ -162,9 +156,28 @@ private fun DraggableContent() {
         }
         .labelStyle(LocalTextStyle.current)
         .style()
+    var offset by remember { mutableStateOf(Offset.Zero) }
     File(
         style = fileStyle,
-        modifier = Modifier,
+        modifier = Modifier
+            .offset {
+                IntOffset(
+                    offset.x.roundToInt(),
+                    offset.y.roundToInt(),
+                )
+            }
+            .onGloballyPositioned {
+                onBoundsChanged(it.boundsInRoot())
+            }
+            .pointerInput(Unit) {
+                detectDragGestures(
+                    onDragEnd = { offset = Offset.Zero },
+                    onDragCancel = { offset = Offset.Zero },
+                ) { change, dragAmount ->
+                    change.consume()
+                    offset += dragAmount
+                }
+            },
         labelContent = {
             Text(
                 text = "Draggable file",
