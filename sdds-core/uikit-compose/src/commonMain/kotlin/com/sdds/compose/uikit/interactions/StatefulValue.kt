@@ -91,12 +91,18 @@ open class StatefulValue<T> internal constructor(
     private fun indexOfDefault(): Int = states.indexOfFirst { it.isEmpty() }.takeIf { it >= 0 } ?: 0
 
     internal fun indexOfStateSet(stateSet: Set<ValueState>): Int {
+        var bestIndex = -1
+        var bestSize = -1
+
         for (i in states.indices) {
-            if (states[i].all { it in stateSet }) {
-                return i
+            val candidate = states[i]
+
+            if (candidate.all(stateSet::contains) && candidate.size > bestSize) {
+                bestIndex = i
+                bestSize = candidate.size
             }
         }
-        return -1
+        return bestIndex
     }
 
     override fun equals(other: Any?): Boolean {

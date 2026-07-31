@@ -13,6 +13,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import coil3.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarPlaceholder
@@ -23,7 +24,6 @@ import com.sdds.compose.uikit.NavigationDrawerItem
 import com.sdds.compose.uikit.NavigationDrawerStyle
 import com.sdds.compose.uikit.NavigationDrawerValue
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fixtures.RemoteImage
 import com.sdds.compose.uikit.fixtures.stories.NavigationDrawerUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.NavigationDrawerUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.navigationdrawer.NavigationDrawerStory.updateState
@@ -150,7 +150,7 @@ private fun NavigationDrawerFooter() {
             Avatar(
                 placeholder = AvatarPlaceholder.Name("Michael Scot"),
             ) {
-                RemoteImage(
+                AsyncImage(
                     modifier = Modifier.matchParentSize(),
                     contentScale = ContentScale.Crop,
                     model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",

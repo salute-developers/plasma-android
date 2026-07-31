@@ -92,14 +92,20 @@ internal actual fun ConfigureWindow(
     }
 }
 
-internal actual fun defaultEdgeToEdgeDialogProperties(edgeToEdge: Boolean): DialogProperties {
+internal actual fun defaultEdgeToEdgeDialogProperties(
+    edgeToEdge: Boolean,
+    useNativeBlackout: Boolean,
+): DialogProperties {
     return DialogProperties(
         usePlatformDefaultWidth = edgeToEdge,
         decorFitsSystemWindows = !edgeToEdge,
     )
 }
 
-internal actual fun DialogProperties.ensureCorrectEdgeToEdgeProperties(edgeToEdge: Boolean): DialogProperties {
+internal actual fun DialogProperties.ensureCorrectProperties(
+    edgeToEdge: Boolean,
+    useNativeBlackout: Boolean,
+): DialogProperties {
     return when {
         edgeToEdge == usePlatformDefaultWidth && edgeToEdge != decorFitsSystemWindows -> this
         else -> DialogProperties(

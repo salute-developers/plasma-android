@@ -10,6 +10,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.compose.uikit.File
@@ -19,7 +20,6 @@ import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ProgressBar
-import com.sdds.compose.uikit.fixtures.RemoteImage
 import com.sdds.compose.uikit.fixtures.stories.FileUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.FileUiStateTransformer
 import com.sdds.compose.uikit.imageVectorSource
@@ -149,7 +149,7 @@ private fun getImageContent(fileUiState: FileUiState): @Composable (() -> Unit)?
                     contentDescription = "",
                 )
 
-                FileContentType.Image -> RemoteImage(
+                FileContentType.Image -> AsyncImage(
                     modifier = Modifier
                         .size(36.dp)
                         .clip(RoundedCornerShape(6.dp)),
