@@ -21,6 +21,8 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -37,11 +39,14 @@ import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalFontFamilyResolver
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.ParagraphIntrinsics
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.DataEdgePlacement
@@ -57,6 +62,7 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlin.math.abs
+import kotlin.math.ceil
 import kotlin.math.roundToInt
 import kotlin.math.sign
 
@@ -112,18 +118,28 @@ internal fun BaseWheel(
         }
     }
 
-    val textMeasurer = rememberTextMeasurer()
     val maxDistanceFromCenter by remember { derivedStateOf { state.layoutInfo.viewportSize.height / 2f } }
     var itemHeight by remember(visibleItemsCount, description) { mutableIntStateOf(0) }
     var descriptionHeight by remember(description, descriptionStyle) { mutableIntStateOf(0) }
     val staticTextAfterText = remember(items, staticTextAfter) {
         staticTextAfter ?: items.firstOrNull { it.textAfter.isNotEmpty() }?.textAfter
     }
+    val textMetrics = rememberWheelTextMetrics(
+        items = items,
+        extendedItems = extendedList,
+        textStyle = textStyle,
+        textAfterStyle = textAfterStyle,
+        textAfterMode = textAfterMode,
+        textAfterPadding = textAfterPadding,
+        staticTextAfter = staticTextAfterText,
+    )
     val scaledWheelHeight = rememberCalculatedWheelHeight(itemHeight, descriptionHeight, visibleItemsCount)
     val labelOffsetFromCenter =
         calculateLabelOffset(scaledWheelHeight, itemHeight, itemSpacing.toPx())
-    onLabelPositionCalculated?.invoke(labelOffsetFromCenter)
-    onItemHeightCalculated?.invoke(itemHeight)
+    SideEffect {
+        onLabelPositionCalculated?.invoke(labelOffsetFromCenter)
+        onItemHeightCalculated?.invoke(itemHeight)
+    }
 
     SubcomposeLayout(
         modifier = modifier,
@@ -146,14 +162,13 @@ internal fun BaseWheel(
         fun measureItemProbe(): WheelItemProbe {
             if (extendedList.isEmpty()) return WheelItemProbe()
 
-            val mostWideItem = findMostWideItem(
-                items = extendedList,
-                textAfterMode = textAfterMode,
-                textAfterPadding = textAfterPadding.roundToPx(),
-                textStyle = textStyle,
-                textAfterStyle = textAfterStyle,
-                measureText = { text, style -> textMeasurer.measure(text, style).size.width },
-            )
+            // Если ширина колеса задана снаружи, probe нужен только ради высоты ячейки,
+            // а она одинакова у всех элементов - самый широкий искать не нужно.
+            val mostWideItem = if (constraints.hasFixedWidth) {
+                textMetrics.heightProbeItem
+            } else {
+                textMetrics.widestItem
+            }
             val placeable = subcompose(WheelSubcomposeSlot.ItemProbe) {
                 Item(
                     title = mostWideItem.text,
@@ -326,19 +341,8 @@ internal fun BaseWheel(
             itemHeight = itemProbe.height
         }
 
-        val staticTextAfterWidthPx = staticTextAfterText
-            ?.takeIf { textAfterMode == TextAfterMode.Static && it.isNotEmpty() }
-            ?.let { textMeasurer.measure(it, textAfterStyle).size.width }
-            ?: 0
-        val maxItemTextWidthPx = if (textAfterMode == TextAfterMode.Static) {
-            calculateMaxItemTextWidth(
-                items = items,
-                textStyle = textStyle,
-                measureText = { text, style -> textMeasurer.measure(text, style).size.width },
-            )
-        } else {
-            0
-        }
+        val staticTextAfterWidthPx = textMetrics.staticTextAfterWidth
+        val maxItemTextWidthPx = textMetrics.maxItemTextWidth
         val staticEndPaddingDp = calculateStaticEndPadding(
             staticTextAfterWidth = staticTextAfterWidthPx,
             textAfterPadding = textAfterPadding.roundToPx(),
@@ -492,37 +496,147 @@ private fun Constraints.unconstrainedMin(): Constraints =
         minHeight = 0,
     )
 
-private fun findMostWideItem(
-    items: List<WheelItemData>,
-    textAfterMode: TextAfterMode,
-    textAfterPadding: Int,
-    textStyle: TextStyle,
-    textAfterStyle: TextStyle,
-    measureText: (String, TextStyle) -> Int,
-): WheelItemData {
-    return if (textAfterMode == TextAfterMode.Static) {
-        items.maxBy { data ->
-            measureText(data.text, textStyle)
+/**
+ * Метрики текста, определяющие ширину колеса.
+ *
+ * @property widestItem самый широкий элемент, по нему измеряется размер ячейки
+ * @property maxItemTextWidth максимальная ширина основного текста ([TextAfterMode.Static])
+ * @property staticTextAfterWidth ширина статичного дополнительного текста ([TextAfterMode.Static])
+ */
+@Stable
+private class WheelTextMetrics(
+    private val items: List<WheelItemData>,
+    private val extendedItems: List<WheelItemData>,
+    private val textStyle: TextStyle,
+    private val textAfterStyle: TextStyle,
+    private val textAfterMode: TextAfterMode,
+    private val textAfterPaddingPx: Int,
+    private val staticTextAfter: String?,
+    private val density: Density,
+    private val fontFamilyResolver: FontFamily.Resolver,
+) {
+    private val titleWidths = HashMap<String, Int>()
+    private val textAfterWidths = HashMap<String, Int>()
+    private val isStaticTextAfter: Boolean get() = textAfterMode == TextAfterMode.Static
+
+    /**
+     * Самый широкий элемент, по нему измеряется размер ячейки.
+     * Обход всего набора данных - самая дорогая часть измерения, поэтому он ленивый:
+     * при фиксированной ширине колеса самый широкий элемент не нужен.
+     */
+    val widestItem: WheelItemData by lazy(LazyThreadSafetyMode.NONE) {
+        extendedItems.maxByOrNull { data ->
+            if (isStaticTextAfter) {
+                titleWidth(data.text)
+            } else {
+                titleWidth(data.text) +
+                    textAfterWidth(data.textAfter) +
+                    if (data.text.isNotEmpty() && data.textAfter.isNotEmpty()) {
+                        textAfterPaddingPx
+                    } else {
+                        0
+                    }
+            }
+        } ?: WheelItemData()
+    }
+
+    /**
+     * Элемент для измерения только высоты ячейки: она одинакова у всех элементов,
+     * важно лишь наличие обеих строк текста.
+     */
+    val heightProbeItem: WheelItemData by lazy(LazyThreadSafetyMode.NONE) {
+        WheelItemData(
+            text = extendedItems.firstOrNull { it.text.isNotEmpty() }?.text.orEmpty(),
+            textAfter = extendedItems.firstOrNull { it.textAfter.isNotEmpty() }?.textAfter.orEmpty(),
+        )
+    }
+
+    /**
+     * Максимальная ширина основного текста, нужна для позиционирования
+     * статичного дополнительного текста ([TextAfterMode.Static]).
+     */
+    val maxItemTextWidth: Int by lazy(LazyThreadSafetyMode.NONE) {
+        if (isStaticTextAfter) items.maxOfOrNull { data -> titleWidth(data.text) } ?: 0 else 0
+    }
+
+    /**
+     * Ширина статичного дополнительного текста ([TextAfterMode.Static]).
+     */
+    val staticTextAfterWidth: Int by lazy(LazyThreadSafetyMode.NONE) {
+        if (isStaticTextAfter && !staticTextAfter.isNullOrEmpty()) {
+            textAfterWidth(staticTextAfter)
+        } else {
+            0
         }
-    } else {
-        items.maxBy { data ->
-            measureText(data.text, textStyle) +
-                measureText(data.textAfter, textAfterStyle) +
-                if (data.text.isNotEmpty() && data.textAfter.isNotEmpty()) {
-                    textAfterPadding
-                } else {
-                    0
-                }
-        }
+    }
+
+    private fun titleWidth(text: String): Int = titleWidths.getOrPut(text) {
+        text.intrinsicWidth(textStyle, density, fontFamilyResolver)
+    }
+
+    private fun textAfterWidth(text: String): Int = textAfterWidths.getOrPut(text) {
+        text.intrinsicWidth(textAfterStyle, density, fontFamilyResolver)
     }
 }
 
-private fun calculateMaxItemTextWidth(
+/**
+ * Считает метрики текста один раз на набор данных, а не на каждый проход измерения.
+ */
+@Composable
+private fun rememberWheelTextMetrics(
     items: List<WheelItemData>,
+    extendedItems: List<WheelItemData>,
     textStyle: TextStyle,
-    measureText: (String, TextStyle) -> Int,
+    textAfterStyle: TextStyle,
+    textAfterMode: TextAfterMode,
+    textAfterPadding: Dp,
+    staticTextAfter: String?,
+): WheelTextMetrics {
+    val density = LocalDensity.current
+    val fontFamilyResolver = LocalFontFamilyResolver.current
+    return remember(
+        items,
+        extendedItems,
+        textStyle,
+        textAfterStyle,
+        textAfterMode,
+        textAfterPadding,
+        staticTextAfter,
+        density,
+        fontFamilyResolver,
+    ) {
+        WheelTextMetrics(
+            items = items,
+            extendedItems = extendedItems,
+            textStyle = textStyle,
+            textAfterStyle = textAfterStyle,
+            textAfterMode = textAfterMode,
+            textAfterPaddingPx = with(density) { textAfterPadding.roundToPx() },
+            staticTextAfter = staticTextAfter,
+            density = density,
+            fontFamilyResolver = fontFamilyResolver,
+        )
+    }
+}
+
+/**
+ * Ширина текста без построения полного layout: для сравнения элементов между собой
+ * достаточно intrinsic-ширины, а точные размеры ячейки дальше измеряет probe.
+ */
+private fun String.intrinsicWidth(
+    style: TextStyle,
+    density: Density,
+    fontFamilyResolver: FontFamily.Resolver,
 ): Int {
-    return items.maxOfOrNull { data -> measureText(data.text, textStyle) } ?: 0
+    if (isEmpty()) return 0
+    val intrinsics = ParagraphIntrinsics(
+        text = this,
+        style = style,
+        annotations = emptyList(),
+        density = density,
+        fontFamilyResolver = fontFamilyResolver,
+    )
+    return ceil(intrinsics.maxIntrinsicWidth).toInt()
 }
 
 private fun calculateStaticEndPadding(
@@ -660,11 +774,6 @@ private fun rememberExtendedList(
             DataEdgePlacement.WheelCenter -> dummyItems + items + dummyItems
         }
     }
-}
-
-@Composable
-private fun rememberMostWideItem(items: List<WheelItemData>): WheelItemData = remember(items) {
-    items.maxBy { it.text.length + it.textAfter.length }
 }
 
 @Composable
