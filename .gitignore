@@ -2,6 +2,9 @@
 .gradle/
 build/
 
+# Kotlin Gradle plugin working dir (sessions, errors, transformed KMP metadata)
+.kotlin/
+
 # Local configuration file (sdk path, etc)
 local.properties
 
