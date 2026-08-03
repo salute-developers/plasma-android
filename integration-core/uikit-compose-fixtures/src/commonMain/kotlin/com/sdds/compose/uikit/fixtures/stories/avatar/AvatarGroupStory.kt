@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import coil3.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarCounter
@@ -12,7 +13,6 @@ import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.Image
-import com.sdds.compose.uikit.fixtures.RemoteImage
 import com.sdds.compose.uikit.fixtures.generated.resources.Res
 import com.sdds.compose.uikit.fixtures.generated.resources.il_avatar_test
 import com.sdds.compose.uikit.fixtures.stories.AvatarGroupUiStatePropertiesProducer
@@ -75,7 +75,7 @@ object AvatarGroupStory : ComposeBaseStory<AvatarGroupUiState, AvatarGroupStyle>
                     Avatar(placeholder = state.placeholder)
                 } else {
                     Avatar {
-                        RemoteImage(
+                        AsyncImage(
                             modifier = Modifier.matchParentSize(),
                             contentScale = ContentScale.Crop,
                             model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",

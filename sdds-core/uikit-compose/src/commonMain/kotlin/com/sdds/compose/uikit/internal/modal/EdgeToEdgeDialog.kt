@@ -15,8 +15,8 @@ internal val LocalDialogWindowId = staticCompositionLocalOf<String?> { null }
 internal fun EdgeToEdgeDialog(
     onDismissRequest: () -> Unit,
     edgeToEdge: Boolean = true,
-    dialogProperties: DialogProperties = defaultEdgeToEdgeDialogProperties(edgeToEdge),
     useNativeBlackout: Boolean = true,
+    dialogProperties: DialogProperties = defaultEdgeToEdgeDialogProperties(edgeToEdge, useNativeBlackout),
     blurRadius: Dp = Dp.Unspecified,
     lightAppearance: Boolean = !isSystemInDarkTheme(),
     content: @Composable () -> Unit,
@@ -24,7 +24,7 @@ internal fun EdgeToEdgeDialog(
     val windowId = remember { nextDialogWindowId() }
     Dialog(
         onDismissRequest = onDismissRequest,
-        properties = dialogProperties.ensureCorrectEdgeToEdgeProperties(edgeToEdge),
+        properties = dialogProperties.ensureCorrectProperties(edgeToEdge, useNativeBlackout),
     ) {
         RegisterDialogWindow(windowId)
         ConfigureWindow(edgeToEdge, useNativeBlackout, blurRadius, lightAppearance)
@@ -45,8 +45,14 @@ internal expect fun ConfigureWindow(
     lightAppearance: Boolean,
 )
 
-internal expect fun defaultEdgeToEdgeDialogProperties(edgeToEdge: Boolean): DialogProperties
+internal expect fun defaultEdgeToEdgeDialogProperties(
+    edgeToEdge: Boolean,
+    useNativeBlackout: Boolean,
+): DialogProperties
 
-internal expect fun DialogProperties.ensureCorrectEdgeToEdgeProperties(edgeToEdge: Boolean): DialogProperties
+internal expect fun DialogProperties.ensureCorrectProperties(
+    edgeToEdge: Boolean,
+    useNativeBlackout: Boolean,
+): DialogProperties
 
 internal expect fun nextDialogWindowId(): String

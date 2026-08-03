@@ -33,6 +33,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.components.resources)
                 implementation(compose.ui)
+                implementation(libs.base.koil.compose)
             }
         }
 
@@ -41,10 +42,36 @@ kotlin {
                 implementation("sdds-core:docs")
                 implementation("sdds-core:icons")
                 implementation(libs.base.androidX.appcompat)
-                implementation(libs.base.koil.compose)
+                implementation(libs.base.koil.network.okhttp)
             }
         }
-
+        jvmMain{
+            dependencies{
+                implementation(libs.base.koil.network.okhttp)
+            }
+        }
+        iosMain{
+            dependencies{
+                implementation(libs.base.koil.network.ktor)
+                implementation(libs.ktor.client.darwin)
+            }
+        }
+        macosMain{
+            dependencies{
+                implementation(libs.base.koil.network.ktor)
+                implementation(libs.ktor.client.darwin)
+            }
+        }
+        wasmJsMain{
+            dependencies {
+                implementation(libs.base.koil.network.ktor)
+            }
+        }
+        jsMain{
+            dependencies {
+                implementation(libs.base.koil.network.ktor)
+            }
+        }
     }
 }
 

@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.SolidColor
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.maybeShapeable
 
@@ -138,8 +139,9 @@ fun SelectItem(
                 .padding(end = style.dimensions.controlMargin)
                 .size(style.dimensions.controlSize),
         ) {
+            val iconBrush = SolidColor(style.colors.iconColor.colorForInteraction(interactionSource))
             CompositionLocalProvider(
-                LocalTint provides style.colors.iconColor.colorForInteraction(interactionSource),
+                LocalTintBrushProducer provides { iconBrush },
                 LocalCheckBoxStyle provides style.checkBoxStyle,
             ) {
                 val controlContent: @Composable () -> Unit = {

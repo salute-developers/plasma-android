@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import coil3.compose.AsyncImage
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarPlaceholder
@@ -13,7 +14,6 @@ import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Image
-import com.sdds.compose.uikit.fixtures.RemoteImage
 import com.sdds.compose.uikit.fixtures.generated.resources.Res
 import com.sdds.compose.uikit.fixtures.generated.resources.il_avatar_test
 import com.sdds.compose.uikit.fixtures.stories.AvatarUiStatePropertiesProducer
@@ -200,7 +200,7 @@ private fun BoxScope.AvatarContent(avatarUiState: AvatarUiState) {
             contentDescription = "Avatar",
         )
 
-        ExampleMode.Remote -> RemoteImage(
+        ExampleMode.Remote -> AsyncImage(
             modifier = Modifier.matchParentSize(),
             contentScale = ContentScale.Crop,
             model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",

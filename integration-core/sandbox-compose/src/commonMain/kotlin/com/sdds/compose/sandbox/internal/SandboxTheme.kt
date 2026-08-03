@@ -1,6 +1,5 @@
 package com.sdds.compose.sandbox.internal
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.shape.CornerSize
@@ -41,11 +40,12 @@ import com.sdds.compose.uikit.LocalDrawerStyle
 import com.sdds.compose.uikit.LocalSpinnerStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.SwitchStates
+import com.sdds.compose.uikit.fs.FocusSelectorBorders
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
-import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import androidx.compose.ui.graphics.Color as ComposeColor
@@ -72,10 +72,13 @@ fun SandboxTheme(
         gradients = if (darkTheme) DarkGradients else LightGradients,
         content = {
             CompositionLocalProvider(
-                LocalFocusSelectorMode provides FocusSelectorMode.Border(
-                    borderStroke = BorderStroke(1.dp, colorScheme.surfaceDefaultAccent),
-                    strokePadding = 2.dp,
-                ),
+                LocalFocusSelectorSettings provides FocusSelectorSettings.builder().border(
+                    border = FocusSelectorBorders.solid(
+                        strokeWidth = 1.dp,
+                        color = colorScheme.surfaceDefaultAccent,
+                        strokeInsets = 2.dp,
+                    ),
+                ).build(),
                 LocalButtonStyle provides BasicButton.M.Default.style(),
                 LocalSwitchStyle provides Switch.S.style(),
                 LocalSpinnerStyle provides Spinner.Xs.Default.style(),
@@ -109,8 +112,8 @@ fun SandboxTheme(
                     itemBackground = ComposeColor.Transparent.asInteractive(
                         setOf(InteractiveState.Pressed) to ComposeColor.Transparent,
                         setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                            colorScheme.surfaceDefaultSolidSecondary,
-                        setOf(InteractiveState.Hovered) to ComposeColor.Transparent,
+                            colorScheme.surfaceDefaultSolidTertiary,
+                        setOf(InteractiveState.Hovered) to colorScheme.surfaceDefaultSolidTertiary,
                         setOf(InteractiveState.Focused) to if (darkTheme) {
                             colorScheme.surfaceDefaultSolidDefault
                         } else {
@@ -142,8 +145,17 @@ fun SandboxTheme(
                     labelTextStyle = SddsSandboxTheme.typography.bodyMBold,
                     labelTextColor = colorScheme.textDefaultPrimary,
                     editorItemBackground = ComposeColor.Transparent.asInteractive(
-                        focused = colorScheme.surfaceDefaultSolidDefault,
-                        selected = colorScheme.surfaceDefaultSolidSecondary,
+                        setOf(InteractiveState.Pressed) to ComposeColor.Transparent,
+                        setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                            colorScheme.surfaceDefaultSolidTertiary,
+                        setOf(InteractiveState.Hovered) to colorScheme.surfaceDefaultSolidTertiary,
+                        setOf(InteractiveState.Focused) to if (darkTheme) {
+                            colorScheme.surfaceDefaultSolidDefault
+                        } else {
+                            colorScheme.surfaceDefaultTransparentSecondary
+                        },
+                        setOf(InteractiveState.Activated) to ComposeColor.Transparent,
+                        setOf(InteractiveState.Selected) to colorScheme.surfaceDefaultSolidSecondary,
                     ),
                     editorItemShape = SddsSandboxTheme.shapes.roundXs,
                     editorItemPadding = 6.dp,
