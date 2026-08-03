@@ -69,6 +69,8 @@ abstract class DsBuilderExtension @Inject constructor(
     /** Sandbox adapter generation settings. */
     val sandbox: SandboxCapability = objects.newInstance()
 
+    private val targetsConfig = objects.newInstance(TargetsConfig::class.java)
+
     init {
         targets.convention(emptySet())
         viewThemeParents.convention(emptySet())
@@ -94,13 +96,31 @@ abstract class DsBuilderExtension @Inject constructor(
         sandbox.outputLocation.convention(outputLocation)
     }
 
-    /** Enables Compose generation for both theme and components. */
+    /**
+     * Legacy shortcut for enabling Compose generation. Kept for backward compatibility.
+     *
+     * @deprecated Используйте явный блок [targets] { compose() } — он делает выбор платформы
+     * очевидным в скрипте сборки и позволяет сконфигурировать оба таргета в одном месте.
+     */
+    @Deprecated(
+        message = "Используйте targets { compose() } для явного выбора платформы",
+        replaceWith = ReplaceWith("targets { compose(multiplatform) }"),
+    )
     fun compose(multiplatform: Boolean = false) {
         targets.add(DsBuilderPlatform.COMPOSE)
         this.multiplatform.set(multiplatform)
     }
 
-    /** Enables View generation for both theme and components. */
+    /**
+     * Legacy shortcut for enabling View generation. Kept for backward compatibility.
+     *
+     * @deprecated Используйте явный блок [targets] { view { ... } } — он делает выбор платформы
+     * очевидным в скрипте сборки и позволяет сконфигурировать оба таргета в одном месте.
+     */
+    @Deprecated(
+        message = "Используйте targets { view { ... } } для явного выбора платформы",
+        replaceWith = ReplaceWith("targets { view(action) }"),
+    )
     fun view(action: ViewConfigBuilder.() -> Unit = {}) {
         val builder = ViewConfigBuilder().apply(action)
         targets.add(DsBuilderPlatform.VIEW)
@@ -129,8 +149,6 @@ abstract class DsBuilderExtension @Inject constructor(
     fun documentation(action: Action<in DocumentationCapability>) {
         documentation.enabled.set(true)
         action.execute(documentation)
-        documentation.compose?.applyInfoConventions(DsBuilderPlatform.COMPOSE)
-        documentation.view?.applyInfoConventions(DsBuilderPlatform.VIEW)
     }
 
     /** Enables and configures sandbox adapter generation. */
@@ -139,6 +157,39 @@ abstract class DsBuilderExtension @Inject constructor(
         action.execute(sandbox)
         sandbox.compose?.applyComponentsInfoConvention(DsBuilderPlatform.COMPOSE)
         sandbox.view?.applyComponentsInfoConvention(DsBuilderPlatform.VIEW)
+    }
+
+    /**
+     * Явно выбирает целевые платформы (View/Compose) и настраивает платформо-зависимые опции.
+     *
+     * Используйте этот блок вместо устаревших шорткатов [compose] / [view], чтобы в скрипте сборки
+     * сразу было видно, какие платформы включены и как они сконфигурированы:
+     *
+     * ```kotlin
+     * dsBuilder {
+     *     targets {
+     *         compose()
+     *         view {
+     *             themeParents {
+     *                 materialComponentsTheme("NoActionBar")
+     *             }
+     *             setupShapeAppearance(sddsShape())
+     *         }
+     *     }
+     *     theme { ... }
+     *     components { ... }
+     * }
+     * ```
+     *
+     * Блок можно вызывать несколько раз — вызовы объединяются (Compose + View можно включить
+     * вместе, последовательно вызвав `compose()` и `view { ... }` в одном или разных блоках).
+     */
+    fun targets(action: Action<in TargetsConfig>) {
+        action.execute(targetsConfig)
+        targets.addAll(targetsConfig.targets.get())
+        multiplatform.set(targetsConfig.multiplatform.get())
+        viewThemeParents.set(targetsConfig.viewThemeParents.get())
+        viewShapeAppearance.set(targetsConfig.viewShapeAppearance.get())
     }
 
     internal companion object {
@@ -160,13 +211,67 @@ abstract class DsBuilderExtension @Inject constructor(
         }
     }
 
-    private fun DocumentationPlatform.applyInfoConventions(platform: DsBuilderPlatform) {
-        componentsInfoFile.convention(sddsDirectory.file(platform.componentsInfoName))
-        themeInfoFile.convention(sddsDirectory.file(platform.themeInfoName))
-    }
-
     private fun SandboxPlatform.applyComponentsInfoConvention(platform: DsBuilderPlatform) {
         componentsInfoFile.convention(sddsDirectory.file(platform.componentsInfoName))
+    }
+}
+
+/**
+ * Контейнер для явного выбора целевых платформ внутри блока `targets { }` в `dsBuilder`.
+ *
+ * Хранит промежуточные значения, которые после выполнения блока копируются в [DsBuilderExtension]
+ * (и далее через convention-ы распространяются на [theme] и [components]).
+ *
+ * Пример:
+ * ```kotlin
+ * dsBuilder {
+ *     targets {
+ *         compose()
+ *         view {
+ *             themeParents { materialComponentsTheme("NoActionBar") }
+ *         }
+ *     }
+ * }
+ * ```
+ */
+abstract class TargetsConfig {
+    /** Выбранные платформы. Пополняется через [compose] и [view]. */
+    abstract val targets: SetProperty<DsBuilderPlatform>
+
+    /** Использовать ли Compose Multiplatform source set. */
+    abstract val multiplatform: Property<Boolean>
+
+    /** Родители тем для View-генерации. */
+    abstract val viewThemeParents: SetProperty<ViewThemeParent>
+
+    /** Маппинги shape appearance для View-генерации. */
+    abstract val viewShapeAppearance: SetProperty<ShapeAppearanceConfig>
+
+    init {
+        targets.convention(emptySet())
+        multiplatform.convention(false)
+        viewThemeParents.convention(emptySet())
+        viewShapeAppearance.convention(emptySet())
+    }
+
+    /**
+     * Включает генерацию Compose. Несколько вызовов в одном блоке объединяются,
+     * но последний вызов [multiplatform] выигрывает.
+     */
+    fun compose(multiplatform: Boolean = false) {
+        targets.add(DsBuilderPlatform.COMPOSE)
+        this.multiplatform.set(multiplatform)
+    }
+
+    /**
+     * Включает генерацию View. Вложенный [action] позволяет сконфигурировать
+     * theme parents и shape appearance для View тем.
+     */
+    fun view(action: ViewConfigBuilder.() -> Unit = {}) {
+        val builder = ViewConfigBuilder().apply(action)
+        targets.add(DsBuilderPlatform.VIEW)
+        viewThemeParents.set(builder.themeParents)
+        viewShapeAppearance.set(builder.shapeAppearanceConfig)
     }
 }
 
@@ -352,20 +457,29 @@ abstract class DocumentationCapability @Inject constructor(
     /** Optional design-system documentation root, conventionally `override-docs`. */
     abstract val userDocumentationRoot: DirectoryProperty
 
-    /** Compose documentation settings, or `null` when Compose is not enabled. */
+    /**
+     * Конфигурация Compose-документации (опциональная).
+     *
+     * Сам выбор платформы делается на верхнем уровне `dsBuilder.targets { compose() }`.
+     * Этот блок нужен только если хочется переопределить пути к `components-info.json` /
+     * `theme-info.json` для Compose-документации. Конвенция берёт их из `.sdds`, так что в
+     * большинстве случаев блок не нужен.
+     */
     var compose: DocumentationPlatform? = null
         private set
 
-    /** View documentation settings, or `null` when View is not enabled. */
+    /**
+     * Конфигурация View-документации (опциональная). См. [compose] — то же самое для View.
+     */
     var view: DocumentationPlatform? = null
         private set
 
-    /** Enables Compose documentation aggregation. */
+    /** Конфигурирует Compose-документацию (переопределение путей и т.п.). */
     fun compose(action: Action<in DocumentationPlatform> = Action {}) {
         compose = objects.newInstance<DocumentationPlatform>().also(action::execute)
     }
 
-    /** Enables View documentation aggregation. */
+    /** Конфигурирует View-документацию (переопределение путей и т.п.). */
     fun view(action: Action<in DocumentationPlatform> = Action {}) {
         view = objects.newInstance<DocumentationPlatform>().also(action::execute)
     }
@@ -387,20 +501,28 @@ abstract class SandboxCapability @Inject constructor(
     /** Location of generated sandbox adapter sources. */
     abstract val outputLocation: Property<OutputLocation>
 
-    /** Compose adapter settings, or `null` when Compose is not enabled. */
+    /**
+     * Конфигурация Compose-sandbox-адаптера (опциональная).
+     *
+     * Сам выбор платформы делается на верхнем уровне `dsBuilder.targets { compose() }`.
+     * Этот блок нужен для передачи платформо-специфичных настроек: имени пакета, alias-а темы,
+     * `multiplatform` для KMP и т.п.
+     */
     var compose: ComposeSandboxPlatform? = null
         private set
 
-    /** View adapter settings, or `null` when View is not enabled. */
+    /**
+     * Конфигурация View-sandbox-адаптера (опциональная). См. [compose] — то же самое для View.
+     */
     var view: ViewSandboxPlatform? = null
         private set
 
-    /** Enables Compose sandbox adapter generation. */
+    /** Конфигурирует Compose-sandbox-адаптер. */
     fun compose(action: Action<in ComposeSandboxPlatform>) {
         compose = objects.newInstance<ComposeSandboxPlatform>().also(action::execute)
     }
 
-    /** Enables View sandbox adapter generation. */
+    /** Конфигурирует View-sandbox-адаптер. */
     fun view(action: Action<in ViewSandboxPlatform>) {
         view = objects.newInstance<ViewSandboxPlatform>().also(action::execute)
     }

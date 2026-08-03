@@ -25,7 +25,9 @@ android {
 
 dsBuilder {
     autoGenerate.set(false)
-    compose()
+    targets {
+        compose()
+    }
     packageName.set("com.sdds.sbcom")
     outputLocation.set(SRC)
     theme {

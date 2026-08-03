@@ -26,11 +26,13 @@ android {
 
 dsBuilder {
     autoGenerate.set(false)
-    view {
-        themeParents {
-            materialComponentsTheme()
+    targets {
+        view {
+            themeParents {
+                materialComponentsTheme()
+            }
+            setupShapeAppearance(sddsShape())
         }
-        setupShapeAppearance(sddsShape())
     }
     packageName.set("com.sdds.serv")
     outputLocation.set(SRC)

@@ -236,6 +236,66 @@ class DocumentationAggregateTaskTest {
     }
 
     @Test
+    fun `core markdown renders warning when component has no style api`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "no-styles.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"title":"Bare","path":"components/BareUsage.md"}]}""",
+                "META-INF/sdds-docs/docs/components/BareUsage.md" to "<!-- @style-api -->",
+            ),
+        )
+        task.componentsInfoFile.set(
+            temporaryFolder.newFile("no-styles-components.json").apply {
+                writeText(
+                    """
+                        {"components":[{"coreName":"Bare","styleName":"Bare","variations":[]}]}
+                    """.trimIndent(),
+                )
+            },
+        )
+
+        task.aggregate()
+
+        val content = task.outputDirectory.get().asFile
+            .resolve("content/core/components/BareUsage.md").readText()
+        assertTrue(content.contains(":::warning"))
+        assertTrue(content.contains("У компонента нет готовых стилей"))
+        assertTrue(!content.contains("@style-api"))
+    }
+
+    @Test
+    fun `core markdown warns when style api references component missing from design system`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "unknown-component.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"title":"Ghost","path":"components/GhostUsage.md"}]}""",
+                "META-INF/sdds-docs/docs/components/GhostUsage.md" to "<!-- @style-api -->",
+            ),
+        )
+        task.componentsInfoFile.set(
+            temporaryFolder.newFile("ghost-components.json").apply {
+                writeText(
+                    """
+                        {"components":[{"coreName":"Real","styleName":"Real","variations":[]}]}
+                    """.trimIndent(),
+                )
+            },
+        )
+
+        task.aggregate()
+
+        val content = task.outputDirectory.get().asFile
+            .resolve("content/core/components/GhostUsage.md").readText()
+        assertTrue(content.contains(":::warning"))
+        assertTrue(content.contains("Компонент не входит в текущую дизайн-систему"))
+        assertTrue(!content.contains("@style-api"))
+    }
+
+    @Test
     fun `missing public markdown reports its path`() {
         val task = configuredTask()
         task.coreArtifacts.from(

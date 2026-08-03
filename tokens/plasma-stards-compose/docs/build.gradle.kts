@@ -22,9 +22,8 @@ ksp {
 
 dsBuilder {
     autoGenerate.set(false)
-    documentation {
-        compose()
-    }
+    targets { compose() }
+    documentation {}
 }
 
 extensions.configure<DocusaurusExtension>("docusaurus") {

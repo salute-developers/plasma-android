@@ -20,6 +20,9 @@ kotlin {
             dsBuilder {
                 outputLocation.set(OutputLocation.SRC)
                 autoGenerate.set(false)
+                targets {
+                    compose()
+                }
                 sandbox {
                     compose {
                         generatedPackageName.set("com.sdds.serv.integration")

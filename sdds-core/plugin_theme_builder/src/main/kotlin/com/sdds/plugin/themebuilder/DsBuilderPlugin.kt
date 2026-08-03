@@ -17,6 +17,7 @@ import org.gradle.api.file.Directory
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.findByType
+import org.gradle.kotlin.dsl.newInstance
 import org.gradle.kotlin.dsl.register
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
@@ -51,36 +52,41 @@ class DsBuilderPlugin : Plugin<Project> {
 private fun Project.configureSandbox(extension: DsBuilderExtension) {
     afterEvaluate {
         val sandbox = extension.sandbox.takeIf { it.enabled.get() } ?: return@afterEvaluate
-        sandbox.compose?.let { platform ->
-            configureSandboxConventions(extension, platform)
-            val output = sandboxOutputDirectory(sandbox.outputLocation.get(), platform.multiplatform.get())
-            val task = registerSandboxTask(
-                name = "generateComposeSandbox",
-                platform = platform,
-                target = SandboxTarget.COMPOSE,
-                output = output,
-                multiplatform = platform.multiplatform.get(),
-            )
-            attachToPreBuild(task, sandbox.autoGenerate.get())
-            if (platform.multiplatform.get()) {
-                extensions.findByType<KotlinMultiplatformExtension>()
-                    ?.sourceSets
-                    ?.findByName("commonMain")
-                    ?.kotlin
-                    ?.srcDir(task.flatMap { it.outputDirectory })
+        val targets = extension.targets.get()
+        if (DsBuilderPlatform.COMPOSE in targets) {
+            sandbox.compose?.let { platform ->
+                configureSandboxConventions(extension, platform)
+                val output = sandboxOutputDirectory(sandbox.outputLocation.get(), platform.multiplatform.get())
+                val task = registerSandboxTask(
+                    name = "generateComposeSandbox",
+                    platform = platform,
+                    target = SandboxTarget.COMPOSE,
+                    output = output,
+                    multiplatform = platform.multiplatform.get(),
+                )
+                attachToPreBuild(task, sandbox.autoGenerate.get())
+                if (platform.multiplatform.get()) {
+                    extensions.findByType<KotlinMultiplatformExtension>()
+                        ?.sourceSets
+                        ?.findByName("commonMain")
+                        ?.kotlin
+                        ?.srcDir(task.flatMap { it.outputDirectory })
+                }
             }
         }
-        sandbox.view?.let { platform ->
-            configureSandboxConventions(extension, platform)
-            val output = sandboxOutputDirectory(sandbox.outputLocation.get(), multiplatform = false)
-            val task = registerSandboxTask(
-                name = "generateViewSandbox",
-                platform = platform,
-                target = SandboxTarget.XML,
-                output = output,
-                multiplatform = false,
-            )
-            attachToPreBuild(task, sandbox.autoGenerate.get())
+        if (DsBuilderPlatform.VIEW in targets) {
+            sandbox.view?.let { platform ->
+                configureSandboxConventions(extension, platform)
+                val output = sandboxOutputDirectory(sandbox.outputLocation.get(), multiplatform = false)
+                val task = registerSandboxTask(
+                    name = "generateViewSandbox",
+                    platform = platform,
+                    target = SandboxTarget.XML,
+                    output = output,
+                    multiplatform = false,
+                )
+                attachToPreBuild(task, sandbox.autoGenerate.get())
+            }
         }
     }
 }
@@ -106,10 +112,12 @@ private fun Project.configureSandboxConventions(
     platform.generatedPackageName.convention(
         providers.provider {
             extensions.findByType<BaseExtension>()?.namespace?.takeIf(String::isNotBlank)
-                ?: Gson().fromJson(
-                    platform.componentsInfoFile.get().asFile.readText(),
-                    Config::class.java,
-                ).packageName + ".sandbox"
+                ?: (
+                    Gson().fromJson(
+                        platform.componentsInfoFile.get().asFile.readText(),
+                        Config::class.java,
+                    ).packageName + ".sandbox"
+                    )
         },
     )
     platform.themeAlias.convention(
@@ -170,7 +178,30 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
 
     afterEvaluate {
         val documentation = extension.documentation.takeIf { it.enabled.get() } ?: return@afterEvaluate
-        val platform = documentation.compose ?: documentation.view ?: return@afterEvaluate
+        val targets = extension.targets.get()
+        val platform: DocumentationPlatform = when {
+            DsBuilderPlatform.COMPOSE in targets -> documentation.compose ?: run {
+                objects.newInstance<DocumentationPlatform>().also {
+                    it.componentsInfoFile.convention(
+                        extension.sddsDirectory.file(DsBuilderPlatform.COMPOSE.componentsInfoName),
+                    )
+                    it.themeInfoFile.convention(
+                        extension.sddsDirectory.file(DsBuilderPlatform.COMPOSE.themeInfoName),
+                    )
+                }
+            }
+            DsBuilderPlatform.VIEW in targets -> documentation.view ?: run {
+                objects.newInstance<DocumentationPlatform>().also {
+                    it.componentsInfoFile.convention(
+                        extension.sddsDirectory.file(DsBuilderPlatform.VIEW.componentsInfoName),
+                    )
+                    it.themeInfoFile.convention(
+                        extension.sddsDirectory.file(DsBuilderPlatform.VIEW.themeInfoName),
+                    )
+                }
+            }
+            else -> return@afterEvaluate
+        }
         val workDirectory = layout.buildDirectory.dir("sdds/documentation")
         val extract = tasks.register<ExtractCodeSnippetsTask>("documentationExtract") {
             group = "documentation"

@@ -10,6 +10,9 @@ plugins {
 dsBuilder {
     outputLocation.set(OutputLocation.SRC)
     autoGenerate.set(false)
+    targets {
+        view()
+    }
     sandbox {
         view {
             generatedPackageName.set("com.sdds.serv.integration")

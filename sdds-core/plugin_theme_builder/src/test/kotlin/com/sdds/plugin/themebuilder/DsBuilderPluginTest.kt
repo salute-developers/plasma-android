@@ -66,6 +66,7 @@ class DsBuilderPluginTest {
         project.plugins.apply(DsBuilderPlugin::class.java)
         val extension = project.extensions.getByType(DsBuilderExtension::class.java)
 
+        extension.targets { compose() }
         extension.documentation { compose() }
 
         assertTrue(extension.documentation.enabled.get())
@@ -76,6 +77,107 @@ class DsBuilderPluginTest {
     }
 
     @Test
+    fun `targets block enables Compose for theme and components`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        extension.targets { compose() }
+
+        assertEquals(setOf(DsBuilderPlatform.COMPOSE), extension.targets.get())
+        listOf(extension.theme, extension.components).forEach { capability ->
+            assertEquals(setOf(DsBuilderPlatform.COMPOSE), capability.targets.get())
+        }
+    }
+
+    @Test
+    fun `targets block enables View with theme configuration`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        extension.targets {
+            view {
+                themeParents {
+                    materialComponentsTheme("NoActionBar")
+                    materialComponentsTheme("Dialog")
+                }
+                setupShapeAppearance(sddsShape())
+            }
+        }
+
+        assertEquals(setOf(DsBuilderPlatform.VIEW), extension.targets.get())
+        assertEquals(2, extension.viewThemeParents.get().size)
+        assertEquals(1, extension.viewShapeAppearance.get().size)
+        listOf(extension.theme, extension.components).forEach { capability ->
+            assertEquals(setOf(DsBuilderPlatform.VIEW), capability.targets.get())
+            assertEquals(extension.viewThemeParents.get(), capability.viewThemeParents.get())
+            assertEquals(extension.viewShapeAppearance.get(), capability.viewShapeAppearance.get())
+        }
+    }
+
+    @Test
+    fun `targets block enables both Compose and View when configured together`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        extension.targets {
+            compose()
+            view { themeParents { materialComponentsTheme() } }
+        }
+
+        assertEquals(
+            setOf(DsBuilderPlatform.COMPOSE, DsBuilderPlatform.VIEW),
+            extension.targets.get(),
+        )
+        listOf(extension.theme, extension.components).forEach { capability ->
+            assertEquals(
+                setOf(DsBuilderPlatform.COMPOSE, DsBuilderPlatform.VIEW),
+                capability.targets.get(),
+            )
+        }
+    }
+
+    @Test
+    fun `targets block propagates multiplatform flag`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        extension.targets { compose(multiplatform = true) }
+
+        assertTrue(extension.multiplatform.get())
+        assertTrue(extension.theme.multiplatform.get())
+        assertTrue(extension.components.multiplatform.get())
+    }
+
+    @Test
+    fun `multiple targets blocks accumulate their configuration`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        extension.targets { compose() }
+        extension.targets { view { themeParents { materialComponentsTheme() } } }
+
+        assertEquals(
+            setOf(DsBuilderPlatform.COMPOSE, DsBuilderPlatform.VIEW),
+            extension.targets.get(),
+        )
+    }
+
+    @Test
     fun `root generation settings are conventions for theme and components`() {
         val project = ProjectBuilder.builder()
             .withProjectDir(temporaryFolder.root)
@@ -83,7 +185,7 @@ class DsBuilderPluginTest {
         project.plugins.apply(DsBuilderPlugin::class.java)
         val extension = project.extensions.getByType(DsBuilderExtension::class.java)
 
-        extension.compose()
+        extension.targets { compose() }
         extension.packageName.set("com.example.shared")
         extension.resourcePrefix.set("shared")
         extension.outputLocation.set(OutputLocation.SRC)
@@ -113,6 +215,22 @@ class DsBuilderPluginTest {
     }
 
     @Test
+    fun `legacy top-level compose shortcut still works for backward compatibility`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        @Suppress("DEPRECATION")
+        extension.compose()
+
+        assertEquals(setOf(DsBuilderPlatform.COMPOSE), extension.targets.get())
+        assertEquals(setOf(DsBuilderPlatform.COMPOSE), extension.theme.targets.get())
+        assertEquals(setOf(DsBuilderPlatform.COMPOSE), extension.components.targets.get())
+    }
+
+    @Test
     fun `capability generation setting overrides root convention`() {
         val project = ProjectBuilder.builder()
             .withProjectDir(temporaryFolder.root)
@@ -125,6 +243,72 @@ class DsBuilderPluginTest {
 
         assertEquals("com.example.shared", extension.theme.packageName.get())
         assertEquals("com.example.components", extension.components.packageName.get())
+    }
+
+    @Test
+    fun `documentation compose and view blocks are config-only and do not select platforms`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        extension.documentation {
+            compose()
+            view()
+        }
+
+        assertNotNull(extension.documentation.compose)
+        assertNotNull(extension.documentation.view)
+        // Documentation does not contribute to the top-level targets set
+        assertEquals(emptySet<DsBuilderPlatform>(), extension.targets.get())
+    }
+
+    @Test
+    fun `documentation compose block accepts platform configuration override`() {
+        val override = temporaryFolder.root.resolve("custom-components.json")
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        extension.targets { compose() }
+        extension.documentation {
+            compose {
+                componentsInfoFile.set(override)
+            }
+        }
+
+        assertEquals(override, extension.documentation.compose?.componentsInfoFile?.get()?.asFile)
+        assertNull(extension.documentation.view)
+    }
+
+    @Test
+    fun `sandbox compose and view blocks are config-only and do not select platforms`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        extension.sandbox {
+            compose {
+                generatedPackageName.set("com.example.compose.sandbox")
+                themeAlias.set("ComposeTheme")
+            }
+            view {
+                generatedPackageName.set("com.example.view.sandbox")
+                themeAlias.set("ViewTheme")
+            }
+        }
+
+        assertEquals("com.example.compose.sandbox", extension.sandbox.compose?.generatedPackageName?.get())
+        assertEquals("ComposeTheme", extension.sandbox.compose?.themeAlias?.get())
+        assertEquals("com.example.view.sandbox", extension.sandbox.view?.generatedPackageName?.get())
+        assertEquals("ViewTheme", extension.sandbox.view?.themeAlias?.get())
+        // Sandbox does not contribute to the top-level targets set
+        assertEquals(emptySet<DsBuilderPlatform>(), extension.targets.get())
     }
 
     @Test
@@ -186,6 +370,10 @@ class DsBuilderPluginTest {
         val extension = project.extensions.getByType(DsBuilderExtension::class.java)
         extension.sddsDirectory.set(sdds)
 
+        extension.targets {
+            compose()
+            view()
+        }
         extension.documentation {
             compose()
             view()
@@ -233,6 +421,7 @@ class DsBuilderPluginTest {
         val extension = project.extensions.getByType(DsBuilderExtension::class.java)
         extension.sddsDirectory.set(sdds)
 
+        extension.targets { compose() }
         extension.documentation {
             compose {
                 componentsInfoFile.set(override)
@@ -291,8 +480,9 @@ class DsBuilderPluginTest {
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
         val preBuild = project.tasks.register("preBuild")
         project.plugins.apply(DsBuilderPlugin::class.java)
-        project.extensions.getByType(DsBuilderExtension::class.java).documentation {
-            compose()
+        project.extensions.getByType(DsBuilderExtension::class.java).apply {
+            targets { compose() }
+            documentation { compose() }
         }
 
         (project as ProjectInternal).evaluate()
@@ -327,9 +517,8 @@ class DsBuilderPluginTest {
         val preBuild = project.tasks.register("preBuild")
         project.plugins.apply(DsBuilderPlugin::class.java)
         val extension = project.extensions.getByType(DsBuilderExtension::class.java)
-        extension.sandbox {
-            compose {}
-        }
+        extension.targets { compose() }
+        extension.sandbox { compose {} }
 
         (project as ProjectInternal).evaluate()
 
@@ -357,10 +546,13 @@ class DsBuilderPluginTest {
         createSandboxMetadata(projectDir, "config-info-view-system.json")
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
         project.plugins.apply(DsBuilderPlugin::class.java)
-        project.extensions.getByType(DsBuilderExtension::class.java).sandbox {
-            view {
-                generatedPackageName.set("com.example.explicit")
-                themeAlias.set("ExplicitTheme")
+        project.extensions.getByType(DsBuilderExtension::class.java).apply {
+            targets { view() }
+            sandbox {
+                view {
+                    generatedPackageName.set("com.example.explicit")
+                    themeAlias.set("ExplicitTheme")
+                }
             }
         }
 
@@ -381,6 +573,7 @@ class DsBuilderPluginTest {
         project.plugins.apply(DsBuilderPlugin::class.java)
         project.extensions.getByType(DsBuilderExtension::class.java).apply {
             outputLocation.set(OutputLocation.BUILD)
+            targets { compose() }
             sandbox {
                 outputLocation.set(OutputLocation.SRC)
                 autoGenerate.set(false)
@@ -442,6 +635,9 @@ class DsBuilderPluginTest {
 
                 dsBuilder {
                     outputLocation.set(com.sdds.plugin.themebuilder.OutputLocation.SRC)
+                    targets {
+                        compose()
+                    }
                     sandbox {
                         compose {
                             multiplatform.set(true)

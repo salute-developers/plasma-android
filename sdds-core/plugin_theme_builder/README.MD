@@ -42,13 +42,24 @@ dsBuilder {
 
 ## Theme и components
 
+Блок `targets { }` на верхнем уровне `dsBuilder` явно выбирает целевые платформы (Compose/View) и
+настраивает платформо-зависимые опции — так сразу видно, что генерируется и как:
+
 ```kotlin
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
 
 dsBuilder {
     autoGenerate.set(false)
-    compose()
+    targets {
+        compose()
+        // либо view {
+        //     themeParents {
+        //         materialComponentsTheme("NoActionBar")
+        //     }
+        //     setupShapeAppearance(sddsShape())
+        // }
+    }
     packageName.set("com.example.designsystem")
     resourcePrefix.set("example")
     outputLocation.set(SRC)
@@ -66,18 +77,35 @@ dsBuilder {
 }
 ```
 
-Для View используйте `view { themeParents { ... } }`. Для Compose Multiplatform —
-`compose(multiplatform = true)`. URL-источники и несколько tenant-вариаций поддерживаются через
-`source(url = ..., name = ...)` и `sources(baseAlias = ...)`. Общие `target`, `packageName`,
-`resourcePrefix`, `outputLocation` и `dimensions` задаются на уровне `dsBuilder`; одноимённые
-capability-настройки остаются доступными как точечные overrides.
+Compose Multiplatform включается через `targets { compose(multiplatform = true) }`. Если нужны обе
+платформы, вызовите `compose()` и `view { ... }` внутри одного блока `targets { }` — вызовы
+объединяются. URL-источники и несколько tenant-вариаций поддерживаются через `source(url = ..., name = ...)`
+и `sources(baseAlias = ...)`. Общие `packageName`, `resourcePrefix`, `outputLocation` и `dimensions`
+задаются на уровне `dsBuilder`; одноимённые capability-настройки остаются доступными как точечные
+overrides.
+
+> Старые top-level шорткаты `compose()` и `view { ... }` продолжают работать для обратной
+> совместимости, но помечены `@Deprecated` и будут удалены в будущих релизах. Для нового кода
+> используйте `targets { ... }`.
 
 ## Documentation
 
+Платформа для документации определяется верхнеуровневым `targets { }`. Блок `documentation { }`
+включает capability и принимает только глобальные настройки (например, `outputDirectory`). Чтобы
+переопределить пути к `components-info.json` / `theme-info.json` под конкретную платформу,
+используйте вложенные `compose { }` / `view { }` — они не выбирают платформу, а только
+конфигурируют:
+
 ```kotlin
 dsBuilder {
+    targets {
+        compose() // выбирает платформу для всех capability: theme, components, documentation, sandbox
+    }
     documentation {
-        compose() // либо view()
+        // опционально: переопределение путей
+        compose {
+            componentsInfoFile.set(layout.projectDirectory.file("custom/info.json"))
+        }
     }
 }
 ```
@@ -100,8 +128,15 @@ Docusaurus, npm, публикацию или сетевые portal-задачи 
 
 ## Sandbox
 
+Платформа для sandbox-адаптеров тоже определяется верхнеуровневым `targets { }`. Вложенные
+`compose { }` / `view { }` внутри `sandbox { }` — это конфигурационные блоки для уже выбранной
+платформы (имя пакета, alias темы, `multiplatform` для KMP и т.п.):
+
 ```kotlin
 dsBuilder {
+    targets {
+        compose() // включает генерацию Compose sandbox-адаптера
+    }
     sandbox {
         compose {
             multiplatform.set(false)
@@ -111,10 +146,15 @@ dsBuilder {
 }
 ```
 
-Для View используется `sandbox { view { ... } }`. `componentsInfoFile` выводится из `.sdds`,
-package — из Android namespace (либо `componentsInfo.packageName + ".sandbox"`), theme alias —
-из первого базового tenant. Scheme по умолчанию — `SandboxScheme.V2`. Все значения можно явно
-переопределить.
+Для View: `targets { view() }` + `sandbox { view { ... } }`. Можно включить обе платформы и
+конфигурировать каждую отдельно. `componentsInfoFile` выводится из `.sdds`, package — из Android
+namespace (либо `componentsInfo.packageName + ".sandbox"`), theme alias — из первого базового
+tenant. Scheme по умолчанию — `SandboxScheme.V2`. Все значения можно явно переопределить.
 
 Generated sandbox sources записываются в `build/generated/sdds/sandbox` и автоматически
 подключаются к Android `main` или KMP `commonMain`.
+
+> Выбор платформы — **только** на верхнем уровне `dsBuilder.targets { }`. Внутри `documentation`
+> и `sandbox` доступны блоки `compose { }` / `view { }`, но они только конфигурируют платформу,
+> а не включают её. Так невозможно случайно рассинхронизировать выбор платформы между
+> capability.

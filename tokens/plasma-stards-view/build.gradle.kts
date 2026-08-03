@@ -27,12 +27,14 @@ android {
 
 dsBuilder {
     autoGenerate.set(false)
-    view {
-        themeParents {
-            materialComponentsTheme("NoActionBar")
-            materialComponentsTheme("Dialog")
+    targets {
+        view {
+            themeParents {
+                materialComponentsTheme("NoActionBar")
+                materialComponentsTheme("Dialog")
+            }
+            setupShapeAppearance(sddsShape())
         }
-        setupShapeAppearance(sddsShape())
     }
     packageName.set("com.sdkit.star.designsystem")
     resourcePrefix.set(themeResPrefix)

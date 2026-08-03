@@ -16,13 +16,15 @@ android {
 
 dsBuilder {
     autoGenerate.set(false)
-    view {
-        themeParents {
-            materialComponentsTheme()
+    targets {
+        view {
+            themeParents {
+                materialComponentsTheme()
+            }
+            setupShapeAppearance(sddsShape())
         }
-        setupShapeAppearance(sddsShape())
+        compose()
     }
-    compose()
     packageName.set("com.sdds.playground.themebuilder")
     outputLocation.set(OutputLocation.BUILD)
     dimensions {

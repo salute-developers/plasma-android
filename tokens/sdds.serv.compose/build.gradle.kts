@@ -72,7 +72,9 @@ compose.resources {
 
 dsBuilder {
     autoGenerate.set(false)
-    compose(multiplatform = true)
+    targets {
+        compose(multiplatform = true)
+    }
     packageName.set("com.sdds.serv")
     outputLocation.set(SRC)
     theme {

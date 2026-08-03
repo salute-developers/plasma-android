@@ -26,7 +26,9 @@ android {
 
 dsBuilder {
     autoGenerate.set(false)
-    compose()
+    targets {
+        compose()
+    }
     packageName.set("com.sdds.plasma.sd.service")
     outputLocation.set(SRC)
     theme {

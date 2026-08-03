@@ -21,9 +21,8 @@ ksp {
 
 dsBuilder {
     autoGenerate.set(false)
-    documentation {
-        view()
-    }
+    targets { view() }
+    documentation {}
 }
 
 extensions.configure<DocusaurusExtension>("docusaurus") {

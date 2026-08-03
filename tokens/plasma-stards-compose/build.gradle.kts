@@ -27,7 +27,9 @@ android {
 
 dsBuilder {
     autoGenerate.set(false)
-    compose()
+    targets {
+        compose()
+    }
     packageName.set("com.sdkit.star.designsystem")
     resourcePrefix.set(themeResPrefix)
     outputLocation.set(OutputLocation.SRC)

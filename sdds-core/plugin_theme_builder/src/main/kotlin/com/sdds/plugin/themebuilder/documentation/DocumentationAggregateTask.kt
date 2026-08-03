@@ -468,15 +468,24 @@ abstract class DocumentationAggregateTask : DefaultTask() {
     }
 
     private fun renderStyleApi(templatePath: String, styleApis: StyleApis): String {
+        // Имя компонента = имя файла шаблона без суффикса "Usage.md".
         val componentName = File(templatePath).name.removeSuffix("Usage.md")
-        val hasStyles = styleApis.componentNames.any { it.equals(componentName, ignoreCase = true) }
-        val docs = styleApis.docs[componentName].orEmpty()
+        // Сначала проверяем наличие готового styleApi — это приоритетный случай.
+        val docs = styleApis.docs[componentName]
         return when {
-            hasStyles && docs.isNotEmpty() -> docs.joinToString("\n\n", transform = StyleApiDoc::toMarkdown)
-            hasStyles -> ""
-            else -> """
+            // 1. Есть готовый styleApi — рендерим его markdown-представление.
+            docs != null -> docs.joinToString("\n\n", transform = StyleApiDoc::toMarkdown)
+            // 2. Компонент в дизайн-системе есть, но styleApi для него не сгенерирован:
+            //    готовых стилей нет, нужно заводить задачу на генерацию.
+            componentName in styleApis.componentNames -> """
                 :::warning
                 У компонента нет готовых стилей. Если нужен стиль, обратитесь в поддержку.
+                :::
+            """.trimIndent()
+            // 3. Почти невозможный кейс.
+            else -> """
+                :::warning
+                Компонент не входит в текущую дизайн-систему.
                 :::
             """.trimIndent()
         }
