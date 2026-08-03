@@ -38,4 +38,3 @@ fun registerTheme(componentProvider: ComponentProvider = ComponentProvider.Empty
     )
     ThemeManager.updateTheme(theme)
 }
-

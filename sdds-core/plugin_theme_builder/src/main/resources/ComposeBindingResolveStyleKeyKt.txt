@@ -3,4 +3,3 @@ override fun resolveStyleKey(bindings: Map<String, Any?>): String {
             ${{ params }},
         ).key
     }
-

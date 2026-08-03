@@ -14,4 +14,3 @@ internal object ${{ themeName }}${{ styleName }}VariationsCompose : ComposeStyle
 ${{ variations }}
         )
 }
-

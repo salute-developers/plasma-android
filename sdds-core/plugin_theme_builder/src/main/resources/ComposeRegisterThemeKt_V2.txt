@@ -39,4 +39,3 @@ fun SandboxActivity.registerTheme(componentProvider: ComponentProvider = Compone
     )
     ThemeManager.updateTheme(theme)
 }
-

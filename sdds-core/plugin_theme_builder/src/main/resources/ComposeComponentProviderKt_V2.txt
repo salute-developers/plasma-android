@@ -21,4 +21,3 @@ object ${{ themeName }}ComposeComponents : ComponentProvider() {
             ${{ components }}
         ).associateBy { it.key }
 }
-

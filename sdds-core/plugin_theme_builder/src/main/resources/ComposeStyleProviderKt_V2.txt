@@ -30,4 +30,3 @@ ${{ variations }}
 
     ${{ bindingStyleDeclaration }}
 }
-

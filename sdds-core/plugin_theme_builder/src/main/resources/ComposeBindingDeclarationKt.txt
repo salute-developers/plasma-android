@@ -2,4 +2,3 @@ override val bindings: Set<Property<*>> =
         setOf(
             ${{ properties }},
         )
-

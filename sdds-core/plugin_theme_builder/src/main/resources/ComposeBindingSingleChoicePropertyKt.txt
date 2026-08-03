@@ -1,2 +1,1 @@
 Property.SingleChoiceProperty(name = "${{ name }}", value = "${{ defaultValue }}", variants = listOf(${{ variants }}))
-
