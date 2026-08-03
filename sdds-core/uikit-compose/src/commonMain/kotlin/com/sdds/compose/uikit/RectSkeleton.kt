@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -29,7 +29,6 @@ import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawscope.translate
-import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.util.lerp
@@ -268,10 +267,10 @@ fun Modifier.shimmer(
 
     val windowSize = rememberWindowSize()
     val screenWidthPx = remember(windowSize) { windowSize.width.toFloat() }
-    var coordinates by remember { mutableStateOf<LayoutCoordinates?>(null) }
+    var positionInRoot by remember { mutableFloatStateOf(0f) }
 
     return clip(shape)
-        .onGloballyPositioned { coordinates = it }
+        .onGloballyPositioned { positionInRoot = if (it.isAttached) it.positionInRoot().x else 0f }
         .drawWithCache {
             val currentBrush = brushProducer()
             val rectSize = Size(screenWidthPx, size.height)
@@ -281,7 +280,6 @@ fun Modifier.shimmer(
             onDrawWithContent {
                 drawContent()
                 shaderBrush ?: return@onDrawWithContent
-                val positionInRoot = coordinates?.positionInRoot()?.x ?: 0f
                 translate(screenWidthPx * translateAnimation - positionInRoot) {
                     translate(left = -screenWidthPx) {
                         drawRect(brush = shaderBrush, size = rectSize)
