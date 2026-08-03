@@ -17,7 +17,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Editable
 import com.sdds.compose.uikit.EditableIconPlacement
 import com.sdds.compose.uikit.FormItem
@@ -25,6 +24,7 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.icons.R
 import com.sdds.plasma.homeds.styles.editable.Editable
 import com.sdds.plasma.homeds.styles.editable.H2

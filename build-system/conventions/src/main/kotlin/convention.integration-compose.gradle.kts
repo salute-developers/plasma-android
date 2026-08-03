@@ -8,17 +8,23 @@ import utils.baseDetektConfigPath
 
 
 tasks.register<GenerateComponentsDictionary>("generateComposeIntegration") {
+    val configuredConfigPath = properties["integration.compose.config-path"]?.toString()
+        ?: throw GradleException("integration.compose.config-path is not specified")
+    val configuredConfigFile = rootProject.file(configuredConfigPath)
+    val sddsConfigFile = configuredConfigFile.parentFile.resolve(".sdds/${configuredConfigFile.name}")
     configInputFile.set(
-        rootProject.file(
-            properties["integration.compose.config-path"]
-                ?: throw GradleException("integration.compose.config-path is not specified")
-        )
+        if (configuredConfigFile.exists()) configuredConfigFile else sddsConfigFile
     )
     packageName.set(
         properties["integration.compose.package-name"]?.toString()
             ?: throw GradleException("integration.compose.package-name is not specified")
     )
     themeAlias.set(properties["theme-alias"]?.toString())
+    multiplatform.set(
+        providers.gradleProperty("integration.compose.multiplatform")
+            .map { it.toBooleanStrict() }
+            .orElse(provider { plugins.hasPlugin("org.jetbrains.kotlin.multiplatform") }),
+    )
     scheme.set(
         when (properties["integration.compose.scheme"]?.toString()) {
             "V2" -> Scheme.V2

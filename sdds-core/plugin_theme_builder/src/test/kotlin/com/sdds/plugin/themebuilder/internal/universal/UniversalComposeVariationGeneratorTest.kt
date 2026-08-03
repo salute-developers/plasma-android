@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
 import kotlinx.serialization.json.putJsonObject
@@ -14,14 +15,15 @@ import java.io.File
 
 class UniversalComposeVariationGeneratorTest {
 
-    private val mockKtFileBuilder: KtFileBuilder = mockk(relaxed = true)
+    private val mockComposeFile: KtFileBuilder = mockk(relaxed = true)
     private val mockKtFileBuilderFactory: KtFileBuilderFactory = mockk {
-        every { create(any<String>(), any<String>()) } returns mockk(relaxed = true)
+        every { create(any<String>(), any<String>()) } returns mockComposeFile
     }
 
     private fun createGenerator(
         params: List<PropertyMeta>,
         stateEnum: StateEnum? = null,
+        multiplatform: Boolean = false,
     ): UniversalComposeVariationGenerator {
         val componentMeta = ComponentMeta(
             componentName = "Badge",
@@ -39,6 +41,7 @@ class UniversalComposeVariationGeneratorTest {
             dimensionsConfig = DimensionsConfig(fromResources = false, multiplier = 1f),
             resourceReferenceProvider = mockk(relaxed = true),
             themeStylesPackage = "com.test.styles",
+            multiplatform = multiplatform,
         )
         return UniversalComposeVariationGenerator(
             componentMeta = componentMeta,
@@ -51,6 +54,7 @@ class UniversalComposeVariationGeneratorTest {
             componentPackage = "com.test.styles.badge",
             outputLocation = KtFileBuilder.OutputLocation.Directory(File(".")),
             componentName = "badge",
+            multiplatform = multiplatform,
         )
     }
 
@@ -128,6 +132,44 @@ class UniversalComposeVariationGeneratorTest {
             config,
         ) as com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator.Result.Compose
         assertEquals("Badge", result.styleName)
+    }
+
+    @Test
+    fun `CMP-режим не добавляет Android-only импорт painterResource`() {
+        val generator = createGenerator(
+            params = listOf(shapeMeta("shape", group = "")),
+            multiplatform = true,
+        )
+        val config = UniversalComponentConfig(
+            props = UniversalPropertyOwner(
+                buildJsonObject { putJsonObject("shape") { put("value", "shape.round.4") } },
+            ),
+        )
+
+        generator.generate(config)
+
+        verify(exactly = 0) {
+            mockComposeFile.addImport("androidx.compose.ui.res", listOf("painterResource"))
+        }
+    }
+
+    @Test
+    fun `Android-режим добавляет импорт painterResource`() {
+        val generator = createGenerator(
+            params = listOf(shapeMeta("shape", group = "")),
+            multiplatform = false,
+        )
+        val config = UniversalComponentConfig(
+            props = UniversalPropertyOwner(
+                buildJsonObject { putJsonObject("shape") { put("value", "shape.round.4") } },
+            ),
+        )
+
+        generator.generate(config)
+
+        verify(exactly = 1) {
+            mockComposeFile.addImport("androidx.compose.ui.res", listOf("painterResource"))
+        }
     }
 
     private fun colorMeta(id: String, group: String) = ColorPropertyMeta(

@@ -25,11 +25,9 @@ internal class StoryPropertiesProducerGenerator(
     private val propertiesProducerType = ClassName("com.sdds.sandbox", "PropertiesProducer")
     private val propertyType = ClassName("com.sdds.sandbox", "Property")
     private val enumPropertyExt = MemberName("com.sdds.sandbox", "enumProperty")
-    private val keepAnnotation = ClassName("androidx.annotation", "Keep")
 
     override fun build(data: StoryStateData): FileSpec {
         fileSpecBuilder.addProducer(data)
-//        fileSpecBuilder.addProducerEntryPoint(data)
         return fileSpecBuilder.build()
     }
 
@@ -54,22 +52,6 @@ internal class StoryPropertiesProducerGenerator(
                     .build(),
             )
         addType(builder.build())
-    }
-
-    private fun FileSpec.Builder.addProducerEntryPoint(data: StoryStateData) {
-        val uiStateType = data.uiStateClass.toTypeName()
-        val builder = FunSpec.builder("producer")
-            .addModifiers(KModifier.PUBLIC)
-            .addAnnotation(keepAnnotation)
-            .receiver(uiStateType)
-            .addCode(
-                buildCodeBlock {
-                    add("return ${data.name}PropertiesProducer")
-                },
-            )
-            .returns(propertiesProducerType.parameterizedBy(uiStateType))
-
-        addFunction(builder.build())
     }
 
     private fun CodeBlock.Builder.addProducerPropertiesList(

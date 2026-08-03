@@ -7,12 +7,21 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
+    }
+
     versionCatalogs {
         create("libs") {
             from(files("../gradle/libs.versions.toml"))
         }
         create("icons") {
             from(files("../gradle/icons.version.toml"))
+        }
+        create("iconsCompose") {
+            from(files("../gradle/icons-compose.version.toml"))
         }
     }
 }

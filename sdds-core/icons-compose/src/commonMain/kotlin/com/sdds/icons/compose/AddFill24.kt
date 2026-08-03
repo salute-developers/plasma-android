@@ -1,0 +1,28 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.AddFill24: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "AddFill24",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 24f,
+        viewportHeight = 24f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 5.226 19.482 C 5.438 19.5 5.718 19.5 6.15 19.5 h 10.1 c 0.414 0.0 0.75 0.336 0.75 0.75 S 16.664 21.0 16.25 21.0 H 6.121 c -0.395 0.0 -0.736 0.0 -1.017 -0.023 c -0.297 -0.024 -0.592 -0.078 -0.875 -0.222 c -0.424 -0.216 -0.768 -0.56 -0.984 -0.983 c -0.144 -0.284 -0.198 -0.58 -0.222 -0.876 C 3.0 18.616 3.0 18.274 3.0 17.88 V 7.75 C 3.0 7.336 3.336 7.0 3.75 7.0 S 4.5 7.336 4.5 7.75 v 10.1 c 0.0 0.432 0.0 0.712 0.018 0.924 c 0.017 0.204 0.045 0.28 0.064 0.316 c 0.072 0.142 0.186 0.256 0.328 0.328 c 0.037 0.02 0.112 0.047 0.316 0.064 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathFillType = PathFillType.EvenOdd,
+            pathData = addPathNodes("M 18.896 17.977 C 18.616 18.0 18.274 18.0 17.88 18.0 H 9.12 c -0.395 0.0 -0.736 0.0 -1.017 -0.023 c -0.297 -0.024 -0.592 -0.078 -0.875 -0.222 c -0.424 -0.216 -0.768 -0.56 -0.984 -0.983 c -0.144 -0.284 -0.198 -0.58 -0.222 -0.876 C 6.0 15.616 6.0 15.274 6.0 14.88 V 6.12 c 0.0 -0.395 0.0 -0.736 0.023 -1.017 C 6.047 4.807 6.1 4.512 6.245 4.229 C 6.461 3.805 6.805 3.46 7.23 3.245 c 0.283 -0.144 0.578 -0.198 0.875 -0.222 C 8.384 3.0 8.726 3.0 9.12 3.0 h 8.758 c 0.395 0.0 0.736 0.0 1.017 0.023 c 0.297 0.024 0.592 0.078 0.875 0.222 c 0.424 0.216 0.768 0.56 0.984 0.984 c 0.144 0.283 0.198 0.578 0.222 0.875 C 21.0 5.384 21.0 5.726 21.0 6.12 v 8.758 c 0.0 0.395 0.0 0.736 -0.023 1.017 c -0.024 0.297 -0.078 0.592 -0.222 0.875 c -0.216 0.424 -0.56 0.768 -0.983 0.984 c -0.284 0.144 -0.58 0.198 -0.876 0.222 Z M 14.25 6.75 C 14.25 6.336 13.914 6.0 13.5 6.0 s -0.75 0.336 -0.75 0.75 v 3.0 h -3.0 C 9.336 9.75 9.0 10.086 9.0 10.5 s 0.336 0.75 0.75 0.75 h 3.01 l 0.04 3.01 c 0.006 0.414 0.346 0.745 0.76 0.74 c 0.414 -0.006 0.745 -0.346 0.74 -0.76 l -0.04 -2.99 h 2.99 c 0.414 0.0 0.75 -0.336 0.75 -0.75 s -0.336 -0.75 -0.75 -0.75 h -3.0 v -3.0 Z")
+        )
+    }.build()
+}

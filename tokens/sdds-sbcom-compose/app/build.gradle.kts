@@ -24,6 +24,7 @@ dependencies {
     ksp("integration-core:sandbox-ksp")
     implementation(libs.sdds.uikit.compose)
     implementation(libs.base.koil.compose)
+    implementation(libs.base.koil.network.okhttp)
     implementation(libs.base.androidX.compose.foundation)
     implementation(libs.base.androidX.appcompat)
     implementation(libs.base.android.material)

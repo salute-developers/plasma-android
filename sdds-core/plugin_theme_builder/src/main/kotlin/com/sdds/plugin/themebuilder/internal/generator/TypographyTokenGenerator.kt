@@ -70,6 +70,7 @@ internal class TypographyTokenGenerator(
     private val dimensionsConfig: DimensionsConfig,
     private val themeName: String,
     namespace: String,
+    private val multiplatform: Boolean = false,
 ) : TokenGenerator<TypographyToken, TypographyTokenResult>(target) {
 
     private val textAppearanceXmlBuilders =
@@ -165,7 +166,13 @@ internal class TypographyTokenGenerator(
         ktFileBuilder.addImport(KtFileBuilder.TypeSp)
         ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
         ktFileBuilder.addImport(KtFileBuilder.TypeLineHeightStyle)
-        ktFileBuilder.addImport(KtFileBuilder.TypePlatformTextStyle)
+        if (!multiplatform) {
+            ktFileBuilder.addImport(KtFileBuilder.TypePlatformTextStyle)
+        }
+        if (multiplatform && !dimensionsConfig.fromResources) {
+            // TextStyle-токены становятся @Composable-геттерами, т.к. ссылаются на @Composable FontTokens.*
+            ktFileBuilder.addImport(KtFileBuilder.TypeAnnotationComposable)
+        }
         if (dimensionsConfig.fromResources) {
             ktFileBuilder.addImport(KtFileBuilder.TypeLocalDensity)
             ktFileBuilder.addImport(KtFileBuilder.TypeDimensionResource)
@@ -347,11 +354,14 @@ internal class TypographyTokenGenerator(
             """.trimMargin(),
         )
 
-        defaultValuesBuilder.appendProperty(
-            name = DEFAULTS_PLATFORM_STYLE_NAME,
-            typeName = KtFileBuilder.TypePlatformTextStyle,
-            initializer = "PlatformTextStyle(includeFontPadding = false)",
-        )
+        // PlatformTextStyle(includeFontPadding = ...) — Android-only API, в CMP common отсутствует.
+        if (!multiplatform) {
+            defaultValuesBuilder.appendProperty(
+                name = DEFAULTS_PLATFORM_STYLE_NAME,
+                typeName = KtFileBuilder.TypePlatformTextStyle,
+                initializer = "PlatformTextStyle(includeFontPadding = false)",
+            )
+        }
     }
 
     @Suppress("LongMethod")
@@ -468,6 +478,15 @@ internal class TypographyTokenGenerator(
             fontSizeInitializer = "${tokenValue.textSize * dimensionsConfig.multiplier}.sp"
             lineHeightInitializer = "${tokenValue.lineHeight * dimensionsConfig.multiplier}.sp"
         }
+        // platformStyle с includeFontPadding — Android-only; в CMP common его нет,
+        // а includeFontPadding = false и так является поведением по умолчанию.
+        // createConstructorCall отбрасывает пустые аргументы, поэтому в CMP-режиме
+        // передаём пустую строку вместо строки инициализации platformStyle.
+        val platformStyleArg = if (multiplatform) {
+            ""
+        } else {
+            "platformStyle = $DEFAULTS_NAME.$DEFAULTS_PLATFORM_STYLE_NAME"
+        }
         val initializer = KtFileBuilder.createConstructorCall(
             "TextStyle",
             "fontWeight = FontWeight(${tokenValue.fontWeight})",
@@ -476,7 +495,7 @@ internal class TypographyTokenGenerator(
             "letterSpacing = $letterSpacing",
             "fontFamily = FontTokens${tenant.name}.${tokenValue.fontFamilyRef.split('.').last()}",
             "lineHeightStyle = $DEFAULTS_NAME.$DEFAULTS_LINE_STYLE_NAME",
-            "platformStyle = $DEFAULTS_NAME.$DEFAULTS_PLATFORM_STYLE_NAME",
+            platformStyleArg,
         ).trimIndent()
 
         if (fromResources) {
@@ -492,6 +511,18 @@ internal class TypographyTokenGenerator(
                     |${initializer.trimMargin()}
                 |}
                     """.trimMargin(),
+                ),
+                description = description,
+            )
+        } else if (multiplatform) {
+            // fontFamily = FontTokens*.* — @Composable-геттер, поэтому и TextStyle-токен @Composable.
+            // Без @ReadOnlyComposable (FontTokens в CMP — обычный @Composable), без LocalDensity.
+            appendProperty(
+                name = token.ktName,
+                typeName = KtFileBuilder.TypeTextStyle,
+                propGetter = KtFileBuilder.Getter.Annotated(
+                    annotations = listOf(Annotation(KtFileBuilder.TypeAnnotationComposable)),
+                    body = "return $initializer",
                 ),
                 description = description,
             )

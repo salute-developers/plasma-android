@@ -9,8 +9,8 @@ import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.RoborazziOptions
 import com.github.takahirom.roborazzi.RoborazziRule
 import com.github.takahirom.roborazzi.captureRoboImage
-import com.sdds.compose.docs.ComposableSample
 import com.sdds.compose.docs.ComposableSamples
+import com.sdds.docs.ComposableSample
 import org.json.JSONObject
 import org.junit.AfterClass
 import org.junit.Rule

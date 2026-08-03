@@ -1,0 +1,36 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.BlankTxtOutline16: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "BlankTxtOutline16",
+        defaultWidth = 16.dp,
+        defaultHeight = 16.dp,
+        viewportWidth = 16f,
+        viewportHeight = 16f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 9.987 10.064 V 12.3 h 0.57 v -2.236 h 0.708 V 9.5 H 9.28 v 0.564 h 0.707 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 6.85 12.3 l 0.715 -1.436 L 6.903 9.5 h 0.665 l 0.445 0.936 L 8.475 9.5 h 0.654 l -0.703 1.352 l 0.742 1.448 H 8.492 l -0.504 -0.996 l -0.48 0.996 H 6.852 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 5.447 10.064 V 12.3 h 0.57 v -2.236 h 0.708 V 9.5 H 4.74 v 0.564 h 0.707 Z")
+        )
+        addPath(
+            fill = SolidColor(Color.White),
+            pathFillType = PathFillType.EvenOdd,
+            pathData = addPathNodes("M 8.905 1.0 H 5.53 c -0.472 0.0 -0.857 0.0 -1.17 0.026 c -0.322 0.026 -0.611 0.082 -0.88 0.22 C 3.055 1.46 2.71 1.805 2.495 2.228 c -0.137 0.269 -0.193 0.558 -0.22 0.88 C 2.25 3.423 2.25 3.808 2.25 4.28 v 7.442 c 0.0 0.472 0.0 0.857 0.026 1.17 c 0.026 0.322 0.082 0.611 0.22 0.88 c 0.215 0.424 0.56 0.768 0.983 0.984 c 0.269 0.137 0.558 0.193 0.88 0.22 C 4.673 15.0 5.058 15.0 5.53 15.0 h 4.942 c 0.472 0.0 0.857 0.0 1.17 -0.025 c 0.322 -0.027 0.611 -0.083 0.88 -0.22 c 0.424 -0.216 0.768 -0.56 0.984 -0.984 c 0.137 -0.269 0.193 -0.558 0.22 -0.88 c 0.025 -0.313 0.025 -0.698 0.025 -1.17 V 5.716 c 0.0 -0.135 -0.055 -0.264 -0.152 -0.359 L 9.253 1.141 C 9.16 1.051 9.035 1.0 8.905 1.0 Z M 3.933 2.136 C 4.037 2.083 4.18 2.043 4.44 2.022 C 4.708 2.0 5.051 2.0 5.55 2.0 h 2.855 v 1.497 c 0.0 0.374 0.0 0.686 0.02 0.94 c 0.023 0.264 0.07 0.51 0.187 0.742 c 0.182 0.357 0.473 0.648 0.83 0.83 c 0.233 0.118 0.479 0.165 0.743 0.186 c 0.254 0.021 0.565 0.021 0.94 0.021 h 1.625 V 11.7 c 0.0 0.498 0.0 0.842 -0.022 1.109 c -0.021 0.26 -0.06 0.404 -0.114 0.509 c -0.12 0.235 -0.311 0.426 -0.546 0.546 c -0.105 0.053 -0.248 0.092 -0.51 0.114 C 11.293 14.0 10.949 14.0 10.45 14.0 h -4.9 c -0.498 0.0 -0.842 0.0 -1.109 -0.022 c -0.26 -0.021 -0.404 -0.06 -0.508 -0.114 c -0.236 -0.12 -0.427 -0.311 -0.547 -0.546 c -0.053 -0.105 -0.093 -0.248 -0.114 -0.51 C 3.25 12.543 3.25 12.199 3.25 11.7 V 4.3 c 0.0 -0.498 0.0 -0.842 0.022 -1.109 c 0.022 -0.26 0.06 -0.404 0.114 -0.508 c 0.12 -0.236 0.311 -0.427 0.547 -0.547 Z m 8.084 3.08 L 9.405 2.682 v 0.794 c 0.0 0.4 0.0 0.67 0.018 0.879 c 0.016 0.203 0.046 0.302 0.08 0.37 c 0.087 0.17 0.224 0.307 0.394 0.393 c 0.067 0.035 0.167 0.064 0.37 0.08 c 0.208 0.018 0.478 0.018 0.878 0.018 h 0.872 Z")
+        )
+    }.build()
+}

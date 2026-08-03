@@ -35,6 +35,7 @@ import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.icons.R
 
 /**
@@ -307,8 +308,8 @@ private fun SelectScope.TriggerContent(
             SelectButton(
                 modifier = Modifier.width(260.dp),
                 label = selectedItems.firstOrNull() ?: "Value",
-                iconOpened = R.drawable.ic_chevron_up_24,
-                iconClosed = R.drawable.ic_chevron_down_24,
+                iconOpened = resourceImageSource(R.drawable.ic_chevron_up_24),
+                iconClosed = resourceImageSource(R.drawable.ic_chevron_down_24),
             )
         }
     }

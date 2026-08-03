@@ -88,5 +88,5 @@ afterEvaluate {
 
 dependencies {
     "implementation"("sdds-core:docs")
-    ksp("sdds-core:docs-ksp")
+    ksp("sdds-core:docs")
 }

@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.CollapsingNavigationBar
 import com.sdds.compose.uikit.CollapsingNavigationBarDefaults
 import com.sdds.compose.uikit.Icon
@@ -22,6 +21,7 @@ import com.sdds.compose.uikit.floatPx
 import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
 import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.plasma.homeds.styles.collapsingnavigationbar.CollapsingNavigationBarInternalPage
 import com.sdds.plasma.homeds.styles.collapsingnavigationbar.CollapsingNavigationBarMainPage
 import com.sdds.plasma.homeds.styles.collapsingnavigationbar.Default

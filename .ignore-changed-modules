@@ -4,9 +4,6 @@
 :sdds-core:api-info-compose
 :sdds-core:api-info-ksp
 :sdds-core:docs
-:sdds-core:docs-compose
-:sdds-core:docs-ksp
-:sdds-core:docs-views
 :integration-core:uikit-compose-fixtures
 :integration-core:uikit-compose-testcases
 :integration-core:uikit-fixtures

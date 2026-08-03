@@ -132,11 +132,11 @@ class ApiInfoProcessor(
             .orEmpty()
 
         val packageName: String = apiInfoAnnotation
-            ?.argumentValue<String>("packageName")
+            ?.namedArgumentValue<String>("packageName")
             .orEmpty()
 
         val builderFunName: String = apiInfoAnnotation
-            ?.argumentValue<String>("builderFunName")
+            ?.namedArgumentValue<String>("builderFunName")
             .orEmpty()
 
         val componentNames = explicitComponents.ifEmpty {
@@ -264,6 +264,11 @@ class ApiInfoProcessor(
                 .firstOrNull()
                 ?.value as? T
 
+    private inline fun <reified T> KSAnnotation.namedArgumentValue(name: String): T? =
+        arguments
+            .firstOrNull { it.name?.asString() == name }
+            ?.value as? T
+
     private fun KSType.unwrapStatefulValue(): KSType =
         if (declaration.qualifiedName?.asString() == STATEFUL_VALUE) {
             arguments.firstOrNull()
@@ -382,7 +387,7 @@ class ApiInfoProcessor(
     ): ParameterType = when {
         isEnumClass(paramType) -> ParameterType.VALUE
         isComponentStyle(simpleName, qualifiedName) -> ParameterType.COMPONENT_STYLE
-        isDrawableRes(param) -> ParameterType.ICON
+        isIcon(param, qualifiedName) -> ParameterType.ICON
         SHAPE_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.SHAPE
         COLOR_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.COLOR
         TYPOGRAPHY_KEYWORDS.any { simpleName.contains(it) } -> ParameterType.TYPOGRAPHY
@@ -393,6 +398,10 @@ class ApiInfoProcessor(
         qualifiedName == "kotlin.Int" -> ParameterType.INTEGER
         qualifiedName.startsWith("kotlin.collections.List") -> classifyListType(paramType)
         else -> ParameterType.UNKNOWN
+    }
+
+    private fun isIcon(param: KSValueParameter, qualifiedName: String): Boolean {
+        return isDrawableRes(param) || qualifiedName == IMAGE_SOURCE
     }
 
     private fun classifyListType(paramType: KSType): ParameterType {
@@ -436,7 +445,7 @@ class ApiInfoProcessor(
             it.annotationType.resolve()
                 .declaration
                 .qualifiedName
-                ?.asString() == DRAWABLE_RES
+                ?.asString() in DRAWABLE_RES_ANNOTATIONS
         }
 
     private fun extractComponentName(builderName: String) =
@@ -445,10 +454,14 @@ class ApiInfoProcessor(
     companion object {
         private const val STATEFUL_VALUE = "com.sdds.compose.uikit.interactions.StatefulValue"
         private const val STYLE_BUILDER = "com.sdds.compose.uikit.style.StyleBuilder"
+        private const val IMAGE_SOURCE = "com.sdds.compose.uikit.ImageSource"
         private const val API_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiInfo"
         private const val STATE_SET_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiStateSet"
         private const val CONFIG_NAME_ANNOTATION = "com.sdds.api.info.compose.ApiName"
-        private const val DRAWABLE_RES = "androidx.annotation.DrawableRes"
+        private val DRAWABLE_RES_ANNOTATIONS = setOf(
+            "androidx.annotation.DrawableRes",
+            "com.sdds.compose.uikit.annotations.DrawableRes",
+        )
         private const val GROUP_ROOT = "root"
         private val SKIP_METHODS = setOf("equals", "hashCode", "toString", "style", "build")
         private val SHAPE_KEYWORDS = setOf("Shape")

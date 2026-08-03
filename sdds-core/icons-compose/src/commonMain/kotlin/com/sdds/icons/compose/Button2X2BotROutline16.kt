@@ -1,0 +1,24 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.Button2X2BotROutline16: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "Button2X2BotROutline16",
+        defaultWidth = 16.dp,
+        defaultHeight = 16.dp,
+        viewportWidth = 16f,
+        viewportHeight = 16f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathFillType = PathFillType.EvenOdd,
+            pathData = addPathNodes("M 15.0 13.425 C 15.0 14.295 14.295 15.0 13.425 15.0 h -3.26 c -0.87 0.0 -1.575 -0.705 -1.575 -1.575 v -3.26 c 0.0 -0.87 0.705 -1.575 1.575 -1.575 h 3.26 c 0.87 0.0 1.575 0.705 1.575 1.575 v 3.26 Z m -0.746 -8.207 c 0.0 0.663 -0.537 1.2 -1.2 1.2 h -2.518 c -0.662 0.0 -1.2 -0.537 -1.2 -1.2 V 2.7 c 0.0 -0.662 0.538 -1.2 1.2 -1.2 h 2.518 c 0.663 0.0 1.2 0.538 1.2 1.2 v 2.518 Z m -1.2 0.2 c 0.11 0.0 0.2 -0.09 0.2 -0.2 V 2.7 c 0.0 -0.11 -0.09 -0.2 -0.2 -0.2 h -2.518 c -0.11 0.0 -0.2 0.09 -0.2 0.2 v 2.518 c 0.0 0.11 0.09 0.2 0.2 0.2 h 2.518 Z m -7.836 1.0 c 0.663 0.0 1.2 -0.537 1.2 -1.2 V 2.7 c 0.0 -0.662 -0.537 -1.2 -1.2 -1.2 H 2.7 c -0.662 0.0 -1.2 0.538 -1.2 1.2 v 2.518 c 0.0 0.663 0.538 1.2 1.2 1.2 h 2.518 Z m 0.2 -1.2 c 0.0 0.11 -0.09 0.2 -0.2 0.2 H 2.7 c -0.11 0.0 -0.2 -0.09 -0.2 -0.2 V 2.7 c 0.0 -0.11 0.09 -0.2 0.2 -0.2 h 2.518 c 0.11 0.0 0.2 0.09 0.2 0.2 v 2.518 Z m 1.0 7.837 c 0.0 0.662 -0.537 1.2 -1.2 1.2 H 2.7 c -0.662 0.0 -1.2 -0.538 -1.2 -1.2 v -2.518 c 0.0 -0.662 0.538 -1.2 1.2 -1.2 h 2.518 c 0.663 0.0 1.2 0.538 1.2 1.2 v 2.518 Z m -1.2 0.2 c 0.11 0.0 0.2 -0.09 0.2 -0.2 v -2.518 c 0.0 -0.11 -0.09 -0.2 -0.2 -0.2 H 2.7 c -0.11 0.0 -0.2 0.09 -0.2 0.2 v 2.518 c 0.0 0.11 0.09 0.2 0.2 0.2 h 2.518 Z")
+        )
+    }.build()
+}

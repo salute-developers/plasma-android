@@ -29,6 +29,7 @@ open class ThemeBuilderExtension {
     internal var componentsMetaStyleClass: Boolean = false
     internal var ignoreDisabledTokens: Boolean = false
     internal var useDefaultFonts: Boolean = false
+    internal var multiplatform: Boolean = false
 
     /**
      * Временный способ установки любого url для конфигов компонентов
@@ -151,6 +152,7 @@ open class ThemeBuilderExtension {
     fun compose(configBuilder: ComposeConfigBuilder.() -> Unit = {}) {
         val builder = ComposeConfigBuilder().apply(configBuilder)
         componentsMetaStyleClass = builder.componentsMetaStyleClass
+        multiplatform = builder.multiplatform
         updateTarget(ThemeBuilderTarget.COMPOSE)
     }
 
@@ -358,11 +360,26 @@ class ComposeConfigBuilder {
     internal var componentsMetaStyleClass: Boolean = false
         private set
 
+    internal var multiplatform: Boolean = false
+        private set
+
     /**
      * Включает/выключает генерацию мета классов - агрегаторов стилей компонентов
      */
     fun componentsMetaStyleClass(enabled: Boolean) {
         componentsMetaStyleClass = enabled
+    }
+
+    /**
+     * Включает/выключает генерацию стилей в мультиплатформенном (Compose Multiplatform) режиме.
+     *
+     * В этом режиме сгенерированные `*Styles.kt` пригодны к компиляции в `commonMain`:
+     * иконки эмитятся как `imageVectorSource(SddsIcons.*)` из мультиплатформенного модуля
+     * `icons-compose`, а шрифты — через `org.jetbrains.compose.resources` (`Res.font.*`).
+     * По умолчанию выключено — генерируется прежний Android-вариант без изменений.
+     */
+    fun multiplatform(enabled: Boolean) {
+        multiplatform = enabled
     }
 }
 

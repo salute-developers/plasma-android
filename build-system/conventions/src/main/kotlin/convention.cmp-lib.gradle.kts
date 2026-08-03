@@ -1,4 +1,4 @@
-import utils.withVersionCatalogs
+import utils.configureAndroidLibraryDefaults
 
 plugins {
     id("com.android.library")
@@ -11,19 +11,16 @@ plugins {
     id("convention.spotless")
 }
 
+configureAndroidLibraryDefaults()
+
 android {
 
-    withVersionCatalogs {
-        compileSdk = versions.global.compileSdk.get().toInt()
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
 
-        defaultConfig {
-            minSdk = versions.global.minSdk.get().toInt()
-            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        }
-
-        buildFeatures {
-            compose = true
-        }
+    buildFeatures {
+        compose = true
     }
 
     buildTypes {
@@ -33,27 +30,10 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
     lint {
         xmlReport = false
         textReport = false
         sarifReport = false
         htmlReport = true
-    }
-}
-
-withVersionCatalogs {
-    configurations.configureEach {
-        if (name.startsWith("kotlinCompilerPluginClasspath")) {
-            resolutionStrategy.dependencySubstitution {
-                val compilerVersion = versions.androidX.compose.compiler.get()
-                substitute(module("org.jetbrains.compose.compiler:compiler"))
-                    .using(module("androidx.compose.compiler:compiler:$compilerVersion"))
-            }
-        }
     }
 }
