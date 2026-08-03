@@ -19,21 +19,27 @@ internal class IconPropertyMapper(
         return if (multiplatform) {
             multiplatformRef(resourceName)
         } else {
-            "com.sdds.icons.R.drawable.ic_$resourceName"
+            androidRef(resourceName)
         }
+    }
+
+    private fun androidRef(resourceName: String): String {
+        importCollector?.addImport(UIKIT_PACKAGE, RESOURCE_IMAGE_SOURCE_NAME)
+        return "$RESOURCE_IMAGE_SOURCE_NAME(com.sdds.icons.R.drawable.ic_$resourceName)"
     }
 
     private fun multiplatformRef(resourceName: String): String {
         val iconId = ComposeIconName.fromDrawableName(resourceName)
-        importCollector?.addImport(IMAGE_VECTOR_SOURCE_PACKAGE, IMAGE_VECTOR_SOURCE_NAME)
+        importCollector?.addImport(UIKIT_PACKAGE, IMAGE_VECTOR_SOURCE_NAME)
         importCollector?.addImport(SDDS_ICONS_PACKAGE, SDDS_ICONS_OBJECT)
         importCollector?.addImport(SDDS_ICONS_PACKAGE, iconId)
         return "$IMAGE_VECTOR_SOURCE_NAME($SDDS_ICONS_OBJECT.$iconId)"
     }
 
     private companion object {
-        const val IMAGE_VECTOR_SOURCE_PACKAGE = "com.sdds.compose.uikit"
+        const val UIKIT_PACKAGE = "com.sdds.compose.uikit"
         const val IMAGE_VECTOR_SOURCE_NAME = "imageVectorSource"
+        const val RESOURCE_IMAGE_SOURCE_NAME = "resourceImageSource"
         const val SDDS_ICONS_PACKAGE = "com.sdds.icons.compose"
         const val SDDS_ICONS_OBJECT = "SddsIcons"
     }

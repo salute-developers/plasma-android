@@ -18,7 +18,7 @@ class IconPropertyMapperTest {
             variationId = "",
         )
 
-        assertEquals("startIcon(com.sdds.icons.R.drawable.ic_actions_add)", builderCall)
+        assertEquals("startIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add))", builderCall)
     }
 
     @Test
@@ -38,11 +38,11 @@ class IconPropertyMapperTest {
         )
 
         assertEquals(
-            "startIcon(com.sdds.icons.R.drawable.ic_actions_add." +
+            "startIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add)." +
                 "asStatefulValue(setOf(InteractiveState.Pressed) " +
-                "to com.sdds.icons.R.drawable.ic_actions_remove, " +
+                "to resourceImageSource(com.sdds.icons.R.drawable.ic_actions_remove), " +
                 "setOf(InteractiveState.Pressed, InteractiveState.Hovered) " +
-                "to com.sdds.icons.R.drawable.ic_actions_close))",
+                "to resourceImageSource(com.sdds.icons.R.drawable.ic_actions_close)))",
             builderCall,
         )
     }
@@ -70,8 +70,8 @@ class IconPropertyMapperTest {
         )
 
         assertEquals(
-            "icon(com.sdds.icons.R.drawable.ic_actions_add.asStatefulValue(" +
-                "setOf(ChipState.Selected) to com.sdds.icons.R.drawable.ic_actions_check))",
+            "icon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add).asStatefulValue(" +
+                "setOf(ChipState.Selected) to resourceImageSource(com.sdds.icons.R.drawable.ic_actions_check)))",
             builderCall,
         )
     }
@@ -126,10 +126,11 @@ class IconPropertyMapperTest {
     }
 
     @Test
-    fun `Android-режим не меняет вывод при переданном importCollector`() {
+    fun `Android-режим оборачивает иконку в resourceImageSource и собирает импорт`() {
+        val importCollector = ImportCollector()
         val underTest = IconPropertyMapper(
             stateEnum = null,
-            importCollector = ImportCollector(),
+            importCollector = importCollector,
             multiplatform = false,
         )
 
@@ -139,7 +140,12 @@ class IconPropertyMapperTest {
             variationId = "",
         )
 
-        assertEquals("startIcon(com.sdds.icons.R.drawable.ic_actions_add)", builderCall)
+        assertEquals("startIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add))", builderCall)
+        assertTrue(
+            importCollector.importList.any {
+                it.pck == "com.sdds.compose.uikit" && it.name == "resourceImageSource"
+            },
+        )
     }
 
     private fun iconParam(methodName: String) = ComposeIconPropertyMeta(
