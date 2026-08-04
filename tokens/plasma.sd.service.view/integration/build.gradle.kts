@@ -1,11 +1,28 @@
+import com.sdds.plugin.themebuilder.OutputLocation
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
-    id("convention.integration-view")
+    id("convention.integration-detekt")
+    id(libs.plugins.dsbuilder.get().pluginId)
 }
 
 android {
     namespace = "com.sdds.sd.service.sandbox.integration"
+}
+
+dsBuilder {
+    outputLocation.set(OutputLocation.SRC)
+    autoGenerate.set(false)
+    targets {
+        view()
+    }
+    sandbox {
+        view {
+            generatedPackageName.set("com.plasma.sd.service.integration")
+            themeAlias.set("SdService")
+        }
+    }
 }
 
 dependencies {

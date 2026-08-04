@@ -13,7 +13,7 @@ plugins {
     id("convention.cmp-lib")
     id("convention.maven-publish")
     id("convention.auto-bump")
-    id(libs.plugins.themebuilder.get().pluginId)
+    id(libs.plugins.dsbuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
     id("convention.docusaurus")
 }
@@ -70,15 +70,19 @@ compose.resources {
     packageOfResClass = "com.sdds.serv.compose.generated.resources"
 }
 
-themeBuilder {
-    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
-    componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
-    compose {
-        componentsMetaStyleClass(true)
-        multiplatform(true)
+dsBuilder {
+    autoGenerate.set(false)
+    targets {
+        compose(multiplatform = true)
     }
-    ktPackage(ktPackage = "com.sdds.serv")
-    mode(THEME)
-    autoGenerate(false)
-    outputLocation(SRC)
+    packageName.set("com.sdds.serv")
+    outputLocation.set(SRC)
+    theme {
+        source(name = themeName, version = themeVersion, alias = themeAlias)
+        mode.set(THEME)
+    }
+    components {
+        source(name = componentsName, version = componentsVersion, alias = themeAlias)
+        componentsMetaStyleClass.set(true)
+    }
 }

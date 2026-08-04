@@ -12,7 +12,7 @@ plugins {
     id("convention.cmp-lib")
     id("convention.maven-publish")
     id("convention.auto-bump")
-    id(libs.plugins.themebuilder.get().pluginId)
+    id(libs.plugins.dsbuilder.get().pluginId)
 }
 
 group = "integration-core"
@@ -21,16 +21,20 @@ android {
     namespace = "com.sdds.compose.sandbox"
 }
 
-themeBuilder {
-    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
-    componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
-    compose {
-        multiplatform(true)
+dsBuilder {
+    autoGenerate.set(false)
+    targets {
+        compose(multiplatform = true)
     }
-    ktPackage(ktPackage = "com.sdds.compose.sandbox")
-    mode(THEME)
-    autoGenerate(false)
-    outputLocation(SRC)
+    packageName.set("com.sdds.compose.sandbox")
+    outputLocation.set(SRC)
+    theme {
+        source(name = themeName, version = themeVersion, alias = themeAlias)
+        mode.set(THEME)
+    }
+    components {
+        source(name = componentsName, version = componentsVersion, alias = themeAlias)
+    }
 }
 
 kotlin {

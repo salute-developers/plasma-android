@@ -6,9 +6,7 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin
 import com.android.build.gradle.internal.tasks.factory.dependsOn
-import com.sdds.plugin.themebuilder.ThemeBuilderExtension.Companion.themeBuilderExt
 import org.gradle.api.GradleException
-import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.Configuration
 import org.gradle.api.attributes.Attribute
@@ -26,66 +24,87 @@ import java.io.File
  * Плагин для генерации тем и токенов ДС
  * @author Малышев Александр on 09.02.2024
  */
-class ThemeBuilderPlugin : Plugin<Project> {
+internal class ThemeBuilderPlugin {
 
-    override fun apply(project: Project) {
+    internal fun configure(
+        project: Project,
+        themeExtension: () -> ThemeBuilderExtension?,
+        componentsExtension: () -> ThemeBuilderExtension?,
+    ) {
         val componentsZip = project.layout.buildDirectory.file("$COMPONENTS_PATH/components.zip")
         val paletteJson = project.layout.buildDirectory.file("$THEME_PATH/$PALETTE_JSON_NAME")
-        val extension = project.themeBuilderExt()
         project.configureSourceSets()
 
         val readUikitApiMetaTask = project.registerApiMetaTask()
 
         project.afterEvaluate {
-            val compileClasspath = listOf(
-                "debugCompileClasspath",
-                "releaseCompileClasspath",
-                "compileClasspath",
-            ).firstNotNullOfOrNull { project.configurations.findByName(it) } ?: return@afterEvaluate
-            readUikitApiMetaTask.configureUikitApiMetaTask(compileClasspath)
-
-            project.registerClean(extension)
-            val themeSources = ThemeSourceResolver(project.projectDir)
-                .resolve(extension.getThemeSourcesOrNull())
-            val paletteFile = themeSources.paletteFile ?: paletteJson.get().asFile
-            val fetchPaletteTask = if (themeSources.paletteFile == null) {
-                registerPaletteFetcher(
-                    taskName = "fetchPalette",
-                    paletteUrl = extension.paletteUrl,
-                    paletteOutput = paletteJson,
-                )
-            } else {
-                null
+            val theme = themeExtension()
+            val components = componentsExtension()
+            val cleanExtension = theme ?: components
+            if (cleanExtension != null) {
+                project.registerClean(cleanExtension)
             }
 
-            val unzipTasks = mutableListOf<TaskProvider<Copy>>()
-            themeSources.sources.forEach { source ->
-                if (source is ThemeBuilderSource.LocalDirectory) {
-                    return@forEach
+            if (theme != null) {
+                val themeSources = ThemeSourceResolver(project.projectDir)
+                    .resolve(theme.getThemeSourcesOrNull())
+                val paletteFile = themeSources.paletteFile ?: paletteJson.get().asFile
+                val fetchPaletteTask = if (themeSources.paletteFile == null) {
+                    registerPaletteFetcher(
+                        taskName = "fetchPalette",
+                        paletteUrl = theme.paletteUrl,
+                        paletteOutput = paletteJson,
+                    )
+                } else {
+                    null
                 }
-                val tenantId = source.tenant
-                val tenantIdForPath = if (tenantId.isEmpty()) "default" else tenantId.lowercase()
-                val themeZip = project.layout.buildDirectory.file("$THEME_PATH/$tenantIdForPath/theme.zip")
 
-                val unzipThemeTask = registerFetchAndUnzipTheme(
-                    source = source,
-                    themeOutputZip = themeZip,
-                    themeId = tenantId,
-                    fetchPaletteTask = fetchPaletteTask,
+                val unzipTasks = mutableListOf<TaskProvider<Copy>>()
+                themeSources.sources.forEach { source ->
+                    if (source is ThemeBuilderSource.LocalDirectory) {
+                        return@forEach
+                    }
+                    val tenantId = source.tenant
+                    val tenantIdForPath = if (tenantId.isEmpty()) "default" else tenantId.lowercase()
+                    val themeZip = project.layout.buildDirectory.file("$THEME_PATH/$tenantIdForPath/theme.zip")
+
+                    val unzipThemeTask = registerFetchAndUnzipTheme(
+                        source = source,
+                        themeOutputZip = themeZip,
+                        themeId = tenantId,
+                        fetchPaletteTask = fetchPaletteTask,
+                    )
+                    unzipTasks.add(unzipThemeTask)
+                }
+
+                registerThemeBuilder(
+                    extension = theme,
+                    unzipThemeTasks = unzipTasks,
+                    dependOnPreBuild = theme.autoGenerate,
+                    themeSources = themeSources,
+                    paletteFile = paletteFile,
                 )
-                unzipTasks.add(unzipThemeTask)
             }
 
-            registerThemeBuilder(
-                extension = extension,
-                unzipThemeTasks = unzipTasks,
-                dependOnPreBuild = extension.autoGenerate,
-                themeSources = themeSources,
-                paletteFile = paletteFile,
-            )
-
-            val fetchComponentsTask = registerFetchAndUnzipComponents(extension, componentsZip)
-            fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it, readUikitApiMetaTask) }
+            if (components != null) {
+                val compileClasspath = listOf(
+                    "debugCompileClasspath",
+                    "releaseCompileClasspath",
+                    "compileClasspath",
+                ).firstNotNullOfOrNull { project.configurations.findByName(it) }
+                if (compileClasspath != null) {
+                    readUikitApiMetaTask.configureUikitApiMetaTask(compileClasspath)
+                }
+                val fetchComponentsTask = registerFetchAndUnzipComponents(components, componentsZip)
+                fetchComponentsTask?.let {
+                    val generateComponents = registerGenerateComponentsTask(components, it, readUikitApiMetaTask)
+                    if (components.autoGenerate) {
+                        tasks.matching { task -> task.name == "preBuild" }.configureEach {
+                            dependsOn(generateComponents)
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -175,7 +194,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         extension: ThemeBuilderExtension,
         fetchComponentsTask: TaskProvider<Copy>,
         readUikitApiMetaTask: TaskProvider<UikitApiMetaTask>,
-    ) {
+    ): TaskProvider<GenerateComponentsTask> {
         val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
             group = TASK_GROUP
             componentsDir.set(getComponentsDir())
@@ -195,6 +214,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             uikitApiMetaFile.set(readUikitApiMetaTask.flatMap { it.outputFile })
         }
         task.dependsOn(fetchComponentsTask, readUikitApiMetaTask)
+        return task
     }
 
     private fun Project.registerThemeBuilder(

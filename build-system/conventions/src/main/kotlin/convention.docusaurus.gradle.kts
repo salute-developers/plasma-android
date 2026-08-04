@@ -73,7 +73,9 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
 
         copy {
             duplicatesStrategy = DuplicatesStrategy.INCLUDE
-            from(overrideDocsDir)
+            from(overrideDocsDir) {
+                exclude("structure.json")
+            }
             into(destinationDir)
         }
 
