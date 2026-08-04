@@ -3,7 +3,9 @@
            xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_scrollBarStyle" format="reference" />
 
-    <declare-styleable name="ScrollBar" sdds:api_info="ScrollBar" tools:ignore="ResourceName">
+    <declare-styleable name="ScrollBar" sdds:api_info="ScrollBar"
+        sdds:api_def_style_attr="sd_scrollBarStyle"
+        sdds:api_parent="Sdds.Components.ScrollBar" tools:ignore="ResourceName">
         <!-- Цвет неподвижной части скроллбара -->
         <attr name="sd_trackColor" />
         <!-- Цвет подвижной части скроллбара -->
@@ -20,6 +22,8 @@
         </attr>
         <!-- Автоматически крывать скроллбар при бездействии -->
         <attr name="sd_autoHide" format="boolean" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <attr name="sd_thickness" sdds:api_name="width" />
     </declare-styleable>
 
     <declare-styleable name="SdScrollDrawable" sdds:api_info="ScrollBar">

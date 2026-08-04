@@ -11,10 +11,12 @@
     <item name="sd_prevButtonId" type="id"/>
     <item name="sd_tabDisclosureId" type="id"/>
 
-    <declare-styleable name="Tabs" sdds:api_info="Tabs" sdds:api_framework="orientation=android:orientation:integer;paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension;minHeight=android:minHeight:dimension;backgroundColor=android:backgroundTint:color" tools:ignore="ResourceName">
+    <declare-styleable name="Tabs" sdds:api_info="Tabs"
+        sdds:api_def_style_attr="sd_tabsStyle"
+        sdds:api_parent="Sdds.Components.Tabs" tools:ignore="ResourceName">
         <attr name="sd_dividerEnabled" format="boolean"/>
         <attr name="sd_overflowIconsEnabled" format="boolean"/>
-        <attr name="sd_tabsMinSpacing" sdds:api_name="minSpacing" format="dimension" />
+        <attr name="sd_tabsMinSpacing" sdds:api_name="minSpacing" format="dimension" sdds:api_res_suffix="min_spacing" />
         <attr name="sd_tabItemStyleOverlay" sdds:api_name="tabItemStyle" format="reference" />
         <attr name="sd_dropdownMenuStyleOverlay" format="reference" />
         <attr name="sd_dividerStyleOverlay" sdds:api_name="dividerStyle" />
@@ -25,24 +27,33 @@
         <attr name="sd_disclosureIcon" />
 
         <attr name="sd_overflowNextIcon" format="reference" />
-        <attr name="sd_overflowNextIconColor" format="color|reference" />
+        <attr name="sd_overflowNextIconColor" format="color|reference" sdds:api_res_suffix="next_color" />
         <attr name="sd_overflowPrevIcon" format="reference" />
-        <attr name="sd_overflowPrevIconColor" format="color|reference" />
+        <attr name="sd_overflowPrevIconColor" format="color|reference" sdds:api_res_suffix="prev_color" />
 
-        <attr name="sd_tabIndicatorColor" sdds:api_name="indicatorColor" format="color|reference" />
+        <attr name="sd_tabIndicatorColor" sdds:api_name="indicatorColor" format="color|reference" sdds:api_res_suffix="indicator_color" />
         <attr name="sd_tabIndicatorEnabled" sdds:api_name="indicatorEnabled" format="boolean"/>
-        <attr name="sd_tabIndicatorThickness" sdds:api_name="indicatorThickness" format="dimension" />
+        <attr name="sd_tabIndicatorThickness" sdds:api_name="indicatorThickness" format="dimension" sdds:api_res_suffix="indicator_thickness" />
 
-        <attr name="android:orientation" />
-        <attr name="sd_shapeAppearance" />
+        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="integer" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <attr name="sd_shapeAppearanceAdjustment"/>
         <attr name="sd_strokeWidth"/>
         <attr name="sd_strokeColor"/>
 
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
+        <attr name="android:minHeight" sdds:api_name="minHeight" sdds:api_type="dimension" />
+        <attr name="android:backgroundTint" sdds:api_name="backgroundColor" sdds:api_type="color" sdds:api_res_suffix="background_color" />
     </declare-styleable>
 
-    <declare-styleable name="TabItem" sdds:api_info="TabItem" sdds:api_framework="labelStyle=android:textAppearance:typography;minWidth=android:minWidth:dimension;minHeight=android:minHeight:dimension;paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;labelColor=android:textColor:color" tools:ignore="ResourceName">
-        <attr name="backgroundTint"/>
+    <declare-styleable name="TabItem" sdds:api_info="IconTabItem,TabItem"
+        sdds:api_core_name="IconTabItem=IconTabItem;TabItem=TabItem"
+        sdds:api_def_style_attr="IconTabItem=sd_iconTabItemStyle;TabItem=sd_tabItemStyle"
+        sdds:api_parent="IconTabItem=Sdds.Components.IconTabItem;TabItem=Sdds.Components.TabItem" tools:ignore="ResourceName">
+        <attr name="backgroundTint" sdds:api_name="backgroundColor" sdds:api_res_suffix="background_color" />
         <attr name="sd_valueTextColor" sdds:api_name="valueColor"/>
         <attr name="sd_iconTint" sdds:api_name="startContentColor"/>
         <attr name="sd_iconSize"/>
@@ -52,22 +63,31 @@
         <attr name="android:checkable"/>
         <attr name="android:checked"/>
         <attr name="sd_counterStyle"/>
-        <attr name="sd_counterPadding" sdds:api_name="counterMargin"/>
+        <attr name="sd_counterPadding"/>
         <attr name="sd_counterText"/>
         <attr name="sd_counterEnabled"/>
-        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <attr name="sd_shapeAppearanceAdjustment"/>
-        <attr name="sd_valuePadding" sdds:api_name="valueMargin"/>
+        <attr name="sd_valuePadding"/>
         <attr name="sd_actionEnabled"/>
         <attr name="sd_actionPadding"/>
         <attr name="sd_actionSize"/>
         <attr name="sd_actionTint" sdds:api_name="actionColor"/>
-        <attr name="sd_action" sdds:api_name="actionIcon"/>
+        <attr name="sd_action" sdds:api_name="actionIcon" sdds:api_type="icon" />
         <attr name="sd_value"/>
         <attr name="sd_icon"/>
-        <attr name="sd_iconPadding" sdds:api_name="iconMargin"/>
+        <attr name="sd_iconPadding"/>
         <attr name="sd_spacing"/>
         <attr name="sd_iconPosition"/>
+        <attr name="android:textAppearance" sdds:api_name="labelStyle" sdds:api_type="typography" />
+        <attr name="android:minWidth" sdds:api_name="minWidth" sdds:api_type="dimension" />
+        <attr name="android:minHeight" sdds:api_name="minHeight" sdds:api_type="dimension" />
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:textColor" sdds:api_name="labelColor" sdds:api_type="color" />
+        <attr name="android:state_selected" sdds:api_state="TabItemSelection" sdds:api_state_kind="android" sdds:api_name="selected" />
+        <attr name="sd_counterOffsetX" />
+        <attr name="sd_counterOffsetY" />
     </declare-styleable>
 
     <declare-styleable name="IconTabItem" sdds:api_info="IconTabItem" tools:ignore="ResourceName">

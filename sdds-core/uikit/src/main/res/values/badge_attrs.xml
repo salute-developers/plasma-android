@@ -5,30 +5,32 @@
     <attr name="sd_badgeStyle" format="reference" />
     <attr name="sd_iconBadgeStyle" format="reference" />
 
-    <declare-styleable name="Badge" sdds:api_info="Badge" tools:ignore="ResourceName">
+    <declare-styleable name="Badge" sdds:api_info="Badge,IconBadge"
+        sdds:api_def_style_attr="Badge=sd_badgeStyle;IconBadge=sd_iconBadgeStyle"
+        sdds:api_parent="Badge=Sdds.Components.Badge;IconBadge=Sdds.Components.IconBadge" tools:ignore="ResourceName">
         <attr name="android:drawableStart" />
         <attr name="android:drawableEnd" />
-        <attr name="sd_drawableStartTint" />
-        <attr name="sd_drawableEndTint" />
+        <attr name="sd_drawableStartTint" sdds:api_name="startContentColor" />
+        <attr name="sd_drawableEndTint" sdds:api_name="endContentColor" />
         <attr name="sd_drawableSize" />
-        <attr name="sd_contentStartSize" />
-        <attr name="sd_contentEndSize" />
+        <attr name="sd_contentStartSize" sdds:api_name="startContentSize" />
+        <attr name="sd_contentEndSize" sdds:api_name="endContentSize" />
 
         <attr name="android:text" />
-        <attr name="android:textAppearance" />
-        <attr name="android:textColor" />
-        <attr name="sd_textPaddingStart" />
-        <attr name="sd_textPaddingEnd" />
+        <attr name="android:textAppearance" sdds:api_name="labelStyle" sdds:api_type="typography" />
+        <attr name="android:textColor" sdds:api_name="labelColor" sdds:api_type="color" />
+        <attr name="sd_textPaddingStart" sdds:api_name="startContentMargin" />
+        <attr name="sd_textPaddingEnd" sdds:api_name="endContentMargin" />
 
-        <attr name="android:paddingStart" />
-        <attr name="android:paddingEnd" />
+        <attr name="android:paddingStart" sdds:api_name="startPadding" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="endPadding" sdds:api_type="dimension" />
         <attr name="android:paddingTop" />
         <attr name="android:paddingBottom" />
-        <attr name="android:minWidth" />
-        <attr name="android:minHeight" />
+        <attr name="android:minWidth" sdds:api_name="width" sdds:api_type="dimension" />
+        <attr name="android:minHeight" sdds:api_name="height" sdds:api_type="dimension" />
 
-        <attr name="android:backgroundTint" />
+        <attr name="android:backgroundTint" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
         <attr name="backgroundTint" />
-        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
     </declare-styleable>
 </resources>

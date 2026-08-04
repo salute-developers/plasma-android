@@ -1,10 +1,11 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
-import com.sdds.plugin.themebuilder.internal.components.base.Dimension
-import com.sdds.plugin.themebuilder.internal.components.base.FloatState
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
+import com.sdds.plugin.themebuilder.internal.universal.Dimension
+import com.sdds.plugin.themebuilder.internal.universal.FloatState
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.DimensionPropertyMapper
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import io.mockk.every
 import io.mockk.mockk

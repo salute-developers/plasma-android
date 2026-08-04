@@ -37,7 +37,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(file)).single()
+        val meta = parser.parse(listOf(file)).components.single()
 
         assertEquals(listOf("Button"), meta.componentNames)
         assertEquals("Button", meta.styleableName)
@@ -59,7 +59,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(file)).single()
+        val meta = parser.parse(listOf(file)).components.single()
 
         assertNull(meta.param("horizontalPadding"))
         assertEquals("sd_horizontalPadding", meta.param("indicatorOffsetX")!!.attrName)
@@ -78,7 +78,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(file)).single()
+        val meta = parser.parse(listOf(file)).components.single()
 
         assertEquals(listOf("TextField", "TextArea"), meta.componentNames)
     }
@@ -98,7 +98,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(file)).single()
+        val meta = parser.parse(listOf(file)).components.single()
 
         assertEquals("icon", meta.param("icon")!!.type)   // явный api_type
         assertEquals("color", meta.param("iconTint")!!.type) // эвристика: "tint"
@@ -121,7 +121,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(file)).single()
+        val meta = parser.parse(listOf(file)).components.single()
         val spacing = meta.param("spacing")!!
 
         assertEquals("value", spacing.type)
@@ -149,7 +149,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(file)).single()
+        val meta = parser.parse(listOf(file)).components.single()
 
         assertEquals(1, meta.params.size)
         assertEquals("valuePadding", meta.params.single().id)
@@ -177,7 +177,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(base, button)).single { it.styleableName == "Button" }
+        val meta = parser.parse(listOf(base, button)).components.single { it.styleableName == "Button" }
 
         // format отсутствует в styleable, но найден в base_attrs через индекс -> float
         assertEquals("float", meta.param("disabledAlpha")!!.type)
@@ -199,7 +199,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val result = parser.parse(listOf(file))
+        val result = parser.parse(listOf(file)).components
 
         assertEquals(1, result.size)
         assertEquals("Marked", result.single().styleableName)
@@ -222,7 +222,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(file)).single()
+        val meta = parser.parse(listOf(file)).components.single()
 
         // Состояния не попадают в params
         assertEquals(listOf("valuePadding"), meta.params.map { it.id })
@@ -231,8 +231,8 @@ class DeclareStyleableParserTest {
         assertEquals("AvatarStatus", stateSet.name)
         assertEquals(
             listOf(
-                StateInfo("online", 0, "sd_state_online", "scoped"),
-                StateInfo("offline", 1, "sd_state_offline", "scoped"),
+                StateInfo("online", "sd_state_online", "scoped"),
+                StateInfo("offline", "sd_state_offline", "scoped"),
             ),
             stateSet.states,
         )
@@ -265,7 +265,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val metas = parser.parse(listOf(file))
+        val metas = parser.parse(listOf(file)).components
 
         // Один компонент "Avatar", собранный из двух styleable — join по componentNames.
         assertEquals(setOf("Avatar"), metas.flatMap { it.componentNames }.toSet())
@@ -284,8 +284,8 @@ class DeclareStyleableParserTest {
         val states = stateMeta.stateSets.single { it.name == "AvatarStatus" }.states
         assertEquals(
             listOf(
-                StateInfo("active", 0, "sd_status_active", "scoped"),
-                StateInfo("inactive", 1, "sd_status_inactive", "scoped"),
+                StateInfo("active", "sd_status_active", "scoped"),
+                StateInfo("inactive", "sd_status_inactive", "scoped"),
             ),
             states,
         )
@@ -310,7 +310,7 @@ class DeclareStyleableParserTest {
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(file)).single()
+        val meta = parser.parse(listOf(file)).components.single()
 
         // `appearance` -> typography, но `shapeAppearance` перехватывается раньше веткой SHAPE.
         assertEquals("typography", meta.param("titleAppearance")!!.type)
@@ -323,45 +323,56 @@ class DeclareStyleableParserTest {
     }
 
     @Test
-    fun `api_framework bindings become params with android attrName`() {
+    fun `marked framework attributes become params, unmarked are ignored`() {
         val file = xml(
             "button_attrs.xml",
             """
             <resources xmlns:sdds="http://schemas.sdds.ru/android/sdds">
-                <declare-styleable name="Button" sdds:api_info="Button"
-                    sdds:api_framework="height=android:minHeight:dimension;labelColor=android:textColor:color;labelStyle=android:textAppearance:typography">
+                <declare-styleable name="Button" sdds:api_info="BasicButton">
                     <attr name="sd_iconSize" format="dimension" />
+                    <attr name="android:minHeight" sdds:api_name="height" sdds:api_type="dimension" />
+                    <attr name="android:textColor" sdds:api_name="labelColor" sdds:api_type="color" />
+                    <attr name="android:textAppearance" sdds:api_name="labelStyle" sdds:api_type="typography" />
+                    <attr name="android:insetLeft" />
                 </declare-styleable>
             </resources>
             """.trimIndent(),
         )
 
-        val meta = parser.parse(listOf(file)).single()
+        val meta = parser.parse(listOf(file)).components.single()
 
-        // обычное sd_-свойство + три framework-биндинга
         assertEquals("dimension", meta.param("iconSize")!!.type)
         val height = meta.param("height")!!
         assertEquals("android:minHeight", height.attrName)
         assertEquals("dimension", height.type)
+        assertEquals("min_height", height.resSuffix)
         assertEquals("android:textColor", meta.param("labelColor")!!.attrName)
-        assertEquals("color", meta.param("labelColor")!!.type)
-        assertEquals("android:textAppearance", meta.param("labelStyle")!!.attrName)
         assertEquals("typography", meta.param("labelStyle")!!.type)
+        // неразмеченный framework-атрибут остаётся вне меты
+        assertTrue(meta.params.none { it.attrName == "android:insetLeft" })
     }
 
     @Test
-    fun `invalid api_framework type is rejected`() {
+    fun `one config key can bind to several attributes with own suffixes`() {
         val file = xml(
-            "bad.xml",
+            "avatar_attrs.xml",
             """
             <resources xmlns:sdds="http://schemas.sdds.ru/android/sdds">
-                <declare-styleable name="Button" sdds:api_info="Button"
-                    sdds:api_framework="height=android:minHeight:bogus">
+                <declare-styleable name="Avatar" sdds:api_info="Avatar">
+                    <attr name="android:minWidth" sdds:api_name="width" sdds:api_type="dimension"
+                        sdds:api_res_suffix="min_width" />
+                    <attr name="android:maxWidth" sdds:api_name="width" sdds:api_type="dimension"
+                        sdds:api_res_suffix="max_width" />
                 </declare-styleable>
             </resources>
             """.trimIndent(),
         )
-        assertThrows(DeclareStyleableParser.MarkupException::class.java) { parser.parse(listOf(file)) }
+
+        val params = parser.parse(listOf(file)).components.single().params
+
+        assertEquals(listOf("width", "width"), params.map { it.id })
+        assertEquals(listOf("android:minWidth", "android:maxWidth"), params.map { it.attrName })
+        assertEquals(listOf("min_width", "max_width"), params.map { it.resSuffix })
     }
 
     @Test
@@ -378,7 +389,7 @@ class DeclareStyleableParserTest {
         )
 
         val ex = assertThrows(DeclareStyleableParser.MarkupException::class.java) {
-            parser.parse(listOf(file))
+            parser.parse(listOf(file)).components
         }
         assertTrue(ex.message!!.contains("sd_icon"))
     }

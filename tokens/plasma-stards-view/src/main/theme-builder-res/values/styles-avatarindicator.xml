@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.AvatarIndicator" parent="Sdds.Components.Indicator">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/sdkit_avatar_indicator_bg_color</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.AvatarIndicator.L">
+        <item name="android:maxHeight">@dimen/sdkit_avatar_indicator_l_max_height</item>
+        <item name="android:maxWidth">@dimen/sdkit_avatar_indicator_l_max_width</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarIndicatorL">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.AvatarIndicator.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.AvatarIndicator.M">
+        <item name="android:maxHeight">@dimen/sdkit_avatar_indicator_m_max_height</item>
+        <item name="android:maxWidth">@dimen/sdkit_avatar_indicator_m_max_width</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarIndicatorM">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.AvatarIndicator.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.AvatarIndicator.S">
+        <item name="android:maxHeight">@dimen/sdkit_avatar_indicator_s_max_height</item>
+        <item name="android:maxWidth">@dimen/sdkit_avatar_indicator_s_max_width</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarIndicatorS">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.AvatarIndicator.S</item>
+    </style>
+</resources>

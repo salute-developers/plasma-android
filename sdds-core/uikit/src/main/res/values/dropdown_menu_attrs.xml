@@ -5,32 +5,48 @@
     <attr name="sd_dropdownMenuStyle" format="reference" />
     <attr name="sd_dropdownEmptyStateStyle" format="reference" />
 
-    <declare-styleable name="DropdownMenu" sdds:api_info="DropdownMenu" sdds:api_framework="width=android:minWidth:dimension;paddingStart=android:paddingStart:dimension;paddingTop=android:paddingTop:dimension;paddingEnd=android:paddingEnd:dimension;paddingBottom=android:paddingBottom:dimension" tools:ignore="ResourceName">
+    <declare-styleable name="DropdownMenu" sdds:api_info="DropdownMenu"
+        sdds:api_def_style_attr="sd_dropdownMenuStyle"
+        sdds:api_parent="Sdds.Components.DropdownMenu" tools:ignore="ResourceName">
         <attr name="sd_itemDividerEnabled" format="boolean" />
         <attr name="sd_listViewStyleOverlay" sdds:api_name="listStyle" format="reference" />
         <attr name="sd_dividerStyleOverlay" sdds:api_name="dividerStyle" format="reference" />
         <attr name="sd_scrollBarStyleOverlay" sdds:api_name="scrollBarStyle" format="reference"/>
         <attr name="sd_emptyStateStyleOverlay" sdds:api_name="emptyStateStyle" format="reference"/>
         <attr name="android:padding"/>
-        <attr name="android:paddingTop"/>
-        <attr name="android:paddingStart"/>
-        <attr name="android:paddingEnd"/>
-        <attr name="android:paddingBottom"/>
-        <attr name="sd_scrollBarPaddingTop"/>
-        <attr name="sd_scrollBarPaddingBottom"/>
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
+        <attr name="sd_scrollBarPaddingTop" sdds:api_res_suffix="scrollbar_padding_top" />
+        <attr name="sd_scrollBarPaddingBottom" sdds:api_res_suffix="scrollbar_padding_bottom" />
+        <attr name="android:minWidth" sdds:api_name="width" sdds:api_type="dimension" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <attr name="sd_offset" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_strokeWidth" />
+        <attr name="sd_shadowAppearance" sdds:api_name="shadow" />
     </declare-styleable>
 
-    <declare-styleable name="DropdownEmptyStateView" sdds:api_info="DropdownEmptyStateView" sdds:api_framework="paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension" tools:ignore="ResourceName">
+    <declare-styleable name="DropdownEmptyStateView" sdds:api_info="DropdownEmptyState"
+        sdds:api_core_name="DropdownEmptyStateView"
+        sdds:api_def_style_attr="sd_dropdownEmptyStateStyle"
+        sdds:api_parent="Sdds.Components.DropdownEmptyState" tools:ignore="ResourceName">
         <attr name="sd_icon" />
-        <attr name="sd_iconTint" sdds:api_name="iconColor" />
+        <attr name="sd_iconTint" sdds:api_name="iconColor" sdds:api_res_suffix="icon_color" />
 
         <attr name="sd_description" />
         <attr name="sd_descriptionPadding" />
-        <attr name="sd_descriptionTextColor" sdds:api_name="descriptionColor" />
+        <attr name="sd_descriptionTextColor" sdds:api_name="descriptionColor" sdds:api_res_suffix="description_color" />
         <attr name="sd_descriptionTextAppearance" sdds:api_name="descriptionStyle" />
 
         <attr name="sd_actionButtonText" format="string" />
         <attr name="sd_actionButtonStyleOverlay" sdds:api_name="buttonStyle" format="reference" />
 
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
     </declare-styleable>
 </resources>

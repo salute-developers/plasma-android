@@ -44,6 +44,7 @@ internal class ThemeBuilderPlugin {
             val cleanExtension = theme ?: components
             if (cleanExtension != null) {
                 project.registerClean(cleanExtension)
+                project.registerCompareGeneratedTheme(cleanExtension)
             }
 
             if (theme != null) {
@@ -99,8 +100,12 @@ internal class ThemeBuilderPlugin {
                 }
                 val fetchComponentsTask = registerFetchAndUnzipComponents(components, componentsZip)
                 fetchComponentsTask?.let {
-                    val generateComponents =
-                        registerGenerateComponentsTask(components, it, readUikitComposeApiMetaTask)
+                    val generateComponents = registerGenerateComponentsTask(
+                        components,
+                        it,
+                        readUikitComposeApiMetaTask,
+                        readUikitApiMetaTask,
+                    )
                     if (components.autoGenerate) {
                         tasks.matching { task -> task.name == "preBuild" }.configureEach {
                             dependsOn(generateComponents)
@@ -166,6 +171,19 @@ internal class ThemeBuilderPlugin {
         }
     }
 
+    private fun Project.registerCompareGeneratedTheme(
+        extension: ThemeBuilderExtension,
+    ): TaskProvider<CompareGeneratedThemeTask> {
+        return project.tasks.register<CompareGeneratedThemeTask>("compareGeneratedTheme") {
+            group = TASK_GROUP
+            description = "Сравнивает сгенерированные ресурсы темы с эталонным снимком (--baseline=<каталог>)"
+            outputResDirPath.set(extension.outputLocation.getResourcePath())
+            projectDir.set(project.layout.projectDirectory)
+            baselineDir.convention("")
+            reportLimit.convention(50)
+        }
+    }
+
     private fun Project.registerFetchAndUnzipComponents(
         extension: ThemeBuilderExtension,
         outputZip: Provider<RegularFile>,
@@ -216,6 +234,7 @@ internal class ThemeBuilderPlugin {
         extension: ThemeBuilderExtension,
         fetchComponentsTask: TaskProvider<Copy>,
         readUikitComposeApiMetaTask: TaskProvider<UikitComposeApiMetaTask>,
+        readUikitApiMetaTask: TaskProvider<UikitApiMetaTask>,
     ): TaskProvider<GenerateComponentsTask> {
         val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
             group = TASK_GROUP
@@ -234,8 +253,9 @@ internal class ThemeBuilderPlugin {
             componentsMetaStyleClass.set(extension.componentsMetaStyleClass)
             multiplatform.set(extension.multiplatform)
             uikitComposeApiMetaFile.set(readUikitComposeApiMetaTask.flatMap { it.outputFile })
+            uikitApiMetaFile.set(readUikitApiMetaTask.flatMap { it.outputFile })
         }
-        task.dependsOn(fetchComponentsTask, readUikitComposeApiMetaTask)
+        task.dependsOn(fetchComponentsTask, readUikitComposeApiMetaTask, readUikitApiMetaTask)
         return task
     }
 

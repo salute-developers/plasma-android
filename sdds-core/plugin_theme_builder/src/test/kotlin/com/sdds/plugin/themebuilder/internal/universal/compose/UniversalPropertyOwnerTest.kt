@@ -1,14 +1,14 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
-import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
-import com.sdds.plugin.themebuilder.internal.components.base.Dimension
-import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
-import com.sdds.plugin.themebuilder.internal.components.base.Gradient
-import com.sdds.plugin.themebuilder.internal.components.base.Shadow
-import com.sdds.plugin.themebuilder.internal.components.base.Shape
-import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
-import com.sdds.plugin.themebuilder.internal.components.base.Typography
-import com.sdds.plugin.themebuilder.internal.components.base.Value
+import com.sdds.plugin.themebuilder.internal.universal.ComponentStyle
+import com.sdds.plugin.themebuilder.internal.universal.Dimension
+import com.sdds.plugin.themebuilder.internal.universal.FloatValue
+import com.sdds.plugin.themebuilder.internal.universal.Gradient
+import com.sdds.plugin.themebuilder.internal.universal.Shadow
+import com.sdds.plugin.themebuilder.internal.universal.Shape
+import com.sdds.plugin.themebuilder.internal.universal.SolidColor
+import com.sdds.plugin.themebuilder.internal.universal.Typography
+import com.sdds.plugin.themebuilder.internal.universal.Value
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup" parent="Sdds.Components.ButtonGroup"/>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonXsClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXs">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_xs_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_xs_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_xs_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonSClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupS">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_s_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_s_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_s_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonMClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupM">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_m_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_m_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_m_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonLClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupL">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_l_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_l_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_ai_input_icon_button_group_l_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap.Segmented</item>
+    </style>
+</resources>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton" parent="Sdds.Components.IconButton">
+        <item name="sd_iconTint">@color/serv_ai_header_embedded_icon_button_icon_tint</item>
+        <item name="sd_spinnerTint">@color/serv_ai_header_embedded_icon_button_spinner_tint</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="android:paddingStart">@dimen/serv_ai_header_embedded_icon_button_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_ai_header_embedded_icon_button_padding_end</item>
+        <item name="backgroundTint">?serv_surfaceDefaultClear</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.AiHeaderEmbeddedIconButtonColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl">
+        <item name="sd_iconSize">@dimen/serv_ai_header_embedded_icon_button_xl_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_ai_header_embedded_icon_button_xl_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_ai_header_embedded_icon_button_xl_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="android:minHeight">@dimen/serv_ai_header_embedded_icon_button_xl_min_height</item>
+        <item name="android:minWidth">@dimen/serv_ai_header_embedded_icon_button_xl_min_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXl">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Default">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlDefault">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Secondary">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlSecondary">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Accent">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlAccent">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Positive">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlPositive">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Negative">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlNegative">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Warning">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlWarning">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Info">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlInfo">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L">
+        <item name="sd_iconSize">@dimen/serv_ai_header_embedded_icon_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_ai_header_embedded_icon_button_l_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_ai_header_embedded_icon_button_l_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="android:minHeight">@dimen/serv_ai_header_embedded_icon_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/serv_ai_header_embedded_icon_button_l_min_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonL">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Default">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLDefault">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Secondary">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLSecondary">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Accent">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLAccent">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Positive">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLPositive">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Negative">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLNegative">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Warning">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLWarning">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Info">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLInfo">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M">
+        <item name="sd_iconSize">@dimen/serv_ai_header_embedded_icon_button_m_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_ai_header_embedded_icon_button_m_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_ai_header_embedded_icon_button_m_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="android:minHeight">@dimen/serv_ai_header_embedded_icon_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/serv_ai_header_embedded_icon_button_m_min_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonM">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Default">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMDefault">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Secondary">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMSecondary">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Accent">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMAccent">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Positive">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMPositive">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Negative">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMNegative">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Warning">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMWarning">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Info">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMInfo">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S">
+        <item name="sd_iconSize">@dimen/serv_ai_header_embedded_icon_button_s_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_ai_header_embedded_icon_button_s_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_ai_header_embedded_icon_button_s_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="android:minHeight">@dimen/serv_ai_header_embedded_icon_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/serv_ai_header_embedded_icon_button_s_min_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonS">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Default">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSDefault">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Secondary">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSSecondary">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Accent">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSAccent">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Positive">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSPositive">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Negative">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSNegative">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Warning">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSWarning">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Info">
+        <item name="serv_aiheaderembeddediconbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSInfo">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Info</item>
+    </style>
+</resources>

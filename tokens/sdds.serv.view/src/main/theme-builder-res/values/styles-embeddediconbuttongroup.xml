@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup" parent="Sdds.Components.ButtonGroup"/>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXsDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupXs">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.Xs.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_xs_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupXsWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.Xs.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.Xs.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_xs_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupXsDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.Xs.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.Xs.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_xs_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupXsNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.Xs.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupS">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.S.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_s_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupSWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.S.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.S.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_s_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupSDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.S.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.S.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_s_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupSNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.S.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupM">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.M.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_m_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupMWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.M.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.M.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_m_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupMDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.M.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.M.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_m_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupMNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.M.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonLDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupL">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.L.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_l_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupLWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.L.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.L.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_l_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupLDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.L.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedIconButtonGroup.L.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_embedded_icon_button_group_l_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedIconButtonGroupLNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.EmbeddedIconButtonGroup.L.NoGap</item>
+    </style>
+</resources>

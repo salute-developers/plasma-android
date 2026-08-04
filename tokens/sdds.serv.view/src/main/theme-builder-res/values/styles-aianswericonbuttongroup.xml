@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AiAnswerIconButtonGroup" parent="Sdds.Components.ButtonGroup"/>
+    <style name="Serv.Sdds.Components.AiAnswerIconButtonGroup.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXsDefault</item>
+        <item name="sd_buttonSpacing">@dimen/serv_ai_answer_icon_button_group_xs_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiAnswerIconButtonGroupXs">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiAnswerIconButtonGroup.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiAnswerIconButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSDefault</item>
+        <item name="sd_buttonSpacing">@dimen/serv_ai_answer_icon_button_group_s_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiAnswerIconButtonGroupS">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiAnswerIconButtonGroup.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiAnswerIconButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMDefault</item>
+        <item name="sd_buttonSpacing">@dimen/serv_ai_answer_icon_button_group_m_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiAnswerIconButtonGroupM">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiAnswerIconButtonGroup.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AiAnswerIconButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedIconButtonLDefault</item>
+        <item name="sd_buttonSpacing">@dimen/serv_ai_answer_icon_button_group_l_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AiAnswerIconButtonGroupL">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.AiAnswerIconButtonGroup.L</item>
+    </style>
+</resources>

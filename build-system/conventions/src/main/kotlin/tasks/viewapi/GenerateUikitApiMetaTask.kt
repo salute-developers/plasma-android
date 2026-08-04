@@ -42,6 +42,9 @@ abstract class GenerateUikitApiMetaTask : DefaultTask() {
             .resolve("uikit-api-meta.json")
         outFile.writeText(gson.toJson(meta))
 
-        logger.lifecycle("Generated uikit-api-meta.json: ${meta.size} component(s) -> ${outFile.path}")
+        logger.lifecycle(
+            "Generated uikit-api-meta.json: ${meta.components.size} component(s), " +
+                "${meta.sharedStates.size} shared state(s) -> ${outFile.path}",
+        )
     }
 }

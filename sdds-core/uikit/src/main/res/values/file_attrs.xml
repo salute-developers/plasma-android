@@ -3,7 +3,9 @@
            xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_fileStyle" format="reference" />
-    <declare-styleable name="File" sdds:api_info="File" tools:ignore="ResourceName">
+    <declare-styleable name="File" sdds:api_info="File"
+        sdds:api_def_style_attr="sd_fileStyle"
+        sdds:api_parent="Sdds.Components.File" tools:ignore="ResourceName">
         <!-- Оверлэй стиль компонента CircularProgressBar -->
         <attr name="sd_circularProgressBarStyleOverlay" sdds:api_name="circularProgressBarStyle" />
         <!-- Оверлэй стиль компонента ProgressBar -->

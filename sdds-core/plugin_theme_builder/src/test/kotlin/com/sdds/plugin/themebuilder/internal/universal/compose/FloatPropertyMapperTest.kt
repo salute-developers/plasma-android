@@ -1,7 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
-import com.sdds.plugin.themebuilder.internal.components.base.FloatState
-import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
+import com.sdds.plugin.themebuilder.internal.universal.FloatState
+import com.sdds.plugin.themebuilder.internal.universal.FloatValue
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.FloatPropertyMapper
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

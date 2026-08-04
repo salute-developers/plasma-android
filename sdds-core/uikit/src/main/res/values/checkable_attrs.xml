@@ -30,7 +30,9 @@
         <attr name="android:textAppearance" />
     </declare-styleable>
 
-    <declare-styleable name="CheckBox" sdds:api_info="CheckBox" sdds:api_framework="labelStyle=android:textAppearance:typography;textPadding=android:drawablePadding:dimension;labelColor=android:textColor:color" tools:ignore="ResourceName">
+    <declare-styleable name="CheckBox" sdds:api_info="CheckBox"
+        sdds:api_def_style_attr="android:checkboxStyle"
+        sdds:api_parent="Sdds.Components.CheckBox" tools:ignore="ResourceName">
         <!-- Дополнительный текст  -->
         <attr name="sd_description" />
         <!-- Стиль дополнительного текста  -->
@@ -63,30 +65,46 @@
 
         <attr name="sd_focusBorderEnabled" />
 
+        <attr name="android:textAppearance" sdds:api_name="labelStyle" sdds:api_type="typography" />
+        <attr name="android:drawablePadding" sdds:api_name="textPadding" sdds:api_type="dimension" />
+        <attr name="android:textColor" sdds:api_name="labelColor" sdds:api_type="color" />
+        <attr name="sd_buttonPadding" sdds:api_name="togglePadding" />
+        <attr name="sd_disabledAlpha" sdds:api_name="disableAlpha" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
     </declare-styleable>
 
-    <declare-styleable name="RadioBox" sdds:api_info="RadioBox" tools:ignore="ResourceName">
+    <declare-styleable name="RadioBox" sdds:api_info="RadioBox"
+        sdds:api_def_style_attr="android:radioButtonStyle"
+        sdds:api_parent="Sdds.Components.RadioBox" tools:ignore="ResourceName">
         <!-- Дополнительный текст  -->
         <attr name="sd_description" />
         <!-- Стиль дополнительного текста  -->
-        <attr name="sd_descriptionTextAppearance" />
+        <attr name="sd_descriptionTextAppearance" sdds:api_name="descriptionStyle" />
         <!--  Цвет дополнительного текста -->
-        <attr name="sd_descriptionTextColor" />
+        <attr name="sd_descriptionTextColor" sdds:api_name="descriptionColor" />
         <!-- Отступ между основным и дополнительным текстом -->
         <attr name="sd_descriptionPadding" />
 
         <!-- Цвет заливки -->
-        <attr name="sd_buttonBoxColor" />
+        <attr name="sd_buttonBoxColor" sdds:api_name="toggleColor" />
         <!-- Цвет границы -->
-        <attr name="sd_buttonBorderColor" />
+        <attr name="sd_buttonBorderColor" sdds:api_name="toggleBorderColor" />
         <!-- Цвет маркера -->
-        <attr name="sd_buttonMarkColor" />
+        <attr name="sd_buttonMarkColor" sdds:api_name="toggleIconColor" />
         <attr name="sd_buttonMarkColorMode" />
 
         <attr name="sd_focusBorderEnabled" />
+        <attr name="android:drawablePadding" sdds:api_name="textPadding" sdds:api_type="dimension" />
+        <attr name="android:textAppearance" sdds:api_name="labelStyle" sdds:api_type="typography" />
+        <attr name="android:textColor" sdds:api_name="labelColor" sdds:api_type="color" />
+        <attr name="sd_buttonPadding" sdds:api_name="togglePadding" />
+        <attr name="sd_disabledAlpha" sdds:api_name="disableAlpha" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
     </declare-styleable>
 
-    <declare-styleable name="Switch" sdds:api_info="Switch" sdds:api_framework="textPadding=android:drawablePadding:dimension;paddingStart=android:paddingStart:dimension;paddingTop=android:paddingTop:dimension;paddingEnd=android:paddingEnd:dimension;paddingBottom=android:paddingBottom:dimension;labelColor=android:textColor:color" tools:ignore="ResourceName">
+    <declare-styleable name="Switch" sdds:api_info="Switch"
+        sdds:api_def_style_attr="sd_switchStyle"
+        sdds:api_parent="Sdds.Components.Switch" tools:ignore="ResourceName">
         <!-- Цвет неподвижной части переключателя -->
         <attr name="sd_buttonTrackColor" sdds:api_name="toggleTrackColor" format="reference|color" />
         <!-- Цвет бордера неподвижной части переключателя -->
@@ -94,12 +112,28 @@
         <!-- Цвет подвижной части переключателя -->
         <attr name="sd_buttonThumbColor" sdds:api_name="toggleThumbColor" format="reference|color" />
         <!-- Стиль основного текста  -->
-        <attr name="sd_textAppearance" />
+        <attr name="sd_textAppearance" sdds:api_name="labelStyle" />
         <!-- Стиль дополнительного текста  -->
-        <attr name="sd_descriptionTextAppearance" />
+        <attr name="sd_descriptionTextAppearance" sdds:api_name="descriptionStyle" sdds:api_res_suffix="description_appearance" />
         <attr name="sd_buttonThumbColorMode"/>
-        <attr name="sd_shapeAppearance"/>
-        <attr name="sd_background" sdds:api_name="backgroundColor"/>
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="background_color" sdds:api_type="color" />
+        <attr name="android:drawablePadding" sdds:api_name="textPadding" sdds:api_type="dimension" />
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
+        <attr name="android:textColor" sdds:api_name="labelColor" sdds:api_type="color" />
+        <attr name="sd_buttonPadding" sdds:api_name="togglePadding" />
+        <attr name="sd_descriptionTextColor" sdds:api_name="descriptionColor" />
+        <attr name="sd_disabledAlpha" sdds:api_name="disableAlpha" />
+        <attr name="sd_switchHeight" sdds:api_name="toggleTrackHeight" />
+        <attr name="sd_switchWidth" sdds:api_name="toggleTrackWidth" />
+        <attr name="sd_thumbHeight" sdds:api_name="toggleThumbHeight" />
+        <attr name="sd_thumbShapeAppearance" sdds:api_name="toggleThumbShape" sdds:api_shape_adjustment="true" />
+        <attr name="sd_thumbWidth" sdds:api_name="toggleThumbWidth" />
+        <attr name="sd_trackShapeAppearance" sdds:api_name="toggleTrackShape" sdds:api_shape_adjustment="true" />
+        <attr name="sd_descriptionPadding" />
     </declare-styleable>
 
     <declare-styleable name="SdCheckBoxDrawable" sdds:api_info="CheckBox">
@@ -140,7 +174,7 @@
         <attr name="sd_thumbHeight" sdds:api_name="toggleThumbHeight" format="dimension|float" />
         <attr name="sd_thumbPadding" format="dimension|float" />
         <attr name="sd_shapeAppearance"/>
-        <attr name="sd_background" sdds:api_name="backgroundColor"/>
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_type="color" />
         <attr name="sd_thumbShapeAppearance" format="reference" />
         <attr name="sd_trackShapeAppearance" format="reference" />
         <attr name="sd_buttonThumbColorMode" format="enum">
@@ -153,15 +187,19 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="CheckBoxGroup" sdds:api_info="CheckBoxGroup" tools:ignore="ResourceName">
+    <declare-styleable name="CheckBoxGroup" sdds:api_info="CheckBoxGroup"
+        sdds:api_def_style_attr="sd_checkBoxGroupStyle"
+        sdds:api_parent="Sdds.Components.CheckBoxGroup" tools:ignore="ResourceName">
         <attr name="sd_hasMain" format="boolean" />
         <attr name="sd_checkBoxStyleOverlay" sdds:api_name="checkBoxStyle" />
-        <attr name="sd_itemOffset" />
-        <attr name="sd_itemSpacing" />
+        <attr name="sd_itemOffset" sdds:api_res_suffix="item_spacing" />
+        <attr name="sd_itemSpacing" sdds:api_res_suffix="item_offset" />
     </declare-styleable>
 
-    <declare-styleable name="RadioBoxGroup" sdds:api_info="RadioBoxGroup" tools:ignore="ResourceName">
+    <declare-styleable name="RadioBoxGroup" sdds:api_info="RadioBoxGroup"
+        sdds:api_def_style_attr="sd_radioBoxGroupStyle"
+        sdds:api_parent="Sdds.Components.RadioBoxGroup" tools:ignore="ResourceName">
         <attr name="sd_radioBoxStyleOverlay" sdds:api_name="radioBoxStyle" />
-        <attr name="sd_itemSpacing" />
+        <attr name="sd_itemSpacing" sdds:api_res_suffix="item_offset" />
     </declare-styleable>
 </resources>

@@ -7,11 +7,13 @@
     <attr name="sd_noteCompactStyle" format="reference"/>
     <attr name="sd_noteCompactStyleOverlay" format="reference"/>
 
-    <declare-styleable name="Note" sdds:api_info="Note" sdds:api_framework="paddingStart=android:paddingStart:dimension;paddingEnd=android:paddingEnd:dimension;paddingTop=android:paddingTop:dimension;paddingBottom=android:paddingBottom:dimension" tools:ignore="ResourceName">
+    <declare-styleable name="Note" sdds:api_info="Note"
+        sdds:api_def_style_attr="sd_noteStyle"
+        sdds:api_parent="Sdds.Components.Note" tools:ignore="ResourceName">
         <!-- Стиль компонента LinkButton -->
         <attr name="sd_linkButtonStyleOverlay" sdds:api_name="linkButtonStyle" format="reference"/>
-        <attr name="sd_background" sdds:api_name="backgroundColor" />
-        <attr name="sd_shapeAppearance" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <!-- Заголовок -->
         <attr name="sd_title" />
         <!-- Текст -->
@@ -48,7 +50,7 @@
         <!-- Ссылка на ресурс иконки close -->
         <attr name="sd_closeIcon" />
         <!-- Окрас иконки close -->
-        <attr name="sd_closeIconTint" sdds:api_name="closeColor" />
+        <attr name="sd_closeIconTint" sdds:api_name="closeColor" sdds:api_res_suffix="close_icon_color" />
         <!-- Размер иконки close -->
         <attr name="sd_closeIconSize" sdds:api_name="closeSize"/>
 
@@ -60,15 +62,47 @@
         <attr name="sd_closeEndMargin" format="dimension" />
         <!-- Верхний отступ action (отступ от text) -->
         <attr name="sd_actionTopMargin" format="dimension" />
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
+        <attr name="sd_actionEndMargin" />
+        <attr name="sd_actionStartMargin" />
+        <attr name="sd_closeStartMargin" />
     </declare-styleable>
 
-    <declare-styleable name="NoteCompact" sdds:api_info="NoteCompact" tools:ignore="ResourceName">
+    <declare-styleable name="NoteCompact" sdds:api_info="NoteCompact"
+        sdds:api_def_style_attr="sd_noteCompactStyle"
+        sdds:api_parent="Sdds.Components.NoteCompact" tools:ignore="ResourceName">
         <!-- Отступ в начале иконки close -->
         <attr name="sd_closeStartMargin" format="dimension" />
         <!-- Отступ в начале action (отступ от text) -->
         <attr name="sd_actionStartMargin" format="dimension" />
         <!-- Отступ в конце action (отступ от close) -->
         <attr name="sd_actionEndMargin" format="dimension" />
+        <attr name="android:paddingBottom" sdds:api_type="dimension" sdds:api_name="paddingBottom" />
+        <attr name="android:paddingEnd" sdds:api_type="dimension" sdds:api_name="paddingEnd" />
+        <attr name="android:paddingStart" sdds:api_type="dimension" sdds:api_name="paddingStart" />
+        <attr name="android:paddingTop" sdds:api_type="dimension" sdds:api_name="paddingTop" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
+        <attr name="sd_closeIconSize" sdds:api_name="closeSize" />
+        <attr name="sd_closeIconTint" sdds:api_name="closeColor" sdds:api_res_suffix="close_icon_color" />
+        <attr name="sd_iconTint" sdds:api_name="iconColor" />
+        <attr name="sd_linkButtonStyleOverlay" sdds:api_name="linkButtonStyle" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <attr name="sd_textAppearance" sdds:api_name="textStyle" />
+        <attr name="sd_titleAppearance" sdds:api_name="titleStyle" />
+        <attr name="sd_actionTopMargin" />
+        <attr name="sd_closeEndMargin" />
+        <attr name="sd_closeIcon" />
+        <attr name="sd_closeTopMargin" />
+        <attr name="sd_contentBeforeArrangement" />
+        <attr name="sd_contentBeforeEndMargin" />
+        <attr name="sd_iconSize" />
+        <attr name="sd_textColor" />
+        <attr name="sd_textTopMargin" />
+        <attr name="sd_titleColor" />
+        <attr name="sd_titlePaddingEnd" />
     </declare-styleable>
 
     <declare-styleable name="Note_Layout" tools:ignore="ResourceName">

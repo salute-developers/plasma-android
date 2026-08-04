@@ -1,7 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
-import com.sdds.plugin.themebuilder.internal.components.base.StringState
-import com.sdds.plugin.themebuilder.internal.components.base.Value
+import com.sdds.plugin.themebuilder.internal.universal.StringState
+import com.sdds.plugin.themebuilder.internal.universal.Value
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.BooleanPropertyMapper
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

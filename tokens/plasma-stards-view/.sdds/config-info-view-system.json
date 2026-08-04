@@ -32,22 +32,22 @@
       {
          "key": "indicator",
          "coreName": "Indicator",
-         "styleName": "Indicator",
+         "styleName": "AvatarIndicator",
          "variations": [
             {
                "name": "l",
-               "viewReference": "Sdkit.StarDs.Components.Indicator.L",
-               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.IndicatorL"
+               "viewReference": "Sdkit.StarDs.Components.AvatarIndicator.L",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.AvatarIndicatorL"
             },
             {
                "name": "m",
-               "viewReference": "Sdkit.StarDs.Components.Indicator.M",
-               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.IndicatorM"
+               "viewReference": "Sdkit.StarDs.Components.AvatarIndicator.M",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.AvatarIndicatorM"
             },
             {
                "name": "s",
-               "viewReference": "Sdkit.StarDs.Components.Indicator.S",
-               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.IndicatorS"
+               "viewReference": "Sdkit.StarDs.Components.AvatarIndicator.S",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.AvatarIndicatorS"
             }
          ]
       },

@@ -1,90 +1,31 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
-import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
-import com.sdds.plugin.themebuilder.internal.components.base.Color
-import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
-import com.sdds.plugin.themebuilder.internal.components.base.Dimension
-import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
-import com.sdds.plugin.themebuilder.internal.components.base.Icon
-import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
-import com.sdds.plugin.themebuilder.internal.components.base.Shadow
-import com.sdds.plugin.themebuilder.internal.components.base.Shape
-import com.sdds.plugin.themebuilder.internal.components.base.Stateful
-import com.sdds.plugin.themebuilder.internal.components.base.StringState
-import com.sdds.plugin.themebuilder.internal.components.base.Typography
-import com.sdds.plugin.themebuilder.internal.components.base.Value
-import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.universal.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.universal.PropertyType
+import com.sdds.plugin.themebuilder.internal.universal.PropertyValueDecoder
+import com.sdds.plugin.themebuilder.internal.universal.Stateful
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
-import kotlinx.serialization.json.decodeFromJsonElement
-import kotlinx.serialization.json.jsonPrimitive
-import kotlinx.serialization.json.put
 
 @Serializable(with = UniversalPropertyOwnerSerializer::class)
 internal class UniversalPropertyOwner(internal val jsonObject: JsonObject) : PropertyOwner {
 
-    @Suppress("CyclomaticComplexMethod")
-    fun getValue(meta: ComposePropertyMeta): Stateful<*, *>? {
-        val element = jsonObject[meta.id] ?: return null
-        return when (meta) {
-            is ComposeColorPropertyMeta ->
-                Serializer.componentConfig.decodeFromJsonElement(Color.serializer(), element)
-            is ComposeDimensionPropertyMeta ->
-                Serializer.componentConfig.decodeFromJsonElement(Dimension.serializer(), element)
-            is ComposeTypographyPropertyMeta ->
-                Serializer.componentConfig.decodeFromJsonElement(Typography.serializer(), element)
-            is ComposeShapePropertyMeta ->
-                Serializer.componentConfig.decodeFromJsonElement(Shape.serializer(), element)
-            is ComposeShadowPropertyMeta ->
-                Serializer.componentConfig.decodeFromJsonElement(Shadow.serializer(), element)
-            is ComposeFloatPropertyMeta ->
-                Serializer.componentConfig.decodeFromJsonElement(FloatValue.serializer(), element)
-            is ComposeValuePropertyMeta ->
-                Serializer.componentConfig.decodeFromJsonElement(Value.serializer(), element)
-            is ComposeBooleanPropertyMeta -> {
-                val boolValue = Serializer.componentConfig.decodeFromJsonElement(BooleanValue.serializer(), element)
-                Value(value = boolValue.value.toString())
-            }
-            is ComposeIntegerPropertyMeta -> {
-                val intString = when {
-                    element is JsonPrimitive -> element.content
-                    element is JsonObject -> element["value"]?.jsonPrimitive?.content ?: "0"
-                    else -> "0"
-                }
-                Value(value = intString)
-            }
-            is ComposeIconPropertyMeta -> {
-                val icon = Serializer.componentConfig.decodeFromJsonElement(Icon.serializer(), element)
-                Value(value = icon.value)
-            }
-            is ComposeComponentPropertyMeta -> {
-                val styleValue = when {
-                    element is JsonPrimitive -> element.content
-                    element is JsonObject -> element["value"]?.jsonPrimitive?.content ?: ""
-                    else -> ""
-                }
-                val states = if (element is JsonObject) {
-                    element["states"]?.let {
-                        Serializer.componentConfig.decodeFromJsonElement(
-                            ListSerializer(StringState.serializer()),
-                            it,
-                        )
-                    }
-                } else {
-                    null
-                }
-                @Suppress("UNCHECKED_CAST")
-                ComponentStyle<UniversalPropertyOwner>(value = styleValue, states = states) as Stateful<*, *>
-            }
-            is ComposeUnknownPropertyMeta -> null
-        }
+    fun getValue(meta: ComposePropertyMeta): Stateful<*, *>? = getValue(meta.typeKey, meta.id)
+
+    /**
+     * Возвращает значение свойства [id], декодированное по семантическому типу [type].
+     *
+     * Вход для view-меты, которая несёт тип строкой; compose-путь приходит сюда же
+     * через [ComposePropertyMeta.typeKey].
+     */
+    fun getValue(type: String, id: String): Stateful<*, *>? {
+        val element = jsonObject[id] ?: return null
+        return PropertyValueDecoder.decode(type, element)
     }
 
     override fun merge(parent: PropertyOwner): UniversalPropertyOwner {
@@ -107,3 +48,25 @@ internal object UniversalPropertyOwnerSerializer : KSerializer<UniversalProperty
     override fun deserialize(decoder: Decoder): UniversalPropertyOwner =
         UniversalPropertyOwner(decoder.decodeSerializableValue(JsonObject.serializer()))
 }
+
+/**
+ * Строковый семантический тип compose-свойства — общий словарь с view-метой.
+ *
+ * Нужен, чтобы декодирование значения жило в одном месте ([PropertyValueDecoder]),
+ * а не дублировалось для двух стеков.
+ */
+internal val ComposePropertyMeta.typeKey: String
+    get() = when (this) {
+        is ComposeColorPropertyMeta -> PropertyType.COLOR
+        is ComposeDimensionPropertyMeta -> PropertyType.DIMENSION
+        is ComposeTypographyPropertyMeta -> PropertyType.TYPOGRAPHY
+        is ComposeShapePropertyMeta -> PropertyType.SHAPE
+        is ComposeShadowPropertyMeta -> PropertyType.SHADOW
+        is ComposeFloatPropertyMeta -> PropertyType.FLOAT
+        is ComposeValuePropertyMeta -> PropertyType.VALUE
+        is ComposeBooleanPropertyMeta -> PropertyType.BOOLEAN
+        is ComposeIntegerPropertyMeta -> PropertyType.INTEGER
+        is ComposeIconPropertyMeta -> PropertyType.ICON
+        is ComposeComponentPropertyMeta -> PropertyType.COMPONENT_STYLE
+        is ComposeUnknownPropertyMeta -> PropertyType.UNKNOWN
+    }

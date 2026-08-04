@@ -2,20 +2,21 @@ package com.sdds.plugin.themebuilder.internal.universal.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
-import com.sdds.plugin.themebuilder.internal.components.VariationProp
-import com.sdds.plugin.themebuilder.internal.components.base.BindingType
-import com.sdds.plugin.themebuilder.internal.components.base.Color
-import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
-import com.sdds.plugin.themebuilder.internal.components.base.Dimension
-import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
-import com.sdds.plugin.themebuilder.internal.components.base.Gradient
-import com.sdds.plugin.themebuilder.internal.components.base.Shadow
-import com.sdds.plugin.themebuilder.internal.components.base.Shape
-import com.sdds.plugin.themebuilder.internal.components.base.Stateful
-import com.sdds.plugin.themebuilder.internal.components.base.Typography
-import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.universal.BindingType
+import com.sdds.plugin.themebuilder.internal.universal.Color
+import com.sdds.plugin.themebuilder.internal.universal.ComponentStyle
+import com.sdds.plugin.themebuilder.internal.universal.ComponentStyleGenerator
+import com.sdds.plugin.themebuilder.internal.universal.Dimension
+import com.sdds.plugin.themebuilder.internal.universal.FloatValue
+import com.sdds.plugin.themebuilder.internal.universal.Gradient
+import com.sdds.plugin.themebuilder.internal.universal.Shadow
+import com.sdds.plugin.themebuilder.internal.universal.Shape
+import com.sdds.plugin.themebuilder.internal.universal.Stateful
+import com.sdds.plugin.themebuilder.internal.universal.Typography
+import com.sdds.plugin.themebuilder.internal.universal.Value
+import com.sdds.plugin.themebuilder.internal.universal.VariationProp
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.PropertyMapperRegistry
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.ClassName
 
@@ -95,7 +96,7 @@ internal class UniversalComposeVariationGenerator(
             }
         }
 
-        val processor = VariationTreeProcessor(
+        val processor = ComposeVariationTreeProcessor(
             camelComponentName = camelComponentName,
             componentStyleName = styleType.simpleName,
             styleBuilderType = styleBuilderType,

@@ -4,9 +4,11 @@
 
     <attr name="sd_sliderStyle" format="reference" />
 
-    <declare-styleable name="Slider" sdds:api_info="Slider" sdds:api_framework="orientation=android:orientation:integer" tools:ignore="ResourceName">
+    <declare-styleable name="Slider" sdds:api_info="Slider"
+        sdds:api_def_style_attr="sd_sliderStyle"
+        sdds:api_parent="Sdds.Components.Slider" tools:ignore="ResourceName">
         <!-- Ориентация  -->
-        <attr name="android:orientation" />
+        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="integer" />
 
         <!-- Текст в title  -->
         <attr name="sd_title" />
@@ -38,7 +40,7 @@
         <!-- Отображение Label -->
         <attr name="sd_labelEnabled" format="boolean" />
         <!-- Расположение лэйбла с иконкой относительной Slider -->
-        <attr name="sd_labelAlignment" format="enum">
+        <attr name="sd_labelAlignment" format="enum" sdds:api_default="bottom">
             <!-- Сверху  -->
             <enum name="top" value="0" />
             <!-- В одну линию со Slider  -->
@@ -69,9 +71,9 @@
         <attr name="sd_indicatorColor" />
         <attr name="sd_trackThickness" />
         <attr name="sd_indicatorThickness" />
-        <attr name="sd_shapeAppearance" />
-        <attr name="sd_thumbShapeAppearance" />
-        <attr name="sd_indicatorShapeAppearance" />
+        <attr name="sd_shapeAppearance" sdds:api_name="trackShape" />
+        <attr name="sd_thumbShapeAppearance" sdds:api_name="thumbShape" />
+        <attr name="sd_indicatorShapeAppearance" sdds:api_name="indicatorShape" />
         <attr name="sd_thumbSize" />
         <attr name="sd_strokeWidth" sdds:api_name="thumbStrokeWidth" />
     </declare-styleable>
@@ -146,7 +148,7 @@
     <declare-styleable name="SdSliderDrawable" sdds:api_info="Slider">
         <attr name="android:orientation" />
         <!-- Направление slide -->
-        <attr name="sd_slideDirection" format="enum">
+        <attr name="sd_slideDirection" format="enum" sdds:api_default="normal">
             <!-- Увеличение значения происходит слева направо, либо снизу вверх  -->
             <enum name="normal" value="0" />
             <!-- Увеличение значения происходит справо налево, либо сверху вниз  -->

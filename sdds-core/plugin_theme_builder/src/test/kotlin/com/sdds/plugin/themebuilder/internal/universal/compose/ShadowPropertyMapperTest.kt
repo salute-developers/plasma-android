@@ -1,7 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
-import com.sdds.plugin.themebuilder.internal.components.base.Shadow
-import com.sdds.plugin.themebuilder.internal.components.base.StringState
+import com.sdds.plugin.themebuilder.internal.universal.Shadow
+import com.sdds.plugin.themebuilder.internal.universal.StringState
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.ShadowPropertyMapper
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

@@ -1,13 +1,13 @@
 package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
-import com.sdds.plugin.themebuilder.internal.components.ComponentConfigDelegate
-import com.sdds.plugin.themebuilder.internal.components.ComponentInfo
-import com.sdds.plugin.themebuilder.internal.components.ConfigInfo
-import com.sdds.plugin.themebuilder.internal.components.VariationInfo
-import com.sdds.plugin.themebuilder.internal.components.VariationReference
-import com.sdds.plugin.themebuilder.internal.components.componentDelegates
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.universal.ComponentInfo
+import com.sdds.plugin.themebuilder.internal.universal.ConfigInfo
+import com.sdds.plugin.themebuilder.internal.universal.UniversalComponentGenerator
+import com.sdds.plugin.themebuilder.internal.universal.VariationInfo
+import com.sdds.plugin.themebuilder.internal.universal.VariationReference
+import com.sdds.plugin.themebuilder.internal.universal.universalComponentGenerator
 import com.squareup.kotlinpoet.ClassName
 import io.mockk.every
 import io.mockk.mockk
@@ -34,15 +34,18 @@ class GenerateComponentsTaskTest {
 
     @Before
     fun setUp() {
-        mockkStatic(COMPONENT_DELEGATES_KT)
+        mockkStatic(COMPONENT_GENERATOR_KT)
         every {
-            componentDelegates(any(), any())
-        } returns emptyMap<String, ComponentConfigDelegate<*>>()
+            universalComponentGenerator(any(), any(), any())
+        } returns componentGenerator
+        // По умолчанию генератор ничего не выдаёт: у компонента нет меты.
+        every { componentGenerator.generateCompose(any(), any(), any()) } returns null
+        every { componentGenerator.generateView(any(), any(), any()) } returns null
     }
 
     @After
     fun tearDown() {
-        unmockkStatic(COMPONENT_DELEGATES_KT)
+        unmockkStatic(COMPONENT_GENERATOR_KT)
     }
 
     @Test
@@ -68,8 +71,7 @@ class GenerateComponentsTaskTest {
     @Test
     fun `generate при componentsMetaStyleClass true и compose componentInfo создает kt файл`() {
         val componentInfo = composeComponentInfo()
-        mockComponentDelegates()
-        mockComposeDelegateResult(componentInfo)
+        mockComposeGeneratorResult(componentInfo)
 
         val (task, projectDir) = createConfigureTask(
             target = ThemeBuilderTarget.COMPOSE,
@@ -183,8 +185,7 @@ class GenerateComponentsTaskTest {
     @Test
     fun `generate при target view_system записывает config info если delegate вернул componentInfo`() {
         val componentInfo = viewSystemComponentInfo()
-        mockComponentDelegates()
-        mockViewDelegateResult(componentInfo)
+        mockViewGeneratorResult(componentInfo)
 
         val (task, projectDir) = createConfigureTask(
             target = ThemeBuilderTarget.VIEW_SYSTEM,
@@ -200,22 +201,21 @@ class GenerateComponentsTaskTest {
         assertEquals(listOf(componentInfo), configInfo.components)
 
         verify(exactly = 1) {
-            componentsDelegate.generateViewSystemStyles(
+            componentGenerator.generateView(
                 any(),
                 any(),
                 any(),
             )
         }
         verify(exactly = 0) {
-            componentsDelegate.generateComposeStyles(any(), any(), any())
+            componentGenerator.generateCompose(any(), any(), any())
         }
     }
 
     @Test
     fun `generate при target compose записывает config info если delegate вернул componentInfo`() {
         val componentInfo = composeComponentInfo()
-        mockComponentDelegates()
-        mockComposeDelegateResult(componentInfo)
+        mockComposeGeneratorResult(componentInfo)
 
         val (task, projectDir) = createConfigureTask(
             target = ThemeBuilderTarget.COMPOSE,
@@ -237,14 +237,14 @@ class GenerateComponentsTaskTest {
         assertNotNull(actualComponent.styleApi)
 
         verify(exactly = 1) {
-            componentsDelegate.generateComposeStyles(
-                file = any(),
+            componentGenerator.generateCompose(
+                configFile = any(),
                 deps = any(),
                 component = any(),
             )
         }
         verify(exactly = 0) {
-            componentsDelegate.generateViewSystemStyles(any(), any(), any())
+            componentGenerator.generateView(any(), any(), any())
         }
     }
 
@@ -300,28 +300,19 @@ class GenerateComponentsTaskTest {
         """.trimIndent()
     }
 
-    private fun mockComponentDelegates(
-        componentName: String = TEST_COMPONENT_NAME,
-        delegate: ComponentConfigDelegate<*> = componentsDelegate,
-    ) {
-        every {
-            componentDelegates(any(), any())
-        } returns mapOf(componentName to delegate)
-    }
-
-    private fun mockViewDelegateResult(
+    private fun mockViewGeneratorResult(
         componentInfo: ComponentInfo = viewSystemComponentInfo(),
     ) {
         every {
-            componentsDelegate.generateViewSystemStyles(any(), any(), any())
+            componentGenerator.generateView(any(), any(), any())
         } returns componentInfo
     }
 
-    private fun mockComposeDelegateResult(
+    private fun mockComposeGeneratorResult(
         componentInfo: ComponentInfo = composeComponentInfo(),
     ) {
         every {
-            componentsDelegate.generateComposeStyles(any(), any(), any())
+            componentGenerator.generateCompose(any(), any(), any())
         } returns componentInfo
     }
 
@@ -337,12 +328,12 @@ class GenerateComponentsTaskTest {
         )
     }
 
-    private val componentsDelegate = mockk<ComponentConfigDelegate<*>>(relaxed = true)
+    private val componentGenerator = mockk<UniversalComponentGenerator>(relaxed = true)
 
     private companion object {
         const val TEST_COMPONENT_NAME = "test-component"
-        const val COMPONENT_DELEGATES_KT =
-            "com.sdds.plugin.themebuilder.internal.components.ComponentDelegatesKt"
+        const val COMPONENT_GENERATOR_KT =
+            "com.sdds.plugin.themebuilder.internal.universal.UniversalComponentGeneratorKt"
     }
 
     private fun createComponentsMetaFile(

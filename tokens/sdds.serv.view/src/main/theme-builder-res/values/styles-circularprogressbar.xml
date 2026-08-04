@@ -3,18 +3,18 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.CircularProgressBar" parent="Sdds.Components.CircularProgressBar">
-        <item name="sd_progressValueEnabled">true</item>
         <item name="sd_progressColor">@xml/serv_circular_progress_bar_progress_color</item>
         <item name="sd_trackColor">?serv_surfaceDefaultTransparentSecondary</item>
+        <item name="sd_progressValueEnabled">true</item>
         <item name="sd_progressValueColor">?serv_textDefaultPrimary</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.CircularProgressBarColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.Components.CircularProgressBar.Xxl">
+        <item name="sd_progressValueAppearance">@style/Serv.Sdds.TextAppearance.HeaderH2Bold</item>
+        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_xxl_progress_thickness</item>
+        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_xxl_track_thickness</item>
         <item name="android:minWidth">@dimen/serv_circular_progress_bar_xxl_min_width</item>
         <item name="android:minHeight">@dimen/serv_circular_progress_bar_xxl_min_height</item>
-        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_xxl_track_thickness</item>
-        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_xxl_progress_thickness</item>
-        <item name="sd_progressValueAppearance">@style/Serv.Sdds.TextAppearance.HeaderH2Bold</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CircularProgressBarXxl">
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.Xxl</item>
@@ -68,11 +68,11 @@
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.Xxl.Warning</item>
     </style>
     <style name="Serv.Sdds.Components.CircularProgressBar.Xl">
+        <item name="sd_progressValueAppearance">@style/Serv.Sdds.TextAppearance.HeaderH5Bold</item>
+        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_xl_progress_thickness</item>
+        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_xl_track_thickness</item>
         <item name="android:minWidth">@dimen/serv_circular_progress_bar_xl_min_width</item>
         <item name="android:minHeight">@dimen/serv_circular_progress_bar_xl_min_height</item>
-        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_xl_track_thickness</item>
-        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_xl_progress_thickness</item>
-        <item name="sd_progressValueAppearance">@style/Serv.Sdds.TextAppearance.HeaderH5Bold</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CircularProgressBarXl">
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.Xl</item>
@@ -126,11 +126,11 @@
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.Xl.Warning</item>
     </style>
     <style name="Serv.Sdds.Components.CircularProgressBar.L">
+        <item name="sd_progressValueEnabled">false</item>
+        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_l_progress_thickness</item>
+        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_l_track_thickness</item>
         <item name="android:minWidth">@dimen/serv_circular_progress_bar_l_min_width</item>
         <item name="android:minHeight">@dimen/serv_circular_progress_bar_l_min_height</item>
-        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_l_track_thickness</item>
-        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_l_progress_thickness</item>
-        <item name="sd_progressValueEnabled">false</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CircularProgressBarL">
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.L</item>
@@ -184,11 +184,11 @@
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.L.Warning</item>
     </style>
     <style name="Serv.Sdds.Components.CircularProgressBar.M">
+        <item name="sd_progressValueEnabled">false</item>
+        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_m_progress_thickness</item>
+        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_m_track_thickness</item>
         <item name="android:minWidth">@dimen/serv_circular_progress_bar_m_min_width</item>
         <item name="android:minHeight">@dimen/serv_circular_progress_bar_m_min_height</item>
-        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_m_track_thickness</item>
-        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_m_progress_thickness</item>
-        <item name="sd_progressValueEnabled">false</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CircularProgressBarM">
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.M</item>
@@ -242,11 +242,11 @@
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.M.Warning</item>
     </style>
     <style name="Serv.Sdds.Components.CircularProgressBar.S">
+        <item name="sd_progressValueEnabled">false</item>
+        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_s_progress_thickness</item>
+        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_s_track_thickness</item>
         <item name="android:minWidth">@dimen/serv_circular_progress_bar_s_min_width</item>
         <item name="android:minHeight">@dimen/serv_circular_progress_bar_s_min_height</item>
-        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_s_track_thickness</item>
-        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_s_progress_thickness</item>
-        <item name="sd_progressValueEnabled">false</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CircularProgressBarS">
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.S</item>
@@ -300,11 +300,11 @@
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.S.Warning</item>
     </style>
     <style name="Serv.Sdds.Components.CircularProgressBar.Xs">
+        <item name="sd_progressValueEnabled">false</item>
+        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_xs_progress_thickness</item>
+        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_xs_track_thickness</item>
         <item name="android:minWidth">@dimen/serv_circular_progress_bar_xs_min_width</item>
         <item name="android:minHeight">@dimen/serv_circular_progress_bar_xs_min_height</item>
-        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_xs_track_thickness</item>
-        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_xs_progress_thickness</item>
-        <item name="sd_progressValueEnabled">false</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CircularProgressBarXs">
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.Xs</item>
@@ -358,11 +358,11 @@
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.Xs.Warning</item>
     </style>
     <style name="Serv.Sdds.Components.CircularProgressBar.Xxs">
+        <item name="sd_progressValueEnabled">false</item>
+        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_xxs_progress_thickness</item>
+        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_xxs_track_thickness</item>
         <item name="android:minWidth">@dimen/serv_circular_progress_bar_xxs_min_width</item>
         <item name="android:minHeight">@dimen/serv_circular_progress_bar_xxs_min_height</item>
-        <item name="sd_trackThickness">@dimen/serv_circular_progress_bar_xxs_track_thickness</item>
-        <item name="sd_progressThickness">@dimen/serv_circular_progress_bar_xxs_progress_thickness</item>
-        <item name="sd_progressValueEnabled">false</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CircularProgressBarXxs">
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.Xxs</item>

@@ -755,7 +755,7 @@
     <!--Прозрачный цвет фона поверхности/контрола информация на темном фоне-->
     <color name="serv_dark_surface_on_dark_transparent_info">#33118CDF</color>
     <!--Основной непрозрачный фон поверхности на светлом фоне-->
-    <color name="serv_dark_surface_on_light_solid_primary_hover">#FFFAFAFA</color>
+    <color name="serv_dark_surface_on_light_solid_primary_hover">#FFF2F2F2</color>
     <!--Основной непрозрачный фон поверхности на светлом фоне-->
     <color name="serv_dark_surface_on_light_solid_primary_active">#FFF0F0F0</color>
     <!--Основной непрозрачный фон поверхности на светлом фоне-->
@@ -763,15 +763,15 @@
     <!--Основной непрозрачный фон поверхности на светлом фоне-->
     <color name="serv_dark_surface_on_light_solid_primary_brightness">#FFF6F6F6</color>
     <!--Вторичный непрозрачный фон поверхности на светлом фоне-->
-    <color name="serv_dark_surface_on_light_solid_secondary_hover">#FFF7F7F7</color>
+    <color name="serv_dark_surface_on_light_solid_secondary_hover">#FFE8E8E8</color>
     <!--Вторичный непрозрачный фон поверхности на светлом фоне-->
-    <color name="serv_dark_surface_on_light_solid_secondary_active">#FFE8E8E8</color>
+    <color name="serv_dark_surface_on_light_solid_secondary_active">#FFE6E6E6</color>
     <!--Вторичный непрозрачный фон поверхности на светлом фоне-->
     <color name="serv_dark_surface_on_light_solid_secondary">#FFECECEC</color>
     <!--Третичный непрозрачный фон поверхности на светлом фоне-->
-    <color name="serv_dark_surface_on_light_solid_tertiary_hover">#FFE8E8E8</color>
+    <color name="serv_dark_surface_on_light_solid_tertiary_hover">#FFD9D9D9</color>
     <!--Третичный непрозрачный фон поверхности на светлом фоне-->
-    <color name="serv_dark_surface_on_light_solid_tertiary_active">#FFD9D9D9</color>
+    <color name="serv_dark_surface_on_light_solid_tertiary_active">#FFD4D4D4</color>
     <!--Третичный непрозрачный фон поверхности на светлом фоне-->
     <color name="serv_dark_surface_on_light_solid_tertiary">#FFDDDDDD</color>
     <!--Основной фон для карточек на светлом фоне-->
@@ -783,37 +783,37 @@
     <!--Основной фон для карточек на светлом фоне-->
     <color name="serv_dark_surface_on_light_solid_card_brightness">#FFFFFFFF</color>
     <!--Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне-->
-    <color name="serv_dark_surface_on_light_solid_default_hover">#FF0D0D0D</color>
+    <color name="serv_dark_surface_on_light_solid_default_hover">#FF262626</color>
     <!--Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне-->
     <color name="serv_dark_surface_on_light_solid_default_active">#FF030303</color>
     <!--Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне-->
     <color name="serv_dark_surface_on_light_solid_default">#FF080808</color>
     <!--Основной прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_primary_hover">#12080808</color>
+    <color name="serv_dark_surface_on_light_transparent_primary_hover">#0A080808</color>
     <!--Основной прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_primary_active">#03080808</color>
+    <color name="serv_dark_surface_on_light_transparent_primary_active">#0D080808</color>
     <!--Вторичный прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_secondary_hover">#1F080808</color>
+    <color name="serv_dark_surface_on_light_transparent_secondary_hover">#14080808</color>
     <!--Вторичный прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_secondary_active">#0A080808</color>
+    <color name="serv_dark_surface_on_light_transparent_secondary_active">#1A080808</color>
     <!--Вторичный прозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_dark_surface_on_light_transparent_secondary">#0F080808</color>
     <!--Третичный прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_tertiary_hover">#3D080808</color>
+    <color name="serv_dark_surface_on_light_transparent_tertiary_hover">#2E080808</color>
     <!--Третичный прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_tertiary_active">#0F080808</color>
+    <color name="serv_dark_surface_on_light_transparent_tertiary_active">#33080808</color>
     <!--Третичный прозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_dark_surface_on_light_transparent_tertiary">#1F080808</color>
     <!--Прозрачный фон поверхности по умолчанию на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_deep_hover">#C2080808</color>
+    <color name="serv_dark_surface_on_light_transparent_deep_hover">#B3080808</color>
     <!--Прозрачный фон поверхности по умолчанию на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_deep_active">#94080808</color>
+    <color name="serv_dark_surface_on_light_transparent_deep_active">#B8080808</color>
     <!--Прозрачный фон поверхности по умолчанию на светлом фоне-->
     <color name="serv_dark_surface_on_light_transparent_deep">#A3080808</color>
     <!--Прозрачный фон для карточек на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_card_hover">#1F080808</color>
+    <color name="serv_dark_surface_on_light_transparent_card_hover">#14080808</color>
     <!--Прозрачный фон для карточек на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_card_active">#0A080808</color>
+    <color name="serv_dark_surface_on_light_transparent_card_active">#1A080808</color>
     <!--Прозрачный фон для карточек на светлом фоне-->
     <color name="serv_dark_surface_on_light_transparent_card">#0F080808</color>
     <!--Прозрачный фон для карточек на светлом фоне-->
@@ -825,19 +825,19 @@
     <!--Фон поверхности/контрола без заливки на светлом фоне-->
     <color name="serv_dark_surface_on_light_clear">#00000000</color>
     <!--Акцентный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_accent_hover">#FF1DAF37</color>
+    <color name="serv_dark_surface_on_light_accent_hover">#FF1EB83A</color>
     <!--Акцентный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_accent_active">#FF18952F</color>
+    <color name="serv_dark_surface_on_light_accent_active">#FF178C2C</color>
     <!--Акцентный фон поверхности/контрола на светлом фоне-->
     <color name="serv_dark_surface_on_light_accent">#FF1A9E32</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_accent_minor_hover">#FFB1FBBF</color>
+    <color name="serv_dark_surface_on_light_accent_minor_hover">#FF94F9A7</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_accent_minor_active">#FF94F9A7</color>
+    <color name="serv_dark_surface_on_light_accent_minor_active">#FF8BF99F</color>
     <!--Прозрачный акцентный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_accent_hover">#3D1A9E32</color>
+    <color name="serv_dark_surface_on_light_transparent_accent_hover">#2E1A9E32</color>
     <!--Прозрачный акцентный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_accent_active">#0F1A9E32</color>
+    <color name="serv_dark_surface_on_light_transparent_accent_active">#331A9E32</color>
     <!--Промо фон поверхности/контрола на светлом фоне-->
     <color name="serv_dark_surface_on_light_promo_hover">#FFFFFFFF</color>
     <!--Промо фон поверхности/контрола на светлом фоне-->
@@ -857,59 +857,59 @@
     <!--Прозрачный промо фон поверхности/контрола на светлом фоне-->
     <color name="serv_dark_surface_on_light_transparent_promo">#FFFFFFFF</color>
     <!--Цвет фона поверхности/контрола успех на светлом фоне-->
-    <color name="serv_dark_surface_on_light_positive_hover">#FF1DAF37</color>
+    <color name="serv_dark_surface_on_light_positive_hover">#FF1EB83A</color>
     <!--Цвет фона поверхности/контрола успех на светлом фоне-->
-    <color name="serv_dark_surface_on_light_positive_active">#FF18952F</color>
+    <color name="serv_dark_surface_on_light_positive_active">#FF178C2C</color>
     <!--Цвет фона поверхности/контрола успех на светлом фоне-->
     <color name="serv_dark_surface_on_light_positive">#FF1A9E32</color>
     <!--Цвет фона поверхности / предупреждение на светлом фоне-->
-    <color name="serv_dark_surface_on_light_warning_hover">#FFFB7223</color>
+    <color name="serv_dark_surface_on_light_warning_hover">#FFFB782D</color>
     <!--Цвет фона поверхности / предупреждение на светлом фоне-->
-    <color name="serv_dark_surface_on_light_warning_active">#FFF05B05</color>
+    <color name="serv_dark_surface_on_light_warning_active">#FFE65705</color>
     <!--Цвет фона поверхности / предупреждение на светлом фоне-->
     <color name="serv_dark_surface_on_light_warning">#FFFA5F05</color>
     <!--Цвет фона поверхности/контрола ошибка на светлом фоне-->
-    <color name="serv_dark_surface_on_light_negative_hover">#FFFF475A</color>
+    <color name="serv_dark_surface_on_light_negative_hover">#FFFF5263</color>
     <!--Цвет фона поверхности/контрола ошибка на светлом фоне-->
-    <color name="serv_dark_surface_on_light_negative_active">#FFFF1F35</color>
+    <color name="serv_dark_surface_on_light_negative_active">#FFFF142C</color>
     <!--Цвет фона поверхности/контрола ошибка на светлом фоне-->
     <color name="serv_dark_surface_on_light_negative">#FFFF293E</color>
     <!--Цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_dark_surface_on_light_info_hover">#FF1798EE</color>
+    <color name="serv_dark_surface_on_light_info_hover">#FF209CEE</color>
     <!--Цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_dark_surface_on_light_info_active">#FF1086D5</color>
+    <color name="serv_dark_surface_on_light_info_active">#FF0F81CC</color>
     <!--Минорный цвет фона поверхности/контрола успех на светлом фоне-->
-    <color name="serv_dark_surface_on_light_positive_minor_hover">#FFB1FBBF</color>
+    <color name="serv_dark_surface_on_light_positive_minor_hover">#FF94F9A7</color>
     <!--Минорный цвет фона поверхности/контрола успех на светлом фоне-->
-    <color name="serv_dark_surface_on_light_positive_minor_active">#FF94F9A7</color>
+    <color name="serv_dark_surface_on_light_positive_minor_active">#FF8BF99F</color>
     <!--Минорный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_dark_surface_on_light_warning_minor_hover">#FFFEE9DC</color>
+    <color name="serv_dark_surface_on_light_warning_minor_hover">#FFFEDCC8</color>
     <!--Минорный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_dark_surface_on_light_warning_minor_active">#FFFEDCC8</color>
+    <color name="serv_dark_surface_on_light_warning_minor_active">#FFFED9C3</color>
     <!--Минорный цвет фона поверхности/контрола ошибка на светлом фоне-->
-    <color name="serv_dark_surface_on_light_negative_minor_hover">#FFFFEBED</color>
+    <color name="serv_dark_surface_on_light_negative_minor_hover">#FFFFD6DA</color>
     <!--Минорный цвет фона поверхности/контрола ошибка на светлом фоне-->
-    <color name="serv_dark_surface_on_light_negative_minor_active">#FFFFD6DA</color>
+    <color name="serv_dark_surface_on_light_negative_minor_active">#FFFFD1D6</color>
     <!--Минорный цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_dark_surface_on_light_info_minor_hover">#FFDBF1FF</color>
+    <color name="serv_dark_surface_on_light_info_minor_hover">#FFC7E9FF</color>
     <!--Минорный цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_dark_surface_on_light_info_minor_active">#FFC7E9FF</color>
+    <color name="serv_dark_surface_on_light_info_minor_active">#FFC2E7FF</color>
     <!--Прозрачный цвет фона поверхности/контрола успех на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_positive_hover">#3D1A9E32</color>
+    <color name="serv_dark_surface_on_light_transparent_positive_hover">#2E1A9E32</color>
     <!--Прозрачный цвет фона поверхности/контрола успех на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_positive_active">#0F1A9E32</color>
+    <color name="serv_dark_surface_on_light_transparent_positive_active">#331A9E32</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_warning_hover">#3DFA5F05</color>
+    <color name="serv_dark_surface_on_light_transparent_warning_hover">#2EFA5F05</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_warning_active">#0FFA5F05</color>
+    <color name="serv_dark_surface_on_light_transparent_warning_active">#33FA5F05</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_negative_hover">#3DFF293E</color>
+    <color name="serv_dark_surface_on_light_transparent_negative_hover">#2EFF293E</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_negative_active">#0FFF293E</color>
+    <color name="serv_dark_surface_on_light_transparent_negative_active">#33FF293E</color>
     <!--Прозрачный цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_info_hover">#3D118CDF</color>
+    <color name="serv_dark_surface_on_light_transparent_info_hover">#2E118CDF</color>
     <!--Прозрачный цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_dark_surface_on_light_transparent_info_active">#0F118CDF</color>
+    <color name="serv_dark_surface_on_light_transparent_info_active">#33118CDF</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_dark_surface_on_light_accent_minor">#FF9EFAAF</color>
     <!--Прозрачный акцентный фон поверхности/контрола на светлом фоне-->
@@ -935,7 +935,7 @@
     <!--Основной прозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_dark_surface_on_light_transparent_primary">#08080808</color>
     <!--Инвертированный основной непрозрачный фон поверхности-->
-    <color name="serv_dark_surface_inverse_solid_primary_hover">#FFFAFAFA</color>
+    <color name="serv_dark_surface_inverse_solid_primary_hover">#FFF2F2F2</color>
     <!--Инвертированный основной непрозрачный фон поверхности-->
     <color name="serv_dark_surface_inverse_solid_primary_active">#FFF0F0F0</color>
     <!--Инвертированный основной непрозрачный фон поверхности-->
@@ -943,15 +943,15 @@
     <!--Инвертированный основной непрозрачный фон поверхности-->
     <color name="serv_dark_surface_inverse_solid_primary_brightness">#FFF6F6F6</color>
     <!--Инвертированный вторичный непрозрачный фон поверхности-->
-    <color name="serv_dark_surface_inverse_solid_secondary_hover">#FFF7F7F7</color>
+    <color name="serv_dark_surface_inverse_solid_secondary_hover">#FFE8E8E8</color>
     <!--Инвертированный вторичный непрозрачный фон поверхности-->
-    <color name="serv_dark_surface_inverse_solid_secondary_active">#FFE8E8E8</color>
+    <color name="serv_dark_surface_inverse_solid_secondary_active">#FFE6E6E6</color>
     <!--Инвертированный вторичный непрозрачный фон поверхности-->
     <color name="serv_dark_surface_inverse_solid_secondary">#FFECECEC</color>
     <!--Инвертированный третичный непрозрачный фон поверхности-->
-    <color name="serv_dark_surface_inverse_solid_tertiary_hover">#FFE8E8E8</color>
+    <color name="serv_dark_surface_inverse_solid_tertiary_hover">#FFD9D9D9</color>
     <!--Инвертированный третичный непрозрачный фон поверхности-->
-    <color name="serv_dark_surface_inverse_solid_tertiary_active">#FFD9D9D9</color>
+    <color name="serv_dark_surface_inverse_solid_tertiary_active">#FFD4D4D4</color>
     <!--Инвертированный третичный непрозрачный фон поверхности-->
     <color name="serv_dark_surface_inverse_solid_tertiary">#FFDDDDDD</color>
     <!--Инвертированный основной фон для карточек-->
@@ -963,31 +963,31 @@
     <!--Инвертированный основной фон для карточек-->
     <color name="serv_dark_surface_inverse_solid_card_brightness">#FFFFFFFF</color>
     <!--Инвертированный непрозрачный фон поверхности/контрола по умолчанию-->
-    <color name="serv_dark_surface_inverse_solid_default_hover">#FF0D0D0D</color>
+    <color name="serv_dark_surface_inverse_solid_default_hover">#FF262626</color>
     <!--Инвертированный непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="serv_dark_surface_inverse_solid_default_active">#FF030303</color>
     <!--Инвертированный непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="serv_dark_surface_inverse_solid_default">#FF080808</color>
     <!--Инвертированный основной прозрачный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_transparent_primary_hover">#12080808</color>
+    <color name="serv_dark_surface_inverse_transparent_primary_hover">#0A080808</color>
     <!--Инвертированный основной прозрачный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_transparent_primary_active">#03080808</color>
+    <color name="serv_dark_surface_inverse_transparent_primary_active">#0D080808</color>
     <!--Инвертированный вторичный прозрачный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_transparent_secondary_hover">#1F080808</color>
+    <color name="serv_dark_surface_inverse_transparent_secondary_hover">#14080808</color>
     <!--Инвертированный вторичный прозрачный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_transparent_secondary_active">#0A080808</color>
+    <color name="serv_dark_surface_inverse_transparent_secondary_active">#1A080808</color>
     <!--Инвертированный вторичный прозрачный фон поверхности/контрола-->
     <color name="serv_dark_surface_inverse_transparent_secondary">#0F080808</color>
     <!--Инвертированный третичный прозрачный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_transparent_tertiary_hover">#3D080808</color>
+    <color name="serv_dark_surface_inverse_transparent_tertiary_hover">#2E080808</color>
     <!--Инвертированный третичный прозрачный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_transparent_tertiary_active">#0F080808</color>
+    <color name="serv_dark_surface_inverse_transparent_tertiary_active">#33080808</color>
     <!--Инвертированный третичный прозрачный фон поверхности/контрола-->
     <color name="serv_dark_surface_inverse_transparent_tertiary">#1F080808</color>
     <!--Инвертированный прозрачный фон поверхности по умолчанию-->
-    <color name="serv_dark_surface_inverse_transparent_deep_hover">#C2080808</color>
+    <color name="serv_dark_surface_inverse_transparent_deep_hover">#B3080808</color>
     <!--Инвертированный прозрачный фон поверхности по умолчанию-->
-    <color name="serv_dark_surface_inverse_transparent_deep_active">#94080808</color>
+    <color name="serv_dark_surface_inverse_transparent_deep_active">#B8080808</color>
     <!--Инвертированный прозрачный фон поверхности по умолчанию-->
     <color name="serv_dark_surface_inverse_transparent_deep">#A3080808</color>
     <!--Инвертированный прозрачный фон для карточек-->
@@ -1005,19 +1005,19 @@
     <!--Инвертированный фон поверхности/контрола без заливки-->
     <color name="serv_dark_surface_inverse_clear">#00000000</color>
     <!--Инвертированный акцентный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_accent_hover">#FF1DAF37</color>
+    <color name="serv_dark_surface_inverse_accent_hover">#FF1EB83A</color>
     <!--Инвертированный акцентный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_accent_active">#FF18952F</color>
+    <color name="serv_dark_surface_inverse_accent_active">#FF178C2C</color>
     <!--Инвертированный акцентный фон поверхности/контрола-->
     <color name="serv_dark_surface_inverse_accent">#FF1A9E32</color>
     <!--Инвертированный акцентный минорный непрозрачный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_accent_minor_hover">#FFB1FBBF</color>
+    <color name="serv_dark_surface_inverse_accent_minor_hover">#FF94F9A7</color>
     <!--Инвертированный акцентный минорный непрозрачный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_accent_minor_active">#FF94F9A7</color>
+    <color name="serv_dark_surface_inverse_accent_minor_active">#FF8BF99F</color>
     <!--Прозрачный инвертированный акцентный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_transparent_accent_hover">#3D1A9E32</color>
+    <color name="serv_dark_surface_inverse_transparent_accent_hover">#2E1A9E32</color>
     <!--Прозрачный инвертированный акцентный фон поверхности/контрола-->
-    <color name="serv_dark_surface_inverse_transparent_accent_active">#0F1A9E32</color>
+    <color name="serv_dark_surface_inverse_transparent_accent_active">#331A9E32</color>
     <!--Инвертированный промо фон поверхности/контрола-->
     <color name="serv_dark_surface_inverse_promo_hover">#FFFFFFFF</color>
     <!--Инвертированный промо фон поверхности/контрола-->
@@ -1037,59 +1037,59 @@
     <!--Инвертированный прозрачный промо фон поверхности/контрола-->
     <color name="serv_dark_surface_inverse_transparent_promo">#FFFFFFFF</color>
     <!--Инвертированный цвет фона поверхности/контрола успех-->
-    <color name="serv_dark_surface_inverse_positive_hover">#FF1DAF37</color>
+    <color name="serv_dark_surface_inverse_positive_hover">#FF1EB83A</color>
     <!--Инвертированный цвет фона поверхности/контрола успех-->
-    <color name="serv_dark_surface_inverse_positive_active">#FF18952F</color>
+    <color name="serv_dark_surface_inverse_positive_active">#FF178C2C</color>
     <!--Инвертированный цвет фона поверхности/контрола успех-->
     <color name="serv_dark_surface_inverse_positive">#FF1A9E32</color>
     <!--Инвертированный цвет фона поверхности / предупреждение-->
-    <color name="serv_dark_surface_inverse_warning_hover">#FFFB7223</color>
+    <color name="serv_dark_surface_inverse_warning_hover">#FFFB782D</color>
     <!--Инвертированный цвет фона поверхности / предупреждение-->
-    <color name="serv_dark_surface_inverse_warning_active">#FFF05B05</color>
+    <color name="serv_dark_surface_inverse_warning_active">#FFE65705</color>
     <!--Инвертированный цвет фона поверхности / предупреждение-->
     <color name="serv_dark_surface_inverse_warning">#FFFA5F05</color>
     <!--Инвертированный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_dark_surface_inverse_negative_hover">#FFFF475A</color>
+    <color name="serv_dark_surface_inverse_negative_hover">#FFFF5263</color>
     <!--Инвертированный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_dark_surface_inverse_negative_active">#FFFF1F35</color>
+    <color name="serv_dark_surface_inverse_negative_active">#FFFF142C</color>
     <!--Инвертированный цвет фона поверхности/контрола ошибка-->
     <color name="serv_dark_surface_inverse_negative">#FFFF293E</color>
     <!--Инвертированный цвет фона поверхности/контрола информация-->
-    <color name="serv_dark_surface_inverse_info_hover">#FF1798EE</color>
+    <color name="serv_dark_surface_inverse_info_hover">#FF209CEE</color>
     <!--Инвертированный цвет фона поверхности/контрола информация-->
-    <color name="serv_dark_surface_inverse_info_active">#FF1086D5</color>
+    <color name="serv_dark_surface_inverse_info_active">#FF0F81CC</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола успех-->
-    <color name="serv_dark_surface_inverse_positive_minor_hover">#FFB1FBBF</color>
+    <color name="serv_dark_surface_inverse_positive_minor_hover">#FF94F9A7</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола успех-->
-    <color name="serv_dark_surface_inverse_positive_minor_active">#FF94F9A7</color>
+    <color name="serv_dark_surface_inverse_positive_minor_active">#FF8BF99F</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_dark_surface_inverse_warning_minor_hover">#FFFEE9DC</color>
+    <color name="serv_dark_surface_inverse_warning_minor_hover">#FFFEDCC8</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_dark_surface_inverse_warning_minor_active">#FFFEDCC8</color>
+    <color name="serv_dark_surface_inverse_warning_minor_active">#FFFED9C3</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_dark_surface_inverse_negative_minor_hover">#FFFFEBED</color>
+    <color name="serv_dark_surface_inverse_negative_minor_hover">#FFFFD6DA</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_dark_surface_inverse_negative_minor_active">#FFFFD6DA</color>
+    <color name="serv_dark_surface_inverse_negative_minor_active">#FFFFD1D6</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола информация-->
-    <color name="serv_dark_surface_inverse_info_minor_hover">#FFDBF1FF</color>
+    <color name="serv_dark_surface_inverse_info_minor_hover">#FFC7E9FF</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола информация-->
-    <color name="serv_dark_surface_inverse_info_minor_active">#FFC7E9FF</color>
+    <color name="serv_dark_surface_inverse_info_minor_active">#FFC2E7FF</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола успех-->
-    <color name="serv_dark_surface_inverse_transparent_positive_hover">#3D1A9E32</color>
+    <color name="serv_dark_surface_inverse_transparent_positive_hover">#2E1A9E32</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола успех-->
-    <color name="serv_dark_surface_inverse_transparent_positive_active">#0F1A9E32</color>
+    <color name="serv_dark_surface_inverse_transparent_positive_active">#331A9E32</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_dark_surface_inverse_transparent_warning_hover">#3DFA5F05</color>
+    <color name="serv_dark_surface_inverse_transparent_warning_hover">#2EFA5F05</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_dark_surface_inverse_transparent_warning_active">#0FFA5F05</color>
+    <color name="serv_dark_surface_inverse_transparent_warning_active">#33FA5F05</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_dark_surface_inverse_transparent_negative_hover">#3DFF293E</color>
+    <color name="serv_dark_surface_inverse_transparent_negative_hover">#2EFF293E</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_dark_surface_inverse_transparent_negative_active">#0FFF293E</color>
+    <color name="serv_dark_surface_inverse_transparent_negative_active">#33FF293E</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола информация-->
-    <color name="serv_dark_surface_inverse_transparent_info_hover">#3D118CDF</color>
+    <color name="serv_dark_surface_inverse_transparent_info_hover">#2E118CDF</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола информация-->
-    <color name="serv_dark_surface_inverse_transparent_info_active">#0F118CDF</color>
+    <color name="serv_dark_surface_inverse_transparent_info_active">#33118CDF</color>
     <!--Инвертированный акцентный минорный непрозрачный фон поверхности/контрола-->
     <color name="serv_dark_surface_inverse_accent_minor">#FF9EFAAF</color>
     <!--Прозрачный инвертированный акцентный фон поверхности/контрола-->
@@ -1167,71 +1167,71 @@
     <!--dark overlay inverse overlayBlur-->
     <color name="serv_dark_overlay_inverse_blur">#47F9F9F9</color>
     <!--Основной непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_solid_primary_hover">#FFFFFFFF</color>
+    <color name="serv_dark_outline_default_solid_primary_hover">#FF545454</color>
     <!--Основной непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_solid_primary_active">#FFADADAD</color>
+    <color name="serv_dark_outline_default_solid_primary_active">#FF171717</color>
     <!--Вторичный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_solid_secondary_hover">#FF595959</color>
+    <color name="serv_dark_outline_default_solid_secondary_hover">#FFABABAB</color>
     <!--Вторичный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_solid_secondary_active">#FF4A4A4A</color>
+    <color name="serv_dark_outline_default_solid_secondary_active">#FF363636</color>
     <!--Третичный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_solid_tertiary_hover">#FF8F8F8F</color>
+    <color name="serv_dark_outline_default_solid_tertiary_hover">#FFFFFFFF</color>
     <!--Третичный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_solid_tertiary_active">#FF808080</color>
+    <color name="serv_dark_outline_default_solid_tertiary_active">#FF525252</color>
     <!--Прозрачный цвет обводки по умолчанию-->
-    <color name="serv_dark_outline_default_transparent_default_hover">#FFC7C7C7</color>
+    <color name="serv_dark_outline_default_transparent_default_hover">#FF808080</color>
     <!--Прозрачный цвет обводки по умолчанию-->
-    <color name="serv_dark_outline_default_transparent_default_active">#FFE0E0E0</color>
+    <color name="serv_dark_outline_default_transparent_default_active">#FF616161</color>
     <!--Основной прозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_transparent_primary_hover">#3DFFFFFF</color>
+    <color name="serv_dark_outline_default_transparent_primary_hover">#4DFFFFFF</color>
     <!--Основной прозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_transparent_primary_active">#0FFFFFFF</color>
+    <color name="serv_dark_outline_default_transparent_primary_active">#12FFFFFF</color>
     <!--Вторичный прозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_transparent_secondary_hover">#66FFFFFF</color>
+    <color name="serv_dark_outline_default_transparent_secondary_hover">#B3FFFFFF</color>
     <!--Вторичный прозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_transparent_secondary_active">#38FFFFFF</color>
+    <color name="serv_dark_outline_default_transparent_secondary_active">#2BFFFFFF</color>
     <!--Третичный прозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_transparent_tertiary_hover">#ADFFFFFF</color>
+    <color name="serv_dark_outline_default_transparent_tertiary_hover">#FFFFFFFF</color>
     <!--Третичный прозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_transparent_tertiary_active">#80FFFFFF</color>
+    <color name="serv_dark_outline_default_transparent_tertiary_active">#47FFFFFF</color>
     <!--Бесцветная обводка-->
     <color name="serv_dark_outline_default_clear_hover">#00000000</color>
     <!--Бесцветная обводка-->
     <color name="serv_dark_outline_default_clear_active">#00000000</color>
     <!--Акцентный цвет обводки-->
-    <color name="serv_dark_outline_default_accent_hover">#FF2ACB47</color>
+    <color name="serv_dark_outline_default_accent_hover">#FF5EDE76</color>
     <!--Акцентный цвет обводки-->
     <color name="serv_dark_outline_default_accent_active">#FF1F9835</color>
     <!--Акцентный минорный непрозрачный цвет обводки-->
     <color name="serv_dark_outline_default_accent_minor_hover">#FF0F9527</color>
     <!--Акцентный минорный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_default_accent_minor_active">#FF0C7920</color>
+    <color name="serv_dark_outline_default_accent_minor_active">#FF074A14</color>
     <!--Прозрачный акцентный цвет обводки-->
-    <color name="serv_dark_outline_default_transparent_accent_hover">#FF24B23E</color>
+    <color name="serv_dark_outline_default_transparent_accent_hover">#B324B23E</color>
     <!--Прозрачный акцентный цвет обводки-->
-    <color name="serv_dark_outline_default_transparent_accent_active">#5624B23E</color>
+    <color name="serv_dark_outline_default_transparent_accent_active">#2B24B23E</color>
     <!--Промо цвет обводки-->
-    <color name="serv_dark_outline_default_promo_hover">#FFCCCCCC</color>
+    <color name="serv_dark_outline_default_promo_hover">#FF858585</color>
     <!--Промо цвет обводки-->
-    <color name="serv_dark_outline_default_promo_active">#FFE6E6E6</color>
+    <color name="serv_dark_outline_default_promo_active">#FF666666</color>
     <!--Промо цвет обводки-->
     <color name="serv_dark_outline_default_promo">#FFFFFFFF</color>
     <!--Минорный промо цвет обводки-->
-    <color name="serv_dark_outline_default_promo_minor_hover">#FFCCCCCC</color>
+    <color name="serv_dark_outline_default_promo_minor_hover">#FF858585</color>
     <!--Минорный промо цвет обводки-->
-    <color name="serv_dark_outline_default_promo_minor_active">#FFE6E6E6</color>
+    <color name="serv_dark_outline_default_promo_minor_active">#FF666666</color>
     <!--Минорный промо цвет обводки-->
     <color name="serv_dark_outline_default_promo_minor">#FFFFFFFF</color>
     <!--Цвет обводки успех-->
-    <color name="serv_dark_outline_default_positive_hover">#FF2ACB47</color>
+    <color name="serv_dark_outline_default_positive_hover">#FF5EDE76</color>
     <!--Цвет обводки успех-->
     <color name="serv_dark_outline_default_positive_active">#FF1F9835</color>
     <!--Цвет обводки предупреждение-->
-    <color name="serv_dark_outline_default_warning_hover">#FFFF8442</color>
+    <color name="serv_dark_outline_default_warning_hover">#FFFFA575</color>
     <!--Цвет обводки предупреждение-->
     <color name="serv_dark_outline_default_warning_active">#FFFF5D05</color>
     <!--Цвет обводки ошибка-->
-    <color name="serv_dark_outline_default_negative_hover">#FFFF5C6C</color>
+    <color name="serv_dark_outline_default_negative_hover">#FFFF8F9A</color>
     <!--Цвет обводки ошибка-->
     <color name="serv_dark_outline_default_negative_active">#FFFF1F35</color>
     <!--Цвет обводки информация-->
@@ -1241,35 +1241,35 @@
     <!--Минорный цвет обводки успех-->
     <color name="serv_dark_outline_default_positive_minor_hover">#FF0F9527</color>
     <!--Минорный цвет обводки успех-->
-    <color name="serv_dark_outline_default_positive_minor_active">#FF0C7920</color>
+    <color name="serv_dark_outline_default_positive_minor_active">#FF074A14</color>
     <!--Минорный цвет обводки предупреждение-->
     <color name="serv_dark_outline_default_warning_minor_hover">#FFBB4F11</color>
     <!--Минорный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_default_warning_minor_active">#FF9F440F</color>
+    <color name="serv_dark_outline_default_warning_minor_active">#FF70300A</color>
     <!--Минорный цвет обводки ошибка-->
-    <color name="serv_dark_outline_default_negative_minor_hover">#FFB91828</color>
+    <color name="serv_dark_outline_default_negative_minor_hover">#FFD41C2E</color>
     <!--Минорный цвет обводки ошибка-->
-    <color name="serv_dark_outline_default_negative_minor_active">#FF83111C</color>
+    <color name="serv_dark_outline_default_negative_minor_active">#FF8C121E</color>
     <!--Минорный цвет обводки информация-->
     <color name="serv_dark_outline_default_info_minor_hover">#FF1277BA</color>
     <!--Минорный цвет обводки информация-->
-    <color name="serv_dark_outline_default_info_minor_active">#FF10659E</color>
+    <color name="serv_dark_outline_default_info_minor_active">#FF0B476F</color>
     <!--Прозрачный цвет обводки успех-->
-    <color name="serv_dark_outline_default_transparent_positive_hover">#FF24B23E</color>
+    <color name="serv_dark_outline_default_transparent_positive_hover">#B324B23E</color>
     <!--Прозрачный цвет обводки успех-->
-    <color name="serv_dark_outline_default_transparent_positive_active">#5624B23E</color>
+    <color name="serv_dark_outline_default_transparent_positive_active">#2B24B23E</color>
     <!--Прозрачный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_default_transparent_warning_hover">#FFFF7024</color>
+    <color name="serv_dark_outline_default_transparent_warning_hover">#B3FF7024</color>
     <!--Прозрачный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_default_transparent_warning_active">#56FF7024</color>
+    <color name="serv_dark_outline_default_transparent_warning_active">#2BFF7024</color>
     <!--Прозрачный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_default_transparent_negative_hover">#FFFF3D51</color>
+    <color name="serv_dark_outline_default_transparent_negative_hover">#B3FF3D51</color>
     <!--Прозрачный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_default_transparent_negative_active">#56FF3D51</color>
+    <color name="serv_dark_outline_default_transparent_negative_active">#2BFF3D51</color>
     <!--Прозрачный цвет обводки информация-->
-    <color name="serv_dark_outline_default_transparent_info_hover">#FF199AF0</color>
+    <color name="serv_dark_outline_default_transparent_info_hover">#B3199AF0</color>
     <!--Прозрачный цвет обводки информация-->
-    <color name="serv_dark_outline_default_transparent_info_active">#56199AF0</color>
+    <color name="serv_dark_outline_default_transparent_info_active">#2B199AF0</color>
     <!--Основной непрозрачный цвет обводки-->
     <color name="serv_dark_outline_default_solid_primary">#FF262626</color>
     <!--Прозрачный цвет обводки по умолчанию-->
@@ -1317,77 +1317,77 @@
     <!--Третичный прозрачный цвет обводки-->
     <color name="serv_dark_outline_default_transparent_tertiary">#8FFFFFFF</color>
     <!--dark outline default outlineSolidDefaultHover-->
-    <color name="serv_dark_outline_default_solid_default_hover">#FFC7C7C7</color>
+    <color name="serv_dark_outline_default_solid_default_hover">#FF808080</color>
     <!--dark outline default outlineSolidDefaultActive-->
-    <color name="serv_dark_outline_default_solid_default_active">#FFE0E0E0</color>
+    <color name="serv_dark_outline_default_solid_default_active">#FF616161</color>
     <!--dark outline default outlineSolidDefault-->
     <color name="serv_dark_outline_default_solid_default">#FFF9F9F9</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_solid_primary_hover">#FFFFFFFF</color>
+    <color name="serv_dark_outline_on_dark_solid_primary_hover">#FF545454</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_solid_primary_active">#FFADADAD</color>
+    <color name="serv_dark_outline_on_dark_solid_primary_active">#FF171717</color>
     <!--Вторичный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_solid_secondary_hover">#FF595959</color>
+    <color name="serv_dark_outline_on_dark_solid_secondary_hover">#FFABABAB</color>
     <!--Вторичный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_solid_secondary_active">#FF4A4A4A</color>
+    <color name="serv_dark_outline_on_dark_solid_secondary_active">#FF363636</color>
     <!--Третичный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_solid_tertiary_hover">#FF8F8F8F</color>
+    <color name="serv_dark_outline_on_dark_solid_tertiary_hover">#FFFFFFFF</color>
     <!--Третичный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_solid_tertiary_active">#FF808080</color>
+    <color name="serv_dark_outline_on_dark_solid_tertiary_active">#FF525252</color>
     <!--Прозрачный цвет обводки по умолчанию на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_default_hover">#FFC7C7C7</color>
+    <color name="serv_dark_outline_on_dark_transparent_default_hover">#FF808080</color>
     <!--Прозрачный цвет обводки по умолчанию на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_default_active">#FFE0E0E0</color>
+    <color name="serv_dark_outline_on_dark_transparent_default_active">#FF616161</color>
     <!--Основной прозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_primary_hover">#3DFFFFFF</color>
+    <color name="serv_dark_outline_on_dark_transparent_primary_hover">#4DFFFFFF</color>
     <!--Основной прозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_primary_active">#0FFFFFFF</color>
+    <color name="serv_dark_outline_on_dark_transparent_primary_active">#12FFFFFF</color>
     <!--Вторичный прозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_secondary_hover">#66FFFFFF</color>
+    <color name="serv_dark_outline_on_dark_transparent_secondary_hover">#B3FFFFFF</color>
     <!--Вторичный прозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_secondary_active">#38FFFFFF</color>
+    <color name="serv_dark_outline_on_dark_transparent_secondary_active">#2BFFFFFF</color>
     <!--Третичный прозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_tertiary_hover">#ADFFFFFF</color>
+    <color name="serv_dark_outline_on_dark_transparent_tertiary_hover">#FFFFFFFF</color>
     <!--Третичный прозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_tertiary_active">#80FFFFFF</color>
+    <color name="serv_dark_outline_on_dark_transparent_tertiary_active">#47FFFFFF</color>
     <!--Бесцветная обводка на темном фоне-->
     <color name="serv_dark_outline_on_dark_clear_hover">#00000000</color>
     <!--Бесцветная обводка на темном фоне-->
     <color name="serv_dark_outline_on_dark_clear_active">#00000000</color>
     <!--Акцентный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_accent_hover">#FF2ACB47</color>
+    <color name="serv_dark_outline_on_dark_accent_hover">#FF5EDE76</color>
     <!--Акцентный цвет обводки на темном фоне-->
     <color name="serv_dark_outline_on_dark_accent_active">#FF1F9835</color>
     <!--Акцентный минорный непрозрачный цвет обводки на темном фоне-->
     <color name="serv_dark_outline_on_dark_accent_minor_hover">#FF0F9527</color>
     <!--Акцентный минорный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_accent_minor_active">#FF0C7920</color>
+    <color name="serv_dark_outline_on_dark_accent_minor_active">#FF074A14</color>
     <!--Прозрачный акцентный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_accent_hover">#FF24B23E</color>
+    <color name="serv_dark_outline_on_dark_transparent_accent_hover">#B324B23E</color>
     <!--Прозрачный акцентный цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_accent_active">#5624B23E</color>
+    <color name="serv_dark_outline_on_dark_transparent_accent_active">#2B24B23E</color>
     <!--Промо цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_promo_hover">#FFCCCCCC</color>
+    <color name="serv_dark_outline_on_dark_promo_hover">#FF858585</color>
     <!--Промо цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_promo_active">#FFE6E6E6</color>
+    <color name="serv_dark_outline_on_dark_promo_active">#FF666666</color>
     <!--Промо цвет обводки на темном фоне-->
     <color name="serv_dark_outline_on_dark_promo">#FFFFFFFF</color>
     <!--Минорный промо цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_promo_minor_hover">#FFCCCCCC</color>
+    <color name="serv_dark_outline_on_dark_promo_minor_hover">#FF858585</color>
     <!--Минорный промо цвет обводки на темном фоне-->
-    <color name="serv_dark_outline_on_dark_promo_minor_active">#FFE6E6E6</color>
+    <color name="serv_dark_outline_on_dark_promo_minor_active">#FF666666</color>
     <!--Минорный промо цвет обводки на темном фоне-->
     <color name="serv_dark_outline_on_dark_promo_minor">#FFFFFFFF</color>
     <!--Цвет обводки успех на темном фоне-->
-    <color name="serv_dark_outline_on_dark_positive_hover">#FF2ACB47</color>
+    <color name="serv_dark_outline_on_dark_positive_hover">#FF5EDE76</color>
     <!--Цвет обводки успех на темном фоне-->
     <color name="serv_dark_outline_on_dark_positive_active">#FF1F9835</color>
     <!--Цвет обводки предупреждение на темном фоне-->
-    <color name="serv_dark_outline_on_dark_warning_hover">#FFFF8442</color>
+    <color name="serv_dark_outline_on_dark_warning_hover">#FFFFA575</color>
     <!--Цвет обводки предупреждение на темном фоне-->
     <color name="serv_dark_outline_on_dark_warning_active">#FFFF5D05</color>
     <!--Цвет обводки ошибка на темном фоне-->
-    <color name="serv_dark_outline_on_dark_negative_hover">#FFFF5C6C</color>
+    <color name="serv_dark_outline_on_dark_negative_hover">#FFFF8F9A</color>
     <!--Цвет обводки ошибка на темном фоне-->
     <color name="serv_dark_outline_on_dark_negative_active">#FFFF1F35</color>
     <!--Цвет обводки информация на темном фоне-->
@@ -1397,35 +1397,35 @@
     <!--Минорный цвет обводки успех на темном фоне-->
     <color name="serv_dark_outline_on_dark_positive_minor_hover">#FF0F9527</color>
     <!--Минорный цвет обводки успех на темном фоне-->
-    <color name="serv_dark_outline_on_dark_positive_minor_active">#FF0C7920</color>
+    <color name="serv_dark_outline_on_dark_positive_minor_active">#FF074A14</color>
     <!--Минорный цвет обводки предупреждение на темном фоне-->
     <color name="serv_dark_outline_on_dark_warning_minor_hover">#FFBB4F11</color>
     <!--Минорный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_dark_outline_on_dark_warning_minor_active">#FF9F440F</color>
+    <color name="serv_dark_outline_on_dark_warning_minor_active">#FF70300A</color>
     <!--Минорный цвет обводки ошибка на темном фоне-->
-    <color name="serv_dark_outline_on_dark_negative_minor_hover">#FFB91828</color>
+    <color name="serv_dark_outline_on_dark_negative_minor_hover">#FFD41C2E</color>
     <!--Минорный цвет обводки ошибка на темном фоне-->
-    <color name="serv_dark_outline_on_dark_negative_minor_active">#FF83111C</color>
+    <color name="serv_dark_outline_on_dark_negative_minor_active">#FF8C121E</color>
     <!--Минорный цвет обводки информация на темном фоне-->
     <color name="serv_dark_outline_on_dark_info_minor_hover">#FF1277BA</color>
     <!--Минорный цвет обводки информация на темном фоне-->
-    <color name="serv_dark_outline_on_dark_info_minor_active">#FF10659E</color>
+    <color name="serv_dark_outline_on_dark_info_minor_active">#FF0B476F</color>
     <!--Прозрачный цвет обводки успех на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_positive_hover">#FF24B23E</color>
+    <color name="serv_dark_outline_on_dark_transparent_positive_hover">#B324B23E</color>
     <!--Прозрачный цвет обводки успех на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_positive_active">#5624B23E</color>
+    <color name="serv_dark_outline_on_dark_transparent_positive_active">#2B24B23E</color>
     <!--Прозрачный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_warning_hover">#FFFF7024</color>
+    <color name="serv_dark_outline_on_dark_transparent_warning_hover">#B3FF7024</color>
     <!--Прозрачный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_warning_active">#56FF7024</color>
+    <color name="serv_dark_outline_on_dark_transparent_warning_active">#2BFF7024</color>
     <!--Прозрачный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_negative_hover">#FFFF3D51</color>
+    <color name="serv_dark_outline_on_dark_transparent_negative_hover">#B3FF3D51</color>
     <!--Прозрачный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_negative_active">#56FF3D51</color>
+    <color name="serv_dark_outline_on_dark_transparent_negative_active">#2BFF3D51</color>
     <!--Прозрачный цвет обводки информация на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_info_hover">#FF199AF0</color>
+    <color name="serv_dark_outline_on_dark_transparent_info_hover">#B3199AF0</color>
     <!--Прозрачный цвет обводки информация на темном фоне-->
-    <color name="serv_dark_outline_on_dark_transparent_info_active">#56199AF0</color>
+    <color name="serv_dark_outline_on_dark_transparent_info_active">#2B199AF0</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
     <color name="serv_dark_outline_on_dark_solid_primary">#FF262626</color>
     <!--Прозрачный цвет обводки по умолчанию на темном фоне-->
@@ -1475,53 +1475,53 @@
     <!--dark outline onDark outlineSolidDefault-->
     <color name="serv_dark_outline_on_dark_solid_default">#FFF9F9F9</color>
     <!--dark outline onDark outlineSolidDefaultHover-->
-    <color name="serv_dark_outline_on_dark_solid_default_hover">#FFC7C7C7</color>
+    <color name="serv_dark_outline_on_dark_solid_default_hover">#FF808080</color>
     <!--dark outline onDark outlineSolidDefaultActive-->
-    <color name="serv_dark_outline_on_dark_solid_default_active">#FFE0E0E0</color>
+    <color name="serv_dark_outline_on_dark_solid_default_active">#FF616161</color>
     <!--Основной непрозрачный цвет обводки на светлом фоне-->
     <color name="serv_dark_outline_on_light_solid_primary_hover">#FFABABAB</color>
     <!--Основной непрозрачный цвет обводки на светлом фоне-->
     <color name="serv_dark_outline_on_light_solid_primary_active">#FFC4C4C4</color>
     <!--Вторичный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_solid_secondary_hover">#FFBDBDBD</color>
+    <color name="serv_dark_outline_on_light_solid_secondary_hover">#FFDBDBDB</color>
     <!--Вторичный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_solid_secondary_active">#FFADADAD</color>
+    <color name="serv_dark_outline_on_light_solid_secondary_active">#FF8F8F8F</color>
     <!--Третичный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_solid_tertiary_hover">#FFFFFFFF</color>
+    <color name="serv_dark_outline_on_light_solid_tertiary_hover">#FFA3A3A3</color>
     <!--Третичный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_solid_tertiary_active">#FF737373</color>
+    <color name="serv_dark_outline_on_light_solid_tertiary_active">#FF5C5C5C</color>
     <!--Прозрачный цвет обводки по умолчанию на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_default_hover">#FFFFFFFF</color>
+    <color name="serv_dark_outline_on_light_transparent_default_hover">#FF969696</color>
     <!--Прозрачный цвет обводки по умолчанию на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_default_active">#FFC7C7C7</color>
+    <color name="serv_dark_outline_on_light_transparent_default_active">#FF080808</color>
     <!--Основной прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_primary_hover">#3D080808</color>
+    <color name="serv_dark_outline_on_light_transparent_primary_hover">#52080808</color>
     <!--Основной прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_primary_active">#0F080808</color>
+    <color name="serv_dark_outline_on_light_transparent_primary_active">#38080808</color>
     <!--Вторичный прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_secondary_hover">#66080808</color>
+    <color name="serv_dark_outline_on_light_transparent_secondary_hover">#2B080808</color>
     <!--Вторичный прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_secondary_active">#38080808</color>
+    <color name="serv_dark_outline_on_light_transparent_secondary_active">#72080808</color>
     <!--Третичный прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_tertiary_hover">#AD080808</color>
+    <color name="serv_dark_outline_on_light_transparent_tertiary_hover">#47080808</color>
     <!--Третичный прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_tertiary_active">#80080808</color>
+    <color name="serv_dark_outline_on_light_transparent_tertiary_active">#FF080808</color>
     <!--Бесцветная обводка на светлом фоне-->
     <color name="serv_dark_outline_on_light_clear_hover">#00000000</color>
     <!--Бесцветная обводка на светлом фоне-->
     <color name="serv_dark_outline_on_light_clear_active">#00000000</color>
     <!--Акцентный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_accent_hover">#FF13AA2C</color>
+    <color name="serv_dark_outline_on_light_accent_hover">#FF15BC31</color>
     <!--Акцентный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_accent_active">#FF0D731E</color>
+    <color name="serv_dark_outline_on_light_accent_active">#FF0C6A1B</color>
     <!--Акцентный минорный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_accent_minor_hover">#FF3EDA5B</color>
+    <color name="serv_dark_outline_on_light_accent_minor_hover">#FF7AE68E</color>
     <!--Акцентный минорный непрозрачный цвет обводки на светлом фоне-->
     <color name="serv_dark_outline_on_light_accent_minor_active">#FF23B83E</color>
     <!--Прозрачный акцентный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_accent_hover">#FF108E25</color>
+    <color name="serv_dark_outline_on_light_transparent_accent_hover">#1F108E25</color>
     <!--Прозрачный акцентный цвет обводки на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_accent_active">#3D108E25</color>
+    <color name="serv_dark_outline_on_light_transparent_accent_active">#52108E25</color>
     <!--Промо цвет обводки на светлом фоне-->
     <color name="serv_dark_outline_on_light_promo_hover">#FFCCCCCC</color>
     <!--Промо цвет обводки на светлом фоне-->
@@ -1535,53 +1535,53 @@
     <!--Минорный промо цвет обводки на светлом фоне-->
     <color name="serv_dark_outline_on_light_promo_minor">#FFFFFFFF</color>
     <!--Цвет обводки успех на светлом фоне-->
-    <color name="serv_dark_outline_on_light_positive_hover">#FF13AA2C</color>
+    <color name="serv_dark_outline_on_light_positive_hover">#FF15BC31</color>
     <!--Цвет обводки успех на светлом фоне-->
-    <color name="serv_dark_outline_on_light_positive_active">#FF0D731E</color>
+    <color name="serv_dark_outline_on_light_positive_active">#FF0C6A1B</color>
     <!--Цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_dark_outline_on_light_warning_hover">#FFFD650D</color>
+    <color name="serv_dark_outline_on_light_warning_hover">#FFFD9253</color>
     <!--Цвет обводки предупреждение на светлом фоне-->
     <color name="serv_dark_outline_on_light_warning_active">#FFCA4B02</color>
     <!--Цвет обводки ошибка на светлом фоне-->
-    <color name="serv_dark_outline_on_light_negative_hover">#FFF5384B</color>
+    <color name="serv_dark_outline_on_light_negative_hover">#FFF87C89</color>
     <!--Цвет обводки ошибка на светлом фоне-->
     <color name="serv_dark_outline_on_light_negative_active">#FFE40C22</color>
     <!--Цвет обводки информация на светлом фоне-->
-    <color name="serv_dark_outline_on_light_info_hover">#FF34A7F4</color>
+    <color name="serv_dark_outline_on_light_info_hover">#FF47B0F5</color>
     <!--Цвет обводки информация на светлом фоне-->
     <color name="serv_dark_outline_on_light_info_active">#FF096CAE</color>
     <!--Минорный цвет обводки успех на светлом фоне-->
-    <color name="serv_dark_outline_on_light_positive_minor_hover">#FF3EDA5B</color>
+    <color name="serv_dark_outline_on_light_positive_minor_hover">#FF7AE68E</color>
     <!--Минорный цвет обводки успех на светлом фоне-->
     <color name="serv_dark_outline_on_light_positive_minor_active">#FF23B83E</color>
     <!--Минорный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_dark_outline_on_light_warning_minor_hover">#FFFDB086</color>
+    <color name="serv_dark_outline_on_light_warning_minor_hover">#FFFDB790</color>
     <!--Минорный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_dark_outline_on_light_warning_minor_active">#FFFC884A</color>
+    <color name="serv_dark_outline_on_light_warning_minor_active">#FFFC8240</color>
     <!--Минорный цвет обводки ошибка на светлом фоне-->
-    <color name="serv_dark_outline_on_light_negative_minor_hover">#FFFFADB6</color>
+    <color name="serv_dark_outline_on_light_negative_minor_hover">#FFFFB8BF</color>
     <!--Минорный цвет обводки ошибка на светлом фоне-->
-    <color name="serv_dark_outline_on_light_negative_minor_active">#FFFF707E</color>
+    <color name="serv_dark_outline_on_light_negative_minor_active">#FFFF6675</color>
     <!--Минорный цвет обводки информация на светлом фоне-->
     <color name="serv_dark_outline_on_light_info_minor_hover">#FFA3DAFF</color>
     <!--Минорный цвет обводки информация на светлом фоне-->
-    <color name="serv_dark_outline_on_light_info_minor_active">#FF33ADFF</color>
+    <color name="serv_dark_outline_on_light_info_minor_active">#FF29A9FF</color>
     <!--Прозрачный цвет обводки успех на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_positive_hover">#FF108E25</color>
+    <color name="serv_dark_outline_on_light_transparent_positive_hover">#1F108E25</color>
     <!--Прозрачный цвет обводки успех на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_positive_active">#3D108E25</color>
+    <color name="serv_dark_outline_on_light_transparent_positive_active">#52108E25</color>
     <!--Прозрачный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_warning_hover">#FFE85702</color>
+    <color name="serv_dark_outline_on_light_transparent_warning_hover">#1FE85702</color>
     <!--Прозрачный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_warning_active">#3DE85702</color>
+    <color name="serv_dark_outline_on_light_transparent_warning_active">#52E85702</color>
     <!--Прозрачный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_negative_hover">#FFF31B31</color>
+    <color name="serv_dark_outline_on_light_transparent_negative_hover">#1FF31B31</color>
     <!--Прозрачный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_negative_active">#3DF31B31</color>
+    <color name="serv_dark_outline_on_light_transparent_negative_active">#52F31B31</color>
     <!--Прозрачный цвет обводки информация на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_info_hover">#FF0B7ECB</color>
+    <color name="serv_dark_outline_on_light_transparent_info_hover">#1F0B7ECB</color>
     <!--Прозрачный цвет обводки информация на светлом фоне-->
-    <color name="serv_dark_outline_on_light_transparent_info_active">#3D0B7ECB</color>
+    <color name="serv_dark_outline_on_light_transparent_info_active">#520B7ECB</color>
     <!--Основной непрозрачный цвет обводки на светлом фоне-->
     <color name="serv_dark_outline_on_light_solid_primary">#FFDDDDDD</color>
     <!--Третичный непрозрачный цвет обводки на светлом фоне-->
@@ -1631,21 +1631,21 @@
     <!--dark outline onLight outlineSolidDefault-->
     <color name="serv_dark_outline_on_light_solid_default">#FF080808</color>
     <!--dark outline onLight outlineSolidDefaultHover-->
-    <color name="serv_dark_outline_on_light_solid_default_hover">#FFFFFFFF</color>
+    <color name="serv_dark_outline_on_light_solid_default_hover">#FF969696</color>
     <!--dark outline onLight outlineSolidDefaultActive-->
-    <color name="serv_dark_outline_on_light_solid_default_active">#FFC7C7C7</color>
+    <color name="serv_dark_outline_on_light_solid_default_active">#FF080808</color>
     <!--Инвертированный основной непрозрачный цвет обводки-->
     <color name="serv_dark_outline_inverse_solid_primary_hover">#FFABABAB</color>
     <!--Инвертированный основной непрозрачный цвет обводки-->
     <color name="serv_dark_outline_inverse_solid_primary_active">#FFC4C4C4</color>
     <!--Инвертированный вторичный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_solid_secondary_hover">#FFBDBDBD</color>
+    <color name="serv_dark_outline_inverse_solid_secondary_hover">#FFDBDBDB</color>
     <!--Инвертированный вторичный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_solid_secondary_active">#FFADADAD</color>
+    <color name="serv_dark_outline_inverse_solid_secondary_active">#FF8F8F8F</color>
     <!--Инвертированный третичный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_solid_tertiary_hover">#FFFFFFFF</color>
+    <color name="serv_dark_outline_inverse_solid_tertiary_hover">#FFA3A3A3</color>
     <!--Инвертированный третичный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_solid_tertiary_active">#FF737373</color>
+    <color name="serv_dark_outline_inverse_solid_tertiary_active">#FF5C5C5C</color>
     <!--Инвертированный прозрачный цвет обводки по умолчанию-->
     <color name="serv_dark_outline_inverse_transparent_default_hover">#FFCCCCCC</color>
     <!--Инвертированный прозрачный цвет обводки по умолчанию-->
@@ -1653,33 +1653,33 @@
     <!--Инвертированный прозрачный цвет обводки по умолчанию-->
     <color name="serv_dark_outline_inverse_transparent_default">#FFFFFFFF</color>
     <!--Инвертированный основной прозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_transparent_primary_hover">#3D080808</color>
+    <color name="serv_dark_outline_inverse_transparent_primary_hover">#52080808</color>
     <!--Инвертированный основной прозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_transparent_primary_active">#0F080808</color>
+    <color name="serv_dark_outline_inverse_transparent_primary_active">#38080808</color>
     <!--Инвертированный вторичный прозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_transparent_secondary_hover">#66080808</color>
+    <color name="serv_dark_outline_inverse_transparent_secondary_hover">#2B080808</color>
     <!--Инвертированный вторичный прозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_transparent_secondary_active">#38080808</color>
+    <color name="serv_dark_outline_inverse_transparent_secondary_active">#72080808</color>
     <!--Инвертированный третичный прозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_transparent_tertiary_hover">#AD080808</color>
+    <color name="serv_dark_outline_inverse_transparent_tertiary_hover">#47080808</color>
     <!--Инвертированный третичный прозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_transparent_tertiary_active">#80080808</color>
+    <color name="serv_dark_outline_inverse_transparent_tertiary_active">#FF080808</color>
     <!--Инвертированная бесцветная обводка-->
     <color name="serv_dark_outline_inverse_clear_hover">#00000000</color>
     <!--Инвертированная бесцветная обводка-->
     <color name="serv_dark_outline_inverse_clear_active">#00000000</color>
     <!--Инвертированный акцентный цвет обводки-->
-    <color name="serv_dark_outline_inverse_accent_hover">#FF13AA2C</color>
+    <color name="serv_dark_outline_inverse_accent_hover">#FF15BC31</color>
     <!--Инвертированный акцентный цвет обводки-->
-    <color name="serv_dark_outline_inverse_accent_active">#FF0D731E</color>
+    <color name="serv_dark_outline_inverse_accent_active">#FF0C6A1B</color>
     <!--Инвертированный акцентный минорный непрозрачный цвет обводки-->
-    <color name="serv_dark_outline_inverse_accent_minor_hover">#FF3EDA5B</color>
+    <color name="serv_dark_outline_inverse_accent_minor_hover">#FF7AE68E</color>
     <!--Инвертированный акцентный минорный непрозрачный цвет обводки-->
     <color name="serv_dark_outline_inverse_accent_minor_active">#FF23B83E</color>
     <!--Прозрачный инвертированный акцентный цвет обводки-->
-    <color name="serv_dark_outline_inverse_transparent_accent_hover">#FF108E25</color>
+    <color name="serv_dark_outline_inverse_transparent_accent_hover">#1F108E25</color>
     <!--Прозрачный инвертированный акцентный цвет обводки-->
-    <color name="serv_dark_outline_inverse_transparent_accent_active">#3D108E25</color>
+    <color name="serv_dark_outline_inverse_transparent_accent_active">#52108E25</color>
     <!--Инвертированный промо цвет обводки-->
     <color name="serv_dark_outline_inverse_promo_hover">#FFCCCCCC</color>
     <!--Инвертированный промо цвет обводки-->
@@ -1693,53 +1693,53 @@
     <!--Инвертированный минорный промо цвет обводки-->
     <color name="serv_dark_outline_inverse_promo_minor">#FFFFFFFF</color>
     <!--Инвертированный цвет обводки успех-->
-    <color name="serv_dark_outline_inverse_positive_hover">#FF13AA2C</color>
+    <color name="serv_dark_outline_inverse_positive_hover">#FF15BC31</color>
     <!--Инвертированный цвет обводки успех-->
-    <color name="serv_dark_outline_inverse_positive_active">#FF0D731E</color>
+    <color name="serv_dark_outline_inverse_positive_active">#FF0C6A1B</color>
     <!--Инвертированный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_inverse_warning_hover">#FFFD650D</color>
+    <color name="serv_dark_outline_inverse_warning_hover">#FFFD9253</color>
     <!--Инвертированный цвет обводки предупреждение-->
     <color name="serv_dark_outline_inverse_warning_active">#FFCA4B02</color>
     <!--Инвертированный цвет обводки ошибка-->
-    <color name="serv_dark_outline_inverse_negative_hover">#FFF5384B</color>
+    <color name="serv_dark_outline_inverse_negative_hover">#FFF87C89</color>
     <!--Инвертированный цвет обводки ошибка-->
     <color name="serv_dark_outline_inverse_negative_active">#FFE40C22</color>
     <!--Инвертированный цвет обводки информация-->
-    <color name="serv_dark_outline_inverse_info_hover">#FF34A7F4</color>
+    <color name="serv_dark_outline_inverse_info_hover">#FF47B0F5</color>
     <!--Инвертированный цвет обводки информация-->
     <color name="serv_dark_outline_inverse_info_active">#FF096CAE</color>
     <!--Инвертированный минорный цвет обводки успех-->
-    <color name="serv_dark_outline_inverse_positive_minor_hover">#FF3EDA5B</color>
+    <color name="serv_dark_outline_inverse_positive_minor_hover">#FF7AE68E</color>
     <!--Инвертированный минорный цвет обводки успех-->
     <color name="serv_dark_outline_inverse_positive_minor_active">#FF23B83E</color>
     <!--Инвертированный минорный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_inverse_warning_minor_hover">#FFFDB086</color>
+    <color name="serv_dark_outline_inverse_warning_minor_hover">#FFFDB790</color>
     <!--Инвертированный минорный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_inverse_warning_minor_active">#FFFC884A</color>
+    <color name="serv_dark_outline_inverse_warning_minor_active">#FFFC8240</color>
     <!--Инвертированный минорный цвет обводки ошибка-->
-    <color name="serv_dark_outline_inverse_negative_minor_hover">#FFFFADB6</color>
+    <color name="serv_dark_outline_inverse_negative_minor_hover">#FFFFB8BF</color>
     <!--Инвертированный минорный цвет обводки ошибка-->
-    <color name="serv_dark_outline_inverse_negative_minor_active">#FFFF707E</color>
+    <color name="serv_dark_outline_inverse_negative_minor_active">#FFFF6675</color>
     <!--Инвертированный минорный цвет обводки информация-->
     <color name="serv_dark_outline_inverse_info_minor_hover">#FFA3DAFF</color>
     <!--Инвертированный минорный цвет обводки информация-->
-    <color name="serv_dark_outline_inverse_info_minor_active">#FF33ADFF</color>
+    <color name="serv_dark_outline_inverse_info_minor_active">#FF29A9FF</color>
     <!--Прозрачный инвертированный цвет обводки успех-->
-    <color name="serv_dark_outline_inverse_transparent_positive_hover">#FF108E25</color>
+    <color name="serv_dark_outline_inverse_transparent_positive_hover">#1F108E25</color>
     <!--Прозрачный инвертированный цвет обводки успех-->
-    <color name="serv_dark_outline_inverse_transparent_positive_active">#3D108E25</color>
+    <color name="serv_dark_outline_inverse_transparent_positive_active">#52108E25</color>
     <!--Прозрачный инвертированный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_inverse_transparent_warning_hover">#FFE85702</color>
+    <color name="serv_dark_outline_inverse_transparent_warning_hover">#1FE85702</color>
     <!--Прозрачный инвертированный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_inverse_transparent_warning_active">#3DE85702</color>
+    <color name="serv_dark_outline_inverse_transparent_warning_active">#52E85702</color>
     <!--Прозрачный инвертированный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_inverse_transparent_negative_hover">#FFF31B31</color>
+    <color name="serv_dark_outline_inverse_transparent_negative_hover">#1FF31B31</color>
     <!--Прозрачный инвертированный цвет обводки предупреждение-->
-    <color name="serv_dark_outline_inverse_transparent_negative_active">#3DF31B31</color>
+    <color name="serv_dark_outline_inverse_transparent_negative_active">#52F31B31</color>
     <!--Прозрачный инвертированный цвет обводки информация-->
-    <color name="serv_dark_outline_inverse_transparent_info_hover">#FF0B7ECB</color>
+    <color name="serv_dark_outline_inverse_transparent_info_hover">#1F0B7ECB</color>
     <!--Прозрачный инвертированный цвет обводки информация-->
-    <color name="serv_dark_outline_inverse_transparent_info_active">#3D0B7ECB</color>
+    <color name="serv_dark_outline_inverse_transparent_info_active">#520B7ECB</color>
     <!--Инвертированный основной непрозрачный цвет обводки-->
     <color name="serv_dark_outline_inverse_solid_primary">#FFDDDDDD</color>
     <!--Инвертированный третичный непрозрачный цвет обводки-->
@@ -1785,9 +1785,9 @@
     <!--Инвертированный вторичный непрозрачный цвет обводки-->
     <color name="serv_dark_outline_inverse_solid_secondary">#FFB3B3B3</color>
     <!--dark outline inverse outlineSolidDefaultHover-->
-    <color name="serv_dark_outline_inverse_solid_default_hover">#FFFFFFFF</color>
+    <color name="serv_dark_outline_inverse_solid_default_hover">#FF969696</color>
     <!--dark outline inverse outlineSolidDefaultActive-->
-    <color name="serv_dark_outline_inverse_solid_default_active">#FFC7C7C7</color>
+    <color name="serv_dark_outline_inverse_solid_default_active">#FF080808</color>
     <!--dark outline inverse outlineSolidDefault-->
     <color name="serv_dark_outline_inverse_solid_default">#FF080808</color>
     <!--Желтый цвет для данных-->
@@ -1829,39 +1829,39 @@
     <!--Желтый цвет для данных на светлом фоне-->
     <color name="serv_dark_data_on_light_yellow">#FFF3A912</color>
     <!--Желтый цвет для данных на светлом фоне-->
-    <color name="serv_dark_data_on_light_yellow_hover">#FFF4B22F</color>
+    <color name="serv_dark_data_on_light_yellow_hover">#FFF5B638</color>
     <!--Желтый цвет для данных на светлом фоне-->
-    <color name="serv_dark_data_on_light_yellow_active">#FFEDA20C</color>
+    <color name="serv_dark_data_on_light_yellow_active">#FFE49C0C</color>
     <!--Минорный желтый цвет для данных на светлом фоне-->
     <color name="serv_dark_data_on_light_yellow_minor">#FFFFD37A</color>
     <!--Минорный желтый цвет для данных на светлом фоне-->
-    <color name="serv_dark_data_on_light_yellow_minor_hover">#FFFFDA8F</color>
+    <color name="serv_dark_data_on_light_yellow_minor_hover">#FFFFCF70</color>
     <!--Минорный желтый цвет для данных на светлом фоне-->
-    <color name="serv_dark_data_on_light_yellow_minor_active">#FFFFCF70</color>
+    <color name="serv_dark_data_on_light_yellow_minor_active">#FFFFCC66</color>
     <!--Прозрачный желтый цвет для данных на светлом фоне-->
     <color name="serv_dark_data_on_light_yellow_transparent">#8EF3A912</color>
     <!--Прозрачный желтый цвет для данных на светлом фоне-->
-    <color name="serv_dark_data_on_light_yellow_transparent_hover">#ADF3A812</color>
+    <color name="serv_dark_data_on_light_yellow_transparent_hover">#9EF3A812</color>
     <!--Прозрачный желтый цвет для данных на светлом фоне-->
-    <color name="serv_dark_data_on_light_yellow_transparent_active">#80F3A812</color>
+    <color name="serv_dark_data_on_light_yellow_transparent_active">#A3F3A812</color>
     <!--Инвертированный желтый цвет для данных-->
     <color name="serv_dark_data_inverse_yellow">#FFF3A912</color>
     <!--Инвертированный желтый цвет для данных-->
-    <color name="serv_dark_data_inverse_yellow_hover">#FFF4B22F</color>
+    <color name="serv_dark_data_inverse_yellow_hover">#FFF5B638</color>
     <!--Инвертированный желтый цвет для данных-->
-    <color name="serv_dark_data_inverse_yellow_active">#FFEDA20C</color>
+    <color name="serv_dark_data_inverse_yellow_active">#FFE49C0C</color>
     <!--Инвертированный минорный желтый цвет для данных-->
     <color name="serv_dark_data_inverse_yellow_minor">#FFFFD37A</color>
     <!--Инвертированный минорный желтый цвет для данных-->
-    <color name="serv_dark_data_inverse_yellow_minor_hover">#FFFFDA8F</color>
+    <color name="serv_dark_data_inverse_yellow_minor_hover">#FFFFCF70</color>
     <!--Инвертированный минорный желтый цвет для данных-->
-    <color name="serv_dark_data_inverse_yellow_minor_active">#FFFFCF70</color>
+    <color name="serv_dark_data_inverse_yellow_minor_active">#FFFFCC66</color>
     <!--Инвертированный прозрачный желтый цвет для данных-->
     <color name="serv_dark_data_inverse_yellow_transparent">#8EF3A912</color>
     <!--Инвертированный прозрачный желтый цвет для данных-->
-    <color name="serv_dark_data_inverse_yellow_transparent_hover">#ADF3A812</color>
+    <color name="serv_dark_data_inverse_yellow_transparent_hover">#9EF3A812</color>
     <!--Инвертированный прозрачный желтый цвет для данных-->
-    <color name="serv_dark_data_inverse_yellow_transparent_active">#80F3A812</color>
+    <color name="serv_dark_data_inverse_yellow_transparent_active">#A3F3A812</color>
     <!--Основной цвет текста-->
     <color name="serv_light_text_default_primary_hover">#93171717</color>
     <!--Основной цвет текста-->
@@ -2255,7 +2255,7 @@
     <!--Инвертированный минорный цвет информации-->
     <color name="serv_light_text_inverse_info_minor">#FF0D5382</color>
     <!--Основной непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_solid_primary_hover">#FFFAFAFA</color>
+    <color name="serv_light_surface_default_solid_primary_hover">#FFF2F2F2</color>
     <!--Основной непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_solid_primary_active">#FFF0F0F0</color>
     <!--Основной непрозрачный фон поверхности/контрола-->
@@ -2263,13 +2263,13 @@
     <!--Основной непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_solid_primary_brightness">#FFF6F6F6</color>
     <!--Вторичный непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_solid_secondary_hover">#FFF7F7F7</color>
+    <color name="serv_light_surface_default_solid_secondary_hover">#FFE8E8E8</color>
     <!--Вторичный непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_solid_secondary_active">#FFE8E8E8</color>
+    <color name="serv_light_surface_default_solid_secondary_active">#FFE6E6E6</color>
     <!--Вторичный непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_solid_secondary">#FFECECEC</color>
     <!--Третичный непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_solid_tertiary_hover">#FFEDEDED</color>
+    <color name="serv_light_surface_default_solid_tertiary_hover">#FFD9D9D9</color>
     <!--Третичный непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_solid_tertiary_active">#FFD4D4D4</color>
     <!--Третичный непрозрачный фон поверхности/контрола-->
@@ -2289,25 +2289,25 @@
     <!--Непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="serv_light_surface_default_solid_default">#FF080808</color>
     <!--Основной прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_transparent_primary_hover">#03080808</color>
+    <color name="serv_light_surface_default_transparent_primary_hover">#0A080808</color>
     <!--Основной прозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_transparent_primary_active">#0D080808</color>
     <!--Вторичный прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_transparent_secondary_hover">#05080808</color>
+    <color name="serv_light_surface_default_transparent_secondary_hover">#14080808</color>
     <!--Вторичный прозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_transparent_secondary_active">#1A080808</color>
     <!--Вторичный прозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_transparent_secondary">#0F080808</color>
     <!--Третичный прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_transparent_tertiary_hover">#0A080808</color>
+    <color name="serv_light_surface_default_transparent_tertiary_hover">#2E080808</color>
     <!--Третичный прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_transparent_tertiary_active">#29080808</color>
+    <color name="serv_light_surface_default_transparent_tertiary_active">#33080808</color>
     <!--Третичный прозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_transparent_tertiary">#1F080808</color>
     <!--Прозрачный фон поверхности/контрола по умолчанию-->
-    <color name="serv_light_surface_default_transparent_deep_hover">#8F080808</color>
+    <color name="serv_light_surface_default_transparent_deep_hover">#B3080808</color>
     <!--Прозрачный фон поверхности/контрола по умолчанию-->
-    <color name="serv_light_surface_default_transparent_deep_active">#AD080808</color>
+    <color name="serv_light_surface_default_transparent_deep_active">#B8080808</color>
     <!--Прозрачный фон поверхности/контрола по умолчанию-->
     <color name="serv_light_surface_default_transparent_deep">#A3080808</color>
     <!--Прозрачный фон для карточек-->
@@ -2331,13 +2331,13 @@
     <!--Акцентный фон поверхности/контрола-->
     <color name="serv_light_surface_default_accent">#FF1A9E32</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_accent_minor_hover">#FFB1FBBF</color>
+    <color name="serv_light_surface_default_accent_minor_hover">#FF94F9A7</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_accent_minor_active">#FF8BF99F</color>
     <!--Прозрачный акцентный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_transparent_accent_hover">#0A108E25</color>
+    <color name="serv_light_surface_default_transparent_accent_hover">#2E108E25</color>
     <!--Прозрачный акцентный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_transparent_accent_active">#29108E25</color>
+    <color name="serv_light_surface_default_transparent_accent_active">#33108E25</color>
     <!--Промо фон поверхности/контрола-->
     <color name="serv_light_surface_default_promo_hover">#FFFFFFFF</color>
     <!--Промо фон поверхности/контрола-->
@@ -2375,41 +2375,41 @@
     <!--Цвет фона поверхности/контрола ошибка-->
     <color name="serv_light_surface_default_negative">#FFFF293E</color>
     <!--Цвет фона поверхности/контрола информация-->
-    <color name="serv_light_surface_default_info_hover">#FF1798EE</color>
+    <color name="serv_light_surface_default_info_hover">#FF209CEE</color>
     <!--Цвет фона поверхности/контрола информация-->
     <color name="serv_light_surface_default_info_active">#FF0F81CC</color>
     <!--Минорный цвет фона поверхности/контрола успех-->
-    <color name="serv_light_surface_default_positive_minor_hover">#FFB1FBBF</color>
+    <color name="serv_light_surface_default_positive_minor_hover">#FF94F9A7</color>
     <!--Минорный цвет фона поверхности/контрола успех-->
     <color name="serv_light_surface_default_positive_minor_active">#FF8BF99F</color>
     <!--Минорный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_default_warning_minor_hover">#FFFEEFE6</color>
+    <color name="serv_light_surface_default_warning_minor_hover">#FFFEDCC8</color>
     <!--Минорный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_default_warning_minor_active">#FFFEDCC8</color>
+    <color name="serv_light_surface_default_warning_minor_active">#FFFED9C3</color>
     <!--Минорный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_light_surface_default_negative_minor_hover">#FFFFF5F6</color>
+    <color name="serv_light_surface_default_negative_minor_hover">#FFFFD6DA</color>
     <!--Минорный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_light_surface_default_negative_minor_active">#FFFFD6DA</color>
+    <color name="serv_light_surface_default_negative_minor_active">#FFFFD1D6</color>
     <!--Минорный цвет фона поверхности/контрола информация-->
-    <color name="serv_light_surface_default_info_minor_hover">#FFE5F5FF</color>
+    <color name="serv_light_surface_default_info_minor_hover">#FFC7E9FF</color>
     <!--Минорный цвет фона поверхности/контрола информация-->
-    <color name="serv_light_surface_default_info_minor_active">#FFC7E9FF</color>
+    <color name="serv_light_surface_default_info_minor_active">#FFC2E7FF</color>
     <!--Прозрачный цвет фона поверхности/контрола успех-->
-    <color name="serv_light_surface_default_transparent_positive_hover">#0A1A9E32</color>
+    <color name="serv_light_surface_default_transparent_positive_hover">#2E1A9E32</color>
     <!--Прозрачный цвет фона поверхности/контрола успех-->
-    <color name="serv_light_surface_default_transparent_positive_active">#291A9E32</color>
+    <color name="serv_light_surface_default_transparent_positive_active">#331A9E32</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_default_transparent_warning_hover">#0AFA5F05</color>
+    <color name="serv_light_surface_default_transparent_warning_hover">#2EFA5F05</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_default_transparent_warning_active">#29FA5F05</color>
+    <color name="serv_light_surface_default_transparent_warning_active">#33FA5F05</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_default_transparent_negative_hover">#0AFF293E</color>
+    <color name="serv_light_surface_default_transparent_negative_hover">#2EFF293E</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_default_transparent_negative_active">#29FF293E</color>
+    <color name="serv_light_surface_default_transparent_negative_active">#33FF293E</color>
     <!--Прозрачный цвет фона поверхности/контрола информация-->
-    <color name="serv_light_surface_default_transparent_info_hover">#0A118CDF</color>
+    <color name="serv_light_surface_default_transparent_info_hover">#2E118CDF</color>
     <!--Прозрачный цвет фона поверхности/контрола информация-->
-    <color name="serv_light_surface_default_transparent_info_active">#29118CDF</color>
+    <color name="serv_light_surface_default_transparent_info_active">#33118CDF</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_accent_minor">#FF9EFAAF</color>
     <!--Цвет фона поверхности/контрола информация-->
@@ -2435,29 +2435,29 @@
     <!--Прозрачный акцентный фон поверхности/контрола-->
     <color name="serv_light_surface_default_transparent_accent">#1F108E26</color>
     <!--Основной непрозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_solid_primary_hover">#FF363636</color>
+    <color name="serv_light_surface_on_dark_solid_primary_hover">#FF1C1C1C</color>
     <!--Основной непрозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_solid_primary_active">#FF0D0D0D</color>
+    <color name="serv_light_surface_on_dark_solid_primary_active">#FF121212</color>
     <!--Основной непрозрачный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_solid_primary">#FF171717</color>
     <!--Основной непрозрачный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_solid_primary_brightness">#FF252525</color>
     <!--Вторичный непрозрачный фон поверхности на темном фоне-->
-    <color name="serv_light_surface_on_dark_solid_secondary_hover">#FF3B3B3B</color>
+    <color name="serv_light_surface_on_dark_solid_secondary_hover">#FF303030</color>
     <!--Вторичный непрозрачный фон поверхности на темном фоне-->
-    <color name="serv_light_surface_on_dark_solid_secondary_active">#FF1C1C1C</color>
+    <color name="serv_light_surface_on_dark_solid_secondary_active">#FF212121</color>
     <!--Вторичный непрозрачный фон поверхности на темном фоне-->
     <color name="serv_light_surface_on_dark_solid_secondary">#FF262626</color>
     <!--Третичный непрозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_solid_tertiary_hover">#FF4A4A4A</color>
+    <color name="serv_light_surface_on_dark_solid_tertiary_hover">#FF404040</color>
     <!--Третичный непрозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_solid_tertiary_active">#FF2B2B2B</color>
+    <color name="serv_light_surface_on_dark_solid_tertiary_active">#FF303030</color>
     <!--Третичный непрозрачный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_solid_tertiary">#FF363636</color>
     <!--Основной фон для карточек на темном фоне-->
-    <color name="serv_light_surface_on_dark_solid_card_hover">#FF363636</color>
+    <color name="serv_light_surface_on_dark_solid_card_hover">#FF1C1C1C</color>
     <!--Основной фон для карточек на темном фоне-->
-    <color name="serv_light_surface_on_dark_solid_card_active">#FF0D0D0D</color>
+    <color name="serv_light_surface_on_dark_solid_card_active">#FF121212</color>
     <!--Основной фон для карточек на темном фоне-->
     <color name="serv_light_surface_on_dark_solid_card">#FF171717</color>
     <!--Основной фон для карточек на темном фоне-->
@@ -2469,33 +2469,33 @@
     <!--Непрозрачный фон поверхности/контрола по умолчанию на темном фоне-->
     <color name="serv_light_surface_on_dark_solid_default">#FFF9F9F9</color>
     <!--Основной прозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_primary_hover">#05FFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_primary_hover">#1FFFFFFF</color>
     <!--Основной прозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_primary_active">#1AFFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_primary_active">#0AFFFFFF</color>
     <!--Основной прозрачный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_transparent_primary">#0FFFFFFF</color>
     <!--Вторичный прозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_secondary_hover">#0AFFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_secondary_hover">#3DFFFFFF</color>
     <!--Вторичный прозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_secondary_active">#29FFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_secondary_active">#0FFFFFFF</color>
     <!--Вторичный прозрачный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_transparent_secondary">#1FFFFFFF</color>
     <!--Третичный прозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_tertiary_hover">#1FFFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_tertiary_hover">#52FFFFFF</color>
     <!--Третичный прозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_tertiary_active">#3DFFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_tertiary_active">#24FFFFFF</color>
     <!--Третичный прозрачный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_transparent_tertiary">#33FFFFFF</color>
     <!--Прозрачный фон поверхности по умолчанию на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_deep_hover">#8FFFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_deep_hover">#C2FFFFFF</color>
     <!--Прозрачный фон поверхности по умолчанию на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_deep_active">#ADFFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_deep_active">#94FFFFFF</color>
     <!--Прозрачный фон поверхности по умолчанию на темном фоне-->
     <color name="serv_light_surface_on_dark_transparent_deep">#A3FFFFFF</color>
     <!--Прозрачный фон для карточек на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_card_hover">#05FFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_card_hover">#1FFFFFFF</color>
     <!--Прозрачный фон для карточек на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_card_active">#1AFFFFFF</color>
+    <color name="serv_light_surface_on_dark_transparent_card_active">#0AFFFFFF</color>
     <!--Прозрачный фон для карточек на темном фоне-->
     <color name="serv_light_surface_on_dark_transparent_card">#0FFFFFFF</color>
     <!--Прозрачный фон для карточек на темном фоне-->
@@ -2507,19 +2507,19 @@
     <!--Фон поверхности/контрола без заливки на темном фоне-->
     <color name="serv_light_surface_on_dark_clear">#00000000</color>
     <!--Акцентный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_accent_hover">#FF1EB83A</color>
+    <color name="serv_light_surface_on_dark_accent_hover">#FF1DAF37</color>
     <!--Акцентный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_accent_active">#FF178C2C</color>
+    <color name="serv_light_surface_on_dark_accent_active">#FF18952F</color>
     <!--Акцентный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_accent">#FF1A9E32</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_accent_minor_hover">#FF0E3A16</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_accent_minor_active">#FF061909</color>
+    <color name="serv_light_surface_on_dark_accent_minor_active">#FF08210C</color>
     <!--Прозрачный акцентный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_accent_hover">#1F1A9E32</color>
+    <color name="serv_light_surface_on_dark_transparent_accent_hover">#521A9E32</color>
     <!--Прозрачный акцентный фон поверхности/контрола на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_accent_active">#3D1A9E32</color>
+    <color name="serv_light_surface_on_dark_transparent_accent_active">#241A9E32</color>
     <!--Промо фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_promo_hover">#FFFFFFFF</color>
     <!--Промо фон поверхности/контрола на темном фоне-->
@@ -2539,59 +2539,59 @@
     <!--Прозрачный промо фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_transparent_promo">#FFFFFFFF</color>
     <!--Цвет успеха на темном фоне-->
-    <color name="serv_light_surface_on_dark_positive_hover">#FF1EB83A</color>
+    <color name="serv_light_surface_on_dark_positive_hover">#FF1DAF37</color>
     <!--Цвет успеха на темном фоне-->
-    <color name="serv_light_surface_on_dark_positive_active">#FF178C2C</color>
+    <color name="serv_light_surface_on_dark_positive_active">#FF18952F</color>
     <!--Цвет успеха на темном фоне-->
     <color name="serv_light_surface_on_dark_positive">#FF1A9E32</color>
     <!--Цвет фона поверхности предупреждение на темном фоне-->
-    <color name="serv_light_surface_on_dark_warning_hover">#FFFB782D</color>
+    <color name="serv_light_surface_on_dark_warning_hover">#FFFB7223</color>
     <!--Цвет фона поверхности предупреждение на темном фоне-->
-    <color name="serv_light_surface_on_dark_warning_active">#FFE65705</color>
+    <color name="serv_light_surface_on_dark_warning_active">#FFF05B05</color>
     <!--Цвет фона поверхности предупреждение на темном фоне-->
     <color name="serv_light_surface_on_dark_warning">#FFFA5F05</color>
     <!--Цвет фона поверхности/контрола ошибка на темном фоне-->
-    <color name="serv_light_surface_on_dark_negative_hover">#FFFF5263</color>
+    <color name="serv_light_surface_on_dark_negative_hover">#FFFF475A</color>
     <!--Цвет фона поверхности/контрола ошибка на темном фоне-->
-    <color name="serv_light_surface_on_dark_negative_active">#FFFF142C</color>
+    <color name="serv_light_surface_on_dark_negative_active">#FFFF1F35</color>
     <!--Цвет фона поверхности/контрола ошибка на темном фоне-->
     <color name="serv_light_surface_on_dark_negative">#FFFF293E</color>
     <!--Цвет фона поверхности/контрола информация на темном фоне-->
     <color name="serv_light_surface_on_dark_info_hover">#FF1798EE</color>
     <!--Цвет фона поверхности/контрола информация на темном фоне-->
-    <color name="serv_light_surface_on_dark_info_active">#FF0F81CC</color>
+    <color name="serv_light_surface_on_dark_info_active">#FF1086D5</color>
     <!--Минорный цвет фона поверхности/контрола успех на темном фоне-->
     <color name="serv_light_surface_on_dark_positive_minor_hover">#FF0E3A16</color>
     <!--Минорный цвет фона поверхности/контрола успех на темном фоне-->
-    <color name="serv_light_surface_on_dark_positive_minor_active">#FF061909</color>
+    <color name="serv_light_surface_on_dark_positive_minor_active">#FF08210C</color>
     <!--Минорный цвет фона поверхности/контрола предупреждение на темном фоне-->
-    <color name="serv_light_surface_on_dark_warning_minor_hover">#FF58290E</color>
+    <color name="serv_light_surface_on_dark_warning_minor_hover">#FF4F250D</color>
     <!--Минорный цвет фона поверхности/контрола предупреждение на темном фоне-->
-    <color name="serv_light_surface_on_dark_warning_minor_active">#FF2C1507</color>
+    <color name="serv_light_surface_on_dark_warning_minor_active">#FF351909</color>
     <!--Минорный цвет фона поверхности/контрола ошибка на темном фоне-->
-    <color name="serv_light_surface_on_dark_negative_minor_hover">#FF64121A</color>
+    <color name="serv_light_surface_on_dark_negative_minor_hover">#FF5B1018</color>
     <!--Минорный цвет фона поверхности/контрола ошибка на темном фоне-->
-    <color name="serv_light_surface_on_dark_negative_minor_active">#FF380A0F</color>
+    <color name="serv_light_surface_on_dark_negative_minor_active">#FF410B11</color>
     <!--Минорный цвет фона поверхности/контрола информация на темном фоне-->
     <color name="serv_light_surface_on_dark_info_minor_hover">#FF10344C</color>
     <!--Минорный цвет фона поверхности/контрола информация на темном фоне-->
-    <color name="serv_light_surface_on_dark_info_minor_active">#FF091D2A</color>
+    <color name="serv_light_surface_on_dark_info_minor_active">#FF0A2333</color>
     <!--Прозрачный цвет фона поверхности/контрола успех на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_positive_hover">#1F1A9E32</color>
+    <color name="serv_light_surface_on_dark_transparent_positive_hover">#521A9E32</color>
     <!--Прозрачный цвет фона поверхности/контрола успех на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_positive_active">#3D1A9E32</color>
+    <color name="serv_light_surface_on_dark_transparent_positive_active">#241A9E32</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_warning_hover">#1FFA5F05</color>
+    <color name="serv_light_surface_on_dark_transparent_warning_hover">#52FA5F05</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_warning_active">#3DFA5F05</color>
+    <color name="serv_light_surface_on_dark_transparent_warning_active">#24FA5F05</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_negative_hover">#1FFF293E</color>
+    <color name="serv_light_surface_on_dark_transparent_negative_hover">#52FF293E</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_negative_active">#3DFF293E</color>
+    <color name="serv_light_surface_on_dark_transparent_negative_active">#24FF293E</color>
     <!--Прозрачный цвет фона поверхности/контрола информация на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_info_hover">#1F118CDF</color>
+    <color name="serv_light_surface_on_dark_transparent_info_hover">#52118CDF</color>
     <!--Прозрачный цвет фона поверхности/контрола информация на темном фоне-->
-    <color name="serv_light_surface_on_dark_transparent_info_active">#3D118CDF</color>
+    <color name="serv_light_surface_on_dark_transparent_info_active">#24118CDF</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_accent_minor">#FF0A2B10</color>
     <!--Прозрачный акцентный фон поверхности/контрола на темном фоне-->
@@ -2615,7 +2615,7 @@
     <!--Прозрачный цвет фона поверхности/контрола информация на темном фоне-->
     <color name="serv_light_surface_on_dark_transparent_info">#33118CDF</color>
     <!--Основной непрозрачный фон поверхности на светлом фоне-->
-    <color name="serv_light_surface_on_light_solid_primary_hover">#FFFAFAFA</color>
+    <color name="serv_light_surface_on_light_solid_primary_hover">#FFF2F2F2</color>
     <!--Основной непрозрачный фон поверхности на светлом фоне-->
     <color name="serv_light_surface_on_light_solid_primary_active">#FFF0F0F0</color>
     <!--Основной непрозрачный фон поверхности на светлом фоне-->
@@ -2623,13 +2623,13 @@
     <!--Основной непрозрачный фон поверхности на светлом фоне-->
     <color name="serv_light_surface_on_light_solid_primary_brightness">#FFF6F6F6</color>
     <!--Вторичный непрозрачный фон поверхности на светлом фоне-->
-    <color name="serv_light_surface_on_light_solid_secondary_hover">#FFF7F7F7</color>
+    <color name="serv_light_surface_on_light_solid_secondary_hover">#FFE8E8E8</color>
     <!--Вторичный непрозрачный фон поверхности на светлом фоне-->
-    <color name="serv_light_surface_on_light_solid_secondary_active">#FFE8E8E8</color>
+    <color name="serv_light_surface_on_light_solid_secondary_active">#FFE6E6E6</color>
     <!--Вторичный непрозрачный фон поверхности на светлом фоне-->
     <color name="serv_light_surface_on_light_solid_secondary">#FFECECEC</color>
     <!--Третичный непрозрачный фон поверхности на светлом фоне-->
-    <color name="serv_light_surface_on_light_solid_tertiary_hover">#FFEDEDED</color>
+    <color name="serv_light_surface_on_light_solid_tertiary_hover">#FFD9D9D9</color>
     <!--Третичный непрозрачный фон поверхности на светлом фоне-->
     <color name="serv_light_surface_on_light_solid_tertiary_active">#FFD4D4D4</color>
     <!--Третичный непрозрачный фон поверхности на светлом фоне-->
@@ -2649,25 +2649,25 @@
     <!--Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне-->
     <color name="serv_light_surface_on_light_solid_default">#FF080808</color>
     <!--Основной прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_primary_hover">#03080808</color>
+    <color name="serv_light_surface_on_light_transparent_primary_hover">#0A080808</color>
     <!--Основной прозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_light_surface_on_light_transparent_primary_active">#0D080808</color>
     <!--Вторичный прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_secondary_hover">#05080808</color>
+    <color name="serv_light_surface_on_light_transparent_secondary_hover">#14080808</color>
     <!--Вторичный прозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_light_surface_on_light_transparent_secondary_active">#1A080808</color>
     <!--Вторичный прозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_light_surface_on_light_transparent_secondary">#0F080808</color>
     <!--Третичный прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_tertiary_hover">#0A080808</color>
+    <color name="serv_light_surface_on_light_transparent_tertiary_hover">#2E080808</color>
     <!--Третичный прозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_tertiary_active">#29080808</color>
+    <color name="serv_light_surface_on_light_transparent_tertiary_active">#33080808</color>
     <!--Третичный прозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_light_surface_on_light_transparent_tertiary">#1F080808</color>
     <!--Прозрачный фон поверхности по умолчанию на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_deep_hover">#8F080808</color>
+    <color name="serv_light_surface_on_light_transparent_deep_hover">#B3080808</color>
     <!--Прозрачный фон поверхности по умолчанию на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_deep_active">#AD080808</color>
+    <color name="serv_light_surface_on_light_transparent_deep_active">#B8080808</color>
     <!--Прозрачный фон поверхности по умолчанию на светлом фоне-->
     <color name="serv_light_surface_on_light_transparent_deep">#A3080808</color>
     <!--Прозрачный фон для карточек на светлом фоне-->
@@ -2691,13 +2691,13 @@
     <!--Акцентный фон поверхности/контрола на светлом фоне-->
     <color name="serv_light_surface_on_light_accent">#FF1A9E32</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_light_surface_on_light_accent_minor_hover">#FFB1FBBF</color>
+    <color name="serv_light_surface_on_light_accent_minor_hover">#FF94F9A7</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_light_surface_on_light_accent_minor_active">#FF8BF99F</color>
     <!--Прозрачный акцентный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_accent_hover">#0A1A9E32</color>
+    <color name="serv_light_surface_on_light_transparent_accent_hover">#2E1A9E32</color>
     <!--Прозрачный акцентный фон поверхности/контрола на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_accent_active">#291A9E32</color>
+    <color name="serv_light_surface_on_light_transparent_accent_active">#331A9E32</color>
     <!--Промо фон поверхности/контрола на светлом фоне-->
     <color name="serv_light_surface_on_light_promo_hover">#FFFFFFFF</color>
     <!--Промо фон поверхности/контрола на светлом фоне-->
@@ -2735,41 +2735,41 @@
     <!--Цвет фона поверхности/контрола ошибка на светлом фоне-->
     <color name="serv_light_surface_on_light_negative">#FFFF293E</color>
     <!--Цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_light_surface_on_light_info_hover">#FF1798EE</color>
+    <color name="serv_light_surface_on_light_info_hover">#FF209CEE</color>
     <!--Цвет фона поверхности/контрола информация на светлом фоне-->
     <color name="serv_light_surface_on_light_info_active">#FF0F81CC</color>
     <!--Минорный цвет фона поверхности/контрола успех на светлом фоне-->
-    <color name="serv_light_surface_on_light_positive_minor_hover">#FFB1FBBF</color>
+    <color name="serv_light_surface_on_light_positive_minor_hover">#FF94F9A7</color>
     <!--Минорный цвет фона поверхности/контрола успех на светлом фоне-->
     <color name="serv_light_surface_on_light_positive_minor_active">#FF8BF99F</color>
     <!--Минорный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_light_surface_on_light_warning_minor_hover">#FFFEEFE6</color>
+    <color name="serv_light_surface_on_light_warning_minor_hover">#FFFEDCC8</color>
     <!--Минорный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_light_surface_on_light_warning_minor_active">#FFFEDCC8</color>
+    <color name="serv_light_surface_on_light_warning_minor_active">#FFFED9C3</color>
     <!--Минорный цвет фона поверхности/контрола ошибка на светлом фоне-->
-    <color name="serv_light_surface_on_light_negative_minor_hover">#FFFFF5F6</color>
+    <color name="serv_light_surface_on_light_negative_minor_hover">#FFFFD6DA</color>
     <!--Минорный цвет фона поверхности/контрола ошибка на светлом фоне-->
-    <color name="serv_light_surface_on_light_negative_minor_active">#FFFFD6DA</color>
+    <color name="serv_light_surface_on_light_negative_minor_active">#FFFFD1D6</color>
     <!--Минорный цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_light_surface_on_light_info_minor_hover">#FFE5F5FF</color>
+    <color name="serv_light_surface_on_light_info_minor_hover">#FFC7E9FF</color>
     <!--Минорный цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_light_surface_on_light_info_minor_active">#FFC7E9FF</color>
+    <color name="serv_light_surface_on_light_info_minor_active">#FFC2E7FF</color>
     <!--Прозрачный цвет фона поверхности/контрола успех на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_positive_hover">#0A1A9E32</color>
+    <color name="serv_light_surface_on_light_transparent_positive_hover">#2E1A9E32</color>
     <!--Прозрачный цвет фона поверхности/контрола успех на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_positive_active">#291A9E32</color>
+    <color name="serv_light_surface_on_light_transparent_positive_active">#331A9E32</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_warning_hover">#0AFA5F05</color>
+    <color name="serv_light_surface_on_light_transparent_warning_hover">#2EFA5F05</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_warning_active">#29FA5F05</color>
+    <color name="serv_light_surface_on_light_transparent_warning_active">#33FA5F05</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_negative_hover">#0AFF293E</color>
+    <color name="serv_light_surface_on_light_transparent_negative_hover">#2EFF293E</color>
     <!--Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_negative_active">#29FF293E</color>
+    <color name="serv_light_surface_on_light_transparent_negative_active">#33FF293E</color>
     <!--Прозрачный цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_info_hover">#0A118CDF</color>
+    <color name="serv_light_surface_on_light_transparent_info_hover">#2E118CDF</color>
     <!--Прозрачный цвет фона поверхности/контрола информация на светлом фоне-->
-    <color name="serv_light_surface_on_light_transparent_info_active">#29118CDF</color>
+    <color name="serv_light_surface_on_light_transparent_info_active">#33118CDF</color>
     <!--Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_light_surface_on_light_accent_minor">#FF9EFAAF</color>
     <!--Прозрачный акцентный фон поверхности/контрола на светлом фоне-->
@@ -2795,29 +2795,29 @@
     <!--Основной прозрачный фон поверхности/контрола на светлом фоне-->
     <color name="serv_light_surface_on_light_transparent_primary">#08080808</color>
     <!--Инвертированный основной непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_solid_primary_hover">#FF363636</color>
+    <color name="serv_light_surface_inverse_solid_primary_hover">#FF1C1C1C</color>
     <!--Инвертированный основной непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_solid_primary_active">#FF0D0D0D</color>
+    <color name="serv_light_surface_inverse_solid_primary_active">#FF121212</color>
     <!--Инвертированный основной непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_solid_primary">#FF171717</color>
     <!--Инвертированный основной непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_solid_primary_brightness">#FF252525</color>
     <!--Инвертированный вторичный непрозрачный фон поверхности-->
-    <color name="serv_light_surface_inverse_solid_secondary_hover">#FF3B3B3B</color>
+    <color name="serv_light_surface_inverse_solid_secondary_hover">#FF303030</color>
     <!--Инвертированный вторичный непрозрачный фон поверхности-->
-    <color name="serv_light_surface_inverse_solid_secondary_active">#FF1C1C1C</color>
+    <color name="serv_light_surface_inverse_solid_secondary_active">#FF212121</color>
     <!--Инвертированный вторичный непрозрачный фон поверхности-->
     <color name="serv_light_surface_inverse_solid_secondary">#FF262626</color>
     <!--Инвертированный третичный непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_solid_tertiary_hover">#FF4A4A4A</color>
+    <color name="serv_light_surface_inverse_solid_tertiary_hover">#FF404040</color>
     <!--Инвертированный третичный непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_solid_tertiary_active">#FF2B2B2B</color>
+    <color name="serv_light_surface_inverse_solid_tertiary_active">#FF303030</color>
     <!--Инвертированный третичный непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_solid_tertiary">#FF363636</color>
     <!--Инвертированный основной фон для карточек-->
-    <color name="serv_light_surface_inverse_solid_card_hover">#FF363636</color>
+    <color name="serv_light_surface_inverse_solid_card_hover">#FF1C1C1C</color>
     <!--Инвертированный основной фон для карточек-->
-    <color name="serv_light_surface_inverse_solid_card_active">#FF0D0D0D</color>
+    <color name="serv_light_surface_inverse_solid_card_active">#FF121212</color>
     <!--Инвертированный основной фон для карточек-->
     <color name="serv_light_surface_inverse_solid_card">#FF171717</color>
     <!--Инвертированный основной фон для карточек-->
@@ -2829,33 +2829,33 @@
     <!--Инвертированный непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="serv_light_surface_inverse_solid_default">#FFF9F9F9</color>
     <!--Инвертированный основной прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_transparent_primary_hover">#05FFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_primary_hover">#1FFFFFFF</color>
     <!--Инвертированный основной прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_transparent_primary_active">#1AFFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_primary_active">#0AFFFFFF</color>
     <!--Инвертированный основной прозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_transparent_primary">#0FFFFFFF</color>
     <!--Инвертированный вторичный прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_transparent_secondary_hover">#0AFFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_secondary_hover">#3DFFFFFF</color>
     <!--Инвертированный вторичный прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_transparent_secondary_active">#29FFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_secondary_active">#0FFFFFFF</color>
     <!--Инвертированный вторичный прозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_transparent_secondary">#1FFFFFFF</color>
     <!--Инвертированный третичный прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_transparent_tertiary_hover">#1FFFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_tertiary_hover">#52FFFFFF</color>
     <!--Инвертированный третичный прозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_transparent_tertiary_active">#3DFFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_tertiary_active">#24FFFFFF</color>
     <!--Инвертированный третичный прозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_transparent_tertiary">#33FFFFFF</color>
     <!--Инвертированный прозрачный фон поверхности по умолчанию-->
-    <color name="serv_light_surface_inverse_transparent_deep_hover">#8FFFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_deep_hover">#C2FFFFFF</color>
     <!--Инвертированный прозрачный фон поверхности по умолчанию-->
-    <color name="serv_light_surface_inverse_transparent_deep_active">#ADFFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_deep_active">#94FFFFFF</color>
     <!--Инвертированный прозрачный фон поверхности по умолчанию-->
     <color name="serv_light_surface_inverse_transparent_deep">#A3FFFFFF</color>
     <!--Инвертированный прозрачный фон для карточек-->
-    <color name="serv_light_surface_inverse_transparent_card_hover">#05FFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_card_hover">#1FFFFFFF</color>
     <!--Инвертированный прозрачный фон для карточек-->
-    <color name="serv_light_surface_inverse_transparent_card_active">#1AFFFFFF</color>
+    <color name="serv_light_surface_inverse_transparent_card_active">#0AFFFFFF</color>
     <!--Инвертированный прозрачный фон для карточек-->
     <color name="serv_light_surface_inverse_transparent_card">#0FFFFFFF</color>
     <!--Инвертированный прозрачный фон для карточек-->
@@ -2867,19 +2867,19 @@
     <!--Инвертированный фон поверхности/контрола без заливки-->
     <color name="serv_light_surface_inverse_clear">#00000000</color>
     <!--Инвертированный акцентный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_accent_hover">#FF1EB83A</color>
+    <color name="serv_light_surface_inverse_accent_hover">#FF1DAF37</color>
     <!--Инвертированный акцентный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_accent_active">#FF178C2C</color>
+    <color name="serv_light_surface_inverse_accent_active">#FF18952F</color>
     <!--Инвертированный акцентный фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_accent">#FF1A9E32</color>
     <!--Инвертированный акцентный минорный непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_accent_minor_hover">#FF0E3A16</color>
     <!--Инвертированный акцентный минорный непрозрачный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_accent_minor_active">#FF061909</color>
+    <color name="serv_light_surface_inverse_accent_minor_active">#FF08210C</color>
     <!--Прозрачный инвертированный акцентный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_transparent_accent_hover">#1F1A9E32</color>
+    <color name="serv_light_surface_inverse_transparent_accent_hover">#521A9E32</color>
     <!--Прозрачный инвертированный акцентный фон поверхности/контрола-->
-    <color name="serv_light_surface_inverse_transparent_accent_active">#3D1A9E32</color>
+    <color name="serv_light_surface_inverse_transparent_accent_active">#241A9E32</color>
     <!--Инвертированный промо фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_promo_hover">#FFFFFFFF</color>
     <!--Инвертированный промо фон поверхности/контрола-->
@@ -2899,59 +2899,59 @@
     <!--Инвертированный прозрачный промо фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_transparent_promo">#FFFFFFFF</color>
     <!--Инвертированный цвет успеха-->
-    <color name="serv_light_surface_inverse_positive_hover">#FF1EB83A</color>
+    <color name="serv_light_surface_inverse_positive_hover">#FF1DAF37</color>
     <!--Инвертированный цвет успеха-->
-    <color name="serv_light_surface_inverse_positive_active">#FF178C2C</color>
+    <color name="serv_light_surface_inverse_positive_active">#FF18952F</color>
     <!--Инвертированный цвет успеха-->
     <color name="serv_light_surface_inverse_positive">#FF1A9E32</color>
     <!--Инвертированный цвет фона поверхности предупреждение-->
-    <color name="serv_light_surface_inverse_warning_hover">#FFFB782D</color>
+    <color name="serv_light_surface_inverse_warning_hover">#FFFB7223</color>
     <!--Инвертированный цвет фона поверхности предупреждение-->
-    <color name="serv_light_surface_inverse_warning_active">#FFE65705</color>
+    <color name="serv_light_surface_inverse_warning_active">#FFF05B05</color>
     <!--Инвертированный цвет фона поверхности предупреждение-->
     <color name="serv_light_surface_inverse_warning">#FFFA5F05</color>
     <!--Инвертированный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_light_surface_inverse_negative_hover">#FFFF5263</color>
+    <color name="serv_light_surface_inverse_negative_hover">#FFFF475A</color>
     <!--Инвертированный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_light_surface_inverse_negative_active">#FFFF142C</color>
+    <color name="serv_light_surface_inverse_negative_active">#FFFF1F35</color>
     <!--Инвертированный цвет фона поверхности/контрола ошибка-->
     <color name="serv_light_surface_inverse_negative">#FFFF293E</color>
     <!--Инвертированный цвет фона поверхности/контрола информация-->
     <color name="serv_light_surface_inverse_info_hover">#FF1798EE</color>
     <!--Инвертированный цвет фона поверхности/контрола информация-->
-    <color name="serv_light_surface_inverse_info_active">#FF0F81CC</color>
+    <color name="serv_light_surface_inverse_info_active">#FF1086D5</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола успех-->
     <color name="serv_light_surface_inverse_positive_minor_hover">#FF0E3A16</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола успех-->
-    <color name="serv_light_surface_inverse_positive_minor_active">#FF061909</color>
+    <color name="serv_light_surface_inverse_positive_minor_active">#FF08210C</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_inverse_warning_minor_hover">#FF58290E</color>
+    <color name="serv_light_surface_inverse_warning_minor_hover">#FF4F250D</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_inverse_warning_minor_active">#FF2C1507</color>
+    <color name="serv_light_surface_inverse_warning_minor_active">#FF351909</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_light_surface_inverse_negative_minor_hover">#FF64121A</color>
+    <color name="serv_light_surface_inverse_negative_minor_hover">#FF5B1018</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола ошибка-->
-    <color name="serv_light_surface_inverse_negative_minor_active">#FF380A0F</color>
+    <color name="serv_light_surface_inverse_negative_minor_active">#FF410B11</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола информация-->
     <color name="serv_light_surface_inverse_info_minor_hover">#FF10344C</color>
     <!--Инвертированный минорный цвет фона поверхности/контрола информация-->
-    <color name="serv_light_surface_inverse_info_minor_active">#FF091D2A</color>
+    <color name="serv_light_surface_inverse_info_minor_active">#FF0A2333</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола успех-->
-    <color name="serv_light_surface_inverse_transparent_positive_hover">#1F1A9E32</color>
+    <color name="serv_light_surface_inverse_transparent_positive_hover">#521A9E32</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола успех-->
-    <color name="serv_light_surface_inverse_transparent_positive_active">#3D1A9E32</color>
+    <color name="serv_light_surface_inverse_transparent_positive_active">#241A9E32</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_inverse_transparent_warning_hover">#1FFA5F05</color>
+    <color name="serv_light_surface_inverse_transparent_warning_hover">#52FA5F05</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_inverse_transparent_warning_active">#3DFA5F05</color>
+    <color name="serv_light_surface_inverse_transparent_warning_active">#24FA5F05</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_inverse_transparent_negative_hover">#1FFF293E</color>
+    <color name="serv_light_surface_inverse_transparent_negative_hover">#52FF293E</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола предупреждение-->
-    <color name="serv_light_surface_inverse_transparent_negative_active">#3DFF293E</color>
+    <color name="serv_light_surface_inverse_transparent_negative_active">#24FF293E</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола информация-->
-    <color name="serv_light_surface_inverse_transparent_info_hover">#1F118CDF</color>
+    <color name="serv_light_surface_inverse_transparent_info_hover">#52118CDF</color>
     <!--Прозрачный инвертированный цвет фона поверхности/контрола информация-->
-    <color name="serv_light_surface_inverse_transparent_info_active">#3D118CDF</color>
+    <color name="serv_light_surface_inverse_transparent_info_active">#24118CDF</color>
     <!--Инвертированный акцентный минорный непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_inverse_accent_minor">#FF0A2B10</color>
     <!--Прозрачный инвертированный акцентный фон поверхности/контрола-->
@@ -3027,83 +3027,83 @@
     <!--light overlay inverse overlayBlur-->
     <color name="serv_light_overlay_inverse_blur">#47080808</color>
     <!--Основной непрозрачный цвет обводки-->
-    <color name="serv_light_outline_default_solid_primary_hover">#FF000000</color>
+    <color name="serv_light_outline_default_solid_primary_hover">#FFABABAB</color>
     <!--Основной непрозрачный цвет обводки-->
-    <color name="serv_light_outline_default_solid_primary_active">#FFB3B3B3</color>
+    <color name="serv_light_outline_default_solid_primary_active">#FFC4C4C4</color>
     <!--Вторичный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_default_solid_secondary_hover">#FFC2C2C2</color>
+    <color name="serv_light_outline_default_solid_secondary_hover">#FFDBDBDB</color>
     <!--Вторичный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_default_solid_secondary_active">#FFA8A8A8</color>
+    <color name="serv_light_outline_default_solid_secondary_active">#FF8F8F8F</color>
     <!--Третичный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_default_solid_tertiary_hover">#FF000000</color>
+    <color name="serv_light_outline_default_solid_tertiary_hover">#FFA3A3A3</color>
     <!--Третичный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_default_solid_tertiary_active">#FF595959</color>
+    <color name="serv_light_outline_default_solid_tertiary_active">#FF5C5C5C</color>
     <!--Прозрачный цвет обводки по умолчанию-->
-    <color name="serv_light_outline_default_transparent_default_hover">#FF000000</color>
+    <color name="serv_light_outline_default_transparent_default_hover">#FFCCCCCC</color>
     <!--Прозрачный цвет обводки по умолчанию-->
-    <color name="serv_light_outline_default_transparent_default_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_default_transparent_default_active">#FFE6E6E6</color>
     <!--Прозрачный цвет обводки по умолчанию-->
     <color name="serv_light_outline_default_transparent_default">#FFFFFFFF</color>
     <!--Основной прозрачный цвет обводки-->
-    <color name="serv_light_outline_default_transparent_primary_hover">#0A080808</color>
+    <color name="serv_light_outline_default_transparent_primary_hover">#52080808</color>
     <!--Основной прозрачный цвет обводки-->
-    <color name="serv_light_outline_default_transparent_primary_active">#29080808</color>
+    <color name="serv_light_outline_default_transparent_primary_active">#38080808</color>
     <!--Вторичный прозрачный цвет обводки-->
-    <color name="serv_light_outline_default_transparent_secondary_hover">#33080808</color>
+    <color name="serv_light_outline_default_transparent_secondary_hover">#2B080808</color>
     <!--Вторичный прозрачный цвет обводки-->
-    <color name="serv_light_outline_default_transparent_secondary_active">#52080808</color>
+    <color name="serv_light_outline_default_transparent_secondary_active">#72080808</color>
     <!--Третичный прозрачный цвет обводки-->
-    <color name="serv_light_outline_default_transparent_tertiary_hover">#7A080808</color>
+    <color name="serv_light_outline_default_transparent_tertiary_hover">#47080808</color>
     <!--Третичный прозрачный цвет обводки-->
-    <color name="serv_light_outline_default_transparent_tertiary_active">#99080808</color>
+    <color name="serv_light_outline_default_transparent_tertiary_active">#FF080808</color>
     <!--Бесцветная обводка-->
     <color name="serv_light_outline_default_clear_hover">#00000000</color>
     <!--Бесцветная обводка-->
     <color name="serv_light_outline_default_clear_active">#00000000</color>
     <!--Акцентный цвет обводки-->
-    <color name="serv_light_outline_default_accent_hover">#FF14B32E</color>
+    <color name="serv_light_outline_default_accent_hover">#FF15BC31</color>
     <!--Акцентный цвет обводки-->
     <color name="serv_light_outline_default_accent_active">#FF0C6A1B</color>
     <!--Акцентный минорный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_default_accent_minor_hover">#FF47DC62</color>
+    <color name="serv_light_outline_default_accent_minor_hover">#FF7AE68E</color>
     <!--Акцентный минорный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_default_accent_minor_active">#FF21B03C</color>
+    <color name="serv_light_outline_default_accent_minor_active">#FF23B83E</color>
     <!--Прозрачный акцентный цвет обводки-->
-    <color name="serv_light_outline_default_transparent_accent_hover">#FF108E25</color>
+    <color name="serv_light_outline_default_transparent_accent_hover">#1F108E25</color>
     <!--Прозрачный акцентный цвет обводки-->
-    <color name="serv_light_outline_default_transparent_accent_active">#3D108E25</color>
+    <color name="serv_light_outline_default_transparent_accent_active">#52108E25</color>
     <!--Промо цвет обводки-->
-    <color name="serv_light_outline_default_promo_hover">#FF000000</color>
+    <color name="serv_light_outline_default_promo_hover">#FFCCCCCC</color>
     <!--Промо цвет обводки-->
-    <color name="serv_light_outline_default_promo_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_default_promo_active">#FFE6E6E6</color>
     <!--Промо цвет обводки-->
     <color name="serv_light_outline_default_promo">#FFFFFFFF</color>
     <!--Минорный промо цвет обводки-->
-    <color name="serv_light_outline_default_promo_minor_hover">#FF000000</color>
+    <color name="serv_light_outline_default_promo_minor_hover">#FFCCCCCC</color>
     <!--Минорный промо цвет обводки-->
-    <color name="serv_light_outline_default_promo_minor_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_default_promo_minor_active">#FFE6E6E6</color>
     <!--Минорный промо цвет обводки-->
     <color name="serv_light_outline_default_promo_minor">#FFFFFFFF</color>
     <!--Цвет обводки успех-->
-    <color name="serv_light_outline_default_positive_hover">#FF14B32E</color>
+    <color name="serv_light_outline_default_positive_hover">#FF15BC31</color>
     <!--Цвет обводки успех-->
     <color name="serv_light_outline_default_positive_active">#FF0C6A1B</color>
     <!--Цвет обводки предупреждение-->
-    <color name="serv_light_outline_default_warning_hover">#FFFD6B17</color>
+    <color name="serv_light_outline_default_warning_hover">#FFFD9253</color>
     <!--Цвет обводки предупреждение-->
-    <color name="serv_light_outline_default_warning_active">#FFC04802</color>
+    <color name="serv_light_outline_default_warning_active">#FFCA4B02</color>
     <!--Цвет обводки ошибка-->
-    <color name="serv_light_outline_default_negative_hover">#FFF54254</color>
+    <color name="serv_light_outline_default_negative_hover">#FFF87C89</color>
     <!--Цвет обводки ошибка-->
-    <color name="serv_light_outline_default_negative_active">#FFDA0B20</color>
+    <color name="serv_light_outline_default_negative_active">#FFE40C22</color>
     <!--Цвет обводки информация-->
-    <color name="serv_light_outline_default_info_hover">#FF0D96F2</color>
+    <color name="serv_light_outline_default_info_hover">#FF47B0F5</color>
     <!--Цвет обводки информация-->
-    <color name="serv_light_outline_default_info_active">#FF0966A5</color>
+    <color name="serv_light_outline_default_info_active">#FF096CAE</color>
     <!--Минорный цвет обводки успех-->
-    <color name="serv_light_outline_default_positive_minor_hover">#FF47DC62</color>
+    <color name="serv_light_outline_default_positive_minor_hover">#FF7AE68E</color>
     <!--Минорный цвет обводки успех-->
-    <color name="serv_light_outline_default_positive_minor_active">#FF21B03C</color>
+    <color name="serv_light_outline_default_positive_minor_active">#FF23B83E</color>
     <!--Минорный цвет обводки предупреждение-->
     <color name="serv_light_outline_default_warning_minor_hover">#FFFDB790</color>
     <!--Минорный цвет обводки предупреждение-->
@@ -3113,25 +3113,25 @@
     <!--Минорный цвет обводки ошибка-->
     <color name="serv_light_outline_default_negative_minor_active">#FFFF6675</color>
     <!--Минорный цвет обводки информация-->
-    <color name="serv_light_outline_default_info_minor_hover">#FF7ACAFF</color>
+    <color name="serv_light_outline_default_info_minor_hover">#FFA3DAFF</color>
     <!--Минорный цвет обводки информация-->
     <color name="serv_light_outline_default_info_minor_active">#FF29A9FF</color>
     <!--Прозрачный цвет обводки успех-->
-    <color name="serv_light_outline_default_transparent_positive_hover">#FF108E25</color>
+    <color name="serv_light_outline_default_transparent_positive_hover">#1F108E25</color>
     <!--Прозрачный цвет обводки успех-->
-    <color name="serv_light_outline_default_transparent_positive_active">#3D108E25</color>
+    <color name="serv_light_outline_default_transparent_positive_active">#52108E25</color>
     <!--Прозрачный цвет обводки предупреждение-->
-    <color name="serv_light_outline_default_transparent_warning_hover">#FFE85702</color>
+    <color name="serv_light_outline_default_transparent_warning_hover">#1FE85702</color>
     <!--Прозрачный цвет обводки предупреждение-->
-    <color name="serv_light_outline_default_transparent_warning_active">#3DE85702</color>
+    <color name="serv_light_outline_default_transparent_warning_active">#52E85702</color>
     <!--Прозрачный цвет обводки предупреждение-->
-    <color name="serv_light_outline_default_transparent_negative_hover">#FFF31B31</color>
+    <color name="serv_light_outline_default_transparent_negative_hover">#1FF31B31</color>
     <!--Прозрачный цвет обводки предупреждение-->
-    <color name="serv_light_outline_default_transparent_negative_active">#3DF31B31</color>
+    <color name="serv_light_outline_default_transparent_negative_active">#52F31B31</color>
     <!--Прозрачный цвет обводки информация-->
-    <color name="serv_light_outline_default_transparent_info_hover">#FF0B7ECB</color>
+    <color name="serv_light_outline_default_transparent_info_hover">#1F0B7ECB</color>
     <!--Прозрачный цвет обводки информация-->
-    <color name="serv_light_outline_default_transparent_info_active">#3D0B7ECB</color>
+    <color name="serv_light_outline_default_transparent_info_active">#520B7ECB</color>
     <!--Бесцветная обводка-->
     <color name="serv_light_outline_default_clear">#00000000</color>
     <!--Основной непрозрачный цвет обводки-->
@@ -3179,115 +3179,115 @@
     <!--light outline default outlineSolidDefault-->
     <color name="serv_light_outline_default_solid_default">#FF080808</color>
     <!--light outline default outlineSolidDefaultHover-->
-    <color name="serv_light_outline_default_solid_default_hover">#FF595959</color>
+    <color name="serv_light_outline_default_solid_default_hover">#FF969696</color>
     <!--light outline default outlineSolidDefaultActive-->
-    <color name="serv_light_outline_default_solid_default_active">#FF303030</color>
+    <color name="serv_light_outline_default_solid_default_active">#FF080808</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_solid_primary_hover">#FF787878</color>
+    <color name="serv_light_outline_on_dark_solid_primary_hover">#FF545454</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_solid_primary_active">#FF4F4F4F</color>
+    <color name="serv_light_outline_on_dark_solid_primary_active">#FF171717</color>
     <!--Вторичный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_solid_secondary_hover">#FF636363</color>
+    <color name="serv_light_outline_on_dark_solid_secondary_hover">#FFABABAB</color>
     <!--Вторичный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_solid_secondary_active">#FF454545</color>
+    <color name="serv_light_outline_on_dark_solid_secondary_active">#FF363636</color>
     <!--Третичный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_solid_tertiary_hover">#FF949494</color>
+    <color name="serv_light_outline_on_dark_solid_tertiary_hover">#FFFFFFFF</color>
     <!--Третичный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_solid_tertiary_active">#FF7A7A7A</color>
+    <color name="serv_light_outline_on_dark_solid_tertiary_active">#FF525252</color>
     <!--Прозрачный цвет обводки по умолчанию на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_default_hover">#FF000000</color>
+    <color name="serv_light_outline_on_dark_transparent_default_hover">#FF858585</color>
     <!--Прозрачный цвет обводки по умолчанию на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_default_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_on_dark_transparent_default_active">#FF666666</color>
     <!--Прозрачный цвет обводки по умолчанию на темном фоне-->
     <color name="serv_light_outline_on_dark_transparent_default">#FFFFFFFF</color>
     <!--Основной прозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_primary_hover">#0AFFFFFF</color>
+    <color name="serv_light_outline_on_dark_transparent_primary_hover">#4DFFFFFF</color>
     <!--Основной прозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_primary_active">#29FFFFFF</color>
+    <color name="serv_light_outline_on_dark_transparent_primary_active">#12FFFFFF</color>
     <!--Вторичный прозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_secondary_hover">#33FFFFFF</color>
+    <color name="serv_light_outline_on_dark_transparent_secondary_hover">#B3FFFFFF</color>
     <!--Вторичный прозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_secondary_active">#52FFFFFF</color>
+    <color name="serv_light_outline_on_dark_transparent_secondary_active">#2BFFFFFF</color>
     <!--Третичный прозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_tertiary_hover">#7AFFFFFF</color>
+    <color name="serv_light_outline_on_dark_transparent_tertiary_hover">#FFFFFFFF</color>
     <!--Третичный прозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_tertiary_active">#99FFFFFF</color>
+    <color name="serv_light_outline_on_dark_transparent_tertiary_active">#47FFFFFF</color>
     <!--Бесцветная обводка на темном фоне-->
     <color name="serv_light_outline_on_dark_clear_hover">#00000000</color>
     <!--Бесцветная обводка на темном фоне-->
     <color name="serv_light_outline_on_dark_clear_active">#00000000</color>
     <!--Акцентный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_accent_hover">#FF2BD44A</color>
+    <color name="serv_light_outline_on_dark_accent_hover">#FF5EDE76</color>
     <!--Акцентный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_accent_active">#FF1D9032</color>
+    <color name="serv_light_outline_on_dark_accent_active">#FF1F9835</color>
     <!--Акцентный минорный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_accent_minor_hover">#FF11A72C</color>
+    <color name="serv_light_outline_on_dark_accent_minor_hover">#FF0F9527</color>
     <!--Акцентный минорный непрозрачный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_accent_minor_active">#FF0D8222</color>
+    <color name="serv_light_outline_on_dark_accent_minor_active">#FF074A14</color>
     <!--Прозрачный акцентный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_accent_hover">#FF24B23E</color>
+    <color name="serv_light_outline_on_dark_transparent_accent_hover">#B324B23E</color>
     <!--Прозрачный акцентный цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_accent_active">#5624B23E</color>
+    <color name="serv_light_outline_on_dark_transparent_accent_active">#2B24B23E</color>
     <!--Промо цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_promo_hover">#FF000000</color>
+    <color name="serv_light_outline_on_dark_promo_hover">#FF858585</color>
     <!--Промо цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_promo_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_on_dark_promo_active">#FF666666</color>
     <!--Промо цвет обводки на темном фоне-->
     <color name="serv_light_outline_on_dark_promo">#FFFFFFFF</color>
     <!--Минорный промо цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_promo_minor_hover">#FF000000</color>
+    <color name="serv_light_outline_on_dark_promo_minor_hover">#FF858585</color>
     <!--Минорный промо цвет обводки на темном фоне-->
-    <color name="serv_light_outline_on_dark_promo_minor_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_on_dark_promo_minor_active">#FF666666</color>
     <!--Минорный промо цвет обводки на темном фоне-->
     <color name="serv_light_outline_on_dark_promo_minor">#FFFFFFFF</color>
     <!--Цвет обводки успех на темном фоне-->
-    <color name="serv_light_outline_on_dark_positive_hover">#FF2BD44A</color>
+    <color name="serv_light_outline_on_dark_positive_hover">#FF5EDE76</color>
     <!--Цвет обводки успех на темном фоне-->
-    <color name="serv_light_outline_on_dark_positive_active">#FF1D9032</color>
+    <color name="serv_light_outline_on_dark_positive_active">#FF1F9835</color>
     <!--Цвет обводки предупреждение на темном фоне-->
-    <color name="serv_light_outline_on_dark_warning_hover">#FFFF8B4D</color>
+    <color name="serv_light_outline_on_dark_warning_hover">#FFFFA575</color>
     <!--Цвет обводки предупреждение на темном фоне-->
-    <color name="serv_light_outline_on_dark_warning_active">#FFFA5700</color>
+    <color name="serv_light_outline_on_dark_warning_active">#FFFF5D05</color>
     <!--Цвет обводки ошибка на темном фоне-->
-    <color name="serv_light_outline_on_dark_negative_hover">#FFFF6675</color>
+    <color name="serv_light_outline_on_dark_negative_hover">#FFFF8F9A</color>
     <!--Цвет обводки ошибка на темном фоне-->
-    <color name="serv_light_outline_on_dark_negative_active">#FFFF142C</color>
+    <color name="serv_light_outline_on_dark_negative_active">#FFFF1F35</color>
     <!--Цвет обводки информация на темном фоне-->
-    <color name="serv_light_outline_on_dark_info_hover">#FF3FABF3</color>
+    <color name="serv_light_outline_on_dark_info_hover">#FF66BCF5</color>
     <!--Цвет обводки информация на темном фоне-->
-    <color name="serv_light_outline_on_dark_info_active">#FF0D84D3</color>
+    <color name="serv_light_outline_on_dark_info_active">#FF0E8ADD</color>
     <!--Минорный цвет обводки успех на темном фоне-->
-    <color name="serv_light_outline_on_dark_positive_minor_hover">#FF11A72C</color>
+    <color name="serv_light_outline_on_dark_positive_minor_hover">#FF0F9527</color>
     <!--Минорный цвет обводки успех на темном фоне-->
-    <color name="serv_light_outline_on_dark_positive_minor_active">#FF0D8222</color>
+    <color name="serv_light_outline_on_dark_positive_minor_active">#FF074A14</color>
     <!--Минорный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_light_outline_on_dark_warning_minor_hover">#FFFF8B4D</color>
+    <color name="serv_light_outline_on_dark_warning_minor_hover">#FFFFA575</color>
     <!--Минорный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_light_outline_on_dark_warning_minor_active">#FFFA5700</color>
+    <color name="serv_light_outline_on_dark_warning_minor_active">#FFFF5D05</color>
     <!--Минорный цвет обводки ошибка на темном фоне-->
-    <color name="serv_light_outline_on_dark_negative_minor_hover">#FFFF6675</color>
+    <color name="serv_light_outline_on_dark_negative_minor_hover">#FFFF8F9A</color>
     <!--Минорный цвет обводки ошибка на темном фоне-->
-    <color name="serv_light_outline_on_dark_negative_minor_active">#FFFF142C</color>
+    <color name="serv_light_outline_on_dark_negative_minor_active">#FFFF1F35</color>
     <!--Минорный цвет обводки информация на темном фоне-->
-    <color name="serv_light_outline_on_dark_info_minor_hover">#FF3FABF3</color>
+    <color name="serv_light_outline_on_dark_info_minor_hover">#FF66BCF5</color>
     <!--Минорный цвет обводки информация на темном фоне-->
-    <color name="serv_light_outline_on_dark_info_minor_active">#FF0D84D3</color>
+    <color name="serv_light_outline_on_dark_info_minor_active">#FF0E8ADD</color>
     <!--Прозрачный цвет обводки успех на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_positive_hover">#FF24B23E</color>
+    <color name="serv_light_outline_on_dark_transparent_positive_hover">#B324B23E</color>
     <!--Прозрачный цвет обводки успех на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_positive_active">#5624B23E</color>
+    <color name="serv_light_outline_on_dark_transparent_positive_active">#2B24B23E</color>
     <!--Прозрачный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_warning_hover">#FFFF7024</color>
+    <color name="serv_light_outline_on_dark_transparent_warning_hover">#B3FF7024</color>
     <!--Прозрачный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_warning_active">#56FF7024</color>
+    <color name="serv_light_outline_on_dark_transparent_warning_active">#2BFF7024</color>
     <!--Прозрачный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_negative_hover">#FFFF3D51</color>
+    <color name="serv_light_outline_on_dark_transparent_negative_hover">#B3FF3D51</color>
     <!--Прозрачный цвет обводки предупреждение на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_negative_active">#56FF3D51</color>
+    <color name="serv_light_outline_on_dark_transparent_negative_active">#2BFF3D51</color>
     <!--Прозрачный цвет обводки информация на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_info_hover">#FF199AF0</color>
+    <color name="serv_light_outline_on_dark_transparent_info_hover">#B3199AF0</color>
     <!--Прозрачный цвет обводки информация на темном фоне-->
-    <color name="serv_light_outline_on_dark_transparent_info_active">#56199AF0</color>
+    <color name="serv_light_outline_on_dark_transparent_info_active">#2B199AF0</color>
     <!--Бесцветная обводка на темном фоне-->
     <color name="serv_light_outline_on_dark_clear">#00000000</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
@@ -3335,87 +3335,87 @@
     <!--light outline onDark outlineSolidDefault-->
     <color name="serv_light_outline_on_dark_solid_default">#FFF9F9F9</color>
     <!--light outline onDark outlineSolidDefaultHover-->
-    <color name="serv_light_outline_on_dark_solid_default_hover">#FFFFFFFF</color>
+    <color name="serv_light_outline_on_dark_solid_default_hover">#FF808080</color>
     <!--light outline onDark outlineSolidDefaultActive-->
-    <color name="serv_light_outline_on_dark_solid_default_active">#FFC7C7C7</color>
+    <color name="serv_light_outline_on_dark_solid_default_active">#FF616161</color>
     <!--Основной непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_solid_primary_hover">#FF000000</color>
+    <color name="serv_light_outline_on_light_solid_primary_hover">#FFABABAB</color>
     <!--Основной непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_solid_primary_active">#FFB3B3B3</color>
+    <color name="serv_light_outline_on_light_solid_primary_active">#FFC4C4C4</color>
     <!--Вторичный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_solid_secondary_hover">#FFC2C2C2</color>
+    <color name="serv_light_outline_on_light_solid_secondary_hover">#FFDBDBDB</color>
     <!--Вторичный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_solid_secondary_active">#FFA8A8A8</color>
+    <color name="serv_light_outline_on_light_solid_secondary_active">#FF8F8F8F</color>
     <!--Третичный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_solid_tertiary_hover">#FF000000</color>
+    <color name="serv_light_outline_on_light_solid_tertiary_hover">#FFA3A3A3</color>
     <!--Третичный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_solid_tertiary_active">#FF595959</color>
+    <color name="serv_light_outline_on_light_solid_tertiary_active">#FF5C5C5C</color>
     <!--Прозрачный цвет обводки по умолчанию на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_default_hover">#FF000000</color>
+    <color name="serv_light_outline_on_light_transparent_default_hover">#FFCCCCCC</color>
     <!--Прозрачный цвет обводки по умолчанию на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_default_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_on_light_transparent_default_active">#FFE6E6E6</color>
     <!--Прозрачный цвет обводки по умолчанию на светлом фоне-->
     <color name="serv_light_outline_on_light_transparent_default">#FFFFFFFF</color>
     <!--Основной прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_primary_hover">#0A080808</color>
+    <color name="serv_light_outline_on_light_transparent_primary_hover">#52080808</color>
     <!--Основной прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_primary_active">#29080808</color>
+    <color name="serv_light_outline_on_light_transparent_primary_active">#38080808</color>
     <!--Вторичный прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_secondary_hover">#33080808</color>
+    <color name="serv_light_outline_on_light_transparent_secondary_hover">#2B080808</color>
     <!--Вторичный прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_secondary_active">#52080808</color>
+    <color name="serv_light_outline_on_light_transparent_secondary_active">#72080808</color>
     <!--Третичный прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_tertiary_hover">#7A080808</color>
+    <color name="serv_light_outline_on_light_transparent_tertiary_hover">#47080808</color>
     <!--Третичный прозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_tertiary_active">#99080808</color>
+    <color name="serv_light_outline_on_light_transparent_tertiary_active">#FF080808</color>
     <!--Бесцветная обводка на светлом фоне-->
     <color name="serv_light_outline_on_light_clear_hover">#00000000</color>
     <!--Бесцветная обводка на светлом фоне-->
     <color name="serv_light_outline_on_light_clear_active">#00000000</color>
     <!--Акцентный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_accent_hover">#FF14B32E</color>
+    <color name="serv_light_outline_on_light_accent_hover">#FF15BC31</color>
     <!--Акцентный цвет обводки на светлом фоне-->
     <color name="serv_light_outline_on_light_accent_active">#FF0C6A1B</color>
     <!--Акцентный минорный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_accent_minor_hover">#FF47DC62</color>
+    <color name="serv_light_outline_on_light_accent_minor_hover">#FF7AE68E</color>
     <!--Акцентный минорный непрозрачный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_accent_minor_active">#FF21B03C</color>
+    <color name="serv_light_outline_on_light_accent_minor_active">#FF23B83E</color>
     <!--Прозрачный акцентный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_accent_hover">#FF108E25</color>
+    <color name="serv_light_outline_on_light_transparent_accent_hover">#1F108E25</color>
     <!--Прозрачный акцентный цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_accent_active">#3D108E25</color>
+    <color name="serv_light_outline_on_light_transparent_accent_active">#52108E25</color>
     <!--Промо цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_promo_hover">#FF000000</color>
+    <color name="serv_light_outline_on_light_promo_hover">#FFCCCCCC</color>
     <!--Промо цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_promo_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_on_light_promo_active">#FFE6E6E6</color>
     <!--Промо цвет обводки на светлом фоне-->
     <color name="serv_light_outline_on_light_promo">#FFFFFFFF</color>
     <!--Минорный промо цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_promo_minor_hover">#FF000000</color>
+    <color name="serv_light_outline_on_light_promo_minor_hover">#FFCCCCCC</color>
     <!--Минорный промо цвет обводки на светлом фоне-->
-    <color name="serv_light_outline_on_light_promo_minor_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_on_light_promo_minor_active">#FFE6E6E6</color>
     <!--Минорный промо цвет обводки на светлом фоне-->
     <color name="serv_light_outline_on_light_promo_minor">#FFFFFFFF</color>
     <!--Цвет обводки успех на светлом фоне-->
-    <color name="serv_light_outline_on_light_positive_hover">#FF14B32E</color>
+    <color name="serv_light_outline_on_light_positive_hover">#FF15BC31</color>
     <!--Цвет обводки успех на светлом фоне-->
     <color name="serv_light_outline_on_light_positive_active">#FF0C6A1B</color>
     <!--Цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_light_outline_on_light_warning_hover">#FFFD6B17</color>
+    <color name="serv_light_outline_on_light_warning_hover">#FFFD9253</color>
     <!--Цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_light_outline_on_light_warning_active">#FFC04802</color>
+    <color name="serv_light_outline_on_light_warning_active">#FFCA4B02</color>
     <!--Цвет обводки ошибка на светлом фоне-->
-    <color name="serv_light_outline_on_light_negative_hover">#FFF54254</color>
+    <color name="serv_light_outline_on_light_negative_hover">#FFF87C89</color>
     <!--Цвет обводки ошибка на светлом фоне-->
-    <color name="serv_light_outline_on_light_negative_active">#FFDA0B20</color>
+    <color name="serv_light_outline_on_light_negative_active">#FFE40C22</color>
     <!--Цвет обводки информация на светлом фоне-->
-    <color name="serv_light_outline_on_light_info_hover">#FF0D96F2</color>
+    <color name="serv_light_outline_on_light_info_hover">#FF47B0F5</color>
     <!--Цвет обводки информация на светлом фоне-->
-    <color name="serv_light_outline_on_light_info_active">#FF0966A5</color>
+    <color name="serv_light_outline_on_light_info_active">#FF096CAE</color>
     <!--Минорный цвет обводки успех на светлом фоне-->
-    <color name="serv_light_outline_on_light_positive_minor_hover">#FF47DC62</color>
+    <color name="serv_light_outline_on_light_positive_minor_hover">#FF7AE68E</color>
     <!--Минорный цвет обводки успех на светлом фоне-->
-    <color name="serv_light_outline_on_light_positive_minor_active">#FF21B03C</color>
+    <color name="serv_light_outline_on_light_positive_minor_active">#FF23B83E</color>
     <!--Минорный цвет обводки предупреждение на светлом фоне-->
     <color name="serv_light_outline_on_light_warning_minor_hover">#FFFDB790</color>
     <!--Минорный цвет обводки предупреждение на светлом фоне-->
@@ -3425,25 +3425,25 @@
     <!--Минорный цвет обводки ошибка на светлом фоне-->
     <color name="serv_light_outline_on_light_negative_minor_active">#FFFF6675</color>
     <!--Минорный цвет обводки информация на светлом фоне-->
-    <color name="serv_light_outline_on_light_info_minor_hover">#FF7ACAFF</color>
+    <color name="serv_light_outline_on_light_info_minor_hover">#FFA3DAFF</color>
     <!--Минорный цвет обводки информация на светлом фоне-->
     <color name="serv_light_outline_on_light_info_minor_active">#FF29A9FF</color>
     <!--Прозрачный цвет обводки успех на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_positive_hover">#FF108E25</color>
+    <color name="serv_light_outline_on_light_transparent_positive_hover">#1F108E25</color>
     <!--Прозрачный цвет обводки успех на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_positive_active">#3D108E25</color>
+    <color name="serv_light_outline_on_light_transparent_positive_active">#52108E25</color>
     <!--Прозрачный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_warning_hover">#FFE85702</color>
+    <color name="serv_light_outline_on_light_transparent_warning_hover">#1FE85702</color>
     <!--Прозрачный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_warning_active">#3DE85702</color>
+    <color name="serv_light_outline_on_light_transparent_warning_active">#52E85702</color>
     <!--Прозрачный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_negative_hover">#FFF31B31</color>
+    <color name="serv_light_outline_on_light_transparent_negative_hover">#1FF31B31</color>
     <!--Прозрачный цвет обводки предупреждение на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_negative_active">#3DF31B31</color>
+    <color name="serv_light_outline_on_light_transparent_negative_active">#52F31B31</color>
     <!--Прозрачный цвет обводки информация на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_info_hover">#FF0B7ECB</color>
+    <color name="serv_light_outline_on_light_transparent_info_hover">#1F0B7ECB</color>
     <!--Прозрачный цвет обводки информация на светлом фоне-->
-    <color name="serv_light_outline_on_light_transparent_info_active">#3D0B7ECB</color>
+    <color name="serv_light_outline_on_light_transparent_info_active">#520B7ECB</color>
     <!--Бесцветная обводка на светлом фоне-->
     <color name="serv_light_outline_on_light_clear">#00000000</color>
     <!--Прозрачный акцентный цвет обводки на светлом фоне-->
@@ -3491,115 +3491,115 @@
     <!--light outline onLight outlineSolidDefault-->
     <color name="serv_light_outline_on_light_solid_default">#FF080808</color>
     <!--light outline onLight outlineSolidDefaultHover-->
-    <color name="serv_light_outline_on_light_solid_default_hover">#FF595959</color>
+    <color name="serv_light_outline_on_light_solid_default_hover">#FF969696</color>
     <!--light outline onLight outlineSolidDefaultActive-->
-    <color name="serv_light_outline_on_light_solid_default_active">#FF303030</color>
+    <color name="serv_light_outline_on_light_solid_default_active">#FF080808</color>
     <!--Инвертированный основной непрозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_solid_primary_hover">#FF787878</color>
+    <color name="serv_light_outline_inverse_solid_primary_hover">#FF545454</color>
     <!--Инвертированный основной непрозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_solid_primary_active">#FF4F4F4F</color>
+    <color name="serv_light_outline_inverse_solid_primary_active">#FF171717</color>
     <!--Инвертированный вторичный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_solid_secondary_hover">#FF636363</color>
+    <color name="serv_light_outline_inverse_solid_secondary_hover">#FFABABAB</color>
     <!--Инвертированный вторичный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_solid_secondary_active">#FF454545</color>
+    <color name="serv_light_outline_inverse_solid_secondary_active">#FF363636</color>
     <!--Инвертированный третичный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_solid_tertiary_hover">#FF949494</color>
+    <color name="serv_light_outline_inverse_solid_tertiary_hover">#FFFFFFFF</color>
     <!--Инвертированный третичный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_solid_tertiary_active">#FF7A7A7A</color>
+    <color name="serv_light_outline_inverse_solid_tertiary_active">#FF525252</color>
     <!--Инвертированный прозрачный цвет обводки по умолчанию-->
-    <color name="serv_light_outline_inverse_transparent_default_hover">#FF000000</color>
+    <color name="serv_light_outline_inverse_transparent_default_hover">#FF858585</color>
     <!--Инвертированный прозрачный цвет обводки по умолчанию-->
-    <color name="serv_light_outline_inverse_transparent_default_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_inverse_transparent_default_active">#FF666666</color>
     <!--Инвертированный прозрачный цвет обводки по умолчанию-->
     <color name="serv_light_outline_inverse_transparent_default">#FFFFFFFF</color>
     <!--Инвертированный основной прозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_transparent_primary_hover">#0AFFFFFF</color>
+    <color name="serv_light_outline_inverse_transparent_primary_hover">#4DFFFFFF</color>
     <!--Инвертированный основной прозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_transparent_primary_active">#29FFFFFF</color>
+    <color name="serv_light_outline_inverse_transparent_primary_active">#12FFFFFF</color>
     <!--Инвертированный вторичный прозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_transparent_secondary_hover">#33FFFFFF</color>
+    <color name="serv_light_outline_inverse_transparent_secondary_hover">#B3FFFFFF</color>
     <!--Инвертированный вторичный прозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_transparent_secondary_active">#52FFFFFF</color>
+    <color name="serv_light_outline_inverse_transparent_secondary_active">#2BFFFFFF</color>
     <!--Инвертированный третичный прозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_transparent_tertiary_hover">#7AFFFFFF</color>
+    <color name="serv_light_outline_inverse_transparent_tertiary_hover">#FFFFFFFF</color>
     <!--Инвертированный третичный прозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_transparent_tertiary_active">#99FFFFFF</color>
+    <color name="serv_light_outline_inverse_transparent_tertiary_active">#47FFFFFF</color>
     <!--Инвертированная бесцветная обводка-->
     <color name="serv_light_outline_inverse_clear_hover">#00000000</color>
     <!--Инвертированная бесцветная обводка-->
     <color name="serv_light_outline_inverse_clear_active">#00000000</color>
     <!--Инвертированный акцентный цвет обводки-->
-    <color name="serv_light_outline_inverse_accent_hover">#FF2BD44A</color>
+    <color name="serv_light_outline_inverse_accent_hover">#FF5EDE76</color>
     <!--Инвертированный акцентный цвет обводки-->
-    <color name="serv_light_outline_inverse_accent_active">#FF1D9032</color>
+    <color name="serv_light_outline_inverse_accent_active">#FF1F9835</color>
     <!--Инвертированный акцентный минорный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_accent_minor_hover">#FF11A72C</color>
+    <color name="serv_light_outline_inverse_accent_minor_hover">#FF0F9527</color>
     <!--Инвертированный акцентный минорный непрозрачный цвет обводки-->
-    <color name="serv_light_outline_inverse_accent_minor_active">#FF0D8222</color>
+    <color name="serv_light_outline_inverse_accent_minor_active">#FF074A14</color>
     <!--Прозрачный инвертированный акцентный цвет обводки-->
-    <color name="serv_light_outline_inverse_transparent_accent_hover">#FF24B23E</color>
+    <color name="serv_light_outline_inverse_transparent_accent_hover">#B324B23E</color>
     <!--Прозрачный инвертированный акцентный цвет обводки-->
-    <color name="serv_light_outline_inverse_transparent_accent_active">#5624B23E</color>
+    <color name="serv_light_outline_inverse_transparent_accent_active">#2B24B23E</color>
     <!--Инвертированный промо цвет обводки-->
-    <color name="serv_light_outline_inverse_promo_hover">#FF000000</color>
+    <color name="serv_light_outline_inverse_promo_hover">#FF858585</color>
     <!--Инвертированный промо цвет обводки-->
-    <color name="serv_light_outline_inverse_promo_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_inverse_promo_active">#FF666666</color>
     <!--Инвертированный промо цвет обводки-->
     <color name="serv_light_outline_inverse_promo">#FFFFFFFF</color>
     <!--Инвертированный минорный промо цвет обводки-->
-    <color name="serv_light_outline_inverse_promo_minor_hover">#FF000000</color>
+    <color name="serv_light_outline_inverse_promo_minor_hover">#FF858585</color>
     <!--Инвертированный минорный промо цвет обводки-->
-    <color name="serv_light_outline_inverse_promo_minor_active">#FFCCCCCC</color>
+    <color name="serv_light_outline_inverse_promo_minor_active">#FF666666</color>
     <!--Инвертированный минорный промо цвет обводки-->
     <color name="serv_light_outline_inverse_promo_minor">#FFFFFFFF</color>
     <!--Инвертированный цвет обводки успех-->
-    <color name="serv_light_outline_inverse_positive_hover">#FF2BD44A</color>
+    <color name="serv_light_outline_inverse_positive_hover">#FF5EDE76</color>
     <!--Инвертированный цвет обводки успех-->
-    <color name="serv_light_outline_inverse_positive_active">#FF1D9032</color>
+    <color name="serv_light_outline_inverse_positive_active">#FF1F9835</color>
     <!--Инвертированный цвет обводки предупреждение-->
-    <color name="serv_light_outline_inverse_warning_hover">#FFFF8B4D</color>
+    <color name="serv_light_outline_inverse_warning_hover">#FFFFA575</color>
     <!--Инвертированный цвет обводки предупреждение-->
-    <color name="serv_light_outline_inverse_warning_active">#FFFA5700</color>
+    <color name="serv_light_outline_inverse_warning_active">#FFFF5D05</color>
     <!--Инвертированный цвет обводки ошибка-->
-    <color name="serv_light_outline_inverse_negative_hover">#FFFF6675</color>
+    <color name="serv_light_outline_inverse_negative_hover">#FFFF8F9A</color>
     <!--Инвертированный цвет обводки ошибка-->
-    <color name="serv_light_outline_inverse_negative_active">#FFFF142C</color>
+    <color name="serv_light_outline_inverse_negative_active">#FFFF1F35</color>
     <!--Инвертированный цвет обводки информация-->
-    <color name="serv_light_outline_inverse_info_hover">#FF3FABF3</color>
+    <color name="serv_light_outline_inverse_info_hover">#FF66BCF5</color>
     <!--Инвертированный цвет обводки информация-->
-    <color name="serv_light_outline_inverse_info_active">#FF0D84D3</color>
+    <color name="serv_light_outline_inverse_info_active">#FF0E8ADD</color>
     <!--Инвертированный минорный цвет обводки успех-->
-    <color name="serv_light_outline_inverse_positive_minor_hover">#FF11A72C</color>
+    <color name="serv_light_outline_inverse_positive_minor_hover">#FF0F9527</color>
     <!--Инвертированный минорный цвет обводки успех-->
-    <color name="serv_light_outline_inverse_positive_minor_active">#FF0D8222</color>
+    <color name="serv_light_outline_inverse_positive_minor_active">#FF074A14</color>
     <!--Инвертированный минорный цвет обводки предупреждение-->
-    <color name="serv_light_outline_inverse_warning_minor_hover">#FFCD5713</color>
+    <color name="serv_light_outline_inverse_warning_minor_hover">#FFBB4F11</color>
     <!--Инвертированный минорный цвет обводки предупреждение-->
-    <color name="serv_light_outline_inverse_warning_minor_active">#FFA84710</color>
+    <color name="serv_light_outline_inverse_warning_minor_active">#FF70300A</color>
     <!--Инвертированный минорный цвет обводки ошибка-->
-    <color name="serv_light_outline_inverse_negative_minor_hover">#FFC2192A</color>
+    <color name="serv_light_outline_inverse_negative_minor_hover">#FFD41C2E</color>
     <!--Инвертированный минорный цвет обводки ошибка-->
-    <color name="serv_light_outline_inverse_negative_minor_active">#FF7A101A</color>
+    <color name="serv_light_outline_inverse_negative_minor_active">#FF8C121E</color>
     <!--Инвертированный минорный цвет обводки информация-->
-    <color name="serv_light_outline_inverse_info_minor_hover">#FF1483CC</color>
+    <color name="serv_light_outline_inverse_info_minor_hover">#FF1277BA</color>
     <!--Инвертированный минорный цвет обводки информация-->
-    <color name="serv_light_outline_inverse_info_minor_active">#FF116BA7</color>
+    <color name="serv_light_outline_inverse_info_minor_active">#FF0B476F</color>
     <!--Прозрачный инвертированный цвет обводки успех-->
-    <color name="serv_light_outline_inverse_transparent_positive_hover">#FF24B23E</color>
+    <color name="serv_light_outline_inverse_transparent_positive_hover">#B324B23E</color>
     <!--Прозрачный инвертированный цвет обводки успех-->
-    <color name="serv_light_outline_inverse_transparent_positive_active">#5624B23E</color>
+    <color name="serv_light_outline_inverse_transparent_positive_active">#2B24B23E</color>
     <!--Прозрачный инвертированный цвет обводки предупреждение-->
-    <color name="serv_light_outline_inverse_transparent_warning_hover">#FFFF7024</color>
+    <color name="serv_light_outline_inverse_transparent_warning_hover">#B3FF7024</color>
     <!--Прозрачный инвертированный цвет обводки предупреждение-->
-    <color name="serv_light_outline_inverse_transparent_warning_active">#56FF7024</color>
+    <color name="serv_light_outline_inverse_transparent_warning_active">#2BFF7024</color>
     <!--Прозрачный инвертированный цвет обводки предупреждение-->
-    <color name="serv_light_outline_inverse_transparent_negative_hover">#FFFF3D51</color>
+    <color name="serv_light_outline_inverse_transparent_negative_hover">#B3FF3D51</color>
     <!--Прозрачный инвертированный цвет обводки предупреждение-->
-    <color name="serv_light_outline_inverse_transparent_negative_active">#56FF3D51</color>
+    <color name="serv_light_outline_inverse_transparent_negative_active">#2BFF3D51</color>
     <!--Прозрачный инвертированный цвет обводки информация-->
-    <color name="serv_light_outline_inverse_transparent_info_hover">#FF199AF0</color>
+    <color name="serv_light_outline_inverse_transparent_info_hover">#B3199AF0</color>
     <!--Прозрачный инвертированный цвет обводки информация-->
-    <color name="serv_light_outline_inverse_transparent_info_active">#56199AF0</color>
+    <color name="serv_light_outline_inverse_transparent_info_active">#2B199AF0</color>
     <!--Инвертированная бесцветная обводка-->
     <color name="serv_light_outline_inverse_clear">#00000000</color>
     <!--Прозрачный инвертированный акцентный цвет обводки-->
@@ -3647,9 +3647,9 @@
     <!--light outline inverse outlineSolidDefault-->
     <color name="serv_light_outline_inverse_solid_default">#FFF9F9F9</color>
     <!--light outline inverse outlineSolidDefaultHover-->
-    <color name="serv_light_outline_inverse_solid_default_hover">#FFFFFFFF</color>
+    <color name="serv_light_outline_inverse_solid_default_hover">#FF808080</color>
     <!--light outline inverse outlineSolidDefaultActive-->
-    <color name="serv_light_outline_inverse_solid_default_active">#FFC7C7C7</color>
+    <color name="serv_light_outline_inverse_solid_default_active">#FF616161</color>
     <!--Желтый цвет для данных-->
     <color name="serv_light_data_default_yellow">#FFF3A912</color>
     <!--Желтый цвет для данных-->
@@ -3659,33 +3659,33 @@
     <!--Минорный желтый цвет для данных-->
     <color name="serv_light_data_default_yellow_minor">#FFFFD37A</color>
     <!--Минорный желтый цвет для данных-->
-    <color name="serv_light_data_default_yellow_minor_hover">#FFFFDA8F</color>
+    <color name="serv_light_data_default_yellow_minor_hover">#FFFFCF70</color>
     <!--Минорный желтый цвет для данных-->
     <color name="serv_light_data_default_yellow_minor_active">#FFFFCC66</color>
     <!--Прозрачный желтый цвет для данных-->
     <color name="serv_light_data_default_yellow_transparent">#8EF3A912</color>
     <!--Прозрачный желтый цвет для данных-->
-    <color name="serv_light_data_default_yellow_transparent_hover">#7AF3A812</color>
+    <color name="serv_light_data_default_yellow_transparent_hover">#9EF3A812</color>
     <!--Прозрачный желтый цвет для данных-->
-    <color name="serv_light_data_default_yellow_transparent_active">#99F3A812</color>
+    <color name="serv_light_data_default_yellow_transparent_active">#A3F3A812</color>
     <!--Желтый цвет для данных на темном фоне-->
     <color name="serv_light_data_on_dark_yellow">#FFF3A912</color>
     <!--Желтый цвет для данных на темном фоне-->
-    <color name="serv_light_data_on_dark_yellow_hover">#FFF5B638</color>
+    <color name="serv_light_data_on_dark_yellow_hover">#FFF4B22F</color>
     <!--Желтый цвет для данных на темном фоне-->
-    <color name="serv_light_data_on_dark_yellow_active">#FFE49C0C</color>
+    <color name="serv_light_data_on_dark_yellow_active">#FFEDA20C</color>
     <!--Минорный желтый цвет для данных на темном фоне-->
     <color name="serv_light_data_on_dark_yellow_minor">#FFA16B00</color>
     <!--Минорный желтый цвет для данных на темном фоне-->
     <color name="serv_light_data_on_dark_yellow_minor_hover">#FFB87A00</color>
     <!--Минорный желтый цвет для данных на темном фоне-->
-    <color name="serv_light_data_on_dark_yellow_minor_active">#FF8F5F00</color>
+    <color name="serv_light_data_on_dark_yellow_minor_active">#FF996600</color>
     <!--Прозрачный желтый цвет для данных на темном фоне-->
     <color name="serv_light_data_on_dark_yellow_transparent">#8EF3A912</color>
     <!--Прозрачный желтый цвет для данных на темном фоне-->
-    <color name="serv_light_data_on_dark_yellow_transparent_hover">#7AF3A812</color>
+    <color name="serv_light_data_on_dark_yellow_transparent_hover">#ADF3A812</color>
     <!--Прозрачный желтый цвет для данных на темном фоне-->
-    <color name="serv_light_data_on_dark_yellow_transparent_active">#99F3A812</color>
+    <color name="serv_light_data_on_dark_yellow_transparent_active">#80F3A812</color>
     <!--Желтый цвет для данных на светлом фоне-->
     <color name="serv_light_data_on_light_yellow">#FFF3A912</color>
     <!--Желтый цвет для данных на светлом фоне-->
@@ -3695,31 +3695,31 @@
     <!--Минорный желтый цвет для данных на светлом фоне-->
     <color name="serv_light_data_on_light_yellow_minor">#FFFFD37A</color>
     <!--Минорный желтый цвет для данных на светлом фоне-->
-    <color name="serv_light_data_on_light_yellow_minor_hover">#FFFFDA8F</color>
+    <color name="serv_light_data_on_light_yellow_minor_hover">#FFFFCF70</color>
     <!--Минорный желтый цвет для данных на светлом фоне-->
     <color name="serv_light_data_on_light_yellow_minor_active">#FFFFCC66</color>
     <!--Прозрачный желтый цвет для данных на светлом фоне-->
     <color name="serv_light_data_on_light_yellow_transparent">#8EF3A912</color>
     <!--Прозрачный желтый цвет для данных на светлом фоне-->
-    <color name="serv_light_data_on_light_yellow_transparent_hover">#7AF3A812</color>
+    <color name="serv_light_data_on_light_yellow_transparent_hover">#9EF3A812</color>
     <!--Прозрачный желтый цвет для данных на светлом фоне-->
-    <color name="serv_light_data_on_light_yellow_transparent_active">#99F3A812</color>
+    <color name="serv_light_data_on_light_yellow_transparent_active">#A3F3A812</color>
     <!--Инвертированный желтый цвет для данных-->
     <color name="serv_light_data_inverse_yellow">#FFF3A912</color>
     <!--Инвертированный желтый цвет для данных-->
-    <color name="serv_light_data_inverse_yellow_hover">#FFF5B638</color>
+    <color name="serv_light_data_inverse_yellow_hover">#FFF4B22F</color>
     <!--Инвертированный желтый цвет для данных-->
-    <color name="serv_light_data_inverse_yellow_active">#FFE49C0C</color>
+    <color name="serv_light_data_inverse_yellow_active">#FFEDA20C</color>
     <!--Инвертированный минорный желтый цвет для данных-->
     <color name="serv_light_data_inverse_yellow_minor">#FFA16B00</color>
     <!--Инвертированный минорный желтый цвет для данных-->
     <color name="serv_light_data_inverse_yellow_minor_hover">#FFB87A00</color>
     <!--Инвертированный минорный желтый цвет для данных-->
-    <color name="serv_light_data_inverse_yellow_minor_active">#FF8F5F00</color>
+    <color name="serv_light_data_inverse_yellow_minor_active">#FF996600</color>
     <!--Инвертированный прозрачный желтый цвет для данных-->
     <color name="serv_light_data_inverse_yellow_transparent">#8EF3A912</color>
     <!--Инвертированный прозрачный желтый цвет для данных-->
-    <color name="serv_light_data_inverse_yellow_transparent_hover">#7AF3A812</color>
+    <color name="serv_light_data_inverse_yellow_transparent_hover">#ADF3A812</color>
     <!--Инвертированный прозрачный желтый цвет для данных-->
-    <color name="serv_light_data_inverse_yellow_transparent_active">#99F3A812</color>
+    <color name="serv_light_data_inverse_yellow_transparent_active">#80F3A812</color>
 </resources>

@@ -3,23 +3,23 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Sdkit.StarDs.Components.Chip" parent="Sdds.Components.Chip">
-        <item name="sd_disabledAlpha">0.4</item>
-        <item name="android:backgroundTint">@color/sdkit_chip_bg_color</item>
-        <item name="android:textColor">@color/sdkit_chip_text_color</item>
         <item name="sd_drawableStartTint">@color/sdkit_chip_drawable_start_tint</item>
         <item name="sd_drawableEndTint">@color/sdkit_chip_drawable_end_tint</item>
+        <item name="android:textColor">@color/sdkit_chip_text_color</item>
+        <item name="android:backgroundTint">@color/sdkit_chip_bg_color</item>
+        <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.ChipColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.Components.Chip.L">
-        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
-        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
-        <item name="android:minHeight">@dimen/sdkit_chip_l_min_height</item>
-        <item name="android:paddingStart">@dimen/sdkit_chip_l_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_chip_l_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/sdkit_chip_l_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_l_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/sdkit_chip_l_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/sdkit_chip_l_content_end_size</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_chip_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_l_text_padding_end</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/sdkit_chip_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_chip_l_padding_end</item>
+        <item name="android:minHeight">@dimen/sdkit_chip_l_min_height</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.ChipL">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L</item>
@@ -103,16 +103,16 @@
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Warning</item>
     </style>
     <style name="Sdkit.StarDs.Components.Chip.M">
-        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_chip_m_shape_adjustment</item>
-        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
-        <item name="android:minHeight">@dimen/sdkit_chip_m_min_height</item>
-        <item name="android:paddingStart">@dimen/sdkit_chip_m_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_chip_m_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/sdkit_chip_m_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_m_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/sdkit_chip_m_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/sdkit_chip_m_content_end_size</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_chip_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_m_text_padding_end</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_chip_m_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/sdkit_chip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_chip_m_padding_end</item>
+        <item name="android:minHeight">@dimen/sdkit_chip_m_min_height</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.ChipM">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M</item>
@@ -196,15 +196,15 @@
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled.Warning</item>
     </style>
     <style name="Sdkit.StarDs.Components.Chip.S">
-        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
-        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
-        <item name="android:minHeight">@dimen/sdkit_chip_s_min_height</item>
-        <item name="android:paddingStart">@dimen/sdkit_chip_s_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_chip_s_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/sdkit_chip_s_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_s_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/sdkit_chip_s_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/sdkit_chip_s_content_end_size</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_chip_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_s_text_padding_end</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="android:paddingStart">@dimen/sdkit_chip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_chip_s_padding_end</item>
+        <item name="android:minHeight">@dimen/sdkit_chip_s_min_height</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.ChipS">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S</item>
@@ -288,15 +288,15 @@
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled.Warning</item>
     </style>
     <style name="Sdkit.StarDs.Components.Chip.Xs">
-        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
-        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
-        <item name="android:minHeight">@dimen/sdkit_chip_xs_min_height</item>
-        <item name="android:paddingStart">@dimen/sdkit_chip_xs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/sdkit_chip_xs_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/sdkit_chip_xs_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_xs_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/sdkit_chip_xs_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/sdkit_chip_xs_content_end_size</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_chip_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_xs_text_padding_end</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
+        <item name="android:paddingStart">@dimen/sdkit_chip_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_chip_xs_padding_end</item>
+        <item name="android:minHeight">@dimen/sdkit_chip_xs_min_height</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.ChipXs">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs</item>

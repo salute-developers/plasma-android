@@ -32,22 +32,22 @@
       {
          "key": "indicator",
          "coreName": "Indicator",
-         "styleName": "Indicator",
+         "styleName": "AvatarIndicator",
          "variations": [
             {
                "name": "l",
-               "viewReference": "Plasma.SdService.Components.Indicator.L",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.IndicatorL"
+               "viewReference": "Plasma.SdService.Components.AvatarIndicator.L",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AvatarIndicatorL"
             },
             {
                "name": "m",
-               "viewReference": "Plasma.SdService.Components.Indicator.M",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.IndicatorM"
+               "viewReference": "Plasma.SdService.Components.AvatarIndicator.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AvatarIndicatorM"
             },
             {
                "name": "s",
-               "viewReference": "Plasma.SdService.Components.Indicator.S",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.IndicatorS"
+               "viewReference": "Plasma.SdService.Components.AvatarIndicator.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AvatarIndicatorS"
             }
          ]
       },
@@ -5008,82 +5008,82 @@
       {
          "key": "counter",
          "coreName": "Counter",
-         "styleName": "Counter",
+         "styleName": "SegmentItemCounter",
          "variations": [
             {
                "name": "l",
-               "viewReference": "Plasma.SdService.Components.Counter.L",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterL"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.L",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterL"
             },
             {
                "name": "l.default",
-               "viewReference": "Plasma.SdService.Components.Counter.L.Default",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterLDefault"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.L.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterLDefault"
             },
             {
                "name": "l.accent",
-               "viewReference": "Plasma.SdService.Components.Counter.L.Accent",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterLAccent"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.L.Accent",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterLAccent"
             },
             {
                "name": "m",
-               "viewReference": "Plasma.SdService.Components.Counter.M",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterM"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterM"
             },
             {
                "name": "m.default",
-               "viewReference": "Plasma.SdService.Components.Counter.M.Default",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterMDefault"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.M.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterMDefault"
             },
             {
                "name": "m.accent",
-               "viewReference": "Plasma.SdService.Components.Counter.M.Accent",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterMAccent"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.M.Accent",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterMAccent"
             },
             {
                "name": "s",
-               "viewReference": "Plasma.SdService.Components.Counter.S",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterS"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterS"
             },
             {
                "name": "s.default",
-               "viewReference": "Plasma.SdService.Components.Counter.S.Default",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterSDefault"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.S.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterSDefault"
             },
             {
                "name": "s.accent",
-               "viewReference": "Plasma.SdService.Components.Counter.S.Accent",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterSAccent"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.S.Accent",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterSAccent"
             },
             {
                "name": "xs",
-               "viewReference": "Plasma.SdService.Components.Counter.Xs",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterXs"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.Xs",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterXs"
             },
             {
                "name": "xs.default",
-               "viewReference": "Plasma.SdService.Components.Counter.Xs.Default",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterXsDefault"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.Xs.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterXsDefault"
             },
             {
                "name": "xs.accent",
-               "viewReference": "Plasma.SdService.Components.Counter.Xs.Accent",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterXsAccent"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.Xs.Accent",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterXsAccent"
             },
             {
                "name": "xxs",
-               "viewReference": "Plasma.SdService.Components.Counter.Xxs",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterXxs"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.Xxs",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterXxs"
             },
             {
                "name": "xxs.default",
-               "viewReference": "Plasma.SdService.Components.Counter.Xxs.Default",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterXxsDefault"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.Xxs.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterXxsDefault"
             },
             {
                "name": "xxs.accent",
-               "viewReference": "Plasma.SdService.Components.Counter.Xxs.Accent",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CounterXxsAccent"
+               "viewReference": "Plasma.SdService.Components.SegmentItemCounter.Xxs.Accent",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.SegmentItemCounterXxsAccent"
             }
          ]
       },

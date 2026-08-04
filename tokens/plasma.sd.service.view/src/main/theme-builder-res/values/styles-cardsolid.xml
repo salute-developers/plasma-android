@@ -4,7 +4,7 @@
 <resources>
     <style name="Plasma.SdService.Components.CardSolidContent" parent="Sdds.Components.CardContent"/>
     <style name="Plasma.SdService.Components.CardSolid" parent="Sdds.Components.Card">
-        <item name="android:backgroundTint">@color/plasma_card_solid_bg_color</item>
+        <item name="android:backgroundTint">?plasma_surfaceDefaultSolidCard</item>
     </style>
     <style name="Plasma.SdService.Components.CardSolidContent.L">
         <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
@@ -13,11 +13,11 @@
         <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardSolidContent.L</item>
     </style>
     <style name="Plasma.SdService.Components.CardSolid.L">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="android:paddingBottom">@dimen/plasma_card_solid_l_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/plasma_card_solid_l_padding_end</item>
         <item name="android:paddingStart">@dimen/plasma_card_solid_l_padding_start</item>
         <item name="android:paddingTop">@dimen/plasma_card_solid_l_padding_top</item>
-        <item name="android:paddingEnd">@dimen/plasma_card_solid_l_padding_end</item>
-        <item name="android:paddingBottom">@dimen/plasma_card_solid_l_padding_bottom</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
         <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CardSolidContentL</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.CardSolidL">
@@ -31,12 +31,12 @@
         <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardSolidContent.M</item>
     </style>
     <style name="Plasma.SdService.Components.CardSolid.M">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_card_solid_m_shape_adjustment</item>
+        <item name="android:paddingBottom">@dimen/plasma_card_solid_m_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/plasma_card_solid_m_padding_end</item>
         <item name="android:paddingStart">@dimen/plasma_card_solid_m_padding_start</item>
         <item name="android:paddingTop">@dimen/plasma_card_solid_m_padding_top</item>
-        <item name="android:paddingEnd">@dimen/plasma_card_solid_m_padding_end</item>
-        <item name="android:paddingBottom">@dimen/plasma_card_solid_m_padding_bottom</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_card_solid_m_shape_adjustment</item>
         <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CardSolidContentM</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.CardSolidM">
@@ -50,11 +50,11 @@
         <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardSolidContent.S</item>
     </style>
     <style name="Plasma.SdService.Components.CardSolid.S">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="android:paddingBottom">@dimen/plasma_card_solid_s_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/plasma_card_solid_s_padding_end</item>
         <item name="android:paddingStart">@dimen/plasma_card_solid_s_padding_start</item>
         <item name="android:paddingTop">@dimen/plasma_card_solid_s_padding_top</item>
-        <item name="android:paddingEnd">@dimen/plasma_card_solid_s_padding_end</item>
-        <item name="android:paddingBottom">@dimen/plasma_card_solid_s_padding_bottom</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
         <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CardSolidContentS</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.CardSolidS">

@@ -3,7 +3,9 @@
            xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_codeInputStyle" format="reference" />
 
-    <declare-styleable name="CodeInput" sdds:api_info="CodeInput" tools:ignore="ResourceName">
+    <declare-styleable name="CodeInput" sdds:api_info="CodeInput"
+        sdds:api_def_style_attr="sd_codeInputStyle"
+        sdds:api_parent="Sdds.Components.CodeInput" tools:ignore="ResourceName">
         <!-- Длина кода (количество ячеек для ввода) -->
         <attr name="sd_codeLength" />
         <!-- Высота ячейки -->
