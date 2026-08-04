@@ -149,6 +149,8 @@ abstract class DsBuilderExtension @Inject constructor(
     fun documentation(action: Action<in DocumentationCapability>) {
         documentation.enabled.set(true)
         action.execute(documentation)
+        documentation.compose?.applyInfoConventions(DsBuilderPlatform.COMPOSE)
+        documentation.view?.applyInfoConventions(DsBuilderPlatform.VIEW)
     }
 
     /** Enables and configures sandbox adapter generation. */
@@ -213,6 +215,11 @@ abstract class DsBuilderExtension @Inject constructor(
 
     private fun SandboxPlatform.applyComponentsInfoConvention(platform: DsBuilderPlatform) {
         componentsInfoFile.convention(sddsDirectory.file(platform.componentsInfoName))
+    }
+
+    private fun DocumentationPlatform.applyInfoConventions(platform: DsBuilderPlatform) {
+        componentsInfoFile.convention(sddsDirectory.file(platform.componentsInfoName))
+        themeInfoFile.convention(sddsDirectory.file(platform.themeInfoName))
     }
 }
 

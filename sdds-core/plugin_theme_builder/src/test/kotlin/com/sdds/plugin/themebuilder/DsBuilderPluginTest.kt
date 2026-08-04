@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder
 
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.documentation.DocumentationAggregateTask
 import com.sdds.plugin.themebuilder.sandbox.GenerateSandboxAdaptersTask
 import com.sdds.plugin.themebuilder.sandbox.SandboxScheme
@@ -112,7 +113,7 @@ class DsBuilderPluginTest {
 
         assertEquals(setOf(DsBuilderPlatform.VIEW), extension.targets.get())
         assertEquals(2, extension.viewThemeParents.get().size)
-        assertEquals(1, extension.viewShapeAppearance.get().size)
+        assertEquals(2, extension.viewShapeAppearance.get().size)
         listOf(extension.theme, extension.components).forEach { capability ->
             assertEquals(setOf(DsBuilderPlatform.VIEW), capability.targets.get())
             assertEquals(extension.viewThemeParents.get(), capability.viewThemeParents.get())
