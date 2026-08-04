@@ -26,6 +26,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -59,7 +60,7 @@ import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
-import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 import kotlin.math.ceil
@@ -104,6 +105,27 @@ internal fun BaseWheel(
     val state: LazyListState = rememberLazyListState(initialIndex)
     val middleIndex = visibleItemsCount / 2
     val extendedList = rememberExtendedList(items, dataEdgePlacement, middleIndex)
+    val maxFirstVisibleItemIndex = (extendedList.size - visibleItemsCount).coerceAtLeast(0)
+    var controlTargetIndex by remember(initialIndex, maxFirstVisibleItemIndex) {
+        mutableIntStateOf(initialIndex.coerceIn(0, maxFirstVisibleItemIndex))
+    }
+    var controlScrollJob by remember { mutableStateOf<Job?>(null) }
+
+    fun scrollByControl(delta: Int) {
+        val isControlScrollInProgress = controlScrollJob?.isActive == true
+        val currentIndex = if (isControlScrollInProgress) {
+            controlTargetIndex
+        } else {
+            state.firstVisibleItemIndex
+        }
+        val targetIndex = (currentIndex + delta).coerceIn(0, maxFirstVisibleItemIndex)
+        if (targetIndex == currentIndex) return
+
+        controlTargetIndex = targetIndex
+        controlScrollJob = coroutineScope.launch {
+            state.animateScrollToItem(targetIndex)
+        }
+    }
 
     LaunchedEffect(state.firstVisibleItemIndex) {
         val selectedIndex = state.firstVisibleItemIndex + middleIndex
@@ -372,12 +394,12 @@ internal fun BaseWheel(
         val staticTextAfterPlaceable = measureStaticTextAfter()
         val topControlPlaceable = measureControl(WheelSubcomposeSlot.TopControl, lazyColumnWidth) {
             if (hasControls && iconUp != null && iconDown != null) {
-                TopControl(iconUp, iconUpColor, state, coroutineScope)
+                TopControl(iconUp, iconUpColor) { scrollByControl(-1) }
             }
         }
         val bottomControlPlaceable = measureControl(WheelSubcomposeSlot.BottomControl, lazyColumnWidth) {
             if (hasControls && iconUp != null && iconDown != null) {
-                BottomControl(iconDown, iconDownColor, state, coroutineScope)
+                BottomControl(iconDown, iconDownColor) { scrollByControl(1) }
             }
         }
 
@@ -711,8 +733,7 @@ internal enum class WheelItemAlignment {
 private fun TopControl(
     icon: ImageSource,
     color: InteractiveColor,
-    state: LazyListState,
-    coroutineScope: CoroutineScope,
+    onClick: () -> Unit,
 ) {
     val upInteractionSource = remember { MutableInteractionSource() }
     val iconColor = color.colorForInteraction(upInteractionSource)
@@ -722,13 +743,8 @@ private fun TopControl(
             .clickable(
                 interactionSource = upInteractionSource,
                 indication = LocalIndication.current,
-            ) {
-                coroutineScope.launch {
-                    state.animateScrollToItem(
-                        (state.firstVisibleItemIndex - 1).coerceAtLeast(0),
-                    )
-                }
-            },
+                onClick = onClick,
+            ),
         contentDescription = null,
         source = icon,
         brush = BrushProducer { SolidColor(iconColor) },
@@ -739,8 +755,7 @@ private fun TopControl(
 private fun BottomControl(
     icon: ImageSource,
     color: InteractiveColor,
-    state: LazyListState,
-    coroutineScope: CoroutineScope,
+    onClick: () -> Unit,
 ) {
     val downInteractionSource = remember { MutableInteractionSource() }
     val iconColor = color.colorForInteraction(downInteractionSource)
@@ -750,11 +765,8 @@ private fun BottomControl(
             .clickable(
                 interactionSource = downInteractionSource,
                 indication = LocalIndication.current,
-            ) {
-                coroutineScope.launch {
-                    state.animateScrollToItem((state.firstVisibleItemIndex + 1))
-                }
-            },
+                onClick = onClick,
+            ),
         contentDescription = null,
         source = icon,
         brush = BrushProducer { SolidColor(iconColor) },
