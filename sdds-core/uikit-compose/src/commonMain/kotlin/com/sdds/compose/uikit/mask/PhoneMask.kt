@@ -23,7 +23,7 @@ data class PhoneMask(
 
     override fun preFilterInput(text: String): String {
         return text
-            .filterIndexed { index, char -> char.isDigit() || (index == 0 && char == '-') }
+            .filter { it.isDigit() }
             .take(mask.count { it == '#' })
     }
 
@@ -109,12 +109,16 @@ private class PhoneMaskOffsetMapping(
 ) :
     OffsetMapping {
     override fun originalToTransformed(offset: Int): Int {
-        if (originalText.isEmpty()) return 0
+        // formatWithMask возвращает пустую строку, если в тексте нет цифр
+        if (originalText.none { it.isDigit() }) return 0
+        val digitsBeforeOffset = originalText
+            .take(offset.coerceIn(0, originalText.length))
+            .count { it.isDigit() }
         var cleanChars = 0
         var resultIndex = 0
 
         for (i in mask.indices) {
-            if (cleanChars >= offset) break
+            if (cleanChars >= digitsBeforeOffset) break
 
             when (mask[i]) {
                 '#' -> {
@@ -132,7 +136,7 @@ private class PhoneMaskOffsetMapping(
     override fun transformedToOriginal(offset: Int): Int {
         var cleanChars = 0
 
-        for (i in 0 until offset) {
+        for (i in 0 until offset.coerceAtMost(mask.length)) {
             if (cleanChars >= originalText.length) break
             if (mask[i] == '#') {
                 cleanChars++

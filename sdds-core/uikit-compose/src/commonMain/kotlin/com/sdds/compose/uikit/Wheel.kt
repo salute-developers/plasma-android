@@ -131,7 +131,7 @@ fun Wheel(
                 separatorColor = separatorColor,
                 textMeasurer = textMeasurer,
                 separatorTextStyle = separatorTextStyle,
-                labelOffsetFromCenter = labelOffsetFromCenter,
+                labelOffsetFromCenter = { labelOffsetFromCenter },
             )
         },
     ) { wheelIndex ->
@@ -298,7 +298,7 @@ private fun WheelSeparatorBox(
     separatorColor: Color,
     textMeasurer: TextMeasurer,
     separatorTextStyle: TextStyle,
-    labelOffsetFromCenter: Float,
+    labelOffsetFromCenter: () -> Float,
 ) {
     Box(
         modifier = Modifier
@@ -370,7 +370,7 @@ private fun Modifier.drawSeparator(
     separatorColor: Color,
     textMeasurer: TextMeasurer,
     separatorTextStyle: TextStyle,
-    labelOffsetFromCenter: Float,
+    labelOffsetFromCenter: () -> Float,
 ): Modifier {
     return drawBehind {
         val separatorCenter = style.dimensions.separatorSpacing.toPx() / 2f
@@ -393,7 +393,7 @@ private fun Modifier.drawSeparator(
                     color = separatorColor,
                     topLeft = Offset(
                         separatorCenter - textLayoutResult.size.width / 2f,
-                        center.y + labelOffsetFromCenter,
+                        center.y + labelOffsetFromCenter(),
                     ),
                 )
             }
