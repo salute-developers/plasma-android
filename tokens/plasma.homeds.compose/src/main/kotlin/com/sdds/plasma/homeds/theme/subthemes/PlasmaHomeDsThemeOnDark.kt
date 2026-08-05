@@ -1010,8 +1010,6 @@ private val OnDarkGradientsOverride: GradientAttrOverrideScope.() -> Unit by laz
         outlineDefaultAccentGradientActive.overrideBy(outlineOnDarkAccentGradientActive)
         outlineDefaultAccentGradientHover.overrideBy(outlineOnDarkAccentGradientHover)
         outlineDefaultAccentGradientHover.overrideBy(outlineOnDarkAccentGradientHover)
-        outlineDefaultAccentMinorGradient.overrideBy(outlineOnDarkAccentMinorGradient)
-        outlineDefaultAccentMinorGradient.overrideBy(outlineOnDarkAccentMinorGradient)
         outlineDefaultAccentMinorGradientActive.overrideBy(outlineOnDarkAccentMinorGradientActive)
         outlineDefaultAccentMinorGradientActive.overrideBy(outlineOnDarkAccentMinorGradientActive)
         outlineDefaultAccentMinorGradientHover.overrideBy(outlineOnDarkAccentMinorGradientHover)
@@ -1110,6 +1108,8 @@ private val OnDarkGradientsOverride: GradientAttrOverrideScope.() -> Unit by laz
         textDefaultPromoMinorGradientActive.overrideBy(textOnDarkPromoMinorGradientActive)
         surfaceDefaultAccentMinorGradient.overrideBy(surfaceOnDarkAccentMinorGradient)
         surfaceDefaultAccentMinorGradient.overrideBy(surfaceOnDarkAccentMinorGradient)
+        outlineDefaultAccentMinorGradient.overrideBy(outlineOnDarkAccentMinorGradient)
+        outlineDefaultAccentMinorGradient.overrideBy(outlineOnDarkAccentMinorGradient)
     }
 }
 

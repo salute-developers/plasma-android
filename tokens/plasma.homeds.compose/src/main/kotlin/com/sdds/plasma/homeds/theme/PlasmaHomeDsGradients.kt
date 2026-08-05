@@ -48,11 +48,6 @@ public class PlasmaHomeDsGradients(
     /**
      * Акцентный минорный цвет обводки с градиентом
      */
-    public val outlineDefaultAccentMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
     public val outlineDefaultAccentMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
@@ -1013,11 +1008,6 @@ public class PlasmaHomeDsGradients(
     /**
      * Минорный промо цвет на светлом фоне с градиентом
      */
-    public val textOnLightPromoMinorGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Минорный промо цвет на светлом фоне с градиентом
-     */
     public val textOnLightPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
@@ -1091,6 +1081,16 @@ public class PlasmaHomeDsGradients(
     public val surfaceOnDarkTransparentAccentGradient: List<ShaderBrush> by gradients
 
     /**
+     * Акцентный минорный цвет обводки с градиентом
+     */
+    public val outlineDefaultAccentMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradient: List<ShaderBrush> by gradients
+
+    /**
      * Возвращает копию [PlasmaHomeDsGradients]. Предоставляет возможность переопределять градиенты.
      */
     public fun copy(overrideGradients: GradientOverrideScope.() -> Unit = {}): PlasmaHomeDsGradients {
@@ -1143,11 +1143,6 @@ public class GradientOverrideScope {
     /**
      * Акцентный минорный цвет обводки с градиентом
      */
-    public val outlineDefaultAccentMinorGradient: String = "outlineDefaultAccentMinorGradient"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
     public val outlineDefaultAccentMinorGradientActive: String =
         "outlineDefaultAccentMinorGradientActive"
 
@@ -2177,11 +2172,6 @@ public class GradientOverrideScope {
     /**
      * Минорный промо цвет на светлом фоне с градиентом
      */
-    public val textOnLightPromoMinorGradient: String = "textOnLightPromoMinorGradient"
-
-    /**
-     * Минорный промо цвет на светлом фоне с градиентом
-     */
     public val textOnLightPromoMinorGradientActive: String = "textOnLightPromoMinorGradientActive"
 
     /**
@@ -2258,6 +2248,16 @@ public class GradientOverrideScope {
      */
     public val surfaceOnDarkTransparentAccentGradient: String =
         "surfaceOnDarkTransparentAccentGradient"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом
+     */
+    public val outlineDefaultAccentMinorGradient: String = "outlineDefaultAccentMinorGradient"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradient: String = "textOnLightPromoMinorGradient"
 
     /**
      * Переопределяет аттрибут градиента.
@@ -2294,11 +2294,6 @@ public class GradientAttrOverrideScope {
     /**
      * Акцентный минорный цвет обводки с градиентом
      */
-    public val outlineDefaultAccentMinorGradient: String = "outlineDefaultAccentMinorGradient"
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
     public val outlineDefaultAccentMinorGradientActive: String =
         "outlineDefaultAccentMinorGradientActive"
 
@@ -3328,11 +3323,6 @@ public class GradientAttrOverrideScope {
     /**
      * Минорный промо цвет на светлом фоне с градиентом
      */
-    public val textOnLightPromoMinorGradient: String = "textOnLightPromoMinorGradient"
-
-    /**
-     * Минорный промо цвет на светлом фоне с градиентом
-     */
     public val textOnLightPromoMinorGradientActive: String = "textOnLightPromoMinorGradientActive"
 
     /**
@@ -3409,6 +3399,16 @@ public class GradientAttrOverrideScope {
      */
     public val surfaceOnDarkTransparentAccentGradient: String =
         "surfaceOnDarkTransparentAccentGradient"
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом
+     */
+    public val outlineDefaultAccentMinorGradient: String = "outlineDefaultAccentMinorGradient"
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public val textOnLightPromoMinorGradient: String = "textOnLightPromoMinorGradient"
 
     /**
      * Переопределяет аттрибут градиента.
@@ -3469,17 +3469,6 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
                 LightGradientTokens.OutlineDefaultAccentGradientHover.colors,
                 LightGradientTokens.OutlineDefaultAccentGradientHover.positions,
                 LightGradientTokens.OutlineDefaultAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultAccentMinorGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultAccentMinorGradient.colors,
-                LightGradientTokens.OutlineDefaultAccentMinorGradient.positions,
-                LightGradientTokens.OutlineDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
@@ -5597,17 +5586,6 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         overwrite,
     )
     initial.add(
-        "textOnLightPromoMinorGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.TextOnLightPromoMinorGradient.colors,
-                LightGradientTokens.TextOnLightPromoMinorGradient.positions,
-                LightGradientTokens.TextOnLightPromoMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "textOnLightPromoMinorGradientActive",
         listOf(
             linearGradient(
@@ -5772,6 +5750,28 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
         ),
         overwrite,
     )
+    initial.add(
+        "outlineDefaultAccentMinorGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OutlineDefaultAccentMinorGradient.colors,
+                LightGradientTokens.OutlineDefaultAccentMinorGradient.positions,
+                LightGradientTokens.OutlineDefaultAccentMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightPromoMinorGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnLightPromoMinorGradient.colors,
+                LightGradientTokens.TextOnLightPromoMinorGradient.positions,
+                LightGradientTokens.TextOnLightPromoMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
     return PlasmaHomeDsGradients(initial)
 }
 
@@ -5813,17 +5813,6 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
                 DarkGradientTokens.OutlineDefaultAccentGradientHover.colors,
                 DarkGradientTokens.OutlineDefaultAccentGradientHover.positions,
                 DarkGradientTokens.OutlineDefaultAccentGradientHover.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultAccentMinorGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentMinorGradient.colors,
-                DarkGradientTokens.OutlineDefaultAccentMinorGradient.positions,
-                DarkGradientTokens.OutlineDefaultAccentMinorGradient.angle,
             ),
         ),
         overwrite,
@@ -7941,17 +7930,6 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
         overwrite,
     )
     initial.add(
-        "textOnLightPromoMinorGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.TextOnLightPromoMinorGradient.colors,
-                DarkGradientTokens.TextOnLightPromoMinorGradient.positions,
-                DarkGradientTokens.TextOnLightPromoMinorGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "textOnLightPromoMinorGradientActive",
         listOf(
             linearGradient(
@@ -8112,6 +8090,28 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
                 DarkGradientTokens.SurfaceOnDarkTransparentAccentGradient.colors,
                 DarkGradientTokens.SurfaceOnDarkTransparentAccentGradient.positions,
                 DarkGradientTokens.SurfaceOnDarkTransparentAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultAccentMinorGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OutlineDefaultAccentMinorGradient.colors,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradient.positions,
+                DarkGradientTokens.OutlineDefaultAccentMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightPromoMinorGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnLightPromoMinorGradient.colors,
+                DarkGradientTokens.TextOnLightPromoMinorGradient.positions,
+                DarkGradientTokens.TextOnLightPromoMinorGradient.angle,
             ),
         ),
         overwrite,

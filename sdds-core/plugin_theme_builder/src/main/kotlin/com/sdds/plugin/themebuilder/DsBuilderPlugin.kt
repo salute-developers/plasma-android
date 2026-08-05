@@ -63,6 +63,7 @@ private fun Project.configureSandbox(extension: DsBuilderExtension) {
                     target = SandboxTarget.COMPOSE,
                     output = output,
                     multiplatform = platform.multiplatform.get(),
+                    autoGenerate = sandbox.autoGenerate.get(),
                 )
                 attachToPreBuild(task, sandbox.autoGenerate.get())
                 if (platform.multiplatform.get()) {
@@ -70,7 +71,9 @@ private fun Project.configureSandbox(extension: DsBuilderExtension) {
                         ?.sourceSets
                         ?.findByName("commonMain")
                         ?.kotlin
-                        ?.srcDir(task.flatMap { it.outputDirectory })
+                        ?.srcDir(
+                            if (sandbox.autoGenerate.get()) task.flatMap { it.outputDirectory } else output,
+                        )
                 }
             }
         }
@@ -84,6 +87,7 @@ private fun Project.configureSandbox(extension: DsBuilderExtension) {
                     target = SandboxTarget.XML,
                     output = output,
                     multiplatform = false,
+                    autoGenerate = sandbox.autoGenerate.get(),
                 )
                 attachToPreBuild(task, sandbox.autoGenerate.get())
             }
@@ -134,6 +138,7 @@ private fun Project.registerSandboxTask(
     target: SandboxTarget,
     output: org.gradle.api.provider.Provider<org.gradle.api.file.Directory>,
     multiplatform: Boolean,
+    autoGenerate: Boolean,
 ) = tasks.register<GenerateSandboxAdaptersTask>(name) {
     configInputFile.set(platform.componentsInfoFile)
     packageName.set(platform.generatedPackageName)
@@ -148,7 +153,7 @@ private fun Project.registerSandboxTask(
             ?.sourceSets
             ?.maybeCreate("main")
             ?.java
-            ?.srcDir(task.flatMap { it.outputDirectory })
+            ?.srcDir(if (autoGenerate) task.flatMap { it.outputDirectory } else output)
     }
 }
 
