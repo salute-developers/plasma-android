@@ -3,22 +3,22 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.BadgeClear" parent="Sdds.Components.Badge">
-        <item name="android:backgroundTint">?plasma_surfaceDefaultClear</item>
-        <item name="android:textColor">@color/plasma_badge_clear_text_color</item>
         <item name="sd_drawableStartTint">@color/plasma_badge_clear_drawable_start_tint</item>
         <item name="sd_drawableEndTint">@color/plasma_badge_clear_drawable_end_tint</item>
+        <item name="android:textColor">@color/plasma_badge_clear_text_color</item>
+        <item name="android:backgroundTint">?plasma_surfaceDefaultClear</item>
         <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.BadgeColorStateProvider</item>
     </style>
     <style name="Plasma.SdService.Components.BadgeClear.L">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
-        <item name="android:minHeight">@dimen/plasma_badge_clear_l_min_height</item>
-        <item name="android:paddingStart">@dimen/plasma_badge_clear_l_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_badge_clear_l_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/plasma_badge_clear_l_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/plasma_badge_clear_l_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/plasma_badge_clear_l_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/plasma_badge_clear_l_content_end_size</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_badge_clear_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_badge_clear_l_text_padding_end</item>
+        <item name="android:paddingStart">@dimen/plasma_badge_clear_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_badge_clear_l_padding_end</item>
+        <item name="android:minHeight">@dimen/plasma_badge_clear_l_min_height</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.BadgeClearL">
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeClear.L</item>
@@ -114,15 +114,15 @@
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeClear.L.Pilled.Light</item>
     </style>
     <style name="Plasma.SdService.Components.BadgeClear.M">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
-        <item name="android:minHeight">@dimen/plasma_badge_clear_m_min_height</item>
-        <item name="android:paddingStart">@dimen/plasma_badge_clear_m_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_badge_clear_m_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/plasma_badge_clear_m_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/plasma_badge_clear_m_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/plasma_badge_clear_m_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/plasma_badge_clear_m_content_end_size</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_badge_clear_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_badge_clear_m_text_padding_end</item>
+        <item name="android:paddingStart">@dimen/plasma_badge_clear_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_badge_clear_m_padding_end</item>
+        <item name="android:minHeight">@dimen/plasma_badge_clear_m_min_height</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.BadgeClearM">
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeClear.M</item>
@@ -218,15 +218,15 @@
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeClear.M.Pilled.Light</item>
     </style>
     <style name="Plasma.SdService.Components.BadgeClear.S">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
-        <item name="android:minHeight">@dimen/plasma_badge_clear_s_min_height</item>
-        <item name="android:paddingStart">@dimen/plasma_badge_clear_s_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_badge_clear_s_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/plasma_badge_clear_s_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/plasma_badge_clear_s_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/plasma_badge_clear_s_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/plasma_badge_clear_s_content_end_size</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_badge_clear_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_badge_clear_s_text_padding_end</item>
+        <item name="android:paddingStart">@dimen/plasma_badge_clear_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_badge_clear_s_padding_end</item>
+        <item name="android:minHeight">@dimen/plasma_badge_clear_s_min_height</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.BadgeClearS">
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeClear.S</item>
@@ -322,15 +322,15 @@
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeClear.S.Pilled.Light</item>
     </style>
     <style name="Plasma.SdService.Components.BadgeClear.Xs">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundXxs</item>
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
-        <item name="android:minHeight">@dimen/plasma_badge_clear_xs_min_height</item>
-        <item name="android:paddingStart">@dimen/plasma_badge_clear_xs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_badge_clear_xs_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/plasma_badge_clear_xs_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/plasma_badge_clear_xs_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/plasma_badge_clear_xs_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/plasma_badge_clear_xs_content_end_size</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_badge_clear_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_badge_clear_xs_text_padding_end</item>
+        <item name="android:paddingStart">@dimen/plasma_badge_clear_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_badge_clear_xs_padding_end</item>
+        <item name="android:minHeight">@dimen/plasma_badge_clear_xs_min_height</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXxs</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.BadgeClearXs">
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeClear.Xs</item>

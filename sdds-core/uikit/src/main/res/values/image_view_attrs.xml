@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_imageViewStyle" format="reference" />
     <!--
        Компонент для отображения изображений.
        Поддерживает изменение формы, установку отступов только для контента (без фона),
        а также отрисовку границы.
        -->
-    <declare-styleable name="ImageView" tools:ignore="ResourceName">
+    <declare-styleable name="ImageView" sdds:api_info="Image"
+        sdds:api_core_name="ImageView"
+        sdds:api_def_style_attr="sd_imageViewStyle"
+        sdds:api_parent="Sdds.Components.ImageView" sdds:api_style_name="ImageView" tools:ignore="ResourceName">
         <!-- Внутренние отступы для контента (изображения) -->
         <attr name="sd_contentPadding" format="dimension" />
         <!-- Внутренний отступ контента в начале -->
@@ -22,8 +26,8 @@
         <!-- Внутренний отступ контента снизу -->
         <attr name="sd_contentPaddingBottom" format="dimension" />
         <!-- Соотношение сторон -->
-        <attr name="sd_aspectRatio" format="float" />
-        <attr name="sd_background" />
+        <attr name="sd_aspectRatio" format="float" sdds:api_value="ratio(width,height)" />
+        <attr name="sd_background" sdds:api_type="color" />
         <attr name="sd_shapeAppearance" />
         <attr name="sd_strokeWidth" />
         <attr name="sd_strokeColor" />

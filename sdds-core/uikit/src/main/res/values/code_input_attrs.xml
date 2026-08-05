@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_codeInputStyle" format="reference" />
 
-    <declare-styleable name="CodeInput" tools:ignore="ResourceName">
+    <declare-styleable name="CodeInput" sdds:api_info="CodeInput"
+        sdds:api_def_style_attr="sd_codeInputStyle"
+        sdds:api_parent="Sdds.Components.CodeInput" tools:ignore="ResourceName">
         <!-- Длина кода (количество ячеек для ввода) -->
         <attr name="sd_codeLength" />
         <!-- Высота ячейки -->
@@ -16,7 +19,7 @@
         <!-- Отступ поля для подписи(caption) -->
         <attr name="sd_captionPadding" />
         <!-- Ресурс стиля текста подписи -->
-        <attr name="sd_captionAppearance" />
+        <attr name="sd_captionAppearance" sdds:api_name="captionStyle" />
         <!-- Цвет текста подписи -->
         <attr name="sd_captionColor" />
         <!-- Текст подписи -->
@@ -33,9 +36,9 @@
         <attr name="sd_codeValidateBehavior" />
 
         <!-- Ресурс стиля текста -->
-        <attr name="sd_valueAppearance" />
+        <attr name="sd_valueAppearance" sdds:api_name="codeStyle" />
         <!-- Цвет текста -->
-        <attr name="sd_valueColor" />
+        <attr name="sd_valueColor" sdds:api_name="codeColor" />
         <!-- Толщина обводки(бордера) точки, скрывающей вводимые символы  -->
         <attr name="sd_strokeWidth" />
         <!-- Цвет обводки(бордера) точки, скрывающей вводимые символы  -->
@@ -43,6 +46,6 @@
         <!-- Размер (диаметр) точки, скрывающей вводимые символы  -->
         <attr name="sd_dotSize" />
         <!-- Цвет точки, скрывающей вводимые символы  -->
-        <attr name="sd_dotColor" />
+        <attr name="sd_dotColor" sdds:api_name="fillColor" />
     </declare-styleable>
 </resources>

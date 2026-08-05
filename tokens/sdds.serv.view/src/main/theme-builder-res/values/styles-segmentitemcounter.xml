@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.SegmentItemCounter" parent="Sdds.Components.Counter">
+        <item name="android:textColor">@color/serv_segment_item_counter_text_color</item>
+        <item name="android:backgroundTint">@color/serv_segment_item_counter_bg_color</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.SegmentItemCounterColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.L">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_counter_l_min_width</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_counter_l_min_height</item>
+        <item name="android:paddingLeft">@dimen/serv_segment_item_counter_l_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_segment_item_counter_l_padding_right</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterL">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.L.Default">
+        <item name="serv_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterLDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.L.Accent">
+        <item name="serv_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterLAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.M">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_counter_m_min_width</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_counter_m_min_height</item>
+        <item name="android:paddingLeft">@dimen/serv_segment_item_counter_m_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_segment_item_counter_m_padding_right</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterM">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.M.Default">
+        <item name="serv_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterMDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.M.Accent">
+        <item name="serv_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterMAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.S">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_counter_s_min_width</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_counter_s_min_height</item>
+        <item name="android:paddingLeft">@dimen/serv_segment_item_counter_s_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_segment_item_counter_s_padding_right</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterS">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.S.Default">
+        <item name="serv_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterSDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.S.Accent">
+        <item name="serv_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterSAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.Xs">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_counter_xs_min_width</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_counter_xs_min_height</item>
+        <item name="android:paddingLeft">@dimen/serv_segment_item_counter_xs_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_segment_item_counter_xs_padding_right</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterXs">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.Xs.Default">
+        <item name="serv_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterXsDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.Xs.Accent">
+        <item name="serv_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterXsAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.Xxs">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minWidth">@dimen/serv_segment_item_counter_xxs_min_width</item>
+        <item name="android:minHeight">@dimen/serv_segment_item_counter_xxs_min_height</item>
+        <item name="android:paddingLeft">@dimen/serv_segment_item_counter_xxs_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_segment_item_counter_xxs_padding_right</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterXxs">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xxs</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.Xxs.Default">
+        <item name="serv_segmentitemcounterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterXxsDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xxs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SegmentItemCounter.Xxs.Accent">
+        <item name="serv_segmentitemcounterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItemCounterXxsAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.SegmentItemCounter.Xxs.Accent</item>
+    </style>
+</resources>

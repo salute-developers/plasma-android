@@ -3,18 +3,18 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.ToolBarHorizontal" parent="Sdds.Components.ToolBar">
-        <item name="android:orientation">horizontal</item>
-        <item name="sd_dividerStyleOverlay">@style/Plasma.SdService.ComponentOverlays.Divider</item>
         <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+        <item name="sd_dividerStyleOverlay">@style/Plasma.SdService.ComponentOverlays.Divider</item>
+        <item name="android:orientation">horizontal</item>
     </style>
     <style name="Plasma.SdService.Components.ToolBarHorizontal.L">
         <item name="sd_shapeAppearance">?plasma_shapeRoundXl</item>
+        <item name="sd_dividerMargin">@dimen/plasma_tool_bar_horizontal_l_divider_margin</item>
+        <item name="sd_slotPadding">@dimen/plasma_tool_bar_horizontal_l_slot_padding</item>
         <item name="android:paddingStart">@dimen/plasma_tool_bar_horizontal_l_padding_start</item>
         <item name="android:paddingEnd">@dimen/plasma_tool_bar_horizontal_l_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_tool_bar_horizontal_l_padding_top</item>
         <item name="android:paddingBottom">@dimen/plasma_tool_bar_horizontal_l_padding_bottom</item>
-        <item name="sd_slotPadding">@dimen/plasma_tool_bar_horizontal_l_slot_padding</item>
-        <item name="sd_dividerMargin">@dimen/plasma_tool_bar_horizontal_l_divider_margin</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.ToolBarHorizontalL">
         <item name="sd_toolBarStyle">@style/Plasma.SdService.Components.ToolBarHorizontal.L</item>
@@ -27,12 +27,12 @@
     </style>
     <style name="Plasma.SdService.Components.ToolBarHorizontal.M">
         <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_dividerMargin">@dimen/plasma_tool_bar_horizontal_m_divider_margin</item>
+        <item name="sd_slotPadding">@dimen/plasma_tool_bar_horizontal_m_slot_padding</item>
         <item name="android:paddingStart">@dimen/plasma_tool_bar_horizontal_m_padding_start</item>
         <item name="android:paddingEnd">@dimen/plasma_tool_bar_horizontal_m_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_tool_bar_horizontal_m_padding_top</item>
         <item name="android:paddingBottom">@dimen/plasma_tool_bar_horizontal_m_padding_bottom</item>
-        <item name="sd_slotPadding">@dimen/plasma_tool_bar_horizontal_m_slot_padding</item>
-        <item name="sd_dividerMargin">@dimen/plasma_tool_bar_horizontal_m_divider_margin</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.ToolBarHorizontalM">
         <item name="sd_toolBarStyle">@style/Plasma.SdService.Components.ToolBarHorizontal.M</item>
@@ -46,12 +46,12 @@
     <style name="Plasma.SdService.Components.ToolBarHorizontal.S">
         <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_tool_bar_horizontal_s_shape_adjustment</item>
+        <item name="sd_dividerMargin">@dimen/plasma_tool_bar_horizontal_s_divider_margin</item>
+        <item name="sd_slotPadding">@dimen/plasma_tool_bar_horizontal_s_slot_padding</item>
         <item name="android:paddingStart">@dimen/plasma_tool_bar_horizontal_s_padding_start</item>
         <item name="android:paddingEnd">@dimen/plasma_tool_bar_horizontal_s_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_tool_bar_horizontal_s_padding_top</item>
         <item name="android:paddingBottom">@dimen/plasma_tool_bar_horizontal_s_padding_bottom</item>
-        <item name="sd_slotPadding">@dimen/plasma_tool_bar_horizontal_s_slot_padding</item>
-        <item name="sd_dividerMargin">@dimen/plasma_tool_bar_horizontal_s_divider_margin</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.ToolBarHorizontalS">
         <item name="sd_toolBarStyle">@style/Plasma.SdService.Components.ToolBarHorizontal.S</item>
@@ -64,12 +64,12 @@
     </style>
     <style name="Plasma.SdService.Components.ToolBarHorizontal.Xs">
         <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_dividerMargin">@dimen/plasma_tool_bar_horizontal_xs_divider_margin</item>
+        <item name="sd_slotPadding">@dimen/plasma_tool_bar_horizontal_xs_slot_padding</item>
         <item name="android:paddingStart">@dimen/plasma_tool_bar_horizontal_xs_padding_start</item>
         <item name="android:paddingEnd">@dimen/plasma_tool_bar_horizontal_xs_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_tool_bar_horizontal_xs_padding_top</item>
         <item name="android:paddingBottom">@dimen/plasma_tool_bar_horizontal_xs_padding_bottom</item>
-        <item name="sd_slotPadding">@dimen/plasma_tool_bar_horizontal_xs_slot_padding</item>
-        <item name="sd_dividerMargin">@dimen/plasma_tool_bar_horizontal_xs_divider_margin</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.ToolBarHorizontalXs">
         <item name="sd_toolBarStyle">@style/Plasma.SdService.Components.ToolBarHorizontal.Xs</item>

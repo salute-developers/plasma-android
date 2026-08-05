@@ -3,16 +3,16 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.IconBadgeClear" parent="Sdds.Components.IconBadge">
-        <item name="android:backgroundTint">?plasma_surfaceDefaultClear</item>
         <item name="sd_drawableStartTint">@color/plasma_icon_badge_clear_drawable_start_tint</item>
+        <item name="android:backgroundTint">?plasma_surfaceDefaultClear</item>
         <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.IconBadgeColorStateProvider</item>
     </style>
     <style name="Plasma.SdService.Components.IconBadgeClear.L">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
-        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_l_min_height</item>
+        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_l_content_start_size</item>
         <item name="android:paddingStart">@dimen/plasma_icon_badge_clear_l_padding_start</item>
         <item name="android:paddingEnd">@dimen/plasma_icon_badge_clear_l_padding_end</item>
-        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_l_content_start_size</item>
+        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_l_min_height</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearL">
         <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L</item>
@@ -108,11 +108,11 @@
         <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Pilled.Light</item>
     </style>
     <style name="Plasma.SdService.Components.IconBadgeClear.M">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
-        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_m_min_height</item>
+        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_m_content_start_size</item>
         <item name="android:paddingStart">@dimen/plasma_icon_badge_clear_m_padding_start</item>
         <item name="android:paddingEnd">@dimen/plasma_icon_badge_clear_m_padding_end</item>
-        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_m_content_start_size</item>
+        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_m_min_height</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearM">
         <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M</item>
@@ -208,11 +208,11 @@
         <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Pilled.Light</item>
     </style>
     <style name="Plasma.SdService.Components.IconBadgeClear.S">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
-        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_s_min_height</item>
+        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_s_content_start_size</item>
         <item name="android:paddingStart">@dimen/plasma_icon_badge_clear_s_padding_start</item>
         <item name="android:paddingEnd">@dimen/plasma_icon_badge_clear_s_padding_end</item>
-        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_s_content_start_size</item>
+        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_s_min_height</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearS">
         <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S</item>
@@ -308,11 +308,11 @@
         <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Pilled.Light</item>
     </style>
     <style name="Plasma.SdService.Components.IconBadgeClear.Xs">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundXxs</item>
-        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_xs_min_height</item>
+        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_xs_content_start_size</item>
         <item name="android:paddingStart">@dimen/plasma_icon_badge_clear_xs_padding_start</item>
         <item name="android:paddingEnd">@dimen/plasma_icon_badge_clear_xs_padding_end</item>
-        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_xs_content_start_size</item>
+        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_xs_min_height</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXxs</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXs">
         <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs</item>

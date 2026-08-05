@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_toastStyle" format="reference"/>
 
-    <declare-styleable name="Toast" tools:ignore="ResourceName">
-        <attr name="sd_background" />
-        <attr name="sd_shapeAppearance" />
+    <declare-styleable name="Toast" sdds:api_info="Toast"
+        sdds:api_def_style_attr="sd_toastStyle"
+        sdds:api_parent="Sdds.Components.Toast" tools:ignore="ResourceName">
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <attr name="sd_shapeAppearanceAdjustment" />
 
         <attr name="sd_contentStart" />
-        <attr name="sd_contentStartTint" />
+        <attr name="sd_contentStartTint" sdds:api_name="contentStartColor" sdds:api_res_suffix="content_start_color" />
         <attr name="sd_contentStartSize"  />
 
         <attr name="sd_contentEnd" format="reference|color"/>
-        <attr name="sd_contentEndTint" format="reference|color"/>
+        <attr name="sd_contentEndTint" sdds:api_name="contentEndColor" format="reference|color" sdds:api_res_suffix="content_end_color" />
         <attr name="sd_contentEndSize"  />
 
         <attr name="android:text" />
-        <attr name="android:textAppearance" />
+        <attr name="android:textAppearance" sdds:api_name="textStyle" sdds:api_type="typography" />
         <attr name="android:textColor" />
         <attr name="sd_textColor" />
         <attr name="android:maxLines" />
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
+        <attr name="sd_contentEndPadding" />
+        <attr name="sd_contentStartPadding" />
     </declare-styleable>
 </resources>

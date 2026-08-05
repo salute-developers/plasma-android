@@ -4,6 +4,11 @@
 возможности: генерацию темы, генерацию компонентов, подготовку Android-документации и генерацию
 адаптеров для sandbox.
 
+Подробная документация по описанию API компонентов:
+
+- [Compose: аннотации и `StyleBuilder`](COMPOSE_STYLE_GENERATOR.md);
+- [View: XML-разметка `declare-styleable`](VIEW_STYLE_GENERATOR.md).
+
 ```toml
 [plugins]
 dsbuilder = { id = "io.github.salute-developers.design-system-builder", version = "<version>" }

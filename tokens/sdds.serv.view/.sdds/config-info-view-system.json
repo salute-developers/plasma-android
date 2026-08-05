@@ -30,6 +30,28 @@
          ]
       },
       {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "AvatarIndicator",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.AvatarIndicator.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AvatarIndicatorL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.AvatarIndicator.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AvatarIndicatorM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.AvatarIndicator.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AvatarIndicatorS"
+            }
+         ]
+      },
+      {
          "key": "avatar-group",
          "coreName": "AvatarGroup",
          "styleName": "AvatarGroup",
@@ -5010,6 +5032,88 @@
                "name": "xxs.white",
                "viewReference": "Serv.Sdds.Components.Counter.Xxs.White",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.CounterXxsWhite"
+            }
+         ]
+      },
+      {
+         "key": "counter",
+         "coreName": "Counter",
+         "styleName": "SegmentItemCounter",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterLDefault"
+            },
+            {
+               "name": "l.accent",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.L.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterLAccent"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterMDefault"
+            },
+            {
+               "name": "m.accent",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.M.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterMAccent"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterSDefault"
+            },
+            {
+               "name": "s.accent",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.S.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterSAccent"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterXs"
+            },
+            {
+               "name": "xs.default",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.Xs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterXsDefault"
+            },
+            {
+               "name": "xs.accent",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.Xs.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterXsAccent"
+            },
+            {
+               "name": "xxs",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.Xxs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterXxs"
+            },
+            {
+               "name": "xxs.default",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.Xxs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterXxsDefault"
+            },
+            {
+               "name": "xxs.accent",
+               "viewReference": "Serv.Sdds.Components.SegmentItemCounter.Xxs.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SegmentItemCounterXxsAccent"
             }
          ]
       },
@@ -13249,6 +13353,38 @@
          ]
       },
       {
+         "key": "editable",
+         "coreName": "Editable",
+         "styleName": "AiUserMessageEditable",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.AiUserMessageEditable.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiUserMessageEditableXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.AiUserMessageEditable.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiUserMessageEditableL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.AiUserMessageEditable.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiUserMessageEditableM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.AiUserMessageEditable.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiUserMessageEditableS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.AiUserMessageEditable.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiUserMessageEditableXs"
+            }
+         ]
+      },
+      {
          "key": "select",
          "coreName": "Select",
          "styleName": "SelectSingleNormal",
@@ -13379,167 +13515,167 @@
       {
          "key": "icon-button",
          "coreName": "IconButton",
-         "styleName": "IconButton",
+         "styleName": "AiHeaderEmbeddedIconButton",
          "variations": [
             {
                "name": "xl",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xl",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXl"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXl"
             },
             {
                "name": "xl.default",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xl.Default",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXlDefault"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlDefault"
             },
             {
                "name": "xl.secondary",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xl.Secondary",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXlSecondary"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlSecondary"
             },
             {
                "name": "xl.accent",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xl.Accent",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXlAccent"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlAccent"
             },
             {
                "name": "xl.positive",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xl.Positive",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXlPositive"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlPositive"
             },
             {
                "name": "xl.negative",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xl.Negative",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXlNegative"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlNegative"
             },
             {
                "name": "xl.warning",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xl.Warning",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXlWarning"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlWarning"
             },
             {
                "name": "xl.info",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xl.Info",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXlInfo"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.Xl.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonXlInfo"
             },
             {
                "name": "l",
-               "viewReference": "Serv.Sdds.Components.IconButton.L",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonL"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonL"
             },
             {
                "name": "l.default",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Default",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLDefault"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLDefault"
             },
             {
                "name": "l.secondary",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Secondary",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLSecondary"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLSecondary"
             },
             {
                "name": "l.accent",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Accent",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLAccent"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLAccent"
             },
             {
                "name": "l.positive",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Positive",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLPositive"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLPositive"
             },
             {
                "name": "l.negative",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Negative",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLNegative"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLNegative"
             },
             {
                "name": "l.warning",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Warning",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLWarning"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLWarning"
             },
             {
                "name": "l.info",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Info",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLInfo"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.L.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonLInfo"
             },
             {
                "name": "m",
-               "viewReference": "Serv.Sdds.Components.IconButton.M",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonM"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonM"
             },
             {
                "name": "m.default",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Default",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMDefault"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMDefault"
             },
             {
                "name": "m.secondary",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Secondary",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMSecondary"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMSecondary"
             },
             {
                "name": "m.accent",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Accent",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMAccent"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMAccent"
             },
             {
                "name": "m.positive",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Positive",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMPositive"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMPositive"
             },
             {
                "name": "m.negative",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Negative",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMNegative"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMNegative"
             },
             {
                "name": "m.warning",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Warning",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMWarning"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMWarning"
             },
             {
                "name": "m.info",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Info",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMInfo"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.M.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonMInfo"
             },
             {
                "name": "s",
-               "viewReference": "Serv.Sdds.Components.IconButton.S",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonS"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonS"
             },
             {
                "name": "s.default",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Default",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSDefault"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSDefault"
             },
             {
                "name": "s.secondary",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Secondary",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSSecondary"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSSecondary"
             },
             {
                "name": "s.accent",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Accent",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSAccent"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSAccent"
             },
             {
                "name": "s.positive",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Positive",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSPositive"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSPositive"
             },
             {
                "name": "s.negative",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Negative",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSNegative"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSNegative"
             },
             {
                "name": "s.warning",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Warning",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSWarning"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSWarning"
             },
             {
                "name": "s.info",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Info",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSInfo"
+               "viewReference": "Serv.Sdds.Components.AiHeaderEmbeddedIconButton.S.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiHeaderEmbeddedIconButtonSInfo"
             }
          ]
       },
@@ -13728,167 +13864,167 @@
       {
          "key": "icon-button",
          "coreName": "IconButton",
-         "styleName": "IconButton",
+         "styleName": "EmbeddedIconButton",
          "variations": [
             {
                "name": "l",
-               "viewReference": "Serv.Sdds.Components.IconButton.L",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonL"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonL"
             },
             {
                "name": "l.default",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Default",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLDefault"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonLDefault"
             },
             {
                "name": "l.secondary",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Secondary",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLSecondary"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.L.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonLSecondary"
             },
             {
                "name": "l.accent",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Accent",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLAccent"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.L.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonLAccent"
             },
             {
                "name": "l.positive",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Positive",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLPositive"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.L.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonLPositive"
             },
             {
                "name": "l.negative",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Negative",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLNegative"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.L.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonLNegative"
             },
             {
                "name": "l.warning",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Warning",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLWarning"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.L.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonLWarning"
             },
             {
                "name": "l.info",
-               "viewReference": "Serv.Sdds.Components.IconButton.L.Info",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonLInfo"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.L.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonLInfo"
             },
             {
                "name": "m",
-               "viewReference": "Serv.Sdds.Components.IconButton.M",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonM"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonM"
             },
             {
                "name": "m.default",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Default",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMDefault"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMDefault"
             },
             {
                "name": "m.secondary",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Secondary",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMSecondary"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.M.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMSecondary"
             },
             {
                "name": "m.accent",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Accent",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMAccent"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.M.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMAccent"
             },
             {
                "name": "m.positive",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Positive",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMPositive"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.M.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMPositive"
             },
             {
                "name": "m.negative",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Negative",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMNegative"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.M.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMNegative"
             },
             {
                "name": "m.warning",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Warning",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMWarning"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.M.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMWarning"
             },
             {
                "name": "m.info",
-               "viewReference": "Serv.Sdds.Components.IconButton.M.Info",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonMInfo"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.M.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonMInfo"
             },
             {
                "name": "s",
-               "viewReference": "Serv.Sdds.Components.IconButton.S",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonS"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonS"
             },
             {
                "name": "s.default",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Default",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSDefault"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSDefault"
             },
             {
                "name": "s.secondary",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Secondary",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSSecondary"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.S.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSSecondary"
             },
             {
                "name": "s.accent",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Accent",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSAccent"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.S.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSAccent"
             },
             {
                "name": "s.positive",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Positive",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSPositive"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.S.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSPositive"
             },
             {
                "name": "s.negative",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Negative",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSNegative"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.S.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSNegative"
             },
             {
                "name": "s.warning",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Warning",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSWarning"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.S.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSWarning"
             },
             {
                "name": "s.info",
-               "viewReference": "Serv.Sdds.Components.IconButton.S.Info",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonSInfo"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.S.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonSInfo"
             },
             {
                "name": "xs",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xs",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXs"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXs"
             },
             {
                "name": "xs.default",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xs.Default",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXsDefault"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.Xs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXsDefault"
             },
             {
                "name": "xs.secondary",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xs.Secondary",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXsSecondary"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.Xs.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXsSecondary"
             },
             {
                "name": "xs.accent",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xs.Accent",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXsAccent"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.Xs.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXsAccent"
             },
             {
                "name": "xs.positive",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xs.Positive",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXsPositive"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.Xs.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXsPositive"
             },
             {
                "name": "xs.negative",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xs.Negative",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXsNegative"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.Xs.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXsNegative"
             },
             {
                "name": "xs.warning",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xs.Warning",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXsWarning"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.Xs.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXsWarning"
             },
             {
                "name": "xs.info",
-               "viewReference": "Serv.Sdds.Components.IconButton.Xs.Info",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.IconButtonXsInfo"
+               "viewReference": "Serv.Sdds.Components.EmbeddedIconButton.Xs.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedIconButtonXsInfo"
             }
          ]
       },
@@ -14030,6 +14166,357 @@
                "name": "l",
                "viewReference": "Serv.Sdds.Components.AiAnswerBasicButtonGroup.L",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiAnswerBasicButtonGroupL"
+            }
+         ]
+      },
+      {
+         "key": "file",
+         "coreName": "File",
+         "styleName": "AiInputFileCircularProgress",
+         "variations": [
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressXs"
+            },
+            {
+               "name": "xs.default",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.Xs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressXsDefault"
+            },
+            {
+               "name": "xs.negative",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.Xs.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressXsNegative"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressSDefault"
+            },
+            {
+               "name": "s.negative",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.S.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressSNegative"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressMDefault"
+            },
+            {
+               "name": "m.negative",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.M.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressMNegative"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressLDefault"
+            },
+            {
+               "name": "l.negative",
+               "viewReference": "Serv.Sdds.Components.AiInputFileCircularProgress.L.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputFileCircularProgressLNegative"
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "AiInputIconButtonGroup",
+         "variations": [
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXs"
+            },
+            {
+               "name": "xs.wide",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsWide"
+            },
+            {
+               "name": "xs.wide.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsWideDefault"
+            },
+            {
+               "name": "xs.wide.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsWidePilled"
+            },
+            {
+               "name": "xs.wide.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Wide.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsWideSegmented"
+            },
+            {
+               "name": "xs.dense",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsDense"
+            },
+            {
+               "name": "xs.dense.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsDenseDefault"
+            },
+            {
+               "name": "xs.dense.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsDensePilled"
+            },
+            {
+               "name": "xs.dense.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.Dense.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsDenseSegmented"
+            },
+            {
+               "name": "xs.no-gap",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsNoGap"
+            },
+            {
+               "name": "xs.no-gap.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsNoGapDefault"
+            },
+            {
+               "name": "xs.no-gap.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsNoGapPilled"
+            },
+            {
+               "name": "xs.no-gap.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.Xs.NoGap.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupXsNoGapSegmented"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupS"
+            },
+            {
+               "name": "s.wide",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSWide"
+            },
+            {
+               "name": "s.wide.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSWideDefault"
+            },
+            {
+               "name": "s.wide.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSWidePilled"
+            },
+            {
+               "name": "s.wide.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.Wide.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSWideSegmented"
+            },
+            {
+               "name": "s.dense",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSDense"
+            },
+            {
+               "name": "s.dense.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSDenseDefault"
+            },
+            {
+               "name": "s.dense.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSDensePilled"
+            },
+            {
+               "name": "s.dense.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.Dense.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSDenseSegmented"
+            },
+            {
+               "name": "s.no-gap",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSNoGap"
+            },
+            {
+               "name": "s.no-gap.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSNoGapDefault"
+            },
+            {
+               "name": "s.no-gap.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSNoGapPilled"
+            },
+            {
+               "name": "s.no-gap.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.S.NoGap.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupSNoGapSegmented"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupM"
+            },
+            {
+               "name": "m.wide",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMWide"
+            },
+            {
+               "name": "m.wide.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMWideDefault"
+            },
+            {
+               "name": "m.wide.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMWidePilled"
+            },
+            {
+               "name": "m.wide.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.Wide.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMWideSegmented"
+            },
+            {
+               "name": "m.dense",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMDense"
+            },
+            {
+               "name": "m.dense.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMDenseDefault"
+            },
+            {
+               "name": "m.dense.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMDensePilled"
+            },
+            {
+               "name": "m.dense.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.Dense.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMDenseSegmented"
+            },
+            {
+               "name": "m.no-gap",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMNoGap"
+            },
+            {
+               "name": "m.no-gap.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMNoGapDefault"
+            },
+            {
+               "name": "m.no-gap.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMNoGapPilled"
+            },
+            {
+               "name": "m.no-gap.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.M.NoGap.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupMNoGapSegmented"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupL"
+            },
+            {
+               "name": "l.wide",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLWide"
+            },
+            {
+               "name": "l.wide.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLWideDefault"
+            },
+            {
+               "name": "l.wide.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLWidePilled"
+            },
+            {
+               "name": "l.wide.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.Wide.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLWideSegmented"
+            },
+            {
+               "name": "l.dense",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLDense"
+            },
+            {
+               "name": "l.dense.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLDenseDefault"
+            },
+            {
+               "name": "l.dense.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLDensePilled"
+            },
+            {
+               "name": "l.dense.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.Dense.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLDenseSegmented"
+            },
+            {
+               "name": "l.no-gap",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLNoGap"
+            },
+            {
+               "name": "l.no-gap.default",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLNoGapDefault"
+            },
+            {
+               "name": "l.no-gap.pilled",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap.Pilled",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLNoGapPilled"
+            },
+            {
+               "name": "l.no-gap.segmented",
+               "viewReference": "Serv.Sdds.Components.AiInputIconButtonGroup.L.NoGap.Segmented",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiInputIconButtonGroupLNoGapSegmented"
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "AiUserMessageEmbeddedIconButtonGroup",
+         "variations": [
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.AiUserMessageEmbeddedIconButtonGroup.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiUserMessageEmbeddedIconButtonGroupS"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.AiUserMessageEmbeddedIconButtonGroup.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AiUserMessageEmbeddedIconButtonGroupM"
             }
          ]
       }

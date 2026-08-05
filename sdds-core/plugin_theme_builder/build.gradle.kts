@@ -16,8 +16,9 @@ kover {
     reports {
         filters {
             excludes {
-                packages("com.sdds.plugin.themebuilder.internal.components",
-                    "com.sdds.plugin.themebuilder.internal.factory"
+                packages(
+                    "com.sdds.plugin.themebuilder.internal.factory",
+                    "com.sdds.plugin.themebuilder.internal.universal.base",
                 )
             }
         }

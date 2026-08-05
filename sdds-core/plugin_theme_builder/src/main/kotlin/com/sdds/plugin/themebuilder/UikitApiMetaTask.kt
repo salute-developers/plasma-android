@@ -1,7 +1,7 @@
 package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
-import com.sdds.plugin.themebuilder.internal.universal.ComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.view.ApiMeta
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.decodeFromStream
 import kotlinx.serialization.json.encodeToStream
@@ -20,8 +20,10 @@ import java.util.zip.ZipFile
  * Gradle-задача для поиска и чтения файлов метаданных
  * `uikit-api-meta.json` из зависимостей classpath.
  *
- * Парсит найденный JSON в список [ComponentMeta] и записывает его в [outputFile].
- * Если файл не найден, записывает пустой массив.
+ * Зеркалит [UikitComposeApiMetaTask]: сканирует jar-артефакты classpath, находит
+ * `sdds/api/uikit-api-meta.json` (упакованный producer-плагином в classes.jar
+ * модуля `uikit`), парсит его в [ApiMeta] и записывает в [outputFile].
+ * Если файл не найден, записывает пустую мету.
  */
 internal abstract class UikitApiMetaTask : DefaultTask() {
 
@@ -37,7 +39,7 @@ internal abstract class UikitApiMetaTask : DefaultTask() {
     fun generate() {
         val meta = metaClasspath.files
             .firstNotNullOfOrNull(::readMeta)
-            ?: emptyList()
+            ?: ApiMeta()
 
         outputFile.get().asFile.outputStream().use { stream ->
             Serializer.componentConfig.encodeToStream(meta, stream)
@@ -45,21 +47,21 @@ internal abstract class UikitApiMetaTask : DefaultTask() {
     }
 
     @OptIn(ExperimentalSerializationApi::class)
-    private fun readMeta(file: File): List<ComponentMeta>? {
+    private fun readMeta(file: File): ApiMeta? {
         if (!file.exists()) return null
         if (file.isDirectory) {
-            file.walkTopDown()
+            return file.walkTopDown()
                 .firstOrNull { it.isFile && it.invariantSeparatorsPath.endsWith("uikit-api-meta.json") }
                 ?.inputStream()
                 ?.use { stream ->
-                    Serializer.componentConfig.decodeFromStream<List<ComponentMeta>>(stream)
+                    Serializer.componentConfig.decodeFromStream<ApiMeta>(stream)
                 }
         }
         return ZipFile(file).use { zip ->
             zip.entries().toList()
                 .firstOrNull { it.name.endsWith("uikit-api-meta.json") }
                 ?.let { zip.getInputStream(it) }
-                ?.use { Serializer.componentConfig.decodeFromStream<List<ComponentMeta>>(it) }
+                ?.use { Serializer.componentConfig.decodeFromStream<ApiMeta>(it) }
         }
     }
 }

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_autocompleteStyle" format="reference"/>
 
-    <declare-styleable name="Autocomplete" tools:ignore="ResourceName">
-        <attr name="sd_textFieldStyleOverlay" format="reference" />
-        <attr name="sd_dropdownMenuStyleOverlay"/>
+    <declare-styleable name="Autocomplete" sdds:api_info="Autocomplete"
+        sdds:api_def_style_attr="sd_autocompleteStyle"
+        sdds:api_parent="Sdds.Components.Autocomplete" tools:ignore="ResourceName">
+        <attr name="sd_textFieldStyleOverlay" format="reference" sdds:api_name="textFieldStyle" />
+        <attr name="sd_dropdownMenuStyleOverlay" sdds:api_name="dropdownStyle" />
     </declare-styleable>
 </resources>

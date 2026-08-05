@@ -1,0 +1,82 @@
+package com.sdds.plugin.themebuilder.internal.universal.compose
+
+import com.sdds.plugin.themebuilder.internal.universal.StringState
+import com.sdds.plugin.themebuilder.internal.universal.Value
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.BooleanPropertyMapper
+import org.junit.Assert.assertEquals
+import org.junit.Test
+
+class BooleanPropertyMapperTest {
+
+    @Test
+    fun `возвращает вызов билдера без состояний`() {
+        val underTest = BooleanPropertyMapper(null)
+
+        val builderCall = underTest.map(
+            meta = booleanParam(methodName = "enabled"),
+            tokenValue = Value("true"),
+            variationId = "",
+        )
+
+        assertEquals("enabled(true)", builderCall)
+    }
+
+    @Test
+    fun `возвращает вызов билдера с состояниями`() {
+        val underTest = BooleanPropertyMapper(null)
+
+        val builderCall = underTest.map(
+            meta = booleanParam(methodName = "enabled"),
+            tokenValue = Value(
+                value = "true",
+                states = listOf(
+                    StringState(state = listOf("pressed"), value = "false"),
+                    StringState(state = listOf("pressed", "hovered"), value = "true"),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "enabled(true.asStatefulValue(setOf(InteractiveState.Pressed) to false, " +
+                "setOf(InteractiveState.Pressed, InteractiveState.Hovered) to true))",
+            builderCall,
+        )
+    }
+
+    @Test
+    fun `возвращает вызов билдера с кастомным stateEnum`() {
+        val underTest = BooleanPropertyMapper(
+            stateEnum = ComposeStateEnum(
+                qualifiedName = "com.sdds.compose.uikit.SwitchStates",
+                simpleName = "SwitchStates",
+                values = listOf(ComposeEnumValueInfo(name = "Checked", configName = "checked")),
+            ),
+        )
+
+        val builderCall = underTest.map(
+            meta = booleanParam(methodName = "enabled"),
+            tokenValue = Value(
+                value = "true",
+                states = listOf(
+                    StringState(state = listOf("checked"), value = "false"),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "enabled(true.asStatefulValue(setOf(SwitchStates.Checked) to false))",
+            builderCall,
+        )
+    }
+
+    private fun booleanParam(methodName: String) = ComposeBooleanPropertyMeta(
+        id = "",
+        methodName = methodName,
+        paramName = "",
+        paramQualifiedType = "",
+        paramSimpleType = "",
+        group = "",
+    )
+}

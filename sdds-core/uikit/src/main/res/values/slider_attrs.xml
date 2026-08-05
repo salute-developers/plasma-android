@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_sliderStyle" format="reference" />
 
-    <declare-styleable name="Slider" tools:ignore="ResourceName">
+    <declare-styleable name="Slider" sdds:api_info="Slider"
+        sdds:api_def_style_attr="sd_sliderStyle"
+        sdds:api_parent="Sdds.Components.Slider" tools:ignore="ResourceName">
         <!-- Ориентация  -->
-        <attr name="android:orientation" />
+        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="integer" />
 
         <!-- Текст в title  -->
         <attr name="sd_title" />
         <!-- Цвет текста Title  -->
         <attr name="sd_titleColor" />
         <!-- Стиль текста Title  -->
-        <attr name="sd_titleAppearance" />
+        <attr name="sd_titleAppearance" sdds:api_name="titleStyle" />
         <!-- Отступ от между текстом Title и иконкой -->
         <attr name="sd_titleMargin" format="dimension" />
         <!-- Расположение текста в лэйбле -->
-        <attr name="sd_titleAlignment" format="enum">
+        <attr name="sd_titleAlignment" sdds:api_name="textAlignment" format="enum">
             <!-- Не отображается  -->
             <enum name="none" value="0" />
             <!-- Вначале или сверху  -->
@@ -30,14 +33,14 @@
         <!-- Размер иконки -->
         <attr name="sd_iconSize" />
         <!-- Окрас иконки  -->
-        <attr name="sd_iconTint" />
+        <attr name="sd_iconTint" sdds:api_name="iconColor" />
 
         <!-- Отступ от Label до Slider -->
         <attr name="sd_labelMargin" format="dimension" />
         <!-- Отображение Label -->
         <attr name="sd_labelEnabled" format="boolean" />
         <!-- Расположение лэйбла с иконкой относительной Slider -->
-        <attr name="sd_labelAlignment" format="enum">
+        <attr name="sd_labelAlignment" format="enum" sdds:api_default="bottom">
             <!-- Сверху  -->
             <enum name="top" value="0" />
             <!-- В одну линию со Slider  -->
@@ -56,23 +59,23 @@
         <attr name="sd_limitLabelEnabled" />
         <attr name="sd_limitLabelAlignment" />
         <attr name="sd_limitLabelMargin" />
-        <attr name="sd_tooltipStyleOverlay" />
-        <attr name="sd_limitLabelAppearance" />
+        <attr name="sd_tooltipStyleOverlay" sdds:api_name="tooltipStyle" />
+        <attr name="sd_limitLabelAppearance" sdds:api_name="limitLabelStyle" />
         <attr name="sd_limitLabelColor" />
         <attr name="sd_valuePlacement" />
         <attr name="sd_valueMode" />
         <attr name="sd_slideDirection" />
         <attr name="sd_trackColor" />
         <attr name="sd_thumbColor" />
-        <attr name="sd_strokeColor" />
+        <attr name="sd_strokeColor" sdds:api_name="thumbStrokeColor" />
         <attr name="sd_indicatorColor" />
         <attr name="sd_trackThickness" />
         <attr name="sd_indicatorThickness" />
-        <attr name="sd_shapeAppearance" />
-        <attr name="sd_thumbShapeAppearance" />
-        <attr name="sd_indicatorShapeAppearance" />
+        <attr name="sd_shapeAppearance" sdds:api_name="trackShape" />
+        <attr name="sd_thumbShapeAppearance" sdds:api_name="thumbShape" />
+        <attr name="sd_indicatorShapeAppearance" sdds:api_name="indicatorShape" />
         <attr name="sd_thumbSize" />
-        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeWidth" sdds:api_name="thumbStrokeWidth" />
     </declare-styleable>
 
 
@@ -142,10 +145,10 @@
     </declare-styleable>
 
 
-    <declare-styleable name="SdSliderDrawable">
+    <declare-styleable name="SdSliderDrawable" sdds:api_info="Slider">
         <attr name="android:orientation" />
         <!-- Направление slide -->
-        <attr name="sd_slideDirection" format="enum">
+        <attr name="sd_slideDirection" format="enum" sdds:api_default="normal">
             <!-- Увеличение значения происходит слева направо, либо снизу вверх  -->
             <enum name="normal" value="0" />
             <!-- Увеличение значения происходит справо налево, либо сверху вниз  -->
@@ -169,7 +172,7 @@
         <!-- Размер ползунка (thumb) -->
         <attr name="sd_thumbSize" format="dimension" />
         <!-- Толщина бордера ползунка (thumb) -->
-        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeWidth" sdds:api_name="strokeSize" />
         <!-- Форма скруглений ползунка (thumb)-->
         <attr name="sd_thumbShapeAppearance" />
         <!-- Форма скруглений неподвижной части -->

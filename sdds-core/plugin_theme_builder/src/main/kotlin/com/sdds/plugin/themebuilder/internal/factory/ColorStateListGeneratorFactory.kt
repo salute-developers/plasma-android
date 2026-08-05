@@ -1,7 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
-import com.sdds.plugin.themebuilder.internal.components.base.view.ColorStateListGenerator
+import com.sdds.plugin.themebuilder.internal.universal.view.ColorStateListGenerator
 import java.io.File
 
 /**

@@ -12,9 +12,9 @@
     <style name="Sdkit.StarDs.Components.Drawer.HasBackground">
         <item name="sd_shapeAppearance">?sdkit_shapeRoundXl</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_drawer_has_background_shape_adjustment</item>
-        <item name="sd_strokeWidth">@dimen/sdkit_drawer_has_background_stroke_width</item>
         <item name="sd_background">?sdkit_surfaceDefaultTransparentSecondary</item>
         <item name="sd_strokeColor">?sdkit_outlineDefaultTransparentPrimary</item>
+        <item name="sd_strokeWidth">@dimen/sdkit_drawer_has_background_stroke_width</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DrawerHasBackground">
         <item name="sd_drawerStyle">@style/Sdkit.StarDs.Components.Drawer.HasBackground</item>

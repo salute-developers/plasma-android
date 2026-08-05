@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_textFieldStyle" format="reference" />
     <attr name="sd_textAreaStyle" format="reference" />
@@ -65,10 +66,19 @@
         <attr name="sd_inputMaskDisplayMode" />
     </declare-styleable>
 
-    <declare-styleable name="TextField" tools:ignore="ResourceName">
+    <!-- Вложенная overlay-семья поля ввода: `ComponentOverlays.TextFieldXsChips`. -->
+    <declare-styleable name="TextFieldChips" sdds:api_info="TextArea,TextField"
+        sdds:api_sub_style="Chips" sdds:api_sub_style_kind="overlay"
+        sdds:api_style_ref="sd_chipGroupStyleOverlay" tools:ignore="ResourceName">
+        <attr name="sd_chipGroupStyle" />
+    </declare-styleable>
+
+    <declare-styleable name="TextField" sdds:api_info="TextArea,TextField"
+        sdds:api_def_style_attr="TextArea=sd_textAreaStyle;TextField=sd_textFieldStyle"
+        sdds:api_parent="TextArea=Sdds.Components.TextArea;TextField=Sdds.Components.TextField" tools:ignore="ResourceName">
         <attr name="sd_label" format="string" />
-        <attr name="sd_labelAppearance" format="reference" />
-        <attr name="sd_labelColor" format="reference|color" />
+        <attr name="sd_labelAppearance" format="reference" sdds:api_name="labelStyle" />
+        <attr name="sd_labelColor" format="reference|color" sdds:api_name="labelColor" sdds:api_state_value="readonly=labelColorReadOnly" />
         <attr name="sd_labelPadding" />
         <attr name="sd_labelPlacement" format="enum">
             <enum name="none" value="0" />
@@ -77,11 +87,11 @@
         </attr>
 
         <attr name="sd_value" />
-        <attr name="sd_valueAppearance" format="reference" />
-        <attr name="sd_valueColor" format="reference|color" />
+        <attr name="sd_valueAppearance" format="reference" sdds:api_name="valueStyle" />
+        <attr name="sd_valueColor" format="reference|color" sdds:api_name="valueColor" sdds:api_state_value="readonly=valueColorReadOnly" />
         <attr name="sd_placeholder" format="string" />
-        <attr name="sd_placeholderAppearance" format="reference" />
-        <attr name="sd_placeholderColor" format="reference|color" />
+        <attr name="sd_placeholderAppearance" format="reference" sdds:api_name="placeholderStyle" />
+        <attr name="sd_placeholderColor" format="reference|color" sdds:api_name="placeholderColor" sdds:api_state_value="readonly=placeholderColorReadOnly" />
 
         <attr name="sd_caption" format="string" />
         <attr name="sd_captionEnabled" format="boolean" />
@@ -90,8 +100,8 @@
             <enum name="outer" value="1" />
             <enum name="inner" value="2" />
         </attr>
-        <attr name="sd_captionAppearance" format="reference" />
-        <attr name="sd_captionColor" format="reference|color" />
+        <attr name="sd_captionAppearance" format="reference" sdds:api_name="captionStyle" />
+        <attr name="sd_captionColor" format="reference|color" sdds:api_name="captionColor" sdds:api_state_value="readonly=captionColorReadOnly" />
 
         <attr name="sd_counter" format="string" />
         <attr name="sd_counterEnabled" />
@@ -100,32 +110,33 @@
             <enum name="outer" value="1" />
             <enum name="inner" value="2" />
         </attr>
-        <attr name="sd_counterAppearance" format="reference" />
-        <attr name="sd_counterColor" format="reference|color" />
+        <attr name="sd_counterAppearance" format="reference" sdds:api_name="counterStyle" />
+        <attr name="sd_counterColor" format="reference|color" sdds:api_name="counterColor" sdds:api_state_value="readonly=counterColorReadOnly" />
 
-        <attr name="sd_helperTextPadding" />
+        <attr name="sd_helperTextPadding" sdds:api_res_suffix="helper_padding" />
 
-        <attr name="sd_requirementMode" format="enum">
+        <!-- Конфиг темы называет режим `requiredStart`/`requiredEnd`; всё остальное — `optional`. -->
+        <attr name="sd_requirementMode" format="enum" sdds:api_name="fieldType" sdds:api_default="optional">
             <enum name="optional" value="0" />
-            <enum name="start" value="1" />
-            <enum name="end" value="2" />
+            <enum name="start" value="1" sdds:api_name="requiredStart" />
+            <enum name="end" value="2" sdds:api_name="requiredEnd" />
         </attr>
         <attr name="sd_indicatorSize" format="dimension" />
         <attr name="sd_indicatorOffsetX" format="dimension" />
         <attr name="sd_indicatorOffsetY" format="dimension" />
         <attr name="sd_icon" />
-        <attr name="sd_iconTint" />
-        <attr name="sd_iconSize" />
-        <attr name="sd_iconPadding" />
+        <attr name="sd_iconTint" sdds:api_res_suffix="icon_color" sdds:api_name="startContentColor" sdds:api_state_value="readonly=startContentColorReadOnly" />
+        <attr name="sd_iconSize" sdds:api_name="startContentSize" />
+        <attr name="sd_iconPadding" sdds:api_name="startContentPadding" />
 
-        <attr name="sd_action" />
-        <attr name="sd_actionTint" />
-        <attr name="sd_actionSize" />
-        <attr name="sd_actionPadding" />
+        <attr name="sd_action" sdds:api_type="icon" />
+        <attr name="sd_actionTint" sdds:api_res_suffix="action_color" sdds:api_name="endContentColor" sdds:api_state_value="readonly=endContentColorReadOnly" />
+        <attr name="sd_actionSize" sdds:api_name="endContentSize" />
+        <attr name="sd_actionPadding" sdds:api_name="endContentPadding" />
 
-        <attr name="sd_alignmentLineHeight" />
+        <attr name="sd_alignmentLineHeight" sdds:api_name="alignmentMinHeight" sdds:api_res_suffix="alignment_height" />
         <attr name="sd_boxMinHeight" />
-        <attr name="sd_boxTint" />
+        <attr name="sd_boxTint" sdds:api_res_suffix="bg_color" sdds:api_name="backgroundColor" sdds:api_state_value="readonly=backgroundColorReadOnly" />
         <attr name="sd_boxPadding" />
         <attr name="sd_boxPaddingStart" />
         <attr name="sd_boxPaddingTop" />
@@ -134,10 +145,9 @@
 
         <attr name="sd_viewState" />
 
-        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <attr name="sd_strokeWidth" />
         <attr name="sd_strokeColor" />
-        <attr name="sd_chipGroupStyleOverlay" />
         <attr name="sd_chipsPadding" />
         <attr name="sd_allowBreakLines" />
 
@@ -145,17 +155,17 @@
         <attr name="sd_suffixDrawable" />
         <attr name="sd_prefixText" />
         <attr name="sd_prefixDrawable" />
-        <attr name="sd_prefixTextPadding" />
-        <attr name="sd_suffixTextPadding" />
+        <attr name="sd_prefixTextPadding" sdds:api_name="prefixPadding" sdds:api_res_suffix="prefix_padding" />
+        <attr name="sd_suffixTextPadding" sdds:api_name="suffixPadding" sdds:api_res_suffix="suffix_padding" />
 
         <attr name="sd_scrollBarEnabled" />
-        <attr name="sd_scrollBarThickness" />
-        <attr name="sd_scrollBarPaddingTop" />
-        <attr name="sd_scrollBarPaddingEnd" />
+        <attr name="sd_scrollBarThickness" sdds:api_res_suffix="scrollbar_thickness" />
+        <attr name="sd_scrollBarPaddingTop" sdds:api_res_suffix="scrollbar_padding_top" />
+        <attr name="sd_scrollBarPaddingEnd" sdds:api_res_suffix="scrollbar_padding_end" />
         <attr name="sd_scrollBarPaddingStart" />
-        <attr name="sd_scrollBarPaddingBottom" />
-        <attr name="sd_scrollBarTrackColor" />
-        <attr name="sd_scrollBarThumbColor" />
+        <attr name="sd_scrollBarPaddingBottom" sdds:api_res_suffix="scrollbar_padding_bottom" />
+        <attr name="sd_scrollBarTrackColor" sdds:api_res_suffix="scroll_track_color" sdds:api_name="scrollBarTrackColor" sdds:api_state_value="readonly=scrollBarTrackColorReadOnly" />
+        <attr name="sd_scrollBarThumbColor" sdds:api_res_suffix="scroll_thumb_color" sdds:api_name="scrollBarThumbColor" sdds:api_state_value="readonly=scrollBarThumbColorReadOnly" />
 
         <attr name="android:inputType" />
         <attr name="android:imeActionId" />
@@ -168,5 +178,10 @@
             <enum name="always" value="0" />
             <enum name="on_input" value="1" />
         </attr>
+        <attr name="sd_disabledAlpha" sdds:api_name="disableAlpha" />
+        <!-- Состояние `focused` действует только при `activated=false`: к элементу state-list
+             добавляется отрицание, сам `android:state_focused` ставит базовый генератор. -->
+        <attr name="android:state_activated" sdds:api_state="TextFieldFocus" sdds:api_state_kind="android"
+            sdds:api_name="focused" sdds:api_state_negated="true" />
     </declare-styleable>
 </resources>

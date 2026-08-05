@@ -3,24 +3,75 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.EmbeddedChip" parent="Sdds.Components.Chip">
-        <item name="sd_disabledAlpha">0.4</item>
-        <item name="android:backgroundTint">@color/plasma_embedded_chip_bg_color</item>
-        <item name="android:textColor">@color/plasma_embedded_chip_text_color</item>
         <item name="sd_drawableStartTint">@color/plasma_embedded_chip_drawable_start_tint</item>
         <item name="sd_drawableEndTint">@color/plasma_embedded_chip_drawable_end_tint</item>
+        <item name="android:textColor">@color/plasma_embedded_chip_text_color</item>
+        <item name="android:backgroundTint">@color/plasma_embedded_chip_bg_color</item>
+        <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.ChipColorStateProvider</item>
     </style>
-    <style name="Plasma.SdService.Components.EmbeddedChip.L">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_embedded_chip_l_shape_adjustment</item>
+    <style name="Plasma.SdService.Components.EmbeddedChip.Xl">
+        <item name="sd_contentStartSize">@dimen/plasma_embedded_chip_xl_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/plasma_embedded_chip_xl_content_end_size</item>
         <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
-        <item name="android:minHeight">@dimen/plasma_embedded_chip_l_min_height</item>
-        <item name="android:paddingStart">@dimen/plasma_embedded_chip_l_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_embedded_chip_l_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/plasma_embedded_chip_l_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/plasma_embedded_chip_l_text_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_embedded_chip_xl_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_embedded_chip_xl_text_padding_end</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_embedded_chip_xl_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_embedded_chip_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_embedded_chip_xl_padding_end</item>
+        <item name="android:minHeight">@dimen/plasma_embedded_chip_xl_min_height</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipXl">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.EmbeddedChip.Xl.Default">
+        <item name="plasma_chipColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipXlDefault">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.Xl.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.EmbeddedChip.Xl.Accent">
+        <item name="plasma_chipColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipXlAccent">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.Xl.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.EmbeddedChip.Xl.Negative">
+        <item name="plasma_chipColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipXlNegative">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.Xl.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.EmbeddedChip.Xl.Positive">
+        <item name="plasma_chipColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipXlPositive">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.Xl.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.EmbeddedChip.Xl.Secondary">
+        <item name="plasma_chipColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipXlSecondary">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.Xl.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.EmbeddedChip.Xl.Warning">
+        <item name="plasma_chipColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipXlWarning">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.Xl.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.EmbeddedChip.L">
         <item name="sd_contentStartSize">@dimen/plasma_embedded_chip_l_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/plasma_embedded_chip_l_content_end_size</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_embedded_chip_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_embedded_chip_l_text_padding_end</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_embedded_chip_l_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_embedded_chip_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_embedded_chip_l_padding_end</item>
+        <item name="android:minHeight">@dimen/plasma_embedded_chip_l_min_height</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipL">
         <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.L</item>
@@ -62,16 +113,16 @@
         <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.L.Warning</item>
     </style>
     <style name="Plasma.SdService.Components.EmbeddedChip.M">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_embedded_chip_m_shape_adjustment</item>
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
-        <item name="android:minHeight">@dimen/plasma_embedded_chip_m_min_height</item>
-        <item name="android:paddingStart">@dimen/plasma_embedded_chip_m_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_embedded_chip_m_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/plasma_embedded_chip_m_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/plasma_embedded_chip_m_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/plasma_embedded_chip_m_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/plasma_embedded_chip_m_content_end_size</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_embedded_chip_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_embedded_chip_m_text_padding_end</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_embedded_chip_m_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_embedded_chip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_embedded_chip_m_padding_end</item>
+        <item name="android:minHeight">@dimen/plasma_embedded_chip_m_min_height</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipM">
         <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.M</item>
@@ -113,16 +164,16 @@
         <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.M.Warning</item>
     </style>
     <style name="Plasma.SdService.Components.EmbeddedChip.S">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_embedded_chip_s_shape_adjustment</item>
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
-        <item name="android:minHeight">@dimen/plasma_embedded_chip_s_min_height</item>
-        <item name="android:paddingStart">@dimen/plasma_embedded_chip_s_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_embedded_chip_s_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/plasma_embedded_chip_s_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/plasma_embedded_chip_s_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/plasma_embedded_chip_s_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/plasma_embedded_chip_s_content_end_size</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_embedded_chip_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_embedded_chip_s_text_padding_end</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_embedded_chip_s_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_embedded_chip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_embedded_chip_s_padding_end</item>
+        <item name="android:minHeight">@dimen/plasma_embedded_chip_s_min_height</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipS">
         <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.S</item>
@@ -164,16 +215,16 @@
         <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.S.Warning</item>
     </style>
     <style name="Plasma.SdService.Components.EmbeddedChip.Xs">
-        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_embedded_chip_xs_shape_adjustment</item>
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
-        <item name="android:minHeight">@dimen/plasma_embedded_chip_xs_min_height</item>
-        <item name="android:paddingStart">@dimen/plasma_embedded_chip_xs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/plasma_embedded_chip_xs_padding_end</item>
-        <item name="sd_textPaddingStart">@dimen/plasma_embedded_chip_xs_text_padding_start</item>
-        <item name="sd_textPaddingEnd">@dimen/plasma_embedded_chip_xs_text_padding_end</item>
         <item name="sd_contentStartSize">@dimen/plasma_embedded_chip_xs_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/plasma_embedded_chip_xs_content_end_size</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_embedded_chip_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_embedded_chip_xs_text_padding_end</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_embedded_chip_xs_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_embedded_chip_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_embedded_chip_xs_padding_end</item>
+        <item name="android:minHeight">@dimen/plasma_embedded_chip_xs_min_height</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.EmbeddedChipXs">
         <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.Xs</item>

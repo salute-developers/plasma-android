@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_accordionStyle" format="reference" />
     <attr name="sd_accordionItemViewStyle" format="reference" />
 
-    <declare-styleable name="Accordion" tools:ignore="ResourceName">
-        <attr name="sd_accordionItemViewStyleOverlay" format="reference" />
-        <attr name="sd_dividerStyleOverlay" />
+    <declare-styleable name="Accordion" sdds:api_info="Accordion"
+        sdds:api_def_style_attr="sd_accordionStyle"
+        sdds:api_parent="Sdds.Components.Accordion" tools:ignore="ResourceName">
+        <attr name="sd_accordionItemViewStyleOverlay" sdds:api_name="accordionItemStyle" format="reference" />
+        <attr name="sd_dividerStyleOverlay" sdds:api_name="dividerStyle" />
         <attr name="sd_itemDividerEnabled" />
         <attr name="sd_itemSpacing" />
     </declare-styleable>
 
-    <declare-styleable name="AccordionItemView" tools:ignore="ResourceName">
+    <declare-styleable name="AccordionItemView" sdds:api_info="AccordionItem"
+        sdds:api_core_name="AccordionItemView"
+        sdds:api_def_style_attr="sd_accordionItemViewStyle"
+        sdds:api_parent="Sdds.Components.AccordionItem" tools:ignore="ResourceName">
 
         <attr name="sd_opened" format="boolean" />
 
-        <attr name="sd_titleAppearance" />
-        <attr name="sd_titleColor" />
+        <attr name="sd_titleAppearance" sdds:api_name="titleStyle" />
+        <attr name="sd_titleColor" sdds:api_res_suffix="text_color" />
         <attr name="sd_title" format="string" />
 
-        <attr name="sd_contentTextAppearance" format="reference" />
+        <attr name="sd_contentTextAppearance" sdds:api_name="contentTextStyle" format="reference" />
         <attr name="sd_contentTextColor" format="color|reference" />
         <attr name="sd_contentText" format="string" />
 
@@ -37,18 +43,18 @@
         <attr name="sd_closedIconDisappearAnimation" format="reference"/>
 
         <attr name="sd_headerPadding" format="dimension" />
-        <attr name="sd_headerPaddingStart" format="dimension" />
-        <attr name="sd_headerPaddingEnd" format="dimension" />
-        <attr name="sd_headerPaddingTop" format="dimension" />
-        <attr name="sd_headerPaddingBottom" format="dimension" />
+        <attr name="sd_headerPaddingStart" sdds:api_name="paddingStart" format="dimension" />
+        <attr name="sd_headerPaddingEnd" sdds:api_name="paddingEnd" format="dimension" />
+        <attr name="sd_headerPaddingTop" sdds:api_name="paddingTop" format="dimension" />
+        <attr name="sd_headerPaddingBottom" sdds:api_name="paddingBottom" format="dimension" />
 
         <attr name="sd_contentPadding" />
-        <attr name="sd_contentPaddingStart" />
-        <attr name="sd_contentPaddingEnd" />
-        <attr name="sd_contentPaddingTop" />
-        <attr name="sd_contentPaddingBottom" />
+        <attr name="sd_contentPaddingStart" sdds:api_res_suffix="content_start_padding" />
+        <attr name="sd_contentPaddingEnd" sdds:api_res_suffix="content_end_padding" />
+        <attr name="sd_contentPaddingTop" sdds:api_res_suffix="content_top_padding" />
+        <attr name="sd_contentPaddingBottom" sdds:api_res_suffix="content_bottom_padding" />
 
-        <attr name="sd_shapeAppearance" />
-        <attr name="sd_background" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
     </declare-styleable>
 </resources>

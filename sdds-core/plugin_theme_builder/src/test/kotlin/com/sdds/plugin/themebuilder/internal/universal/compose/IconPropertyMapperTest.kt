@@ -1,0 +1,160 @@
+package com.sdds.plugin.themebuilder.internal.universal.compose
+
+import com.sdds.plugin.themebuilder.internal.universal.StringState
+import com.sdds.plugin.themebuilder.internal.universal.Value
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.IconPropertyMapper
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Test
+
+class IconPropertyMapperTest {
+
+    @Test
+    fun `возвращает ссылку на drawable без состояний`() {
+        val underTest = IconPropertyMapper(null)
+
+        val builderCall = underTest.map(
+            meta = iconParam(methodName = "startIcon"),
+            tokenValue = Value("actions.add"),
+            variationId = "",
+        )
+
+        assertEquals("startIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add))", builderCall)
+    }
+
+    @Test
+    fun `возвращает ссылку на drawable с состояниями`() {
+        val underTest = IconPropertyMapper(null)
+
+        val builderCall = underTest.map(
+            meta = iconParam(methodName = "startIcon"),
+            tokenValue = Value(
+                value = "actions.add",
+                states = listOf(
+                    StringState(state = listOf("pressed"), value = "actions.remove"),
+                    StringState(state = listOf("pressed", "hovered"), value = "actions.close"),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "startIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add)." +
+                "asStatefulValue(setOf(InteractiveState.Pressed) " +
+                "to resourceImageSource(com.sdds.icons.R.drawable.ic_actions_remove), " +
+                "setOf(InteractiveState.Pressed, InteractiveState.Hovered) " +
+                "to resourceImageSource(com.sdds.icons.R.drawable.ic_actions_close)))",
+            builderCall,
+        )
+    }
+
+    @Test
+    fun `возвращает ссылку на drawable с кастомным stateEnum`() {
+        val underTest = IconPropertyMapper(
+            stateEnum = ComposeStateEnum(
+                qualifiedName = "com.test.ChipState",
+                simpleName = "ChipState",
+                values = listOf(ComposeEnumValueInfo(name = "Selected", configName = "selected_chip")),
+            ),
+            importCollector = ImportCollector(),
+        )
+
+        val builderCall = underTest.map(
+            meta = iconParam(methodName = "icon"),
+            tokenValue = Value(
+                value = "actions.add",
+                states = listOf(
+                    StringState(state = listOf("selected_chip"), value = "actions.check"),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "icon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add).asStatefulValue(" +
+                "setOf(ChipState.Selected) to resourceImageSource(com.sdds.icons.R.drawable.ic_actions_check)))",
+            builderCall,
+        )
+    }
+
+    @Test
+    fun `CMP-режим оборачивает иконку в imageVectorSource`() {
+        val importCollector = ImportCollector()
+        val underTest = IconPropertyMapper(
+            stateEnum = null,
+            importCollector = importCollector,
+            multiplatform = true,
+        )
+
+        val builderCall = underTest.map(
+            meta = iconParam(methodName = "startIcon"),
+            tokenValue = Value("add.fill.16"),
+            variationId = "",
+        )
+
+        assertEquals("startIcon(imageVectorSource(SddsIcons.AddFill16))", builderCall)
+        assertTrue(
+            importCollector.importList.any { it.pck == "com.sdds.compose.uikit" && it.name == "imageVectorSource" },
+        )
+        assertTrue(importCollector.importList.any { it.pck == "com.sdds.icons.compose" && it.name == "SddsIcons" })
+        assertTrue(importCollector.importList.any { it.pck == "com.sdds.icons.compose" && it.name == "AddFill16" })
+    }
+
+    @Test
+    fun `CMP-режим оборачивает иконку с состояниями в imageVectorSource`() {
+        val underTest = IconPropertyMapper(
+            stateEnum = null,
+            importCollector = ImportCollector(),
+            multiplatform = true,
+        )
+
+        val builderCall = underTest.map(
+            meta = iconParam(methodName = "startIcon"),
+            tokenValue = Value(
+                value = "add.fill.16",
+                states = listOf(
+                    StringState(state = listOf("pressed"), value = "remove.fill.16"),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "startIcon(imageVectorSource(SddsIcons.AddFill16).asStatefulValue(" +
+                "setOf(InteractiveState.Pressed) to imageVectorSource(SddsIcons.RemoveFill16)))",
+            builderCall,
+        )
+    }
+
+    @Test
+    fun `Android-режим оборачивает иконку в resourceImageSource и собирает импорт`() {
+        val importCollector = ImportCollector()
+        val underTest = IconPropertyMapper(
+            stateEnum = null,
+            importCollector = importCollector,
+            multiplatform = false,
+        )
+
+        val builderCall = underTest.map(
+            meta = iconParam(methodName = "startIcon"),
+            tokenValue = Value("actions.add"),
+            variationId = "",
+        )
+
+        assertEquals("startIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_actions_add))", builderCall)
+        assertTrue(
+            importCollector.importList.any {
+                it.pck == "com.sdds.compose.uikit" && it.name == "resourceImageSource"
+            },
+        )
+    }
+
+    private fun iconParam(methodName: String) = ComposeIconPropertyMeta(
+        id = "",
+        methodName = methodName,
+        paramName = "",
+        paramQualifiedType = "",
+        paramSimpleType = "",
+        group = "",
+    )
+}

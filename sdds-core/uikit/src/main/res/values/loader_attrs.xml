@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_loaderStyle" format="reference" />
 
-    <declare-styleable name="Loader">
+    <declare-styleable name="Loader" sdds:api_info="Loader"
+        sdds:api_def_style_attr="sd_loaderStyle"
+        sdds:api_parent="Sdds.Components.Loader">
         <!-- Оверлэй стиль компонента Spinner -->
-        <attr name="sd_spinnerStyleOverlay" format="reference" />
+        <attr name="sd_spinnerStyleOverlay" sdds:api_name="spinnerStyle" format="reference" />
         <!-- Оверлэй стиль компонента CircularProgressBar -->
-        <attr name="sd_circularProgressBarStyleOverlay" format="reference" />
+        <attr name="sd_circularProgressBarStyleOverlay" sdds:api_name="circularProgressStyle" format="reference" />
         <!-- Текущий прогресс -->
         <attr name="sd_progress" />
         <!-- Максимальный прогресс -->

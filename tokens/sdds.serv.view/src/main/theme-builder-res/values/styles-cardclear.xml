@@ -4,7 +4,7 @@
 <resources>
     <style name="Serv.Sdds.Components.CardClearContent" parent="Sdds.Components.CardContent"/>
     <style name="Serv.Sdds.Components.CardClear" parent="Sdds.Components.Card">
-        <item name="android:backgroundTint">@color/serv_card_clear_bg_color</item>
+        <item name="android:backgroundTint">?serv_surfaceDefaultClear</item>
     </style>
     <style name="Serv.Sdds.Components.CardClearContent.L">
         <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
@@ -13,11 +13,11 @@
         <item name="sd_cardContentStyle">@style/Serv.Sdds.Components.CardClearContent.L</item>
     </style>
     <style name="Serv.Sdds.Components.CardClear.L">
-        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="android:paddingBottom">@dimen/serv_card_clear_l_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/serv_card_clear_l_padding_end</item>
         <item name="android:paddingStart">@dimen/serv_card_clear_l_padding_start</item>
         <item name="android:paddingTop">@dimen/serv_card_clear_l_padding_top</item>
-        <item name="android:paddingEnd">@dimen/serv_card_clear_l_padding_end</item>
-        <item name="android:paddingBottom">@dimen/serv_card_clear_l_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
         <item name="android:theme">@style/Serv.Sdds.ComponentOverlays.CardClearContentL</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CardClearL">
@@ -32,12 +32,12 @@
         <item name="sd_cardContentStyle">@style/Serv.Sdds.Components.CardClearContent.M</item>
     </style>
     <style name="Serv.Sdds.Components.CardClear.M">
-        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_card_clear_m_shape_adjustment</item>
+        <item name="android:paddingBottom">@dimen/serv_card_clear_m_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/serv_card_clear_m_padding_end</item>
         <item name="android:paddingStart">@dimen/serv_card_clear_m_padding_start</item>
         <item name="android:paddingTop">@dimen/serv_card_clear_m_padding_top</item>
-        <item name="android:paddingEnd">@dimen/serv_card_clear_m_padding_end</item>
-        <item name="android:paddingBottom">@dimen/serv_card_clear_m_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_card_clear_m_shape_adjustment</item>
         <item name="android:theme">@style/Serv.Sdds.ComponentOverlays.CardClearContentM</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CardClearM">
@@ -51,11 +51,11 @@
         <item name="sd_cardContentStyle">@style/Serv.Sdds.Components.CardClearContent.S</item>
     </style>
     <style name="Serv.Sdds.Components.CardClear.S">
-        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="android:paddingBottom">@dimen/serv_card_clear_s_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/serv_card_clear_s_padding_end</item>
         <item name="android:paddingStart">@dimen/serv_card_clear_s_padding_start</item>
         <item name="android:paddingTop">@dimen/serv_card_clear_s_padding_top</item>
-        <item name="android:paddingEnd">@dimen/serv_card_clear_s_padding_end</item>
-        <item name="android:paddingBottom">@dimen/serv_card_clear_s_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
         <item name="android:theme">@style/Serv.Sdds.ComponentOverlays.CardClearContentS</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.CardClearS">

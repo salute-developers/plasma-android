@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_indicatorStyle" format="reference" />
 
-    <declare-styleable name="Indicator" tools:ignore="ResourceName">
-        <attr name="android:maxHeight" />
-        <attr name="android:maxWidth" />
-        <attr name="sd_shapeAppearance"/>
+    <declare-styleable name="Indicator" sdds:api_info="Indicator"
+        sdds:api_def_style_attr="sd_indicatorStyle"
+        sdds:api_color_state_scope="variety"
+        sdds:api_parent="Sdds.Components.Indicator" tools:ignore="ResourceName">
+        <attr name="android:maxHeight" sdds:api_name="height" sdds:api_type="dimension" />
+        <attr name="android:maxWidth" sdds:api_name="width" sdds:api_type="dimension" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <attr name="android:backgroundTint" />
-        <attr name="backgroundTint" />
+        <attr name="backgroundTint" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" />
     </declare-styleable>
 </resources>
