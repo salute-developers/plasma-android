@@ -3,21 +3,21 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.TabItemDefault" parent="Sdds.Components.TabItem">
-        <item name="android:textColor">@color/serv_tab_item_default_text_color</item>
         <item name="sd_valueTextColor">@color/serv_tab_item_default_value_text_color</item>
         <item name="sd_iconTint">@color/serv_tab_item_default_icon_tint</item>
         <item name="sd_actionTint">@color/serv_tab_item_default_action_tint</item>
+        <item name="android:textColor">@color/serv_tab_item_default_text_color</item>
     </style>
     <style name="Serv.Sdds.Components.TabItemDefault.L">
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Accent</item>
-        <item name="sd_action">@drawable/ic_close_24</item>
-        <item name="android:minHeight">@dimen/serv_tab_item_default_l_min_height</item>
         <item name="sd_contentStartSize">@dimen/serv_tab_item_default_l_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/serv_tab_item_default_l_content_end_size</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Accent</item>
         <item name="sd_counterPadding">@dimen/serv_tab_item_default_l_counter_padding</item>
         <item name="sd_valuePadding">@dimen/serv_tab_item_default_l_value_padding</item>
         <item name="sd_actionPadding">@dimen/serv_tab_item_default_l_action_padding</item>
+        <item name="sd_action">@drawable/ic_close_24</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+        <item name="android:minHeight">@dimen/serv_tab_item_default_l_min_height</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TabItemDefaultL">
         <item name="sd_tabItemStyle">@style/Serv.Sdds.Components.TabItemDefault.L</item>
@@ -37,16 +37,16 @@
         <item name="sd_tabItemStyle">@style/Serv.Sdds.Components.TabItemDefault.L.Vertical</item>
     </style>
     <style name="Serv.Sdds.Components.TabItemDefault.M">
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Accent</item>
-        <item name="sd_action">@drawable/ic_close_24</item>
-        <item name="android:minHeight">@dimen/serv_tab_item_default_m_min_height</item>
         <item name="sd_contentStartSize">@dimen/serv_tab_item_default_m_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/serv_tab_item_default_m_content_end_size</item>
-        <item name="sd_iconPadding">@dimen/serv_tab_item_default_m_icon_padding</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Accent</item>
         <item name="sd_counterPadding">@dimen/serv_tab_item_default_m_counter_padding</item>
         <item name="sd_valuePadding">@dimen/serv_tab_item_default_m_value_padding</item>
         <item name="sd_actionPadding">@dimen/serv_tab_item_default_m_action_padding</item>
+        <item name="sd_action">@drawable/ic_close_24</item>
+        <item name="sd_iconPadding">@dimen/serv_tab_item_default_m_icon_padding</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="android:minHeight">@dimen/serv_tab_item_default_m_min_height</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TabItemDefaultM">
         <item name="sd_tabItemStyle">@style/Serv.Sdds.Components.TabItemDefault.M</item>
@@ -66,16 +66,16 @@
         <item name="sd_tabItemStyle">@style/Serv.Sdds.Components.TabItemDefault.M.Vertical</item>
     </style>
     <style name="Serv.Sdds.Components.TabItemDefault.S">
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Accent</item>
-        <item name="sd_action">@drawable/ic_close_24</item>
-        <item name="android:minHeight">@dimen/serv_tab_item_default_s_min_height</item>
         <item name="sd_contentStartSize">@dimen/serv_tab_item_default_s_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/serv_tab_item_default_s_content_end_size</item>
-        <item name="sd_iconPadding">@dimen/serv_tab_item_default_s_icon_padding</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Accent</item>
         <item name="sd_counterPadding">@dimen/serv_tab_item_default_s_counter_padding</item>
         <item name="sd_valuePadding">@dimen/serv_tab_item_default_s_value_padding</item>
         <item name="sd_actionPadding">@dimen/serv_tab_item_default_s_action_padding</item>
+        <item name="sd_action">@drawable/ic_close_24</item>
+        <item name="sd_iconPadding">@dimen/serv_tab_item_default_s_icon_padding</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
+        <item name="android:minHeight">@dimen/serv_tab_item_default_s_min_height</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TabItemDefaultS">
         <item name="sd_tabItemStyle">@style/Serv.Sdds.Components.TabItemDefault.S</item>
@@ -95,16 +95,16 @@
         <item name="sd_tabItemStyle">@style/Serv.Sdds.Components.TabItemDefault.S.Vertical</item>
     </style>
     <style name="Serv.Sdds.Components.TabItemDefault.Xs">
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
-        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Accent</item>
-        <item name="sd_action">@drawable/ic_close_16</item>
-        <item name="android:minHeight">@dimen/serv_tab_item_default_xs_min_height</item>
         <item name="sd_contentStartSize">@dimen/serv_tab_item_default_xs_content_start_size</item>
         <item name="sd_contentEndSize">@dimen/serv_tab_item_default_xs_content_end_size</item>
-        <item name="sd_iconPadding">@dimen/serv_tab_item_default_xs_icon_padding</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Accent</item>
         <item name="sd_counterPadding">@dimen/serv_tab_item_default_xs_counter_padding</item>
         <item name="sd_valuePadding">@dimen/serv_tab_item_default_xs_value_padding</item>
         <item name="sd_actionPadding">@dimen/serv_tab_item_default_xs_action_padding</item>
+        <item name="sd_action">@drawable/ic_close_16</item>
+        <item name="sd_iconPadding">@dimen/serv_tab_item_default_xs_icon_padding</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+        <item name="android:minHeight">@dimen/serv_tab_item_default_xs_min_height</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TabItemDefaultXs">
         <item name="sd_tabItemStyle">@style/Serv.Sdds.Components.TabItemDefault.Xs</item>

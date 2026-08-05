@@ -13,6 +13,7 @@ import com.sdds.compose.uikit.AccordionIconPlacement
 import com.sdds.compose.uikit.AccordionItemStyle
 import com.sdds.compose.uikit.AccordionItemStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -108,8 +109,8 @@ public val AccordionItemClearActionEnd.Xs: WrapperAccordionItemClearActionEndXs
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.bodyXsBold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_plus_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_minus_16))
         .dimensions {
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
@@ -125,8 +126,8 @@ public val AccordionItemClearActionEnd.S: WrapperAccordionItemClearActionEndS
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.bodySBold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_plus_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_minus_16))
         .dimensions {
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
@@ -142,8 +143,8 @@ public val AccordionItemClearActionEnd.M: WrapperAccordionItemClearActionEndM
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.bodyMBold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_plus_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_minus_16))
         .dimensions {
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
@@ -159,8 +160,8 @@ public val AccordionItemClearActionEnd.L: WrapperAccordionItemClearActionEndL
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.bodyLBold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_plus_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_minus_16))
         .dimensions {
             paddingTop(17.0.dp)
             paddingBottom(17.0.dp)
@@ -176,8 +177,8 @@ public val AccordionItemClearActionEnd.H2: WrapperAccordionItemClearActionEndH2
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.headerH2Bold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_24)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_plus_24))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_minus_24))
         .dimensions {
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
@@ -193,8 +194,8 @@ public val AccordionItemClearActionEnd.H3: WrapperAccordionItemClearActionEndH3
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.headerH3Bold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_24)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_24)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_plus_24))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_minus_24))
         .dimensions {
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
@@ -210,8 +211,8 @@ public val AccordionItemClearActionEnd.H4: WrapperAccordionItemClearActionEndH4
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.headerH4Bold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_plus_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_minus_16))
         .dimensions {
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
@@ -227,8 +228,8 @@ public val AccordionItemClearActionEnd.H5: WrapperAccordionItemClearActionEndH5
         .invariantProps
         .titleStyle(PlasmaGigaTheme.typography.headerH5Bold)
         .contentTextStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .iconClosed(com.sdds.icons.R.drawable.ic_plus_16)
-        .iconOpened(com.sdds.icons.R.drawable.ic_minus_16)
+        .iconClosed(resourceImageSource(com.sdds.icons.R.drawable.ic_plus_16))
+        .iconOpened(resourceImageSource(com.sdds.icons.R.drawable.ic_minus_16))
         .dimensions {
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)

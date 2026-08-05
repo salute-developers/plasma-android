@@ -3,19 +3,19 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.Toast" parent="Sdds.Components.Toast">
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
+        <item name="sd_contentStartTint">@color/serv_toast_content_start_color</item>
         <item name="sd_contentStartSize">@dimen/serv_toast_content_start_size</item>
-        <item name="sd_contentStartPadding">@dimen/serv_toast_content_start_padding</item>
+        <item name="sd_contentEndTint">?serv_textDefaultSecondary</item>
         <item name="sd_contentEndSize">@dimen/serv_toast_content_end_size</item>
-        <item name="sd_contentEndPadding">@dimen/serv_toast_content_end_padding</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_textColor">?serv_textDefaultPrimary</item>
         <item name="android:paddingStart">@dimen/serv_toast_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_toast_padding_end</item>
         <item name="android:paddingTop">@dimen/serv_toast_padding_top</item>
         <item name="android:paddingBottom">@dimen/serv_toast_padding_bottom</item>
-        <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
-        <item name="sd_textColor">?serv_textDefaultPrimary</item>
-        <item name="sd_contentStartTint">@color/serv_toast_content_start_color</item>
-        <item name="sd_contentEndTint">?serv_textDefaultSecondary</item>
+        <item name="sd_contentEndPadding">@dimen/serv_toast_content_end_padding</item>
+        <item name="sd_contentStartPadding">@dimen/serv_toast_content_start_padding</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.ToastColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.Components.Toast.Rounded">

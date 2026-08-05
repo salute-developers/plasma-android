@@ -1,8 +1,5 @@
 package com.sdds.plugin.themebuilder.internal.serializer
 
-import com.sdds.plugin.themebuilder.internal.components.base.Color
-import com.sdds.plugin.themebuilder.internal.components.base.Gradient
-import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
@@ -12,6 +9,9 @@ import com.sdds.plugin.themebuilder.internal.token.SpacingToken
 import com.sdds.plugin.themebuilder.internal.token.Token
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.Unknown
+import com.sdds.plugin.themebuilder.internal.universal.Color
+import com.sdds.plugin.themebuilder.internal.universal.Gradient
+import com.sdds.plugin.themebuilder.internal.universal.SolidColor
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule

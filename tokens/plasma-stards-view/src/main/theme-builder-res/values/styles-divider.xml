@@ -5,7 +5,7 @@
     <style name="Sdkit.StarDs.Components.Divider" parent="Sdds.Components.Divider">
         <item name="sd_thickness">@dimen/sdkit_divider_thickness</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-        <item name="backgroundTint">@color/sdkit_divider_bg_color</item>
+        <item name="backgroundTint">?sdkit_surfaceDefaultTransparentTertiary</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.Divider">
         <item name="sd_dividerStyle">@style/Sdkit.StarDs.Components.Divider</item>

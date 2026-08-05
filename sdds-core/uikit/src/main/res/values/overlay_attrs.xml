@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_overlayViewStyle" format="reference" />
 
-    <declare-styleable name="OverlayView" tools:ignore="ResourceName">
-        <attr name="sd_background" />
+    <declare-styleable name="OverlayView" sdds:api_info="Overlay" sdds:api_style_name="OverlayView"
+        sdds:api_core_name="OverlayView"
+        sdds:api_def_style_attr="sd_overlayViewStyle"
+        sdds:api_parent="Sdds.Components.OverlayView" tools:ignore="ResourceName">
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
     </declare-styleable>
 </resources>

@@ -10,12 +10,12 @@
         <item name="sd_descriptionMargin">@xml/serv_navigation_bar_main_page_description_margin</item>
         <item name="sd_textBlockTopMargin">@dimen/serv_navigation_bar_main_page_text_block_top_margin</item>
         <item name="sd_horizontalSpacing">@dimen/serv_navigation_bar_main_page_horizontal_spacing</item>
-        <item name="sd_descriptionColor">?serv_textDefaultSecondary</item>
-        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
         <item name="sd_actionStartColor">?serv_textDefaultPrimary</item>
         <item name="sd_actionEndColor">?serv_textDefaultPrimary</item>
         <item name="sd_titleAppearance">@xml/serv_navigation_bar_main_page_title_appearance</item>
+        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
         <item name="sd_descriptionAppearance">@xml/serv_navigation_bar_main_page_description_appearance</item>
+        <item name="sd_descriptionColor">?serv_textDefaultSecondary</item>
     </style>
     <style name="Serv.Sdds.Components.NavigationBarMainPage.NoBackground">
         <item name="sd_background">?serv_surfaceDefaultClear</item>

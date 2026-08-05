@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -100,7 +101,7 @@ public val Cell.L: WrapperCellL
         .titleStyle(PlasmaHomeDsTheme.typography.bodyLNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .avatarStyle(Avatar.L.style())
         .iconButtonStyle(IconButton.L.Clear.style())
         .checkBoxStyle(CheckBox.M.Default.style())
@@ -121,7 +122,7 @@ public val Cell.M: WrapperCellM
         .titleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodySNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .avatarStyle(Avatar.M.style())
         .iconButtonStyle(IconButton.M.Clear.style())
         .checkBoxStyle(CheckBox.M.Default.style())
@@ -142,7 +143,7 @@ public val Cell.S: WrapperCellS
         .titleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.S.Clear.style())
         .checkBoxStyle(CheckBox.S.Default.style())
@@ -163,7 +164,7 @@ public val Cell.Xs: WrapperCellXs
         .titleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.S.Clear.style())
         .checkBoxStyle(CheckBox.S.Default.style())

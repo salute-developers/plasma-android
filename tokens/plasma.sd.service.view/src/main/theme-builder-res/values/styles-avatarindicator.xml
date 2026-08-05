@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.AvatarIndicator" parent="Sdds.Components.Indicator">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/plasma_avatar_indicator_bg_color</item>
+    </style>
+    <style name="Plasma.SdService.Components.AvatarIndicator.L">
+        <item name="android:maxHeight">@dimen/plasma_avatar_indicator_l_max_height</item>
+        <item name="android:maxWidth">@dimen/plasma_avatar_indicator_l_max_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AvatarIndicatorL">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.AvatarIndicator.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.AvatarIndicator.M">
+        <item name="android:maxHeight">@dimen/plasma_avatar_indicator_m_max_height</item>
+        <item name="android:maxWidth">@dimen/plasma_avatar_indicator_m_max_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AvatarIndicatorM">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.AvatarIndicator.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.AvatarIndicator.S">
+        <item name="android:maxHeight">@dimen/plasma_avatar_indicator_s_max_height</item>
+        <item name="android:maxWidth">@dimen/plasma_avatar_indicator_s_max_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AvatarIndicatorS">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.AvatarIndicator.S</item>
+    </style>
+</resources>

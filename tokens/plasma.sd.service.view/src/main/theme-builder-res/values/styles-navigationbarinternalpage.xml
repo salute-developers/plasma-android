@@ -8,17 +8,17 @@
         <item name="sd_contentPaddingTop">@dimen/plasma_navigation_bar_internal_page_content_padding_top</item>
         <item name="sd_contentPaddingBottom">@dimen/plasma_navigation_bar_internal_page_content_padding_bottom</item>
         <item name="sd_descriptionMargin">@xml/plasma_navigation_bar_internal_page_description_margin</item>
+        <item name="sd_backIcon">@drawable/ic_disclosure_left_outline_24</item>
         <item name="sd_backIconMargin">@dimen/plasma_navigation_bar_internal_page_back_icon_margin</item>
         <item name="sd_textBlockTopMargin">@dimen/plasma_navigation_bar_internal_page_text_block_top_margin</item>
         <item name="sd_horizontalSpacing">@dimen/plasma_navigation_bar_internal_page_horizontal_spacing</item>
-        <item name="sd_backIcon">@drawable/ic_disclosure_left_outline_24</item>
-        <item name="sd_backIconTint">?plasma_textDefaultPrimary</item>
-        <item name="sd_descriptionColor">?plasma_textDefaultSecondary</item>
-        <item name="sd_titleColor">?plasma_textDefaultPrimary</item>
         <item name="sd_actionStartColor">?plasma_textDefaultPrimary</item>
         <item name="sd_actionEndColor">?plasma_textDefaultPrimary</item>
         <item name="sd_titleAppearance">@xml/plasma_navigation_bar_internal_page_title_appearance</item>
+        <item name="sd_titleColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_backIconTint">?plasma_textDefaultPrimary</item>
         <item name="sd_descriptionAppearance">@xml/plasma_navigation_bar_internal_page_description_appearance</item>
+        <item name="sd_descriptionColor">?plasma_textDefaultSecondary</item>
     </style>
     <style name="Plasma.SdService.Components.NavigationBarInternalPage.NoBackground">
         <item name="sd_background">?plasma_surfaceDefaultClear</item>

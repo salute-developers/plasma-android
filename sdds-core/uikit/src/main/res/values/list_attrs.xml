@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_listViewStyle" format="reference" />
     <attr name="sd_listItemViewStyle" format="reference" />
 
-    <declare-styleable name="ListView" tools:ignore="ResourceName">
-        <attr name="sd_listItemViewStyleOverlay" format="reference"/>
+    <declare-styleable name="ListView" sdds:api_info="List"
+        sdds:api_core_name="ListView"
+        sdds:api_def_style_attr="sd_listViewStyle"
+        sdds:api_parent="Sdds.Components.List" tools:ignore="ResourceName">
+        <attr name="sd_listItemViewStyleOverlay" sdds:api_name="listItemStyle" format="reference"/>
     </declare-styleable>
 
-    <declare-styleable name="ListItemView" tools:ignore="ResourceName">
-
+    <declare-styleable name="ListItemView" sdds:api_info="ListItem"
+        sdds:api_core_name="ListItemView"
+        sdds:api_def_style_attr="sd_listItemViewStyle"
+        sdds:api_parent="Sdds.Components.ListItem" tools:ignore="ResourceName">
+        <attr name="android:minHeight" sdds:api_name="height" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_type="dimension" sdds:api_name="paddingBottom" />
+        <attr name="android:paddingEnd" sdds:api_type="dimension" sdds:api_name="paddingEnd" />
+        <attr name="android:paddingStart" sdds:api_type="dimension" sdds:api_name="paddingStart" />
+        <attr name="android:paddingTop" sdds:api_type="dimension" sdds:api_name="paddingTop" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
+        <attr name="sd_contentEndPadding" sdds:api_name="contentPaddingEnd" />
+        <attr name="sd_contentStartPadding" sdds:api_name="contentPaddingStart" />
+        <attr name="sd_counterStyle" sdds:api_placement="overlay" />
+        <attr name="sd_disclosureColor" sdds:api_name="disclosureIconColor" sdds:api_res_suffix="disclosure_icon_color" />
+        <attr name="sd_disclosureIcon" />
+        <attr name="sd_labelAppearance" sdds:api_name="labelStyle" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <attr name="sd_subtitleAppearance" sdds:api_name="subtitleStyle" />
+        <attr name="sd_titleAppearance" sdds:api_name="titleStyle" />
+        <attr name="sd_titleColor" sdds:api_res_suffix="text_color" />
+        <attr name="sd_labelColor" />
+        <attr name="sd_subtitleColor" />
     </declare-styleable>
 </resources>

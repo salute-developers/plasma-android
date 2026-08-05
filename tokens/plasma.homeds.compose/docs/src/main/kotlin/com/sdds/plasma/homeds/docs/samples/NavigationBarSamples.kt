@@ -9,7 +9,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.NavigationBar
 import com.sdds.compose.uikit.NavigationBarTextPlacement
@@ -18,6 +17,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.floatPx
 import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.plasma.homeds.styles.navigationbar.Default
 import com.sdds.plasma.homeds.styles.navigationbar.NavigationBarInternalPage
 import com.sdds.plasma.homeds.styles.navigationbar.NavigationBarMainPage

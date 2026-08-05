@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_wheelStyle" format="reference"/>
     <item name="sd_upButtonId" type="id"/>
     <item name="sd_downButtonId" type="id"/>
 
-    <declare-styleable name="Wheel" tools:ignore="ResourceName">
-        <attr name="sd_itemTextAppearance" format="reference" />
+    <declare-styleable name="Wheel" sdds:api_info="Wheel"
+        sdds:api_def_style_attr="sd_wheelStyle"
+        sdds:api_parent="Sdds.Components.Wheel" tools:ignore="ResourceName">
+        <attr name="sd_itemTextAppearance" format="reference" sdds:api_name="itemTextStyle" />
         <attr name="sd_itemTextColor" format="reference|color" />
-        <attr name="sd_itemTextAfterAppearance" format="reference" />
+        <attr name="sd_itemTextAfterAppearance" format="reference" sdds:api_name="itemTextAfterStyle" />
         <attr name="sd_itemTextAfterColor" format="reference" />
-        <attr name="sd_itemTextAfterPadding" format="dimension" />
+        <attr name="sd_itemTextAfterPadding" format="dimension" sdds:api_res_suffix="text_after_padding" />
         <attr name="sd_itemAlignment" format="enum">
             <enum name="start" value="0" />
             <enum name="center" value="1" />
@@ -27,13 +30,13 @@
         </attr>
 
         <attr name="sd_controlIconUp" format="reference" />
-        <attr name="sd_controlIconUpTint" format="reference|color" />
+        <attr name="sd_controlIconUpTint" format="reference|color" sdds:api_name="controlIconUpColor" sdds:api_res_suffix="control_up_color" />
         <attr name="sd_controlIconDown" format="reference" />
-        <attr name="sd_controlIconDownTint" format="reference|color" />
+        <attr name="sd_controlIconDownTint" format="reference|color" sdds:api_name="controlIconDownColor" sdds:api_res_suffix="control_down_color" />
 
         <attr name="sd_description"/>
-        <attr name="sd_descriptionTextAppearance"/>
-        <attr name="sd_descriptionTextColor" />
+        <attr name="sd_descriptionTextAppearance" sdds:api_name="descriptionStyle" />
+        <attr name="sd_descriptionTextColor" sdds:api_name="descriptionColor" sdds:api_res_suffix="description_color" />
         <attr name="sd_descriptionPadding" />
 
         <attr name="sd_wheelCount" format="integer" />
@@ -46,15 +49,15 @@
         <attr name="sd_separatorColor" format="reference|color"/>
 
         <attr name="sd_itemSelectorEnabled"/>
-        <attr name="sd_itemSelectorTint"/>
-        <attr name="sd_itemSelectorShapeAppearance" format="reference" />
+        <attr name="sd_itemSelectorTint" sdds:api_name="itemSelectorColor" sdds:api_res_suffix="item_selector_color" />
+        <attr name="sd_itemSelectorShapeAppearance" format="reference" sdds:api_name="itemSelectorShape" sdds:api_shape_adjustment="true" />
         <attr name="sd_itemSelectorPaddingTop" format="dimension" />
         <attr name="sd_itemSelectorPaddingBottom" format="dimension" />
         <attr name="sd_itemSelectorPaddingStart" format="dimension" />
         <attr name="sd_itemSelectorPaddingEnd" format="dimension" />
 
-        <attr name="sd_wheelEntryMinScale" format="float" />
-        <attr name="sd_wheelEntryMinAlpha" format="float" />
-
+        <attr name="sd_wheelEntryMinScale" format="float" sdds:api_name="itemMinScale" />
+        <attr name="sd_wheelEntryMinAlpha" format="float" sdds:api_name="itemMinAlpha" />
+        <attr name="sd_shapeAppearance" />
     </declare-styleable>
 </resources>

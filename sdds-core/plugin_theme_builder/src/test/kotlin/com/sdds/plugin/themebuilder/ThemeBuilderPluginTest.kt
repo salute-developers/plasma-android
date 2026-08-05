@@ -22,10 +22,12 @@ class ThemeBuilderPluginTest {
             .withProjectDir(projectDir)
             .build()
         project.configurations.create("compileClasspath")
-        project.plugins.apply(ThemeBuilderPlugin::class.java)
-        project.extensions.getByType(ThemeBuilderExtension::class.java).apply {
-            compose()
-            autoGenerate(false)
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).apply {
+            theme {
+                compose()
+                autoGenerate.set(false)
+            }
         }
 
         (project as ProjectInternal).evaluate()

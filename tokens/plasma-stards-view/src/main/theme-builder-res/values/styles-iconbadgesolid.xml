@@ -3,16 +3,16 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Sdkit.StarDs.Components.IconBadgeSolid" parent="Sdds.Components.IconBadge">
-        <item name="android:backgroundTint">@color/sdkit_icon_badge_solid_bg_color</item>
         <item name="sd_drawableStartTint">@color/sdkit_icon_badge_solid_drawable_start_tint</item>
+        <item name="android:backgroundTint">@color/sdkit_icon_badge_solid_bg_color</item>
         <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.IconBadgeColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.Components.IconBadgeSolid.L">
-        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
-        <item name="android:minHeight">@dimen/sdkit_icon_badge_solid_l_min_height</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_icon_badge_solid_l_content_start_size</item>
         <item name="android:paddingStart">@dimen/sdkit_icon_badge_solid_l_padding_start</item>
         <item name="android:paddingEnd">@dimen/sdkit_icon_badge_solid_l_padding_end</item>
-        <item name="sd_contentStartSize">@dimen/sdkit_icon_badge_solid_l_content_start_size</item>
+        <item name="android:minHeight">@dimen/sdkit_icon_badge_solid_l_min_height</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.IconBadgeSolidL">
         <item name="sd_iconBadgeStyle">@style/Sdkit.StarDs.Components.IconBadgeSolid.L</item>
@@ -108,11 +108,11 @@
         <item name="sd_iconBadgeStyle">@style/Sdkit.StarDs.Components.IconBadgeSolid.L.Pilled.Light</item>
     </style>
     <style name="Sdkit.StarDs.Components.IconBadgeSolid.M">
-        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
-        <item name="android:minHeight">@dimen/sdkit_icon_badge_solid_m_min_height</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_icon_badge_solid_m_content_start_size</item>
         <item name="android:paddingStart">@dimen/sdkit_icon_badge_solid_m_padding_start</item>
         <item name="android:paddingEnd">@dimen/sdkit_icon_badge_solid_m_padding_end</item>
-        <item name="sd_contentStartSize">@dimen/sdkit_icon_badge_solid_m_content_start_size</item>
+        <item name="android:minHeight">@dimen/sdkit_icon_badge_solid_m_min_height</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.IconBadgeSolidM">
         <item name="sd_iconBadgeStyle">@style/Sdkit.StarDs.Components.IconBadgeSolid.M</item>
@@ -208,11 +208,11 @@
         <item name="sd_iconBadgeStyle">@style/Sdkit.StarDs.Components.IconBadgeSolid.M.Pilled.Light</item>
     </style>
     <style name="Sdkit.StarDs.Components.IconBadgeSolid.S">
-        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
-        <item name="android:minHeight">@dimen/sdkit_icon_badge_solid_s_min_height</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_icon_badge_solid_s_content_start_size</item>
         <item name="android:paddingStart">@dimen/sdkit_icon_badge_solid_s_padding_start</item>
         <item name="android:paddingEnd">@dimen/sdkit_icon_badge_solid_s_padding_end</item>
-        <item name="sd_contentStartSize">@dimen/sdkit_icon_badge_solid_s_content_start_size</item>
+        <item name="android:minHeight">@dimen/sdkit_icon_badge_solid_s_min_height</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.IconBadgeSolidS">
         <item name="sd_iconBadgeStyle">@style/Sdkit.StarDs.Components.IconBadgeSolid.S</item>
@@ -308,11 +308,11 @@
         <item name="sd_iconBadgeStyle">@style/Sdkit.StarDs.Components.IconBadgeSolid.S.Pilled.Light</item>
     </style>
     <style name="Sdkit.StarDs.Components.IconBadgeSolid.Xs">
-        <item name="sd_shapeAppearance">?sdkit_shapeRoundXxs</item>
-        <item name="android:minHeight">@dimen/sdkit_icon_badge_solid_xs_min_height</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_icon_badge_solid_xs_content_start_size</item>
         <item name="android:paddingStart">@dimen/sdkit_icon_badge_solid_xs_padding_start</item>
         <item name="android:paddingEnd">@dimen/sdkit_icon_badge_solid_xs_padding_end</item>
-        <item name="sd_contentStartSize">@dimen/sdkit_icon_badge_solid_xs_content_start_size</item>
+        <item name="android:minHeight">@dimen/sdkit_icon_badge_solid_xs_min_height</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXxs</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.IconBadgeSolidXs">
         <item name="sd_iconBadgeStyle">@style/Sdkit.StarDs.Components.IconBadgeSolid.Xs</item>

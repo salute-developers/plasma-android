@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
 
     <attr name="sd_circularProgressBarStyle" format="reference"/>
 
-    <declare-styleable name="ProgressBar" tools:ignore="ResourceName">
+    <declare-styleable name="ProgressBar" sdds:api_info="ProgressBar"
+        sdds:api_def_style_attr="android:progressBarStyle"
+        sdds:api_parent="Sdds.Components.ProgressBar" tools:ignore="ResourceName">
         <!-- Текущий прогресс -->
         <attr name="sd_progress" format="float" />
         <!-- Максимальный прогресс -->
@@ -11,16 +14,16 @@
         <!-- Минимальный прогресс -->
         <attr name="sd_minProgress" format="float" />
 
-        <attr name="sd_shapeAppearance"/>
-        <attr name="sd_indicatorShapeAppearance" format="reference"/>
-        <attr name="sd_trackHeight" format="dimension"/>
-        <attr name="backgroundTint" />
+        <attr name="sd_shapeAppearance" sdds:api_name="backgroundShape" />
+        <attr name="sd_indicatorShapeAppearance" format="reference" sdds:api_name="indicatorShape" />
+        <attr name="sd_trackHeight" sdds:api_name="backgroundHeight" format="dimension"/>
+        <attr name="backgroundTint" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" />
         <attr name="android:progressTint" />
-        <attr name="sd_progressColor" />
+        <attr name="sd_progressColor" sdds:api_name="indicatorColor" />
         <attr name="android:progressDrawable"/>
         <attr name="android:background"/>
 
-        <attr name="android:maxHeight" />
+        <attr name="android:maxHeight" sdds:api_name="indicatorHeight" sdds:api_type="dimension" />
         <attr name="android:maxWidth" />
 
         <attr name="android:inset"/>
@@ -28,9 +31,12 @@
         <attr name="android:insetTop"/>
         <attr name="android:insetRight"/>
         <attr name="android:insetBottom"/>
+        <attr name="android:minHeight" sdds:api_name="indicatorHeight" sdds:api_type="dimension" />
     </declare-styleable>
 
-    <declare-styleable name="CircularProgressBar" tools:ignore="ResourceName">
+    <declare-styleable name="CircularProgressBar" sdds:api_info="CircularProgressBar"
+        sdds:api_def_style_attr="sd_circularProgressBarStyle"
+        sdds:api_parent="Sdds.Components.CircularProgressBar" tools:ignore="ResourceName">
         <!-- Текущий прогресс -->
         <attr name="sd_progress" />
         <!-- Максимальный прогресс -->
@@ -38,19 +44,19 @@
         <!-- Минимальный прогресс -->
         <attr name="sd_minProgress" />
 
-        <attr name="sd_progressColor" format="color|reference" />
+        <attr name="sd_progressColor" sdds:api_name="indicatorColor" format="color|reference" />
         <attr name="sd_trackColor" format="color|reference" />
         <attr name="sd_trackEnabled" format="boolean"/>
 
-        <attr name="sd_progressValueEnabled" format="boolean"/>
-        <attr name="sd_progressValueAppearance" format="reference"/>
-        <attr name="sd_progressValueColor" format="color|reference"/>
+        <attr name="sd_progressValueEnabled" sdds:api_name="valueEnabled" format="boolean"/>
+        <attr name="sd_progressValueAppearance" sdds:api_name="valueStyle" format="reference"/>
+        <attr name="sd_progressValueColor" sdds:api_name="valueColor" format="color|reference" sdds:api_res_suffix="value_color" />
         <attr name="sd_progressValueSuffix" format="string"/>
-        <attr name="sd_progressValueSuffixColor" format="color|reference"/>
+        <attr name="sd_progressValueSuffixColor" format="color|reference" sdds:api_name="valueSuffixColor" sdds:api_res_suffix="value_suffix_color" />
 
         <attr name="sd_progressThickness" format="dimension|reference" />
         <attr name="sd_trackThickness" format="dimension|reference" />
-        <attr name="android:minWidth" />
-        <attr name="android:minHeight" />
+        <attr name="android:minWidth" sdds:api_name="width" sdds:api_type="dimension" />
+        <attr name="android:minHeight" sdds:api_name="height" sdds:api_type="dimension" />
     </declare-styleable>
 </resources>

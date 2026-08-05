@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.SelectItemType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -87,7 +88,7 @@ public val SelectItem.L: WrapperSelectItemL
     get() = SelectItemStyle.builder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundL)
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(CellSelect.L.style())
         .dimensions {
             controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_l))
@@ -111,7 +112,7 @@ public val SelectItem.M: WrapperSelectItemM
                 dimensionResource(R.dimen.sdkit_cmp_select_item_shapeAdjustment_m),
             ),
         )
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(CellSelect.M.style())
         .dimensions {
             controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_m))
@@ -135,7 +136,7 @@ public val SelectItem.S: WrapperSelectItemS
                 dimensionResource(R.dimen.sdkit_cmp_select_item_shapeAdjustment_s),
             ),
         )
-        .icon(com.sdds.icons.R.drawable.ic_done_24)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_24))
         .cellStyle(CellSelect.S.style())
         .dimensions {
             controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_s))
@@ -159,7 +160,7 @@ public val SelectItem.Xs: WrapperSelectItemXs
                 dimensionResource(R.dimen.sdkit_cmp_select_item_shapeAdjustment_xs),
             ),
         )
-        .icon(com.sdds.icons.R.drawable.ic_done_16)
+        .icon(resourceImageSource(com.sdds.icons.R.drawable.ic_done_16))
         .cellStyle(CellSelect.Xs.style())
         .dimensions {
             controlSize(dimensionResource(R.dimen.sdkit_cmp_select_item_control_size_xs))

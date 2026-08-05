@@ -3,12 +3,12 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.Popover" parent="Sdds.Components.Popover">
-        <item name="sd_shadowAppearance">?serv_shadowDownHardM</item>
-        <item name="android:minWidth">@dimen/serv_popover_min_width</item>
         <item name="sd_offset">@dimen/serv_popover_offset</item>
+        <item name="sd_shadowAppearance">?serv_shadowDownHardM</item>
+        <item name="sd_background">@color/serv_popover_bg_color</item>
         <item name="sd_shapeTailWidth">@dimen/serv_popover_tail_width</item>
         <item name="sd_shapeTailHeight">@dimen/serv_popover_tail_height</item>
-        <item name="sd_background">@color/serv_popover_bg_color</item>
+        <item name="android:minWidth">@dimen/serv_popover_min_width</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.PopoverColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.Components.Popover.M">

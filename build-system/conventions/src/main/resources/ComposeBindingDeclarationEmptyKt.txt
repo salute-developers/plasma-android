@@ -1,1 +1,0 @@
-override val bindings: Set<Property<*>> = emptySet()

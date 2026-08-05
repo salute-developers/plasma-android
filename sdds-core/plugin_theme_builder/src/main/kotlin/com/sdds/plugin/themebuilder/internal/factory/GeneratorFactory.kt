@@ -79,6 +79,7 @@ internal class GeneratorFactory(
     private val packageResolver: PackageResolver,
     private val defaultThemeTypography: DefaultThemeTypography,
     private val useDefaultFonts: Boolean,
+    private val multiplatform: Boolean = false,
 ) {
 
     private val outputDir: File by unsafeLazy {
@@ -221,6 +222,7 @@ internal class GeneratorFactory(
             themeName = themeName,
             dimensionsConfig = dimensionsConfig,
             packageResolver = packageResolver,
+            multiplatform = multiplatform,
         )
     }
 
@@ -330,6 +332,7 @@ internal class GeneratorFactory(
             fontsAggregator,
             dimensionsConfig,
             useDefaultFonts,
+            multiplatform,
         )
     }
 
@@ -352,6 +355,7 @@ internal class GeneratorFactory(
             dimensionsConfig = dimensionsConfig,
             namespace = namespace,
             themeName = themeName,
+            multiplatform = multiplatform,
         )
     }
 

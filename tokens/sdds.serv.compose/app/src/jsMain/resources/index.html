@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>SddsServ Sandbox</title>
+    <style>html, body, #root { height: 100%; margin: 0; overflow: hidden; }</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="skiko.js"></script>
+<script>
+    wasmSetup.then(function () {
+        var appScript = document.createElement("script");
+        appScript.src = "app.js";
+        document.body.appendChild(appScript);
+    });
+</script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+           xmlns:sdds="http://schemas.sdds.ru/android/sdds">
     <attr name="sd_drawerStyle" format="reference" />
 
     <declare-styleable name="DrawerLayout" tools:ignore="ResourceName">
@@ -30,14 +31,16 @@
         <attr name="android:layout_gravity" />
     </declare-styleable>
 
-    <declare-styleable name="Drawer" tools:ignore="ResourceName" >
-        <attr name="sd_shadowAppearance" />
-        <attr name="sd_shapeAppearance" />
-        <attr name="sd_background" />
+    <declare-styleable name="Drawer" sdds:api_info="Drawer"
+        sdds:api_def_style_attr="sd_drawerStyle"
+        sdds:api_parent="Sdds.Components.Drawer" tools:ignore="ResourceName" >
+        <attr name="sd_shadowAppearance" sdds:api_name="shadow" />
+        <attr name="sd_shapeAppearance" sdds:api_name="shape" />
+        <attr name="sd_background" sdds:api_name="backgroundColor" sdds:api_res_suffix="bg_color" sdds:api_type="color" />
         <attr name="sd_closeIcon" />
-        <attr name="sd_closeIconTint" />
+        <attr name="sd_closeIconTint" sdds:api_name="closeColor" sdds:api_res_suffix="close_icon_color" />
         <attr name="sd_strokeColor" />
-        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeWidth" sdds:api_name="strokeSize" />
         <!-- Расположение иконки закрытия -->
         <attr name="sd_closeIconPlacement" format="enum">
             <enum name="inner" value="0" />
@@ -61,6 +64,10 @@
             <enum name="end" value="0" />
             <enum name="start" value="1" />
         </attr>
+        <attr name="android:paddingStart" sdds:api_name="paddingStart" sdds:api_type="dimension" />
+        <attr name="android:paddingEnd" sdds:api_name="paddingEnd" sdds:api_type="dimension" />
+        <attr name="android:paddingTop" sdds:api_name="paddingTop" sdds:api_type="dimension" />
+        <attr name="android:paddingBottom" sdds:api_name="paddingBottom" sdds:api_type="dimension" />
     </declare-styleable>
 
     <declare-styleable name="Drawer_Layout" tools:ignore="ResourceName" >

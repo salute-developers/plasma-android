@@ -16,8 +16,9 @@ kover {
     reports {
         filters {
             excludes {
-                packages("com.sdds.plugin.themebuilder.internal.components",
-                    "com.sdds.plugin.themebuilder.internal.factory"
+                packages(
+                    "com.sdds.plugin.themebuilder.internal.factory",
+                    "com.sdds.plugin.themebuilder.internal.universal.base",
                 )
             }
         }
@@ -31,12 +32,12 @@ gradlePlugin {
     website.set(findPropertyOrDefault("nexus.websiteUrl", "").toString())
     vcsUrl.set(findPropertyOrDefault("nexus.gitUrl", "").toString())
     plugins {
-        create("themeBuilderPlugin") {
-            id = "io.github.salute-developers.theme-builder-plugin"
-            displayName = "Theme Builder Plugin"
-            description = "Plugin automatically generates design tokens based on configuration provided by ThemeBuilder"
+        create("dsBuilderPlugin") {
+            id = "io.github.salute-developers.design-system-builder"
+            displayName = "Design System Builder Plugin"
+            description = "Unified plugin for design system theme, components, documentation and sandbox generation"
             tags.add("designSystem")
-            implementationClass = "com.sdds.plugin.themebuilder.ThemeBuilderPlugin"
+            implementationClass = "com.sdds.plugin.themebuilder.DsBuilderPlugin"
         }
     }
 }
@@ -50,7 +51,10 @@ publishing {
 dependencies {
     implementation(libs.base.kotlin.serialization.json)
     implementation(libs.base.gradle.android)
+    implementation(libs.base.gradle.kotlin)
     implementation(libs.base.kotlin.poet)
+    implementation("com.google.code.gson:gson:2.11.0")
+    compileOnly(libs.base.kotlin.compiler.embeddable)
     testImplementation(libs.base.test.unit.jUnit)
     testImplementation(libs.base.test.unit.mockk)
 }

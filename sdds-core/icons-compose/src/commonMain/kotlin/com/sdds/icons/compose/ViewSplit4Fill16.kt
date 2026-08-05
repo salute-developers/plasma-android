@@ -1,0 +1,24 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.ViewSplit4Fill16: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "ViewSplit4Fill16",
+        defaultWidth = 16.dp,
+        defaultHeight = 16.dp,
+        viewportWidth = 16f,
+        viewportHeight = 16f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathFillType = PathFillType.EvenOdd,
+            pathData = addPathNodes("M 12.256 2.5 H 3.744 c -0.374 0.0 -0.686 0.0 -0.941 0.02 C 2.537 2.542 2.287 2.588 2.05 2.706 C 1.69 2.887 1.394 3.176 1.21 3.532 C 1.09 3.764 1.043 4.01 1.02 4.271 C 1.0 4.52 1.0 4.827 1.0 5.195 v 5.61 c 0.0 0.367 0.0 0.674 0.02 0.925 c 0.023 0.26 0.07 0.506 0.19 0.738 c 0.184 0.355 0.479 0.645 0.841 0.826 c 0.236 0.118 0.486 0.164 0.752 0.186 c 0.255 0.02 0.567 0.02 0.94 0.02 h 8.513 c 0.374 0.0 0.686 0.0 0.941 -0.02 c 0.266 -0.022 0.516 -0.068 0.752 -0.186 c 0.362 -0.181 0.657 -0.47 0.841 -0.826 c 0.12 -0.232 0.168 -0.477 0.19 -0.739 C 15.0 11.48 15.0 11.174 15.0 10.806 v -5.61 c 0.0 -0.368 0.0 -0.674 -0.02 -0.924 c -0.023 -0.262 -0.07 -0.507 -0.19 -0.739 c -0.184 -0.355 -0.479 -0.645 -0.841 -0.826 c -0.236 -0.118 -0.486 -0.164 -0.752 -0.186 c -0.255 -0.02 -0.567 -0.02 -0.94 -0.02 Z M 7.5 3.531 V 7.5 h -5.45 v 1.0 h 5.45 v 3.969 h 1.0 v -3.97 h 5.45 v -1.0 h -5.45 V 3.532 h -1.0 Z")
+        )
+    }.build()
+}

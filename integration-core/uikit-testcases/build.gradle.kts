@@ -23,7 +23,6 @@ dependencies {
     implementation(project(":sandbox-view"))
     implementation(project(":uikit-fixtures"))
     implementation("sdds-core:docs")
-    implementation("sdds-core:docs-views")
     implementation("sdds-core:uikit")
     implementation("sdds-core:icons")
 

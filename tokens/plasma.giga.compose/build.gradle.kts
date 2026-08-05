@@ -14,7 +14,7 @@ plugins {
     id("convention.maven-publish")
     id("convention.auto-bump")
     id("convention.testing-compose")
-    id(libs.plugins.themebuilder.get().pluginId)
+    id(libs.plugins.dsbuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
     id("convention.docusaurus")
 }
@@ -24,16 +24,21 @@ android {
     resourcePrefix = themeResPrefix
 }
 
-themeBuilder {
-    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
-    componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
-    compose {
-        componentsMetaStyleClass(true)
+dsBuilder {
+    autoGenerate.set(false)
+    targets {
+        compose()
     }
-    ktPackage(ktPackage = "com.sdds.plasma.giga")
-    mode(THEME)
-    outputLocation(SRC)
-    autoGenerate(false)
+    packageName.set("com.sdds.plasma.giga")
+    outputLocation.set(SRC)
+    theme {
+        source(name = themeName, version = themeVersion, alias = themeAlias)
+        mode.set(THEME)
+    }
+    components {
+        source(name = componentsName, version = componentsVersion, alias = themeAlias)
+        componentsMetaStyleClass.set(true)
+    }
 }
 
 dependencies {

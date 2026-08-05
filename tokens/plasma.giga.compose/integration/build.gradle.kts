@@ -1,8 +1,25 @@
+import com.sdds.plugin.themebuilder.OutputLocation
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
-    id("convention.integration-compose")
+    id("convention.integration-detekt")
     id("convention.compose")
+    id(libs.plugins.dsbuilder.get().pluginId)
+}
+
+dsBuilder {
+    outputLocation.set(OutputLocation.SRC)
+    autoGenerate.set(false)
+    targets {
+        compose()
+    }
+    sandbox {
+        compose {
+            generatedPackageName.set("com.sdds.plasma.giga.integration")
+            themeAlias.set("PlasmaGiga")
+        }
+    }
 }
 
 android {

@@ -3,7 +3,6 @@ package com.sdds.plugin.themebuilder
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.materialShape
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
-import org.gradle.api.Project
 import java.io.Serializable
 
 /**
@@ -29,6 +28,7 @@ open class ThemeBuilderExtension {
     internal var componentsMetaStyleClass: Boolean = false
     internal var ignoreDisabledTokens: Boolean = false
     internal var useDefaultFonts: Boolean = false
+    internal var multiplatform: Boolean = false
 
     /**
      * Временный способ установки любого url для конфигов компонентов
@@ -133,6 +133,11 @@ open class ThemeBuilderExtension {
         }
     }
 
+    internal fun setThemeSources(sources: ThemeBuilderSources) {
+        themeSource = null
+        themeSources = sources
+    }
+
     /**
      * Устанавливает View фреймворк для генерации темы и токенов
      *
@@ -151,6 +156,7 @@ open class ThemeBuilderExtension {
     fun compose(configBuilder: ComposeConfigBuilder.() -> Unit = {}) {
         val builder = ComposeConfigBuilder().apply(configBuilder)
         componentsMetaStyleClass = builder.componentsMetaStyleClass
+        multiplatform = builder.multiplatform
         updateTarget(ThemeBuilderTarget.COMPOSE)
     }
 
@@ -240,16 +246,9 @@ open class ThemeBuilderExtension {
         }
     }
 
-    companion object {
+    private companion object {
         private const val DEFAULT_PALETTE_URL =
             "https://raw.githubusercontent.com/salute-developers/plasma/dev/packages/plasma-colors/palette/general.json"
-
-        /**
-         * Создает extension [ThemeBuilderExtension]
-         */
-        fun Project.themeBuilderExt(): ThemeBuilderExtension {
-            return extensions.create("themeBuilder", ThemeBuilderExtension::class.java)
-        }
     }
 }
 
@@ -358,11 +357,26 @@ class ComposeConfigBuilder {
     internal var componentsMetaStyleClass: Boolean = false
         private set
 
+    internal var multiplatform: Boolean = false
+        private set
+
     /**
      * Включает/выключает генерацию мета классов - агрегаторов стилей компонентов
      */
     fun componentsMetaStyleClass(enabled: Boolean) {
         componentsMetaStyleClass = enabled
+    }
+
+    /**
+     * Включает/выключает генерацию стилей в мультиплатформенном (Compose Multiplatform) режиме.
+     *
+     * В этом режиме сгенерированные `*Styles.kt` пригодны к компиляции в `commonMain`:
+     * иконки эмитятся как `imageVectorSource(SddsIcons.*)` из мультиплатформенного модуля
+     * `icons-compose`, а шрифты — через `org.jetbrains.compose.resources` (`Res.font.*`).
+     * По умолчанию выключено — генерируется прежний Android-вариант без изменений.
+     */
+    fun multiplatform(enabled: Boolean) {
+        multiplatform = enabled
     }
 }
 

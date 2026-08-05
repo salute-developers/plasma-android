@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
@@ -78,7 +79,7 @@ public val ListItem.S: WrapperListItemS
         .titleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .dimensions {
             contentPaddingEnd(12.0.dp)
@@ -115,7 +116,7 @@ public val ListItem.M: WrapperListItemM
         .titleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .labelStyle(PlasmaHomeDsTheme.typography.bodySNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .dimensions {
             contentPaddingEnd(12.0.dp)

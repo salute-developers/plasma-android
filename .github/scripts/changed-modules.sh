@@ -17,6 +17,10 @@ declare -a MODULES_SET=()
 CHANGED_TOKENS=false
 INCLUDE_SANDBOX=false
 
+is_gradle_module_dir() {
+  [[ -f "$1/build.gradle.kts" || -f "$1/build.gradle" ]]
+}
+
 while IFS= read -r FILE; do
   echo "➡️ Checking file: $FILE"
 
@@ -73,6 +77,10 @@ if [[ "$UIKIT_COMPOSE_CHANGED" == true || "$UIKIT_CHANGED" == true || "$INTEGR_C
 
   for DIR in tokens/*/; do
     NAME=$(basename "$DIR")
+    if ! is_gradle_module_dir "$DIR"; then
+      echo "⏭ Skipped non-module directory: $DIR"
+      continue
+    fi
     if [[ "$UIKIT_COMPOSE_CHANGED" == true && "$NAME" == *compose* ]]; then
       MODULE=":tokens:$NAME"
       MODULES_SET+=("$MODULE")
@@ -100,12 +108,12 @@ if [[ "$CHANGED_TOKENS" == true ]]; then
     grep '^tokens/.*/' | cut -d '/' -f2 | sort -u) || true
 
   for NAME in $TOKEN_MODULES; do
-    if [[ -d "tokens/$NAME" ]]; then
+    if is_gradle_module_dir "tokens/$NAME"; then
       MODULE=":tokens:$NAME"
       MODULES_SET+=("$MODULE")
       echo "✅ Added token module: $MODULE"
     else
-      echo "⏭ Skipped file-level token: tokens/$NAME"
+      echo "⏭ Skipped non-module token directory: tokens/$NAME"
     fi
   done
 fi
@@ -178,8 +186,10 @@ for MODULE in $UNIQUE_MODULES; do
   FS_PATH="${MODULE#:}"  # Remove leading colon
   FS_PATH="${FS_PATH//://}"  # Replace colons with slashes
 
-  # Check if module directory exists
-  if [[ -d "$FS_PATH" ]]; then
+  # Token modules must be Gradle projects, not merely directories created by tooling.
+  if [[ "$MODULE" == :tokens:* ]] && ! is_gradle_module_dir "$FS_PATH"; then
+    NON_EXISTENT_MODULES+=("$MODULE")
+  elif [[ -d "$FS_PATH" ]]; then
     EXISTING_MODULES+=("$MODULE")
   else
     NON_EXISTENT_MODULES+=("$MODULE")

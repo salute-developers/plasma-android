@@ -3,10 +3,10 @@ package com.sdds.plasma.homeds.docs.samples
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
+import com.sdds.docs.composableCodeSnippet
 import com.sdds.plasma.homeds.components.numberpanel.NumberPanel
 import com.sdds.plasma.homeds.components.numberpanel.NumberPanelMode
 import com.sdds.plasma.homeds.components.numberpanel.NumberPanelStyle

@@ -3,15 +3,15 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Sdkit.StarDs.Components.Counter" parent="Sdds.Components.Counter">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-        <item name="android:backgroundTint">@color/sdkit_counter_bg_color</item>
         <item name="android:textColor">@color/sdkit_counter_text_color</item>
+        <item name="android:backgroundTint">@color/sdkit_counter_bg_color</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.CounterColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.Components.Counter.L">
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
-        <item name="android:minHeight">@dimen/sdkit_counter_l_min_height</item>
         <item name="android:minWidth">@dimen/sdkit_counter_l_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_counter_l_min_height</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_l_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_l_padding_right</item>
     </style>
@@ -62,8 +62,8 @@
     </style>
     <style name="Sdkit.StarDs.Components.Counter.M">
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
-        <item name="android:minHeight">@dimen/sdkit_counter_m_min_height</item>
         <item name="android:minWidth">@dimen/sdkit_counter_m_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_counter_m_min_height</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_m_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_m_padding_right</item>
     </style>
@@ -114,8 +114,8 @@
     </style>
     <style name="Sdkit.StarDs.Components.Counter.S">
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXxsNormal</item>
-        <item name="android:minHeight">@dimen/sdkit_counter_s_min_height</item>
         <item name="android:minWidth">@dimen/sdkit_counter_s_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_counter_s_min_height</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_s_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_s_padding_right</item>
     </style>
@@ -166,8 +166,8 @@
     </style>
     <style name="Sdkit.StarDs.Components.Counter.Xs">
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXxsNormal</item>
-        <item name="android:minHeight">@dimen/sdkit_counter_xs_min_height</item>
         <item name="android:minWidth">@dimen/sdkit_counter_xs_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_counter_xs_min_height</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_xs_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_xs_padding_right</item>
     </style>
@@ -218,8 +218,8 @@
     </style>
     <style name="Sdkit.StarDs.Components.Counter.Xxs">
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXxsNormal</item>
-        <item name="android:minHeight">@dimen/sdkit_counter_xxs_min_height</item>
         <item name="android:minWidth">@dimen/sdkit_counter_xxs_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_counter_xxs_min_height</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_xxs_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_xxs_padding_right</item>
     </style>

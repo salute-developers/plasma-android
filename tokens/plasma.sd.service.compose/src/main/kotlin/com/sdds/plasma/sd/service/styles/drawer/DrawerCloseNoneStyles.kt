@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DrawerStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -46,7 +47,7 @@ public value class WrapperDrawerCloseNoneMHasShadow(
 private val DrawerStyleBuilder.invariantProps: DrawerStyleBuilder
     @Composable
     get() = this
-        .closeIconRes(com.sdds.icons.R.drawable.ic_close_24)
+        .closeIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_close_24))
         .closeIconPlacement(CloseIconPlacement.None)
         .colors {
             background(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue())

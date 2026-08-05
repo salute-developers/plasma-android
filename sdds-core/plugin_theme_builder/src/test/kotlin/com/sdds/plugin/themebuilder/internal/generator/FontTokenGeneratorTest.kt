@@ -159,6 +159,38 @@ class FontTokenGeneratorTest {
         Assert.assertFalse(outputKt.toString().contains("R.font"))
     }
 
+    @Test
+    fun `FontGenerator в CMP-режиме эмитит Font(Res font) и @Composable-геттеры`() {
+        val input = getResourceAsText("inputs/test-font-input.json")
+        val fontTokens = Serializer.meta.decodeFromString<List<FontToken>>(input)
+        val outputKt = ByteArrayOutputStream()
+        val generator = FontTokenGenerator(
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            outputResDir = mockOutputResDir,
+            target = ThemeBuilderTarget.COMPOSE,
+            xmlFontFamilyBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),
+            fontDownloaderFactory = mockDownloaderFactory,
+            ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
+            namespace = "com.test",
+            resPrefix = "thmbldr",
+            fontTokenValues = fontTokenValues,
+            fontsAggregator = FontsAggregator(),
+            dimensionsConfig = DimensionsConfig(),
+            multiplatform = true,
+        )
+
+        fontTokens.forEach { token -> generator.addToken(token) }
+        generator.generate()
+
+        val output = outputKt.toString()
+        Assert.assertTrue(output.contains("import org.jetbrains.compose.resources.Font"))
+        Assert.assertTrue(output.contains("import com.test.generated.resources.Res"))
+        Assert.assertTrue(output.contains("Res.font."))
+        Assert.assertTrue(output.contains("@Composable"))
+        Assert.assertFalse(output.contains("R.font"))
+        Assert.assertFalse(output.contains("import com.test.R"))
+    }
+
     private companion object {
         val fontTokenValues = mapOf(
             Tenant.Default to mapOf(

@@ -3,18 +3,18 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.Spinner" parent="Sdds.Components.Spinner">
-        <item name="sd_sweepAngle">360</item>
-        <item name="sd_strokeCap">round</item>
         <item name="sd_startColor">@color/serv_spinner_start_color</item>
         <item name="sd_endColor">@color/serv_spinner_end_color</item>
+        <item name="sd_strokeCap">round</item>
+        <item name="sd_sweepAngle">360</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.SpinnerColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.Components.Spinner.Xxl">
-        <item name="android:minWidth">@dimen/serv_spinner_xxl_min_width</item>
+        <item name="android:padding">@dimen/serv_spinner_xxl_padding</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_xxl_max_height</item>
         <item name="android:maxWidth">@dimen/serv_spinner_xxl_max_width</item>
         <item name="android:minHeight">@dimen/serv_spinner_xxl_min_height</item>
-        <item name="android:maxHeight">@dimen/serv_spinner_xxl_max_height</item>
-        <item name="android:padding">@dimen/serv_spinner_xxl_padding</item>
+        <item name="android:minWidth">@dimen/serv_spinner_xxl_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SpinnerXxl">
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl</item>
@@ -62,11 +62,11 @@
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl.Info</item>
     </style>
     <style name="Serv.Sdds.Components.Spinner.Xl">
-        <item name="android:minWidth">@dimen/serv_spinner_xl_min_width</item>
+        <item name="android:padding">@dimen/serv_spinner_xl_padding</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_xl_max_height</item>
         <item name="android:maxWidth">@dimen/serv_spinner_xl_max_width</item>
         <item name="android:minHeight">@dimen/serv_spinner_xl_min_height</item>
-        <item name="android:maxHeight">@dimen/serv_spinner_xl_max_height</item>
-        <item name="android:padding">@dimen/serv_spinner_xl_padding</item>
+        <item name="android:minWidth">@dimen/serv_spinner_xl_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SpinnerXl">
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl</item>
@@ -114,11 +114,11 @@
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl.Info</item>
     </style>
     <style name="Serv.Sdds.Components.Spinner.L">
-        <item name="android:minWidth">@dimen/serv_spinner_l_min_width</item>
+        <item name="android:padding">@dimen/serv_spinner_l_padding</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_l_max_height</item>
         <item name="android:maxWidth">@dimen/serv_spinner_l_max_width</item>
         <item name="android:minHeight">@dimen/serv_spinner_l_min_height</item>
-        <item name="android:maxHeight">@dimen/serv_spinner_l_max_height</item>
-        <item name="android:padding">@dimen/serv_spinner_l_padding</item>
+        <item name="android:minWidth">@dimen/serv_spinner_l_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SpinnerL">
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L</item>
@@ -166,11 +166,11 @@
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L.Info</item>
     </style>
     <style name="Serv.Sdds.Components.Spinner.M">
-        <item name="android:minWidth">@dimen/serv_spinner_m_min_width</item>
+        <item name="android:padding">@dimen/serv_spinner_m_padding</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_m_max_height</item>
         <item name="android:maxWidth">@dimen/serv_spinner_m_max_width</item>
         <item name="android:minHeight">@dimen/serv_spinner_m_min_height</item>
-        <item name="android:maxHeight">@dimen/serv_spinner_m_max_height</item>
-        <item name="android:padding">@dimen/serv_spinner_m_padding</item>
+        <item name="android:minWidth">@dimen/serv_spinner_m_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SpinnerM">
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M</item>
@@ -218,11 +218,11 @@
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M.Info</item>
     </style>
     <style name="Serv.Sdds.Components.Spinner.S">
-        <item name="android:minWidth">@dimen/serv_spinner_s_min_width</item>
+        <item name="android:padding">@dimen/serv_spinner_s_padding</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_s_max_height</item>
         <item name="android:maxWidth">@dimen/serv_spinner_s_max_width</item>
         <item name="android:minHeight">@dimen/serv_spinner_s_min_height</item>
-        <item name="android:maxHeight">@dimen/serv_spinner_s_max_height</item>
-        <item name="android:padding">@dimen/serv_spinner_s_padding</item>
+        <item name="android:minWidth">@dimen/serv_spinner_s_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SpinnerS">
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S</item>
@@ -270,11 +270,11 @@
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S.Info</item>
     </style>
     <style name="Serv.Sdds.Components.Spinner.Xs">
-        <item name="android:minWidth">@dimen/serv_spinner_xs_min_width</item>
+        <item name="android:padding">@dimen/serv_spinner_xs_padding</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_xs_max_height</item>
         <item name="android:maxWidth">@dimen/serv_spinner_xs_max_width</item>
         <item name="android:minHeight">@dimen/serv_spinner_xs_min_height</item>
-        <item name="android:maxHeight">@dimen/serv_spinner_xs_max_height</item>
-        <item name="android:padding">@dimen/serv_spinner_xs_padding</item>
+        <item name="android:minWidth">@dimen/serv_spinner_xs_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SpinnerXs">
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs</item>
@@ -322,11 +322,11 @@
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs.Info</item>
     </style>
     <style name="Serv.Sdds.Components.Spinner.Xxs">
-        <item name="android:minWidth">@dimen/serv_spinner_xxs_min_width</item>
+        <item name="android:padding">@dimen/serv_spinner_xxs_padding</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_xxs_max_height</item>
         <item name="android:maxWidth">@dimen/serv_spinner_xxs_max_width</item>
         <item name="android:minHeight">@dimen/serv_spinner_xxs_min_height</item>
-        <item name="android:maxHeight">@dimen/serv_spinner_xxs_max_height</item>
-        <item name="android:padding">@dimen/serv_spinner_xxs_padding</item>
+        <item name="android:minWidth">@dimen/serv_spinner_xxs_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SpinnerXxs">
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs</item>
@@ -374,11 +374,11 @@
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs.Info</item>
     </style>
     <style name="Serv.Sdds.Components.Spinner.Scalable">
-        <item name="android:minWidth">@dimen/serv_spinner_scalable_min_width</item>
+        <item name="android:padding">@dimen/serv_spinner_scalable_padding</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_scalable_max_height</item>
         <item name="android:maxWidth">@dimen/serv_spinner_scalable_max_width</item>
         <item name="android:minHeight">@dimen/serv_spinner_scalable_min_height</item>
-        <item name="android:maxHeight">@dimen/serv_spinner_scalable_max_height</item>
-        <item name="android:padding">@dimen/serv_spinner_scalable_padding</item>
+        <item name="android:minWidth">@dimen/serv_spinner_scalable_min_width</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SpinnerScalable">
         <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Scalable</item>

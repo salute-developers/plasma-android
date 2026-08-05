@@ -1,202 +1,165 @@
-## Плагин ThemeBuilder
+# Design System Builder Gradle Plugin
 
-Плагин генерирует тему и токены на основе метаданных. Источником данных служит zip архив, который содержит:
-- meta.json файл с мета информацией о токенах.
-- папку android, содержащую файлы, начинающиеся с префикса "android_". Файлы содержат значения токенов для соответствующих ключей из meta.json.
+Плагин с id `io.github.salute-developers.design-system-builder` объединяет четыре независимые
+возможности: генерацию темы, генерацию компонентов, подготовку Android-документации и генерацию
+адаптеров для sandbox.
 
-## Установка
-<details>
-<summary>Добавить зависимость в gradle</summary>
+Подробная документация по описанию API компонентов:
 
-```groovy
+- [Compose: аннотации и `StyleBuilder`](COMPOSE_STYLE_GENERATOR.md);
+- [View: XML-разметка `declare-styleable`](VIEW_STYLE_GENERATOR.md).
+
+```toml
 [plugins]
-themebuilder = { id = "io.github.salute-developers.theme-builder-plugin" }
+dsbuilder = { id = "io.github.salute-developers.design-system-builder", version = "<version>" }
 ```
-</details>
-
-<details>
-
-<summary>Подключить плагин в build.gradle модуля</summary>
 
 ```kotlin
 plugins {
-	id(libs.plugins.themebuilder.get().pluginId)
+    alias(libs.plugins.dsbuilder)
 }
 ```
-</details>
-<br>
 
-Далее в `build.gradle` необходимо сконфигурировать плагин:
+Единственная публичная точка конфигурации — `dsBuilder`. Старые plugin id и `themeBuilder` DSL
+не поддерживаются.
 
-<details>
-<summary>Пример конфигурации для view и compose</summary>
+## Общая директория `.sdds`
+
+`sddsDirectory` по умолчанию ищется сначала в текущем project, затем в его непосредственном parent.
+Путь можно переопределить:
 
 ```kotlin
-plugins {
-	...
-	id(libs.plugins.themebuilder.get().pluginId)
-}
-
-android {
-    namespace = "com.example.app.themebuilder"
-    resourcePrefix = "thmbldr"
-}
-
-themeBuilder {
-    themeSource(name = "stylesSalute", version = "0.1.0")
-    view(parentThemeName = "Sdds.Theme")
-    compose()
-    ktPackage("com.example.app.themebuilder.tokens")
+dsBuilder {
+    sddsDirectory.set(layout.projectDirectory.dir("design-system"))
 }
 ```
-</details>
-<br>
-Минимальная настройка должна содержать источник темы `themeSource` или локальный `.sdds/config.json` и один из целевых фреймворков view | compose.
 
-## Конфигурация
+Стандартные файлы:
 
-#### `themeSource`
-Источник для скачивания архива с темой. Возможны два варианта: по названию и номеру версии (предпочтительный способ) и по url. Если указать только название, будет скачана latest версия архива с мета данными темы.
+| Назначение | Compose | View |
+|---|---|---|
+| Components info | `config-info-compose.json` | `config-info-view-system.json` |
+| Theme info | `theme-info-compose.json` | `theme-info-view-system.json` |
 
-<details>
-<summary>Примеры настройки themeSource</summary>
+Если источник темы не задан явно, `theme` читает `.sdds/config.json`. Первый tenant становится
+внутренним `Tenant.Default`, остальные сохраняются как вариации одной темы. Alias темы берётся из
+`tenant.alias`, с fallback на `tenant.name`.
+
+## Theme и components
+
+Блок `targets { }` на верхнем уровне `dsBuilder` явно выбирает целевые платформы (Compose/View) и
+настраивает платформо-зависимые опции — так сразу видно, что генерируется и как:
 
 ```kotlin
-themeSource(name = "stylesSalute") // version = "latest"
-```
-```kotlin
-themeSource(name = "stylesSalute", version = "0.1.0")
-```
-```kotlin
-themeSource(url = "https://example.com/themes/theme.zip")
-```
-</details>
+import com.sdds.plugin.themebuilder.OutputLocation.SRC
+import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
 
-#### `.sdds/config.json`
-Если `themeSource` или `themeSources` не заданы явно, плагин использует `.sdds/config.json` как fallback-источник темы. Такой формат подходит для модулей, где DSBuilder уже выгрузил theme data в локальную директорию `.sdds/`.
-
-Плагин читает массив `tenants` и для каждого tenant использует `alias`, если он задан, иначе `name`. Если у tenant есть `directoryPath`, файлы темы читаются из этой директории относительно модуля. Если `directoryPath` отсутствует, используется путь `.sdds/<tenant.name>`.
-
-Каждая tenant-директория должна содержать:
-- `meta.json`
-- `android/android_color.json`
-- `android/android_gradient.json`
-- `android/android_typography.json`
-- `android/android_fontFamily.json`
-- `android/android_shape.json`
-- `android/android_shadow.json`
-- `android/android_spacing.json`
-
-Первый tenant из `.sdds/config.json` используется как внутренняя база `Tenant.Default`: в `GenerateThemeTask` он передается с пустым tenant suffix. Остальные tenants передаются с suffix `alias ?: name`.
-
-Локальный `.sdds` source заменяет загрузку theme zip и palette: для него не создаются `fetchTheme*`, `unpackThemeFiles*` и `fetchPalette` tasks. Палитра читается из `palettePath` в `.sdds/config.json`, а если поле не задано, из `.sdds/tenants/palette.json`. Для явно заданных `themeSource` или `themeSources` палитра по-прежнему скачивается из `paletteUrl`.
-
-<details>
-<summary>Пример .sdds/config.json</summary>
-
-```json
-{
-  "tenants": [
-    {
-      "name": "sdds_default",
-      "alias": "Default",
-      "directoryPath": ".sdds/sdds_default"
-    },
-    {
-      "name": "sdds_partner",
-      "directoryPath": ".sdds/sdds_partner"
+dsBuilder {
+    autoGenerate.set(false)
+    targets {
+        compose()
+        // либо view {
+        //     themeParents {
+        //         materialComponentsTheme("NoActionBar")
+        //     }
+        //     setupShapeAppearance(sddsShape())
+        // }
     }
-  ]
-}
-```
-</details>
-
-#### `view` (optional)
-Опциональная настройка генерации тем для view фреймворка. Можно указать список наследуемых тем. 
-Если не указать, то сгенерированная тема для view не будет иметь parent'a и будет представлена в двух директориях res/values и res/values-night.
-
-<details>
-<summary>Примеры настройки view</summary>
-
-```kotlin
-view { 
-    themeParents {
-        materialComponentsTheme() // Наследуемся от Theme.MaterialComponents и генерируем единственную тему c темными токенами
-        materialComponentsTheme("DayNight") // Наследуемся от Theme.MaterialComponents.DayNight
-        appCompatTheme("Light.NoActionBar") // Наследуемся от Theme.AppCompat.Light.NoActionBar и генерируем единственную тему cо светлыми токенами
-        customTheme("Theme.App", ViewThemeType.DARK_LIGHT) // Наследумся от Theme.App и генерируем тему для двух режимов
-        customTheme("Theme.Custom", ViewThemeType.DARK) // Наследумся от Theme.Custom и генерируем единственную тему c темными токенами
+    packageName.set("com.example.designsystem")
+    resourcePrefix.set("example")
+    outputLocation.set(SRC)
+    dimensions {
+        fromResources(true)
+    }
+    theme {
+        source(name = "stylesSalute", version = "latest", alias = "Salute")
+        mode.set(THEME)
+    }
+    components {
+        source(name = "componentsSalute", version = "latest", alias = "Salute")
+        componentsMetaStyleClass.set(true)
     }
 }
 ```
-```kotlin
-view() // Тема не будет иметь parent'a
-```
-</details>
 
-#### `compose` (optional)
-Опциональная настройка генерации темы для Compose.
+Compose Multiplatform включается через `targets { compose(multiplatform = true) }`. Если нужны обе
+платформы, вызовите `compose()` и `view { ... }` внутри одного блока `targets { }` — вызовы
+объединяются. URL-источники и несколько tenant-вариаций поддерживаются через `source(url = ..., name = ...)`
+и `sources(baseAlias = ...)`. Общие `packageName`, `resourcePrefix`, `outputLocation` и `dimensions`
+задаются на уровне `dsBuilder`; одноимённые capability-настройки остаются доступными как точечные
+overrides.
 
-<details>
-<summary>Пример настройки compose</summary>
+> Старые top-level шорткаты `compose()` и `view { ... }` продолжают работать для обратной
+> совместимости, но помечены `@Deprecated` и будут удалены в будущих релизах. Для нового кода
+> используйте `targets { ... }`.
 
-```kotlin
-compose()
-```
-</details>
+## Documentation
 
-#### `ktPackage` (optional)
-Для генерации темы любого фреймворка необходимо указать ktPackage - пакет для генерируемых kotlin-файлов. Итоговый пакет будет состоять из указанного ktPackage + ".compose" или ".vs".
-
-<details>
-<summary>Пример настройки пакета</summary>
+Платформа для документации определяется верхнеуровневым `targets { }`. Блок `documentation { }`
+включает capability и принимает только глобальные настройки (например, `outputDirectory`). Чтобы
+переопределить пути к `components-info.json` / `theme-info.json` под конкретную платформу,
+используйте вложенные `compose { }` / `view { }` — они не выбирают платформу, а только
+конфигурируют:
 
 ```kotlin
-ktPackage("com.example.app.themebuilder.tokens")
+dsBuilder {
+    targets {
+        compose() // выбирает платформу для всех capability: theme, components, documentation, sandbox
+    }
+    documentation {
+        // опционально: переопределение путей
+        compose {
+            componentsInfoFile.set(layout.projectDirectory.file("custom/info.json"))
+        }
+    }
+}
 ```
-</details>
 
-#### `resourcesPrefix` (optional)
-Префикс для названий ресурсов. Можно не указывать, если он уже указан в android конфигурации (см. пример выше).
+Задача `documentationAggregate` создаёт platform enrichment в `.sdds/temp/docs`:
 
-<details>
-<summary>Пример настройки resourcesPrefix</summary>
+```text
+assets/examples/kotlin/
+assets/examples/xml/
+meta/samples.json
+meta/components-info.json
+meta/theme-info.json
+```
+
+Core snippet artifacts подключаются в configuration `sddsCoreDocumentation`; их `meta.json`
+объединяется с локальной metadata в `meta/samples.json`. Поле `snippetPath` хранится относительно
+корня `.sdds/temp/docs`, например `assets/examples/kotlin/com/example/Sample.kt`. Плагин не запускает
+Docusaurus, npm, публикацию или сетевые portal-задачи и не создаёт `manifest.json`/`docs.json`:
+это ответственность `dsbuilder docs generate`.
+
+## Sandbox
+
+Платформа для sandbox-адаптеров тоже определяется верхнеуровневым `targets { }`. Вложенные
+`compose { }` / `view { }` внутри `sandbox { }` — это конфигурационные блоки для уже выбранной
+платформы (имя пакета, alias темы, `multiplatform` для KMP и т.п.):
 
 ```kotlin
-resourcesPrefix(prefix = "ds")
+dsBuilder {
+    targets {
+        compose() // включает генерацию Compose sandbox-адаптера
+    }
+    sandbox {
+        compose {
+            multiplatform.set(false)
+            // componentsInfoFile, generatedPackageName и themeAlias имеют conventions
+        }
+    }
+}
 ```
-</details>
 
-#### `mode` (optional) 
-Режим работы плагина - генерируются только токены либо тема с токенами. По умолчанию генерируются только токены.
+Для View: `targets { view() }` + `sandbox { view { ... } }`. Можно включить обе платформы и
+конфигурировать каждую отдельно. `componentsInfoFile` выводится из `.sdds`, package — из Android
+namespace (либо `componentsInfo.packageName + ".sandbox"`), theme alias — из первого базового
+tenant. Scheme по умолчанию — `SandboxScheme.V2`. Все значения можно явно переопределить.
 
-<details>
-<summary>Пример настройки mode</summary>
+Generated sandbox sources записываются в `build/generated/sdds/sandbox` и автоматически
+подключаются к Android `main` или KMP `commonMain`.
 
-```kotlin
-mode(mode = ThemeBuilderMode.TOKENS_ONLY) // сгенерируются только токены
-```
-```kotlin
-mode(mode = ThemeBuilderMode.THEME) // сгенерируются токены и темы
-```
-</details>
-
-#### `paletteUrl` (optional) 
-Ссылка для скачивания палитры цветов.
-
-<details>
-<summary>Пример настройки paletteUrl</summary>
-
-```kotlin
-paletteUrl(url = "https://example.com/themes/color-palette.json")
-```
-</details>
-
-## Использование
-Необходимо запустить сборку модуля, куда был подключен плагин:
-
- `./gradlew :your_module:assemble`
-
-Плагин скачает архив с темой из источника, указанного в `themeSource` и сгенерирует токены/темы под указанные фреймворки. По пути `your_module/build/generated/` должны появиться папки:
-- `your_module/build/generated/theme-builder` - Kotlin-файлы темы. Может содержать токены и тему для compose, а также токены градиентов для view.
-- `your_module/build/generated/theme-builder-res` - ресурсы темы. Содержит токены и темы для view, а также ресурсы шрифтов для compose.
+> Выбор платформы — **только** на верхнем уровне `dsBuilder.targets { }`. Внутри `documentation`
+> и `sandbox` доступны блоки `compose { }` / `view { }`, но они только конфигурируют платформу,
+> а не включают её. Так невозможно случайно рассинхронизировать выбор платформы между
+> capability.

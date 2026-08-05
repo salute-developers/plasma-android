@@ -4,19 +4,20 @@
 <resources>
     <style name="Serv.Sdds.Components.DropdownMenuItemNormal" parent="Sdds.Components.ListItem">
         <item name="sd_background">@color/serv_dropdown_menu_item_normal_bg_color</item>
-        <item name="sd_titleColor">@color/serv_dropdown_menu_item_normal_text_color</item>
         <item name="sd_disclosureColor">?serv_textDefaultSecondary</item>
+        <item name="sd_titleColor">@color/serv_dropdown_menu_item_normal_text_color</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.ListItemViewColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.Components.DropdownMenuItemNormal.Xl">
-        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
-        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
-        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_xl_content_end_padding</item>
-        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_xl_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_xl_padding_end</item>
-        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_xl_padding_top</item>
-        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_xl_padding_bottom</item>
         <item name="android:minHeight">@dimen/serv_dropdown_menu_item_normal_xl_min_height</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_xl_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_xl_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_xl_padding_start</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_xl_padding_top</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_xl_content_end_padding</item>
+        <item name="sd_contentStartPadding">@dimen/serv_dropdown_menu_item_normal_xl_content_start_padding</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
         <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalXl">
@@ -41,15 +42,16 @@
         <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemNormal.Xl.Negative</item>
     </style>
     <style name="Serv.Sdds.Components.DropdownMenuItemNormal.L">
+        <item name="android:minHeight">@dimen/serv_dropdown_menu_item_normal_l_min_height</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_l_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_l_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_l_padding_start</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_l_padding_top</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_l_content_end_padding</item>
+        <item name="sd_contentStartPadding">@dimen/serv_dropdown_menu_item_normal_l_content_start_padding</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/serv_dropdown_menu_item_normal_l_shape_adjustment</item>
-        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
-        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_l_content_end_padding</item>
-        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_l_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_l_padding_end</item>
-        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_l_padding_top</item>
-        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_l_padding_bottom</item>
-        <item name="android:minHeight">@dimen/serv_dropdown_menu_item_normal_l_min_height</item>
         <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalL">
@@ -74,14 +76,15 @@
         <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemNormal.L.Negative</item>
     </style>
     <style name="Serv.Sdds.Components.DropdownMenuItemNormal.M">
-        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
-        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
-        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_m_content_end_padding</item>
-        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_m_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_m_padding_end</item>
-        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_m_padding_top</item>
-        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_m_padding_bottom</item>
         <item name="android:minHeight">@dimen/serv_dropdown_menu_item_normal_m_min_height</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_m_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_m_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_m_padding_start</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_m_padding_top</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_m_content_end_padding</item>
+        <item name="sd_contentStartPadding">@dimen/serv_dropdown_menu_item_normal_m_content_start_padding</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
         <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalM">
@@ -106,15 +109,16 @@
         <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemNormal.M.Negative</item>
     </style>
     <style name="Serv.Sdds.Components.DropdownMenuItemNormal.S">
+        <item name="android:minHeight">@dimen/serv_dropdown_menu_item_normal_s_min_height</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_s_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_s_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_s_padding_start</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_s_padding_top</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_s_content_end_padding</item>
+        <item name="sd_contentStartPadding">@dimen/serv_dropdown_menu_item_normal_s_content_start_padding</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/serv_dropdown_menu_item_normal_s_shape_adjustment</item>
-        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
-        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_s_content_end_padding</item>
-        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_s_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_s_padding_end</item>
-        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_s_padding_top</item>
-        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_s_padding_bottom</item>
-        <item name="android:minHeight">@dimen/serv_dropdown_menu_item_normal_s_min_height</item>
         <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalS">
@@ -139,14 +143,15 @@
         <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemNormal.S.Negative</item>
     </style>
     <style name="Serv.Sdds.Components.DropdownMenuItemNormal.Xs">
-        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
-        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
-        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_xs_content_end_padding</item>
-        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_xs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_xs_padding_end</item>
-        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_xs_padding_top</item>
-        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_xs_padding_bottom</item>
         <item name="android:minHeight">@dimen/serv_dropdown_menu_item_normal_xs_min_height</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_normal_xs_padding_bottom</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_normal_xs_padding_end</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_normal_xs_padding_start</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_normal_xs_padding_top</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_normal_xs_content_end_padding</item>
+        <item name="sd_contentStartPadding">@dimen/serv_dropdown_menu_item_normal_xs_content_start_padding</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
         <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalXs">

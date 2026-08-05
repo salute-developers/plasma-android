@@ -35,7 +35,7 @@ buildscript {
 
 /**
  * Gradle-таска, генерирующая модули тем в соответствии со списком тем.
- * Каждый модуль содержит файл build.gradle.kts с нужной конфигурацией themeBuilder
+ * Каждый модуль содержит файл build.gradle.kts с нужной конфигурацией dsBuilder
  * и файл манифеста.
  */
 internal abstract class GenerateThemeModulesTask @Inject constructor() : DefaultTask() {
@@ -101,18 +101,20 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
             appendLine("    id(\"convention.compose\")")
             appendLine("    id(\"convention.maven-publish\")")
             appendLine("    id(\"convention.auto-bump\")")
-            appendLine("    id(libs.plugins.themebuilder.get().pluginId)")
+            appendLine("    id(libs.plugins.dsbuilder.get().pluginId)")
             appendLine("}")
             appendLine()
             appendLine("android {")
             appendLine("    namespace = \"com.sdds.themes.${themeName.replaceSnakeByPoint()}.tokens\"")
             appendLine("}")
             appendLine()
-            appendLine("themeBuilder {")
-            appendLine("    themeSource(name = \"$themeName\", version = \"latest\")")
+            appendLine("dsBuilder {")
             appendLine("    compose()")
-            appendLine("    ktPackage(ktPackage = \"com.sdds.themes.${themeName.replaceSnakeByPoint()}.tokens\")")
-            appendLine("    resourcesPrefix(prefix = \"sdgen\")")
+            appendLine("    packageName.set(\"com.sdds.themes.${themeName.replaceSnakeByPoint()}.tokens\")")
+            appendLine("    resourcePrefix.set(\"sdgen\")")
+            appendLine("    theme {")
+            appendLine("        source(name = \"$themeName\", version = \"latest\")")
+            appendLine("    }")
             appendLine("}")
             appendLine()
             appendLine("dependencies {")
@@ -126,7 +128,7 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
             appendLine("@Suppress(\"DSL_SCOPE_VIOLATION\")")
             appendLine("plugins {")
             appendLine("    id(\"convention.android-lib\")")
-            appendLine("    id(libs.plugins.themebuilder.get().pluginId)")
+            appendLine("    id(libs.plugins.dsbuilder.get().pluginId)")
             appendLine("    id(\"convention.maven-publish\")")
             appendLine("    id(\"convention.auto-bump\")")
             appendLine("}")
@@ -135,11 +137,13 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
             appendLine("    namespace = \"com.sdds.themes.${themeName.replaceSnakeByPoint()}.tokens\"")
             appendLine("}")
             appendLine()
-            appendLine("themeBuilder {")
-            appendLine("    themeSource(name = \"$themeName\", version = \"latest\")")
+            appendLine("dsBuilder {")
             appendLine("    view()")
-            appendLine("    ktPackage(ktPackage = \"com.sdds.themes.${themeName.replaceSnakeByPoint()}.tokens\")")
-            appendLine("    resourcesPrefix(prefix = \"sdgen\")")
+            appendLine("    packageName.set(\"com.sdds.themes.${themeName.replaceSnakeByPoint()}.tokens\")")
+            appendLine("    resourcePrefix.set(\"sdgen\")")
+            appendLine("    theme {")
+            appendLine("        source(name = \"$themeName\", version = \"latest\")")
+            appendLine("    }")
             appendLine("}")
             appendLine()
             appendLine("dependencies {")

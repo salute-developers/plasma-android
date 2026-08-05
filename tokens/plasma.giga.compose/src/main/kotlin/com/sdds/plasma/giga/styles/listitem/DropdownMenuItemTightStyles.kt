@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -129,7 +130,7 @@ public val DropdownMenuItemTight.Xl: WrapperDropdownMenuItemTightXl
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(8.0.dp)
             paddingStart(18.0.dp)
@@ -148,7 +149,7 @@ public val DropdownMenuItemTight.L: WrapperDropdownMenuItemTightL
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM)
         .titleStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(8.0.dp)
             paddingStart(16.0.dp)
@@ -167,7 +168,7 @@ public val DropdownMenuItemTight.M: WrapperDropdownMenuItemTightM
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
         .dimensions {
             contentPaddingEnd(8.0.dp)
             paddingStart(14.0.dp)
@@ -186,7 +187,7 @@ public val DropdownMenuItemTight.S: WrapperDropdownMenuItemTightS
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundS)
         .titleStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .dimensions {
             contentPaddingEnd(6.0.dp)
             paddingStart(12.0.dp)
@@ -205,7 +206,7 @@ public val DropdownMenuItemTight.Xs: WrapperDropdownMenuItemTightXs
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundXs)
         .titleStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(resourceImageSource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
         .dimensions {
             contentPaddingEnd(6.0.dp)
             paddingStart(8.0.dp)

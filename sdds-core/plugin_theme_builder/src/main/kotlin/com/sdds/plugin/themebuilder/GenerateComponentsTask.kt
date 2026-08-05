@@ -5,23 +5,25 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isComposeOrAll
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.components.ComponentInfo
-import com.sdds.plugin.themebuilder.internal.components.ConfigInfo
-import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
-import com.sdds.plugin.themebuilder.internal.components.base.Component
-import com.sdds.plugin.themebuilder.internal.components.base.Components
-import com.sdds.plugin.themebuilder.internal.components.base.compose.AppearanceInfo
-import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeMetaClassGenerator
-import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeMetaClassInfo
-import com.sdds.plugin.themebuilder.internal.components.base.compose.MetaClassAppearance
-import com.sdds.plugin.themebuilder.internal.components.base.compose.buildComposeStyleApiInfos
-import com.sdds.plugin.themebuilder.internal.components.componentDelegates
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
-import com.sdds.plugin.themebuilder.internal.universal.ComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.Component
+import com.sdds.plugin.themebuilder.internal.universal.ComponentInfo
+import com.sdds.plugin.themebuilder.internal.universal.Components
+import com.sdds.plugin.themebuilder.internal.universal.ConfigInfo
+import com.sdds.plugin.themebuilder.internal.universal.StyleGeneratorDependencies
+import com.sdds.plugin.themebuilder.internal.universal.compose.AppearanceInfo
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeMetaClassGenerator
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeMetaClassInfo
+import com.sdds.plugin.themebuilder.internal.universal.compose.MetaClassAppearance
+import com.sdds.plugin.themebuilder.internal.universal.compose.buildComposeStyleApiInfos
+import com.sdds.plugin.themebuilder.internal.universal.universalComponentGenerator
+import com.sdds.plugin.themebuilder.internal.universal.view.ApiMeta
+import com.sdds.plugin.themebuilder.internal.universal.view.ViewMetaIndex
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
@@ -36,6 +38,7 @@ import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.InputFile
+import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
@@ -77,7 +80,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     /**
      * Директория проекта
      */
-    @get:OutputDirectory
+    @get:Internal
     abstract val projectDir: DirectoryProperty
 
     /**
@@ -111,8 +114,22 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     abstract val componentsMetaStyleClass: Property<Boolean>
 
     /**
-     * JSON-файл с метаданными компонентов uikit (из uikit-api-meta.json).
-     * Опционален: если не задан, делегаты работают без универсального генератора.
+     * Признак мультиплатформенного (Compose Multiplatform) режима генерации стилей.
+     */
+    @get:Input
+    abstract val multiplatform: Property<Boolean>
+
+    /**
+     * JSON-файл с метаданными компонентов uikit (из `uikit-compose-api-meta.json`).
+     * Опционален: без него Compose-стили не генерируются.
+     */
+    @get:InputFile
+    @get:Optional
+    abstract val uikitComposeApiMetaFile: RegularFileProperty
+
+    /**
+     * JSON-файл с метаданными View-API uikit (из `uikit-api-meta.json`).
+     * Опционален: без него View-стили не генерируются.
      */
     @get:InputFile
     @get:Optional
@@ -123,11 +140,11 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     fun generate() {
         val deps = getGeneratorDependencies()
         val componentsDir = componentsDir.get()
-        // Мета из uikit-compose нужна только универсальному Compose-генератору.
-        // Универсального генератора для View пока нет, поэтому при генерации view-библиотек
-        // compose-мету читать не нужно — иначе её отсутствие ломает генерацию view-стилей.
-        val allMeta = if (deps.target.isComposeOrAll) loadUikitApiMeta() else emptyList()
-        val delegates = componentDelegates(allMeta, metaInfo.components)
+        // Каждая мета нужна своей цели: compose-мета — Compose-генератору, view-мета —
+        // View-генератору. Для однопрофильной генерации чужую мету читать не нужно.
+        val allMeta = if (deps.target.isComposeOrAll) loadUikitComposeApiMeta() else emptyList()
+        val viewIndex = ViewMetaIndex(if (deps.target.isViewSystemOrAll) loadUikitApiMeta() else ApiMeta())
+        val componentGenerator = universalComponentGenerator(allMeta, viewIndex, metaInfo.components)
         val composeComponents = mutableListOf<ComponentInfo>()
         val viewComponents = mutableListOf<ComponentInfo>()
         metaInfo.components.forEach { component ->
@@ -135,10 +152,9 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
                 val configFile = componentsDir
                     .file(component.config)
                     .asFile
-                val componentDelegate = delegates[component.componentName]
                 if (deps.target.isComposeOrAll) {
-                    val componentInfo = componentDelegate?.generateComposeStyles(
-                        file = configFile,
+                    val componentInfo = componentGenerator.generateCompose(
+                        configFile = configFile,
                         deps = deps,
                         component = component,
                     )
@@ -146,8 +162,8 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
                 }
 
                 if (deps.target.isViewSystemOrAll) {
-                    val componentInfo = componentDelegate?.generateViewSystemStyles(
-                        file = configFile,
+                    val componentInfo = componentGenerator.generateView(
+                        configFile = configFile,
                         deps = deps,
                         component = component,
                     )
@@ -284,9 +300,18 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     }
 
     @OptIn(ExperimentalSerializationApi::class)
-    private fun loadUikitApiMeta(): List<ComponentMeta> {
-        val file = if (uikitApiMetaFile.isPresent) uikitApiMetaFile.get().asFile else return emptyList()
+    private fun loadUikitComposeApiMeta(): List<ComposeComponentMeta> {
+        val file = if (uikitComposeApiMetaFile.isPresent) uikitComposeApiMetaFile.get().asFile else return emptyList()
         if (!file.exists()) return emptyList()
+        return file.inputStream().use { stream ->
+            Serializer.componentConfig.decodeFromStream(stream)
+        }
+    }
+
+    @OptIn(ExperimentalSerializationApi::class)
+    private fun loadUikitApiMeta(): ApiMeta {
+        val file = if (uikitApiMetaFile.isPresent) uikitApiMetaFile.get().asFile else return ApiMeta()
+        if (!file.exists()) return ApiMeta()
         return file.inputStream().use { stream ->
             Serializer.componentConfig.decodeFromStream(stream)
         }
@@ -343,6 +368,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
             packageResolver = packageResolver,
             target = target.get(),
+            multiplatform = multiplatform.getOrElse(false),
         )
     }
 

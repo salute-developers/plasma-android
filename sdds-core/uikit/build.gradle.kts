@@ -1,6 +1,7 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
+    id("convention.uikit-api-meta")
     id("convention.maven-publish")
     id("convention.auto-bump")
     id("convention.dokka")

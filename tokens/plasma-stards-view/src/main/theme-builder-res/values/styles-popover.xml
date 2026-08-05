@@ -3,12 +3,12 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Sdkit.StarDs.Components.Popover" parent="Sdds.Components.Popover">
-        <item name="sd_shadowAppearance">?sdkit_shadowDownHardM</item>
-        <item name="android:minWidth">@dimen/sdkit_popover_min_width</item>
         <item name="sd_offset">@dimen/sdkit_popover_offset</item>
+        <item name="sd_shadowAppearance">?sdkit_shadowDownHardM</item>
+        <item name="sd_background">@color/sdkit_popover_bg_color</item>
         <item name="sd_shapeTailWidth">@dimen/sdkit_popover_tail_width</item>
         <item name="sd_shapeTailHeight">@dimen/sdkit_popover_tail_height</item>
-        <item name="sd_background">@color/sdkit_popover_bg_color</item>
+        <item name="android:minWidth">@dimen/sdkit_popover_min_width</item>
         <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.PopoverColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.Components.Popover.M">

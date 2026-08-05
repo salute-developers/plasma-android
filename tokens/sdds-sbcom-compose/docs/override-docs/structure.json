@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "navigation": [
+    {
+      "title": "Визуальные эффекты",
+      "items": [
+        {"title": "Indication", "path": "graphics/IndicationUsage.md", "merge": "append"}
+      ]
+    }
+  ]
+}
