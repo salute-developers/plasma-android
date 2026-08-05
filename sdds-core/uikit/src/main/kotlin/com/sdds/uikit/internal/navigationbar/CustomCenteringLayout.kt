@@ -123,7 +123,7 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
             maxOf(actionStart.measuredHeight, actionEnd.measuredHeight, centerContent.measuredHeight)
         setMeasuredDimension(
             resolveSize(widthUsed, widthMeasureSpec),
-            resolveSize(heightUsed, heightMeasureSpec),
+            resolveSize(maxOf(heightUsed, suggestedMinimumHeight), heightMeasureSpec),
         )
     }
 

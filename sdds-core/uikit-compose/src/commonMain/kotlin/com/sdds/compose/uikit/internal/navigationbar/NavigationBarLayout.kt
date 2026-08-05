@@ -19,6 +19,7 @@ import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.constrainWidth
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBarTextAlign
@@ -41,14 +42,29 @@ internal fun NavigationBarLayout(
     paddings: PaddingValues,
     centerAlignmentStrategy: NavBarCenterAlignmentStrategy,
     textAlign: NavigationBarTextAlign,
+    minContentHeight: Dp = 0.dp,
     alpha: () -> Float = { 1f },
     offsetPx: () -> Float = { 0f },
     onMainContentSizeChanged: (Int) -> Unit = {},
 ) {
     Layout(
         modifier = modifier,
-        measurePolicy = remember(centerAlignmentStrategy, textAlign, offsetPx, onMainContentSizeChanged, paddings) {
-            NavBarMeasurePolicy(centerAlignmentStrategy, textAlign, offsetPx, onMainContentSizeChanged, paddings)
+        measurePolicy = remember(
+            centerAlignmentStrategy,
+            textAlign,
+            offsetPx,
+            onMainContentSizeChanged,
+            paddings,
+            minContentHeight,
+        ) {
+            NavBarMeasurePolicy(
+                centerAlignmentStrategy,
+                textAlign,
+                offsetPx,
+                onMainContentSizeChanged,
+                paddings,
+                minContentHeight,
+            )
         },
         content = {
             startContent?.let {
@@ -95,6 +111,7 @@ private class NavBarMeasurePolicy(
     private val offsetPx: (() -> Float)?,
     private val onMainContentSizeChanged: (Int) -> Unit,
     private val paddings: PaddingValues,
+    private val minContentHeight: Dp,
 ) : MeasurePolicy {
 
     private val hasAbsoluteCenter = textAlign == NavigationBarTextAlign.Center &&
@@ -134,7 +151,7 @@ private class NavBarMeasurePolicy(
             startContent.heightOrZero(),
             centerContent.heightOrZero(),
             endContent.heightOrZero(),
-        )
+        ).coerceAtLeast(minContentHeight.roundToPx())
         onMainContentSizeChanged.invoke(contentHeight + paddingTop + paddingBottom)
         val offset = (offsetPx?.invoke()?.roundToInt() ?: 0)
         val height = contentHeight + offset + paddingTop + paddingBottom

@@ -476,6 +476,19 @@ interface CollapsingNavigationBarDimensions {
      */
     val textBlockTopMargin: Dp
 
+    /**
+     * Минимальная высота контент-области — блока со слотами actionStart, центрального контента
+     * и actionEnd. Позволяет зафиксировать высоту компонента, чтобы она не менялась
+     * при разной высоте содержимого слотов (например, иконка против текста).
+     *
+     * Значение для состояния [CollapsingNavigationBarStates.Collapsed] задаёт минимальную высоту
+     * свёрнутого ряда, значение по умолчанию — минимальную высоту раскрытого блока.
+     *
+     * Величина относится именно к контент-области: вертикальные отступы добавляются сверх неё
+     * и в неё не входят. Системные инсеты в величину также не входят.
+     */
+    val minContentHeight: StatefulValue<Dp>
+
     companion object {
         /**
          * Создает экземпляр [CollapsingNavigationBarDimensionsBuilder]
@@ -535,6 +548,17 @@ interface CollapsingNavigationBarDimensionsBuilder {
         descriptionPadding(descriptionPadding.asStatefulValue())
 
     /**
+     * Устанавливает минимальную высоту контент-области [minContentHeight]
+     */
+    fun minContentHeight(minContentHeight: Dp): CollapsingNavigationBarDimensionsBuilder =
+        minContentHeight(minContentHeight.asStatefulValue())
+
+    /**
+     * Устанавливает минимальную высоту контент-области [minContentHeight]
+     */
+    fun minContentHeight(minContentHeight: StatefulValue<Dp>): CollapsingNavigationBarDimensionsBuilder
+
+    /**
      * Создает экземпляр [CollapsingNavigationBarDimensions]
      */
     fun build(): CollapsingNavigationBarDimensions
@@ -549,6 +573,7 @@ private class DefaultCollapsingNavigationBarDimensions(
     override val horizontalSpacing: Dp,
     override val descriptionPadding: StatefulValue<Dp>,
     override val textBlockTopMargin: Dp,
+    override val minContentHeight: StatefulValue<Dp>,
 ) : CollapsingNavigationBarDimensions {
 
     class Builder : CollapsingNavigationBarDimensionsBuilder {
@@ -561,6 +586,7 @@ private class DefaultCollapsingNavigationBarDimensions(
         private var paddingTop: Dp? = null
         private var paddingBottom: Dp? = null
         private var descriptionPadding: StatefulValue<Dp>? = null
+        private var minContentHeight: StatefulValue<Dp>? = null
 
         override fun backIconMargin(backIconMargin: Dp) = apply {
             this.backIconMargin = backIconMargin
@@ -594,6 +620,10 @@ private class DefaultCollapsingNavigationBarDimensions(
             this.descriptionPadding = descriptionPadding
         }
 
+        override fun minContentHeight(minContentHeight: StatefulValue<Dp>) = apply {
+            this.minContentHeight = minContentHeight
+        }
+
         override fun build(): CollapsingNavigationBarDimensions {
             return DefaultCollapsingNavigationBarDimensions(
                 paddingStart = paddingStart ?: 16.dp,
@@ -604,6 +634,7 @@ private class DefaultCollapsingNavigationBarDimensions(
                 horizontalSpacing = horizontalSpacing ?: 16.dp,
                 descriptionPadding = descriptionPadding ?: 2.dp.asStatefulValue(),
                 textBlockTopMargin = textBlockTopMargin ?: 64.dp,
+                minContentHeight = minContentHeight ?: 0.dp.asStatefulValue(),
             )
         }
     }

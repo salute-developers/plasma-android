@@ -26,6 +26,8 @@
         <attr name="sd_contentPaddingBottom" sdds:api_name="paddingBottom" />
         <!-- Отступ между Title и Description -->
         <attr name="sd_descriptionMargin" format="dimension|reference" sdds:api_name="descriptionPadding" sdds:api_type="dimension" />
+        <!-- Минимальная высота блока, содержащего actions. Не включает отступы sd_contentPaddingTop и sd_contentPaddingBottom -->
+        <attr name="sd_minContentHeight" format="dimension|reference" sdds:api_name="minContentHeight" sdds:api_type="dimension" />
         <!-- Ссылка на ресурс иконки "назад" -->
         <attr name="sd_backIcon" format="reference" />
         <!-- Отступ от иконки "назад" и ActionStart  -->

@@ -2054,6 +2054,7 @@
     <dimen name="serv_navigation_bar_main_page_content_padding_bottom">20.0dp</dimen>
     <dimen name="serv_navigation_bar_main_page_description_margin_value_0">4.0dp</dimen>
     <dimen name="serv_navigation_bar_main_page_description_margin_value_1">12.0dp</dimen>
+    <dimen name="serv_navigation_bar_main_page_min_content_height">24.0dp</dimen>
     <dimen name="serv_navigation_bar_main_page_text_block_top_margin">16.0dp</dimen>
     <dimen name="serv_navigation_bar_main_page_horizontal_spacing">16.0dp</dimen>
     <dimen name="serv_navigation_bar_internal_page_content_padding_start">20.0dp</dimen>
@@ -2062,6 +2063,7 @@
     <dimen name="serv_navigation_bar_internal_page_content_padding_bottom">20.0dp</dimen>
     <dimen name="serv_navigation_bar_internal_page_description_margin_value_0">4.0dp</dimen>
     <dimen name="serv_navigation_bar_internal_page_description_margin_value_1">12.0dp</dimen>
+    <dimen name="serv_navigation_bar_internal_page_min_content_height">24.0dp</dimen>
     <dimen name="serv_navigation_bar_internal_page_back_icon_margin">4.0dp</dimen>
     <dimen name="serv_navigation_bar_internal_page_text_block_top_margin">16.0dp</dimen>
     <dimen name="serv_navigation_bar_internal_page_horizontal_spacing">16.0dp</dimen>

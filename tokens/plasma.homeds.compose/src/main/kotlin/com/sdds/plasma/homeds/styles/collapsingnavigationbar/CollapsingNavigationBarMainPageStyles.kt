@@ -75,5 +75,11 @@ public val CollapsingNavigationBarMainPage.Default: WrapperCollapsingNavigationB
                         4.0.dp,
                 ),
             )
+            minContentHeight(
+                36.0.dp.asStatefulValue(
+                    setOf(CollapsingNavigationBarStates.Collapsed) to
+                        24.0.dp,
+                ),
+            )
         }
         .wrap(::WrapperCollapsingNavigationBarMainPageDefault)

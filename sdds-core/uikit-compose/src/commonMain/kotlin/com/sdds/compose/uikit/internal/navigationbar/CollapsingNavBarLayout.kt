@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBarTextAlign
 
@@ -22,6 +23,7 @@ internal fun CollapsingNavBarLayout(
     horizontalSpacing: Dp,
     paddings: PaddingValues,
     centerAlignmentStrategy: NavBarCenterAlignmentStrategy,
+    minContentHeight: Dp = 0.dp,
 ) {
     NavigationBarLayout(
         modifier = modifier,
@@ -31,6 +33,7 @@ internal fun CollapsingNavBarLayout(
         horizontalSpacing = horizontalSpacing,
         centerAlignmentStrategy = centerAlignmentStrategy,
         textAlign = textAlign,
+        minContentHeight = minContentHeight,
         alpha = alpha,
         offsetPx = offsetPx,
         backgroundContent = backgroundContent,

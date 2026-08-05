@@ -200,6 +200,10 @@ internal fun BaseCollapsingNavBar(
                     bottom = style.dimensions.paddingBottom,
                 ),
                 centerAlignmentStrategy = centerAlignmentStrategy,
+                minContentHeight = style.dimensions.minContentHeight.getValue(
+                    interactionSource,
+                    collapsedStateSet,
+                ),
             )
 
             // Нижний контент
@@ -242,6 +246,7 @@ internal fun BaseCollapsingNavBar(
                     bottom = style.dimensions.paddingBottom,
                 ),
                 centerAlignmentStrategy = centerAlignmentStrategy,
+                minContentHeight = style.dimensions.minContentHeight.getValue(interactionSource),
             )
         }
 

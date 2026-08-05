@@ -106,6 +106,7 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
             paddingTop(20.0.dp)
             paddingBottom(20.0.dp)
             descriptionPadding(12.0.dp.asStatefulValue(setOf(NavigationBarTextPlacement.Inline) to 4.0.dp))
+            minContentHeight(24.0.dp)
         }
 
 public val NavigationBarMainPage.NoBackground: WrapperNavigationBarMainPageNoBackground
