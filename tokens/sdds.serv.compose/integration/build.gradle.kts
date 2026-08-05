@@ -12,26 +12,26 @@ android {
     namespace = "com.sdds.serv.compose.integration"
 }
 
+dsBuilder {
+    outputLocation.set(OutputLocation.SRC)
+    autoGenerate.set(false)
+    targets {
+        compose()
+    }
+    sandbox {
+        compose {
+            generatedPackageName.set("com.sdds.serv.integration")
+            themeAlias.set("SddsServ")
+            multiplatform.set(true)
+        }
+    }
+}
+
 kotlin {
     addDefaultTargets()
 
     sourceSets {
         commonMain {
-            dsBuilder {
-                outputLocation.set(OutputLocation.SRC)
-                autoGenerate.set(false)
-                targets {
-                    compose()
-                }
-                sandbox {
-                    compose {
-                        generatedPackageName.set("com.sdds.serv.integration")
-                        themeAlias.set("SddsServ")
-                        multiplatform.set(true)
-                    }
-                }
-            }
-
             dependencies {
                 implementation(project(":sdds.serv.compose"))
                 implementation("integration-core:sandbox-core")

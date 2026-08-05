@@ -287,12 +287,11 @@ abstract class DsBuilderCapability {
     /** Whether this capability was activated by its DSL block. */
     abstract val enabled: Property<Boolean>
 
-    /** Whether this capability is attached to Android `preBuild`. */
+    /** Whether this capability is attached to `preBuild`. */
     abstract val autoGenerate: Property<Boolean>
 
     init {
         enabled.convention(false)
-        autoGenerate.convention(true)
     }
 }
 

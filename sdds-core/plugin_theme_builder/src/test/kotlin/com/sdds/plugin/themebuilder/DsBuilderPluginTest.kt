@@ -216,6 +216,28 @@ class DsBuilderPluginTest {
     }
 
     @Test
+    fun `capabilities use root autoGenerate convention`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.root)
+            .build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        val extension = project.extensions.getByType(DsBuilderExtension::class.java)
+
+        assertTrue(extension.theme.autoGenerate.get())
+
+        extension.autoGenerate.set(false)
+
+        listOf(
+            extension.theme,
+            extension.components,
+            extension.documentation,
+            extension.sandbox,
+        ).forEach { capability ->
+            assertFalse(capability.autoGenerate.get())
+        }
+    }
+
+    @Test
     fun `legacy top-level compose shortcut still works for backward compatibility`() {
         val project = ProjectBuilder.builder()
             .withProjectDir(temporaryFolder.root)
@@ -613,6 +635,30 @@ class DsBuilderPluginTest {
         assertTrue(
             preBuild.get().taskDependencies.getDependencies(preBuild.get())
                 .any { it.name == "generateComponents" },
+        )
+    }
+
+    @Test
+    fun `root auto generation disables components preBuild dependency`() {
+        val project = ProjectBuilder.builder()
+            .withProjectDir(temporaryFolder.newFolder("components-manual"))
+            .build()
+        val preBuild = project.tasks.register("preBuild")
+        project.configurations.create("compileClasspath")
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).apply {
+            autoGenerate.set(false)
+            components {
+                compose()
+                source("https://example.com/components.zip")
+            }
+        }
+
+        (project as ProjectInternal).evaluate()
+
+        assertTrue(
+            preBuild.get().taskDependencies.getDependencies(preBuild.get())
+                .none { it.name == "generateComponents" },
         )
     }
 

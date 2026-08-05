@@ -73,26 +73,6 @@ public object DarkGradientTokens {
     /**
      * Акцентный минорный цвет обводки с градиентом
      */
-    public object OutlineDefaultAccentMinorGradient {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
     public object OutlineDefaultAccentMinorGradientActive {
         /**
          * Цвета градиента
@@ -1158,11 +1138,11 @@ public object DarkGradientTokens {
          * Цвета градиента
          */
         public val colors: List<Color> = listOf(
-            Color(0x00080808), Color(0x03080808),
-            Color(0x0A080808), Color(0x14080808), Color(0x26080808), Color(0x3B080808),
-            Color(0x54080808), Color(0x70080808), Color(0x8F080808), Color(0xAB080808),
-            Color(0xC4080808), Color(0xD9080808), Color(0xEB080808), Color(0xF5080808),
-            Color(0xFC080808), Color(0xFF080808),
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
         )
 
         /**
@@ -1274,11 +1254,11 @@ public object DarkGradientTokens {
          * Цвета градиента
          */
         public val colors: List<Color> = listOf(
-            Color(0x00080808), Color(0x03080808),
-            Color(0x0A080808), Color(0x14080808), Color(0x26080808), Color(0x3B080808),
-            Color(0x54080808), Color(0x70080808), Color(0x8F080808), Color(0xAB080808),
-            Color(0xC4080808), Color(0xD9080808), Color(0xEB080808), Color(0xF5080808),
-            Color(0xFC080808), Color(0xFF080808),
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
         )
 
         /**
@@ -4069,26 +4049,6 @@ public object DarkGradientTokens {
     /**
      * Минорный промо цвет на светлом фоне с градиентом
      */
-    public object TextOnLightPromoMinorGradient {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Минорный промо цвет на светлом фоне с градиентом
-     */
     public object TextOnLightPromoMinorGradientActive {
         /**
          * Цвета градиента
@@ -4370,6 +4330,46 @@ public object DarkGradientTokens {
      * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
      */
     public object SurfaceOnDarkTransparentAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом
+     */
+    public object OutlineDefaultAccentMinorGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public object TextOnLightPromoMinorGradient {
         /**
          * Цвета градиента
          */
@@ -4454,26 +4454,6 @@ public object LightGradientTokens {
     /**
      * Акцентный минорный цвет обводки с градиентом
      */
-    public object OutlineDefaultAccentMinorGradient {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный минорный цвет обводки с градиентом
-     */
     public object OutlineDefaultAccentMinorGradientActive {
         /**
          * Цвета градиента
@@ -5597,11 +5577,11 @@ public object LightGradientTokens {
          * Цвета градиента
          */
         public val colors: List<Color> = listOf(
-            Color(0x00080808), Color(0x03080808),
-            Color(0x0A080808), Color(0x14080808), Color(0x26080808), Color(0x3B080808),
-            Color(0x54080808), Color(0x70080808), Color(0x8F080808), Color(0xAB080808),
-            Color(0xC4080808), Color(0xD9080808), Color(0xEB080808), Color(0xF5080808),
-            Color(0xFC080808), Color(0xFF080808),
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
         )
 
         /**
@@ -5655,11 +5635,11 @@ public object LightGradientTokens {
          * Цвета градиента
          */
         public val colors: List<Color> = listOf(
-            Color(0x00080808), Color(0x03080808),
-            Color(0x0A080808), Color(0x14080808), Color(0x26080808), Color(0x3B080808),
-            Color(0x54080808), Color(0x70080808), Color(0x8F080808), Color(0xAB080808),
-            Color(0xC4080808), Color(0xD9080808), Color(0xEB080808), Color(0xF5080808),
-            Color(0xFC080808), Color(0xFF080808),
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
         )
 
         /**
@@ -8450,26 +8430,6 @@ public object LightGradientTokens {
     /**
      * Минорный промо цвет на светлом фоне с градиентом
      */
-    public object TextOnLightPromoMinorGradient {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Минорный промо цвет на светлом фоне с градиентом
-     */
     public object TextOnLightPromoMinorGradientActive {
         /**
          * Цвета градиента
@@ -8751,6 +8711,46 @@ public object LightGradientTokens {
      * Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне
      */
     public object SurfaceOnDarkTransparentAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * Акцентный минорный цвет обводки с градиентом
+     */
+    public object OutlineDefaultAccentMinorGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * Минорный промо цвет на светлом фоне с градиентом
+     */
+    public object TextOnLightPromoMinorGradient {
         /**
          * Цвета градиента
          */

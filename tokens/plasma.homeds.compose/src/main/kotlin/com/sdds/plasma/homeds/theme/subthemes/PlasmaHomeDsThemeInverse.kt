@@ -1022,8 +1022,6 @@ private val InverseGradientsOverride: GradientAttrOverrideScope.() -> Unit by la
         outlineDefaultAccentGradientActive.overrideBy(outlineInverseAccentGradientActive)
         outlineDefaultAccentGradientHover.overrideBy(outlineInverseAccentGradientHover)
         outlineDefaultAccentGradientHover.overrideBy(outlineInverseAccentGradientHover)
-        outlineDefaultAccentMinorGradient.overrideBy(outlineInverseAccentMinorGradient)
-        outlineDefaultAccentMinorGradient.overrideBy(outlineInverseAccentMinorGradient)
         outlineDefaultAccentMinorGradientActive.overrideBy(outlineInverseAccentMinorGradientActive)
         outlineDefaultAccentMinorGradientActive.overrideBy(outlineInverseAccentMinorGradientActive)
         outlineDefaultAccentMinorGradientHover.overrideBy(outlineInverseAccentMinorGradientHover)
@@ -1122,6 +1120,8 @@ private val InverseGradientsOverride: GradientAttrOverrideScope.() -> Unit by la
         textDefaultPromoMinorGradientActive.overrideBy(textInversePromoMinorGradientActive)
         surfaceDefaultAccentMinorGradient.overrideBy(surfaceInverseAccentMinorGradient)
         surfaceDefaultAccentMinorGradient.overrideBy(surfaceInverseAccentMinorGradient)
+        outlineDefaultAccentMinorGradient.overrideBy(outlineInverseAccentMinorGradient)
+        outlineDefaultAccentMinorGradient.overrideBy(outlineInverseAccentMinorGradient)
     }
 }
 

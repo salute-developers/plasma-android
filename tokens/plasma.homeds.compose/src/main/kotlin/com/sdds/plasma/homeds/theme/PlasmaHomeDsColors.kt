@@ -3091,12 +3091,6 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceOnDarkTransparentNegativeActive")
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public var surfaceOnDarkTransparentNegativeHover: Color by
-        colors.obtain("surfaceOnDarkTransparentNegativeHover")
-
-    /**
      * Прозрачный цвет фона поверхности/контрола успех на темном фоне
      */
     public var surfaceOnDarkTransparentPositive: Color by
@@ -4888,6 +4882,12 @@ public class PlasmaHomeDsColors(
      * Акцентный цвет на темном фоне
      */
     public var textOnDarkAccentActive: Color by colors.obtain("textOnDarkAccentActive")
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public var surfaceOnDarkTransparentNegativeHover: Color by
+        colors.obtain("surfaceOnDarkTransparentNegativeHover")
 
     /**
      * Возвращает копию [PlasmaHomeDsColors]. Предоставляет возможность переопределять цвета.
@@ -7772,12 +7772,6 @@ public class ColorOverrideScope {
         "surfaceOnDarkTransparentNegativeActive"
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val surfaceOnDarkTransparentNegativeHover: String =
-        "surfaceOnDarkTransparentNegativeHover"
-
-    /**
      * Прозрачный цвет фона поверхности/контрола успех на темном фоне
      */
     public val surfaceOnDarkTransparentPositive: String = "surfaceOnDarkTransparentPositive"
@@ -9480,6 +9474,12 @@ public class ColorOverrideScope {
      * Акцентный цвет на темном фоне
      */
     public val textOnDarkAccentActive: String = "textOnDarkAccentActive"
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val surfaceOnDarkTransparentNegativeHover: String =
+        "surfaceOnDarkTransparentNegativeHover"
 
     /**
      * Переопределяет аттрибут цвета.
@@ -12351,12 +12351,6 @@ internal class ColorAttrOverrideScope {
         "surfaceOnDarkTransparentNegativeActive"
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
-     */
-    public val surfaceOnDarkTransparentNegativeHover: String =
-        "surfaceOnDarkTransparentNegativeHover"
-
-    /**
      * Прозрачный цвет фона поверхности/контрола успех на темном фоне
      */
     public val surfaceOnDarkTransparentPositive: String = "surfaceOnDarkTransparentPositive"
@@ -14061,6 +14055,12 @@ internal class ColorAttrOverrideScope {
     public val textOnDarkAccentActive: String = "textOnDarkAccentActive"
 
     /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val surfaceOnDarkTransparentNegativeHover: String =
+        "surfaceOnDarkTransparentNegativeHover"
+
+    /**
      * Переопределяет аттрибут цвета.
      */
     public infix fun String.overrideBy(color: String) {
@@ -14630,7 +14630,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceOnDarkTransparentInfoActive = other.surfaceOnDarkTransparentInfoActive
     surfaceOnDarkTransparentInfoHover = other.surfaceOnDarkTransparentInfoHover
     surfaceOnDarkTransparentNegativeActive = other.surfaceOnDarkTransparentNegativeActive
-    surfaceOnDarkTransparentNegativeHover = other.surfaceOnDarkTransparentNegativeHover
     surfaceOnDarkTransparentPositive = other.surfaceOnDarkTransparentPositive
     surfaceOnDarkTransparentPositiveActive = other.surfaceOnDarkTransparentPositiveActive
     surfaceOnDarkTransparentPositiveHover = other.surfaceOnDarkTransparentPositiveHover
@@ -14967,6 +14966,7 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textDefaultPositiveMinor = other.textDefaultPositiveMinor
     textInverseInfoMinorHover = other.textInverseInfoMinorHover
     textOnDarkAccentActive = other.textOnDarkAccentActive
+    surfaceOnDarkTransparentNegativeHover = other.surfaceOnDarkTransparentNegativeHover
 }
 
 private fun MutableMap<String, Color>.add(
@@ -17138,11 +17138,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentNegativeHover",
-        LightColorTokens.SurfaceOnDarkTransparentNegativeHover,
-        overwrite,
-    )
-    initial.add(
         "surfaceOnDarkTransparentPositive",
         LightColorTokens.SurfaceOnDarkTransparentPositive,
         overwrite,
@@ -18150,6 +18145,11 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add("textDefaultPositiveMinor", LightColorTokens.TextDefaultPositiveMinor, overwrite)
     initial.add("textInverseInfoMinorHover", LightColorTokens.TextInverseInfoMinorHover, overwrite)
     initial.add("textOnDarkAccentActive", LightColorTokens.TextOnDarkAccentActive, overwrite)
+    initial.add(
+        "surfaceOnDarkTransparentNegativeHover",
+        LightColorTokens.SurfaceOnDarkTransparentNegativeHover,
+        overwrite,
+    )
     return PlasmaHomeDsColors(initial)
 }
 
@@ -20170,11 +20170,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentNegativeHover",
-        DarkColorTokens.SurfaceOnDarkTransparentNegativeHover,
-        overwrite,
-    )
-    initial.add(
         "surfaceOnDarkTransparentPositive",
         DarkColorTokens.SurfaceOnDarkTransparentPositive,
         overwrite,
@@ -21094,6 +21089,11 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add("textDefaultPositiveMinor", DarkColorTokens.TextDefaultPositiveMinor, overwrite)
     initial.add("textInverseInfoMinorHover", DarkColorTokens.TextInverseInfoMinorHover, overwrite)
     initial.add("textOnDarkAccentActive", DarkColorTokens.TextOnDarkAccentActive, overwrite)
+    initial.add(
+        "surfaceOnDarkTransparentNegativeHover",
+        DarkColorTokens.SurfaceOnDarkTransparentNegativeHover,
+        overwrite,
+    )
     return PlasmaHomeDsColors(initial)
 }
 
