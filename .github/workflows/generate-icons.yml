@@ -94,13 +94,12 @@ jobs:
           git add ./gradle/icons-compose.version.toml
           git commit -m "feat(sdds-acore/icons-compose): Bump icons-compose version"
 
-      - name: Create drawables folder
-        working-directory: ./current
-        continue-on-error: true
-        run: mkdir -p ./sdds-core/icons/src/main/res/drawable
-
-      - name: Move generated icons to drawable folder
-        run: cp -rf plasma/packages/plasma-icons/android-icons/. current/sdds-core/icons/src/main/res/drawable/
+      - name: Copy generated icons to drawable folder
+        run: |
+          set -euo pipefail
+          DRAWABLES=current/sdds-core/icons/src/main/res/drawable
+          mkdir -p "$DRAWABLES"
+          cp -rf plasma/packages/plasma-icons/android-icons/. "$DRAWABLES/"
 
       # --- Compose icons (sdds-core:icons-compose) ---
       # Generated from the SAME android-icons/*.xml as the XML module above, so the
@@ -134,13 +133,11 @@ jobs:
           cp -rf plasma/packages/plasma-icons/android-icons compose-icons-input
           current/.github/scripts/filter-compose-icon-collisions.sh compose-icons-input
 
-      - name: Clean previously generated Compose icons
+      - name: Prepare clean Compose icons output
         run: |
           set -euo pipefail
-          PKG=current/sdds-core/icons-compose/src/commonMain/kotlin/com/sdds/icons/compose
-          mkdir -p "$PKG"
-          # remove stale generated icons but keep the hand-written receiver object
-          find "$PKG" -maxdepth 1 -type f -name '*.kt' ! -name 'SddsIcons.kt' -delete
+          rm -rf compose-icons-output
+          mkdir -p compose-icons-output
 
       - name: Generate Compose icons (Valkyrie)
         # No continue-on-error: Valkyrie exits non-zero on an unhandled
@@ -150,12 +147,30 @@ jobs:
           set -euo pipefail
           "$VALKYRIE_BIN" svgxml2imagevector \
             --input-path "$PWD/compose-icons-input" \
-            --output-path current/sdds-core/icons-compose/src/commonMain/kotlin/com/sdds/icons/compose \
+            --output-path "$PWD/compose-icons-output" \
             --package-name com.sdds.icons.compose \
             --iconpack-name SddsIcons \
             --output-format lazy-property \
             --explicit-mode true \
             --use-path-data-string true
+
+      - name: Merge generated Compose icons
+        run: |
+          set -euo pipefail
+          GENERATED=compose-icons-output
+          PKG=current/sdds-core/icons-compose/src/commonMain/kotlin/com/sdds/icons/compose
+          mkdir -p "$PKG"
+          if ! compgen -G "$GENERATED/*.kt" > /dev/null; then
+            echo "error: Valkyrie produced no Compose icons" >&2
+            exit 1
+          fi
+          for existing in "$PKG"/*.kt; do
+            name="$(basename "$existing")"
+            if [[ "$name" != "SddsIcons.kt" && ! -f "$GENERATED/$name" ]]; then
+              echo "::warning file=$existing::Keeping legacy Compose icon removed from Plasma Web"
+            fi
+          done
+          cp -rf "$GENERATED"/. "$PKG/"
 
       - name: Create tag and release pull request
         working-directory: ./current
@@ -165,9 +180,17 @@ jobs:
         run: |
           TAG=${{steps.extract_version.outputs.tag}}
           PLASMA_VER=${{ github.event.client_payload.version || github.event.inputs.plasma-version }}
-          git add ./sdds-core/icons/
-          git commit -m "feat(sdds-acore/icons): New xml icons were added from plasma v$PLASMA_VER"
-          git add ./sdds-core/icons-compose/
-          git commit -m "feat(sdds-acore/icons-compose): New compose icons were added from plasma v$PLASMA_VER"
+          git add -A ./sdds-core/icons/
+          if git diff --cached --quiet; then
+            echo "No XML icon changes to commit"
+          else
+            git commit -m "feat(sdds-acore/icons): Update xml icons from plasma v$PLASMA_VER"
+          fi
+          git add -A ./sdds-core/icons-compose/
+          if git diff --cached --quiet; then
+            echo "No Compose icon changes to commit"
+          else
+            git commit -m "feat(sdds-acore/icons-compose): Update compose icons from plasma v$PLASMA_VER"
+          fi
           git push --set-upstream origin release/$TAG
           gh pr create --base main --head release/$TAG --title "Release $TAG" --body "Icons were updated to v$PLASMA_VER"
