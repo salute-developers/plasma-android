@@ -41,13 +41,11 @@ jobs:
 
       - name: Install plasma web project deps
         working-directory: ./plasma
-        run: npm ci
+        run: npm run setup:deps:ci
 
       - name: Generate android icons
         working-directory: ./plasma
-        run: |
-          npx lerna bootstrap --scope="@salutejs/plasma-icons" --ignore-scripts
-          npm run generate:android --prefix="packages/plasma-icons"
+        run: npm run generate:android --workspace="@salutejs/plasma-icons"
 
       - name: Bump version
         working-directory: ./current
