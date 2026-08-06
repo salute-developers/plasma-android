@@ -25,28 +25,6 @@ jobs:
           fetch-depth: 0
           path: current
 
-      # делаем сheckout репозитория plasma
-      - name: Checkout to Plasma Web
-        uses: actions/checkout@v4
-        with:
-          repository: salute-developers/plasma
-          ref: ${{ github.event.client_payload.ref || github.event.inputs.plasma-ref }}
-          show-progress: false
-          path: plasma
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: 'plasma/.nvmrc'
-
-      - name: Install plasma web project deps
-        working-directory: ./plasma
-        run: npm run setup:deps:ci
-
-      - name: Generate android icons
-        working-directory: ./plasma
-        run: npm run generate:android --workspace="@salutejs/plasma-icons"
-
       - name: Bump version
         working-directory: ./current
         shell: bash
@@ -84,19 +62,96 @@ jobs:
           echo "xml_version=$XML_VERSION" >> "$GITHUB_OUTPUT"
           echo "compose_version=$COMPOSE_VERSION" >> "$GITHUB_OUTPUT"
 
-      - name: Verify release branch not exists
+      - name: Resolve release branch
+        id: release_state
         working-directory: ./current
         shell: bash
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           RELEASE_BRANCH: ${{ steps.release_metadata.outputs.branch }}
+          DISPLAY_DATE: ${{ steps.release_metadata.outputs.display_date }}
+          XML_VERSION: ${{ steps.release_metadata.outputs.xml_version }}
+          COMPOSE_VERSION: ${{ steps.release_metadata.outputs.compose_version }}
+          PLASMA_VERSION: ${{ github.event.client_payload.version || github.event.inputs.plasma-version }}
         run: |
-          git fetch --all
-          if git show-ref --verify --quiet "refs/remotes/origin/$RELEASE_BRANCH"; then
-            echo "Release branch already exists: $RELEASE_BRANCH" >&2
+          set -euo pipefail
+          REMOTE_BRANCH="$(git ls-remote --heads origin "refs/heads/$RELEASE_BRANCH")"
+          if [[ -z "$REMOTE_BRANCH" ]]; then
+            echo "recovery=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          REMOTE_REF="refs/remotes/origin/$RELEASE_BRANCH"
+          git fetch origin "refs/heads/$RELEASE_BRANCH:$REMOTE_REF"
+
+          read_version_from_ref() {
+            local ref="$1"
+            local props="$2"
+            local content major minor patch
+            content="$(git show "$ref:$props")"
+            major="$(sed -n 's/^versionMajor=//p' <<< "$content")"
+            minor="$(sed -n 's/^versionMinor=//p' <<< "$content")"
+            patch="$(sed -n 's/^versionPatch=//p' <<< "$content")"
+            if [[ -z "$major" || -z "$minor" || -z "$patch" ]]; then
+              echo "error: failed to read version from $ref:$props" >&2
+              exit 1
+            fi
+            echo "$major.$minor.$patch"
+          }
+
+          REMOTE_XML_VERSION="$(read_version_from_ref "$REMOTE_REF" sdds-core/icons/gradle.properties)"
+          REMOTE_COMPOSE_VERSION="$(read_version_from_ref "$REMOTE_REF" sdds-core/icons-compose/gradle.properties)"
+          if [[ "$REMOTE_XML_VERSION" != "$XML_VERSION" || "$REMOTE_COMPOSE_VERSION" != "$COMPOSE_VERSION" ]]; then
+            echo "error: release branch metadata does not match the expected versions" >&2
+            echo "expected XML=$XML_VERSION Compose=$COMPOSE_VERSION" >&2
+            echo "actual   XML=$REMOTE_XML_VERSION Compose=$REMOTE_COMPOSE_VERSION" >&2
             exit 1
           fi
 
+          XML_CATALOG="$(git show "$REMOTE_REF:gradle/icons.version.toml")"
+          COMPOSE_CATALOG="$(git show "$REMOTE_REF:gradle/icons-compose.version.toml")"
+          if ! grep -Fq "sdds-icons = \"$XML_VERSION\"" <<< "$XML_CATALOG"; then
+            echo "error: XML version catalog does not contain $XML_VERSION" >&2
+            exit 1
+          fi
+          if ! grep -Fq "sdds-icons-compose = \"$COMPOSE_VERSION\"" <<< "$COMPOSE_CATALOG"; then
+            echo "error: Compose version catalog does not contain $COMPOSE_VERSION" >&2
+            exit 1
+          fi
+
+          EXPECTED_TITLE="Release icons by $DISPLAY_DATE"
+          XML_TAG="sdds-icons-v$XML_VERSION"
+          COMPOSE_TAG="sdds-icons-compose-v$COMPOSE_VERSION"
+          PR_BODY="$(printf 'Icons were updated from Plasma Web v%s.\n\n- XML tag: `%s`\n- Compose tag: `%s`' "$PLASMA_VERSION" "$XML_TAG" "$COMPOSE_TAG")"
+          PRS="$(gh pr list --base main --head "$RELEASE_BRANCH" --state all --limit 10 --json number,title,body,state,url)"
+          PR_COUNT="$(jq 'length' <<< "$PRS")"
+          if [[ "$PR_COUNT" -eq 0 ]]; then
+            gh pr create --base main --head "$RELEASE_BRANCH" --title "$EXPECTED_TITLE" --body "$PR_BODY"
+          elif [[ "$PR_COUNT" -eq 1 ]]; then
+            PR_STATE="$(jq -r '.[0].state' <<< "$PRS")"
+            PR_TITLE="$(jq -r '.[0].title' <<< "$PRS")"
+            PR_BODY_ACTUAL="$(jq -r '.[0].body // ""' <<< "$PRS")"
+            PR_URL="$(jq -r '.[0].url' <<< "$PRS")"
+            if [[ "$PR_STATE" != "OPEN" || "$PR_TITLE" != "$EXPECTED_TITLE" ]]; then
+              echo "error: existing PR has unexpected state or title: $PR_URL" >&2
+              exit 1
+            fi
+            if ! grep -Fq "Plasma Web v$PLASMA_VERSION" <<< "$PR_BODY_ACTUAL" ||
+               ! grep -Fq "$XML_TAG" <<< "$PR_BODY_ACTUAL" ||
+               ! grep -Fq "$COMPOSE_TAG" <<< "$PR_BODY_ACTUAL"; then
+              echo "error: existing PR does not contain the expected release metadata: $PR_URL" >&2
+              exit 1
+            fi
+            echo "Verified existing release PR: $PR_URL"
+          else
+            echo "error: multiple PRs found for $RELEASE_BRANCH" >&2
+            exit 1
+          fi
+
+          echo "Validated existing release branch: $RELEASE_BRANCH"
+          echo "recovery=true" >> "$GITHUB_OUTPUT"
+
       - name: Create release branch
+        if: steps.release_state.outputs.recovery != 'true'
         working-directory: ./current
         shell: bash
         env:
@@ -106,6 +161,7 @@ jobs:
           git checkout -b "$RELEASE_BRANCH"
 
       - name: Create version commit
+        if: steps.release_state.outputs.recovery != 'true'
         working-directory: ./current
         shell: bash
         run: |
@@ -118,7 +174,34 @@ jobs:
           git add ./gradle/icons-compose.version.toml
           git commit -m "feat(sdds-acore/icons-compose): Bump icons-compose version"
 
+      # делаем сheckout репозитория plasma
+      - name: Checkout to Plasma Web
+        if: steps.release_state.outputs.recovery != 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: salute-developers/plasma
+          ref: ${{ github.event.client_payload.ref || github.event.inputs.plasma-ref }}
+          show-progress: false
+          path: plasma
+
+      - name: Setup Node.js
+        if: steps.release_state.outputs.recovery != 'true'
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: 'plasma/.nvmrc'
+
+      - name: Install plasma web project deps
+        if: steps.release_state.outputs.recovery != 'true'
+        working-directory: ./plasma
+        run: npm run setup:deps:ci
+
+      - name: Generate android icons
+        if: steps.release_state.outputs.recovery != 'true'
+        working-directory: ./plasma
+        run: npm run generate:android --workspace="@salutejs/plasma-icons"
+
       - name: Copy generated icons to drawable folder
+        if: steps.release_state.outputs.recovery != 'true'
         run: |
           set -euo pipefail
           DRAWABLES=current/sdds-core/icons/src/main/res/drawable
@@ -130,12 +213,14 @@ jobs:
       # sets stay in parity. Valkyrie needs JDK 21 (its jars are compiled to class v65).
 
       - name: Setup Java 21 for Valkyrie
+        if: steps.release_state.outputs.recovery != 'true'
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
 
       - name: Install Valkyrie CLI
+        if: steps.release_state.outputs.recovery != 'true'
         env:
           VALKYRIE_VERSION: '1.2.0'
         run: |
@@ -149,6 +234,7 @@ jobs:
           echo "VALKYRIE_BIN=$VALKYRIE_BIN" >> "$GITHUB_ENV"
 
       - name: Prepare and filter Compose icons input
+        if: steps.release_state.outputs.recovery != 'true'
         run: |
           set -euo pipefail
           # Work on a COPY: the XML drawable set must keep both variants of each
@@ -158,12 +244,14 @@ jobs:
           current/.github/scripts/filter-compose-icon-collisions.sh compose-icons-input
 
       - name: Prepare clean Compose icons output
+        if: steps.release_state.outputs.recovery != 'true'
         run: |
           set -euo pipefail
           rm -rf compose-icons-output
           mkdir -p compose-icons-output
 
       - name: Generate Compose icons (Valkyrie)
+        if: steps.release_state.outputs.recovery != 'true'
         # No continue-on-error: Valkyrie exits non-zero on an unhandled
         # case-insensitive collision, which MUST fail the run (fail-fast) rather
         # than silently skip icons.
@@ -179,6 +267,7 @@ jobs:
             --use-path-data-string true
 
       - name: Merge generated Compose icons
+        if: steps.release_state.outputs.recovery != 'true'
         run: |
           set -euo pipefail
           GENERATED=compose-icons-output
@@ -197,6 +286,7 @@ jobs:
           cp -rf "$GENERATED"/. "$PKG/"
 
       - name: Create release pull request
+        if: steps.release_state.outputs.recovery != 'true'
         working-directory: ./current
         shell: bash
         env:
