@@ -39,4 +39,5 @@ include(
     ":docs",
     ":api-info-ksp",
     ":api-info-compose",
+    ":config-codec",
 )
