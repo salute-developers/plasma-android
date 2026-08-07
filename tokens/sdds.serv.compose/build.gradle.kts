@@ -1,3 +1,5 @@
+@file:OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
 import utils.addDefaultTargets
@@ -58,7 +60,23 @@ kotlin {
                 implementation(libs.test.roborazzi.compose)
             }
         }
+        jvmTest {
+            dependencies {
+                implementation("integration-core:uikit-compose-testcases-kmp")
+                implementation(kotlin("test"))
+            }
+        }
+        iosSimulatorArm64Test {
+            dependencies {
+                implementation("integration-core:uikit-compose-testcases-kmp")
+                implementation(kotlin("test"))
+            }
+        }
     }
+}
+
+roborazzi {
+    outputDir.set(file("screenshots-kmp"))
 }
 
 tasks.withType<Test> {
