@@ -37,7 +37,7 @@ test-mockk = "1.14.2"
 test-robolectric = "4.10"
 test-androidX-rules = "1.5.0"
 test-androidX-runner = "1.5.2"
-test-roborazzi = "1.44.0"
+test-roborazzi = "1.53.0"
 test-assertk = "0.28.1"
 test-benchmark = "1.4.1"
 test-benchmark-jUnitIntegration = "1.2.1"
@@ -160,6 +160,8 @@ base-dokka = { module = "org.jetbrains.dokka:dokka-base", version.ref = "plugin-
 
 test-roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "test-roborazzi" }
 test-roborazzi-compose = { module = "io.github.takahirom.roborazzi:roborazzi-compose", version.ref = "test-roborazzi" }
+test-roborazzi-compose-desktop = { module = "io.github.takahirom.roborazzi:roborazzi-compose-desktop", version.ref = "test-roborazzi" }
+test-roborazzi-compose-ios = { module = "io.github.takahirom.roborazzi:roborazzi-compose-ios", version.ref = "test-roborazzi" }
 test-roborazzi-rule = { module = "io.github.takahirom.roborazzi:roborazzi-junit-rule", version.ref = "test-roborazzi" }
 
 sdds-uikit = { module = "io.github.salute-developers:sdds-uikit", version.ref = "sdds-uikit" }
