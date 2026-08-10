@@ -1,6 +1,6 @@
 package com.sdds.compose.uikit.mask
 
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.input.OffsetMapping
@@ -29,7 +29,7 @@ data class NumberMask(
         check(digitsPerGroup > 0) { "digitsPerGroup must be greater than 0" }
     }
 
-    override fun getVisualTransformation(mainColor: Color, hintColor: Color): VisualTransformation {
+    override fun getVisualTransformation(mainColor: Brush, hintColor: Brush): VisualTransformation {
         return NumberMaskTransformation(
             mainColor = mainColor,
             thousandSeparator = thousandGroupSeparator,
@@ -58,7 +58,7 @@ data class NumberMask(
 
 @Suppress("SpreadOperator")
 private class NumberMaskTransformation(
-    mainColor: Color,
+    mainColor: Brush,
     private val thousandSeparator: String,
     private val digitsPerGroup: Int,
     private val decimalSeparator: String,
@@ -66,7 +66,7 @@ private class NumberMaskTransformation(
     private val decimalSeparatorKeys: Set<String>,
 ) : VisualTransformation {
 
-    private val mainSpanStyle = SpanStyle(color = mainColor)
+    private val mainSpanStyle = SpanStyle(brush = mainColor)
 
     override fun filter(text: AnnotatedString): TransformedText {
         val formattedText = formatWithMask(text)

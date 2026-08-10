@@ -1,14 +1,15 @@
 package com.sdds.compose.uikit.mask
 
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
@@ -17,6 +18,12 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldAnimation
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.graphics.brush.asBrush
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.textfield.TextFieldMotionStyle
+import com.sdds.compose.uikit.motion.components.textfield.rememberTextFieldMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Поле ввода текста.
@@ -69,6 +76,9 @@ fun MaskedTextField(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     focusSelectorSettings: FocusSelectorSettings,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<TextFieldMotionStyle> = rememberTextFieldMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     TextField(
         value = value,
@@ -95,11 +105,11 @@ fun MaskedTextField(
         visualTransformation = maskVisualTransformation(
             mask = mask,
             style = style,
-            isReadOnly = readOnly,
-            interactionSource = interactionSource,
+            motion = motion,
         ),
         focusSelectorSettings = focusSelectorSettings,
         interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -112,7 +122,13 @@ interface TextFieldMask {
     /**
      * Вернёт трансформацию [VisualTransformation] с учетом основного цвета [mainColor] и цвета подсказки [hintColor]
      */
-    fun getVisualTransformation(mainColor: Color, hintColor: Color): VisualTransformation
+    fun getVisualTransformation(mainColor: Color, hintColor: Color): VisualTransformation =
+        getVisualTransformation(mainColor.asBrush(), hintColor.asBrush())
+
+    /**
+     * Вернёт трансформацию [VisualTransformation] с учетом основного цвета [mainColor] и цвета подсказки [hintColor]
+     */
+    fun getVisualTransformation(mainColor: Brush, hintColor: Brush): VisualTransformation
 
     /**
      * Фильтрует ввод в [MaskedTextField] до применения трансформации
@@ -142,10 +158,9 @@ enum class TextFieldMaskMode {
 private fun maskVisualTransformation(
     mask: TextFieldMask,
     style: TextFieldStyle,
-    isReadOnly: Boolean,
-    interactionSource: InteractionSource,
+    motion: Motion<TextFieldMotionStyle>,
 ): VisualTransformation {
-    val mainColor = style.colors.valueColor(isReadOnly).colorForInteraction(interactionSource)
-    val hintColor = style.colors.placeholderColor(isReadOnly).colorForInteraction(interactionSource)
+    val mainColor by style.colors.valueBrush.getBrushAsState(motion.context, motion.style.valueColor)
+    val hintColor by style.colors.placeholderBrush.getBrushAsState(motion.context, motion.style.placeholderColor)
     return mask.getVisualTransformation(mainColor, hintColor)
 }

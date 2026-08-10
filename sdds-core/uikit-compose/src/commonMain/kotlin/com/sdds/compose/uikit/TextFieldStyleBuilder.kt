@@ -6,14 +6,20 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
 import com.sdds.api.info.compose.ApiName
+import com.sdds.compose.uikit.graphics.brush.addStates
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.StyleBuilder
 
 /**
@@ -44,7 +50,12 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
     /**
      * Устанавливает форму компонента [shape]
      */
-    fun shape(shape: CornerBasedShape): TextFieldStyleBuilder
+    fun shape(shape: CornerBasedShape) = shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы компонента [shape]
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): TextFieldStyleBuilder
 
     /**
      * Устанавливает расположение лэйбла [labelPlacement]
@@ -75,42 +86,82 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
     /**
      * Устанавливает стиль лэйбла [labelStyle]
      */
-    fun labelStyle(labelStyle: TextStyle): TextFieldStyleBuilder
+    fun labelStyle(labelStyle: TextStyle) = labelStyle(labelStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили лэйбла [labelStyle]
+     */
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): TextFieldStyleBuilder
 
     /**
      * Устанавливает стиль optional текста [optionalStyle]
      */
-    fun optionalStyle(optionalStyle: TextStyle): TextFieldStyleBuilder
+    fun optionalStyle(optionalStyle: TextStyle) = optionalStyle(optionalStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили optional текста [optionalStyle]
+     */
+    fun optionalStyle(optionalStyle: StatefulValue<TextStyle>): TextFieldStyleBuilder
 
     /**
      * Устанавливает стиль основного текста [valueStyle]
      */
-    fun valueStyle(valueStyle: TextStyle): TextFieldStyleBuilder
+    fun valueStyle(valueStyle: TextStyle) = valueStyle(valueStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили основного текста [valueStyle]
+     */
+    fun valueStyle(valueStyle: StatefulValue<TextStyle>): TextFieldStyleBuilder
 
     /**
      * Устанавливает стиль надписи [captionStyle]
      */
-    fun captionStyle(captionStyle: TextStyle): TextFieldStyleBuilder
+    fun captionStyle(captionStyle: TextStyle) = captionStyle(captionStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили надписи [captionStyle]
+     */
+    fun captionStyle(captionStyle: StatefulValue<TextStyle>): TextFieldStyleBuilder
 
     /**
      * Устанавливает стиль счетчика [counterStyle]
      */
-    fun counterStyle(counterStyle: TextStyle): TextFieldStyleBuilder
+    fun counterStyle(counterStyle: TextStyle) = counterStyle(counterStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стиль счетчика [counterStyle]
+     */
+    fun counterStyle(counterStyle: StatefulValue<TextStyle>): TextFieldStyleBuilder
 
     /**
      * Устанавливает стиль плэйсхолдера [placeholderStyle]
      */
-    fun placeholderStyle(placeholderStyle: TextStyle): TextFieldStyleBuilder
+    fun placeholderStyle(placeholderStyle: TextStyle) = placeholderStyle(placeholderStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили плэйсхолдера [placeholderStyle]
+     */
+    fun placeholderStyle(placeholderStyle: StatefulValue<TextStyle>): TextFieldStyleBuilder
 
     /**
      * Устанавливает стиль префикса [prefixStyle]
      */
-    fun prefixStyle(prefixStyle: TextStyle): TextFieldStyleBuilder
+    fun prefixStyle(prefixStyle: TextStyle) = prefixStyle(prefixStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили префикса [prefixStyle]
+     */
+    fun prefixStyle(prefixStyle: StatefulValue<TextStyle>): TextFieldStyleBuilder
 
     /**
      * Устанавливает стиль суффикса [suffixStyle]
      */
-    fun suffixStyle(suffixStyle: TextStyle): TextFieldStyleBuilder
+    fun suffixStyle(suffixStyle: TextStyle) = suffixStyle(suffixStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили суффикса [suffixStyle]
+     */
+    fun suffixStyle(suffixStyle: StatefulValue<TextStyle>): TextFieldStyleBuilder
 
     /**
      * Устанавливает однострочный режим [singleLine]
@@ -148,7 +199,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет курсора [cursorColor]
      */
     fun cursorColor(cursorColor: Color): TextFieldColorsBuilder =
-        cursorColor(cursorColor.asInteractive())
+        cursorColor(cursorColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть курсора [cursorColor]
+     */
+    fun cursorColor(cursorColor: Brush): TextFieldColorsBuilder =
+        cursorColor(cursorColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти курсора [cursorColor]
+     */
+    fun cursorColor(cursorColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет курсора [cursorColor]
@@ -170,7 +232,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет контента в начале [startContentColor]
      */
     fun startContentColor(startContentColor: Color): TextFieldColorsBuilder =
-        startContentColor(startContentColor.asInteractive())
+        startContentColor(startContentColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента в начале [startContentColor]
+     */
+    fun startContentColor(startContentColor: Brush): TextFieldColorsBuilder =
+        startContentColor(startContentColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти контента в начале [startContentColor]
+     */
+    fun startContentColor(startContentColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет контента в начале [startContentColor]
@@ -192,7 +265,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет контента в конце [endContentColor]
      */
     fun endContentColor(endContentColor: Color): TextFieldColorsBuilder =
-        endContentColor(endContentColor.asInteractive())
+        endContentColor(endContentColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента в конце [endContentColor]
+     */
+    fun endContentColor(endContentColor: Brush): TextFieldColorsBuilder =
+        endContentColor(endContentColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти контента в конце [endContentColor]
+     */
+    fun endContentColor(endContentColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет контента в конце [endContentColor]
@@ -214,7 +298,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет лэйбла [labelColor]
      */
     fun labelColor(labelColor: Color): TextFieldColorsBuilder =
-        this.labelColor(labelColor.asInteractive())
+        this.labelColor(labelColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть лэйбла [labelColor]
+     */
+    fun labelColor(labelColor: Brush): TextFieldColorsBuilder =
+        this.labelColor(labelColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти лэйбла [labelColor]
+     */
+    fun labelColor(labelColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет лэйбла [labelColor]
@@ -236,7 +331,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет основного текста [valueColor]
      */
     fun valueColor(valueColor: Color): TextFieldColorsBuilder =
-        valueColor(valueColor.asInteractive())
+        valueColor(valueColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть основного текста [valueColor]
+     */
+    fun valueColor(valueColor: Brush): TextFieldColorsBuilder =
+        valueColor(valueColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти основного текста [valueColor]
+     */
+    fun valueColor(valueColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет основного текста [valueColor]
@@ -258,7 +364,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет надписи [captionColor]
      */
     fun captionColor(captionColor: Color): TextFieldColorsBuilder =
-        captionColor(captionColor.asInteractive())
+        captionColor(captionColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть надписи [captionColor]
+     */
+    fun captionColor(captionColor: Brush): TextFieldColorsBuilder =
+        captionColor(captionColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти надписи [captionColor]
+     */
+    fun captionColor(captionColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет надписи [captionColor]
@@ -280,7 +397,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет опционального текста [optionalColor]
      */
     fun optionalColor(optionalColor: Color): TextFieldColorsBuilder =
-        optionalColor(optionalColor.asInteractive())
+        optionalColor(optionalColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть опционального текста [optionalColor]
+     */
+    fun optionalColor(optionalColor: Brush): TextFieldColorsBuilder =
+        optionalColor(optionalColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти опционального текста [optionalColor]
+     */
+    fun optionalColor(optionalColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет опционального текста [optionalColor]
@@ -302,7 +430,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет счетчика [counterColor]
      */
     fun counterColor(counterColor: Color): TextFieldColorsBuilder =
-        counterColor(counterColor.asInteractive())
+        counterColor(counterColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть счетчика [counterColor]
+     */
+    fun counterColor(counterColor: Brush): TextFieldColorsBuilder =
+        counterColor(counterColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти счетчика [counterColor]
+     */
+    fun counterColor(counterColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет счетчика [counterColor]
@@ -324,7 +463,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет плэйсхолдера [placeholderColor]
      */
     fun placeholderColor(placeholderColor: Color): TextFieldColorsBuilder =
-        placeholderColor(placeholderColor.asInteractive())
+        placeholderColor(placeholderColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть плэйсхолдера [placeholderColor]
+     */
+    fun placeholderColor(placeholderColor: Brush): TextFieldColorsBuilder =
+        placeholderColor(placeholderColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти плэйсхолдера [placeholderColor]
+     */
+    fun placeholderColor(placeholderColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет плэйсхолдера [placeholderColor]
@@ -346,7 +496,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет бэкграунда [backgroundColor]
      */
     fun backgroundColor(backgroundColor: Color): TextFieldColorsBuilder =
-        backgroundColor(backgroundColor.asInteractive())
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть бэкграунда [backgroundColor]
+     */
+    fun backgroundColor(backgroundColor: Brush): TextFieldColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти бэкграунда [backgroundColor]
+     */
+    fun backgroundColor(backgroundColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет бэкграунда [backgroundColor]
@@ -368,7 +529,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет разделителя [dividerColor]
      */
     fun dividerColor(dividerColor: Color): TextFieldColorsBuilder =
-        dividerColor(dividerColor.asInteractive())
+        dividerColor(dividerColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть разделителя [dividerColor]
+     */
+    fun dividerColor(dividerColor: Brush): TextFieldColorsBuilder =
+        dividerColor(dividerColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти разделителя [dividerColor]
+     */
+    fun dividerColor(dividerColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет разделителя [dividerColor]
@@ -390,7 +562,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет индикатора
      */
     fun indicatorColor(indicatorColor: Color): TextFieldColorsBuilder =
-        indicatorColor(indicatorColor.asInteractive())
+        indicatorColor(indicatorColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть индикатора
+     */
+    fun indicatorColor(indicatorColor: Brush): TextFieldColorsBuilder =
+        indicatorColor(indicatorColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти индикатора
+     */
+    fun indicatorColor(indicatorColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет индикатора
@@ -412,7 +595,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет префикса
      */
     fun prefixColor(prefixColor: Color): TextFieldColorsBuilder =
-        prefixColor(prefixColor.asInteractive())
+        prefixColor(prefixColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть префикса
+     */
+    fun prefixColor(prefixColor: Brush): TextFieldColorsBuilder =
+        prefixColor(prefixColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисти префикса
+     */
+    fun prefixColor(prefixColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет префикса
@@ -423,7 +617,18 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет суффикса
      */
     fun suffixColor(suffixColor: Color): TextFieldColorsBuilder =
-        suffixColor(suffixColor.asInteractive())
+        suffixColor(suffixColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет суффикса
+     */
+    fun suffixColor(suffixColor: Brush): TextFieldColorsBuilder =
+        suffixColor(suffixColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет суффикса
+     */
+    fun suffixColor(suffixColor: StatefulValue<Brush>): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет суффикса
@@ -474,93 +679,202 @@ interface TextFieldDimensionsBuilder {
     /**
      * Устанавливает отступ контента в начале
      */
-    fun boxPaddingStart(boxPaddingStart: Dp): TextFieldDimensionsBuilder
+    fun boxPaddingStart(boxPaddingStart: Dp): TextFieldDimensionsBuilder =
+        boxPaddingStart(boxPaddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступы контента в начале
+     */
+    fun boxPaddingStart(boxPaddingStart: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ контента в конце
      */
-    fun boxPaddingEnd(boxPaddingEnd: Dp): TextFieldDimensionsBuilder
+    fun boxPaddingEnd(boxPaddingEnd: Dp): TextFieldDimensionsBuilder =
+        boxPaddingEnd(boxPaddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступы контента в конце
+     */
+    fun boxPaddingEnd(boxPaddingEnd: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает верхний отступ контента
      */
-    fun boxPaddingTop(boxPaddingTop: Dp): TextFieldDimensionsBuilder
+    fun boxPaddingTop(boxPaddingTop: Dp): TextFieldDimensionsBuilder =
+        boxPaddingTop(boxPaddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает верхние отступы контента
+     */
+    fun boxPaddingTop(boxPaddingTop: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает нижний отступ контента
      */
-    fun boxPaddingBottom(boxPaddingBottom: Dp): TextFieldDimensionsBuilder
+    fun boxPaddingBottom(boxPaddingBottom: Dp): TextFieldDimensionsBuilder =
+        boxPaddingBottom(boxPaddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает нижние отступы контента
+     */
+    fun boxPaddingBottom(boxPaddingBottom: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает нижний отступ лэйбла
      */
-    fun labelPadding(labelPadding: Dp): TextFieldDimensionsBuilder
+    fun labelPadding(labelPadding: Dp): TextFieldDimensionsBuilder =
+        labelPadding(labelPadding.asStatefulValue())
+
+    /**
+     * Устанавливает нижние отступы лэйбла
+     */
+    fun labelPadding(labelPadding: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ в начале optional текста
      */
-    fun optionalPadding(optionalPadding: Dp): TextFieldDimensionsBuilder
+    fun optionalPadding(optionalPadding: Dp): TextFieldDimensionsBuilder =
+        optionalPadding(optionalPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступы в начале optional текста
+     */
+    fun optionalPadding(optionalPadding: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает верхний отступ helper текста (caption/counter)
      */
-    fun helperTextPadding(helperTextPadding: Dp): TextFieldDimensionsBuilder
+    fun helperTextPadding(helperTextPadding: Dp): TextFieldDimensionsBuilder =
+        helperTextPadding(helperTextPadding.asStatefulValue())
+
+    /**
+     * Устанавливает верхние отступы helper текста (caption/counter)
+     */
+    fun helperTextPadding(helperTextPadding: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ после startContent
      */
-    fun startContentPadding(startContentPadding: Dp): TextFieldDimensionsBuilder
+    fun startContentPadding(startContentPadding: Dp): TextFieldDimensionsBuilder =
+        startContentPadding(startContentPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступы после startContent
+     */
+    fun startContentPadding(startContentPadding: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ перед endContent
      */
-    fun endContentPadding(endContentPadding: Dp): TextFieldDimensionsBuilder
+    fun endContentPadding(endContentPadding: Dp): TextFieldDimensionsBuilder =
+        endContentPadding(endContentPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступы перед endContent
+     */
+    fun endContentPadding(endContentPadding: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ от контейнера с chip-элементами
      */
-    fun chipsPadding(chipsPadding: Dp): TextFieldDimensionsBuilder
+    fun chipsPadding(chipsPadding: Dp): TextFieldDimensionsBuilder =
+        chipsPadding(chipsPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступы от контейнера с chip-элементами
+     */
+    fun chipsPadding(chipsPadding: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ от контейнера с chip-элементами в начале
      */
-    fun chipsPaddingStart(chipsPaddingStart: Dp): TextFieldDimensionsBuilder
+    fun chipsPaddingStart(chipsPaddingStart: Dp): TextFieldDimensionsBuilder =
+        chipsPaddingStart(chipsPaddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступы от контейнера с chip-элементами в начале
+     */
+    fun chipsPaddingStart(chipsPaddingStart: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ от контейнера с chip-элементами в конце
      */
-    fun chipsPaddingEnd(chipsPaddingEnd: Dp): TextFieldDimensionsBuilder
+    fun chipsPaddingEnd(chipsPaddingEnd: Dp): TextFieldDimensionsBuilder =
+        chipsPaddingEnd(chipsPaddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступы от контейнера с chip-элементами в конце
+     */
+    fun chipsPaddingEnd(chipsPaddingEnd: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ от контейнера с chip-элементами сверху
      */
-    fun chipsPaddingTop(chipsPaddingTop: Dp): TextFieldDimensionsBuilder
+    fun chipsPaddingTop(chipsPaddingTop: Dp): TextFieldDimensionsBuilder =
+        chipsPaddingTop(chipsPaddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает отступы от контейнера с chip-элементами сверху
+     */
+    fun chipsPaddingTop(chipsPaddingTop: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ от контейнера с chip-элементами снизу
      */
-    fun chipsPaddingBottom(chipsPaddingBottom: Dp): TextFieldDimensionsBuilder
+    fun chipsPaddingBottom(chipsPaddingBottom: Dp): TextFieldDimensionsBuilder =
+        chipsPaddingBottom(chipsPaddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает отступы от контейнера с chip-элементами снизу
+     */
+    fun chipsPaddingBottom(chipsPaddingBottom: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает минимальную высоту поля
      */
-    fun boxMinHeight(boxMinHeight: Dp): TextFieldDimensionsBuilder
+    fun boxMinHeight(boxMinHeight: Dp): TextFieldDimensionsBuilder =
+        boxMinHeight(boxMinHeight.asStatefulValue())
+
+    /**
+     * Устанавливает минимальную высоту поля
+     */
+    fun boxMinHeight(boxMinHeight: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает высоту первой строки контента
      */
     @ApiName(name = "alignmentMinHeight")
-    fun alignmentLineHeight(alignmentLineHeight: Dp): TextFieldDimensionsBuilder
+    fun alignmentLineHeight(alignmentLineHeight: Dp): TextFieldDimensionsBuilder =
+        alignmentLineHeight(alignmentLineHeight.asStatefulValue())
+
+    /**
+     * Устанавливает высоту первой строки контента
+     */
+    @ApiName(name = "alignmentMinHeight")
+    fun alignmentLineHeight(alignmentLineHeight: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает размер иконки в начале
      */
-    fun startContentSize(startContentSize: Dp): TextFieldDimensionsBuilder
+    fun startContentSize(startContentSize: Dp): TextFieldDimensionsBuilder =
+        startContentSize(startContentSize.asStatefulValue())
+
+    /**
+     * Устанавливает размеры иконки в начале
+     */
+    fun startContentSize(startContentSize: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает размер иконки в конце
      */
-    fun endContentSize(endContentSize: Dp): TextFieldDimensionsBuilder
+    fun endContentSize(endContentSize: Dp): TextFieldDimensionsBuilder =
+        endContentSize(endContentSize.asStatefulValue())
+
+    /**
+     * Устанавливает размеры иконки в конце
+     */
+    fun endContentSize(endContentSize: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает настройки индикатора
@@ -573,18 +887,24 @@ interface TextFieldDimensionsBuilder {
     /**
      * Устанавливает толщину разделителя
      */
-    fun dividerThickness(dividerThickness: Dp): TextFieldDimensionsBuilder
+    fun dividerThickness(dividerThickness: Dp): TextFieldDimensionsBuilder =
+        dividerThickness(dividerThickness.asStatefulValue())
+
+    /**
+     * Устанавливает толщину разделителя
+     */
+    fun dividerThickness(dividerThickness: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Возвращает [TextFieldDimensions]
      */
-    fun build(): TextFieldDimensions
+    fun build(): TextFieldDimensionValues
 
     companion object {
         /**
          * Вернет экземпляр билдера [TextFieldDimensionsBuilder]
          */
-        fun builder(): TextFieldDimensionsBuilder = DefaultTextFieldDimensionsBuilder()
+        fun builder(): TextFieldDimensionsBuilder = DefaultTextFieldDimensions.Builder()
     }
 }
 
@@ -597,23 +917,43 @@ interface TextFieldIndicatorDimensionsBuilder {
      * Устанавливает горизонтальный отступ индикатора
      */
     @ApiName(name = "indicatorOffsetX")
-    fun horizontalPadding(horizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+    fun horizontalPadding(horizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder =
+        horizontalPadding(horizontalPadding.asStatefulValue())
+
+    /**
+     * Устанавливает горизонтальные отступы индикатора
+     */
+    @ApiName(name = "indicatorOffsetX")
+    fun horizontalPadding(horizontalPadding: StatefulValue<Dp>): TextFieldIndicatorDimensionsBuilder
 
     /**
      * Устанавливает вертикальный отступ индикатора
      */
     @ApiName(name = "indicatorOffsetY")
-    fun verticalPadding(verticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+    fun verticalPadding(verticalPadding: Dp): TextFieldIndicatorDimensionsBuilder =
+        verticalPadding(verticalPadding.asStatefulValue())
+
+    /**
+     * Устанавливает вертикальные отступы индикатора
+     */
+    @ApiName(name = "indicatorOffsetY")
+    fun verticalPadding(verticalPadding: StatefulValue<Dp>): TextFieldIndicatorDimensionsBuilder
 
     /**
      * Устанавливает размер индикатора
      */
-    fun indicatorSize(indicatorSize: Dp): TextFieldIndicatorDimensionsBuilder
+    fun indicatorSize(indicatorSize: Dp): TextFieldIndicatorDimensionsBuilder =
+        indicatorSize(indicatorSize.asStatefulValue())
+
+    /**
+     * Устанавливает размеры индикатора
+     */
+    fun indicatorSize(indicatorSize: StatefulValue<Dp>): TextFieldIndicatorDimensionsBuilder
 
     /**
      * Возвращает экземпляр [TextFieldDimensions.IndicatorDimensions]
      */
-    fun build(): TextFieldDimensions.IndicatorDimensions
+    fun build(): TextFieldIndicatorDimensionValues
 
     companion object {
 
@@ -621,7 +961,7 @@ interface TextFieldIndicatorDimensionsBuilder {
          * Возвращает билдер [TextFieldIndicatorDimensionsBuilder]
          */
         fun builder(): TextFieldIndicatorDimensionsBuilder =
-            DefaultTextFieldIndicatorDimensionsBuilder()
+            DefaultTextFieldIndicatorDimensions.Builder()
     }
 }
 
@@ -680,47 +1020,75 @@ interface TextFieldScrollBarBuilder {
 internal class DefaultTextFieldStyle(
     override val dimensions: TextFieldDimensions,
     override val colors: TextFieldColors,
-    override val shape: CornerBasedShape,
     override val fieldType: TextFieldType,
     override val labelPlacement: TextFieldLabelPlacement,
     override val captionPlacement: TextFieldHelperTextPlacement,
     override val counterPlacement: TextFieldHelperTextPlacement,
     override val indicatorAlignmentMode: TextFieldIndicatorAlignmentMode,
     override val scrollBar: ScrollBar?,
-    override val valueStyle: TextStyle,
-    override val captionStyle: TextStyle,
-    override val counterStyle: TextStyle,
-    override val placeholderStyle: TextStyle,
     override val singleLine: Boolean,
     override val chipGroupStyle: ChipGroupStyle,
     @Deprecated("Use chipGroupStyle")
     override val chipStyle: ChipStyle,
-    override val labelStyle: TextStyle,
-    override val optionalStyle: TextStyle,
-    override val prefixStyle: TextStyle,
-    override val suffixStyle: TextStyle,
+    override val shapes: StatefulValue<CornerBasedShape>,
+    override val labelStyles: StatefulValue<TextStyle>,
+    override val optionalStyles: StatefulValue<TextStyle>,
+    override val valueStyles: StatefulValue<TextStyle>,
+    override val captionStyles: StatefulValue<TextStyle>,
+    override val counterStyles: StatefulValue<TextStyle>,
+    override val placeholderStyles: StatefulValue<TextStyle>,
+    override val prefixStyles: StatefulValue<TextStyle>,
+    override val suffixStyles: StatefulValue<TextStyle>,
+    override val dimensionValues: TextFieldDimensionValues,
 ) : TextFieldStyle {
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
+
+    @Deprecated("Use valueStyles", replaceWith = ReplaceWith("valueStyles"))
+    override val valueStyle: TextStyle = valueStyles.getDefaultValue()
+
+    @Deprecated("Use captionStyles", replaceWith = ReplaceWith("captionStyles"))
+    override val captionStyle: TextStyle = captionStyles.getDefaultValue()
+
+    @Deprecated("Use counterStyles", replaceWith = ReplaceWith("counterStyles"))
+    override val counterStyle: TextStyle = counterStyles.getDefaultValue()
+
+    @Deprecated("Use placeholderStyles", replaceWith = ReplaceWith("placeholderStyles"))
+    override val placeholderStyle: TextStyle = placeholderStyles.getDefaultValue()
+
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
+    override val labelStyle: TextStyle = labelStyles.getDefaultValue()
+
+    @Deprecated("Use optionalStyles", replaceWith = ReplaceWith("optionalStyles"))
+    override val optionalStyle: TextStyle = optionalStyles.getDefaultValue()
+
+    @Deprecated("Use prefixStyles", replaceWith = ReplaceWith("prefixStyles"))
+    override val prefixStyle: TextStyle = prefixStyles.getDefaultValue()
+
+    @Deprecated("Use suffixStyles", replaceWith = ReplaceWith("suffixStyles"))
+    override val suffixStyle: TextStyle = suffixStyles.getDefaultValue()
 
     class Builder(override val receiver: Any?) : TextFieldStyleBuilder {
 
         private var colorsBuilder: TextFieldColorsBuilder = TextFieldColorsBuilder.builder()
         private var dimensionsBuilder: TextFieldDimensionsBuilder =
             TextFieldDimensionsBuilder.builder()
+        private var dimensions: TextFieldDimensions? = null
         private var scrollBarBuilder: TextFieldScrollBarBuilder =
             TextFieldScrollBarBuilder.builder()
-        private var shape: CornerBasedShape? = null
+        private var shape: StatefulValue<CornerBasedShape>? = null
         private var labelPlacement: TextFieldLabelPlacement? = null
         private var captionPlacement: TextFieldHelperTextPlacement? = null
         private var counterPlacement: TextFieldHelperTextPlacement? = null
         private var fieldType: TextFieldType? = null
-        private var labelStyle: TextStyle? = null
-        private var optionalStyle: TextStyle? = null
-        private var valueStyle: TextStyle? = null
-        private var captionStyle: TextStyle? = null
-        private var counterStyle: TextStyle? = null
-        private var placeholderStyle: TextStyle? = null
-        private var prefixStyle: TextStyle? = null
-        private var suffixStyle: TextStyle? = null
+        private var labelStyle: StatefulValue<TextStyle>? = null
+        private var optionalStyle: StatefulValue<TextStyle>? = null
+        private var valueStyle: StatefulValue<TextStyle>? = null
+        private var captionStyle: StatefulValue<TextStyle>? = null
+        private var counterStyle: StatefulValue<TextStyle>? = null
+        private var placeholderStyle: StatefulValue<TextStyle>? = null
+        private var prefixStyle: StatefulValue<TextStyle>? = null
+        private var suffixStyle: StatefulValue<TextStyle>? = null
         private var chipGroupStyle: ChipGroupStyle? = null
         private var chipStyle: ChipStyle? = null
         private var singleLine: Boolean? = null
@@ -735,6 +1103,7 @@ internal class DefaultTextFieldStyle(
         @Deprecated("Use dimensions() with builder instead")
         @Composable
         override fun dimensions(dimensions: TextFieldDimensions) = apply {
+            this.dimensions = dimensions
             this.dimensionsBuilder.apply {
                 boxPaddingStart(dimensions.boxPaddingStart)
                 boxPaddingEnd(dimensions.boxPaddingEnd)
@@ -763,7 +1132,7 @@ internal class DefaultTextFieldStyle(
             this.colorsBuilder.builder()
         }
 
-        override fun shape(shape: CornerBasedShape) = apply {
+        override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
             this.shape = shape
         }
 
@@ -789,35 +1158,35 @@ internal class DefaultTextFieldStyle(
                 this.scrollBarBuilder.builder()
             }
 
-        override fun labelStyle(labelStyle: TextStyle) = apply {
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>) = apply {
             this.labelStyle = labelStyle
         }
 
-        override fun optionalStyle(optionalStyle: TextStyle) = apply {
+        override fun optionalStyle(optionalStyle: StatefulValue<TextStyle>) = apply {
             this.optionalStyle = optionalStyle
         }
 
-        override fun valueStyle(valueStyle: TextStyle) = apply {
+        override fun valueStyle(valueStyle: StatefulValue<TextStyle>) = apply {
             this.valueStyle = valueStyle
         }
 
-        override fun captionStyle(captionStyle: TextStyle) = apply {
+        override fun captionStyle(captionStyle: StatefulValue<TextStyle>) = apply {
             this.captionStyle = captionStyle
         }
 
-        override fun counterStyle(counterStyle: TextStyle) = apply {
+        override fun counterStyle(counterStyle: StatefulValue<TextStyle>) = apply {
             this.counterStyle = counterStyle
         }
 
-        override fun placeholderStyle(placeholderStyle: TextStyle) = apply {
+        override fun placeholderStyle(placeholderStyle: StatefulValue<TextStyle>) = apply {
             this.placeholderStyle = placeholderStyle
         }
 
-        override fun prefixStyle(prefixStyle: TextStyle) = apply {
+        override fun prefixStyle(prefixStyle: StatefulValue<TextStyle>) = apply {
             this.prefixStyle = prefixStyle
         }
 
-        override fun suffixStyle(suffixStyle: TextStyle) = apply {
+        override fun suffixStyle(suffixStyle: StatefulValue<TextStyle>) = apply {
             this.suffixStyle = suffixStyle
         }
 
@@ -846,21 +1215,22 @@ internal class DefaultTextFieldStyle(
                 singleLine = singleLine ?: true,
                 captionPlacement = captionPlacement ?: TextFieldHelperTextPlacement.Outer,
                 counterPlacement = counterPlacement ?: TextFieldHelperTextPlacement.Outer,
-                dimensions = dimensionsBuilder.build(),
+                dimensions = dimensions ?: TextFieldDimensions(),
+                dimensionValues = dimensionsBuilder.build(),
                 colors = colorsBuilder.build(),
-                shape = shape ?: RoundedCornerShape(CornerSize(0)),
+                shapes = shape ?: RoundedCornerShape(CornerSize(0)).asStatefulValue(),
                 fieldType = fieldType ?: TextFieldType.Optional,
                 labelPlacement = labelPlacement ?: TextFieldLabelPlacement.None,
                 indicatorAlignmentMode = indicatorAlignmentMode
                     ?: TextFieldIndicatorAlignmentMode.Inside,
-                labelStyle = labelStyle ?: TextStyle.Default,
-                optionalStyle = optionalStyle ?: TextStyle.Default,
-                valueStyle = valueStyle ?: TextStyle.Default,
-                captionStyle = captionStyle ?: TextStyle.Default,
-                counterStyle = counterStyle ?: TextStyle.Default,
-                placeholderStyle = placeholderStyle ?: TextStyle.Default,
-                prefixStyle = prefixStyle ?: TextStyle.Default,
-                suffixStyle = suffixStyle ?: TextStyle.Default,
+                labelStyles = labelStyle ?: TextStyle.Default.asStatefulValue(),
+                optionalStyles = optionalStyle ?: TextStyle.Default.asStatefulValue(),
+                valueStyles = valueStyle ?: TextStyle.Default.asStatefulValue(),
+                captionStyles = captionStyle ?: TextStyle.Default.asStatefulValue(),
+                counterStyles = counterStyle ?: TextStyle.Default.asStatefulValue(),
+                placeholderStyles = placeholderStyle ?: TextStyle.Default.asStatefulValue(),
+                prefixStyles = prefixStyle ?: TextStyle.Default.asStatefulValue(),
+                suffixStyles = suffixStyle ?: TextStyle.Default.asStatefulValue(),
                 chipStyle = chipStyle ?: ChipStyle.builder().style(),
                 chipGroupStyle = chipGroupStyle ?: ChipGroupStyle
                     .builder()
@@ -902,59 +1272,87 @@ private class DefaultTextFieldColors(
     private val prefixColorReadOnly: InteractiveColor,
     private val suffixColor: InteractiveColor,
     private val suffixColorReadOnly: InteractiveColor,
+    override val cursorBrush: StatefulValue<Brush>,
+    override val indicatorBrush: StatefulValue<Brush>,
+    override val startContentBrush: StatefulValue<Brush>,
+    override val endContentBrush: StatefulValue<Brush>,
+    override val labelBrush: StatefulValue<Brush>,
+    override val valueBrush: StatefulValue<Brush>,
+    override val captionBrush: StatefulValue<Brush>,
+    override val optionalBrush: StatefulValue<Brush>,
+    override val counterBrush: StatefulValue<Brush>,
+    override val dividerBrush: StatefulValue<Brush>,
+    override val placeholderBrush: StatefulValue<Brush>,
+    override val backgroundBrush: StatefulValue<Brush>,
+    override val prefixBrush: StatefulValue<Brush>,
+    override val suffixBrush: StatefulValue<Brush>,
 ) : TextFieldColors {
+    @Deprecated("Use cursorBrush", replaceWith = ReplaceWith("cursorBrush"))
     override fun cursorColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) cursorColorReadOnly else cursorColor
     }
 
+    @Deprecated("Use indicatorBrush", replaceWith = ReplaceWith("indicatorBrush"))
     override fun indicatorColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) indicatorColorReadOnly else indicatorColor
     }
 
+    @Deprecated("Use startContentBrush", replaceWith = ReplaceWith("startContentBrush"))
     override fun startContentColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) startContentColorReadOnly else startContentColor
     }
 
+    @Deprecated("Use endContentBrush", replaceWith = ReplaceWith("endContentBrush"))
     override fun endContentColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) endContentColorReadOnly else endContentColor
     }
 
+    @Deprecated("Use labelBrush", replaceWith = ReplaceWith("labelBrush"))
     override fun labelColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) labelColorReadOnly else labelColor
     }
 
+    @Deprecated("Use valueBrush", replaceWith = ReplaceWith("valueBrush"))
     override fun valueColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) valueColorReadOnly else valueColor
     }
 
+    @Deprecated("Use captionBrush", replaceWith = ReplaceWith("captionBrush"))
     override fun captionColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) captionColorReadOnly else captionColor
     }
 
+    @Deprecated("Use optionalBrush", replaceWith = ReplaceWith("optionalBrush"))
     override fun optionalColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) optionalColorReadOnly else optionalColor
     }
 
+    @Deprecated("Use counterBrush", replaceWith = ReplaceWith("counterBrush"))
     override fun counterColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) counterColorReadOnly else counterColor
     }
 
+    @Deprecated("Use dividerBrush", replaceWith = ReplaceWith("dividerBrush"))
     override fun dividerColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) dividerColorReadOnly else dividerColor
     }
 
+    @Deprecated("Use placeholderBrush", replaceWith = ReplaceWith("placeholderBrush"))
     override fun placeholderColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) placeholderColorReadOnly else placeholderColor
     }
 
+    @Deprecated("Use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
     override fun backgroundColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) backgroundColorReadOnly else backgroundColor
     }
 
+    @Deprecated("Use prefixBrush", replaceWith = ReplaceWith("prefixBrush"))
     override fun prefixColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) prefixColorReadOnly else prefixColor
     }
 
+    @Deprecated("Use suffixBrush", replaceWith = ReplaceWith("suffixBrush"))
     override fun suffixColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) suffixColorReadOnly else suffixColor
     }
@@ -989,6 +1387,20 @@ private class DefaultTextFieldColors(
         private var prefixColorReadOnly: InteractiveColor? = null
         private var suffixColor: InteractiveColor? = null
         private var suffixColorReadOnly: InteractiveColor? = null
+        private var cursorBrush: StatefulValue<Brush>? = null
+        private var indicatorBrush: StatefulValue<Brush>? = null
+        private var startContentBrush: StatefulValue<Brush>? = null
+        private var endContentBrush: StatefulValue<Brush>? = null
+        private var labelBrush: StatefulValue<Brush>? = null
+        private var valueBrush: StatefulValue<Brush>? = null
+        private var captionBrush: StatefulValue<Brush>? = null
+        private var optionalBrush: StatefulValue<Brush>? = null
+        private var counterBrush: StatefulValue<Brush>? = null
+        private var dividerBrush: StatefulValue<Brush>? = null
+        private var placeholderBrush: StatefulValue<Brush>? = null
+        private var backgroundBrush: StatefulValue<Brush>? = null
+        private var prefixBrush: StatefulValue<Brush>? = null
+        private var suffixBrush: StatefulValue<Brush>? = null
 
         override fun disabledAlpha(disabledAlpha: Float) = apply {
             this.disabledAlpha = disabledAlpha
@@ -1002,6 +1414,14 @@ private class DefaultTextFieldColors(
             this.cursorColorReadOnly = cursorColorReadOnly
         }
 
+        override fun startContentColor(startContentColor: StatefulValue<Brush>) = apply {
+            this.startContentBrush = startContentColor
+        }
+
+        override fun cursorColor(cursorColor: StatefulValue<Brush>) = apply {
+            this.cursorBrush = cursorColor
+        }
+
         override fun startContentColor(startContentColor: InteractiveColor) = apply {
             this.startContentColor = startContentColor
         }
@@ -1011,12 +1431,20 @@ private class DefaultTextFieldColors(
                 this.startContentColorReadOnly = startContentColorReadOnly
             }
 
+        override fun endContentColor(endContentColor: StatefulValue<Brush>) = apply {
+            this.endContentBrush = endContentColor
+        }
+
         override fun endContentColor(endContentColor: InteractiveColor) = apply {
             this.endContentColor = endContentColor
         }
 
         override fun endContentColorReadOnly(endContentColorReadOnly: InteractiveColor) = apply {
             this.endContentColorReadOnly = endContentColorReadOnly
+        }
+
+        override fun labelColor(labelColor: StatefulValue<Brush>) = apply {
+            this.labelBrush = labelColor
         }
 
         override fun labelColor(labelColor: InteractiveColor) = apply {
@@ -1027,12 +1455,20 @@ private class DefaultTextFieldColors(
             this.labelColorReadOnly = labelColorReadOnly
         }
 
+        override fun valueColor(valueColor: StatefulValue<Brush>) = apply {
+            this.valueBrush = valueColor
+        }
+
         override fun valueColor(valueColor: InteractiveColor) = apply {
             this.valueColor = valueColor
         }
 
         override fun valueColorReadOnly(valueColorReadOnly: InteractiveColor) = apply {
             this.valueColorReadOnly = valueColorReadOnly
+        }
+
+        override fun captionColor(captionColor: StatefulValue<Brush>) = apply {
+            this.captionBrush = captionColor
         }
 
         override fun captionColor(captionColor: InteractiveColor) = apply {
@@ -1043,12 +1479,20 @@ private class DefaultTextFieldColors(
             this.captionColorReadOnly = captionColorReadOnly
         }
 
+        override fun optionalColor(optionalColor: StatefulValue<Brush>) = apply {
+            this.optionalBrush = optionalColor
+        }
+
         override fun optionalColor(optionalColor: InteractiveColor) = apply {
             this.optionalColor = optionalColor
         }
 
         override fun optionalColorReadOnly(optionalColorReadOnly: InteractiveColor) = apply {
             this.optionalColorReadOnly = optionalColorReadOnly
+        }
+
+        override fun counterColor(counterColor: StatefulValue<Brush>) = apply {
+            this.counterBrush = counterColor
         }
 
         override fun counterColor(counterColor: InteractiveColor) = apply {
@@ -1059,12 +1503,20 @@ private class DefaultTextFieldColors(
             this.counterColorReadOnly = counterColorReadOnly
         }
 
+        override fun placeholderColor(placeholderColor: StatefulValue<Brush>) = apply {
+            this.placeholderBrush = placeholderColor
+        }
+
         override fun placeholderColor(placeholderColor: InteractiveColor) = apply {
             this.placeholderColor = placeholderColor
         }
 
         override fun placeholderColorReadOnly(placeholderColorReadOnly: InteractiveColor) = apply {
             this.placeholderColorReadOnly = placeholderColorReadOnly
+        }
+
+        override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
+            this.backgroundBrush = backgroundColor
         }
 
         override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
@@ -1075,12 +1527,20 @@ private class DefaultTextFieldColors(
             this.backgroundColorReadOnly = backgroundColorReadOnly
         }
 
+        override fun dividerColor(dividerColor: StatefulValue<Brush>) = apply {
+            this.dividerBrush = dividerColor
+        }
+
         override fun dividerColor(dividerColor: InteractiveColor) = apply {
             this.dividerColor = dividerColor
         }
 
         override fun dividerColorReadOnly(dividerColorReadOnly: InteractiveColor) = apply {
             this.dividerColorReadOnly = dividerColorReadOnly
+        }
+
+        override fun indicatorColor(indicatorColor: StatefulValue<Brush>) = apply {
+            this.indicatorBrush = indicatorColor
         }
 
         override fun indicatorColor(indicatorColor: InteractiveColor) = apply {
@@ -1091,8 +1551,16 @@ private class DefaultTextFieldColors(
             this.indicatorColorReadOnly = indicatorColorReadOnly
         }
 
+        override fun prefixColor(prefixColor: StatefulValue<Brush>) = apply {
+            this.prefixBrush = prefixColor
+        }
+
         override fun prefixColor(prefixColor: InteractiveColor) = apply {
             this.prefixColor = prefixColor
+        }
+
+        override fun suffixColor(suffixColor: StatefulValue<Brush>) = apply {
+            this.suffixBrush = suffixColor
         }
 
         override fun suffixColor(suffixColor: InteractiveColor) = apply {
@@ -1109,208 +1577,294 @@ private class DefaultTextFieldColors(
 
         @Suppress("CyclomaticComplexMethod")
         override fun build(): TextFieldColors {
+            val defaultColor = Color.Black.asInteractive()
+            val curColor = cursorColor ?: defaultColor
+            val curColorRead = cursorColorReadOnly ?: curColor
+            val startColor = startContentColor ?: defaultColor
+            val startColorRead = startContentColorReadOnly ?: startColor
+            val endColor = endContentColor ?: defaultColor
+            val endColorRead = endContentColorReadOnly ?: endColor
+            val labColor = labelColor ?: defaultColor
+            val labColorRead = labelColorReadOnly ?: labColor
+            val valColor = valueColor ?: defaultColor
+            val valColorRead = valueColorReadOnly ?: valColor
+            val capColor = captionColor ?: defaultColor
+            val capColorRead = captionColorReadOnly ?: capColor
+            val optColor = optionalColor ?: defaultColor
+            val optColorRead = optionalColorReadOnly ?: optColor
+            val countColor = counterColor ?: defaultColor
+            val countColorRead = counterColorReadOnly ?: countColor
+            val backColor = backgroundColor ?: Color.Transparent.asInteractive()
+            val backColorRead = backgroundColorReadOnly ?: backColor
+            val placeColor = placeholderColor ?: defaultColor
+            val placeColorRead = placeholderColorReadOnly ?: placeColor
+            val indColor = indicatorColor ?: defaultColor
+            val indColorRead = indicatorColorReadOnly ?: indColor
+            val prefColor = prefixColor ?: defaultColor
+            val prefColorRead = prefixColorReadOnly ?: prefColor
+            val sufColor = suffixColor ?: defaultColor
+            val sufColorRead = suffixColorReadOnly ?: sufColor
+            val divColor = dividerColor ?: Color.Transparent.asInteractive()
+            val divColorRead = dividerColorReadOnly ?: divColor
             return DefaultTextFieldColors(
                 disabledAlpha = disabledAlpha ?: DEFAULT_DISABLED_ALPHA,
-                cursorColor = cursorColor ?: Color.Black.asInteractive(),
-                cursorColorReadOnly = cursorColorReadOnly ?: cursorColor
-                    ?: Color.Black.asInteractive(),
-                startContentColor = startContentColor ?: Color.Black.asInteractive(),
-                startContentColorReadOnly = startContentColorReadOnly
-                    ?: startContentColor
-                    ?: Color.Black.asInteractive(),
-                endContentColor = endContentColor ?: Color.Black.asInteractive(),
-                endContentColorReadOnly = endContentColorReadOnly ?: endContentColor
-                    ?: Color.Black.asInteractive(),
-                labelColor = labelColor ?: Color.Black.asInteractive(),
-                labelColorReadOnly = labelColorReadOnly ?: labelColor
-                    ?: Color.Black.asInteractive(),
-                valueColor = valueColor ?: Color.Black.asInteractive(),
-                valueColorReadOnly = valueColorReadOnly ?: valueColor
-                    ?: Color.Black.asInteractive(),
-                captionColor = captionColor ?: Color.Black.asInteractive(),
-                captionColorReadOnly = captionColorReadOnly ?: captionColor
-                    ?: Color.Black.asInteractive(),
-                optionalColor = optionalColor ?: Color.Black.asInteractive(),
-                optionalColorReadOnly = optionalColorReadOnly ?: optionalColor
-                    ?: Color.Black.asInteractive(),
-                counterColor = counterColor ?: Color.Black.asInteractive(),
-                counterColorReadOnly = counterColorReadOnly ?: counterColor
-                    ?: Color.Black.asInteractive(),
-                backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
-                backgroundColorReadOnly = backgroundColorReadOnly
-                    ?: backgroundColor ?: Color.Transparent.asInteractive(),
-                placeholderColor = placeholderColor ?: Color.Gray.asInteractive(),
-                placeholderColorReadOnly = placeholderColorReadOnly ?: placeholderColor
-                    ?: Color.Gray.asInteractive(),
-                indicatorColor = indicatorColor ?: Color.Red.asInteractive(),
-                indicatorColorReadOnly = indicatorColorReadOnly ?: indicatorColor
-                    ?: Color.Red.asInteractive(),
-                prefixColor = prefixColor ?: Color.Black.asInteractive(),
-                prefixColorReadOnly = prefixColorReadOnly ?: prefixColor
-                    ?: Color.Black.asInteractive(),
-                suffixColor = suffixColor ?: Color.Black.asInteractive(),
-                suffixColorReadOnly = suffixColorReadOnly ?: suffixColor
-                    ?: Color.Black.asInteractive(),
-                dividerColor = dividerColor ?: Color.Transparent.asInteractive(),
-                dividerColorReadOnly = dividerColorReadOnly ?: dividerColor
-                    ?: Color.Transparent.asInteractive(),
+                cursorColor = curColorRead,
+                cursorColorReadOnly = curColorRead,
+                cursorBrush = cursorBrush ?: curColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to curColorRead,
+                ),
+                startContentColor = startColor,
+                startContentColorReadOnly = startColorRead,
+                startContentBrush = startContentBrush ?: startColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to startColorRead,
+                ),
+                endContentColor = endColor,
+                endContentColorReadOnly = endColorRead,
+                endContentBrush = endContentBrush ?: endColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to endColorRead,
+                ),
+                labelColor = labColor,
+                labelColorReadOnly = labColorRead,
+                labelBrush = labelBrush ?: labColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to labColorRead,
+                ),
+                valueColor = valColor,
+                valueColorReadOnly = valColorRead,
+                valueBrush = valueBrush ?: valColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to valColorRead,
+                ),
+                captionColor = capColor,
+                captionColorReadOnly = capColorRead,
+                captionBrush = captionBrush ?: capColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to capColorRead,
+                ),
+                optionalColor = optColor,
+                optionalColorReadOnly = optColorRead,
+                optionalBrush = optionalBrush ?: optColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to optColorRead,
+                ),
+                counterColor = countColor,
+                counterColorReadOnly = countColorRead,
+                counterBrush = counterBrush ?: countColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to countColorRead,
+                ),
+                backgroundColor = backColor,
+                backgroundColorReadOnly = backColorRead,
+                backgroundBrush = backgroundBrush ?: backColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to backColorRead,
+                ),
+                placeholderColor = placeColor,
+                placeholderColorReadOnly = placeColorRead,
+                placeholderBrush = placeholderBrush ?: placeColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to placeColorRead,
+                ),
+                indicatorColor = indColor,
+                indicatorColorReadOnly = indColorRead,
+                indicatorBrush = indicatorBrush ?: indColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to indColorRead,
+                ),
+                prefixColor = prefColor,
+                prefixColorReadOnly = prefColorRead,
+                prefixBrush = prefixBrush ?: prefColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to prefColorRead,
+                ),
+                suffixColor = sufColor,
+                suffixColorReadOnly = sufColorRead,
+                suffixBrush = suffixBrush ?: sufColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to sufColorRead,
+                ),
+                dividerColor = divColor,
+                dividerColorReadOnly = divColorRead,
+                dividerBrush = dividerBrush ?: divColor.asStatefulBrush().addStates(
+                    setOf(TextFieldSemanticState.Readonly) to divColorRead,
+                ),
             )
         }
     }
 }
 
-private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
-    private var boxPaddingStart: Dp? = null
-    private var boxPaddingEnd: Dp? = null
-    private var boxPaddingTop: Dp? = null
-    private var boxPaddingBottom: Dp? = null
-    private var labelPadding: Dp? = null
-    private var optionalPadding: Dp? = null
-    private var helperTextPadding: Dp? = null
-    private var startContentPadding: Dp? = null
-    private var endContentPadding: Dp? = null
-    private var chipsPadding: Dp? = null
-    private var chipsPaddingStart: Dp? = null
-    private var chipsPaddingEnd: Dp? = null
-    private var chipsPaddingTop: Dp? = null
-    private var chipsPaddingBottom: Dp? = null
-    private var boxMinHeight: Dp? = null
-    private var alignmentLineHeight: Dp? = null
-    private var startContentSize: Dp? = null
-    private var endContentSize: Dp? = null
-    private var indicatorDimensionsBuilder: TextFieldIndicatorDimensionsBuilder =
-        TextFieldIndicatorDimensionsBuilder.builder()
-    private var dividerThickness: Dp? = null
+private class DefaultTextFieldDimensions(
+    override val boxPaddingStartValues: StatefulValue<Dp>,
+    override val boxPaddingEndValues: StatefulValue<Dp>,
+    override val boxPaddingTopValues: StatefulValue<Dp>,
+    override val boxPaddingBottomValues: StatefulValue<Dp>,
+    override val labelPaddingValues: StatefulValue<Dp>,
+    override val optionalPaddingValues: StatefulValue<Dp>,
+    override val helperTextPaddingValues: StatefulValue<Dp>,
+    override val startContentPaddingValues: StatefulValue<Dp>,
+    override val endContentPaddingValues: StatefulValue<Dp>,
+    override val chipsPaddingValues: StatefulValue<Dp>,
+    override val chipsPaddingStartValues: StatefulValue<Dp>,
+    override val chipsPaddingEndValues: StatefulValue<Dp>,
+    override val chipsPaddingTopValues: StatefulValue<Dp>,
+    override val chipsPaddingBottomValues: StatefulValue<Dp>,
+    override val boxMinHeightValues: StatefulValue<Dp>,
+    override val alignmentLineHeightValues: StatefulValue<Dp>,
+    override val startContentSizeValues: StatefulValue<Dp>,
+    override val endContentSizeValues: StatefulValue<Dp>,
+    override val dividerThicknessValues: StatefulValue<Dp>,
+    override val indicatorDimensions: TextFieldIndicatorDimensionValues,
+) : TextFieldDimensionValues {
 
-    override fun boxPaddingStart(boxPaddingStart: Dp) = apply {
-        this.boxPaddingStart = boxPaddingStart
-    }
+    class Builder : TextFieldDimensionsBuilder {
+        private var boxPaddingStart: StatefulValue<Dp>? = null
+        private var boxPaddingEnd: StatefulValue<Dp>? = null
+        private var boxPaddingTop: StatefulValue<Dp>? = null
+        private var boxPaddingBottom: StatefulValue<Dp>? = null
+        private var labelPadding: StatefulValue<Dp>? = null
+        private var optionalPadding: StatefulValue<Dp>? = null
+        private var helperTextPadding: StatefulValue<Dp>? = null
+        private var startContentPadding: StatefulValue<Dp>? = null
+        private var endContentPadding: StatefulValue<Dp>? = null
+        private var chipsPadding: StatefulValue<Dp>? = null
+        private var chipsPaddingStart: StatefulValue<Dp>? = null
+        private var chipsPaddingEnd: StatefulValue<Dp>? = null
+        private var chipsPaddingTop: StatefulValue<Dp>? = null
+        private var chipsPaddingBottom: StatefulValue<Dp>? = null
+        private var boxMinHeight: StatefulValue<Dp>? = null
+        private var alignmentLineHeight: StatefulValue<Dp>? = null
+        private var startContentSize: StatefulValue<Dp>? = null
+        private var endContentSize: StatefulValue<Dp>? = null
+        private var indicatorDimensionsBuilder: TextFieldIndicatorDimensionsBuilder =
+            TextFieldIndicatorDimensionsBuilder.builder()
+        private var dividerThickness: StatefulValue<Dp>? = null
 
-    override fun boxPaddingEnd(boxPaddingEnd: Dp) = apply {
-        this.boxPaddingEnd = boxPaddingEnd
-    }
+        override fun boxPaddingStart(boxPaddingStart: StatefulValue<Dp>) = apply {
+            this.boxPaddingStart = boxPaddingStart
+        }
 
-    override fun boxPaddingTop(boxPaddingTop: Dp) = apply {
-        this.boxPaddingTop = boxPaddingTop
-    }
+        override fun boxPaddingEnd(boxPaddingEnd: StatefulValue<Dp>) = apply {
+            this.boxPaddingEnd = boxPaddingEnd
+        }
 
-    override fun boxPaddingBottom(boxPaddingBottom: Dp) = apply {
-        this.boxPaddingBottom = boxPaddingBottom
-    }
+        override fun boxPaddingTop(boxPaddingTop: StatefulValue<Dp>) = apply {
+            this.boxPaddingTop = boxPaddingTop
+        }
 
-    override fun labelPadding(labelPadding: Dp) = apply {
-        this.labelPadding = labelPadding
-    }
+        override fun boxPaddingBottom(boxPaddingBottom: StatefulValue<Dp>) = apply {
+            this.boxPaddingBottom = boxPaddingBottom
+        }
 
-    override fun optionalPadding(optionalPadding: Dp) = apply {
-        this.optionalPadding = optionalPadding
-    }
+        override fun labelPadding(labelPadding: StatefulValue<Dp>) = apply {
+            this.labelPadding = labelPadding
+        }
 
-    override fun helperTextPadding(helperTextPadding: Dp) = apply {
-        this.helperTextPadding = helperTextPadding
-    }
+        override fun optionalPadding(optionalPadding: StatefulValue<Dp>) = apply {
+            this.optionalPadding = optionalPadding
+        }
 
-    override fun startContentPadding(startContentPadding: Dp) = apply {
-        this.startContentPadding = startContentPadding
-    }
+        override fun helperTextPadding(helperTextPadding: StatefulValue<Dp>) = apply {
+            this.helperTextPadding = helperTextPadding
+        }
 
-    override fun endContentPadding(endContentPadding: Dp) = apply {
-        this.endContentPadding = endContentPadding
-    }
+        override fun startContentPadding(startContentPadding: StatefulValue<Dp>) = apply {
+            this.startContentPadding = startContentPadding
+        }
 
-    override fun chipsPadding(chipsPadding: Dp) = apply {
-        this.chipsPadding = chipsPadding
-    }
+        override fun endContentPadding(endContentPadding: StatefulValue<Dp>) = apply {
+            this.endContentPadding = endContentPadding
+        }
 
-    override fun chipsPaddingStart(chipsPaddingStart: Dp) = apply {
-        this.chipsPaddingStart = chipsPaddingStart
-    }
+        override fun chipsPadding(chipsPadding: StatefulValue<Dp>) = apply {
+            this.chipsPadding = chipsPadding
+        }
 
-    override fun chipsPaddingEnd(chipsPaddingEnd: Dp) = apply {
-        this.chipsPaddingEnd = chipsPaddingEnd
-    }
+        override fun chipsPaddingStart(chipsPaddingStart: StatefulValue<Dp>) = apply {
+            this.chipsPaddingStart = chipsPaddingStart
+        }
 
-    override fun chipsPaddingTop(chipsPaddingTop: Dp) = apply {
-        this.chipsPaddingTop = chipsPaddingTop
-    }
+        override fun chipsPaddingEnd(chipsPaddingEnd: StatefulValue<Dp>) = apply {
+            this.chipsPaddingEnd = chipsPaddingEnd
+        }
 
-    override fun chipsPaddingBottom(chipsPaddingBottom: Dp) = apply {
-        this.chipsPaddingBottom = chipsPaddingBottom
-    }
+        override fun chipsPaddingTop(chipsPaddingTop: StatefulValue<Dp>) = apply {
+            this.chipsPaddingTop = chipsPaddingTop
+        }
 
-    override fun boxMinHeight(boxMinHeight: Dp) = apply {
-        this.boxMinHeight = boxMinHeight
-    }
+        override fun chipsPaddingBottom(chipsPaddingBottom: StatefulValue<Dp>) = apply {
+            this.chipsPaddingBottom = chipsPaddingBottom
+        }
 
-    override fun alignmentLineHeight(alignmentLineHeight: Dp) = apply {
-        this.alignmentLineHeight = alignmentLineHeight
-    }
+        override fun boxMinHeight(boxMinHeight: StatefulValue<Dp>) = apply {
+            this.boxMinHeight = boxMinHeight
+        }
 
-    override fun startContentSize(startContentSize: Dp) = apply {
-        this.startContentSize = startContentSize
-    }
+        override fun alignmentLineHeight(alignmentLineHeight: StatefulValue<Dp>) = apply {
+            this.alignmentLineHeight = alignmentLineHeight
+        }
 
-    override fun endContentSize(endContentSize: Dp) = apply {
-        this.endContentSize = endContentSize
-    }
+        override fun startContentSize(startContentSize: StatefulValue<Dp>) = apply {
+            this.startContentSize = startContentSize
+        }
 
-    @Composable
-    override fun indicatorDimensions(builder: @Composable TextFieldIndicatorDimensionsBuilder.() -> Unit) =
-        apply { this.indicatorDimensionsBuilder.builder() }
+        override fun endContentSize(endContentSize: StatefulValue<Dp>) = apply {
+            this.endContentSize = endContentSize
+        }
 
-    override fun dividerThickness(dividerThickness: Dp) = apply {
-        this.dividerThickness = dividerThickness
-    }
+        @Composable
+        override fun indicatorDimensions(builder: @Composable TextFieldIndicatorDimensionsBuilder.() -> Unit) =
+            apply { this.indicatorDimensionsBuilder.builder() }
 
-    @Suppress("CyclomaticComplexMethod")
-    override fun build(): TextFieldDimensions {
-        return TextFieldDimensions(
-            boxPaddingStart = boxPaddingStart ?: 16.dp,
-            boxPaddingEnd = boxPaddingEnd ?: 16.dp,
-            boxPaddingTop = boxPaddingTop ?: 25.dp,
-            boxPaddingBottom = boxPaddingBottom ?: 9.dp,
-            labelPadding = labelPadding ?: 2.dp,
-            optionalPadding = optionalPadding ?: 4.dp,
-            helperTextPadding = helperTextPadding ?: 4.dp,
-            startContentPadding = startContentPadding ?: 6.dp,
-            endContentPadding = endContentPadding ?: 6.dp,
-            chipsPadding = chipsPadding ?: 6.dp,
-            chipsPaddingStart = chipsPaddingStart ?: chipsPadding ?: 6.dp,
-            chipsPaddingEnd = chipsPaddingEnd ?: chipsPadding ?: 6.dp,
-            chipsPaddingTop = chipsPaddingTop ?: chipsPadding ?: 6.dp,
-            chipsPaddingBottom = chipsPaddingBottom ?: chipsPadding ?: 6.dp,
-            boxMinHeight = boxMinHeight ?: 56.dp,
-            alignmentLineHeight = alignmentLineHeight ?: 56.dp,
-            startContentSize = startContentSize ?: 24.dp,
-            endContentSize = endContentSize ?: 24.dp,
-            indicatorDimensions = indicatorDimensionsBuilder.build(),
-            dividerThickness = dividerThickness ?: 1.dp,
-        )
+        override fun dividerThickness(dividerThickness: StatefulValue<Dp>) = apply {
+            this.dividerThickness = dividerThickness
+        }
+
+        @Suppress("CyclomaticComplexMethod")
+        override fun build(): TextFieldDimensionValues {
+            return DefaultTextFieldDimensions(
+                boxPaddingStartValues = boxPaddingStart ?: 16.dp.asStatefulValue(),
+                boxPaddingEndValues = boxPaddingEnd ?: 16.dp.asStatefulValue(),
+                boxPaddingTopValues = boxPaddingTop ?: 25.dp.asStatefulValue(),
+                boxPaddingBottomValues = boxPaddingBottom ?: 9.dp.asStatefulValue(),
+                labelPaddingValues = labelPadding ?: 2.dp.asStatefulValue(),
+                optionalPaddingValues = optionalPadding ?: 4.dp.asStatefulValue(),
+                helperTextPaddingValues = helperTextPadding ?: 4.dp.asStatefulValue(),
+                startContentPaddingValues = startContentPadding ?: 6.dp.asStatefulValue(),
+                endContentPaddingValues = endContentPadding ?: 6.dp.asStatefulValue(),
+                chipsPaddingValues = chipsPadding ?: 6.dp.asStatefulValue(),
+                chipsPaddingStartValues = chipsPaddingStart ?: chipsPadding ?: 6.dp.asStatefulValue(),
+                chipsPaddingEndValues = chipsPaddingEnd ?: chipsPadding ?: 6.dp.asStatefulValue(),
+                chipsPaddingTopValues = chipsPaddingTop ?: chipsPadding ?: 6.dp.asStatefulValue(),
+                chipsPaddingBottomValues = chipsPaddingBottom ?: chipsPadding ?: 6.dp.asStatefulValue(),
+                boxMinHeightValues = boxMinHeight ?: 56.dp.asStatefulValue(),
+                alignmentLineHeightValues = alignmentLineHeight ?: 56.dp.asStatefulValue(),
+                startContentSizeValues = startContentSize ?: 24.dp.asStatefulValue(),
+                endContentSizeValues = endContentSize ?: 24.dp.asStatefulValue(),
+                indicatorDimensions = indicatorDimensionsBuilder.build(),
+                dividerThicknessValues = dividerThickness ?: 1.dp.asStatefulValue(),
+            )
+        }
     }
 }
 
-private class DefaultTextFieldIndicatorDimensionsBuilder : TextFieldIndicatorDimensionsBuilder {
-    private var horizontalPadding: Dp? = null
-    private var verticalPadding: Dp? = null
-    private var indicatorSize: Dp? = null
-    override fun horizontalPadding(horizontalPadding: Dp) = apply {
-        this.horizontalPadding = horizontalPadding
-    }
+private class DefaultTextFieldIndicatorDimensions(
+    override val horizontalPaddingValues: StatefulValue<Dp>,
+    override val verticalPaddingValues: StatefulValue<Dp>,
+    override val indicatorSizeValues: StatefulValue<Dp>,
+) : TextFieldIndicatorDimensionValues {
+    class Builder : TextFieldIndicatorDimensionsBuilder {
+        private var horizontalPadding: StatefulValue<Dp>? = null
+        private var verticalPadding: StatefulValue<Dp>? = null
+        private var indicatorSize: StatefulValue<Dp>? = null
+        override fun horizontalPadding(horizontalPadding: StatefulValue<Dp>) = apply {
+            this.horizontalPadding = horizontalPadding
+        }
 
-    override fun verticalPadding(verticalPadding: Dp) = apply {
-        this.verticalPadding = verticalPadding
-    }
+        override fun verticalPadding(verticalPadding: StatefulValue<Dp>) = apply {
+            this.verticalPadding = verticalPadding
+        }
 
-    override fun indicatorSize(indicatorSize: Dp) = apply {
-        this.indicatorSize = indicatorSize
-    }
+        override fun indicatorSize(indicatorSize: StatefulValue<Dp>) = apply {
+            this.indicatorSize = indicatorSize
+        }
 
-    override fun build(): TextFieldDimensions.IndicatorDimensions {
-        return TextFieldDimensions.IndicatorDimensions(
-            horizontalPadding = horizontalPadding ?: 0.dp,
-            verticalPadding = verticalPadding ?: 0.dp,
-            indicatorSize = indicatorSize ?: 6.dp,
-        )
+        override fun build(): TextFieldIndicatorDimensionValues {
+            return DefaultTextFieldIndicatorDimensions(
+                horizontalPaddingValues = horizontalPadding ?: 0.dp.asStatefulValue(),
+                verticalPaddingValues = verticalPadding ?: 0.dp.asStatefulValue(),
+                indicatorSizeValues = indicatorSize ?: 6.dp.asStatefulValue(),
+            )
+        }
     }
 }
 

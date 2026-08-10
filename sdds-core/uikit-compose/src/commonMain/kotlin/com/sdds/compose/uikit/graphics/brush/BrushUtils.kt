@@ -7,8 +7,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.colorspace.ColorSpace
 import androidx.compose.ui.graphics.colorspace.ColorSpaces
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.compose.uikit.interactions.ValueStateSet
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.transform
 
@@ -69,3 +72,33 @@ val SolidColorVectorConverter: (colorSpace: ColorSpace) -> TwoWayConverter<Solid
             },
         )
     }
+
+/**
+ * Добавляет к существующему набору состояний StatefulValue<Brush> дополнительные состояний с [InteractiveColor],
+ * преобразуя все в StatefulValue<Brush>
+ * @receiver StatefulValue<Brush> текущий набор стостояний
+ * @param statefulValues дополнительные состояния
+ */
+fun StatefulValue<Brush>.addStates(vararg statefulValues: Pair<ValueStateSet, InteractiveColor>): StatefulValue<Brush> {
+    val resultStates = getStateSets().toMutableList()
+    val resultValues = getValues().toMutableList()
+
+    statefulValues.forEach { (additionalStates, interactiveColor) ->
+        val statefulBrush = interactiveColor.asStatefulBrush()
+        resultStates += additionalStates
+        resultValues += statefulBrush.getDefaultValue()
+
+        statefulBrush.getStateSets()
+            .zip(statefulBrush.getValues())
+            .forEach { (stateSet, brush) ->
+                resultStates += stateSet + additionalStates
+                resultValues += brush
+            }
+    }
+
+    return StatefulValue.from(
+        states = resultStates,
+        values = resultValues,
+        defaultValue = getDefaultValue(),
+    )
+}

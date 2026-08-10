@@ -1,6 +1,8 @@
 package com.sdds.compose.uikit.mask
 
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -27,7 +29,7 @@ data class PhoneMask(
             .take(mask.count { it == '#' })
     }
 
-    override fun getVisualTransformation(mainColor: Color, hintColor: Color): VisualTransformation {
+    override fun getVisualTransformation(mainColor: Brush, hintColor: Brush): VisualTransformation {
         return PhoneMaskTransformation(
             mask = mask,
             digitPlaceholder = digitPlaceholder,
@@ -42,15 +44,15 @@ private class PhoneMaskTransformation(
     private val mask: String,
     private val digitPlaceholder: Char,
     maskMode: TextFieldMaskMode,
-    hintColor: Color,
-    mainColor: Color,
+    hintColor: Brush,
+    mainColor: Brush,
 ) : VisualTransformation {
 
-    private val mainSpanStyle = SpanStyle(color = mainColor)
+    private val mainSpanStyle = SpanStyle(brush = mainColor)
     private val hintSpanStyle = SpanStyle(
-        color = when (maskMode) {
+        brush = when (maskMode) {
             TextFieldMaskMode.Always -> hintColor
-            TextFieldMaskMode.OnInput -> Color.Transparent
+            TextFieldMaskMode.OnInput -> SolidColor(Color.Transparent)
         },
     )
 

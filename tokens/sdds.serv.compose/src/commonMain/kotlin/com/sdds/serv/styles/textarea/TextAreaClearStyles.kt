@@ -8,15 +8,18 @@
 package com.sdds.serv.styles.textarea
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TextFieldHelperTextPlacement
 import com.sdds.compose.uikit.TextFieldIndicatorAlignmentMode
 import com.sdds.compose.uikit.TextFieldLabelPlacement
+import com.sdds.compose.uikit.TextFieldSemanticState
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -394,19 +397,41 @@ public val WrapperTextAreaClearView.Default: WrapperTextAreaClearTerminate
     @Composable
     get() = builder
         .colors {
-            startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            valueColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
-            captionColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            startContentColor(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(TextFieldSemanticState.Readonly)
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                ),
+            )
+            valueColor(
+                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(TextFieldSemanticState.Readonly)
+                        to SolidColor(SddsServTheme.colors.textDefaultPrimary),
+                ),
+            )
+            captionColor(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(TextFieldSemanticState.Readonly)
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                ),
+            )
             placeholderColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.textDefaultTertiary,
+                        to SolidColor(SddsServTheme.colors.textDefaultTertiary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
                 ),
             )
             dividerColor(
-                SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultAccent),
                 ),
             )
         }
@@ -417,33 +442,61 @@ public val WrapperTextAreaClearView.Warning: WrapperTextAreaClearTerminate
     get() = builder
         .colors {
             startContentColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
                 ),
             )
             valueColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                        to SolidColor(SddsServTheme.colors.textDefaultPrimary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(SddsServTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(SddsServTheme.colors.textDefaultPrimary),
                 ),
             )
             captionColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
                 ),
             )
             placeholderColor(
-                SddsServTheme.colors.textDefaultWarning.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.textDefaultTertiary,
+                        to SolidColor(SddsServTheme.colors.textDefaultTertiary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
                 ),
             )
             dividerColor(
-                SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultAccent),
                 ),
             )
         }
@@ -454,33 +507,61 @@ public val WrapperTextAreaClearView.Error: WrapperTextAreaClearTerminate
     get() = builder
         .colors {
             startContentColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
                 ),
             )
             valueColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.textDefaultPrimary,
+                        to SolidColor(SddsServTheme.colors.textDefaultPrimary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(SddsServTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(SddsServTheme.colors.textDefaultPrimary),
                 ),
             )
             captionColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.textDefaultSecondary,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
                 ),
             )
             placeholderColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.textDefaultTertiary,
+                        to SolidColor(SddsServTheme.colors.textDefaultTertiary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
                 ),
             )
             dividerColor(
-                SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsServTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultAccent),
                 ),
             )
         }
@@ -505,26 +586,28 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             chipsPaddingEnd(0.0.dp)
         }
         .colors {
-            cursorColor(SddsServTheme.colors.textDefaultAccent.asInteractive())
+            cursorColor(SolidColor(SddsServTheme.colors.textDefaultAccent).asStatefulValue())
             startContentColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SddsServTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(SddsServTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(SddsServTheme.colors.textDefaultSecondary),
                 ),
             )
             endContentColorReadOnly(SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
             valueColorReadOnly(SddsServTheme.colors.textDefaultPrimary.asInteractive())
             captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            optionalColor(SddsServTheme.colors.textDefaultTertiary.asInteractive())
-            counterColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            optionalColor(SolidColor(SddsServTheme.colors.textDefaultTertiary).asStatefulValue())
+            counterColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
             placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
-            indicatorColor(SddsServTheme.colors.surfaceDefaultNegative.asInteractive())
-            prefixColor(SddsServTheme.colors.textDefaultTertiary.asInteractive())
-            suffixColor(SddsServTheme.colors.textDefaultTertiary.asInteractive())
+            indicatorColor(SolidColor(SddsServTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            prefixColor(SolidColor(SddsServTheme.colors.textDefaultTertiary).asStatefulValue())
+            suffixColor(SolidColor(SddsServTheme.colors.textDefaultTertiary).asStatefulValue())
         }
 
 public val TextAreaClear.Xs: WrapperTextAreaClearXs
@@ -592,7 +675,7 @@ public val WrapperTextAreaClearXs.OuterLabel: WrapperTextAreaClearXsOuterLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearXsOuterLabel)
 
@@ -688,7 +771,7 @@ public val WrapperTextAreaClearS.OuterLabel: WrapperTextAreaClearSOuterLabel
             labelPadding(4.0.dp)
         }
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearSOuterLabel)
 
@@ -734,7 +817,7 @@ public val WrapperTextAreaClearS.InnerLabel: WrapperTextAreaClearSInnerLabel
             labelPadding(0.0.dp)
         }
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearSInnerLabel)
 
@@ -830,7 +913,7 @@ public val WrapperTextAreaClearM.OuterLabel: WrapperTextAreaClearMOuterLabel
             labelPadding(4.0.dp)
         }
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearMOuterLabel)
 
@@ -876,7 +959,7 @@ public val WrapperTextAreaClearM.InnerLabel: WrapperTextAreaClearMInnerLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearMInnerLabel)
 
@@ -972,7 +1055,7 @@ public val WrapperTextAreaClearL.OuterLabel: WrapperTextAreaClearLOuterLabel
             labelPadding(4.0.dp)
         }
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearLOuterLabel)
 
@@ -1018,7 +1101,7 @@ public val WrapperTextAreaClearL.InnerLabel: WrapperTextAreaClearLInnerLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearLInnerLabel)
 
@@ -1114,7 +1197,7 @@ public val WrapperTextAreaClearXl.OuterLabel: WrapperTextAreaClearXlOuterLabel
             labelPadding(4.0.dp)
         }
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearXlOuterLabel)
 
@@ -1160,7 +1243,7 @@ public val WrapperTextAreaClearXl.InnerLabel: WrapperTextAreaClearXlInnerLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearXlInnerLabel)
 

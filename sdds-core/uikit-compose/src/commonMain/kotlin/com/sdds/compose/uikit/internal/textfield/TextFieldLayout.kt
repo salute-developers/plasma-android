@@ -17,6 +17,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,11 +46,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupStyle
-import com.sdds.compose.uikit.TextFieldDimensions
+import com.sdds.compose.uikit.TextFieldDimensionValues
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
+import com.sdds.compose.uikit.motion.MotionContext
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.roundToInt
@@ -76,7 +80,7 @@ internal fun TextFieldLayout(
     chipGroupStyle: ChipGroupStyle,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
-    dimensions: TextFieldDimensions,
+    dimensions: TextFieldDimensionValues,
     animationProgress: Float,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
@@ -86,11 +90,68 @@ internal fun TextFieldLayout(
     onInnerTextFieldSizeChanged: (IntSize) -> Unit,
     onChipGroupSizeChanged: (IntSize) -> Unit,
     onPrefixSizeChanged: (IntSize) -> Unit,
+    motionContext: MotionContext,
 ) {
     val hasChips = chips != null
     val chipHeight = chipGroupStyle.chipStyle.dimensions.height
-    val alignmentLine = dimensions.alignmentLineHeight - dimensions.boxPaddingTop * 2
-
+    val alignmentLineHeight = dimensions.alignmentLineHeightValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val boxPaddingTop = dimensions.boxPaddingTopValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val boxPaddingStart = dimensions.boxPaddingStartValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val boxPaddingEnd = dimensions.boxPaddingEndValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val boxPaddingBottom = dimensions.boxPaddingBottomValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val chipsPaddingTop = dimensions.chipsPaddingTopValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val chipsPaddingStart = dimensions.chipsPaddingStartValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val chipsPaddingBottom = dimensions.chipsPaddingBottomValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val chipsPadding = dimensions.chipsPaddingValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val startContentPadding = dimensions.startContentPaddingValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val endContentPadding = dimensions.endContentPaddingValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val startContentSize = dimensions.startContentSizeValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val endContentSize = dimensions.endContentSizeValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val optionalPadding = dimensions.optionalPaddingValues.getValueAsState(motionContext)
+    val helperTextPadding = dimensions.helperTextPaddingValues.getValue(
+        motionContext.interactionSource,
+        motionContext.semanticStateSource,
+    )
+    val alignmentLine = alignmentLineHeight - boxPaddingTop * 2
     val textMeasurer = rememberTextMeasurer()
     val measurePolicy = remember(
         animationProgress,
@@ -114,10 +175,10 @@ internal fun TextFieldLayout(
     Layout(
         modifier = modifier
             .padding(
-                start = if (hasChips) dimensions.chipsPaddingStart else dimensions.boxPaddingStart,
-                end = dimensions.boxPaddingEnd,
-                top = if (hasChips) dimensions.chipsPaddingTop else dimensions.boxPaddingTop,
-                bottom = if (hasChips) dimensions.chipsPaddingBottom else dimensions.boxPaddingBottom,
+                start = if (hasChips) chipsPaddingStart else boxPaddingStart,
+                end = boxPaddingEnd,
+                top = if (hasChips) chipsPaddingTop else boxPaddingTop,
+                bottom = if (hasChips) chipsPaddingBottom else boxPaddingBottom,
             ),
         content = {
             LabelContent(
@@ -125,33 +186,33 @@ internal fun TextFieldLayout(
                     .layoutId(LabelId),
                 innerLabel = innerLabel,
                 innerOptional = innerOptional,
-                horizontalPadding = dimensions.optionalPadding,
+                horizontalPadding = optionalPadding,
             )
             IconContent(
                 modifier = Modifier
                     .layoutId(LeadingId)
-                    .padding(end = dimensions.startContentPadding)
-                    .size(dimensions.startContentSize)
-                    .defaultMinSize(dimensions.startContentSize, dimensions.startContentSize),
+                    .padding(end = startContentPadding)
+                    .size(startContentSize)
+                    .defaultMinSize(startContentSize, startContentSize),
                 icon = startIcon,
             )
             IconContent(
                 modifier = Modifier
                     .layoutId(TrailingId)
-                    .padding(start = dimensions.endContentPadding)
-                    .size(dimensions.endContentSize)
-                    .defaultMinSize(dimensions.endContentSize, dimensions.endContentSize),
+                    .padding(start = endContentPadding)
+                    .size(endContentSize)
+                    .defaultMinSize(endContentSize, endContentSize),
                 icon = endIcon,
             )
             CaptionTextContent(
                 modifier = Modifier
                     .layoutId(CaptionTextId)
                     .padding(
-                        top = dimensions.helperTextPadding,
+                        top = helperTextPadding,
                         start = adjustStartPaddingWhenHasChips(
                             hasChips = hasChips,
-                            startPadding = dimensions.boxPaddingStart,
-                            chipsPadding = dimensions.chipsPadding,
+                            startPadding = boxPaddingStart,
+                            chipsPadding = chipsPadding,
                         ),
                     ),
                 captionText = captionText,
@@ -159,7 +220,7 @@ internal fun TextFieldLayout(
             CounterTextContent(
                 modifier = Modifier
                     .layoutId(CounterTextId)
-                    .padding(top = dimensions.helperTextPadding),
+                    .padding(top = helperTextPadding),
                 counterText = counterText,
             )
             CompositeTextFieldContent(
@@ -169,7 +230,8 @@ internal fun TextFieldLayout(
                 chips = chips,
                 chipGroupStyle = chipGroupStyle,
                 valueTextStyle = valueTextStyle,
-                dimensions = dimensions,
+                boxPaddingStart = boxPaddingStart,
+                chipsPadding = chipsPadding,
                 verticalScrollState = verticalScrollState,
                 horizontalScrollState = horizontalScrollState,
                 singleLine = singleLine,
@@ -242,13 +304,14 @@ private fun LabelContent(
     modifier: Modifier,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
-    horizontalPadding: Dp,
+    horizontalPadding: State<Dp>,
 ) {
     if (innerLabel == null && innerOptional == null) return
+    val padding = horizontalPadding.value
     Row(modifier.layoutId(LabelId)) {
         innerLabel?.invoke()
         innerOptional?.let {
-            if (innerLabel != null) Spacer(modifier = Modifier.size(horizontalPadding))
+            if (innerLabel != null) Spacer(modifier = Modifier.size(padding))
             it.invoke()
         }
     }
@@ -261,7 +324,8 @@ private fun CompositeTextFieldContent(
     placeholder: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    dimensions: TextFieldDimensions,
+    boxPaddingStart: Dp,
+    chipsPadding: Dp,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     singleLine: Boolean,
@@ -297,7 +361,8 @@ private fun CompositeTextFieldContent(
                 textContent = textContent,
                 chips = chips,
                 chipGroupStyle = chipGroupStyle,
-                dimensions = dimensions,
+                boxPaddingStart = boxPaddingStart,
+                chipsPadding = chipsPadding,
                 scrollState = verticalScrollState,
                 valueTextStyle = valueTextStyle,
                 onChipGroupSizeChanged = onChipGroupSizeChanged,
@@ -309,7 +374,7 @@ private fun CompositeTextFieldContent(
                 textContent = textContent,
                 chips = chips,
                 chipGroupStyle = chipGroupStyle,
-                dimensions = dimensions,
+                boxPaddingStart = boxPaddingStart,
                 scrollState = horizontalScrollState,
                 onChipGroupSizeChanged = onChipGroupSizeChanged,
                 enabled = enabled,
@@ -331,7 +396,8 @@ private fun TextAreaContent(
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    dimensions: TextFieldDimensions,
+    boxPaddingStart: Dp,
+    chipsPadding: Dp,
     scrollState: ScrollState?,
     valueTextStyle: TextStyle,
     onChipGroupSizeChanged: (IntSize) -> Unit,
@@ -376,8 +442,8 @@ private fun TextAreaContent(
                 modifier = Modifier.padding(
                     start = adjustStartPaddingWhenHasChips(
                         hasChips = chips != null,
-                        startPadding = dimensions.boxPaddingStart,
-                        chipsPadding = dimensions.chipsPadding,
+                        startPadding = boxPaddingStart,
+                        chipsPadding = chipsPadding,
                     ),
                 ),
             ) {
@@ -393,7 +459,7 @@ private fun TextFieldContent(
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    dimensions: TextFieldDimensions,
+    boxPaddingStart: Dp,
     scrollState: ScrollState?,
     onChipGroupSizeChanged: (IntSize) -> Unit,
     enabled: Boolean,
@@ -422,7 +488,7 @@ private fun TextFieldContent(
                                 ),
                             )
                         }
-                        .padding(end = dimensions.boxPaddingStart + chipGroupStyle.dimensions.gap),
+                        .padding(end = boxPaddingStart + chipGroupStyle.dimensions.gap),
                     style = chipGroupStyle,
                 ) {
                     chips.invoke()

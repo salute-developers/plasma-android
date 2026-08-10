@@ -73,9 +73,14 @@ open class StatefulValue<T> internal constructor(
     fun isStateful(): Boolean = states.any { it.isNotEmpty() }
 
     /**
-     * Возвращет множество всех возможных значений
+     * Возвращет множество уникальных значений
      */
     fun getStates(): ValueStateSet = states.flatten().toSet()
+
+    /**
+     * Возвращет множество всех возможных значений
+     */
+    fun getStateSets(): List<ValueStateSet> = states
 
     /**
      * Возвращает копию [StatefulValue]
