@@ -17,7 +17,7 @@ concurrency:
 jobs:
   publish-uikit:
     name: Generate integration sandbox compose distribution zip
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4

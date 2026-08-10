@@ -31,14 +31,14 @@ public class SddsSbComGradients(
     private val gradients: Map<String, List<ShaderBrush>>,
 ) {
     /**
-     * Outline White Gradient
+     * Dark Background Gradient
      */
-    public val outlineDefaultWhiteGradient: List<ShaderBrush> by gradients
+    public val backgroundDarkGradient: List<ShaderBrush> by gradients
 
     /**
-     * On Light Outline White Gradient
+     * Background Gradient
      */
-    public val outlineOnLightWhiteGradient: List<ShaderBrush> by gradients
+    public val backgroundDefaultGradient: List<ShaderBrush> by gradients
 
     /**
      * Overlay Gradient
@@ -156,14 +156,9 @@ public class SddsSbComGradients(
     public val textOnLightGradientAI: List<ShaderBrush> by gradients
 
     /**
-     * Background Gradient
+     * Light Background Gradient
      */
-    public val backgroundDefaultGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Dark Background Gradient
-     */
-    public val backgroundDarkGradient: List<ShaderBrush> by gradients
+    public val backgroundLightGradient: List<ShaderBrush> by gradients
 
     /**
      * Inverse Background Gradient
@@ -171,19 +166,14 @@ public class SddsSbComGradients(
     public val backgroundInverseGradient: List<ShaderBrush> by gradients
 
     /**
-     * Light Background Gradient
+     * Outline White Gradient
      */
-    public val backgroundLightGradient: List<ShaderBrush> by gradients
+    public val outlineDefaultWhiteGradient: List<ShaderBrush> by gradients
 
     /**
-     * On Light Overlay Gradient
+     * On Light Outline White Gradient
      */
-    public val overlayOnLightGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Personas Blue Surface Accent Gradient
-     */
-    public val personasDefaultBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
+    public val outlineOnLightWhiteGradient: List<ShaderBrush> by gradients
 
     /**
      * Personas Indigo Surface Accent Gradient
@@ -291,14 +281,24 @@ public class SddsSbComGradients(
     public val textOnDarkGradientAI: List<ShaderBrush> by gradients
 
     /**
+     * On Dark Outline White Gradient
+     */
+    public val outlineOnDarkWhiteGradient: List<ShaderBrush> by gradients
+
+    /**
      * Inverse Outline White Gradient
      */
     public val outlineInverseWhiteGradient: List<ShaderBrush> by gradients
 
     /**
-     * On Dark Outline White Gradient
+     * On Light Overlay Gradient
      */
-    public val outlineOnDarkWhiteGradient: List<ShaderBrush> by gradients
+    public val overlayOnLightGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Personas Blue Surface Accent Gradient
+     */
+    public val personasDefaultBlueSurfaceAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * On Dark Personas Olive Surface Accent Gradient
@@ -326,11 +326,6 @@ public class SddsSbComGradients(
     public val surfaceOnDarkAccentMinorGradient: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradient: List<ShaderBrush> by gradients
-
-    /**
      * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
      */
     public val surfaceOnLightAccentMinorGradient: List<ShaderBrush> by gradients
@@ -339,6 +334,11 @@ public class SddsSbComGradients(
      * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
      */
     public val surfaceInverseAccentMinorGradient: List<ShaderBrush> by gradients
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * On Dark Personas Indigo Surface Accent Gradient
@@ -385,14 +385,14 @@ public class GradientOverrideScope {
         get() = _overrideMap.toMap()
 
     /**
-     * Outline White Gradient
+     * Dark Background Gradient
      */
-    public val outlineDefaultWhiteGradient: String = "outlineDefaultWhiteGradient"
+    public val backgroundDarkGradient: String = "backgroundDarkGradient"
 
     /**
-     * On Light Outline White Gradient
+     * Background Gradient
      */
-    public val outlineOnLightWhiteGradient: String = "outlineOnLightWhiteGradient"
+    public val backgroundDefaultGradient: String = "backgroundDefaultGradient"
 
     /**
      * Overlay Gradient
@@ -524,14 +524,9 @@ public class GradientOverrideScope {
     public val textOnLightGradientAI: String = "textOnLightGradientAI"
 
     /**
-     * Background Gradient
+     * Light Background Gradient
      */
-    public val backgroundDefaultGradient: String = "backgroundDefaultGradient"
-
-    /**
-     * Dark Background Gradient
-     */
-    public val backgroundDarkGradient: String = "backgroundDarkGradient"
+    public val backgroundLightGradient: String = "backgroundLightGradient"
 
     /**
      * Inverse Background Gradient
@@ -539,20 +534,14 @@ public class GradientOverrideScope {
     public val backgroundInverseGradient: String = "backgroundInverseGradient"
 
     /**
-     * Light Background Gradient
+     * Outline White Gradient
      */
-    public val backgroundLightGradient: String = "backgroundLightGradient"
+    public val outlineDefaultWhiteGradient: String = "outlineDefaultWhiteGradient"
 
     /**
-     * On Light Overlay Gradient
+     * On Light Outline White Gradient
      */
-    public val overlayOnLightGradient: String = "overlayOnLightGradient"
-
-    /**
-     * Personas Blue Surface Accent Gradient
-     */
-    public val personasDefaultBlueSurfaceAccentGradient: String =
-        "personasDefaultBlueSurfaceAccentGradient"
+    public val outlineOnLightWhiteGradient: String = "outlineOnLightWhiteGradient"
 
     /**
      * Personas Indigo Surface Accent Gradient
@@ -678,14 +667,25 @@ public class GradientOverrideScope {
     public val textOnDarkGradientAI: String = "textOnDarkGradientAI"
 
     /**
+     * On Dark Outline White Gradient
+     */
+    public val outlineOnDarkWhiteGradient: String = "outlineOnDarkWhiteGradient"
+
+    /**
      * Inverse Outline White Gradient
      */
     public val outlineInverseWhiteGradient: String = "outlineInverseWhiteGradient"
 
     /**
-     * On Dark Outline White Gradient
+     * On Light Overlay Gradient
      */
-    public val outlineOnDarkWhiteGradient: String = "outlineOnDarkWhiteGradient"
+    public val overlayOnLightGradient: String = "overlayOnLightGradient"
+
+    /**
+     * Personas Blue Surface Accent Gradient
+     */
+    public val personasDefaultBlueSurfaceAccentGradient: String =
+        "personasDefaultBlueSurfaceAccentGradient"
 
     /**
      * On Dark Personas Olive Surface Accent Gradient
@@ -714,11 +714,6 @@ public class GradientOverrideScope {
     public val surfaceOnDarkAccentMinorGradient: String = "surfaceOnDarkAccentMinorGradient"
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
-
-    /**
      * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
      */
     public val surfaceOnLightAccentMinorGradient: String = "surfaceOnLightAccentMinorGradient"
@@ -727,6 +722,11 @@ public class GradientOverrideScope {
      * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
      */
     public val surfaceInverseAccentMinorGradient: String = "surfaceInverseAccentMinorGradient"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
 
     /**
      * On Dark Personas Indigo Surface Accent Gradient
@@ -757,14 +757,14 @@ public class GradientAttrOverrideScope {
         get() = _overrideMap.toMap()
 
     /**
-     * Outline White Gradient
+     * Dark Background Gradient
      */
-    public val outlineDefaultWhiteGradient: String = "outlineDefaultWhiteGradient"
+    public val backgroundDarkGradient: String = "backgroundDarkGradient"
 
     /**
-     * On Light Outline White Gradient
+     * Background Gradient
      */
-    public val outlineOnLightWhiteGradient: String = "outlineOnLightWhiteGradient"
+    public val backgroundDefaultGradient: String = "backgroundDefaultGradient"
 
     /**
      * Overlay Gradient
@@ -896,14 +896,9 @@ public class GradientAttrOverrideScope {
     public val textOnLightGradientAI: String = "textOnLightGradientAI"
 
     /**
-     * Background Gradient
+     * Light Background Gradient
      */
-    public val backgroundDefaultGradient: String = "backgroundDefaultGradient"
-
-    /**
-     * Dark Background Gradient
-     */
-    public val backgroundDarkGradient: String = "backgroundDarkGradient"
+    public val backgroundLightGradient: String = "backgroundLightGradient"
 
     /**
      * Inverse Background Gradient
@@ -911,20 +906,14 @@ public class GradientAttrOverrideScope {
     public val backgroundInverseGradient: String = "backgroundInverseGradient"
 
     /**
-     * Light Background Gradient
+     * Outline White Gradient
      */
-    public val backgroundLightGradient: String = "backgroundLightGradient"
+    public val outlineDefaultWhiteGradient: String = "outlineDefaultWhiteGradient"
 
     /**
-     * On Light Overlay Gradient
+     * On Light Outline White Gradient
      */
-    public val overlayOnLightGradient: String = "overlayOnLightGradient"
-
-    /**
-     * Personas Blue Surface Accent Gradient
-     */
-    public val personasDefaultBlueSurfaceAccentGradient: String =
-        "personasDefaultBlueSurfaceAccentGradient"
+    public val outlineOnLightWhiteGradient: String = "outlineOnLightWhiteGradient"
 
     /**
      * Personas Indigo Surface Accent Gradient
@@ -1050,14 +1039,25 @@ public class GradientAttrOverrideScope {
     public val textOnDarkGradientAI: String = "textOnDarkGradientAI"
 
     /**
+     * On Dark Outline White Gradient
+     */
+    public val outlineOnDarkWhiteGradient: String = "outlineOnDarkWhiteGradient"
+
+    /**
      * Inverse Outline White Gradient
      */
     public val outlineInverseWhiteGradient: String = "outlineInverseWhiteGradient"
 
     /**
-     * On Dark Outline White Gradient
+     * On Light Overlay Gradient
      */
-    public val outlineOnDarkWhiteGradient: String = "outlineOnDarkWhiteGradient"
+    public val overlayOnLightGradient: String = "overlayOnLightGradient"
+
+    /**
+     * Personas Blue Surface Accent Gradient
+     */
+    public val personasDefaultBlueSurfaceAccentGradient: String =
+        "personasDefaultBlueSurfaceAccentGradient"
 
     /**
      * On Dark Personas Olive Surface Accent Gradient
@@ -1086,11 +1086,6 @@ public class GradientAttrOverrideScope {
     public val surfaceOnDarkAccentMinorGradient: String = "surfaceOnDarkAccentMinorGradient"
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
-
-    /**
      * Акцентный минорный фон поверхности/контрола с градиентом на светлом фоне
      */
     public val surfaceOnLightAccentMinorGradient: String = "surfaceOnLightAccentMinorGradient"
@@ -1099,6 +1094,11 @@ public class GradientAttrOverrideScope {
      * Инвертированный акцентный минорный фон поверхности/контрола с градиентом
      */
     public val surfaceInverseAccentMinorGradient: String = "surfaceInverseAccentMinorGradient"
+
+    /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
 
     /**
      * On Dark Personas Indigo Surface Accent Gradient
@@ -1142,23 +1142,23 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
     val overwrite = gradientOverrideScope.overrideMap
     val initial = mutableMapOf<String, List<ShaderBrush>>()
     initial.add(
-        "outlineDefaultWhiteGradient",
+        "backgroundDarkGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineDefaultWhiteGradient.colors,
-                LightGradientTokens.OutlineDefaultWhiteGradient.positions,
-                LightGradientTokens.OutlineDefaultWhiteGradient.angle,
+                LightGradientTokens.BackgroundDarkGradient.colors,
+                LightGradientTokens.BackgroundDarkGradient.positions,
+                LightGradientTokens.BackgroundDarkGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnLightWhiteGradient",
+        "backgroundDefaultGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnLightWhiteGradient.colors,
-                LightGradientTokens.OutlineOnLightWhiteGradient.positions,
-                LightGradientTokens.OutlineOnLightWhiteGradient.angle,
+                LightGradientTokens.BackgroundDefaultGradient.colors,
+                LightGradientTokens.BackgroundDefaultGradient.positions,
+                LightGradientTokens.BackgroundDefaultGradient.angle,
             ),
         ),
         overwrite,
@@ -1417,23 +1417,12 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "backgroundDefaultGradient",
+        "backgroundLightGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.BackgroundDefaultGradient.colors,
-                LightGradientTokens.BackgroundDefaultGradient.positions,
-                LightGradientTokens.BackgroundDefaultGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "backgroundDarkGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.BackgroundDarkGradient.colors,
-                LightGradientTokens.BackgroundDarkGradient.positions,
-                LightGradientTokens.BackgroundDarkGradient.angle,
+                LightGradientTokens.BackgroundLightGradient.colors,
+                LightGradientTokens.BackgroundLightGradient.positions,
+                LightGradientTokens.BackgroundLightGradient.angle,
             ),
         ),
         overwrite,
@@ -1450,34 +1439,23 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "backgroundLightGradient",
+        "outlineDefaultWhiteGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.BackgroundLightGradient.colors,
-                LightGradientTokens.BackgroundLightGradient.positions,
-                LightGradientTokens.BackgroundLightGradient.angle,
+                LightGradientTokens.OutlineDefaultWhiteGradient.colors,
+                LightGradientTokens.OutlineDefaultWhiteGradient.positions,
+                LightGradientTokens.OutlineDefaultWhiteGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradient",
+        "outlineOnLightWhiteGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OverlayOnLightGradient.colors,
-                LightGradientTokens.OverlayOnLightGradient.positions,
-                LightGradientTokens.OverlayOnLightGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personasDefaultBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.colors,
-                LightGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.positions,
-                LightGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.angle,
+                LightGradientTokens.OutlineOnLightWhiteGradient.colors,
+                LightGradientTokens.OutlineOnLightWhiteGradient.positions,
+                LightGradientTokens.OutlineOnLightWhiteGradient.angle,
             ),
         ),
         overwrite,
@@ -1714,6 +1692,17 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
+        "outlineOnDarkWhiteGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OutlineOnDarkWhiteGradient.colors,
+                LightGradientTokens.OutlineOnDarkWhiteGradient.positions,
+                LightGradientTokens.OutlineOnDarkWhiteGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "outlineInverseWhiteGradient",
         listOf(
             linearGradient(
@@ -1725,12 +1714,23 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "outlineOnDarkWhiteGradient",
+        "overlayOnLightGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkWhiteGradient.colors,
-                LightGradientTokens.OutlineOnDarkWhiteGradient.positions,
-                LightGradientTokens.OutlineOnDarkWhiteGradient.angle,
+                LightGradientTokens.OverlayOnLightGradient.colors,
+                LightGradientTokens.OverlayOnLightGradient.positions,
+                LightGradientTokens.OverlayOnLightGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultBlueSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.colors,
+                LightGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.positions,
+                LightGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -1791,17 +1791,6 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightAccentGradient.colors,
-                LightGradientTokens.SurfaceOnLightAccentGradient.positions,
-                LightGradientTokens.SurfaceOnLightAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceOnLightAccentMinorGradient",
         listOf(
             linearGradient(
@@ -1819,6 +1808,17 @@ public fun lightSddsSbComGradients(overrideGradients: GradientOverrideScope.() -
                 LightGradientTokens.SurfaceInverseAccentMinorGradient.colors,
                 LightGradientTokens.SurfaceInverseAccentMinorGradient.positions,
                 LightGradientTokens.SurfaceInverseAccentMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnLightAccentGradient.colors,
+                LightGradientTokens.SurfaceOnLightAccentGradient.positions,
+                LightGradientTokens.SurfaceOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -1858,23 +1858,23 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
     val overwrite = gradientOverrideScope.overrideMap
     val initial = mutableMapOf<String, List<ShaderBrush>>()
     initial.add(
-        "outlineDefaultWhiteGradient",
+        "backgroundDarkGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineDefaultWhiteGradient.colors,
-                DarkGradientTokens.OutlineDefaultWhiteGradient.positions,
-                DarkGradientTokens.OutlineDefaultWhiteGradient.angle,
+                DarkGradientTokens.BackgroundDarkGradient.colors,
+                DarkGradientTokens.BackgroundDarkGradient.positions,
+                DarkGradientTokens.BackgroundDarkGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "outlineOnLightWhiteGradient",
+        "backgroundDefaultGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnLightWhiteGradient.colors,
-                DarkGradientTokens.OutlineOnLightWhiteGradient.positions,
-                DarkGradientTokens.OutlineOnLightWhiteGradient.angle,
+                DarkGradientTokens.BackgroundDefaultGradient.colors,
+                DarkGradientTokens.BackgroundDefaultGradient.positions,
+                DarkGradientTokens.BackgroundDefaultGradient.angle,
             ),
         ),
         overwrite,
@@ -2133,23 +2133,12 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "backgroundDefaultGradient",
+        "backgroundLightGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.BackgroundDefaultGradient.colors,
-                DarkGradientTokens.BackgroundDefaultGradient.positions,
-                DarkGradientTokens.BackgroundDefaultGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "backgroundDarkGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.BackgroundDarkGradient.colors,
-                DarkGradientTokens.BackgroundDarkGradient.positions,
-                DarkGradientTokens.BackgroundDarkGradient.angle,
+                DarkGradientTokens.BackgroundLightGradient.colors,
+                DarkGradientTokens.BackgroundLightGradient.positions,
+                DarkGradientTokens.BackgroundLightGradient.angle,
             ),
         ),
         overwrite,
@@ -2166,34 +2155,23 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "backgroundLightGradient",
+        "outlineDefaultWhiteGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.BackgroundLightGradient.colors,
-                DarkGradientTokens.BackgroundLightGradient.positions,
-                DarkGradientTokens.BackgroundLightGradient.angle,
+                DarkGradientTokens.OutlineDefaultWhiteGradient.colors,
+                DarkGradientTokens.OutlineDefaultWhiteGradient.positions,
+                DarkGradientTokens.OutlineDefaultWhiteGradient.angle,
             ),
         ),
         overwrite,
     )
     initial.add(
-        "overlayOnLightGradient",
+        "outlineOnLightWhiteGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OverlayOnLightGradient.colors,
-                DarkGradientTokens.OverlayOnLightGradient.positions,
-                DarkGradientTokens.OverlayOnLightGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "personasDefaultBlueSurfaceAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.colors,
-                DarkGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.positions,
-                DarkGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.angle,
+                DarkGradientTokens.OutlineOnLightWhiteGradient.colors,
+                DarkGradientTokens.OutlineOnLightWhiteGradient.positions,
+                DarkGradientTokens.OutlineOnLightWhiteGradient.angle,
             ),
         ),
         overwrite,
@@ -2430,6 +2408,17 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
+        "outlineOnDarkWhiteGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OutlineOnDarkWhiteGradient.colors,
+                DarkGradientTokens.OutlineOnDarkWhiteGradient.positions,
+                DarkGradientTokens.OutlineOnDarkWhiteGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "outlineInverseWhiteGradient",
         listOf(
             linearGradient(
@@ -2441,12 +2430,23 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "outlineOnDarkWhiteGradient",
+        "overlayOnLightGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkWhiteGradient.colors,
-                DarkGradientTokens.OutlineOnDarkWhiteGradient.positions,
-                DarkGradientTokens.OutlineOnDarkWhiteGradient.angle,
+                DarkGradientTokens.OverlayOnLightGradient.colors,
+                DarkGradientTokens.OverlayOnLightGradient.positions,
+                DarkGradientTokens.OverlayOnLightGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "personasDefaultBlueSurfaceAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.colors,
+                DarkGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.positions,
+                DarkGradientTokens.PersonasDefaultBlueSurfaceAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -2507,17 +2507,6 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
-                DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
-                DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "surfaceOnLightAccentMinorGradient",
         listOf(
             linearGradient(
@@ -2535,6 +2524,17 @@ public fun darkSddsSbComGradients(overrideGradients: GradientOverrideScope.() ->
                 DarkGradientTokens.SurfaceInverseAccentMinorGradient.colors,
                 DarkGradientTokens.SurfaceInverseAccentMinorGradient.positions,
                 DarkGradientTokens.SurfaceInverseAccentMinorGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
+                DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
+                DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
