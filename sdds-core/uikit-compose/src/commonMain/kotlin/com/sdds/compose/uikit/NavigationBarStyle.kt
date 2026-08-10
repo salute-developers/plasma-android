@@ -496,6 +496,16 @@ interface NavigationBarDimensions {
      */
     val descriptionPadding: StatefulValue<Dp>
 
+    /**
+     * Минимальная высота контент-области — блока со слотами actionStart, центрального контента
+     * и actionEnd. Позволяет зафиксировать высоту компонента, чтобы она не менялась
+     * при разной высоте содержимого слотов (например, иконка против текста).
+     *
+     * Величина относится именно к контент-области: [paddingTop] и [paddingBottom]
+     * добавляются сверх неё и в неё не входят. Системные инсеты в величину также не входят.
+     */
+    val minContentHeight: StatefulValue<Dp>
+
     companion object {
         /**
          * Создает экземпляр [NavigationBarDimensionsBuilder]
@@ -555,6 +565,17 @@ interface NavigationBarDimensionsBuilder {
     fun descriptionPadding(descriptionPadding: StatefulValue<Dp>): NavigationBarDimensionsBuilder
 
     /**
+     * Устанавливает минимальную высоту контент-области [minContentHeight]
+     */
+    fun minContentHeight(minContentHeight: Dp): NavigationBarDimensionsBuilder =
+        minContentHeight(minContentHeight.asStatefulValue())
+
+    /**
+     * Устанавливает минимальную высоту контент-области [minContentHeight]
+     */
+    fun minContentHeight(minContentHeight: StatefulValue<Dp>): NavigationBarDimensionsBuilder
+
+    /**
      * Создает экземпляр [NavigationBarDimensions]
      */
     fun build(): NavigationBarDimensions
@@ -569,6 +590,7 @@ private class DefaultNavigationBarDimensions(
     override val horizontalSpacing: Dp,
     override val textBlockTopMargin: Dp,
     override val descriptionPadding: StatefulValue<Dp>,
+    override val minContentHeight: StatefulValue<Dp>,
 ) : NavigationBarDimensions {
 
     class Builder : NavigationBarDimensionsBuilder {
@@ -581,6 +603,7 @@ private class DefaultNavigationBarDimensions(
         private var paddingTop: Dp? = null
         private var paddingBottom: Dp? = null
         private var descriptionPadding: StatefulValue<Dp>? = null
+        private var minContentHeight: StatefulValue<Dp>? = null
 
         override fun backIconMargin(backIconMargin: Dp) = apply {
             this.backIconMargin = backIconMargin
@@ -614,6 +637,10 @@ private class DefaultNavigationBarDimensions(
             this.descriptionPadding = descriptionPadding
         }
 
+        override fun minContentHeight(minContentHeight: StatefulValue<Dp>) = apply {
+            this.minContentHeight = minContentHeight
+        }
+
         override fun build(): NavigationBarDimensions {
             return DefaultNavigationBarDimensions(
                 paddingStart = paddingStart ?: 16.dp,
@@ -624,6 +651,7 @@ private class DefaultNavigationBarDimensions(
                 horizontalSpacing = horizontalSpacing ?: 16.dp,
                 textBlockTopMargin = textBlockTopMargin ?: 16.dp,
                 descriptionPadding = descriptionPadding ?: 2.dp.asStatefulValue(),
+                minContentHeight = minContentHeight ?: 0.dp.asStatefulValue(),
             )
         }
     }
