@@ -27,7 +27,6 @@ kotlin {
         commonMain {
             resources.srcDir(layout.buildDirectory.dir("generated/ksp/metadata/commonMain/resources"))
             dependencies {
-                implementation(project(":api-info-compose"))
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)

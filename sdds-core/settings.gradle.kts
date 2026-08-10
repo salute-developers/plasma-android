@@ -38,5 +38,4 @@ include(
     ":uikit-compose",
     ":docs",
     ":api-info-ksp",
-    ":api-info-compose",
 )

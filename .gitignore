@@ -46,3 +46,4 @@ google-services.json
 
 # Kotlin/JS local dependency store
 tokens/kotlin-js-store/
+**/contents.xcworkspacedata
