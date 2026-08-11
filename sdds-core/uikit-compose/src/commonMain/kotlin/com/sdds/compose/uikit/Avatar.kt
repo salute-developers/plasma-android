@@ -212,7 +212,7 @@ fun Avatar(
         ProvideCutoutState(cutoutState) {
             Box(
                 modifier = Modifier
-                    .cutoutTarget()
+                    .cutoutTarget(enabled = style.statusCutoutEnabled)
                     .avatar(
                         interactionSource = interactionSource,
                         style = style,
@@ -308,7 +308,7 @@ fun Modifier.avatar(
     action: Painter? = null,
     actionEnabled: Boolean = false,
     placeholder: AvatarPlaceholder? = null,
-    statusCutoutEnabled: Boolean = false,
+    statusCutoutEnabled: Boolean = style.statusCutoutEnabled,
     statusCutoutPadding: Dp = 3.dp,
 ): Modifier = composed {
     val dimensions = style.dimensionValues
