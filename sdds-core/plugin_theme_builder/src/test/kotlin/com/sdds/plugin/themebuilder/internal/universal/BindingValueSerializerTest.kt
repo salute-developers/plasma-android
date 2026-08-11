@@ -4,7 +4,6 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class BindingValueSerializerTest {
@@ -21,14 +20,15 @@ class BindingValueSerializerTest {
                 "name": "size",
                 "value": "large"
                 }
-         """.trimIndent())
+            """.trimIndent(),
+        )
         val booleanBinding = json.decodeFromString<Binding>(
             """
             {
               "name": "enabled",
               "value": true
             }
-        """.trimIndent(),
+            """.trimIndent(),
         )
         val numberBinding = json.decodeFromString<Binding>(
             """
@@ -36,7 +36,7 @@ class BindingValueSerializerTest {
               "name": "count",
               "value": 10
             }
-        """.trimIndent(),
+            """.trimIndent(),
         )
 
         assertEquals("large", stringBinding.value)
@@ -52,7 +52,7 @@ class BindingValueSerializerTest {
             Binding.serializer(),
             Binding(
                 name = "size",
-                value = "large"
+                value = "large",
             ),
         )
 
@@ -70,11 +70,25 @@ class BindingValueSerializerTest {
                 "type": "boolean",
                 "defaultValue": "true"
                 }
-            """.trimIndent()
+            """.trimIndent(),
         )
         assertEquals("enabled", result.name)
         assertEquals(BindingType.BOOLEAN, result.type)
         assertEquals("true", result.defaultValue)
     }
 
+    @Test
+    fun `BindingValueSerializer читает null value как строку null`() {
+        val result = Json.decodeFromString<Binding>(
+            """
+                {
+                  "name": "optional",
+                  "value": null
+                }
+            """.trimIndent(),
+        )
+
+        assertEquals("optional", result.name)
+        assertEquals("null", result.value)
+    }
 }

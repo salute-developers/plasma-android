@@ -11,6 +11,8 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposePropertyMeta
 import com.sdds.plugin.themebuilder.internal.universal.view.ApiMeta
 import com.sdds.plugin.themebuilder.internal.universal.view.COLOR_STATE_SCOPE_VARIETY
 import com.sdds.plugin.themebuilder.internal.universal.view.ComponentIdentity
@@ -23,6 +25,7 @@ import org.gradle.api.file.DirectoryProperty
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertThrows
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
@@ -208,6 +211,48 @@ class UniversalComponentGeneratorTest {
         assertEquals("AvatarPrimary", result.styleName)
     }
 
+    @Test
+    fun `generateCompose добавляет imports для component style из ksp package`() {
+        val outputDir = temporaryFolder.newFolder("kt")
+        val host = Component(
+            componentName = "host",
+            styleName = "Host",
+            config = "host.json",
+        )
+        val referenced = Component(
+            componentName = "BasicButton",
+            styleName = "basic-button",
+            config = "button.json",
+        )
+        val generator = universalGenerator(
+            composeMetas = listOf(
+                composeMeta(
+                    componentName = "Host",
+                    packageName = "host",
+                    params = listOf(componentStyleParam()),
+                ),
+                composeMeta(
+                    componentName = "BasicButton",
+                    packageName = "ksp.widgets",
+                ),
+            ),
+            allComponents = listOf(host, referenced),
+        )
+
+        generator.generateCompose(
+            configFile = componentStyleConfigFile(),
+            deps = testDeps(outputDir = outputDir, useRealKtFileBuilderFactory = true),
+            component = host,
+        )
+
+        val generated = outputDir
+            .walkTopDown()
+            .single { it.isFile && it.name == "HostStyles.kt" }
+            .readText()
+        assertTrue(generated, generated.contains("import com.test.styles.ksp.widgets.BasicButton"))
+        assertTrue(generated, generated.contains("import com.test.styles.ksp.widgets.Default"))
+    }
+
     private fun generator(
         composeNames: List<String>,
         viewNames: List<String>,
@@ -249,13 +294,23 @@ class UniversalComponentGeneratorTest {
         componentName: String,
         packageName: String = "",
         builderFunName: String = "",
+        params: List<ComposePropertyMeta> = emptyList(),
     ) = ComposeComponentMeta(
         componentName = componentName,
         qualifiedName = "com.test.${componentName}StyleBuilder",
         resolvedTypes = emptyList(),
-        params = emptyList(),
+        params = params,
         packageName = packageName,
         builderFunName = builderFunName,
+    )
+
+    private fun componentStyleParam() = ComposeComponentPropertyMeta(
+        id = "buttonStyle",
+        methodName = "buttonStyle",
+        paramName = "",
+        paramQualifiedType = "",
+        paramSimpleType = "",
+        group = "",
     )
 
     private fun viewMeta(
@@ -278,9 +333,25 @@ class UniversalComponentGeneratorTest {
         }
     }
 
-    private fun testDeps(): StyleGeneratorDependencies {
+    private fun componentStyleConfigFile(): File {
+        return temporaryFolder.newFile().apply {
+            writeText(
+                """
+                {
+                  "props": {
+                    "buttonStyle": { "value": "basic-button.default" }
+                  }
+                }
+                """.trimIndent(),
+            )
+        }
+    }
+
+    private fun testDeps(
+        outputDir: File = temporaryFolder.newFolder("kt"),
+        useRealKtFileBuilderFactory: Boolean = false,
+    ): StyleGeneratorDependencies {
         val packageResolver = PackageResolver("com.test")
-        val outputDir = temporaryFolder.newFolder("kt")
         val outputResDir = temporaryFolder.newFolder("res")
         val resourcePrefixConfig = ResourcePrefixConfig(
             resourcePrefix = "thmbldr",
@@ -288,9 +359,13 @@ class UniversalComponentGeneratorTest {
         )
         val xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme")
         val ktFileBuilder = mockk<KtFileBuilder>(relaxed = true)
-        val ktFileBuilderFactory = mockk<KtFileBuilderFactory> {
-            every { create(any<String>(), any<String>()) } returns ktFileBuilder
-            every { create(any<String>(), any<TargetPackage>()) } returns ktFileBuilder
+        val ktFileBuilderFactory = if (useRealKtFileBuilderFactory) {
+            KtFileBuilderFactory(packageResolver)
+        } else {
+            mockk<KtFileBuilderFactory> {
+                every { create(any<String>(), any<String>()) } returns ktFileBuilder
+                every { create(any<String>(), any<TargetPackage>()) } returns ktFileBuilder
+            }
         }
 
         return StyleGeneratorDependencies(

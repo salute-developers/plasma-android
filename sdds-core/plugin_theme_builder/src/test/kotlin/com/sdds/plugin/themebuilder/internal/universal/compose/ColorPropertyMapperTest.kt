@@ -1,10 +1,12 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.universal.ColorState
 import com.sdds.plugin.themebuilder.internal.universal.Gradient
 import com.sdds.plugin.themebuilder.internal.universal.SolidColor
 import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.ColorPropertyMapper
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThrows
 import org.junit.Test
 
 class ColorPropertyMapperTest {
@@ -528,6 +530,127 @@ class ColorPropertyMapperTest {
                 "setOf(SwitchStates.Checked) to TestTheme.colors.surfaceDefaultAccent))",
             builderCall,
         )
+    }
+
+    @Test
+    fun `getTokenRef оборачивает SolidColor в Brush и добавляет alpha`() {
+        val underTest = ColorPropertyMapper(
+            stateEnum = null,
+            themeClassName = "TestTheme",
+        )
+
+        val result = underTest.getTokenRef(
+            value = "surface.default.card",
+            token = SolidColor(
+                default = "surface.default.default",
+                alpha = 0.2f,
+            ),
+            meta = colorParam(methodName = "background"),
+        )
+
+        assertEquals(
+            "SolidColor(TestTheme.colors.surfaceDefaultCard).multiplyAlpha(0.2f)",
+            result,
+        )
+    }
+
+    @Test
+    fun `getTokenRef возвращает Gradient как layered с alpha`() {
+        val underTest = ColorPropertyMapper(
+            stateEnum = null,
+            themeClassName = "TestTheme",
+        )
+
+        val result = underTest.getTokenRef(
+            value = "surface.default.card",
+            token = Gradient(
+                default = "surface.default.default",
+                alpha = 0.3f,
+            ),
+            meta = colorParam(methodName = "background"),
+        )
+
+        assertEquals(
+            "TestTheme.gradients.surfaceDefaultCard.asLayered(0.3f)",
+            result,
+        )
+    }
+
+    @Test
+    fun `возвращает Gradient state без явного type как gradient`() {
+        val underTest = ColorPropertyMapper(
+            stateEnum = null,
+            themeClassName = "TestTheme",
+        )
+
+        val builderCall = underTest.map(
+            meta = colorParam(methodName = "background"),
+            tokenValue = Gradient(
+                default = "surface.default.clear",
+                states = listOf(
+                    ColorState(
+                        state = listOf("pressed"),
+                        value = "surface.default.gradient",
+                        alpha = 0.6f,
+                    ),
+                ),
+            ),
+            variationId = "",
+        )
+
+        assertEquals(
+            "background(TestTheme.gradients.surfaceDefaultClear.asLayered()" +
+                ".asStatefulValue(setOf(InteractiveState.Pressed) " +
+                "to TestTheme.gradients.surfaceDefaultGradient.asLayered(0.6f)))",
+            builderCall,
+        )
+    }
+
+    @Test
+    fun `возвращает InteractiveColor если valueQualifiedType пустой а param содержит InteractiveColor`() {
+        val underTest = ColorPropertyMapper(
+            stateEnum = null,
+            themeClassName = "TestTheme",
+        )
+
+        val builderCall = underTest.map(
+            meta = colorParam(
+                methodName = "labelColor",
+                paramQualifiedType = INTERACTIVE_COLOR_TYPE,
+                valueQualifiedType = "",
+            ),
+            tokenValue = SolidColor("text.default.primary"),
+            variationId = "",
+        )
+
+        assertEquals("labelColor(TestTheme.colors.textDefaultPrimary.asInteractive())", builderCall)
+    }
+
+    @Test
+    fun `падает если state color type неизвестен`() {
+        val underTest = ColorPropertyMapper(
+            stateEnum = null,
+            themeClassName = "TestTheme",
+        )
+
+        val exception = assertThrows(ThemeBuilderException::class.java) {
+            underTest.map(
+                meta = colorParam(methodName = "background"),
+                tokenValue = SolidColor(
+                    default = "surface.default.clear",
+                    states = listOf(
+                        ColorState(
+                            state = listOf("pressed"),
+                            value = "surface.default.bitmap",
+                            type = "bitmap",
+                        ),
+                    ),
+                ),
+                variationId = "",
+            )
+        }
+
+        assertEquals("Unknown gradient or color type bitmap", exception.message)
     }
 
     private fun colorParam(

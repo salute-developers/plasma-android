@@ -15,7 +15,7 @@ class BaseConfigTest {
                 ColorState(
                     state = listOf("pressed"),
                     value = "primaryPressed",
-                    alpha = 0.8f
+                    alpha = 0.8f,
                 ),
             ),
         )
@@ -59,19 +59,19 @@ class BaseConfigTest {
             listOf(
                 ColorState(
                     state = listOf("hovered", "disabled"),
-                    value = "secondaryHoverd"
+                    value = "secondaryHoverd",
                 ),
                 ColorState(
                     state = listOf("disabled"),
                     value = "secondary",
-                    alpha = 0.5f
+                    alpha = 0.5f,
                 ),
                 ColorState(
                     state = listOf("pressed"),
-                    value = "primaryPressed"
+                    value = "primaryPressed",
                 ),
             ),
-            result.states
+            result.states,
         )
     }
 
@@ -82,7 +82,7 @@ class BaseConfigTest {
             states = listOf(
                 FloatState(
                     state = listOf("pressed"),
-                    value = 10f
+                    value = 10f,
                 ),
             ),
         )
@@ -106,7 +106,7 @@ class BaseConfigTest {
             listOf(
                 FloatState(
                     state = listOf("hovered", "disabled"),
-                    value = 20f
+                    value = 20f,
                 ),
                 FloatState(
                     state = listOf("disabled"),
@@ -150,7 +150,7 @@ class BaseConfigTest {
             listOf(
                 FloatState(
                     state = listOf("hovered", "disabled"),
-                    value = 1.5f
+                    value = 1.5f,
                 ),
                 FloatState(
                     state = listOf("disabled"),
@@ -187,5 +187,53 @@ class BaseConfigTest {
             ).toString(),
             result.states.toString(),
         )
+    }
+
+    @Test
+    fun `stateful clone replaces value and states but keeps extra data`() {
+        val stringStates = listOf(StringState(state = listOf("pressed"), value = "pressedValue"))
+
+        val shape = Shape(value = "round.m", adjustment = 2f)
+            .clone(value = "round.l", states = stringStates) as Shape
+        val shadow = Shadow(value = "soft.s")
+            .clone(value = "hard.m", states = stringStates) as Shadow
+        val typography = Typography(value = "body.m")
+            .clone(value = "body.l", states = stringStates) as Typography
+        val value = Value(value = "default")
+            .clone(value = "selected", states = stringStates)
+        val componentStyle = ComponentStyle<PropertyOwner>(value = "button.default")
+            .clone(value = "button.accent", states = stringStates) as ComponentStyle<*>
+
+        assertEquals("round.l", shape.value)
+        assertEquals(2f, shape.adjustment)
+        assertEquals("pressedValue", shape.states?.single()?.value)
+        assertEquals("hard.m", shadow.value)
+        assertEquals("body.l", typography.value)
+        assertEquals("selected", value.value)
+        assertEquals("button.accent", componentStyle.value)
+    }
+
+    @Test
+    fun `stateful clone заменяет value и states но сохраняет extra data`() {
+        val stringStates = listOf(StringState(state = listOf("pressed"), value = "pressedValue"))
+
+        val shape = Shape(value = "round.m", adjustment = 2f)
+            .clone(value = "round.l", states = stringStates) as Shape
+        val shadow = Shadow(value = "soft.s")
+            .clone(value = "hard.m", states = stringStates) as Shadow
+        val typography = Typography(value = "body.m")
+            .clone(value = "body.l", states = stringStates) as Typography
+        val value = Value(value = "default")
+            .clone(value = "selected", states = stringStates)
+        val componentStyle = ComponentStyle<PropertyOwner>(value = "button.default")
+            .clone(value = "button.accent", states = stringStates) as ComponentStyle<*>
+
+        assertEquals("round.l", shape.value)
+        assertEquals(2f, shape.adjustment)
+        assertEquals("pressedValue", shape.states?.single()?.value)
+        assertEquals("hard.m", shadow.value)
+        assertEquals("body.l", typography.value)
+        assertEquals("selected", value.value)
+        assertEquals("button.accent", componentStyle.value)
     }
 }

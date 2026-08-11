@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.compare
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
@@ -118,6 +119,72 @@ class GeneratedResourceComparatorTest {
 
         assertTrue(report.isCompatible)
         assertTrue(report.reorderOnly.isEmpty())
+    }
+
+    @Test
+    fun `compare возвращает UNEXPECTED если ресурс есть только в actual`() {
+        val baseline = tree()
+        val actual = tree("values/dimens.xml" to resources("""<dimen name="spacing_1x">4dp</dimen>"""))
+
+        val report = underTest.compare(baseline, actual)
+
+        assertEquals(1, report.semantic.size)
+        assertEquals(DifferenceKind.UNEXPECTED, report.semantic.single().kind)
+        assertEquals("values/dimen:spacing_1x", report.semantic.single().resource)
+    }
+
+    @Test
+    fun `compare возвращает MISSING и UNEXPECTED если в style изменился набор item`() {
+        val baseline = tree("values/styles.xml" to style("""<item name="sd_old">?attr/old</item>"""))
+        val actual = tree("values/styles.xml" to style("""<item name="sd_new">?attr/new</item>"""))
+
+        val report = underTest.compare(baseline, actual)
+
+        assertEquals(
+            setOf(DifferenceKind.MISSING, DifferenceKind.UNEXPECTED),
+            report.semantic.map { it.kind }.toSet(),
+        )
+        assertEquals(
+            setOf("values/style:Serv.Sdds.Components.Avatar/sd_old", "values/style:Serv.Sdds.Components.Avatar/sd_new"),
+            report.semantic.map { it.resource }.toSet(),
+        )
+    }
+
+    @Test
+    fun `compare возвращает SEQUENCE_CHANGED если в selector изменилось количество item`() {
+        val baseline = tree("color/selector.xml" to selector("""<item android:color="?serv_default" />"""))
+        val actual = tree(
+            "color/selector.xml" to selector(
+                """
+                <item android:color="?serv_pressed" android:state_pressed="true" />
+                <item android:color="?serv_default" />
+                """.trimIndent(),
+            ),
+        )
+
+        val report = underTest.compare(baseline, actual)
+
+        assertEquals(1, report.semantic.size)
+        assertEquals(DifferenceKind.SEQUENCE_CHANGED, report.semantic.single().kind)
+        assertTrue(report.semantic.single().detail.contains("1"))
+        assertTrue(report.semantic.single().detail.contains("2"))
+    }
+
+    @Test
+    fun `format обрезает semantic diff по limit`() {
+        val report = ComparisonReport(
+            reorderOnly = emptyList(),
+            semantic = listOf(
+                ResourceDifference(DifferenceKind.MISSING, "values/color:first", "first"),
+                ResourceDifference(DifferenceKind.UNEXPECTED, "values/color:second", "second"),
+            ),
+        )
+
+        val result = report.format(limit = 1)
+
+        assertTrue(result.contains("values/color:first"))
+        assertFalse(result.contains("values/color:second"))
+        assertTrue(result.contains("1"))
     }
 
     private fun style(items: String, parent: String = "Sdds.Components.Avatar"): String = resources(

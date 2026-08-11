@@ -354,7 +354,6 @@ class SandboxComposeComponentsGeneratorTest {
         )
     }
 
-
     private fun assertGeneratedCoreStyleClass(
         coreName: String,
         expectedStyleClass: String,

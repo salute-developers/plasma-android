@@ -29,6 +29,7 @@ import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.componentStyleXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
+import com.sdds.plugin.themebuilder.internal.utils.FileProvider.selectorXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import io.mockk.clearAllMocks
 import io.mockk.every
@@ -36,6 +37,7 @@ import io.mockk.mockk
 import io.mockk.mockkObject
 import kotlinx.serialization.decodeFromString
 import org.junit.After
+import org.junit.Assert.assertThrows
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -70,6 +72,7 @@ class ViewPropertyMapperTest {
             every { componentStyleXmlFile(any()) } returns styleFile
             every { attrsFile(any()) } returns attrsFile
             every { colorXmlFile(any(), any()) } returns colorFile
+            every { selectorXmlFile(any(), any()) } returns colorFile
         }
     }
 
@@ -184,6 +187,58 @@ class ViewPropertyMapperTest {
     }
 
     @Test
+    fun `value mapper генерирует config value если enum values пустые`() {
+        val property = PropertyMeta(
+            id = "placement",
+            attrName = "sd_placement",
+            type = PropertyType.VALUE,
+        )
+
+        map(listOf(property), """"placement": { "value": "space-between" }""")
+
+        assertTrue(
+            styleOutput.toString(),
+            styleOutput.toString().contains("""<item name="sd_placement">space-between</item>"""),
+        )
+    }
+
+    @Test
+    fun `value mapper генерирует default value если config value неизвестен`() {
+        val property = PropertyMeta(
+            id = "placement",
+            attrName = "sd_placement",
+            type = PropertyType.VALUE,
+            values = listOf(EnumValue("spaceBetween", "1", "space-between")),
+            defaultValue = "start",
+        )
+
+        map(listOf(property), """"placement": { "value": "unknown" }""")
+
+        assertTrue(
+            styleOutput.toString(),
+            styleOutput.toString().contains("""<item name="sd_placement">start</item>"""),
+        )
+    }
+
+    @Test
+    fun `value mapper падает если config value неизвестен и default отсутствует`() {
+        val property = PropertyMeta(
+            id = "placement",
+            attrName = "sd_placement",
+            type = PropertyType.VALUE,
+            values = listOf(EnumValue("spaceBetween", "1", "space-between")),
+        )
+
+        val exception = assertThrows(IllegalStateException::class.java) {
+            map(listOf(property), """"placement": { "value": "unknown" }""")
+        }
+
+        assertTrue(exception.message.orEmpty(), exception.message.orEmpty().contains("TestComponent"))
+        assertTrue(exception.message.orEmpty(), exception.message.orEmpty().contains("unknown"))
+        assertTrue(exception.message.orEmpty(), exception.message.orEmpty().contains("sd_placement"))
+    }
+
+    @Test
     fun `component style mapper distinguishes style and overlay`() {
         val params = listOf(
             PropertyMeta("statusStyle", "sd_statusStyle", PropertyType.COMPONENT_STYLE),
@@ -229,15 +284,179 @@ class ViewPropertyMapperTest {
         assertTrue(xml, stateIndex < baseIndex)
     }
 
+    @Test
+    fun `color mapper генерирует xml value list если view state содержит gradient`() {
+        val property = PropertyMeta(
+            id = "backgroundColor",
+            attrName = "sd_backgroundColor",
+            type = PropertyType.COLOR,
+            resSuffix = "background_color",
+        )
+
+        mapConfig(
+            params = listOf(property),
+            configJson = """
+                {
+                  "props": {
+                    "backgroundColor": { "type": "color", "default": "surfaceDefaultSolid" }
+                  },
+                  "view": {
+                    "active": {
+                      "props": {
+                        "backgroundColor": { "type": "gradient", "default": "surfaceDefaultGradient" }
+                      }
+                    }
+                  }
+                }
+            """,
+            sharedStates = mapOf("active" to "sd_state_active"),
+        )
+
+        val styleXml = styleOutput.toString()
+        assertTrue(
+            styleXml,
+            styleXml.contains(
+                """<item name="sd_backgroundColor">@xml/thmbldr_test_component_background_color</item>""",
+            ),
+        )
+    }
+
+    @Test
+    fun `color mapper применяет alpha state из float property если alpha color отсутствует`() {
+        val property = PropertyMeta(
+            id = "labelColor",
+            attrName = "sd_labelColor",
+            type = PropertyType.COLOR,
+            resSuffix = "label_color",
+            stateValues = listOf(StateValue("disabled", "disabledAlpha", "alpha")),
+        )
+
+        map(
+            params = listOf(property),
+            props = """
+                "labelColor": { "type": "color", "default": "textPrimary" },
+                "disabledAlpha": { "value": 0.32 }
+            """,
+            sharedStates = mapOf("disabled" to "sd_state_disabled"),
+        )
+
+        val colorXml = colorOutput.toString()
+        assertTrue(colorXml, colorXml.contains("""app:sd_state_disabled="true""""))
+        assertTrue(colorXml, colorXml.contains("""android:alpha="0.32""""))
+        assertTrue(colorXml, colorXml.contains("""?thmbldr_textPrimary"""))
+    }
+
+    @Test
+    fun `number и typography mappers генерируют selectors для token states`() {
+        val params = listOf(
+            PropertyMeta("alpha", "sd_alpha", PropertyType.FLOAT, "alpha"),
+            PropertyMeta("size", "sd_size", PropertyType.DIMENSION, "size"),
+            PropertyMeta("labelStyle", "sd_labelAppearance", PropertyType.TYPOGRAPHY, "label"),
+        )
+
+        map(
+            params = params,
+            props = """
+                "alpha": {
+                  "value": 0.4,
+                  "states": [ { "state": ["pressed"], "value": 0.8 } ]
+                },
+                "size": {
+                  "value": 16.0,
+                  "states": [ { "state": ["focused"], "value": 20.0 } ]
+                },
+                "labelStyle": {
+                  "value": "body.m.normal",
+                  "states": [ { "state": ["pressed"], "value": "body.l.bold" } ]
+                }
+            """,
+        )
+
+        val styleXml = styleOutput.toString()
+        assertTrue(styleXml, styleXml.contains("""<item name="sd_alpha">@xml/thmbldr_test_component_alpha</item>"""))
+        assertTrue(styleXml, styleXml.contains("""<item name="sd_size">@xml/thmbldr_test_component_size</item>"""))
+        assertTrue(
+            styleXml,
+            styleXml.contains("""<item name="sd_labelAppearance">@xml/thmbldr_test_component_label</item>"""),
+        )
+
+        val selectorXml = colorOutput.toString()
+        assertTrue(selectorXml, selectorXml.contains("<number-selector"))
+        assertTrue(selectorXml, selectorXml.contains("<style-selector"))
+        assertTrue(selectorXml, selectorXml.contains("""android:state_pressed="true""""))
+        assertTrue(selectorXml, selectorXml.contains("""android:state_focused="true""""))
+        assertTrue(selectorXml, selectorXml.contains("""app:sd_number="0.8""""))
+        assertTrue(selectorXml, selectorXml.contains("""app:sd_style="@style/"""))
+    }
+
+    @Test
+    fun `number и typography mappers генерируют selectors для view states`() {
+        val params = listOf(
+            PropertyMeta("alpha", "sd_alpha", PropertyType.FLOAT, "alpha"),
+            PropertyMeta("size", "sd_size", PropertyType.DIMENSION, "size"),
+            PropertyMeta("labelStyle", "sd_labelAppearance", PropertyType.TYPOGRAPHY, "label"),
+        )
+
+        mapConfig(
+            params = params,
+            configJson = """
+                {
+                  "props": {
+                    "alpha": { "value": 0.4 },
+                    "size": { "value": 16.0 },
+                    "labelStyle": { "value": "body.m.normal" }
+                  },
+                  "view": {
+                    "active": {
+                      "props": {
+                        "alpha": { "value": 0.8 },
+                        "size": { "value": 20.0 },
+                        "labelStyle": { "value": "body.l.bold" }
+                      }
+                    }
+                  }
+                }
+            """,
+            sharedStates = mapOf("active" to "sd_state_active"),
+        )
+
+        val styleXml = styleOutput.toString()
+        assertTrue(styleXml, styleXml.contains("""<item name="sd_alpha">@xml/thmbldr_test_component_alpha</item>"""))
+        assertTrue(styleXml, styleXml.contains("""<item name="sd_size">@xml/thmbldr_test_component_size</item>"""))
+        assertTrue(
+            styleXml,
+            styleXml.contains("""<item name="sd_labelAppearance">@xml/thmbldr_test_component_label</item>"""),
+        )
+
+        val selectorXml = colorOutput.toString()
+        assertTrue(selectorXml, selectorXml.contains("<number-selector"))
+        assertTrue(selectorXml, selectorXml.contains("<style-selector"))
+        assertTrue(selectorXml, selectorXml.contains("""app:thmbldr_testcomponent_state_active="true""""))
+        assertTrue(selectorXml, selectorXml.contains("""app:sd_number="0.8""""))
+        assertTrue(selectorXml, selectorXml.contains("""app:sd_style="@style/"""))
+    }
+
     private fun map(
         params: List<PropertyMeta>,
         props: String,
         sharedStates: Map<String, String> = emptyMap(),
     ) {
+        mapConfig(
+            params = params,
+            configJson = """{ "props": { $props } }""",
+            sharedStates = sharedStates,
+        )
+    }
+
+    private fun mapConfig(
+        params: List<PropertyMeta>,
+        configJson: String,
+        sharedStates: Map<String, String> = emptyMap(),
+    ) {
         val writer = writer()
         val registry = registry(params, writer, sharedStates)
         val config = Serializer.componentConfig.decodeFromString<UniversalComponentConfig>(
-            """{ "props": { $props } }""",
+            configJson,
         )
         val root = config.asVariationTree("")
         with(writer) {

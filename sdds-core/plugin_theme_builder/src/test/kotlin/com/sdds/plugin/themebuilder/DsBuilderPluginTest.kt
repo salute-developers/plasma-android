@@ -714,6 +714,68 @@ class DsBuilderPluginTest {
             .build()
     }
 
+    @Test
+    fun `documentation view target использует стандартные view info файлы`() {
+        val projectDir = temporaryFolder.newFolder("documentation-view")
+        projectDir.resolve(".sdds").mkdir()
+        val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).apply {
+            targets { view() }
+            documentation {}
+        }
+
+        (project as ProjectInternal).evaluate()
+
+        val aggregate = project.tasks.getByName("documentationAggregate") as DocumentationAggregateTask
+        assertEquals(
+            projectDir.resolve(".sdds/config-info-view-system.json").canonicalFile,
+            aggregate.componentsInfoFile.get().asFile.canonicalFile,
+        )
+        assertEquals(
+            projectDir.resolve(".sdds/theme-info-view-system.json").canonicalFile,
+            aggregate.themeInfoFile.get().asFile.canonicalFile,
+        )
+    }
+
+    @Test
+    fun `documentation без targets не регистрирует aggregate task`() {
+        val projectDir = temporaryFolder.newFolder("documentation-without-target")
+        projectDir.resolve(".sdds").mkdir()
+        val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).documentation {}
+
+        (project as ProjectInternal).evaluate()
+
+        assertNull(project.tasks.findByName("documentationAggregate"))
+        assertNull(project.tasks.findByName("documentationExtract"))
+    }
+
+    @Test
+    fun `documentation compose target использует стандартные compose info файлы`() {
+        val projectDir = temporaryFolder.newFolder("documentation-compose")
+        projectDir.resolve(".sdds").mkdir()
+        val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).apply {
+            targets { compose() }
+            documentation {}
+        }
+
+        (project as ProjectInternal).evaluate()
+
+        val aggregate = project.tasks.getByName("documentationAggregate") as DocumentationAggregateTask
+        assertEquals(
+            projectDir.resolve(".sdds/config-info-compose.json").canonicalFile,
+            aggregate.componentsInfoFile.get().asFile.canonicalFile,
+        )
+        assertEquals(
+            projectDir.resolve(".sdds/theme-info-compose.json").canonicalFile,
+            aggregate.themeInfoFile.get().asFile.canonicalFile,
+        )
+    }
+
     private fun createTenantFiles(directory: java.io.File) {
         directory.resolve("android").mkdirs()
         directory.resolve("meta.json").writeText("{}")

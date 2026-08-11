@@ -11,7 +11,6 @@ import java.io.File
 
 class GenerateSandboxAdaptersTaskTest {
 
-
     @get:Rule
     val temporaryFolder = TemporaryFolder()
 
@@ -164,7 +163,7 @@ class GenerateSandboxAdaptersTaskTest {
 
     private fun createTask(
         projectDir: File,
-        taskName: String
+        taskName: String,
     ): GenerateSandboxAdaptersTask {
         return ProjectBuilder.builder()
             .withProjectDir(projectDir)
@@ -181,7 +180,7 @@ class GenerateSandboxAdaptersTaskTest {
         scheme: SandboxScheme,
         packageName: String? = "com.test.sandbox",
         themeAlias: String? = "TestTheme",
-        multiplatform: Boolean = false
+        multiplatform: Boolean = false,
     ) {
         task.configInputFile.fileValue(configFile)
         task.outputDirectory.set(outputDir)
