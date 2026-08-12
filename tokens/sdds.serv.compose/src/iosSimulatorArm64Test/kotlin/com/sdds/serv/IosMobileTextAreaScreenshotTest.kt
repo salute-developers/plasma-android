@@ -3,8 +3,8 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextAreaMDefaultOuterOptionalKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextAreaSLongTextKmp
+import com.sdds.compose.uikit.fixtures.testcases.TextAreaMDefaultOuterOptional
+import com.sdds.compose.uikit.fixtures.testcases.TextAreaSLongText
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.textarea.Default
 import com.sdds.serv.styles.textarea.InnerLabel
@@ -29,7 +29,7 @@ abstract class IosMobileTextAreaScreenshotTest(
     @Test
     fun testTextAreaMDefaultOuterOptional() {
         content(::testTextAreaMDefaultOuterOptional) {
-            TextAreaMDefaultOuterOptionalKmp(TextArea.M.OuterLabel.Default.style())
+            TextAreaMDefaultOuterOptional(TextArea.M.OuterLabel.Default.style())
         }
     }
 
@@ -40,7 +40,7 @@ abstract class IosMobileTextAreaScreenshotTest(
     @Test
     fun testTextAreaSLongText() {
         content(::testTextAreaSLongText) {
-            TextAreaSLongTextKmp(TextArea.S.InnerLabel.Warning.style())
+            TextAreaSLongText(TextArea.S.InnerLabel.Warning.style())
         }
     }
 }

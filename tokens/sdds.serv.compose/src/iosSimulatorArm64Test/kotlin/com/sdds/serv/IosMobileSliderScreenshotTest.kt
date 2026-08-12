@@ -3,9 +3,9 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.SliderLabelEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.SliderReversedEndLabelEnabledKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.SliderThumbLimitLabelNormalStartKmp
+import com.sdds.compose.uikit.fixtures.testcases.SliderLabelEnd
+import com.sdds.compose.uikit.fixtures.testcases.SliderReversedEndLabelEnabled
+import com.sdds.compose.uikit.fixtures.testcases.SliderThumbLimitLabelNormalStart
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.slider.Accent
 import com.sdds.serv.styles.slider.Default
@@ -34,7 +34,7 @@ abstract class IosMobileSliderScreenshotTest(
     @Test
     fun testSliderThumbLimitLabelNormalStart() {
         content(::testSliderThumbLimitLabelNormalStart) {
-            SliderThumbLimitLabelNormalStartKmp(SliderHorizontalLabelInner.L.Default.style())
+            SliderThumbLimitLabelNormalStart(SliderHorizontalLabelInner.L.Default.style())
         }
     }
 
@@ -45,7 +45,7 @@ abstract class IosMobileSliderScreenshotTest(
     @Test
     fun testSliderReversedEndLabelEnabled() {
         content(::testSliderReversedEndLabelEnabled) {
-            SliderReversedEndLabelEnabledKmp(SliderHorizontalLabelOuter.M.Accent.style())
+            SliderReversedEndLabelEnabled(SliderHorizontalLabelOuter.M.Accent.style())
         }
     }
 
@@ -56,7 +56,7 @@ abstract class IosMobileSliderScreenshotTest(
     @Test
     fun testSliderLabelEnd() {
         content(::testSliderLabelEnd) {
-            SliderLabelEndKmp(SliderVerticalLabelInner.S.LabelEnd.ThumbS.Gradient.style())
+            SliderLabelEnd(SliderVerticalLabelInner.S.LabelEnd.ThumbS.Gradient.style())
         }
     }
 }

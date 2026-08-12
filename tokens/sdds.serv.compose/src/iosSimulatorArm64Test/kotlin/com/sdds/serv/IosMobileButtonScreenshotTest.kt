@@ -3,10 +3,10 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ButtonSizeLDefaultKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ButtonSizeLDisabledKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ButtonSizeLIsLoadingKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ButtonSizeMSpaceBetweenKmp
+import com.sdds.compose.uikit.fixtures.testcases.ButtonSizeLDefault
+import com.sdds.compose.uikit.fixtures.testcases.ButtonSizeLDisabled
+import com.sdds.compose.uikit.fixtures.testcases.ButtonSizeLIsLoading
+import com.sdds.compose.uikit.fixtures.testcases.ButtonSizeMSpaceBetween
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -25,7 +25,7 @@ abstract class IosMobileButtonScreenshotTest(
     @Test
     fun testButtonSizeLDefault() {
         content(::testButtonSizeLDefault) {
-            ButtonSizeLDefaultKmp(BasicButton.L.Default.style())
+            ButtonSizeLDefault(BasicButton.L.Default.style())
         }
     }
 
@@ -33,7 +33,7 @@ abstract class IosMobileButtonScreenshotTest(
     @Test
     fun testButtonSizeLDisabled() {
         content(::testButtonSizeLDisabled) {
-            ButtonSizeLDisabledKmp(BasicButton.L.Default.style())
+            ButtonSizeLDisabled(BasicButton.L.Default.style())
         }
     }
 
@@ -41,7 +41,7 @@ abstract class IosMobileButtonScreenshotTest(
     @Test
     fun testButtonSizeLIsLoading() {
         content(::testButtonSizeLIsLoading) {
-            ButtonSizeLIsLoadingKmp(BasicButton.L.Default.style())
+            ButtonSizeLIsLoading(BasicButton.L.Default.style())
         }
     }
 
@@ -49,7 +49,7 @@ abstract class IosMobileButtonScreenshotTest(
     @Test
     fun testButtonSizeMSpaceBetween() {
         content(::testButtonSizeMSpaceBetween) {
-            ButtonSizeMSpaceBetweenKmp(BasicButton.M.Default.style())
+            ButtonSizeMSpaceBetween(BasicButton.M.Default.style())
         }
     }
 }

@@ -3,8 +3,8 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.AutoCompleteBottomStart
-import com.sdds.compose.uikit.fixtures.kmp.testcases.AutoCompleteTopEnd
+import com.sdds.compose.uikit.fixtures.testcases.AutoCompleteBottomStart
+import com.sdds.compose.uikit.fixtures.testcases.AutoCompleteTopEnd
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.autocomplete.AutocompleteNormal
 import com.sdds.serv.styles.autocomplete.AutocompleteTight
@@ -29,7 +29,10 @@ abstract class IosMobileAutocompleteScreenshotTest(
             testMethod = ::testAutocompleteBottomStart,
             capture = { captureLastRootRoboImage(it) },
         ) {
-            AutoCompleteBottomStart(AutocompleteTight.M.style())
+            AutoCompleteBottomStart(
+                style = AutocompleteTight.M.style(),
+                initialShowDropdown = true,
+            )
         }
     }
 
@@ -42,7 +45,10 @@ abstract class IosMobileAutocompleteScreenshotTest(
             testMethod = ::testAutocompleteTopEnd,
             capture = { captureLastRootRoboImage(it) },
         ) {
-            AutoCompleteTopEnd(AutocompleteNormal.Xl.style())
+            AutoCompleteTopEnd(
+                style = AutocompleteNormal.Xl.style(),
+                initialShowDropdown = true,
+            )
         }
     }
 }
