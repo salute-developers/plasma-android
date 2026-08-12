@@ -2,11 +2,14 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ModalBottomStartKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ModalCenterEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ModalTopEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ModalTopStartKmp
+import com.sdds.compose.uikit.fixtures.testcases.ModalBottomStart
+import com.sdds.compose.uikit.fixtures.testcases.ModalCenterEnd
+import com.sdds.compose.uikit.fixtures.testcases.ModalTopEnd
+import com.sdds.compose.uikit.fixtures.testcases.ModalTopStart
 import com.sdds.compose.uikit.style.style
+import com.sdds.serv.styles.basicbutton.BasicButton
+import com.sdds.serv.styles.basicbutton.Default
+import com.sdds.serv.styles.basicbutton.M
 import com.sdds.serv.styles.modal.Default
 import com.sdds.serv.styles.modal.Modal
 import org.junit.Test
@@ -20,7 +23,11 @@ class JvmModalScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testModalTopStart() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            ModalTopStartKmp(Modal.Default.style())
+            ModalTopStart(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+                initialShow = true,
+            )
         }
     }
 
@@ -30,7 +37,11 @@ class JvmModalScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testModalTopEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            ModalTopEndKmp(Modal.Default.style())
+            ModalTopEnd(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+                initialShow = true,
+            )
         }
     }
 
@@ -40,7 +51,11 @@ class JvmModalScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testModalCenterEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            ModalCenterEndKmp(Modal.Default.style())
+            ModalCenterEnd(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+                initialShow = true,
+            )
         }
     }
 
@@ -50,7 +65,11 @@ class JvmModalScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testModalBottomStart() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            ModalBottomStartKmp(Modal.Default.style())
+            ModalBottomStart(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+                initialShow = true,
+            )
         }
     }
 }

@@ -2,8 +2,8 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TooltipMLooseStartCenterBottomEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TooltipMLooseTopEnd
+import com.sdds.compose.uikit.fixtures.testcases.TooltipMLooseStartCenterBottomEnd
+import com.sdds.compose.uikit.fixtures.testcases.TooltipMLooseTopEnd
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -22,8 +22,9 @@ class JvmTooltipScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     fun testTooltipMLooseTopEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
             TooltipMLooseTopEnd(
-                Tooltip.M.style(),
-                BasicButton.S.Default.style(),
+                style = Tooltip.M.style(),
+                buttonStyle = BasicButton.S.Default.style(),
+                initialOpened = true,
             )
         }
     }
@@ -34,9 +35,10 @@ class JvmTooltipScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testTooltipMLooseStartCenterBottomEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            TooltipMLooseStartCenterBottomEndKmp(
-                Tooltip.M.style(),
-                BasicButton.S.Default.style(),
+            TooltipMLooseStartCenterBottomEnd(
+                style = Tooltip.M.style(),
+                buttonStyle = BasicButton.S.Default.style(),
+                initialOpened = true,
             )
         }
     }

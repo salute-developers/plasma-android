@@ -2,9 +2,9 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.DropDownMenuXlAmountTenStrictCenterEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.DropDownMenuXlLooseTopEndDividerKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.DropDownMenuXsStrictCenterKmp
+import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXlAmountTenStrictCenterEnd
+import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXlLooseTopEndDivider
+import com.sdds.compose.uikit.fixtures.testcases.DropDownMenuXsStrictCenter
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -23,9 +23,10 @@ class JvmDropdownMenuScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme
     @Test
     fun testDropDownMenuXsStrictCenter() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            DropDownMenuXsStrictCenterKmp(
-                DropdownMenuNormal.Xs.style(),
-                BasicButton.M.Default.style(),
+            DropDownMenuXsStrictCenter(
+                style = DropdownMenuNormal.Xs.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+                initialOpened = true,
             )
         }
     }
@@ -36,9 +37,10 @@ class JvmDropdownMenuScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme
     @Test
     fun testDropDownMenuXlLooseTopEndDivider() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            DropDownMenuXlLooseTopEndDividerKmp(
-                DropdownMenuNormal.Xl.style(),
-                BasicButton.M.Default.style(),
+            DropDownMenuXlLooseTopEndDivider(
+                style = DropdownMenuNormal.Xl.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+                initialOpened = true,
             )
         }
     }
@@ -49,9 +51,10 @@ class JvmDropdownMenuScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme
     @Test
     fun testDropDownMenuXlAmountTenStrictCenterEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            DropDownMenuXlAmountTenStrictCenterEndKmp(
-                DropdownMenuNormal.Xl.style(),
-                BasicButton.M.Default.style(),
+            DropDownMenuXlAmountTenStrictCenterEnd(
+                style = DropdownMenuNormal.Xl.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+                initialOpened = true,
             )
         }
     }

@@ -2,10 +2,10 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ButtonSizeLDefaultKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ButtonSizeLDisabledKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ButtonSizeLIsLoadingKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ButtonSizeMSpaceBetweenKmp
+import com.sdds.compose.uikit.fixtures.testcases.ButtonSizeLDefault
+import com.sdds.compose.uikit.fixtures.testcases.ButtonSizeLDisabled
+import com.sdds.compose.uikit.fixtures.testcases.ButtonSizeLIsLoading
+import com.sdds.compose.uikit.fixtures.testcases.ButtonSizeMSpaceBetween
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -19,28 +19,28 @@ class JvmButtonScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testButtonLDefault() {
         content {
-            ButtonSizeLDefaultKmp(BasicButton.L.Default.style())
+            ButtonSizeLDefault(BasicButton.L.Default.style())
         }
     }
 
     @Test
     fun testButtonLDisabled() {
         content {
-            ButtonSizeLDisabledKmp(BasicButton.L.Default.style())
+            ButtonSizeLDisabled(BasicButton.L.Default.style())
         }
     }
 
     @Test
     fun testButtonLIsLoading() {
         content {
-            ButtonSizeLIsLoadingKmp(BasicButton.L.Default.style())
+            ButtonSizeLIsLoading(BasicButton.L.Default.style())
         }
     }
 
     @Test
     fun testButtonMSpaceBetween() {
         content {
-            ButtonSizeMSpaceBetweenKmp(BasicButton.M.Default.style())
+            ButtonSizeMSpaceBetween(BasicButton.M.Default.style())
         }
     }
 }

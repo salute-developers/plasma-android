@@ -3,10 +3,10 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.SelectMultipleNormalDisabledKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.SelectMultipleNormalMTopCenterKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.SelectMultipleNormalReadOnlyKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.SelectSingleNormalXlTopStartKmp
+import com.sdds.compose.uikit.fixtures.testcases.SelectMultipleNormalDisabled
+import com.sdds.compose.uikit.fixtures.testcases.SelectMultipleNormalMTopCenter
+import com.sdds.compose.uikit.fixtures.testcases.SelectMultipleNormalReadOnly
+import com.sdds.compose.uikit.fixtures.testcases.SelectSingleNormalXlTopStart
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.select.L
 import com.sdds.serv.styles.select.M
@@ -32,7 +32,10 @@ abstract class IosMobileSelectScreenshotTest(
             ::testSelectSingleNormalXlTopStart,
             capture = { captureLastRootRoboImage(it) },
         ) {
-            SelectSingleNormalXlTopStartKmp(SelectSingleNormal.Xl.style())
+            SelectSingleNormalXlTopStart(
+                style = SelectSingleNormal.Xl.style(),
+                initialOpened = true,
+            )
         }
     }
 
@@ -46,7 +49,10 @@ abstract class IosMobileSelectScreenshotTest(
             ::testSelectMultipleNormalMTopCenter,
             capture = { captureLastRootRoboImage(it) },
         ) {
-            SelectMultipleNormalMTopCenterKmp(SelectMultipleNormal.M.style())
+            SelectMultipleNormalMTopCenter(
+                style = SelectMultipleNormal.M.style(),
+                initialOpened = true,
+            )
         }
     }
 
@@ -60,7 +66,10 @@ abstract class IosMobileSelectScreenshotTest(
             ::testSelectMultipleNormalDisabled,
             capture = { captureLastRootRoboImage(it) },
         ) {
-            SelectMultipleNormalDisabledKmp(SelectMultipleNormal.L.style())
+            SelectMultipleNormalDisabled(
+                style = SelectMultipleNormal.L.style(),
+                initialOpened = true,
+            )
         }
     }
 
@@ -74,7 +83,10 @@ abstract class IosMobileSelectScreenshotTest(
             ::testSelectMultipleNormalReadOnly,
             capture = { captureLastRootRoboImage(it) },
         ) {
-            SelectMultipleNormalReadOnlyKmp(SelectMultipleNormal.L.style())
+            SelectMultipleNormalReadOnly(
+                style = SelectMultipleNormal.L.style(),
+                initialOpened = true,
+            )
         }
     }
 }

@@ -2,11 +2,11 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextFieldClearLErrorInnerOptionalKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextFieldLDefaultKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextFieldLDisabledKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextFieldLSuccessRequiredLeftOuter
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextFieldSReadOnlyKmp
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldClearLErrorInnerOptional
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldLDefaultInnerLeft
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldLDisabled
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldLSuccessRequiredLeftOuter
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldSReadOnly
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.Error
@@ -30,7 +30,7 @@ class JvmTextFieldScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testTextFieldLDefault() {
         content {
-            TextFieldLDefaultKmp(TextField.L.InnerLabel.RequiredStart.Default.style())
+            TextFieldLDefaultInnerLeft(TextField.L.InnerLabel.RequiredStart.Default.style())
         }
     }
 
@@ -50,7 +50,7 @@ class JvmTextFieldScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testTextFieldSReadOnly() {
         content {
-            TextFieldSReadOnlyKmp(TextField.S.InnerLabel.RequiredEnd.Default.style())
+            TextFieldSReadOnly(TextField.S.InnerLabel.RequiredEnd.Default.style())
         }
     }
 
@@ -60,7 +60,7 @@ class JvmTextFieldScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testTextFieldLDisabled() {
         content {
-            TextFieldLDisabledKmp(TextField.L.InnerLabel.RequiredStart.Default.style())
+            TextFieldLDisabled(TextField.L.InnerLabel.RequiredStart.Default.style())
         }
     }
 
@@ -70,7 +70,7 @@ class JvmTextFieldScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testTextFieldClearLErrorInnerOptional() {
         content {
-            TextFieldClearLErrorInnerOptionalKmp(
+            TextFieldClearLErrorInnerOptional(
                 TextFieldClear.L.InnerLabel.Error.style(),
             )
         }

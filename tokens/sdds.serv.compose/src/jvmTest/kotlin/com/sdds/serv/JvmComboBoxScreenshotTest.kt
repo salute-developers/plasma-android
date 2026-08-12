@@ -2,10 +2,10 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ComboBoxMultipleNormalBottomStartPlacementEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ComboBoxMultipleNormalTopCenterShowLoadingPlacementEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ComboBoxSingleNormalTopStartPlacementStartLooseKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ComboBoxSingleTightTopEndPlacementTopLooseKmp
+import com.sdds.compose.uikit.fixtures.testcases.ComboBoxMultipleNormalBottomStartPlacementEnd
+import com.sdds.compose.uikit.fixtures.testcases.ComboBoxMultipleNormalTopCenterShowLoadingPlacementEnd
+import com.sdds.compose.uikit.fixtures.testcases.ComboBoxSingleNormalTopStartPlacementStartLoose
+import com.sdds.compose.uikit.fixtures.testcases.ComboBoxSingleTightTopEndPlacementTopLoose
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.combobox.ComboBoxMultipleNormal
 import com.sdds.serv.styles.combobox.ComboBoxSingleNormal
@@ -27,7 +27,10 @@ class JvmComboBoxScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testComboBoxSingleNormalTopStartPlacementStartLoose() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            ComboBoxSingleNormalTopStartPlacementStartLooseKmp(ComboBoxSingleNormal.Xl.style())
+            ComboBoxSingleNormalTopStartPlacementStartLoose(
+                style = ComboBoxSingleNormal.Xl.style(),
+                initialOpened = true,
+            )
         }
     }
 
@@ -37,7 +40,10 @@ class JvmComboBoxScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testComboBoxSingleTightTopEndPlacementTopLoose() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            ComboBoxSingleTightTopEndPlacementTopLooseKmp(ComboBoxSingleTight.L.style())
+            ComboBoxSingleTightTopEndPlacementTopLoose(
+                style = ComboBoxSingleTight.L.style(),
+                initialOpened = true,
+            )
         }
     }
 
@@ -47,9 +53,10 @@ class JvmComboBoxScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testComboBoxMultipleNormalTopCenterShowLoadingPlacementEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            ComboBoxMultipleNormalTopCenterShowLoadingPlacementEndKmp(
+            ComboBoxMultipleNormalTopCenterShowLoadingPlacementEnd(
                 style = ComboBoxMultipleNormal.M.style(),
                 spinnerStyle = Spinner.Xs.Default.style(),
+                initialOpened = true,
             )
         }
     }
@@ -60,7 +67,10 @@ class JvmComboBoxScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testComboBoxMultipleNormalBottomStartPlacementEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            ComboBoxMultipleNormalBottomStartPlacementEndKmp(ComboBoxMultipleNormal.M.style())
+            ComboBoxMultipleNormalBottomStartPlacementEnd(
+                style = ComboBoxMultipleNormal.M.style(),
+                initialOpened = true,
+            )
         }
     }
 }

@@ -62,13 +62,13 @@ kotlin {
         }
         jvmTest {
             dependencies {
-                implementation("integration-core:uikit-compose-testcases-kmp")
+                implementation("integration-core:uikit-compose-testcases")
                 implementation(kotlin("test"))
             }
         }
         iosSimulatorArm64Test {
             dependencies {
-                implementation("integration-core:uikit-compose-testcases-kmp")
+                implementation("integration-core:uikit-compose-testcases")
                 implementation(kotlin("test"))
             }
         }

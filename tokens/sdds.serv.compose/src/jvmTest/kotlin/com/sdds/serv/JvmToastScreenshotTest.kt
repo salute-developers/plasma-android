@@ -2,8 +2,8 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ToastPilledPositiveCenterEndHasContentStartEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ToastRoundedDefaultBottomStartHasContentEndKmp
+import com.sdds.compose.uikit.fixtures.testcases.ToastPilledPositiveCenterEndHasContentStartEndOpened
+import com.sdds.compose.uikit.fixtures.testcases.ToastRoundedDefaultBottomStartHasContentEndOpened
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -24,7 +24,7 @@ class JvmToastScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testToastPilledPositiveCenterEndHasContentStartEnd() {
         content {
-            ToastPilledPositiveCenterEndHasContentStartEndKmp(
+            ToastPilledPositiveCenterEndHasContentStartEndOpened(
                 Toast.Pilled.Positive.style(),
                 BasicButton.M.Default.style(),
             )
@@ -37,7 +37,7 @@ class JvmToastScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testToastRoundedDefaultBottomStartHasContentEnd() {
         content {
-            ToastRoundedDefaultBottomStartHasContentEndKmp(
+            ToastRoundedDefaultBottomStartHasContentEndOpened(
                 Toast.Rounded.Default.style(),
                 BasicButton.M.Default.style(),
             )

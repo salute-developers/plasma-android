@@ -2,8 +2,8 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TabsDisabledKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TabsLHorizontalFiveHasDividerScrollKmp
+import com.sdds.compose.uikit.fixtures.testcases.TabsDisabled
+import com.sdds.compose.uikit.fixtures.testcases.TabsLHorizontalFiveHasDividerScroll
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.tabs.Horizontal
 import com.sdds.serv.styles.tabs.L
@@ -16,14 +16,14 @@ class JvmTabsScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testTabsLHorizontalFiveHasDividerScroll() {
         content {
-            TabsLHorizontalFiveHasDividerScrollKmp(TabsDefault.L.Horizontal.style())
+            TabsLHorizontalFiveHasDividerScroll(TabsDefault.L.Horizontal.style())
         }
     }
 
     @Test
     fun testTabsDisabled() {
         content {
-            TabsDisabledKmp(TabsDefault.L.Horizontal.style())
+            TabsDisabled(TabsDefault.L.Horizontal.style())
         }
     }
 }

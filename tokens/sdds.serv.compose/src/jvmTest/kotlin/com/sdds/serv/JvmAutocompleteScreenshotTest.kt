@@ -2,8 +2,8 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.AutoCompleteBottomStart
-import com.sdds.compose.uikit.fixtures.kmp.testcases.AutoCompleteTopEnd
+import com.sdds.compose.uikit.fixtures.testcases.AutoCompleteBottomStart
+import com.sdds.compose.uikit.fixtures.testcases.AutoCompleteTopEnd
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.autocomplete.AutocompleteNormal
 import com.sdds.serv.styles.autocomplete.AutocompleteTight
@@ -20,7 +20,10 @@ class JvmAutocompleteScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme
     @Test
     fun testAutocompleteBottomStart() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            AutoCompleteBottomStart(AutocompleteTight.M.style())
+            AutoCompleteBottomStart(
+                style = AutocompleteTight.M.style(),
+                initialShowDropdown = true,
+            )
         }
     }
 
@@ -30,7 +33,10 @@ class JvmAutocompleteScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme
     @Test
     fun testAutocompleteTopEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            AutoCompleteTopEnd(AutocompleteNormal.Xl.style())
+            AutoCompleteTopEnd(
+                style = AutocompleteNormal.Xl.style(),
+                initialShowDropdown = true,
+            )
         }
     }
 }

@@ -3,8 +3,8 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TabsDisabledKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TabsLHorizontalFiveHasDividerScrollKmp
+import com.sdds.compose.uikit.fixtures.testcases.TabsDisabled
+import com.sdds.compose.uikit.fixtures.testcases.TabsLHorizontalFiveHasDividerScroll
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.tabs.Horizontal
 import com.sdds.serv.styles.tabs.L
@@ -22,7 +22,7 @@ abstract class IosMobileTabsScreenshotTest(
     @Test
     fun testTabsLHorizontalFiveHasDividerScroll() {
         content(::testTabsLHorizontalFiveHasDividerScroll) {
-            TabsLHorizontalFiveHasDividerScrollKmp(TabsDefault.L.Horizontal.style())
+            TabsLHorizontalFiveHasDividerScroll(TabsDefault.L.Horizontal.style())
         }
     }
 
@@ -30,7 +30,7 @@ abstract class IosMobileTabsScreenshotTest(
     @Test
     fun testTabsDisabled() {
         content(::testTabsDisabled) {
-            TabsDisabledKmp(TabsDefault.L.Horizontal.style())
+            TabsDisabled(TabsDefault.L.Horizontal.style())
         }
     }
 }

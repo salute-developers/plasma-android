@@ -2,8 +2,8 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextAreaMDefaultOuterOptionalKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextAreaSLongTextKmp
+import com.sdds.compose.uikit.fixtures.testcases.TextAreaMDefaultOuterOptional
+import com.sdds.compose.uikit.fixtures.testcases.TextAreaSLongText
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.textarea.Default
 import com.sdds.serv.styles.textarea.InnerLabel
@@ -23,7 +23,7 @@ class JvmTextAreaScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testTextAreaMDefaultOuterOptional() {
         content {
-            TextAreaMDefaultOuterOptionalKmp(TextArea.M.OuterLabel.Default.style())
+            TextAreaMDefaultOuterOptional(TextArea.M.OuterLabel.Default.style())
         }
     }
 
@@ -33,7 +33,7 @@ class JvmTextAreaScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testTextAreaSLongText() {
         content {
-            TextAreaSLongTextKmp(TextArea.S.InnerLabel.Warning.style())
+            TextAreaSLongText(TextArea.S.InnerLabel.Warning.style())
         }
     }
 }

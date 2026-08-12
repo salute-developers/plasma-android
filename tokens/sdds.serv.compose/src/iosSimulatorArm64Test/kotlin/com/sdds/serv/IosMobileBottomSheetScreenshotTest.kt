@@ -3,8 +3,8 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.BottomSheetHeaderFixedHandleOuterKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.BottomSheetHeaderFooterFixedFitContentEdgeToEdgeKmp
+import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderFixedHandleOuter
+import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderFooterFixedFitContentEdgeToEdge
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -27,7 +27,10 @@ abstract class IosMobileBottomSheetScreenshotTest(
             ::testBottomSheetHeaderFixedHandleOuter,
             capture = { captureLastRootRoboImage(it) },
         ) {
-            BottomSheetHeaderFixedHandleOuterKmp(ModalBottomSheet.Default.style())
+            BottomSheetHeaderFixedHandleOuter(
+                ModalBottomSheet.Default.style(),
+                BasicButton.M.Default.style(),
+            )
         }
     }
 
@@ -41,7 +44,7 @@ abstract class IosMobileBottomSheetScreenshotTest(
             ::testBottomSheetHeaderFooterFixedFitContentEdgeToEdge,
             capture = { captureLastRootRoboImage(it) },
         ) {
-            BottomSheetHeaderFooterFixedFitContentEdgeToEdgeKmp(
+            BottomSheetHeaderFooterFixedFitContentEdgeToEdge(
                 ModalBottomSheet.Default.style(),
                 BasicButton.M.Default.style(),
             )

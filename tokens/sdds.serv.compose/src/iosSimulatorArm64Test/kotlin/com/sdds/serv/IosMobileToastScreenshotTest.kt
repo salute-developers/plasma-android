@@ -3,8 +3,8 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ToastPilledPositiveCenterEndHasContentStartEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.ToastRoundedDefaultBottomStartHasContentEndKmp
+import com.sdds.compose.uikit.fixtures.testcases.ToastPilledPositiveCenterEndHasContentStartEndOpened
+import com.sdds.compose.uikit.fixtures.testcases.ToastRoundedDefaultBottomStartHasContentEndOpened
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -30,7 +30,7 @@ abstract class IosMobileToastScreenshotTest(
     @Test
     fun testToastPilledPositiveCenterEndHasContentStartEnd() {
         content(::testToastPilledPositiveCenterEndHasContentStartEnd) {
-            ToastPilledPositiveCenterEndHasContentStartEndKmp(
+            ToastPilledPositiveCenterEndHasContentStartEndOpened(
                 Toast.Pilled.Positive.style(),
                 BasicButton.M.Default.style(),
             )
@@ -44,7 +44,7 @@ abstract class IosMobileToastScreenshotTest(
     @Test
     fun testToastRoundedDefaultBottomStartHasContentEnd() {
         content(::testToastRoundedDefaultBottomStartHasContentEnd) {
-            ToastRoundedDefaultBottomStartHasContentEndKmp(
+            ToastRoundedDefaultBottomStartHasContentEndOpened(
                 Toast.Rounded.Default.style(),
                 BasicButton.M.Default.style(),
             )

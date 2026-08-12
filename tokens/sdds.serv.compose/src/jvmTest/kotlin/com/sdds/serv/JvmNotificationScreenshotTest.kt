@@ -2,9 +2,9 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.NotificationCompactMTopCenterHasCloseActionButton
-import com.sdds.compose.uikit.fixtures.kmp.testcases.NotificationLooseMCenterEndTextHasClose
-import com.sdds.compose.uikit.fixtures.kmp.testcases.NotificationLooseSBottomStartText
+import com.sdds.compose.uikit.fixtures.testcases.NotificationCompactMTopCenterHasCloseActionButtonOpened
+import com.sdds.compose.uikit.fixtures.testcases.NotificationLooseMCenterEndTextHasCloseOpened
+import com.sdds.compose.uikit.fixtures.testcases.NotificationLooseSBottomStartTextOpened
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -24,7 +24,7 @@ class JvmNotificationScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme
     @Test
     fun testNotificationCompactMTopCenterHasCloseActionButton() {
         content {
-            NotificationCompactMTopCenterHasCloseActionButton(
+            NotificationCompactMTopCenterHasCloseActionButtonOpened(
                 NotificationCompact.M.style(),
                 BasicButton.M.Default.style(),
             )
@@ -37,7 +37,7 @@ class JvmNotificationScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme
     @Test
     fun testNotificationLooseMCenterEndTextHasClose() {
         content {
-            NotificationLooseMCenterEndTextHasClose(
+            NotificationLooseMCenterEndTextHasCloseOpened(
                 NotificationLoose.M.style(),
                 BasicButton.M.Default.style(),
             )
@@ -50,7 +50,7 @@ class JvmNotificationScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme
     @Test
     fun testNotificationLooseSBottomStartText() {
         content {
-            NotificationLooseSBottomStartText(
+            NotificationLooseSBottomStartTextOpened(
                 NotificationLoose.S.style(),
                 BasicButton.M.Default.style(),
             )
