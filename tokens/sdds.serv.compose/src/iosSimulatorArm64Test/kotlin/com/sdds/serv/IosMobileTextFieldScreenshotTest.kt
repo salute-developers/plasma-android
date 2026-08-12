@@ -3,10 +3,10 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextFieldClearLErrorInnerOptionalKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextFieldLDefaultKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextFieldLDisabledKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.TextFieldSReadOnlyKmp
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldClearLErrorInnerOptional
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldLDefaultInnerLeft
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldLDisabled
+import com.sdds.compose.uikit.fixtures.testcases.TextFieldSReadOnly
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.Error
@@ -28,7 +28,7 @@ abstract class IosMobileTextFieldScreenshotTest(
     @Test
     fun testTextFieldLDefault() {
         content(::testTextFieldLDefault) {
-            TextFieldLDefaultKmp(TextField.L.Default.style())
+            TextFieldLDefaultInnerLeft(TextField.L.Default.style())
         }
     }
 
@@ -39,7 +39,7 @@ abstract class IosMobileTextFieldScreenshotTest(
     @Test
     fun testTextFieldSReadOnly() {
         content(::testTextFieldSReadOnly) {
-            TextFieldSReadOnlyKmp(TextField.S.Default.style())
+            TextFieldSReadOnly(TextField.S.Default.style())
         }
     }
 
@@ -47,7 +47,7 @@ abstract class IosMobileTextFieldScreenshotTest(
     @Test
     fun testTextFieldLDisabled() {
         content(::testTextFieldLDisabled) {
-            TextFieldLDisabledKmp(TextField.L.Default.style())
+            TextFieldLDisabled(TextField.L.Default.style())
         }
     }
 
@@ -58,7 +58,7 @@ abstract class IosMobileTextFieldScreenshotTest(
     @Test
     fun testTextFieldClearLErrorInnerOptional() {
         content(::testTextFieldClearLErrorInnerOptional) {
-            TextFieldClearLErrorInnerOptionalKmp(
+            TextFieldClearLErrorInnerOptional(
                 TextFieldClear.L.InnerLabel.Error.style(),
             )
         }

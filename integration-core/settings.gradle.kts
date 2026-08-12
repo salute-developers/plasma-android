@@ -39,5 +39,4 @@ include(
     ":uikit-testcases",
     ":uikit-compose-fixtures",
     ":uikit-compose-testcases",
-    ":uikit-compose-testcases-kmp",
 )

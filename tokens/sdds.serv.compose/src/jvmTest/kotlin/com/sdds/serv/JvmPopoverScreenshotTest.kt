@@ -2,9 +2,9 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigJvm
-import com.sdds.compose.uikit.fixtures.kmp.testcases.PopoverMDefaultLooseStartCenterBottomEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.PopoverMDefaultLooseTopEndKmp
-import com.sdds.compose.uikit.fixtures.kmp.testcases.PopoverMDefaultStrictBottomEndTopStartKmp
+import com.sdds.compose.uikit.fixtures.testcases.PopoverMDefaultLooseStartCenterBottomEnd
+import com.sdds.compose.uikit.fixtures.testcases.PopoverMDefaultLooseTopEnd
+import com.sdds.compose.uikit.fixtures.testcases.PopoverMDefaultStrictBottomEndTopStart
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -23,9 +23,10 @@ class JvmPopoverScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testPopoverMDefaultStrictBottomEndTopStart() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            PopoverMDefaultStrictBottomEndTopStartKmp(
-                Popover.M.Default.style(),
-                BasicButton.S.Default.style(),
+            PopoverMDefaultStrictBottomEndTopStart(
+                style = Popover.M.Default.style(),
+                buttonStyle = BasicButton.S.Default.style(),
+                initialOpened = true,
             )
         }
     }
@@ -36,9 +37,10 @@ class JvmPopoverScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testPopoverMDefaultLooseTopEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            PopoverMDefaultLooseTopEndKmp(
-                Popover.M.Default.style(),
-                BasicButton.S.Default.style(),
+            PopoverMDefaultLooseTopEnd(
+                style = Popover.M.Default.style(),
+                buttonStyle = BasicButton.S.Default.style(),
+                initialOpened = true,
             )
         }
     }
@@ -49,9 +51,10 @@ class JvmPopoverScreenshotTest : RoborazziConfigJvm(SddsServScreenshotTheme) {
     @Test
     fun testPopoverMDefaultLooseStartCenterBottomEnd() {
         content(capture = { captureLastRootRoboImage(it) }) {
-            PopoverMDefaultLooseStartCenterBottomEndKmp(
-                Popover.M.Default.style(),
-                BasicButton.S.Default.style(),
+            PopoverMDefaultLooseStartCenterBottomEnd(
+                style = Popover.M.Default.style(),
+                buttonStyle = BasicButton.S.Default.style(),
+                initialOpened = true,
             )
         }
     }

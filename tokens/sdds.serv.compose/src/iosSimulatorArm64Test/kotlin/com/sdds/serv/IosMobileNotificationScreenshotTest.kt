@@ -3,9 +3,9 @@ package com.sdds.serv
 import androidx.compose.ui.test.ExperimentalTestApi
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziConfigIos
 import com.sdds.compose.uikit.fixtures.kmp.RoborazziScreenshotThemeMode
-import com.sdds.compose.uikit.fixtures.kmp.testcases.NotificationCompactMTopCenterHasCloseActionButton
-import com.sdds.compose.uikit.fixtures.kmp.testcases.NotificationLooseMCenterEndTextHasClose
-import com.sdds.compose.uikit.fixtures.kmp.testcases.NotificationLooseSBottomStartText
+import com.sdds.compose.uikit.fixtures.testcases.NotificationCompactMTopCenterHasCloseActionButtonOpened
+import com.sdds.compose.uikit.fixtures.testcases.NotificationLooseMCenterEndTextHasCloseOpened
+import com.sdds.compose.uikit.fixtures.testcases.NotificationLooseSBottomStartTextOpened
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
@@ -30,7 +30,7 @@ abstract class IosMobileNotificationScreenshotTest(
     @Test
     fun testNotificationCompactMTopCenterHasCloseActionButton() {
         content(::testNotificationCompactMTopCenterHasCloseActionButton) {
-            NotificationCompactMTopCenterHasCloseActionButton(
+            NotificationCompactMTopCenterHasCloseActionButtonOpened(
                 NotificationCompact.M.style(),
                 BasicButton.M.Default.style(),
             )
@@ -43,7 +43,7 @@ abstract class IosMobileNotificationScreenshotTest(
     @Test
     fun testNotificationLooseMCenterEndTextHasClose() {
         content(::testNotificationLooseMCenterEndTextHasClose) {
-            NotificationLooseMCenterEndTextHasClose(
+            NotificationLooseMCenterEndTextHasCloseOpened(
                 NotificationLoose.M.style(),
                 BasicButton.M.Default.style(),
             )
@@ -56,7 +56,7 @@ abstract class IosMobileNotificationScreenshotTest(
     @Test
     fun testNotificationLooseSBottomStartText() {
         content(::testNotificationLooseSBottomStartText) {
-            NotificationLooseSBottomStartText(
+            NotificationLooseSBottomStartTextOpened(
                 NotificationLoose.S.style(),
                 BasicButton.M.Default.style(),
             )
