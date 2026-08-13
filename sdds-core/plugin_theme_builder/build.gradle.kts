@@ -57,4 +57,5 @@ dependencies {
     compileOnly(libs.base.kotlin.compiler.embeddable)
     testImplementation(libs.base.test.unit.jUnit)
     testImplementation(libs.base.test.unit.mockk)
+    testImplementation(libs.base.kotlin.compiler.embeddable)
 }

@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
+import com.sdds.plugin.themebuilder.internal.universal.Color
 import com.sdds.plugin.themebuilder.internal.universal.ColorState
 import com.sdds.plugin.themebuilder.internal.universal.Gradient
 import com.sdds.plugin.themebuilder.internal.universal.SolidColor
@@ -8,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.ColorProp
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThrows
 import org.junit.Test
+import java.lang.reflect.InvocationTargetException
 
 class ColorPropertyMapperTest {
 
@@ -651,6 +653,97 @@ class ColorPropertyMapperTest {
         }
 
         assertEquals("Unknown gradient or color type bitmap", exception.message)
+    }
+
+    @Test
+    fun `getStateTokenRef использует color type по умолчанию для SolidColor`() {
+        val underTest = ColorPropertyMapper(
+            stateEnum = null,
+            themeClassName = "TestTheme",
+        )
+
+        val result = underTest.stateTokenRef(
+            value = "surface.default.pressed",
+            state = ColorState(state = listOf("pressed"), value = "surface.default.pressed"),
+            token = SolidColor(
+                default = "surface.default.clear",
+                alpha = 0.2f,
+            ),
+            meta = colorParam(methodName = "background"),
+        )
+
+        assertEquals(
+            "SolidColor(TestTheme.colors.surfaceDefaultPressed).multiplyAlpha(0.2f)",
+            result,
+        )
+    }
+
+    @Test
+    fun `getStateTokenRef использует gradient type по умолчанию для Gradient`() {
+        val underTest = ColorPropertyMapper(
+            stateEnum = null,
+            themeClassName = "TestTheme",
+        )
+
+        val result = underTest.stateTokenRef(
+            value = "surface.default.pressed",
+            state = ColorState(state = listOf("pressed"), value = "surface.default.pressed"),
+            token = Gradient(
+                default = "surface.default.clear",
+                alpha = 0.3f,
+            ),
+            meta = colorParam(methodName = "background"),
+        )
+
+        assertEquals(
+            "TestTheme.gradients.surfaceDefaultPressed.asLayered(0.3f)",
+            result,
+        )
+    }
+
+    @Test
+    fun `getStateTokenRef падает если state type неизвестен`() {
+        val underTest = ColorPropertyMapper(
+            stateEnum = null,
+            themeClassName = "TestTheme",
+        )
+
+        val exception = assertThrows(ThemeBuilderException::class.java) {
+            underTest.stateTokenRef(
+                value = "surface.default.bitmap",
+                state = ColorState(
+                    state = listOf("pressed"),
+                    value = "surface.default.bitmap",
+                    type = "bitmap",
+                ),
+                token = SolidColor(default = "surface.default.clear"),
+                meta = colorParam(methodName = "background"),
+            )
+        }
+
+        assertEquals("Unknown gradient or color type bitmap", exception.message)
+    }
+    private fun ColorPropertyMapper.stateTokenRef(
+        value: String,
+        state: ColorState,
+        token: Color,
+        meta: ComposeColorPropertyMeta,
+        resSuffix: String = "",
+    ): String {
+        val method = ColorPropertyMapper::class.java.getDeclaredMethod(
+            "getStateTokenRef",
+            String::class.java,
+            ColorState::class.java,
+            Color::class.java,
+            ComposeColorPropertyMeta::class.java,
+            String::class.java,
+        )
+        method.isAccessible = true
+        return try {
+            method.invoke(this, value, state, token, meta, resSuffix) as String
+        } catch (exception: InvocationTargetException) {
+            throw exception.targetException
+        }
     }
 
     private fun colorParam(
