@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -61,7 +62,10 @@ fun Switch(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     motion: Motion<SwitchMotionStyle> = rememberSwitchMotion(
-        motionContext = rememberMotionContext(interactionSource),
+        motionContext = rememberMotionContext(
+            semanticStateSource = rememberSwitchSemanticStateSource(active),
+            interactionSource = interactionSource,
+        ),
     ),
 ) {
     BaseSwitch(
@@ -111,7 +115,10 @@ fun Switch(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     motion: Motion<SwitchMotionStyle> = rememberSwitchMotion(
-        motionContext = rememberMotionContext(interactionSource),
+        motionContext = rememberMotionContext(
+            semanticStateSource = rememberSwitchSemanticStateSource(active),
+            interactionSource = interactionSource,
+        ),
     ),
 ) {
     BaseSwitch(
@@ -164,7 +171,12 @@ fun Switch(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val motion = rememberSwitchMotion()
+    val motion = rememberSwitchMotion(
+        motionContext = rememberMotionContext(
+            semanticStateSource = rememberSwitchSemanticStateSource(active),
+            interactionSource = interactionSource,
+        ),
+    )
     SideEffect {
         motion.context.semanticStateSource.set(
             SwitchStates.Checked,
@@ -218,6 +230,21 @@ fun Switch(
         verticalSpacing = dimensionValues.descriptionPaddingValues.getValueAsState(motion.context),
         horizontalSpacing = dimensionValues.textPaddingValues.getValueAsState(motion.context),
     )
+}
+
+/**
+ * Запоминает источник семантических состояний [Switch], сразу выставляя [SwitchStates.Checked]
+ * в соответствии с начальным значением [active].
+ *
+ * Так первый снимок состояния (initial/target в [com.sdds.compose.uikit.motion.MotionStateSnapshot])
+ * совпадает с текущим состоянием переключателя, и при появлении на экране с active = true
+ * анимация переключения не проигрывается — она запускается только на реальном изменении active.
+ */
+@Composable
+private fun rememberSwitchSemanticStateSource(active: Boolean): MutableSemanticStateSource {
+    return remember {
+        MutableSemanticStateSource().apply { set(SwitchStates.Checked, active) }
+    }
 }
 
 private fun SwitchDimensions.toDimensionValues(): SwitchDimensionValues {
