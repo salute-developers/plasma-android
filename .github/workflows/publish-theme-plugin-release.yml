@@ -1,5 +1,8 @@
 name: 'Publish Theme Builder Plugin Release'
 
+permissions:
+  contents: write
+
 on:
   repository_dispatch:
     types: [publish-plugin-theme-builder]

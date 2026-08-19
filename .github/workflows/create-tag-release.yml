@@ -1,5 +1,8 @@
 name: 'Create tag and release'
 
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
     inputs:

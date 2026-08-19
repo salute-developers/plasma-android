@@ -1,5 +1,8 @@
 name: 'Deploy tokens docs common'
 
+permissions:
+  contents: read
+
 on:
   workflow_call:
     inputs:
