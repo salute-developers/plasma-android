@@ -8,6 +8,12 @@ import androidx.compose.runtime.Composable
 internal enum class ScenarioCategory(val title: String) {
     Input("Input & Validation"),
     Popup("Popup components"),
+    Performance("Performance"),
+}
+
+internal enum class ScenarioPresentation {
+    Standard,
+    Fullscreen,
 }
 
 /**
@@ -18,5 +24,6 @@ internal data class IntegrationScenario(
     val title: String,
     val description: String,
     val category: ScenarioCategory,
+    val presentation: ScenarioPresentation = ScenarioPresentation.Standard,
     val screen: @Composable () -> Unit,
 )
