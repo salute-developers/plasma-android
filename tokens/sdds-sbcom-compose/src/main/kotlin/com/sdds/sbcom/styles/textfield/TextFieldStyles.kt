@@ -8,6 +8,7 @@
 package com.sdds.sbcom.styles.textfield
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TextFieldHelperTextPlacement
 import com.sdds.compose.uikit.TextFieldLabelPlacement
@@ -15,6 +16,7 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -39,9 +41,9 @@ public val TextField.Default: WrapperTextFieldTerminate
     get() = TextFieldStyle.builder(this)
         .invariantProps
         .colors {
-            labelColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            captionColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            counterColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            captionColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            counterColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextFieldTerminate)
 
@@ -50,9 +52,9 @@ public val TextField.Success: WrapperTextFieldTerminate
     get() = TextFieldStyle.builder(this)
         .invariantProps
         .colors {
-            labelColor(SddsSbComTheme.colors.textDefaultPositive.asInteractive())
-            captionColor(SddsSbComTheme.colors.textDefaultPositive.asInteractive())
-            counterColor(SddsSbComTheme.colors.textDefaultPositive.asInteractive())
+            labelColor(SolidColor(SddsSbComTheme.colors.textDefaultPositive).asStatefulValue())
+            captionColor(SolidColor(SddsSbComTheme.colors.textDefaultPositive).asStatefulValue())
+            counterColor(SolidColor(SddsSbComTheme.colors.textDefaultPositive).asStatefulValue())
         }
         .wrap(::WrapperTextFieldTerminate)
 
@@ -61,9 +63,9 @@ public val TextField.Error: WrapperTextFieldTerminate
     get() = TextFieldStyle.builder(this)
         .invariantProps
         .colors {
-            labelColor(SddsSbComTheme.colors.textDefaultNegative.asInteractive())
-            captionColor(SddsSbComTheme.colors.textDefaultNegative.asInteractive())
-            counterColor(SddsSbComTheme.colors.textDefaultNegative.asInteractive())
+            labelColor(SolidColor(SddsSbComTheme.colors.textDefaultNegative).asStatefulValue())
+            captionColor(SolidColor(SddsSbComTheme.colors.textDefaultNegative).asStatefulValue())
+            counterColor(SolidColor(SddsSbComTheme.colors.textDefaultNegative).asStatefulValue())
         }
         .wrap(::WrapperTextFieldTerminate)
 
@@ -96,14 +98,14 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             endContentSize(24.0.dp)
         }
         .colors {
-            cursorColor(SddsSbComTheme.colors.textDefaultAccent.asInteractive())
-            startContentColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            endContentColor(SddsSbComTheme.colors.textDefaultPrimary.asInteractive())
-            labelColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            valueColor(SddsSbComTheme.colors.textDefaultPrimary.asInteractive())
-            captionColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            counterColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            backgroundColor(SddsSbComTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+            cursorColor(SolidColor(SddsSbComTheme.colors.textDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            endContentColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
+            labelColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            valueColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
+            captionColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            counterColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue())
         }
         .scrollBar {
             scrollBarThickness(4.0.dp)

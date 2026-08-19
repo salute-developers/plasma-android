@@ -8,15 +8,18 @@
 package com.sdds.plasma.giga.styles.textarea
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TextFieldHelperTextPlacement
 import com.sdds.compose.uikit.TextFieldIndicatorAlignmentMode
 import com.sdds.compose.uikit.TextFieldLabelPlacement
+import com.sdds.compose.uikit.TextFieldSemanticState
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -394,19 +397,38 @@ public val WrapperTextAreaClearView.Default: WrapperTextAreaClearTerminate
     @Composable
     get() = builder
         .colors {
-            startContentColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
-            valueColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
-            captionColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            startContentColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(TextFieldSemanticState.Readonly)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                ),
+            )
+            valueColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(TextFieldSemanticState.Readonly)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary),
+                ),
+            )
+            captionColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(TextFieldSemanticState.Readonly)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                ),
+            )
             placeholderColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.textDefaultTertiary,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
                 ),
             )
             dividerColor(
-                PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent),
                 ),
             )
         }
@@ -417,33 +439,52 @@ public val WrapperTextAreaClearView.Warning: WrapperTextAreaClearTerminate
     get() = builder
         .colors {
             startContentColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
                 ),
             )
             valueColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary),
                 ),
             )
             captionColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
                 ),
             )
             placeholderColor(
-                PlasmaGigaTheme.colors.textDefaultWarning.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.textDefaultTertiary,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
                 ),
             )
             dividerColor(
-                PlasmaGigaTheme.colors.surfaceDefaultWarning.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultWarning).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent),
                 ),
             )
         }
@@ -454,33 +495,52 @@ public val WrapperTextAreaClearView.Error: WrapperTextAreaClearTerminate
     get() = builder
         .colors {
             startContentColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
                 ),
             )
             valueColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.textDefaultPrimary,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary),
                 ),
             )
             captionColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
                 ),
             )
             placeholderColor(
-                PlasmaGigaTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.textDefaultTertiary,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
                 ),
             )
             dividerColor(
-                PlasmaGigaTheme.colors.surfaceDefaultNegative.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent),
                 ),
             )
         }
@@ -505,26 +565,28 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             chipsPaddingEnd(0.0.dp)
         }
         .colors {
-            cursorColor(PlasmaGigaTheme.colors.textDefaultAccent.asInteractive())
+            cursorColor(SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue())
             startContentColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
-                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        PlasmaGigaTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary),
                 ),
             )
             endContentColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
             valueColorReadOnly(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
             captionColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
-            optionalColor(PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive())
-            counterColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            optionalColor(SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary).asStatefulValue())
+            counterColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
             placeholderColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
             dividerColorReadOnly(PlasmaGigaTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
-            indicatorColor(PlasmaGigaTheme.colors.surfaceDefaultNegative.asInteractive())
-            prefixColor(PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive())
-            suffixColor(PlasmaGigaTheme.colors.textDefaultTertiary.asInteractive())
+            indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            prefixColor(SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary).asStatefulValue())
+            suffixColor(SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary).asStatefulValue())
         }
 
 public val TextAreaClear.Xs: WrapperTextAreaClearXs
@@ -592,7 +654,7 @@ public val WrapperTextAreaClearXs.OuterLabel: WrapperTextAreaClearXsOuterLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearXsOuterLabel)
 
@@ -688,7 +750,7 @@ public val WrapperTextAreaClearS.OuterLabel: WrapperTextAreaClearSOuterLabel
             labelPadding(4.0.dp)
         }
         .colors {
-            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearSOuterLabel)
 
@@ -734,7 +796,7 @@ public val WrapperTextAreaClearS.InnerLabel: WrapperTextAreaClearSInnerLabel
             labelPadding(0.0.dp)
         }
         .colors {
-            labelColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearSInnerLabel)
 
@@ -830,7 +892,7 @@ public val WrapperTextAreaClearM.OuterLabel: WrapperTextAreaClearMOuterLabel
             labelPadding(4.0.dp)
         }
         .colors {
-            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearMOuterLabel)
 
@@ -876,7 +938,7 @@ public val WrapperTextAreaClearM.InnerLabel: WrapperTextAreaClearMInnerLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearMInnerLabel)
 
@@ -972,7 +1034,7 @@ public val WrapperTextAreaClearL.OuterLabel: WrapperTextAreaClearLOuterLabel
             labelPadding(4.0.dp)
         }
         .colors {
-            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearLOuterLabel)
 
@@ -1018,7 +1080,7 @@ public val WrapperTextAreaClearL.InnerLabel: WrapperTextAreaClearLInnerLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearLInnerLabel)
 
@@ -1114,7 +1176,7 @@ public val WrapperTextAreaClearXl.OuterLabel: WrapperTextAreaClearXlOuterLabel
             labelPadding(4.0.dp)
         }
         .colors {
-            labelColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearXlOuterLabel)
 
@@ -1160,7 +1222,7 @@ public val WrapperTextAreaClearXl.InnerLabel: WrapperTextAreaClearXlInnerLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearXlInnerLabel)
 

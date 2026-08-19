@@ -9,13 +9,14 @@ package com.sdds.sbcom.styles.textfield
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -58,15 +59,15 @@ public val SearchBar.Default: WrapperSearchBarDefault
             endContentSize(24.0.dp)
         }
         .colors {
-            cursorColor(SddsSbComTheme.colors.textDefaultAccent.asInteractive())
-            startContentColor(SddsSbComTheme.colors.textDefaultPrimary.asInteractive())
+            cursorColor(SolidColor(SddsSbComTheme.colors.textDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
             endContentColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(SddsSbComTheme.colors.textDefaultPrimaryHover),
                 ),
             )
-            valueColor(SddsSbComTheme.colors.textDefaultPrimary.asInteractive())
-            backgroundColor(SddsSbComTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+            valueColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue())
         }
         .wrap(::WrapperSearchBarDefault)

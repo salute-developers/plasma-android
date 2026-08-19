@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.State
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -30,8 +31,8 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.IndicatorMode
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.graphics.maybeShapeable
 
 /**
@@ -163,7 +164,7 @@ internal fun Modifier.surface(
  * Позволяет нарисовать indicator внутри либо снаружи любого Composable
  *
  * @param alignment выравнивание
- * @param color цвет индикатора
+ * @param brush поставщик кисти
  * @param horizontalPadding горизонтальный отступ от границы composable, может быть отрицательным
  * @param verticalPadding вертикальный отступ от границы composable, может быть отрицательным
  * @param indicatorSize размер индикатора
@@ -172,19 +173,20 @@ internal fun Modifier.surface(
  */
 internal fun Modifier.drawIndicator(
     alignment: Alignment,
-    color: Color = Color.Red,
-    horizontalPadding: Dp = 0.dp,
-    verticalPadding: Dp = 0.dp,
-    indicatorSize: Dp = 6.dp,
+    brush: BrushProducer,
+    alpha: Float,
+    horizontalPadding: State<Dp>,
+    verticalPadding: State<Dp>,
+    indicatorSize: State<Dp>,
     horizontalMode: IndicatorMode = IndicatorMode.Inner,
     verticalMode: IndicatorMode = IndicatorMode.Inner,
 ): Modifier {
     return drawWithContent {
         drawContent()
 
-        val horizontalOffset = horizontalPadding.roundToPx()
-        val verticalOffset = verticalPadding.roundToPx()
-        val indicatorSizePx = indicatorSize.roundToPx()
+        val horizontalOffset = horizontalPadding.value.roundToPx()
+        val verticalOffset = verticalPadding.value.roundToPx()
+        val indicatorSizePx = indicatorSize.value.roundToPx()
 
         val deltaSpace = IntOffset(
             x = when (horizontalMode) {
@@ -211,9 +213,10 @@ internal fun Modifier.drawIndicator(
         val resultOffset = offset - deltaSpace / 2f
         translate(resultOffset.x.toFloat(), resultOffset.y.toFloat()) {
             drawCircle(
-                color = color,
+                brush = brush(),
                 radius = indicatorSizePx / 2f,
                 center = Offset(indicatorSizePx / 2f, indicatorSizePx / 2f),
+                alpha = alpha,
             )
         }
     }

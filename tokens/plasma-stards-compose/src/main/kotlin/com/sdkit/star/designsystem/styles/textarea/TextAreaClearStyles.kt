@@ -8,14 +8,17 @@
 package com.sdkit.star.designsystem.styles.textarea
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.TextFieldHelperTextPlacement
 import com.sdds.compose.uikit.TextFieldLabelPlacement
+import com.sdds.compose.uikit.TextFieldSemanticState
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -139,22 +142,45 @@ public val WrapperTextAreaClearView.Default: WrapperTextAreaClearTerminate
     get() = builder
         .colors {
             startContentColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
-            valueColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            valueColor(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(TextFieldSemanticState.Readonly)
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                ),
+            )
             captionColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             placeholderColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
         }
@@ -165,35 +191,70 @@ public val WrapperTextAreaClearView.Error: WrapperTextAreaClearTerminate
     get() = builder
         .colors {
             startContentColor(
-                StarDsTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated) to
-                        StarDsTheme.colors.textDefaultSecondary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             valueColor(
-                StarDsTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated) to
-                        StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultPrimary),
                 ),
             )
             captionColor(
-                StarDsTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated) to
-                        StarDsTheme.colors.textDefaultSecondary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             placeholderColor(
-                StarDsTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated) to
-                        StarDsTheme.colors.textDefaultSecondary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
         }
@@ -214,43 +275,77 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_helper_text_padding))
         }
         .colors {
-            cursorColor(StarDsTheme.colors.textDefaultAccentMain.asInteractive())
+            cursorColor(SolidColor(StarDsTheme.colors.textDefaultAccentMain).asStatefulValue())
             startContentColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
                     setOf(InteractiveState.Pressed) to
-                        StarDsTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(StarDsTheme.colors.textDefaultSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(StarDsTheme.colors.textDefaultSecondaryHover),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f)),
                 ),
             )
             endContentColorReadOnly(StarDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
             valueColorReadOnly(StarDsTheme.colors.textDefaultPrimary.asInteractive())
             captionColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
-            optionalColor(StarDsTheme.colors.textDefaultTertiary.asInteractive())
+            optionalColor(SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Activated,
+                        TextFieldSemanticState.Readonly,
+                    ) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             counterColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
             placeholderColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
-            dividerColor(StarDsTheme.colors.surfaceDefaultClear.asInteractive())
+            dividerColor(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(TextFieldSemanticState.Readonly)
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultTransparentPrimary),
+                ),
+            )
             dividerColorReadOnly(StarDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
-            indicatorColor(StarDsTheme.colors.surfaceDefaultNegative.asInteractive())
+            indicatorColor(SolidColor(StarDsTheme.colors.surfaceDefaultNegative).asStatefulValue())
             prefixColor(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultTertiary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultTertiary),
                 ),
             )
             suffixColor(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultTertiary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultTertiary),
                 ),
             )
             prefixColorReadOnly(StarDsTheme.colors.textDefaultTertiary.asInteractive())
@@ -293,7 +388,7 @@ public val WrapperTextAreaClearXs.OuterLabel: WrapperTextAreaClearXsOuterLabel
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_xs_outer_label))
         }
         .colors {
-            labelColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearXsOuterLabel)
 
@@ -331,7 +426,7 @@ public val WrapperTextAreaClearS.OuterLabel: WrapperTextAreaClearSOuterLabel
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_s_outer_label))
         }
         .colors {
-            labelColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearSOuterLabel)
 
@@ -349,15 +444,23 @@ public val WrapperTextAreaClearS.InnerLabel: WrapperTextAreaClearSInnerLabel
         }
         .colors {
             labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             optionalColor(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultTertiary),
                 ),
             )
         }
@@ -397,7 +500,7 @@ public val WrapperTextAreaClearM.OuterLabel: WrapperTextAreaClearMOuterLabel
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_m_outer_label))
         }
         .colors {
-            labelColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearMOuterLabel)
 
@@ -415,15 +518,23 @@ public val WrapperTextAreaClearM.InnerLabel: WrapperTextAreaClearMInnerLabel
         }
         .colors {
             labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             optionalColor(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultTertiary),
                 ),
             )
         }
@@ -463,7 +574,7 @@ public val WrapperTextAreaClearL.OuterLabel: WrapperTextAreaClearLOuterLabel
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_label_padding_l_outer_label))
         }
         .colors {
-            labelColor(StarDsTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue())
         }
         .wrap(::WrapperTextAreaClearLOuterLabel)
 
@@ -481,15 +592,23 @@ public val WrapperTextAreaClearL.InnerLabel: WrapperTextAreaClearLInnerLabel
         }
         .colors {
             labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             optionalColor(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textDefaultPrimary,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultTertiary),
                 ),
             )
         }

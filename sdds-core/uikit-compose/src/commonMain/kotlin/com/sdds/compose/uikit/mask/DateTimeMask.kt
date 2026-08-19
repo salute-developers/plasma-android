@@ -1,6 +1,8 @@
 package com.sdds.compose.uikit.mask
 
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -47,7 +49,7 @@ abstract class DateTimeMask(
     open val maskMode: TextFieldMaskMode,
 ) : TextFieldMask {
 
-    override fun getVisualTransformation(mainColor: Color, hintColor: Color): VisualTransformation {
+    override fun getVisualTransformation(mainColor: Brush, hintColor: Brush): VisualTransformation {
         return DateTimeMaskTransformation(
             pattern = pattern,
             delimiter = separator,
@@ -68,8 +70,8 @@ private class DateTimeMaskTransformation(
     pattern: List<String>,
     delimiter: Char,
     maskMode: TextFieldMaskMode,
-    hintColor: Color,
-    mainColor: Color,
+    hintColor: Brush,
+    mainColor: Brush,
 ) : VisualTransformation {
 
     private val mask = pattern
@@ -79,11 +81,11 @@ private class DateTimeMaskTransformation(
         .map { it.first() }
         .toSet()
 
-    private val mainSpanStyle = SpanStyle(color = mainColor)
+    private val mainSpanStyle = SpanStyle(brush = mainColor)
     private val hintSpanStyle = SpanStyle(
-        color = when (maskMode) {
+        brush = when (maskMode) {
             TextFieldMaskMode.Always -> hintColor
-            TextFieldMaskMode.OnInput -> Color.Transparent
+            TextFieldMaskMode.OnInput -> SolidColor(Color.Transparent)
         },
     )
 
