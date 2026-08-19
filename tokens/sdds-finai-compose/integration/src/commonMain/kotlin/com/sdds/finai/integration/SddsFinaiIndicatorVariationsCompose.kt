@@ -1,0 +1,95 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
+    "ktlint:standard:max-line-length",
+)
+
+package com.sdds.finai.integration
+
+import com.sdds.compose.sandbox.ComposeStyleProvider
+import com.sdds.compose.sandbox.ComposeStyleReference
+import com.sdds.compose.uikit.IndicatorStyle
+import com.sdds.compose.uikit.style.style
+import com.sdds.finai.styles.indicator.Accent
+import com.sdds.finai.styles.indicator.Black
+import com.sdds.finai.styles.indicator.Default
+import com.sdds.finai.styles.indicator.Inactive
+import com.sdds.finai.styles.indicator.Indicator
+import com.sdds.finai.styles.indicator.IndicatorDefaultSize
+import com.sdds.finai.styles.indicator.IndicatorDefaultView
+import com.sdds.finai.styles.indicator.IndicatorStyles
+import com.sdds.finai.styles.indicator.L
+import com.sdds.finai.styles.indicator.M
+import com.sdds.finai.styles.indicator.Negative
+import com.sdds.finai.styles.indicator.Positive
+import com.sdds.finai.styles.indicator.S
+import com.sdds.finai.styles.indicator.Warning
+import com.sdds.finai.styles.indicator.White
+import com.sdds.finai.styles.indicator.resolve
+import com.sdds.sandbox.Property
+
+internal object SddsFinaiIndicatorVariationsCompose : ComposeStyleProvider<IndicatorStyle>() {
+    override val bindings: Set<Property<*>> =
+        setOf(
+            Property.SingleChoiceProperty(name = "size", value = "L", variants = listOf("L", "M", "S")),
+            Property.SingleChoiceProperty(
+                name = "view",
+                value = "Default",
+                variants = listOf("Default", "Accent", "Inactive", "Positive", "Warning", "Negative", "Dark", "Black", "White"),
+            ),
+        )
+
+    override val variations: Map<String, ComposeStyleReference<IndicatorStyle>> =
+        mapOf(
+            "Indicator.L.Default" to ComposeStyleReference { Indicator.L.Default.style() },
+            "Indicator.L.Accent" to ComposeStyleReference { Indicator.L.Accent.style() },
+            "Indicator.L.Inactive" to ComposeStyleReference { Indicator.L.Inactive.style() },
+            "Indicator.L.Positive" to ComposeStyleReference { Indicator.L.Positive.style() },
+            "Indicator.L.Warning" to ComposeStyleReference { Indicator.L.Warning.style() },
+            "Indicator.L.Negative" to ComposeStyleReference { Indicator.L.Negative.style() },
+            "Indicator.L.Black" to ComposeStyleReference { Indicator.L.Black.style() },
+            "Indicator.L.White" to ComposeStyleReference { Indicator.L.White.style() },
+            "Indicator.M.Default" to ComposeStyleReference { Indicator.M.Default.style() },
+            "Indicator.M.Accent" to ComposeStyleReference { Indicator.M.Accent.style() },
+            "Indicator.M.Inactive" to ComposeStyleReference { Indicator.M.Inactive.style() },
+            "Indicator.M.Positive" to ComposeStyleReference { Indicator.M.Positive.style() },
+            "Indicator.M.Warning" to ComposeStyleReference { Indicator.M.Warning.style() },
+            "Indicator.M.Negative" to ComposeStyleReference { Indicator.M.Negative.style() },
+            "Indicator.M.Black" to ComposeStyleReference { Indicator.M.Black.style() },
+            "Indicator.M.White" to ComposeStyleReference { Indicator.M.White.style() },
+            "Indicator.S.Default" to ComposeStyleReference { Indicator.S.Default.style() },
+            "Indicator.S.Accent" to ComposeStyleReference { Indicator.S.Accent.style() },
+            "Indicator.S.Inactive" to ComposeStyleReference { Indicator.S.Inactive.style() },
+            "Indicator.S.Positive" to ComposeStyleReference { Indicator.S.Positive.style() },
+            "Indicator.S.Warning" to ComposeStyleReference { Indicator.S.Warning.style() },
+            "Indicator.S.Negative" to ComposeStyleReference { Indicator.S.Negative.style() },
+            "Indicator.S.Black" to ComposeStyleReference { Indicator.S.Black.style() },
+            "Indicator.S.White" to ComposeStyleReference { Indicator.S.White.style() },
+        )
+
+    override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return IndicatorStyles.Default.resolve(
+            size = when (bindings["size"]?.toString()) {
+                "L" -> IndicatorDefaultSize.L
+                "M" -> IndicatorDefaultSize.M
+                "S" -> IndicatorDefaultSize.S
+                else -> IndicatorDefaultSize.L
+            },
+            view = when (bindings["view"]?.toString()) {
+                "Default" -> IndicatorDefaultView.Default
+                "Accent" -> IndicatorDefaultView.Accent
+                "Inactive" -> IndicatorDefaultView.Inactive
+                "Positive" -> IndicatorDefaultView.Positive
+                "Warning" -> IndicatorDefaultView.Warning
+                "Negative" -> IndicatorDefaultView.Negative
+                "Dark" -> IndicatorDefaultView.Dark
+                "Black" -> IndicatorDefaultView.Black
+                "White" -> IndicatorDefaultView.White
+                else -> IndicatorDefaultView.Default
+            },
+        ).key
+    }
+}

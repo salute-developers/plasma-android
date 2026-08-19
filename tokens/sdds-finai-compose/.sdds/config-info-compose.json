@@ -1,0 +1,4959 @@
+{
+   "name": "sdds_finai",
+   "packageName": "com.sdds.finai",
+   "components": [
+      {
+         "key": "avatar",
+         "coreName": "Avatar",
+         "styleName": "Avatar",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "xxl",
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "xxl"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.avatar",
+            "stylesClassName": "AvatarStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.avatar.AvatarStyles",
+            "receiverClassName": "AvatarStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.avatar.AvatarStyles.Companion",
+            "returnTypeName": "AvatarStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.AvatarStyle",
+            "modifyReceiverTypeName": "AvatarStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.AvatarStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AvatarSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.avatar.AvatarSize",
+                  "defaultValue": {
+                     "value": "xxl",
+                     "codeName": "Xxl"
+                  },
+                  "values": [
+                     {
+                        "value": "xxl",
+                        "codeName": "Xxl"
+                     },
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "xxl",
+               "composeReference": "Avatar.Xxl",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxl"
+                  }
+               ]
+            },
+            {
+               "name": "l",
+               "composeReference": "Avatar.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "Avatar.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "Avatar.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "avatar-group",
+         "coreName": "AvatarGroup",
+         "styleName": "AvatarGroup",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "s"
+               ],
+               "defaultValue": "s"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.avatargroup",
+            "stylesClassName": "AvatarGroupStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.avatargroup.AvatarGroupStyles",
+            "receiverClassName": "AvatarGroupStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.avatargroup.AvatarGroupStyles.Companion",
+            "returnTypeName": "AvatarGroupStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.AvatarGroupStyle",
+            "modifyReceiverTypeName": "AvatarGroupStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.AvatarGroupStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AvatarGroupSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.avatargroup.AvatarGroupSize",
+                  "defaultValue": {
+                     "value": "s",
+                     "codeName": "S"
+                  },
+                  "values": [
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "s",
+               "composeReference": "AvatarGroup.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "AvatarIndicator",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.AvatarIndicator",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.indicator.IndicatorStyles.AvatarIndicator",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "AvatarIndicator",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "AvatarIndicatorSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.indicator.AvatarIndicatorSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "AvatarIndicator.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "AvatarIndicator.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "AvatarIndicator.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "Indicator",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "l"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "accent",
+                  "inactive",
+                  "positive",
+                  "warning",
+                  "negative",
+                  "dark",
+                  "black",
+                  "white"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.indicator",
+            "stylesClassName": "IndicatorStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.indicator.IndicatorStyles",
+            "receiverClassName": "IndicatorStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.indicator.IndicatorStyles.Default",
+            "returnTypeName": "IndicatorStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyle",
+            "modifyReceiverTypeName": "IndicatorStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IndicatorStyleBuilder",
+            "holderName": "Default",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IndicatorDefaultSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.indicator.IndicatorDefaultSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IndicatorDefaultView",
+                  "typeQualifiedName": "com.sdds.finai.styles.indicator.IndicatorDefaultView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "inactive",
+                        "codeName": "Inactive"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "dark",
+                        "codeName": "Dark"
+                     },
+                     {
+                        "value": "black",
+                        "codeName": "Black"
+                     },
+                     {
+                        "value": "white",
+                        "codeName": "White"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "Indicator.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "Indicator.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.inactive",
+               "composeReference": "Indicator.L.Inactive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "inactive"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "Indicator.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "Indicator.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "Indicator.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.black",
+               "composeReference": "Indicator.L.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "l.white",
+               "composeReference": "Indicator.L.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "Indicator.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Indicator.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.inactive",
+               "composeReference": "Indicator.M.Inactive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "inactive"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "Indicator.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "Indicator.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "Indicator.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.black",
+               "composeReference": "Indicator.M.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "m.white",
+               "composeReference": "Indicator.M.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Indicator.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Indicator.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.inactive",
+               "composeReference": "Indicator.S.Inactive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "inactive"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "Indicator.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "Indicator.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "Indicator.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.black",
+               "composeReference": "Indicator.S.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "s.white",
+               "composeReference": "Indicator.S.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "basic-button",
+         "coreName": "BasicButton",
+         "styleName": "BasicButton",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "s",
+                  "xs",
+                  "xxs"
+               ],
+               "defaultValue": "s"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "accent",
+                  "positive",
+                  "negative",
+                  "warning",
+                  "clear",
+                  "dark",
+                  "black",
+                  "white"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.basicbutton",
+            "stylesClassName": "BasicButtonStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.basicbutton.BasicButtonStyles",
+            "receiverClassName": "BasicButtonStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.basicbutton.BasicButtonStyles.Companion",
+            "returnTypeName": "ButtonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+            "modifyReceiverTypeName": "BasicButtonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.BasicButtonStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "BasicButtonSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.basicbutton.BasicButtonSize",
+                  "defaultValue": {
+                     "value": "s",
+                     "codeName": "S"
+                  },
+                  "values": [
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "xxs",
+                        "codeName": "Xxs"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "BasicButtonView",
+                  "typeQualifiedName": "com.sdds.finai.styles.basicbutton.BasicButtonView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "clear",
+                        "codeName": "Clear"
+                     },
+                     {
+                        "value": "dark",
+                        "codeName": "Dark"
+                     },
+                     {
+                        "value": "black",
+                        "codeName": "Black"
+                     },
+                     {
+                        "value": "white",
+                        "codeName": "White"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "s.default",
+               "composeReference": "BasicButton.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "BasicButton.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "BasicButton.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "BasicButton.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "BasicButton.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "BasicButton.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.clear",
+               "composeReference": "BasicButton.S.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "s.dark",
+               "composeReference": "BasicButton.S.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "s.black",
+               "composeReference": "BasicButton.S.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "s.white",
+               "composeReference": "BasicButton.S.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "BasicButton.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "BasicButton.Xs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "BasicButton.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "BasicButton.Xs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "BasicButton.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "BasicButton.Xs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.clear",
+               "composeReference": "BasicButton.Xs.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dark",
+               "composeReference": "BasicButton.Xs.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "xs.black",
+               "composeReference": "BasicButton.Xs.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "xs.white",
+               "composeReference": "BasicButton.Xs.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "BasicButton.Xxs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "BasicButton.Xxs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "BasicButton.Xxs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.positive",
+               "composeReference": "BasicButton.Xxs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.negative",
+               "composeReference": "BasicButton.Xxs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.warning",
+               "composeReference": "BasicButton.Xxs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.clear",
+               "composeReference": "BasicButton.Xxs.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.dark",
+               "composeReference": "BasicButton.Xxs.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.black",
+               "composeReference": "BasicButton.Xxs.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.white",
+               "composeReference": "BasicButton.Xxs.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "icon-button",
+         "coreName": "IconButton",
+         "styleName": "IconButton",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "s",
+                  "xs",
+                  "xxs"
+               ],
+               "defaultValue": "s"
+            },
+            {
+               "name": "shape",
+               "values": [
+                  "default",
+                  "pilled"
+               ],
+               "defaultValue": "default"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "accent",
+                  "positive",
+                  "negative",
+                  "warning",
+                  "clear",
+                  "dark",
+                  "black",
+                  "white"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.iconbutton",
+            "stylesClassName": "IconButtonStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.iconbutton.IconButtonStyles",
+            "receiverClassName": "IconButtonStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.iconbutton.IconButtonStyles.Default",
+            "returnTypeName": "ButtonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+            "modifyReceiverTypeName": "IconButtonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconButtonStyleBuilder",
+            "holderName": "Default",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IconButtonDefaultSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.iconbutton.IconButtonDefaultSize",
+                  "defaultValue": {
+                     "value": "s",
+                     "codeName": "S"
+                  },
+                  "values": [
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "xxs",
+                        "codeName": "Xxs"
+                     }
+                  ]
+               },
+               {
+                  "name": "shape",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IconButtonDefaultShape",
+                  "typeQualifiedName": "com.sdds.finai.styles.iconbutton.IconButtonDefaultShape",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "pilled",
+                        "codeName": "Pilled"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "IconButtonDefaultView",
+                  "typeQualifiedName": "com.sdds.finai.styles.iconbutton.IconButtonDefaultView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "clear",
+                        "codeName": "Clear"
+                     },
+                     {
+                        "value": "dark",
+                        "codeName": "Dark"
+                     },
+                     {
+                        "value": "black",
+                        "codeName": "Black"
+                     },
+                     {
+                        "value": "white",
+                        "codeName": "White"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "s.default",
+               "composeReference": "IconButton.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "IconButton.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "IconButton.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "IconButton.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "IconButton.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "IconButton.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.clear",
+               "composeReference": "IconButton.S.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "s.dark",
+               "composeReference": "IconButton.S.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "s.black",
+               "composeReference": "IconButton.S.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "s.white",
+               "composeReference": "IconButton.S.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.default",
+               "composeReference": "IconButton.S.Pilled.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.secondary",
+               "composeReference": "IconButton.S.Pilled.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.accent",
+               "composeReference": "IconButton.S.Pilled.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.positive",
+               "composeReference": "IconButton.S.Pilled.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.negative",
+               "composeReference": "IconButton.S.Pilled.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.warning",
+               "composeReference": "IconButton.S.Pilled.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.clear",
+               "composeReference": "IconButton.S.Pilled.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.dark",
+               "composeReference": "IconButton.S.Pilled.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.black",
+               "composeReference": "IconButton.S.Pilled.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "s.pilled.white",
+               "composeReference": "IconButton.S.Pilled.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "IconButton.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "IconButton.Xs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "IconButton.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "IconButton.Xs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "IconButton.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "IconButton.Xs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.clear",
+               "composeReference": "IconButton.Xs.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dark",
+               "composeReference": "IconButton.Xs.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "xs.black",
+               "composeReference": "IconButton.Xs.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "xs.white",
+               "composeReference": "IconButton.Xs.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.default",
+               "composeReference": "IconButton.Xs.Pilled.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.secondary",
+               "composeReference": "IconButton.Xs.Pilled.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.accent",
+               "composeReference": "IconButton.Xs.Pilled.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.positive",
+               "composeReference": "IconButton.Xs.Pilled.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.negative",
+               "composeReference": "IconButton.Xs.Pilled.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.warning",
+               "composeReference": "IconButton.Xs.Pilled.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.clear",
+               "composeReference": "IconButton.Xs.Pilled.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.dark",
+               "composeReference": "IconButton.Xs.Pilled.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.black",
+               "composeReference": "IconButton.Xs.Pilled.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.white",
+               "composeReference": "IconButton.Xs.Pilled.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "IconButton.Xxs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "IconButton.Xxs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "IconButton.Xxs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.positive",
+               "composeReference": "IconButton.Xxs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.negative",
+               "composeReference": "IconButton.Xxs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.warning",
+               "composeReference": "IconButton.Xxs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.clear",
+               "composeReference": "IconButton.Xxs.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.dark",
+               "composeReference": "IconButton.Xxs.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.black",
+               "composeReference": "IconButton.Xxs.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.white",
+               "composeReference": "IconButton.Xxs.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.default",
+               "composeReference": "IconButton.Xxs.Pilled.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.secondary",
+               "composeReference": "IconButton.Xxs.Pilled.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.accent",
+               "composeReference": "IconButton.Xxs.Pilled.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.positive",
+               "composeReference": "IconButton.Xxs.Pilled.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.negative",
+               "composeReference": "IconButton.Xxs.Pilled.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.warning",
+               "composeReference": "IconButton.Xxs.Pilled.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.clear",
+               "composeReference": "IconButton.Xxs.Pilled.Clear",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "clear"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.dark",
+               "composeReference": "IconButton.Xxs.Pilled.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.black",
+               "composeReference": "IconButton.Xxs.Pilled.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.pilled.white",
+               "composeReference": "IconButton.Xxs.Pilled.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "icon-button",
+         "coreName": "IconButton",
+         "styleName": "EmbeddedIconButton",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "m"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "accent",
+                  "positive",
+                  "negative",
+                  "warning",
+                  "clear",
+                  "info"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.iconbutton",
+            "stylesClassName": "IconButtonStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.iconbutton.IconButtonStyles",
+            "receiverClassName": "IconButtonStyles.EmbeddedIconButton",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.iconbutton.IconButtonStyles.EmbeddedIconButton",
+            "returnTypeName": "ButtonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+            "modifyReceiverTypeName": "IconButtonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconButtonStyleBuilder",
+            "holderName": "EmbeddedIconButton",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "EmbeddedIconButtonSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.iconbutton.EmbeddedIconButtonSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "EmbeddedIconButtonView",
+                  "typeQualifiedName": "com.sdds.finai.styles.iconbutton.EmbeddedIconButtonView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "clear",
+                        "codeName": "Clear"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "EmbeddedIconButton.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "EmbeddedIconButton.L.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "EmbeddedIconButton.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "EmbeddedIconButton.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "EmbeddedIconButton.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "EmbeddedIconButton.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "EmbeddedIconButton.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "EmbeddedIconButton.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "EmbeddedIconButton.M.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "EmbeddedIconButton.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "EmbeddedIconButton.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "EmbeddedIconButton.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "EmbeddedIconButton.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "EmbeddedIconButton.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "EmbeddedIconButton.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "EmbeddedIconButton.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "EmbeddedIconButton.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "EmbeddedIconButton.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "EmbeddedIconButton.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "EmbeddedIconButton.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "EmbeddedIconButton.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "EmbeddedIconButton.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "EmbeddedIconButton.Xs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "EmbeddedIconButton.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "EmbeddedIconButton.Xs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "EmbeddedIconButton.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "EmbeddedIconButton.Xs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "EmbeddedIconButton.Xs.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "link-button",
+         "coreName": "LinkButton",
+         "styleName": "LinkButton",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "s",
+                  "xs",
+                  "xxs"
+               ],
+               "defaultValue": "s"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "accent",
+                  "positive",
+                  "negative",
+                  "warning"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.linkbutton",
+            "stylesClassName": "LinkButtonStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.linkbutton.LinkButtonStyles",
+            "receiverClassName": "LinkButtonStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.linkbutton.LinkButtonStyles.Companion",
+            "returnTypeName": "ButtonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+            "modifyReceiverTypeName": "LinkButtonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.LinkButtonStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "LinkButtonSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.linkbutton.LinkButtonSize",
+                  "defaultValue": {
+                     "value": "s",
+                     "codeName": "S"
+                  },
+                  "values": [
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "xxs",
+                        "codeName": "Xxs"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "LinkButtonView",
+                  "typeQualifiedName": "com.sdds.finai.styles.linkbutton.LinkButtonView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "s.default",
+               "composeReference": "LinkButton.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "LinkButton.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "LinkButton.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "LinkButton.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "LinkButton.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "LinkButton.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "LinkButton.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "LinkButton.Xs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "LinkButton.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "LinkButton.Xs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "LinkButton.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "LinkButton.Xs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "LinkButton.Xxs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "LinkButton.Xxs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "LinkButton.Xxs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.positive",
+               "composeReference": "LinkButton.Xxs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.negative",
+               "composeReference": "LinkButton.Xxs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.warning",
+               "composeReference": "LinkButton.Xxs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "bottom-sheet",
+         "coreName": "BottomSheet",
+         "styleName": "ModalBottomSheet",
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.bottomsheet",
+            "stylesClassName": "BottomSheetStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.bottomsheet.BottomSheetStyles",
+            "receiverClassName": "BottomSheetStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.bottomsheet.BottomSheetStyles.Companion",
+            "returnTypeName": "ModalBottomSheetStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ModalBottomSheetStyle",
+            "modifyReceiverTypeName": "ModalBottomSheetStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ModalBottomSheetStyleBuilder"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "ModalBottomSheet.Default"
+            }
+         ]
+      },
+      {
+         "key": "cell",
+         "coreName": "Cell",
+         "styleName": "Cell",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.cell",
+            "stylesClassName": "CellStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.cell.CellStyles",
+            "receiverClassName": "CellStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.cell.CellStyles.Companion",
+            "returnTypeName": "CellStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CellStyle",
+            "modifyReceiverTypeName": "CellStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CellStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CellSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.cell.CellSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "Cell.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "Cell.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "Cell.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "Cell.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "check-box",
+         "coreName": "CheckBox",
+         "styleName": "CheckBox",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "l"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "negative"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.checkbox",
+            "stylesClassName": "CheckBoxStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.checkbox.CheckBoxStyles",
+            "receiverClassName": "CheckBoxStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.checkbox.CheckBoxStyles.Companion",
+            "returnTypeName": "CheckBoxStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CheckBoxStyle",
+            "modifyReceiverTypeName": "CheckBoxStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CheckBoxStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CheckBoxSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.checkbox.CheckBoxSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CheckBoxView",
+                  "typeQualifiedName": "com.sdds.finai.styles.checkbox.CheckBoxView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "CheckBox.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "CheckBox.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "CheckBox.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "CheckBox.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "CheckBox.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "CheckBox.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "counter",
+         "coreName": "Counter",
+         "styleName": "Counter",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs",
+                  "xxs"
+               ],
+               "defaultValue": "l"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "accent",
+                  "positive",
+                  "warning",
+                  "negative",
+                  "black",
+                  "white",
+                  "dark",
+                  "secondary"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.counter",
+            "stylesClassName": "CounterStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.counter.CounterStyles",
+            "receiverClassName": "CounterStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.counter.CounterStyles.Companion",
+            "returnTypeName": "CounterStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.CounterStyle",
+            "modifyReceiverTypeName": "CounterStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.CounterStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CounterSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.counter.CounterSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     },
+                     {
+                        "value": "xxs",
+                        "codeName": "Xxs"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "CounterView",
+                  "typeQualifiedName": "com.sdds.finai.styles.counter.CounterView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "black",
+                        "codeName": "Black"
+                     },
+                     {
+                        "value": "white",
+                        "codeName": "White"
+                     },
+                     {
+                        "value": "dark",
+                        "codeName": "Dark"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "Counter.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "Counter.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "Counter.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "Counter.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "Counter.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.black",
+               "composeReference": "Counter.L.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "l.white",
+               "composeReference": "Counter.L.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "l.dark",
+               "composeReference": "Counter.L.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "Counter.L.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "Counter.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Counter.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "Counter.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "Counter.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "Counter.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.black",
+               "composeReference": "Counter.M.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "m.white",
+               "composeReference": "Counter.M.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "m.dark",
+               "composeReference": "Counter.M.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "Counter.M.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Counter.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Counter.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "Counter.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "Counter.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "Counter.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.black",
+               "composeReference": "Counter.S.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "s.white",
+               "composeReference": "Counter.S.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "s.dark",
+               "composeReference": "Counter.S.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "Counter.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "Counter.Xs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "Counter.Xs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "Counter.Xs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "Counter.Xs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "Counter.Xs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xs.black",
+               "composeReference": "Counter.Xs.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "xs.white",
+               "composeReference": "Counter.Xs.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "xs.dark",
+               "composeReference": "Counter.Xs.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "Counter.Xs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "Counter.Xxs.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "Counter.Xxs.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.positive",
+               "composeReference": "Counter.Xxs.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.warning",
+               "composeReference": "Counter.Xxs.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.negative",
+               "composeReference": "Counter.Xxs.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.black",
+               "composeReference": "Counter.Xxs.Black",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "black"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.white",
+               "composeReference": "Counter.Xxs.White",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "white"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.dark",
+               "composeReference": "Counter.Xxs.Dark",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "dark"
+                  }
+               ]
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "Counter.Xxs.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xxs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "divider",
+         "coreName": "Divider",
+         "styleName": "Divider",
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.divider",
+            "stylesClassName": "DividerStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.divider.DividerStyles",
+            "receiverClassName": "DividerStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.divider.DividerStyles.Companion",
+            "returnTypeName": "DividerStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.DividerStyle",
+            "modifyReceiverTypeName": "DividerStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.DividerStyleBuilder"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Divider.Default"
+            }
+         ]
+      },
+      {
+         "key": "list",
+         "coreName": "List",
+         "styleName": "ListNormal",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.list",
+            "stylesClassName": "ListStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.list.ListStyles",
+            "receiverClassName": "ListStyles.Normal",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.list.ListStyles.Normal",
+            "returnTypeName": "ListStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListStyle",
+            "modifyReceiverTypeName": "ListStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListStyleBuilder",
+            "holderName": "Normal",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ListNormalSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.list.ListNormalSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "ListNormal.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ListNormal.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "ListNormal.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "ListNormal.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "list",
+         "coreName": "List",
+         "styleName": "ListTight",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.list",
+            "stylesClassName": "ListStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.list.ListStyles",
+            "receiverClassName": "ListStyles.Tight",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.list.ListStyles.Tight",
+            "returnTypeName": "ListStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListStyle",
+            "modifyReceiverTypeName": "ListStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListStyleBuilder",
+            "holderName": "Tight",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ListTightSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.list.ListTightSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "ListTight.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ListTight.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "ListTight.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "ListTight.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "list-item",
+         "coreName": "ListItem",
+         "styleName": "ListItemNormal",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.listitem",
+            "stylesClassName": "ListItemStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.listitem.ListItemStyles",
+            "receiverClassName": "ListItemStyles.Normal",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.listitem.ListItemStyles.Normal",
+            "returnTypeName": "ListItemStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyle",
+            "modifyReceiverTypeName": "ListItemStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyleBuilder",
+            "holderName": "Normal",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ListItemNormalSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.listitem.ListItemNormalSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "ListItemNormal.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ListItemNormal.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "ListItemNormal.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "ListItemNormal.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "list-item",
+         "coreName": "ListItem",
+         "styleName": "ListItemTight",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s",
+                  "xs"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.listitem",
+            "stylesClassName": "ListItemStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.listitem.ListItemStyles",
+            "receiverClassName": "ListItemStyles.Tight",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.listitem.ListItemStyles.Tight",
+            "returnTypeName": "ListItemStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyle",
+            "modifyReceiverTypeName": "ListItemStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyleBuilder",
+            "holderName": "Tight",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ListItemTightSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.listitem.ListItemTightSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "xs",
+                        "codeName": "Xs"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "ListItemTight.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ListItemTight.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "ListItemTight.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "xs",
+               "composeReference": "ListItemTight.Xs",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "radio-box",
+         "coreName": "RadioBox",
+         "styleName": "RadioBox",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "m"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.radiobox",
+            "stylesClassName": "RadioBoxStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.radiobox.RadioBoxStyles",
+            "receiverClassName": "RadioBoxStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.radiobox.RadioBoxStyles.Companion",
+            "returnTypeName": "RadioBoxStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.RadioBoxStyle",
+            "modifyReceiverTypeName": "RadioBoxStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.RadioBoxStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "RadioBoxSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.radiobox.RadioBoxSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "m",
+               "composeReference": "RadioBox.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "RadioBox.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "switch",
+         "coreName": "Switch",
+         "styleName": "Switch",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "l"
+            },
+            {
+               "name": "toggle-size",
+               "values": [
+                  "l",
+                  "s"
+               ],
+               "defaultValue": "l"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.finai.styles.switcher",
+            "stylesClassName": "SwitchStyles",
+            "stylesClassQualifiedName": "com.sdds.finai.styles.switcher.SwitchStyles",
+            "receiverClassName": "SwitchStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.finai.styles.switcher.SwitchStyles.Companion",
+            "returnTypeName": "SwitchStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.SwitchStyle",
+            "modifyReceiverTypeName": "SwitchStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.SwitchStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "SwitchSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.switcher.SwitchSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               },
+               {
+                  "name": "toggleSize",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "SwitchToggleSize",
+                  "typeQualifiedName": "com.sdds.finai.styles.switcher.SwitchToggleSize",
+                  "defaultValue": {
+                     "value": "l",
+                     "codeName": "L"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "Switch.L",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "l.toggle-s",
+               "composeReference": "Switch.L.ToggleS",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "Switch.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "m.toggle-s",
+               "composeReference": "Switch.M.ToggleS",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "s",
+               "composeReference": "Switch.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "l"
+                  }
+               ]
+            },
+            {
+               "name": "s.toggle-s",
+               "composeReference": "Switch.S.ToggleS",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "toggle-size",
+                     "value": "s"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
