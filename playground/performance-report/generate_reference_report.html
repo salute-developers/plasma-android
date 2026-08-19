@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plasma Android — генератор performance reference</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            font-family: system-ui, sans-serif;
+            --border: #8886;
+            --surface: #8881;
+            --success: #16833a;
+            --warning: #b26a00;
+            --danger: #d33;
+        }
+        * { box-sizing: border-box; }
+        body { max-width: 1500px; margin: auto; padding: 32px; line-height: 1.45; }
+        h1, h2 { margin-top: 0; }
+        h2 { margin-top: 32px; }
+        .panel { border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin-bottom: 24px; }
+        .steps { margin: 0 0 20px; padding-left: 24px; }
+        .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+        label { display: grid; gap: 6px; font-weight: 600; }
+        input, button { font: inherit; padding: 10px 12px; }
+        button { cursor: pointer; }
+        button:disabled { cursor: not-allowed; opacity: .55; }
+        .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+        .status { margin-top: 14px; padding: 10px 12px; border-radius: 8px; background: var(--surface); white-space: pre-wrap; }
+        .status.error { color: var(--danger); }
+        .status.success { color: var(--success); }
+        .status.warning { color: var(--warning); }
+        .hint, .muted { color: #888; font-size: .92rem; }
+        .warning { border-left: 4px solid var(--warning); padding: 10px 14px; background: #b26a0015; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+        .summary-card { border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+        .summary-card h3 { margin: 0 0 8px; }
+        .metric { font-size: 1.6rem; font-weight: 700; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0 32px; }
+        th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: right; white-space: nowrap; }
+        th:first-child, td:first-child { text-align: left; }
+        thead th { background: #8882; }
+        .scroll { overflow-x: auto; }
+        code { overflow-wrap: anywhere; white-space: normal; }
+        a { color: #6aa9ff; }
+    </style>
+</head>
+<body>
+<h1>Генератор performance reference</h1>
+<div class="panel">
+    <ol class="steps">
+        <li>Выберите целиком папку устройства с <code>*benchmarkData.json</code> и <code>*.perfetto-trace</code>.</li>
+        <li>Укажите ветку и commit измеряемой сборки.</li>
+        <li>Проверьте автоматический разбор jank и сохраните отчёт.</li>
+    </ol>
+    <div class="fields">
+        <label>Папка AndroidX-артефактов
+            <input id="artifactFiles" type="file" webkitdirectory multiple>
+        </label>
+        <label>Название reference
+            <input id="label" value="performance reference">
+        </label>
+        <label>Git branch
+            <input id="branch" placeholder="test/perfomancetesting">
+        </label>
+        <label>Git commit
+            <input id="commit" placeholder="полный commit SHA">
+        </label>
+    </div>
+    <div class="actions">
+        <button id="saveFolder" disabled>Сохранить полный snapshot</button>
+        <button id="downloadHtml" disabled>Скачать автономный HTML</button>
+        <button id="downloadJson" disabled>Скачать reference.json</button>
+    </div>
+    <div id="status" class="status">Папка с артефактами ещё не выбрана.</div>
+    <p id="saveHelp" class="hint"></p>
+</div>
+<main id="preview"></main>
+<script src="generate_reference_report.js"></script>
+</body>
+</html>

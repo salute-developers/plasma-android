@@ -9,6 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonStyle
@@ -60,6 +62,7 @@ internal fun ScenarioModal(
             Column(
                 modifier = Modifier
                     .width(300.dp)
+                    .semantics { testTagsAsResourceId = true }
                     .testTag(modalTag),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(12.dp),

@@ -87,6 +87,52 @@ class ComposeGradientAttributeGeneratorTest {
         )
     }
 
+    @Test
+    fun `ComposeGradientAttributeGenerator генерирует функции для отдельного tenant`() {
+        underTest.setGradientTokenData(
+            inputData +
+                (
+                    Tenant("Business") to ComposeTokenData(
+                        light = mapOf(
+                            "textDefaultAccentGradient" to listOf(
+                                ComposeTokenData.Gradient(
+                                    tokenRefs = listOf(
+                                        "TextDefaultAccentGradient.colors",
+                                        "TextDefaultAccentGradient.positions",
+                                        "TextDefaultAccentGradient.angle",
+                                    ),
+                                    gradientType = ComposeTokenData.GradientType.LINEAR,
+                                    tokenObjectName = "LightBusinessGradientTokens",
+                                ),
+                            ),
+                        ),
+                        dark = mapOf(
+                            "textDefaultAccentGradient" to listOf(
+                                ComposeTokenData.Gradient(
+                                    tokenRefs = listOf(
+                                        "TextDefaultAccentGradient.colors",
+                                        "TextDefaultAccentGradient.positions",
+                                        "TextDefaultAccentGradient.radius",
+                                        "TextDefaultAccentGradient.centerX",
+                                        "TextDefaultAccentGradient.centerY",
+                                    ),
+                                    gradientType = ComposeTokenData.GradientType.RADIAL,
+                                    tokenObjectName = "DarkBusinessGradientTokens",
+                                ),
+                            ),
+                        ),
+                    )
+                    ),
+        )
+
+        underTest.generate()
+
+        val output = outputKt.toString()
+        Assert.assertTrue(output.contains("fun lightThemeGradientsBusiness"))
+        Assert.assertTrue(output.contains("fun darkThemeGradientsBusiness"))
+        Assert.assertTrue(output.contains("textDefaultAccentGradient overrideBy"))
+        Assert.assertTrue(output.contains("LightBusinessGradientTokens.TextDefaultAccentGradient.colors"))
+    }
     private companion object {
         val inputData = mapOf(
             Tenant.Default to ComposeTokenData(

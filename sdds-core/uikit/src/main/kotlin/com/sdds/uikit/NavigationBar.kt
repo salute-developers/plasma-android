@@ -75,6 +75,8 @@ open class NavigationBar @JvmOverloads constructor(
     private var backIconMargin: Int = 0
     private var descriptionMargins: NumberStateList? = null
     private var currentDescriptionMargin: Int = 0
+    private var minContentHeights: NumberStateList? = null
+    private var currentMinContentHeight: Int = 0
 
     private var contentPaddingStart: Int = 0
     private var contentPaddingTop: Int = 0
@@ -217,6 +219,7 @@ open class NavigationBar @JvmOverloads constructor(
         actionsBlock.setBackIcon(backIconView)
         resolveTitleAndDescriptionPlace()
         applyPaddingsToContainer()
+        resolveMinContentHeight()
         changeTextPlacementGlobally()
         resolveTextAlignment()
     }
@@ -493,6 +496,30 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     /**
+     * Устанавливает список, содержащий минимальные высоты [NumberStateList] блока,
+     * содержащего [NavigationBarContent.ACTION_START], [NavigationBarContent.ACTION_END]
+     * и центральный контент, которые соответствуют drawableState.
+     * Величина не включает отступы [R.styleable.NavigationBar_sd_contentPaddingTop]
+     * и [R.styleable.NavigationBar_sd_contentPaddingBottom].
+     * @param newMinContentHeights список со значениями минимальных высот
+     */
+    open fun setMinContentHeightsList(newMinContentHeights: NumberStateList?) {
+        if (minContentHeights != newMinContentHeights) {
+            minContentHeights = newMinContentHeights
+            refreshMinContentHeight()
+        }
+    }
+
+    /**
+     * Устанавливает минимальную высоту блока, содержащего [NavigationBarContent.ACTION_START],
+     * [NavigationBarContent.ACTION_END] и центральный контент.
+     * @param minHeight минимальная высота
+     */
+    fun setMinContentHeight(minHeight: Int) {
+        setMinContentHeightsList(NumberStateList.valueOf(minHeight))
+    }
+
+    /**
      * Устанавливает цвета текста для view с ролью [NavigationBarContent.TITLE]
      * @param colors [ColorValueStateList] цвета
      */
@@ -643,6 +670,7 @@ open class NavigationBar @JvmOverloads constructor(
         super.drawableStateChanged()
         setBackgroundValueList(backgroundList)
         refreshDescriptionMargin()
+        refreshMinContentHeight()
     }
 
     override fun generateDefaultLayoutParams(): NavigationBarLayoutParams {
@@ -810,6 +838,10 @@ open class NavigationBar @JvmOverloads constructor(
             descriptionMargins?.let {
                 currentDescriptionMargin = it.getIntForState(drawableState)
             }
+            minContentHeights = getNumberStateList(context, R.styleable.NavigationBar_sd_minContentHeight)
+            minContentHeights?.let {
+                currentMinContentHeight = it.getIntForState(drawableState)
+            }
             contentPaddingStart = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingStart, 0)
             contentPaddingTop = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingTop, 0)
             contentPaddingEnd = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingEnd, 0)
@@ -929,6 +961,13 @@ open class NavigationBar @JvmOverloads constructor(
             it.topMargin = currentDescriptionMargin
             requestLayout()
             invalidate()
+        }
+    }
+
+    private fun resolveMinContentHeight() {
+        if (actionsBlock.minimumHeight != currentMinContentHeight) {
+            actionsBlock.minimumHeight = currentMinContentHeight
+            requestLayout()
         }
     }
 
@@ -1053,6 +1092,15 @@ open class NavigationBar @JvmOverloads constructor(
         currentDescriptionMargin = stateList.getIntForState(drawableState)
         if (old != currentDescriptionMargin) {
             resolveDescriptionMargin()
+        }
+    }
+
+    private fun refreshMinContentHeight() {
+        val stateList = minContentHeights ?: return
+        val old = currentMinContentHeight
+        currentMinContentHeight = stateList.getIntForState(drawableState)
+        if (old != currentMinContentHeight) {
+            resolveMinContentHeight()
         }
     }
 

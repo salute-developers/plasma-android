@@ -8,16 +8,19 @@
 package com.sdds.plasma.homeds.styles.textfield
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TextFieldHelperTextPlacement
 import com.sdds.compose.uikit.TextFieldIndicatorAlignmentMode
 import com.sdds.compose.uikit.TextFieldLabelPlacement
+import com.sdds.compose.uikit.TextFieldSemanticState
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -195,11 +198,20 @@ public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
     @Composable
     get() = builder
         .colors {
-            captionColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            captionColor(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(TextFieldSemanticState.Readonly)
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary),
+                ),
+            )
             backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary,
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f)),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f)),
                 ),
             )
         }
@@ -210,15 +222,23 @@ public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
     get() = builder
         .colors {
             captionColor(
-                PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaHomeDsTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary),
                 ),
             )
             backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentNegative.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentNegative).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary,
+                        to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f)),
+                    setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f)),
                 ),
             )
         }
@@ -237,34 +257,40 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             helperTextPadding(4.0.dp)
         }
         .colors {
-            cursorColor(PlasmaHomeDsTheme.colors.textDefaultAccent.asInteractive())
-            startContentColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            cursorColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
             endContentColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaHomeDsTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaHomeDsTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondaryHover),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f)),
                 ),
             )
             endContentColorReadOnly(PlasmaHomeDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
-            valueColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            valueColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
             captionColorReadOnly(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
-            optionalColor(PlasmaHomeDsTheme.colors.textDefaultTertiary.asInteractive())
-            counterColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            optionalColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultTertiary).asStatefulValue())
+            counterColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
             placeholderColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to PlasmaHomeDsTheme.colors.textDefaultTertiary,
+                        to SolidColor(PlasmaHomeDsTheme.colors.textDefaultTertiary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly, InteractiveState.Activated) to
+                        SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary),
                 ),
             )
             placeholderColorReadOnly(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
             backgroundColorReadOnly(
                 PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive(),
             )
-            indicatorColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegative.asInteractive())
-            prefixColor(PlasmaHomeDsTheme.colors.textDefaultTertiary.asInteractive())
-            suffixColor(PlasmaHomeDsTheme.colors.textDefaultTertiary.asInteractive())
+            indicatorColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegative).asStatefulValue())
+            prefixColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultTertiary).asStatefulValue())
+            suffixColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultTertiary).asStatefulValue())
         }
 
 public val TextField.S: WrapperTextFieldS
@@ -332,7 +358,7 @@ public val WrapperTextFieldS.InnerLabel: WrapperTextFieldSInnerLabel
             labelPadding(0.0.dp)
         }
         .colors {
-            labelColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextFieldSInnerLabel)
 
@@ -427,7 +453,7 @@ public val WrapperTextFieldM.InnerLabel: WrapperTextFieldMInnerLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextFieldMInnerLabel)
 
@@ -522,7 +548,7 @@ public val WrapperTextFieldL.InnerLabel: WrapperTextFieldLInnerLabel
             labelPadding(2.0.dp)
         }
         .colors {
-            labelColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .wrap(::WrapperTextFieldLInnerLabel)
 

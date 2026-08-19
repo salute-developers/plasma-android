@@ -77,5 +77,6 @@ public val NavigationBarInternalPage.Default: WrapperNavigationBarInternalPageDe
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
             descriptionPadding(12.0.dp.asStatefulValue(setOf(NavigationBarTextPlacement.Inline) to 4.0.dp))
+            minContentHeight(24.0.dp)
         }
         .wrap(::WrapperNavigationBarInternalPageDefault)

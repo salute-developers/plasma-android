@@ -18,12 +18,18 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.toFocusSelectorSettings
 import com.sdds.compose.uikit.internal.textfield.BaseTextField
 import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.textfield.TextFieldMotionStyle
+import com.sdds.compose.uikit.motion.components.textfield.rememberTextFieldMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Поле ввода текста.
@@ -158,6 +164,9 @@ fun TextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusSelectorSettings: FocusSelectorSettings,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<TextFieldMotionStyle> = rememberTextFieldMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     BaseTextField(
         value = value,
@@ -182,6 +191,7 @@ fun TextField(
         visualTransformation = visualTransformation,
         focusSelectorSettings = focusSelectorSettings,
         interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -318,6 +328,9 @@ fun TextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusSelectorSettings: FocusSelectorSettings,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<TextFieldMotionStyle> = rememberTextFieldMotion(
+        motionContext = rememberMotionContext(interactionSource),
+    ),
 ) {
     var textFieldValueState by remember {
         mutableStateOf(TextFieldValue(text = value, selection = TextRange(value.length)))
@@ -372,6 +385,7 @@ fun TextField(
         visualTransformation = visualTransformation,
         focusSelectorSettings = focusSelectorSettings,
         interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
@@ -399,6 +413,7 @@ fun TextField(
  * @property indicatorDimensions настройки индикатора
  * @property dividerThickness толщина разделителя в clear режиме
  */
+@Deprecated("Use TextFieldDimensionValues")
 @Immutable
 data class TextFieldDimensions(
     val boxPaddingStart: Dp = 16.dp,
@@ -430,12 +445,29 @@ data class TextFieldDimensions(
      * @property verticalPadding вертикальный отступ индикатора
      * @property indicatorSize размер внешнего индикатора
      */
+    @Deprecated("Use TextFieldIndicatorDimensionValues")
     @Immutable
     data class IndicatorDimensions(
         val horizontalPadding: Dp = 0.dp,
         val verticalPadding: Dp = 0.dp,
         val indicatorSize: Dp = 6.dp,
     )
+}
+
+/**
+ * Семантические состояния компонента TextField
+ */
+@ApiStateSet(components = ["TextField", "TextArea"])
+enum class TextFieldSemanticState : ValueState {
+    /**
+     * Дефолтное
+     */
+    Default,
+
+    /**
+     * Состояние, в котором запись/изменение значения текстового поля запрещены.
+     */
+    Readonly,
 }
 
 /**

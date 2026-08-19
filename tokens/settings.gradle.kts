@@ -68,4 +68,8 @@ include(
     ":sdds-sbcom-compose:app",
     ":sdds-sbcom-compose:integration",
     ":sdds-sbcom-compose:docs",
+    ":sdds-finai-compose",
+    ":sdds-finai-compose:app",
+    ":sdds-finai-compose:integration",
+    ":sdds-finai-compose:docs",
 )

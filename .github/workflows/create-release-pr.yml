@@ -1,5 +1,8 @@
 name: 'Create Release Pull Request'
 
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
     inputs:

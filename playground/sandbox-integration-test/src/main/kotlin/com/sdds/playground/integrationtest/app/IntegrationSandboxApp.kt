@@ -21,6 +21,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Accordion
 import com.sdds.compose.uikit.AccordionItem
@@ -29,6 +31,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.integrationtest.scenarios.catalog.IntegrationScenario
 import com.sdds.playground.integrationtest.scenarios.catalog.IntegrationScenarioRegistry
+import com.sdds.playground.integrationtest.scenarios.catalog.ScenarioPresentation
 import com.sdds.playground.integrationtest.theme.IntegrationSandboxTheme
 import com.sdds.serv.styles.accordion.AccordionSolidActionStart
 import com.sdds.serv.styles.accordion.S
@@ -55,7 +58,8 @@ internal fun IntegrationSandboxApp(
     IntegrationSandboxTheme {
         Box(
             modifier = Modifier
-                .fillMaxSize(),
+                .fillMaxSize()
+                .semantics { testTagsAsResourceId = true },
         ) {
             if (currentScenario == null) {
                 AccordionForScenarioRegistry(
@@ -63,10 +67,14 @@ internal fun IntegrationSandboxApp(
                     onScenarioClick = { scenario -> selectedScenario = scenario },
                 )
             } else {
-                ScenarioDetailsScreen(
-                    scenario = currentScenario,
-                    onBack = { selectedScenario = null },
-                )
+                when (currentScenario.presentation) {
+                    ScenarioPresentation.Standard -> ScenarioDetailsScreen(
+                        scenario = currentScenario,
+                        onBack = { selectedScenario = null },
+                    )
+
+                    ScenarioPresentation.Fullscreen -> currentScenario.screen()
+                }
             }
         }
     }

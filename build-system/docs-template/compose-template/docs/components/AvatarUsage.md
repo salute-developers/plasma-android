@@ -36,8 +36,6 @@ Avatar(status = AvatarStatus.Active)
 // @sample: com/sdds/compose/uikit/fixtures/samples/avatar/Avatar_ActionDisabled.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.avatar.Avatar_ActionDisabled -->
-
 ## Дополнительный контент
 
 Дополнительный контент ("обвесы") устанавливается с помощью свойства extra.

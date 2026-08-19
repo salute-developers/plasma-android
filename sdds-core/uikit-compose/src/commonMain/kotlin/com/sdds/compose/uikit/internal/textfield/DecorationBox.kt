@@ -18,7 +18,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.IntSize
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.TextFieldAnimation
-import com.sdds.compose.uikit.TextFieldDimensions
+import com.sdds.compose.uikit.TextFieldDimensionValues
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.textfield.TextFieldMotionStyle
+import com.sdds.compose.uikit.motion.getTextStyleAsState
 
 /**
  * Реализация декоратора для многострочного текстового поля.
@@ -40,12 +44,13 @@ internal fun DecorationBox(
     innerCaption: @Composable (() -> Unit)? = null,
     innerCounter: @Composable (() -> Unit)? = null,
     valueTextStyle: TextStyle,
-    innerLabelTextStyle: TextStyle,
-    dimensions: TextFieldDimensions,
+    innerLabelTextStyle: StatefulValue<TextStyle>,
+    dimensions: TextFieldDimensionValues,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     animation: TextFieldAnimation,
     interactionSource: InteractionSource,
+    motion: Motion<TextFieldMotionStyle>,
     prefix: (@Composable () -> Unit)?,
     suffix: (@Composable () -> Unit)?,
     textLayoutResult: TextLayoutResult?,
@@ -76,6 +81,9 @@ internal fun DecorationBox(
                 }
             }
         }
+        val textStyle = innerLabelTextStyle
+            .getTextStyleAsState(motion.context, motion.style.labelStyle)
+            .value
 
         TextFieldLayout(
             modifier = modifier,
@@ -96,13 +104,14 @@ internal fun DecorationBox(
             singleLine = singleLine,
             enabled = enabled,
             valueTextStyle = valueTextStyle,
-            innerLabelTextStyle = innerLabelTextStyle,
+            innerLabelTextStyle = textStyle,
             prefix = prefix,
             suffix = suffix,
             textLayoutResult = textLayoutResult,
             onInnerTextFieldSizeChanged = onInnerTextFieldSizeChanged,
             onChipGroupSizeChanged = onChipGroupSizeChanged,
             onPrefixSizeChanged = onPrefixSizeChanged,
+            motionContext = motion.context,
         )
     }
 }

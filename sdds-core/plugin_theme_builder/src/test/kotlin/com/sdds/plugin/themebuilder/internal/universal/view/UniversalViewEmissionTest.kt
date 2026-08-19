@@ -392,18 +392,244 @@ class UniversalViewEmissionTest {
         assertTrue(ktOutput.toString(), ktOutput.toString().contains("SegmentItemCounterColorState"))
     }
 
+    @Test
+    fun `sub style kind style генерирует nested style и owner theme reference`() {
+        val meta = meta(
+            params = emptyList(),
+            subStyles = listOf(
+                SubStyleMeta(
+                    info = SubStyleInfo(
+                        name = "Content",
+                        kind = SUB_STYLE_KIND_STYLE,
+                        styleRef = "sd_contentStyle",
+                        parent = "Sdds.Components.TestComponent.Content",
+                    ),
+                    params = listOf(
+                        PropertyMeta("contentShape", "sd_shapeAppearance", PropertyType.SHAPE, "content_shape"),
+                    ),
+                ),
+            ),
+        )
+
+        generator(meta).generate(config(""""contentShape": { "value": "round.l" }"""))
+
+        val style = styleOutput.toString()
+        assertTrue(style, style.contains("""name="Thmbldr.TestTheme.Components.TestComponentContent""""))
+        assertTrue(style, style.contains("""parent="Sdds.Components.TestComponent.Content""""))
+        assertTrue(style, style.contains("""<item name="sd_shapeAppearance">?thmbldr_shapeRoundL</item>"""))
+        assertTrue(style, style.contains("""name="Thmbldr.TestTheme.ComponentOverlays.TestComponentContent""""))
+        assertTrue(
+            style,
+            style.contains(
+                """<item name="sd_contentStyle">@style/Thmbldr.TestTheme.Components.TestComponentContent</item>""",
+            ),
+        )
+    }
+
+    @Test
+    fun `value expression ratio генерирует calculated value если condition выполняется`() {
+        val meta = meta(
+            params = listOf(
+                PropertyMeta("mode", "sd_mode", PropertyType.VALUE, "mode"),
+                PropertyMeta("width", "sd_width", PropertyType.DIMENSION, "width"),
+                PropertyMeta("height", "sd_height", PropertyType.DIMENSION, "height"),
+                PropertyMeta(
+                    id = "ratio",
+                    attrName = "sd_ratio",
+                    type = PropertyType.VALUE,
+                    resSuffix = "ratio",
+                    valueExpr = "ratio(width,height)",
+                    condition = "mode=wide",
+                ),
+            ),
+        )
+
+        generator(meta).generate(
+            config(
+                """
+                "mode": { "value": "wide" },
+                "width": { "value": 24.0 },
+                "height": { "value": 12.0 }
+                """,
+            ),
+        )
+
+        assertTrue(styleOutput.toString(), styleOutput.toString().contains("""<item name="sd_ratio">2.0</item>"""))
+    }
+
     // region фикстуры
+
+    @Test
+    fun `value expression literal генерирует значение если condition из own props выполняется`() {
+        val meta = meta(
+            params = listOf(
+                PropertyMeta("mode", "sd_mode", PropertyType.VALUE, "mode"),
+                PropertyMeta(
+                    id = "orientation",
+                    attrName = "sd_orientation",
+                    type = PropertyType.VALUE,
+                    resSuffix = "orientation",
+                    valueExpr = "horizontal",
+                    condition = "mode=wide",
+                ),
+            ),
+        )
+
+        generator(meta).generate(
+            config(
+                """
+                "mode": { "value": "wide" }
+                """,
+            ),
+        )
+
+        assertTrue(
+            styleOutput.toString(),
+            styleOutput.toString().contains("""<item name="sd_orientation">horizontal</item>"""),
+        )
+    }
+
+    @Test
+    fun `value expression пропускается если condition не выполняется`() {
+        val meta = meta(
+            params = listOf(
+                PropertyMeta("mode", "sd_mode", PropertyType.VALUE, "mode"),
+                PropertyMeta(
+                    id = "ratio",
+                    attrName = "sd_ratio",
+                    type = PropertyType.VALUE,
+                    resSuffix = "ratio",
+                    valueExpr = "ratio(width,height)",
+                    condition = "mode=wide",
+                ),
+                PropertyMeta("width", "sd_width", PropertyType.DIMENSION, "width"),
+                PropertyMeta("height", "sd_height", PropertyType.DIMENSION, "height"),
+            ),
+        )
+
+        generator(meta).generate(
+            config(
+                """
+                "mode": { "value": "compact" },
+                "width": { "value": 24.0 },
+                "height": { "value": 12.0 }
+                """,
+            ),
+        )
+
+        assertTrue(styleOutput.toString(), !styleOutput.toString().contains("""<item name="sd_ratio">"""))
+    }
+
+    @Test
+    fun `ratio expression пропускается если denominator равен zero`() {
+        val meta = meta(
+            params = listOf(
+                PropertyMeta("width", "sd_width", PropertyType.DIMENSION, "width"),
+                PropertyMeta("height", "sd_height", PropertyType.DIMENSION, "height"),
+                PropertyMeta(
+                    id = "ratio",
+                    attrName = "sd_ratio",
+                    type = PropertyType.VALUE,
+                    resSuffix = "ratio",
+                    valueExpr = "ratio(width,height)",
+                ),
+            ),
+        )
+
+        generator(meta).generate(
+            config(
+                """
+                "width": { "value": 24.0 },
+                "height": { "value": 0.0 }
+                """,
+            ),
+        )
+
+        assertTrue(styleOutput.toString(), !styleOutput.toString().contains("""<item name="sd_ratio">"""))
+    }
+
+    @Test
+    fun `sub style kind overlay генерирует overlay и component overlay reference`() {
+        val meta = meta(
+            params = emptyList(),
+            subStyles = listOf(
+                SubStyleMeta(
+                    info = SubStyleInfo(
+                        name = "Icon",
+                        kind = "overlay",
+                        styleRef = "sd_iconStyleOverlay",
+                    ),
+                    params = listOf(
+                        PropertyMeta("iconSize", "sd_iconSize", PropertyType.DIMENSION, "icon_size"),
+                    ),
+                ),
+            ),
+        )
+
+        generator(meta).generate(config(""""iconSize": { "value": 16.0 }"""))
+
+        val style = styleOutput.toString()
+        assertTrue(style, style.contains("""name="Thmbldr.TestTheme.ComponentOverlays.TestComponentIcon""""))
+        assertTrue(style, style.contains("""<item name="sd_iconSize">@dimen/thmbldr_test_component_icon_size</item>"""))
+        assertTrue(
+            style,
+            style.contains(
+                "<item name=\"sd_iconStyleOverlay\">" +
+                    "@style/Thmbldr.TestTheme.ComponentOverlays.TestComponentIcon</item>",
+            ),
+        )
+    }
+
+    @Test
+    fun `resource prefix вставляется перед resource suffix`() {
+        val meta = meta(
+            params = listOf(
+                PropertyMeta(
+                    id = "contentWidth",
+                    attrName = "sd_contentWidth",
+                    type = PropertyType.DIMENSION,
+                    resSuffix = "width",
+                    resPrefix = "content",
+                ),
+            ),
+        )
+        val config = Serializer.componentConfig.decodeFromString<UniversalComponentConfig>(
+            """
+            {
+              "props": {
+                "contentWidth": { "value": 12.0 }
+              },
+              "variations": [
+                {
+                  "id": "l",
+                  "props": {
+                    "contentWidth": { "value": 24.0 }
+                  }
+                }
+              ]
+            }
+            """.trimIndent(),
+        )
+
+        generator(meta).generate(config)
+
+        val dimenNames = dimensAggregator.dimens.map { it.name }
+        assertTrue(dimenNames.toString(), dimenNames.contains("test_component_content_width"))
+        assertTrue(dimenNames.toString(), dimenNames.contains("test_component_l_content_width"))
+    }
 
     private fun colorParam() = PropertyMeta("labelColor", "sd_labelColor", PropertyType.COLOR, "label_color")
 
     private fun meta(
         params: List<PropertyMeta>,
         stateSets: List<StateSet> = emptyList(),
+        subStyles: List<SubStyleMeta> = emptyList(),
     ) = MergedComponentMeta(
         componentName = "TestComponent",
         identity = ComponentIdentity("TestComponent", "sd_testComponentStyle", "Sdds.Components.TestComponent"),
         params = params,
         stateSets = stateSets,
+        subStyles = subStyles,
     )
 
     private fun config(props: String): UniversalComponentConfig =

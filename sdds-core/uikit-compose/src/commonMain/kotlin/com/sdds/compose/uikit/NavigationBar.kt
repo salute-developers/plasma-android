@@ -173,6 +173,7 @@ fun NavigationBar(
         ) {
             val hasBottomText =
                 textPlacement == NavigationBarTextPlacement.Bottom && textContent != null
+            val stateSet = remember(textPlacement) { setOf(textPlacement) }
             NavigationBarLayout(
                 modifier = Modifier.fillMaxWidth(),
                 startContent = startContent(
@@ -200,6 +201,7 @@ fun NavigationBar(
                 horizontalSpacing = style.dimensions.horizontalSpacing,
                 centerAlignmentStrategy = centerAlignmentStrategy,
                 textAlign = textAlign,
+                minContentHeight = style.dimensions.minContentHeight.getValue(stateSet),
                 paddings = PaddingValues(
                     start = style.dimensions.paddingStart,
                     end = style.dimensions.paddingEnd,

@@ -75,5 +75,11 @@ public val CollapsingNavigationBarInternalPage.Default:
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
             descriptionPadding(0.0.dp)
+            minContentHeight(
+                36.0.dp.asStatefulValue(
+                    setOf(CollapsingNavigationBarStates.Collapsed) to
+                        28.0.dp,
+                ),
+            )
         }
         .wrap(::WrapperCollapsingNavigationBarInternalPageDefault)
