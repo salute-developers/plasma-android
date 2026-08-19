@@ -23,6 +23,7 @@ import io.mockk.mockkObject
 import io.mockk.unmockkObject
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import java.io.ByteArrayOutputStream
@@ -240,6 +241,33 @@ class ViewThemeGeneratorTest {
         )
     }
 
+    @Test
+    fun `generateEmptyTheme генерирует пустые базовые стили`() {
+        underTest = ViewThemeGenerator(
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
+            outputResDir = mockOutputResDir,
+            viewThemeParents = emptyList(),
+            themeName = "test_theme",
+            resPrefixConfig = ResourcePrefixConfig(
+                resourcePrefix = "thmbldr",
+                shouldGenerateResPrefixStyle = true,
+            ),
+            viewGradientGenerator = mockk(relaxed = true),
+            shadowStyleGenerator = mockk(relaxed = true),
+        )
+        val outputXml = ByteArrayOutputStream()
+        val themeXmlFile = mockk<File>(relaxed = true)
+        every { themeXmlFile.fileWriter() } returns outputXml.writer()
+        every { mockOutputResDir.themeXmlFile("") } returns themeXmlFile
+
+        underTest.generateEmptyTheme()
+
+        val output = outputXml.toString()
+        assertTrue(output.contains("name=\"Thmbldr\""))
+        assertTrue(output.contains("name=\"Thmbldr.TestTheme\""))
+        assertTrue(output.contains("name=\"Thmbldr.TestTheme.Components\""))
+        assertTrue(output.contains("name=\"Thmbldr.TestTheme.ComponentOverlays\""))
+    }
     private companion object {
         val colorAttrs = TokenData(
             light = mapOf("textPrimary" to TokenData.ColorInfo("@color/thmbldr_light_text_primary")),

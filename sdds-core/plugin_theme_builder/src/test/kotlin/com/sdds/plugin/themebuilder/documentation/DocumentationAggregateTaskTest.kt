@@ -296,6 +296,202 @@ class DocumentationAggregateTaskTest {
     }
 
     @Test
+    fun `core markdown renders style api params table and dot notation`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "style-api-params.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"title":"Button","path":"components/ButtonUsage.md"}]}""",
+                "META-INF/sdds-docs/docs/components/ButtonUsage.md" to "<!-- @style-api -->",
+            ),
+        )
+        task.componentsInfoFile.set(
+            temporaryFolder.newFile("style-api-params-components.json").apply {
+                writeText(
+                    """
+                        {
+                          "components": [{
+                            "coreName": "Button",
+                            "styleName": "Button",
+                            "styleApi": {
+                              "receiverClassName": "ButtonStyles.Companion",
+                              "functionName": "style",
+                              "params": [
+                                {
+                                  "name": "size",
+                                  "typeName": "ButtonSize",
+                                  "defaultValue": {"value": "m", "codeName": "M"},
+                                  "values": [
+                                    {"value": "s", "codeName": "S"},
+                                    {"value": "m", "codeName": "M"}
+                                  ]
+                                },
+                                {
+                                  "name": "enabled",
+                                  "typeName": "Boolean",
+                                  "values": [
+                                    {"value": "true", "codeName": "true"},
+                                    {"value": "false", "codeName": "false"}
+                                  ]
+                                }
+                              ]
+                            },
+                            "variations": [{
+                              "composeReference": "Button.M.Default",
+                              "props": [
+                                {"name": "size", "value": "m"},
+                                {"name": "enabled", "value": "true"}
+                              ]
+                            }]
+                          }]
+                        }
+                    """.trimIndent(),
+                )
+            },
+        )
+
+        task.aggregate()
+
+        val content = task.outputDirectory.get().asFile
+            .resolve("content/core/components/ButtonUsage.md")
+            .readText()
+        assertTrue(content.contains("| `size` | `ButtonSize` | `S`, `M` |"))
+        assertTrue(content.contains("| `enabled` | `Boolean` | `true`, `false` |"))
+        assertTrue(content.contains("size = ButtonSize.M"))
+        assertTrue(content.contains("enabled = true"))
+        assertTrue(content.contains("val style = Button.M.Default.style()"))
+    }
+
+    @Test
+    fun `core markdown падает если style api param без default и values`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "style-api-empty-values.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"title":"Button","path":"components/ButtonUsage.md"}]}""",
+                "META-INF/sdds-docs/docs/components/ButtonUsage.md" to "<!-- @style-api -->",
+            ),
+        )
+        task.componentsInfoFile.set(
+            temporaryFolder.newFile("style-api-empty-values-components.json").apply {
+                writeText(
+                    """
+                        {
+                          "components": [{
+                            "coreName": "Button",
+                            "styleName": "Button",
+                            "styleApi": {
+                              "receiverClassName": "ButtonStyles.Companion",
+                              "params": [{"name": "tone", "typeName": "ButtonTone", "values": []}]
+                            },
+                            "variations": []
+                          }]
+                        }
+                    """.trimIndent(),
+                )
+            },
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("No values available for style parameter 'tone'"))
+    }
+
+    @Test
+    fun `core markdown renders style api header with non default style name`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "style-api-named-style.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"title":"Button","path":"components/ButtonUsage.md"}]}""",
+                "META-INF/sdds-docs/docs/components/ButtonUsage.md" to "<!-- @style-api -->",
+            ),
+        )
+        task.componentsInfoFile.set(
+            temporaryFolder.newFile("style-api-named-style-components.json").apply {
+                writeText(
+                    """
+                        {
+                          "components": [{
+                            "coreName": "Button",
+                            "styleName": "ButtonPrimary",
+                            "styleApi": {
+                              "receiverClassName": "ButtonStyles.Companion",
+                              "params": [{
+                                "name": "size",
+                                "typeName": "ButtonSize",
+                                "values": [{"value": "s", "codeName": "S"}]
+                              }]
+                            },
+                            "variations": [
+                              {"composeReference": null, "props": [{"name": "size", "value": "s"}]},
+                              {
+                                "composeReference": "Button.Primary.S",
+                                "props": [{"name": "size", "value": "s"}]
+                              }
+                            ]
+                          }]
+                        }
+                    """.trimIndent(),
+                )
+            },
+        )
+
+        task.aggregate()
+
+        val content = task.outputDirectory.get().asFile
+            .resolve("content/core/components/ButtonUsage.md")
+            .readText()
+        assertTrue(content.contains("ButtonPrimary"))
+        assertTrue(content.contains("size = ButtonSize.S"))
+        assertTrue(content.contains("val style = Button.Primary.S.style()"))
+    }
+
+    @Test
+    fun `conflicting core structures fail aggregation`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar("first-structure.jar", "META-INF/sdds-docs/structure.json" to "{}"),
+            createJar("second-structure.jar", "META-INF/sdds-docs/structure.json" to "{}"),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("Conflicting Core documentation structure"))
+    }
+
+    @Test
+    fun `core structure не object падает с ошибкой`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar("array-structure.jar", "META-INF/sdds-docs/structure.json" to "[]"),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("Core documentation structure must be a JSON object"))
+    }
+
+    @Test
+    fun `core templates без structure падают с ошибкой`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar("template-without-structure.jar", "META-INF/sdds-docs/docs/page.md" to "content"),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("Core documentation templates require structure.json"))
+    }
+
+    @Test
     fun `missing public markdown reports its path`() {
         val task = configuredTask()
         task.coreArtifacts.from(
@@ -522,6 +718,210 @@ class DocumentationAggregateTaskTest {
         assertTrue(error?.message.orEmpty().contains(missing.absolutePath))
     }
 
+    @Test
+    fun `missing samples metadata reports exact path`() {
+        val missing = temporaryFolder.root.resolve("missing-samples.json")
+        val task = configuredTask().apply {
+            samplesMetadata.set(missing)
+        }
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains(missing.absolutePath))
+    }
+
+    @Test
+    fun `assets sample path не получает повторный prefix`() {
+        val task = configuredTask()
+        task.samplesMetadata.set(
+            temporaryFolder.newFile("assets-samples.json").apply {
+                writeText(
+                    """[{"id":"Existing","kind":"xml","snippetPath":"assets/examples/xml/Existing.xml"}]""",
+                )
+            },
+        )
+
+        task.aggregate()
+
+        val metadata = task.outputDirectory.get().asFile.resolve("meta/samples.json").readText()
+        assertTrue(metadata.contains("\"snippetPath\": \"assets/examples/xml/Existing.xml\""))
+        assertTrue(!metadata.contains("assets/examples/xml/assets/examples/xml"))
+    }
+
+    @Test
+    fun `anonymous sample metadata не падает при merge`() {
+        val task = configuredTask()
+        task.samplesMetadata.set(
+            temporaryFolder.newFile("anonymous-samples.json").apply {
+                writeText("""[{"kind":"composable","snippetPath":"Sample.kt"}]""")
+            },
+        )
+
+        task.aggregate()
+
+        val metadata = task.outputDirectory.get().asFile.resolve("meta/samples.json").readText()
+        assertTrue(metadata.contains("\"snippetPath\": \"assets/examples/kotlin/Sample.kt\""))
+    }
+
+    @Test
+    fun `user documentation root без structure игнорируется`() {
+        val task = configuredTask()
+        val user = temporaryFolder.newFolder("user-without-structure")
+        task.userDocumentationRoot.set(user)
+
+        task.aggregate()
+
+        assertTrue(!task.outputDirectory.get().asFile.resolve("structure-user.json").exists())
+    }
+
+    @Test
+    fun `user structure не object падает с ошибкой`() {
+        val task = configuredTask()
+        val user = temporaryFolder.newFolder("user-array-structure")
+        user.resolve("structure.json").writeText("[]")
+        task.userDocumentationRoot.set(user)
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("User documentation structure must be a JSON object"))
+    }
+
+    @Test
+    fun `core navigation entry не object падает с ошибкой`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "primitive-navigation-entry.jar",
+                "META-INF/sdds-docs/structure.json" to """{"navigation":[1]}""",
+            ),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("Core documentation navigation entries must be JSON objects"))
+    }
+
+    @Test
+    fun `core navigation path не string падает с ошибкой`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "numeric-navigation-path.jar",
+                "META-INF/sdds-docs/structure.json" to """{"navigation":[{"path":1}]}""",
+            ),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("Core documentation page path must be a string"))
+    }
+
+    @Test
+    fun `core navigation merge не string падает с ошибкой`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "numeric-navigation-merge.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"path":"components/Button.md","merge":1}]}""",
+            ),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("Core documentation merge must be a string"))
+    }
+
+    @Test
+    fun `invalid user structure json падает с ошибкой`() {
+        val task = configuredTask()
+        val user = temporaryFolder.newFolder("user-invalid-json")
+        user.resolve("structure.json").writeText("{")
+        task.userDocumentationRoot.set(user)
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("Invalid user documentation structure"))
+    }
+
+    @Test
+    fun `standalone user page с merge падает с ошибкой`() {
+        val task = configuredTask()
+        val user = temporaryFolder.newFolder("user-standalone-merge")
+        user.resolve("structure.json").writeText(
+            """{"navigation":[{"path":"components/Custom.md","merge":"append"}]}""",
+        )
+        user.resolve("docs/components").mkdirs()
+        user.resolve("docs/components/+Custom.md").writeText("custom")
+        task.userDocumentationRoot.set(user)
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("must not declare merge"))
+    }
+
+    @Test
+    fun `user page с unsupported merge падает с ошибкой`() {
+        val task = configuredTask()
+        val user = temporaryFolder.newFolder("user-unsupported-merge")
+        user.resolve("structure.json").writeText(
+            """{"navigation":[{"path":"components/Custom.md","merge":"overlay"}]}""",
+        )
+        user.resolve("docs/components").mkdirs()
+        user.resolve("docs/components/Custom.md").writeText("custom")
+        task.userDocumentationRoot.set(user)
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("unsupported merge mode: overlay"))
+    }
+
+    @Test
+    fun `core navigation plus-prefixed path падает с ошибкой`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "plus-path.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"path":"components/+Button.md"}]}""",
+            ),
+        )
+
+        val error = runCatching(task::aggregate).exceptionOrNull()
+
+        assertTrue(error is GradleException)
+        assertTrue(error?.message.orEmpty().contains("logical path must not use plus prefix"))
+    }
+
+    @Test
+    fun `core sample directive может ссылаться на assets path`() {
+        val task = configuredTask()
+        task.coreArtifacts.from(
+            createJar(
+                "assets-sample.jar",
+                "META-INF/sdds-docs/structure.json" to
+                    """{"navigation":[{"path":"components/Button.md"}]}""",
+                "META-INF/sdds-docs/docs/components/Button.md" to
+                    "// @sample: assets/examples/kotlin/Button.kt",
+                "META-INF/sdds-docs/assets/examples/kotlin/Button.kt" to "ButtonSample()",
+            ),
+        )
+
+        task.aggregate()
+
+        val content = task.outputDirectory.get().asFile
+            .resolve("content/core/components/Button.md")
+            .readText()
+        assertEquals("ButtonSample()", content)
+    }
     private fun configuredTask(): DocumentationAggregateTask {
         val project = ProjectBuilder.builder().withProjectDir(temporaryFolder.newFolder()).build()
         return project.tasks.create("aggregate", DocumentationAggregateTask::class.java).apply {

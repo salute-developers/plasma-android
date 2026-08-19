@@ -186,6 +186,37 @@ class SddsThemeSourceReaderTest {
         assertEquals(projectDir.resolve("missing/palette.json"), result.paletteFile)
     }
 
+    @Test
+    fun `reader читает config из custom sdds directory`() {
+        val projectDir = temporaryFolder.root
+        val customSdds = projectDir.resolve("metadata/sdds")
+        customSdds.mkdirs()
+        customSdds.resolve("config.json").writeText(
+            """
+                {
+                  "tenants": [
+                    {
+                      "name": "base"
+                    }
+                  ]
+                }
+            """.trimIndent(),
+        )
+        customSdds.resolve("tenants/palette.json").apply {
+            parentFile.mkdirs()
+            writeText("{}")
+        }
+        createTenantFiles(customSdds.resolve("base"))
+
+        val result = SddsThemeSourceReader(projectDir, customSdds).read()
+
+        assertEquals("base", result.baseAlias)
+        assertEquals(customSdds.resolve("tenants/palette.json"), result.paletteFile)
+        assertEquals(
+            listOf(customSdds.resolve("base")),
+            result.sources.map { (it as ThemeBuilderSource.LocalDirectory).directory },
+        )
+    }
     private fun createConfig(projectDir: File, content: String) {
         projectDir.resolve(".sdds").mkdirs()
         projectDir.resolve(".sdds/config.json").writeText(content)
