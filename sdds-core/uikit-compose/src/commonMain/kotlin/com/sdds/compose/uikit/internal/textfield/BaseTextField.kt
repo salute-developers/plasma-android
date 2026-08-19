@@ -201,13 +201,13 @@ internal fun BaseTextField(
     val activatableModifier =
         if (focusSelectorSettings.isEnabled()) {
             Modifier
-                .activatable(enabled, interactionSource) { isComponentFocused = it.isFocused }
-                .focusable(enabled, interactionSource)
+                .activatable(enabled, motion.context.interactionSource) { isComponentFocused = it.isFocused }
+                .focusable(enabled, motion.context.interactionSource)
         } else {
             Modifier
                 .activatable(
                     enabled = enabled,
-                    interactionSource = interactionSource,
+                    interactionSource = motion.context.interactionSource,
                     isActivatedEqualsFocused = true,
                 ) { isComponentFocused = it.isFocused }
         }
@@ -249,7 +249,7 @@ internal fun BaseTextField(
      */
     val innerInteractionSource =
         if (focusSelectorSettings.isDisabled()) {
-            interactionSource
+            motion.context.interactionSource
         } else {
             remember { MutableInteractionSource() }
         }
@@ -367,10 +367,10 @@ internal fun BaseTextField(
                                     Modifier.applyVerticalScrollBar(
                                         scrollState = verticalScrollState,
                                         scrollBarTrackColor = scrollBar.indicatorColor.colorForInteraction(
-                                            interactionSource,
+                                            motion.context.interactionSource,
                                         ),
                                         scrollBarThumbColor = scrollBar.backgroundColor.colorForInteraction(
-                                            interactionSource,
+                                            motion.context.interactionSource,
                                         ),
                                         scrollBarThickness = scrollBar.indicatorThickness,
                                         scrollBarPaddingEnd = scrollBar.padding
@@ -385,6 +385,7 @@ internal fun BaseTextField(
                         value = textFieldValue.text,
                         textLayoutResult = textLayoutResult,
                         innerTextField = innerFieldContent,
+                        interactionSource = innerInteractionSource,
                         motion = motion,
                         innerLabel = innerLabel(
                             label = finalLabelText,
@@ -444,7 +445,6 @@ internal fun BaseTextField(
                         enabled = enabled,
                         valueTextStyle = valueStyle,
                         innerLabelTextStyle = style.labelStyles,
-                        innerLabelTextColor = style.colors.labelBrush,
                         prefix = textOrNull(
                             modifier = Modifier.graphicsLayer(alpha = if (textFieldValue.text.isEmpty()) 0f else 1f),
                             text = prefix,
@@ -738,26 +738,25 @@ private fun innerLabel(
 ): (@Composable () -> Unit)? {
     return if (labelPlacement == TextFieldLabelPlacement.Inner && !hasChips && !label.isNullOrEmpty()) {
         {
-            var textStyle: TextStyle
-            var color: State<Brush>
-            if (!isFocused() && value.text.isEmpty()) {
-                textStyle = style.placeholderStyles
+            val shouldUsePlaceholderStyle = !isFocused() && value.text.isEmpty()
+            val placeColor = style.colors.placeholderBrush
+                .getBrushAsState(motion.context, motion.style.placeholderColor)
+            val labelColor = style.colors.labelBrush
+                .getBrushAsState(motion.context, motion.style.labelColor)
+            val textStyle = if (shouldUsePlaceholderStyle) {
+                style.placeholderStyles
                     .getTextStyleAsState(motion.context, motion.style.placeholderStyle)
                     .value
-                color = style.colors.placeholderBrush
-                    .getBrushAsState(motion.context, motion.style.placeholderColor)
             } else {
-                textStyle = style.labelStyles
+                style.labelStyles
                     .getTextStyleAsState(motion.context, motion.style.labelStyle)
                     .value
-                color = style.colors.labelBrush
-                    .getBrushAsState(motion.context, motion.style.labelColor)
             }
 
             Text(
                 text = label,
                 style = textStyle,
-                brush = { color.value },
+                brush = { if (shouldUsePlaceholderStyle) placeColor.value else labelColor.value },
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )

@@ -1596,9 +1596,9 @@ private class DefaultTextFieldColors(
             val countColorRead = counterColorReadOnly ?: countColor
             val backColor = backgroundColor ?: Color.Transparent.asInteractive()
             val backColorRead = backgroundColorReadOnly ?: backColor
-            val placeColor = placeholderColor ?: defaultColor
+            val placeColor = placeholderColor ?: Color.Gray.asInteractive()
             val placeColorRead = placeholderColorReadOnly ?: placeColor
-            val indColor = indicatorColor ?: defaultColor
+            val indColor = indicatorColor ?: Color.Red.asInteractive()
             val indColorRead = indicatorColorReadOnly ?: indColor
             val prefColor = prefixColor ?: defaultColor
             val prefColorRead = prefixColorReadOnly ?: prefColor

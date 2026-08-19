@@ -6,13 +6,13 @@ import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.IntSize
@@ -22,7 +22,6 @@ import com.sdds.compose.uikit.TextFieldDimensionValues
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.textfield.TextFieldMotionStyle
-import com.sdds.compose.uikit.motion.getBrushAsState
 import com.sdds.compose.uikit.motion.getTextStyleAsState
 
 /**
@@ -46,11 +45,11 @@ internal fun DecorationBox(
     innerCounter: @Composable (() -> Unit)? = null,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: StatefulValue<TextStyle>,
-    innerLabelTextColor: StatefulValue<Brush>,
     dimensions: TextFieldDimensionValues,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     animation: TextFieldAnimation,
+    interactionSource: InteractionSource,
     motion: Motion<TextFieldMotionStyle>,
     prefix: (@Composable () -> Unit)?,
     suffix: (@Composable () -> Unit)?,
@@ -59,7 +58,7 @@ internal fun DecorationBox(
     onChipGroupSizeChanged: (IntSize) -> Unit,
     onPrefixSizeChanged: (IntSize) -> Unit,
 ) {
-    val isFocused = motion.context.interactionSource.collectIsFocusedAsState().value
+    val isFocused = interactionSource.collectIsFocusedAsState().value
     val inputState = when {
         isFocused -> InputPhase.Focused
         value.isEmpty() -> InputPhase.UnfocusedEmpty
@@ -82,11 +81,9 @@ internal fun DecorationBox(
                 }
             }
         }
-        val textColor by innerLabelTextColor.getBrushAsState(motion.context, motion.style.labelColor)
         val textStyle = innerLabelTextStyle
             .getTextStyleAsState(motion.context, motion.style.labelStyle)
             .value
-            .copy(textColor)
 
         TextFieldLayout(
             modifier = modifier,

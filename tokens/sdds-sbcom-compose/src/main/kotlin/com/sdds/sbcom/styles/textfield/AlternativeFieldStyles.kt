@@ -8,12 +8,14 @@
 package com.sdds.sbcom.styles.textfield
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -60,15 +62,15 @@ public val AlternativeField.Default: WrapperAlternativeFieldDefault
             endContentSize(24.0.dp)
         }
         .colors {
-            cursorColor(SddsSbComTheme.colors.textDefaultAccent.asInteractive())
-            startContentColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            endContentColor(SddsSbComTheme.colors.textDefaultPrimary.asInteractive())
-            labelColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            valueColor(SddsSbComTheme.colors.textDefaultPrimary.asInteractive())
-            captionColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            counterColor(SddsSbComTheme.colors.textDefaultSecondary.asInteractive())
-            backgroundColor(SddsSbComTheme.colors.surfaceDefaultClear.asInteractive())
-            dividerColor(SddsSbComTheme.colors.surfaceOnDarkSolidDefault.asInteractive())
+            cursorColor(SolidColor(SddsSbComTheme.colors.textDefaultAccent).asStatefulValue())
+            startContentColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            endContentColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
+            labelColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            valueColor(SolidColor(SddsSbComTheme.colors.textDefaultPrimary).asStatefulValue())
+            captionColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            counterColor(SolidColor(SddsSbComTheme.colors.textDefaultSecondary).asStatefulValue())
+            backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultClear).asStatefulValue())
+            dividerColor(SolidColor(SddsSbComTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
         }
         .scrollBar {
             scrollBarThickness(4.0.dp)
