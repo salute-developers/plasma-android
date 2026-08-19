@@ -1,5 +1,8 @@
 name: 'Publish Integration Sandbox View Release'
 
+permissions:
+  contents: write
+
 on:
   repository_dispatch:
     types: [publish-integration-sandbox-view]

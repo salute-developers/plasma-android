@@ -1,5 +1,8 @@
 name: 'Publish icons-compose Release'
 
+permissions:
+  contents: write
+
 on:
   push:
     tags:

@@ -1,5 +1,8 @@
 name: 'Deploy tokens apps'
 
+permissions:
+  contents: write
+
 on:
   repository_dispatch:
     types: [publish-tokens]

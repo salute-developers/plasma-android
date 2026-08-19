@@ -1,5 +1,8 @@
 name: 'Publish all tokens release'
 
+permissions:
+  contents: write
+
 on:
   repository_dispatch:
     types: [publish-tokens]
