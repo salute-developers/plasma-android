@@ -122,6 +122,10 @@ public val WrapperTextAreaView.Default: WrapperTextAreaTerminate
                 SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
                         to SolidColor(StarDsTheme.colors.textInverseSecondary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
                     setOf(TextFieldSemanticState.Readonly) to
                         SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
@@ -149,8 +153,10 @@ public val WrapperTextAreaView.Error: WrapperTextAreaTerminate
                 SolidColor(StarDsTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Focused)
                         to SolidColor(StarDsTheme.colors.textInverseSecondary),
-                    setOf(InteractiveState.Activated) to
-                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
                     setOf(TextFieldSemanticState.Readonly) to
                         SolidColor(StarDsTheme.colors.textDefaultSecondary),
                     setOf(
@@ -235,8 +241,16 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             optionalColor(SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(
                 SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
-                    setOf(TextFieldSemanticState.Readonly)
-                        to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Focused)
+                        to SolidColor(StarDsTheme.colors.textInverseSecondary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly, InteractiveState.Activated) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(TextFieldSemanticState.Readonly) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             counterColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
@@ -402,12 +416,20 @@ public val WrapperTextAreaS.InnerLabel: WrapperTextAreaSInnerLabel
                 SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
                         to SolidColor(StarDsTheme.colors.textOnLightSecondary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             optionalColor(
                 SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue(
                     setOf(InteractiveState.Focused)
                         to SolidColor(StarDsTheme.colors.textOnLightTertiary),
+                    setOf(
+                        InteractiveState.Activated,
+                        InteractiveState.Focused,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultTertiary),
                 ),
             )
         }
@@ -472,12 +494,18 @@ public val WrapperTextAreaM.InnerLabel: WrapperTextAreaMInnerLabel
                 SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
                         to SolidColor(StarDsTheme.colors.textOnLightSecondary),
+                    setOf(InteractiveState.Activated, InteractiveState.Focused) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
             optionalColor(
                 SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue(
                     setOf(InteractiveState.Focused)
                         to SolidColor(StarDsTheme.colors.textOnLightTertiary),
+                    setOf(
+                        InteractiveState.Focused,
+                        InteractiveState.Activated,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultTertiary),
                 ),
             )
         }
