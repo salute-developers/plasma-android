@@ -497,7 +497,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             .also { logger.debug("decoded base $it") }
 
     private fun colors(file: File): Map<String, String> {
-        return requireThemeFile(file).decode<Map<String, String>>()
+        return requireThemeFile(file).decode<Map<String, String>>().mapValues { it.value.trim() }
             .also { logger.debug("decoded colors $it") }
     }
 

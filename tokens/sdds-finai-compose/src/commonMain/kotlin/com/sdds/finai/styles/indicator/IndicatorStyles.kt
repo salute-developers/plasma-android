@@ -1,0 +1,169 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
+package com.sdds.finai.styles.indicator
+
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.IndicatorStyle
+import com.sdds.compose.uikit.IndicatorStyleBuilder
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.wrap
+import com.sdds.finai.theme.SddsFinAiTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
+
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
+public interface WrapperIndicator : BuilderWrapper<IndicatorStyle, IndicatorStyleBuilder>
+
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
+public interface WrapperIndicatorView : WrapperIndicator
+
+/**
+ * Терминальная обертка
+ */
+@JvmInline
+public value class WrapperIndicatorTerminate(
+    public override val builder: IndicatorStyleBuilder,
+) : WrapperIndicator
+
+/**
+ * Обертка для вариации L
+ */
+@JvmInline
+public value class WrapperIndicatorL(
+    public override val builder: IndicatorStyleBuilder,
+) : WrapperIndicatorView
+
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperIndicatorM(
+    public override val builder: IndicatorStyleBuilder,
+) : WrapperIndicatorView
+
+/**
+ * Обертка для вариации S
+ */
+@JvmInline
+public value class WrapperIndicatorS(
+    public override val builder: IndicatorStyleBuilder,
+) : WrapperIndicatorView
+
+public val WrapperIndicatorView.Default: WrapperIndicatorTerminate
+    @Composable
+    get() = builder
+        .color {
+            backgroundColor(SolidColor(SddsFinAiTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
+        }
+        .wrap(::WrapperIndicatorTerminate)
+
+public val WrapperIndicatorView.Accent: WrapperIndicatorTerminate
+    @Composable
+    get() = builder
+        .color {
+            backgroundColor(SolidColor(SddsFinAiTheme.colors.surfaceDefaultAccent).asStatefulValue())
+        }
+        .wrap(::WrapperIndicatorTerminate)
+
+public val WrapperIndicatorView.Inactive: WrapperIndicatorTerminate
+    @Composable
+    get() = builder
+        .color {
+            backgroundColor(SolidColor(SddsFinAiTheme.colors.surfaceOnLightSolidTertiary).asStatefulValue())
+        }
+        .wrap(::WrapperIndicatorTerminate)
+
+public val WrapperIndicatorView.Positive: WrapperIndicatorTerminate
+    @Composable
+    get() = builder
+        .color {
+            backgroundColor(SolidColor(SddsFinAiTheme.colors.surfaceDefaultPositive).asStatefulValue())
+        }
+        .wrap(::WrapperIndicatorTerminate)
+
+public val WrapperIndicatorView.Warning: WrapperIndicatorTerminate
+    @Composable
+    get() = builder
+        .color {
+            backgroundColor(SolidColor(SddsFinAiTheme.colors.surfaceDefaultWarning).asStatefulValue())
+        }
+        .wrap(::WrapperIndicatorTerminate)
+
+public val WrapperIndicatorView.Negative: WrapperIndicatorTerminate
+    @Composable
+    get() = builder
+        .color {
+            backgroundColor(SolidColor(SddsFinAiTheme.colors.surfaceDefaultNegative).asStatefulValue())
+        }
+        .wrap(::WrapperIndicatorTerminate)
+
+public val WrapperIndicatorView.Black: WrapperIndicatorTerminate
+    @Composable
+    get() = builder
+        .color {
+            backgroundColor(SolidColor(SddsFinAiTheme.colors.surfaceOnLightSolidDefault).asStatefulValue())
+        }
+        .wrap(::WrapperIndicatorTerminate)
+
+public val WrapperIndicatorView.White: WrapperIndicatorTerminate
+    @Composable
+    get() = builder
+        .color {
+            backgroundColor(SolidColor(SddsFinAiTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue())
+        }
+        .wrap(::WrapperIndicatorTerminate)
+
+private val IndicatorStyleBuilder.invariantProps: IndicatorStyleBuilder
+    @Composable
+    get() = this
+        .shape(CircleShape)
+
+public val Indicator.L: WrapperIndicatorL
+    @Composable
+    @JvmName("WrapperIndicatorL")
+    get() = IndicatorStyle.builder(this)
+        .invariantProps
+        .dimensions {
+            height(12.0.dp)
+            width(12.0.dp)
+        }
+        .wrap(::WrapperIndicatorL)
+
+public val Indicator.M: WrapperIndicatorM
+    @Composable
+    @JvmName("WrapperIndicatorM")
+    get() = IndicatorStyle.builder(this)
+        .invariantProps
+        .dimensions {
+            height(8.0.dp)
+            width(8.0.dp)
+        }
+        .wrap(::WrapperIndicatorM)
+
+public val Indicator.S: WrapperIndicatorS
+    @Composable
+    @JvmName("WrapperIndicatorS")
+    get() = IndicatorStyle.builder(this)
+        .invariantProps
+        .dimensions {
+            height(6.0.dp)
+            width(6.0.dp)
+        }
+        .wrap(::WrapperIndicatorS)
