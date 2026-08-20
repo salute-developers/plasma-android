@@ -50,6 +50,11 @@ jobs:
     name: Deploy Apps
     needs: state
     uses: ./.github/workflows/build-token-apps-common.yml
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
     secrets: inherit
     with:
       modules: ${{ needs.state.outputs.modules }}
