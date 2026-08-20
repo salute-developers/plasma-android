@@ -128,7 +128,8 @@ fun CardHorizontalExtra(style: CardStyle) {
             .height(100.dp),
         style = style,
         extra = {
-            IconButton(iconSource = imageVectorSource(SddsIcons.Plasma24),
+            IconButton(
+                iconSource = imageVectorSource(SddsIcons.Plasma24),
                 modifier = Modifier.align(Alignment.BottomEnd),
             ) { }
         },
