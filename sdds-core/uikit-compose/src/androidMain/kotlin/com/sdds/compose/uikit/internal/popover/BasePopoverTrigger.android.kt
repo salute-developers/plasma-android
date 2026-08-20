@@ -31,6 +31,7 @@ internal actual fun Modifier.basePopoverTrigger(
     triggerInfo: MutableState<TriggerInfo>,
     shape: Shape,
     cutoutPaddings: PaddingValues,
+    enabled: Boolean,
 ): Modifier {
     return composed {
         val currentScaleFactor = LocalFocusSelectorSettings.current.scale.scaleFactor
@@ -56,41 +57,48 @@ internal actual fun Modifier.basePopoverTrigger(
                 triggerInfo.value = updatedTriggerInfo
             }
         }
-
-        DisposableEffect(hostView.rootView, coordinates) {
-            val listener = ViewTreeObserver.OnPreDrawListener {
-                coordinates?.takeIf { it.isAttached }?.let(::updateTriggerBounds)
-                true
-            }
-            hostView.rootView.viewTreeObserver.addOnPreDrawListener(listener)
-            onDispose {
-                val observer = hostView.rootView.viewTreeObserver
-                if (observer.isAlive) {
-                    observer.removeOnPreDrawListener(listener)
+        if (enabled) {
+            DisposableEffect(hostView.rootView, coordinates) {
+                val listener = ViewTreeObserver.OnPreDrawListener {
+                    coordinates?.takeIf { it.isAttached }?.let(::updateTriggerBounds)
+                    true
+                }
+                hostView.rootView.viewTreeObserver.addOnPreDrawListener(listener)
+                onDispose {
+                    val observer = hostView.rootView.viewTreeObserver
+                    if (observer.isAlive) {
+                        observer.removeOnPreDrawListener(listener)
+                    }
                 }
             }
         }
-        layout { measurable, constraints ->
-            val placeable = measurable.measure(constraints)
-            triggerInfo.value = triggerInfo.value.copy(
-                topAlignmentLine = placeable[topAlignmentLine],
-                bottomAlignmentLine = placeable[bottomAlignmentLine],
-                startAlignmentLine = placeable[startAlignmentLine],
-                endAlignmentLine = placeable[endAlignmentLine],
-            )
-            return@layout layout(placeable.width, placeable.height) {
-                placeable.placeRelative(IntOffset.Zero)
+        if (enabled) {
+            layout { measurable, constraints ->
+                val placeable = measurable.measure(constraints)
+                triggerInfo.value = triggerInfo.value.copy(
+                    topAlignmentLine = placeable[topAlignmentLine],
+                    bottomAlignmentLine = placeable[bottomAlignmentLine],
+                    startAlignmentLine = placeable[startAlignmentLine],
+                    endAlignmentLine = placeable[endAlignmentLine],
+                )
+                return@layout layout(placeable.width, placeable.height) {
+                    placeable.placeRelative(IntOffset.Zero)
+                }
             }
-        }.onGloballyPositioned {
-            coordinates = it
-            updateTriggerBounds(it)
-        }.onFocusChanged {
-            val scaleFactor = if (it.isFocused) {
-                currentScaleFactor
-            } else {
-                0f
-            }
-            triggerInfo.value = triggerInfo.value.copy(focusScaleFactor = scaleFactor)
+                .onGloballyPositioned {
+                    coordinates = it
+                    updateTriggerBounds(it)
+                }
+                .onFocusChanged {
+                    val scaleFactor = if (it.isFocused) {
+                        currentScaleFactor
+                    } else {
+                        0f
+                    }
+                    triggerInfo.value = triggerInfo.value.copy(focusScaleFactor = scaleFactor)
+                }
+        } else {
+            Modifier
         }
     }
 }

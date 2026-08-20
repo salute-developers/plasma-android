@@ -1,13 +1,17 @@
 package com.sdds.compose.uikit.fixtures.stories.popover
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -95,43 +99,66 @@ object PopoverStory : ComposeBaseStory<PopoverUiState, PopoverStyle>(
         state: PopoverUiState,
     ) {
         val showPopover = remember { mutableStateOf(false) }
-        val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
-        Button(
-            modifier = Modifier
-                .align(state.triggerPlacement.toAlignment())
-                .popoverTrigger(triggerInfo),
-            label = "show popover",
-            onClick = { showPopover.value = true },
-        )
-        Popover(
-            show = showPopover.value,
-            triggerInfo = triggerInfo.value,
-            safeAreaPadding = PaddingValues(0.dp),
-            placement = state.placement,
-            placementMode = state.placementMode,
-            positionStrategy = state.positionStrategy,
-            triggerCentered = state.triggerCentered,
-            alignment = state.alignment,
-            style = style,
-            tailEnabled = state.tailEnabled,
-            onDismissRequest = {
-                showPopover.value = false
-            },
-            duration = state.autoHide.autoHideToMs(),
+        val activeItemId = remember { mutableStateOf<Int?>(null) }
+        val triggerInfoMap = remember { mutableMapOf<Int, MutableState<TriggerInfo>>() }
+
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(5.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Column(
-                modifier = Modifier
-                    .padding(top = 12.dp, bottom = 8.dp, start = 8.dp, end = 8.dp),
-            ) {
-                Text("Title")
-                Spacer(Modifier.height(4.dp))
-                Text("Text")
-                Spacer(Modifier.height(12.dp))
+            items(1000, key = { it }) { index ->
+                val triggerInfo = triggerInfoMap.getOrPut(index) {
+                    mutableStateOf(TriggerInfo())
+                }
                 Button(
-                    modifier = Modifier.width(166.dp),
-                    label = "Ok",
-                    onClick = { println("Popover" + ": " + "Popover button was pressed") },
+                    modifier = Modifier.popoverTrigger(
+                        triggerInfo = triggerInfo,
+                        enabled = activeItemId.value == index,
+                    ),
+                    label = "Item $index",
+                    onClick = {
+                        activeItemId.value = index
+                        showPopover.value = true
+                    },
                 )
+            }
+        }
+        val currentTriggerInfo = activeItemId.value.let { id ->
+            triggerInfoMap[id]?.value
+        }
+        if (currentTriggerInfo != null) {
+            Popover(
+                show = showPopover.value,
+                triggerInfo = currentTriggerInfo,
+                safeAreaPadding = PaddingValues(0.dp),
+                placement = state.placement,
+                placementMode = state.placementMode,
+                positionStrategy = state.positionStrategy,
+                triggerCentered = state.triggerCentered,
+                alignment = state.alignment,
+                style = style,
+                tailEnabled = state.tailEnabled,
+                onDismissRequest = {
+                    showPopover.value = false
+                    activeItemId.value = null
+                },
+                duration = state.autoHide.autoHideToMs(),
+            ) {
+                Column(
+                    modifier = Modifier
+                        .padding(top = 12.dp, bottom = 8.dp, start = 8.dp, end = 8.dp),
+                ) {
+                    Text("Title")
+                    Spacer(Modifier.height(4.dp))
+                    Text("Text")
+                    Spacer(Modifier.height(12.dp))
+                    Button(
+                        modifier = Modifier.width(166.dp),
+                        label = "Ok",
+                        onClick = { println("Popover" + ": " + "Popover button was pressed") },
+                    )
+                }
             }
         }
     }
