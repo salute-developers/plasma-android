@@ -186,6 +186,12 @@ for MODULE in $UNIQUE_MODULES; do
   FS_PATH="${MODULE#:}"  # Remove leading colon
   FS_PATH="${FS_PATH//://}"  # Replace colons with slashes
 
+  # The sdds-haze included build is nested under third-party/, while its
+  # Gradle build name remains sdds-haze.
+  if [[ "$MODULE" == :sdds-haze:* ]]; then
+    FS_PATH="third-party/$FS_PATH"
+  fi
+
   # Token modules must be Gradle projects, not merely directories created by tooling.
   if [[ "$MODULE" == :tokens:* ]] && ! is_gradle_module_dir "$FS_PATH"; then
     NON_EXISTENT_MODULES+=("$MODULE")
