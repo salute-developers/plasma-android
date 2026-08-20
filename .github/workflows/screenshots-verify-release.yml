@@ -79,3 +79,52 @@ jobs:
           if-no-files-found: ignore
           path: ${{ steps.module_dir.outputs.dir }}/build/test-results
           retention-days: 30
+
+  kmp-test:
+    name: Verify KMP screenshots (${{ matrix.platform }})
+    runs-on: macos-latest
+    needs: detect_changes
+    if: ${{ startsWith(github.base_ref, 'release/') && (contains(fromJson(needs.detect_changes.outputs.changed_tokens), ':tokens:sdds.serv.compose') || contains(fromJson(needs.detect_changes.outputs.changed), ':integration-core:uikit-compose-testcases')) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: jvm
+            task: verifyRoborazziJvm
+          - platform: ios
+            task: verifyRoborazziIosSimulatorArm64
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Verify KMP screenshots
+        run: ./gradlew :tokens:sdds.serv.compose:${{ matrix.task }} --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshot-kmp-diff-${{ matrix.platform }}
+          if-no-files-found: ignore
+          path: |
+            tokens/sdds.serv.compose/build/outputs/roborazzi
+            build/outputs/roborazzi
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshot-kmp-reports-${{ matrix.platform }}
+          if-no-files-found: ignore
+          path: tokens/sdds.serv.compose/build/reports
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshot-kmp-test-results-${{ matrix.platform }}
+          if-no-files-found: ignore
+          path: tokens/sdds.serv.compose/build/test-results
+          retention-days: 30

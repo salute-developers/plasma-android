@@ -119,7 +119,7 @@ class ComposeAutocompleteScreenshotTest(
     }
 
     @Test
-    fun testAutocompleteTightXlTopEnd() {
+    fun testAutocompleteNormalXlTopEnd() {
         composeTestRule.content {
             AutoCompleteTopEnd(AutocompleteNormal.Xl.style())
         }
@@ -131,14 +131,14 @@ class ComposeAutocompleteScreenshotTest(
     }
 
     @Test
-    fun testAutocompleteTightXlCenterEnd() {
+    fun testAutocompleteNormalXlCenterEnd() {
         composeTestRule.content {
             AutoCompleteCenterEnd(AutocompleteNormal.Xl.style())
         }
     }
 
     @Test
-    fun testAutocompleteTightXlBottomEnd() {
+    fun testAutocompleteNormalXlBottomEnd() {
         composeTestRule.content {
             AutoCompleteBottomEnd(AutocompleteNormal.Xl.style())
         }

@@ -32,10 +32,16 @@ kotlin {
                 implementation(compose.components.resources)
                 implementation(compose.foundation)
                 implementation(compose.ui)
+                implementation(compose.uiTest)
             }
         }
 
+        val screenshotMain by creating {
+            dependsOn(commonMain.get())
+        }
+
         androidMain {
+            dependsOn(screenshotMain)
             dependencies {
                 implementation(project(":sandbox-core"))
                 implementation(project(":sandbox-compose"))
@@ -52,20 +58,34 @@ kotlin {
         }
 
         jvmMain {
+            dependsOn(screenshotMain)
             dependencies {
                 implementation(compose.desktop.currentOs)
-                api(compose.desktop.uiTestJUnit4)
-                api(libs.base.test.unit.jUnit)
+                implementation(compose.desktop.uiTestJUnit4)
                 implementation(libs.test.roborazzi)
                 implementation(libs.test.roborazzi.compose.desktop)
             }
         }
 
-        iosMain {
+        val iosMain by creating {
+            dependsOn(screenshotMain)
             dependencies {
-                api(compose.uiTest)
+                implementation(compose.uiTest)
                 implementation(libs.test.roborazzi.compose.ios)
             }
         }
+
+        val iosX64Main by getting {
+            dependsOn(iosMain)
+        }
+
+        val iosArm64Main by getting {
+            dependsOn(iosMain)
+        }
+
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
+        }
+
     }
 }
