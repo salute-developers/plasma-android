@@ -1,3 +1,5 @@
+@file:OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
 import utils.addDefaultTargets
@@ -45,6 +47,15 @@ kotlin {
                 implementation(compose.components.resources)
             }
         }
+        val screenshotTest by creating {
+            dependsOn(commonTest.get())
+            languageSettings.optIn("androidx.compose.ui.test.ExperimentalTestApi")
+            dependencies {
+                implementation("integration-core:uikit-compose-testcases")
+                implementation(kotlin("test"))
+                implementation(compose.uiTest)
+            }
+        }
         androidUnitTest {
             dependencies {
                 implementation("integration-core:uikit-testcases")
@@ -58,7 +69,30 @@ kotlin {
                 implementation(libs.test.roborazzi.compose)
             }
         }
+        jvmTest {
+            dependsOn(screenshotTest)
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(compose.desktop.currentOs)
+                implementation(compose.desktop.uiTestJUnit4)
+                implementation(libs.base.test.unit.jUnit)
+                implementation(libs.test.roborazzi)
+                implementation(libs.test.roborazzi.compose.desktop)
+            }
+        }
+        iosSimulatorArm64Test {
+            dependsOn(screenshotTest)
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(compose.uiTest)
+                implementation(libs.test.roborazzi.compose.ios)
+            }
+        }
     }
+}
+
+roborazzi {
+    outputDir.set(file("screenshots-kmp"))
 }
 
 tasks.withType<Test> {
