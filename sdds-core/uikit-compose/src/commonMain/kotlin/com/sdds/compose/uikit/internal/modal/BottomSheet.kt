@@ -366,7 +366,7 @@ class BottomSheetState(
      * *
      * @throws [CancellationException] if the animation is interrupted
      */
-    internal suspend fun expand() {
+    suspend fun expand() {
         if (!anchoredDraggableState.anchors.hasPositionFor(Expanded)) {
             return
         }

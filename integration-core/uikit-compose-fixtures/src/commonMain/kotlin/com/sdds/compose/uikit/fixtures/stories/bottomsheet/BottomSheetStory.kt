@@ -59,6 +59,7 @@ data class BottomSheetUiState(
     val littleContent: Boolean = false,
     val dimBackground: Boolean = true,
     val useNativeBlackout: Boolean = true,
+    val showExpandButton: Boolean = false,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
@@ -119,6 +120,16 @@ object BottomSheetStory : ComposeBaseStory<BottomSheetUiState, ModalBottomSheetS
                     .then(if (!state.footer && !state.fixedFooter) bottomInsetsModifier else Modifier)
                     .verticalScroll(scrollState),
             ) {
+                if (state.showExpandButton) {
+                    Button(
+                        label = "раскрыть BottomSheet",
+                        onClick = {
+                            scope.launch {
+                                sheetState.expand()
+                            }
+                        },
+                    )
+                }
                 if (state.header && !state.fixedHeader) {
                     Header(backgroundColor)
                 }
