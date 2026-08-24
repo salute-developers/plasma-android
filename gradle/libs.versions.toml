@@ -54,7 +54,7 @@ koilVersion-compose = "3.2.0"
 ktor-client = "3.1.3"
 
 sdds-uikit = "0.48.1"
-sdds-uikit-compose = "0.50.1"
+sdds-uikit-compose = "0.50.2"
 sdds-theme-builder = "0.47.1"
 sdds-dsbuilder = "0.46.0"
 
