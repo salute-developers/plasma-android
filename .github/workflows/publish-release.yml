@@ -33,6 +33,18 @@ jobs:
           echo "DATE=$DATE" >> $GITHUB_ENV
           echo "FROM_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
+      - name: Determine changed modules
+        id: changed
+        run: |
+          .github/scripts/changed-modules.sh "${{ env.FROM_TAG }}"
+
+      - name: Verify release versions
+        if: steps.changed.outputs.modules != ''
+        run: |
+          bash .github/scripts/verify-release-versions.sh \
+            "${{ env.FROM_TAG }}" \
+            "${{ steps.changed.outputs.modules }}"
+
       - name: Retrieve tag exists flag
         uses: mukunku/tag-exists-action@v1.0.0
         id: checkTag
@@ -64,13 +76,6 @@ jobs:
           release_name: ${{ github.event.inputs.tag_name }}
           draft: true
           prerelease: false
-
-      - name: Determine changed modules
-        id: changed
-        run: |
-          .github/scripts/changed-modules.sh "${{ env.FROM_TAG }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Dispatch publish workflows for changed modules
         if: steps.changed.outputs.modules != ''

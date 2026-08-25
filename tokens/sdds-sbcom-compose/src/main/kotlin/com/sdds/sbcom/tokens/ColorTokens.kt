@@ -265,7 +265,7 @@ public object DarkColorTokens {
     /**
      * On Dark Personas Sea Blue Text Accent
      */
-    public val PersonasOnDarkSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
+    public val PersonasOnDarkSeaBlueTextAccent: Color = Color(0xFF99D7D9)
 
     /**
      * Violet Text Accent Active On Dark
@@ -370,7 +370,7 @@ public object DarkColorTokens {
     /**
      * Personas Violet Text Accent
      */
-    public val PersonasDefaultVioletTextAccent: Color = Color(0xFF9E32AF)
+    public val PersonasDefaultVioletTextAccent: Color = Color(0xFFE19DED)
 
     /**
      * Blue Text Accent Hover Inverse
@@ -4130,7 +4130,7 @@ public object LightColorTokens {
     /**
      * On Dark Personas Sea Blue Text Accent
      */
-    public val PersonasOnDarkSeaBlueTextAccent: Color = Color(0xFF7BC8C8)
+    public val PersonasOnDarkSeaBlueTextAccent: Color = Color(0xFF99D7D9)
 
     /**
      * Violet Text Accent Active On Dark
@@ -4235,7 +4235,7 @@ public object LightColorTokens {
     /**
      * Personas Violet Text Accent
      */
-    public val PersonasDefaultVioletTextAccent: Color = Color(0xFFE19DED)
+    public val PersonasDefaultVioletTextAccent: Color = Color(0xFF9E32AF)
 
     /**
      * Blue Text Accent Hover Inverse
