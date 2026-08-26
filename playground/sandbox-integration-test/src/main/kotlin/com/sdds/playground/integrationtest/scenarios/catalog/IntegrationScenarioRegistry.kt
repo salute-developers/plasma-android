@@ -4,10 +4,14 @@ import FocusSelectorScaleScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.focus.FocusSelectorScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.login.LoginFormScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.performance.BottomSheetWheelPerformanceScreen
+import com.sdds.playground.integrationtest.scenarios.performance.CellNotificationPerformanceScreen
+import com.sdds.playground.integrationtest.scenarios.performance.ComboBoxSearchPerformanceScreen
 import com.sdds.playground.integrationtest.scenarios.performance.ComponentsFeedPerformanceScreen
 import com.sdds.playground.integrationtest.scenarios.performance.MassStateUpdatePerformanceScreen
 import com.sdds.playground.integrationtest.scenarios.performance.ModalPerformanceScreen
 import com.sdds.playground.integrationtest.scenarios.performance.PopoverTriggersPerformanceScreen
+import com.sdds.playground.integrationtest.scenarios.performance.SelectSortingPerformanceScreen
+import com.sdds.playground.integrationtest.scenarios.performance.TabsListBottomSheetPerformanceScreen
 import com.sdds.playground.integrationtest.scenarios.popup.ModalScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.popup.ToastModalLoginFormScenarioScreen
 import com.sdds.playground.integrationtest.scenarios.popup.TooltipScenarioScreen
@@ -107,6 +111,38 @@ internal object IntegrationScenarioRegistry {
             category = ScenarioCategory.Performance,
             presentation = ScenarioPresentation.Fullscreen,
             screen = { BottomSheetWheelPerformanceScreen() },
+        ),
+        IntegrationScenario(
+            id = "perf-tabs-list-bottom-sheet",
+            title = "Performance: Tabs, List and BottomSheet",
+            description = "Scroll Tabs, choose a category, scroll its List and open item details in BottomSheet.",
+            category = ScenarioCategory.Performance,
+            presentation = ScenarioPresentation.Fullscreen,
+            screen = { TabsListBottomSheetPerformanceScreen() },
+        ),
+        IntegrationScenario(
+            id = "perf-select-sorting",
+            title = "Performance: Select sorting",
+            description = "Open a Select and apply a catalog sorting option.",
+            category = ScenarioCategory.Performance,
+            presentation = ScenarioPresentation.Fullscreen,
+            screen = { SelectSortingPerformanceScreen() },
+        ),
+        IntegrationScenario(
+            id = "perf-combobox-search",
+            title = "Performance: ComboBox search",
+            description = "Enter a city query in ComboBox and choose the filtered result.",
+            category = ScenarioCategory.Performance,
+            presentation = ScenarioPresentation.Fullscreen,
+            screen = { ComboBoxSearchPerformanceScreen() },
+        ),
+        IntegrationScenario(
+            id = "perf-cell-notification-action",
+            title = "Performance: Cell and Notification action",
+            description = "Scroll a LazyColumn of Cell items, show a Notification and confirm its action.",
+            category = ScenarioCategory.Performance,
+            presentation = ScenarioPresentation.Fullscreen,
+            screen = { CellNotificationPerformanceScreen() },
         ),
     )
 }

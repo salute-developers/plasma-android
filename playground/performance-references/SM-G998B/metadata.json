@@ -1,0 +1,13 @@
+{
+  "generatedAtUtc": "2026-08-25T14:19:24.256727Z",
+  "git": {
+    "branch": "test/perfomance_testing",
+    "commit": "716f093c23236f7bc99678a6c4196ddbb77e484b",
+    "dirty": true
+  },
+  "device": "SM-G998B",
+  "sourceJson": "G:\\plasma-android\\playground\\sandbox-macrobenchmark\\build\\outputs\\connected_android_test_additional_output\\benchmark\\connected\\SM-G998B - 15\\com.sdds.playground.macrobenchmark-benchmarkData.json",
+  "referenceJson": "G:\\plasma-android\\playground\\performance-references\\SM-G998B\\reference.json",
+  "completeSuite": true,
+  "regressionCount": 0
+}
