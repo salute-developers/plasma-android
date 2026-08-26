@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
+import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -82,18 +83,36 @@ private val SwitchStyleBuilder.invariantProps: SwitchStyleBuilder
         .toggleThumbShape(CircleShape)
         .disableAlpha(0.4f)
         .colorValues {
-            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
-            descriptionColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
+            labelColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultPrimaryHover),
+                ),
+            )
+            descriptionColor(
+                SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
+                    setOf(InteractiveState.Hovered)
+                        to SolidColor(PlasmaGigaTheme.colors.textDefaultSecondaryHover),
+                ),
+            )
             toggleThumbColor(
                 SolidColor(PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault).asStatefulValue(
                     setOf(SwitchStates.Checked)
                         to SolidColor(PlasmaGigaTheme.colors.surfaceInverseSolidDefault),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceOnDarkSolidDefaultHover),
+                    setOf(SwitchStates.Checked, InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceInverseSolidDefaultHover),
                 ),
             )
             toggleTrackColor(
                 SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue(
                     setOf(SwitchStates.Checked)
-                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent),
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiaryHover),
+                    setOf(InteractiveState.Hovered, SwitchStates.Checked) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefault),
                 ),
             )
             toggleTrackBorderColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultClear).asStatefulValue())
