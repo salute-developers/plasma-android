@@ -122,11 +122,19 @@ public val DropdownMenuTight.L: WrapperDropdownMenuTightL
     @JvmName("WrapperDropdownMenuTightL")
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
-        .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
+        .shape(PlasmaGigaTheme.shapes.roundXl)
         .listStyle(DropdownMenuListTight.L.style())
         .emptyStateStyle(DropdownEmptyState.L.HasButton.style())
+        .colors {
+            strokeColor(SolidColor(PlasmaGigaTheme.colors.outlineDefaultTransparentPrimary).asStatefulValue())
+        }
         .dimensions {
             width(200.0.dp)
+            strokeWidth(1.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(10.0.dp)
+            paddingTop(10.0.dp)
+            paddingBottom(10.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
@@ -137,11 +145,19 @@ public val DropdownMenuTight.M: WrapperDropdownMenuTightM
     @JvmName("WrapperDropdownMenuTightM")
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
-        .shape(PlasmaGigaTheme.shapes.roundM)
+        .shape(PlasmaGigaTheme.shapes.roundXl.adjustBy(all = -2.0.dp))
         .listStyle(DropdownMenuListTight.M.style())
         .emptyStateStyle(DropdownEmptyState.M.HasButton.style())
+        .colors {
+            strokeColor(SolidColor(PlasmaGigaTheme.colors.outlineDefaultTransparentPrimary).asStatefulValue())
+        }
         .dimensions {
             width(200.0.dp)
+            strokeWidth(1.0.dp)
+            paddingStart(8.0.dp)
+            paddingEnd(8.0.dp)
+            paddingTop(8.0.dp)
+            paddingBottom(8.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
@@ -152,11 +168,19 @@ public val DropdownMenuTight.S: WrapperDropdownMenuTightS
     @JvmName("WrapperDropdownMenuTightS")
     get() = DropdownMenuStyle.builder(this)
         .invariantProps
-        .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .shape(PlasmaGigaTheme.shapes.roundL)
         .listStyle(DropdownMenuListTight.S.style())
         .emptyStateStyle(DropdownEmptyState.S.HasButton.style())
+        .colors {
+            strokeColor(SolidColor(PlasmaGigaTheme.colors.outlineDefaultTransparentPrimary).asStatefulValue())
+        }
         .dimensions {
             width(160.0.dp)
+            strokeWidth(1.0.dp)
+            paddingStart(6.0.dp)
+            paddingEnd(6.0.dp)
+            paddingTop(6.0.dp)
+            paddingBottom(6.0.dp)
             scrollBarPaddingTop(6.0.dp)
             scrollBarPaddingBottom(8.0.dp)
         }
