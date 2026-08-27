@@ -14,6 +14,7 @@ internal expect fun Modifier.basePopoverTrigger(
     triggerInfo: MutableState<TriggerInfo>,
     shape: Shape = RectangleShape,
     cutoutPaddings: PaddingValues = PaddingValues(0.dp),
+    enabled: Boolean,
 ): Modifier
 
 internal fun Rect.toScreenRect(hostLocation: IntArray): Rect {

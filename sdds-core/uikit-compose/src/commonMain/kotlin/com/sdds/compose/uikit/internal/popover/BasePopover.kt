@@ -108,7 +108,9 @@ internal fun BasePopover(
     val tailPadding = dimensions.tailPadding
     val offset = dimensions.offset
     val visibleState = remember { MutableTransitionState(false) }
-    visibleState.targetState = show
+    val currentTrigger = triggerInfo()
+    val triggerReady = currentTrigger.visibleBoundsInScreen != null
+    visibleState.targetState = show && triggerReady
     val popoverVisible = visibleState.currentState || visibleState.targetState || !visibleState.isIdle
 
     val backgroundColor = colors.backgroundColor.getValue(motion.context.interactionSource)
@@ -131,6 +133,9 @@ internal fun BasePopover(
     val effectiveClipHeight = clipHeight && canClip
     val effectiveClipWidth = clipWidth && canClip
     val keyboardHeightState = getKeyboardHeightPx()
+    var currentPlacement by remember(placement) {
+        mutableStateOf(placement)
+    }
     val positionProvider = rememberPopoverPositionProvider(
         placement = placement,
         placementMode = placementMode,
@@ -159,11 +164,14 @@ internal fun BasePopover(
             }
             constraintsUpdater.request(constraints)
         },
+        onPlacementChange = { newPlacement ->
+            if (currentPlacement != newPlacement) currentPlacement = newPlacement
+        },
     )
     val tailPaddings = tailCompensationPaddings(
         tailEnabled = tailEnabled,
         tailHeight = tailHeight,
-        placement = positionProvider.innerPlacement,
+        placement = currentPlacement,
     )
 
     SideEffect {
@@ -511,6 +519,7 @@ private fun rememberPopoverPositionProvider(
     popoverContentSize: () -> IntSize,
     clippedConstraints: () -> IntSize?,
     onContentSizeChanged: (IntSize) -> Unit,
+    onPlacementChange: (PopoverPlacement) -> Unit,
 ): PopoverPositionProvider {
     // Лямбда не входит в ключи remember: чтение triggerInfo происходит в calculatePosition,
     // где Popup наблюдает snapshot-чтения и сам пересчитывает позицию без рекомпозиции.
@@ -557,6 +566,7 @@ private fun rememberPopoverPositionProvider(
             popoverContentSize,
             clippedConstraints,
             onContentSizeChanged,
+            onPlacementChange,
         )
     }
 }
@@ -584,6 +594,7 @@ private class PopoverPositionProvider(
     private val popoverContentSize: () -> IntSize,
     private val clippedConstraints: () -> IntSize?,
     private val onContentSizeChanged: (IntSize) -> Unit,
+    private val onPlacementChange: (PopoverPlacement) -> Unit,
 ) : PopupPositionProvider {
 
     private var popoverOffsetWhenTriggerCentered: Offset = Offset.Zero
@@ -743,6 +754,7 @@ private class PopoverPositionProvider(
                 tailAlignment = innerTailAlignment,
             )
         }
+        onPlacementChange(innerPlacement)
         lastPositionState = InitialPositionState(
             position = actualPopupPosition,
             placement = innerPlacement,
@@ -755,7 +767,6 @@ private class PopoverPositionProvider(
             availableWindowBounds,
             triggerPositionInRoot,
         )
-
         return actualPopupPosition
     }
 
@@ -1176,7 +1187,6 @@ private class PopoverPositionProvider(
     ): IntOffset {
         val horizontalAlignment = getHorizontalAlignment(triggerSize, popupContentSize)
         val verticalAlignment = getVerticalAlignment(triggerSize, popupContentSize)
-
         return when (innerPlacement) {
             PopoverPlacement.Start -> IntOffset(
                 x = triggerPositionInRoot.x - offset -
