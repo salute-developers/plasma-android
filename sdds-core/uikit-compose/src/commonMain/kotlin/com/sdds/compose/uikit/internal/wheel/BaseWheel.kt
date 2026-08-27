@@ -25,6 +25,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -88,6 +89,7 @@ internal fun BaseWheel(
     iconDownColor: InteractiveColor,
     alignment: WheelItemAlignment,
     dataEdgePlacement: DataEdgePlacement,
+    looping: Boolean = false,
     initialIndex: Int,
     visibleItemsCount: Int,
     textAfterMode: TextAfterMode = TextAfterMode.EachItem,
@@ -102,12 +104,56 @@ internal fun BaseWheel(
     require(visibleItemsCount % 2 == 1) { "visibleItemsCount must be odd" }
 
     val coroutineScope = rememberCoroutineScope()
-    val state: LazyListState = rememberLazyListState(initialIndex)
+    // Зацикливание не имеет смысла для пустого списка - нечего циклить, mod(0) неопределён.
+    val loopingActive = looping && items.isNotEmpty()
     val middleIndex = visibleItemsCount / 2
-    val extendedList = rememberExtendedList(items, dataEdgePlacement, middleIndex)
+    // У зацикленного колеса нет краёв, поэтому dummy-паддинг (DataEdgePlacement.WheelCenter)
+    // для него не применяется - extendedList в этом случае равен items без изменений.
+    val extendedList = if (loopingActive) {
+        items
+    } else {
+        rememberExtendedList(items, dataEdgePlacement, middleIndex)
+    }
     val maxFirstVisibleItemIndex = (extendedList.size - visibleItemsCount).coerceAtLeast(0)
-    var controlTargetIndex by remember(initialIndex, maxFirstVisibleItemIndex) {
-        mutableIntStateOf(initialIndex.coerceIn(0, maxFirstVisibleItemIndex))
+    // Для зацикленного колеса стартуем не с 0, а рядом с серединой диапазона Int, выровненной
+    // по items.size - так можно крутить в обе стороны, практически не упираясь в границы Int.
+    val initialFirstVisibleItemIndex = remember(loopingActive, items.size, initialIndex, middleIndex) {
+        if (loopingActive) {
+            calculateLoopingInitialFirstVisibleItemIndex(items.size, initialIndex, middleIndex)
+        } else {
+            initialIndex
+        }
+    }
+    val state: LazyListState = rememberLazyListState(initialFirstVisibleItemIndex)
+    var isInitialLoopingComposition by remember { mutableStateOf(true) }
+    LaunchedEffect(loopingActive) {
+        // rememberLazyListState учитывает initialFirstVisibleItemIndex только при первом создании
+        // state - если looping переключается на уже существующем колесе (например, флагом в
+        // рантайме, а не пересозданием composable), state остаётся на позиции из предыдущего
+        // режима. Для looping это маленький индекс из non-looping-режима, из-за чего прокрутка
+        // назад почти сразу упирается в 0 (а кнопки управления пытаются уйти в отрицательный
+        // индекс и падают). Поэтому переякориваем state на корректную для текущего режима позицию
+        // при каждом ПОСЛЕДУЮЩЕМ переключении looping - но не на первом маунте, где state уже и
+        // так стоит на правильной позиции (scrollToItem форсирует лишний layout-проход).
+        if (isInitialLoopingComposition) {
+            isInitialLoopingComposition = false
+        } else {
+            val targetIndex = if (loopingActive) {
+                initialFirstVisibleItemIndex
+            } else {
+                initialFirstVisibleItemIndex.coerceIn(0, maxFirstVisibleItemIndex)
+            }
+            state.scrollToItem(targetIndex)
+        }
+    }
+    var controlTargetIndex by remember(initialFirstVisibleItemIndex, maxFirstVisibleItemIndex) {
+        mutableIntStateOf(
+            if (loopingActive) {
+                initialFirstVisibleItemIndex
+            } else {
+                initialFirstVisibleItemIndex.coerceIn(0, maxFirstVisibleItemIndex)
+            },
+        )
     }
     var controlScrollJob by remember { mutableStateOf<Job?>(null) }
 
@@ -118,7 +164,13 @@ internal fun BaseWheel(
         } else {
             state.firstVisibleItemIndex
         }
-        val targetIndex = (currentIndex + delta).coerceIn(0, maxFirstVisibleItemIndex)
+        // Зацикленное колесо не ограничивается по границам - переход к следующему/предыдущему
+        // элементу всегда возможен, зацикливание получается через mod при рендере айтема.
+        val targetIndex = if (loopingActive) {
+            currentIndex + delta
+        } else {
+            (currentIndex + delta).coerceIn(0, maxFirstVisibleItemIndex)
+        }
         if (targetIndex == currentIndex) return
 
         controlTargetIndex = targetIndex
@@ -128,14 +180,19 @@ internal fun BaseWheel(
     }
 
     LaunchedEffect(state.firstVisibleItemIndex) {
-        val selectedIndex = state.firstVisibleItemIndex + middleIndex
-        if (selectedIndex in extendedList.indices) {
-            val dataIndex = when (dataEdgePlacement) {
-                DataEdgePlacement.WheelCenter -> selectedIndex - middleIndex
-                DataEdgePlacement.WheelEdge -> selectedIndex
-            }
-            if (dataIndex in items.indices) {
-                onItemSelected(dataIndex)
+        if (loopingActive) {
+            val centerIndex = state.firstVisibleItemIndex + middleIndex
+            onItemSelected(centerIndex.mod(items.size))
+        } else {
+            val selectedIndex = state.firstVisibleItemIndex + middleIndex
+            if (selectedIndex in extendedList.indices) {
+                val dataIndex = when (dataEdgePlacement) {
+                    DataEdgePlacement.WheelCenter -> selectedIndex - middleIndex
+                    DataEdgePlacement.WheelEdge -> selectedIndex
+                }
+                if (dataIndex in items.indices) {
+                    onItemSelected(dataIndex)
+                }
             }
         }
     }
@@ -227,7 +284,12 @@ internal fun BaseWheel(
                         horizontalAlignment = alignment.getListAlignment(),
                         flingBehavior = rememberSnapFlingBehavior(lazyListState = state),
                     ) {
-                        items(count = extendedList.size) { index ->
+                        items(count = if (loopingActive) Int.MAX_VALUE else extendedList.size) { index ->
+                            val currentItem = if (loopingActive) {
+                                items[index.mod(items.size)]
+                            } else {
+                                extendedList[index]
+                            }
                             val distanceFromCenter by remember(visibleItemsCount) {
                                 derivedStateOf {
                                     val viewIndex = index - state.firstVisibleItemIndex
@@ -246,7 +308,7 @@ internal fun BaseWheel(
                                 }
                             }
                             val factor = calculateDistanceFactor(distanceFromCenter, maxDistanceFromCenter)
-                            val isEmptyItem = dataEdgePlacement == DataEdgePlacement.WheelCenter &&
+                            val isEmptyItem = !loopingActive && dataEdgePlacement == DataEdgePlacement.WheelCenter &&
                                 (index < middleIndex || index > extendedList.lastIndex - middleIndex)
                             val alpha = if (isEmptyItem) 0f else getAlphaByDistanceFactor(factor)
                             val scale = getScaleByDistanceFactor(factor).coerceIn(0f, 1f)
@@ -269,37 +331,44 @@ internal fun BaseWheel(
                                     }
                                 }
                             }
-                            Item(
-                                modifier = Modifier
-                                    .onSizeChanged { itemWidth = it.width }
-                                    .debugBorder(Color.Green)
-                                    .graphicsLayer {
-                                        this.scaleX = scale
-                                        this.scaleY = scale
-                                        this.alpha = alpha
-                                        this.translationY = translation?.itemTranslationY ?: 0f
-                                        this.translationX = translation?.itemTranslationX ?: 0f
-                                    }
-                                    .debugBorder(Color.Red),
-                                title = extendedList[index].text,
-                                description = description,
-                                textAfter = if (textAfterMode == TextAfterMode.Static) {
-                                    null
-                                } else {
-                                    extendedList[index].textAfter
-                                },
-                                descriptionOffset = translation?.itemTitleTranslationY ?: 0f,
-                                descriptionPadding = descriptionPadding,
-                                descriptionStyle = descriptionStyle,
-                                itemSpacing = itemSpacing,
-                                alignment = alignment,
-                                textStyle = textStyle,
-                                textAfterStyle = textAfterStyle,
-                                textColor = textColor,
-                                textAfterColor = textAfterColor,
-                                textAfterPadding = textAfterPadding,
-                                interactionSource = interactionSource,
-                            )
+                            // Форсируем новый graphicsLayer/RenderNode для айтема, как только
+                            // появляется реальный layoutInfo - иначе во время наложения экранов
+                            // при навигации (AnimatedContent) может отрисоваться закэшированный
+                            // слой с "пустым" переходным состоянием (до первого layout-прохода),
+                            // который не перерисовывается, даже когда alpha/scale уже корректны.
+                            key(state.layoutInfo.visibleItemsInfo.isNotEmpty()) {
+                                Item(
+                                    modifier = Modifier
+                                        .onSizeChanged { itemWidth = it.width }
+                                        .debugBorder(Color.Green)
+                                        .graphicsLayer {
+                                            this.scaleX = scale
+                                            this.scaleY = scale
+                                            this.alpha = alpha
+                                            this.translationY = translation?.itemTranslationY ?: 0f
+                                            this.translationX = translation?.itemTranslationX ?: 0f
+                                        }
+                                        .debugBorder(Color.Red),
+                                    title = currentItem.text,
+                                    description = description,
+                                    textAfter = if (textAfterMode == TextAfterMode.Static) {
+                                        null
+                                    } else {
+                                        currentItem.textAfter
+                                    },
+                                    descriptionOffset = translation?.itemTitleTranslationY ?: 0f,
+                                    descriptionPadding = descriptionPadding,
+                                    descriptionStyle = descriptionStyle,
+                                    itemSpacing = itemSpacing,
+                                    alignment = alignment,
+                                    textStyle = textStyle,
+                                    textAfterStyle = textAfterStyle,
+                                    textColor = textColor,
+                                    textAfterColor = textAfterColor,
+                                    textAfterPadding = textAfterPadding,
+                                    interactionSource = interactionSource,
+                                )
+                            }
                         }
                     }
                 }
@@ -710,6 +779,20 @@ private fun calculateStaticTextAfterOffset(
         WheelItemAlignment.Center -> (lazyColumnWidth + maxItemTextWidth) / 2 + textAfterPadding
         WheelItemAlignment.End -> lazyColumnWidth - staticTextAfterWidth
     }
+}
+
+/**
+ * Начальная позиция прокрутки для зацикленного колеса: якорь рядом с серединой диапазона [Int],
+ * выровненный по [itemsSize], со сдвигом на [initialIndex] и компенсацией [middleIndex]
+ * (позиция первого видимого элемента, а не центрального).
+ */
+internal fun calculateLoopingInitialFirstVisibleItemIndex(
+    itemsSize: Int,
+    initialIndex: Int,
+    middleIndex: Int,
+): Int {
+    val anchor = (Int.MAX_VALUE / 2).let { it - it.mod(itemsSize) }
+    return anchor - middleIndex + initialIndex
 }
 
 private fun calculateDistanceFactor(
