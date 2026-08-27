@@ -40,6 +40,15 @@ jobs:
           fi
           echo "tag=$TAG" >> $GITHUB_OUTPUT   
 
+      - name: Wait for internal Maven dependencies
+        env:
+          MAVEN_CHECK_ATTEMPTS: 45
+          MAVEN_CHECK_INTERVAL_SECONDS: 20
+        run: |
+          bash .github/scripts/verify-maven-dependencies.sh \
+            ":sdds-core:uikit-compose" \
+            --require-available
+
       - name: Generate distribution zip
         env:
           OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
