@@ -23,6 +23,9 @@ internal class FocusScaleAnimationHelper(
     private var _endScaleX: Float = 0f
     private var _startScaleY: Float = 0f
     private var _endScaleY: Float = 0f
+
+    private var currentScaleX: Float = 1f
+    private var currentScaleY: Float = 1f
     private val _scaleAnimationListeners: MutableSet<ScaleAnimationListener> = mutableSetOf()
     private val _bgAnimator = ValueAnimator.ofFloat(0f, 1f).apply {
         duration = this@FocusScaleAnimationHelper.duration
@@ -34,14 +37,12 @@ internal class FocusScaleAnimationHelper(
      */
     fun animatePressedState(view: View, pressed: Boolean) {
         if (!view.isFocused) return
+        _startScaleX = currentScaleX
+        _startScaleY = currentScaleY
         if (pressed) {
-            _startScaleX = view.scaleX
-            _startScaleY = view.scaleY
             _endScaleX = _initialsScaleX
             _endScaleY = _initialsScaleY
         } else {
-            _startScaleX = view.scaleX
-            _startScaleY = view.scaleY
             _endScaleX = _initialsScaleX + factor
             _endScaleY = _initialsScaleY + factor
         }
@@ -60,13 +61,13 @@ internal class FocusScaleAnimationHelper(
                 _initialsScaleY = view.scaleY
                 _initialScaleSet = true
             }
-            _startScaleX = view.scaleX
-            _startScaleY = view.scaleY
+            _startScaleX = currentScaleX
+            _startScaleY = currentScaleY
             _endScaleX = _initialsScaleX + factor
             _endScaleY = _initialsScaleY + factor
         } else {
-            _startScaleX = view.scaleX
-            _startScaleY = view.scaleY
+            _startScaleX = currentScaleX
+            _startScaleY = currentScaleY
             _endScaleX = _initialsScaleX
             _endScaleY = _initialsScaleY
         }
@@ -139,10 +140,9 @@ internal class FocusScaleAnimationHelper(
         _bgAnimator.removeAllUpdateListeners()
         _bgAnimator.addUpdateListener {
             val progress = it.animatedFraction
-            background.setScale(
-                lerp(_startScaleX, _endScaleX, progress),
-                lerp(_startScaleY, _endScaleY, progress),
-            )
+            currentScaleX = lerp(_startScaleX, _endScaleX, progress)
+            currentScaleY = lerp(_startScaleY, _endScaleY, progress)
+            background.setScale(currentScaleX, currentScaleY)
         }
         _bgAnimator.start()
     }
