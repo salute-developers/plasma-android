@@ -45,6 +45,12 @@ jobs:
             "${{ env.FROM_TAG }}" \
             "${{ steps.changed.outputs.modules }}"
 
+      - name: Verify internal Maven dependencies
+        if: steps.changed.outputs.modules != ''
+        run: |
+          bash .github/scripts/verify-maven-dependencies.sh \
+            "${{ steps.changed.outputs.modules }}"
+
       - name: Retrieve tag exists flag
         uses: mukunku/tag-exists-action@v1.0.0
         id: checkTag
