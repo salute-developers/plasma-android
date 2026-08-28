@@ -9,10 +9,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.uikit.CheckBoxDimensionValues
 import com.sdds.compose.uikit.CheckBoxStates
 import com.sdds.compose.uikit.CheckBoxStyle
+import com.sdds.compose.uikit.CheckBoxValue
 import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.graphics.LocalIndication
@@ -29,7 +29,7 @@ import com.sdds.compose.uikit.motion.getTextStyleAsState
 
 @Composable
 internal fun BaseCheckBox(
-    state: ToggleableState,
+    value: CheckBoxValue,
     modifier: Modifier = Modifier,
     style: CheckBoxStyle = LocalCheckBoxStyle.current,
     onClick: (() -> Unit)? = null,
@@ -39,11 +39,16 @@ internal fun BaseCheckBox(
     motion: Motion<CheckBoxMotionStyle> = rememberCheckBoxMotion(),
 ) {
     SideEffect {
-        motion.context.semanticStateSource.remove(CheckBoxStates.Checked, CheckBoxStates.Indeterminate)
-        when (state) {
-            ToggleableState.On -> motion.context.semanticStateSource.add(CheckBoxStates.Checked)
-            ToggleableState.Indeterminate -> motion.context.semanticStateSource.add(CheckBoxStates.Indeterminate)
-            ToggleableState.Off -> {}
+        motion.context.semanticStateSource.remove(
+            CheckBoxStates.Checked,
+            CheckBoxStates.Indeterminate,
+            CheckBoxStates.Error,
+        )
+        when (value) {
+            CheckBoxValue.On -> motion.context.semanticStateSource.add(CheckBoxStates.Checked)
+            CheckBoxValue.Indeterminate -> motion.context.semanticStateSource.add(CheckBoxStates.Indeterminate)
+            CheckBoxValue.Error -> motion.context.semanticStateSource.add(CheckBoxStates.Error)
+            CheckBoxValue.Off -> {}
         }
     }
 
@@ -60,7 +65,7 @@ internal fun BaseCheckBox(
     }
     val selectableModifier = if (onClick != null) {
         Modifier.selection(
-            selected = state.checked,
+            selected = value.checked,
             semanticStateSource = motion.context.semanticStateSource,
         )
     } else {
@@ -79,7 +84,7 @@ internal fun BaseCheckBox(
             .graphicsLayer { alpha = if (enabled) 1f else 0.4f },
         control = {
             CheckBoxControl(
-                state = state,
+                value = value,
                 shape = style.shapes,
                 colors = style.colorValues,
                 dimensions = style.dimensionValues,

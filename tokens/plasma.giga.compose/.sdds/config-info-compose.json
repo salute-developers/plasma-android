@@ -10952,7 +10952,8 @@
                "name": "view",
                "values": [
                   "default",
-                  "negative"
+                  "negative",
+                  "positive"
                ],
                "defaultValue": "default"
             }
@@ -11011,6 +11012,10 @@
                      {
                         "value": "negative",
                         "codeName": "Negative"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
                      }
                   ]
                }
@@ -11046,6 +11051,20 @@
                ]
             },
             {
+               "name": "l.positive",
+               "composeReference": "CheckBox.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
                "name": "m.default",
                "composeReference": "CheckBox.M.Default",
                "props": [
@@ -11074,6 +11093,20 @@
                ]
             },
             {
+               "name": "m.positive",
+               "composeReference": "CheckBox.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
                "name": "s.default",
                "composeReference": "CheckBox.S.Default",
                "props": [
@@ -11098,6 +11131,20 @@
                   {
                      "name": "view",
                      "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "CheckBox.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
                   }
                ]
             }
