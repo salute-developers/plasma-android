@@ -152,6 +152,7 @@ fun Wheel(
             iconDownColor = style.colors.controlIconDownColor,
             alignment = getBaseWheelAlignment(alignment, wheelIndex, wheelCount),
             dataEdgePlacement = dataEdgePlacement,
+            looping = data.looping,
             initialIndex = data.initialIndex,
             visibleItemsCount = visibleItemsCount,
             textAfterMode = style.textAfterMode,
@@ -504,6 +505,11 @@ enum class WheelSeparator {
  * @property description описание
  * @property initialIndex начальный индекс
  * @property staticTextAfter статичный дополнительный текст, общий для всех элементов колеса
+ * @property looping зациклена ли прокрутка колеса: после последнего элемента [dataSet] сразу
+ * следует первый, и наоборот. Свойство относится к конкретному колесу, а не ко всему [Wheel] —
+ * в мультиколёсном пикере можно зациклить, например, только часы и минуты, оставив год неизменным.
+ * При `looping = true` значение `dataEdgePlacement`, переданное в [Wheel], для этого колеса
+ * не применяется — у зацикленного колеса нет краёв, дополнять список пустыми элементами не нужно.
  *
  */
 @Immutable
@@ -512,6 +518,7 @@ data class WheelDataSet(
     val description: String? = null,
     val initialIndex: Int = 0,
     val staticTextAfter: String? = null,
+    val looping: Boolean = false,
 )
 
 /**

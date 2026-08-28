@@ -40,6 +40,7 @@ import kotlinx.coroutines.launch
  * @property itemsCount Количество элементов в каждом колесе.
  * @property initialIndex Индекс изначально выбранного элемента.
  * @property inBottomSheet Показывать колесо в ModalBottomSheet.
+ * @property hasLooping Зациклить прокрутку колеса.
  */
 @StoryUiState
 data class WheelUiState(
@@ -56,6 +57,7 @@ data class WheelUiState(
     val itemsCount: Int = 30,
     val initialIndex: Int = 0,
     val inBottomSheet: Boolean = false,
+    val hasLooping: Boolean = false,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
@@ -149,6 +151,7 @@ private fun WheelContent(
             initialIndex = state.initialIndex.coerceIn(0, (state.itemsCount - 1).coerceAtLeast(0)),
             description = state.description,
             staticTextAfter = state.textAfter,
+            looping = state.hasLooping,
         )
     }
 }
