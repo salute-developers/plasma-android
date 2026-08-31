@@ -24,8 +24,6 @@ title: CheckBox
 // @sample: com/sdds/compose/uikit/fixtures/samples/checkbox/CheckBox_Error.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.checkbox.CheckBox_Error -->
-
 ## Стиль CheckBox
 
 В большинстве случаев можно использовать готовые сгенерированные стили, а при необходимости создать собственный стиль через соответствующий builder. Подробнее о том, как работают `Style`, `StyleBuilder` и stateful-параметры стиля, см. в разделе [Стилизация компонентов](../theme/Styles.md).

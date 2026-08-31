@@ -31,7 +31,7 @@ fun CheckBox_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun CheckBox_Error() {
     composableCodeSnippet {
         CheckBox(
