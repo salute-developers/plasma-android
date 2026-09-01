@@ -92,7 +92,7 @@ internal fun MassStateUpdatePerformanceScreen() {
                 .fillMaxWidth()
                 .testTag(PerformanceScenarioTags.MASS_UPDATE_BUTTON),
             style = BasicButtonStyle.BasicButtonM.BasicButtonDefault.style(),
-            label = if (allItemsSelected) "Clear selection" else "Select all 100 items",
+            label = if (allItemsSelected) "Clear selection" else "Select all ${massUpdateItems.size} items",
             onClick = {
                 selectedItemIds = if (allItemsSelected) {
                     emptySet()

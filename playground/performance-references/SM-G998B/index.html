@@ -1,0 +1,338 @@
+        <!doctype html>
+        <html lang="ru">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <title>Отчёт по производительности — SM-G998B</title>
+          <style>
+            :root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:light;--page:#f5f7fa;--surface:#fff;--text:#161a22;--muted:#687181;--border:#dde2ea;--good:#16834a;--good-soft:#e9f7ef;--bad:#cf3038;--bad-soft:#fff0f1;--warn:#b76a00;--warn-soft:#fff5df;--info:#316bcc;--info-soft:#edf3ff;--stable:#526173;--stable-soft:#eef1f5}
+            *{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px;background:var(--page);color:var(--text);line-height:1.45}h1,h2,h3,p{margin-top:0}.scroll,.heatmap-scroll{overflow-x:auto}
+            .page-header{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px}.page-header h1{margin:0}.status{display:inline-block;padding:8px 13px;border-radius:9px;color:#fff;font-size:13px;font-weight:800;letter-spacing:.02em}.good{background:var(--good)}.bad{background:var(--bad)}.warning{background:var(--warn)}.info{background:var(--info)}
+            .good-text,.warning-text{background:var(--surface);border-radius:8px;padding:10px 14px}.good-text{border-left:4px solid var(--good)}.warning-text{border-left:4px solid var(--warn)}
+            .run-meta{color:var(--muted);font-size:13px;margin:10px 0 20px}.summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:20px 0}.summary-card,.panel,.dashboard-panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 8px #1b263814}
+            .summary-card{padding:18px}.summary-label{color:var(--muted);font-size:13px;margin-bottom:6px}.summary-value{font-size:24px;font-weight:780;line-height:1.15}.summary-note{color:var(--muted);font-size:12px;margin-top:7px;overflow-wrap:anywhere}
+            .dashboard-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(360px,1fr);gap:16px;align-items:start}.dashboard-panel{padding:20px}.panel-title{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px}.panel-title h2{font-size:20px;margin:0}.panel-help{color:var(--muted);font-size:12px;margin-bottom:16px}
+            .legend{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin:10px 0 16px}.legend-item{display:flex;align-items:center;gap:7px}.legend-current{width:30px;height:5px;border-radius:5px;background:#e98b0c}.legend-reference{width:0;height:18px;border-left:3px dashed #6f7783}.legend-zero{width:2px;height:18px;background:#303641}
+            .benchmark-list{display:grid;gap:9px}.benchmark-row{display:grid;grid-template-columns:30px minmax(0,1fr) 126px;gap:12px;align-items:center;padding:12px;border:1px solid var(--border);border-radius:11px}.rank{width:28px;height:28px;display:grid;place-items:center;background:#f0f3f7;border-radius:7px;font-weight:750}.case-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:9px}.case-name{font-weight:720}.case-status{font-size:11px;font-weight:800;padding:4px 7px;border-radius:6px;white-space:nowrap}.status-cell-stable{color:var(--stable);background:var(--stable-soft)}.status-cell-good{color:var(--good);background:var(--good-soft)}.status-cell-bad{color:var(--bad);background:var(--bad-soft)}.status-cell-warning{color:var(--warn);background:var(--warn-soft)}
+            .bar-track{height:14px;position:relative;background:#eef1f5;border-radius:0 8px 8px 0;margin-left:2px}.zero-marker{position:absolute;left:0;top:-5px;bottom:-5px;width:2px;background:#303641;z-index:3}.current-bar{height:100%;border-radius:0 7px 7px 0;min-width:2px}.severity-good{background:var(--good)}.severity-low{background:#efad1f}.severity-medium{background:#ea7e0c}.severity-high{background:var(--bad)}.reference-marker{position:absolute;top:-6px;bottom:-6px;width:0;border-left:3px dashed #626b78;z-index:4}.bar-labels{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:7px}.bar-labels strong{color:var(--text)}.delta-box{text-align:right;font-size:12px;color:var(--muted)}.delta-box strong{display:block;color:var(--text);font-size:14px}.secondary-metrics{display:flex;justify-content:flex-end;gap:10px;margin-top:6px;font-size:11px;color:var(--muted)}
+            .heatmap-grid{display:grid;min-width:520px;border:1px solid var(--border);border-radius:10px;overflow:hidden}.heat-cell{padding:10px;border-right:1px solid var(--surface);border-bottom:1px solid var(--surface);text-align:center;font-size:12px}.heat-label{text-align:left;background:#f6f8fb;font-weight:650}.heat-header{background:#eef1f5;font-weight:750}.heatmap-note{color:var(--muted);font-size:12px;margin:12px 0 0}.heat-legend{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;color:var(--muted);font-size:11px}.heat-legend span{display:flex;align-items:center;gap:5px}.heat-swatch{width:12px;height:12px;border-radius:3px}
+            details.panel{margin-top:16px;padding:0}details.panel>summary{cursor:pointer;list-style:none;padding:17px 20px;font-weight:750}details.panel>summary::-webkit-details-marker{display:none}details.panel>summary:before{content:"›";display:inline-block;margin-right:10px;transition:transform .15s}details[open].panel>summary:before{transform:rotate(90deg)}.details-content{padding:0 20px 20px;border-top:1px solid var(--border)}
+            .glossary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.glossary-item{padding:14px;background:#f7f9fc;border-radius:10px}.glossary-item strong{display:block;margin-bottom:5px}.glossary-item span{font-size:13px;color:var(--muted)}
+            table{border-collapse:separate;border-spacing:0;width:100%;margin:16px 0 4px;font-size:13px}th,td{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:9px 10px;text-align:right;white-space:nowrap}tr>*:first-child{border-left:1px solid var(--border);text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}thead th{background:#eef1f5!important;border-top:1px solid var(--border);font-weight:750}.focus-metric{background:#fff6df}.table-note{color:var(--muted);font-size:12px}code{overflow-wrap:anywhere;white-space:normal}
+            @media(max-width:1050px){body{padding:18px}.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}.glossary-grid{grid-template-columns:1fr 1fr}}
+            @media(max-width:650px){.summary-grid{grid-template-columns:1fr}.benchmark-row{grid-template-columns:28px minmax(0,1fr)}.delta-box{grid-column:2;text-align:left}.glossary-grid{grid-template-columns:1fr}}
+          </style>
+        </head>
+        <body>
+          <header class="page-header"><h1>Отчёт по производительности</h1><span class="status info">РЕФЕРЕНС СОХРАНЁН</span></header>
+          <p class="good-text">Полный набор: 10/10.</p>
+          
+          <p class="run-meta">Сформирован 2026-08-25T14:19:24.256727Z · ветка <code>test/perfomance_testing</code> · коммит <code>716f093c23236f7bc99678a6c4196ddbb77e484b</code> · есть незакоммиченные изменения: <strong>true</strong></p>
+          <section class="summary-grid">
+            <article class="summary-card"><div class="summary-label">Набор тестов</div><div class="summary-value">10 / 10</div><div class="summary-note">стабильных сценариев</div></article>
+            <article class="summary-card"><div class="summary-label">Устройство</div><div class="summary-value">SM-G998B</div><div class="summary-note">Сохранён из текущего прогона</div></article>
+            <article class="summary-card"><div class="summary-label">Худший Overrun P95</div><div class="summary-value">+35.86 мс</div><div class="summary-note">Массовое обновление состояния</div></article>
+            <article class="summary-card"><div class="summary-label">Измеренных итераций</div><div class="summary-value">3</div><div class="summary-note">на каждый сценарий</div></article>
+          </section>
+          <section class="dashboard-grid">
+            <article class="dashboard-panel">
+              <div class="panel-title"><h2>Обзор соблюдения frame deadline</h2></div>
+              <p class="panel-help">Сценарии отсортированы по текущему frameOverrunMs P95. Длина и цвет полосы показывают нагрузку относительно deadline внутри этого прогона; статус определяется только сравнением с совместимым референсом.</p>
+              <div class="legend"><span class="legend-item"><i class="legend-zero"></i>0 = frame deadline</span><span class="legend-item"><i class="legend-current"></i>Текущий прогон</span><span class="legend-item"><i class="legend-reference"></i>Референс</span></div>
+              <div class="benchmark-list"><article class="benchmark-row">
+  <div class="rank">1</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Массовое обновление состояния</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-high" style="width:92.59%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+35.86 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 26.39 мс</span><span>Jank 48.95%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article><article class="benchmark-row">
+  <div class="rank">2</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Цикл взаимодействия с Popover</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-high" style="width:83.89%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+32.49 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 25.47 мс</span><span>Jank 54.10%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article><article class="benchmark-row">
+  <div class="rank">3</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Выбор сортировки через Select</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-high" style="width:68.59%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+26.56 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 12.87 мс</span><span>Jank 14.72%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article><article class="benchmark-row">
+  <div class="rank">4</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Действие Cell с подтверждением в Notification</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-medium" style="width:46.00%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+17.81 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 15.36 мс</span><span>Jank 70.40%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article><article class="benchmark-row">
+  <div class="rank">5</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Цикл взаимодействия с Modal</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-medium" style="width:45.93%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+17.78 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 11.11 мс</span><span>Jank 43.05%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article><article class="benchmark-row">
+  <div class="rank">6</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Цикл BottomSheet + Wheel</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-medium" style="width:45.79%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+17.73 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 15.83 мс</span><span>Jank 35.17%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article><article class="benchmark-row">
+  <div class="rank">7</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Поиск и выбор через ComboBox</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-medium" style="width:43.38%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+16.80 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 12.89 мс</span><span>Jank 17.44%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article><article class="benchmark-row">
+  <div class="rank">8</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Прокрутка ленты компонентов</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-low" style="width:27.08%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+10.49 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 11.79 мс</span><span>Jank 69.30%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article><article class="benchmark-row">
+  <div class="rank">9</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Прокрутка списка Popover-триггеров</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-low" style="width:26.75%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+10.36 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 11.61 мс</span><span>Jank 77.41%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article><article class="benchmark-row">
+  <div class="rank">10</div>
+  <div>
+    <div class="case-heading"><span class="case-name">Пользовательский путь Tabs → List → BottomSheet</span><span class="case-status status-cell-warning">НЕТ РЕФЕРЕНСА</span></div>
+    <div class="bar-track"><i class="zero-marker"></i><div class="current-bar severity-low" style="width:6.42%"></div></div>
+    <div class="bar-labels"><span>Текущий <strong>+2.49 мс</strong></span><span>Референс <strong>—</strong></span></div>
+    <div class="secondary-metrics"><span>CPU P95 8.22 мс</span><span>Jank 28.88%</span></div>
+  </div>
+  <div class="delta-box status-cell-warning"><strong>—</strong><span>нет совместимого референса</span></div>
+</article></div>
+            </article>
+            <article class="dashboard-panel">
+              <div class="panel-title"><h2>Стабильность итераций — текущий прогон</h2></div>
+              <p class="panel-help">Каждая ячейка — frameOverrunMs P95, рассчитанный по исходным кадрам одной измеренной итерации.</p>
+              <div class="heat-legend"><span><i class="heat-swatch" style="background:#dff3e7"></i>≤ 2 мс</span><span><i class="heat-swatch" style="background:#fff0b8"></i>2–8 мс</span><span><i class="heat-swatch" style="background:#ffd19b"></i>8–16 мс</span><span><i class="heat-swatch" style="background:#f3a6ab"></i>&gt; 16 мс</span></div>
+              <div class="heatmap-scroll"><div class="heatmap-grid" style="grid-template-columns:minmax(180px,1.5fr) repeat(3,minmax(82px,1fr))">
+  <div class="heat-cell heat-header">Сценарий</div><div class="heat-cell heat-header">Итерация 1</div><div class="heat-cell heat-header">Итерация 2</div><div class="heat-cell heat-header">Итерация 3</div><div class="heat-cell heat-label">Массовое обновление состояния</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 48; P99 +39.47 мс; jank 47.92%">+29.84 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 47; P99 +44.89 мс; jank 48.94%">+33.11 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 48; P99 +42.94 мс; jank 50.00%">+30.91 мс</div><div class="heat-cell heat-label">Цикл взаимодействия с Popover</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 374; P99 +60.84 мс; jank 57.49%">+34.10 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 385; P99 +47.10 мс; jank 47.27%">+25.86 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 387; P99 +59.96 мс; jank 57.62%">+32.77 мс</div><div class="heat-cell heat-label">Выбор сортировки через Select</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 88; P99 +69.97 мс; jank 15.91%">+20.50 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 88; P99 +71.20 мс; jank 14.77%">+23.46 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 89; P99 +60.55 мс; jank 13.48%">+26.35 мс</div><div class="heat-cell heat-label">Действие Cell с подтверждением в Notification</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 41; P99 +45.69 мс; jank 97.56%">+18.69 мс</div><div class="heat-cell" style="background:#ffd19b" title="Кадров 42; P99 +39.16 мс; jank 97.62%">+11.60 мс</div><div class="heat-cell" style="background:#fff0b8" title="Кадров 42; P99 +26.58 мс; jank 16.67%">+7.84 мс</div><div class="heat-cell heat-label">Цикл взаимодействия с Modal</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 228; P99 +45.06 мс; jank 46.05%">+21.28 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 226; P99 +48.75 мс; jank 45.58%">+19.23 мс</div><div class="heat-cell" style="background:#fff0b8" title="Кадров 222; P99 +43.62 мс; jank 37.39%">+5.62 мс</div><div class="heat-cell heat-label">Цикл BottomSheet + Wheel</div><div class="heat-cell" style="background:#ffd19b" title="Кадров 851; P99 +41.55 мс; jank 35.96%">+9.71 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 957; P99 +33.49 мс; jank 35.63%">+17.71 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 896; P99 +31.46 мс; jank 33.93%">+18.00 мс</div><div class="heat-cell heat-label">Поиск и выбор через ComboBox</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 163; P99 +78.47 мс; jank 16.56%">+17.39 мс</div><div class="heat-cell" style="background:#ffd19b" title="Кадров 167; P99 +80.80 мс; jank 13.17%">+13.33 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 163; P99 +83.30 мс; jank 22.70%">+16.68 мс</div><div class="heat-cell heat-label">Прокрутка ленты компонентов</div><div class="heat-cell" style="background:#ffd19b" title="Кадров 693; P99 +12.02 мс; jank 81.82%">+9.61 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 698; P99 +18.56 мс; jank 64.47%">+17.85 мс</div><div class="heat-cell" style="background:#ffd19b" title="Кадров 700; P99 +12.33 мс; jank 61.71%">+9.70 мс</div><div class="heat-cell heat-label">Прокрутка списка Popover-триггеров</div><div class="heat-cell" style="background:#fff0b8" title="Кадров 554; P99 +12.69 мс; jank 90.07%">+3.43 мс</div><div class="heat-cell" style="background:#f3a6ab" title="Кадров 551; P99 +18.51 мс; jank 60.62%">+18.15 мс</div><div class="heat-cell" style="background:#ffd19b" title="Кадров 568; P99 +10.58 мс; jank 81.34%">+9.87 мс</div><div class="heat-cell heat-label">Пользовательский путь Tabs → List → BottomSheet</div><div class="heat-cell" style="background:#ffd19b" title="Кадров 620; P99 +9.86 мс; jank 27.26%">+9.09 мс</div><div class="heat-cell" style="background:#dff3e7" title="Кадров 617; P99 +5.20 мс; jank 36.79%">+1.33 мс</div><div class="heat-cell" style="background:#dff3e7" title="Кадров 626; P99 +5.67 мс; jank 22.68%">+1.79 мс</div>
+</div></div>
+<p class="heatmap-note">Цвет показывает абсолютную величину опоздания P95, а не регрессию относительно референса. Зелёный допускает до 2 мс как небольшое превышение или шум. При наведении показываются P99, jank rate и число кадров.</p>
+            </article>
+          </section>
+          <details class="panel">
+            <summary>Как читать метрики и percentile</summary>
+            <div class="details-content">
+              <div class="glossary-grid">
+                <div class="glossary-item"><strong>frameOverrunMs</strong><span>Время относительно frame deadline устройства. Положительное значение означает, что кадр не уложился в deadline; отрицательное показывает оставшийся запас.</span></div>
+                <div class="glossary-item"><strong>frameDurationCpuMs</strong><span>CPU-время формирования кадра на UI thread и RenderThread. Помогает отличить вычислительную нагрузку от других задержек рендеринга.</span></div>
+                <div class="glossary-item"><strong>P50</strong><span>Медиана: 50% измеренных кадров имеют это или меньшее значение. Описывает типичный кадр.</span></div>
+                <div class="glossary-item"><strong>P90</strong><span>90% кадров имеют это или меньшее значение. Показывает начало медленного хвоста распределения.</span></div>
+                <div class="glossary-item"><strong>P95 — основной сигнал</strong><span>95% кадров имеют это или меньшее значение, а худшие 5% — большее. Лучше P99 сочетает чувствительность к заметным просадкам и повторяемость результата.</span></div>
+                <div class="glossary-item"><strong>P99</strong><span>Край распределения. Полезен для поиска редких зависаний и выбора Perfetto trace, но сильнее реагирует на единичный выброс и шум устройства.</span></div>
+                <div class="glossary-item"><strong>Jank rate</strong><span>Доля исходных кадров, у которых frameOverrunMs &gt; 0. Используется как дополнительный сигнал: небольшие колебания около нуля могут заметно менять процент.</span></div>
+                <div class="glossary-item"><strong>frameCount / CV</strong><span>Число кадров в итерации и коэффициент его вариации. Высокий CV может означать, что сам сценарий воспроизводится нестабильно.</span></div>
+                <div class="glossary-item"><strong>Почему недостаточно одного P95?</strong><span>Overrun P95 ранжирует заметные пропуски deadline; CPU P95, P99, jank rate и стабильность итераций дают контекст и помогают решить, нужен ли анализ Perfetto.</span></div>
+              </div>
+              <p class="table-note">Регрессия: Overrun P95 вырос больше чем на max(3 мс, 15%), CPU P95 — больше чем на max(2 мс, 15%) или jank rate — больше чем на 5 процентных пунктов. Для улучшения используются те же пороги в обратную сторону. Небольшие изменения считаются стабильными.</p>
+            </div>
+          </details>
+          <details class="panel">
+            <summary>Подробная таблица percentile</summary>
+            <div class="details-content">
+              <p class="table-note">Точные значения текущего прогона. Подсвеченные колонки P95 используются для основного сравнения; P50/P90/P99 описывают остальные части распределения.</p>
+              <div class="scroll"><table>
+                <thead><tr><th rowspan="2">Сценарий</th><th rowspan="2">Итерации</th><th colspan="4">frameCount</th><th colspan="4">frameDurationCpuMs</th><th colspan="4">frameOverrunMs</th><th rowspan="2">Jank rate</th></tr>
+                <tr><th>min</th><th>median</th><th>max</th><th>CV</th><th>P50</th><th>P90</th><th class="focus-metric">P95</th><th>P99</th><th>P50</th><th>P90</th><th class="focus-metric">P95</th><th>P99</th></tr></thead>
+                <tbody><tr>
+  <th>Цикл взаимодействия с Popover</th>
+  <td>3</td>
+  <td>374</td><td>385</td><td>387</td>
+  <td>0.018</td>
+  <td>3.20</td><td>13.49</td><td class="focus-metric">25.47</td><td>51.39</td>
+  <td>+0.40</td><td>+17.43</td><td class="focus-metric">+32.49</td><td>+56.65</td>
+  <td>54.10%</td>
+</tr><tr>
+  <th>Пользовательский путь Tabs → List → BottomSheet</th>
+  <td>3</td>
+  <td>617</td><td>620</td><td>626</td>
+  <td>0.007</td>
+  <td>4.76</td><td>6.68</td><td class="focus-metric">8.22</td><td>10.45</td>
+  <td>-1.87</td><td>+1.02</td><td class="focus-metric">+2.49</td><td>+9.51</td>
+  <td>28.88%</td>
+</tr><tr>
+  <th>Выбор сортировки через Select</th>
+  <td>3</td>
+  <td>88</td><td>88</td><td>89</td>
+  <td>0.007</td>
+  <td>2.92</td><td>5.32</td><td class="focus-metric">12.87</td><td>37.52</td>
+  <td>-4.11</td><td>+9.03</td><td class="focus-metric">+26.56</td><td>+70.05</td>
+  <td>14.72%</td>
+</tr><tr>
+  <th>Цикл взаимодействия с Modal</th>
+  <td>3</td>
+  <td>222</td><td>226</td><td>228</td>
+  <td>0.014</td>
+  <td>3.11</td><td>6.89</td><td class="focus-metric">11.11</td><td>31.70</td>
+  <td>-3.23</td><td>+2.66</td><td class="focus-metric">+17.78</td><td>+47.79</td>
+  <td>43.05%</td>
+</tr><tr>
+  <th>Массовое обновление состояния</th>
+  <td>3</td>
+  <td>47</td><td>48</td><td>48</td>
+  <td>0.012</td>
+  <td>5.27</td><td>22.17</td><td class="focus-metric">26.39</td><td>45.32</td>
+  <td>-0.24</td><td>+15.87</td><td class="focus-metric">+35.86</td><td>+43.83</td>
+  <td>48.95%</td>
+</tr><tr>
+  <th>Цикл BottomSheet + Wheel</th>
+  <td>3</td>
+  <td>851</td><td>896</td><td>957</td>
+  <td>0.059</td>
+  <td>4.62</td><td>12.79</td><td class="focus-metric">15.83</td><td>18.91</td>
+  <td>-1.95</td><td>+12.41</td><td class="focus-metric">+17.73</td><td>+34.58</td>
+  <td>35.17%</td>
+</tr><tr>
+  <th>Прокрутка ленты компонентов</th>
+  <td>3</td>
+  <td>693</td><td>698</td><td>700</td>
+  <td>0.005</td>
+  <td>6.73</td><td>9.49</td><td class="focus-metric">11.79</td><td>16.32</td>
+  <td>+1.46</td><td>+9.72</td><td class="focus-metric">+10.49</td><td>+18.15</td>
+  <td>69.30%</td>
+</tr><tr>
+  <th>Поиск и выбор через ComboBox</th>
+  <td>3</td>
+  <td>163</td><td>163</td><td>167</td>
+  <td>0.014</td>
+  <td>2.99</td><td>8.47</td><td class="focus-metric">12.89</td><td>28.99</td>
+  <td>-3.93</td><td>+5.61</td><td class="focus-metric">+16.80</td><td>+80.67</td>
+  <td>17.44%</td>
+</tr><tr>
+  <th>Действие Cell с подтверждением в Notification</th>
+  <td>3</td>
+  <td>41</td><td>42</td><td>42</td>
+  <td>0.014</td>
+  <td>4.44</td><td>10.28</td><td class="focus-metric">15.36</td><td>30.77</td>
+  <td>+0.61</td><td>+5.22</td><td class="focus-metric">+17.81</td><td>+43.81</td>
+  <td>70.40%</td>
+</tr><tr>
+  <th>Прокрутка списка Popover-триггеров</th>
+  <td>3</td>
+  <td>551</td><td>554</td><td>568</td>
+  <td>0.016</td>
+  <td>5.60</td><td>9.33</td><td class="focus-metric">11.61</td><td>16.64</td>
+  <td>+1.49</td><td>+9.77</td><td class="focus-metric">+10.36</td><td>+18.24</td>
+  <td>77.41%</td>
+</tr></tbody>
+              </table></div>
+            </div>
+          </details>
+          <details class="panel">
+            <summary>Точное сравнение с референсом</summary>
+            <div class="details-content">
+              <p class="table-note">Референс, текущее значение и разница для каждой метрики, участвующей в автоматическом определении статуса.</p>
+              <div class="scroll"><table>
+                <thead><tr><th rowspan="2">Сценарий</th><th rowspan="2">Статус</th><th colspan="3">Overrun P95</th><th colspan="3">CPU P95</th><th colspan="3">Jank rate</th></tr>
+                <tr><th>Референс</th><th>Текущий</th><th>Разница</th><th>Референс</th><th>Текущий</th><th>Разница</th><th>Референс</th><th>Текущий</th><th>Разница</th></tr></thead>
+                <tbody><tr>
+  <th>Прокрутка ленты компонентов</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>10.49 ms</td><td>—</td>
+  <td>— ms</td><td>11.79 ms</td><td>—</td>
+  <td>— %</td><td>69.30 %</td><td>—</td>
+</tr><tr>
+  <th>Массовое обновление состояния</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>35.86 ms</td><td>—</td>
+  <td>— ms</td><td>26.39 ms</td><td>—</td>
+  <td>— %</td><td>48.95 %</td><td>—</td>
+</tr><tr>
+  <th>Цикл взаимодействия с Modal</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>17.78 ms</td><td>—</td>
+  <td>— ms</td><td>11.11 ms</td><td>—</td>
+  <td>— %</td><td>43.05 %</td><td>—</td>
+</tr><tr>
+  <th>Цикл взаимодействия с Popover</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>32.49 ms</td><td>—</td>
+  <td>— ms</td><td>25.47 ms</td><td>—</td>
+  <td>— %</td><td>54.10 %</td><td>—</td>
+</tr><tr>
+  <th>Прокрутка списка Popover-триггеров</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>10.36 ms</td><td>—</td>
+  <td>— ms</td><td>11.61 ms</td><td>—</td>
+  <td>— %</td><td>77.41 %</td><td>—</td>
+</tr><tr>
+  <th>Цикл BottomSheet + Wheel</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>17.73 ms</td><td>—</td>
+  <td>— ms</td><td>15.83 ms</td><td>—</td>
+  <td>— %</td><td>35.17 %</td><td>—</td>
+</tr><tr>
+  <th>Пользовательский путь Tabs → List → BottomSheet</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>2.49 ms</td><td>—</td>
+  <td>— ms</td><td>8.22 ms</td><td>—</td>
+  <td>— %</td><td>28.88 %</td><td>—</td>
+</tr><tr>
+  <th>Выбор сортировки через Select</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>26.56 ms</td><td>—</td>
+  <td>— ms</td><td>12.87 ms</td><td>—</td>
+  <td>— %</td><td>14.72 %</td><td>—</td>
+</tr><tr>
+  <th>Поиск и выбор через ComboBox</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>16.80 ms</td><td>—</td>
+  <td>— ms</td><td>12.89 ms</td><td>—</td>
+  <td>— %</td><td>17.44 %</td><td>—</td>
+</tr><tr>
+  <th>Действие Cell с подтверждением в Notification</th>
+  <td class="status-cell-warning">НЕТ РЕФЕРЕНСА</td>
+  <td>— ms</td><td>17.81 ms</td><td>—</td>
+  <td>— ms</td><td>15.36 ms</td><td>—</td>
+  <td>— %</td><td>70.40 %</td><td>—</td>
+</tr></tbody>
+              </table></div>
+            </div>
+          </details>
+          <details class="panel">
+            <summary>Окружение и исходные файлы</summary>
+            <div class="details-content"><table>
+              <tr><th>Устройство</th><td>samsung SM-G998B</td></tr>
+              <tr><th>Android SDK</th><td>35</td></tr>
+              <tr><th>Fingerprint</th><td>samsung/p3sxser/p3s:15/AP3A.240905.015.A2/G998BXXSJHZC2:user/release-keys</td></tr>
+              <tr><th>Ядра CPU / locked</th><td>8 / false</td></tr>
+              <tr><th>Режим компиляции</th><td>run-from-apk</td></tr>
+              <tr><th>Текущий JSON</th><td><code>G:\plasma-android\playground\sandbox-macrobenchmark\build\outputs\connected_android_test_additional_output\benchmark\connected\SM-G998B - 15\com.sdds.playground.macrobenchmark-benchmarkData.json</code></td></tr>
+              <tr><th>JSON референса</th><td><code>не найден</code></td></tr>
+              <tr><th>Ревизия референса</th><td>—</td></tr>
+            </table></div>
+          </details>
+          <p class="run-meta">Perfetto traces намеренно не копируются в отчёт. Для поиска причины проблемы используются traces из build-директории Android.</p>
+        </body>
+        </html>
