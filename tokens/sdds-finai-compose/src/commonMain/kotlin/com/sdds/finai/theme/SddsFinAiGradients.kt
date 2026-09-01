@@ -31,17 +31,12 @@ public class SddsFinAiGradients(
     private val gradients: Map<String, List<ShaderBrush>>,
 ) {
     /**
-     * Акцентный цвет с градиентом
-     */
-    public val textDefaultAccentGradient: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет с градиентом
+     * light text default textAccentGradientHover
      */
     public val textDefaultAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом
+     * light text default textAccentGradientActive
      */
     public val textDefaultAccentGradientActive: List<ShaderBrush> by gradients
 
@@ -91,17 +86,42 @@ public class SddsFinAiGradients(
     public val textDefaultPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text default textGradientPrimaryHover
      */
-    public val textOnDarkAccentGradient: List<ShaderBrush> by gradients
+    public val textDefaultGradientPrimaryHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text default textGradientPrimaryActive
+     */
+    public val textDefaultGradientPrimaryActive: List<ShaderBrush> by gradients
+
+    /**
+     * light text default textAccentGradientMinorHover
+     */
+    public val textDefaultAccentGradientMinorHover: List<ShaderBrush> by gradients
+
+    /**
+     * light text default textAccentGradientMinorActive
+     */
+    public val textDefaultAccentGradientMinorActive: List<ShaderBrush> by gradients
+
+    /**
+     * light text default textAccentGradient
+     */
+    public val textDefaultAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * light text default textAccentGradientMinor
+     */
+    public val textDefaultAccentGradientMinor: List<ShaderBrush> by gradients
+
+    /**
+     * light text onDark textAccentGradientHover
      */
     public val textOnDarkAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text onDark textAccentGradientActive
      */
     public val textOnDarkAccentGradientActive: List<ShaderBrush> by gradients
 
@@ -151,17 +171,42 @@ public class SddsFinAiGradients(
     public val textOnDarkPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onDark textGradientPrimaryHover
      */
-    public val textOnLightAccentGradient: List<ShaderBrush> by gradients
+    public val textOnDarkGradientPrimaryHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onDark textGradientPrimaryActive
+     */
+    public val textOnDarkGradientPrimaryActive: List<ShaderBrush> by gradients
+
+    /**
+     * light text onDark textAccentGradientMinorHover
+     */
+    public val textOnDarkAccentGradientMinorHover: List<ShaderBrush> by gradients
+
+    /**
+     * light text onDark textAccentGradientMinorActive
+     */
+    public val textOnDarkAccentGradientMinorActive: List<ShaderBrush> by gradients
+
+    /**
+     * light text onDark textAccentGradient
+     */
+    public val textOnDarkAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * light text onDark textAccentGradientMinor
+     */
+    public val textOnDarkAccentGradientMinor: List<ShaderBrush> by gradients
+
+    /**
+     * light text onLight textAccentGradientHover
      */
     public val textOnLightAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onLight textAccentGradientActive
      */
     public val textOnLightAccentGradientActive: List<ShaderBrush> by gradients
 
@@ -211,17 +256,42 @@ public class SddsFinAiGradients(
     public val textOnLightPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text onLight textGradientPrimaryHover
      */
-    public val textInverseAccentGradient: List<ShaderBrush> by gradients
+    public val textOnLightGradientPrimaryHover: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text onLight textGradientPrimaryActive
+     */
+    public val textOnLightGradientPrimaryActive: List<ShaderBrush> by gradients
+
+    /**
+     * light text onLight textAccentGradientMinorHover
+     */
+    public val textOnLightAccentGradientMinorHover: List<ShaderBrush> by gradients
+
+    /**
+     * light text onLight textAccentGradientMinorActive
+     */
+    public val textOnLightAccentGradientMinorActive: List<ShaderBrush> by gradients
+
+    /**
+     * light text onLight textAccentGradient
+     */
+    public val textOnLightAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * light text onLight textAccentGradientMinor
+     */
+    public val textOnLightAccentGradientMinor: List<ShaderBrush> by gradients
+
+    /**
+     * light text inverse textAccentGradientHover
      */
     public val textInverseAccentGradientHover: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text inverse textAccentGradientActive
      */
     public val textInverseAccentGradientActive: List<ShaderBrush> by gradients
 
@@ -271,9 +341,34 @@ public class SddsFinAiGradients(
     public val textInversePromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом
+     * light text inverse textGradientPrimaryHover
      */
-    public val surfaceDefaultAccentGradient: List<ShaderBrush> by gradients
+    public val textInverseGradientPrimaryHover: List<ShaderBrush> by gradients
+
+    /**
+     * light text inverse textGradientPrimaryActive
+     */
+    public val textInverseGradientPrimaryActive: List<ShaderBrush> by gradients
+
+    /**
+     * light text inverse textAccentGradientMinorHover
+     */
+    public val textInverseAccentGradientMinorHover: List<ShaderBrush> by gradients
+
+    /**
+     * light text inverse textAccentGradientMinorActive
+     */
+    public val textInverseAccentGradientMinorActive: List<ShaderBrush> by gradients
+
+    /**
+     * light text inverse textAccentGradient
+     */
+    public val textInverseAccentGradient: List<ShaderBrush> by gradients
+
+    /**
+     * light text inverse textAccentGradientMinor
+     */
+    public val textInverseAccentGradientMinor: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
@@ -361,6 +456,11 @@ public class SddsFinAiGradients(
     public val surfaceDefaultTransparentPromoGradientActive: List<ShaderBrush> by gradients
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradient: List<ShaderBrush> by gradients
+
+    /**
      * Фон для скелетона
      */
     public val surfaceDefaultSkeletonGradient: List<ShaderBrush> by gradients
@@ -389,11 +489,6 @@ public class SddsFinAiGradients(
      * Яркий фон для скелетона
      */
     public val surfaceDefaultSkeletonDeepGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
@@ -481,6 +576,11 @@ public class SddsFinAiGradients(
     public val surfaceOnDarkTransparentPromoGradientActive: List<ShaderBrush> by gradients
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradient: List<ShaderBrush> by gradients
+
+    /**
      * Фон для скелетона
      */
     public val surfaceOnDarkSkeletonGradient: List<ShaderBrush> by gradients
@@ -509,11 +609,6 @@ public class SddsFinAiGradients(
      * Яркий фон для скелетона
      */
     public val surfaceOnDarkSkeletonDeepGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
@@ -601,6 +696,11 @@ public class SddsFinAiGradients(
     public val surfaceOnLightTransparentPromoGradientActive: List<ShaderBrush> by gradients
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradient: List<ShaderBrush> by gradients
+
+    /**
      * Фон для скелетона
      */
     public val surfaceOnLightSkeletonGradient: List<ShaderBrush> by gradients
@@ -629,11 +729,6 @@ public class SddsFinAiGradients(
      * Яркий фон для скелетона
      */
     public val surfaceOnLightSkeletonDeepGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Инвертированный акцентный фон поверхности/контрола с градиентом
@@ -721,6 +816,11 @@ public class SddsFinAiGradients(
     public val surfaceInverseTransparentPromoGradientActive: List<ShaderBrush> by gradients
 
     /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradient: List<ShaderBrush> by gradients
+
+    /**
      * Фон для скелетона
      */
     public val surfaceInverseSkeletonGradient: List<ShaderBrush> by gradients
@@ -749,11 +849,6 @@ public class SddsFinAiGradients(
      * Яркий фон для скелетона
      */
     public val surfaceInverseSkeletonDeepGradientActive: List<ShaderBrush> by gradients
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный цвет обводки с градиентом
@@ -826,9 +921,9 @@ public class SddsFinAiGradients(
     public val outlineDefaultPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет обводки с градиентом на темном фоне
+     * Акцентный цвет обводки с градиентом
      */
-    public val outlineOnDarkAccentGradient: List<ShaderBrush> by gradients
+    public val outlineDefaultAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный цвет обводки с градиентом на темном фоне
@@ -901,9 +996,9 @@ public class SddsFinAiGradients(
     public val outlineOnDarkPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val outlineOnLightAccentGradient: List<ShaderBrush> by gradients
+    public val outlineOnDarkAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Акцентный цвет обводки с градиентом на светлом фоне
@@ -976,9 +1071,9 @@ public class SddsFinAiGradients(
     public val outlineOnLightPromoMinorGradientActive: List<ShaderBrush> by gradients
 
     /**
-     * Инвертированный акцентный цвет обводки с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val outlineInverseAccentGradient: List<ShaderBrush> by gradients
+    public val outlineOnLightAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Инвертированный акцентный цвет обводки с градиентом
@@ -1049,6 +1144,11 @@ public class SddsFinAiGradients(
      * Инвертированный минорный промо цвет обводки с градиентом
      */
     public val outlineInversePromoMinorGradientActive: List<ShaderBrush> by gradients
+
+    /**
+     * Инвертированный акцентный цвет обводки с градиентом
+     */
+    public val outlineInverseAccentGradient: List<ShaderBrush> by gradients
 
     /**
      * Цвет успеха с градиентом
@@ -1325,17 +1425,12 @@ public class GradientOverrideScope {
         get() = _overrideMap.toMap()
 
     /**
-     * Акцентный цвет с градиентом
-     */
-    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
-
-    /**
-     * Акцентный цвет с градиентом
+     * light text default textAccentGradientHover
      */
     public val textDefaultAccentGradientHover: String = "textDefaultAccentGradientHover"
 
     /**
-     * Акцентный цвет с градиентом
+     * light text default textAccentGradientActive
      */
     public val textDefaultAccentGradientActive: String = "textDefaultAccentGradientActive"
 
@@ -1385,17 +1480,42 @@ public class GradientOverrideScope {
     public val textDefaultPromoMinorGradientActive: String = "textDefaultPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text default textGradientPrimaryHover
      */
-    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+    public val textDefaultGradientPrimaryHover: String = "textDefaultGradientPrimaryHover"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text default textGradientPrimaryActive
+     */
+    public val textDefaultGradientPrimaryActive: String = "textDefaultGradientPrimaryActive"
+
+    /**
+     * light text default textAccentGradientMinorHover
+     */
+    public val textDefaultAccentGradientMinorHover: String = "textDefaultAccentGradientMinorHover"
+
+    /**
+     * light text default textAccentGradientMinorActive
+     */
+    public val textDefaultAccentGradientMinorActive: String = "textDefaultAccentGradientMinorActive"
+
+    /**
+     * light text default textAccentGradient
+     */
+    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+
+    /**
+     * light text default textAccentGradientMinor
+     */
+    public val textDefaultAccentGradientMinor: String = "textDefaultAccentGradientMinor"
+
+    /**
+     * light text onDark textAccentGradientHover
      */
     public val textOnDarkAccentGradientHover: String = "textOnDarkAccentGradientHover"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text onDark textAccentGradientActive
      */
     public val textOnDarkAccentGradientActive: String = "textOnDarkAccentGradientActive"
 
@@ -1445,17 +1565,42 @@ public class GradientOverrideScope {
     public val textOnDarkPromoMinorGradientActive: String = "textOnDarkPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onDark textGradientPrimaryHover
      */
-    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+    public val textOnDarkGradientPrimaryHover: String = "textOnDarkGradientPrimaryHover"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onDark textGradientPrimaryActive
+     */
+    public val textOnDarkGradientPrimaryActive: String = "textOnDarkGradientPrimaryActive"
+
+    /**
+     * light text onDark textAccentGradientMinorHover
+     */
+    public val textOnDarkAccentGradientMinorHover: String = "textOnDarkAccentGradientMinorHover"
+
+    /**
+     * light text onDark textAccentGradientMinorActive
+     */
+    public val textOnDarkAccentGradientMinorActive: String = "textOnDarkAccentGradientMinorActive"
+
+    /**
+     * light text onDark textAccentGradient
+     */
+    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+
+    /**
+     * light text onDark textAccentGradientMinor
+     */
+    public val textOnDarkAccentGradientMinor: String = "textOnDarkAccentGradientMinor"
+
+    /**
+     * light text onLight textAccentGradientHover
      */
     public val textOnLightAccentGradientHover: String = "textOnLightAccentGradientHover"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onLight textAccentGradientActive
      */
     public val textOnLightAccentGradientActive: String = "textOnLightAccentGradientActive"
 
@@ -1505,17 +1650,42 @@ public class GradientOverrideScope {
     public val textOnLightPromoMinorGradientActive: String = "textOnLightPromoMinorGradientActive"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text onLight textGradientPrimaryHover
      */
-    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+    public val textOnLightGradientPrimaryHover: String = "textOnLightGradientPrimaryHover"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text onLight textGradientPrimaryActive
+     */
+    public val textOnLightGradientPrimaryActive: String = "textOnLightGradientPrimaryActive"
+
+    /**
+     * light text onLight textAccentGradientMinorHover
+     */
+    public val textOnLightAccentGradientMinorHover: String = "textOnLightAccentGradientMinorHover"
+
+    /**
+     * light text onLight textAccentGradientMinorActive
+     */
+    public val textOnLightAccentGradientMinorActive: String = "textOnLightAccentGradientMinorActive"
+
+    /**
+     * light text onLight textAccentGradient
+     */
+    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+
+    /**
+     * light text onLight textAccentGradientMinor
+     */
+    public val textOnLightAccentGradientMinor: String = "textOnLightAccentGradientMinor"
+
+    /**
+     * light text inverse textAccentGradientHover
      */
     public val textInverseAccentGradientHover: String = "textInverseAccentGradientHover"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text inverse textAccentGradientActive
      */
     public val textInverseAccentGradientActive: String = "textInverseAccentGradientActive"
 
@@ -1565,9 +1735,34 @@ public class GradientOverrideScope {
     public val textInversePromoMinorGradientActive: String = "textInversePromoMinorGradientActive"
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом
+     * light text inverse textGradientPrimaryHover
      */
-    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
+    public val textInverseGradientPrimaryHover: String = "textInverseGradientPrimaryHover"
+
+    /**
+     * light text inverse textGradientPrimaryActive
+     */
+    public val textInverseGradientPrimaryActive: String = "textInverseGradientPrimaryActive"
+
+    /**
+     * light text inverse textAccentGradientMinorHover
+     */
+    public val textInverseAccentGradientMinorHover: String = "textInverseAccentGradientMinorHover"
+
+    /**
+     * light text inverse textAccentGradientMinorActive
+     */
+    public val textInverseAccentGradientMinorActive: String = "textInverseAccentGradientMinorActive"
+
+    /**
+     * light text inverse textAccentGradient
+     */
+    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+
+    /**
+     * light text inverse textAccentGradientMinor
+     */
+    public val textInverseAccentGradientMinor: String = "textInverseAccentGradientMinor"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
@@ -1665,6 +1860,11 @@ public class GradientOverrideScope {
         "surfaceDefaultTransparentPromoGradientActive"
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
+
+    /**
      * Фон для скелетона
      */
     public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
@@ -1695,11 +1895,6 @@ public class GradientOverrideScope {
      */
     public val surfaceDefaultSkeletonDeepGradientActive: String =
         "surfaceDefaultSkeletonDeepGradientActive"
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
@@ -1796,6 +1991,11 @@ public class GradientOverrideScope {
         "surfaceOnDarkTransparentPromoGradientActive"
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
+
+    /**
      * Фон для скелетона
      */
     public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
@@ -1826,11 +2026,6 @@ public class GradientOverrideScope {
      */
     public val surfaceOnDarkSkeletonDeepGradientActive: String =
         "surfaceOnDarkSkeletonDeepGradientActive"
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
@@ -1928,6 +2123,11 @@ public class GradientOverrideScope {
         "surfaceOnLightTransparentPromoGradientActive"
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
+
+    /**
      * Фон для скелетона
      */
     public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
@@ -1958,11 +2158,6 @@ public class GradientOverrideScope {
      */
     public val surfaceOnLightSkeletonDeepGradientActive: String =
         "surfaceOnLightSkeletonDeepGradientActive"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
 
     /**
      * Инвертированный акцентный фон поверхности/контрола с градиентом
@@ -2060,6 +2255,11 @@ public class GradientOverrideScope {
         "surfaceInverseTransparentPromoGradientActive"
 
     /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
+
+    /**
      * Фон для скелетона
      */
     public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
@@ -2090,11 +2290,6 @@ public class GradientOverrideScope {
      */
     public val surfaceInverseSkeletonDeepGradientActive: String =
         "surfaceInverseSkeletonDeepGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
 
     /**
      * Акцентный цвет обводки с градиентом
@@ -2174,9 +2369,9 @@ public class GradientOverrideScope {
         "outlineDefaultPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет обводки с градиентом на темном фоне
+     * Акцентный цвет обводки с градиентом
      */
-    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
+    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
 
     /**
      * Акцентный цвет обводки с градиентом на темном фоне
@@ -2255,9 +2450,9 @@ public class GradientOverrideScope {
         "outlineOnDarkPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
+    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
 
     /**
      * Акцентный цвет обводки с градиентом на светлом фоне
@@ -2337,9 +2532,9 @@ public class GradientOverrideScope {
         "outlineOnLightPromoMinorGradientActive"
 
     /**
-     * Инвертированный акцентный цвет обводки с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
+    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
 
     /**
      * Инвертированный акцентный цвет обводки с градиентом
@@ -2417,6 +2612,11 @@ public class GradientOverrideScope {
      */
     public val outlineInversePromoMinorGradientActive: String =
         "outlineInversePromoMinorGradientActive"
+
+    /**
+     * Инвертированный акцентный цвет обводки с градиентом
+     */
+    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
 
     /**
      * Цвет успеха с градиентом
@@ -2676,17 +2876,12 @@ public class GradientAttrOverrideScope {
         get() = _overrideMap.toMap()
 
     /**
-     * Акцентный цвет с градиентом
-     */
-    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
-
-    /**
-     * Акцентный цвет с градиентом
+     * light text default textAccentGradientHover
      */
     public val textDefaultAccentGradientHover: String = "textDefaultAccentGradientHover"
 
     /**
-     * Акцентный цвет с градиентом
+     * light text default textAccentGradientActive
      */
     public val textDefaultAccentGradientActive: String = "textDefaultAccentGradientActive"
 
@@ -2736,17 +2931,42 @@ public class GradientAttrOverrideScope {
     public val textDefaultPromoMinorGradientActive: String = "textDefaultPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text default textGradientPrimaryHover
      */
-    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+    public val textDefaultGradientPrimaryHover: String = "textDefaultGradientPrimaryHover"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text default textGradientPrimaryActive
+     */
+    public val textDefaultGradientPrimaryActive: String = "textDefaultGradientPrimaryActive"
+
+    /**
+     * light text default textAccentGradientMinorHover
+     */
+    public val textDefaultAccentGradientMinorHover: String = "textDefaultAccentGradientMinorHover"
+
+    /**
+     * light text default textAccentGradientMinorActive
+     */
+    public val textDefaultAccentGradientMinorActive: String = "textDefaultAccentGradientMinorActive"
+
+    /**
+     * light text default textAccentGradient
+     */
+    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+
+    /**
+     * light text default textAccentGradientMinor
+     */
+    public val textDefaultAccentGradientMinor: String = "textDefaultAccentGradientMinor"
+
+    /**
+     * light text onDark textAccentGradientHover
      */
     public val textOnDarkAccentGradientHover: String = "textOnDarkAccentGradientHover"
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text onDark textAccentGradientActive
      */
     public val textOnDarkAccentGradientActive: String = "textOnDarkAccentGradientActive"
 
@@ -2796,17 +3016,42 @@ public class GradientAttrOverrideScope {
     public val textOnDarkPromoMinorGradientActive: String = "textOnDarkPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onDark textGradientPrimaryHover
      */
-    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+    public val textOnDarkGradientPrimaryHover: String = "textOnDarkGradientPrimaryHover"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onDark textGradientPrimaryActive
+     */
+    public val textOnDarkGradientPrimaryActive: String = "textOnDarkGradientPrimaryActive"
+
+    /**
+     * light text onDark textAccentGradientMinorHover
+     */
+    public val textOnDarkAccentGradientMinorHover: String = "textOnDarkAccentGradientMinorHover"
+
+    /**
+     * light text onDark textAccentGradientMinorActive
+     */
+    public val textOnDarkAccentGradientMinorActive: String = "textOnDarkAccentGradientMinorActive"
+
+    /**
+     * light text onDark textAccentGradient
+     */
+    public val textOnDarkAccentGradient: String = "textOnDarkAccentGradient"
+
+    /**
+     * light text onDark textAccentGradientMinor
+     */
+    public val textOnDarkAccentGradientMinor: String = "textOnDarkAccentGradientMinor"
+
+    /**
+     * light text onLight textAccentGradientHover
      */
     public val textOnLightAccentGradientHover: String = "textOnLightAccentGradientHover"
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onLight textAccentGradientActive
      */
     public val textOnLightAccentGradientActive: String = "textOnLightAccentGradientActive"
 
@@ -2856,17 +3101,42 @@ public class GradientAttrOverrideScope {
     public val textOnLightPromoMinorGradientActive: String = "textOnLightPromoMinorGradientActive"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text onLight textGradientPrimaryHover
      */
-    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+    public val textOnLightGradientPrimaryHover: String = "textOnLightGradientPrimaryHover"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text onLight textGradientPrimaryActive
+     */
+    public val textOnLightGradientPrimaryActive: String = "textOnLightGradientPrimaryActive"
+
+    /**
+     * light text onLight textAccentGradientMinorHover
+     */
+    public val textOnLightAccentGradientMinorHover: String = "textOnLightAccentGradientMinorHover"
+
+    /**
+     * light text onLight textAccentGradientMinorActive
+     */
+    public val textOnLightAccentGradientMinorActive: String = "textOnLightAccentGradientMinorActive"
+
+    /**
+     * light text onLight textAccentGradient
+     */
+    public val textOnLightAccentGradient: String = "textOnLightAccentGradient"
+
+    /**
+     * light text onLight textAccentGradientMinor
+     */
+    public val textOnLightAccentGradientMinor: String = "textOnLightAccentGradientMinor"
+
+    /**
+     * light text inverse textAccentGradientHover
      */
     public val textInverseAccentGradientHover: String = "textInverseAccentGradientHover"
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text inverse textAccentGradientActive
      */
     public val textInverseAccentGradientActive: String = "textInverseAccentGradientActive"
 
@@ -2916,9 +3186,34 @@ public class GradientAttrOverrideScope {
     public val textInversePromoMinorGradientActive: String = "textInversePromoMinorGradientActive"
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом
+     * light text inverse textGradientPrimaryHover
      */
-    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
+    public val textInverseGradientPrimaryHover: String = "textInverseGradientPrimaryHover"
+
+    /**
+     * light text inverse textGradientPrimaryActive
+     */
+    public val textInverseGradientPrimaryActive: String = "textInverseGradientPrimaryActive"
+
+    /**
+     * light text inverse textAccentGradientMinorHover
+     */
+    public val textInverseAccentGradientMinorHover: String = "textInverseAccentGradientMinorHover"
+
+    /**
+     * light text inverse textAccentGradientMinorActive
+     */
+    public val textInverseAccentGradientMinorActive: String = "textInverseAccentGradientMinorActive"
+
+    /**
+     * light text inverse textAccentGradient
+     */
+    public val textInverseAccentGradient: String = "textInverseAccentGradient"
+
+    /**
+     * light text inverse textAccentGradientMinor
+     */
+    public val textInverseAccentGradientMinor: String = "textInverseAccentGradientMinor"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом
@@ -3016,6 +3311,11 @@ public class GradientAttrOverrideScope {
         "surfaceDefaultTransparentPromoGradientActive"
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceDefaultAccentGradient: String = "surfaceDefaultAccentGradient"
+
+    /**
      * Фон для скелетона
      */
     public val surfaceDefaultSkeletonGradient: String = "surfaceDefaultSkeletonGradient"
@@ -3046,11 +3346,6 @@ public class GradientAttrOverrideScope {
      */
     public val surfaceDefaultSkeletonDeepGradientActive: String =
         "surfaceDefaultSkeletonDeepGradientActive"
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на темном фоне
@@ -3147,6 +3442,11 @@ public class GradientAttrOverrideScope {
         "surfaceOnDarkTransparentPromoGradientActive"
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public val surfaceOnDarkAccentGradient: String = "surfaceOnDarkAccentGradient"
+
+    /**
      * Фон для скелетона
      */
     public val surfaceOnDarkSkeletonGradient: String = "surfaceOnDarkSkeletonGradient"
@@ -3177,11 +3477,6 @@ public class GradientAttrOverrideScope {
      */
     public val surfaceOnDarkSkeletonDeepGradientActive: String =
         "surfaceOnDarkSkeletonDeepGradientActive"
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
 
     /**
      * Акцентный фон поверхности/контрола с градиентом на светлом фоне
@@ -3279,6 +3574,11 @@ public class GradientAttrOverrideScope {
         "surfaceOnLightTransparentPromoGradientActive"
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public val surfaceOnLightAccentGradient: String = "surfaceOnLightAccentGradient"
+
+    /**
      * Фон для скелетона
      */
     public val surfaceOnLightSkeletonGradient: String = "surfaceOnLightSkeletonGradient"
@@ -3309,11 +3609,6 @@ public class GradientAttrOverrideScope {
      */
     public val surfaceOnLightSkeletonDeepGradientActive: String =
         "surfaceOnLightSkeletonDeepGradientActive"
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
 
     /**
      * Инвертированный акцентный фон поверхности/контрола с градиентом
@@ -3411,6 +3706,11 @@ public class GradientAttrOverrideScope {
         "surfaceInverseTransparentPromoGradientActive"
 
     /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public val surfaceInverseAccentGradient: String = "surfaceInverseAccentGradient"
+
+    /**
      * Фон для скелетона
      */
     public val surfaceInverseSkeletonGradient: String = "surfaceInverseSkeletonGradient"
@@ -3441,11 +3741,6 @@ public class GradientAttrOverrideScope {
      */
     public val surfaceInverseSkeletonDeepGradientActive: String =
         "surfaceInverseSkeletonDeepGradientActive"
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
 
     /**
      * Акцентный цвет обводки с градиентом
@@ -3525,9 +3820,9 @@ public class GradientAttrOverrideScope {
         "outlineDefaultPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет обводки с градиентом на темном фоне
+     * Акцентный цвет обводки с градиентом
      */
-    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
+    public val outlineDefaultAccentGradient: String = "outlineDefaultAccentGradient"
 
     /**
      * Акцентный цвет обводки с градиентом на темном фоне
@@ -3606,9 +3901,9 @@ public class GradientAttrOverrideScope {
         "outlineOnDarkPromoMinorGradientActive"
 
     /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
+    public val outlineOnDarkAccentGradient: String = "outlineOnDarkAccentGradient"
 
     /**
      * Акцентный цвет обводки с градиентом на светлом фоне
@@ -3688,9 +3983,9 @@ public class GradientAttrOverrideScope {
         "outlineOnLightPromoMinorGradientActive"
 
     /**
-     * Инвертированный акцентный цвет обводки с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
+    public val outlineOnLightAccentGradient: String = "outlineOnLightAccentGradient"
 
     /**
      * Инвертированный акцентный цвет обводки с градиентом
@@ -3768,6 +4063,11 @@ public class GradientAttrOverrideScope {
      */
     public val outlineInversePromoMinorGradientActive: String =
         "outlineInversePromoMinorGradientActive"
+
+    /**
+     * Инвертированный акцентный цвет обводки с градиентом
+     */
+    public val outlineInverseAccentGradient: String = "outlineInverseAccentGradient"
 
     /**
      * Цвет успеха с градиентом
@@ -4040,17 +4340,6 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
     val overwrite = gradientOverrideScope.overrideMap
     val initial = mutableMapOf<String, List<ShaderBrush>>()
     initial.add(
-        "textDefaultAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.TextDefaultAccentGradient.colors,
-                LightGradientTokens.TextDefaultAccentGradient.positions,
-                LightGradientTokens.TextDefaultAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "textDefaultAccentGradientHover",
         listOf(
             linearGradient(
@@ -4172,13 +4461,74 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradient",
+        "textDefaultGradientPrimaryHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnDarkAccentGradient.colors,
-                LightGradientTokens.TextOnDarkAccentGradient.positions,
-                LightGradientTokens.TextOnDarkAccentGradient.angle,
+                LightGradientTokens.TextDefaultGradientPrimaryHover.colors,
+                LightGradientTokens.TextDefaultGradientPrimaryHover.positions,
+                LightGradientTokens.TextDefaultGradientPrimaryHover.angle,
             ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultGradientPrimaryActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextDefaultGradientPrimaryActive.colors,
+                LightGradientTokens.TextDefaultGradientPrimaryActive.positions,
+                LightGradientTokens.TextDefaultGradientPrimaryActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentGradientMinorHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextDefaultAccentGradientMinorHover.colors,
+                LightGradientTokens.TextDefaultAccentGradientMinorHover.positions,
+                LightGradientTokens.TextDefaultAccentGradientMinorHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentGradientMinorActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextDefaultAccentGradientMinorActive.colors,
+                LightGradientTokens.TextDefaultAccentGradientMinorActive.positions,
+                LightGradientTokens.TextDefaultAccentGradientMinorActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextDefaultAccentGradient.colors,
+                LightGradientTokens.TextDefaultAccentGradient.positions,
+                LightGradientTokens.TextDefaultAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentGradientMinor",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextDefaultAccentGradientMinor.Layer0.colors,
+                LightGradientTokens.TextDefaultAccentGradientMinor.Layer0.positions,
+                LightGradientTokens.TextDefaultAccentGradientMinor.Layer0.angle,
+            ),
+            linearGradient(
+                LightGradientTokens.TextDefaultAccentGradientMinor.Layer1.colors,
+                LightGradientTokens.TextDefaultAccentGradientMinor.Layer1.positions,
+                LightGradientTokens.TextDefaultAccentGradientMinor.Layer1.angle,
+            ),
+            singleColor(LightGradientTokens.TextDefaultAccentGradientMinor.Layer2.background),
         ),
         overwrite,
     )
@@ -4304,13 +4654,74 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradient",
+        "textOnDarkGradientPrimaryHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextOnLightAccentGradient.colors,
-                LightGradientTokens.TextOnLightAccentGradient.positions,
-                LightGradientTokens.TextOnLightAccentGradient.angle,
+                LightGradientTokens.TextOnDarkGradientPrimaryHover.colors,
+                LightGradientTokens.TextOnDarkGradientPrimaryHover.positions,
+                LightGradientTokens.TextOnDarkGradientPrimaryHover.angle,
             ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkGradientPrimaryActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnDarkGradientPrimaryActive.colors,
+                LightGradientTokens.TextOnDarkGradientPrimaryActive.positions,
+                LightGradientTokens.TextOnDarkGradientPrimaryActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkAccentGradientMinorHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnDarkAccentGradientMinorHover.colors,
+                LightGradientTokens.TextOnDarkAccentGradientMinorHover.positions,
+                LightGradientTokens.TextOnDarkAccentGradientMinorHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkAccentGradientMinorActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnDarkAccentGradientMinorActive.colors,
+                LightGradientTokens.TextOnDarkAccentGradientMinorActive.positions,
+                LightGradientTokens.TextOnDarkAccentGradientMinorActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnDarkAccentGradient.colors,
+                LightGradientTokens.TextOnDarkAccentGradient.positions,
+                LightGradientTokens.TextOnDarkAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkAccentGradientMinor",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnDarkAccentGradientMinor.Layer0.colors,
+                LightGradientTokens.TextOnDarkAccentGradientMinor.Layer0.positions,
+                LightGradientTokens.TextOnDarkAccentGradientMinor.Layer0.angle,
+            ),
+            linearGradient(
+                LightGradientTokens.TextOnDarkAccentGradientMinor.Layer1.colors,
+                LightGradientTokens.TextOnDarkAccentGradientMinor.Layer1.positions,
+                LightGradientTokens.TextOnDarkAccentGradientMinor.Layer1.angle,
+            ),
+            singleColor(LightGradientTokens.TextOnDarkAccentGradientMinor.Layer2.background),
         ),
         overwrite,
     )
@@ -4436,13 +4847,74 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradient",
+        "textOnLightGradientPrimaryHover",
         listOf(
             linearGradient(
-                LightGradientTokens.TextInverseAccentGradient.colors,
-                LightGradientTokens.TextInverseAccentGradient.positions,
-                LightGradientTokens.TextInverseAccentGradient.angle,
+                LightGradientTokens.TextOnLightGradientPrimaryHover.colors,
+                LightGradientTokens.TextOnLightGradientPrimaryHover.positions,
+                LightGradientTokens.TextOnLightGradientPrimaryHover.angle,
             ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightGradientPrimaryActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnLightGradientPrimaryActive.colors,
+                LightGradientTokens.TextOnLightGradientPrimaryActive.positions,
+                LightGradientTokens.TextOnLightGradientPrimaryActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightAccentGradientMinorHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnLightAccentGradientMinorHover.colors,
+                LightGradientTokens.TextOnLightAccentGradientMinorHover.positions,
+                LightGradientTokens.TextOnLightAccentGradientMinorHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightAccentGradientMinorActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnLightAccentGradientMinorActive.colors,
+                LightGradientTokens.TextOnLightAccentGradientMinorActive.positions,
+                LightGradientTokens.TextOnLightAccentGradientMinorActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnLightAccentGradient.colors,
+                LightGradientTokens.TextOnLightAccentGradient.positions,
+                LightGradientTokens.TextOnLightAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightAccentGradientMinor",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextOnLightAccentGradientMinor.Layer0.colors,
+                LightGradientTokens.TextOnLightAccentGradientMinor.Layer0.positions,
+                LightGradientTokens.TextOnLightAccentGradientMinor.Layer0.angle,
+            ),
+            linearGradient(
+                LightGradientTokens.TextOnLightAccentGradientMinor.Layer1.colors,
+                LightGradientTokens.TextOnLightAccentGradientMinor.Layer1.positions,
+                LightGradientTokens.TextOnLightAccentGradientMinor.Layer1.angle,
+            ),
+            singleColor(LightGradientTokens.TextOnLightAccentGradientMinor.Layer2.background),
         ),
         overwrite,
     )
@@ -4568,13 +5040,74 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradient",
+        "textInverseGradientPrimaryHover",
         listOf(
             linearGradient(
-                LightGradientTokens.SurfaceDefaultAccentGradient.colors,
-                LightGradientTokens.SurfaceDefaultAccentGradient.positions,
-                LightGradientTokens.SurfaceDefaultAccentGradient.angle,
+                LightGradientTokens.TextInverseGradientPrimaryHover.colors,
+                LightGradientTokens.TextInverseGradientPrimaryHover.positions,
+                LightGradientTokens.TextInverseGradientPrimaryHover.angle,
             ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseGradientPrimaryActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextInverseGradientPrimaryActive.colors,
+                LightGradientTokens.TextInverseGradientPrimaryActive.positions,
+                LightGradientTokens.TextInverseGradientPrimaryActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseAccentGradientMinorHover",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextInverseAccentGradientMinorHover.colors,
+                LightGradientTokens.TextInverseAccentGradientMinorHover.positions,
+                LightGradientTokens.TextInverseAccentGradientMinorHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseAccentGradientMinorActive",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextInverseAccentGradientMinorActive.colors,
+                LightGradientTokens.TextInverseAccentGradientMinorActive.positions,
+                LightGradientTokens.TextInverseAccentGradientMinorActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextInverseAccentGradient.colors,
+                LightGradientTokens.TextInverseAccentGradient.positions,
+                LightGradientTokens.TextInverseAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseAccentGradientMinor",
+        listOf(
+            linearGradient(
+                LightGradientTokens.TextInverseAccentGradientMinor.Layer0.colors,
+                LightGradientTokens.TextInverseAccentGradientMinor.Layer0.positions,
+                LightGradientTokens.TextInverseAccentGradientMinor.Layer0.angle,
+            ),
+            linearGradient(
+                LightGradientTokens.TextInverseAccentGradientMinor.Layer1.colors,
+                LightGradientTokens.TextInverseAccentGradientMinor.Layer1.positions,
+                LightGradientTokens.TextInverseAccentGradientMinor.Layer1.angle,
+            ),
+            singleColor(LightGradientTokens.TextInverseAccentGradientMinor.Layer2.background),
         ),
         overwrite,
     )
@@ -4766,6 +5299,17 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
+        "surfaceDefaultAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceDefaultAccentGradient.colors,
+                LightGradientTokens.SurfaceDefaultAccentGradient.positions,
+                LightGradientTokens.SurfaceDefaultAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceDefaultSkeletonGradient",
         listOf(
             linearGradient(
@@ -4827,17 +5371,6 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
                 LightGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.colors,
                 LightGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.positions,
                 LightGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnDarkAccentGradient.colors,
-                LightGradientTokens.SurfaceOnDarkAccentGradient.positions,
-                LightGradientTokens.SurfaceOnDarkAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -5030,6 +5563,17 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
+        "surfaceOnDarkAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnDarkAccentGradient.colors,
+                LightGradientTokens.SurfaceOnDarkAccentGradient.positions,
+                LightGradientTokens.SurfaceOnDarkAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceOnDarkSkeletonGradient",
         listOf(
             linearGradient(
@@ -5091,17 +5635,6 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
                 LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.colors,
                 LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.positions,
                 LightGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceOnLightAccentGradient.colors,
-                LightGradientTokens.SurfaceOnLightAccentGradient.positions,
-                LightGradientTokens.SurfaceOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -5294,6 +5827,17 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
+        "surfaceOnLightAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceOnLightAccentGradient.colors,
+                LightGradientTokens.SurfaceOnLightAccentGradient.positions,
+                LightGradientTokens.SurfaceOnLightAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceOnLightSkeletonGradient",
         listOf(
             linearGradient(
@@ -5355,17 +5899,6 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
                 LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.colors,
                 LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.positions,
                 LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.SurfaceInverseAccentGradient.colors,
-                LightGradientTokens.SurfaceInverseAccentGradient.positions,
-                LightGradientTokens.SurfaceInverseAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -5558,6 +6091,17 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
+        "surfaceInverseAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.SurfaceInverseAccentGradient.colors,
+                LightGradientTokens.SurfaceInverseAccentGradient.positions,
+                LightGradientTokens.SurfaceInverseAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceInverseSkeletonGradient",
         listOf(
             linearGradient(
@@ -5619,17 +6163,6 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
                 LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
                 LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
                 LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultAccentGradient",
-        listOf(
-            linearGradient(
-                LightGradientTokens.OutlineDefaultAccentGradient.colors,
-                LightGradientTokens.OutlineDefaultAccentGradient.positions,
-                LightGradientTokens.OutlineDefaultAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -5789,12 +6322,12 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradient",
+        "outlineDefaultAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnDarkAccentGradient.colors,
-                LightGradientTokens.OutlineOnDarkAccentGradient.positions,
-                LightGradientTokens.OutlineOnDarkAccentGradient.angle,
+                LightGradientTokens.OutlineDefaultAccentGradient.colors,
+                LightGradientTokens.OutlineDefaultAccentGradient.positions,
+                LightGradientTokens.OutlineDefaultAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -5954,12 +6487,12 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "outlineOnLightAccentGradient",
+        "outlineOnDarkAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineOnLightAccentGradient.colors,
-                LightGradientTokens.OutlineOnLightAccentGradient.positions,
-                LightGradientTokens.OutlineOnLightAccentGradient.angle,
+                LightGradientTokens.OutlineOnDarkAccentGradient.colors,
+                LightGradientTokens.OutlineOnDarkAccentGradient.positions,
+                LightGradientTokens.OutlineOnDarkAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -6119,12 +6652,12 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentGradient",
+        "outlineOnLightAccentGradient",
         listOf(
             linearGradient(
-                LightGradientTokens.OutlineInverseAccentGradient.colors,
-                LightGradientTokens.OutlineInverseAccentGradient.positions,
-                LightGradientTokens.OutlineInverseAccentGradient.angle,
+                LightGradientTokens.OutlineOnLightAccentGradient.colors,
+                LightGradientTokens.OutlineOnLightAccentGradient.positions,
+                LightGradientTokens.OutlineOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -6279,6 +6812,17 @@ public fun lightSddsFinAiGradients(overrideGradients: GradientOverrideScope.() -
                 LightGradientTokens.OutlineInversePromoMinorGradientActive.colors,
                 LightGradientTokens.OutlineInversePromoMinorGradientActive.positions,
                 LightGradientTokens.OutlineInversePromoMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseAccentGradient",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OutlineInverseAccentGradient.colors,
+                LightGradientTokens.OutlineInverseAccentGradient.positions,
+                LightGradientTokens.OutlineInverseAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -6856,17 +7400,6 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
     val overwrite = gradientOverrideScope.overrideMap
     val initial = mutableMapOf<String, List<ShaderBrush>>()
     initial.add(
-        "textDefaultAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.TextDefaultAccentGradient.colors,
-                DarkGradientTokens.TextDefaultAccentGradient.positions,
-                DarkGradientTokens.TextDefaultAccentGradient.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
         "textDefaultAccentGradientHover",
         listOf(
             linearGradient(
@@ -6988,13 +7521,74 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "textOnDarkAccentGradient",
+        "textDefaultGradientPrimaryHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnDarkAccentGradient.colors,
-                DarkGradientTokens.TextOnDarkAccentGradient.positions,
-                DarkGradientTokens.TextOnDarkAccentGradient.angle,
+                DarkGradientTokens.TextDefaultGradientPrimaryHover.colors,
+                DarkGradientTokens.TextDefaultGradientPrimaryHover.positions,
+                DarkGradientTokens.TextDefaultGradientPrimaryHover.angle,
             ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultGradientPrimaryActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextDefaultGradientPrimaryActive.colors,
+                DarkGradientTokens.TextDefaultGradientPrimaryActive.positions,
+                DarkGradientTokens.TextDefaultGradientPrimaryActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentGradientMinorHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextDefaultAccentGradientMinorHover.colors,
+                DarkGradientTokens.TextDefaultAccentGradientMinorHover.positions,
+                DarkGradientTokens.TextDefaultAccentGradientMinorHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentGradientMinorActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextDefaultAccentGradientMinorActive.colors,
+                DarkGradientTokens.TextDefaultAccentGradientMinorActive.positions,
+                DarkGradientTokens.TextDefaultAccentGradientMinorActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextDefaultAccentGradient.colors,
+                DarkGradientTokens.TextDefaultAccentGradient.positions,
+                DarkGradientTokens.TextDefaultAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentGradientMinor",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextDefaultAccentGradientMinor.Layer0.colors,
+                DarkGradientTokens.TextDefaultAccentGradientMinor.Layer0.positions,
+                DarkGradientTokens.TextDefaultAccentGradientMinor.Layer0.angle,
+            ),
+            linearGradient(
+                DarkGradientTokens.TextDefaultAccentGradientMinor.Layer1.colors,
+                DarkGradientTokens.TextDefaultAccentGradientMinor.Layer1.positions,
+                DarkGradientTokens.TextDefaultAccentGradientMinor.Layer1.angle,
+            ),
+            singleColor(DarkGradientTokens.TextDefaultAccentGradientMinor.Layer2.background),
         ),
         overwrite,
     )
@@ -7120,13 +7714,74 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "textOnLightAccentGradient",
+        "textOnDarkGradientPrimaryHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextOnLightAccentGradient.colors,
-                DarkGradientTokens.TextOnLightAccentGradient.positions,
-                DarkGradientTokens.TextOnLightAccentGradient.angle,
+                DarkGradientTokens.TextOnDarkGradientPrimaryHover.colors,
+                DarkGradientTokens.TextOnDarkGradientPrimaryHover.positions,
+                DarkGradientTokens.TextOnDarkGradientPrimaryHover.angle,
             ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkGradientPrimaryActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnDarkGradientPrimaryActive.colors,
+                DarkGradientTokens.TextOnDarkGradientPrimaryActive.positions,
+                DarkGradientTokens.TextOnDarkGradientPrimaryActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkAccentGradientMinorHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnDarkAccentGradientMinorHover.colors,
+                DarkGradientTokens.TextOnDarkAccentGradientMinorHover.positions,
+                DarkGradientTokens.TextOnDarkAccentGradientMinorHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkAccentGradientMinorActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnDarkAccentGradientMinorActive.colors,
+                DarkGradientTokens.TextOnDarkAccentGradientMinorActive.positions,
+                DarkGradientTokens.TextOnDarkAccentGradientMinorActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnDarkAccentGradient.colors,
+                DarkGradientTokens.TextOnDarkAccentGradient.positions,
+                DarkGradientTokens.TextOnDarkAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnDarkAccentGradientMinor",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnDarkAccentGradientMinor.Layer0.colors,
+                DarkGradientTokens.TextOnDarkAccentGradientMinor.Layer0.positions,
+                DarkGradientTokens.TextOnDarkAccentGradientMinor.Layer0.angle,
+            ),
+            linearGradient(
+                DarkGradientTokens.TextOnDarkAccentGradientMinor.Layer1.colors,
+                DarkGradientTokens.TextOnDarkAccentGradientMinor.Layer1.positions,
+                DarkGradientTokens.TextOnDarkAccentGradientMinor.Layer1.angle,
+            ),
+            singleColor(DarkGradientTokens.TextOnDarkAccentGradientMinor.Layer2.background),
         ),
         overwrite,
     )
@@ -7252,13 +7907,74 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "textInverseAccentGradient",
+        "textOnLightGradientPrimaryHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.TextInverseAccentGradient.colors,
-                DarkGradientTokens.TextInverseAccentGradient.positions,
-                DarkGradientTokens.TextInverseAccentGradient.angle,
+                DarkGradientTokens.TextOnLightGradientPrimaryHover.colors,
+                DarkGradientTokens.TextOnLightGradientPrimaryHover.positions,
+                DarkGradientTokens.TextOnLightGradientPrimaryHover.angle,
             ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightGradientPrimaryActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnLightGradientPrimaryActive.colors,
+                DarkGradientTokens.TextOnLightGradientPrimaryActive.positions,
+                DarkGradientTokens.TextOnLightGradientPrimaryActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightAccentGradientMinorHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnLightAccentGradientMinorHover.colors,
+                DarkGradientTokens.TextOnLightAccentGradientMinorHover.positions,
+                DarkGradientTokens.TextOnLightAccentGradientMinorHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightAccentGradientMinorActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnLightAccentGradientMinorActive.colors,
+                DarkGradientTokens.TextOnLightAccentGradientMinorActive.positions,
+                DarkGradientTokens.TextOnLightAccentGradientMinorActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnLightAccentGradient.colors,
+                DarkGradientTokens.TextOnLightAccentGradient.positions,
+                DarkGradientTokens.TextOnLightAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textOnLightAccentGradientMinor",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextOnLightAccentGradientMinor.Layer0.colors,
+                DarkGradientTokens.TextOnLightAccentGradientMinor.Layer0.positions,
+                DarkGradientTokens.TextOnLightAccentGradientMinor.Layer0.angle,
+            ),
+            linearGradient(
+                DarkGradientTokens.TextOnLightAccentGradientMinor.Layer1.colors,
+                DarkGradientTokens.TextOnLightAccentGradientMinor.Layer1.positions,
+                DarkGradientTokens.TextOnLightAccentGradientMinor.Layer1.angle,
+            ),
+            singleColor(DarkGradientTokens.TextOnLightAccentGradientMinor.Layer2.background),
         ),
         overwrite,
     )
@@ -7384,13 +8100,74 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "surfaceDefaultAccentGradient",
+        "textInverseGradientPrimaryHover",
         listOf(
             linearGradient(
-                DarkGradientTokens.SurfaceDefaultAccentGradient.colors,
-                DarkGradientTokens.SurfaceDefaultAccentGradient.positions,
-                DarkGradientTokens.SurfaceDefaultAccentGradient.angle,
+                DarkGradientTokens.TextInverseGradientPrimaryHover.colors,
+                DarkGradientTokens.TextInverseGradientPrimaryHover.positions,
+                DarkGradientTokens.TextInverseGradientPrimaryHover.angle,
             ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseGradientPrimaryActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextInverseGradientPrimaryActive.colors,
+                DarkGradientTokens.TextInverseGradientPrimaryActive.positions,
+                DarkGradientTokens.TextInverseGradientPrimaryActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseAccentGradientMinorHover",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextInverseAccentGradientMinorHover.colors,
+                DarkGradientTokens.TextInverseAccentGradientMinorHover.positions,
+                DarkGradientTokens.TextInverseAccentGradientMinorHover.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseAccentGradientMinorActive",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextInverseAccentGradientMinorActive.colors,
+                DarkGradientTokens.TextInverseAccentGradientMinorActive.positions,
+                DarkGradientTokens.TextInverseAccentGradientMinorActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextInverseAccentGradient.colors,
+                DarkGradientTokens.TextInverseAccentGradient.positions,
+                DarkGradientTokens.TextInverseAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "textInverseAccentGradientMinor",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.TextInverseAccentGradientMinor.Layer0.colors,
+                DarkGradientTokens.TextInverseAccentGradientMinor.Layer0.positions,
+                DarkGradientTokens.TextInverseAccentGradientMinor.Layer0.angle,
+            ),
+            linearGradient(
+                DarkGradientTokens.TextInverseAccentGradientMinor.Layer1.colors,
+                DarkGradientTokens.TextInverseAccentGradientMinor.Layer1.positions,
+                DarkGradientTokens.TextInverseAccentGradientMinor.Layer1.angle,
+            ),
+            singleColor(DarkGradientTokens.TextInverseAccentGradientMinor.Layer2.background),
         ),
         overwrite,
     )
@@ -7582,6 +8359,17 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
+        "surfaceDefaultAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceDefaultAccentGradient.colors,
+                DarkGradientTokens.SurfaceDefaultAccentGradient.positions,
+                DarkGradientTokens.SurfaceDefaultAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceDefaultSkeletonGradient",
         listOf(
             linearGradient(
@@ -7643,17 +8431,6 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
                 DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.colors,
                 DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.positions,
                 DarkGradientTokens.SurfaceDefaultSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnDarkAccentGradient.colors,
-                DarkGradientTokens.SurfaceOnDarkAccentGradient.positions,
-                DarkGradientTokens.SurfaceOnDarkAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -7846,6 +8623,17 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
+        "surfaceOnDarkAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnDarkAccentGradient.colors,
+                DarkGradientTokens.SurfaceOnDarkAccentGradient.positions,
+                DarkGradientTokens.SurfaceOnDarkAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceOnDarkSkeletonGradient",
         listOf(
             linearGradient(
@@ -7907,17 +8695,6 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
                 DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.colors,
                 DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.positions,
                 DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
-                DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
-                DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -8110,6 +8887,17 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
+        "surfaceOnLightAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceOnLightAccentGradient.colors,
+                DarkGradientTokens.SurfaceOnLightAccentGradient.positions,
+                DarkGradientTokens.SurfaceOnLightAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceOnLightSkeletonGradient",
         listOf(
             linearGradient(
@@ -8171,17 +8959,6 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
                 DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.colors,
                 DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.positions,
                 DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.SurfaceInverseAccentGradient.colors,
-                DarkGradientTokens.SurfaceInverseAccentGradient.positions,
-                DarkGradientTokens.SurfaceInverseAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -8374,6 +9151,17 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
+        "surfaceInverseAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.SurfaceInverseAccentGradient.colors,
+                DarkGradientTokens.SurfaceInverseAccentGradient.positions,
+                DarkGradientTokens.SurfaceInverseAccentGradient.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
         "surfaceInverseSkeletonGradient",
         listOf(
             linearGradient(
@@ -8435,17 +9223,6 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
                 DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
                 DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
                 DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
-            ),
-        ),
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultAccentGradient",
-        listOf(
-            linearGradient(
-                DarkGradientTokens.OutlineDefaultAccentGradient.colors,
-                DarkGradientTokens.OutlineDefaultAccentGradient.positions,
-                DarkGradientTokens.OutlineDefaultAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -8605,12 +9382,12 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "outlineOnDarkAccentGradient",
+        "outlineDefaultAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnDarkAccentGradient.colors,
-                DarkGradientTokens.OutlineOnDarkAccentGradient.positions,
-                DarkGradientTokens.OutlineOnDarkAccentGradient.angle,
+                DarkGradientTokens.OutlineDefaultAccentGradient.colors,
+                DarkGradientTokens.OutlineDefaultAccentGradient.positions,
+                DarkGradientTokens.OutlineDefaultAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -8770,12 +9547,12 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "outlineOnLightAccentGradient",
+        "outlineOnDarkAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineOnLightAccentGradient.colors,
-                DarkGradientTokens.OutlineOnLightAccentGradient.positions,
-                DarkGradientTokens.OutlineOnLightAccentGradient.angle,
+                DarkGradientTokens.OutlineOnDarkAccentGradient.colors,
+                DarkGradientTokens.OutlineOnDarkAccentGradient.positions,
+                DarkGradientTokens.OutlineOnDarkAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -8935,12 +9712,12 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
         overwrite,
     )
     initial.add(
-        "outlineInverseAccentGradient",
+        "outlineOnLightAccentGradient",
         listOf(
             linearGradient(
-                DarkGradientTokens.OutlineInverseAccentGradient.colors,
-                DarkGradientTokens.OutlineInverseAccentGradient.positions,
-                DarkGradientTokens.OutlineInverseAccentGradient.angle,
+                DarkGradientTokens.OutlineOnLightAccentGradient.colors,
+                DarkGradientTokens.OutlineOnLightAccentGradient.positions,
+                DarkGradientTokens.OutlineOnLightAccentGradient.angle,
             ),
         ),
         overwrite,
@@ -9095,6 +9872,17 @@ public fun darkSddsFinAiGradients(overrideGradients: GradientOverrideScope.() ->
                 DarkGradientTokens.OutlineInversePromoMinorGradientActive.colors,
                 DarkGradientTokens.OutlineInversePromoMinorGradientActive.positions,
                 DarkGradientTokens.OutlineInversePromoMinorGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseAccentGradient",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OutlineInverseAccentGradient.colors,
+                DarkGradientTokens.OutlineInverseAccentGradient.positions,
+                DarkGradientTokens.OutlineInverseAccentGradient.angle,
             ),
         ),
         overwrite,

@@ -63,6 +63,14 @@ public data class SddsFinAiShadows(
      * shadow up hard l
      */
     public val upHardL: ShadowAppearance = ShadowAppearance(),
+    /**
+     * shadow gradient light
+     */
+    public val gradientLight: ShadowAppearance = ShadowAppearance(),
+    /**
+     * shadow gradient dark
+     */
+    public val gradientDark: ShadowAppearance = ShadowAppearance(),
 )
 
 internal val LocalSddsFinAiShadows: ProvidableCompositionLocal<SddsFinAiShadows> =
@@ -280,6 +288,54 @@ public fun defaultSddsFinAiShadows(): SddsFinAiShadows = SddsFinAiShadows(
                 blurRadius = ShadowTokens.UpHardL.blurRadius,
                 color = ShadowTokens.UpHardL.color,
                 fallbackElevation = ShadowTokens.UpHardL.fallbackElevation,
+            ),
+        ),
+    ),
+    gradientLight = ShadowAppearance(
+        listOf(
+            ShadowLayer(
+                offset = DpOffset(
+                    x = ShadowTokens.GradientLightLayer1.offsetX,
+                    y = ShadowTokens.GradientLightLayer1.offsetY,
+                ),
+                spreadRadius = ShadowTokens.GradientLightLayer1.spreadRadius,
+                blurRadius = ShadowTokens.GradientLightLayer1.blurRadius,
+                color = ShadowTokens.GradientLightLayer1.color,
+                fallbackElevation = ShadowTokens.GradientLightLayer1.fallbackElevation,
+            ),
+            ShadowLayer(
+                offset = DpOffset(
+                    x = ShadowTokens.GradientLightLayer2.offsetX,
+                    y = ShadowTokens.GradientLightLayer2.offsetY,
+                ),
+                spreadRadius = ShadowTokens.GradientLightLayer2.spreadRadius,
+                blurRadius = ShadowTokens.GradientLightLayer2.blurRadius,
+                color = ShadowTokens.GradientLightLayer2.color,
+                fallbackElevation = ShadowTokens.GradientLightLayer2.fallbackElevation,
+            ),
+        ),
+    ),
+    gradientDark = ShadowAppearance(
+        listOf(
+            ShadowLayer(
+                offset = DpOffset(
+                    x = ShadowTokens.GradientDarkLayer1.offsetX,
+                    y = ShadowTokens.GradientDarkLayer1.offsetY,
+                ),
+                spreadRadius = ShadowTokens.GradientDarkLayer1.spreadRadius,
+                blurRadius = ShadowTokens.GradientDarkLayer1.blurRadius,
+                color = ShadowTokens.GradientDarkLayer1.color,
+                fallbackElevation = ShadowTokens.GradientDarkLayer1.fallbackElevation,
+            ),
+            ShadowLayer(
+                offset = DpOffset(
+                    x = ShadowTokens.GradientDarkLayer2.offsetX,
+                    y = ShadowTokens.GradientDarkLayer2.offsetY,
+                ),
+                spreadRadius = ShadowTokens.GradientDarkLayer2.spreadRadius,
+                blurRadius = ShadowTokens.GradientDarkLayer2.blurRadius,
+                color = ShadowTokens.GradientDarkLayer2.color,
+                fallbackElevation = ShadowTokens.GradientDarkLayer2.fallbackElevation,
             ),
         ),
     ),

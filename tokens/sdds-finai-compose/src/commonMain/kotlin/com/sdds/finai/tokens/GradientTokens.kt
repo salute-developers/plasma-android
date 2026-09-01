@@ -11,27 +11,7 @@ import kotlin.collections.List
  */
 public object DarkGradientTokens {
     /**
-     * Акцентный цвет с градиентом
-     */
-    public object TextDefaultAccentGradient {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный цвет с градиентом
+     * dark text default textAccentGradientHover
      */
     public object TextDefaultAccentGradientHover {
         /**
@@ -51,7 +31,7 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом
+     * dark text default textAccentGradientActive
      */
     public object TextDefaultAccentGradientActive {
         /**
@@ -251,9 +231,9 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * dark text default textGradientPrimaryHover
      */
-    public object TextOnDarkAccentGradient {
+    public object TextDefaultGradientPrimaryHover {
         /**
          * Цвета градиента
          */
@@ -271,7 +251,150 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * dark text default textGradientPrimaryActive
+     */
+    public object TextDefaultGradientPrimaryActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text default textAccentGradientMinorHover
+     */
+    public object TextDefaultAccentGradientMinorHover {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text default textAccentGradientMinorActive
+     */
+    public object TextDefaultAccentGradientMinorActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text default textAccentGradient
+     */
+    public object TextDefaultAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF3F81FD),
+            Color(0xFF00A4D1),
+            Color(0xFF528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 101.02f
+    }
+
+    /**
+     * dark text default textAccentGradientMinor
+     */
+    public object TextDefaultAccentGradientMinor {
+        /**
+         * Cлой 0
+         */
+        public object Layer0 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(Color(0x33FFFFFF), Color(0x33FFFFFF))
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 0.0f
+        }
+
+        /**
+         * Cлой 1
+         */
+        public object Layer1 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(
+                Color(0xFF199AF0),
+                Color(0xFF12C2F3),
+                Color(0xFF528EFF),
+            )
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 109.38f
+        }
+
+        /**
+         * Cлой 2
+         */
+        public object Layer2 {
+            /**
+             * Фон градиента
+             */
+            public val background: Color = Color(0x00FFFFFF)
+        }
+    }
+
+    /**
+     * dark text onDark textAccentGradientHover
      */
     public object TextOnDarkAccentGradientHover {
         /**
@@ -291,7 +414,7 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * dark text onDark textAccentGradientActive
      */
     public object TextOnDarkAccentGradientActive {
         /**
@@ -491,9 +614,9 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * dark text onDark textGradientPrimaryHover
      */
-    public object TextOnLightAccentGradient {
+    public object TextOnDarkGradientPrimaryHover {
         /**
          * Цвета градиента
          */
@@ -511,7 +634,150 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * dark text onDark textGradientPrimaryActive
+     */
+    public object TextOnDarkGradientPrimaryActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text onDark textAccentGradientMinorHover
+     */
+    public object TextOnDarkAccentGradientMinorHover {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text onDark textAccentGradientMinorActive
+     */
+    public object TextOnDarkAccentGradientMinorActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text onDark textAccentGradient
+     */
+    public object TextOnDarkAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF3F81FD),
+            Color(0xFF00A4D1),
+            Color(0xFF528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 101.02f
+    }
+
+    /**
+     * dark text onDark textAccentGradientMinor
+     */
+    public object TextOnDarkAccentGradientMinor {
+        /**
+         * Cлой 0
+         */
+        public object Layer0 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(Color(0x33FFFFFF), Color(0x33FFFFFF))
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 0.0f
+        }
+
+        /**
+         * Cлой 1
+         */
+        public object Layer1 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(
+                Color(0xFF199AF0),
+                Color(0xFF12C2F3),
+                Color(0xFF528EFF),
+            )
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 109.38f
+        }
+
+        /**
+         * Cлой 2
+         */
+        public object Layer2 {
+            /**
+             * Фон градиента
+             */
+            public val background: Color = Color(0x00FFFFFF)
+        }
+    }
+
+    /**
+     * dark text onLight textAccentGradientHover
      */
     public object TextOnLightAccentGradientHover {
         /**
@@ -531,7 +797,7 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * dark text onLight textAccentGradientActive
      */
     public object TextOnLightAccentGradientActive {
         /**
@@ -731,9 +997,9 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * dark text onLight textGradientPrimaryHover
      */
-    public object TextInverseAccentGradient {
+    public object TextOnLightGradientPrimaryHover {
         /**
          * Цвета градиента
          */
@@ -751,7 +1017,150 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * dark text onLight textGradientPrimaryActive
+     */
+    public object TextOnLightGradientPrimaryActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text onLight textAccentGradientMinorHover
+     */
+    public object TextOnLightAccentGradientMinorHover {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text onLight textAccentGradientMinorActive
+     */
+    public object TextOnLightAccentGradientMinorActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text onLight textAccentGradient
+     */
+    public object TextOnLightAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF199AF0),
+            Color(0xFF12C2F3),
+            Color(0xFF528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 101.02f
+    }
+
+    /**
+     * dark text onLight textAccentGradientMinor
+     */
+    public object TextOnLightAccentGradientMinor {
+        /**
+         * Cлой 0
+         */
+        public object Layer0 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(Color(0x33501A74), Color(0x33501A74))
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 0.0f
+        }
+
+        /**
+         * Cлой 1
+         */
+        public object Layer1 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(
+                Color(0xFF199AF0),
+                Color(0xFF12C2F3),
+                Color(0xFF528EFF),
+            )
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 101.02f
+        }
+
+        /**
+         * Cлой 2
+         */
+        public object Layer2 {
+            /**
+             * Фон градиента
+             */
+            public val background: Color = Color(0x00FFFFFF)
+        }
+    }
+
+    /**
+     * dark text inverse textAccentGradientHover
      */
     public object TextInverseAccentGradientHover {
         /**
@@ -771,7 +1180,7 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * dark text inverse textAccentGradientActive
      */
     public object TextInverseAccentGradientActive {
         /**
@@ -971,9 +1380,9 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом
+     * dark text inverse textGradientPrimaryHover
      */
-    public object SurfaceDefaultAccentGradient {
+    public object TextInverseGradientPrimaryHover {
         /**
          * Цвета градиента
          */
@@ -988,6 +1397,149 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text inverse textGradientPrimaryActive
+     */
+    public object TextInverseGradientPrimaryActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text inverse textAccentGradientMinorHover
+     */
+    public object TextInverseAccentGradientMinorHover {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text inverse textAccentGradientMinorActive
+     */
+    public object TextInverseAccentGradientMinorActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * dark text inverse textAccentGradient
+     */
+    public object TextInverseAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF199AF0),
+            Color(0xFF12C2F3),
+            Color(0xFF528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 101.02f
+    }
+
+    /**
+     * dark text inverse textAccentGradientMinor
+     */
+    public object TextInverseAccentGradientMinor {
+        /**
+         * Cлой 0
+         */
+        public object Layer0 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(Color(0x33501A74), Color(0x33501A74))
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 0.0f
+        }
+
+        /**
+         * Cлой 1
+         */
+        public object Layer1 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(
+                Color(0xFF199AF0),
+                Color(0xFF12C2F3),
+                Color(0xFF528EFF),
+            )
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 101.02f
+        }
+
+        /**
+         * Cлой 2
+         */
+        public object Layer2 {
+            /**
+             * Фон градиента
+             */
+            public val background: Color = Color(0x00FFFFFF)
+        }
     }
 
     /**
@@ -1331,6 +1883,30 @@ public object DarkGradientTokens {
     }
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public object SurfaceDefaultAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x9904C6C9),
+            Color(0x99199AF0),
+            Color(0x99528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.52f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 128.65f
+    }
+
+    /**
      * Фон для скелетона
      */
     public object SurfaceDefaultSkeletonGradient {
@@ -1450,26 +2026,6 @@ public object DarkGradientTokens {
      * Яркий фон для скелетона
      */
     public object SurfaceDefaultSkeletonDeepGradientActive {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public object SurfaceOnDarkAccentGradient {
         /**
          * Цвета градиента
          */
@@ -1827,6 +2383,30 @@ public object DarkGradientTokens {
     }
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public object SurfaceOnDarkAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x9904C6C9),
+            Color(0x99199AF0),
+            Color(0x99528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.52f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 128.65f
+    }
+
+    /**
      * Фон для скелетона
      */
     public object SurfaceOnDarkSkeletonGradient {
@@ -1946,26 +2526,6 @@ public object DarkGradientTokens {
      * Яркий фон для скелетона
      */
     public object SurfaceOnDarkSkeletonDeepGradientActive {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public object SurfaceOnLightAccentGradient {
         /**
          * Цвета градиента
          */
@@ -2323,6 +2883,30 @@ public object DarkGradientTokens {
     }
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public object SurfaceOnLightAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x6618EFF2),
+            Color(0x6652BAFF),
+            Color(0x668BB2FC),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.52f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 128.65f
+    }
+
+    /**
      * Фон для скелетона
      */
     public object SurfaceOnLightSkeletonGradient {
@@ -2442,26 +3026,6 @@ public object DarkGradientTokens {
      * Яркий фон для скелетона
      */
     public object SurfaceOnLightSkeletonDeepGradientActive {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public object SurfaceInverseAccentGradient {
         /**
          * Цвета градиента
          */
@@ -2819,6 +3383,30 @@ public object DarkGradientTokens {
     }
 
     /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public object SurfaceInverseAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x6618EFF2),
+            Color(0x6652BAFF),
+            Color(0x668BB2FC),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.52f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 128.65f
+    }
+
+    /**
      * Фон для скелетона
      */
     public object SurfaceInverseSkeletonGradient {
@@ -2938,26 +3526,6 @@ public object DarkGradientTokens {
      * Яркий фон для скелетона
      */
     public object SurfaceInverseSkeletonDeepGradientActive {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public object OutlineDefaultAccentGradient {
         /**
          * Цвета градиента
          */
@@ -3255,23 +3823,27 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный цвет обводки с градиентом на темном фоне
+     * Акцентный цвет обводки с градиентом
      */
-    public object OutlineOnDarkAccentGradient {
+    public object OutlineDefaultAccentGradient {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(
+            Color(0xFF118CDF),
+            Color(0xFF0D5382),
+            Color(0xFF1549AB),
+        )
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.47f, 0.94f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 90.0f
+        public const val angle: Float = 136.09f
     }
 
     /**
@@ -3555,23 +4127,27 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public object OutlineOnLightAccentGradient {
+    public object OutlineOnDarkAccentGradient {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(
+            Color(0xFF118CDF),
+            Color(0xFF0D5382),
+            Color(0xFF1549AB),
+        )
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.47f, 0.94f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 90.0f
+        public const val angle: Float = 136.09f
     }
 
     /**
@@ -3855,23 +4431,27 @@ public object DarkGradientTokens {
     }
 
     /**
-     * Инвертированный акцентный цвет обводки с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public object OutlineInverseAccentGradient {
+    public object OutlineOnLightAccentGradient {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(
+            Color(0xFF8AE6FF),
+            Color(0xFFCFECFF),
+            Color(0xFFA9C7FE),
+        )
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 0.93f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 90.0f
+        public const val angle: Float = 136.09f
     }
 
     /**
@@ -4152,6 +4732,30 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
+    }
+
+    /**
+     * Инвертированный акцентный цвет обводки с градиентом
+     */
+    public object OutlineInverseAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF8AE6FF),
+            Color(0xFFCFECFF),
+            Color(0xFFA9C7FE),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 0.93f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 136.09f
     }
 
     /**
@@ -5280,27 +5884,7 @@ public object DarkGradientTokens {
  */
 public object LightGradientTokens {
     /**
-     * Акцентный цвет с градиентом
-     */
-    public object TextDefaultAccentGradient {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный цвет с градиентом
+     * light text default textAccentGradientHover
      */
     public object TextDefaultAccentGradientHover {
         /**
@@ -5320,7 +5904,7 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом
+     * light text default textAccentGradientActive
      */
     public object TextDefaultAccentGradientActive {
         /**
@@ -5520,9 +6104,9 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text default textGradientPrimaryHover
      */
-    public object TextOnDarkAccentGradient {
+    public object TextDefaultGradientPrimaryHover {
         /**
          * Цвета градиента
          */
@@ -5540,7 +6124,150 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text default textGradientPrimaryActive
+     */
+    public object TextDefaultGradientPrimaryActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text default textAccentGradientMinorHover
+     */
+    public object TextDefaultAccentGradientMinorHover {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text default textAccentGradientMinorActive
+     */
+    public object TextDefaultAccentGradientMinorActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text default textAccentGradient
+     */
+    public object TextDefaultAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF199AF0),
+            Color(0xFF12C2F3),
+            Color(0xFF528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 101.02f
+    }
+
+    /**
+     * light text default textAccentGradientMinor
+     */
+    public object TextDefaultAccentGradientMinor {
+        /**
+         * Cлой 0
+         */
+        public object Layer0 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(Color(0x33501A74), Color(0x33501A74))
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 0.0f
+        }
+
+        /**
+         * Cлой 1
+         */
+        public object Layer1 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(
+                Color(0xFF199AF0),
+                Color(0xFF12C2F3),
+                Color(0xFF528EFF),
+            )
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 101.02f
+        }
+
+        /**
+         * Cлой 2
+         */
+        public object Layer2 {
+            /**
+             * Фон градиента
+             */
+            public val background: Color = Color(0x00FFFFFF)
+        }
+    }
+
+    /**
+     * light text onDark textAccentGradientHover
      */
     public object TextOnDarkAccentGradientHover {
         /**
@@ -5560,7 +6287,7 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на темном фоне
+     * light text onDark textAccentGradientActive
      */
     public object TextOnDarkAccentGradientActive {
         /**
@@ -5760,9 +6487,9 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onDark textGradientPrimaryHover
      */
-    public object TextOnLightAccentGradient {
+    public object TextOnDarkGradientPrimaryHover {
         /**
          * Цвета градиента
          */
@@ -5780,7 +6507,150 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onDark textGradientPrimaryActive
+     */
+    public object TextOnDarkGradientPrimaryActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text onDark textAccentGradientMinorHover
+     */
+    public object TextOnDarkAccentGradientMinorHover {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text onDark textAccentGradientMinorActive
+     */
+    public object TextOnDarkAccentGradientMinorActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text onDark textAccentGradient
+     */
+    public object TextOnDarkAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF3F81FD),
+            Color(0xFF00A4D1),
+            Color(0xFF528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 101.02f
+    }
+
+    /**
+     * light text onDark textAccentGradientMinor
+     */
+    public object TextOnDarkAccentGradientMinor {
+        /**
+         * Cлой 0
+         */
+        public object Layer0 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(Color(0x33FFFFFF), Color(0x33FFFFFF))
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 0.0f
+        }
+
+        /**
+         * Cлой 1
+         */
+        public object Layer1 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(
+                Color(0xFF199AF0),
+                Color(0xFF12C2F3),
+                Color(0xFF528EFF),
+            )
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 109.38f
+        }
+
+        /**
+         * Cлой 2
+         */
+        public object Layer2 {
+            /**
+             * Фон градиента
+             */
+            public val background: Color = Color(0x00FFFFFF)
+        }
+    }
+
+    /**
+     * light text onLight textAccentGradientHover
      */
     public object TextOnLightAccentGradientHover {
         /**
@@ -5800,7 +6670,7 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный цвет с градиентом на светлом фоне
+     * light text onLight textAccentGradientActive
      */
     public object TextOnLightAccentGradientActive {
         /**
@@ -6000,9 +6870,9 @@ public object LightGradientTokens {
     }
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text onLight textGradientPrimaryHover
      */
-    public object TextInverseAccentGradient {
+    public object TextOnLightGradientPrimaryHover {
         /**
          * Цвета градиента
          */
@@ -6020,7 +6890,150 @@ public object LightGradientTokens {
     }
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text onLight textGradientPrimaryActive
+     */
+    public object TextOnLightGradientPrimaryActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text onLight textAccentGradientMinorHover
+     */
+    public object TextOnLightAccentGradientMinorHover {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text onLight textAccentGradientMinorActive
+     */
+    public object TextOnLightAccentGradientMinorActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text onLight textAccentGradient
+     */
+    public object TextOnLightAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF199AF0),
+            Color(0xFF12C2F3),
+            Color(0xFF528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 101.02f
+    }
+
+    /**
+     * light text onLight textAccentGradientMinor
+     */
+    public object TextOnLightAccentGradientMinor {
+        /**
+         * Cлой 0
+         */
+        public object Layer0 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(Color(0x33501A74), Color(0x33501A74))
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 0.0f
+        }
+
+        /**
+         * Cлой 1
+         */
+        public object Layer1 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(
+                Color(0xFF199AF0),
+                Color(0xFF12C2F3),
+                Color(0xFF528EFF),
+            )
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 101.02f
+        }
+
+        /**
+         * Cлой 2
+         */
+        public object Layer2 {
+            /**
+             * Фон градиента
+             */
+            public val background: Color = Color(0x00FFFFFF)
+        }
+    }
+
+    /**
+     * light text inverse textAccentGradientHover
      */
     public object TextInverseAccentGradientHover {
         /**
@@ -6040,7 +7053,7 @@ public object LightGradientTokens {
     }
 
     /**
-     * Инвертированный акцентный цвет с градиентом
+     * light text inverse textAccentGradientActive
      */
     public object TextInverseAccentGradientActive {
         /**
@@ -6240,9 +7253,9 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный фон поверхности/контрола с градиентом
+     * light text inverse textGradientPrimaryHover
      */
-    public object SurfaceDefaultAccentGradient {
+    public object TextInverseGradientPrimaryHover {
         /**
          * Цвета градиента
          */
@@ -6257,6 +7270,149 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text inverse textGradientPrimaryActive
+     */
+    public object TextInverseGradientPrimaryActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text inverse textAccentGradientMinorHover
+     */
+    public object TextInverseAccentGradientMinorHover {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text inverse textAccentGradientMinorActive
+     */
+    public object TextInverseAccentGradientMinorActive {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light text inverse textAccentGradient
+     */
+    public object TextInverseAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF3F81FD),
+            Color(0xFF00A4D1),
+            Color(0xFF528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 101.02f
+    }
+
+    /**
+     * light text inverse textAccentGradientMinor
+     */
+    public object TextInverseAccentGradientMinor {
+        /**
+         * Cлой 0
+         */
+        public object Layer0 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(Color(0x33FFFFFF), Color(0x33FFFFFF))
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 0.0f
+        }
+
+        /**
+         * Cлой 1
+         */
+        public object Layer1 {
+            /**
+             * Цвета градиента
+             */
+            public val colors: List<Color> = listOf(
+                Color(0xFF199AF0),
+                Color(0xFF12C2F3),
+                Color(0xFF528EFF),
+            )
+
+            /**
+             * Точки остановки цветов градиента
+             */
+            public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 1.0f)
+
+            /**
+             * Угол градиента
+             */
+            public const val angle: Float = 109.38f
+        }
+
+        /**
+         * Cлой 2
+         */
+        public object Layer2 {
+            /**
+             * Фон градиента
+             */
+            public val background: Color = Color(0x00FFFFFF)
+        }
     }
 
     /**
@@ -6600,6 +7756,30 @@ public object LightGradientTokens {
     }
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом
+     */
+    public object SurfaceDefaultAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x6618EFF2),
+            Color(0x6652BAFF),
+            Color(0x668BB2FC),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.52f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 128.65f
+    }
+
+    /**
      * Фон для скелетона
      */
     public object SurfaceDefaultSkeletonGradient {
@@ -6719,26 +7899,6 @@ public object LightGradientTokens {
      * Яркий фон для скелетона
      */
     public object SurfaceDefaultSkeletonDeepGradientActive {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на темном фоне
-     */
-    public object SurfaceOnDarkAccentGradient {
         /**
          * Цвета градиента
          */
@@ -7096,6 +8256,30 @@ public object LightGradientTokens {
     }
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на темном фоне
+     */
+    public object SurfaceOnDarkAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x9904C6C9),
+            Color(0x99199AF0),
+            Color(0x99528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.52f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 128.65f
+    }
+
+    /**
      * Фон для скелетона
      */
     public object SurfaceOnDarkSkeletonGradient {
@@ -7215,26 +8399,6 @@ public object LightGradientTokens {
      * Яркий фон для скелетона
      */
     public object SurfaceOnDarkSkeletonDeepGradientActive {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
-     */
-    public object SurfaceOnLightAccentGradient {
         /**
          * Цвета градиента
          */
@@ -7592,6 +8756,30 @@ public object LightGradientTokens {
     }
 
     /**
+     * Акцентный фон поверхности/контрола с градиентом на светлом фоне
+     */
+    public object SurfaceOnLightAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x6618EFF2),
+            Color(0x6652BAFF),
+            Color(0x668BB2FC),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.52f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 128.65f
+    }
+
+    /**
      * Фон для скелетона
      */
     public object SurfaceOnLightSkeletonGradient {
@@ -7711,26 +8899,6 @@ public object LightGradientTokens {
      * Яркий фон для скелетона
      */
     public object SurfaceOnLightSkeletonDeepGradientActive {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Инвертированный акцентный фон поверхности/контрола с градиентом
-     */
-    public object SurfaceInverseAccentGradient {
         /**
          * Цвета градиента
          */
@@ -8088,6 +9256,30 @@ public object LightGradientTokens {
     }
 
     /**
+     * Инвертированный акцентный фон поверхности/контрола с градиентом
+     */
+    public object SurfaceInverseAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x9904C6C9),
+            Color(0x99199AF0),
+            Color(0x99528EFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.52f, 1.0f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 128.65f
+    }
+
+    /**
      * Фон для скелетона
      */
     public object SurfaceInverseSkeletonGradient {
@@ -8207,26 +9399,6 @@ public object LightGradientTokens {
      * Яркий фон для скелетона
      */
     public object SurfaceInverseSkeletonDeepGradientActive {
-        /**
-         * Цвета градиента
-         */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
-
-        /**
-         * Точки остановки цветов градиента
-         */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
-
-        /**
-         * Угол градиента
-         */
-        public const val angle: Float = 90.0f
-    }
-
-    /**
-     * Акцентный цвет обводки с градиентом
-     */
-    public object OutlineDefaultAccentGradient {
         /**
          * Цвета градиента
          */
@@ -8524,23 +9696,27 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный цвет обводки с градиентом на темном фоне
+     * Акцентный цвет обводки с градиентом
      */
-    public object OutlineOnDarkAccentGradient {
+    public object OutlineDefaultAccentGradient {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(
+            Color(0xFF8AE6FF),
+            Color(0xFFCFECFF),
+            Color(0xFFA9C7FE),
+        )
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 0.93f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 90.0f
+        public const val angle: Float = 136.09f
     }
 
     /**
@@ -8824,23 +10000,27 @@ public object LightGradientTokens {
     }
 
     /**
-     * Акцентный цвет обводки с градиентом на светлом фоне
+     * Акцентный цвет обводки с градиентом на темном фоне
      */
-    public object OutlineOnLightAccentGradient {
+    public object OutlineOnDarkAccentGradient {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(
+            Color(0xFF118CDF),
+            Color(0xFF0D5382),
+            Color(0xFF1549AB),
+        )
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.47f, 0.94f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 90.0f
+        public const val angle: Float = 136.09f
     }
 
     /**
@@ -9124,23 +10304,27 @@ public object LightGradientTokens {
     }
 
     /**
-     * Инвертированный акцентный цвет обводки с градиентом
+     * Акцентный цвет обводки с градиентом на светлом фоне
      */
-    public object OutlineInverseAccentGradient {
+    public object OutlineOnLightAccentGradient {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(
+            Color(0xFF8AE6FF),
+            Color(0xFFCFECFF),
+            Color(0xFFA9C7FE),
+        )
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.45f, 0.93f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 90.0f
+        public const val angle: Float = 136.09f
     }
 
     /**
@@ -9421,6 +10605,30 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
+    }
+
+    /**
+     * Инвертированный акцентный цвет обводки с градиентом
+     */
+    public object OutlineInverseAccentGradient {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0xFF118CDF),
+            Color(0xFF0D5382),
+            Color(0xFF1549AB),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.47f, 0.94f)
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 136.09f
     }
 
     /**

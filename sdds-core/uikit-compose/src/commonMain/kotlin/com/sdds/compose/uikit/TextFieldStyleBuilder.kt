@@ -658,6 +658,29 @@ interface TextFieldColorsBuilder {
     fun suffixColorReadOnly(suffixColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
+     * Устанавливает цвет бордера (обводки)
+     */
+    fun strokeColor(strokeColor: InteractiveColor): TextFieldColorsBuilder =
+        strokeColor(strokeColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет бордера (обводки)
+     */
+    fun strokeColor(strokeColor: Color): TextFieldColorsBuilder =
+        strokeColor(strokeColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет бордера (обводки)
+     */
+    fun strokeColor(strokeColor: Brush): TextFieldColorsBuilder =
+        strokeColor(strokeColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет бордера (обводки)
+     */
+    fun strokeColor(strokeColor: StatefulValue<Brush>): TextFieldColorsBuilder
+
+    /**
      * Вернет экземпляр [TextFieldColors]
      */
     fun build(): TextFieldColors
@@ -887,13 +910,26 @@ interface TextFieldDimensionsBuilder {
     /**
      * Устанавливает толщину разделителя
      */
+    @ApiName(name = "dividerHeight")
     fun dividerThickness(dividerThickness: Dp): TextFieldDimensionsBuilder =
         dividerThickness(dividerThickness.asStatefulValue())
 
     /**
      * Устанавливает толщину разделителя
      */
+    @ApiName(name = "dividerHeight")
     fun dividerThickness(dividerThickness: StatefulValue<Dp>): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает толщину разделителя
+     */
+    fun strokeWidth(strokeWidth: Dp): TextFieldDimensionsBuilder =
+        strokeWidth(strokeWidth.asStatefulValue())
+
+    /**
+     * Устанавливает толщину бордера(обводки)
+     */
+    fun strokeWidth(strokeWidth: StatefulValue<Dp>): TextFieldDimensionsBuilder
 
     /**
      * Возвращает [TextFieldDimensions]
@@ -1286,6 +1322,7 @@ private class DefaultTextFieldColors(
     override val backgroundBrush: StatefulValue<Brush>,
     override val prefixBrush: StatefulValue<Brush>,
     override val suffixBrush: StatefulValue<Brush>,
+    override val strokeColor: StatefulValue<Brush>,
 ) : TextFieldColors {
     @Deprecated("Use cursorBrush", replaceWith = ReplaceWith("cursorBrush"))
     override fun cursorColor(isReadOnly: Boolean): InteractiveColor {
@@ -1401,6 +1438,7 @@ private class DefaultTextFieldColors(
         private var backgroundBrush: StatefulValue<Brush>? = null
         private var prefixBrush: StatefulValue<Brush>? = null
         private var suffixBrush: StatefulValue<Brush>? = null
+        private var strokeColor: StatefulValue<Brush>? = null
 
         override fun disabledAlpha(disabledAlpha: Float) = apply {
             this.disabledAlpha = disabledAlpha
@@ -1575,6 +1613,10 @@ private class DefaultTextFieldColors(
             this.suffixColorReadOnly = suffixColorReadOnly
         }
 
+        override fun strokeColor(strokeColor: StatefulValue<Brush>) = apply {
+            this.strokeColor = strokeColor
+        }
+
         @Suppress("CyclomaticComplexMethod")
         override fun build(): TextFieldColors {
             val defaultColor = Color.Black.asInteractive()
@@ -1678,6 +1720,7 @@ private class DefaultTextFieldColors(
                 dividerBrush = dividerBrush ?: divColor.asStatefulBrush().addStates(
                     setOf(TextFieldSemanticState.Readonly) to divColorRead,
                 ),
+                strokeColor = strokeColor ?: Color.Transparent.asStatefulBrush(),
             )
         }
     }
@@ -1704,6 +1747,7 @@ private class DefaultTextFieldDimensions(
     override val endContentSizeValues: StatefulValue<Dp>,
     override val dividerThicknessValues: StatefulValue<Dp>,
     override val indicatorDimensions: TextFieldIndicatorDimensionValues,
+    override val strokeWidth: StatefulValue<Dp>,
 ) : TextFieldDimensionValues {
 
     class Builder : TextFieldDimensionsBuilder {
@@ -1728,6 +1772,8 @@ private class DefaultTextFieldDimensions(
         private var indicatorDimensionsBuilder: TextFieldIndicatorDimensionsBuilder =
             TextFieldIndicatorDimensionsBuilder.builder()
         private var dividerThickness: StatefulValue<Dp>? = null
+
+        private var strokeWidth: StatefulValue<Dp>? = null
 
         override fun boxPaddingStart(boxPaddingStart: StatefulValue<Dp>) = apply {
             this.boxPaddingStart = boxPaddingStart
@@ -1809,6 +1855,10 @@ private class DefaultTextFieldDimensions(
             this.dividerThickness = dividerThickness
         }
 
+        override fun strokeWidth(strokeWidth: StatefulValue<Dp>) = apply {
+            this.strokeWidth = strokeWidth
+        }
+
         @Suppress("CyclomaticComplexMethod")
         override fun build(): TextFieldDimensionValues {
             return DefaultTextFieldDimensions(
@@ -1832,6 +1882,7 @@ private class DefaultTextFieldDimensions(
                 endContentSizeValues = endContentSize ?: 24.dp.asStatefulValue(),
                 indicatorDimensions = indicatorDimensionsBuilder.build(),
                 dividerThicknessValues = dividerThickness ?: 1.dp.asStatefulValue(),
+                strokeWidth = strokeWidth ?: 0.dp.asStatefulValue(),
             )
         }
     }

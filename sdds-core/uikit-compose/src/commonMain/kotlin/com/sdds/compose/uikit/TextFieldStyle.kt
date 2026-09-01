@@ -482,6 +482,11 @@ interface TextFieldColors {
      * Цвета суффикса
      */
     val suffixBrush: StatefulValue<Brush>
+
+    /**
+     * Цвета бордера
+     */
+    val strokeColor: StatefulValue<Brush>
 }
 
 /**
@@ -589,6 +594,11 @@ interface TextFieldDimensionValues {
      * Толщина разделителя в clear режиме
      */
     val dividerThicknessValues: StatefulValue<Dp>
+
+    /**
+     * Толщина бордера
+     */
+    val strokeWidth: StatefulValue<Dp>
 }
 
 /**

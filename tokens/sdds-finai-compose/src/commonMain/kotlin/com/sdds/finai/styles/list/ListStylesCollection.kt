@@ -33,6 +33,12 @@ public enum class ListStyles(
     ListTightM("ListTight.M"),
     ListTightS("ListTight.S"),
     ListTightXs("ListTight.Xs"),
+    DropdownMenuListNormalM("DropdownMenuListNormal.M"),
+    DropdownMenuListNormalS("DropdownMenuListNormal.S"),
+    DropdownMenuListNormalXs("DropdownMenuListNormal.Xs"),
+    DropdownMenuListTightM("DropdownMenuListTight.M"),
+    DropdownMenuListTightS("DropdownMenuListTight.S"),
+    DropdownMenuListTightXs("DropdownMenuListTight.Xs"),
     ;
 
     /**
@@ -44,6 +50,16 @@ public enum class ListStyles(
      * Typed API для подбора стиля list-tight
      */
     public object Tight
+
+    /**
+     * Typed API для подбора стиля dropdown-menu-list-normal
+     */
+    public object DropdownMenuListNormal
+
+    /**
+     * Typed API для подбора стиля dropdown-menu-list-tight
+     */
+    public object DropdownMenuListTight
 }
 
 /**
@@ -67,6 +83,24 @@ public enum class ListTightSize {
 }
 
 /**
+ * Возможные значения свойства size для dropdown-menu-list-normal
+ */
+public enum class DropdownMenuListNormalSize {
+    M,
+    S,
+    Xs,
+}
+
+/**
+ * Возможные значения свойства size для dropdown-menu-list-tight
+ */
+public enum class DropdownMenuListTightSize {
+    M,
+    S,
+    Xs,
+}
+
+/**
  * Возвращает [ListStyle] для [ListStyles]
  */
 @Composable
@@ -80,6 +114,12 @@ public fun ListStyles.style(modify: @Composable ListStyleBuilder.() -> Unit = {}
         ListStyles.ListTightM -> ListTight.M
         ListStyles.ListTightS -> ListTight.S
         ListStyles.ListTightXs -> ListTight.Xs
+        ListStyles.DropdownMenuListNormalM -> DropdownMenuListNormal.M
+        ListStyles.DropdownMenuListNormalS -> DropdownMenuListNormal.S
+        ListStyles.DropdownMenuListNormalXs -> DropdownMenuListNormal.Xs
+        ListStyles.DropdownMenuListTightM -> DropdownMenuListTight.M
+        ListStyles.DropdownMenuListTightS -> DropdownMenuListTight.S
+        ListStyles.DropdownMenuListTightXs -> DropdownMenuListTight.Xs
     }
     return builder.modify(modify).style()
 }
@@ -124,4 +164,50 @@ public fun ListStyles.Tight.style(
     size: ListTightSize = ListTightSize.L,
     modify: @Composable
     ListStyleBuilder.() -> Unit = {},
+): ListStyle = resolve(size).style(modify)
+
+/**
+ * Возвращает экземпляр [ListStyles] для dropdown-menu-list-normal
+ */
+public fun ListStyles.DropdownMenuListNormal.resolve(
+    size: DropdownMenuListNormalSize =
+        DropdownMenuListNormalSize.M,
+): ListStyles = when {
+    size == DropdownMenuListNormalSize.M -> ListStyles.DropdownMenuListNormalM
+    size == DropdownMenuListNormalSize.S -> ListStyles.DropdownMenuListNormalS
+    size == DropdownMenuListNormalSize.Xs -> ListStyles.DropdownMenuListNormalXs
+    else -> error("Unsupported dropdown-menu-list-normal style combination")
+}
+
+/**
+ * Возвращает [ListStyle] для dropdown-menu-list-normal
+ */
+@Composable
+public fun ListStyles.DropdownMenuListNormal.style(
+    size: DropdownMenuListNormalSize =
+        DropdownMenuListNormalSize.M,
+    modify: @Composable ListStyleBuilder.() -> Unit = {},
+): ListStyle = resolve(size).style(modify)
+
+/**
+ * Возвращает экземпляр [ListStyles] для dropdown-menu-list-tight
+ */
+public fun ListStyles.DropdownMenuListTight.resolve(
+    size: DropdownMenuListTightSize =
+        DropdownMenuListTightSize.M,
+): ListStyles = when {
+    size == DropdownMenuListTightSize.M -> ListStyles.DropdownMenuListTightM
+    size == DropdownMenuListTightSize.S -> ListStyles.DropdownMenuListTightS
+    size == DropdownMenuListTightSize.Xs -> ListStyles.DropdownMenuListTightXs
+    else -> error("Unsupported dropdown-menu-list-tight style combination")
+}
+
+/**
+ * Возвращает [ListStyle] для dropdown-menu-list-tight
+ */
+@Composable
+public fun ListStyles.DropdownMenuListTight.style(
+    size: DropdownMenuListTightSize =
+        DropdownMenuListTightSize.M,
+    modify: @Composable ListStyleBuilder.() -> Unit = {},
 ): ListStyle = resolve(size).style(modify)
