@@ -568,4 +568,144 @@ public object ShadowTokens {
          */
         public val color: Color = Color(0x66000000)
     }
+
+    /**
+     * shadow gradient light
+     */
+    public object GradientLightLayer1 {
+        /**
+         * shadow gradient light
+         */
+        public val offsetX: Dp = 3.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val offsetY: Dp = 4.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val spreadRadius: Dp = 0.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val blurRadius: Dp = 12.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val color: Color = Color(0x7A8BB2FC)
+    }
+
+    /**
+     * shadow gradient light
+     */
+    public object GradientLightLayer2 {
+        /**
+         * shadow gradient light
+         */
+        public val offsetX: Dp = -2.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val offsetY: Dp = -3.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val spreadRadius: Dp = -3.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val blurRadius: Dp = 21.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow gradient light
+         */
+        public val color: Color = Color(0x7A4AD6FC)
+    }
+
+    /**
+     * shadow gradient dark
+     */
+    public object GradientDarkLayer1 {
+        /**
+         * shadow gradient dark
+         */
+        public val offsetX: Dp = 2.7024.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val offsetY: Dp = 3.6032.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val spreadRadius: Dp = 0.0.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val blurRadius: Dp = 10.8096.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val color: Color = Color(0x992969E3)
+    }
+
+    /**
+     * shadow gradient dark
+     */
+    public object GradientDarkLayer2 {
+        /**
+         * shadow gradient dark
+         */
+        public val offsetX: Dp = -1.8016.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val offsetY: Dp = -2.7024.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val spreadRadius: Dp = -2.7024.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val blurRadius: Dp = 18.9168.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow gradient dark
+         */
+        public val color: Color = Color(0x9912C2F3)
+    }
 }

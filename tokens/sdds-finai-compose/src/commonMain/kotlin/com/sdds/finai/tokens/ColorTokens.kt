@@ -4528,11 +4528,6 @@ public object DarkColorTokens {
     public val DataDefaultSkyBlueLightActive: Color = Color(0xFFDBF7FF)
 
     /**
-     * dark data default dataGreen
-     */
-    public val DataDefaultGreen: Color = Color(0xFF1A9E32)
-
-    /**
      * Светлый желтый цвет для данных
      */
     public val DataDefaultYellowLight: Color = Color(0xFF211807)
@@ -4551,11 +4546,6 @@ public object DarkColorTokens {
      * Минорный желтый цвет для данных
      */
     public val DataDefaultYellowMinor: Color = Color(0xFF493203)
-
-    /**
-     * dark data default dataOrange
-     */
-    public val DataDefaultOrange: Color = Color(0xFFFA5F05)
 
     /**
      * dark data default dataOrangeMinor
@@ -4593,19 +4583,9 @@ public object DarkColorTokens {
     public val DataDefaultGreenMinor: Color = Color(0xFF0D8523)
 
     /**
-     * dark data default dataGreenLight
-     */
-    public val DataDefaultGreenLight: Color = Color(0xFF0A4014)
-
-    /**
      * dark data default dataSpring
      */
     public val DataDefaultSpring: Color = Color(0xFF0D8523)
-
-    /**
-     * dark data default dataBlue
-     */
-    public val DataDefaultBlue: Color = Color(0xFF118CDF)
 
     /**
      * dark data default dataBlueMild
@@ -4631,11 +4611,6 @@ public object DarkColorTokens {
      * dark data default dataElectricBlue
      */
     public val DataDefaultElectricBlue: Color = Color(0xFF1549AB)
-
-    /**
-     * dark data default dataFuchsia
-     */
-    public val DataDefaultFuchsia: Color = Color(0xFF8A2178)
 
     /**
      * dark data default dataPink
@@ -4680,12 +4655,12 @@ public object DarkColorTokens {
     /**
      * dark data default dataGreenHover
      */
-    public val DataDefaultGreenHover: Color = Color(0xFF1DAF37)
+    public val DataDefaultGreenHover: Color = Color(0xFF12A12A)
 
     /**
      * dark data default dataGreenActive
      */
-    public val DataDefaultGreenActive: Color = Color(0xFF18952F)
+    public val DataDefaultGreenActive: Color = Color(0xFF0F8523)
 
     /**
      * Светлый голубой цвет для данных
@@ -4700,12 +4675,12 @@ public object DarkColorTokens {
     /**
      * dark data default dataOrchidHover
      */
-    public val DataDefaultOrchidHover: Color = Color(0xFFBA5FF7)
+    public val DataDefaultOrchidHover: Color = Color(0xFFA94AE8)
 
     /**
      * dark data default dataOrchidActive
      */
-    public val DataDefaultOrchidActive: Color = Color(0xFFA938F5)
+    public val DataDefaultOrchidActive: Color = Color(0xFF9C2FE4)
 
     /**
      * dark data default dataOrchidMinorHover
@@ -4720,12 +4695,12 @@ public object DarkColorTokens {
     /**
      * dark data default dataOrangeHover
      */
-    public val DataDefaultOrangeHover: Color = Color(0xFFFB7223)
+    public val DataDefaultOrangeHover: Color = Color(0xFFFC5E03)
 
     /**
      * dark data default dataOrangeActive
      */
-    public val DataDefaultOrangeActive: Color = Color(0xFFF05B05)
+    public val DataDefaultOrangeActive: Color = Color(0xFFDE5302)
 
     /**
      * dark data default dataOrangeMinorHover
@@ -4800,12 +4775,12 @@ public object DarkColorTokens {
     /**
      * dark data default dataGreenLightHover
      */
-    public val DataDefaultGreenLightHover: Color = Color(0xFF0D541A)
+    public val DataDefaultGreenLightHover: Color = Color(0xFF0E3A16)
 
     /**
      * dark data default dataGreenLightActive
      */
-    public val DataDefaultGreenLightActive: Color = Color(0xFF093912)
+    public val DataDefaultGreenLightActive: Color = Color(0xFF08210C)
 
     /**
      * dark data default dataSpringHover
@@ -4820,12 +4795,12 @@ public object DarkColorTokens {
     /**
      * dark data default dataBlueHover
      */
-    public val DataDefaultBlueHover: Color = Color(0xFF1798EE)
+    public val DataDefaultBlueHover: Color = Color(0xFF0C8ADF)
 
     /**
      * dark data default dataBlueActive
      */
-    public val DataDefaultBlueActive: Color = Color(0xFF1086D5)
+    public val DataDefaultBlueActive: Color = Color(0xFF0A78C2)
 
     /**
      * dark data default dataBlueMildHover
@@ -4880,12 +4855,12 @@ public object DarkColorTokens {
     /**
      * dark data default dataFuchsiaHover
      */
-    public val DataDefaultFuchsiaHover: Color = Color(0xFF9C2688)
+    public val DataDefaultFuchsiaHover: Color = Color(0xFFD52AB8)
 
     /**
      * dark data default dataFuchsiaActive
      */
-    public val DataDefaultFuchsiaActive: Color = Color(0xFF832073)
+    public val DataDefaultFuchsiaActive: Color = Color(0xFFBB25A2)
 
     /**
      * dark data default dataPinkHover
@@ -4958,14 +4933,159 @@ public object DarkColorTokens {
     public val DataDefaultBlueTransparentActive: Color = Color(0x2E118CDF)
 
     /**
-     * dark data default dataOrchid
-     */
-    public val DataDefaultOrchid: Color = Color(0xFFAD42F5)
-
-    /**
      * dark data default dataOrchidMinor
      */
     public val DataDefaultOrchidMinor: Color = Color(0xFF722BA1)
+
+    /**
+     * dark data default dataElectricBlueMinorHover
+     */
+    public val DataDefaultElectricBlueMinorHover: Color = Color(0xFF1852BF)
+
+    /**
+     * dark data default dataElectricBlueMinorActive
+     */
+    public val DataDefaultElectricBlueMinorActive: Color = Color(0xFF1446A3)
+
+    /**
+     * dark data default dataElectricBlueMinor
+     */
+    public val DataDefaultElectricBlueMinor: Color = Color(0xFF1549AB)
+
+    /**
+     * dark data default dataElectricBlueLightHover
+     */
+    public val DataDefaultElectricBlueLightHover: Color = Color(0xFF0A2A67)
+
+    /**
+     * dark data default dataElectricBlueLightActive
+     */
+    public val DataDefaultElectricBlueLightActive: Color = Color(0xFF071F4B)
+
+    /**
+     * dark data default dataElectricBlueLight
+     */
+    public val DataDefaultElectricBlueLight: Color = Color(0xFF082254)
+
+    /**
+     * dark data default dataGrayLightHover
+     */
+    public val DataDefaultGrayLightHover: Color = Color(0xFF2C343A)
+
+    /**
+     * dark data default dataGrayLightActive
+     */
+    public val DataDefaultGrayLightActive: Color = Color(0xFF1F2528)
+
+    /**
+     * dark data default dataGrayLight
+     */
+    public val DataDefaultGrayLight: Color = Color(0xFF23292D)
+
+    /**
+     * dark data default dataGreen
+     */
+    public val DataDefaultGreen: Color = Color(0xFF108E26)
+
+    /**
+     * dark data default dataGreenLight
+     */
+    public val DataDefaultGreenLight: Color = Color(0xFF0A2B10)
+
+    /**
+     * dark data default dataYellowDark
+     */
+    public val DataDefaultYellowDark: Color = Color(0xFFA16B00)
+
+    /**
+     * dark data default dataYellowDarkHover
+     */
+    public val DataDefaultYellowDarkHover: Color = Color(0xFFB87A00)
+
+    /**
+     * dark data default dataYellowDarkActive
+     */
+    public val DataDefaultYellowDarkActive: Color = Color(0xFF996600)
+
+    /**
+     * dark data default dataOrange
+     */
+    public val DataDefaultOrange: Color = Color(0xFFE85702)
+
+    /**
+     * dark data default dataBlue
+     */
+    public val DataDefaultBlue: Color = Color(0xFF0B7ECB)
+
+    /**
+     * dark data default dataOrchid
+     */
+    public val DataDefaultOrchid: Color = Color(0xFFA139E5)
+
+    /**
+     * dark data default dataOrchidLightHover
+     */
+    public val DataDefaultOrchidLightHover: Color = Color(0xFF41195C)
+
+    /**
+     * dark data default dataOrchidLightActive
+     */
+    public val DataDefaultOrchidLightActive: Color = Color(0xFF301344)
+
+    /**
+     * dark data default dataOrchidLight
+     */
+    public val DataDefaultOrchidLight: Color = Color(0xFF36154C)
+
+    /**
+     * dark data default dataFuchsia
+     */
+    public val DataDefaultFuchsia: Color = Color(0xFFC427AA)
+
+    /**
+     * dark data default dataFuchsiaMinorHover
+     */
+    public val DataDefaultFuchsiaMinorHover: Color = Color(0xFF9C2688)
+
+    /**
+     * dark data default dataFuchsiaMinorActive
+     */
+    public val DataDefaultFuchsiaMinorActive: Color = Color(0xFF832073)
+
+    /**
+     * dark data default dataFuchsiaMinor
+     */
+    public val DataDefaultFuchsiaMinor: Color = Color(0xFF8A2178)
+
+    /**
+     * dark data default dataFuchsiaLightHover
+     */
+    public val DataDefaultFuchsiaLightHover: Color = Color(0xFF551149)
+
+    /**
+     * dark data default dataFuchsiaLightActive
+     */
+    public val DataDefaultFuchsiaLightActive: Color = Color(0xFF3B0C33)
+
+    /**
+     * dark data default dataFuchsiaLight
+     */
+    public val DataDefaultFuchsiaLight: Color = Color(0xFF450E3C)
+
+    /**
+     * dark data default dataArcticLight
+     */
+    public val DataDefaultArcticLight: Color = Color(0xFF072B21)
+
+    /**
+     * dark data default dataArcticLightHover
+     */
+    public val DataDefaultArcticLightHover: Color = Color(0xFF0A3D2F)
+
+    /**
+     * dark data default dataArcticLightActive
+     */
+    public val DataDefaultArcticLightActive: Color = Color(0xFF06231B)
 
     /**
      * Желтый цвет для данных на темном фоне
@@ -5038,29 +5158,14 @@ public object DarkColorTokens {
     public val DataOnDarkRedLight: Color = Color(0xFF4A0D13)
 
     /**
-     * dark data onDark dataGreen
-     */
-    public val DataOnDarkGreen: Color = Color(0xFF1A9E32)
-
-    /**
      * dark data onDark dataGreenMinor
      */
     public val DataOnDarkGreenMinor: Color = Color(0xFF0D8523)
 
     /**
-     * dark data onDark dataGreenLight
-     */
-    public val DataOnDarkGreenLight: Color = Color(0xFF0A4014)
-
-    /**
      * dark data onDark dataSpring
      */
     public val DataOnDarkSpring: Color = Color(0xFF567D0C)
-
-    /**
-     * dark data onDark dataBlue
-     */
-    public val DataOnDarkBlue: Color = Color(0xFF118CDF)
 
     /**
      * dark data onDark dataBlueMild
@@ -5081,11 +5186,6 @@ public object DarkColorTokens {
      * dark data onDark dataElectricBlue
      */
     public val DataOnDarkElectricBlue: Color = Color(0xFF1549AB)
-
-    /**
-     * dark data onDark dataFuchsia
-     */
-    public val DataOnDarkFuchsia: Color = Color(0xFF8A2178)
 
     /**
      * dark data onDark dataPink
@@ -5121,11 +5221,6 @@ public object DarkColorTokens {
      * Минорный желтый цвет для данных на темном фоне
      */
     public val DataOnDarkYellowMinor: Color = Color(0xFF493203)
-
-    /**
-     * dark data onDark dataOrange
-     */
-    public val DataOnDarkOrange: Color = Color(0xFFFA5F05)
 
     /**
      * dark data onDark dataOrangeMinor
@@ -5210,12 +5305,12 @@ public object DarkColorTokens {
     /**
      * dark data onDark dataGreenHover
      */
-    public val DataOnDarkGreenHover: Color = Color(0xFF1DAF37)
+    public val DataOnDarkGreenHover: Color = Color(0xFF12A12A)
 
     /**
      * dark data onDark dataGreenActive
      */
-    public val DataOnDarkGreenActive: Color = Color(0xFF18952F)
+    public val DataOnDarkGreenActive: Color = Color(0xFF0F8523)
 
     /**
      * dark data onDark dataGreenMinorHover
@@ -5230,12 +5325,12 @@ public object DarkColorTokens {
     /**
      * dark data onDark dataGreenLightHover
      */
-    public val DataOnDarkGreenLightHover: Color = Color(0xFF0D541A)
+    public val DataOnDarkGreenLightHover: Color = Color(0xFF0E3A16)
 
     /**
      * dark data onDark dataGreenLightActive
      */
-    public val DataOnDarkGreenLightActive: Color = Color(0xFF093912)
+    public val DataOnDarkGreenLightActive: Color = Color(0xFF08210C)
 
     /**
      * dark data onDark dataSpringHover
@@ -5250,12 +5345,12 @@ public object DarkColorTokens {
     /**
      * dark data onDark dataBlueHover
      */
-    public val DataOnDarkBlueHover: Color = Color(0xFF1798EE)
+    public val DataOnDarkBlueHover: Color = Color(0xFF0C8ADF)
 
     /**
      * dark data onDark dataBlueActive
      */
-    public val DataOnDarkBlueActive: Color = Color(0xFF1086D5)
+    public val DataOnDarkBlueActive: Color = Color(0xFF0A78C2)
 
     /**
      * dark data onDark dataBlueMildHover
@@ -5300,12 +5395,12 @@ public object DarkColorTokens {
     /**
      * dark data onDark dataFuchsiaHover
      */
-    public val DataOnDarkFuchsiaHover: Color = Color(0xFF9C2688)
+    public val DataOnDarkFuchsiaHover: Color = Color(0xFFD52AB8)
 
     /**
      * dark data onDark dataFuchsiaActive
      */
-    public val DataOnDarkFuchsiaActive: Color = Color(0xFF832073)
+    public val DataOnDarkFuchsiaActive: Color = Color(0xFFBB25A2)
 
     /**
      * dark data onDark dataPinkHover
@@ -5350,22 +5445,22 @@ public object DarkColorTokens {
     /**
      * dark data onDark dataOrchidHover
      */
-    public val DataOnDarkOrchidHover: Color = Color(0xFFBA5FF7)
+    public val DataOnDarkOrchidHover: Color = Color(0xFFA94AE8)
 
     /**
      * dark data onDark dataOrchidActive
      */
-    public val DataOnDarkOrchidActive: Color = Color(0xFFA938F5)
+    public val DataOnDarkOrchidActive: Color = Color(0xFF9C2FE4)
 
     /**
      * dark data onDark dataOrangeHover
      */
-    public val DataOnDarkOrangeHover: Color = Color(0xFFFB7223)
+    public val DataOnDarkOrangeHover: Color = Color(0xFFFC5E03)
 
     /**
      * dark data onDark dataOrangeActive
      */
-    public val DataOnDarkOrangeActive: Color = Color(0xFFF05B05)
+    public val DataOnDarkOrangeActive: Color = Color(0xFFDE5302)
 
     /**
      * dark data onDark dataOrangeMinorHover
@@ -5453,9 +5548,154 @@ public object DarkColorTokens {
     public val DataOnDarkOrchidMinor: Color = Color(0xFF722BA1)
 
     /**
+     * dark data onDark dataElectricBlueMinor
+     */
+    public val DataOnDarkElectricBlueMinor: Color = Color(0xFF1549AB)
+
+    /**
+     * dark data onDark dataElectricBlueMinorHover
+     */
+    public val DataOnDarkElectricBlueMinorHover: Color = Color(0xFF1852BF)
+
+    /**
+     * dark data onDark dataElectricBlueMinorActive
+     */
+    public val DataOnDarkElectricBlueMinorActive: Color = Color(0xFF1446A3)
+
+    /**
+     * dark data onDark dataElectricBlueLight
+     */
+    public val DataOnDarkElectricBlueLight: Color = Color(0xFF082254)
+
+    /**
+     * dark data onDark dataElectricBlueLightHover
+     */
+    public val DataOnDarkElectricBlueLightHover: Color = Color(0xFF0A2A67)
+
+    /**
+     * dark data onDark dataElectricBlueLightActive
+     */
+    public val DataOnDarkElectricBlueLightActive: Color = Color(0xFF071F4B)
+
+    /**
+     * dark data onDark dataGrayLight
+     */
+    public val DataOnDarkGrayLight: Color = Color(0xFF23292D)
+
+    /**
+     * dark data onDark dataGrayLightHover
+     */
+    public val DataOnDarkGrayLightHover: Color = Color(0xFF2C343A)
+
+    /**
+     * dark data onDark dataGrayLightActive
+     */
+    public val DataOnDarkGrayLightActive: Color = Color(0xFF1F2528)
+
+    /**
+     * dark data onDark dataGreen
+     */
+    public val DataOnDarkGreen: Color = Color(0xFF108E26)
+
+    /**
+     * dark data onDark dataGreenLight
+     */
+    public val DataOnDarkGreenLight: Color = Color(0xFF0A2B10)
+
+    /**
+     * dark data onDark dataYellowDark
+     */
+    public val DataOnDarkYellowDark: Color = Color(0xFFA16B00)
+
+    /**
+     * dark data onDark dataYellowDarkHover
+     */
+    public val DataOnDarkYellowDarkHover: Color = Color(0xFFB87A00)
+
+    /**
+     * dark data onDark dataYellowDarkActive
+     */
+    public val DataOnDarkYellowDarkActive: Color = Color(0xFF996600)
+
+    /**
+     * dark data onDark dataOrange
+     */
+    public val DataOnDarkOrange: Color = Color(0xFFE85702)
+
+    /**
+     * dark data onDark dataBlue
+     */
+    public val DataOnDarkBlue: Color = Color(0xFF0B7ECB)
+
+    /**
      * dark data onDark dataOrchid
      */
-    public val DataOnDarkOrchid: Color = Color(0xFFAD42F5)
+    public val DataOnDarkOrchid: Color = Color(0xFFA139E5)
+
+    /**
+     * dark data onDark dataOrchidLight
+     */
+    public val DataOnDarkOrchidLight: Color = Color(0xFF36154C)
+
+    /**
+     * dark data onDark dataOrchidLightHover
+     */
+    public val DataOnDarkOrchidLightHover: Color = Color(0xFF41195C)
+
+    /**
+     * dark data onDark dataOrchidLightActive
+     */
+    public val DataOnDarkOrchidLightActive: Color = Color(0xFF301344)
+
+    /**
+     * dark data onDark dataFuchsia
+     */
+    public val DataOnDarkFuchsia: Color = Color(0xFFC427AA)
+
+    /**
+     * dark data onDark dataFuchsiaMinorHover
+     */
+    public val DataOnDarkFuchsiaMinorHover: Color = Color(0xFF9C2688)
+
+    /**
+     * dark data onDark dataFuchsiaMinorActive
+     */
+    public val DataOnDarkFuchsiaMinorActive: Color = Color(0xFF832073)
+
+    /**
+     * dark data onDark dataFuchsiaMinor
+     */
+    public val DataOnDarkFuchsiaMinor: Color = Color(0xFF8A2178)
+
+    /**
+     * dark data onDark dataFuchsiaLight
+     */
+    public val DataOnDarkFuchsiaLight: Color = Color(0xFF450E3C)
+
+    /**
+     * dark data onDark dataFuchsiaLightHover
+     */
+    public val DataOnDarkFuchsiaLightHover: Color = Color(0xFF551149)
+
+    /**
+     * dark data onDark dataFuchsiaLightActive
+     */
+    public val DataOnDarkFuchsiaLightActive: Color = Color(0xFF3B0C33)
+
+    /**
+     * dark data onDark dataArcticLight
+     */
+    public val DataOnDarkArcticLight: Color = Color(0xFF072B21)
+
+    /**
+     * dark data onDark dataArcticLightHover
+     */
+    public val DataOnDarkArcticLightHover: Color = Color(0xFF0A3D2F)
+
+    /**
+     * dark data onDark dataArcticLightActive
+     */
+    public val DataOnDarkArcticLightActive: Color = Color(0xFF06231B)
 
     /**
      * Желтый цвет для данных на светлом фоне
@@ -5535,12 +5775,7 @@ public object DarkColorTokens {
     /**
      * dark data onLight dataArctic
      */
-    public val DataOnLightArctic: Color = Color(0xFF14CC98)
-
-    /**
-     * dark data onLight dataGreen
-     */
-    public val DataOnLightGreen: Color = Color(0xFF1A9E32)
+    public val DataOnLightArctic: Color = Color(0xFF00AC7B)
 
     /**
      * dark data onLight dataGreenMinor
@@ -5551,11 +5786,6 @@ public object DarkColorTokens {
      * dark data onLight dataSpring
      */
     public val DataOnLightSpring: Color = Color(0xFF93E006)
-
-    /**
-     * dark data onLight dataOrange
-     */
-    public val DataOnLightOrange: Color = Color(0xFFFA5F05)
 
     /**
      * dark data onLight dataOrangeMinor
@@ -5583,11 +5813,6 @@ public object DarkColorTokens {
     public val DataOnLightRedLight: Color = Color(0xFFFFE0E3)
 
     /**
-     * dark data onLight dataBlue
-     */
-    public val DataOnLightBlue: Color = Color(0xFF118CDF)
-
-    /**
      * dark data onLight dataBlueMild
      */
     public val DataOnLightBlueMild: Color = Color(0xFF52BAFF)
@@ -5606,11 +5831,6 @@ public object DarkColorTokens {
      * dark data onLight dataElectricBlue
      */
     public val DataOnLightElectricBlue: Color = Color(0xFF52BAFF)
-
-    /**
-     * dark data onLight dataFuchsia
-     */
-    public val DataOnLightFuchsia: Color = Color(0xFFF391E2)
 
     /**
      * dark data onLight dataPink
@@ -5651,11 +5871,6 @@ public object DarkColorTokens {
      * Светлый желтый цвет для данных на светлом фоне
      */
     public val DataOnLightYellowLight: Color = Color(0xFFFFF6E5)
-
-    /**
-     * dark data onLight dataGreenLight
-     */
-    public val DataOnLightGreenLight: Color = Color(0xFF9EFAAF)
 
     /**
      * Светлый голубой цвет для данных на светлом фоне
@@ -5700,22 +5915,22 @@ public object DarkColorTokens {
     /**
      * dark data onLight dataArcticHover
      */
-    public val DataOnLightArcticHover: Color = Color(0xFF16DFA6)
+    public val DataOnLightArcticHover: Color = Color(0xFF00C28B)
 
     /**
      * dark data onLight dataArcticActive
      */
-    public val DataOnLightArcticActive: Color = Color(0xFF12BA8A)
+    public val DataOnLightArcticActive: Color = Color(0xFF00996E)
 
     /**
      * dark data onLight dataGreenHover
      */
-    public val DataOnLightGreenHover: Color = Color(0xFF1EB83A)
+    public val DataOnLightGreenHover: Color = Color(0xFF28C344)
 
     /**
      * dark data onLight dataGreenActive
      */
-    public val DataOnLightGreenActive: Color = Color(0xFF178C2C)
+    public val DataOnLightGreenActive: Color = Color(0xFF21A138)
 
     /**
      * dark data onLight dataGreenMinorHover
@@ -5740,12 +5955,12 @@ public object DarkColorTokens {
     /**
      * dark data onLight dataOrangeHover
      */
-    public val DataOnLightOrangeHover: Color = Color(0xFFFB782D)
+    public val DataOnLightOrangeHover: Color = Color(0xFFFF8B4D)
 
     /**
      * dark data onLight dataOrangeActive
      */
-    public val DataOnLightOrangeActive: Color = Color(0xFFE65705)
+    public val DataOnLightOrangeActive: Color = Color(0xFFFF630F)
 
     /**
      * dark data onLight dataOrangeMinorHover
@@ -5800,12 +6015,12 @@ public object DarkColorTokens {
     /**
      * dark data onLight dataBlueHover
      */
-    public val DataOnLightBlueHover: Color = Color(0xFF209CEE)
+    public val DataOnLightBlueHover: Color = Color(0xFF36A7F2)
 
     /**
      * dark data onLight dataBlueActive
      */
-    public val DataOnLightBlueActive: Color = Color(0xFF0F81CC)
+    public val DataOnLightBlueActive: Color = Color(0xFF0F90E6)
 
     /**
      * dark data onLight dataBlueMildHover
@@ -5850,12 +6065,12 @@ public object DarkColorTokens {
     /**
      * dark data onLight dataFuchsiaHover
      */
-    public val DataOnLightFuchsiaHover: Color = Color(0xFFF288E0)
+    public val DataOnLightFuchsiaHover: Color = Color(0xFFF471DE)
 
     /**
      * dark data onLight dataFuchsiaActive
      */
-    public val DataOnLightFuchsiaActive: Color = Color(0xFFF17EDE)
+    public val DataOnLightFuchsiaActive: Color = Color(0xFFF042D3)
 
     /**
      * dark data onLight dataPinkHover
@@ -5930,12 +6145,12 @@ public object DarkColorTokens {
     /**
      * dark data onLight dataGreenLightHover
      */
-    public val DataOnLightGreenLightHover: Color = Color(0xFF94F9A7)
+    public val DataOnLightGreenLightHover: Color = Color(0xFFD6FFE2)
 
     /**
      * dark data onLight dataGreenLightActive
      */
-    public val DataOnLightGreenLightActive: Color = Color(0xFF8BF99F)
+    public val DataOnLightGreenLightActive: Color = Color(0xFFD1FFDE)
 
     /**
      * dark data onLight dataOrchidMinor
@@ -5943,9 +6158,154 @@ public object DarkColorTokens {
     public val DataOnLightOrchidMinor: Color = Color(0xFFDEB7F7)
 
     /**
+     * dark data onLight dataElectricBlueMinor
+     */
+    public val DataOnLightElectricBlueMinor: Color = Color(0xFF8BB2FC)
+
+    /**
+     * dark data onLight dataElectricBlueMinorHover
+     */
+    public val DataOnLightElectricBlueMinorHover: Color = Color(0xFF83ADFC)
+
+    /**
+     * dark data onLight dataElectricBlueMinorActive
+     */
+    public val DataOnLightElectricBlueMinorActive: Color = Color(0xFF79A7FC)
+
+    /**
+     * dark data onLight dataElectricBlueLight
+     */
+    public val DataOnLightElectricBlueLight: Color = Color(0xFFDEE9FF)
+
+    /**
+     * dark data onLight dataElectricBlueLightHover
+     */
+    public val DataOnLightElectricBlueLightHover: Color = Color(0xFFD6E4FF)
+
+    /**
+     * dark data onLight dataElectricBlueLightActive
+     */
+    public val DataOnLightElectricBlueLightActive: Color = Color(0xFFD1E0FF)
+
+    /**
+     * dark data onLight dataGrayLight
+     */
+    public val DataOnLightGrayLight: Color = Color(0xFFE8EEF2)
+
+    /**
+     * dark data onLight dataGrayLightHover
+     */
+    public val DataOnLightGrayLightHover: Color = Color(0xFFE2E9EE)
+
+    /**
+     * dark data onLight dataGrayLightActive
+     */
+    public val DataOnLightGrayLightActive: Color = Color(0xFFDEE7ED)
+
+    /**
+     * dark data onLight dataGreen
+     */
+    public val DataOnLightGreen: Color = Color(0xFF24B23E)
+
+    /**
+     * dark data onLight dataGreenLight
+     */
+    public val DataOnLightGreenLight: Color = Color(0xFFE0FFE9)
+
+    /**
+     * dark data onLight dataYellowDark
+     */
+    public val DataOnLightYellowDark: Color = Color(0xFFCC8800)
+
+    /**
+     * dark data onLight dataYellowDarkHover
+     */
+    public val DataOnLightYellowDarkHover: Color = Color(0xFFE09600)
+
+    /**
+     * dark data onLight dataYellowDarkActive
+     */
+    public val DataOnLightYellowDarkActive: Color = Color(0xFFB87A00)
+
+    /**
+     * dark data onLight dataOrange
+     */
+    public val DataOnLightOrange: Color = Color(0xFFFF7024)
+
+    /**
+     * dark data onLight dataBlue
+     */
+    public val DataOnLightBlue: Color = Color(0xFF199AF0)
+
+    /**
      * dark data onLight dataOrchid
      */
     public val DataOnLightOrchid: Color = Color(0xFFC46BFF)
+
+    /**
+     * dark data onLight dataOrchidLight
+     */
+    public val DataOnLightOrchidLight: Color = Color(0xFFF4E3FF)
+
+    /**
+     * dark data onLight dataOrchidLightHover
+     */
+    public val DataOnLightOrchidLightHover: Color = Color(0xFFF3E0FF)
+
+    /**
+     * dark data onLight dataOrchidLightActive
+     */
+    public val DataOnLightOrchidLightActive: Color = Color(0xFFF1DBFF)
+
+    /**
+     * dark data onLight dataFuchsia
+     */
+    public val DataOnLightFuchsia: Color = Color(0xFFF155D7)
+
+    /**
+     * dark data onLight dataFuchsiaMinor
+     */
+    public val DataOnLightFuchsiaMinor: Color = Color(0xFFF391E2)
+
+    /**
+     * dark data onLight dataFuchsiaMinorHover
+     */
+    public val DataOnLightFuchsiaMinorHover: Color = Color(0xFFF288E0)
+
+    /**
+     * dark data onLight dataFuchsiaMinorActive
+     */
+    public val DataOnLightFuchsiaMinorActive: Color = Color(0xFFF17EDE)
+
+    /**
+     * dark data onLight dataFuchsiaLight
+     */
+    public val DataOnLightFuchsiaLight: Color = Color(0xFFFDE3F8)
+
+    /**
+     * dark data onLight dataFuchsiaLightHover
+     */
+    public val DataOnLightFuchsiaLightHover: Color = Color(0xFFFCD9F5)
+
+    /**
+     * dark data onLight dataFuchsiaLightActive
+     */
+    public val DataOnLightFuchsiaLightActive: Color = Color(0xFFFCD4F4)
+
+    /**
+     * dark data onLight dataArcticLight
+     */
+    public val DataOnLightArcticLight: Color = Color(0xFFDBFFF5)
+
+    /**
+     * dark data onLight dataArcticLightHover
+     */
+    public val DataOnLightArcticLightHover: Color = Color(0xFFD1FFF2)
+
+    /**
+     * dark data onLight dataArcticLightActive
+     */
+    public val DataOnLightArcticLightActive: Color = Color(0xFFCCFFF1)
 
     /**
      * Инвертированный желтый цвет для данных
@@ -6013,11 +6373,6 @@ public object DarkColorTokens {
     public val DataInverseSkyBlueLightActive: Color = Color(0xFFDBF7FF)
 
     /**
-     * dark data inverse dataOrange
-     */
-    public val DataInverseOrange: Color = Color(0xFFFA5F05)
-
-    /**
      * dark data inverse dataOrangeMinor
      */
     public val DataInverseOrangeMinor: Color = Color(0xFF85380C)
@@ -6043,34 +6398,14 @@ public object DarkColorTokens {
     public val DataInverseRedLight: Color = Color(0xFF4A0D13)
 
     /**
-     * dark data inverse dataArctic
-     */
-    public val DataInverseArctic: Color = Color(0xFF197D61)
-
-    /**
-     * dark data inverse dataGreen
-     */
-    public val DataInverseGreen: Color = Color(0xFF1A9E32)
-
-    /**
      * dark data inverse dataGreenMinor
      */
     public val DataInverseGreenMinor: Color = Color(0xFF0D8523)
 
     /**
-     * dark data inverse dataGreenLight
-     */
-    public val DataInverseGreenLight: Color = Color(0xFF0A4014)
-
-    /**
      * dark data inverse dataSpring
      */
     public val DataInverseSpring: Color = Color(0xFF567D0C)
-
-    /**
-     * dark data inverse dataBlue
-     */
-    public val DataInverseBlue: Color = Color(0xFF118CDF)
 
     /**
      * dark data inverse dataBlueMild
@@ -6091,11 +6426,6 @@ public object DarkColorTokens {
      * dark data inverse dataElectricBlue
      */
     public val DataInverseElectricBlue: Color = Color(0xFF1549AB)
-
-    /**
-     * dark data inverse dataFuchsia
-     */
-    public val DataInverseFuchsia: Color = Color(0xFF8A2178)
 
     /**
      * dark data inverse dataPink
@@ -6170,12 +6500,12 @@ public object DarkColorTokens {
     /**
      * dark data inverse dataOrangeHover
      */
-    public val DataInverseOrangeHover: Color = Color(0xFFFB782D)
+    public val DataInverseOrangeHover: Color = Color(0xFFFF8B4D)
 
     /**
      * dark data inverse dataOrangeActive
      */
-    public val DataInverseOrangeActive: Color = Color(0xFFE65705)
+    public val DataInverseOrangeActive: Color = Color(0xFFFF630F)
 
     /**
      * dark data inverse dataOrangeMinorHover
@@ -6230,22 +6560,22 @@ public object DarkColorTokens {
     /**
      * dark data inverse dataArcticHover
      */
-    public val DataInverseArcticHover: Color = Color(0xFF1C8D6D)
+    public val DataInverseArcticHover: Color = Color(0xFF00C28B)
 
     /**
      * dark data inverse dataArcticActive
      */
-    public val DataInverseArcticActive: Color = Color(0xFF156A52)
+    public val DataInverseArcticActive: Color = Color(0xFF00996E)
 
     /**
      * dark data inverse dataGreenHover
      */
-    public val DataInverseGreenHover: Color = Color(0xFF1EB83A)
+    public val DataInverseGreenHover: Color = Color(0xFF28C344)
 
     /**
      * dark data inverse dataGreenActive
      */
-    public val DataInverseGreenActive: Color = Color(0xFF178C2C)
+    public val DataInverseGreenActive: Color = Color(0xFF21A138)
 
     /**
      * dark data inverse dataGreenMinorHover
@@ -6260,12 +6590,12 @@ public object DarkColorTokens {
     /**
      * dark data inverse dataGreenLightHover
      */
-    public val DataInverseGreenLightHover: Color = Color(0xFF0E5D1D)
+    public val DataInverseGreenLightHover: Color = Color(0xFFD6FFE2)
 
     /**
      * dark data inverse dataGreenLightActive
      */
-    public val DataInverseGreenLightActive: Color = Color(0xFF08310F)
+    public val DataInverseGreenLightActive: Color = Color(0xFFD1FFDE)
 
     /**
      * dark data inverse dataSpringHover
@@ -6280,12 +6610,12 @@ public object DarkColorTokens {
     /**
      * dark data inverse dataBlueHover
      */
-    public val DataInverseBlueHover: Color = Color(0xFF209CEE)
+    public val DataInverseBlueHover: Color = Color(0xFF36A7F2)
 
     /**
      * dark data inverse dataBlueActive
      */
-    public val DataInverseBlueActive: Color = Color(0xFF0F81CC)
+    public val DataInverseBlueActive: Color = Color(0xFF0F90E6)
 
     /**
      * dark data inverse dataBlueMildHover
@@ -6330,12 +6660,12 @@ public object DarkColorTokens {
     /**
      * dark data inverse dataFuchsiaHover
      */
-    public val DataInverseFuchsiaHover: Color = Color(0xFF9C2688)
+    public val DataInverseFuchsiaHover: Color = Color(0xFFF471DE)
 
     /**
      * dark data inverse dataFuchsiaActive
      */
-    public val DataInverseFuchsiaActive: Color = Color(0xFF7B1E6C)
+    public val DataInverseFuchsiaActive: Color = Color(0xFFF042D3)
 
     /**
      * dark data inverse dataPinkHover
@@ -6413,11 +6743,6 @@ public object DarkColorTokens {
     public val DataInverseOrchidMinor: Color = Color(0xFFDEB7F7)
 
     /**
-     * dark data inverse dataOrchid
-     */
-    public val DataInverseOrchid: Color = Color(0xFFC46BFF)
-
-    /**
      * Инвертированный светлый голубой цвет для данных
      */
     public val DataInverseBlueLightHover: Color = Color(0xFFE5F5FF)
@@ -6436,6 +6761,161 @@ public object DarkColorTokens {
      * dark data inverse dataBlueMinor
      */
     public val DataInverseBlueMinor: Color = Color(0xFFCFECFF)
+
+    /**
+     * dark data inverse dataElectricBlueMinorHover
+     */
+    public val DataInverseElectricBlueMinorHover: Color = Color(0xFF83ADFC)
+
+    /**
+     * dark data inverse dataElectricBlueMinorActive
+     */
+    public val DataInverseElectricBlueMinorActive: Color = Color(0xFF79A7FC)
+
+    /**
+     * dark data inverse dataElectricBlueMinor
+     */
+    public val DataInverseElectricBlueMinor: Color = Color(0xFF8BB2FC)
+
+    /**
+     * dark data inverse dataElectricBlueLightHover
+     */
+    public val DataInverseElectricBlueLightHover: Color = Color(0xFFD6E4FF)
+
+    /**
+     * dark data inverse dataElectricBlueLightActive
+     */
+    public val DataInverseElectricBlueLightActive: Color = Color(0xFFD1E0FF)
+
+    /**
+     * dark data inverse dataElectricBlueLight
+     */
+    public val DataInverseElectricBlueLight: Color = Color(0xFFDEE9FF)
+
+    /**
+     * dark data inverse dataGrayLightHover
+     */
+    public val DataInverseGrayLightHover: Color = Color(0xFFE2E9EE)
+
+    /**
+     * dark data inverse dataGrayLightActive
+     */
+    public val DataInverseGrayLightActive: Color = Color(0xFFDEE7ED)
+
+    /**
+     * dark data inverse dataGrayLight
+     */
+    public val DataInverseGrayLight: Color = Color(0xFFE8EEF2)
+
+    /**
+     * dark data inverse dataGreen
+     */
+    public val DataInverseGreen: Color = Color(0xFF24B23E)
+
+    /**
+     * dark data inverse dataGreenLight
+     */
+    public val DataInverseGreenLight: Color = Color(0xFFE0FFE9)
+
+    /**
+     * dark data inverse dataYellowDark
+     */
+    public val DataInverseYellowDark: Color = Color(0xFFCC8800)
+
+    /**
+     * dark data inverse dataYellowDarkHover
+     */
+    public val DataInverseYellowDarkHover: Color = Color(0xFFE09600)
+
+    /**
+     * dark data inverse dataYellowDarkActive
+     */
+    public val DataInverseYellowDarkActive: Color = Color(0xFFB87A00)
+
+    /**
+     * dark data inverse dataOrange
+     */
+    public val DataInverseOrange: Color = Color(0xFFFF7024)
+
+    /**
+     * dark data inverse dataBlue
+     */
+    public val DataInverseBlue: Color = Color(0xFF199AF0)
+
+    /**
+     * dark data inverse dataOrchid
+     */
+    public val DataInverseOrchid: Color = Color(0xFFC46BFF)
+
+    /**
+     * dark data inverse dataOrchidLightHover
+     */
+    public val DataInverseOrchidLightHover: Color = Color(0xFFF3E0FF)
+
+    /**
+     * dark data inverse dataOrchidLightActive
+     */
+    public val DataInverseOrchidLightActive: Color = Color(0xFFF1DBFF)
+
+    /**
+     * dark data inverse dataOrchidLight
+     */
+    public val DataInverseOrchidLight: Color = Color(0xFFF4E3FF)
+
+    /**
+     * dark data inverse dataFuchsia
+     */
+    public val DataInverseFuchsia: Color = Color(0xFFF155D7)
+
+    /**
+     * dark data inverse dataFuchsiaMinorHover
+     */
+    public val DataInverseFuchsiaMinorHover: Color = Color(0xFFF288E0)
+
+    /**
+     * dark data inverse dataFuchsiaMinorActive
+     */
+    public val DataInverseFuchsiaMinorActive: Color = Color(0xFFF17EDE)
+
+    /**
+     * dark data inverse dataFuchsiaMinor
+     */
+    public val DataInverseFuchsiaMinor: Color = Color(0xFFF391E2)
+
+    /**
+     * dark data inverse dataFuchsiaLightHover
+     */
+    public val DataInverseFuchsiaLightHover: Color = Color(0xFFFCD9F5)
+
+    /**
+     * dark data inverse dataFuchsiaLightActive
+     */
+    public val DataInverseFuchsiaLightActive: Color = Color(0xFFFCD4F4)
+
+    /**
+     * dark data inverse dataFuchsiaLight
+     */
+    public val DataInverseFuchsiaLight: Color = Color(0xFFFDE3F8)
+
+    /**
+     * dark data inverse dataArctic
+     */
+    public val DataInverseArctic: Color = Color(0xFF00AC7B)
+
+    /**
+     * dark data inverse dataArcticLight
+     */
+    public val DataInverseArcticLight: Color = Color(0xFFDBFFF5)
+
+    /**
+     * dark data inverse dataArcticLightHover
+     */
+    public val DataInverseArcticLightHover: Color = Color(0xFFD1FFF2)
+
+    /**
+     * dark data inverse dataArcticLightActive
+     */
+    public val DataInverseArcticLightActive: Color = Color(0xFFCCFFF1)
 }
 
 /**
@@ -10953,19 +11433,19 @@ public object LightColorTokens {
     public val DataDefaultYellowTransparentActive: Color = Color(0xA3F3A812)
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLight
      */
-    public val DataDefaultYellowLight: Color = Color(0xFFFFF6E5)
+    public val DataDefaultYellowLight: Color = Color(0xFFFFE4AE)
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLightHover
      */
-    public val DataDefaultYellowLightHover: Color = Color(0xFFFFF4E0)
+    public val DataDefaultYellowLightHover: Color = Color(0xFFFFE0A3)
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLightActive
      */
-    public val DataDefaultYellowLightActive: Color = Color(0xFFFFF3DB)
+    public val DataDefaultYellowLightActive: Color = Color(0xFFFFDD99)
 
     /**
      * Светлый голубой цвет для данных
@@ -10978,11 +11458,6 @@ public object LightColorTokens {
     public val DataDefaultSkyBlueLightActive: Color = Color(0xFFDBF7FF)
 
     /**
-     * light data default dataOrchid
-     */
-    public val DataDefaultOrchid: Color = Color(0xFFC46BFF)
-
-    /**
      * light data default dataBlueMinor
      */
     public val DataDefaultBlueMinor: Color = Color(0xFFCFECFF)
@@ -10993,34 +11468,14 @@ public object LightColorTokens {
     public val DataDefaultBlueLight: Color = Color(0xFFEDF8FF)
 
     /**
-     * light data default dataArctic
-     */
-    public val DataDefaultArctic: Color = Color(0xFF14CC98)
-
-    /**
-     * light data default dataGreen
-     */
-    public val DataDefaultGreen: Color = Color(0xFF1A9E32)
-
-    /**
      * light data default dataGreenMinor
      */
     public val DataDefaultGreenMinor: Color = Color(0xFF28D247)
 
     /**
-     * light data default dataGreenLight
-     */
-    public val DataDefaultGreenLight: Color = Color(0xFF9EFAAF)
-
-    /**
      * light data default dataSpring
      */
     public val DataDefaultSpring: Color = Color(0xFF93E006)
-
-    /**
-     * light data default dataOrange
-     */
-    public val DataDefaultOrange: Color = Color(0xFFFA5F05)
 
     /**
      * light data default dataOrangeMinor
@@ -11048,11 +11503,6 @@ public object LightColorTokens {
     public val DataDefaultRedLight: Color = Color(0xFFFFE0E3)
 
     /**
-     * light data default dataBlue
-     */
-    public val DataDefaultBlue: Color = Color(0xFF118CDF)
-
-    /**
      * light data default dataBlueMild
      */
     public val DataDefaultBlueMild: Color = Color(0xFF52BAFF)
@@ -11066,16 +11516,6 @@ public object LightColorTokens {
      * light data default dataMalachiteMinor
      */
     public val DataDefaultMalachiteMinor: Color = Color(0xFF00DDE0)
-
-    /**
-     * light data default dataElectricBlue
-     */
-    public val DataDefaultElectricBlue: Color = Color(0xFF8BB2FC)
-
-    /**
-     * light data default dataFuchsia
-     */
-    public val DataDefaultFuchsia: Color = Color(0xFFF391E2)
 
     /**
      * light data default dataPink
@@ -11160,22 +11600,22 @@ public object LightColorTokens {
     /**
      * light data default dataArcticHover
      */
-    public val DataDefaultArcticHover: Color = Color(0xFF16DFA6)
+    public val DataDefaultArcticHover: Color = Color(0xFF00C28B)
 
     /**
      * light data default dataArcticActive
      */
-    public val DataDefaultArcticActive: Color = Color(0xFF12BA8A)
+    public val DataDefaultArcticActive: Color = Color(0xFF00996E)
 
     /**
      * light data default dataGreenHover
      */
-    public val DataDefaultGreenHover: Color = Color(0xFF1EB83A)
+    public val DataDefaultGreenHover: Color = Color(0xFF28C344)
 
     /**
      * light data default dataGreenActive
      */
-    public val DataDefaultGreenActive: Color = Color(0xFF178C2C)
+    public val DataDefaultGreenActive: Color = Color(0xFF21A138)
 
     /**
      * light data default dataGreenMinorHover
@@ -11190,12 +11630,12 @@ public object LightColorTokens {
     /**
      * light data default dataGreenLightHover
      */
-    public val DataDefaultGreenLightHover: Color = Color(0xFF94F9A7)
+    public val DataDefaultGreenLightHover: Color = Color(0xFFD6FFE2)
 
     /**
      * light data default dataGreenLightActive
      */
-    public val DataDefaultGreenLightActive: Color = Color(0xFF8BF99F)
+    public val DataDefaultGreenLightActive: Color = Color(0xFFD1FFDE)
 
     /**
      * light data default dataSpringHover
@@ -11210,12 +11650,12 @@ public object LightColorTokens {
     /**
      * light data default dataOrangeHover
      */
-    public val DataDefaultOrangeHover: Color = Color(0xFFFB782D)
+    public val DataDefaultOrangeHover: Color = Color(0xFFFF8B4D)
 
     /**
      * light data default dataOrangeActive
      */
-    public val DataDefaultOrangeActive: Color = Color(0xFFE65705)
+    public val DataDefaultOrangeActive: Color = Color(0xFFFF630F)
 
     /**
      * light data default dataOrangeMinorHover
@@ -11270,12 +11710,12 @@ public object LightColorTokens {
     /**
      * light data default dataBlueHover
      */
-    public val DataDefaultBlueHover: Color = Color(0xFF209CEE)
+    public val DataDefaultBlueHover: Color = Color(0xFF36A7F2)
 
     /**
      * light data default dataBlueActive
      */
-    public val DataDefaultBlueActive: Color = Color(0xFF0F81CC)
+    public val DataDefaultBlueActive: Color = Color(0xFF0F90E6)
 
     /**
      * light data default dataBlueMildHover
@@ -11310,22 +11750,22 @@ public object LightColorTokens {
     /**
      * light data default dataElectricBlueHover
      */
-    public val DataDefaultElectricBlueHover: Color = Color(0xFF83ADFC)
+    public val DataDefaultElectricBlueHover: Color = Color(0xFF7AA9FF)
 
     /**
      * light data default dataElectricBlueActive
      */
-    public val DataDefaultElectricBlueActive: Color = Color(0xFF79A7FC)
+    public val DataDefaultElectricBlueActive: Color = Color(0xFF3D81FF)
 
     /**
      * light data default dataFuchsiaHover
      */
-    public val DataDefaultFuchsiaHover: Color = Color(0xFFF288E0)
+    public val DataDefaultFuchsiaHover: Color = Color(0xFFF471DE)
 
     /**
      * light data default dataFuchsiaActive
      */
-    public val DataDefaultFuchsiaActive: Color = Color(0xFFF17EDE)
+    public val DataDefaultFuchsiaActive: Color = Color(0xFFF042D3)
 
     /**
      * light data default dataPinkHover
@@ -11403,6 +11843,166 @@ public object LightColorTokens {
     public val DataDefaultOrchidMinor: Color = Color(0xFFDEB7F7)
 
     /**
+     * light data default dataElectricBlue
+     */
+    public val DataDefaultElectricBlue: Color = Color(0xFF528EFF)
+
+    /**
+     * light data default dataElectricBlueMinor
+     */
+    public val DataDefaultElectricBlueMinor: Color = Color(0xFF8BB2FC)
+
+    /**
+     * light data default dataElectricBlueMinorHover
+     */
+    public val DataDefaultElectricBlueMinorHover: Color = Color(0xFF83ADFC)
+
+    /**
+     * light data default dataElectricBlueMinorActive
+     */
+    public val DataDefaultElectricBlueMinorActive: Color = Color(0xFF79A7FC)
+
+    /**
+     * light data default dataElectricBlueLight
+     */
+    public val DataDefaultElectricBlueLight: Color = Color(0xFFDEE9FF)
+
+    /**
+     * light data default dataElectricBlueLightHover
+     */
+    public val DataDefaultElectricBlueLightHover: Color = Color(0xFFD6E4FF)
+
+    /**
+     * light data default dataElectricBlueLightActive
+     */
+    public val DataDefaultElectricBlueLightActive: Color = Color(0xFFD1E0FF)
+
+    /**
+     * light data default dataGrayLight
+     */
+    public val DataDefaultGrayLight: Color = Color(0xFFE8EEF2)
+
+    /**
+     * light data default dataGrayLightHover
+     */
+    public val DataDefaultGrayLightHover: Color = Color(0xFFE2E9EE)
+
+    /**
+     * light data default dataGrayLightActive
+     */
+    public val DataDefaultGrayLightActive: Color = Color(0xFFDEE7ED)
+
+    /**
+     * light data default dataGreen
+     */
+    public val DataDefaultGreen: Color = Color(0xFF24B23E)
+
+    /**
+     * light data default dataGreenLight
+     */
+    public val DataDefaultGreenLight: Color = Color(0xFFE0FFE9)
+
+    /**
+     * light data default dataYellowDarkHover
+     */
+    public val DataDefaultYellowDarkHover: Color = Color(0xFFE09600)
+
+    /**
+     * light data default dataYellowDarkActive
+     */
+    public val DataDefaultYellowDarkActive: Color = Color(0xFFB87A00)
+
+    /**
+     * light data default dataYellowDark
+     */
+    public val DataDefaultYellowDark: Color = Color(0xFFCC8800)
+
+    /**
+     * light data default dataOrange
+     */
+    public val DataDefaultOrange: Color = Color(0xFFFF7024)
+
+    /**
+     * light data default dataBlue
+     */
+    public val DataDefaultBlue: Color = Color(0xFF199AF0)
+
+    /**
+     * light data default dataOrchid
+     */
+    public val DataDefaultOrchid: Color = Color(0xFFC46BFF)
+
+    /**
+     * light data default dataOrchidLight
+     */
+    public val DataDefaultOrchidLight: Color = Color(0xFFF4E3FF)
+
+    /**
+     * light data default dataOrchidLightHover
+     */
+    public val DataDefaultOrchidLightHover: Color = Color(0xFFF3E0FF)
+
+    /**
+     * light data default dataOrchidLightActive
+     */
+    public val DataDefaultOrchidLightActive: Color = Color(0xFFF1DBFF)
+
+    /**
+     * light data default dataFuchsia
+     */
+    public val DataDefaultFuchsia: Color = Color(0xFFF155D7)
+
+    /**
+     * light data default dataFuchsiaMinor
+     */
+    public val DataDefaultFuchsiaMinor: Color = Color(0xFFF391E2)
+
+    /**
+     * light data default dataFuchsiaMinorHover
+     */
+    public val DataDefaultFuchsiaMinorHover: Color = Color(0xFFF288E0)
+
+    /**
+     * light data default dataFuchsiaMinorActive
+     */
+    public val DataDefaultFuchsiaMinorActive: Color = Color(0xFFF17EDE)
+
+    /**
+     * light data default dataFuchsiaLight
+     */
+    public val DataDefaultFuchsiaLight: Color = Color(0xFFFDE3F8)
+
+    /**
+     * light data default dataFuchsiaLightHover
+     */
+    public val DataDefaultFuchsiaLightHover: Color = Color(0xFFFCD9F5)
+
+    /**
+     * light data default dataFuchsiaLightActive
+     */
+    public val DataDefaultFuchsiaLightActive: Color = Color(0xFFFCD4F4)
+
+    /**
+     * light data default dataArctic
+     */
+    public val DataDefaultArctic: Color = Color(0xFF00AC7B)
+
+    /**
+     * light data default dataArcticLightHover
+     */
+    public val DataDefaultArcticLightHover: Color = Color(0xFFD1FFF2)
+
+    /**
+     * light data default dataArcticLightActive
+     */
+    public val DataDefaultArcticLightActive: Color = Color(0xFFCCFFF1)
+
+    /**
+     * light data default dataArcticLight
+     */
+    public val DataDefaultArcticLight: Color = Color(0xFFDBFFF5)
+
+    /**
      * Желтый цвет для данных на темном фоне
      */
     public val DataOnDarkYellowHover: Color = Color(0xFFB87A00)
@@ -11438,14 +12038,14 @@ public object LightColorTokens {
     public val DataOnDarkYellowTransparentActive: Color = Color(0x80F3A812)
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLightHover
      */
-    public val DataOnDarkYellowLightHover: Color = Color(0xFF2A1E09)
+    public val DataOnDarkYellowLightHover: Color = Color(0xFF473000)
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLightActive
      */
-    public val DataOnDarkYellowLightActive: Color = Color(0xFF191205)
+    public val DataOnDarkYellowLightActive: Color = Color(0xFF291B00)
 
     /**
      * Светлый голубой цвет для данных на темном фоне
@@ -11463,19 +12063,14 @@ public object LightColorTokens {
     public val DataOnDarkBlueLight: Color = Color(0xFF0A1924)
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLight
      */
-    public val DataOnDarkYellowLight: Color = Color(0xFF211807)
+    public val DataOnDarkYellowLight: Color = Color(0xFF332200)
 
     /**
      * light data onDark dataBlueMinor
      */
     public val DataOnDarkBlueMinor: Color = Color(0xFF0D3B59)
-
-    /**
-     * light data onDark dataOrchid
-     */
-    public val DataOnDarkOrchid: Color = Color(0xFFAD42F5)
 
     /**
      * light data onDark dataOrchidMinor
@@ -11491,11 +12086,6 @@ public object LightColorTokens {
      * Минорный желтый цвет для данных на темном фоне
      */
     public val DataOnDarkYellowMinor: Color = Color(0xFF493203)
-
-    /**
-     * light data onDark dataOrange
-     */
-    public val DataOnDarkOrange: Color = Color(0xFFFA5F05)
 
     /**
      * light data onDark dataOrangeMinor
@@ -11523,34 +12113,14 @@ public object LightColorTokens {
     public val DataOnDarkRedLight: Color = Color(0xFF4A0D13)
 
     /**
-     * light data onDark dataArctic
-     */
-    public val DataOnDarkArctic: Color = Color(0xFF197D61)
-
-    /**
-     * light data onDark dataGreen
-     */
-    public val DataOnDarkGreen: Color = Color(0xFF1A9E32)
-
-    /**
      * light data onDark dataGreenMinor
      */
     public val DataOnDarkGreenMinor: Color = Color(0xFF0D8523)
 
     /**
-     * light data onDark dataGreenLight
-     */
-    public val DataOnDarkGreenLight: Color = Color(0xFF0A4014)
-
-    /**
      * light data onDark dataSpring
      */
     public val DataOnDarkSpring: Color = Color(0xFF567D0C)
-
-    /**
-     * light data onDark dataBlue
-     */
-    public val DataOnDarkBlue: Color = Color(0xFF118CDF)
 
     /**
      * light data onDark dataBlueMild
@@ -11566,16 +12136,6 @@ public object LightColorTokens {
      * light data onDark dataMalachiteMinor
      */
     public val DataOnDarkMalachiteMinor: Color = Color(0xFF0C585A)
-
-    /**
-     * light data onDark dataElectricBlue
-     */
-    public val DataOnDarkElectricBlue: Color = Color(0xFF1549AB)
-
-    /**
-     * light data onDark dataFuchsia
-     */
-    public val DataOnDarkFuchsia: Color = Color(0xFF8A2178)
 
     /**
      * light data onDark dataPink
@@ -11635,12 +12195,12 @@ public object LightColorTokens {
     /**
      * light data onDark dataOrchidHover
      */
-    public val DataOnDarkOrchidHover: Color = Color(0xFFBA5FF7)
+    public val DataOnDarkOrchidHover: Color = Color(0xFFA94AE8)
 
     /**
      * light data onDark dataOrchidActive
      */
-    public val DataOnDarkOrchidActive: Color = Color(0xFFA938F5)
+    public val DataOnDarkOrchidActive: Color = Color(0xFF9C2FE4)
 
     /**
      * light data onDark dataOrchidMinorHover
@@ -11655,12 +12215,12 @@ public object LightColorTokens {
     /**
      * light data onDark dataOrangeHover
      */
-    public val DataOnDarkOrangeHover: Color = Color(0xFFFB7223)
+    public val DataOnDarkOrangeHover: Color = Color(0xFFFC5E03)
 
     /**
      * light data onDark dataOrangeActive
      */
-    public val DataOnDarkOrangeActive: Color = Color(0xFFF05B05)
+    public val DataOnDarkOrangeActive: Color = Color(0xFFDE5302)
 
     /**
      * light data onDark dataOrangeMinorHover
@@ -11725,12 +12285,12 @@ public object LightColorTokens {
     /**
      * light data onDark dataGreenHover
      */
-    public val DataOnDarkGreenHover: Color = Color(0xFF1DAF37)
+    public val DataOnDarkGreenHover: Color = Color(0xFF12A12A)
 
     /**
      * light data onDark dataGreenActive
      */
-    public val DataOnDarkGreenActive: Color = Color(0xFF18952F)
+    public val DataOnDarkGreenActive: Color = Color(0xFF0F8523)
 
     /**
      * light data onDark dataGreenMinorHover
@@ -11745,12 +12305,12 @@ public object LightColorTokens {
     /**
      * light data onDark dataGreenLightHover
      */
-    public val DataOnDarkGreenLightHover: Color = Color(0xFF0D541A)
+    public val DataOnDarkGreenLightHover: Color = Color(0xFF0E3A16)
 
     /**
      * light data onDark dataGreenLightActive
      */
-    public val DataOnDarkGreenLightActive: Color = Color(0xFF093912)
+    public val DataOnDarkGreenLightActive: Color = Color(0xFF08210C)
 
     /**
      * light data onDark dataSpringHover
@@ -11765,12 +12325,12 @@ public object LightColorTokens {
     /**
      * light data onDark dataBlueHover
      */
-    public val DataOnDarkBlueHover: Color = Color(0xFF1798EE)
+    public val DataOnDarkBlueHover: Color = Color(0xFF0C8ADF)
 
     /**
      * light data onDark dataBlueActive
      */
-    public val DataOnDarkBlueActive: Color = Color(0xFF1086D5)
+    public val DataOnDarkBlueActive: Color = Color(0xFF0A78C2)
 
     /**
      * light data onDark dataBlueMildHover
@@ -11805,22 +12365,22 @@ public object LightColorTokens {
     /**
      * light data onDark dataElectricBlueHover
      */
-    public val DataOnDarkElectricBlueHover: Color = Color(0xFF1852BF)
+    public val DataOnDarkElectricBlueHover: Color = Color(0xFF3D78E6)
 
     /**
      * light data onDark dataElectricBlueActive
      */
-    public val DataOnDarkElectricBlueActive: Color = Color(0xFF1446A3)
+    public val DataOnDarkElectricBlueActive: Color = Color(0xFF2265E2)
 
     /**
      * light data onDark dataFuchsiaHover
      */
-    public val DataOnDarkFuchsiaHover: Color = Color(0xFF9C2688)
+    public val DataOnDarkFuchsiaHover: Color = Color(0xFFD52AB8)
 
     /**
      * light data onDark dataFuchsiaActive
      */
-    public val DataOnDarkFuchsiaActive: Color = Color(0xFF832073)
+    public val DataOnDarkFuchsiaActive: Color = Color(0xFFBB25A2)
 
     /**
      * light data onDark dataPinkHover
@@ -11893,6 +12453,166 @@ public object LightColorTokens {
     public val DataOnDarkBlueTransparentActive: Color = Color(0x2E118CDF)
 
     /**
+     * light data onDark dataElectricBlue
+     */
+    public val DataOnDarkElectricBlue: Color = Color(0xFF2969E3)
+
+    /**
+     * light data onDark dataElectricBlueMinor
+     */
+    public val DataOnDarkElectricBlueMinor: Color = Color(0xFF1549AB)
+
+    /**
+     * light data onDark dataElectricBlueMinorHover
+     */
+    public val DataOnDarkElectricBlueMinorHover: Color = Color(0xFF1852BF)
+
+    /**
+     * light data onDark dataElectricBlueMinorActive
+     */
+    public val DataOnDarkElectricBlueMinorActive: Color = Color(0xFF1446A3)
+
+    /**
+     * light data onDark dataElectricBlueLight
+     */
+    public val DataOnDarkElectricBlueLight: Color = Color(0xFF082254)
+
+    /**
+     * light data onDark dataElectricBlueLightHover
+     */
+    public val DataOnDarkElectricBlueLightHover: Color = Color(0xFF0A2A67)
+
+    /**
+     * light data onDark dataElectricBlueLightActive
+     */
+    public val DataOnDarkElectricBlueLightActive: Color = Color(0xFF071F4B)
+
+    /**
+     * light data onDark dataGrayLight
+     */
+    public val DataOnDarkGrayLight: Color = Color(0xFF23292D)
+
+    /**
+     * light data onDark dataGrayLightHover
+     */
+    public val DataOnDarkGrayLightHover: Color = Color(0xFF2C343A)
+
+    /**
+     * light data onDark dataGrayLightActive
+     */
+    public val DataOnDarkGrayLightActive: Color = Color(0xFF1F2528)
+
+    /**
+     * light data onDark dataGreen
+     */
+    public val DataOnDarkGreen: Color = Color(0xFF108E26)
+
+    /**
+     * light data onDark dataGreenLight
+     */
+    public val DataOnDarkGreenLight: Color = Color(0xFF0A2B10)
+
+    /**
+     * light data onDark dataYellowDark
+     */
+    public val DataOnDarkYellowDark: Color = Color(0xFFA16B00)
+
+    /**
+     * light data onDark dataYellowDarkHover
+     */
+    public val DataOnDarkYellowDarkHover: Color = Color(0xFFB87A00)
+
+    /**
+     * light data onDark dataYellowDarkActive
+     */
+    public val DataOnDarkYellowDarkActive: Color = Color(0xFF996600)
+
+    /**
+     * light data onDark dataOrange
+     */
+    public val DataOnDarkOrange: Color = Color(0xFFE85702)
+
+    /**
+     * light data onDark dataBlue
+     */
+    public val DataOnDarkBlue: Color = Color(0xFF0B7ECB)
+
+    /**
+     * light data onDark dataOrchid
+     */
+    public val DataOnDarkOrchid: Color = Color(0xFFA139E5)
+
+    /**
+     * light data onDark dataOrchidLight
+     */
+    public val DataOnDarkOrchidLight: Color = Color(0xFF36154C)
+
+    /**
+     * light data onDark dataOrchidLightHover
+     */
+    public val DataOnDarkOrchidLightHover: Color = Color(0xFF41195C)
+
+    /**
+     * light data onDark dataOrchidLightActive
+     */
+    public val DataOnDarkOrchidLightActive: Color = Color(0xFF301344)
+
+    /**
+     * light data onDark dataFuchsia
+     */
+    public val DataOnDarkFuchsia: Color = Color(0xFFC427AA)
+
+    /**
+     * light data onDark dataFuchsiaMinor
+     */
+    public val DataOnDarkFuchsiaMinor: Color = Color(0xFF8A2178)
+
+    /**
+     * light data onDark dataFuchsiaMinorHover
+     */
+    public val DataOnDarkFuchsiaMinorHover: Color = Color(0xFF9C2688)
+
+    /**
+     * light data onDark dataFuchsiaMinorActive
+     */
+    public val DataOnDarkFuchsiaMinorActive: Color = Color(0xFF832073)
+
+    /**
+     * light data onDark dataFuchsiaLight
+     */
+    public val DataOnDarkFuchsiaLight: Color = Color(0xFF450E3C)
+
+    /**
+     * light data onDark dataFuchsiaLightHover
+     */
+    public val DataOnDarkFuchsiaLightHover: Color = Color(0xFF551149)
+
+    /**
+     * light data onDark dataFuchsiaLightActive
+     */
+    public val DataOnDarkFuchsiaLightActive: Color = Color(0xFF3B0C33)
+
+    /**
+     * light data onDark dataArctic
+     */
+    public val DataOnDarkArctic: Color = Color(0xFF197D61)
+
+    /**
+     * light data onDark dataArcticLight
+     */
+    public val DataOnDarkArcticLight: Color = Color(0xFF072B21)
+
+    /**
+     * light data onDark dataArcticLightHover
+     */
+    public val DataOnDarkArcticLightHover: Color = Color(0xFF0A3D2F)
+
+    /**
+     * light data onDark dataArcticLightActive
+     */
+    public val DataOnDarkArcticLightActive: Color = Color(0xFF06231B)
+
+    /**
      * light data onLight dataYellow
      */
     public val DataOnLightYellow: Color = Color(0xFFF3A912)
@@ -11940,17 +12660,17 @@ public object LightColorTokens {
     /**
      * light data onLight dataYellowLight
      */
-    public val DataOnLightYellowLight: Color = Color(0xFFFFF6E5)
+    public val DataOnLightYellowLight: Color = Color(0xFFFFE4AE)
 
     /**
      * light data onLight dataYellowLightHover
      */
-    public val DataOnLightYellowLightHover: Color = Color(0xFFFFF4E0)
+    public val DataOnLightYellowLightHover: Color = Color(0xFFFFE0A3)
 
     /**
      * light data onLight dataYellowLightActive
      */
-    public val DataOnLightYellowLightActive: Color = Color(0xFFFFF3DB)
+    public val DataOnLightYellowLightActive: Color = Color(0xFFFFDD99)
 
     /**
      * Светлый голубой цвет для данных на светлом фоне
@@ -11988,29 +12708,14 @@ public object LightColorTokens {
     public val DataOnLightArctic: Color = Color(0xFF14CC98)
 
     /**
-     * light data onLight dataGreen
-     */
-    public val DataOnLightGreen: Color = Color(0xFF1A9E32)
-
-    /**
      * light data onLight dataGreenMinor
      */
     public val DataOnLightGreenMinor: Color = Color(0xFF28D247)
 
     /**
-     * light data onLight dataGreenLight
-     */
-    public val DataOnLightGreenLight: Color = Color(0xFFFFFFFF)
-
-    /**
      * light data onLight dataSpring
      */
     public val DataOnLightSpring: Color = Color(0xFF93E006)
-
-    /**
-     * light data onLight dataOrange
-     */
-    public val DataOnLightOrange: Color = Color(0xFFFA5F05)
 
     /**
      * light data onLight dataOrangeMinor
@@ -12038,11 +12743,6 @@ public object LightColorTokens {
     public val DataOnLightRedLight: Color = Color(0xFFFFE0E3)
 
     /**
-     * light data onLight dataBlue
-     */
-    public val DataOnLightBlue: Color = Color(0xFF118CDF)
-
-    /**
      * light data onLight dataBlueMild
      */
     public val DataOnLightBlueMild: Color = Color(0xFF52BAFF)
@@ -12056,16 +12756,6 @@ public object LightColorTokens {
      * light data onLight dataMalachiteMinor
      */
     public val DataOnLightMalachiteMinor: Color = Color(0xFF00DDE0)
-
-    /**
-     * light data onLight dataElectricBlue
-     */
-    public val DataOnLightElectricBlue: Color = Color(0xFF52BAFF)
-
-    /**
-     * light data onLight dataFuchsia
-     */
-    public val DataOnLightFuchsia: Color = Color(0xFFF391E2)
 
     /**
      * light data onLight dataPink
@@ -12155,12 +12845,12 @@ public object LightColorTokens {
     /**
      * light data onLight dataGreenHover
      */
-    public val DataOnLightGreenHover: Color = Color(0xFF1EB83A)
+    public val DataOnLightGreenHover: Color = Color(0xFF28C344)
 
     /**
      * light data onLight dataGreenActive
      */
-    public val DataOnLightGreenActive: Color = Color(0xFF178C2C)
+    public val DataOnLightGreenActive: Color = Color(0xFF21A138)
 
     /**
      * light data onLight dataGreenMinorHover
@@ -12175,12 +12865,12 @@ public object LightColorTokens {
     /**
      * light data onLight dataGreenLightHover
      */
-    public val DataOnLightGreenLightHover: Color = Color(0xFFFFFFFF)
+    public val DataOnLightGreenLightHover: Color = Color(0xFFD6FFE2)
 
     /**
      * light data onLight dataGreenLightActive
      */
-    public val DataOnLightGreenLightActive: Color = Color(0xFFFFFFFF)
+    public val DataOnLightGreenLightActive: Color = Color(0xFFD1FFDE)
 
     /**
      * light data onLight dataSpringHover
@@ -12195,12 +12885,12 @@ public object LightColorTokens {
     /**
      * light data onLight dataOrangeHover
      */
-    public val DataOnLightOrangeHover: Color = Color(0xFFFB782D)
+    public val DataOnLightOrangeHover: Color = Color(0xFFFF8B4D)
 
     /**
      * light data onLight dataOrangeActive
      */
-    public val DataOnLightOrangeActive: Color = Color(0xFFE65705)
+    public val DataOnLightOrangeActive: Color = Color(0xFFFF630F)
 
     /**
      * light data onLight dataOrangeMinorHover
@@ -12255,12 +12945,12 @@ public object LightColorTokens {
     /**
      * light data onLight dataBlueHover
      */
-    public val DataOnLightBlueHover: Color = Color(0xFF209CEE)
+    public val DataOnLightBlueHover: Color = Color(0xFF36A7F2)
 
     /**
      * light data onLight dataBlueActive
      */
-    public val DataOnLightBlueActive: Color = Color(0xFF0F81CC)
+    public val DataOnLightBlueActive: Color = Color(0xFF0F90E6)
 
     /**
      * light data onLight dataBlueMildHover
@@ -12295,22 +12985,22 @@ public object LightColorTokens {
     /**
      * light data onLight dataElectricBlueHover
      */
-    public val DataOnLightElectricBlueHover: Color = Color(0xFF7ACAFF)
+    public val DataOnLightElectricBlueHover: Color = Color(0xFF36A7F2)
 
     /**
      * light data onLight dataElectricBlueActive
      */
-    public val DataOnLightElectricBlueActive: Color = Color(0xFF3DB1FF)
+    public val DataOnLightElectricBlueActive: Color = Color(0xFF0F90E6)
 
     /**
      * light data onLight dataFuchsiaHover
      */
-    public val DataOnLightFuchsiaHover: Color = Color(0xFFF288E0)
+    public val DataOnLightFuchsiaHover: Color = Color(0xFFF471DE)
 
     /**
      * light data onLight dataFuchsiaActive
      */
-    public val DataOnLightFuchsiaActive: Color = Color(0xFFF17EDE)
+    public val DataOnLightFuchsiaActive: Color = Color(0xFFF042D3)
 
     /**
      * light data onLight dataPinkHover
@@ -12381,6 +13071,156 @@ public object LightColorTokens {
      * light data onLight dataOrangeTransparentActive
      */
     public val DataOnLightOrangeTransparentActive: Color = Color(0x47FA5F05)
+
+    /**
+     * light data onLight dataElectricBlue
+     */
+    public val DataOnLightElectricBlue: Color = Color(0xFF199AF0)
+
+    /**
+     * light data onLight dataElectricBlueMinor
+     */
+    public val DataOnLightElectricBlueMinor: Color = Color(0xFF8BB2FC)
+
+    /**
+     * light data onLight dataElectricBlueMinorHover
+     */
+    public val DataOnLightElectricBlueMinorHover: Color = Color(0xFF83ADFC)
+
+    /**
+     * light data onLight dataElectricBlueMinorActive
+     */
+    public val DataOnLightElectricBlueMinorActive: Color = Color(0xFF79A7FC)
+
+    /**
+     * light data onLight dataElectricBlueLight
+     */
+    public val DataOnLightElectricBlueLight: Color = Color(0xFFDEE9FF)
+
+    /**
+     * light data onLight dataElectricBlueLightHover
+     */
+    public val DataOnLightElectricBlueLightHover: Color = Color(0xFFD6E4FF)
+
+    /**
+     * light data onLight dataElectricBlueLightActive
+     */
+    public val DataOnLightElectricBlueLightActive: Color = Color(0xFFD1E0FF)
+
+    /**
+     * light data onLight dataGrayLight
+     */
+    public val DataOnLightGrayLight: Color = Color(0xFFE8EEF2)
+
+    /**
+     * light data onLight dataGrayLightHover
+     */
+    public val DataOnLightGrayLightHover: Color = Color(0xFFE2E9EE)
+
+    /**
+     * light data onLight dataGrayLightActive
+     */
+    public val DataOnLightGrayLightActive: Color = Color(0xFFDEE7ED)
+
+    /**
+     * light data onLight dataGreen
+     */
+    public val DataOnLightGreen: Color = Color(0xFF24B23E)
+
+    /**
+     * light data onLight dataGreenLight
+     */
+    public val DataOnLightGreenLight: Color = Color(0xFFE0FFE9)
+
+    /**
+     * light data onLight dataYellowDark
+     */
+    public val DataOnLightYellowDark: Color = Color(0xFFCC8800)
+
+    /**
+     * light data onLight dataYellowDarkHover
+     */
+    public val DataOnLightYellowDarkHover: Color = Color(0xFFE09600)
+
+    /**
+     * light data onLight dataYellowDarkActive
+     */
+    public val DataOnLightYellowDarkActive: Color = Color(0xFFB87A00)
+
+    /**
+     * light data onLight dataOrange
+     */
+    public val DataOnLightOrange: Color = Color(0xFFFF7024)
+
+    /**
+     * light data onLight dataBlue
+     */
+    public val DataOnLightBlue: Color = Color(0xFF199AF0)
+
+    /**
+     * light data onLight dataOrchidLight
+     */
+    public val DataOnLightOrchidLight: Color = Color(0xFFF4E3FF)
+
+    /**
+     * light data onLight dataOrchidLightHover
+     */
+    public val DataOnLightOrchidLightHover: Color = Color(0xFFF3E0FF)
+
+    /**
+     * light data onLight dataOrchidLightActive
+     */
+    public val DataOnLightOrchidLightActive: Color = Color(0xFFF1DBFF)
+
+    /**
+     * light data onLight dataFuchsia
+     */
+    public val DataOnLightFuchsia: Color = Color(0xFFF155D7)
+
+    /**
+     * light data onLight dataFuchsiaMinor
+     */
+    public val DataOnLightFuchsiaMinor: Color = Color(0xFFF391E2)
+
+    /**
+     * light data onLight dataFuchsiaMinorHover
+     */
+    public val DataOnLightFuchsiaMinorHover: Color = Color(0xFFF288E0)
+
+    /**
+     * light data onLight dataFuchsiaMinorActive
+     */
+    public val DataOnLightFuchsiaMinorActive: Color = Color(0xFFF17EDE)
+
+    /**
+     * light data onLight dataFuchsiaLight
+     */
+    public val DataOnLightFuchsiaLight: Color = Color(0xFFFDE3F8)
+
+    /**
+     * light data onLight dataFuchsiaLightHover
+     */
+    public val DataOnLightFuchsiaLightHover: Color = Color(0xFFFCD9F5)
+
+    /**
+     * light data onLight dataFuchsiaLightActive
+     */
+    public val DataOnLightFuchsiaLightActive: Color = Color(0xFFFCD4F4)
+
+    /**
+     * light data onLight dataArcticLight
+     */
+    public val DataOnLightArcticLight: Color = Color(0xFFDBFFF5)
+
+    /**
+     * light data onLight dataArcticLightHover
+     */
+    public val DataOnLightArcticLightHover: Color = Color(0xFFD1FFF2)
+
+    /**
+     * light data onLight dataArcticLightActive
+     */
+    public val DataOnLightArcticLightActive: Color = Color(0xFFCCFFF1)
 
     /**
      * light data inverse dataYellow
@@ -12458,16 +13298,6 @@ public object LightColorTokens {
     public val DataInverseYellowLight: Color = Color(0xFF211807)
 
     /**
-     * light data inverse dataOrchid
-     */
-    public val DataInverseOrchid: Color = Color(0xFFAD42F5)
-
-    /**
-     * light data inverse dataOrange
-     */
-    public val DataInverseOrange: Color = Color(0xFFFA5F05)
-
-    /**
      * light data inverse dataOrangeMinor
      */
     public val DataInverseOrangeMinor: Color = Color(0xFF85380C)
@@ -12493,34 +13323,14 @@ public object LightColorTokens {
     public val DataInverseRedLight: Color = Color(0xFF4A0D13)
 
     /**
-     * light data inverse dataArctic
-     */
-    public val DataInverseArctic: Color = Color(0xFF197D61)
-
-    /**
-     * light data inverse dataGreen
-     */
-    public val DataInverseGreen: Color = Color(0xFF1A9E32)
-
-    /**
      * light data inverse dataGreenMinor
      */
     public val DataInverseGreenMinor: Color = Color(0xFF0D8523)
 
     /**
-     * light data inverse dataGreenLight
-     */
-    public val DataInverseGreenLight: Color = Color(0xFF0A4014)
-
-    /**
      * light data inverse dataSpring
      */
     public val DataInverseSpring: Color = Color(0xFF567D0C)
-
-    /**
-     * light data inverse dataBlue
-     */
-    public val DataInverseBlue: Color = Color(0xFF118CDF)
 
     /**
      * light data inverse dataBlueMild
@@ -12536,16 +13346,6 @@ public object LightColorTokens {
      * light data inverse dataMalachiteMinor
      */
     public val DataInverseMalachiteMinor: Color = Color(0xFF0C585A)
-
-    /**
-     * light data inverse dataElectricBlue
-     */
-    public val DataInverseElectricBlue: Color = Color(0xFF1549AB)
-
-    /**
-     * light data inverse dataFuchsia
-     */
-    public val DataInverseFuchsia: Color = Color(0xFF8A2178)
 
     /**
      * light data inverse dataPink
@@ -12595,12 +13395,12 @@ public object LightColorTokens {
     /**
      * light data inverse dataOrchidHover
      */
-    public val DataInverseOrchidHover: Color = Color(0xFFBA5FF7)
+    public val DataInverseOrchidHover: Color = Color(0xFFA94AE8)
 
     /**
      * light data inverse dataOrchidActive
      */
-    public val DataInverseOrchidActive: Color = Color(0xFFA938F5)
+    public val DataInverseOrchidActive: Color = Color(0xFF9C2FE4)
 
     /**
      * light data inverse dataOrchidMinorHover
@@ -12615,12 +13415,12 @@ public object LightColorTokens {
     /**
      * light data inverse dataOrangeHover
      */
-    public val DataInverseOrangeHover: Color = Color(0xFFFB7223)
+    public val DataInverseOrangeHover: Color = Color(0xFFFC5E03)
 
     /**
      * light data inverse dataOrangeActive
      */
-    public val DataInverseOrangeActive: Color = Color(0xFFF05B05)
+    public val DataInverseOrangeActive: Color = Color(0xFFDE5302)
 
     /**
      * light data inverse dataOrangeMinorHover
@@ -12685,12 +13485,12 @@ public object LightColorTokens {
     /**
      * light data inverse dataGreenHover
      */
-    public val DataInverseGreenHover: Color = Color(0xFF1DAF37)
+    public val DataInverseGreenHover: Color = Color(0xFF12A12A)
 
     /**
      * light data inverse dataGreenActive
      */
-    public val DataInverseGreenActive: Color = Color(0xFF18952F)
+    public val DataInverseGreenActive: Color = Color(0xFF0F8523)
 
     /**
      * light data inverse dataGreenMinorHover
@@ -12705,12 +13505,12 @@ public object LightColorTokens {
     /**
      * light data inverse dataGreenLightHover
      */
-    public val DataInverseGreenLightHover: Color = Color(0xFF0D541A)
+    public val DataInverseGreenLightHover: Color = Color(0xFF0E3A16)
 
     /**
      * light data inverse dataGreenLightActive
      */
-    public val DataInverseGreenLightActive: Color = Color(0xFF093912)
+    public val DataInverseGreenLightActive: Color = Color(0xFF08210C)
 
     /**
      * light data inverse dataSpringHover
@@ -12725,12 +13525,12 @@ public object LightColorTokens {
     /**
      * light data inverse dataBlueHover
      */
-    public val DataInverseBlueHover: Color = Color(0xFF1798EE)
+    public val DataInverseBlueHover: Color = Color(0xFF0C8ADF)
 
     /**
      * light data inverse dataBlueActive
      */
-    public val DataInverseBlueActive: Color = Color(0xFF1086D5)
+    public val DataInverseBlueActive: Color = Color(0xFF0A78C2)
 
     /**
      * light data inverse dataBlueMildHover
@@ -12765,22 +13565,22 @@ public object LightColorTokens {
     /**
      * light data inverse dataElectricBlueHover
      */
-    public val DataInverseElectricBlueHover: Color = Color(0xFF1852BF)
+    public val DataInverseElectricBlueHover: Color = Color(0xFF3D78E6)
 
     /**
      * light data inverse dataElectricBlueActive
      */
-    public val DataInverseElectricBlueActive: Color = Color(0xFF1446A3)
+    public val DataInverseElectricBlueActive: Color = Color(0xFF2265E2)
 
     /**
      * light data inverse dataFuchsiaHover
      */
-    public val DataInverseFuchsiaHover: Color = Color(0xFF9C2688)
+    public val DataInverseFuchsiaHover: Color = Color(0xFFD52AB8)
 
     /**
      * light data inverse dataFuchsiaActive
      */
-    public val DataInverseFuchsiaActive: Color = Color(0xFF832073)
+    public val DataInverseFuchsiaActive: Color = Color(0xFFBB25A2)
 
     /**
      * light data inverse dataPinkHover
@@ -12871,4 +13671,164 @@ public object LightColorTokens {
      * Инвертированный светлый голубой цвет для данных
      */
     public val DataInverseBlueLightActive: Color = Color(0xFF08141C)
+
+    /**
+     * light data inverse dataElectricBlue
+     */
+    public val DataInverseElectricBlue: Color = Color(0xFF2969E3)
+
+    /**
+     * light data inverse dataElectricBlueMinor
+     */
+    public val DataInverseElectricBlueMinor: Color = Color(0xFF1549AB)
+
+    /**
+     * light data inverse dataElectricBlueMinorHover
+     */
+    public val DataInverseElectricBlueMinorHover: Color = Color(0xFF1852BF)
+
+    /**
+     * light data inverse dataElectricBlueMinorActive
+     */
+    public val DataInverseElectricBlueMinorActive: Color = Color(0xFF1446A3)
+
+    /**
+     * light data inverse dataElectricBlueLight
+     */
+    public val DataInverseElectricBlueLight: Color = Color(0xFF082254)
+
+    /**
+     * light data inverse dataElectricBlueLightHover
+     */
+    public val DataInverseElectricBlueLightHover: Color = Color(0xFF0A2A67)
+
+    /**
+     * light data inverse dataElectricBlueLightActive
+     */
+    public val DataInverseElectricBlueLightActive: Color = Color(0xFF071F4B)
+
+    /**
+     * light data inverse dataGrayLight
+     */
+    public val DataInverseGrayLight: Color = Color(0xFF23292D)
+
+    /**
+     * light data inverse dataGrayLightHover
+     */
+    public val DataInverseGrayLightHover: Color = Color(0xFF2C343A)
+
+    /**
+     * light data inverse dataGrayLightActive
+     */
+    public val DataInverseGrayLightActive: Color = Color(0xFF1F2528)
+
+    /**
+     * light data inverse dataGreen
+     */
+    public val DataInverseGreen: Color = Color(0xFF108E26)
+
+    /**
+     * light data inverse dataGreenLight
+     */
+    public val DataInverseGreenLight: Color = Color(0xFF0A2B10)
+
+    /**
+     * light data inverse dataYellowDarkHover
+     */
+    public val DataInverseYellowDarkHover: Color = Color(0xFFB87A00)
+
+    /**
+     * light data inverse dataYellowDarkActive
+     */
+    public val DataInverseYellowDarkActive: Color = Color(0xFF996600)
+
+    /**
+     * light data inverse dataYellowDark
+     */
+    public val DataInverseYellowDark: Color = Color(0xFFA16B00)
+
+    /**
+     * light data inverse dataOrange
+     */
+    public val DataInverseOrange: Color = Color(0xFFE85702)
+
+    /**
+     * light data inverse dataBlue
+     */
+    public val DataInverseBlue: Color = Color(0xFF0B7ECB)
+
+    /**
+     * light data inverse dataOrchid
+     */
+    public val DataInverseOrchid: Color = Color(0xFFA139E5)
+
+    /**
+     * light data inverse dataOrchidLight
+     */
+    public val DataInverseOrchidLight: Color = Color(0xFF36154C)
+
+    /**
+     * light data inverse dataOrchidLightHover
+     */
+    public val DataInverseOrchidLightHover: Color = Color(0xFF41195C)
+
+    /**
+     * light data inverse dataOrchidLightActive
+     */
+    public val DataInverseOrchidLightActive: Color = Color(0xFF301344)
+
+    /**
+     * light data inverse dataFuchsia
+     */
+    public val DataInverseFuchsia: Color = Color(0xFFC427AA)
+
+    /**
+     * light data inverse dataFuchsiaMinor
+     */
+    public val DataInverseFuchsiaMinor: Color = Color(0xFF8A2178)
+
+    /**
+     * light data inverse dataFuchsiaMinorHover
+     */
+    public val DataInverseFuchsiaMinorHover: Color = Color(0xFF9C2688)
+
+    /**
+     * light data inverse dataFuchsiaMinorActive
+     */
+    public val DataInverseFuchsiaMinorActive: Color = Color(0xFF832073)
+
+    /**
+     * light data inverse dataFuchsiaLight
+     */
+    public val DataInverseFuchsiaLight: Color = Color(0xFF450E3C)
+
+    /**
+     * light data inverse dataFuchsiaLightHover
+     */
+    public val DataInverseFuchsiaLightHover: Color = Color(0xFF551149)
+
+    /**
+     * light data inverse dataFuchsiaLightActive
+     */
+    public val DataInverseFuchsiaLightActive: Color = Color(0xFF3B0C33)
+
+    /**
+     * light data inverse dataArctic
+     */
+    public val DataInverseArctic: Color = Color(0xFF197D61)
+
+    /**
+     * light data inverse dataArcticLightHover
+     */
+    public val DataInverseArcticLightHover: Color = Color(0xFF0A3D2F)
+
+    /**
+     * light data inverse dataArcticLightActive
+     */
+    public val DataInverseArcticLightActive: Color = Color(0xFF06231B)
+
+    /**
+     * light data inverse dataArcticLight
+     */
+    public val DataInverseArcticLight: Color = Color(0xFF072B21)
 }

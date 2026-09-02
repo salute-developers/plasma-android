@@ -129,6 +129,11 @@ interface TextFieldMotionStyle : MotionStyle {
      */
     val indicatorColor: MotionProperty<Brush>
 
+    /**
+     * Анимационное свойство цвета бордера(обводки).
+     */
+    val strokeColor: MotionProperty<Brush>
+
     companion object {
         /**
          * Создает билдер для построения [TextFieldMotionStyle].
@@ -248,6 +253,11 @@ interface TextFieldMotionStyleBuilder : MotionStyleBuilder<TextFieldMotionStyle>
      */
     fun indicatorColor(color: MotionProperty<Brush>): TextFieldMotionStyleBuilder
 
+    /**
+     * Устанавливает анимационное свойство цвета бордера (обводки).
+     */
+    fun strokeColor(color: MotionProperty<Brush>): TextFieldMotionStyleBuilder
+
     override fun style(): TextFieldMotionStyle
 }
 
@@ -274,6 +284,7 @@ private class TextFieldMotionStyleImpl(
     override val startContentColor: MotionProperty<Brush>,
     override val endContentColor: MotionProperty<Brush>,
     override val indicatorColor: MotionProperty<Brush>,
+    override val strokeColor: MotionProperty<Brush>,
 ) : TextFieldMotionStyle {
 
     class Builder : TextFieldMotionStyleBuilder {
@@ -299,6 +310,7 @@ private class TextFieldMotionStyleImpl(
         private var startContentColor: MotionProperty<Brush>? = null
         private var endContentColor: MotionProperty<Brush>? = null
         private var indicatorColor: MotionProperty<Brush>? = null
+        private var strokeColor: MotionProperty<Brush>? = null
 
         override fun labelStyle(label: MotionProperty<TextStyle>) = apply {
             this.labelStyle = label
@@ -384,6 +396,10 @@ private class TextFieldMotionStyleImpl(
             this.indicatorColor = color
         }
 
+        override fun strokeColor(color: MotionProperty<Brush>) = apply {
+            this.strokeColor = color
+        }
+
         @Suppress("CyclomaticComplexMethod")
         override fun style(): TextFieldMotionStyle {
             return TextFieldMotionStyleImpl(
@@ -408,7 +424,7 @@ private class TextFieldMotionStyleImpl(
                 startContentColor = startContentColor ?: noMotion(),
                 endContentColor = endContentColor ?: noMotion(),
                 indicatorColor = indicatorColor ?: noMotion(),
-
+                strokeColor = strokeColor ?: noMotion(),
             )
         }
     }

@@ -1,4 +1,4 @@
-import SddsServSandbox
+import SddsFinAiSandbox
 import UIKit
 
 @main

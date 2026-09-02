@@ -84,10 +84,13 @@ import com.sdds.compose.uikit.graphics.maybeShapeable
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.activatable
+import com.sdds.compose.uikit.interactions.collectIsActivatedAsState
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.interactions.setExclusiveEnum
 import com.sdds.compose.uikit.interactions.transform
 import com.sdds.compose.uikit.internal.common.drawIndicator
+import com.sdds.compose.uikit.internal.focusselector.drawInnerBorder
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import com.sdds.compose.uikit.motion.Motion
@@ -131,7 +134,7 @@ import com.sdds.compose.uikit.topAlignmentLine
  * @param onDecorationBoxClicked обработчик нажатий на контейнер textfield. Работает только для [fakeTextField] == true.
  */
 @Composable
-@Suppress("LongMethod")
+@Suppress("LongMethod", "CyclomaticComplexMethod")
 internal fun BaseTextField(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
@@ -162,6 +165,12 @@ internal fun BaseTextField(
     onDecorationBoxClicked: (() -> Unit)? = null,
 ) {
     SideEffect {
+        val semantic = motion.context.semanticStateSource
+        when {
+            !enabled -> semantic.setExclusiveEnum(TextFieldSemanticState.Disabled)
+            readOnly -> semantic.setExclusiveEnum(TextFieldSemanticState.Readonly)
+            else -> semantic.remove(TextFieldSemanticState.Disabled, TextFieldSemanticState.Readonly)
+        }
         motion.context.semanticStateSource.set(
             TextFieldSemanticState.Readonly,
             readOnly,
@@ -336,6 +345,9 @@ internal fun BaseTextField(
                         style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
                     val dividerColorColor =
                         style.colors.dividerBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
+                    val strokeWidth = style.dimensionValues.strokeWidth.getValueAsState(motion.context)
+                    val strokeColor = style.colors.strokeColor.getBrushAsState(motion.context, motion.style.strokeColor)
+                    val activated = motion.context.interactionSource.collectIsActivatedAsState()
                     DecorationBox(
                         modifier = Modifier
                             .layoutId(FIELD_CONTENT_ID)
@@ -362,6 +374,7 @@ internal fun BaseTextField(
                                 dividerColor = { dividerColorColor.value },
                                 dividerThickness = dividerThickness,
                             )
+                            .drawInnerBorder(strokeWidth, { strokeColor.value }, shape, isFocused = { activated.value })
                             .then(
                                 if (scrollBar != null) {
                                     Modifier.applyVerticalScrollBar(
@@ -628,13 +641,14 @@ private fun Modifier.drawFieldAppearance(
     return this.drawBehind {
         val backColor = backgroundColor()
         drawRect(backColor)
-        val thickness = dividerThickness.value
-        if (thickness.value != 0f) {
+        val thickness = dividerThickness.value.toPx()
+        val halfThickness = (thickness / 2)
+        if (thickness > 0f) {
             drawLine(
                 brush = dividerColor(),
-                start = Offset(0f, size.height),
-                end = Offset(size.width, size.height),
-                strokeWidth = thickness.toPx(),
+                start = Offset(0f, size.height - halfThickness),
+                end = Offset(size.width, size.height - halfThickness),
+                strokeWidth = thickness,
                 cap = StrokeCap.Round,
             )
         }
