@@ -209,9 +209,9 @@ public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
                     setOf(InteractiveState.Activated)
                         to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary),
                     setOf(TextFieldSemanticState.Readonly) to
-                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f)),
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceInverseTransparentPrimary.multiplyAlpha(0.01f)),
                     setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
-                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f)),
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceInverseTransparentPrimary.multiplyAlpha(0.01f)),
                 ),
             )
         }
@@ -236,9 +236,9 @@ public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
                     setOf(InteractiveState.Activated)
                         to SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary),
                     setOf(TextFieldSemanticState.Readonly) to
-                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f)),
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.01f)),
                     setOf(InteractiveState.Activated, TextFieldSemanticState.Readonly) to
-                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f)),
+                        SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.01f)),
                 ),
             )
         }

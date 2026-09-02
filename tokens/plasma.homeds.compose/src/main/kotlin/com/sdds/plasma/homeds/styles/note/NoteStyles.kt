@@ -141,7 +141,7 @@ private val NoteStyleBuilder.invariantProps: NoteStyleBuilder
         .textStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .colors {
             titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
-            textColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            textColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
             closeColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
