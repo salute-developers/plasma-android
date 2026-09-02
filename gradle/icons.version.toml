@@ -1,5 +1,5 @@
 [versions]
-sdds-icons = "0.34.0"
+sdds-icons = "0.35.0"
 
 [libraries]
 sdds-icons = { module = "io.github.salute-developers:sdds-icons", version.ref = "sdds-icons" }
