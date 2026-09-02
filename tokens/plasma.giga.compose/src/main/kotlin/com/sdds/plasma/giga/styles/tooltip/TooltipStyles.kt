@@ -48,9 +48,9 @@ private val TooltipStyleBuilder.invariantProps: TooltipStyleBuilder
     get() = this
         .shadow(PlasmaGigaTheme.shadows.downHardM)
         .colors {
-            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
-            textColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
-            contentStartColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceInverseSolidCard).asStatefulValue())
+            textColor(SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue())
+            contentStartColor(PlasmaGigaTheme.colors.textInverseSecondary.asInteractive())
         }
         .dimensions {
             contentStartSize(16.0.dp)
