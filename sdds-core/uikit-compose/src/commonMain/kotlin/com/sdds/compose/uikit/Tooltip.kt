@@ -18,6 +18,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.popover.BasePopover
@@ -75,7 +76,7 @@ fun Tooltip(
         triggerInfo = triggerInfo,
         dimensions = style.dimensions.toPopoverDimensions(),
         colors = style.colors.toPopoverColors(),
-        shape = style.shape,
+        shape = style.shape.asStatefulValue(),
         shadow = style.shadow,
         placement = placement,
         placementMode = placementMode,
@@ -121,11 +122,25 @@ fun Tooltip(
 
 private fun TooltipDimensions.toPopoverDimensions(offset: Dp = this.offset): PopoverDimensions {
     return object : PopoverDimensions {
-        override val width = 0.dp
-        override val offset = offset
-        override val tailWidth = this@toPopoverDimensions.tailWidth
-        override val tailHeight = this@toPopoverDimensions.tailHeight
-        override val tailPadding = this@toPopoverDimensions.tailPadding
+        @Deprecated("use widthValues", replaceWith = ReplaceWith("widthValues"))
+        override val width: Dp = 0.dp
+        override val widthValues = width.asStatefulValue()
+
+        @Deprecated("use offsetValues", replaceWith = ReplaceWith("offsetValues"))
+        override val offset: Dp = offset
+        override val offsetValues = this.offset.asStatefulValue()
+
+        @Deprecated("use tailWidthValues", replaceWith = ReplaceWith("tailWidthValues"))
+        override val tailWidth: Dp = this@toPopoverDimensions.tailWidth
+        override val tailWidthValues = this.tailWidth.asStatefulValue()
+
+        @Deprecated("use tailHeightValues", replaceWith = ReplaceWith("tailHeightValues"))
+        override val tailHeight: Dp = this@toPopoverDimensions.tailHeight
+        override val tailHeightValues = this.tailHeight.asStatefulValue()
+
+        @Deprecated("use tailPaddingValues", replaceWith = ReplaceWith("tailPaddingValues"))
+        override val tailPadding: Dp = this@toPopoverDimensions.tailPadding
+        override val tailPaddingValues = this.tailPadding.asStatefulValue()
     }
 }
 
