@@ -6,11 +6,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
+import com.sdds.compose.uikit.CheckBoxValue
+import com.sdds.compose.uikit.CheckBoxValue.Error
+import com.sdds.compose.uikit.CheckBoxValue.Indeterminate
+import com.sdds.compose.uikit.CheckBoxValue.Off
+import com.sdds.compose.uikit.CheckBoxValue.On
 import com.sdds.compose.uikit.fixtures.stories.CheckBoxGroupUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.CheckBoxGroupUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -50,23 +54,23 @@ object CheckBoxGroupStory : ComposeBaseStory<CheckBoxGroupUiState, CheckBoxGroup
                     CheckBoxGroupItem(
                         label = state.label,
                         description = state.description,
-                        state = ToggleableState.Off,
+                        state = Off,
                     ),
                     CheckBoxGroupItem(
                         label = state.label,
                         description = state.description,
-                        state = ToggleableState.Off,
+                        state = Off,
                     ),
                 ),
             )
         }
-        var rootCheckBoxState by remember { mutableStateOf(ToggleableState.Off) }
+        var rootCheckBoxState by remember { mutableStateOf(Off) }
 
         CheckBoxGroup(style = style) {
             if (state.hasRoot) {
                 rootCheckbox {
                     CheckBox(
-                        state = rootCheckBoxState,
+                        value = rootCheckBoxState,
                         enabled = state.enabled,
                         label = state.label,
                         description = state.description,
@@ -84,7 +88,7 @@ object CheckBoxGroupStory : ComposeBaseStory<CheckBoxGroupUiState, CheckBoxGroup
             items.forEachIndexed { index, item ->
                 checkbox {
                     CheckBox(
-                        state = item.state,
+                        value = item.state,
                         enabled = state.enabled,
                         label = item.label,
                         description = item.description,
@@ -111,21 +115,21 @@ object CheckBoxGroupStory : ComposeBaseStory<CheckBoxGroupUiState, CheckBoxGroup
         ) {
             rootCheckbox {
                 CheckBox(
-                    state = ToggleableState.On,
+                    value = On,
                     label = "Label",
                     description = "Description",
                 )
             }
             checkbox {
                 CheckBox(
-                    state = ToggleableState.On,
+                    value = On,
                     label = "Label",
                     description = "Description",
                 )
             }
             checkbox {
                 CheckBox(
-                    state = ToggleableState.On,
+                    value = On,
                     label = "Label",
                     description = "Description",
                 )
@@ -134,23 +138,32 @@ object CheckBoxGroupStory : ComposeBaseStory<CheckBoxGroupUiState, CheckBoxGroup
     }
 }
 
-private fun List<CheckBoxGroupItem>.getParentState(): ToggleableState =
+/**
+ * Состояние ошибки на любом ребёнке приоритетнее completion-статуса — если хотя бы один
+ * child в [Error], root тоже отражает [Error], независимо от состояния остальных.
+ */
+private fun List<CheckBoxGroupItem>.getParentState(): CheckBoxValue =
     when {
-        this.all { it.state == ToggleableState.On } -> ToggleableState.On
-        this.all { it.state == ToggleableState.Off } -> ToggleableState.Off
-        else -> ToggleableState.Indeterminate
+        this.any { it.state == Error } -> Error
+        this.all { it.state == On } -> On
+        this.all { it.state == Off } -> Off
+        else -> Indeterminate
     }
 
 private data class CheckBoxGroupItem(
     val label: String?,
     val description: String?,
-    val state: ToggleableState = ToggleableState.Off,
+    val state: CheckBoxValue = Off,
 )
 
-private fun ToggleableState.toggle(): ToggleableState {
-    return if (this == ToggleableState.Off || this == ToggleableState.Indeterminate) {
-        ToggleableState.On
+/**
+ * Клик "разрешает" состояние в On из любого не-On состояния (включая Error — он задаётся
+ * только извне, но клик по уже выставленному Error выводит его в On), иначе снимает в Off.
+ */
+private fun CheckBoxValue.toggle(): CheckBoxValue {
+    return if (this == Off || this == Indeterminate || this == Error) {
+        On
     } else {
-        ToggleableState.Off
+        Off
     }
 }

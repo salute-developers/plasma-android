@@ -4956,17 +4956,17 @@ public class SddsFinAiColors(
         colors.obtain("dataDefaultYellowTransparentActive")
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLight
      */
     public var dataDefaultYellowLight: Color by colors.obtain("dataDefaultYellowLight")
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLightHover
      */
     public var dataDefaultYellowLightHover: Color by colors.obtain("dataDefaultYellowLightHover")
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLightActive
      */
     public var dataDefaultYellowLightActive: Color by colors.obtain("dataDefaultYellowLightActive")
 
@@ -4982,11 +4982,6 @@ public class SddsFinAiColors(
         colors.obtain("dataDefaultSkyBlueLightActive")
 
     /**
-     * light data default dataOrchid
-     */
-    public var dataDefaultOrchid: Color by colors.obtain("dataDefaultOrchid")
-
-    /**
      * light data default dataBlueMinor
      */
     public var dataDefaultBlueMinor: Color by colors.obtain("dataDefaultBlueMinor")
@@ -4997,34 +4992,14 @@ public class SddsFinAiColors(
     public var dataDefaultBlueLight: Color by colors.obtain("dataDefaultBlueLight")
 
     /**
-     * light data default dataArctic
-     */
-    public var dataDefaultArctic: Color by colors.obtain("dataDefaultArctic")
-
-    /**
-     * light data default dataGreen
-     */
-    public var dataDefaultGreen: Color by colors.obtain("dataDefaultGreen")
-
-    /**
      * light data default dataGreenMinor
      */
     public var dataDefaultGreenMinor: Color by colors.obtain("dataDefaultGreenMinor")
 
     /**
-     * light data default dataGreenLight
-     */
-    public var dataDefaultGreenLight: Color by colors.obtain("dataDefaultGreenLight")
-
-    /**
      * light data default dataSpring
      */
     public var dataDefaultSpring: Color by colors.obtain("dataDefaultSpring")
-
-    /**
-     * light data default dataOrange
-     */
-    public var dataDefaultOrange: Color by colors.obtain("dataDefaultOrange")
 
     /**
      * light data default dataOrangeMinor
@@ -5052,11 +5027,6 @@ public class SddsFinAiColors(
     public var dataDefaultRedLight: Color by colors.obtain("dataDefaultRedLight")
 
     /**
-     * light data default dataBlue
-     */
-    public var dataDefaultBlue: Color by colors.obtain("dataDefaultBlue")
-
-    /**
      * light data default dataBlueMild
      */
     public var dataDefaultBlueMild: Color by colors.obtain("dataDefaultBlueMild")
@@ -5070,16 +5040,6 @@ public class SddsFinAiColors(
      * light data default dataMalachiteMinor
      */
     public var dataDefaultMalachiteMinor: Color by colors.obtain("dataDefaultMalachiteMinor")
-
-    /**
-     * light data default dataElectricBlue
-     */
-    public var dataDefaultElectricBlue: Color by colors.obtain("dataDefaultElectricBlue")
-
-    /**
-     * light data default dataFuchsia
-     */
-    public var dataDefaultFuchsia: Color by colors.obtain("dataDefaultFuchsia")
 
     /**
      * light data default dataPink
@@ -5418,6 +5378,172 @@ public class SddsFinAiColors(
     public var dataDefaultOrchidMinor: Color by colors.obtain("dataDefaultOrchidMinor")
 
     /**
+     * light data default dataElectricBlue
+     */
+    public var dataDefaultElectricBlue: Color by colors.obtain("dataDefaultElectricBlue")
+
+    /**
+     * light data default dataElectricBlueMinor
+     */
+    public var dataDefaultElectricBlueMinor: Color by colors.obtain("dataDefaultElectricBlueMinor")
+
+    /**
+     * light data default dataElectricBlueMinorHover
+     */
+    public var dataDefaultElectricBlueMinorHover: Color by
+        colors.obtain("dataDefaultElectricBlueMinorHover")
+
+    /**
+     * light data default dataElectricBlueMinorActive
+     */
+    public var dataDefaultElectricBlueMinorActive: Color by
+        colors.obtain("dataDefaultElectricBlueMinorActive")
+
+    /**
+     * light data default dataElectricBlueLight
+     */
+    public var dataDefaultElectricBlueLight: Color by colors.obtain("dataDefaultElectricBlueLight")
+
+    /**
+     * light data default dataElectricBlueLightHover
+     */
+    public var dataDefaultElectricBlueLightHover: Color by
+        colors.obtain("dataDefaultElectricBlueLightHover")
+
+    /**
+     * light data default dataElectricBlueLightActive
+     */
+    public var dataDefaultElectricBlueLightActive: Color by
+        colors.obtain("dataDefaultElectricBlueLightActive")
+
+    /**
+     * light data default dataGrayLight
+     */
+    public var dataDefaultGrayLight: Color by colors.obtain("dataDefaultGrayLight")
+
+    /**
+     * light data default dataGrayLightHover
+     */
+    public var dataDefaultGrayLightHover: Color by colors.obtain("dataDefaultGrayLightHover")
+
+    /**
+     * light data default dataGrayLightActive
+     */
+    public var dataDefaultGrayLightActive: Color by colors.obtain("dataDefaultGrayLightActive")
+
+    /**
+     * light data default dataGreen
+     */
+    public var dataDefaultGreen: Color by colors.obtain("dataDefaultGreen")
+
+    /**
+     * light data default dataGreenLight
+     */
+    public var dataDefaultGreenLight: Color by colors.obtain("dataDefaultGreenLight")
+
+    /**
+     * light data default dataYellowDarkHover
+     */
+    public var dataDefaultYellowDarkHover: Color by colors.obtain("dataDefaultYellowDarkHover")
+
+    /**
+     * light data default dataYellowDarkActive
+     */
+    public var dataDefaultYellowDarkActive: Color by colors.obtain("dataDefaultYellowDarkActive")
+
+    /**
+     * light data default dataYellowDark
+     */
+    public var dataDefaultYellowDark: Color by colors.obtain("dataDefaultYellowDark")
+
+    /**
+     * light data default dataOrange
+     */
+    public var dataDefaultOrange: Color by colors.obtain("dataDefaultOrange")
+
+    /**
+     * light data default dataBlue
+     */
+    public var dataDefaultBlue: Color by colors.obtain("dataDefaultBlue")
+
+    /**
+     * light data default dataOrchid
+     */
+    public var dataDefaultOrchid: Color by colors.obtain("dataDefaultOrchid")
+
+    /**
+     * light data default dataOrchidLight
+     */
+    public var dataDefaultOrchidLight: Color by colors.obtain("dataDefaultOrchidLight")
+
+    /**
+     * light data default dataOrchidLightHover
+     */
+    public var dataDefaultOrchidLightHover: Color by colors.obtain("dataDefaultOrchidLightHover")
+
+    /**
+     * light data default dataOrchidLightActive
+     */
+    public var dataDefaultOrchidLightActive: Color by colors.obtain("dataDefaultOrchidLightActive")
+
+    /**
+     * light data default dataFuchsia
+     */
+    public var dataDefaultFuchsia: Color by colors.obtain("dataDefaultFuchsia")
+
+    /**
+     * light data default dataFuchsiaMinor
+     */
+    public var dataDefaultFuchsiaMinor: Color by colors.obtain("dataDefaultFuchsiaMinor")
+
+    /**
+     * light data default dataFuchsiaMinorHover
+     */
+    public var dataDefaultFuchsiaMinorHover: Color by colors.obtain("dataDefaultFuchsiaMinorHover")
+
+    /**
+     * light data default dataFuchsiaMinorActive
+     */
+    public var dataDefaultFuchsiaMinorActive: Color by
+        colors.obtain("dataDefaultFuchsiaMinorActive")
+
+    /**
+     * light data default dataFuchsiaLight
+     */
+    public var dataDefaultFuchsiaLight: Color by colors.obtain("dataDefaultFuchsiaLight")
+
+    /**
+     * light data default dataFuchsiaLightHover
+     */
+    public var dataDefaultFuchsiaLightHover: Color by colors.obtain("dataDefaultFuchsiaLightHover")
+
+    /**
+     * light data default dataFuchsiaLightActive
+     */
+    public var dataDefaultFuchsiaLightActive: Color by
+        colors.obtain("dataDefaultFuchsiaLightActive")
+
+    /**
+     * light data default dataArctic
+     */
+    public var dataDefaultArctic: Color by colors.obtain("dataDefaultArctic")
+
+    /**
+     * light data default dataArcticLightHover
+     */
+    public var dataDefaultArcticLightHover: Color by colors.obtain("dataDefaultArcticLightHover")
+
+    /**
+     * light data default dataArcticLightActive
+     */
+    public var dataDefaultArcticLightActive: Color by colors.obtain("dataDefaultArcticLightActive")
+
+    /**
+     * light data default dataArcticLight
+     */
+    public var dataDefaultArcticLight: Color by colors.obtain("dataDefaultArcticLight")
+
+    /**
      * Желтый цвет для данных на темном фоне
      */
     public var dataOnDarkYellowHover: Color by colors.obtain("dataOnDarkYellowHover")
@@ -5455,12 +5581,12 @@ public class SddsFinAiColors(
         colors.obtain("dataOnDarkYellowTransparentActive")
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLightHover
      */
     public var dataOnDarkYellowLightHover: Color by colors.obtain("dataOnDarkYellowLightHover")
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLightActive
      */
     public var dataOnDarkYellowLightActive: Color by colors.obtain("dataOnDarkYellowLightActive")
 
@@ -5480,7 +5606,7 @@ public class SddsFinAiColors(
     public var dataOnDarkBlueLight: Color by colors.obtain("dataOnDarkBlueLight")
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLight
      */
     public var dataOnDarkYellowLight: Color by colors.obtain("dataOnDarkYellowLight")
 
@@ -5488,11 +5614,6 @@ public class SddsFinAiColors(
      * light data onDark dataBlueMinor
      */
     public var dataOnDarkBlueMinor: Color by colors.obtain("dataOnDarkBlueMinor")
-
-    /**
-     * light data onDark dataOrchid
-     */
-    public var dataOnDarkOrchid: Color by colors.obtain("dataOnDarkOrchid")
 
     /**
      * light data onDark dataOrchidMinor
@@ -5508,11 +5629,6 @@ public class SddsFinAiColors(
      * Минорный желтый цвет для данных на темном фоне
      */
     public var dataOnDarkYellowMinor: Color by colors.obtain("dataOnDarkYellowMinor")
-
-    /**
-     * light data onDark dataOrange
-     */
-    public var dataOnDarkOrange: Color by colors.obtain("dataOnDarkOrange")
 
     /**
      * light data onDark dataOrangeMinor
@@ -5540,34 +5656,14 @@ public class SddsFinAiColors(
     public var dataOnDarkRedLight: Color by colors.obtain("dataOnDarkRedLight")
 
     /**
-     * light data onDark dataArctic
-     */
-    public var dataOnDarkArctic: Color by colors.obtain("dataOnDarkArctic")
-
-    /**
-     * light data onDark dataGreen
-     */
-    public var dataOnDarkGreen: Color by colors.obtain("dataOnDarkGreen")
-
-    /**
      * light data onDark dataGreenMinor
      */
     public var dataOnDarkGreenMinor: Color by colors.obtain("dataOnDarkGreenMinor")
 
     /**
-     * light data onDark dataGreenLight
-     */
-    public var dataOnDarkGreenLight: Color by colors.obtain("dataOnDarkGreenLight")
-
-    /**
      * light data onDark dataSpring
      */
     public var dataOnDarkSpring: Color by colors.obtain("dataOnDarkSpring")
-
-    /**
-     * light data onDark dataBlue
-     */
-    public var dataOnDarkBlue: Color by colors.obtain("dataOnDarkBlue")
 
     /**
      * light data onDark dataBlueMild
@@ -5583,16 +5679,6 @@ public class SddsFinAiColors(
      * light data onDark dataMalachiteMinor
      */
     public var dataOnDarkMalachiteMinor: Color by colors.obtain("dataOnDarkMalachiteMinor")
-
-    /**
-     * light data onDark dataElectricBlue
-     */
-    public var dataOnDarkElectricBlue: Color by colors.obtain("dataOnDarkElectricBlue")
-
-    /**
-     * light data onDark dataFuchsia
-     */
-    public var dataOnDarkFuchsia: Color by colors.obtain("dataOnDarkFuchsia")
 
     /**
      * light data onDark dataPink
@@ -5920,6 +6006,170 @@ public class SddsFinAiColors(
         colors.obtain("dataOnDarkBlueTransparentActive")
 
     /**
+     * light data onDark dataElectricBlue
+     */
+    public var dataOnDarkElectricBlue: Color by colors.obtain("dataOnDarkElectricBlue")
+
+    /**
+     * light data onDark dataElectricBlueMinor
+     */
+    public var dataOnDarkElectricBlueMinor: Color by colors.obtain("dataOnDarkElectricBlueMinor")
+
+    /**
+     * light data onDark dataElectricBlueMinorHover
+     */
+    public var dataOnDarkElectricBlueMinorHover: Color by
+        colors.obtain("dataOnDarkElectricBlueMinorHover")
+
+    /**
+     * light data onDark dataElectricBlueMinorActive
+     */
+    public var dataOnDarkElectricBlueMinorActive: Color by
+        colors.obtain("dataOnDarkElectricBlueMinorActive")
+
+    /**
+     * light data onDark dataElectricBlueLight
+     */
+    public var dataOnDarkElectricBlueLight: Color by colors.obtain("dataOnDarkElectricBlueLight")
+
+    /**
+     * light data onDark dataElectricBlueLightHover
+     */
+    public var dataOnDarkElectricBlueLightHover: Color by
+        colors.obtain("dataOnDarkElectricBlueLightHover")
+
+    /**
+     * light data onDark dataElectricBlueLightActive
+     */
+    public var dataOnDarkElectricBlueLightActive: Color by
+        colors.obtain("dataOnDarkElectricBlueLightActive")
+
+    /**
+     * light data onDark dataGrayLight
+     */
+    public var dataOnDarkGrayLight: Color by colors.obtain("dataOnDarkGrayLight")
+
+    /**
+     * light data onDark dataGrayLightHover
+     */
+    public var dataOnDarkGrayLightHover: Color by colors.obtain("dataOnDarkGrayLightHover")
+
+    /**
+     * light data onDark dataGrayLightActive
+     */
+    public var dataOnDarkGrayLightActive: Color by colors.obtain("dataOnDarkGrayLightActive")
+
+    /**
+     * light data onDark dataGreen
+     */
+    public var dataOnDarkGreen: Color by colors.obtain("dataOnDarkGreen")
+
+    /**
+     * light data onDark dataGreenLight
+     */
+    public var dataOnDarkGreenLight: Color by colors.obtain("dataOnDarkGreenLight")
+
+    /**
+     * light data onDark dataYellowDark
+     */
+    public var dataOnDarkYellowDark: Color by colors.obtain("dataOnDarkYellowDark")
+
+    /**
+     * light data onDark dataYellowDarkHover
+     */
+    public var dataOnDarkYellowDarkHover: Color by colors.obtain("dataOnDarkYellowDarkHover")
+
+    /**
+     * light data onDark dataYellowDarkActive
+     */
+    public var dataOnDarkYellowDarkActive: Color by colors.obtain("dataOnDarkYellowDarkActive")
+
+    /**
+     * light data onDark dataOrange
+     */
+    public var dataOnDarkOrange: Color by colors.obtain("dataOnDarkOrange")
+
+    /**
+     * light data onDark dataBlue
+     */
+    public var dataOnDarkBlue: Color by colors.obtain("dataOnDarkBlue")
+
+    /**
+     * light data onDark dataOrchid
+     */
+    public var dataOnDarkOrchid: Color by colors.obtain("dataOnDarkOrchid")
+
+    /**
+     * light data onDark dataOrchidLight
+     */
+    public var dataOnDarkOrchidLight: Color by colors.obtain("dataOnDarkOrchidLight")
+
+    /**
+     * light data onDark dataOrchidLightHover
+     */
+    public var dataOnDarkOrchidLightHover: Color by colors.obtain("dataOnDarkOrchidLightHover")
+
+    /**
+     * light data onDark dataOrchidLightActive
+     */
+    public var dataOnDarkOrchidLightActive: Color by colors.obtain("dataOnDarkOrchidLightActive")
+
+    /**
+     * light data onDark dataFuchsia
+     */
+    public var dataOnDarkFuchsia: Color by colors.obtain("dataOnDarkFuchsia")
+
+    /**
+     * light data onDark dataFuchsiaMinor
+     */
+    public var dataOnDarkFuchsiaMinor: Color by colors.obtain("dataOnDarkFuchsiaMinor")
+
+    /**
+     * light data onDark dataFuchsiaMinorHover
+     */
+    public var dataOnDarkFuchsiaMinorHover: Color by colors.obtain("dataOnDarkFuchsiaMinorHover")
+
+    /**
+     * light data onDark dataFuchsiaMinorActive
+     */
+    public var dataOnDarkFuchsiaMinorActive: Color by colors.obtain("dataOnDarkFuchsiaMinorActive")
+
+    /**
+     * light data onDark dataFuchsiaLight
+     */
+    public var dataOnDarkFuchsiaLight: Color by colors.obtain("dataOnDarkFuchsiaLight")
+
+    /**
+     * light data onDark dataFuchsiaLightHover
+     */
+    public var dataOnDarkFuchsiaLightHover: Color by colors.obtain("dataOnDarkFuchsiaLightHover")
+
+    /**
+     * light data onDark dataFuchsiaLightActive
+     */
+    public var dataOnDarkFuchsiaLightActive: Color by colors.obtain("dataOnDarkFuchsiaLightActive")
+
+    /**
+     * light data onDark dataArctic
+     */
+    public var dataOnDarkArctic: Color by colors.obtain("dataOnDarkArctic")
+
+    /**
+     * light data onDark dataArcticLight
+     */
+    public var dataOnDarkArcticLight: Color by colors.obtain("dataOnDarkArcticLight")
+
+    /**
+     * light data onDark dataArcticLightHover
+     */
+    public var dataOnDarkArcticLightHover: Color by colors.obtain("dataOnDarkArcticLightHover")
+
+    /**
+     * light data onDark dataArcticLightActive
+     */
+    public var dataOnDarkArcticLightActive: Color by colors.obtain("dataOnDarkArcticLightActive")
+
+    /**
      * light data onLight dataYellow
      */
     public var dataOnLightYellow: Color by colors.obtain("dataOnLightYellow")
@@ -6018,29 +6268,14 @@ public class SddsFinAiColors(
     public var dataOnLightArctic: Color by colors.obtain("dataOnLightArctic")
 
     /**
-     * light data onLight dataGreen
-     */
-    public var dataOnLightGreen: Color by colors.obtain("dataOnLightGreen")
-
-    /**
      * light data onLight dataGreenMinor
      */
     public var dataOnLightGreenMinor: Color by colors.obtain("dataOnLightGreenMinor")
 
     /**
-     * light data onLight dataGreenLight
-     */
-    public var dataOnLightGreenLight: Color by colors.obtain("dataOnLightGreenLight")
-
-    /**
      * light data onLight dataSpring
      */
     public var dataOnLightSpring: Color by colors.obtain("dataOnLightSpring")
-
-    /**
-     * light data onLight dataOrange
-     */
-    public var dataOnLightOrange: Color by colors.obtain("dataOnLightOrange")
 
     /**
      * light data onLight dataOrangeMinor
@@ -6068,11 +6303,6 @@ public class SddsFinAiColors(
     public var dataOnLightRedLight: Color by colors.obtain("dataOnLightRedLight")
 
     /**
-     * light data onLight dataBlue
-     */
-    public var dataOnLightBlue: Color by colors.obtain("dataOnLightBlue")
-
-    /**
      * light data onLight dataBlueMild
      */
     public var dataOnLightBlueMild: Color by colors.obtain("dataOnLightBlueMild")
@@ -6086,16 +6316,6 @@ public class SddsFinAiColors(
      * light data onLight dataMalachiteMinor
      */
     public var dataOnLightMalachiteMinor: Color by colors.obtain("dataOnLightMalachiteMinor")
-
-    /**
-     * light data onLight dataElectricBlue
-     */
-    public var dataOnLightElectricBlue: Color by colors.obtain("dataOnLightElectricBlue")
-
-    /**
-     * light data onLight dataFuchsia
-     */
-    public var dataOnLightFuchsia: Color by colors.obtain("dataOnLightFuchsia")
 
     /**
      * light data onLight dataPink
@@ -6424,6 +6644,162 @@ public class SddsFinAiColors(
         colors.obtain("dataOnLightOrangeTransparentActive")
 
     /**
+     * light data onLight dataElectricBlue
+     */
+    public var dataOnLightElectricBlue: Color by colors.obtain("dataOnLightElectricBlue")
+
+    /**
+     * light data onLight dataElectricBlueMinor
+     */
+    public var dataOnLightElectricBlueMinor: Color by colors.obtain("dataOnLightElectricBlueMinor")
+
+    /**
+     * light data onLight dataElectricBlueMinorHover
+     */
+    public var dataOnLightElectricBlueMinorHover: Color by
+        colors.obtain("dataOnLightElectricBlueMinorHover")
+
+    /**
+     * light data onLight dataElectricBlueMinorActive
+     */
+    public var dataOnLightElectricBlueMinorActive: Color by
+        colors.obtain("dataOnLightElectricBlueMinorActive")
+
+    /**
+     * light data onLight dataElectricBlueLight
+     */
+    public var dataOnLightElectricBlueLight: Color by colors.obtain("dataOnLightElectricBlueLight")
+
+    /**
+     * light data onLight dataElectricBlueLightHover
+     */
+    public var dataOnLightElectricBlueLightHover: Color by
+        colors.obtain("dataOnLightElectricBlueLightHover")
+
+    /**
+     * light data onLight dataElectricBlueLightActive
+     */
+    public var dataOnLightElectricBlueLightActive: Color by
+        colors.obtain("dataOnLightElectricBlueLightActive")
+
+    /**
+     * light data onLight dataGrayLight
+     */
+    public var dataOnLightGrayLight: Color by colors.obtain("dataOnLightGrayLight")
+
+    /**
+     * light data onLight dataGrayLightHover
+     */
+    public var dataOnLightGrayLightHover: Color by colors.obtain("dataOnLightGrayLightHover")
+
+    /**
+     * light data onLight dataGrayLightActive
+     */
+    public var dataOnLightGrayLightActive: Color by colors.obtain("dataOnLightGrayLightActive")
+
+    /**
+     * light data onLight dataGreen
+     */
+    public var dataOnLightGreen: Color by colors.obtain("dataOnLightGreen")
+
+    /**
+     * light data onLight dataGreenLight
+     */
+    public var dataOnLightGreenLight: Color by colors.obtain("dataOnLightGreenLight")
+
+    /**
+     * light data onLight dataYellowDark
+     */
+    public var dataOnLightYellowDark: Color by colors.obtain("dataOnLightYellowDark")
+
+    /**
+     * light data onLight dataYellowDarkHover
+     */
+    public var dataOnLightYellowDarkHover: Color by colors.obtain("dataOnLightYellowDarkHover")
+
+    /**
+     * light data onLight dataYellowDarkActive
+     */
+    public var dataOnLightYellowDarkActive: Color by colors.obtain("dataOnLightYellowDarkActive")
+
+    /**
+     * light data onLight dataOrange
+     */
+    public var dataOnLightOrange: Color by colors.obtain("dataOnLightOrange")
+
+    /**
+     * light data onLight dataBlue
+     */
+    public var dataOnLightBlue: Color by colors.obtain("dataOnLightBlue")
+
+    /**
+     * light data onLight dataOrchidLight
+     */
+    public var dataOnLightOrchidLight: Color by colors.obtain("dataOnLightOrchidLight")
+
+    /**
+     * light data onLight dataOrchidLightHover
+     */
+    public var dataOnLightOrchidLightHover: Color by colors.obtain("dataOnLightOrchidLightHover")
+
+    /**
+     * light data onLight dataOrchidLightActive
+     */
+    public var dataOnLightOrchidLightActive: Color by colors.obtain("dataOnLightOrchidLightActive")
+
+    /**
+     * light data onLight dataFuchsia
+     */
+    public var dataOnLightFuchsia: Color by colors.obtain("dataOnLightFuchsia")
+
+    /**
+     * light data onLight dataFuchsiaMinor
+     */
+    public var dataOnLightFuchsiaMinor: Color by colors.obtain("dataOnLightFuchsiaMinor")
+
+    /**
+     * light data onLight dataFuchsiaMinorHover
+     */
+    public var dataOnLightFuchsiaMinorHover: Color by colors.obtain("dataOnLightFuchsiaMinorHover")
+
+    /**
+     * light data onLight dataFuchsiaMinorActive
+     */
+    public var dataOnLightFuchsiaMinorActive: Color by
+        colors.obtain("dataOnLightFuchsiaMinorActive")
+
+    /**
+     * light data onLight dataFuchsiaLight
+     */
+    public var dataOnLightFuchsiaLight: Color by colors.obtain("dataOnLightFuchsiaLight")
+
+    /**
+     * light data onLight dataFuchsiaLightHover
+     */
+    public var dataOnLightFuchsiaLightHover: Color by colors.obtain("dataOnLightFuchsiaLightHover")
+
+    /**
+     * light data onLight dataFuchsiaLightActive
+     */
+    public var dataOnLightFuchsiaLightActive: Color by
+        colors.obtain("dataOnLightFuchsiaLightActive")
+
+    /**
+     * light data onLight dataArcticLight
+     */
+    public var dataOnLightArcticLight: Color by colors.obtain("dataOnLightArcticLight")
+
+    /**
+     * light data onLight dataArcticLightHover
+     */
+    public var dataOnLightArcticLightHover: Color by colors.obtain("dataOnLightArcticLightHover")
+
+    /**
+     * light data onLight dataArcticLightActive
+     */
+    public var dataOnLightArcticLightActive: Color by colors.obtain("dataOnLightArcticLightActive")
+
+    /**
      * light data inverse dataYellow
      */
     public var dataInverseYellow: Color by colors.obtain("dataInverseYellow")
@@ -6502,16 +6878,6 @@ public class SddsFinAiColors(
     public var dataInverseYellowLight: Color by colors.obtain("dataInverseYellowLight")
 
     /**
-     * light data inverse dataOrchid
-     */
-    public var dataInverseOrchid: Color by colors.obtain("dataInverseOrchid")
-
-    /**
-     * light data inverse dataOrange
-     */
-    public var dataInverseOrange: Color by colors.obtain("dataInverseOrange")
-
-    /**
      * light data inverse dataOrangeMinor
      */
     public var dataInverseOrangeMinor: Color by colors.obtain("dataInverseOrangeMinor")
@@ -6537,34 +6903,14 @@ public class SddsFinAiColors(
     public var dataInverseRedLight: Color by colors.obtain("dataInverseRedLight")
 
     /**
-     * light data inverse dataArctic
-     */
-    public var dataInverseArctic: Color by colors.obtain("dataInverseArctic")
-
-    /**
-     * light data inverse dataGreen
-     */
-    public var dataInverseGreen: Color by colors.obtain("dataInverseGreen")
-
-    /**
      * light data inverse dataGreenMinor
      */
     public var dataInverseGreenMinor: Color by colors.obtain("dataInverseGreenMinor")
 
     /**
-     * light data inverse dataGreenLight
-     */
-    public var dataInverseGreenLight: Color by colors.obtain("dataInverseGreenLight")
-
-    /**
      * light data inverse dataSpring
      */
     public var dataInverseSpring: Color by colors.obtain("dataInverseSpring")
-
-    /**
-     * light data inverse dataBlue
-     */
-    public var dataInverseBlue: Color by colors.obtain("dataInverseBlue")
 
     /**
      * light data inverse dataBlueMild
@@ -6580,16 +6926,6 @@ public class SddsFinAiColors(
      * light data inverse dataMalachiteMinor
      */
     public var dataInverseMalachiteMinor: Color by colors.obtain("dataInverseMalachiteMinor")
-
-    /**
-     * light data inverse dataElectricBlue
-     */
-    public var dataInverseElectricBlue: Color by colors.obtain("dataInverseElectricBlue")
-
-    /**
-     * light data inverse dataFuchsia
-     */
-    public var dataInverseFuchsia: Color by colors.obtain("dataInverseFuchsia")
 
     /**
      * light data inverse dataPink
@@ -6926,6 +7262,172 @@ public class SddsFinAiColors(
      * Инвертированный светлый голубой цвет для данных
      */
     public var dataInverseBlueLightActive: Color by colors.obtain("dataInverseBlueLightActive")
+
+    /**
+     * light data inverse dataElectricBlue
+     */
+    public var dataInverseElectricBlue: Color by colors.obtain("dataInverseElectricBlue")
+
+    /**
+     * light data inverse dataElectricBlueMinor
+     */
+    public var dataInverseElectricBlueMinor: Color by colors.obtain("dataInverseElectricBlueMinor")
+
+    /**
+     * light data inverse dataElectricBlueMinorHover
+     */
+    public var dataInverseElectricBlueMinorHover: Color by
+        colors.obtain("dataInverseElectricBlueMinorHover")
+
+    /**
+     * light data inverse dataElectricBlueMinorActive
+     */
+    public var dataInverseElectricBlueMinorActive: Color by
+        colors.obtain("dataInverseElectricBlueMinorActive")
+
+    /**
+     * light data inverse dataElectricBlueLight
+     */
+    public var dataInverseElectricBlueLight: Color by colors.obtain("dataInverseElectricBlueLight")
+
+    /**
+     * light data inverse dataElectricBlueLightHover
+     */
+    public var dataInverseElectricBlueLightHover: Color by
+        colors.obtain("dataInverseElectricBlueLightHover")
+
+    /**
+     * light data inverse dataElectricBlueLightActive
+     */
+    public var dataInverseElectricBlueLightActive: Color by
+        colors.obtain("dataInverseElectricBlueLightActive")
+
+    /**
+     * light data inverse dataGrayLight
+     */
+    public var dataInverseGrayLight: Color by colors.obtain("dataInverseGrayLight")
+
+    /**
+     * light data inverse dataGrayLightHover
+     */
+    public var dataInverseGrayLightHover: Color by colors.obtain("dataInverseGrayLightHover")
+
+    /**
+     * light data inverse dataGrayLightActive
+     */
+    public var dataInverseGrayLightActive: Color by colors.obtain("dataInverseGrayLightActive")
+
+    /**
+     * light data inverse dataGreen
+     */
+    public var dataInverseGreen: Color by colors.obtain("dataInverseGreen")
+
+    /**
+     * light data inverse dataGreenLight
+     */
+    public var dataInverseGreenLight: Color by colors.obtain("dataInverseGreenLight")
+
+    /**
+     * light data inverse dataYellowDarkHover
+     */
+    public var dataInverseYellowDarkHover: Color by colors.obtain("dataInverseYellowDarkHover")
+
+    /**
+     * light data inverse dataYellowDarkActive
+     */
+    public var dataInverseYellowDarkActive: Color by colors.obtain("dataInverseYellowDarkActive")
+
+    /**
+     * light data inverse dataYellowDark
+     */
+    public var dataInverseYellowDark: Color by colors.obtain("dataInverseYellowDark")
+
+    /**
+     * light data inverse dataOrange
+     */
+    public var dataInverseOrange: Color by colors.obtain("dataInverseOrange")
+
+    /**
+     * light data inverse dataBlue
+     */
+    public var dataInverseBlue: Color by colors.obtain("dataInverseBlue")
+
+    /**
+     * light data inverse dataOrchid
+     */
+    public var dataInverseOrchid: Color by colors.obtain("dataInverseOrchid")
+
+    /**
+     * light data inverse dataOrchidLight
+     */
+    public var dataInverseOrchidLight: Color by colors.obtain("dataInverseOrchidLight")
+
+    /**
+     * light data inverse dataOrchidLightHover
+     */
+    public var dataInverseOrchidLightHover: Color by colors.obtain("dataInverseOrchidLightHover")
+
+    /**
+     * light data inverse dataOrchidLightActive
+     */
+    public var dataInverseOrchidLightActive: Color by colors.obtain("dataInverseOrchidLightActive")
+
+    /**
+     * light data inverse dataFuchsia
+     */
+    public var dataInverseFuchsia: Color by colors.obtain("dataInverseFuchsia")
+
+    /**
+     * light data inverse dataFuchsiaMinor
+     */
+    public var dataInverseFuchsiaMinor: Color by colors.obtain("dataInverseFuchsiaMinor")
+
+    /**
+     * light data inverse dataFuchsiaMinorHover
+     */
+    public var dataInverseFuchsiaMinorHover: Color by colors.obtain("dataInverseFuchsiaMinorHover")
+
+    /**
+     * light data inverse dataFuchsiaMinorActive
+     */
+    public var dataInverseFuchsiaMinorActive: Color by
+        colors.obtain("dataInverseFuchsiaMinorActive")
+
+    /**
+     * light data inverse dataFuchsiaLight
+     */
+    public var dataInverseFuchsiaLight: Color by colors.obtain("dataInverseFuchsiaLight")
+
+    /**
+     * light data inverse dataFuchsiaLightHover
+     */
+    public var dataInverseFuchsiaLightHover: Color by colors.obtain("dataInverseFuchsiaLightHover")
+
+    /**
+     * light data inverse dataFuchsiaLightActive
+     */
+    public var dataInverseFuchsiaLightActive: Color by
+        colors.obtain("dataInverseFuchsiaLightActive")
+
+    /**
+     * light data inverse dataArctic
+     */
+    public var dataInverseArctic: Color by colors.obtain("dataInverseArctic")
+
+    /**
+     * light data inverse dataArcticLightHover
+     */
+    public var dataInverseArcticLightHover: Color by colors.obtain("dataInverseArcticLightHover")
+
+    /**
+     * light data inverse dataArcticLightActive
+     */
+    public var dataInverseArcticLightActive: Color by colors.obtain("dataInverseArcticLightActive")
+
+    /**
+     * light data inverse dataArcticLight
+     */
+    public var dataInverseArcticLight: Color by colors.obtain("dataInverseArcticLight")
 
     /**
      * Возвращает копию [SddsFinAiColors]. Предоставляет возможность переопределять цвета.
@@ -11577,17 +12079,17 @@ public class ColorOverrideScope {
     public val dataDefaultYellowTransparentActive: String = "dataDefaultYellowTransparentActive"
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLight
      */
     public val dataDefaultYellowLight: String = "dataDefaultYellowLight"
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLightHover
      */
     public val dataDefaultYellowLightHover: String = "dataDefaultYellowLightHover"
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLightActive
      */
     public val dataDefaultYellowLightActive: String = "dataDefaultYellowLightActive"
 
@@ -11602,11 +12104,6 @@ public class ColorOverrideScope {
     public val dataDefaultSkyBlueLightActive: String = "dataDefaultSkyBlueLightActive"
 
     /**
-     * light data default dataOrchid
-     */
-    public val dataDefaultOrchid: String = "dataDefaultOrchid"
-
-    /**
      * light data default dataBlueMinor
      */
     public val dataDefaultBlueMinor: String = "dataDefaultBlueMinor"
@@ -11617,34 +12114,14 @@ public class ColorOverrideScope {
     public val dataDefaultBlueLight: String = "dataDefaultBlueLight"
 
     /**
-     * light data default dataArctic
-     */
-    public val dataDefaultArctic: String = "dataDefaultArctic"
-
-    /**
-     * light data default dataGreen
-     */
-    public val dataDefaultGreen: String = "dataDefaultGreen"
-
-    /**
      * light data default dataGreenMinor
      */
     public val dataDefaultGreenMinor: String = "dataDefaultGreenMinor"
 
     /**
-     * light data default dataGreenLight
-     */
-    public val dataDefaultGreenLight: String = "dataDefaultGreenLight"
-
-    /**
      * light data default dataSpring
      */
     public val dataDefaultSpring: String = "dataDefaultSpring"
-
-    /**
-     * light data default dataOrange
-     */
-    public val dataDefaultOrange: String = "dataDefaultOrange"
 
     /**
      * light data default dataOrangeMinor
@@ -11672,11 +12149,6 @@ public class ColorOverrideScope {
     public val dataDefaultRedLight: String = "dataDefaultRedLight"
 
     /**
-     * light data default dataBlue
-     */
-    public val dataDefaultBlue: String = "dataDefaultBlue"
-
-    /**
      * light data default dataBlueMild
      */
     public val dataDefaultBlueMild: String = "dataDefaultBlueMild"
@@ -11690,16 +12162,6 @@ public class ColorOverrideScope {
      * light data default dataMalachiteMinor
      */
     public val dataDefaultMalachiteMinor: String = "dataDefaultMalachiteMinor"
-
-    /**
-     * light data default dataElectricBlue
-     */
-    public val dataDefaultElectricBlue: String = "dataDefaultElectricBlue"
-
-    /**
-     * light data default dataFuchsia
-     */
-    public val dataDefaultFuchsia: String = "dataDefaultFuchsia"
 
     /**
      * light data default dataPink
@@ -12027,6 +12489,166 @@ public class ColorOverrideScope {
     public val dataDefaultOrchidMinor: String = "dataDefaultOrchidMinor"
 
     /**
+     * light data default dataElectricBlue
+     */
+    public val dataDefaultElectricBlue: String = "dataDefaultElectricBlue"
+
+    /**
+     * light data default dataElectricBlueMinor
+     */
+    public val dataDefaultElectricBlueMinor: String = "dataDefaultElectricBlueMinor"
+
+    /**
+     * light data default dataElectricBlueMinorHover
+     */
+    public val dataDefaultElectricBlueMinorHover: String = "dataDefaultElectricBlueMinorHover"
+
+    /**
+     * light data default dataElectricBlueMinorActive
+     */
+    public val dataDefaultElectricBlueMinorActive: String = "dataDefaultElectricBlueMinorActive"
+
+    /**
+     * light data default dataElectricBlueLight
+     */
+    public val dataDefaultElectricBlueLight: String = "dataDefaultElectricBlueLight"
+
+    /**
+     * light data default dataElectricBlueLightHover
+     */
+    public val dataDefaultElectricBlueLightHover: String = "dataDefaultElectricBlueLightHover"
+
+    /**
+     * light data default dataElectricBlueLightActive
+     */
+    public val dataDefaultElectricBlueLightActive: String = "dataDefaultElectricBlueLightActive"
+
+    /**
+     * light data default dataGrayLight
+     */
+    public val dataDefaultGrayLight: String = "dataDefaultGrayLight"
+
+    /**
+     * light data default dataGrayLightHover
+     */
+    public val dataDefaultGrayLightHover: String = "dataDefaultGrayLightHover"
+
+    /**
+     * light data default dataGrayLightActive
+     */
+    public val dataDefaultGrayLightActive: String = "dataDefaultGrayLightActive"
+
+    /**
+     * light data default dataGreen
+     */
+    public val dataDefaultGreen: String = "dataDefaultGreen"
+
+    /**
+     * light data default dataGreenLight
+     */
+    public val dataDefaultGreenLight: String = "dataDefaultGreenLight"
+
+    /**
+     * light data default dataYellowDarkHover
+     */
+    public val dataDefaultYellowDarkHover: String = "dataDefaultYellowDarkHover"
+
+    /**
+     * light data default dataYellowDarkActive
+     */
+    public val dataDefaultYellowDarkActive: String = "dataDefaultYellowDarkActive"
+
+    /**
+     * light data default dataYellowDark
+     */
+    public val dataDefaultYellowDark: String = "dataDefaultYellowDark"
+
+    /**
+     * light data default dataOrange
+     */
+    public val dataDefaultOrange: String = "dataDefaultOrange"
+
+    /**
+     * light data default dataBlue
+     */
+    public val dataDefaultBlue: String = "dataDefaultBlue"
+
+    /**
+     * light data default dataOrchid
+     */
+    public val dataDefaultOrchid: String = "dataDefaultOrchid"
+
+    /**
+     * light data default dataOrchidLight
+     */
+    public val dataDefaultOrchidLight: String = "dataDefaultOrchidLight"
+
+    /**
+     * light data default dataOrchidLightHover
+     */
+    public val dataDefaultOrchidLightHover: String = "dataDefaultOrchidLightHover"
+
+    /**
+     * light data default dataOrchidLightActive
+     */
+    public val dataDefaultOrchidLightActive: String = "dataDefaultOrchidLightActive"
+
+    /**
+     * light data default dataFuchsia
+     */
+    public val dataDefaultFuchsia: String = "dataDefaultFuchsia"
+
+    /**
+     * light data default dataFuchsiaMinor
+     */
+    public val dataDefaultFuchsiaMinor: String = "dataDefaultFuchsiaMinor"
+
+    /**
+     * light data default dataFuchsiaMinorHover
+     */
+    public val dataDefaultFuchsiaMinorHover: String = "dataDefaultFuchsiaMinorHover"
+
+    /**
+     * light data default dataFuchsiaMinorActive
+     */
+    public val dataDefaultFuchsiaMinorActive: String = "dataDefaultFuchsiaMinorActive"
+
+    /**
+     * light data default dataFuchsiaLight
+     */
+    public val dataDefaultFuchsiaLight: String = "dataDefaultFuchsiaLight"
+
+    /**
+     * light data default dataFuchsiaLightHover
+     */
+    public val dataDefaultFuchsiaLightHover: String = "dataDefaultFuchsiaLightHover"
+
+    /**
+     * light data default dataFuchsiaLightActive
+     */
+    public val dataDefaultFuchsiaLightActive: String = "dataDefaultFuchsiaLightActive"
+
+    /**
+     * light data default dataArctic
+     */
+    public val dataDefaultArctic: String = "dataDefaultArctic"
+
+    /**
+     * light data default dataArcticLightHover
+     */
+    public val dataDefaultArcticLightHover: String = "dataDefaultArcticLightHover"
+
+    /**
+     * light data default dataArcticLightActive
+     */
+    public val dataDefaultArcticLightActive: String = "dataDefaultArcticLightActive"
+
+    /**
+     * light data default dataArcticLight
+     */
+    public val dataDefaultArcticLight: String = "dataDefaultArcticLight"
+
+    /**
      * Желтый цвет для данных на темном фоне
      */
     public val dataOnDarkYellowHover: String = "dataOnDarkYellowHover"
@@ -12062,12 +12684,12 @@ public class ColorOverrideScope {
     public val dataOnDarkYellowTransparentActive: String = "dataOnDarkYellowTransparentActive"
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLightHover
      */
     public val dataOnDarkYellowLightHover: String = "dataOnDarkYellowLightHover"
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLightActive
      */
     public val dataOnDarkYellowLightActive: String = "dataOnDarkYellowLightActive"
 
@@ -12087,7 +12709,7 @@ public class ColorOverrideScope {
     public val dataOnDarkBlueLight: String = "dataOnDarkBlueLight"
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLight
      */
     public val dataOnDarkYellowLight: String = "dataOnDarkYellowLight"
 
@@ -12095,11 +12717,6 @@ public class ColorOverrideScope {
      * light data onDark dataBlueMinor
      */
     public val dataOnDarkBlueMinor: String = "dataOnDarkBlueMinor"
-
-    /**
-     * light data onDark dataOrchid
-     */
-    public val dataOnDarkOrchid: String = "dataOnDarkOrchid"
 
     /**
      * light data onDark dataOrchidMinor
@@ -12115,11 +12732,6 @@ public class ColorOverrideScope {
      * Минорный желтый цвет для данных на темном фоне
      */
     public val dataOnDarkYellowMinor: String = "dataOnDarkYellowMinor"
-
-    /**
-     * light data onDark dataOrange
-     */
-    public val dataOnDarkOrange: String = "dataOnDarkOrange"
 
     /**
      * light data onDark dataOrangeMinor
@@ -12147,34 +12759,14 @@ public class ColorOverrideScope {
     public val dataOnDarkRedLight: String = "dataOnDarkRedLight"
 
     /**
-     * light data onDark dataArctic
-     */
-    public val dataOnDarkArctic: String = "dataOnDarkArctic"
-
-    /**
-     * light data onDark dataGreen
-     */
-    public val dataOnDarkGreen: String = "dataOnDarkGreen"
-
-    /**
      * light data onDark dataGreenMinor
      */
     public val dataOnDarkGreenMinor: String = "dataOnDarkGreenMinor"
 
     /**
-     * light data onDark dataGreenLight
-     */
-    public val dataOnDarkGreenLight: String = "dataOnDarkGreenLight"
-
-    /**
      * light data onDark dataSpring
      */
     public val dataOnDarkSpring: String = "dataOnDarkSpring"
-
-    /**
-     * light data onDark dataBlue
-     */
-    public val dataOnDarkBlue: String = "dataOnDarkBlue"
 
     /**
      * light data onDark dataBlueMild
@@ -12190,16 +12782,6 @@ public class ColorOverrideScope {
      * light data onDark dataMalachiteMinor
      */
     public val dataOnDarkMalachiteMinor: String = "dataOnDarkMalachiteMinor"
-
-    /**
-     * light data onDark dataElectricBlue
-     */
-    public val dataOnDarkElectricBlue: String = "dataOnDarkElectricBlue"
-
-    /**
-     * light data onDark dataFuchsia
-     */
-    public val dataOnDarkFuchsia: String = "dataOnDarkFuchsia"
 
     /**
      * light data onDark dataPink
@@ -12517,6 +13099,166 @@ public class ColorOverrideScope {
     public val dataOnDarkBlueTransparentActive: String = "dataOnDarkBlueTransparentActive"
 
     /**
+     * light data onDark dataElectricBlue
+     */
+    public val dataOnDarkElectricBlue: String = "dataOnDarkElectricBlue"
+
+    /**
+     * light data onDark dataElectricBlueMinor
+     */
+    public val dataOnDarkElectricBlueMinor: String = "dataOnDarkElectricBlueMinor"
+
+    /**
+     * light data onDark dataElectricBlueMinorHover
+     */
+    public val dataOnDarkElectricBlueMinorHover: String = "dataOnDarkElectricBlueMinorHover"
+
+    /**
+     * light data onDark dataElectricBlueMinorActive
+     */
+    public val dataOnDarkElectricBlueMinorActive: String = "dataOnDarkElectricBlueMinorActive"
+
+    /**
+     * light data onDark dataElectricBlueLight
+     */
+    public val dataOnDarkElectricBlueLight: String = "dataOnDarkElectricBlueLight"
+
+    /**
+     * light data onDark dataElectricBlueLightHover
+     */
+    public val dataOnDarkElectricBlueLightHover: String = "dataOnDarkElectricBlueLightHover"
+
+    /**
+     * light data onDark dataElectricBlueLightActive
+     */
+    public val dataOnDarkElectricBlueLightActive: String = "dataOnDarkElectricBlueLightActive"
+
+    /**
+     * light data onDark dataGrayLight
+     */
+    public val dataOnDarkGrayLight: String = "dataOnDarkGrayLight"
+
+    /**
+     * light data onDark dataGrayLightHover
+     */
+    public val dataOnDarkGrayLightHover: String = "dataOnDarkGrayLightHover"
+
+    /**
+     * light data onDark dataGrayLightActive
+     */
+    public val dataOnDarkGrayLightActive: String = "dataOnDarkGrayLightActive"
+
+    /**
+     * light data onDark dataGreen
+     */
+    public val dataOnDarkGreen: String = "dataOnDarkGreen"
+
+    /**
+     * light data onDark dataGreenLight
+     */
+    public val dataOnDarkGreenLight: String = "dataOnDarkGreenLight"
+
+    /**
+     * light data onDark dataYellowDark
+     */
+    public val dataOnDarkYellowDark: String = "dataOnDarkYellowDark"
+
+    /**
+     * light data onDark dataYellowDarkHover
+     */
+    public val dataOnDarkYellowDarkHover: String = "dataOnDarkYellowDarkHover"
+
+    /**
+     * light data onDark dataYellowDarkActive
+     */
+    public val dataOnDarkYellowDarkActive: String = "dataOnDarkYellowDarkActive"
+
+    /**
+     * light data onDark dataOrange
+     */
+    public val dataOnDarkOrange: String = "dataOnDarkOrange"
+
+    /**
+     * light data onDark dataBlue
+     */
+    public val dataOnDarkBlue: String = "dataOnDarkBlue"
+
+    /**
+     * light data onDark dataOrchid
+     */
+    public val dataOnDarkOrchid: String = "dataOnDarkOrchid"
+
+    /**
+     * light data onDark dataOrchidLight
+     */
+    public val dataOnDarkOrchidLight: String = "dataOnDarkOrchidLight"
+
+    /**
+     * light data onDark dataOrchidLightHover
+     */
+    public val dataOnDarkOrchidLightHover: String = "dataOnDarkOrchidLightHover"
+
+    /**
+     * light data onDark dataOrchidLightActive
+     */
+    public val dataOnDarkOrchidLightActive: String = "dataOnDarkOrchidLightActive"
+
+    /**
+     * light data onDark dataFuchsia
+     */
+    public val dataOnDarkFuchsia: String = "dataOnDarkFuchsia"
+
+    /**
+     * light data onDark dataFuchsiaMinor
+     */
+    public val dataOnDarkFuchsiaMinor: String = "dataOnDarkFuchsiaMinor"
+
+    /**
+     * light data onDark dataFuchsiaMinorHover
+     */
+    public val dataOnDarkFuchsiaMinorHover: String = "dataOnDarkFuchsiaMinorHover"
+
+    /**
+     * light data onDark dataFuchsiaMinorActive
+     */
+    public val dataOnDarkFuchsiaMinorActive: String = "dataOnDarkFuchsiaMinorActive"
+
+    /**
+     * light data onDark dataFuchsiaLight
+     */
+    public val dataOnDarkFuchsiaLight: String = "dataOnDarkFuchsiaLight"
+
+    /**
+     * light data onDark dataFuchsiaLightHover
+     */
+    public val dataOnDarkFuchsiaLightHover: String = "dataOnDarkFuchsiaLightHover"
+
+    /**
+     * light data onDark dataFuchsiaLightActive
+     */
+    public val dataOnDarkFuchsiaLightActive: String = "dataOnDarkFuchsiaLightActive"
+
+    /**
+     * light data onDark dataArctic
+     */
+    public val dataOnDarkArctic: String = "dataOnDarkArctic"
+
+    /**
+     * light data onDark dataArcticLight
+     */
+    public val dataOnDarkArcticLight: String = "dataOnDarkArcticLight"
+
+    /**
+     * light data onDark dataArcticLightHover
+     */
+    public val dataOnDarkArcticLightHover: String = "dataOnDarkArcticLightHover"
+
+    /**
+     * light data onDark dataArcticLightActive
+     */
+    public val dataOnDarkArcticLightActive: String = "dataOnDarkArcticLightActive"
+
+    /**
      * light data onLight dataYellow
      */
     public val dataOnLightYellow: String = "dataOnLightYellow"
@@ -12612,29 +13354,14 @@ public class ColorOverrideScope {
     public val dataOnLightArctic: String = "dataOnLightArctic"
 
     /**
-     * light data onLight dataGreen
-     */
-    public val dataOnLightGreen: String = "dataOnLightGreen"
-
-    /**
      * light data onLight dataGreenMinor
      */
     public val dataOnLightGreenMinor: String = "dataOnLightGreenMinor"
 
     /**
-     * light data onLight dataGreenLight
-     */
-    public val dataOnLightGreenLight: String = "dataOnLightGreenLight"
-
-    /**
      * light data onLight dataSpring
      */
     public val dataOnLightSpring: String = "dataOnLightSpring"
-
-    /**
-     * light data onLight dataOrange
-     */
-    public val dataOnLightOrange: String = "dataOnLightOrange"
 
     /**
      * light data onLight dataOrangeMinor
@@ -12662,11 +13389,6 @@ public class ColorOverrideScope {
     public val dataOnLightRedLight: String = "dataOnLightRedLight"
 
     /**
-     * light data onLight dataBlue
-     */
-    public val dataOnLightBlue: String = "dataOnLightBlue"
-
-    /**
      * light data onLight dataBlueMild
      */
     public val dataOnLightBlueMild: String = "dataOnLightBlueMild"
@@ -12680,16 +13402,6 @@ public class ColorOverrideScope {
      * light data onLight dataMalachiteMinor
      */
     public val dataOnLightMalachiteMinor: String = "dataOnLightMalachiteMinor"
-
-    /**
-     * light data onLight dataElectricBlue
-     */
-    public val dataOnLightElectricBlue: String = "dataOnLightElectricBlue"
-
-    /**
-     * light data onLight dataFuchsia
-     */
-    public val dataOnLightFuchsia: String = "dataOnLightFuchsia"
 
     /**
      * light data onLight dataPink
@@ -13007,6 +13719,156 @@ public class ColorOverrideScope {
     public val dataOnLightOrangeTransparentActive: String = "dataOnLightOrangeTransparentActive"
 
     /**
+     * light data onLight dataElectricBlue
+     */
+    public val dataOnLightElectricBlue: String = "dataOnLightElectricBlue"
+
+    /**
+     * light data onLight dataElectricBlueMinor
+     */
+    public val dataOnLightElectricBlueMinor: String = "dataOnLightElectricBlueMinor"
+
+    /**
+     * light data onLight dataElectricBlueMinorHover
+     */
+    public val dataOnLightElectricBlueMinorHover: String = "dataOnLightElectricBlueMinorHover"
+
+    /**
+     * light data onLight dataElectricBlueMinorActive
+     */
+    public val dataOnLightElectricBlueMinorActive: String = "dataOnLightElectricBlueMinorActive"
+
+    /**
+     * light data onLight dataElectricBlueLight
+     */
+    public val dataOnLightElectricBlueLight: String = "dataOnLightElectricBlueLight"
+
+    /**
+     * light data onLight dataElectricBlueLightHover
+     */
+    public val dataOnLightElectricBlueLightHover: String = "dataOnLightElectricBlueLightHover"
+
+    /**
+     * light data onLight dataElectricBlueLightActive
+     */
+    public val dataOnLightElectricBlueLightActive: String = "dataOnLightElectricBlueLightActive"
+
+    /**
+     * light data onLight dataGrayLight
+     */
+    public val dataOnLightGrayLight: String = "dataOnLightGrayLight"
+
+    /**
+     * light data onLight dataGrayLightHover
+     */
+    public val dataOnLightGrayLightHover: String = "dataOnLightGrayLightHover"
+
+    /**
+     * light data onLight dataGrayLightActive
+     */
+    public val dataOnLightGrayLightActive: String = "dataOnLightGrayLightActive"
+
+    /**
+     * light data onLight dataGreen
+     */
+    public val dataOnLightGreen: String = "dataOnLightGreen"
+
+    /**
+     * light data onLight dataGreenLight
+     */
+    public val dataOnLightGreenLight: String = "dataOnLightGreenLight"
+
+    /**
+     * light data onLight dataYellowDark
+     */
+    public val dataOnLightYellowDark: String = "dataOnLightYellowDark"
+
+    /**
+     * light data onLight dataYellowDarkHover
+     */
+    public val dataOnLightYellowDarkHover: String = "dataOnLightYellowDarkHover"
+
+    /**
+     * light data onLight dataYellowDarkActive
+     */
+    public val dataOnLightYellowDarkActive: String = "dataOnLightYellowDarkActive"
+
+    /**
+     * light data onLight dataOrange
+     */
+    public val dataOnLightOrange: String = "dataOnLightOrange"
+
+    /**
+     * light data onLight dataBlue
+     */
+    public val dataOnLightBlue: String = "dataOnLightBlue"
+
+    /**
+     * light data onLight dataOrchidLight
+     */
+    public val dataOnLightOrchidLight: String = "dataOnLightOrchidLight"
+
+    /**
+     * light data onLight dataOrchidLightHover
+     */
+    public val dataOnLightOrchidLightHover: String = "dataOnLightOrchidLightHover"
+
+    /**
+     * light data onLight dataOrchidLightActive
+     */
+    public val dataOnLightOrchidLightActive: String = "dataOnLightOrchidLightActive"
+
+    /**
+     * light data onLight dataFuchsia
+     */
+    public val dataOnLightFuchsia: String = "dataOnLightFuchsia"
+
+    /**
+     * light data onLight dataFuchsiaMinor
+     */
+    public val dataOnLightFuchsiaMinor: String = "dataOnLightFuchsiaMinor"
+
+    /**
+     * light data onLight dataFuchsiaMinorHover
+     */
+    public val dataOnLightFuchsiaMinorHover: String = "dataOnLightFuchsiaMinorHover"
+
+    /**
+     * light data onLight dataFuchsiaMinorActive
+     */
+    public val dataOnLightFuchsiaMinorActive: String = "dataOnLightFuchsiaMinorActive"
+
+    /**
+     * light data onLight dataFuchsiaLight
+     */
+    public val dataOnLightFuchsiaLight: String = "dataOnLightFuchsiaLight"
+
+    /**
+     * light data onLight dataFuchsiaLightHover
+     */
+    public val dataOnLightFuchsiaLightHover: String = "dataOnLightFuchsiaLightHover"
+
+    /**
+     * light data onLight dataFuchsiaLightActive
+     */
+    public val dataOnLightFuchsiaLightActive: String = "dataOnLightFuchsiaLightActive"
+
+    /**
+     * light data onLight dataArcticLight
+     */
+    public val dataOnLightArcticLight: String = "dataOnLightArcticLight"
+
+    /**
+     * light data onLight dataArcticLightHover
+     */
+    public val dataOnLightArcticLightHover: String = "dataOnLightArcticLightHover"
+
+    /**
+     * light data onLight dataArcticLightActive
+     */
+    public val dataOnLightArcticLightActive: String = "dataOnLightArcticLightActive"
+
+    /**
      * light data inverse dataYellow
      */
     public val dataInverseYellow: String = "dataInverseYellow"
@@ -13082,16 +13944,6 @@ public class ColorOverrideScope {
     public val dataInverseYellowLight: String = "dataInverseYellowLight"
 
     /**
-     * light data inverse dataOrchid
-     */
-    public val dataInverseOrchid: String = "dataInverseOrchid"
-
-    /**
-     * light data inverse dataOrange
-     */
-    public val dataInverseOrange: String = "dataInverseOrange"
-
-    /**
      * light data inverse dataOrangeMinor
      */
     public val dataInverseOrangeMinor: String = "dataInverseOrangeMinor"
@@ -13117,34 +13969,14 @@ public class ColorOverrideScope {
     public val dataInverseRedLight: String = "dataInverseRedLight"
 
     /**
-     * light data inverse dataArctic
-     */
-    public val dataInverseArctic: String = "dataInverseArctic"
-
-    /**
-     * light data inverse dataGreen
-     */
-    public val dataInverseGreen: String = "dataInverseGreen"
-
-    /**
      * light data inverse dataGreenMinor
      */
     public val dataInverseGreenMinor: String = "dataInverseGreenMinor"
 
     /**
-     * light data inverse dataGreenLight
-     */
-    public val dataInverseGreenLight: String = "dataInverseGreenLight"
-
-    /**
      * light data inverse dataSpring
      */
     public val dataInverseSpring: String = "dataInverseSpring"
-
-    /**
-     * light data inverse dataBlue
-     */
-    public val dataInverseBlue: String = "dataInverseBlue"
 
     /**
      * light data inverse dataBlueMild
@@ -13160,16 +13992,6 @@ public class ColorOverrideScope {
      * light data inverse dataMalachiteMinor
      */
     public val dataInverseMalachiteMinor: String = "dataInverseMalachiteMinor"
-
-    /**
-     * light data inverse dataElectricBlue
-     */
-    public val dataInverseElectricBlue: String = "dataInverseElectricBlue"
-
-    /**
-     * light data inverse dataFuchsia
-     */
-    public val dataInverseFuchsia: String = "dataInverseFuchsia"
 
     /**
      * light data inverse dataPink
@@ -13495,6 +14317,166 @@ public class ColorOverrideScope {
      * Инвертированный светлый голубой цвет для данных
      */
     public val dataInverseBlueLightActive: String = "dataInverseBlueLightActive"
+
+    /**
+     * light data inverse dataElectricBlue
+     */
+    public val dataInverseElectricBlue: String = "dataInverseElectricBlue"
+
+    /**
+     * light data inverse dataElectricBlueMinor
+     */
+    public val dataInverseElectricBlueMinor: String = "dataInverseElectricBlueMinor"
+
+    /**
+     * light data inverse dataElectricBlueMinorHover
+     */
+    public val dataInverseElectricBlueMinorHover: String = "dataInverseElectricBlueMinorHover"
+
+    /**
+     * light data inverse dataElectricBlueMinorActive
+     */
+    public val dataInverseElectricBlueMinorActive: String = "dataInverseElectricBlueMinorActive"
+
+    /**
+     * light data inverse dataElectricBlueLight
+     */
+    public val dataInverseElectricBlueLight: String = "dataInverseElectricBlueLight"
+
+    /**
+     * light data inverse dataElectricBlueLightHover
+     */
+    public val dataInverseElectricBlueLightHover: String = "dataInverseElectricBlueLightHover"
+
+    /**
+     * light data inverse dataElectricBlueLightActive
+     */
+    public val dataInverseElectricBlueLightActive: String = "dataInverseElectricBlueLightActive"
+
+    /**
+     * light data inverse dataGrayLight
+     */
+    public val dataInverseGrayLight: String = "dataInverseGrayLight"
+
+    /**
+     * light data inverse dataGrayLightHover
+     */
+    public val dataInverseGrayLightHover: String = "dataInverseGrayLightHover"
+
+    /**
+     * light data inverse dataGrayLightActive
+     */
+    public val dataInverseGrayLightActive: String = "dataInverseGrayLightActive"
+
+    /**
+     * light data inverse dataGreen
+     */
+    public val dataInverseGreen: String = "dataInverseGreen"
+
+    /**
+     * light data inverse dataGreenLight
+     */
+    public val dataInverseGreenLight: String = "dataInverseGreenLight"
+
+    /**
+     * light data inverse dataYellowDarkHover
+     */
+    public val dataInverseYellowDarkHover: String = "dataInverseYellowDarkHover"
+
+    /**
+     * light data inverse dataYellowDarkActive
+     */
+    public val dataInverseYellowDarkActive: String = "dataInverseYellowDarkActive"
+
+    /**
+     * light data inverse dataYellowDark
+     */
+    public val dataInverseYellowDark: String = "dataInverseYellowDark"
+
+    /**
+     * light data inverse dataOrange
+     */
+    public val dataInverseOrange: String = "dataInverseOrange"
+
+    /**
+     * light data inverse dataBlue
+     */
+    public val dataInverseBlue: String = "dataInverseBlue"
+
+    /**
+     * light data inverse dataOrchid
+     */
+    public val dataInverseOrchid: String = "dataInverseOrchid"
+
+    /**
+     * light data inverse dataOrchidLight
+     */
+    public val dataInverseOrchidLight: String = "dataInverseOrchidLight"
+
+    /**
+     * light data inverse dataOrchidLightHover
+     */
+    public val dataInverseOrchidLightHover: String = "dataInverseOrchidLightHover"
+
+    /**
+     * light data inverse dataOrchidLightActive
+     */
+    public val dataInverseOrchidLightActive: String = "dataInverseOrchidLightActive"
+
+    /**
+     * light data inverse dataFuchsia
+     */
+    public val dataInverseFuchsia: String = "dataInverseFuchsia"
+
+    /**
+     * light data inverse dataFuchsiaMinor
+     */
+    public val dataInverseFuchsiaMinor: String = "dataInverseFuchsiaMinor"
+
+    /**
+     * light data inverse dataFuchsiaMinorHover
+     */
+    public val dataInverseFuchsiaMinorHover: String = "dataInverseFuchsiaMinorHover"
+
+    /**
+     * light data inverse dataFuchsiaMinorActive
+     */
+    public val dataInverseFuchsiaMinorActive: String = "dataInverseFuchsiaMinorActive"
+
+    /**
+     * light data inverse dataFuchsiaLight
+     */
+    public val dataInverseFuchsiaLight: String = "dataInverseFuchsiaLight"
+
+    /**
+     * light data inverse dataFuchsiaLightHover
+     */
+    public val dataInverseFuchsiaLightHover: String = "dataInverseFuchsiaLightHover"
+
+    /**
+     * light data inverse dataFuchsiaLightActive
+     */
+    public val dataInverseFuchsiaLightActive: String = "dataInverseFuchsiaLightActive"
+
+    /**
+     * light data inverse dataArctic
+     */
+    public val dataInverseArctic: String = "dataInverseArctic"
+
+    /**
+     * light data inverse dataArcticLightHover
+     */
+    public val dataInverseArcticLightHover: String = "dataInverseArcticLightHover"
+
+    /**
+     * light data inverse dataArcticLightActive
+     */
+    public val dataInverseArcticLightActive: String = "dataInverseArcticLightActive"
+
+    /**
+     * light data inverse dataArcticLight
+     */
+    public val dataInverseArcticLight: String = "dataInverseArcticLight"
 
     /**
      * Переопределяет аттрибут цвета.
@@ -18133,17 +19115,17 @@ internal class ColorAttrOverrideScope {
     public val dataDefaultYellowTransparentActive: String = "dataDefaultYellowTransparentActive"
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLight
      */
     public val dataDefaultYellowLight: String = "dataDefaultYellowLight"
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLightHover
      */
     public val dataDefaultYellowLightHover: String = "dataDefaultYellowLightHover"
 
     /**
-     * Светлый желтый цвет для данных
+     * light data default dataYellowLightActive
      */
     public val dataDefaultYellowLightActive: String = "dataDefaultYellowLightActive"
 
@@ -18158,11 +19140,6 @@ internal class ColorAttrOverrideScope {
     public val dataDefaultSkyBlueLightActive: String = "dataDefaultSkyBlueLightActive"
 
     /**
-     * light data default dataOrchid
-     */
-    public val dataDefaultOrchid: String = "dataDefaultOrchid"
-
-    /**
      * light data default dataBlueMinor
      */
     public val dataDefaultBlueMinor: String = "dataDefaultBlueMinor"
@@ -18173,34 +19150,14 @@ internal class ColorAttrOverrideScope {
     public val dataDefaultBlueLight: String = "dataDefaultBlueLight"
 
     /**
-     * light data default dataArctic
-     */
-    public val dataDefaultArctic: String = "dataDefaultArctic"
-
-    /**
-     * light data default dataGreen
-     */
-    public val dataDefaultGreen: String = "dataDefaultGreen"
-
-    /**
      * light data default dataGreenMinor
      */
     public val dataDefaultGreenMinor: String = "dataDefaultGreenMinor"
 
     /**
-     * light data default dataGreenLight
-     */
-    public val dataDefaultGreenLight: String = "dataDefaultGreenLight"
-
-    /**
      * light data default dataSpring
      */
     public val dataDefaultSpring: String = "dataDefaultSpring"
-
-    /**
-     * light data default dataOrange
-     */
-    public val dataDefaultOrange: String = "dataDefaultOrange"
 
     /**
      * light data default dataOrangeMinor
@@ -18228,11 +19185,6 @@ internal class ColorAttrOverrideScope {
     public val dataDefaultRedLight: String = "dataDefaultRedLight"
 
     /**
-     * light data default dataBlue
-     */
-    public val dataDefaultBlue: String = "dataDefaultBlue"
-
-    /**
      * light data default dataBlueMild
      */
     public val dataDefaultBlueMild: String = "dataDefaultBlueMild"
@@ -18246,16 +19198,6 @@ internal class ColorAttrOverrideScope {
      * light data default dataMalachiteMinor
      */
     public val dataDefaultMalachiteMinor: String = "dataDefaultMalachiteMinor"
-
-    /**
-     * light data default dataElectricBlue
-     */
-    public val dataDefaultElectricBlue: String = "dataDefaultElectricBlue"
-
-    /**
-     * light data default dataFuchsia
-     */
-    public val dataDefaultFuchsia: String = "dataDefaultFuchsia"
 
     /**
      * light data default dataPink
@@ -18583,6 +19525,166 @@ internal class ColorAttrOverrideScope {
     public val dataDefaultOrchidMinor: String = "dataDefaultOrchidMinor"
 
     /**
+     * light data default dataElectricBlue
+     */
+    public val dataDefaultElectricBlue: String = "dataDefaultElectricBlue"
+
+    /**
+     * light data default dataElectricBlueMinor
+     */
+    public val dataDefaultElectricBlueMinor: String = "dataDefaultElectricBlueMinor"
+
+    /**
+     * light data default dataElectricBlueMinorHover
+     */
+    public val dataDefaultElectricBlueMinorHover: String = "dataDefaultElectricBlueMinorHover"
+
+    /**
+     * light data default dataElectricBlueMinorActive
+     */
+    public val dataDefaultElectricBlueMinorActive: String = "dataDefaultElectricBlueMinorActive"
+
+    /**
+     * light data default dataElectricBlueLight
+     */
+    public val dataDefaultElectricBlueLight: String = "dataDefaultElectricBlueLight"
+
+    /**
+     * light data default dataElectricBlueLightHover
+     */
+    public val dataDefaultElectricBlueLightHover: String = "dataDefaultElectricBlueLightHover"
+
+    /**
+     * light data default dataElectricBlueLightActive
+     */
+    public val dataDefaultElectricBlueLightActive: String = "dataDefaultElectricBlueLightActive"
+
+    /**
+     * light data default dataGrayLight
+     */
+    public val dataDefaultGrayLight: String = "dataDefaultGrayLight"
+
+    /**
+     * light data default dataGrayLightHover
+     */
+    public val dataDefaultGrayLightHover: String = "dataDefaultGrayLightHover"
+
+    /**
+     * light data default dataGrayLightActive
+     */
+    public val dataDefaultGrayLightActive: String = "dataDefaultGrayLightActive"
+
+    /**
+     * light data default dataGreen
+     */
+    public val dataDefaultGreen: String = "dataDefaultGreen"
+
+    /**
+     * light data default dataGreenLight
+     */
+    public val dataDefaultGreenLight: String = "dataDefaultGreenLight"
+
+    /**
+     * light data default dataYellowDarkHover
+     */
+    public val dataDefaultYellowDarkHover: String = "dataDefaultYellowDarkHover"
+
+    /**
+     * light data default dataYellowDarkActive
+     */
+    public val dataDefaultYellowDarkActive: String = "dataDefaultYellowDarkActive"
+
+    /**
+     * light data default dataYellowDark
+     */
+    public val dataDefaultYellowDark: String = "dataDefaultYellowDark"
+
+    /**
+     * light data default dataOrange
+     */
+    public val dataDefaultOrange: String = "dataDefaultOrange"
+
+    /**
+     * light data default dataBlue
+     */
+    public val dataDefaultBlue: String = "dataDefaultBlue"
+
+    /**
+     * light data default dataOrchid
+     */
+    public val dataDefaultOrchid: String = "dataDefaultOrchid"
+
+    /**
+     * light data default dataOrchidLight
+     */
+    public val dataDefaultOrchidLight: String = "dataDefaultOrchidLight"
+
+    /**
+     * light data default dataOrchidLightHover
+     */
+    public val dataDefaultOrchidLightHover: String = "dataDefaultOrchidLightHover"
+
+    /**
+     * light data default dataOrchidLightActive
+     */
+    public val dataDefaultOrchidLightActive: String = "dataDefaultOrchidLightActive"
+
+    /**
+     * light data default dataFuchsia
+     */
+    public val dataDefaultFuchsia: String = "dataDefaultFuchsia"
+
+    /**
+     * light data default dataFuchsiaMinor
+     */
+    public val dataDefaultFuchsiaMinor: String = "dataDefaultFuchsiaMinor"
+
+    /**
+     * light data default dataFuchsiaMinorHover
+     */
+    public val dataDefaultFuchsiaMinorHover: String = "dataDefaultFuchsiaMinorHover"
+
+    /**
+     * light data default dataFuchsiaMinorActive
+     */
+    public val dataDefaultFuchsiaMinorActive: String = "dataDefaultFuchsiaMinorActive"
+
+    /**
+     * light data default dataFuchsiaLight
+     */
+    public val dataDefaultFuchsiaLight: String = "dataDefaultFuchsiaLight"
+
+    /**
+     * light data default dataFuchsiaLightHover
+     */
+    public val dataDefaultFuchsiaLightHover: String = "dataDefaultFuchsiaLightHover"
+
+    /**
+     * light data default dataFuchsiaLightActive
+     */
+    public val dataDefaultFuchsiaLightActive: String = "dataDefaultFuchsiaLightActive"
+
+    /**
+     * light data default dataArctic
+     */
+    public val dataDefaultArctic: String = "dataDefaultArctic"
+
+    /**
+     * light data default dataArcticLightHover
+     */
+    public val dataDefaultArcticLightHover: String = "dataDefaultArcticLightHover"
+
+    /**
+     * light data default dataArcticLightActive
+     */
+    public val dataDefaultArcticLightActive: String = "dataDefaultArcticLightActive"
+
+    /**
+     * light data default dataArcticLight
+     */
+    public val dataDefaultArcticLight: String = "dataDefaultArcticLight"
+
+    /**
      * Желтый цвет для данных на темном фоне
      */
     public val dataOnDarkYellowHover: String = "dataOnDarkYellowHover"
@@ -18618,12 +19720,12 @@ internal class ColorAttrOverrideScope {
     public val dataOnDarkYellowTransparentActive: String = "dataOnDarkYellowTransparentActive"
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLightHover
      */
     public val dataOnDarkYellowLightHover: String = "dataOnDarkYellowLightHover"
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLightActive
      */
     public val dataOnDarkYellowLightActive: String = "dataOnDarkYellowLightActive"
 
@@ -18643,7 +19745,7 @@ internal class ColorAttrOverrideScope {
     public val dataOnDarkBlueLight: String = "dataOnDarkBlueLight"
 
     /**
-     * Светлый желтый цвет для данных на темном фоне
+     * light data onDark dataYellowLight
      */
     public val dataOnDarkYellowLight: String = "dataOnDarkYellowLight"
 
@@ -18651,11 +19753,6 @@ internal class ColorAttrOverrideScope {
      * light data onDark dataBlueMinor
      */
     public val dataOnDarkBlueMinor: String = "dataOnDarkBlueMinor"
-
-    /**
-     * light data onDark dataOrchid
-     */
-    public val dataOnDarkOrchid: String = "dataOnDarkOrchid"
 
     /**
      * light data onDark dataOrchidMinor
@@ -18671,11 +19768,6 @@ internal class ColorAttrOverrideScope {
      * Минорный желтый цвет для данных на темном фоне
      */
     public val dataOnDarkYellowMinor: String = "dataOnDarkYellowMinor"
-
-    /**
-     * light data onDark dataOrange
-     */
-    public val dataOnDarkOrange: String = "dataOnDarkOrange"
 
     /**
      * light data onDark dataOrangeMinor
@@ -18703,34 +19795,14 @@ internal class ColorAttrOverrideScope {
     public val dataOnDarkRedLight: String = "dataOnDarkRedLight"
 
     /**
-     * light data onDark dataArctic
-     */
-    public val dataOnDarkArctic: String = "dataOnDarkArctic"
-
-    /**
-     * light data onDark dataGreen
-     */
-    public val dataOnDarkGreen: String = "dataOnDarkGreen"
-
-    /**
      * light data onDark dataGreenMinor
      */
     public val dataOnDarkGreenMinor: String = "dataOnDarkGreenMinor"
 
     /**
-     * light data onDark dataGreenLight
-     */
-    public val dataOnDarkGreenLight: String = "dataOnDarkGreenLight"
-
-    /**
      * light data onDark dataSpring
      */
     public val dataOnDarkSpring: String = "dataOnDarkSpring"
-
-    /**
-     * light data onDark dataBlue
-     */
-    public val dataOnDarkBlue: String = "dataOnDarkBlue"
 
     /**
      * light data onDark dataBlueMild
@@ -18746,16 +19818,6 @@ internal class ColorAttrOverrideScope {
      * light data onDark dataMalachiteMinor
      */
     public val dataOnDarkMalachiteMinor: String = "dataOnDarkMalachiteMinor"
-
-    /**
-     * light data onDark dataElectricBlue
-     */
-    public val dataOnDarkElectricBlue: String = "dataOnDarkElectricBlue"
-
-    /**
-     * light data onDark dataFuchsia
-     */
-    public val dataOnDarkFuchsia: String = "dataOnDarkFuchsia"
 
     /**
      * light data onDark dataPink
@@ -19073,6 +20135,166 @@ internal class ColorAttrOverrideScope {
     public val dataOnDarkBlueTransparentActive: String = "dataOnDarkBlueTransparentActive"
 
     /**
+     * light data onDark dataElectricBlue
+     */
+    public val dataOnDarkElectricBlue: String = "dataOnDarkElectricBlue"
+
+    /**
+     * light data onDark dataElectricBlueMinor
+     */
+    public val dataOnDarkElectricBlueMinor: String = "dataOnDarkElectricBlueMinor"
+
+    /**
+     * light data onDark dataElectricBlueMinorHover
+     */
+    public val dataOnDarkElectricBlueMinorHover: String = "dataOnDarkElectricBlueMinorHover"
+
+    /**
+     * light data onDark dataElectricBlueMinorActive
+     */
+    public val dataOnDarkElectricBlueMinorActive: String = "dataOnDarkElectricBlueMinorActive"
+
+    /**
+     * light data onDark dataElectricBlueLight
+     */
+    public val dataOnDarkElectricBlueLight: String = "dataOnDarkElectricBlueLight"
+
+    /**
+     * light data onDark dataElectricBlueLightHover
+     */
+    public val dataOnDarkElectricBlueLightHover: String = "dataOnDarkElectricBlueLightHover"
+
+    /**
+     * light data onDark dataElectricBlueLightActive
+     */
+    public val dataOnDarkElectricBlueLightActive: String = "dataOnDarkElectricBlueLightActive"
+
+    /**
+     * light data onDark dataGrayLight
+     */
+    public val dataOnDarkGrayLight: String = "dataOnDarkGrayLight"
+
+    /**
+     * light data onDark dataGrayLightHover
+     */
+    public val dataOnDarkGrayLightHover: String = "dataOnDarkGrayLightHover"
+
+    /**
+     * light data onDark dataGrayLightActive
+     */
+    public val dataOnDarkGrayLightActive: String = "dataOnDarkGrayLightActive"
+
+    /**
+     * light data onDark dataGreen
+     */
+    public val dataOnDarkGreen: String = "dataOnDarkGreen"
+
+    /**
+     * light data onDark dataGreenLight
+     */
+    public val dataOnDarkGreenLight: String = "dataOnDarkGreenLight"
+
+    /**
+     * light data onDark dataYellowDark
+     */
+    public val dataOnDarkYellowDark: String = "dataOnDarkYellowDark"
+
+    /**
+     * light data onDark dataYellowDarkHover
+     */
+    public val dataOnDarkYellowDarkHover: String = "dataOnDarkYellowDarkHover"
+
+    /**
+     * light data onDark dataYellowDarkActive
+     */
+    public val dataOnDarkYellowDarkActive: String = "dataOnDarkYellowDarkActive"
+
+    /**
+     * light data onDark dataOrange
+     */
+    public val dataOnDarkOrange: String = "dataOnDarkOrange"
+
+    /**
+     * light data onDark dataBlue
+     */
+    public val dataOnDarkBlue: String = "dataOnDarkBlue"
+
+    /**
+     * light data onDark dataOrchid
+     */
+    public val dataOnDarkOrchid: String = "dataOnDarkOrchid"
+
+    /**
+     * light data onDark dataOrchidLight
+     */
+    public val dataOnDarkOrchidLight: String = "dataOnDarkOrchidLight"
+
+    /**
+     * light data onDark dataOrchidLightHover
+     */
+    public val dataOnDarkOrchidLightHover: String = "dataOnDarkOrchidLightHover"
+
+    /**
+     * light data onDark dataOrchidLightActive
+     */
+    public val dataOnDarkOrchidLightActive: String = "dataOnDarkOrchidLightActive"
+
+    /**
+     * light data onDark dataFuchsia
+     */
+    public val dataOnDarkFuchsia: String = "dataOnDarkFuchsia"
+
+    /**
+     * light data onDark dataFuchsiaMinor
+     */
+    public val dataOnDarkFuchsiaMinor: String = "dataOnDarkFuchsiaMinor"
+
+    /**
+     * light data onDark dataFuchsiaMinorHover
+     */
+    public val dataOnDarkFuchsiaMinorHover: String = "dataOnDarkFuchsiaMinorHover"
+
+    /**
+     * light data onDark dataFuchsiaMinorActive
+     */
+    public val dataOnDarkFuchsiaMinorActive: String = "dataOnDarkFuchsiaMinorActive"
+
+    /**
+     * light data onDark dataFuchsiaLight
+     */
+    public val dataOnDarkFuchsiaLight: String = "dataOnDarkFuchsiaLight"
+
+    /**
+     * light data onDark dataFuchsiaLightHover
+     */
+    public val dataOnDarkFuchsiaLightHover: String = "dataOnDarkFuchsiaLightHover"
+
+    /**
+     * light data onDark dataFuchsiaLightActive
+     */
+    public val dataOnDarkFuchsiaLightActive: String = "dataOnDarkFuchsiaLightActive"
+
+    /**
+     * light data onDark dataArctic
+     */
+    public val dataOnDarkArctic: String = "dataOnDarkArctic"
+
+    /**
+     * light data onDark dataArcticLight
+     */
+    public val dataOnDarkArcticLight: String = "dataOnDarkArcticLight"
+
+    /**
+     * light data onDark dataArcticLightHover
+     */
+    public val dataOnDarkArcticLightHover: String = "dataOnDarkArcticLightHover"
+
+    /**
+     * light data onDark dataArcticLightActive
+     */
+    public val dataOnDarkArcticLightActive: String = "dataOnDarkArcticLightActive"
+
+    /**
      * light data onLight dataYellow
      */
     public val dataOnLightYellow: String = "dataOnLightYellow"
@@ -19168,29 +20390,14 @@ internal class ColorAttrOverrideScope {
     public val dataOnLightArctic: String = "dataOnLightArctic"
 
     /**
-     * light data onLight dataGreen
-     */
-    public val dataOnLightGreen: String = "dataOnLightGreen"
-
-    /**
      * light data onLight dataGreenMinor
      */
     public val dataOnLightGreenMinor: String = "dataOnLightGreenMinor"
 
     /**
-     * light data onLight dataGreenLight
-     */
-    public val dataOnLightGreenLight: String = "dataOnLightGreenLight"
-
-    /**
      * light data onLight dataSpring
      */
     public val dataOnLightSpring: String = "dataOnLightSpring"
-
-    /**
-     * light data onLight dataOrange
-     */
-    public val dataOnLightOrange: String = "dataOnLightOrange"
 
     /**
      * light data onLight dataOrangeMinor
@@ -19218,11 +20425,6 @@ internal class ColorAttrOverrideScope {
     public val dataOnLightRedLight: String = "dataOnLightRedLight"
 
     /**
-     * light data onLight dataBlue
-     */
-    public val dataOnLightBlue: String = "dataOnLightBlue"
-
-    /**
      * light data onLight dataBlueMild
      */
     public val dataOnLightBlueMild: String = "dataOnLightBlueMild"
@@ -19236,16 +20438,6 @@ internal class ColorAttrOverrideScope {
      * light data onLight dataMalachiteMinor
      */
     public val dataOnLightMalachiteMinor: String = "dataOnLightMalachiteMinor"
-
-    /**
-     * light data onLight dataElectricBlue
-     */
-    public val dataOnLightElectricBlue: String = "dataOnLightElectricBlue"
-
-    /**
-     * light data onLight dataFuchsia
-     */
-    public val dataOnLightFuchsia: String = "dataOnLightFuchsia"
 
     /**
      * light data onLight dataPink
@@ -19563,6 +20755,156 @@ internal class ColorAttrOverrideScope {
     public val dataOnLightOrangeTransparentActive: String = "dataOnLightOrangeTransparentActive"
 
     /**
+     * light data onLight dataElectricBlue
+     */
+    public val dataOnLightElectricBlue: String = "dataOnLightElectricBlue"
+
+    /**
+     * light data onLight dataElectricBlueMinor
+     */
+    public val dataOnLightElectricBlueMinor: String = "dataOnLightElectricBlueMinor"
+
+    /**
+     * light data onLight dataElectricBlueMinorHover
+     */
+    public val dataOnLightElectricBlueMinorHover: String = "dataOnLightElectricBlueMinorHover"
+
+    /**
+     * light data onLight dataElectricBlueMinorActive
+     */
+    public val dataOnLightElectricBlueMinorActive: String = "dataOnLightElectricBlueMinorActive"
+
+    /**
+     * light data onLight dataElectricBlueLight
+     */
+    public val dataOnLightElectricBlueLight: String = "dataOnLightElectricBlueLight"
+
+    /**
+     * light data onLight dataElectricBlueLightHover
+     */
+    public val dataOnLightElectricBlueLightHover: String = "dataOnLightElectricBlueLightHover"
+
+    /**
+     * light data onLight dataElectricBlueLightActive
+     */
+    public val dataOnLightElectricBlueLightActive: String = "dataOnLightElectricBlueLightActive"
+
+    /**
+     * light data onLight dataGrayLight
+     */
+    public val dataOnLightGrayLight: String = "dataOnLightGrayLight"
+
+    /**
+     * light data onLight dataGrayLightHover
+     */
+    public val dataOnLightGrayLightHover: String = "dataOnLightGrayLightHover"
+
+    /**
+     * light data onLight dataGrayLightActive
+     */
+    public val dataOnLightGrayLightActive: String = "dataOnLightGrayLightActive"
+
+    /**
+     * light data onLight dataGreen
+     */
+    public val dataOnLightGreen: String = "dataOnLightGreen"
+
+    /**
+     * light data onLight dataGreenLight
+     */
+    public val dataOnLightGreenLight: String = "dataOnLightGreenLight"
+
+    /**
+     * light data onLight dataYellowDark
+     */
+    public val dataOnLightYellowDark: String = "dataOnLightYellowDark"
+
+    /**
+     * light data onLight dataYellowDarkHover
+     */
+    public val dataOnLightYellowDarkHover: String = "dataOnLightYellowDarkHover"
+
+    /**
+     * light data onLight dataYellowDarkActive
+     */
+    public val dataOnLightYellowDarkActive: String = "dataOnLightYellowDarkActive"
+
+    /**
+     * light data onLight dataOrange
+     */
+    public val dataOnLightOrange: String = "dataOnLightOrange"
+
+    /**
+     * light data onLight dataBlue
+     */
+    public val dataOnLightBlue: String = "dataOnLightBlue"
+
+    /**
+     * light data onLight dataOrchidLight
+     */
+    public val dataOnLightOrchidLight: String = "dataOnLightOrchidLight"
+
+    /**
+     * light data onLight dataOrchidLightHover
+     */
+    public val dataOnLightOrchidLightHover: String = "dataOnLightOrchidLightHover"
+
+    /**
+     * light data onLight dataOrchidLightActive
+     */
+    public val dataOnLightOrchidLightActive: String = "dataOnLightOrchidLightActive"
+
+    /**
+     * light data onLight dataFuchsia
+     */
+    public val dataOnLightFuchsia: String = "dataOnLightFuchsia"
+
+    /**
+     * light data onLight dataFuchsiaMinor
+     */
+    public val dataOnLightFuchsiaMinor: String = "dataOnLightFuchsiaMinor"
+
+    /**
+     * light data onLight dataFuchsiaMinorHover
+     */
+    public val dataOnLightFuchsiaMinorHover: String = "dataOnLightFuchsiaMinorHover"
+
+    /**
+     * light data onLight dataFuchsiaMinorActive
+     */
+    public val dataOnLightFuchsiaMinorActive: String = "dataOnLightFuchsiaMinorActive"
+
+    /**
+     * light data onLight dataFuchsiaLight
+     */
+    public val dataOnLightFuchsiaLight: String = "dataOnLightFuchsiaLight"
+
+    /**
+     * light data onLight dataFuchsiaLightHover
+     */
+    public val dataOnLightFuchsiaLightHover: String = "dataOnLightFuchsiaLightHover"
+
+    /**
+     * light data onLight dataFuchsiaLightActive
+     */
+    public val dataOnLightFuchsiaLightActive: String = "dataOnLightFuchsiaLightActive"
+
+    /**
+     * light data onLight dataArcticLight
+     */
+    public val dataOnLightArcticLight: String = "dataOnLightArcticLight"
+
+    /**
+     * light data onLight dataArcticLightHover
+     */
+    public val dataOnLightArcticLightHover: String = "dataOnLightArcticLightHover"
+
+    /**
+     * light data onLight dataArcticLightActive
+     */
+    public val dataOnLightArcticLightActive: String = "dataOnLightArcticLightActive"
+
+    /**
      * light data inverse dataYellow
      */
     public val dataInverseYellow: String = "dataInverseYellow"
@@ -19638,16 +20980,6 @@ internal class ColorAttrOverrideScope {
     public val dataInverseYellowLight: String = "dataInverseYellowLight"
 
     /**
-     * light data inverse dataOrchid
-     */
-    public val dataInverseOrchid: String = "dataInverseOrchid"
-
-    /**
-     * light data inverse dataOrange
-     */
-    public val dataInverseOrange: String = "dataInverseOrange"
-
-    /**
      * light data inverse dataOrangeMinor
      */
     public val dataInverseOrangeMinor: String = "dataInverseOrangeMinor"
@@ -19673,34 +21005,14 @@ internal class ColorAttrOverrideScope {
     public val dataInverseRedLight: String = "dataInverseRedLight"
 
     /**
-     * light data inverse dataArctic
-     */
-    public val dataInverseArctic: String = "dataInverseArctic"
-
-    /**
-     * light data inverse dataGreen
-     */
-    public val dataInverseGreen: String = "dataInverseGreen"
-
-    /**
      * light data inverse dataGreenMinor
      */
     public val dataInverseGreenMinor: String = "dataInverseGreenMinor"
 
     /**
-     * light data inverse dataGreenLight
-     */
-    public val dataInverseGreenLight: String = "dataInverseGreenLight"
-
-    /**
      * light data inverse dataSpring
      */
     public val dataInverseSpring: String = "dataInverseSpring"
-
-    /**
-     * light data inverse dataBlue
-     */
-    public val dataInverseBlue: String = "dataInverseBlue"
 
     /**
      * light data inverse dataBlueMild
@@ -19716,16 +21028,6 @@ internal class ColorAttrOverrideScope {
      * light data inverse dataMalachiteMinor
      */
     public val dataInverseMalachiteMinor: String = "dataInverseMalachiteMinor"
-
-    /**
-     * light data inverse dataElectricBlue
-     */
-    public val dataInverseElectricBlue: String = "dataInverseElectricBlue"
-
-    /**
-     * light data inverse dataFuchsia
-     */
-    public val dataInverseFuchsia: String = "dataInverseFuchsia"
 
     /**
      * light data inverse dataPink
@@ -20051,6 +21353,166 @@ internal class ColorAttrOverrideScope {
      * Инвертированный светлый голубой цвет для данных
      */
     public val dataInverseBlueLightActive: String = "dataInverseBlueLightActive"
+
+    /**
+     * light data inverse dataElectricBlue
+     */
+    public val dataInverseElectricBlue: String = "dataInverseElectricBlue"
+
+    /**
+     * light data inverse dataElectricBlueMinor
+     */
+    public val dataInverseElectricBlueMinor: String = "dataInverseElectricBlueMinor"
+
+    /**
+     * light data inverse dataElectricBlueMinorHover
+     */
+    public val dataInverseElectricBlueMinorHover: String = "dataInverseElectricBlueMinorHover"
+
+    /**
+     * light data inverse dataElectricBlueMinorActive
+     */
+    public val dataInverseElectricBlueMinorActive: String = "dataInverseElectricBlueMinorActive"
+
+    /**
+     * light data inverse dataElectricBlueLight
+     */
+    public val dataInverseElectricBlueLight: String = "dataInverseElectricBlueLight"
+
+    /**
+     * light data inverse dataElectricBlueLightHover
+     */
+    public val dataInverseElectricBlueLightHover: String = "dataInverseElectricBlueLightHover"
+
+    /**
+     * light data inverse dataElectricBlueLightActive
+     */
+    public val dataInverseElectricBlueLightActive: String = "dataInverseElectricBlueLightActive"
+
+    /**
+     * light data inverse dataGrayLight
+     */
+    public val dataInverseGrayLight: String = "dataInverseGrayLight"
+
+    /**
+     * light data inverse dataGrayLightHover
+     */
+    public val dataInverseGrayLightHover: String = "dataInverseGrayLightHover"
+
+    /**
+     * light data inverse dataGrayLightActive
+     */
+    public val dataInverseGrayLightActive: String = "dataInverseGrayLightActive"
+
+    /**
+     * light data inverse dataGreen
+     */
+    public val dataInverseGreen: String = "dataInverseGreen"
+
+    /**
+     * light data inverse dataGreenLight
+     */
+    public val dataInverseGreenLight: String = "dataInverseGreenLight"
+
+    /**
+     * light data inverse dataYellowDarkHover
+     */
+    public val dataInverseYellowDarkHover: String = "dataInverseYellowDarkHover"
+
+    /**
+     * light data inverse dataYellowDarkActive
+     */
+    public val dataInverseYellowDarkActive: String = "dataInverseYellowDarkActive"
+
+    /**
+     * light data inverse dataYellowDark
+     */
+    public val dataInverseYellowDark: String = "dataInverseYellowDark"
+
+    /**
+     * light data inverse dataOrange
+     */
+    public val dataInverseOrange: String = "dataInverseOrange"
+
+    /**
+     * light data inverse dataBlue
+     */
+    public val dataInverseBlue: String = "dataInverseBlue"
+
+    /**
+     * light data inverse dataOrchid
+     */
+    public val dataInverseOrchid: String = "dataInverseOrchid"
+
+    /**
+     * light data inverse dataOrchidLight
+     */
+    public val dataInverseOrchidLight: String = "dataInverseOrchidLight"
+
+    /**
+     * light data inverse dataOrchidLightHover
+     */
+    public val dataInverseOrchidLightHover: String = "dataInverseOrchidLightHover"
+
+    /**
+     * light data inverse dataOrchidLightActive
+     */
+    public val dataInverseOrchidLightActive: String = "dataInverseOrchidLightActive"
+
+    /**
+     * light data inverse dataFuchsia
+     */
+    public val dataInverseFuchsia: String = "dataInverseFuchsia"
+
+    /**
+     * light data inverse dataFuchsiaMinor
+     */
+    public val dataInverseFuchsiaMinor: String = "dataInverseFuchsiaMinor"
+
+    /**
+     * light data inverse dataFuchsiaMinorHover
+     */
+    public val dataInverseFuchsiaMinorHover: String = "dataInverseFuchsiaMinorHover"
+
+    /**
+     * light data inverse dataFuchsiaMinorActive
+     */
+    public val dataInverseFuchsiaMinorActive: String = "dataInverseFuchsiaMinorActive"
+
+    /**
+     * light data inverse dataFuchsiaLight
+     */
+    public val dataInverseFuchsiaLight: String = "dataInverseFuchsiaLight"
+
+    /**
+     * light data inverse dataFuchsiaLightHover
+     */
+    public val dataInverseFuchsiaLightHover: String = "dataInverseFuchsiaLightHover"
+
+    /**
+     * light data inverse dataFuchsiaLightActive
+     */
+    public val dataInverseFuchsiaLightActive: String = "dataInverseFuchsiaLightActive"
+
+    /**
+     * light data inverse dataArctic
+     */
+    public val dataInverseArctic: String = "dataInverseArctic"
+
+    /**
+     * light data inverse dataArcticLightHover
+     */
+    public val dataInverseArcticLightHover: String = "dataInverseArcticLightHover"
+
+    /**
+     * light data inverse dataArcticLightActive
+     */
+    public val dataInverseArcticLightActive: String = "dataInverseArcticLightActive"
+
+    /**
+     * light data inverse dataArcticLight
+     */
+    public val dataInverseArcticLight: String = "dataInverseArcticLight"
 
     /**
      * Переопределяет аттрибут цвета.
@@ -20974,26 +22436,18 @@ internal fun SddsFinAiColors.updateColorsFrom(other: SddsFinAiColors) {
     dataDefaultYellowLightActive = other.dataDefaultYellowLightActive
     dataDefaultSkyBlueLightHover = other.dataDefaultSkyBlueLightHover
     dataDefaultSkyBlueLightActive = other.dataDefaultSkyBlueLightActive
-    dataDefaultOrchid = other.dataDefaultOrchid
     dataDefaultBlueMinor = other.dataDefaultBlueMinor
     dataDefaultBlueLight = other.dataDefaultBlueLight
-    dataDefaultArctic = other.dataDefaultArctic
-    dataDefaultGreen = other.dataDefaultGreen
     dataDefaultGreenMinor = other.dataDefaultGreenMinor
-    dataDefaultGreenLight = other.dataDefaultGreenLight
     dataDefaultSpring = other.dataDefaultSpring
-    dataDefaultOrange = other.dataDefaultOrange
     dataDefaultOrangeMinor = other.dataDefaultOrangeMinor
     dataDefaultOrangeLight = other.dataDefaultOrangeLight
     dataDefaultRed = other.dataDefaultRed
     dataDefaultRedMinor = other.dataDefaultRedMinor
     dataDefaultRedLight = other.dataDefaultRedLight
-    dataDefaultBlue = other.dataDefaultBlue
     dataDefaultBlueMild = other.dataDefaultBlueMild
     dataDefaultMalachite = other.dataDefaultMalachite
     dataDefaultMalachiteMinor = other.dataDefaultMalachiteMinor
-    dataDefaultElectricBlue = other.dataDefaultElectricBlue
-    dataDefaultFuchsia = other.dataDefaultFuchsia
     dataDefaultPink = other.dataDefaultPink
     dataDefaultGray = other.dataDefaultGray
     dataDefaultGrayMinor = other.dataDefaultGrayMinor
@@ -21059,6 +22513,38 @@ internal fun SddsFinAiColors.updateColorsFrom(other: SddsFinAiColors) {
     dataDefaultOrangeTransparentHover = other.dataDefaultOrangeTransparentHover
     dataDefaultOrangeTransparentActive = other.dataDefaultOrangeTransparentActive
     dataDefaultOrchidMinor = other.dataDefaultOrchidMinor
+    dataDefaultElectricBlue = other.dataDefaultElectricBlue
+    dataDefaultElectricBlueMinor = other.dataDefaultElectricBlueMinor
+    dataDefaultElectricBlueMinorHover = other.dataDefaultElectricBlueMinorHover
+    dataDefaultElectricBlueMinorActive = other.dataDefaultElectricBlueMinorActive
+    dataDefaultElectricBlueLight = other.dataDefaultElectricBlueLight
+    dataDefaultElectricBlueLightHover = other.dataDefaultElectricBlueLightHover
+    dataDefaultElectricBlueLightActive = other.dataDefaultElectricBlueLightActive
+    dataDefaultGrayLight = other.dataDefaultGrayLight
+    dataDefaultGrayLightHover = other.dataDefaultGrayLightHover
+    dataDefaultGrayLightActive = other.dataDefaultGrayLightActive
+    dataDefaultGreen = other.dataDefaultGreen
+    dataDefaultGreenLight = other.dataDefaultGreenLight
+    dataDefaultYellowDarkHover = other.dataDefaultYellowDarkHover
+    dataDefaultYellowDarkActive = other.dataDefaultYellowDarkActive
+    dataDefaultYellowDark = other.dataDefaultYellowDark
+    dataDefaultOrange = other.dataDefaultOrange
+    dataDefaultBlue = other.dataDefaultBlue
+    dataDefaultOrchid = other.dataDefaultOrchid
+    dataDefaultOrchidLight = other.dataDefaultOrchidLight
+    dataDefaultOrchidLightHover = other.dataDefaultOrchidLightHover
+    dataDefaultOrchidLightActive = other.dataDefaultOrchidLightActive
+    dataDefaultFuchsia = other.dataDefaultFuchsia
+    dataDefaultFuchsiaMinor = other.dataDefaultFuchsiaMinor
+    dataDefaultFuchsiaMinorHover = other.dataDefaultFuchsiaMinorHover
+    dataDefaultFuchsiaMinorActive = other.dataDefaultFuchsiaMinorActive
+    dataDefaultFuchsiaLight = other.dataDefaultFuchsiaLight
+    dataDefaultFuchsiaLightHover = other.dataDefaultFuchsiaLightHover
+    dataDefaultFuchsiaLightActive = other.dataDefaultFuchsiaLightActive
+    dataDefaultArctic = other.dataDefaultArctic
+    dataDefaultArcticLightHover = other.dataDefaultArcticLightHover
+    dataDefaultArcticLightActive = other.dataDefaultArcticLightActive
+    dataDefaultArcticLight = other.dataDefaultArcticLight
     dataOnDarkYellowHover = other.dataOnDarkYellowHover
     dataOnDarkYellowActive = other.dataOnDarkYellowActive
     dataOnDarkYellowMinorHover = other.dataOnDarkYellowMinorHover
@@ -21073,27 +22559,19 @@ internal fun SddsFinAiColors.updateColorsFrom(other: SddsFinAiColors) {
     dataOnDarkBlueLight = other.dataOnDarkBlueLight
     dataOnDarkYellowLight = other.dataOnDarkYellowLight
     dataOnDarkBlueMinor = other.dataOnDarkBlueMinor
-    dataOnDarkOrchid = other.dataOnDarkOrchid
     dataOnDarkOrchidMinor = other.dataOnDarkOrchidMinor
     dataOnDarkYellow = other.dataOnDarkYellow
     dataOnDarkYellowMinor = other.dataOnDarkYellowMinor
-    dataOnDarkOrange = other.dataOnDarkOrange
     dataOnDarkOrangeMinor = other.dataOnDarkOrangeMinor
     dataOnDarkOrangeLight = other.dataOnDarkOrangeLight
     dataOnDarkRed = other.dataOnDarkRed
     dataOnDarkRedMinor = other.dataOnDarkRedMinor
     dataOnDarkRedLight = other.dataOnDarkRedLight
-    dataOnDarkArctic = other.dataOnDarkArctic
-    dataOnDarkGreen = other.dataOnDarkGreen
     dataOnDarkGreenMinor = other.dataOnDarkGreenMinor
-    dataOnDarkGreenLight = other.dataOnDarkGreenLight
     dataOnDarkSpring = other.dataOnDarkSpring
-    dataOnDarkBlue = other.dataOnDarkBlue
     dataOnDarkBlueMild = other.dataOnDarkBlueMild
     dataOnDarkMalachite = other.dataOnDarkMalachite
     dataOnDarkMalachiteMinor = other.dataOnDarkMalachiteMinor
-    dataOnDarkElectricBlue = other.dataOnDarkElectricBlue
-    dataOnDarkFuchsia = other.dataOnDarkFuchsia
     dataOnDarkPink = other.dataOnDarkPink
     dataOnDarkGray = other.dataOnDarkGray
     dataOnDarkGrayMinor = other.dataOnDarkGrayMinor
@@ -21157,6 +22635,38 @@ internal fun SddsFinAiColors.updateColorsFrom(other: SddsFinAiColors) {
     dataOnDarkGreenTransparentActive = other.dataOnDarkGreenTransparentActive
     dataOnDarkBlueTransparentHover = other.dataOnDarkBlueTransparentHover
     dataOnDarkBlueTransparentActive = other.dataOnDarkBlueTransparentActive
+    dataOnDarkElectricBlue = other.dataOnDarkElectricBlue
+    dataOnDarkElectricBlueMinor = other.dataOnDarkElectricBlueMinor
+    dataOnDarkElectricBlueMinorHover = other.dataOnDarkElectricBlueMinorHover
+    dataOnDarkElectricBlueMinorActive = other.dataOnDarkElectricBlueMinorActive
+    dataOnDarkElectricBlueLight = other.dataOnDarkElectricBlueLight
+    dataOnDarkElectricBlueLightHover = other.dataOnDarkElectricBlueLightHover
+    dataOnDarkElectricBlueLightActive = other.dataOnDarkElectricBlueLightActive
+    dataOnDarkGrayLight = other.dataOnDarkGrayLight
+    dataOnDarkGrayLightHover = other.dataOnDarkGrayLightHover
+    dataOnDarkGrayLightActive = other.dataOnDarkGrayLightActive
+    dataOnDarkGreen = other.dataOnDarkGreen
+    dataOnDarkGreenLight = other.dataOnDarkGreenLight
+    dataOnDarkYellowDark = other.dataOnDarkYellowDark
+    dataOnDarkYellowDarkHover = other.dataOnDarkYellowDarkHover
+    dataOnDarkYellowDarkActive = other.dataOnDarkYellowDarkActive
+    dataOnDarkOrange = other.dataOnDarkOrange
+    dataOnDarkBlue = other.dataOnDarkBlue
+    dataOnDarkOrchid = other.dataOnDarkOrchid
+    dataOnDarkOrchidLight = other.dataOnDarkOrchidLight
+    dataOnDarkOrchidLightHover = other.dataOnDarkOrchidLightHover
+    dataOnDarkOrchidLightActive = other.dataOnDarkOrchidLightActive
+    dataOnDarkFuchsia = other.dataOnDarkFuchsia
+    dataOnDarkFuchsiaMinor = other.dataOnDarkFuchsiaMinor
+    dataOnDarkFuchsiaMinorHover = other.dataOnDarkFuchsiaMinorHover
+    dataOnDarkFuchsiaMinorActive = other.dataOnDarkFuchsiaMinorActive
+    dataOnDarkFuchsiaLight = other.dataOnDarkFuchsiaLight
+    dataOnDarkFuchsiaLightHover = other.dataOnDarkFuchsiaLightHover
+    dataOnDarkFuchsiaLightActive = other.dataOnDarkFuchsiaLightActive
+    dataOnDarkArctic = other.dataOnDarkArctic
+    dataOnDarkArcticLight = other.dataOnDarkArcticLight
+    dataOnDarkArcticLightHover = other.dataOnDarkArcticLightHover
+    dataOnDarkArcticLightActive = other.dataOnDarkArcticLightActive
     dataOnLightYellow = other.dataOnLightYellow
     dataOnLightYellowHover = other.dataOnLightYellowHover
     dataOnLightYellowActive = other.dataOnLightYellowActive
@@ -21176,22 +22686,16 @@ internal fun SddsFinAiColors.updateColorsFrom(other: SddsFinAiColors) {
     dataOnLightOrchid = other.dataOnLightOrchid
     dataOnLightOrchidMinor = other.dataOnLightOrchidMinor
     dataOnLightArctic = other.dataOnLightArctic
-    dataOnLightGreen = other.dataOnLightGreen
     dataOnLightGreenMinor = other.dataOnLightGreenMinor
-    dataOnLightGreenLight = other.dataOnLightGreenLight
     dataOnLightSpring = other.dataOnLightSpring
-    dataOnLightOrange = other.dataOnLightOrange
     dataOnLightOrangeMinor = other.dataOnLightOrangeMinor
     dataOnLightOrangeLight = other.dataOnLightOrangeLight
     dataOnLightRed = other.dataOnLightRed
     dataOnLightRedMinor = other.dataOnLightRedMinor
     dataOnLightRedLight = other.dataOnLightRedLight
-    dataOnLightBlue = other.dataOnLightBlue
     dataOnLightBlueMild = other.dataOnLightBlueMild
     dataOnLightMalachite = other.dataOnLightMalachite
     dataOnLightMalachiteMinor = other.dataOnLightMalachiteMinor
-    dataOnLightElectricBlue = other.dataOnLightElectricBlue
-    dataOnLightFuchsia = other.dataOnLightFuchsia
     dataOnLightPink = other.dataOnLightPink
     dataOnLightGray = other.dataOnLightGray
     dataOnLightGrayMinor = other.dataOnLightGrayMinor
@@ -21255,6 +22759,36 @@ internal fun SddsFinAiColors.updateColorsFrom(other: SddsFinAiColors) {
     dataOnLightGreenTransparentActive = other.dataOnLightGreenTransparentActive
     dataOnLightOrangeTransparentHover = other.dataOnLightOrangeTransparentHover
     dataOnLightOrangeTransparentActive = other.dataOnLightOrangeTransparentActive
+    dataOnLightElectricBlue = other.dataOnLightElectricBlue
+    dataOnLightElectricBlueMinor = other.dataOnLightElectricBlueMinor
+    dataOnLightElectricBlueMinorHover = other.dataOnLightElectricBlueMinorHover
+    dataOnLightElectricBlueMinorActive = other.dataOnLightElectricBlueMinorActive
+    dataOnLightElectricBlueLight = other.dataOnLightElectricBlueLight
+    dataOnLightElectricBlueLightHover = other.dataOnLightElectricBlueLightHover
+    dataOnLightElectricBlueLightActive = other.dataOnLightElectricBlueLightActive
+    dataOnLightGrayLight = other.dataOnLightGrayLight
+    dataOnLightGrayLightHover = other.dataOnLightGrayLightHover
+    dataOnLightGrayLightActive = other.dataOnLightGrayLightActive
+    dataOnLightGreen = other.dataOnLightGreen
+    dataOnLightGreenLight = other.dataOnLightGreenLight
+    dataOnLightYellowDark = other.dataOnLightYellowDark
+    dataOnLightYellowDarkHover = other.dataOnLightYellowDarkHover
+    dataOnLightYellowDarkActive = other.dataOnLightYellowDarkActive
+    dataOnLightOrange = other.dataOnLightOrange
+    dataOnLightBlue = other.dataOnLightBlue
+    dataOnLightOrchidLight = other.dataOnLightOrchidLight
+    dataOnLightOrchidLightHover = other.dataOnLightOrchidLightHover
+    dataOnLightOrchidLightActive = other.dataOnLightOrchidLightActive
+    dataOnLightFuchsia = other.dataOnLightFuchsia
+    dataOnLightFuchsiaMinor = other.dataOnLightFuchsiaMinor
+    dataOnLightFuchsiaMinorHover = other.dataOnLightFuchsiaMinorHover
+    dataOnLightFuchsiaMinorActive = other.dataOnLightFuchsiaMinorActive
+    dataOnLightFuchsiaLight = other.dataOnLightFuchsiaLight
+    dataOnLightFuchsiaLightHover = other.dataOnLightFuchsiaLightHover
+    dataOnLightFuchsiaLightActive = other.dataOnLightFuchsiaLightActive
+    dataOnLightArcticLight = other.dataOnLightArcticLight
+    dataOnLightArcticLightHover = other.dataOnLightArcticLightHover
+    dataOnLightArcticLightActive = other.dataOnLightArcticLightActive
     dataInverseYellow = other.dataInverseYellow
     dataInverseYellowHover = other.dataInverseYellowHover
     dataInverseYellowActive = other.dataInverseYellowActive
@@ -21270,24 +22804,16 @@ internal fun SddsFinAiColors.updateColorsFrom(other: SddsFinAiColors) {
     dataInverseSkyBlueLightActive = other.dataInverseSkyBlueLightActive
     dataInverseBlueMinor = other.dataInverseBlueMinor
     dataInverseYellowLight = other.dataInverseYellowLight
-    dataInverseOrchid = other.dataInverseOrchid
-    dataInverseOrange = other.dataInverseOrange
     dataInverseOrangeMinor = other.dataInverseOrangeMinor
     dataInverseOrangeLight = other.dataInverseOrangeLight
     dataInverseRed = other.dataInverseRed
     dataInverseRedMinor = other.dataInverseRedMinor
     dataInverseRedLight = other.dataInverseRedLight
-    dataInverseArctic = other.dataInverseArctic
-    dataInverseGreen = other.dataInverseGreen
     dataInverseGreenMinor = other.dataInverseGreenMinor
-    dataInverseGreenLight = other.dataInverseGreenLight
     dataInverseSpring = other.dataInverseSpring
-    dataInverseBlue = other.dataInverseBlue
     dataInverseBlueMild = other.dataInverseBlueMild
     dataInverseMalachite = other.dataInverseMalachite
     dataInverseMalachiteMinor = other.dataInverseMalachiteMinor
-    dataInverseElectricBlue = other.dataInverseElectricBlue
-    dataInverseFuchsia = other.dataInverseFuchsia
     dataInversePink = other.dataInversePink
     dataInverseGray = other.dataInverseGray
     dataInverseGrayMinor = other.dataInverseGrayMinor
@@ -21353,6 +22879,38 @@ internal fun SddsFinAiColors.updateColorsFrom(other: SddsFinAiColors) {
     dataInverseBlueLight = other.dataInverseBlueLight
     dataInverseBlueLightHover = other.dataInverseBlueLightHover
     dataInverseBlueLightActive = other.dataInverseBlueLightActive
+    dataInverseElectricBlue = other.dataInverseElectricBlue
+    dataInverseElectricBlueMinor = other.dataInverseElectricBlueMinor
+    dataInverseElectricBlueMinorHover = other.dataInverseElectricBlueMinorHover
+    dataInverseElectricBlueMinorActive = other.dataInverseElectricBlueMinorActive
+    dataInverseElectricBlueLight = other.dataInverseElectricBlueLight
+    dataInverseElectricBlueLightHover = other.dataInverseElectricBlueLightHover
+    dataInverseElectricBlueLightActive = other.dataInverseElectricBlueLightActive
+    dataInverseGrayLight = other.dataInverseGrayLight
+    dataInverseGrayLightHover = other.dataInverseGrayLightHover
+    dataInverseGrayLightActive = other.dataInverseGrayLightActive
+    dataInverseGreen = other.dataInverseGreen
+    dataInverseGreenLight = other.dataInverseGreenLight
+    dataInverseYellowDarkHover = other.dataInverseYellowDarkHover
+    dataInverseYellowDarkActive = other.dataInverseYellowDarkActive
+    dataInverseYellowDark = other.dataInverseYellowDark
+    dataInverseOrange = other.dataInverseOrange
+    dataInverseBlue = other.dataInverseBlue
+    dataInverseOrchid = other.dataInverseOrchid
+    dataInverseOrchidLight = other.dataInverseOrchidLight
+    dataInverseOrchidLightHover = other.dataInverseOrchidLightHover
+    dataInverseOrchidLightActive = other.dataInverseOrchidLightActive
+    dataInverseFuchsia = other.dataInverseFuchsia
+    dataInverseFuchsiaMinor = other.dataInverseFuchsiaMinor
+    dataInverseFuchsiaMinorHover = other.dataInverseFuchsiaMinorHover
+    dataInverseFuchsiaMinorActive = other.dataInverseFuchsiaMinorActive
+    dataInverseFuchsiaLight = other.dataInverseFuchsiaLight
+    dataInverseFuchsiaLightHover = other.dataInverseFuchsiaLightHover
+    dataInverseFuchsiaLightActive = other.dataInverseFuchsiaLightActive
+    dataInverseArctic = other.dataInverseArctic
+    dataInverseArcticLightHover = other.dataInverseArcticLightHover
+    dataInverseArcticLightActive = other.dataInverseArcticLightActive
+    dataInverseArcticLight = other.dataInverseArcticLight
 }
 
 private fun MutableMap<String, Color>.add(
@@ -24623,26 +26181,18 @@ public fun lightSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.DataDefaultSkyBlueLightActive,
         overwrite,
     )
-    initial.add("dataDefaultOrchid", LightColorTokens.DataDefaultOrchid, overwrite)
     initial.add("dataDefaultBlueMinor", LightColorTokens.DataDefaultBlueMinor, overwrite)
     initial.add("dataDefaultBlueLight", LightColorTokens.DataDefaultBlueLight, overwrite)
-    initial.add("dataDefaultArctic", LightColorTokens.DataDefaultArctic, overwrite)
-    initial.add("dataDefaultGreen", LightColorTokens.DataDefaultGreen, overwrite)
     initial.add("dataDefaultGreenMinor", LightColorTokens.DataDefaultGreenMinor, overwrite)
-    initial.add("dataDefaultGreenLight", LightColorTokens.DataDefaultGreenLight, overwrite)
     initial.add("dataDefaultSpring", LightColorTokens.DataDefaultSpring, overwrite)
-    initial.add("dataDefaultOrange", LightColorTokens.DataDefaultOrange, overwrite)
     initial.add("dataDefaultOrangeMinor", LightColorTokens.DataDefaultOrangeMinor, overwrite)
     initial.add("dataDefaultOrangeLight", LightColorTokens.DataDefaultOrangeLight, overwrite)
     initial.add("dataDefaultRed", LightColorTokens.DataDefaultRed, overwrite)
     initial.add("dataDefaultRedMinor", LightColorTokens.DataDefaultRedMinor, overwrite)
     initial.add("dataDefaultRedLight", LightColorTokens.DataDefaultRedLight, overwrite)
-    initial.add("dataDefaultBlue", LightColorTokens.DataDefaultBlue, overwrite)
     initial.add("dataDefaultBlueMild", LightColorTokens.DataDefaultBlueMild, overwrite)
     initial.add("dataDefaultMalachite", LightColorTokens.DataDefaultMalachite, overwrite)
     initial.add("dataDefaultMalachiteMinor", LightColorTokens.DataDefaultMalachiteMinor, overwrite)
-    initial.add("dataDefaultElectricBlue", LightColorTokens.DataDefaultElectricBlue, overwrite)
-    initial.add("dataDefaultFuchsia", LightColorTokens.DataDefaultFuchsia, overwrite)
     initial.add("dataDefaultPink", LightColorTokens.DataDefaultPink, overwrite)
     initial.add("dataDefaultGray", LightColorTokens.DataDefaultGray, overwrite)
     initial.add("dataDefaultGrayMinor", LightColorTokens.DataDefaultGrayMinor, overwrite)
@@ -24828,6 +26378,106 @@ public fun lightSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = 
         overwrite,
     )
     initial.add("dataDefaultOrchidMinor", LightColorTokens.DataDefaultOrchidMinor, overwrite)
+    initial.add("dataDefaultElectricBlue", LightColorTokens.DataDefaultElectricBlue, overwrite)
+    initial.add(
+        "dataDefaultElectricBlueMinor",
+        LightColorTokens.DataDefaultElectricBlueMinor,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueMinorHover",
+        LightColorTokens.DataDefaultElectricBlueMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueMinorActive",
+        LightColorTokens.DataDefaultElectricBlueMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueLight",
+        LightColorTokens.DataDefaultElectricBlueLight,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueLightHover",
+        LightColorTokens.DataDefaultElectricBlueLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueLightActive",
+        LightColorTokens.DataDefaultElectricBlueLightActive,
+        overwrite,
+    )
+    initial.add("dataDefaultGrayLight", LightColorTokens.DataDefaultGrayLight, overwrite)
+    initial.add("dataDefaultGrayLightHover", LightColorTokens.DataDefaultGrayLightHover, overwrite)
+    initial.add(
+        "dataDefaultGrayLightActive",
+        LightColorTokens.DataDefaultGrayLightActive,
+        overwrite,
+    )
+    initial.add("dataDefaultGreen", LightColorTokens.DataDefaultGreen, overwrite)
+    initial.add("dataDefaultGreenLight", LightColorTokens.DataDefaultGreenLight, overwrite)
+    initial.add(
+        "dataDefaultYellowDarkHover",
+        LightColorTokens.DataDefaultYellowDarkHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowDarkActive",
+        LightColorTokens.DataDefaultYellowDarkActive,
+        overwrite,
+    )
+    initial.add("dataDefaultYellowDark", LightColorTokens.DataDefaultYellowDark, overwrite)
+    initial.add("dataDefaultOrange", LightColorTokens.DataDefaultOrange, overwrite)
+    initial.add("dataDefaultBlue", LightColorTokens.DataDefaultBlue, overwrite)
+    initial.add("dataDefaultOrchid", LightColorTokens.DataDefaultOrchid, overwrite)
+    initial.add("dataDefaultOrchidLight", LightColorTokens.DataDefaultOrchidLight, overwrite)
+    initial.add(
+        "dataDefaultOrchidLightHover",
+        LightColorTokens.DataDefaultOrchidLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultOrchidLightActive",
+        LightColorTokens.DataDefaultOrchidLightActive,
+        overwrite,
+    )
+    initial.add("dataDefaultFuchsia", LightColorTokens.DataDefaultFuchsia, overwrite)
+    initial.add("dataDefaultFuchsiaMinor", LightColorTokens.DataDefaultFuchsiaMinor, overwrite)
+    initial.add(
+        "dataDefaultFuchsiaMinorHover",
+        LightColorTokens.DataDefaultFuchsiaMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultFuchsiaMinorActive",
+        LightColorTokens.DataDefaultFuchsiaMinorActive,
+        overwrite,
+    )
+    initial.add("dataDefaultFuchsiaLight", LightColorTokens.DataDefaultFuchsiaLight, overwrite)
+    initial.add(
+        "dataDefaultFuchsiaLightHover",
+        LightColorTokens.DataDefaultFuchsiaLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultFuchsiaLightActive",
+        LightColorTokens.DataDefaultFuchsiaLightActive,
+        overwrite,
+    )
+    initial.add("dataDefaultArctic", LightColorTokens.DataDefaultArctic, overwrite)
+    initial.add(
+        "dataDefaultArcticLightHover",
+        LightColorTokens.DataDefaultArcticLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultArcticLightActive",
+        LightColorTokens.DataDefaultArcticLightActive,
+        overwrite,
+    )
+    initial.add("dataDefaultArcticLight", LightColorTokens.DataDefaultArcticLight, overwrite)
     initial.add("dataOnDarkYellowHover", LightColorTokens.DataOnDarkYellowHover, overwrite)
     initial.add("dataOnDarkYellowActive", LightColorTokens.DataOnDarkYellowActive, overwrite)
     initial.add(
@@ -24878,27 +26528,19 @@ public fun lightSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add("dataOnDarkBlueLight", LightColorTokens.DataOnDarkBlueLight, overwrite)
     initial.add("dataOnDarkYellowLight", LightColorTokens.DataOnDarkYellowLight, overwrite)
     initial.add("dataOnDarkBlueMinor", LightColorTokens.DataOnDarkBlueMinor, overwrite)
-    initial.add("dataOnDarkOrchid", LightColorTokens.DataOnDarkOrchid, overwrite)
     initial.add("dataOnDarkOrchidMinor", LightColorTokens.DataOnDarkOrchidMinor, overwrite)
     initial.add("dataOnDarkYellow", LightColorTokens.DataOnDarkYellow, overwrite)
     initial.add("dataOnDarkYellowMinor", LightColorTokens.DataOnDarkYellowMinor, overwrite)
-    initial.add("dataOnDarkOrange", LightColorTokens.DataOnDarkOrange, overwrite)
     initial.add("dataOnDarkOrangeMinor", LightColorTokens.DataOnDarkOrangeMinor, overwrite)
     initial.add("dataOnDarkOrangeLight", LightColorTokens.DataOnDarkOrangeLight, overwrite)
     initial.add("dataOnDarkRed", LightColorTokens.DataOnDarkRed, overwrite)
     initial.add("dataOnDarkRedMinor", LightColorTokens.DataOnDarkRedMinor, overwrite)
     initial.add("dataOnDarkRedLight", LightColorTokens.DataOnDarkRedLight, overwrite)
-    initial.add("dataOnDarkArctic", LightColorTokens.DataOnDarkArctic, overwrite)
-    initial.add("dataOnDarkGreen", LightColorTokens.DataOnDarkGreen, overwrite)
     initial.add("dataOnDarkGreenMinor", LightColorTokens.DataOnDarkGreenMinor, overwrite)
-    initial.add("dataOnDarkGreenLight", LightColorTokens.DataOnDarkGreenLight, overwrite)
     initial.add("dataOnDarkSpring", LightColorTokens.DataOnDarkSpring, overwrite)
-    initial.add("dataOnDarkBlue", LightColorTokens.DataOnDarkBlue, overwrite)
     initial.add("dataOnDarkBlueMild", LightColorTokens.DataOnDarkBlueMild, overwrite)
     initial.add("dataOnDarkMalachite", LightColorTokens.DataOnDarkMalachite, overwrite)
     initial.add("dataOnDarkMalachiteMinor", LightColorTokens.DataOnDarkMalachiteMinor, overwrite)
-    initial.add("dataOnDarkElectricBlue", LightColorTokens.DataOnDarkElectricBlue, overwrite)
-    initial.add("dataOnDarkFuchsia", LightColorTokens.DataOnDarkFuchsia, overwrite)
     initial.add("dataOnDarkPink", LightColorTokens.DataOnDarkPink, overwrite)
     initial.add("dataOnDarkGray", LightColorTokens.DataOnDarkGray, overwrite)
     initial.add("dataOnDarkGrayMinor", LightColorTokens.DataOnDarkGrayMinor, overwrite)
@@ -25050,6 +26692,98 @@ public fun lightSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.DataOnDarkBlueTransparentActive,
         overwrite,
     )
+    initial.add("dataOnDarkElectricBlue", LightColorTokens.DataOnDarkElectricBlue, overwrite)
+    initial.add(
+        "dataOnDarkElectricBlueMinor",
+        LightColorTokens.DataOnDarkElectricBlueMinor,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueMinorHover",
+        LightColorTokens.DataOnDarkElectricBlueMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueMinorActive",
+        LightColorTokens.DataOnDarkElectricBlueMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueLight",
+        LightColorTokens.DataOnDarkElectricBlueLight,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueLightHover",
+        LightColorTokens.DataOnDarkElectricBlueLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueLightActive",
+        LightColorTokens.DataOnDarkElectricBlueLightActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkGrayLight", LightColorTokens.DataOnDarkGrayLight, overwrite)
+    initial.add("dataOnDarkGrayLightHover", LightColorTokens.DataOnDarkGrayLightHover, overwrite)
+    initial.add("dataOnDarkGrayLightActive", LightColorTokens.DataOnDarkGrayLightActive, overwrite)
+    initial.add("dataOnDarkGreen", LightColorTokens.DataOnDarkGreen, overwrite)
+    initial.add("dataOnDarkGreenLight", LightColorTokens.DataOnDarkGreenLight, overwrite)
+    initial.add("dataOnDarkYellowDark", LightColorTokens.DataOnDarkYellowDark, overwrite)
+    initial.add("dataOnDarkYellowDarkHover", LightColorTokens.DataOnDarkYellowDarkHover, overwrite)
+    initial.add(
+        "dataOnDarkYellowDarkActive",
+        LightColorTokens.DataOnDarkYellowDarkActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkOrange", LightColorTokens.DataOnDarkOrange, overwrite)
+    initial.add("dataOnDarkBlue", LightColorTokens.DataOnDarkBlue, overwrite)
+    initial.add("dataOnDarkOrchid", LightColorTokens.DataOnDarkOrchid, overwrite)
+    initial.add("dataOnDarkOrchidLight", LightColorTokens.DataOnDarkOrchidLight, overwrite)
+    initial.add(
+        "dataOnDarkOrchidLightHover",
+        LightColorTokens.DataOnDarkOrchidLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkOrchidLightActive",
+        LightColorTokens.DataOnDarkOrchidLightActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkFuchsia", LightColorTokens.DataOnDarkFuchsia, overwrite)
+    initial.add("dataOnDarkFuchsiaMinor", LightColorTokens.DataOnDarkFuchsiaMinor, overwrite)
+    initial.add(
+        "dataOnDarkFuchsiaMinorHover",
+        LightColorTokens.DataOnDarkFuchsiaMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkFuchsiaMinorActive",
+        LightColorTokens.DataOnDarkFuchsiaMinorActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkFuchsiaLight", LightColorTokens.DataOnDarkFuchsiaLight, overwrite)
+    initial.add(
+        "dataOnDarkFuchsiaLightHover",
+        LightColorTokens.DataOnDarkFuchsiaLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkFuchsiaLightActive",
+        LightColorTokens.DataOnDarkFuchsiaLightActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkArctic", LightColorTokens.DataOnDarkArctic, overwrite)
+    initial.add("dataOnDarkArcticLight", LightColorTokens.DataOnDarkArcticLight, overwrite)
+    initial.add(
+        "dataOnDarkArcticLightHover",
+        LightColorTokens.DataOnDarkArcticLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkArcticLightActive",
+        LightColorTokens.DataOnDarkArcticLightActive,
+        overwrite,
+    )
     initial.add("dataOnLightYellow", LightColorTokens.DataOnLightYellow, overwrite)
     initial.add("dataOnLightYellowHover", LightColorTokens.DataOnLightYellowHover, overwrite)
     initial.add("dataOnLightYellowActive", LightColorTokens.DataOnLightYellowActive, overwrite)
@@ -25105,22 +26839,16 @@ public fun lightSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add("dataOnLightOrchid", LightColorTokens.DataOnLightOrchid, overwrite)
     initial.add("dataOnLightOrchidMinor", LightColorTokens.DataOnLightOrchidMinor, overwrite)
     initial.add("dataOnLightArctic", LightColorTokens.DataOnLightArctic, overwrite)
-    initial.add("dataOnLightGreen", LightColorTokens.DataOnLightGreen, overwrite)
     initial.add("dataOnLightGreenMinor", LightColorTokens.DataOnLightGreenMinor, overwrite)
-    initial.add("dataOnLightGreenLight", LightColorTokens.DataOnLightGreenLight, overwrite)
     initial.add("dataOnLightSpring", LightColorTokens.DataOnLightSpring, overwrite)
-    initial.add("dataOnLightOrange", LightColorTokens.DataOnLightOrange, overwrite)
     initial.add("dataOnLightOrangeMinor", LightColorTokens.DataOnLightOrangeMinor, overwrite)
     initial.add("dataOnLightOrangeLight", LightColorTokens.DataOnLightOrangeLight, overwrite)
     initial.add("dataOnLightRed", LightColorTokens.DataOnLightRed, overwrite)
     initial.add("dataOnLightRedMinor", LightColorTokens.DataOnLightRedMinor, overwrite)
     initial.add("dataOnLightRedLight", LightColorTokens.DataOnLightRedLight, overwrite)
-    initial.add("dataOnLightBlue", LightColorTokens.DataOnLightBlue, overwrite)
     initial.add("dataOnLightBlueMild", LightColorTokens.DataOnLightBlueMild, overwrite)
     initial.add("dataOnLightMalachite", LightColorTokens.DataOnLightMalachite, overwrite)
     initial.add("dataOnLightMalachiteMinor", LightColorTokens.DataOnLightMalachiteMinor, overwrite)
-    initial.add("dataOnLightElectricBlue", LightColorTokens.DataOnLightElectricBlue, overwrite)
-    initial.add("dataOnLightFuchsia", LightColorTokens.DataOnLightFuchsia, overwrite)
     initial.add("dataOnLightPink", LightColorTokens.DataOnLightPink, overwrite)
     initial.add("dataOnLightGray", LightColorTokens.DataOnLightGray, overwrite)
     initial.add("dataOnLightGrayMinor", LightColorTokens.DataOnLightGrayMinor, overwrite)
@@ -25300,6 +27028,104 @@ public fun lightSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.DataOnLightOrangeTransparentActive,
         overwrite,
     )
+    initial.add("dataOnLightElectricBlue", LightColorTokens.DataOnLightElectricBlue, overwrite)
+    initial.add(
+        "dataOnLightElectricBlueMinor",
+        LightColorTokens.DataOnLightElectricBlueMinor,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueMinorHover",
+        LightColorTokens.DataOnLightElectricBlueMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueMinorActive",
+        LightColorTokens.DataOnLightElectricBlueMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueLight",
+        LightColorTokens.DataOnLightElectricBlueLight,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueLightHover",
+        LightColorTokens.DataOnLightElectricBlueLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueLightActive",
+        LightColorTokens.DataOnLightElectricBlueLightActive,
+        overwrite,
+    )
+    initial.add("dataOnLightGrayLight", LightColorTokens.DataOnLightGrayLight, overwrite)
+    initial.add("dataOnLightGrayLightHover", LightColorTokens.DataOnLightGrayLightHover, overwrite)
+    initial.add(
+        "dataOnLightGrayLightActive",
+        LightColorTokens.DataOnLightGrayLightActive,
+        overwrite,
+    )
+    initial.add("dataOnLightGreen", LightColorTokens.DataOnLightGreen, overwrite)
+    initial.add("dataOnLightGreenLight", LightColorTokens.DataOnLightGreenLight, overwrite)
+    initial.add("dataOnLightYellowDark", LightColorTokens.DataOnLightYellowDark, overwrite)
+    initial.add(
+        "dataOnLightYellowDarkHover",
+        LightColorTokens.DataOnLightYellowDarkHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowDarkActive",
+        LightColorTokens.DataOnLightYellowDarkActive,
+        overwrite,
+    )
+    initial.add("dataOnLightOrange", LightColorTokens.DataOnLightOrange, overwrite)
+    initial.add("dataOnLightBlue", LightColorTokens.DataOnLightBlue, overwrite)
+    initial.add("dataOnLightOrchidLight", LightColorTokens.DataOnLightOrchidLight, overwrite)
+    initial.add(
+        "dataOnLightOrchidLightHover",
+        LightColorTokens.DataOnLightOrchidLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightOrchidLightActive",
+        LightColorTokens.DataOnLightOrchidLightActive,
+        overwrite,
+    )
+    initial.add("dataOnLightFuchsia", LightColorTokens.DataOnLightFuchsia, overwrite)
+    initial.add("dataOnLightFuchsiaMinor", LightColorTokens.DataOnLightFuchsiaMinor, overwrite)
+    initial.add(
+        "dataOnLightFuchsiaMinorHover",
+        LightColorTokens.DataOnLightFuchsiaMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightFuchsiaMinorActive",
+        LightColorTokens.DataOnLightFuchsiaMinorActive,
+        overwrite,
+    )
+    initial.add("dataOnLightFuchsiaLight", LightColorTokens.DataOnLightFuchsiaLight, overwrite)
+    initial.add(
+        "dataOnLightFuchsiaLightHover",
+        LightColorTokens.DataOnLightFuchsiaLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightFuchsiaLightActive",
+        LightColorTokens.DataOnLightFuchsiaLightActive,
+        overwrite,
+    )
+    initial.add("dataOnLightArcticLight", LightColorTokens.DataOnLightArcticLight, overwrite)
+    initial.add(
+        "dataOnLightArcticLightHover",
+        LightColorTokens.DataOnLightArcticLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightArcticLightActive",
+        LightColorTokens.DataOnLightArcticLightActive,
+        overwrite,
+    )
     initial.add("dataInverseYellow", LightColorTokens.DataInverseYellow, overwrite)
     initial.add("dataInverseYellowHover", LightColorTokens.DataInverseYellowHover, overwrite)
     initial.add("dataInverseYellowActive", LightColorTokens.DataInverseYellowActive, overwrite)
@@ -25351,24 +27177,16 @@ public fun lightSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = 
     )
     initial.add("dataInverseBlueMinor", LightColorTokens.DataInverseBlueMinor, overwrite)
     initial.add("dataInverseYellowLight", LightColorTokens.DataInverseYellowLight, overwrite)
-    initial.add("dataInverseOrchid", LightColorTokens.DataInverseOrchid, overwrite)
-    initial.add("dataInverseOrange", LightColorTokens.DataInverseOrange, overwrite)
     initial.add("dataInverseOrangeMinor", LightColorTokens.DataInverseOrangeMinor, overwrite)
     initial.add("dataInverseOrangeLight", LightColorTokens.DataInverseOrangeLight, overwrite)
     initial.add("dataInverseRed", LightColorTokens.DataInverseRed, overwrite)
     initial.add("dataInverseRedMinor", LightColorTokens.DataInverseRedMinor, overwrite)
     initial.add("dataInverseRedLight", LightColorTokens.DataInverseRedLight, overwrite)
-    initial.add("dataInverseArctic", LightColorTokens.DataInverseArctic, overwrite)
-    initial.add("dataInverseGreen", LightColorTokens.DataInverseGreen, overwrite)
     initial.add("dataInverseGreenMinor", LightColorTokens.DataInverseGreenMinor, overwrite)
-    initial.add("dataInverseGreenLight", LightColorTokens.DataInverseGreenLight, overwrite)
     initial.add("dataInverseSpring", LightColorTokens.DataInverseSpring, overwrite)
-    initial.add("dataInverseBlue", LightColorTokens.DataInverseBlue, overwrite)
     initial.add("dataInverseBlueMild", LightColorTokens.DataInverseBlueMild, overwrite)
     initial.add("dataInverseMalachite", LightColorTokens.DataInverseMalachite, overwrite)
     initial.add("dataInverseMalachiteMinor", LightColorTokens.DataInverseMalachiteMinor, overwrite)
-    initial.add("dataInverseElectricBlue", LightColorTokens.DataInverseElectricBlue, overwrite)
-    initial.add("dataInverseFuchsia", LightColorTokens.DataInverseFuchsia, overwrite)
     initial.add("dataInversePink", LightColorTokens.DataInversePink, overwrite)
     initial.add("dataInverseGray", LightColorTokens.DataInverseGray, overwrite)
     initial.add("dataInverseGrayMinor", LightColorTokens.DataInverseGrayMinor, overwrite)
@@ -25550,6 +27368,106 @@ public fun lightSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = 
         LightColorTokens.DataInverseBlueLightActive,
         overwrite,
     )
+    initial.add("dataInverseElectricBlue", LightColorTokens.DataInverseElectricBlue, overwrite)
+    initial.add(
+        "dataInverseElectricBlueMinor",
+        LightColorTokens.DataInverseElectricBlueMinor,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueMinorHover",
+        LightColorTokens.DataInverseElectricBlueMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueMinorActive",
+        LightColorTokens.DataInverseElectricBlueMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueLight",
+        LightColorTokens.DataInverseElectricBlueLight,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueLightHover",
+        LightColorTokens.DataInverseElectricBlueLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueLightActive",
+        LightColorTokens.DataInverseElectricBlueLightActive,
+        overwrite,
+    )
+    initial.add("dataInverseGrayLight", LightColorTokens.DataInverseGrayLight, overwrite)
+    initial.add("dataInverseGrayLightHover", LightColorTokens.DataInverseGrayLightHover, overwrite)
+    initial.add(
+        "dataInverseGrayLightActive",
+        LightColorTokens.DataInverseGrayLightActive,
+        overwrite,
+    )
+    initial.add("dataInverseGreen", LightColorTokens.DataInverseGreen, overwrite)
+    initial.add("dataInverseGreenLight", LightColorTokens.DataInverseGreenLight, overwrite)
+    initial.add(
+        "dataInverseYellowDarkHover",
+        LightColorTokens.DataInverseYellowDarkHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowDarkActive",
+        LightColorTokens.DataInverseYellowDarkActive,
+        overwrite,
+    )
+    initial.add("dataInverseYellowDark", LightColorTokens.DataInverseYellowDark, overwrite)
+    initial.add("dataInverseOrange", LightColorTokens.DataInverseOrange, overwrite)
+    initial.add("dataInverseBlue", LightColorTokens.DataInverseBlue, overwrite)
+    initial.add("dataInverseOrchid", LightColorTokens.DataInverseOrchid, overwrite)
+    initial.add("dataInverseOrchidLight", LightColorTokens.DataInverseOrchidLight, overwrite)
+    initial.add(
+        "dataInverseOrchidLightHover",
+        LightColorTokens.DataInverseOrchidLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseOrchidLightActive",
+        LightColorTokens.DataInverseOrchidLightActive,
+        overwrite,
+    )
+    initial.add("dataInverseFuchsia", LightColorTokens.DataInverseFuchsia, overwrite)
+    initial.add("dataInverseFuchsiaMinor", LightColorTokens.DataInverseFuchsiaMinor, overwrite)
+    initial.add(
+        "dataInverseFuchsiaMinorHover",
+        LightColorTokens.DataInverseFuchsiaMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseFuchsiaMinorActive",
+        LightColorTokens.DataInverseFuchsiaMinorActive,
+        overwrite,
+    )
+    initial.add("dataInverseFuchsiaLight", LightColorTokens.DataInverseFuchsiaLight, overwrite)
+    initial.add(
+        "dataInverseFuchsiaLightHover",
+        LightColorTokens.DataInverseFuchsiaLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseFuchsiaLightActive",
+        LightColorTokens.DataInverseFuchsiaLightActive,
+        overwrite,
+    )
+    initial.add("dataInverseArctic", LightColorTokens.DataInverseArctic, overwrite)
+    initial.add(
+        "dataInverseArcticLightHover",
+        LightColorTokens.DataInverseArcticLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseArcticLightActive",
+        LightColorTokens.DataInverseArcticLightActive,
+        overwrite,
+    )
+    initial.add("dataInverseArcticLight", LightColorTokens.DataInverseArcticLight, overwrite)
     return SddsFinAiColors(initial)
 }
 
@@ -28581,26 +30499,18 @@ public fun darkSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = {
         DarkColorTokens.DataDefaultSkyBlueLightActive,
         overwrite,
     )
-    initial.add("dataDefaultOrchid", DarkColorTokens.DataDefaultOrchid, overwrite)
     initial.add("dataDefaultBlueMinor", DarkColorTokens.DataDefaultBlueMinor, overwrite)
     initial.add("dataDefaultBlueLight", DarkColorTokens.DataDefaultBlueLight, overwrite)
-    initial.add("dataDefaultArctic", DarkColorTokens.DataDefaultArctic, overwrite)
-    initial.add("dataDefaultGreen", DarkColorTokens.DataDefaultGreen, overwrite)
     initial.add("dataDefaultGreenMinor", DarkColorTokens.DataDefaultGreenMinor, overwrite)
-    initial.add("dataDefaultGreenLight", DarkColorTokens.DataDefaultGreenLight, overwrite)
     initial.add("dataDefaultSpring", DarkColorTokens.DataDefaultSpring, overwrite)
-    initial.add("dataDefaultOrange", DarkColorTokens.DataDefaultOrange, overwrite)
     initial.add("dataDefaultOrangeMinor", DarkColorTokens.DataDefaultOrangeMinor, overwrite)
     initial.add("dataDefaultOrangeLight", DarkColorTokens.DataDefaultOrangeLight, overwrite)
     initial.add("dataDefaultRed", DarkColorTokens.DataDefaultRed, overwrite)
     initial.add("dataDefaultRedMinor", DarkColorTokens.DataDefaultRedMinor, overwrite)
     initial.add("dataDefaultRedLight", DarkColorTokens.DataDefaultRedLight, overwrite)
-    initial.add("dataDefaultBlue", DarkColorTokens.DataDefaultBlue, overwrite)
     initial.add("dataDefaultBlueMild", DarkColorTokens.DataDefaultBlueMild, overwrite)
     initial.add("dataDefaultMalachite", DarkColorTokens.DataDefaultMalachite, overwrite)
     initial.add("dataDefaultMalachiteMinor", DarkColorTokens.DataDefaultMalachiteMinor, overwrite)
-    initial.add("dataDefaultElectricBlue", DarkColorTokens.DataDefaultElectricBlue, overwrite)
-    initial.add("dataDefaultFuchsia", DarkColorTokens.DataDefaultFuchsia, overwrite)
     initial.add("dataDefaultPink", DarkColorTokens.DataDefaultPink, overwrite)
     initial.add("dataDefaultGray", DarkColorTokens.DataDefaultGray, overwrite)
     initial.add("dataDefaultGrayMinor", DarkColorTokens.DataDefaultGrayMinor, overwrite)
@@ -28758,6 +30668,98 @@ public fun darkSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add("dataDefaultOrchidMinor", DarkColorTokens.DataDefaultOrchidMinor, overwrite)
+    initial.add("dataDefaultElectricBlue", DarkColorTokens.DataDefaultElectricBlue, overwrite)
+    initial.add(
+        "dataDefaultElectricBlueMinor",
+        DarkColorTokens.DataDefaultElectricBlueMinor,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueMinorHover",
+        DarkColorTokens.DataDefaultElectricBlueMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueMinorActive",
+        DarkColorTokens.DataDefaultElectricBlueMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueLight",
+        DarkColorTokens.DataDefaultElectricBlueLight,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueLightHover",
+        DarkColorTokens.DataDefaultElectricBlueLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultElectricBlueLightActive",
+        DarkColorTokens.DataDefaultElectricBlueLightActive,
+        overwrite,
+    )
+    initial.add("dataDefaultGrayLight", DarkColorTokens.DataDefaultGrayLight, overwrite)
+    initial.add("dataDefaultGrayLightHover", DarkColorTokens.DataDefaultGrayLightHover, overwrite)
+    initial.add("dataDefaultGrayLightActive", DarkColorTokens.DataDefaultGrayLightActive, overwrite)
+    initial.add("dataDefaultGreen", DarkColorTokens.DataDefaultGreen, overwrite)
+    initial.add("dataDefaultGreenLight", DarkColorTokens.DataDefaultGreenLight, overwrite)
+    initial.add("dataDefaultYellowDarkHover", DarkColorTokens.DataDefaultYellowDarkHover, overwrite)
+    initial.add(
+        "dataDefaultYellowDarkActive",
+        DarkColorTokens.DataDefaultYellowDarkActive,
+        overwrite,
+    )
+    initial.add("dataDefaultYellowDark", DarkColorTokens.DataDefaultYellowDark, overwrite)
+    initial.add("dataDefaultOrange", DarkColorTokens.DataDefaultOrange, overwrite)
+    initial.add("dataDefaultBlue", DarkColorTokens.DataDefaultBlue, overwrite)
+    initial.add("dataDefaultOrchid", DarkColorTokens.DataDefaultOrchid, overwrite)
+    initial.add("dataDefaultOrchidLight", DarkColorTokens.DataDefaultOrchidLight, overwrite)
+    initial.add(
+        "dataDefaultOrchidLightHover",
+        DarkColorTokens.DataDefaultOrchidLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultOrchidLightActive",
+        DarkColorTokens.DataDefaultOrchidLightActive,
+        overwrite,
+    )
+    initial.add("dataDefaultFuchsia", DarkColorTokens.DataDefaultFuchsia, overwrite)
+    initial.add("dataDefaultFuchsiaMinor", DarkColorTokens.DataDefaultFuchsiaMinor, overwrite)
+    initial.add(
+        "dataDefaultFuchsiaMinorHover",
+        DarkColorTokens.DataDefaultFuchsiaMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultFuchsiaMinorActive",
+        DarkColorTokens.DataDefaultFuchsiaMinorActive,
+        overwrite,
+    )
+    initial.add("dataDefaultFuchsiaLight", DarkColorTokens.DataDefaultFuchsiaLight, overwrite)
+    initial.add(
+        "dataDefaultFuchsiaLightHover",
+        DarkColorTokens.DataDefaultFuchsiaLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultFuchsiaLightActive",
+        DarkColorTokens.DataDefaultFuchsiaLightActive,
+        overwrite,
+    )
+    initial.add("dataDefaultArctic", DarkColorTokens.DataDefaultArctic, overwrite)
+    initial.add(
+        "dataDefaultArcticLightHover",
+        DarkColorTokens.DataDefaultArcticLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultArcticLightActive",
+        DarkColorTokens.DataDefaultArcticLightActive,
+        overwrite,
+    )
+    initial.add("dataDefaultArcticLight", DarkColorTokens.DataDefaultArcticLight, overwrite)
     initial.add("dataOnDarkYellowHover", DarkColorTokens.DataOnDarkYellowHover, overwrite)
     initial.add("dataOnDarkYellowActive", DarkColorTokens.DataOnDarkYellowActive, overwrite)
     initial.add("dataOnDarkYellowMinorHover", DarkColorTokens.DataOnDarkYellowMinorHover, overwrite)
@@ -28800,27 +30802,19 @@ public fun darkSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add("dataOnDarkBlueLight", DarkColorTokens.DataOnDarkBlueLight, overwrite)
     initial.add("dataOnDarkYellowLight", DarkColorTokens.DataOnDarkYellowLight, overwrite)
     initial.add("dataOnDarkBlueMinor", DarkColorTokens.DataOnDarkBlueMinor, overwrite)
-    initial.add("dataOnDarkOrchid", DarkColorTokens.DataOnDarkOrchid, overwrite)
     initial.add("dataOnDarkOrchidMinor", DarkColorTokens.DataOnDarkOrchidMinor, overwrite)
     initial.add("dataOnDarkYellow", DarkColorTokens.DataOnDarkYellow, overwrite)
     initial.add("dataOnDarkYellowMinor", DarkColorTokens.DataOnDarkYellowMinor, overwrite)
-    initial.add("dataOnDarkOrange", DarkColorTokens.DataOnDarkOrange, overwrite)
     initial.add("dataOnDarkOrangeMinor", DarkColorTokens.DataOnDarkOrangeMinor, overwrite)
     initial.add("dataOnDarkOrangeLight", DarkColorTokens.DataOnDarkOrangeLight, overwrite)
     initial.add("dataOnDarkRed", DarkColorTokens.DataOnDarkRed, overwrite)
     initial.add("dataOnDarkRedMinor", DarkColorTokens.DataOnDarkRedMinor, overwrite)
     initial.add("dataOnDarkRedLight", DarkColorTokens.DataOnDarkRedLight, overwrite)
-    initial.add("dataOnDarkArctic", DarkColorTokens.DataOnDarkArctic, overwrite)
-    initial.add("dataOnDarkGreen", DarkColorTokens.DataOnDarkGreen, overwrite)
     initial.add("dataOnDarkGreenMinor", DarkColorTokens.DataOnDarkGreenMinor, overwrite)
-    initial.add("dataOnDarkGreenLight", DarkColorTokens.DataOnDarkGreenLight, overwrite)
     initial.add("dataOnDarkSpring", DarkColorTokens.DataOnDarkSpring, overwrite)
-    initial.add("dataOnDarkBlue", DarkColorTokens.DataOnDarkBlue, overwrite)
     initial.add("dataOnDarkBlueMild", DarkColorTokens.DataOnDarkBlueMild, overwrite)
     initial.add("dataOnDarkMalachite", DarkColorTokens.DataOnDarkMalachite, overwrite)
     initial.add("dataOnDarkMalachiteMinor", DarkColorTokens.DataOnDarkMalachiteMinor, overwrite)
-    initial.add("dataOnDarkElectricBlue", DarkColorTokens.DataOnDarkElectricBlue, overwrite)
-    initial.add("dataOnDarkFuchsia", DarkColorTokens.DataOnDarkFuchsia, overwrite)
     initial.add("dataOnDarkPink", DarkColorTokens.DataOnDarkPink, overwrite)
     initial.add("dataOnDarkGray", DarkColorTokens.DataOnDarkGray, overwrite)
     initial.add("dataOnDarkGrayMinor", DarkColorTokens.DataOnDarkGrayMinor, overwrite)
@@ -28948,6 +30942,86 @@ public fun darkSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = {
         DarkColorTokens.DataOnDarkBlueTransparentActive,
         overwrite,
     )
+    initial.add("dataOnDarkElectricBlue", DarkColorTokens.DataOnDarkElectricBlue, overwrite)
+    initial.add(
+        "dataOnDarkElectricBlueMinor",
+        DarkColorTokens.DataOnDarkElectricBlueMinor,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueMinorHover",
+        DarkColorTokens.DataOnDarkElectricBlueMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueMinorActive",
+        DarkColorTokens.DataOnDarkElectricBlueMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueLight",
+        DarkColorTokens.DataOnDarkElectricBlueLight,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueLightHover",
+        DarkColorTokens.DataOnDarkElectricBlueLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkElectricBlueLightActive",
+        DarkColorTokens.DataOnDarkElectricBlueLightActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkGrayLight", DarkColorTokens.DataOnDarkGrayLight, overwrite)
+    initial.add("dataOnDarkGrayLightHover", DarkColorTokens.DataOnDarkGrayLightHover, overwrite)
+    initial.add("dataOnDarkGrayLightActive", DarkColorTokens.DataOnDarkGrayLightActive, overwrite)
+    initial.add("dataOnDarkGreen", DarkColorTokens.DataOnDarkGreen, overwrite)
+    initial.add("dataOnDarkGreenLight", DarkColorTokens.DataOnDarkGreenLight, overwrite)
+    initial.add("dataOnDarkYellowDark", DarkColorTokens.DataOnDarkYellowDark, overwrite)
+    initial.add("dataOnDarkYellowDarkHover", DarkColorTokens.DataOnDarkYellowDarkHover, overwrite)
+    initial.add("dataOnDarkYellowDarkActive", DarkColorTokens.DataOnDarkYellowDarkActive, overwrite)
+    initial.add("dataOnDarkOrange", DarkColorTokens.DataOnDarkOrange, overwrite)
+    initial.add("dataOnDarkBlue", DarkColorTokens.DataOnDarkBlue, overwrite)
+    initial.add("dataOnDarkOrchid", DarkColorTokens.DataOnDarkOrchid, overwrite)
+    initial.add("dataOnDarkOrchidLight", DarkColorTokens.DataOnDarkOrchidLight, overwrite)
+    initial.add("dataOnDarkOrchidLightHover", DarkColorTokens.DataOnDarkOrchidLightHover, overwrite)
+    initial.add(
+        "dataOnDarkOrchidLightActive",
+        DarkColorTokens.DataOnDarkOrchidLightActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkFuchsia", DarkColorTokens.DataOnDarkFuchsia, overwrite)
+    initial.add("dataOnDarkFuchsiaMinor", DarkColorTokens.DataOnDarkFuchsiaMinor, overwrite)
+    initial.add(
+        "dataOnDarkFuchsiaMinorHover",
+        DarkColorTokens.DataOnDarkFuchsiaMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkFuchsiaMinorActive",
+        DarkColorTokens.DataOnDarkFuchsiaMinorActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkFuchsiaLight", DarkColorTokens.DataOnDarkFuchsiaLight, overwrite)
+    initial.add(
+        "dataOnDarkFuchsiaLightHover",
+        DarkColorTokens.DataOnDarkFuchsiaLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkFuchsiaLightActive",
+        DarkColorTokens.DataOnDarkFuchsiaLightActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkArctic", DarkColorTokens.DataOnDarkArctic, overwrite)
+    initial.add("dataOnDarkArcticLight", DarkColorTokens.DataOnDarkArcticLight, overwrite)
+    initial.add("dataOnDarkArcticLightHover", DarkColorTokens.DataOnDarkArcticLightHover, overwrite)
+    initial.add(
+        "dataOnDarkArcticLightActive",
+        DarkColorTokens.DataOnDarkArcticLightActive,
+        overwrite,
+    )
     initial.add("dataOnLightYellow", DarkColorTokens.DataOnLightYellow, overwrite)
     initial.add("dataOnLightYellowHover", DarkColorTokens.DataOnLightYellowHover, overwrite)
     initial.add("dataOnLightYellowActive", DarkColorTokens.DataOnLightYellowActive, overwrite)
@@ -29003,22 +31077,16 @@ public fun darkSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add("dataOnLightOrchid", DarkColorTokens.DataOnLightOrchid, overwrite)
     initial.add("dataOnLightOrchidMinor", DarkColorTokens.DataOnLightOrchidMinor, overwrite)
     initial.add("dataOnLightArctic", DarkColorTokens.DataOnLightArctic, overwrite)
-    initial.add("dataOnLightGreen", DarkColorTokens.DataOnLightGreen, overwrite)
     initial.add("dataOnLightGreenMinor", DarkColorTokens.DataOnLightGreenMinor, overwrite)
-    initial.add("dataOnLightGreenLight", DarkColorTokens.DataOnLightGreenLight, overwrite)
     initial.add("dataOnLightSpring", DarkColorTokens.DataOnLightSpring, overwrite)
-    initial.add("dataOnLightOrange", DarkColorTokens.DataOnLightOrange, overwrite)
     initial.add("dataOnLightOrangeMinor", DarkColorTokens.DataOnLightOrangeMinor, overwrite)
     initial.add("dataOnLightOrangeLight", DarkColorTokens.DataOnLightOrangeLight, overwrite)
     initial.add("dataOnLightRed", DarkColorTokens.DataOnLightRed, overwrite)
     initial.add("dataOnLightRedMinor", DarkColorTokens.DataOnLightRedMinor, overwrite)
     initial.add("dataOnLightRedLight", DarkColorTokens.DataOnLightRedLight, overwrite)
-    initial.add("dataOnLightBlue", DarkColorTokens.DataOnLightBlue, overwrite)
     initial.add("dataOnLightBlueMild", DarkColorTokens.DataOnLightBlueMild, overwrite)
     initial.add("dataOnLightMalachite", DarkColorTokens.DataOnLightMalachite, overwrite)
     initial.add("dataOnLightMalachiteMinor", DarkColorTokens.DataOnLightMalachiteMinor, overwrite)
-    initial.add("dataOnLightElectricBlue", DarkColorTokens.DataOnLightElectricBlue, overwrite)
-    initial.add("dataOnLightFuchsia", DarkColorTokens.DataOnLightFuchsia, overwrite)
     initial.add("dataOnLightPink", DarkColorTokens.DataOnLightPink, overwrite)
     initial.add("dataOnLightGray", DarkColorTokens.DataOnLightGray, overwrite)
     initial.add("dataOnLightGrayMinor", DarkColorTokens.DataOnLightGrayMinor, overwrite)
@@ -29170,6 +31238,96 @@ public fun darkSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = {
         DarkColorTokens.DataOnLightOrangeTransparentActive,
         overwrite,
     )
+    initial.add("dataOnLightElectricBlue", DarkColorTokens.DataOnLightElectricBlue, overwrite)
+    initial.add(
+        "dataOnLightElectricBlueMinor",
+        DarkColorTokens.DataOnLightElectricBlueMinor,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueMinorHover",
+        DarkColorTokens.DataOnLightElectricBlueMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueMinorActive",
+        DarkColorTokens.DataOnLightElectricBlueMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueLight",
+        DarkColorTokens.DataOnLightElectricBlueLight,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueLightHover",
+        DarkColorTokens.DataOnLightElectricBlueLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightElectricBlueLightActive",
+        DarkColorTokens.DataOnLightElectricBlueLightActive,
+        overwrite,
+    )
+    initial.add("dataOnLightGrayLight", DarkColorTokens.DataOnLightGrayLight, overwrite)
+    initial.add("dataOnLightGrayLightHover", DarkColorTokens.DataOnLightGrayLightHover, overwrite)
+    initial.add("dataOnLightGrayLightActive", DarkColorTokens.DataOnLightGrayLightActive, overwrite)
+    initial.add("dataOnLightGreen", DarkColorTokens.DataOnLightGreen, overwrite)
+    initial.add("dataOnLightGreenLight", DarkColorTokens.DataOnLightGreenLight, overwrite)
+    initial.add("dataOnLightYellowDark", DarkColorTokens.DataOnLightYellowDark, overwrite)
+    initial.add("dataOnLightYellowDarkHover", DarkColorTokens.DataOnLightYellowDarkHover, overwrite)
+    initial.add(
+        "dataOnLightYellowDarkActive",
+        DarkColorTokens.DataOnLightYellowDarkActive,
+        overwrite,
+    )
+    initial.add("dataOnLightOrange", DarkColorTokens.DataOnLightOrange, overwrite)
+    initial.add("dataOnLightBlue", DarkColorTokens.DataOnLightBlue, overwrite)
+    initial.add("dataOnLightOrchidLight", DarkColorTokens.DataOnLightOrchidLight, overwrite)
+    initial.add(
+        "dataOnLightOrchidLightHover",
+        DarkColorTokens.DataOnLightOrchidLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightOrchidLightActive",
+        DarkColorTokens.DataOnLightOrchidLightActive,
+        overwrite,
+    )
+    initial.add("dataOnLightFuchsia", DarkColorTokens.DataOnLightFuchsia, overwrite)
+    initial.add("dataOnLightFuchsiaMinor", DarkColorTokens.DataOnLightFuchsiaMinor, overwrite)
+    initial.add(
+        "dataOnLightFuchsiaMinorHover",
+        DarkColorTokens.DataOnLightFuchsiaMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightFuchsiaMinorActive",
+        DarkColorTokens.DataOnLightFuchsiaMinorActive,
+        overwrite,
+    )
+    initial.add("dataOnLightFuchsiaLight", DarkColorTokens.DataOnLightFuchsiaLight, overwrite)
+    initial.add(
+        "dataOnLightFuchsiaLightHover",
+        DarkColorTokens.DataOnLightFuchsiaLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightFuchsiaLightActive",
+        DarkColorTokens.DataOnLightFuchsiaLightActive,
+        overwrite,
+    )
+    initial.add("dataOnLightArcticLight", DarkColorTokens.DataOnLightArcticLight, overwrite)
+    initial.add(
+        "dataOnLightArcticLightHover",
+        DarkColorTokens.DataOnLightArcticLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightArcticLightActive",
+        DarkColorTokens.DataOnLightArcticLightActive,
+        overwrite,
+    )
     initial.add("dataInverseYellow", DarkColorTokens.DataInverseYellow, overwrite)
     initial.add("dataInverseYellowHover", DarkColorTokens.DataInverseYellowHover, overwrite)
     initial.add("dataInverseYellowActive", DarkColorTokens.DataInverseYellowActive, overwrite)
@@ -29221,24 +31379,16 @@ public fun darkSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = {
     )
     initial.add("dataInverseBlueMinor", DarkColorTokens.DataInverseBlueMinor, overwrite)
     initial.add("dataInverseYellowLight", DarkColorTokens.DataInverseYellowLight, overwrite)
-    initial.add("dataInverseOrchid", DarkColorTokens.DataInverseOrchid, overwrite)
-    initial.add("dataInverseOrange", DarkColorTokens.DataInverseOrange, overwrite)
     initial.add("dataInverseOrangeMinor", DarkColorTokens.DataInverseOrangeMinor, overwrite)
     initial.add("dataInverseOrangeLight", DarkColorTokens.DataInverseOrangeLight, overwrite)
     initial.add("dataInverseRed", DarkColorTokens.DataInverseRed, overwrite)
     initial.add("dataInverseRedMinor", DarkColorTokens.DataInverseRedMinor, overwrite)
     initial.add("dataInverseRedLight", DarkColorTokens.DataInverseRedLight, overwrite)
-    initial.add("dataInverseArctic", DarkColorTokens.DataInverseArctic, overwrite)
-    initial.add("dataInverseGreen", DarkColorTokens.DataInverseGreen, overwrite)
     initial.add("dataInverseGreenMinor", DarkColorTokens.DataInverseGreenMinor, overwrite)
-    initial.add("dataInverseGreenLight", DarkColorTokens.DataInverseGreenLight, overwrite)
     initial.add("dataInverseSpring", DarkColorTokens.DataInverseSpring, overwrite)
-    initial.add("dataInverseBlue", DarkColorTokens.DataInverseBlue, overwrite)
     initial.add("dataInverseBlueMild", DarkColorTokens.DataInverseBlueMild, overwrite)
     initial.add("dataInverseMalachite", DarkColorTokens.DataInverseMalachite, overwrite)
     initial.add("dataInverseMalachiteMinor", DarkColorTokens.DataInverseMalachiteMinor, overwrite)
-    initial.add("dataInverseElectricBlue", DarkColorTokens.DataInverseElectricBlue, overwrite)
-    initial.add("dataInverseFuchsia", DarkColorTokens.DataInverseFuchsia, overwrite)
     initial.add("dataInversePink", DarkColorTokens.DataInversePink, overwrite)
     initial.add("dataInverseGray", DarkColorTokens.DataInverseGray, overwrite)
     initial.add("dataInverseGrayMinor", DarkColorTokens.DataInverseGrayMinor, overwrite)
@@ -29392,6 +31542,98 @@ public fun darkSddsFinAiColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add("dataInverseBlueLight", DarkColorTokens.DataInverseBlueLight, overwrite)
     initial.add("dataInverseBlueLightHover", DarkColorTokens.DataInverseBlueLightHover, overwrite)
     initial.add("dataInverseBlueLightActive", DarkColorTokens.DataInverseBlueLightActive, overwrite)
+    initial.add("dataInverseElectricBlue", DarkColorTokens.DataInverseElectricBlue, overwrite)
+    initial.add(
+        "dataInverseElectricBlueMinor",
+        DarkColorTokens.DataInverseElectricBlueMinor,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueMinorHover",
+        DarkColorTokens.DataInverseElectricBlueMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueMinorActive",
+        DarkColorTokens.DataInverseElectricBlueMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueLight",
+        DarkColorTokens.DataInverseElectricBlueLight,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueLightHover",
+        DarkColorTokens.DataInverseElectricBlueLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseElectricBlueLightActive",
+        DarkColorTokens.DataInverseElectricBlueLightActive,
+        overwrite,
+    )
+    initial.add("dataInverseGrayLight", DarkColorTokens.DataInverseGrayLight, overwrite)
+    initial.add("dataInverseGrayLightHover", DarkColorTokens.DataInverseGrayLightHover, overwrite)
+    initial.add("dataInverseGrayLightActive", DarkColorTokens.DataInverseGrayLightActive, overwrite)
+    initial.add("dataInverseGreen", DarkColorTokens.DataInverseGreen, overwrite)
+    initial.add("dataInverseGreenLight", DarkColorTokens.DataInverseGreenLight, overwrite)
+    initial.add("dataInverseYellowDarkHover", DarkColorTokens.DataInverseYellowDarkHover, overwrite)
+    initial.add(
+        "dataInverseYellowDarkActive",
+        DarkColorTokens.DataInverseYellowDarkActive,
+        overwrite,
+    )
+    initial.add("dataInverseYellowDark", DarkColorTokens.DataInverseYellowDark, overwrite)
+    initial.add("dataInverseOrange", DarkColorTokens.DataInverseOrange, overwrite)
+    initial.add("dataInverseBlue", DarkColorTokens.DataInverseBlue, overwrite)
+    initial.add("dataInverseOrchid", DarkColorTokens.DataInverseOrchid, overwrite)
+    initial.add("dataInverseOrchidLight", DarkColorTokens.DataInverseOrchidLight, overwrite)
+    initial.add(
+        "dataInverseOrchidLightHover",
+        DarkColorTokens.DataInverseOrchidLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseOrchidLightActive",
+        DarkColorTokens.DataInverseOrchidLightActive,
+        overwrite,
+    )
+    initial.add("dataInverseFuchsia", DarkColorTokens.DataInverseFuchsia, overwrite)
+    initial.add("dataInverseFuchsiaMinor", DarkColorTokens.DataInverseFuchsiaMinor, overwrite)
+    initial.add(
+        "dataInverseFuchsiaMinorHover",
+        DarkColorTokens.DataInverseFuchsiaMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseFuchsiaMinorActive",
+        DarkColorTokens.DataInverseFuchsiaMinorActive,
+        overwrite,
+    )
+    initial.add("dataInverseFuchsiaLight", DarkColorTokens.DataInverseFuchsiaLight, overwrite)
+    initial.add(
+        "dataInverseFuchsiaLightHover",
+        DarkColorTokens.DataInverseFuchsiaLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseFuchsiaLightActive",
+        DarkColorTokens.DataInverseFuchsiaLightActive,
+        overwrite,
+    )
+    initial.add("dataInverseArctic", DarkColorTokens.DataInverseArctic, overwrite)
+    initial.add(
+        "dataInverseArcticLightHover",
+        DarkColorTokens.DataInverseArcticLightHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseArcticLightActive",
+        DarkColorTokens.DataInverseArcticLightActive,
+        overwrite,
+    )
+    initial.add("dataInverseArcticLight", DarkColorTokens.DataInverseArcticLight, overwrite)
     return SddsFinAiColors(initial)
 }
 

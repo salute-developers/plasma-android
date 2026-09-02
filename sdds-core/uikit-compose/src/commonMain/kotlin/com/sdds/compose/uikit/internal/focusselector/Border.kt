@@ -2,6 +2,7 @@ package com.sdds.compose.uikit.internal.focusselector
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.CacheDrawScope
 import androidx.compose.ui.draw.drawWithCache
@@ -16,7 +17,9 @@ import androidx.compose.ui.graphics.PathOperation
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.DefaultStrokeLineMiter
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 
 /**
  * Рисует бордер вокруг [originalShape].
@@ -59,6 +62,56 @@ internal fun Modifier.drawBorder(
                     path = roundedRectPath ?: return@onDrawWithContent,
                     brush = stroke.brush,
                 )
+            }
+        }
+    }
+}
+
+/**
+ * Рисует бордер внутри [shape].
+ * Поддерживается только Rounded форма.
+ */
+internal fun Modifier.drawInnerBorder(
+    strokeWidth: State<Dp>,
+    strokeColor: BrushProducer,
+    shape: CornerBasedShape,
+    strokePadding: Dp? = null,
+    isFocused: () -> Boolean,
+): Modifier {
+    return this.drawWithCache {
+        val width = strokeWidth.value
+        if (width <= 0.dp) {
+            onDrawBehind { }
+        } else {
+            val strokeWidthPx = width.toPx()
+            val halfStrokeWidthPx = strokeWidthPx / 2f
+            val strokePaddingPx = strokePadding?.toPx() ?: -strokeWidthPx
+            val pathSize = pathSize(strokePaddingPx, halfStrokeWidthPx)
+            val outline = borderOutline(shape, pathSize, strokePaddingPx, strokeWidthPx)
+            val roundedRectPath = customRoundRectPath(outline, strokePaddingPx, halfStrokeWidthPx)
+
+            onDrawBehind {
+                if (!isFocused()) return@onDrawBehind
+                if (outline !is Outline.Rounded) return@onDrawBehind
+
+                if (outline.roundRect.isSimple) {
+                    val cornerRadius = outline.roundRect.topLeftCornerRadius
+                    val borderStroke = Stroke(strokeWidthPx, miter = DefaultStrokeLineMiter)
+                    val pathOffset =
+                        Offset(strokePaddingPx + halfStrokeWidthPx, strokePaddingPx + halfStrokeWidthPx)
+                    drawRoundRect(
+                        brush = strokeColor(),
+                        topLeft = -pathOffset,
+                        size = pathSize,
+                        cornerRadius = cornerRadius,
+                        style = borderStroke,
+                    )
+                } else {
+                    drawPath(
+                        path = roundedRectPath ?: return@onDrawBehind,
+                        brush = strokeColor(),
+                    )
+                }
             }
         }
     }

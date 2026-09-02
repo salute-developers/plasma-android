@@ -277,8 +277,9 @@ fun Modifier.popoverTrigger(
     triggerInfo: MutableState<TriggerInfo>,
     shape: Shape = RectangleShape,
     cutoutPaddings: PaddingValues = PaddingValues(0.dp),
+    enabled: Boolean = true,
 ): Modifier {
-    return basePopoverTrigger(triggerInfo, shape, cutoutPaddings)
+    return basePopoverTrigger(triggerInfo, shape, cutoutPaddings, enabled)
 }
 
 internal val topAlignmentLine = HorizontalAlignmentLine(merger = { old, new -> max(old, new) })

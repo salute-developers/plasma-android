@@ -17,19 +17,22 @@ class SandboxPerformanceBenchmark {
     val benchmarkRule = MacrobenchmarkRule()
 
     @Test
-    fun componentsFeedScrolling() = measureScenario(PerformanceBenchmarkIds.Scenarios.COMPONENTS_FEED) {
-        PerformanceTestCases(this).componentsFeedScrolling()
-    }
+    fun componentsFeedScrolling() =
+        measureScenario(PerformanceBenchmarkIds.Scenarios.COMPONENTS_FEED) {
+            PerformanceTestCases(this).componentsFeedScrolling()
+        }
 
     @Test
-    fun massStateUpdate() = measureScenario(PerformanceBenchmarkIds.Scenarios.MASS_STATE_UPDATE) {
-        PerformanceTestCases(this).massStateUpdate()
-    }
+    fun massStateUpdate() =
+        measureScenario(PerformanceBenchmarkIds.Scenarios.MASS_STATE_UPDATE) {
+            PerformanceTestCases(this).massStateUpdate()
+        }
 
     @Test
-    fun modalInteractionCycle() = measureScenario(PerformanceBenchmarkIds.Scenarios.MODAL_CYCLE) {
-        PerformanceTestCases(this).modalInteractionCycle()
-    }
+    fun modalInteractionCycle() =
+        measureScenario(PerformanceBenchmarkIds.Scenarios.MODAL_CYCLE) {
+            PerformanceTestCases(this).modalInteractionCycle()
+        }
 
     @Test
     fun popoverTriggerInteractionCycle() =
@@ -38,9 +41,39 @@ class SandboxPerformanceBenchmark {
         }
 
     @Test
+    fun popoverTriggersScrolling() =
+        measureScenario(PerformanceBenchmarkIds.Scenarios.POPOVER_100_TRIGGERS) {
+            PerformanceTestCases(this).popoverTriggersScrolling()
+        }
+
+    @Test
     fun bottomSheetWheelInteractionCycle() =
         measureScenario(PerformanceBenchmarkIds.Scenarios.BOTTOM_SHEET_WHEEL) {
             PerformanceTestCases(this).bottomSheetWheelInteractionCycle()
+        }
+
+    @Test
+    fun tabsListBottomSheetFlow() =
+        measureScenario(PerformanceBenchmarkIds.Scenarios.TABS_LIST_BOTTOM_SHEET) {
+            PerformanceTestCases(this).tabsListBottomSheetFlow()
+        }
+
+    @Test
+    fun selectSortingFlow() =
+        measureScenario(PerformanceBenchmarkIds.Scenarios.SELECT_SORTING) {
+            PerformanceTestCases(this).selectSortingFlow()
+        }
+
+    @Test
+    fun comboBoxSearchFlow() =
+        measureScenario(PerformanceBenchmarkIds.Scenarios.COMBOBOX_SEARCH) {
+            PerformanceTestCases(this).comboBoxSearchFlow()
+        }
+
+    @Test
+    fun cellNotificationActionFlow() =
+        measureScenario(PerformanceBenchmarkIds.Scenarios.CELL_NOTIFICATION_ACTION) {
+            PerformanceTestCases(this).cellNotificationActionFlow()
         }
 
     private fun measureScenario(
@@ -74,6 +107,6 @@ class SandboxPerformanceBenchmark {
     }
 
     private companion object {
-        const val ITERATIONS = 5
+        const val ITERATIONS = 3
     }
 }

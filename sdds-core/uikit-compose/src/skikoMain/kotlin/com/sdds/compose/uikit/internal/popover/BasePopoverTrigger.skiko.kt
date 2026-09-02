@@ -27,6 +27,7 @@ internal actual fun Modifier.basePopoverTrigger(
     triggerInfo: MutableState<TriggerInfo>,
     shape: Shape,
     cutoutPaddings: PaddingValues,
+    enabled: Boolean,
 ): Modifier {
     return composed {
         val currentScaleFactor = LocalFocusSelectorSettings.current.scale.scaleFactor
@@ -58,27 +59,30 @@ internal actual fun Modifier.basePopoverTrigger(
                 triggerInfo.value = updatedTriggerInfo
             }
         }
-
-        layout { measurable, constraints ->
-            val placeable = measurable.measure(constraints)
-            triggerInfo.value = triggerInfo.value.copy(
-                topAlignmentLine = placeable[topAlignmentLine],
-                bottomAlignmentLine = placeable[bottomAlignmentLine],
-                startAlignmentLine = placeable[startAlignmentLine],
-                endAlignmentLine = placeable[endAlignmentLine],
-            )
-            return@layout layout(placeable.width, placeable.height) {
-                placeable.placeRelative(IntOffset.Zero)
+        if (enabled) {
+            layout { measurable, constraints ->
+                val placeable = measurable.measure(constraints)
+                triggerInfo.value = triggerInfo.value.copy(
+                    topAlignmentLine = placeable[topAlignmentLine],
+                    bottomAlignmentLine = placeable[bottomAlignmentLine],
+                    startAlignmentLine = placeable[startAlignmentLine],
+                    endAlignmentLine = placeable[endAlignmentLine],
+                )
+                return@layout layout(placeable.width, placeable.height) {
+                    placeable.placeRelative(IntOffset.Zero)
+                }
+            }.onGloballyPositioned {
+                updateTriggerBounds(it)
+            }.onFocusChanged {
+                val scaleFactor = if (it.isFocused) {
+                    currentScaleFactor
+                } else {
+                    0f
+                }
+                triggerInfo.value = triggerInfo.value.copy(focusScaleFactor = scaleFactor)
             }
-        }.onGloballyPositioned {
-            updateTriggerBounds(it)
-        }.onFocusChanged {
-            val scaleFactor = if (it.isFocused) {
-                currentScaleFactor
-            } else {
-                0f
-            }
-            triggerInfo.value = triggerInfo.value.copy(focusScaleFactor = scaleFactor)
+        } else {
+            Modifier
         }
     }
 }

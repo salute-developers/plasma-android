@@ -1313,8 +1313,10 @@ private class DefaultCheckBoxColorValues(
                     .asStatefulBrush(
                         setOf(CheckBoxStates.Checked) to Color.Green,
                         setOf(CheckBoxStates.Indeterminate) to Color.Green,
+                        setOf(CheckBoxStates.Error) to Color.Red,
                         setOf(InteractiveState.Focused, CheckBoxStates.Checked) to Color.Green,
                         setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to Color.Green,
+                        setOf(InteractiveState.Focused, CheckBoxStates.Error) to Color.Red,
                     ),
                 toggleIconBrush = toggleIconBrush ?: Color.White.asStatefulBrush(),
                 toggleBorderBrush = toggleBorderBrush ?: Color.Gray
@@ -1322,8 +1324,10 @@ private class DefaultCheckBoxColorValues(
                         setOf(InteractiveState.Focused) to Color.Green,
                         setOf(InteractiveState.Focused, CheckBoxStates.Checked) to Color.Green,
                         setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to Color.Green,
+                        setOf(InteractiveState.Focused, CheckBoxStates.Error) to Color.Red,
                         setOf(CheckBoxStates.Checked) to Color.Green,
                         setOf(CheckBoxStates.Indeterminate) to Color.Green,
+                        setOf(CheckBoxStates.Error) to Color.Red,
                     ),
                 backgroundColor = backgroundColor ?: Color.Transparent.asBrush().asStatefulValue(),
             )

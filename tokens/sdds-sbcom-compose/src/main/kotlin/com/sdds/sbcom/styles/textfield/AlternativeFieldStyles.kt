@@ -40,7 +40,6 @@ public val AlternativeField.Default: WrapperAlternativeFieldDefault
     @Composable
     @JvmName("WrapperAlternativeFieldDefault")
     get() = TextFieldStyle.builder(this)
-        .shape(SddsSbComTheme.shapes.roundL)
         .labelPlacement(TextFieldLabelPlacement.None)
         .fieldType(TextFieldType.Optional)
         .valueStyle(SddsSbComTheme.typography.bodyLNormal)

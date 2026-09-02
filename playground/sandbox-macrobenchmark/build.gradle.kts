@@ -2,6 +2,7 @@
 
 plugins {
     id("com.android.test")
+    id("convention.performance-benchmark")
     alias(libs.plugins.kotlin.android)
 }
 

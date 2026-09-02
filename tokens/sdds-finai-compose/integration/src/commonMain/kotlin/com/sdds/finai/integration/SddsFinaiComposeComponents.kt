@@ -75,6 +75,20 @@ object SddsFinaiComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.Chip,
+                mapOf(
+                    "ChipSolid" to SddsFinaiChipSolidVariationsCompose,
+                    "ChipTransparent" to SddsFinaiChipTransparentVariationsCompose,
+                    "EmbeddedChip" to SddsFinaiEmbeddedChipVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.ChipGroup,
+                mapOf(
+                    "EmbeddedChipGroup" to SddsFinaiEmbeddedChipGroupVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.Counter,
                 mapOf(
                     "Counter" to SddsFinaiCounterVariationsCompose,
@@ -87,10 +101,25 @@ object SddsFinaiComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to SddsFinaiDropdownEmptyStateVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.DropdownMenu,
+                mapOf(
+                    "DropdownMenuTight" to SddsFinaiDropdownMenuTightVariationsCompose,
+                    "DropdownMenuNormal" to SddsFinaiDropdownMenuNormalVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.List,
                 mapOf(
                     "ListNormal" to SddsFinaiListNormalVariationsCompose,
                     "ListTight" to SddsFinaiListTightVariationsCompose,
+                    "DropdownMenuListNormal" to SddsFinaiDropdownMenuListNormalVariationsCompose,
+                    "DropdownMenuListTight" to SddsFinaiDropdownMenuListTightVariationsCompose,
                 ),
             ),
             Component(
@@ -98,6 +127,20 @@ object SddsFinaiComposeComponents : ComponentProvider() {
                 mapOf(
                     "ListItemNormal" to SddsFinaiListItemNormalVariationsCompose,
                     "ListItemTight" to SddsFinaiListItemTightVariationsCompose,
+                    "DropdownMenuItemNormal" to SddsFinaiDropdownMenuItemNormalVariationsCompose,
+                    "DropdownMenuItemTight" to SddsFinaiDropdownMenuItemTightVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.Modal,
+                mapOf(
+                    "Modal" to SddsFinaiModalVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.Overlay,
+                mapOf(
+                    "Overlay" to SddsFinaiOverlayVariationsCompose,
                 ),
             ),
             Component(
@@ -107,9 +150,36 @@ object SddsFinaiComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.ScrollBar,
+                mapOf(
+                    "ScrollBar" to SddsFinaiScrollBarVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.Switch,
                 mapOf(
                     "Switch" to SddsFinaiSwitchVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.TabItem,
+                mapOf(
+                    "TabItemDefault" to SddsFinaiTabItemDefaultVariationsCompose,
+                    "TabItemHeader" to SddsFinaiTabItemHeaderVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.Tabs,
+                mapOf(
+                    "TabsDefault" to SddsFinaiTabsDefaultVariationsCompose,
+                    "TabsHeader" to SddsFinaiTabsHeaderVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.TextField,
+                mapOf(
+                    "TextField" to SddsFinaiTextFieldVariationsCompose,
+                    "TextFieldClear" to SddsFinaiTextFieldClearVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

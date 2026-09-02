@@ -27,10 +27,13 @@ public enum class CheckBoxStyles(
 ) {
     CheckBoxLDefault("CheckBox.L.Default"),
     CheckBoxLNegative("CheckBox.L.Negative"),
+    CheckBoxLPositive("CheckBox.L.Positive"),
     CheckBoxMDefault("CheckBox.M.Default"),
     CheckBoxMNegative("CheckBox.M.Negative"),
+    CheckBoxMPositive("CheckBox.M.Positive"),
     CheckBoxSDefault("CheckBox.S.Default"),
     CheckBoxSNegative("CheckBox.S.Negative"),
+    CheckBoxSPositive("CheckBox.S.Positive"),
     ;
 
     /**
@@ -54,6 +57,7 @@ public enum class CheckBoxSize {
 public enum class CheckBoxView {
     Default,
     Negative,
+    Positive,
 }
 
 /**
@@ -64,10 +68,13 @@ public fun CheckBoxStyles.style(modify: @Composable CheckBoxStyleBuilder.() -> U
     val builder = when (this) {
         CheckBoxStyles.CheckBoxLDefault -> CheckBox.L.Default
         CheckBoxStyles.CheckBoxLNegative -> CheckBox.L.Negative
+        CheckBoxStyles.CheckBoxLPositive -> CheckBox.L.Positive
         CheckBoxStyles.CheckBoxMDefault -> CheckBox.M.Default
         CheckBoxStyles.CheckBoxMNegative -> CheckBox.M.Negative
+        CheckBoxStyles.CheckBoxMPositive -> CheckBox.M.Positive
         CheckBoxStyles.CheckBoxSDefault -> CheckBox.S.Default
         CheckBoxStyles.CheckBoxSNegative -> CheckBox.S.Negative
+        CheckBoxStyles.CheckBoxSPositive -> CheckBox.S.Positive
     }
     return builder.modify(modify).style()
 }
@@ -82,10 +89,13 @@ public fun CheckBoxStyles.Companion.resolve(
 ): CheckBoxStyles = when {
     size == CheckBoxSize.L && view == CheckBoxView.Default -> CheckBoxStyles.CheckBoxLDefault
     size == CheckBoxSize.L && view == CheckBoxView.Negative -> CheckBoxStyles.CheckBoxLNegative
+    size == CheckBoxSize.L && view == CheckBoxView.Positive -> CheckBoxStyles.CheckBoxLPositive
     size == CheckBoxSize.M && view == CheckBoxView.Default -> CheckBoxStyles.CheckBoxMDefault
     size == CheckBoxSize.M && view == CheckBoxView.Negative -> CheckBoxStyles.CheckBoxMNegative
+    size == CheckBoxSize.M && view == CheckBoxView.Positive -> CheckBoxStyles.CheckBoxMPositive
     size == CheckBoxSize.S && view == CheckBoxView.Default -> CheckBoxStyles.CheckBoxSDefault
     size == CheckBoxSize.S && view == CheckBoxView.Negative -> CheckBoxStyles.CheckBoxSNegative
+    size == CheckBoxSize.S && view == CheckBoxView.Positive -> CheckBoxStyles.CheckBoxSPositive
     else -> error("Unsupported check-box style combination")
 }
 

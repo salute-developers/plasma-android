@@ -34,11 +34,11 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
-import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CheckBoxColorValues
 import com.sdds.compose.uikit.CheckBoxDimensionValues
+import com.sdds.compose.uikit.CheckBoxValue
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.getValueAsState
@@ -50,7 +50,7 @@ import com.sdds.compose.uikit.motion.getBrushAsState
 /**
  * Control вида CheckBox для [BaseCheckableLayout]
  *
- * @param state состояние контрола [ToggleableState]
+ * @param value значение контрола [CheckBoxValue]
  * @param modifier модификатор
  * @param dimensions отступы и размеры CheckBox
  * @param colors цвета CheckBox
@@ -61,7 +61,7 @@ import com.sdds.compose.uikit.motion.getBrushAsState
  */
 @Composable
 internal fun CheckBoxControl(
-    state: ToggleableState,
+    value: CheckBoxValue,
     modifier: Modifier = Modifier,
     dimensions: CheckBoxDimensionValues,
     colors: CheckBoxColorValues,
@@ -70,30 +70,48 @@ internal fun CheckBoxControl(
     icons: CheckBoxIcons?,
     motion: Motion<CheckBoxMotionStyle>,
 ) {
-    val transition = updateTransition(state, label = "transition")
+    val transition = updateTransition(value, label = "transition")
     val checkDrawFraction = transition.animateFloat(
         transitionSpec = {
             when {
-                initialState == ToggleableState.Off -> tween(animationDuration)
-                targetState == ToggleableState.Off -> tween(animationDuration)
+                initialState == CheckBoxValue.Off -> tween(animationDuration)
+                targetState == CheckBoxValue.Off -> tween(animationDuration)
                 else -> spring()
             }
         },
         label = "checkDrawFraction",
     ) {
-        checkDrawFraction(it)
+        it.glyphSpec.checkDrawTarget
     }
     val checkCenterGravitationShiftFraction = transition.animateFloat(
         transitionSpec = {
             when {
-                initialState == ToggleableState.Off -> snap()
-                targetState == ToggleableState.Off -> snap(animationDuration)
+                initialState == CheckBoxValue.Off -> snap()
+                targetState == CheckBoxValue.Off -> snap(animationDuration)
                 else -> tween(durationMillis = animationDuration)
             }
         },
         label = "checkCenterGravitationShiftFraction",
     ) {
-        checkCenterGravitationShiftFraction(it)
+        it.glyphSpec.gravitationTarget
+    }
+    val checkAlpha = transition.animateFloat(
+        transitionSpec = { tween(animationDuration) },
+        label = "checkAlpha",
+    ) {
+        if (it.glyphSpec.family == CheckBoxGlyphFamily.Check) 1f else 0f
+    }
+    val crossDrawFraction = transition.animateFloat(
+        transitionSpec = { tween(animationDuration) },
+        label = "crossDrawFraction",
+    ) {
+        it.glyphSpec.crossDrawTarget
+    }
+    val crossAlpha = transition.animateFloat(
+        transitionSpec = { tween(animationDuration) },
+        label = "crossAlpha",
+    ) {
+        if (it.glyphSpec.family == CheckBoxGlyphFamily.Cross) 1f else 0f
     }
     val currentShape by shape.getValueAsState(motion.context)
     val toggleBorderWidth = dimensions.toggleBorderWidth.getValueAsState(motion.context)
@@ -118,6 +136,7 @@ internal fun CheckBoxControl(
             .padding(paddings)
             .drawWithCache {
                 val checkCache = CheckDrawingCache()
+                val crossCache = CrossDrawingCache()
                 val toggleOutline = createToggleOutline(currentShape)
                 val toggleBorderOutline =
                     createBorderOutline(currentShape, toggleBorderWidth, toggleBorderOffset)
@@ -140,21 +159,77 @@ internal fun CheckBoxControl(
                             checkFraction = checkDrawFraction.value,
                             crossCenterGravitation = checkCenterGravitationShiftFraction.value,
                             strokeWidthPx = DEFAULT_CHECKBOX_LINE_WIDTH.dp.toPx(),
+                            alpha = checkAlpha.value,
                             drawingCache = checkCache,
+                        )
+                        drawCross(
+                            crossColor = iconColor.value,
+                            crossFraction = crossDrawFraction.value,
+                            alpha = crossAlpha.value,
+                            strokeWidthPx = DEFAULT_CHECKBOX_LINE_WIDTH.dp.toPx(),
+                            drawingCache = crossCache,
                         )
                     }
                 }
             },
     ) {
-        icons?.let { IconsContent(state, it, toggleIconWidth, toggleIconHeight) }
+        icons?.let { IconsContent(value, it, toggleIconWidth, toggleIconHeight) }
     }
 }
 
 /**
- * Соответствует ли [ToggleableState] состоянию checked
+ * Соответствует ли [CheckBoxValue] состоянию checked
  */
-internal val ToggleableState.checked: Boolean
-    get() = this != ToggleableState.Off
+internal val CheckBoxValue.checked: Boolean
+    get() = this != CheckBoxValue.Off
+
+/**
+ * "Семья" глифа [CheckBoxValue] — глифы одной семьи анимированно морфятся друг в друга
+ * (общий путь отрисовки), глифы разных семей переключаются кроссфейдом.
+ */
+private enum class CheckBoxGlyphFamily { None, Check, Cross }
+
+/**
+ * Рецепт отрисовки глифа для конкретного [CheckBoxValue] — единая точка сопоставления
+ * значения состояния с параметрами анимации, вместо разрозненных `when`-блоков.
+ */
+private class CheckBoxGlyphSpec(
+    val family: CheckBoxGlyphFamily,
+    val checkDrawTarget: Float,
+    val gravitationTarget: Float,
+    val crossDrawTarget: Float,
+)
+
+private val CheckBoxValue.glyphSpec: CheckBoxGlyphSpec
+    get() = when (this) {
+        CheckBoxValue.Off -> CheckBoxGlyphSpec(
+            family = CheckBoxGlyphFamily.None,
+            checkDrawTarget = 0f,
+            gravitationTarget = 0f,
+            crossDrawTarget = 0f,
+        )
+
+        CheckBoxValue.On -> CheckBoxGlyphSpec(
+            family = CheckBoxGlyphFamily.Check,
+            checkDrawTarget = 1f,
+            gravitationTarget = 0f,
+            crossDrawTarget = 1f,
+        )
+
+        CheckBoxValue.Indeterminate -> CheckBoxGlyphSpec(
+            family = CheckBoxGlyphFamily.Check,
+            checkDrawTarget = 1f,
+            gravitationTarget = 1f,
+            crossDrawTarget = 1f,
+        )
+
+        CheckBoxValue.Error -> CheckBoxGlyphSpec(
+            family = CheckBoxGlyphFamily.Cross,
+            checkDrawTarget = 1f,
+            gravitationTarget = 0f,
+            crossDrawTarget = 1f,
+        )
+    }
 
 internal class CheckBoxIcons(
     val checkedIconContent: (@Composable () -> Unit),
@@ -166,6 +241,7 @@ private fun DrawScope.drawCheck(
     checkFraction: Float,
     crossCenterGravitation: Float,
     strokeWidthPx: Float,
+    alpha: Float,
     drawingCache: CheckDrawingCache,
 ) {
     val stroke = Stroke(width = strokeWidthPx, cap = StrokeCap.Round)
@@ -192,32 +268,67 @@ private fun DrawScope.drawCheck(
         pathToDraw.reset()
         pathMeasure.getSegment(0f, pathMeasure.length * checkFraction, pathToDraw, true)
     }
-    drawPath(drawingCache.pathToDraw, checkColor, style = stroke, alpha = checkFraction)
+    drawPath(drawingCache.pathToDraw, checkColor, style = stroke, alpha = alpha)
+}
+
+/**
+ * Рисует глиф состояния [CheckBoxValue.Error] — крестик из двух независимых диагоналей
+ * в той же рамке (`0.3…0.71`), что использует [drawCheck], для одинакового визуального веса.
+ */
+private fun DrawScope.drawCross(
+    crossColor: Brush,
+    crossFraction: Float,
+    strokeWidthPx: Float,
+    alpha: Float,
+    drawingCache: CrossDrawingCache,
+) {
+    val stroke = Stroke(width = strokeWidthPx, cap = StrokeCap.Round)
+    val width = size.width
+    val start = 0.3f
+    val end = 0.71f
+
+    with(drawingCache) {
+        diagonal1.reset()
+        diagonal1.moveTo(width * start, width * start)
+        diagonal1.lineTo(width * end, width * end)
+        measure1.setPath(diagonal1, false)
+        segment1.reset()
+        measure1.getSegment(0f, measure1.length * crossFraction, segment1, true)
+
+        diagonal2.reset()
+        diagonal2.moveTo(width * end, width * start)
+        diagonal2.lineTo(width * start, width * end)
+        measure2.setPath(diagonal2, false)
+        segment2.reset()
+        measure2.getSegment(0f, measure2.length * crossFraction, segment2, true)
+    }
+    drawPath(drawingCache.segment1, crossColor, style = stroke, alpha = alpha)
+    drawPath(drawingCache.segment2, crossColor, style = stroke, alpha = alpha)
 }
 
 @Composable
 private fun IconsContent(
-    state: ToggleableState,
+    value: CheckBoxValue,
     checkBoxIcons: CheckBoxIcons,
     toggleIconWidth: State<Dp>,
     toggleIconHeight: State<Dp>,
 ) {
-    when (state) {
-        ToggleableState.On ->
+    when (value) {
+        CheckBoxValue.On ->
             IconContent(
                 checkBoxIcons.checkedIconContent,
                 toggleIconWidth,
                 toggleIconHeight,
             )
 
-        ToggleableState.Indeterminate ->
+        CheckBoxValue.Indeterminate ->
             IconContent(
                 checkBoxIcons.indeterminateIconContent,
                 toggleIconWidth,
                 toggleIconHeight,
             )
 
-        else -> {}
+        CheckBoxValue.Off, CheckBoxValue.Error -> {}
     }
 }
 
@@ -274,27 +385,21 @@ private fun DrawScope.getBorderOutlineTranslate(
     return -(toggleBorderOffset.value - toggleBorderWidth.value / 2).toPx()
 }
 
-private fun checkDrawFraction(state: ToggleableState): Float {
-    return when (state) {
-        ToggleableState.On -> 1f
-        ToggleableState.Off -> 0f
-        ToggleableState.Indeterminate -> 1f
-    }
-}
-
-private fun checkCenterGravitationShiftFraction(state: ToggleableState): Float {
-    return when (state) {
-        ToggleableState.On -> 0f
-        ToggleableState.Off -> 0f
-        ToggleableState.Indeterminate -> 1f
-    }
-}
-
 @Immutable
 private class CheckDrawingCache(
     val checkPath: Path = Path(),
     val pathMeasure: PathMeasure = PathMeasure(),
     val pathToDraw: Path = Path(),
+)
+
+@Immutable
+private class CrossDrawingCache(
+    val diagonal1: Path = Path(),
+    val diagonal2: Path = Path(),
+    val measure1: PathMeasure = PathMeasure(),
+    val measure2: PathMeasure = PathMeasure(),
+    val segment1: Path = Path(),
+    val segment2: Path = Path(),
 )
 
 private const val DEFAULT_CHECKBOX_LINE_WIDTH = 2

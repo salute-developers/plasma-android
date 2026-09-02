@@ -1,5 +1,6 @@
 package com.sdds.playground.integrationtest.app
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
@@ -54,6 +55,9 @@ internal fun IntegrationSandboxApp(
     }
 
     val currentScenario = selectedScenario
+    BackHandler(enabled = currentScenario != null) {
+        selectedScenario = null
+    }
 
     IntegrationSandboxTheme {
         Box(

@@ -76,22 +76,29 @@ public val WrapperCheckBoxView.Default: WrapperCheckBoxTerminate
                     setOf(
                         InteractiveState.Focused,
                         CheckBoxStates.Checked,
-                    ) to SolidColor(PlasmaGigaTheme.colors.outlineDefaultAccent),
+                    ) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultSolidDefault),
                     setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to
-                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultAccent),
-                    setOf(InteractiveState.Focused)
-                        to SolidColor(PlasmaGigaTheme.colors.outlineDefaultAccent),
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultSolidDefault),
+                    setOf(InteractiveState.Focused, CheckBoxStates.Error) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultSolidDefault),
+                    setOf(InteractiveState.Focused) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultSolidDefault),
                     setOf(CheckBoxStates.Checked) to SolidColor(PlasmaGigaTheme.colors.outlineDefaultClear),
                     setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultClear),
+                    setOf(CheckBoxStates.Error) to
                         SolidColor(PlasmaGigaTheme.colors.outlineDefaultClear),
                 ),
             )
             toggleColor(
                 SolidColor(PlasmaGigaTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(CheckBoxStates.Checked)
-                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent),
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefault),
                     setOf(CheckBoxStates.Indeterminate) to
-                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent),
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(CheckBoxStates.Error) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefault),
                 ),
             )
             toggleIconColor(SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue())
@@ -110,11 +117,15 @@ public val WrapperCheckBoxView.Negative: WrapperCheckBoxTerminate
                     ) to SolidColor(PlasmaGigaTheme.colors.outlineDefaultNegative),
                     setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to
                         SolidColor(PlasmaGigaTheme.colors.outlineDefaultNegative),
+                    setOf(InteractiveState.Focused, CheckBoxStates.Error) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultNegative),
                     setOf(InteractiveState.Focused) to
                         SolidColor(PlasmaGigaTheme.colors.outlineDefaultNegative),
                     setOf(CheckBoxStates.Checked)
                         to SolidColor(PlasmaGigaTheme.colors.outlineDefaultClear),
                     setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultClear),
+                    setOf(CheckBoxStates.Error) to
                         SolidColor(PlasmaGigaTheme.colors.outlineDefaultClear),
                 ),
             )
@@ -124,6 +135,46 @@ public val WrapperCheckBoxView.Negative: WrapperCheckBoxTerminate
                         to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative),
                     setOf(CheckBoxStates.Indeterminate) to
                         SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative),
+                    setOf(CheckBoxStates.Error)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative),
+                ),
+            )
+            toggleIconColor(SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue())
+        }
+        .wrap(::WrapperCheckBoxTerminate)
+
+public val WrapperCheckBoxView.Positive: WrapperCheckBoxTerminate
+    @Composable
+    get() = builder
+        .colorValues {
+            toggleBorderColor(
+                SolidColor(PlasmaGigaTheme.colors.outlineDefaultPositive).asStatefulValue(
+                    setOf(
+                        InteractiveState.Focused,
+                        CheckBoxStates.Checked,
+                    ) to SolidColor(PlasmaGigaTheme.colors.outlineDefaultPositive),
+                    setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultPositive),
+                    setOf(InteractiveState.Focused, CheckBoxStates.Error) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultPositive),
+                    setOf(InteractiveState.Focused) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultPositive),
+                    setOf(CheckBoxStates.Checked)
+                        to SolidColor(PlasmaGigaTheme.colors.outlineDefaultClear),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultClear),
+                    setOf(CheckBoxStates.Error) to
+                        SolidColor(PlasmaGigaTheme.colors.outlineDefaultClear),
+                ),
+            )
+            toggleColor(
+                SolidColor(PlasmaGigaTheme.colors.surfaceDefaultClear).asStatefulValue(
+                    setOf(CheckBoxStates.Checked)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositive),
+                    setOf(CheckBoxStates.Indeterminate) to
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositive),
+                    setOf(CheckBoxStates.Error)
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultPositive),
                 ),
             )
             toggleIconColor(SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue())
@@ -215,7 +266,7 @@ public val CheckBox.M: WrapperCheckBoxM
                     setOf(InteractiveState.Focused, CheckBoxStates.Indeterminate) to 1.0.dp,
                 ),
             )
-            textPadding(12.0.dp)
+            textPadding(8.0.dp)
             descriptionPadding(2.0.dp)
         }
         .wrap(::WrapperCheckBoxM)
