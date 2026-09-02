@@ -9,6 +9,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxStates
 import com.sdds.compose.uikit.CheckBoxStyle
+import com.sdds.compose.uikit.CheckBoxValue
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
@@ -31,6 +32,19 @@ fun CheckBox_Simple() {
 
 @Composable
 @DocSample(needScreenshot = false)
+fun CheckBox_Error() {
+    composableCodeSnippet {
+        CheckBox(
+            value = CheckBoxValue.Error,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+        )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = false)
 fun CheckBox_Style() {
     composableCodeSnippet {
         CheckBoxStyle.builder()
@@ -43,6 +57,8 @@ fun CheckBox_Style() {
                             to placeholder(Color.Red, "/** Цвет в состоянии Checked */"),
                         setOf(CheckBoxStates.Indeterminate)
                             to placeholder(Color.Blue, "/** Цвет в состоянии Indeterminate */"),
+                        setOf(CheckBoxStates.Error)
+                            to placeholder(Color.Red, "/** Цвет в состоянии Error */"),
                     ),
                 )
                 toggleIconColor(placeholder(Color.DarkGray, "/** Токен цвета */").asInteractive())
