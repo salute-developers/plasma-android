@@ -34,7 +34,6 @@ import androidx.compose.ui.draw.CacheDrawScope
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Matrix
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathOperation
@@ -63,10 +62,13 @@ import com.sdds.compose.uikit.PopoverPlacement.Companion.TopFallbacks
 import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.PopoverPositionStrategy
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.plus
 import com.sdds.compose.uikit.motion.Motion
-import com.sdds.compose.uikit.motion.MotionStyle
+import com.sdds.compose.uikit.motion.components.popover.PopoverMotionStyle
+import com.sdds.compose.uikit.motion.getBrushAsState
 import com.sdds.compose.uikit.px
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.compose.uikit.shadow.getShadowSafePaddings
@@ -83,7 +85,7 @@ internal fun BasePopover(
     clipHeight: Boolean = false,
     clipWidth: Boolean = false,
     triggerInfo: () -> TriggerInfo,
-    shape: CornerBasedShape,
+    shape: StatefulValue<CornerBasedShape>,
     shadow: ShadowAppearance,
     dimensions: PopoverDimensions,
     colors: PopoverColors,
@@ -97,23 +99,32 @@ internal fun BasePopover(
     popupProperties: PopupProperties,
     enterTransition: EnterTransition,
     exitTransition: ExitTransition,
-    motion: Motion<MotionStyle>,
+    motion: Motion<PopoverMotionStyle>,
     safeAreaPadding: PaddingValues,
     content: @Composable () -> Unit,
 ) {
     val popoverAnchor = rememberPopoverAnchor()
     val rootSize = rememberPopoverRootSize(popoverAnchor)
-    val tailHeight = dimensions.tailHeight
-    val tailWidth = dimensions.tailWidth
-    val tailPadding = dimensions.tailPadding
-    val offset = dimensions.offset
+    val tailHeight = dimensions.tailHeightValues.getValue(
+        motion.context.interactionSource,
+        motion.context.semanticStateSource,
+    )
+    val tailWidth = dimensions.tailWidthValues.getValue(
+        motion.context.interactionSource,
+        motion.context.semanticStateSource,
+    )
+    val tailPadding = dimensions.tailPaddingValues.getValue(
+        motion.context.interactionSource,
+        motion.context.semanticStateSource,
+    )
+    val offset = dimensions.offsetValues.getValue(motion.context.interactionSource, motion.context.semanticStateSource)
+    val minWidth = dimensions.widthValues.getValue(motion.context.interactionSource, motion.context.semanticStateSource)
     val visibleState = remember { MutableTransitionState(false) }
     val currentTrigger = triggerInfo()
     val triggerReady = currentTrigger.visibleBoundsInScreen != null
     visibleState.targetState = show && triggerReady
     val popoverVisible = visibleState.currentState || visibleState.targetState || !visibleState.isIdle
-
-    val backgroundColor = colors.backgroundColor.getValue(motion.context.interactionSource)
+    val backgroundColor = colors.backgroundColor.getBrushAsState(motion.context, motion.style.backgroundColor)
     var recalculatedConstraints by remember { mutableStateOf<IntSize?>(null) }
     var popoverContentSize by remember { mutableStateOf(IntSize.Zero) }
     val constraintsUpdater = rememberDeferredConstraintsUpdater { constraints ->
@@ -230,6 +241,7 @@ internal fun BasePopover(
             } else {
                 Modifier
             }
+        val shape = shape.getValue(motion.context.interactionSource, motion.context.semanticStateSource)
         Popup(
             popupPositionProvider = positionProvider,
             properties = effectivePopupProperties,
@@ -249,11 +261,11 @@ internal fun BasePopover(
                             .padding(shadowPaddingValues + tailPaddings)
                             .then(ignoreContentTapModifier)
                             .then(resizeModifier)
-                            .defaultMinSize(minWidth = dimensions.width)
+                            .defaultMinSize(minWidth = minWidth)
                             .shadow(shadow, shape)
                             .drawPopover(
                                 shape = shape,
-                                backgroundColor = backgroundColor,
+                                backgroundColor = { backgroundColor.value },
                                 popoverAlignment = positionProvider.innerTailAlignment,
                                 placement = positionProvider.innerPlacement,
                                 tailEnabled = tailEnabled,
@@ -450,7 +462,7 @@ private fun canApplyAlignToTail(
 
 private fun Modifier.drawPopover(
     shape: CornerBasedShape,
-    backgroundColor: Brush,
+    backgroundColor: BrushProducer,
     tailEnabled: Boolean,
     popoverAlignment: PopoverAlignment,
     placement: PopoverPlacement,
@@ -480,7 +492,7 @@ private fun Modifier.drawPopover(
         }
 
         onDrawWithContent {
-            drawPath(popoverPath, backgroundColor)
+            drawPath(popoverPath, backgroundColor())
             drawContent()
         }
     }
