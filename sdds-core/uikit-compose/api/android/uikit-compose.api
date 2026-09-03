@@ -2390,6 +2390,7 @@ public final class com/sdds/compose/uikit/CollapsingNavigationBarStyleKt {
 }
 
 public final class com/sdds/compose/uikit/ComboBoxKt {
+	public static final fun ComboBox (Lcom/sdds/compose/uikit/motion/Motion;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/ComboBoxStyle;Lcom/sdds/compose/uikit/SelectState;ZZZLkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/sdds/compose/uikit/DropdownProperties;Landroidx/compose/runtime/Composer;III)V
 	public static final fun ComboBox (Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/ComboBoxStyle;Lcom/sdds/compose/uikit/SelectState;ZZZLkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/sdds/compose/uikit/DropdownProperties;Landroidx/compose/runtime/Composer;III)V
 }
 
@@ -2424,6 +2425,8 @@ public final class com/sdds/compose/uikit/ComboBoxStyleKt {
 
 public final class com/sdds/compose/uikit/ComboBoxTextFieldKt {
 	public static final fun ComboBoxTextField (Lcom/sdds/compose/uikit/ComboBoxScope;Landroidx/compose/ui/text/input/TextFieldValue;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/TextFieldStyle;Lcom/sdds/compose/uikit/ImageSource;Lcom/sdds/compose/uikit/ImageSource;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/sdds/compose/uikit/TextFieldAnimation;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/ui/text/input/VisualTransformation;Lcom/sdds/compose/uikit/fs/FocusSelectorSettings;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;IIII)V
+	public static final fun ComboBoxTextField (Lcom/sdds/compose/uikit/ComboBoxScope;Lcom/sdds/compose/uikit/motion/Motion;Landroidx/compose/ui/text/input/TextFieldValue;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/TextFieldStyle;Lcom/sdds/compose/uikit/ImageSource;Lcom/sdds/compose/uikit/ImageSource;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/sdds/compose/uikit/TextFieldAnimation;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/ui/text/input/VisualTransformation;Lcom/sdds/compose/uikit/fs/FocusSelectorSettings;Landroidx/compose/runtime/Composer;IIII)V
+	public static final fun ComboBoxTextField (Lcom/sdds/compose/uikit/ComboBoxScope;Lcom/sdds/compose/uikit/motion/Motion;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/TextFieldStyle;Lcom/sdds/compose/uikit/ImageSource;Lcom/sdds/compose/uikit/ImageSource;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/sdds/compose/uikit/TextFieldAnimation;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/ui/text/input/VisualTransformation;Lcom/sdds/compose/uikit/fs/FocusSelectorSettings;Landroidx/compose/runtime/Composer;IIII)V
 	public static final fun ComboBoxTextField (Lcom/sdds/compose/uikit/ComboBoxScope;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/TextFieldStyle;Lcom/sdds/compose/uikit/ImageSource;Lcom/sdds/compose/uikit/ImageSource;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/sdds/compose/uikit/TextFieldAnimation;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/ui/text/input/VisualTransformation;Lcom/sdds/compose/uikit/fs/FocusSelectorSettings;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;IIII)V
 }
 
@@ -6753,7 +6756,9 @@ public abstract interface class com/sdds/compose/uikit/SelectDataStateManager {
 
 public abstract interface class com/sdds/compose/uikit/SelectItemColors {
 	public static final field Companion Lcom/sdds/compose/uikit/SelectItemColors$Companion;
+	public abstract fun getBackgroundBrush ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getBackgroundColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getIconBrush ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getIconColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
 }
 
@@ -6762,27 +6767,42 @@ public final class com/sdds/compose/uikit/SelectItemColors$Companion {
 }
 
 public abstract interface class com/sdds/compose/uikit/SelectItemColorsBuilder {
+	public abstract fun backgroundColor (Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
 	public abstract fun backgroundColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
+	public abstract fun backgroundColor (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
 	public abstract fun backgroundColor-8_81llA (J)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
 	public abstract fun build ()Lcom/sdds/compose/uikit/SelectItemColors;
+	public abstract fun iconColor (Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
 	public abstract fun iconColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
+	public abstract fun iconColor (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
 	public abstract fun iconColor-8_81llA (J)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
 }
 
 public final class com/sdds/compose/uikit/SelectItemColorsBuilder$DefaultImpls {
+	public static fun backgroundColor (Lcom/sdds/compose/uikit/SelectItemColorsBuilder;Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
+	public static fun backgroundColor (Lcom/sdds/compose/uikit/SelectItemColorsBuilder;Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
 	public static fun backgroundColor-8_81llA (Lcom/sdds/compose/uikit/SelectItemColorsBuilder;J)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
+	public static fun iconColor (Lcom/sdds/compose/uikit/SelectItemColorsBuilder;Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
+	public static fun iconColor (Lcom/sdds/compose/uikit/SelectItemColorsBuilder;Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
 	public static fun iconColor-8_81llA (Lcom/sdds/compose/uikit/SelectItemColorsBuilder;J)Lcom/sdds/compose/uikit/SelectItemColorsBuilder;
 }
 
 public abstract interface class com/sdds/compose/uikit/SelectItemDimensions {
 	public static final field Companion Lcom/sdds/compose/uikit/SelectItemDimensions$Companion;
 	public abstract fun getControlMargin-D9Ej5fM ()F
+	public abstract fun getControlMarginValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getControlSize-D9Ej5fM ()F
+	public abstract fun getControlSizeValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getHeight-D9Ej5fM ()F
+	public abstract fun getHeightValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getPaddingBottom-D9Ej5fM ()F
+	public abstract fun getPaddingBottomValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getPaddingEnd-D9Ej5fM ()F
+	public abstract fun getPaddingEndValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getPaddingStart-D9Ej5fM ()F
+	public abstract fun getPaddingStartValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getPaddingTop-D9Ej5fM ()F
+	public abstract fun getPaddingTopValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 }
 
 public final class com/sdds/compose/uikit/SelectItemDimensions$Companion {
@@ -6791,16 +6811,35 @@ public final class com/sdds/compose/uikit/SelectItemDimensions$Companion {
 
 public abstract interface class com/sdds/compose/uikit/SelectItemDimensionsBuilder {
 	public abstract fun build ()Lcom/sdds/compose/uikit/SelectItemDimensions;
+	public abstract fun controlMargin (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
 	public abstract fun controlMargin-0680j_4 (F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public abstract fun controlSize (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
 	public abstract fun controlSize-0680j_4 (F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public abstract fun height (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
 	public abstract fun height-0680j_4 (F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public abstract fun paddingBottom (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
 	public abstract fun paddingBottom-0680j_4 (F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public abstract fun paddingEnd (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
 	public abstract fun paddingEnd-0680j_4 (F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public abstract fun paddingStart (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
 	public abstract fun paddingStart-0680j_4 (F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public abstract fun paddingTop (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
 	public abstract fun paddingTop-0680j_4 (F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
 }
 
+public final class com/sdds/compose/uikit/SelectItemDimensionsBuilder$DefaultImpls {
+	public static fun controlMargin-0680j_4 (Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public static fun controlSize-0680j_4 (Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public static fun height-0680j_4 (Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public static fun paddingBottom-0680j_4 (Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public static fun paddingEnd-0680j_4 (Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public static fun paddingStart-0680j_4 (Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+	public static fun paddingTop-0680j_4 (Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;F)Lcom/sdds/compose/uikit/SelectItemDimensionsBuilder;
+}
+
 public final class com/sdds/compose/uikit/SelectItemKt {
+	public static final fun SelectItem (Lcom/sdds/compose/uikit/motion/Motion;ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/SelectItemStyle;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun SelectItem (Lcom/sdds/compose/uikit/motion/Motion;ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/SelectItemStyle;ZZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;III)V
 	public static final fun SelectItem (ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/SelectItemStyle;ZLandroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun SelectItem (ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/SelectItemStyle;ZZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Landroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;III)V
 }
@@ -6816,6 +6855,7 @@ public abstract interface class com/sdds/compose/uikit/SelectItemStyle : com/sdd
 	public abstract fun getIconSource ()Lcom/sdds/compose/uikit/ImageSource;
 	public abstract fun getItemType ()Lcom/sdds/compose/uikit/SelectItemType;
 	public abstract fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public abstract fun getShapes ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 }
 
 public final class com/sdds/compose/uikit/SelectItemStyle$Companion {
@@ -6838,11 +6878,13 @@ public abstract interface class com/sdds/compose/uikit/SelectItemStyleBuilder : 
 	public abstract fun icon (Lcom/sdds/compose/uikit/ImageSource;)Lcom/sdds/compose/uikit/SelectItemStyleBuilder;
 	public abstract fun itemType (Lcom/sdds/compose/uikit/SelectItemType;)Lcom/sdds/compose/uikit/SelectItemStyleBuilder;
 	public abstract fun shape (Landroidx/compose/ui/graphics/Shape;)Lcom/sdds/compose/uikit/SelectItemStyleBuilder;
+	public abstract fun shape (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/SelectItemStyleBuilder;
 }
 
 public final class com/sdds/compose/uikit/SelectItemStyleBuilder$DefaultImpls {
 	public static fun getReceiver (Lcom/sdds/compose/uikit/SelectItemStyleBuilder;)Ljava/lang/Object;
 	public static fun icon (Lcom/sdds/compose/uikit/SelectItemStyleBuilder;I)Lcom/sdds/compose/uikit/SelectItemStyleBuilder;
+	public static fun shape (Lcom/sdds/compose/uikit/SelectItemStyleBuilder;Landroidx/compose/ui/graphics/Shape;)Lcom/sdds/compose/uikit/SelectItemStyleBuilder;
 }
 
 public final class com/sdds/compose/uikit/SelectItemStyleKt {
@@ -11917,6 +11959,30 @@ public abstract interface class com/sdds/compose/uikit/motion/components/segment
 
 public final class com/sdds/compose/uikit/motion/components/segment/SegmentMotionStyleKt {
 	public static final fun getLocalSegmentMotionStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/motion/components/select/SelectItemMotionKt {
+	public static final fun rememberSelectItemMotion (Lcom/sdds/compose/uikit/motion/components/select/SelectItemMotionStyle;Lcom/sdds/compose/uikit/motion/MotionContext;Landroidx/compose/runtime/Composer;II)Lcom/sdds/compose/uikit/motion/Motion;
+}
+
+public abstract interface class com/sdds/compose/uikit/motion/components/select/SelectItemMotionStyle : com/sdds/compose/uikit/motion/MotionStyle {
+	public static final field Companion Lcom/sdds/compose/uikit/motion/components/select/SelectItemMotionStyle$Companion;
+	public abstract fun getBackgroundColor ()Lcom/sdds/compose/uikit/motion/MotionProperty;
+	public abstract fun getIconColor ()Lcom/sdds/compose/uikit/motion/MotionProperty;
+}
+
+public final class com/sdds/compose/uikit/motion/components/select/SelectItemMotionStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/motion/components/select/SelectItemMotionStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/motion/components/select/SelectItemMotionStyleBuilder : com/sdds/compose/uikit/motion/MotionStyleBuilder {
+	public abstract fun backgroundColor (Lcom/sdds/compose/uikit/motion/MotionProperty;)Lcom/sdds/compose/uikit/motion/components/select/SelectItemMotionStyleBuilder;
+	public abstract fun iconColor (Lcom/sdds/compose/uikit/motion/MotionProperty;)Lcom/sdds/compose/uikit/motion/components/select/SelectItemMotionStyleBuilder;
+	public abstract fun style ()Lcom/sdds/compose/uikit/motion/components/select/SelectItemMotionStyle;
+}
+
+public final class com/sdds/compose/uikit/motion/components/select/SelectItemMotionStyleKt {
+	public static final fun getLocalSelectItemMotionStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
 }
 
 public final class com/sdds/compose/uikit/motion/components/skeleton/RectSkeletonMotionKt {

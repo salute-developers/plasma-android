@@ -8,13 +8,14 @@
 package com.sdkit.star.designsystem.styles.selectitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.SelectItemStyle
 import com.sdds.compose.uikit.SelectItemStyleBuilder
 import com.sdds.compose.uikit.SelectItemType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -73,11 +74,11 @@ private val SelectItemStyleBuilder.invariantProps: SelectItemStyleBuilder
         .itemType(SelectItemType.Single)
         .disableAlpha(0.4f)
         .colors {
-            iconColor(StarDsTheme.colors.textDefaultAccent.asInteractive())
+            iconColor(SolidColor(StarDsTheme.colors.textDefaultAccent).asStatefulValue())
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault),
                 ),
             )
         }
