@@ -67,7 +67,7 @@ public val ListNumberedItem.S: WrapperListNumberedItemS
             paddingEnd(0.0.dp)
             paddingTop(0.0.dp)
             paddingBottom(0.0.dp)
-            contentPaddingStart(6.0.dp)
+            contentPaddingStart(8.0.dp)
         }
         .wrap(::WrapperListNumberedItemS)
 
@@ -84,6 +84,6 @@ public val ListNumberedItem.M: WrapperListNumberedItemM
             paddingEnd(0.0.dp)
             paddingTop(0.0.dp)
             paddingBottom(0.0.dp)
-            contentPaddingStart(6.0.dp)
+            contentPaddingStart(8.0.dp)
         }
         .wrap(::WrapperListNumberedItemM)
